@@ -3,6 +3,7 @@
 
 Checks, for every annotated entry:
   - annotation has type, definition, walkthrough, answer, blocks
+  - every " + "-joined part of `type` is in the controlled vocabulary (TYPE_PARTS)
   - answer letters match the grid solution (group-aware for linked entries)
   - definition / definition2 / every indicator is an exact substring of the clue
   - anagram fodder letters match the answer letters (multiset)
@@ -25,6 +26,17 @@ ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
+
+# The controlled vocabulary for `type`. Compound types join parts with " + " and
+# must name EVERY mechanism the wordplay uses (see STYLE.md — "honest types").
+TYPE_PARTS = {
+    # base clue types
+    "anagram", "charade", "container", "hidden word", "homophone", "reversal",
+    "deletion", "double definition", "cryptic definition", "&lit", "spoonerism",
+    # letter-selection mechanisms
+    "first letter", "first letters", "last letter", "last letters",
+    "middle letter", "middle letters", "outer letters", "alternate letters",
+}
 
 
 def letters(s):
@@ -69,6 +81,12 @@ def validate_puzzle(puzzle):
         for key in ("type", "definition", "walkthrough", "answer", "blocks"):
             if not ann.get(key):
                 errors.append(f"{tag}: missing annotation field '{key}'")
+
+        for part in (ann.get("type") or "").split(" + "):
+            if part and part not in TYPE_PARTS:
+                errors.append(
+                    f"{tag}: type part {part!r} not in the controlled vocabulary "
+                    f"(see TYPE_PARTS in this script / STYLE.md)")
 
         # What letters must the wordplay produce?
         if ann.get("coversGroup"):
