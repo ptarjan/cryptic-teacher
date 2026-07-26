@@ -34,6 +34,12 @@ Annotation schema (see `puzzles/30066.js` for 28 worked examples):
 ```
 
 Rules:
+- FIRST read `STYLE.md` at the repo root and follow every rule in it. It is the
+  accumulated product feedback; it overrides habit. In particular, `type` must
+  honestly name EVERY mechanism used, joined with " + " (e.g.
+  `charade + alternate letters`), using only the controlled vocabulary in
+  STYLE.md / `TYPE_PARTS` in the validator. If a clue truly needs a new type
+  part, add it to `TYPE_PARTS`, STYLE.md, and `TYPE_BLURBS` in `app.js` together.
 - `definition`, `definition2` and every string in `indicators` MUST occur verbatim in the
   clue (match the exact characters — Guardian clues use curly apostrophes `’` and en
   dashes `–`).
