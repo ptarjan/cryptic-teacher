@@ -143,16 +143,20 @@ registry["hx-letter"].onclick();
 assert(/letters? revealed/.test(registry["scorebar"].innerHTML), "letter reveals counted in score: " + registry["scorebar"].innerHTML);
 assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter shows reveal count: " + registry["hint-meter"].innerHTML);
 
-// --- walk the hint ladder: click the 'next hint' button 5 times ---
-for (let i = 1; i <= 5; i++) {
-  const btn = registry["hint-next"].children[0];
-  assert(btn && btn.onclick, "hint button exists at level " + i);
-  if (btn && btn.onclick) btn.onclick();
-  assert(registry["hint-body"].innerHTML.includes("hint-step"), "hint body populated at level " + i);
+// --- walk the hint ladder: the ladder is per-clue, so click until it runs out ---
+let rungs = 0;
+while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && rungs < 8) {
+  registry["hint-next"].children[0].onclick();
+  rungs++;
+  assert(registry["hint-body"].innerHTML.includes("hint-step"), "hint body populated at level " + rungs);
   assert(registry["hint-escape"].innerHTML.includes("Reveal one letter") || registry["hint-meter"].innerHTML.includes("Solved"),
-    "escape hatch still available at level " + i);
+    "escape hatch still available at level " + rungs);
 }
-assert(registry["hint-body"].innerHTML.includes("Answer:"), "level 5 shows answer");
+assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + rungs);
+assert(registry["hint-body"].innerHTML.includes("Answer:"), "last rung shows answer");
+// no rung may be a content-free filler (the old "No indicator words" step)
+assert(!registry["hint-body"].innerHTML.includes("No indicator words"),
+  "ladder never shows an empty 'no indicators' rung");
 assert(registry["hint-clue"].innerHTML.includes('mark class="def"'), "definition highlighted");
 // final ladder rung after the walkthrough is Fill in answer (not letter reveals)
 assert(registry["hint-next"].innerHTML.includes("Fill in answer"), "final rung is Fill in answer: " + registry["hint-next"].innerHTML);
