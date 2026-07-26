@@ -28,7 +28,8 @@
     if (!pending) return done();
     INDEX.puzzles.forEach((p) => {
       const s = document.createElement("script");
-      s.src = "puzzles/" + p.file;
+      // ?v=<content hash> so an updated puzzle is never served from cache
+      s.src = "puzzles/" + p.file + (p.v ? "?v=" + p.v : "");
       s.onload = s.onerror = () => { if (--pending === 0) done(); };
       document.head.appendChild(s);
     });

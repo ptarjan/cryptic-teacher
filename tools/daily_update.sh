@@ -57,8 +57,11 @@ if ! python3 tools/validate_annotations.py; then
   exit 1
 fi
 
+# Re-stamp index.html so phones don't serve yesterday's cached assets.
+python3 tools/stamp_assets.py
+
 if [ -n "$(git status --porcelain)" ]; then
-  git add puzzles/
+  git add puzzles/ index.html
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>')"
   # Push only if a remote exists (GitHub Pages picks it up from master).
   git remote get-url origin >/dev/null 2>&1 && git push origin HEAD || true

@@ -17,6 +17,7 @@ Exit status for --latest: 0 and prints the puzzle number if a NEW puzzle was
 downloaded, prints "up-to-date <n>" and exits 3 if nothing new was found.
 """
 
+import hashlib
 import html
 import json
 import re
@@ -120,6 +121,9 @@ def reindex():
             "setter": p["setter"],
             "date": p.get("date"),
             "file": path.name,
+            # content hash → app.js appends it as ?v= so browsers never serve a
+            # stale puzzle after a re-annotation (see STYLE.md, cache busting)
+            "v": hashlib.md5(path.read_bytes()).hexdigest()[:8],
             "annotated": puzzle_is_annotated(p),
             "hasSolutions": all(e.get("solution") for e in p["entries"]),
         })
