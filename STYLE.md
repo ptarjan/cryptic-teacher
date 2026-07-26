@@ -48,5 +48,11 @@ must pass before commit.
 - The grid stays light-on-dark-letters in BOTH color schemes; grid cell colors
   are fixed, not theme variables (feedback 2026-07-26: dark-on-dark grid was
   unreadable).
+- Grid separator lines and blocked squares must never be near-identical darks.
+  Lines are a quiet mid grey (`--gridline`), blocks are solid black
+  (`--blockfill`) and bleed 1px over the gap so a run of blocks reads as one
+  black mass (feedback 2026-07-26: grey blocks vs black lines were hard to tell
+  apart and the lattice was noisy). Word-separator bars stay black so they
+  stand out against the grey lines.
 - On touch devices, a scroll gesture must never select a cell or clue — tap
   detection uses a movement threshold (feedback 2026-07-26).
