@@ -30,7 +30,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "GARBAGE",
    "annotation": {
-    "type": "charade",
+    "type": "charade + alternate letters",
     "answer": "GARBAGE",
     "definition": "Rubbish",
     "indicators": [
@@ -326,7 +326,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "LAMBAST",
    "annotation": {
-    "type": "charade",
+    "type": "charade + first letter",
     "answer": "LAMBAST",
     "definition": "Roast",
     "indicators": [
@@ -373,7 +373,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "REINCARNATION",
    "annotation": {
-    "type": "charade + deletion",
+    "type": "charade + outer letters",
     "answer": "REINCARNATION",
     "definition": "Being born again",
     "indicators": [
@@ -420,7 +420,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "PANG",
    "annotation": {
-    "type": "charade",
+    "type": "charade + last letter",
     "answer": "PANG",
     "definition": "Hungry feeling?",
     "indicators": [
@@ -745,7 +745,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "PRECEDE",
    "annotation": {
-    "type": "charade",
+    "type": "charade + first letter",
     "answer": "PRECEDE",
     "definition": "Arrive before",
     "indicators": [
@@ -1082,7 +1082,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "PERMAFROST",
    "annotation": {
-    "type": "charade",
+    "type": "charade + outer letters",
     "answer": "PERMAFROST",
     "definition": "feature of the Arctic",
     "indicators": [

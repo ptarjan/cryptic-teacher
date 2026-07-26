@@ -263,7 +263,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "ALLOCATE",
    "annotation": {
-    "type": "anagram",
+    "type": "anagram + last letter",
     "answer": "ALLOCATE",
     "definition": "deal",
     "indicators": [
@@ -313,7 +313,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    },
    "solution": "TIGHTROPEWALKER",
    "annotation": {
-    "type": "anagram",
+    "type": "anagram + middle letters",
     "answer": "TIGHTROPE WALKER",
     "definition": "Act",
     "indicators": [
@@ -359,7 +359,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "STIFLE",
    "annotation": {
-    "type": "anagram",
+    "type": "anagram + last letter",
     "answer": "STIFLE",
     "definition": "Squash",
     "indicators": [
@@ -524,7 +524,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "FECUNDATE",
    "annotation": {
-    "type": "container + reversal",
+    "type": "container + reversal + outer letters",
     "answer": "FECUNDATE",
     "definition": "to get pregnant",
     "indicators": [
@@ -582,7 +582,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    },
    "solution": "CUTUP",
    "annotation": {
-    "type": "charade",
+    "type": "charade + middle letters",
     "answer": "CUT UP",
     "definition": "in distress",
     "indicators": [
@@ -663,7 +663,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    },
    "solution": "STAYATHOME",
    "annotation": {
-    "type": "charade + container",
+    "type": "charade + container + middle letter",
     "answer": "STAY-AT-HOME",
     "definition": "in armchair?",
     "indicators": [
