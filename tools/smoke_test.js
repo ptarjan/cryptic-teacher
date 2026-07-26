@@ -67,8 +67,8 @@ class FakeEl {
 const registry = {};
 const ids = ["picker-panel","picker-list","btn-picker","btn-picker-close","btn-tutorial",
   "tutorial","app","puzzle-title","scorebar","grid","kbd","chk-letter","chk-entry","chk-grid",
-  "clear-entry","reset-puzzle","clues-across","clues-down","hint-panel","hint-clue","hint-meter",
-  "hint-body","hint-next"];
+  "clear-entry","reset-puzzle","clues-across","clues-down","hint-panel","hint-clue","hint-pattern",
+  "hint-meter","hint-body","hint-next"];
 ids.forEach((id) => { registry[id] = new FakeEl(id === "kbd" ? "input" : "div", id); });
 registry["app"].classList.add("hidden");
 registry["tutorial"].classList.add("hidden");
@@ -136,6 +136,20 @@ assert(registry["clues-across"].children.length > 10, "across clues rendered");
 assert(registry["clues-down"].children.length > 10, "down clues rendered");
 assert(registry["hint-clue"].innerHTML.length > 10, "hint panel shows a clue");
 
+// --- letter pattern strip: one box per cell, checked vs unchecked marked ---
+const patHTML = () => registry["hint-pattern"].innerHTML;
+// note the space: it must not also match the "pat-boxes" wrapper
+const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
+{
+  const boxes = patBoxes();
+  const m = patHTML().match(/(\d+) of (\d+) letters in place/);
+  assert(boxes.length >= 3, "pattern strip renders boxes: " + boxes.length);
+  assert(m && Number(m[2]) === boxes.length, "pattern box count matches the entry length: " + patHTML());
+  assert(m && Number(m[1]) === 0, "pattern starts with no letters in place: " + patHTML());
+  assert(boxes.some((b) => b.includes("checked") && !b.includes("unchecked")), "checked squares marked");
+  assert(patHTML().includes("checked"), "pattern summary mentions checking: " + patHTML());
+}
+
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
@@ -171,6 +185,13 @@ assert(kd, "document keydown listener registered");
 const ev = (key) => ({ key, preventDefault() {}, shiftKey: false, target: registry["kbd"] });
 kd(ev("Tab"));          // next entry
 "COLOGNE".split("").forEach((ch) => kd(ev(ch)));
+// the pattern strip is live: it now shows the typed letters, all in place
+{
+  const boxes = patBoxes();
+  assert(boxes.length === 7, "pattern strip follows the 7-letter entry: " + boxes.length);
+  assert(patHTML().includes("7 of 7 letters in place"), "pattern counts typed letters: " + patHTML());
+  "COLOGNE".split("").forEach((ch) => assert(patHTML().includes(`>${ch}</span>`), `pattern shows typed ${ch}`));
+}
 kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
 assert(registry["scorebar"].innerHTML.includes("Solved"), "scorebar renders: " + registry["scorebar"].innerHTML);
 assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least one clue solved after reveal+typing");
