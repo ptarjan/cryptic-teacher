@@ -44,6 +44,7 @@
   let hintLevels = {};   // entryKey -> highest hint level revealed (0..6)
   let solvedWith = {};   // entryKey -> hint level in force when first solved
   let saveTimer = null;
+  let touchAnchor = null; // touchstart position, to distinguish taps from scrolls
 
   const stateKey = () => "ct:" + P.id;
   const entryKey = (e) => (e.annotation && e.annotation.linkedTo) ? e.annotation.linkedTo : e.id;
@@ -107,6 +108,7 @@
     const grid = $("grid");
     grid.innerHTML = "";
     grid.style.gridTemplateColumns = `repeat(${P.dimensions.cols}, var(--cellsize))`;
+    grid.style.setProperty("--cols", P.dimensions.cols);
     for (let y = 0; y < P.dimensions.rows; y++) {
       for (let x = 0; x < P.dimensions.cols; x++) {
         const div = document.createElement("div");
@@ -121,7 +123,17 @@
           div.appendChild(span);
           c.el = div;
           div.addEventListener("mousedown", (ev) => { ev.preventDefault(); onCellClick(c); });
-          div.addEventListener("touchend", (ev) => { ev.preventDefault(); onCellClick(c); }, { passive: false });
+          // Only treat a touch as a tap if the finger didn't move (scrolling
+          // over the grid must not change the selection).
+          div.addEventListener("touchstart", (ev) => {
+            const t = ev.touches[0];
+            touchAnchor = { x: t.clientX, y: t.clientY };
+          }, { passive: true });
+          div.addEventListener("touchend", (ev) => {
+            const t = ev.changedTouches[0];
+            if (touchAnchor && Math.hypot(t.clientX - touchAnchor.x, t.clientY - touchAnchor.y) > 10) return;
+            ev.preventDefault(); onCellClick(c);
+          }, { passive: false });
         }
         grid.appendChild(div);
       }
