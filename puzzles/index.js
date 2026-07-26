@@ -9,6 +9,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Imogen",
    "date": 1784851200000,
    "file": "30067.js",
+   "v": "ab4edda5",
    "annotated": true,
    "hasSolutions": true
   },
@@ -19,6 +20,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Tramp",
    "date": 1784764800000,
    "file": "30066.js",
+   "v": "4aa5abdd",
    "annotated": true,
    "hasSolutions": true
   },
@@ -29,6 +31,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Fed",
    "date": 1784678400000,
    "file": "30065.js",
+   "v": "90bd4b9a",
    "annotated": false,
    "hasSolutions": true
   },
@@ -39,6 +42,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brummie",
    "date": 1784592000000,
    "file": "30064.js",
+   "v": "a9e3ff57",
    "annotated": false,
    "hasSolutions": true
   },
@@ -49,6 +53,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Alia",
    "date": 1784505600000,
    "file": "30063.js",
+   "v": "ca8666ef",
    "annotated": false,
    "hasSolutions": true
   },
@@ -59,6 +64,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Vlad",
    "date": 1784246400000,
    "file": "30061.js",
+   "v": "499fb56b",
    "annotated": false,
    "hasSolutions": true
   },
@@ -69,6 +75,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Anto",
    "date": 1784160000000,
    "file": "30060.js",
+   "v": "68915796",
    "annotated": false,
    "hasSolutions": true
   },
@@ -79,6 +86,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1784073600000,
    "file": "30059.js",
+   "v": "c5131ed2",
    "annotated": false,
    "hasSolutions": true
   },
@@ -89,6 +97,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Omnibus",
    "date": 1783987200000,
    "file": "30058.js",
+   "v": "1f87194a",
    "annotated": false,
    "hasSolutions": true
   },
@@ -99,6 +108,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Vulcan",
    "date": 1783900800000,
    "file": "30057.js",
+   "v": "20f8f83e",
    "annotated": false,
    "hasSolutions": true
   },
@@ -109,6 +119,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brockwell",
    "date": 1783641600000,
    "file": "30055.js",
+   "v": "01e3fd37",
    "annotated": false,
    "hasSolutions": true
   },
@@ -119,6 +130,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brendan",
    "date": 1783555200000,
    "file": "30054.js",
+   "v": "044ccacd",
    "annotated": false,
    "hasSolutions": true
   },
@@ -129,6 +141,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1783468800000,
    "file": "30053.js",
+   "v": "d0b96696",
    "annotated": false,
    "hasSolutions": true
   },
@@ -139,6 +152,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Qaos",
    "date": 1783382400000,
    "file": "30052.js",
+   "v": "f4fc2829",
    "annotated": false,
    "hasSolutions": true
   },
@@ -149,6 +163,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Caius",
    "date": 1783296000000,
    "file": "30051.js",
+   "v": "6a5e1c96",
    "annotated": false,
    "hasSolutions": true
   },
@@ -159,6 +174,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brummie",
    "date": 1783036800000,
    "file": "30049.js",
+   "v": "3e239c44",
    "annotated": false,
    "hasSolutions": true
   },
@@ -169,6 +185,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1782950400000,
    "file": "30048.js",
+   "v": "0273bde5",
    "annotated": false,
    "hasSolutions": true
   },
@@ -179,6 +196,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Fed",
    "date": 1782864000000,
    "file": "30047.js",
+   "v": "920ae05b",
    "annotated": false,
    "hasSolutions": true
   },
@@ -189,6 +207,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Imogen",
    "date": 1782777600000,
    "file": "30046.js",
+   "v": "82e153b6",
    "annotated": false,
    "hasSolutions": true
   },
@@ -199,6 +218,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Anto",
    "date": 1782691200000,
    "file": "30045.js",
+   "v": "adebe25d",
    "annotated": false,
    "hasSolutions": true
   },
@@ -209,6 +229,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1782432000000,
    "file": "30043.js",
+   "v": "0a74b0a8",
    "annotated": false,
    "hasSolutions": true
   },
@@ -219,6 +240,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1782345600000,
    "file": "30042.js",
+   "v": "06658d05",
    "annotated": false,
    "hasSolutions": true
   },
@@ -229,6 +251,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brummie",
    "date": 1782259200000,
    "file": "30041.js",
+   "v": "b9f2de1f",
    "annotated": false,
    "hasSolutions": true
   },
@@ -239,6 +262,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Chandler",
    "date": 1782172800000,
    "file": "30040.js",
+   "v": "5fa0c254",
    "annotated": false,
    "hasSolutions": true
   },
@@ -249,6 +273,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Vulcan",
    "date": 1782086400000,
    "file": "30039.js",
+   "v": "41fd52e5",
    "annotated": false,
    "hasSolutions": true
   }

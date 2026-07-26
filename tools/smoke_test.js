@@ -41,7 +41,7 @@ class FakeEl {
     this.children.push(el);
     if (el.tagName === "SCRIPT" && el.onload) {
       // emulate script loading synchronously
-      const p = path.join(ROOT, el.src);
+      const p = path.join(ROOT, el.src.split("?")[0]); // strip ?v= cache-buster
       new Function("window", fs.readFileSync(p, "utf8"))(global.window);
       el.onload();
     }
@@ -111,6 +111,19 @@ global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
 const appSrc = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
 new Function("window", "document", "localStorage", "confirm",
   appSrc)(global.window, document, global.window.localStorage, global.confirm);
+
+// --- cache busting: index.html must reference current asset hashes ---
+// (mobile browsers hold GitHub Pages' 4h max-age copies otherwise — STYLE.md)
+{
+  const crypto = require("crypto");
+  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  ["style.css", "tutorial.js", "app.js", "puzzles/index.js"].forEach((rel) => {
+    const want = crypto.createHash("md5")
+      .update(fs.readFileSync(path.join(ROOT, rel))).digest("hex").slice(0, 8);
+    assert(html.includes(`${rel}?v=${want}`),
+      `index.html has a current ?v= stamp for ${rel} (run tools/stamp_assets.py)`);
+  });
+}
 
 // --- assertions after boot ---
 assert(!registry["app"].classList.contains("hidden"), "app visible after boot");

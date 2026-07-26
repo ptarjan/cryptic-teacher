@@ -56,3 +56,12 @@ must pass before commit.
   stand out against the grey lines.
 - On touch devices, a scroll gesture must never select a cell or clue — tap
   detection uses a movement threshold (feedback 2026-07-26).
+
+## Deploy rules
+
+- Every asset URL carries a content hash (`style.css?v=…`, puzzle files use the
+  `v` field in `puzzles/index.json`). GitHub Pages sends `max-age=14400`, so
+  without this a phone shows four-hour-old CSS after a reload (feedback
+  2026-07-26). After ANY edit to index.html's assets run
+  `python3 tools/stamp_assets.py`; the smoke test fails on stale stamps and
+  `tools/daily_update.sh` re-stamps automatically.
