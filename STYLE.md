@@ -53,9 +53,12 @@ must pass before commit.
 - "Reveal one letter" is a standalone anytime escape hatch, hidden once the
   entry is solved; using it never advances the ladder but always counts in
   scoring (meter, scorebar, and no-hints tally).
-- The grid stays light-on-dark-letters in BOTH color schemes; grid cell colors
-  are fixed, not theme variables (feedback 2026-07-26: dark-on-dark grid was
-  unreadable).
+- The grid stays light-cells/dark-letters in BOTH color schemes (feedback
+  2026-07-26: a dark-on-dark grid was unreadable), BUT in dark mode the cells
+  are a dimmed paper tone (`--cellbg: #c9c5bd`), never pure white — a white
+  15x15 slab on a dark page is glare (feedback 2026-07-26). Grid colors live in
+  `--cell*`/`--gridline`/`--blockfill` on `#grid`, with a dark-scheme override
+  block; keep letter contrast at roughly 10:1 when re-tuning.
 - Grid separator lines and blocked squares must never be near-identical darks.
   Lines are a quiet mid grey (`--gridline`), blocks are solid black
   (`--blockfill`) and bleed 1px over the gap so a run of blocks reads as one
