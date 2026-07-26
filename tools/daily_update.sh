@@ -17,7 +17,10 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
-export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+# cron runs with a bare PATH (/usr/bin:/bin), so the `claude` CLI in ~/.local/bin
+# was invisible and every run silently skipped annotation. Keep this list in sync
+# with wherever the CLI actually installs.
+export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/bin:$PATH"
 
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
@@ -45,7 +48,8 @@ if [ -n "$pending" ]; then
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
       --max-turns 80 || echo "claude annotation run failed; will retry next run"
   else
-    echo "claude CLI not found; skipping annotation of $pending"
+    echo "ERROR: claude CLI not on PATH ($PATH) — annotation of $pending skipped."
+    echo "       The backlog will never drain until this is fixed."
   fi
 fi
 
