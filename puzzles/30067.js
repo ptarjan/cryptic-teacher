@@ -29,7 +29,31 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GARBAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GARBAGE",
+    "definition": "Rubbish",
+    "indicators": [
+     "with holes at intervals"
+    ],
+    "pieces": [
+     "GARB",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clothes",
+      "gives": "GARB",
+      "note": "garb = clothes"
+     },
+     {
+      "clueFragment": "baggier with holes at intervals",
+      "gives": "AGE",
+      "note": "alternate letters of bAgGiEr"
+     }
+    ],
+    "walkthrough": "'Clothes' gives GARB. 'Baggier with holes at intervals' means take every other letter of bAgGiEr: AGE. GARB + AGE = GARBAGE, 'Rubbish'."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +70,22 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADAMANT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ADAMANT",
+    "definition": "Unyielding",
+    "indicators": [
+     "arrests"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "squad a man triumphantly",
+      "gives": "ADAMANT",
+      "note": "hidden: squAD A MAN Triumphantly"
+     }
+    ],
+    "walkthrough": "'Arrests' tells you the answer is held inside the clue: squAD A MAN Triumphantly conceals ADAMANT, meaning 'Unyielding'. Hidden words are easy to miss precisely because everything you need is in plain sight."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +102,39 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOGUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "BOGUS",
+    "definition": "Fraudulent",
+    "indicators": [
+     "to climb",
+     "into"
+    ],
+    "pieces": [
+     "B",
+     "OG",
+     "US"
+    ],
+    "subReversals": [
+     {
+      "from": "GO",
+      "to": "OG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "GO",
+      "note": "an attempt = a go; 'to climb' reverses it (down clue) to OG"
+     },
+     {
+      "clueFragment": "conveyance",
+      "gives": "BUS",
+      "note": "a bus"
+     }
+    ],
+    "walkthrough": "'Attempt' gives GO, which 'climbs' (reverses, in a down entry) to OG and goes 'into' BUS, the 'conveyance': B(OG)US = BOGUS, 'Fraudulent'."
+   }
   },
   {
    "id": "4-down",
@@ -80,7 +151,29 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLOVERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GLOVERS",
+    "definition": "Creators of digital protection",
+    "indicators": [],
+    "pieces": [
+     "G",
+     "LOVERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g = good"
+     },
+     {
+      "clueFragment": "not just good friends?",
+      "gives": "LOVERS",
+      "note": "more than 'just good friends' = lovers"
+     }
+    ],
+    "walkthrough": "People who 'are not just good friends' are LOVERS, and G ('good') is lifted out front: G + LOVERS = GLOVERS, glove-makers — wittily defined as 'Creators of digital protection', protection for your digits."
+   }
   },
   {
    "id": "5-across",
@@ -97,7 +190,30 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHAPELY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHAPELY",
+    "definition": "in trim",
+    "indicators": [
+     "Wasted"
+    ],
+    "anagram": {
+     "fodder": "HELP SAY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "help, say",
+      "gives": "HELPSAY",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "Wasted",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Wasted' signals an anagram of HELP SAY, whose seven letters rearrange to SHAPELY — 'in trim'."
+   }
   },
   {
    "id": "6-down",
@@ -118,7 +234,32 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
     ]
    },
    "solution": "HOTTUB",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HOT TUB",
+    "definition": "to luxuriate in this?",
+    "indicators": [
+     "In"
+    ],
+    "pieces": [
+     "H",
+     "OTT",
+     "UB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "base",
+      "gives": "HUB",
+      "note": "a hub is a base (of operations)"
+     },
+     {
+      "clueFragment": "extravagant",
+      "gives": "OTT",
+      "note": "OTT = over the top"
+     }
+    ],
+    "walkthrough": "'In base' puts OTT ('extravagant', over the top) inside HUB ('base'): H(OTT)UB = HOT TUB. The definition is the whole playful phrase 'to luxuriate in this?' — extravagance you soak in."
+   }
   },
   {
    "id": "7-down",
@@ -139,7 +280,35 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
     ]
    },
    "solution": "PETRIDISH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PETRI DISH",
+    "definition": "a place of culture",
+    "indicators": [
+     "transforming"
+    ],
+    "anagram": {
+     "fodder": "SPIRITED H"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Spirited",
+      "gives": "SPIRITED",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "hotel = H in the NATO alphabet"
+     },
+     {
+      "clueFragment": "transforming",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Transforming' mixes SPIRITED with H ('hotel' in the NATO alphabet). The nine letters give PETRI DISH — 'a place of culture', bacterial rather than artistic. The definition's double meaning is the whole joke."
+   }
   },
   {
    "id": "8-down",
@@ -156,7 +325,37 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMBAST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAMBAST",
+    "definition": "Roast",
+    "indicators": [
+     "a bit of"
+    ],
+    "pieces": [
+     "LAMB",
+     "AS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "LAMB",
+      "note": "lamb, the meat"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as = like"
+     },
+     {
+      "clueFragment": "a bit of turkey",
+      "gives": "T",
+      "note": "the first bit of Turkey"
+     }
+    ],
+    "walkthrough": "'Meat' gives LAMB, 'like' gives AS, and 'a bit of turkey' contributes T. LAMB + AS + T = LAMBAST, to 'Roast' — as in criticise severely. The dinner-table surface hides the scolding."
+   }
   },
   {
    "id": "9-down",
@@ -173,7 +372,37 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REINCARNATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "REINCARNATION",
+    "definition": "Being born again",
+    "indicators": [
+     "outwardly"
+    ],
+    "pieces": [
+     "RE",
+     "IN",
+     "CARNATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robe outwardly",
+      "gives": "RE",
+      "note": "the outer letters of RobE"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "used literally"
+     },
+     {
+      "clueFragment": "pink",
+      "gives": "CARNATION",
+      "note": "carnations are 'pinks', the flower"
+     }
+    ],
+    "walkthrough": "'Robe outwardly' gives its outside letters, RE. Then IN (literal) and CARNATION — a 'pink' is a carnation, the flower. RE + IN + CARNATION = REINCARNATION, 'Being born again'."
+   }
   },
   {
    "id": "10-across",
@@ -190,7 +419,31 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PANG",
+    "definition": "Hungry feeling?",
+    "indicators": [
+     "finally"
+    ],
+    "pieces": [
+     "PAN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frier",
+      "gives": "PAN",
+      "note": "a frier (frying pan)"
+     },
+     {
+      "clueFragment": "finally working",
+      "gives": "G",
+      "note": "last letter of workinG"
+     }
+    ],
+    "walkthrough": "A 'Frier' is a PAN; 'finally working' gives the last letter of workinG. PAN + G = PANG, a 'Hungry feeling?'."
+   }
   },
   {
    "id": "11-across",
@@ -213,7 +466,36 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONEATATIME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ONE AT A TIME",
+    "definition": "in sequence",
+    "indicators": [
+     "Exercising",
+     "almost"
+    ],
+    "anagram": {
+     "fodder": "ANIMATE TOE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "animate",
+      "gives": "ANIMATE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "toes almost",
+      "gives": "TOE",
+      "note": "TOES 'almost' — drop the last letter"
+     },
+     {
+      "clueFragment": "Exercising",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Exercising' mixes ANIMATE plus TOE ('toes almost', i.e. TOES without its last letter). Those ten letters give ONE AT A TIME, meaning 'in sequence'."
+   }
   },
   {
    "id": "12-across",
@@ -230,7 +512,25 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TASSIE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TASSIE",
+    "definition": "Cup from Scotland",
+    "definition2": "one from Hobart?",
+    "blocks": [
+     {
+      "clueFragment": "Cup from Scotland",
+      "gives": "TASSIE",
+      "note": "Scots word for a small cup (Burns: 'the silver tassie')"
+     },
+     {
+      "clueFragment": "one from Hobart?",
+      "gives": "TASSIE",
+      "note": "informal for a Tasmanian — Hobart is Tasmania's capital"
+     }
+    ],
+    "walkthrough": "Two definitions: a 'tassie' is a Scots word for a small cup, and a Tassie is an Australian nickname for a Tasmanian — 'one from Hobart'. The 'or' pivots between them."
+   }
   },
   {
    "id": "13-across",
@@ -247,7 +547,27 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAUTICAL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "NAUTICAL",
+    "definition": "of the crew",
+    "indicators": [
+     "Called out"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indecent",
+      "gives": "NAUGHTY",
+      "note": "indecent = naughty"
+     },
+     {
+      "clueFragment": "Called out",
+      "gives": "",
+      "note": "homophone indicator"
+     }
+    ],
+    "walkthrough": "Say 'naughty-cal' (an 'indecent state', jokingly adjectived) out loud and you hear NAUTICAL — the definition is 'of the crew', i.e. to do with sailors. A groan-worthy sound-alike in the old seaside-postcard tradition."
+   }
   },
   {
    "id": "14-across",
@@ -264,7 +584,29 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATESMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STATESMAN",
+    "definition": "New magazine",
+    "indicators": [],
+    "pieces": [
+     "STATES",
+     "MAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from US",
+      "gives": "STATES",
+      "note": "the States = the US"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "MAN",
+      "note": "the Isle of Man"
+     }
+    ],
+    "walkthrough": "'From US' gives STATES and 'island' gives MAN (the Isle of Man). STATES + MAN = STATESMAN, and the definition is 'New magazine': put 'New' in front and you have the New Statesman. A definition-by-completion trick worth remembering."
+   }
   },
   {
    "id": "15-down",
@@ -281,7 +623,30 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIBESMAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRIBESMAN",
+    "definition": "Fellow in community",
+    "indicators": [
+     "injured"
+    ],
+    "anagram": {
+     "fodder": "BRAINSTEM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "brainstem",
+      "gives": "BRAINSTEM",
+      "note": "anagram fodder, 9 letters"
+     },
+     {
+      "clueFragment": "injured",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "An 'injured' BRAINSTEM — its nine letters rearranged — gives TRIBESMAN, a 'Fellow in community'. A tidy single-word anagram with a grisly medical surface."
+   }
   },
   {
    "id": "16-across",
@@ -298,7 +663,36 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIRTH",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "GIRTH",
+    "definition": "circumference",
+    "indicators": [
+     "Looking west"
+    ],
+    "pieces": [
+     "GIRTH"
+    ],
+    "subReversals": [
+     {
+      "from": "H TRIG",
+      "to": "GIRTH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "h = height"
+     },
+     {
+      "clueFragment": "elevated point used to measure",
+      "gives": "TRIG",
+      "note": "a trig point, the hilltop survey pillar"
+     }
+    ],
+    "walkthrough": "H ('height') followed by TRIG (a trig point, the 'elevated point used to measure') reads HTRIG; 'Looking west' — right to left in an across entry — turns it into GIRTH, the 'circumference'."
+   }
   },
   {
    "id": "17-across",
@@ -315,7 +709,25 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPLIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SPLIT",
+    "definition": "Peach",
+    "definition2": "burst open",
+    "blocks": [
+     {
+      "clueFragment": "Peach",
+      "gives": "SPLIT",
+      "note": "both are slang for 'inform on someone'"
+     },
+     {
+      "clueFragment": "burst open",
+      "gives": "SPLIT",
+      "note": "the everyday sense"
+     }
+    ],
+    "walkthrough": "A double definition. To 'peach' on someone is to inform on them — to split. And 'burst open' is the ordinary sense of SPLIT. The fruit reading is the decoy."
+   }
   },
   {
    "id": "18-down",
@@ -332,7 +744,31 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRECEDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRECEDE",
+    "definition": "Arrive before",
+    "indicators": [
+     "opening of"
+    ],
+    "pieces": [
+     "P",
+     "RECEDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opening of park",
+      "gives": "P",
+      "note": "first letter of Park"
+     },
+     {
+      "clueFragment": "go back",
+      "gives": "RECEDE",
+      "note": "to recede = to go back"
+     }
+    ],
+    "walkthrough": "The 'opening of park' is P, and 'go back' gives RECEDE. P + RECEDE = PRECEDE, to 'Arrive before'."
+   }
   },
   {
    "id": "19-across",
@@ -353,7 +789,30 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
     ]
    },
    "solution": "SNOWWHITE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SNOW WHITE",
+    "definition": "Beautiful girl",
+    "indicators": [
+     "perished"
+    ],
+    "anagram": {
+     "fodder": "WHOSE TWIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "whose twin",
+      "gives": "WHOSETWIN",
+      "note": "anagram fodder, 9 letters"
+     },
+     {
+      "clueFragment": "perished",
+      "gives": "",
+      "note": "anagram indicator — perished like old rubber"
+     }
+    ],
+    "walkthrough": "'Perished' (decayed, like perished rubber) is the anagram indicator. The letters of WHOSE TWIN rearrange to SNOW WHITE, the fairy-tale 'Beautiful girl'. The surface teases you toward twins and tragedy; the wordplay is pure anagram."
+   }
   },
   {
    "id": "20-down",
@@ -370,7 +829,30 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WOOSTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WOOSTER",
+    "definition": "Bertie",
+    "indicators": [
+     "develops"
+    ],
+    "anagram": {
+     "fodder": "TO WORSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to worse",
+      "gives": "TOWORSE",
+      "note": "anagram fodder — 'from bad' points at it"
+     },
+     {
+      "clueFragment": "develops",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Develops' rearranges the letters of TO WORSE into WOOSTER — 'Bertie', P.G. Wodehouse's amiable idiot. The phrase 'from bad to worse' is split so that 'to worse' becomes the fodder."
+   }
   },
   {
    "id": "21-down",
@@ -387,7 +869,25 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TICKING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TICKING",
+    "definition": "About to go off perhaps",
+    "definition2": "indicating right",
+    "blocks": [
+     {
+      "clueFragment": "About to go off perhaps",
+      "gives": "TICKING",
+      "note": "a ticking bomb is about to go off"
+     },
+     {
+      "clueFragment": "indicating right",
+      "gives": "TICKING",
+      "note": "marking with a tick = marking as correct"
+     }
+    ],
+    "walkthrough": "Double definition: something TICKING (a bomb, 'perhaps') is about to go off, and TICKING a box is 'indicating right' — marking it correct."
+   }
   },
   {
    "id": "22-down",
@@ -404,7 +904,38 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISFIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MISFIT",
+    "definition": "Weirdo",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "MIS",
+     "F",
+     "I",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f = following (as in 'p. 12f')"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I = one"
+     },
+     {
+      "clueFragment": "poor visibility",
+      "gives": "MIST",
+      "note": "mist"
+     }
+    ],
+    "walkthrough": "F ('following', the abbreviation used in page references) and I ('one') sit 'in' MIST ('poor visibility'): MIS(FI)T = MISFIT, a 'Weirdo'."
+   }
   },
   {
    "id": "23-across",
@@ -421,7 +952,31 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BENEDICT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BENEDICT",
+    "definition": "Pope",
+    "indicators": [
+     "half"
+    ],
+    "pieces": [
+     "BEN",
+     "EDICT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half genial",
+      "gives": "BEN",
+      "note": "genial = BENIGN; half of it is BEN"
+     },
+     {
+      "clueFragment": "proclamation",
+      "gives": "EDICT",
+      "note": "an edict is a proclamation"
+     }
+    ],
+    "walkthrough": "'Genial' gives BENIGN, and 'half' of it is BEN. 'Proclamation' gives EDICT. BEN + EDICT = BENEDICT, a papal name borne by sixteen 'Popes'."
+   }
   },
   {
    "id": "24-across",
@@ -438,7 +993,37 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCLOCK",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "O'CLOCK",
+    "definition": "The precise hour",
+    "indicators": [
+     "is over"
+    ],
+    "pieces": [
+     "OC",
+     "LOCK"
+    ],
+    "subReversals": [
+     {
+      "from": "CO",
+      "to": "OC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "Co. = company, business; 'is over' reverses it to OC"
+     },
+     {
+      "clueFragment": "close up",
+      "gives": "LOCK",
+      "note": "to lock = to close up"
+     }
+    ],
+    "walkthrough": "'Business' gives CO, and 'is over' turns it over: OC. 'Close up' gives LOCK. OC + LOCK = O'CLOCK, 'The precise hour' — as in six o'clock sharp."
+   }
   },
   {
    "id": "25-down",
@@ -455,7 +1040,31 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LABEL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "LABEL",
+    "definition": "Brief description",
+    "indicators": [
+     "timeless",
+     "dancing"
+    ],
+    "anagram": {
+     "fodder": "BALLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "timeless ballet",
+      "gives": "BALLE",
+      "note": "BALLET minus T ('time')"
+     },
+     {
+      "clueFragment": "dancing",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Take BALLET, remove T ('timeless' = without time), and set the remaining letters 'dancing': BALLE rearranges to LABEL, a 'Brief description'."
+   }
   },
   {
    "id": "26-across",
@@ -472,7 +1081,32 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERMAFROST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PERMAFROST",
+    "definition": "feature of the Arctic",
+    "indicators": [
+     "extremely"
+    ],
+    "pieces": [
+     "PERM",
+     "AFRO",
+     "ST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A couple of hairstyles",
+      "gives": "PERM AFRO",
+      "note": "two hairdos"
+     },
+     {
+      "clueFragment": "extremely smart",
+      "gives": "ST",
+      "note": "the extremes (outer letters) of SmarT"
+     }
+    ],
+    "walkthrough": "The 'couple of hairstyles' are a PERM and an AFRO; 'extremely smart' gives the outer letters of SmarT, ST. PERM + AFRO + ST = PERMAFROST, the frozen ground that is a 'feature of the Arctic'."
+   }
   },
   {
    "id": "27-across",
@@ -489,7 +1123,29 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOIL",
+    "definition": "In rage",
+    "indicators": [],
+    "pieces": [
+     "B",
+     "OIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "b = black (pencil grades, chess)"
+     },
+     {
+      "clueFragment": "a source of energy",
+      "gives": "OIL",
+      "note": "oil, the fossil fuel"
+     }
+    ],
+    "walkthrough": "'Black' gives B and 'a source of energy' gives OIL. B + OIL = BOIL, which is what you do when 'In rage' — you seethe."
+   }
   },
   {
    "id": "28-across",
@@ -506,7 +1162,25 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEANUTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PEANUTS",
+    "definition": "Lousy payment",
+    "definition2": "cartoon",
+    "blocks": [
+     {
+      "clueFragment": "Lousy payment",
+      "gives": "PEANUTS",
+      "note": "'they pay peanuts'"
+     },
+     {
+      "clueFragment": "cartoon",
+      "gives": "PEANUTS",
+      "note": "Charles Schulz's comic strip, home of Snoopy"
+     }
+    ],
+    "walkthrough": "Double definition: being paid PEANUTS is a 'Lousy payment', and Peanuts is Charles Schulz's celebrated 'cartoon' strip."
+   }
   },
   {
    "id": "29-across",
@@ -523,7 +1197,38 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRILOGY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRILOGY",
+    "definition": "a set of three",
+    "indicators": [
+     "about"
+    ],
+    "pieces": [
+     "TR",
+     "I",
+     "LOG",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear",
+      "gives": "TRY",
+      "note": "a court hears, or tries, a case"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I = one"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a record"
+     }
+    ],
+    "walkthrough": "'Hear' gives TRY (as a court tries a case), which goes 'about' I ('one') + LOG ('record'): TR(I LOG)Y = TRILOGY, 'a set of three'."
+   }
   }
  ]
 } /*JSON-END*/;

@@ -9,7 +9,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Imogen",
    "date": 1784851200000,
    "file": "30067.js",
-   "annotated": false,
+   "annotated": true,
    "hasSolutions": true
   },
   {
@@ -19,7 +19,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Tramp",
    "date": 1784764800000,
    "file": "30066.js",
-   "annotated": false,
+   "annotated": true,
    "hasSolutions": true
   },
   {

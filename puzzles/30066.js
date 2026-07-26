@@ -35,7 +35,37 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
     ]
    },
    "solution": "FERMATSLAST",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + deletion",
+    "answer": "FERMAT'S LAST THEOREM",
+    "definition": "Scientific fact",
+    "indicators": [
+     "lacking substance",
+     "stupid"
+    ],
+    "anagram": {
+     "fodder": "ME FLATEARTHERS MOST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "maybe lacking substance",
+      "gives": "ME",
+      "note": "MAYBE 'lacking substance' loses its insides (AYB), leaving M…E"
+     },
+     {
+      "clueFragment": "flat-earthers most",
+      "gives": "FLATEARTHERSMOST",
+      "note": "anagram fodder, 16 letters"
+     },
+     {
+      "clueFragment": "stupid",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The definition is 'Scientific fact' (a theorem, loosely — and the linked answer runs into 9 across). Take MAYBE and remove its insides ('lacking substance') to leave ME. Add the letters of FLAT-EARTHERS MOST and mix everything, with 'stupid' signalling the anagram: ME + FLATEARTHERSMOST rearranges to FERMAT'S LAST THEOREM. Lovely surface: flat-earthers really are ignoring scientific fact."
+   }
   },
   {
    "id": "1-down",
@@ -56,7 +86,36 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRENCHPOLYNESIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FRENCH POLYNESIA",
+    "definition": "Foreign land",
+    "indicators": [
+     "mobile",
+     "connected with"
+    ],
+    "anagram": {
+     "fodder": "LINE SCARY PHONE F"
+    },
+    "blocks": [
+     {
+      "clueFragment": "line scary: phone",
+      "gives": "LINESCARYPHONE",
+      "note": "anagram fodder, 14 letters"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "f = female, 'connected with' the fodder"
+     },
+     {
+      "clueFragment": "mobile",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Mobile' is the anagram indicator. Jumble LINE SCARY PHONE 'connected with' F for 'female' — fifteen letters in all — and you get FRENCH POLYNESIA, a 'Foreign land'. The telephone-themed surface hides the geography completely."
+   }
   },
   {
    "id": "2-down",
@@ -73,7 +132,29 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RERUN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RERUN",
+    "definition": "Once more broadcast",
+    "indicators": [],
+    "pieces": [
+     "RE",
+     "RUN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re = concerning, as in memo headers"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "RUN",
+      "note": "a run = a series (of shows, results…)"
+     }
+    ],
+    "walkthrough": "'Concerning' gives RE and 'series' gives RUN. RE + RUN = RERUN, defined by 'Once more broadcast'."
+   }
   },
   {
    "id": "3-down",
@@ -94,7 +175,29 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
     ]
    },
    "solution": "ARMYANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ARMY ANT",
+    "definition": "a crawler",
+    "indicators": [],
+    "pieces": [
+     "ARMY",
+     "ANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Host",
+      "gives": "ARMY",
+      "note": "host = army, a great multitude"
+     },
+     {
+      "clueFragment": "part of TV duo",
+      "gives": "ANT",
+      "note": "Ant of Ant & Dec"
+     }
+    ],
+    "walkthrough": "'Host' gives ARMY (an old word for a great multitude), and the 'part of TV duo' is ANT, of Ant & Dec. ARMY + ANT is 'a crawler' — the insect. 'Host' doing double duty as a TV word is the misdirection."
+   }
   },
   {
    "id": "4-down",
@@ -111,7 +214,38 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOCIETY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SOCIETY",
+    "definition": "Club",
+    "indicators": [
+     "out of",
+     "without padding"
+    ],
+    "pieces": [
+     "SOC",
+     "IE",
+     "TY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foot out of sock",
+      "gives": "SOC",
+      "note": "SOCK loses its 'foot' (last letter K)"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. = that is"
+     },
+     {
+      "clueFragment": "tiny without padding",
+      "gives": "TY",
+      "note": "TINY with no 'padding' (inner letters) leaves T…Y"
+     }
+    ],
+    "walkthrough": "Take the 'foot' (final letter) out of SOCK to get SOC. 'That is' gives IE. 'Tiny without padding' keeps only the outside of T(in)Y = TY. SOC + IE + TY = SOCIETY, a 'Club'."
+   }
   },
   {
    "id": "5-down",
@@ -128,7 +262,36 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLOCATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALLOCATE",
+    "definition": "deal",
+    "indicators": [
+     "Order",
+     "ultimately"
+    ],
+    "anagram": {
+     "fodder": "AT LOCAL E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "at local",
+      "gives": "ATLOCAL",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "store, ultimately",
+      "gives": "E",
+      "note": "the last letter of storE"
+     },
+     {
+      "clueFragment": "Order",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Order' instructs you to rearrange AT LOCAL plus the last letter ('ultimately') of storE. Those eight letters make ALLOCATE, meaning 'deal' (out) — as in allocating shares."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +312,36 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIGHTROPEWALKER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TIGHTROPE WALKER",
+    "definition": "Act",
+    "indicators": [
+     "essentially",
+     "getting released"
+    ],
+    "anagram": {
+     "fodder": "THEATRE WORK PG IL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "theatre work: PG",
+      "gives": "THEATREWORKPG",
+      "note": "anagram fodder, 13 letters"
+     },
+     {
+      "clueFragment": "film essentially",
+      "gives": "IL",
+      "note": "the essential middle of fILm"
+     },
+     {
+      "clueFragment": "getting released",
+      "gives": "",
+      "note": "anagram indicator — the letters are set loose"
+     }
+    ],
+    "walkthrough": "The definition is simply 'Act'. Take the letters of THEATRE WORK PG plus the middle ('essentially') of fILm, and 'getting released' frees them to rearrange into TIGHTROPE WALKER — a circus act. The film-certificate surface conceals a fifteen-letter anagram."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +358,36 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STIFLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STIFLE",
+    "definition": "Squash",
+    "indicators": [
+     "all over the place",
+     "end of"
+    ],
+    "anagram": {
+     "fodder": "FLIES T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "flies",
+      "gives": "FLIES",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "end of swat",
+      "gives": "T",
+      "note": "the last letter of swaT"
+     },
+     {
+      "clueFragment": "all over the place",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "FLIES goes 'all over the place' (an anagram) together with the 'end of swat', T. FLIES + T rearranges to STIFLE, meaning 'Squash'. A neat all-one-picture surface about swatting flies."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +404,39 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEEPIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + deletion",
+    "answer": "WEEPIE",
+    "definition": "sad film",
+    "indicators": [
+     "cleared",
+     "to screen"
+    ],
+    "pieces": [
+     "WEE",
+     "P",
+     "I",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "WEE",
+      "note": "wee = small (Scots)"
+     },
+     {
+      "clueFragment": "place cleared",
+      "gives": "PE",
+      "note": "PLACE 'cleared' of its middle leaves P…E"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I = one"
+     }
+    ],
+    "walkthrough": "'Small' gives WEE. 'Place cleared' empties PLACE down to its outer letters P…E, which then 'screen' (contain) I for 'one': P(I)E. WEE + PIE = WEEPIE, a 'sad film' — and 'screen' is a lovely thematic container indicator."
+   }
   },
   {
    "id": "9-across",
@@ -203,7 +456,9 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "THEOREM",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "1-across"
+   }
   },
   {
    "id": "10-across",
@@ -220,7 +475,38 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLOGNE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "COLOGNE",
+    "definition": "scent",
+    "indicators": [
+     "inhaling"
+    ],
+    "pieces": [
+     "COL",
+     "O",
+     "G",
+     "NE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "COL",
+      "note": "a col is a mountain pass"
+     },
+     {
+      "clueFragment": "person",
+      "gives": "ONE",
+      "note": "'one' = a person"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     }
+    ],
+    "walkthrough": "'Pass' gives COL (a mountain pass). 'Person' gives ONE, which 'inhales' (wraps around) G for 'good', making O(G)NE. COL + OGNE = COLOGNE, defined by 'scent'."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +523,44 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FECUNDATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "FECUNDATE",
+    "definition": "to get pregnant",
+    "indicators": [
+     "Withdraw",
+     "during"
+    ],
+    "pieces": [
+     "F",
+     "EC",
+     "UNDATE"
+    ],
+    "subReversals": [
+     {
+      "from": "CE",
+      "to": "EC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheath for contraceptive",
+      "gives": "CE",
+      "note": "the 'sheath' (outer letters) of C-ontraceptiv-E"
+     },
+     {
+      "clueFragment": "Withdraw",
+      "gives": "",
+      "note": "reversal indicator: CE becomes EC"
+     },
+     {
+      "clueFragment": "enjoyable time",
+      "gives": "FUN DATE",
+      "note": "a fun date is an enjoyable time"
+     }
+    ],
+    "walkthrough": "'Enjoyable time' gives FUN DATE. The 'sheath' of the word 'contraceptive' — its outside letters — is C…E; 'withdraw' reverses that to EC. Put EC 'during' (inside) FUNDATE, after the F, and you get F-EC-UNDATE: to fecundate is to make fertile, i.e. 'to get pregnant'. A very Tramp-like risqué surface."
+   }
   },
   {
    "id": "12-across",
@@ -258,7 +581,31 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
     ]
    },
    "solution": "CUTUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CUT UP",
+    "definition": "in distress",
+    "indicators": [
+     "Focus for"
+    ],
+    "pieces": [
+     "CU",
+     "TUP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Focus for rescuing",
+      "gives": "CU",
+      "note": "the focus (exact centre) of 'resCUing'"
+     },
+     {
+      "clueFragment": "sheep",
+      "gives": "TUP",
+      "note": "a tup is a ram"
+     }
+    ],
+    "walkthrough": "'Focus for rescuing' means the centre of the word 'rescuing', which is CU. 'Sheep' gives TUP (a ram). CU + TUP = CUT UP, meaning 'in distress'."
+   }
   },
   {
    "id": "13-across",
@@ -275,7 +622,25 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EXPO",
+    "definition": "show",
+    "indicators": [
+     "stripped"
+    ],
+    "pieces": [
+     "EXPO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sexpot",
+      "gives": "EXPO",
+      "note": "SEXPOT 'stripped' of its outer letters S and T"
+     }
+    ],
+    "walkthrough": "Strip the outside letters from SEXPOT — (s)EXPO(t) — and you're left with EXPO, a 'show' or exhibition."
+   }
   },
   {
    "id": "14-across",
@@ -297,7 +662,38 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
     ]
    },
    "solution": "STAYATHOME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "STAY-AT-HOME",
+    "definition": "in armchair?",
+    "indicators": [
+     "squeezing"
+    ],
+    "pieces": [
+     "S",
+     "T",
+     "AY",
+     "ATHOME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intimate",
+      "gives": "SAY",
+      "note": "to intimate = to hint at, to say"
+     },
+     {
+      "clueFragment": "partner’s core",
+      "gives": "T",
+      "note": "the middle letter of parTner"
+     },
+     {
+      "clueFragment": "relaxed",
+      "gives": "AT HOME",
+      "note": "at home = at ease, relaxed"
+     }
+    ],
+    "walkthrough": "'Intimate' as a verb gives SAY, which 'squeezes' the core of parTner: S(T)AY = STAY. 'Relaxed' gives AT HOME (as in feeling at home). STAY + AT-HOME describes someone 'in armchair?' — an armchair fan is a stay-at-home."
+   }
   },
   {
    "id": "15-down",
@@ -314,7 +710,45 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIRAMISU",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "TIRAMISU",
+    "definition": "that could be taken in when not satisfied?",
+    "indicators": [
+     "squeeze into",
+     "casual"
+    ],
+    "pieces": [
+     "T",
+     "I",
+     "RAM",
+     "ISU"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SUIT",
+      "gives": "TISU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used literally"
+     },
+     {
+      "clueFragment": "squeeze",
+      "gives": "RAM",
+      "note": "to ram = to squeeze, cram"
+     },
+     {
+      "clueFragment": "casual suit",
+      "gives": "TISU",
+      "note": "SUIT anagrammed ('casual' = disarranged)"
+     }
+    ],
+    "walkthrough": "'Casual suit' rearranges SUIT into T…ISU. 'I squeeze' gives I + RAM, which you push 'into' it: T(I RAM)ISU. The definition is the playful 'that could be taken in when not satisfied?' — a dessert you find room for even when you've eaten plenty."
+   }
   },
   {
    "id": "16-across",
@@ -331,7 +765,30 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CULMINATES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CULMINATES",
+    "definition": "reaches highest point",
+    "indicators": [
+     "Destroying"
+    ],
+    "anagram": {
+     "fodder": "CLIMATE SUN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "climate, sun",
+      "gives": "CLIMATESUN",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "Destroying",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Destroying' tells you to jumble 'climate, sun'. The ten letters of CLIMATESUN rearrange to CULMINATES, which means 'reaches highest point'. The surface — the sun destroying the climate — is pure misdirection."
+   }
   },
   {
    "id": "16-down",
@@ -348,7 +805,37 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAMERA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "CAMERA",
+    "definition": "feature on smartphone",
+    "indicators": [
+     "set up"
+    ],
+    "pieces": [
+     "CAM",
+     "ERA"
+    ],
+    "subReversals": [
+     {
+      "from": "MAC",
+      "to": "CAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apple device",
+      "gives": "MAC",
+      "note": "the computer; 'set up' reverses it in a down clue"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "ERA",
+      "note": "a date = an era, a period"
+     }
+    ],
+    "walkthrough": "The 'Apple device' is a MAC; 'set up' reverses it (this is a down clue) to CAM. 'Date' gives ERA. CAM + ERA = CAMERA, a 'feature on smartphone' — the tech surface never mentions photography."
+   }
   },
   {
    "id": "17-down",
@@ -365,7 +852,39 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIRLIFT",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "AIRLIFT",
+    "definition": "Rescue",
+    "indicators": [
+     "wanting",
+     "in"
+    ],
+    "pieces": [
+     "A",
+     "I",
+     "RLI",
+     "FT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I = island"
+     },
+     {
+      "clueFragment": "lifeboat team wanting number",
+      "gives": "RLI",
+      "note": "the RNLI 'wanting' (lacking) N for number"
+     },
+     {
+      "clueFragment": "back of boat",
+      "gives": "AFT",
+      "note": "aft = the back of a boat"
+     }
+    ],
+    "walkthrough": "'Island' gives I, and the 'lifeboat team' is the RNLI, which 'wanting number' drops its N to leave RLI. Put I + RLI 'in' AFT ('back of boat'): A(IRLI)FT = AIRLIFT, a 'Rescue' by air. The maritime surface hides an aerial answer."
+   }
   },
   {
    "id": "18-down",
@@ -382,7 +901,29 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMPOWER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EMPOWER",
+    "definition": "Give authority?",
+    "indicators": [],
+    "pieces": [
+     "EM",
+     "POWER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those people",
+      "gives": "EM",
+      "note": "'em = them, those people"
+     },
+     {
+      "clueFragment": "might",
+      "gives": "POWER",
+      "note": "might = power, strength"
+     }
+    ],
+    "walkthrough": "'Those people' gives 'EM (as in \"give 'em a chance\") and 'might' gives POWER. EM + POWER = EMPOWER, 'Give authority?'. The second sentence of the clue doubles as a wink: those people might, indeed, em-power."
+   }
   },
   {
    "id": "19-across",
@@ -399,7 +940,32 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEAT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BEAT",
+    "definition": "flutter",
+    "indicators": [
+     "accepting"
+    ],
+    "pieces": [
+     "BE",
+     "A",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risk money",
+      "gives": "BET",
+      "note": "to risk money = to bet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally"
+     }
+    ],
+    "walkthrough": "'Risk money' gives BET. It 'accepts' (takes in) the A from the clue: BE(A)T. The definition is 'flutter' — as a heart may beat or flutter. Note the trap: 'flutter' looks like the betting word, but here BET is the wordplay and 'flutter' the definition."
+   }
   },
   {
    "id": "20-down",
@@ -416,7 +982,32 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRENDY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRENDY",
+    "definition": "Stylish",
+    "indicators": [
+     "to cover"
+    ],
+    "pieces": [
+     "TR",
+     "END",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "an attempt = a try"
+     },
+     {
+      "clueFragment": "butt",
+      "gives": "END",
+      "note": "butt = end (of a cigarette, say)"
+     }
+    ],
+    "walkthrough": "'Attempt' gives TRY, which stretches 'to cover' END ('butt'): TR(END)Y. The definition is 'Stylish'."
+   }
   },
   {
    "id": "21-across",
@@ -433,7 +1024,37 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANGA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MANGA",
+    "definition": "Form of comic",
+    "indicators": [
+     "short"
+    ],
+    "pieces": [
+     "M",
+     "AN",
+     "GA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "M",
+      "note": "M = mark (the old German currency)"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "'an' = one"
+     },
+     {
+      "clueFragment": "short joke",
+      "gives": "GA",
+      "note": "GA(g) — a gag cut short"
+     }
+    ],
+    "walkthrough": "M is the abbreviation for 'Mark' (the currency), 'one' gives AN, and a 'short joke' is GA — a GAG missing its last letter. M + AN + GA = MANGA, the Japanese 'form of comic'."
+   }
   },
   {
    "id": "22-across",
@@ -450,7 +1071,32 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPROBATE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REPROBATE",
+    "definition": "Rake",
+    "indicators": [
+     "to pick up"
+    ],
+    "pieces": [
+     "RE",
+     "PRO",
+     "BATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money returned",
+      "gives": "REBATE",
+      "note": "a rebate is money returned"
+     },
+     {
+      "clueFragment": "sex worker",
+      "gives": "PRO",
+      "note": "pro = prostitute (crossword staple)"
+     }
+    ],
+    "walkthrough": "'Money returned' is a REBATE, which 'picks up' (takes on board) PRO, a 'sex worker': RE(PRO)BATE. The definition is 'Rake' — not the garden tool but the dissolute character. REPROBATE."
+   }
   },
   {
    "id": "23-down",
@@ -467,7 +1113,31 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERT",
+    "definition": "Visible",
+    "indicators": [
+     "on"
+    ],
+    "pieces": [
+     "O",
+     "VERT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hole",
+      "gives": "O",
+      "note": "a hole is O-shaped"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "VERT",
+      "note": "vert = green in heraldry (and French)"
+     }
+    ],
+    "walkthrough": "'Hole' gives the letter O, placed 'on' VERT, the heraldic word for 'green'. O + VERT = OVERT, meaning 'Visible'. The golfing surface (hole, green) is entirely decorative."
+   }
   },
   {
    "id": "24-across",
@@ -484,7 +1154,42 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSSINI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ROSSINI",
+    "definition": "He scored",
+    "indicators": [
+     "missing header"
+    ],
+    "pieces": [
+     "ROSS",
+     "IN",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ball into box",
+      "gives": "CROSS",
+      "note": "in football, a ball into the penalty box is a cross"
+     },
+     {
+      "clueFragment": "missing header",
+      "gives": "ROSS",
+      "note": "CROSS loses its first letter — a football pun on 'header'"
+     },
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "during = in"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I = international"
+     }
+    ],
+    "walkthrough": "A 'ball into box' is a CROSS; 'missing header' removes its first letter, leaving ROSS. 'During' gives IN and 'international' gives I. ROSS + IN + I = ROSSINI, and the definition is 'He scored' — the composer, not a striker. The whole clue reads like football but is really about opera."
+   }
   },
   {
    "id": "25-across",
@@ -501,7 +1206,39 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WRECKED",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "WRECKED",
+    "definition": "Drunk",
+    "indicators": [
+     "drinking",
+     "out of"
+    ],
+    "pieces": [
+     "W",
+     "RE",
+     "CKE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w = with"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "RED",
+      "note": "a red is a wine"
+     },
+     {
+      "clueFragment": "fizzy stuff out of round",
+      "gives": "CKE",
+      "note": "COKE ('fizzy stuff') minus O ('round')"
+     }
+    ],
+    "walkthrough": "W is 'with'; 'wine' gives RED. The 'fizzy stuff' is COKE, which goes 'out of round' — loses its O — leaving CKE. RED 'drinking' CKE gives RE-CKE-D, and W in front makes WRECKED, slang for 'drunk'."
+   }
   },
   {
    "id": "26-across",
@@ -518,7 +1255,45 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADULTERATOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ADULTERATOR",
+    "definition": "Polluter",
+    "indicators": [
+     "after",
+     "checked by"
+    ],
+    "pieces": [
+     "ADULT",
+     "E",
+     "R",
+     "A",
+     "TOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dirty",
+      "gives": "ADULT",
+      "note": "adult = dirty, as in adult movies"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Environment Agency",
+      "gives": "EA",
+      "note": "its initials, wrapped round the R: E(R)A"
+     },
+     {
+      "clueFragment": "to run",
+      "gives": "TOR",
+      "note": "TO + R (r = run, as on a cricket scorecard)"
+     }
+    ],
+    "walkthrough": "'Dirty' gives ADULT. The 'river' (R) is 'checked by' — held inside — the Environment Agency's initials EA, giving ERA. 'To run' spells TO + R (run) = TOR, which comes 'after' the rest. ADULT + ERA + TOR = ADULTERATOR, a 'Polluter'. The surface about a dirty river being checked by the EA is a classic Tramp red herring."
+   }
   }
  ]
 } /*JSON-END*/;
