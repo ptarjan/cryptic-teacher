@@ -17,7 +17,7 @@ class FakeEl {
     this._innerHTML = "";
     this.textContent = "";
     this.value = "";
-    this.style = {};
+    this.style = { setProperty(k, v) { this[k] = String(v); } };
     this.listeners = {};
     this.disabled = false;
     const self = this;
