@@ -193,7 +193,8 @@
   function clueHTML(e, level) {
     const ann = annOf(e);
     let html = esc(e.clue);
-    if (ann && level >= 2) {
+    const shown = (key) => stepShown(ann, key, level);
+    if (ann && shown("definition")) {
       const marks = [];
       const push = (text, cls) => {
         if (!text) return;
@@ -201,8 +202,8 @@
         if (i >= 0) marks.push({ i, len: text.length, cls });
       };
       push(ann.definition, "def");
-      push(ann.definition2, "def");
-      if (level >= 3) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
+      push(ann.definition2, "def2");
+      if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
       marks.sort((a, b) => a.i - b.i);
       // drop overlaps
       const keep = [];
@@ -375,11 +376,11 @@
     checkSolvedEntries(); refreshAll(); saveState();
   }
 
-  // Final ladder rung (level 6): write the whole answer into the grid.
+  // Past the last rung: write the whole answer into the grid.
   function fillAnswer() {
     const e = currentEntry();
     if (!e || !canCheck()) return;
-    bumpHint(e, 6);
+    bumpHint(e, ladderSteps(annOf(e)).length + 1);
     entryCells(e).forEach(revealCell);
     checkSolvedEntries(); refreshAll(); saveState();
   }
@@ -400,11 +401,11 @@
   }
 
   // ---------- hint ladder ----------
-  const LEVEL_LABELS = [
-    "", "1 · What kind of clue is this?", "2 · Where is the definition?",
-    "3 · Spot the indicator words", "4 · The building blocks",
-    "5 · Full walkthrough", "6 · Fill in answer"
-  ];
+  // The ladder is BUILT PER CLUE, not fixed: a rung only exists if it has
+  // something to say. A double definition has no indicators, so it gets no
+  // "spot the indicator" rung (which used to read "No indicator words"), and
+  // its rungs are worded for two definitions rather than one. See STYLE.md.
+  const FILL_LABEL = "Fill in answer";
 
   const TYPE_BLURBS = [
     ["anagram", "An anagram: some words in the clue are raw letter fodder to be rearranged. Find the indicator, then count letters against the enumeration."],
@@ -434,38 +435,97 @@
     if ((hintLevels[key] || 0) < level) { hintLevels[key] = level; saveState(); }
   }
 
-  function hintStepHTML(e, ann, level) {
-    const label = `<span class="step-label">${esc(LEVEL_LABELS[level])}</span>`;
-    switch (level) {
-      case 1:
-        return `<div class="hint-step">${label}<p><strong>${esc(ann.type)}</strong>. ${esc(typeBlurb(ann.type))}</p></div>`;
-      case 2: {
-        let t = `The definition is <mark class="def">${esc(ann.definition)}</mark>`;
-        if (ann.definition2) t += ` — and so is <mark class="def">${esc(ann.definition2)}</mark> (two definitions!)`;
-        return `<div class="hint-step">${label}<p>${t}. Everything else is wordplay.</p></div>`;
-      }
-      case 3: {
-        const inds = ann.indicators || [];
-        const t = inds.length
-          ? "Indicator word(s): " + inds.map((i) => `<mark class="ind">${esc(i)}</mark>`).join(", ") + "."
-          : "No indicator words — the parts of this clue are simply read off in order.";
-        return `<div class="hint-step">${label}<p>${t}</p></div>`;
-      }
-      case 4: {
-        const items = (ann.blocks || []).map((b) => {
-          let s = "<li>";
-          if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
-          if (b.gives) s += ` → <span class="gives">${esc(b.gives)}</span>`;
-          if (b.note) s += ` <span class="muted">— ${esc(b.note)}</span>`;
-          return s + "</li>";
-        }).join("");
-        return `<div class="hint-step">${label}<ul>${items}</ul></div>`;
-      }
-      case 5:
-        return `<div class="hint-step">${label}<p>${esc(ann.walkthrough)}</p><p>Answer: <span class="gives">${esc(ann.answer)}</span></p></div>`;
-      default:
-        return "";
+  // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
+  function ladderSteps(ann) {
+    if (!ann) return [];
+    const t = (ann.type || "").toLowerCase();
+    const isDD = t.includes("double definition");
+    const isCD = t.includes("cryptic definition");
+    const isLit = t.includes("&lit");
+    const inds = ann.indicators || [];
+    const blocks = ann.blocks || [];
+    const steps = [];
+
+    steps.push({
+      key: "type",
+      label: "What kind of clue is this?",
+      html: `<p><strong>${esc(ann.type)}</strong>. ${esc(typeBlurb(ann.type))}</p>`
+    });
+
+    // Where the definition lives. For a double definition the news isn't "there
+    // are two" (rung 1 said that) — it's WHERE the clue splits.
+    if (isDD && ann.definition2) {
+      steps.push({
+        key: "definition",
+        label: "Where does the clue split?",
+        html: `<p>It splits between <mark class="def">${esc(ann.definition)}</mark> and
+          <mark class="def2">${esc(ann.definition2)}</mark> — two unrelated senses of the same
+          word, which is where the surface reading misleads you.</p>`
+      });
+    } else if (isLit) {
+      steps.push({
+        key: "definition",
+        label: "How can the whole clue be the definition?",
+        html: `<p>Read <mark class="def">${esc(ann.definition)}</mark> straight through as a
+          description of the answer, then read the very same words again as wordplay.</p>`
+      });
+    } else if (isCD) {
+      steps.push({
+        key: "definition",
+        label: "What is the clue really describing?",
+        html: `<p>There's no separable wordplay here: <mark class="def">${esc(ann.definition)}</mark>
+          is a whole-clue description that only makes sense once you see it the setter's way.</p>`
+      });
+    } else {
+      steps.push({
+        key: "definition",
+        label: "Where is the definition?",
+        html: `<p>The definition is <mark class="def">${esc(ann.definition)}</mark>. Everything
+          else is wordplay — in a fair cryptic the definition always sits at one end of the clue.</p>`
+      });
     }
+
+    // Indicators only exist for some clue types — no rung that says "none".
+    if (inds.length) {
+      steps.push({
+        key: "indicators",
+        label: inds.length > 1 ? "Spot the indicator words" : "Spot the indicator word",
+        html: `<p>${inds.map((i) => `<mark class="ind">${esc(i)}</mark>`).join(", ")} —
+          ${inds.length > 1 ? "these tell you" : "this tells you"} what to do with the rest.</p>`
+      });
+    }
+
+    if (blocks.length && blocks.some((b) => b.gives || b.note)) {
+      const items = blocks.map((b) => {
+        let s = "<li>";
+        if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
+        if (b.gives) s += ` → <span class="gives">${esc(b.gives)}</span>`;
+        if (b.note) s += ` <span class="muted">— ${esc(b.note)}</span>`;
+        return s + "</li>";
+      }).join("");
+      steps.push({
+        key: "blocks",
+        label: isDD ? "What each half means" : "The building blocks",
+        html: `<ul>${items}</ul>`
+      });
+    }
+
+    steps.push({
+      key: "walkthrough",
+      label: "Full walkthrough",
+      html: `<p>${esc(ann.walkthrough)}</p><p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
+    });
+    return steps;
+  }
+
+  // Has the rung named `key` been revealed at this hint level?
+  function stepShown(ann, key, level) {
+    const i = ladderSteps(ann).findIndex((s) => s.key === key);
+    return i >= 0 && level >= i + 1;
+  }
+
+  function hintStepHTML(step, position) {
+    return `<div class="hint-step"><span class="step-label">${position} · ${esc(step.label)}</span>${step.html}</div>`;
   }
 
   function renderHintPanel() {
@@ -491,7 +551,8 @@
       ? ((solvedWith[e.id] || reveals)
           ? `Solved after hint level ${solvedWith[e.id] || 0}${revealsNote}`
           : "Solved with no hints — bravo!")
-      : (ann ? `Hint ladder: <strong>${level}</strong>/6 used on this clue${revealsNote}` : revealsNote.replace(" · ", ""));
+      : (ann ? `Hint ladder: <strong>${level}</strong>/${ladderSteps(ann).length} used on this clue${revealsNote}`
+             : revealsNote.replace(" · ", ""));
 
     const body = $("hint-body");
     const next = $("hint-next");
@@ -507,16 +568,21 @@
         $("hx-entry").onclick = fillAnswer;
       }
     } else {
-      for (let l = 1; l <= Math.min(level, 5); l++) body.innerHTML += hintStepHTML(holder, ann, l);
-      if (level >= 2) body.innerHTML += `<div class="legend"><mark class="def">definition</mark>${level >= 3 ? ' · <mark class="ind">indicator</mark>' : ""} highlighted in the clue above</div>`;
+      const steps = ladderSteps(ann);
+      steps.slice(0, level).forEach((s, i) => { body.innerHTML += hintStepHTML(s, i + 1); });
+      if (stepShown(ann, "definition", level)) {
+        body.innerHTML += `<div class="legend"><mark class="def">definition</mark>${
+          stepShown(ann, "indicators", level) ? ' · <mark class="ind">indicator</mark>' : ""
+        } highlighted in the clue above</div>`;
+      }
 
-      if (level < 5) {
+      if (level < steps.length) {
         const btn = document.createElement("button");
-        btn.textContent = "Show hint " + LEVEL_LABELS[level + 1];
+        btn.textContent = `Show hint ${level + 1} · ${steps[level].label}`;
         btn.onclick = () => { bumpHint(e, level + 1); refreshAll(); };
         next.appendChild(btn);
       } else if (canCheck() && !solved) {
-        next.innerHTML = `<button id="hx-entry">${LEVEL_LABELS[6]}</button>`;
+        next.innerHTML = `<button id="hx-entry">${FILL_LABEL}</button>`;
         $("hx-entry").onclick = fillAnswer;
       }
     }

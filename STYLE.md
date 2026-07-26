@@ -38,6 +38,14 @@ must pass before commit.
 
 ## Hint-ladder / UX rules
 
+- The ladder is built PER CLUE, not from a fixed template (feedback
+  2026-07-26: a double definition showed "double definition", then a rung
+  restating the same thing, then a rung saying "no indicator words"). Rules:
+  a rung only exists if it carries new information — no indicators means no
+  indicator rung; rung wording is type-specific (a double definition asks
+  "where does the clue split?", an &lit asks "how can the whole clue be the
+  definition?"); no rung may merely restate an earlier one. See `ladderSteps()`
+  in `app.js`; the ladder length is per clue and shown as "x/N" in the meter.
 - The ladder never offers information that is useless given what the user
   already knows. Concretely: after the level-5 walkthrough names the answer,
   the final rung is "Fill in answer" — never letter reveals (feedback
