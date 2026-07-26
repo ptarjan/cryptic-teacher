@@ -1,0 +1,225 @@
+/* Cryptic Teacher — no frameworks, light & dark friendly. */
+
+:root {
+  --bg: #faf9f6;
+  --fg: #1a1a1a;
+  --muted: #6b6b6b;
+  --card: #ffffff;
+  --line: #ddd8ce;
+  --accent: #14608a;
+  --accent-soft: #d9ecf7;
+  --sel: #ffd75e;
+  --wrong: #c8322b;
+  --ok: #2b7a3d;
+  --def-bg: #cdeccd;
+  --def-fg: #14501f;
+  --ind-bg: #f6d9f0;
+  --ind-fg: #7a1d66;
+  --block: #222222;
+  --cellsize: min(6.2vw, 34px);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171a1e;
+    --fg: #e8e6e1;
+    --muted: #9a9891;
+    --card: #21252b;
+    --line: #3a3f47;
+    --accent: #6db3d9;
+    --accent-soft: #253c4a;
+    --sel: #b98d00;
+    --wrong: #e06058;
+    --ok: #6dc282;
+    --def-bg: #234a2b;
+    --def-fg: #b9e4bf;
+    --ind-bg: #4a2342;
+    --ind-fg: #eab8de;
+    --block: #05070a;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 Georgia, "Times New Roman", serif;
+  padding: 0 16px 48px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+h1, h2, h3, .tool, .ghost, .badge, .toolbar-label, #scorebar, .clue-num {
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: baseline; justify-content: space-between;
+  padding: 18px 0 10px; border-bottom: 2px solid var(--fg);
+}
+h1 { font-size: 1.6rem; margin: 0; letter-spacing: .5px; }
+.tagline { margin: 0; color: var(--muted); font-style: italic; }
+.header-controls { display: flex; gap: 8px; }
+
+button {
+  cursor: pointer; border-radius: 6px; font-size: .9rem;
+  border: 1px solid var(--line); background: var(--card); color: var(--fg);
+  padding: 6px 12px;
+}
+button:hover { border-color: var(--accent); }
+.ghost { background: transparent; }
+.small { padding: 2px 8px; }
+.tool { font-size: .8rem; padding: 4px 10px; }
+.tool.danger:hover { border-color: var(--wrong); color: var(--wrong); }
+button:disabled { opacity: .45; cursor: default; }
+button:disabled:hover { border-color: var(--line); }
+
+.hidden { display: none !important; }
+.muted { color: var(--muted); }
+
+/* ---------- picker ---------- */
+.panel {
+  position: absolute; z-index: 30; right: 16px; top: 64px;
+  width: min(430px, calc(100vw - 32px)); max-height: 70vh; overflow: auto;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25); padding: 12px 14px;
+}
+.panel-head { display: flex; justify-content: space-between; align-items: center; }
+.small-note { font-size: .82rem; }
+#picker-list { list-style: none; margin: 8px 0 0; padding: 0; }
+#picker-list li { border-top: 1px solid var(--line); }
+#picker-list button {
+  display: flex; width: 100%; text-align: left; gap: 10px; align-items: baseline;
+  background: none; border: none; padding: 8px 4px; font-size: .92rem;
+}
+#picker-list button:hover { background: var(--accent-soft); }
+#picker-list .p-num { font-weight: 700; min-width: 4.6em; }
+#picker-list .p-meta { color: var(--muted); font-size: .8rem; margin-left: auto; text-align: right; }
+#picker-list li.current button { background: var(--accent-soft); }
+.badge {
+  font-size: .68rem; padding: 1px 7px; border-radius: 999px;
+  text-transform: uppercase; letter-spacing: .4px; white-space: nowrap;
+}
+.badge.full { background: var(--def-bg); color: var(--def-fg); }
+.badge.auto { background: var(--ind-bg); color: var(--ind-fg); }
+
+/* ---------- layout ---------- */
+.puzzle-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px; margin: 14px 0 4px; }
+.puzzle-head h2 { margin: 0; font-size: 1.15rem; }
+#scorebar { font-size: .85rem; color: var(--muted); }
+#scorebar strong { color: var(--fg); }
+
+.layout { display: flex; gap: 26px; flex-wrap: wrap; align-items: flex-start; }
+.left-col { flex: 0 1 560px; min-width: 300px; }
+.clues-col { flex: 1 1 380px; display: flex; gap: 22px; flex-wrap: wrap; min-width: 280px; }
+.clue-list { flex: 1 1 180px; }
+.clue-list h3 {
+  margin: 8px 0 4px; font-size: .85rem; text-transform: uppercase; letter-spacing: 1px;
+  border-bottom: 1px solid var(--line); padding-bottom: 3px;
+}
+.clue-list ol { list-style: none; margin: 0; padding: 0; font-size: .92rem; }
+.clue-list li { padding: 4px 6px; border-radius: 5px; cursor: pointer; display: flex; gap: 7px; }
+.clue-list li:hover { background: var(--accent-soft); }
+.clue-list li.active { background: var(--accent-soft); outline: 1px solid var(--accent); }
+.clue-list li.solved { opacity: .55; }
+.clue-list li.solved .clue-text::after { content: " ✓"; color: var(--ok); }
+.clue-num { font-weight: 700; min-width: 1.7em; text-align: right; }
+
+/* ---------- grid ---------- */
+#grid-wrap { position: relative; }
+#grid {
+  display: grid; gap: 1px; background: var(--fg);
+  border: 2px solid var(--fg); width: fit-content; max-width: 100%;
+  touch-action: manipulation; outline: none;
+}
+.cell {
+  width: var(--cellsize); height: var(--cellsize);
+  background: var(--card); position: relative;
+  display: flex; align-items: center; justify-content: center;
+  font: 700 calc(var(--cellsize) * .58)/1 -apple-system, Helvetica, Arial, sans-serif;
+  user-select: none; cursor: pointer;
+}
+.cell.block { background: var(--block); cursor: default; }
+.cell .num {
+  position: absolute; top: 1px; left: 2px;
+  font-size: calc(var(--cellsize) * .26); font-weight: 400; color: var(--muted);
+}
+.cell.hl { background: var(--accent-soft); }
+.cell.sel { background: var(--sel); color: #1a1a1a; }
+.cell.wrong { color: var(--wrong); }
+.cell.wrong::after {
+  content: ""; position: absolute; inset: 12% 12%;
+  border-top: 2px solid var(--wrong); transform: rotate(-45deg) translateY(calc(var(--cellsize) * .32));
+}
+.cell.revealed .letter { color: var(--accent); }
+/* word separators inside multi-word entries */
+.cell.sep-r { border-right: 3px solid var(--fg); }
+.cell.sep-b { border-bottom: 3px solid var(--fg); }
+.cell.dash-r::before {
+  content: ""; position: absolute; right: -4px; top: 50%; width: 7px; height: 2px;
+  background: var(--fg); z-index: 2;
+}
+.cell.dash-b::before {
+  content: ""; position: absolute; bottom: -4px; left: 50%; width: 2px; height: 7px;
+  background: var(--fg); z-index: 2;
+}
+#kbd {
+  position: absolute; opacity: 0; left: 0; top: 0; width: 1px; height: 1px;
+  border: none; padding: 0;
+}
+
+.toolbar {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin: 10px 0 14px; font-size: .8rem;
+}
+.toolbar-label { color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-size: .7rem; }
+.toolbar-gap { flex: 0 0 10px; }
+
+/* ---------- hint panel ---------- */
+#hint-panel {
+  border: 1px solid var(--line); border-left: 4px solid var(--accent);
+  border-radius: 8px; background: var(--card); padding: 12px 15px; margin-top: 4px;
+}
+.hint-clue { font-size: 1.02rem; margin-bottom: 4px; }
+.hint-clue .entry-tag { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; margin-right: 6px; }
+#hint-meter { font-size: .8rem; margin-bottom: 8px; }
+.hint-step { margin: 10px 0; padding-top: 8px; border-top: 1px dashed var(--line); }
+.hint-step .step-label {
+  font: 700 .72rem/1 -apple-system, Helvetica, sans-serif;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--accent);
+  display: block; margin-bottom: 4px;
+}
+.hint-step p, .hint-step ul { margin: 4px 0; }
+.hint-step ul { padding-left: 20px; }
+.hint-step .gives { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; }
+#hint-next { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+#hint-next button { border-color: var(--accent); color: var(--accent); background: transparent; }
+#hint-next button:hover { background: var(--accent-soft); }
+
+mark.def { background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px; }
+mark.ind { background: var(--ind-bg); color: var(--ind-fg); padding: 0 2px; border-radius: 3px; }
+.legend { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+
+/* ---------- tutorial ---------- */
+#tutorial {
+  border: 1px solid var(--line); border-radius: 10px; background: var(--card);
+  padding: 6px 22px 18px; margin: 16px 0;
+}
+#tutorial h2 { border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+#tutorial h3 { margin-bottom: 4px; }
+#tutorial .mini {
+  background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 12px; margin: 6px 0 14px; font-size: .95rem;
+}
+#tutorial .mini .clue { font-style: italic; }
+#tutorial table { border-collapse: collapse; font-size: .9rem; margin: 6px 0 12px; }
+#tutorial td, #tutorial th { border: 1px solid var(--line); padding: 3px 10px; text-align: left; }
+#tutorial code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }
+
+footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; }
+
+@media (max-width: 700px) {
+  :root { --cellsize: min(6.2vw, 26px); }
+  body { padding: 0 8px 40px; }
+  .layout { gap: 10px; }
+}
