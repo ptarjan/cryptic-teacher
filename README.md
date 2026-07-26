@@ -43,8 +43,9 @@ puzzles/index.js                the same manifest as a script (so file:// works)
 puzzles/<number>.js             one puzzle per file, JSON between /*JSON-START*/ ... /*JSON-END*/
 tools/fetch_puzzle.py           fetch/convert Guardian puzzles, --latest/--backfill/--reindex
 tools/validate_annotations.py   proves every annotation actually spells its answer
-tools/annotate_prompt.md        the prompt a Claude Code cron job follows to annotate
-tools/daily_update.sh           cron script: fetch latest, annotate backlog, validate, commit
+tools/annotate_prompt.md        the prompt the daily Claude Code job follows to annotate
+tools/daily_update.sh           daily script: fetch latest, annotate backlog, validate, commit
+tools/com.pt.cryptic-teacher.plist  LaunchAgent that runs daily_update.sh at 06:15
 ```
 
 ## Puzzle file format
@@ -109,10 +110,32 @@ python3 tools/fetch_puzzle.py --reindex
 
 ### Automated daily updates
 
-`tools/daily_update.sh` is written for a cron job on a machine with the `claude` CLI:
-it fetches the newest puzzle, has Claude annotate the oldest un-annotated one (one per
-day, so the backlog drains), validates, reindexes, commits, and pushes if a remote is
-configured. Install manually, e.g.:
+`tools/daily_update.sh` runs once a day on a machine with the `claude` CLI: it fetches
+the newest puzzle, has Claude annotate the oldest un-annotated one (one per day, so the
+backlog drains), validates, reindexes, commits, and pushes if a remote is configured.
+
+**On macOS, schedule it with the bundled LaunchAgent — not with cron.** The `claude`
+CLI stores its OAuth credentials in the macOS *login* keychain (item
+`Claude Code-credentials`). `cron` runs outside the GUI login session and cannot unlock
+that keychain, so every cron run dies with `Not logged in · Please run /login` and the
+backlog never drains. A per-user LaunchAgent bootstrapped into `gui/<uid>` runs inside
+the login session and authenticates fine. (Related trap: cron's bare `PATH` also hides
+`~/.local/bin/claude`; the script and the plist both set an explicit `PATH`.)
+
+```
+cp tools/com.pt.cryptic-teacher.plist ~/Library/LaunchAgents/
+# edit the absolute paths inside if your checkout is not at /Users/pt/github/cryptic-teacher
+launchctl bootout  gui/$(id -u)/com.pt.cryptic-teacher 2>/dev/null
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.pt.cryptic-teacher.plist
+launchctl print    gui/$(id -u)/com.pt.cryptic-teacher | head   # verify
+
+launchctl kickstart -k gui/$(id -u)/com.pt.cryptic-teacher      # run it now, to test
+tail -f .update.log                                             # ~5-15 min per puzzle
+```
+
+Output (stdout and stderr) lands in `.update.log`, which is untracked on purpose.
+On non-macOS hosts, where credentials live in `~/.claude/.credentials.json` rather than
+a keychain, a plain cron entry is fine:
 
 ```
 15 6 * * * /path/to/cryptic-teacher/tools/daily_update.sh >> /path/to/cryptic-teacher/.update.log 2>&1

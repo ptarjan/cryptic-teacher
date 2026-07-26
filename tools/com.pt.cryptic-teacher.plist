@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Daily Cryptic Teacher updater.
+
+  This MUST be a per-user LaunchAgent, not a crontab entry. The `claude` CLI keeps
+  its OAuth credentials in the macOS *login* keychain ("Claude Code-credentials");
+  cron jobs run outside the GUI login session and cannot unlock it, so every cron
+  run died with "Not logged in - Please run /login" and the backlog never drained.
+  A LaunchAgent bootstrapped into gui/<uid> runs inside the login session and can
+  read the keychain.
+
+  Install:
+    cp tools/com.pt.cryptic-teacher.plist ~/Library/LaunchAgents/
+    launchctl bootout  gui/$(id -u)/com.pt.cryptic-teacher 2>/dev/null
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.pt.cryptic-teacher.plist
+    launchctl print gui/$(id -u)/com.pt.cryptic-teacher | head
+
+  Run it right now (for testing):
+    launchctl kickstart -k gui/$(id -u)/com.pt.cryptic-teacher
+
+  Paths below are absolute because launchd does no shell expansion; adjust them if
+  the repo lives somewhere other than /Users/pt/github/cryptic-teacher.
+-->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.pt.cryptic-teacher</string>
+
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>/Users/pt/github/cryptic-teacher/tools/daily_update.sh</string>
+	</array>
+
+	<key>WorkingDirectory</key>
+	<string>/Users/pt/github/cryptic-teacher</string>
+
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>6</integer>
+		<key>Minute</key>
+		<integer>15</integer>
+	</dict>
+
+	<key>RunAtLoad</key>
+	<false/>
+
+	<key>StandardOutPath</key>
+	<string>/Users/pt/github/cryptic-teacher/.update.log</string>
+
+	<key>StandardErrorPath</key>
+	<string>/Users/pt/github/cryptic-teacher/.update.log</string>
+
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/Users/pt/.local/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+</dict>
+</plist>
