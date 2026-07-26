@@ -46,6 +46,20 @@ must pass before commit.
   "where does the clue split?", an &lit asks "how can the whole clue be the
   definition?"); no rung may merely restate an earlier one. See `ladderSteps()`
   in `app.js`; the ladder length is per clue and shown as "x/N" in the meter.
+- Rung 1 names the clue FAMILY, never the precise type (feedback 2026-07-26:
+  "the type of clues seem a bit specific for a first hint"). Opening a clue with
+  `charade + alternate letters` hands over the whole mechanism. The families,
+  in match order (first match wins, so the dominant mechanism of a compound type
+  decides): **Definitions only** (double/cryptic definition), **&lit**,
+  **Rearrangement** (anagram), **Sound** (homophone, spoonerism), **Charade**,
+  **Alteration** (container, reversal, deletion), **Extraction** (hidden word and
+  all the letter-selection parts). Charade stays its own family — it is the most
+  common build and reads nothing like a container or a reversal. The exact type
+  appears later, on the building-blocks rung (or the walkthrough if there is no
+  blocks rung), styled `.mechanism`; double and cryptic definitions skip it
+  entirely, since the family label already said it. Every part in `TYPE_PARTS`
+  must be claimed by exactly one family in `FAMILIES` in `app.js` — adding a type
+  part means assigning it a family in the same commit.
 - The ladder never offers information that is useless given what the user
   already knows. Concretely: after the level-5 walkthrough names the answer,
   the final rung is "Fill in answer" — never letter reveals (feedback
