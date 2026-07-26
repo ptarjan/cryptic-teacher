@@ -42,6 +42,7 @@
   let byId = {};
   let cur = { x: 0, y: 0, dir: "across" };
   let hintLevels = {};   // entryKey -> highest hint level revealed (0..6)
+  let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
   let solvedWith = {};   // entryKey -> hint level in force when first solved
   let saveTimer = null;
   let touchAnchor = null; // touchstart position, to distinguish taps from scrolls
@@ -61,12 +62,13 @@
     saveTimer = setTimeout(() => {
       const letters = {};
       forEachCell((c) => { if (c.letter) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
-      store.set(stateKey(), { letters, hintLevels, solvedWith });
+      store.set(stateKey(), { letters, hintLevels, revealsUsed, solvedWith });
     }, 150);
   }
   function restoreState() {
     const s = store.get(stateKey(), null);
     hintLevels = (s && s.hintLevels) || {};
+    revealsUsed = (s && s.revealsUsed) || {};
     solvedWith = (s && s.solvedWith) || {};
     if (s && s.letters) {
       forEachCell((c) => {
@@ -354,20 +356,26 @@
 
   function revealCell(c) { c.letter = c.sol; c.wrong = false; c.revealed = true; }
 
+  // Escape hatch, available at ANY hint level: reveal one letter. It doesn't
+  // advance the teaching ladder, but it does count against the score.
   function revealLetter() {
     const e = currentEntry();
     if (!e || !canCheck()) return;
-    bumpHint(e, 6);
     // prefer the selected cell if it's empty/wrong, else first empty/wrong cell
     const cs = entryCells(e);
     const cSel = cells[cur.y][cur.x];
     let target = (cSel && cellInEntry(cSel.x, cSel.y, e) && cSel.letter !== cSel.sol) ? cSel : null;
     if (!target) target = cs.find((c) => c.letter !== c.sol) || null;
-    if (target) revealCell(target);
+    if (target) {
+      revealCell(target);
+      const key = entryKey(e);
+      revealsUsed[key] = (revealsUsed[key] || 0) + 1;
+    }
     checkSolvedEntries(); refreshAll(); saveState();
   }
 
-  function revealEntry() {
+  // Final ladder rung (level 6): write the whole answer into the grid.
+  function fillAnswer() {
     const e = currentEntry();
     if (!e || !canCheck()) return;
     bumpHint(e, 6);
@@ -394,7 +402,7 @@
   const LEVEL_LABELS = [
     "", "1 · What kind of clue is this?", "2 · Where is the definition?",
     "3 · Spot the indicator words", "4 · The building blocks",
-    "5 · Full walkthrough", "6 · Reveal"
+    "5 · Full walkthrough", "6 · Fill in answer"
   ];
 
   const TYPE_BLURBS = [
@@ -406,7 +414,12 @@
     ["reversal", "A reversal: something is spelled backwards (in a down clue, 'up'-words signal this)."],
     ["deletion", "A deletion: letters are removed from a longer word — heads, tails or insides."],
     ["double definition", "A double definition: two definitions sit side by side; there is no other wordplay."],
-    ["&lit", "An &lit: the whole clue is both the definition and the wordplay at once."]
+    ["&lit", "An &lit: the whole clue is both the definition and the wordplay at once."],
+    ["alternate letters", "Alternate letters: take every other letter of an indicated word."],
+    ["first letter", "First letters: take the initial letter(s) of indicated word(s)."],
+    ["last letter", "Last letters: take the final letter(s) of indicated word(s)."],
+    ["middle letter", "Middle letters: take just the centre of an indicated word."],
+    ["outer letters", "Outer letters: keep only the outside letters of an indicated word."]
   ];
 
   function typeBlurb(type) {
@@ -471,47 +484,54 @@
     $("hint-clue").innerHTML = clueLine;
 
     const solved = isEntrySolved(e);
+    const reveals = revealsUsed[key] || 0;
+    const revealsNote = reveals ? ` · ${reveals} letter${reveals > 1 ? "s" : ""} revealed` : "";
     $("hint-meter").innerHTML = solved
-      ? `Solved${solvedWith[e.id] ? ` after hint level ${solvedWith[e.id]}` : " with no hints — bravo!"} `
-      : (ann ? `Hint ladder: <strong>${level}</strong>/6 used on this clue` : "");
+      ? ((solvedWith[e.id] || reveals)
+          ? `Solved after hint level ${solvedWith[e.id] || 0}${revealsNote}`
+          : "Solved with no hints — bravo!")
+      : (ann ? `Hint ladder: <strong>${level}</strong>/6 used on this clue${revealsNote}` : revealsNote.replace(" · ", ""));
 
     const body = $("hint-body");
     const next = $("hint-next");
-    body.innerHTML = ""; next.innerHTML = "";
+    const escape = $("hint-escape");
+    body.innerHTML = ""; next.innerHTML = ""; escape.innerHTML = "";
 
     if (!ann) {
       body.innerHTML = `<div class="hint-step"><p class="muted">This puzzle hasn’t been hand-annotated yet
         (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for this clue.
         You can still check your letters${canCheck() ? " and reveal below" : ""}.</p></div>`;
-      if (canCheck()) {
-        next.innerHTML = `<button id="hx-letter">Reveal a letter</button>
-                          <button id="hx-entry">Reveal answer</button>`;
-        $("hx-letter").onclick = revealLetter;
-        $("hx-entry").onclick = revealEntry;
+      if (canCheck() && !solved) {
+        next.innerHTML = `<button id="hx-entry">Reveal answer</button>`;
+        $("hx-entry").onclick = fillAnswer;
       }
-      return;
+    } else {
+      for (let l = 1; l <= Math.min(level, 5); l++) body.innerHTML += hintStepHTML(holder, ann, l);
+      if (level >= 2) body.innerHTML += `<div class="legend"><mark class="def">definition</mark>${level >= 3 ? ' · <mark class="ind">indicator</mark>' : ""} highlighted in the clue above</div>`;
+
+      if (level < 5) {
+        const btn = document.createElement("button");
+        btn.textContent = "Show hint " + LEVEL_LABELS[level + 1];
+        btn.onclick = () => { bumpHint(e, level + 1); refreshAll(); };
+        next.appendChild(btn);
+      } else if (canCheck() && !solved) {
+        next.innerHTML = `<button id="hx-entry">${LEVEL_LABELS[6]}</button>`;
+        $("hx-entry").onclick = fillAnswer;
+      }
     }
 
-    for (let l = 1; l <= Math.min(level, 5); l++) body.innerHTML += hintStepHTML(holder, ann, l);
-    if (level >= 2) body.innerHTML += `<div class="legend"><mark class="def">definition</mark>${level >= 3 ? ' · <mark class="ind">indicator</mark>' : ""} highlighted in the clue above</div>`;
-
-    if (level < 5) {
-      const btn = document.createElement("button");
-      btn.textContent = "Show hint " + LEVEL_LABELS[level + 1];
-      btn.onclick = () => { bumpHint(e, level + 1); refreshAll(); };
-      next.appendChild(btn);
-    } else if (canCheck() && !solved) {
-      next.innerHTML = `<button id="hx-letter">${LEVEL_LABELS[6]}: one letter</button>
-                        <button id="hx-entry">Reveal whole answer</button>`;
+    // The escape hatch lives outside the ladder: available at any level.
+    if (canCheck() && !solved) {
+      escape.innerHTML = `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>
+        <span class="muted">(counts against your score)</span>`;
       $("hx-letter").onclick = revealLetter;
-      $("hx-entry").onclick = revealEntry;
     }
   }
 
   // ---------- score ----------
   function renderScore() {
     const total = entries.filter((e) => !(e.annotation && e.annotation.linkedTo)).length;
-    let solved = 0, noHints = 0, levelsUsed = 0;
+    let solved = 0, noHints = 0, levelsUsed = 0, lettersRevealed = 0;
     const counted = {};
     entries.forEach((e) => {
       const key = entryKey(e);
@@ -520,12 +540,14 @@
       const group = entries.filter((g) => entryKey(g) === key);
       if (group.every(isEntrySolved) && group.length) {
         solved++;
-        if (!(hintLevels[key] > 0)) noHints++;
+        if (!(hintLevels[key] > 0) && !(revealsUsed[key] > 0)) noHints++;
       }
       levelsUsed += hintLevels[key] || 0;
+      lettersRevealed += revealsUsed[key] || 0;
     });
     $("scorebar").innerHTML =
-      `Solved <strong>${solved}/${total}</strong> clues · <strong>${noHints}</strong> with no hints · <strong>${levelsUsed}</strong> hint levels used`;
+      `Solved <strong>${solved}/${total}</strong> clues · <strong>${noHints}</strong> with no hints · <strong>${levelsUsed}</strong> hint levels used`
+      + (lettersRevealed ? ` · <strong>${lettersRevealed}</strong> letter${lettersRevealed > 1 ? "s" : ""} revealed` : "");
   }
 
   // ---------- picker ----------
@@ -563,7 +585,7 @@
     meta = INDEX.puzzles.find((p) => p.id === id) || { annotated: false };
     store.set("ct:last", id);
     buildModel();
-    hintLevels = {}; solvedWith = {};
+    hintLevels = {}; revealsUsed = {}; solvedWith = {};
     restoreState();
     const first = entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
@@ -609,7 +631,7 @@
       if (!confirm("Clear the grid and all hint history for this puzzle?")) return;
       store.del(stateKey());
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
-      hintLevels = {}; solvedWith = {};
+      hintLevels = {}; revealsUsed = {}; solvedWith = {};
       refreshAll();
     };
 

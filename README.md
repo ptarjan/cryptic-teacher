@@ -9,7 +9,10 @@ key. Each hint level teaches the next solving skill:
 3. **Indicators** — the anagram/container/reversal/homophone signal words are highlighted.
 4. **Building blocks** — the fodder and synonym breakdown ("host = ARMY; part of TV duo = ANT").
 5. **Full walkthrough** — step-by-step assembly of the answer.
-6. **Reveal** — one letter at a time, or the whole answer.
+6. **Fill in answer** — writes the solution into the grid.
+
+A separate "reveal one letter" escape hatch is available at any hint level (it doesn't
+advance the ladder, but it does count against your score).
 
 There are also check buttons (letter / entry / grid) that mark wrong letters without
 revealing, a gentle score (clues solved with no hints, hint levels used), a collapsible
