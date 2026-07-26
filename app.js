@@ -212,9 +212,8 @@
       if (!li) return;
       const holder = (e.annotation && e.annotation.linkedTo) ? byId[e.annotation.linkedTo] : e;
       const level = hintLevels[entryKey(e)] || 0;
-      li.querySelector(".clue-text").innerHTML = clueHTML(holder === e ? e : holder, holder === e ? level : 0)
-        === undefined ? "" : (holder === e ? clueHTML(e, level) : esc(e.clue));
-      li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e) || (curE && curE.id === e.id));
+      li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e, level) : esc(e.clue);
+      li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e));
       li.classList.toggle("solved", isEntrySolved(e));
     });
   }
