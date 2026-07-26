@@ -123,19 +123,30 @@ assert(registry["clues-across"].children.length > 10, "across clues rendered");
 assert(registry["clues-down"].children.length > 10, "down clues rendered");
 assert(registry["hint-clue"].innerHTML.length > 10, "hint panel shows a clue");
 
+// --- escape hatch: reveal a letter BEFORE using any ladder hints ---
+assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
+assert(registry["hx-letter"].onclick, "escape-hatch button wired");
+registry["hx-letter"].onclick();
+assert(/letters? revealed/.test(registry["scorebar"].innerHTML), "letter reveals counted in score: " + registry["scorebar"].innerHTML);
+assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter shows reveal count: " + registry["hint-meter"].innerHTML);
+
 // --- walk the hint ladder: click the 'next hint' button 5 times ---
 for (let i = 1; i <= 5; i++) {
   const btn = registry["hint-next"].children[0];
   assert(btn && btn.onclick, "hint button exists at level " + i);
   if (btn && btn.onclick) btn.onclick();
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "hint body populated at level " + i);
+  assert(registry["hint-escape"].innerHTML.includes("Reveal one letter") || registry["hint-meter"].innerHTML.includes("Solved"),
+    "escape hatch still available at level " + i);
 }
 assert(registry["hint-body"].innerHTML.includes("Answer:"), "level 5 shows answer");
 assert(registry["hint-clue"].innerHTML.includes('mark class="def"'), "definition highlighted");
-// reveal buttons at level >= 5
+// final ladder rung after the walkthrough is Fill in answer (not letter reveals)
+assert(registry["hint-next"].innerHTML.includes("Fill in answer"), "final rung is Fill in answer: " + registry["hint-next"].innerHTML);
 const hx = registry["hx-entry"];
-assert(hx.onclick, "reveal-entry button wired");
+assert(hx.onclick, "fill-in-answer button wired");
 hx.onclick();
+assert(registry["hint-escape"].innerHTML === "", "escape hatch hidden once solved");
 const kd = docListeners["keydown"][0];
 assert(kd, "document keydown listener registered");
 
@@ -163,7 +174,8 @@ const autoBtn = registry["picker-list"].children.find((li) => li.children[0].inn
 autoBtn.onclick();
 assert(registry["puzzle-title"].innerHTML.includes("auto hints"), "auto-hints puzzle opened");
 assert(registry["hint-body"].innerHTML.includes("auto hints") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
-assert(registry["hint-next"].innerHTML.includes("Reveal") || registry["hint-next"].children.length > 0, "auto reveal buttons offered");
+assert(registry["hint-next"].innerHTML.includes("Reveal answer"), "auto-hints puzzle offers Reveal answer");
+assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hints puzzle offers letter escape hatch");
 
 // --- tutorial toggle ---
 registry["btn-tutorial"].onclick();
