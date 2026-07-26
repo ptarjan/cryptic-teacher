@@ -65,6 +65,17 @@ must pass before commit.
   black mass (feedback 2026-07-26: grey blocks vs black lines were hard to tell
   apart and the lattice was noisy). Word-separator bars stay black so they
   stand out against the grey lines.
+- The hint panel shows the selected entry's LIVE letter pattern under the clue
+  (feedback 2026-07-26: "when looking at the clue can it show the missing and
+  checking letters?"). One small box per cell — the typed letter or a blank —
+  plus a muted "x of N letters in place · c checked, u unchecked" summary.
+  Checked squares (crossed by another entry, so a second clue can confirm them)
+  get a solid accent-underlined box; unchecked squares are dashed, because
+  nothing will ever cross them. The strip re-renders on every `refreshAll()`,
+  so it must never go stale while typing. See `patternHTML()` in `app.js`,
+  `.pattern`/`.pat-box` in `style.css` (page-theme vars only — the strip is
+  outside `#grid`, and dark mode must stay dim), and the pattern assertions in
+  `tools/smoke_test.js`.
 - On touch devices, a scroll gesture must never select a cell or clue — tap
   detection uses a movement threshold (feedback 2026-07-26).
 

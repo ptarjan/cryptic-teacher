@@ -528,6 +528,33 @@
     return `<div class="hint-step"><span class="step-label">${position} · ${esc(step.label)}</span>${step.html}</div>`;
   }
 
+  // The selected entry's live letter pattern: what's already in the grid, blanks
+  // for what isn't, and which squares are CHECKED (shared with a crossing entry,
+  // so another clue can confirm them). Unchecked squares are the hard ones —
+  // nothing will ever cross them, so they have to come out of the wordplay.
+  function patternHTML(e) {
+    const cs = entryCells(e);
+    let filled = 0, checked = 0;
+    const boxes = cs.map((c) => {
+      if (!c) return "";
+      const isChecked = !!(c.across && c.down);
+      if (isChecked) checked++;
+      if (c.letter) filled++;
+      const cls = ["pat-box", isChecked ? "checked" : "unchecked"];
+      if (c.wrong) cls.push("wrong");
+      else if (c.revealed) cls.push("revealed");
+      if (c.x === cur.x && c.y === cur.y) cls.push("cur");
+      const title = (c.letter ? esc(c.letter) : "blank") + (isChecked ? ", checked" : ", unchecked");
+      return `<span class="${cls.join(" ")}" title="${title}">${c.letter ? esc(c.letter) : ""}</span>`;
+    }).join("");
+    const unchecked = cs.length - checked;
+    const note = `${filled} of ${cs.length} letter${cs.length > 1 ? "s" : ""} in place · `
+      + (unchecked ? `${checked} checked, ${unchecked} unchecked (dashed — no crossing clue)`
+                   : `all ${checked} checked`);
+    return `<span class="pat-boxes" role="img" aria-label="${esc(note)}">${boxes}</span>`
+      + `<span class="pat-note muted">${esc(note)}</span>`;
+  }
+
   function renderHintPanel() {
     const e = currentEntry();
     const panel = $("hint-panel");
@@ -543,6 +570,7 @@
     if (holder !== e) clueLine += `<span class="muted">(linked with ${tag(holder)}) </span>`;
     clueLine += clueHTML(holder, level);
     $("hint-clue").innerHTML = clueLine;
+    $("hint-pattern").innerHTML = patternHTML(e);
 
     const solved = isEntrySolved(e);
     const reveals = revealsUsed[key] || 0;
