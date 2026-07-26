@@ -150,6 +150,18 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   assert(patHTML().includes("checked"), "pattern summary mentions checking: " + patHTML());
 }
 
+// --- every validator type part must be claimed by a family in app.js (STYLE.md) ---
+{
+  const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"), appSrc.indexOf("function familyOf"));
+  const keywords = [...famBlock.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1]);
+  const py = fs.readFileSync(path.join(ROOT, "tools/validate_annotations.py"), "utf8");
+  const partsBlock = py.slice(py.indexOf("TYPE_PARTS = {"), py.indexOf("}", py.indexOf("TYPE_PARTS = {")));
+  const parts = [...partsBlock.matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+  assert(parts.length > 10, "TYPE_PARTS parsed from the validator: " + parts.length);
+  parts.forEach((p) => assert(keywords.some((k) => p.includes(k)),
+    `type part '${p}' is claimed by a clue family in app.js`));
+}
+
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
@@ -162,6 +174,13 @@ let rungs = 0;
 while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && rungs < 8) {
   registry["hint-next"].children[0].onclick();
   rungs++;
+  if (rungs === 1) {
+    // rung 1 gives the FAMILY only — never the precise (often compound) type
+    const first = registry["hint-body"].innerHTML;
+    assert(/Definitions only|&amp;lit|&lit|Rearrangement|Sound|Charade|Alteration|Extraction/.test(first),
+      "first rung names a clue family: " + first);
+    assert(!first.includes("mechanism"), "first rung withholds the precise mechanism: " + first);
+  }
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "hint body populated at level " + rungs);
   assert(registry["hint-escape"].innerHTML.includes("Reveal one letter") || registry["hint-meter"].innerHTML.includes("Solved"),
     "escape hatch still available at level " + rungs);

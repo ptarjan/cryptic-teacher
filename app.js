@@ -421,8 +421,45 @@
     ["first letter", "First letters: take the initial letter(s) of indicated word(s)."],
     ["last letter", "Last letters: take the final letter(s) of indicated word(s)."],
     ["middle letter", "Middle letters: take just the centre of an indicated word."],
-    ["outer letters", "Outer letters: keep only the outside letters of an indicated word."]
+    ["outer letters", "Outer letters: keep only the outside letters of an indicated word."],
+    ["cryptic definition", "A cryptic definition: no separable wordplay — the whole clue is one sly description."],
+    ["spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."]
   ];
+
+  // Rung 1 must not hand the mechanism over. It names the FAMILY — the shape of
+  // the job — and the precise (honest, compound) type is held back until the
+  // building-blocks rung. First match wins, so the list is ordered by which
+  // mechanism dominates a compound type. Every part in TYPE_PARTS (validator)
+  // must be claimed by exactly one family here. See STYLE.md.
+  const FAMILIES = [
+    { label: "Definitions only",
+      blurb: "No letter mechanics at all — the clue works by definition alone. The work is spotting which words are doing the defining.",
+      match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
+    { label: "&lit",
+      blurb: "The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
+      match: (t) => t.includes("&lit") },
+    { label: "Rearrangement",
+      blurb: "Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.",
+      match: (t) => t.includes("anagram") },
+    { label: "Sound",
+      blurb: "The wordplay describes how the answer sounds rather than how it is spelled.",
+      match: (t) => t.includes("homophone") || t.includes("spoonerism") },
+    { label: "Charade",
+      blurb: "The answer is built from pieces laid end to end, each clued separately — read the wordplay left to right.",
+      match: (t) => t.includes("charade") },
+    { label: "Alteration",
+      blurb: "A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.",
+      match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") },
+    { label: "Extraction",
+      blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
+      match: (t) => t.includes("hidden") || t.includes("letter") }
+  ];
+
+  function familyOf(type) {
+    const t = (type || "").toLowerCase();
+    return FAMILIES.find((f) => f.match(t)) ||
+      { label: "Wordplay", blurb: "The clue has a definition at one end and wordplay at the other." };
+  }
 
   function typeBlurb(type) {
     const t = (type || "").toLowerCase();
@@ -446,11 +483,17 @@
     const blocks = ann.blocks || [];
     const steps = [];
 
+    const fam = familyOf(ann.type);
     steps.push({
       key: "type",
       label: "What kind of clue is this?",
-      html: `<p><strong>${esc(ann.type)}</strong>. ${esc(typeBlurb(ann.type))}</p>`
+      html: `<p><strong>${esc(fam.label)}</strong>. ${esc(fam.blurb)}</p>`
     });
+
+    // The exact mechanism, held back until the user has already seen the family,
+    // the definition and the indicators.
+    const mechanics = `<p class="mechanism">Mechanism: <strong>${esc(ann.type)}</strong>.
+      ${esc(typeBlurb(ann.type))}</p>`;
 
     // Where the definition lives. For a double definition the news isn't "there
     // are two" (rung 1 said that) — it's WHERE the clue splits.
@@ -506,14 +549,15 @@
       steps.push({
         key: "blocks",
         label: isDD ? "What each half means" : "The building blocks",
-        html: `<ul>${items}</ul>`
+        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>`
       });
     }
 
     steps.push({
       key: "walkthrough",
       label: "Full walkthrough",
-      html: `<p>${esc(ann.walkthrough)}</p><p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
+      html: (steps.some((s) => s.key === "blocks") || isDD || isCD ? "" : mechanics) +
+        `<p>${esc(ann.walkthrough)}</p><p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
     return steps;
   }
