@@ -95,6 +95,16 @@ must pass before commit.
 
 ## Deploy rules
 
+- Icons and the social card are GENERATED, never hand-edited. The 5x5 crossword
+  motif lives in `tools/make_icons.py` (favicon.ico, favicon-16/32, icon-192/512,
+  apple-touch-icon) and is duplicated by hand in `favicon.svg` — change one, change
+  both. The 1200x630 card is `tools/og_card.html` rendered by `tools/make_og.sh`
+  (real type needs a browser, so headless Chrome draws it).
+- The canonical URL is `https://paultarjan.com/cryptic-teacher/`. It appears in
+  `<link rel=canonical>`, `og:url`, `og:image`, the JSON-LD, `sitemap.xml`,
+  `robots.txt` and `tools/og_card.html` — if it ever moves, all seven change
+  together. Note that crawlers only honour robots.txt at the DOMAIN root, so the
+  sitemap must also be listed in the paultarjan.com repo's robots.txt.
 - Every asset URL carries a content hash (`style.css?v=…`, puzzle files use the
   `v` field in `puzzles/index.json`). GitHub Pages sends `max-age=14400`, so
   without this a phone shows four-hour-old CSS after a reload (feedback
