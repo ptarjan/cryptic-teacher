@@ -9,6 +9,12 @@ Usage:
                                                  # on disk and 404s; ~1s delay per request
   python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
                                                  # from the puzzle files already on disk
+  python3 tools/fetch_puzzle.py --refresh-unsolved  # re-fetch puzzles still missing
+                                                 # solutions (Saturday prize puzzles
+                                                 # publish theirs about a week late)
+
+Covers both weekday cryptics and Saturday prize crosswords — one number sequence,
+two URLs. The Guardian publishes six a week; there is no Sunday cryptic.
 
 Writes puzzles/<number>.js (preserving any existing per-clue annotations),
 then rebuilds puzzles/index.json and puzzles/index.js.
@@ -30,8 +36,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
-SERIES_URL = "https://www.theguardian.com/crosswords/series/cryptic"
-PUZZLE_URL = "https://www.theguardian.com/crosswords/cryptic/{num}"
+# The Guardian publishes a cryptic Monday–Saturday (nothing on Sunday), but
+# Saturday's is the PRIZE crossword: same number sequence, different URL. Looking
+# only at /cryptic/ silently loses one puzzle in six — 30044, 30050, 30056… were
+# all missing here until this list gained its second entry. Prize solutions are
+# withheld for about a week, so a freshly-fetched prize puzzle has
+# hasSolutions=false until --refresh-unsolved picks it up again later.
+SERIES_URLS = [
+    "https://www.theguardian.com/crosswords/series/cryptic",
+    "https://www.theguardian.com/crosswords/series/prize",
+]
+PUZZLE_URLS = [
+    "https://www.theguardian.com/crosswords/cryptic/{num}",
+    "https://www.theguardian.com/crosswords/prize/{num}",
+]
 
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
@@ -140,8 +158,21 @@ def reindex():
     return index
 
 
+def fetch_page(num):
+    """Get a puzzle page by number, trying each series URL (cryptic, then prize)."""
+    last = None
+    for url in PUZZLE_URLS:
+        try:
+            return http_get(url.format(num=num))
+        except urllib.error.HTTPError as err:
+            if err.code != 404:
+                raise
+            last = err
+    raise last
+
+
 def fetch_number(num):
-    data = extract_crossword_data(http_get(PUZZLE_URL.format(num=num)))
+    data = extract_crossword_data(fetch_page(num))
     puzzle = convert(data)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     is_new = not path.exists()
@@ -178,11 +209,46 @@ def backfill(count):
     print(f"backfill done: {fetched} fetched, {skipped} already present, {missing} unavailable")
 
 
+def refresh_unsolved():
+    """Re-fetch on-disk puzzles whose solutions weren't published yet.
+
+    Saturday prize puzzles arrive without solutions and only get them about a
+    week later; without this pass they would sit un-annotatable forever, since
+    the daily job only annotates puzzles where hasSolutions is true.
+    Annotations are preserved by fetch_number's merge."""
+    pending = []
+    for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
+        p = read_puzzle_file(path)
+        if not all(e.get("solution") for e in p["entries"]):
+            pending.append(p["number"])
+    filled = 0
+    for num in pending:
+        try:
+            puzzle, _ = fetch_number(num)
+            if all(e.get("solution") for e in puzzle["entries"]):
+                print(f"solutions now published for {num}")
+                filled += 1
+            else:
+                print(f"{num}: solutions still withheld")
+        except Exception as err:
+            print(f"refresh {num} failed: {err}")
+        time.sleep(1)
+    if pending:
+        reindex()
+    print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
+
+
 def find_latest_number():
-    page = http_get(SERIES_URL)
-    nums = [int(n) for n in re.findall(r"/crosswords/cryptic/(\d+)", page)]
+    nums = []
+    for series in SERIES_URLS:
+        try:
+            page = http_get(series)
+        except Exception as err:
+            print(f"series {series} unavailable: {err}")
+            continue
+        nums += [int(n) for n in re.findall(r"/crosswords/(?:cryptic|prize)/(\d+)", page)]
     if not nums:
-        raise SystemExit("No cryptic puzzle links found on series page")
+        raise SystemExit("No cryptic puzzle links found on series pages")
     return max(nums)
 
 
@@ -194,6 +260,9 @@ def main(argv):
     if argv[0] == "--reindex":
         index = reindex()
         print(f"indexed {len(index['puzzles'])} puzzle(s); latest = {index['latest']}")
+        return 0
+    if argv[0] == "--refresh-unsolved":
+        refresh_unsolved()
         return 0
     if argv[0] == "--backfill":
         count = int(argv[1]) if len(argv) > 1 else 30
