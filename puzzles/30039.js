@@ -29,7 +29,29 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPRITE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPRITE",
+    "definition": "fairy",
+    "indicators": [],
+    "pieces": [
+     "SP",
+     "RITE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "SP",
+      "note": "sp = special (a standard abbreviation)"
+     },
+     {
+      "clueFragment": "ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ceremony"
+     }
+    ],
+    "walkthrough": "'Special' abbreviates to SP, and a 'ceremony' is a RITE. SP + RITE = SPRITE, the 'fairy'. The word 'for' simply links the wordplay to the definition."
+   }
   },
   {
    "id": "2-down",
@@ -52,7 +74,26 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
     ]
    },
    "solution": "PICKUPTHEPIECES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PICK UP THE PIECES",
+    "definition": "Recover from shock",
+    "definition2": "upsetting the board?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Recover from shock",
+      "gives": "",
+      "note": "the everyday sense: pick up the pieces after a disaster"
+     },
+     {
+      "clueFragment": "upsetting the board?",
+      "gives": "",
+      "note": "knock over a chessboard and you must literally pick up the pieces"
+     }
+    ],
+    "walkthrough": "Two readings of the same phrase. To 'recover from shock' is to PICK UP THE PIECES; and if you upset a chessboard, you would literally have to pick up the pieces. The question mark signals the playful literal reading."
+   }
   },
   {
    "id": "3-down",
@@ -69,7 +110,32 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERIM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "INTERIM",
+    "definition": "temporary",
+    "indicators": [
+     "accepting"
+    ],
+    "pieces": [
+     "INTER",
+     "I",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "During school time",
+      "gives": "INTERM",
+      "note": "during term = 'in term'"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral one"
+     }
+    ],
+    "walkthrough": "'During school time' translates to IN TERM. That phrase is 'accepting' (taking in) I, the Roman numeral for 'one': IN TER(I)M = INTERIM, meaning 'temporary'."
+   }
   },
   {
    "id": "4-down",
@@ -86,7 +152,29 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARPHONES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EARPHONES",
+    "definition": "hearing aid",
+    "indicators": [],
+    "pieces": [
+     "EARP",
+     "HONES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US lawman",
+      "gives": "EARP",
+      "note": "Wyatt Earp, of the O.K. Corral"
+     },
+     {
+      "clueFragment": "perfects",
+      "gives": "HONES",
+      "note": "to hone is to perfect, sharpen"
+     }
+    ],
+    "walkthrough": "The 'US lawman' is Wyatt EARP, and 'perfects' gives HONES (as in honing a skill). EARP + HONES = EARPHONES, wittily defined as a 'hearing aid'."
+   }
   },
   {
    "id": "5-across",
@@ -103,7 +191,26 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORNROWS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CORNROWS",
+    "definition": "Hairy arrangement",
+    "definition2": "faced by harvester?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Hairy arrangement",
+      "gives": "",
+      "note": "cornrows: hair braided in tight rows"
+     },
+     {
+      "clueFragment": "faced by harvester?",
+      "gives": "",
+      "note": "a harvester literally faces rows of corn"
+     }
+    ],
+    "walkthrough": "The 'Hairy arrangement' is CORNROWS, the braided hairstyle. Read the word again as CORN ROWS and it's what a harvester faces in the field. The question mark admits the second reading is whimsical."
+   }
   },
   {
    "id": "5-down",
@@ -120,7 +227,30 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREAMED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CREAMED",
+    "definition": "Like some potatoes?",
+    "indicators": [
+     "denied starter"
+    ],
+    "pieces": [
+     "CREAMED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made huge fuss",
+      "gives": "SCREAMED",
+      "note": "screamed = made a huge fuss"
+     },
+     {
+      "clueFragment": "denied starter",
+      "gives": "",
+      "note": "remove the first letter (the 'starter') of Screamed"
+     }
+    ],
+    "walkthrough": "'Made huge fuss' gives SCREAMED. 'Denied starter' tells you to remove its first letter, leaving CREAMED — 'like some potatoes'. A nice menu-flavoured deletion: the starter is denied."
+   }
   },
   {
    "id": "6-down",
@@ -137,7 +267,31 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REVEL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "REVEL",
+    "definition": "Delight",
+    "indicators": [
+     "pulled up"
+    ],
+    "pieces": [
+     "REVEL"
+    ],
+    "subReversals": [
+     {
+      "from": "LEVER",
+      "to": "REVEL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joystick",
+      "gives": "LEVER",
+      "note": "a joystick is a lever"
+     }
+    ],
+    "walkthrough": "A 'joystick' is a LEVER. In this down clue, 'pulled up' reverses it: LEVER read upwards is REVEL, meaning to 'delight' (in something)."
+   }
   },
   {
    "id": "7-down",
@@ -154,7 +308,29 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RANSACK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RANSACK",
+    "definition": "plunder",
+    "indicators": [],
+    "pieces": [
+     "RAN",
+     "SACK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurried",
+      "gives": "RAN",
+      "note": "hurried = ran"
+     },
+     {
+      "clueFragment": "big bag",
+      "gives": "SACK",
+      "note": "a sack is a big bag"
+     }
+    ],
+    "walkthrough": "'Hurried' gives RAN and a 'big bag' is a SACK. RAN + SACK = RANSACK, to 'plunder'. 'With' and 'for' are just the glue holding the surface together."
+   }
   },
   {
    "id": "8-down",
@@ -177,7 +353,35 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
     ]
    },
    "solution": "WITHERONTHEVINE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WITHER ON THE VINE",
+    "definition": "fail through inanition",
+    "indicators": [
+     "Excitedly"
+    ],
+    "anagram": {
+     "fodder": "INVITE WHORE THEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "invite whore",
+      "gives": "INVITEWHORE",
+      "note": "eleven letters of anagram fodder"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "THEN",
+      "note": "four more letters join the fodder"
+     },
+     {
+      "clueFragment": "Excitedly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Excitedly' is the anagram indicator. Shuffle the fifteen letters of INVITE WHORE THEN and you get WITHER ON THE VINE — to 'fail through inanition', i.e. to fade away from sheer neglect or emptiness."
+   }
   },
   {
    "id": "9-across",
@@ -198,7 +402,30 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
     ]
    },
    "solution": "ACTTHREE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ACT THREE",
+    "definition": "Halfway through play perhaps",
+    "indicators": [
+     "fails"
+    ],
+    "anagram": {
+     "fodder": "CATHETER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "catheter",
+      "gives": "CATHETER",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "fails",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Fails' signals the anagram: rearrange CATHETER to get ACT THREE. In a five-act play, act three is 'halfway through' — the 'perhaps' concedes that not every play has five acts."
+   }
   },
   {
    "id": "10-across",
@@ -215,7 +442,25 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VANITY",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "VANITY",
+    "definition": "Such a case of conceitedness?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "case",
+      "gives": "",
+      "note": "points to the phrase 'vanity case'"
+     },
+     {
+      "clueFragment": "conceitedness",
+      "gives": "",
+      "note": "vanity = conceitedness"
+     }
+    ],
+    "walkthrough": "A cryptic definition in one stroke: VANITY means 'conceitedness', and a VANITY case is a small bag for cosmetics. So a 'case of conceitedness' would literally be a vanity case."
+   }
   },
   {
    "id": "11-across",
@@ -232,7 +477,37 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PURR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "PURR",
+    "definition": "Express pleasure",
+    "indicators": [
+     "turning"
+    ],
+    "pieces": [
+     "PU",
+     "RR"
+    ],
+    "subReversals": [
+     {
+      "from": "UP",
+      "to": "PU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "PU",
+      "note": "UP 'turning' (reversed)"
+     },
+     {
+      "clueFragment": "classy car",
+      "gives": "RR",
+      "note": "RR = Rolls-Royce"
+     }
+    ],
+    "walkthrough": "'Turning' reverses the word UP to give PU, and the 'classy car' is an RR — a Rolls-Royce. PU + RR = PURR, to 'express pleasure' like a contented cat (or, indeed, a smooth engine)."
+   }
   },
   {
    "id": "12-across",
@@ -249,7 +524,43 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUMILIATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "HUMILIATED",
+    "definition": "Mortified",
+    "indicators": [
+     "backing"
+    ],
+    "pieces": [
+     "HUM",
+     "I",
+     "LIATED"
+    ],
+    "subReversals": [
+     {
+      "from": "DETAIL",
+      "to": "LIATED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sing wordlessly",
+      "gives": "HUM",
+      "note": "to hum is to sing without words"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral one"
+     },
+     {
+      "clueFragment": "particular",
+      "gives": "LIATED",
+      "note": "a particular = a DETAIL, 'backing' (reversed)"
+     }
+    ],
+    "walkthrough": "'To sing wordlessly' is to HUM, and 'one' gives I. A 'particular' is a DETAIL, which 'backing' reverses to LIATED. HUM + I + LIATED = HUMILIATED, 'mortified'."
+   }
   },
   {
    "id": "13-across",
@@ -266,7 +577,32 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAMEN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STAMEN",
+    "definition": "fertiliser",
+    "indicators": [
+     "In"
+    ],
+    "pieces": [
+     "S",
+     "TAME",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin",
+      "gives": "SN",
+      "note": "Sn is the chemical symbol for tin"
+     },
+     {
+      "clueFragment": "weak",
+      "gives": "TAME",
+      "note": "tame = weak, feeble"
+     }
+    ],
+    "walkthrough": "'Tin' is the chemical symbol SN, and 'in tin' puts TAME ('weak') inside it: S(TAME)N = STAMEN. The stamen is a flower's pollen-bearing organ — the 'fertiliser' of the plant world."
+   }
   },
   {
    "id": "14-across",
@@ -287,7 +623,26 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
     ]
    },
    "solution": "DONTKNOW",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DON'T KNOW",
+    "definition": "Pass",
+    "definition2": "reply to pollster",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "",
+      "note": "in a quiz, saying 'pass' means 'don't know'"
+     },
+     {
+      "clueFragment": "reply to pollster",
+      "gives": "",
+      "note": "pollsters record undecided answers as 'don't know'"
+     }
+    ],
+    "walkthrough": "Two definitions. In a quiz, to 'pass' on a question is to say you DON'T KNOW; and 'don't know' is the classic 'reply to pollster' — the box on every opinion survey."
+   }
   },
   {
    "id": "15-down",
@@ -304,7 +659,30 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOUGHTIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NOUGHTIES",
+    "definition": "Ten years at the start of century?",
+    "indicators": [
+     "mess"
+    ],
+    "anagram": {
+     "fodder": "ITS ENOUGH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "It’s enough",
+      "gives": "ITSENOUGH",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "mess",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Mess' is the anagram indicator: jumble the letters of IT'S ENOUGH and you get NOUGHTIES — the decade 2000–2009, the 'ten years at the start of century'."
+   }
   },
   {
    "id": "16-across",
@@ -321,7 +699,37 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REHOUSED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "REHOUSED",
+    "definition": "moved elsewhere",
+    "indicators": [
+     "Wounded"
+    ],
+    "pieces": [
+     "REHO",
+     "USED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "HERO",
+      "gives": "REHO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wounded hero",
+      "gives": "REHO",
+      "note": "'wounded' scrambles HERO"
+     },
+     {
+      "clueFragment": "accustomed",
+      "gives": "USED",
+      "note": "accustomed (to) = used (to)"
+     }
+    ],
+    "walkthrough": "'Wounded' scrambles HERO into REHO, and 'accustomed' gives USED (as in 'used to'). REHO + USED = REHOUSED, meaning 'moved elsewhere' — given a new home."
+   }
   },
   {
    "id": "17-down",
@@ -338,7 +746,26 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ONESELF",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ONESELF",
+    "definition": "Me",
+    "definition2": "my little helper?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Me",
+      "gives": "",
+      "note": "oneself = me (in a rather royal register)"
+     },
+     {
+      "clueFragment": "my little helper?",
+      "gives": "",
+      "note": "split the word as ONE'S ELF — my own little helper"
+     }
+    ],
+    "walkthrough": "As one word, ONESELF is a slightly grand way of saying 'me'. Split it as ONE'S ELF and it becomes 'my little helper' — an elf of one's own. The question mark winks at the wordplay."
+   }
   },
   {
    "id": "18-down",
@@ -355,7 +782,22 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DINGBAT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "DINGBAT",
+    "definition": "Special symbol",
+    "indicators": [
+     "ingredients of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pudding batter",
+      "gives": "DINGBAT",
+      "note": "hidden inside pud-DING BAT-ter"
+     }
+    ],
+    "walkthrough": "'Ingredients of' tells you the answer is hiding inside the next words: pud-DINGBAT-ter conceals DINGBAT, a 'special symbol' — the typographic ornaments in fonts like Zapf Dingbats."
+   }
   },
   {
    "id": "19-across",
@@ -372,7 +814,29 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPPITY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UPPITY",
+    "definition": "Arrogant",
+    "indicators": [],
+    "pieces": [
+     "UP",
+     "PITY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promoted",
+      "gives": "UP",
+      "note": "promoted = up (moved up)"
+     },
+     {
+      "clueFragment": "shame",
+      "gives": "PITY",
+      "note": "'what a shame' = 'what a pity'"
+     }
+    ],
+    "walkthrough": "'Promoted' gives UP, and a 'shame' is a PITY ('what a pity!'). UP + PITY = UPPITY, meaning 'arrogant'. The dash just separates wordplay from the last definition-friendly word."
+   }
   },
   {
    "id": "20-down",
@@ -389,7 +853,32 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLEDGED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PLEDGED",
+    "definition": "promised",
+    "indicators": [
+     "across"
+    ],
+    "pieces": [
+     "P",
+     "LEDGE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paid",
+      "gives": "PD",
+      "note": "pd = paid (the bookkeeping abbreviation)"
+     },
+     {
+      "clueFragment": "the counter",
+      "gives": "LEDGE",
+      "note": "a counter is a ledge, a shelf"
+     }
+    ],
+    "walkthrough": "'Paid' abbreviates to PD, and a 'counter' is a LEDGE. Put PD 'across' (around) the LEDGE: P(LEDGE)D = PLEDGED, meaning 'promised'. The surface sounds like an over-the-counter transaction."
+   }
   },
   {
    "id": "21-across",
@@ -406,7 +895,25 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NINETEENTH",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "NINETEENTH",
+    "definition": "Drinking hole where one may buy round after round",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Drinking hole",
+      "gives": "",
+      "note": "the 'nineteenth hole' is the golf clubhouse bar"
+     },
+     {
+      "clueFragment": "round after round",
+      "gives": "",
+      "note": "a round of drinks after a round of golf"
+     }
+    ],
+    "walkthrough": "A cryptic definition built on golf slang: the NINETEENTH hole is the clubhouse bar — a 'drinking hole' where you buy a round (of drinks) after a round (of golf). Both senses of 'round' do the work."
+   }
   },
   {
    "id": "22-down",
@@ -423,7 +930,32 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EIDER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "EIDER",
+    "definition": "duck",
+    "indicators": [
+     "eating"
+    ],
+    "pieces": [
+     "E",
+     "IDE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarch formerly",
+      "gives": "ER",
+      "note": "ER = Elizabeth Regina, the late Queen"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "IDE",
+      "note": "the ide, a freshwater fish beloved of setters"
+     }
+    ],
+    "walkthrough": "The 'monarch formerly' is ER — Elizabeth Regina, the late Queen. She is 'eating' an IDE, the crossword-friendly 'fish': E(IDE)R = EIDER, the 'duck' whose down fills duvets."
+   }
   },
   {
    "id": "23-across",
@@ -440,7 +972,22 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EWES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "EWES",
+    "definition": "Farm animals",
+    "indicators": [
+     "recounted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exploit",
+      "gives": "USE",
+      "note": "to exploit = to use; 'recounted' means said aloud"
+     }
+    ],
+    "walkthrough": "'Recounted' — said aloud — is the homophone indicator. 'Exploit' gives USE, which spoken aloud sounds like EWES, the 'farm animals'. The possessive apostrophe in the surface is pure misdirection."
+   }
   },
   {
    "id": "24-across",
@@ -457,7 +1004,31 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCREED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCREED",
+    "definition": "Tedious speech",
+    "indicators": [
+     "by"
+    ],
+    "pieces": [
+     "S",
+     "CREED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a statement of belief",
+      "gives": "CREED",
+      "note": "a creed is a statement of belief"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "S",
+      "note": "S = saint, as in S. Francis"
+     }
+    ],
+    "walkthrough": "A 'statement of belief' is a CREED, placed 'by' (next to) S for 'saint'. In the grid the saint comes first: S + CREED = SCREED, a 'tedious speech' or long-winded piece of writing."
+   }
   },
   {
    "id": "25-across",
@@ -478,7 +1049,30 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRINGSIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRINGS IN",
+    "definition": "Yields",
+    "indicators": [],
+    "pieces": [
+     "B",
+     "RINGS",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "items of jewellery",
+      "gives": "RINGS",
+      "note": "rings are items of jewellery"
+     },
+     {
+      "clueFragment": "to be thrown away?",
+      "gives": "BIN",
+      "note": "things to be thrown away go in the BIN, so RINGS goes inside B…IN"
+     }
+    ],
+    "walkthrough": "'Items of jewellery' are RINGS. If they are 'to be thrown away', they go in the BIN — so put RINGS inside BIN: B(RINGS)IN = BRINGS IN, meaning 'yields', as in what an investment brings in."
+   }
   },
   {
    "id": "26-across",
@@ -500,7 +1094,26 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASKFORIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ASK FOR IT",
+    "definition": "To seek computer assistance",
+    "definition2": "to invite trouble",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "To seek computer assistance",
+      "gives": "",
+      "note": "asking for IT — the Information Technology department"
+     },
+     {
+      "clueFragment": "to invite trouble",
+      "gives": "",
+      "note": "'you're asking for it' = you're inviting trouble"
+     }
+    ],
+    "walkthrough": "Two readings of ASK FOR IT. 'To seek computer assistance' is to ask for IT — the Information Technology helpdesk. And to 'invite trouble' is to ask for it, as any parent will warn you."
+   }
   },
   {
    "id": "27-across",
@@ -517,7 +1130,24 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SODDEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SODDEN",
+    "definition": "very wet",
+    "indicators": [],
+    "pieces": [
+     "SOD",
+     "DEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two types of earth",
+      "gives": "SODDEN",
+      "note": "SOD (a piece of turf) + DEN (a fox's home, called an 'earth')"
+     }
+    ],
+    "walkthrough": "'Earth' has two crossword-friendly senses here: a SOD is a piece of turf, and a fox's lair — its DEN — is also called an earth. SOD + DEN = SODDEN, 'very wet'."
+   }
   }
  ]
 } /*JSON-END*/;
