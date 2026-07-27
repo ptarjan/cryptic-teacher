@@ -298,6 +298,21 @@
     else cur.dir = c.across ? "across" : "down";
   }
 
+  // After typing, land on the next square that still needs a letter — squares
+  // already filled by a crossing entry are not worth stopping on. If everything
+  // ahead is filled, fall back to a plain one-square step so the cursor still
+  // moves (and typing over a letter stays possible).
+  function advanceToGap() {
+    const e = currentEntry();
+    if (!e) return;
+    const i = e.direction === "across" ? cur.x - e.position.x : cur.y - e.position.y;
+    for (let j = i + 1; j < e.length; j++) {
+      const c = cellAt(e, j);
+      if (!c.letter) { cur.x = c.x; cur.y = c.y; return; }
+    }
+    moveInEntry(1);
+  }
+
   function stepEntry(delta) {
     const e = currentEntry();
     let i = entries.indexOf(e);
@@ -311,7 +326,7 @@
     if (!c) return;
     c.letter = ch; c.wrong = false; c.revealed = false;
     checkSolvedEntries();
-    moveInEntry(1);
+    advanceToGap();
     refreshAll(); saveState();
   }
 
@@ -579,7 +594,7 @@
   function patternHTML(e) {
     const cs = entryCells(e);
     let filled = 0, checked = 0;
-    const boxes = cs.map((c) => {
+    const boxes = cs.map((c, idx) => {
       if (!c) return "";
       const isChecked = !!(c.across && c.down);
       if (isChecked) checked++;
@@ -589,7 +604,11 @@
       else if (c.revealed) cls.push("revealed");
       if (c.x === cur.x && c.y === cur.y) cls.push("cur");
       const title = (c.letter ? esc(c.letter) : "blank") + (isChecked ? ", checked" : ", unchecked");
-      return `<span class="${cls.join(" ")}" title="${title}">${c.letter ? esc(c.letter) : ""}</span>`;
+      // A button, not a span: the strip doubles as a way to move the cursor
+      // without hunting for the square in the grid (data-i is the index in the
+      // entry, read by the delegated handler in boot()).
+      return `<button type="button" class="${cls.join(" ")}" data-i="${idx}"
+        title="Jump to this square — ${title}">${c.letter ? esc(c.letter) : ""}</button>`;
     }).join("");
     const unchecked = cs.length - checked;
     const note = `${filled} of ${cs.length} letter${cs.length > 1 ? "s" : ""} in place · `
@@ -786,6 +805,18 @@
       ev.target.value = "";
     });
     $("grid").addEventListener("mousedown", () => focusKbd());
+
+    // The letter-pattern strip is a second way to steer: click a box to put the
+    // cursor on that square of the current entry.
+    $("hint-pattern").addEventListener("click", (ev) => {
+      const box = ev.target && ev.target.dataset ? ev.target : null;
+      const idx = box ? Number(box.dataset.i) : NaN;
+      const e = currentEntry();
+      if (!e || !Number.isInteger(idx)) return;
+      const c = cellAt(e, Math.max(0, Math.min(e.length - 1, idx)));
+      cur.x = c.x; cur.y = c.y;
+      refreshAll(); focusKbd();
+    });
 
     if (!INDEX.puzzles.length) {
       $("puzzle-title").textContent = "No puzzles found — run tools/fetch_puzzle.py first.";
