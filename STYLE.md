@@ -111,6 +111,19 @@ must pass before commit.
   `robots.txt` and `tools/og_card.html` — if it ever moves, all seven change
   together. Note that crawlers only honour robots.txt at the DOMAIN root, so the
   sitemap must also be listed in the paultarjan.com repo's robots.txt.
+- The Guardian publishes SIX cryptics a week, Monday to Saturday — there is no
+  Sunday cryptic. Saturday's is the *Prize* crossword: same number sequence, but
+  it lives at `/crosswords/prize/<n>`, not `/crosswords/cryptic/<n>`. Watching
+  only the cryptic path loses one puzzle in six (feedback 2026-07-27: 30044,
+  30050, 30056, 30062, 30068 were all silently missing). `SERIES_URLS` and
+  `PUZZLE_URLS` in `tools/fetch_puzzle.py` must always list both. Prize solutions
+  are withheld for about a week, so a fresh prize puzzle lands with
+  `hasSolutions: false` and is not annotatable yet — `--refresh-unsolved` re-fetches
+  those each day and the daily job runs it before annotating.
+- The daily job annotates `ANNOTATE_MAX` puzzles per run (default 3), not one:
+  at six new puzzles a week, one a day never drains a backlog. It stops early the
+  first time a `claude -p` run fails, since that is nearly always a session limit
+  and the remaining attempts would fail too.
 - Every asset URL carries a content hash (`style.css?v=…`, puzzle files use the
   `v` field in `puzzles/index.json`). GitHub Pages sends `max-age=14400`, so
   without this a phone shows four-hour-old CSS after a reload (feedback

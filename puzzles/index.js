@@ -14,6 +14,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "hasSolutions": true
   },
   {
+   "id": "30068",
+   "number": 30068,
+   "name": "Prize crossword No 30,068",
+   "setter": "Paul",
+   "date": 1784937600000,
+   "file": "30068.js",
+   "v": "85bf5e79",
+   "annotated": false,
+   "hasSolutions": false
+  },
+  {
    "id": "30067",
    "number": 30067,
    "name": "Cryptic crossword No 30,067",
@@ -65,6 +76,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1784505600000,
    "file": "30063.js",
    "v": "ca8666ef",
+   "annotated": false,
+   "hasSolutions": true
+  },
+  {
+   "id": "30062",
+   "number": 30062,
+   "name": "Prize crossword No 30,062",
+   "setter": "Pasquale",
+   "date": 1784332800000,
+   "file": "30062.js",
+   "v": "2d37de04",
    "annotated": false,
    "hasSolutions": true
   },
@@ -124,6 +146,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "hasSolutions": true
   },
   {
+   "id": "30056",
+   "number": 30056,
+   "name": "Prize crossword No 30,056",
+   "setter": "Enigmatist",
+   "date": 1783728000000,
+   "file": "30056.js",
+   "v": "600dee56",
+   "annotated": false,
+   "hasSolutions": true
+  },
+  {
    "id": "30055",
    "number": 30055,
    "name": "Cryptic crossword No 30,055",
@@ -179,6 +212,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "hasSolutions": true
   },
   {
+   "id": "30050",
+   "number": 30050,
+   "name": "Prize crossword No 30,050",
+   "setter": "Kite",
+   "date": 1783123200000,
+   "file": "30050.js",
+   "v": "d1df845e",
+   "annotated": false,
+   "hasSolutions": true
+  },
+  {
    "id": "30049",
    "number": 30049,
    "name": "Cryptic crossword No 30,049",
@@ -230,6 +274,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1782691200000,
    "file": "30045.js",
    "v": "adebe25d",
+   "annotated": false,
+   "hasSolutions": true
+  },
+  {
+   "id": "30044",
+   "number": 30044,
+   "name": "Prize crossword No 30,044",
+   "setter": "Brendan",
+   "date": 1782518400000,
+   "file": "30044.js",
+   "v": "c0c75c65",
    "annotated": false,
    "hasSolutions": true
   },

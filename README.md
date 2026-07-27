@@ -111,8 +111,15 @@ python3 tools/fetch_puzzle.py --reindex
 ### Automated daily updates
 
 `tools/daily_update.sh` runs once a day on a machine with the `claude` CLI: it fetches
-the newest puzzle, has Claude annotate the oldest un-annotated one (one per day, so the
-backlog drains), validates, reindexes, commits, and pushes if a remote is configured.
+the newest puzzle, re-fetches any puzzle still waiting on published solutions, has Claude
+annotate the oldest un-annotated ones (`ANNOTATE_MAX` per run, default 3 — the Guardian
+publishes six a week, so one a day would never catch up), validates, reindexes, commits,
+and pushes if a remote is configured.
+
+The Guardian runs a cryptic Monday–Saturday, with Saturday's appearing as the *Prize*
+crossword under a different URL; the fetcher watches both series. Prize solutions are
+withheld for about a week, so those puzzles sit un-annotatable until
+`--refresh-unsolved` picks up their answers.
 
 **On macOS, schedule it with the bundled LaunchAgent — not with cron.** The `claude`
 CLI stores its OAuth credentials in the macOS *login* keychain (item
