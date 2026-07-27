@@ -86,10 +86,16 @@ must pass before commit.
   Checked squares (crossed by another entry, so a second clue can confirm them)
   get a solid accent-underlined box; unchecked squares are dashed, because
   nothing will ever cross them. The strip re-renders on every `refreshAll()`,
-  so it must never go stale while typing. See `patternHTML()` in `app.js`,
+  so it must never go stale while typing. The boxes are buttons: clicking one
+  moves the cursor to that square (feedback 2026-07-26), so the strip steers as
+  well as informs. See `patternHTML()` in `app.js`,
   `.pattern`/`.pat-box` in `style.css` (page-theme vars only — the strip is
   outside `#grid`, and dark mode must stay dim), and the pattern assertions in
   `tools/smoke_test.js`.
+- Typing advances to the next square that still NEEDS a letter, skipping ones a
+  crossing entry already filled in (feedback 2026-07-26 — every mainstream
+  crossword app does this). If nothing ahead is empty it falls back to a plain
+  one-square step, so overwriting a full entry still works. See `advanceToGap()`.
 - On touch devices, a scroll gesture must never select a cell or clue — tap
   detection uses a movement threshold (feedback 2026-07-26).
 

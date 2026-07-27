@@ -209,8 +209,24 @@ kd(ev("Tab"));          // next entry
   const boxes = patBoxes();
   assert(boxes.length === 7, "pattern strip follows the 7-letter entry: " + boxes.length);
   assert(patHTML().includes("7 of 7 letters in place"), "pattern counts typed letters: " + patHTML());
-  "COLOGNE".split("").forEach((ch) => assert(patHTML().includes(`>${ch}</span>`), `pattern shows typed ${ch}`));
+  assert(/data-i="6"/.test(patHTML()), "boxes carry their index so they can be clicked: " + patHTML());
 }
+// --- clicking a pattern box moves the cursor; typing skips filled squares ---
+{
+  const clickBox = (i) => registry["hint-pattern"].listeners.click[0]({ target: { dataset: { i: String(i) } } });
+  const curIndex = () => patBoxes().findIndex((b) => b.includes("cur"));
+  assert(registry["hint-pattern"].listeners.click, "pattern strip has a click handler");
+  clickBox(4);
+  assert(curIndex() === 4, "clicking a pattern box moves the cursor there, got " + curIndex());
+  kd(ev("Delete"));                       // punch a single gap at index 4
+  assert(patHTML().includes("6 of 7 letters in place"), "gap cleared: " + patHTML());
+  clickBox(0);
+  kd(ev("Z"));                            // overwrite index 0 ...
+  assert(curIndex() === 4, "typing skips filled squares to the next gap, got " + curIndex());
+  kd(ev("Z"));                            // ... and with no gap left it just steps on
+  assert(patHTML().includes("7 of 7 letters in place"), "grid refilled: " + patHTML());
+}
+
 kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
 assert(registry["scorebar"].innerHTML.includes("Solved"), "scorebar renders: " + registry["scorebar"].innerHTML);
 assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least one clue solved after reveal+typing");
