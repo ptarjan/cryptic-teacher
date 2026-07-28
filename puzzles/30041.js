@@ -29,7 +29,32 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOPE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HOPE",
+    "definition": "Old comedian",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "HO",
+     "P",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pee",
+      "gives": "P",
+      "note": "the letter P, spelled out"
+     },
+     {
+      "clueFragment": "garden",
+      "gives": "HOE",
+      "note": "to garden is to hoe"
+     }
+    ],
+    "walkthrough": "'Pee' is the letter P, and to 'garden' is to HOE. Put P 'in' HOE and you get HO(P)E — Bob Hope, the 'Old comedian'. The surface about someone weeing in the garden is pure misdirection."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +71,35 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBSERVED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OBSERVED",
+    "definition": "spotted",
+    "indicators": [
+     "inflamed"
+    ],
+    "anagram": {
+     "fodder": "BEDSORE V"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bedsore",
+      "gives": "BEDSORE",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "v = very"
+     },
+     {
+      "clueFragment": "inflamed",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Inflamed' signals the anagram. Mix BEDSORE with V for 'very' and the eight letters rearrange to OBSERVED — 'spotted'. A grisly surface hiding a gentle answer."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +116,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STUN",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "STUN",
+    "definition": "bowl over",
+    "indicators": [
+     "Tipped"
+    ],
+    "pieces": [
+     "STUN"
+    ],
+    "subReversals": [
+     {
+      "from": "NUTS",
+      "to": "STUN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fanatic’s",
+      "gives": "NUTS",
+      "note": "a fanatic is a nut; with the ’s it supplies NUTS"
+     }
+    ],
+    "walkthrough": "A 'fanatic' is a NUT, so 'fanatic’s' supplies the letters NUTS. In this down clue 'Tipped' turns them upside down: NUTS read upwards is STUN, to 'bowl over'."
+   }
   },
   {
    "id": "4-down",
@@ -80,7 +157,35 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCULPTOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SCULPTOR",
+    "definition": "Old Moore?",
+    "indicators": [
+     "smashed"
+    ],
+    "anagram": {
+     "fodder": "CURST LP O"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Curst LP",
+      "gives": "CURSTLP",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "o = over, as on cricket scorecards"
+     },
+     {
+      "clueFragment": "smashed",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Smashed' is the anagram indicator. Jumble CURST LP together with O for 'over' and you get SCULPTOR — 'Old Moore?', as in Henry Moore. The question mark flags the definition by example."
+   }
   },
   {
    "id": "5-down",
@@ -97,7 +202,37 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRAYED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FRAYED",
+    "definition": "worn out",
+    "indicators": [
+     "After"
+    ],
+    "pieces": [
+     "FRAY",
+     "E",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battle",
+      "gives": "FRAY",
+      "note": "a fray is a battle or scuffle"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E = English"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "d = duke"
+     }
+    ],
+    "walkthrough": "'After battle' places the rest after FRAY, a battle. E for 'English' and D for 'duke' follow: FRAY + E + D = FRAYED, 'worn out'."
+   }
   },
   {
    "id": "6-down",
@@ -114,7 +249,35 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOOTLEGGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOOTLEGGER",
+    "definition": "a criminal",
+    "indicators": [],
+    "pieces": [
+     "BOOT",
+     "L",
+     "EGGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sack",
+      "gives": "BOOT",
+      "note": "to sack someone is to give them the boot"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L = Latin"
+     },
+     {
+      "clueFragment": "person encouraging",
+      "gives": "EGGER",
+      "note": "someone who eggs you on"
+     }
+    ],
+    "walkthrough": "'Sack' gives BOOT (to sack is to boot out), 'Latin' gives L, and a 'person encouraging' is an EGGER — one who eggs you on. BOOT + L + EGGER = BOOTLEGGER, 'a criminal' who smuggles liquor."
+   }
   },
   {
    "id": "7-down",
@@ -131,7 +294,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIKING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VIKING",
+    "definition": "Raider",
+    "indicators": [
+     "married to"
+    ],
+    "pieces": [
+     "VI",
+     "KING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short woman",
+      "gives": "VI",
+      "note": "Vi, short for Violet"
+     },
+     {
+      "clueFragment": "ruler",
+      "gives": "KING",
+      "note": "a ruler of the realm"
+     }
+    ],
+    "walkthrough": "The 'short woman' is VI — Violet cut down — 'married to', i.e. joined to, KING, a 'ruler'. VI + KING = VIKING, a 'Raider'."
+   }
   },
   {
    "id": "8-down",
@@ -148,7 +335,22 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BYRD",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BYRD",
+    "definition": "English composer",
+    "indicators": [
+     "broadcast"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lark",
+      "gives": "BIRD",
+      "note": "a lark is a bird"
+     }
+    ],
+    "walkthrough": "A 'Lark' is a BIRD, and 'broadcast' says to sound it out: spoken aloud, BIRD gives BYRD — William Byrd, the Tudor 'English composer'. 'The Lark Ascending' is by Vaughan Williams, which is the trap."
+   }
   },
   {
    "id": "9-across",
@@ -165,7 +367,22 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORBIT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ORBIT",
+    "definition": "revolution",
+    "indicators": [
+     "housing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exorbitant",
+      "gives": "ORBIT",
+      "note": "hidden inside exORBITant"
+     }
+    ],
+    "walkthrough": "'Housing' tells you the answer is hiding in plain sight: exORBITant houses ORBIT, a 'revolution' around a planet."
+   }
   },
   {
    "id": "10-across",
@@ -182,7 +399,30 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CURIOSITY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CURIOSITY",
+    "definition": "cat killer?",
+    "indicators": [
+     "removing"
+    ],
+    "anagram": {
+     "fodder": "OUR CITY IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Our city is",
+      "gives": "OURCITYIS",
+      "note": "anagram fodder, 9 letters"
+     },
+     {
+      "clueFragment": "removing",
+      "gives": "",
+      "note": "anagram indicator — think of a house removal"
+     }
+    ],
+    "walkthrough": "'Removing' — as in a house removal — shuffles the letters of OUR CITY IS into CURIOSITY. The definition is 'cat killer?': curiosity killed the cat, as the proverb has it."
+   }
   },
   {
    "id": "11-across",
@@ -199,7 +439,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETERNALLY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ETERNALLY",
+    "definition": "Always",
+    "indicators": [
+     "having no"
+    ],
+    "pieces": [
+     "E",
+     "TERNALLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the outside",
+      "gives": "EXTERNALLY",
+      "note": "externally = on the outside"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "you vote by marking an X on the ballot"
+     }
+    ],
+    "walkthrough": "'On the outside' is EXTERNALLY. 'Having no vote' removes the X — the cross you mark on a ballot — and E(X)TERNALLY becomes ETERNALLY, 'Always'."
+   }
   },
   {
    "id": "12-across",
@@ -216,7 +480,32 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIAD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRIAD",
+    "definition": "Some notes",
+    "indicators": [
+     "introduced in"
+    ],
+    "pieces": [
+     "TR",
+     "I",
+     "AD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "jazz revival",
+      "gives": "TRAD",
+      "note": "trad jazz, the revival of early jazz styles"
+     }
+    ],
+    "walkthrough": "'Jazz revival' gives TRAD — trad jazz, the revivalist style. I for 'one' is 'introduced in' it: TR(I)AD = TRIAD, 'Some notes' — a three-note chord."
+   }
   },
   {
    "id": "13-across",
@@ -233,7 +522,39 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOVECOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container",
+    "answer": "DOVECOT",
+    "definition": "A place for fliers",
+    "indicators": [
+     "almost",
+     "when held in"
+    ],
+    "pieces": [
+     "DO",
+     "VE",
+     "CO",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to act",
+      "gives": "DO",
+      "note": "to act = to do"
+     },
+     {
+      "clueFragment": "almost timid",
+      "gives": "CO",
+      "note": "COy, 'timid', loses its last letter"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "VET",
+      "note": "to vet something is to check it"
+     }
+    ],
+    "walkthrough": "'To act' is DO. 'Almost timid' is CO — COY cut short — and 'when held in check' puts it inside VET, since to vet is to check: VE(CO)T. DO + VECOT = DOVECOT, 'A place for fliers' — the pigeons."
+   }
   },
   {
    "id": "13-down",
@@ -250,7 +571,32 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUNES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DUNES",
+    "definition": "hills",
+    "indicators": [
+     "surrounding"
+    ],
+    "pieces": [
+     "DU",
+     "N",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deserts",
+      "gives": "DUES",
+      "note": "your just deserts are your dues"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "n = northern"
+     }
+    ],
+    "walkthrough": "'Deserts' — as in just deserts — are DUES. They go 'surrounding' N for 'northern': DU(N)ES, sandy 'hills'. Neat trap: the surface points at Sahara-style deserts, which is where the answer actually lives."
+   }
   },
   {
    "id": "14-down",
@@ -272,7 +618,36 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHEWTHEFAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "CHEW THE FAT",
+    "definition": "Gas",
+    "indicators": [
+     "escapes from",
+     "undone"
+    ],
+    "anagram": {
+     "fodder": "HATCH WE EFT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hatch we left",
+      "gives": "HATCHWEEFT",
+      "note": "the fodder once L has escaped"
+     },
+     {
+      "clueFragment": "large escapes from",
+      "gives": "",
+      "note": "L = large leaves LEFT"
+     },
+     {
+      "clueFragment": "undone",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Large escapes from' takes L out of the letters of HATCH WE LEFT, and 'undone' mixes what remains. HATCH WE EFT rearranges to CHEW THE FAT — to 'Gas', or chat idly."
+   }
   },
   {
    "id": "15-across",
@@ -289,7 +664,35 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DREDGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DREDGER",
+    "definition": "Working vessel",
+    "indicators": [],
+    "pieces": [
+     "DR",
+     "EDGE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr = doctor"
+     },
+     {
+      "clueFragment": "creep",
+      "gives": "EDGE",
+      "note": "to creep along is to edge"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "r = right"
+     }
+    ],
+    "walkthrough": "'Doctor' gives DR, to 'creep' is to EDGE, and 'right' is R. DR + EDGE + R = DREDGER, a 'Working vessel' that scoops up the seabed."
+   }
   },
   {
    "id": "16-down",
@@ -306,7 +709,39 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROTOR",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ROTOR",
+    "definition": "Turner",
+    "indicators": [
+     "after",
+     "punches"
+    ],
+    "pieces": [
+     "RO",
+     "T",
+     "O",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "r = run, as on cricket scorecards"
+     },
+     {
+      "clueFragment": "Troy",
+      "gives": "T",
+      "note": "t = troy, the weight system"
+     },
+     {
+      "clueFragment": "Joey",
+      "gives": "ROO",
+      "note": "a joey is a baby kangaroo — a roo"
+     }
+    ],
+    "walkthrough": "A 'Joey' is a baby kangaroo, a ROO. T for 'Troy' — the weight abbreviation — 'punches' it: RO(T)O. R for 'Run' comes 'after': ROTO + R = ROTOR, a 'Turner'. The capitalised Joey Turner is pure invention."
+   }
   },
   {
    "id": "17-across",
@@ -323,7 +758,32 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUDGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NUDGE",
+    "definition": "Jog",
+    "indicators": [
+     "without"
+    ],
+    "pieces": [
+     "NUD",
+     "G",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without clothes",
+      "gives": "NUDE",
+      "note": "nude = without clothes"
+     },
+     {
+      "clueFragment": "much money",
+      "gives": "G",
+      "note": "a G is a grand — a thousand"
+     }
+    ],
+    "walkthrough": "'Without clothes' is NUDE. The second 'without' means outside: NUDE goes round G, 'much money' (a grand). NUD(G)E = NUDGE, a 'Jog' with the elbow."
+   }
   },
   {
    "id": "18-across",
@@ -340,7 +800,25 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RED",
+    "definition": "Wine",
+    "definition2": "that’s often put in a pocket",
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "RED",
+      "note": "red wine"
+     },
+     {
+      "clueFragment": "that’s often put in a pocket",
+      "gives": "RED",
+      "note": "a snooker red, potted — put in a pocket"
+     }
+    ],
+    "walkthrough": "Two definitions: RED is 'Wine', and a snooker RED is 'often put in a pocket' — potted, fifteen times a frame. The surface wants you thinking of a hip flask."
+   }
   },
   {
    "id": "19-down",
@@ -357,7 +835,29 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUMPLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DUMPLING",
+    "definition": "pudding",
+    "indicators": [],
+    "pieces": [
+     "DUMP",
+     "LING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Throw away",
+      "gives": "DUMP",
+      "note": "to throw away is to dump"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "a ling is a long cod-like fish"
+     }
+    ],
+    "walkthrough": "To 'Throw away' is to DUMP, and the 'fish' is a LING. DUMP + LING = DUMPLING, a 'pudding'."
+   }
   },
   {
    "id": "20-across",
@@ -374,7 +874,41 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GILET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "GILET",
+    "definition": "top",
+    "indicators": [
+     "Maybe",
+     "removed"
+    ],
+    "anagram": {
+     "fodder": "GETLI"
+    },
+    "blocks": [
+     {
+      "clueFragment": "get laid",
+      "gives": "GETLAID",
+      "note": "the fodder before the deletions"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A = ace, removed from the fodder"
+     },
+     {
+      "clueFragment": "date’s removed",
+      "gives": "",
+      "note": "D = date also leaves"
+     },
+     {
+      "clueFragment": "Maybe",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Maybe' marks the anagram. Start with GET LAID, then 'after ace date’s removed' take out A (ace) and D (date). The five letters left — GETLI — rearrange to GILET, a sleeveless 'top'."
+   }
   },
   {
    "id": "21-down",
@@ -395,7 +929,29 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
     ]
    },
    "solution": "LONGWAVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LONG WAVE",
+    "definition": "used by some broadcasters?",
+    "indicators": [],
+    "pieces": [
+     "LONG",
+     "WAVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extended",
+      "gives": "LONG",
+      "note": "long = extended"
+     },
+     {
+      "clueFragment": "gesture",
+      "gives": "WAVE",
+      "note": "a wave is a gesture"
+     }
+    ],
+    "walkthrough": "'Extended' gives LONG and a 'gesture' is a WAVE. LONG WAVE is 'used by some broadcasters?' — the long-wave radio band. Read as one phrase, an extended gesture is a long wave too, which is the joke."
+   }
   },
   {
    "id": "22-across",
@@ -416,7 +972,32 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOFTTOP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SOFT TOP",
+    "definition": "vehicle",
+    "indicators": [
+     "to be found in"
+    ],
+    "pieces": [
+     "S",
+     "OFT",
+     "TOP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frequently",
+      "gives": "OFT",
+      "note": "oft = frequently, poetically"
+     },
+     {
+      "clueFragment": "station",
+      "gives": "STOP",
+      "note": "a bus or tram station is a stop"
+     }
+    ],
+    "walkthrough": "'Frequently' is OFT, 'to be found in' STOP — a 'station' where the bus calls. S(OFT)TOP = SOFT TOP, a convertible 'vehicle'."
+   }
   },
   {
    "id": "23-down",
@@ -433,7 +1014,33 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINDER",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "FINDER",
+    "definition": "Small telescope",
+    "indicators": [
+     "includes",
+     "cap"
+    ],
+    "pieces": [
+     "FIN",
+     "D",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of superior quality",
+      "gives": "FINER",
+      "note": "finer = of superior quality"
+     },
+     {
+      "clueFragment": "detachable cap",
+      "gives": "D",
+      "note": "the 'cap' — top letter, in a down clue — of Detachable"
+     }
+    ],
+    "walkthrough": "'Of superior quality' is FINER, which 'includes' the cap — the top letter, this being a down clue — of 'Detachable': D. FIN(D)ER = FINDER, the 'Small telescope' mounted on a big one to aim it."
+   }
   },
   {
    "id": "24-down",
@@ -450,7 +1057,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLANET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLANET",
+    "definition": "Mercury",
+    "indicators": [
+     "gain"
+    ],
+    "pieces": [
+     "PLANE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "PLANE",
+      "note": "the plane tree, a common street tree"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "t = temperature"
+     }
+    ],
+    "walkthrough": "The 'tree' is a PLANE, and it 'gains' T for 'temperature': PLANE + T = PLANET, of which 'Mercury' is one — the question mark flags the example."
+   }
   },
   {
    "id": "25-across",
@@ -467,7 +1098,37 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARINER",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MARINER",
+    "definition": "tar",
+    "indicators": [
+     "collecting"
+    ],
+    "pieces": [
+     "M",
+     "AR",
+     "INER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prospector",
+      "gives": "MINER",
+      "note": "a prospector mines for gold"
+     },
+     {
+      "clueFragment": "top grade",
+      "gives": "A",
+      "note": "an A grade"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "r = river"
+     }
+    ],
+    "walkthrough": "A 'Prospector' is a MINER. It goes 'collecting' A ('top grade') and R ('river'): M(AR)INER = MARINER, a 'tar' — an old word for a sailor."
+   }
   },
   {
    "id": "26-across",
@@ -484,7 +1145,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PENCE",
+    "definition": "cash",
+    "indicators": [
+     "to dispose of"
+    ],
+    "pieces": [
+     "P",
+     "ENCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pressure",
+      "gives": "P",
+      "note": "p = pressure, as in physics"
+     },
+     {
+      "clueFragment": "therefore",
+      "gives": "ENCE",
+      "note": "HENCE, told 'to dispose of hard' (H)"
+     }
+    ],
+    "walkthrough": "'Pressure' is P, and 'therefore' is HENCE — which is told 'to dispose of hard', dropping the H. P + ENCE = PENCE, 'cash'."
+   }
   },
   {
    "id": "26-down",
@@ -501,7 +1186,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PATH",
+    "definition": "Way",
+    "indicators": [
+     "less"
+    ],
+    "pieces": [
+     "PAT",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "PATCH",
+      "note": "a vegetable patch or flower bed"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "c = cold, as on a tap"
+     }
+    ],
+    "walkthrough": "A garden 'bed' is a PATCH. Make it 'less cold' by removing C — the cold tap — and PAT(C)H becomes PATH, a 'Way'."
+   }
   },
   {
    "id": "27-across",
@@ -523,7 +1232,30 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALLTHEWAY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALL THE WAY",
+    "definition": "to the very end",
+    "indicators": [
+     "twists"
+    ],
+    "anagram": {
+     "fodder": "WHAT ALLEY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "What alley",
+      "gives": "WHATALLEY",
+      "note": "anagram fodder, 9 letters"
+     },
+     {
+      "clueFragment": "twists",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Twists' is the anagram indicator: the letters of WHAT ALLEY rearrange to ALL THE WAY, 'to the very end'. A twisting alley might well run all the way, which makes the whole clue read beautifully."
+   }
   },
   {
    "id": "28-down",
@@ -540,7 +1272,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HERA",
+    "definition": "character in mythology",
+    "indicators": [
+     "pursuing"
+    ],
+    "pieces": [
+     "HER",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "the indefinite article — one"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "HER",
+      "note": "her = female pronoun"
+     }
+    ],
+    "walkthrough": "'One' — A — comes 'pursuing', i.e. after, HER, the 'female': HER + A = HERA, queen of the Greek gods and a 'character in mythology'."
+   }
   },
   {
    "id": "29-down",
@@ -557,7 +1313,32 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YARN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + last letter",
+    "answer": "YARN",
+    "definition": "do not swallow one!",
+    "indicators": [
+     "free",
+     "end of"
+    ],
+    "pieces": [
+     "YAR",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug-free period",
+      "gives": "YAR",
+      "note": "YEAR, a period, without E — the drug ecstasy"
+     },
+     {
+      "clueFragment": "end of addiction",
+      "gives": "N",
+      "note": "the last letter of addictioN"
+     }
+    ],
+    "walkthrough": "A 'period' is a YEAR; 'Drug-free' removes E, the drug ecstasy, leaving YAR. Add the 'end of addiction' — N — for YARN: a tall tale, and 'do not swallow one!' warns you not to believe it."
+   }
   },
   {
    "id": "30-across",
@@ -578,7 +1359,32 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
     ]
    },
    "solution": "THECAVERN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THE CAVERN",
+    "definition": "Legendary music venue",
+    "indicators": [
+     "hosting"
+    ],
+    "pieces": [
+     "THE",
+     "CAVER",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "later",
+      "gives": "THEN",
+      "note": "then = later"
+     },
+     {
+      "clueFragment": "explorer",
+      "gives": "CAVER",
+      "note": "an underground explorer"
+     }
+    ],
+    "walkthrough": "'Later' is THEN, 'hosting' a CAVER — an underground 'explorer'. THE(CAVER)N = THE CAVERN, the 'Legendary music venue' in Liverpool where the Beatles made their name."
+   }
   },
   {
    "id": "31-across",
@@ -595,7 +1401,31 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROVER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "ROVER",
+    "definition": "dog?",
+    "indicators": [
+     "at last"
+    ],
+    "pieces": [
+     "R",
+     "OVER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Collar at last",
+      "gives": "R",
+      "note": "the last letter of collaR"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "OVER",
+      "note": "on = over, as in 'a blanket over the bed'"
+     }
+    ],
+    "walkthrough": "'Collar at last' gives R, the final letter of collaR, and 'on' means OVER. R + OVER = ROVER, a classic name for a 'dog?' — the question mark admitting not every dog answers to it."
+   }
   }
  ]
 } /*JSON-END*/;

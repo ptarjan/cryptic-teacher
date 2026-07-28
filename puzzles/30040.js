@@ -29,7 +29,38 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTPLAY",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "OUTPLAY",
+    "definition": "Perform better than",
+    "indicators": [
+     "leader of",
+     "cutting"
+    ],
+    "pieces": [
+     "OUT",
+     "P",
+     "LAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leader of party",
+      "gives": "P",
+      "note": "the first letter of Party"
+     },
+     {
+      "clueFragment": "expenditure",
+      "gives": "OUTLAY",
+      "note": "outlay = expenditure"
+     },
+     {
+      "clueFragment": "cutting",
+      "gives": "",
+      "note": "insertion indicator — P cuts into OUTLAY"
+     }
+    ],
+    "walkthrough": "The 'leader of party' is P, and 'expenditure' gives OUTLAY. 'Cutting' tells you P slices into OUTLAY: OUT + P + LAY = OUTPLAY, which is to 'Perform better than' someone."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +77,37 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCOUNTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DISCOUNTER",
+    "definition": "Cheap outlet",
+    "indicators": [
+     "losing"
+    ],
+    "pieces": [
+     "DISCO",
+     "UN",
+     "TER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "70s music",
+      "gives": "DISCO",
+      "note": "the sound of the seventies"
+     },
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "'a' in French = un"
+     },
+     {
+      "clueFragment": "name losing money",
+      "gives": "TER",
+      "note": "TERM (to name) losing M (money)"
+     }
+    ],
+    "walkthrough": "'70s music' is DISCO, and 'a French' is UN (the French for 'a'). Then 'name' as a verb gives TERM, which 'losing money' drops its M to leave TER. DISCO + UN + TER = DISCOUNTER, a 'Cheap outlet'."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +124,22 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEAR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "WEAR",
+    "definition": "Sport",
+    "indicators": [
+     "seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jarrow earlier",
+      "gives": "WEAR",
+      "note": "hidden: jarroW EARlier"
+     }
+    ],
+    "walkthrough": "'Seen in' flags a hidden word: look inside 'jarroW EARlier' and WEAR is sitting there across the join. The definition is 'Sport' — to sport a hat is to wear it. Jarrow, up in the north-east near the River Wear, makes a fitting hiding place."
+   }
   },
   {
    "id": "4-down",
@@ -80,7 +156,30 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROMIDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BROMIDE",
+    "definition": "placatory statement",
+    "indicators": [
+     "concocted"
+    ],
+    "anagram": {
+     "fodder": "DIM BORE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dim bore",
+      "gives": "DIMBORE",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "concocted",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Concocted' says to mix up DIM BORE, and those seven letters rearrange to BROMIDE — a 'placatory statement', a soothing platitude. The surface even sounds like the sort of dull person who'd utter one."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +201,41 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONONESMIND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ON ONE'S MIND",
+    "definition": "of concern?",
+    "indicators": [],
+    "pieces": [
+     "ON",
+     "ONE",
+     "S",
+     "MIND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Performing",
+      "gives": "ON",
+      "note": "a performer who is on stage is 'on'"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "one = an individual"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "s = singular, the grammar abbreviation"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "MIND",
+      "note": "to mind = to object ('do you mind?')"
+     }
+    ],
+    "walkthrough": "'Performing' gives ON (an actor who's on stage is 'on'), 'individual' gives ONE, and 'singular' is the grammar abbreviation S. Then 'object' is a verb here: to MIND is to object. ON + ONE + S + MIND = ON ONE'S MIND, which is how you'd describe something 'of concern?'."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +252,39 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUAM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "GUAM",
+    "definition": "US territory",
+    "indicators": [
+     "Revolutionary",
+     "encapsulating"
+    ],
+    "pieces": [
+     "GU",
+     "A",
+     "M"
+    ],
+    "subReversals": [
+     {
+      "from": "MUG",
+      "to": "GUM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary face",
+      "gives": "GUM",
+      "note": "MUG (face) turned round"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter A, tucked inside"
+     }
+    ],
+    "walkthrough": "'Face' is MUG in slang, and 'Revolutionary' turns it round to GUM. That then 'encapsulates' the A from the clue: GU(A)M = GUAM, the 'US territory' in the Pacific."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +301,45 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHUTNEY",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "CHUTNEY",
+    "definition": "Indian food",
+    "indicators": [
+     "in",
+     "overturned"
+    ],
+    "pieces": [
+     "C",
+     "H",
+     "UT",
+     "NEY"
+    ],
+    "subReversals": [
+     {
+      "from": "YEN",
+      "to": "NEY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "h = husband, as in family trees"
+     },
+     {
+      "clueFragment": "trim",
+      "gives": "CUT",
+      "note": "to trim = to cut; it wraps around the H"
+     },
+     {
+      "clueFragment": "longing",
+      "gives": "NEY",
+      "note": "YEN (longing) 'overturned' in this down clue"
+     }
+    ],
+    "walkthrough": "Put H for 'Husband' in CUT ('trim') to get C(H)UT. Then take YEN, a 'longing', and since this is a down clue 'overturned' flips it to NEY. CHUT + NEY = CHUTNEY, the 'Indian food' on the side of your curry."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +356,36 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUTINEER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "MUTINEER",
+    "definition": "Christian, say",
+    "indicators": [
+     "possibly",
+     "no end of"
+    ],
+    "anagram": {
+     "fodder": "TERM IN UE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Term in use",
+      "gives": "TERMINUSE",
+      "note": "anagram fodder, before the deletion"
+     },
+     {
+      "clueFragment": "no end of churches",
+      "gives": "",
+      "note": "drop S, the last letter of churcheS"
+     },
+     {
+      "clueFragment": "possibly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Take TERM IN USE and remove the 'end of churches' — the S — leaving eight letters. 'Possibly' signals the anagram, and they rearrange to MUTINEER. The definition is 'Christian, say': Fletcher Christian, who led the mutiny on the Bounty, is the most famous mutineer of all."
+   }
   },
   {
    "id": "9-across",
@@ -170,7 +402,32 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOUGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter + deletion",
+    "answer": "NOUGHT",
+    "definition": "Duck",
+    "indicators": [
+     "middle of",
+     "is out"
+    ],
+    "pieces": [
+     "N",
+     "OUGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "middle of canal",
+      "gives": "N",
+      "note": "the central letter of caNal"
+     },
+     {
+      "clueFragment": "looked for when sun is out",
+      "gives": "OUGHT",
+      "note": "SOUGHT (looked for) with S (sun) taken out"
+     }
+    ],
+    "walkthrough": "The 'middle of canal' is its central letter, N. 'Looked for' gives SOUGHT, and 'when sun is out' removes the S (s = sun) to leave OUGHT. N + OUGHT = NOUGHT — a 'Duck', the cricketer's word for a score of zero."
+   }
   },
   {
    "id": "10-across",
@@ -187,7 +444,37 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPECTRUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SPECTRUM",
+    "definition": "Colourful band",
+    "indicators": [
+     "snubbed"
+    ],
+    "pieces": [
+     "SP",
+     "EC",
+     "TRUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "SP",
+      "note": "sp = special, a standard abbreviation"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "EC",
+      "note": "the City of London's EC postcode"
+     },
+     {
+      "clueFragment": "snubbed president",
+      "gives": "TRUM",
+      "note": "TRUMP cut short — 'snubbed' as in snub-nosed"
+     }
+    ],
+    "walkthrough": "'Special' abbreviates to SP, and 'city' is EC — the postcode of the City of London. Then a 'snubbed president' is TRUMP with his end cut off (snubbed, like a snub nose): TRUM. SP + EC + TRUM = SPECTRUM, the 'Colourful band' of a rainbow."
+   }
   },
   {
    "id": "11-across",
@@ -204,7 +491,36 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUMPTY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "NUMPTY",
+    "definition": "Dimwit",
+    "indicators": [
+     "off",
+     "scrubbing"
+    ],
+    "anagram": {
+     "fodder": "PUT MNY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "put many",
+      "gives": "PUTMANY",
+      "note": "anagram fodder, before the deletion"
+     },
+     {
+      "clueFragment": "after scrubbing article",
+      "gives": "",
+      "note": "remove A, the article"
+     },
+     {
+      "clueFragment": "off",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Start with PUT MANY, and 'after scrubbing article' delete the A. 'Off' tells you to jumble the six letters that remain, giving NUMPTY — a 'Dimwit', in cheerfully Scottish style."
+   }
   },
   {
    "id": "12-across",
@@ -225,7 +541,36 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
     ]
    },
    "solution": "NATURALDISASTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NATURAL DISASTER",
+    "definition": "flood, maybe",
+    "indicators": [
+     "among",
+     "stricken"
+    ],
+    "anagram": {
+     "fodder": "ALDI RESTAURANTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Supermarket",
+      "gives": "ALDI",
+      "note": "Aldi, the supermarket chain"
+     },
+     {
+      "clueFragment": "restaurants",
+      "gives": "RESTAURANTS",
+      "note": "the rest of the fodder — ALDI goes 'among' it"
+     },
+     {
+      "clueFragment": "stricken",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The 'Supermarket' is ALDI, which goes 'among' the letters of RESTAURANTS — fifteen letters in all. 'Stricken' is the anagram indicator, and they rearrange to NATURAL DISASTER, of which a 'flood, maybe' is one example. A stricken supermarket in a flood is a neat all-in-one picture."
+   }
   },
   {
    "id": "13-down",
@@ -246,7 +591,38 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
     ]
    },
    "solution": "ARTGALLERY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ART GALLERY",
+    "definition": "site with a collection?",
+    "indicators": [
+     "in Paris",
+     "over"
+    ],
+    "pieces": [
+     "ARTG",
+     "ALLER",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paul S’s partner",
+      "gives": "ARTG",
+      "note": "Paul Simon's partner Art Garfunkel — 'Art G'"
+     },
+     {
+      "clueFragment": "in Paris to go",
+      "gives": "ALLER",
+      "note": "the French for 'to go'"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y, an algebraic unknown"
+     }
+    ],
+    "walkthrough": "'Paul S' is Paul Simon, so his partner is Art Garfunkel — ART G. 'In Paris to go' is the French verb ALLER, and an 'unknown' is Y from algebra. In this down clue ALLER sits 'over' the Y: ART G + ALLER + Y = ART GALLERY, a 'site with a collection?'."
+   }
   },
   {
    "id": "14-down",
@@ -263,7 +639,30 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHEARWATER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHEARWATER",
+    "definition": "marine bird",
+    "indicators": [
+     "at sea"
+    ],
+    "anagram": {
+     "fodder": "TAR WAS HERE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tar was here",
+      "gives": "TARWASHERE",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "at sea",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'At sea' is the anagram indicator: shake up TAR WAS HERE and you get SHEARWATER, the 'marine bird'. Lovely surface — a tar is a sailor, exactly who you'd expect to have scrawled 'was here' out on the ocean."
+   }
   },
   {
    "id": "15-across",
@@ -280,7 +679,26 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STATE",
+    "definition": "Declare",
+    "definition2": "condition",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Declare",
+      "gives": "STATE",
+      "note": "to state = to declare"
+     },
+     {
+      "clueFragment": "condition",
+      "gives": "STATE",
+      "note": "a state = a condition ('in a bad state')"
+     }
+    ],
+    "walkthrough": "A compact double definition. To 'Declare' something is to STATE it, and a 'condition' is a STATE — as in being in a sorry state. Two meanings, one word."
+   }
   },
   {
    "id": "16-across",
@@ -297,7 +715,25 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIVER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "DIVER",
+    "definition": "one working in a suit",
+    "indicators": [
+     "not half"
+    ],
+    "pieces": [
+     "DIVER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amusements (not half)",
+      "gives": "DIVER",
+      "note": "DIVERSIONS (amusements) keeping only its first half"
+     }
+    ],
+    "walkthrough": "'Amusements' are DIVERSIONS; '(not half)' tells you to throw away half the word, keeping the first five letters: DIVER. That's 'one working in a suit' — a diving suit, not a pinstripe."
+   }
   },
   {
    "id": "17-down",
@@ -314,7 +750,38 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CYPRIOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letter",
+    "answer": "CYPRIOT",
+    "definition": "Islander",
+    "indicators": [
+     "disheartened",
+     "start of"
+    ],
+    "pieces": [
+     "CY",
+     "P",
+     "RIOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clearly disheartened",
+      "gives": "CY",
+      "note": "CLEARLY loses its heart, leaving C…Y"
+     },
+     {
+      "clueFragment": "start of public",
+      "gives": "P",
+      "note": "the first letter of Public"
+     },
+     {
+      "clueFragment": "disorder",
+      "gives": "RIOT",
+      "note": "a riot = disorder"
+     }
+    ],
+    "walkthrough": "'Clearly disheartened' scoops out the middle of CLEARLY, leaving just C and Y. That faces the 'start of public' (P) and 'disorder' (RIOT). CY + P + RIOT = CYPRIOT, an 'Islander' from Cyprus."
+   }
   },
   {
    "id": "18-down",
@@ -331,7 +798,32 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FADDIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FADDIST",
+    "definition": "one given to temporary obsession?",
+    "indicators": [
+     "defending"
+    ],
+    "pieces": [
+     "F",
+     "ADD",
+     "IST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "FIST",
+      "note": "dukes = fists, as in 'put up your dukes'"
+     },
+     {
+      "clueFragment": "a theologian",
+      "gives": "ADD",
+      "note": "A + DD (Doctor of Divinity)"
+     }
+    ],
+    "walkthrough": "A 'Duke' is slang for a FIST — as in 'put up your dukes'. It's 'defending' (wrapped around) 'a theologian': A plus DD, a Doctor of Divinity. F(ADD)IST = FADDIST, 'one given to temporary obsession?'."
+   }
   },
   {
    "id": "19-down",
@@ -348,7 +840,31 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONCURS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CONCURS",
+    "definition": "Agrees",
+    "indicators": [
+     "not English"
+    ],
+    "pieces": [
+     "CON",
+     "CURS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with Italian",
+      "gives": "CON",
+      "note": "'with' in Italian = con"
+     },
+     {
+      "clueFragment": "French priests (not English)",
+      "gives": "CURS",
+      "note": "CURES (curés, French priests) minus E (English)"
+     }
+    ],
+    "walkthrough": "'With Italian' is CON — the Italian for 'with'. 'French priests' are CURÉS, and '(not English)' removes the E to leave CURS. CON + CURS = CONCURS, which means 'Agrees'."
+   }
   },
   {
    "id": "20-across",
@@ -371,7 +887,30 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
     ]
    },
    "solution": "BYTRIALANDERROR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BY TRIAL AND ERROR",
+    "definition": "in an experimental way?",
+    "indicators": [
+     "treated"
+    ],
+    "anagram": {
+     "fodder": "ANDORRA TERRIBLY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Andorra terribly",
+      "gives": "ANDORRATERRIBLY",
+      "note": "anagram fodder, 15 letters"
+     },
+     {
+      "clueFragment": "treated",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Treated' is the anagram indicator here — a sneaky choice, since 'terribly' looks like one but is actually fodder. Rearrange ANDORRA TERRIBLY, all fifteen letters, and you get BY TRIAL AND ERROR: 'in an experimental way?'."
+   }
   },
   {
    "id": "21-across",
@@ -388,7 +927,22 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAVEL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TRAVEL",
+    "definition": "Insurable activity",
+    "indicators": [
+     "held in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra velodrome",
+      "gives": "TRAVEL",
+      "note": "hidden: exTRA VELodrome"
+     }
+    ],
+    "walkthrough": "'Held in' points to a hidden answer: 'exTRA VELodrome' conceals TRAVEL across the two words. The definition is 'Insurable activity' — think travel insurance."
+   }
   },
   {
    "id": "22-down",
@@ -405,7 +959,31 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VETO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "VETO",
+    "definition": "Sanction",
+    "indicators": [
+     "excluding outsiders"
+    ],
+    "pieces": [
+     "VE",
+     "TO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "VE",
+      "note": "oVEr without its outer letters"
+     },
+     {
+      "clueFragment": "Eton",
+      "gives": "TO",
+      "note": "eTOn without its outer letters"
+     }
+    ],
+    "walkthrough": "'Excluding outsiders' strips the first and last letters from both 'over' and 'Eton', leaving VE and TO. Together they make VETO — a 'Sanction' in the blocking sense, as when a president vetoes a bill."
+   }
   },
   {
    "id": "23-across",
@@ -422,7 +1000,32 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISPATCH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DISPATCH",
+    "definition": "speed",
+    "indicators": [
+     "Circling"
+    ],
+    "pieces": [
+     "DI",
+     "SPA",
+     "TCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resort",
+      "gives": "SPA",
+      "note": "a spa = a resort"
+     },
+     {
+      "clueFragment": "abandon",
+      "gives": "DITCH",
+      "note": "to ditch = to abandon; it circles the SPA"
+     }
+    ],
+    "walkthrough": "'Abandon' gives DITCH, which goes 'Circling' the 'resort', SPA: DI(SPA)TCH. The definition is 'speed' — to do something with dispatch is to do it quickly."
+   }
   },
   {
    "id": "24-down",
@@ -439,7 +1042,26 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SINK",
+    "definition": "Decline",
+    "definition2": "feature in a kitchen",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Decline",
+      "gives": "SINK",
+      "note": "to sink = to decline"
+     },
+     {
+      "clueFragment": "feature in a kitchen",
+      "gives": "SINK",
+      "note": "the kitchen sink"
+     }
+    ],
+    "walkthrough": "A double definition. To 'Decline' is to SINK — spirits or share prices can do it — and the 'feature in a kitchen' is of course the kitchen SINK."
+   }
   },
   {
    "id": "25-across",
@@ -456,7 +1078,26 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POTTER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "POTTER",
+    "definition": "One engaged in break, perhaps",
+    "definition2": "move with little energy",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "One engaged in break, perhaps",
+      "gives": "POTTER",
+      "note": "a snooker player making a break pots balls"
+     },
+     {
+      "clueFragment": "move with little energy",
+      "gives": "POTTER",
+      "note": "to potter (about) = to move without urgency"
+     }
+    ],
+    "walkthrough": "Two definitions again. In snooker, 'One engaged in break, perhaps' is a POTTER — someone potting balls to build a break. And to 'move with little energy' is to POTTER about. The 'perhaps' signals the first sense is a playful example."
+   }
   },
   {
    "id": "26-across",
@@ -473,7 +1114,38 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SANCERRE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SANCERRE",
+    "definition": "tipple",
+    "indicators": [
+     "into"
+    ],
+    "pieces": [
+     "SAN",
+     "CE",
+     "RR",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anglican",
+      "gives": "CE",
+      "note": "CE = Church of England"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "RR = Right Reverend, a bishop's style"
+     },
+     {
+      "clueFragment": "sound",
+      "gives": "SANE",
+      "note": "sound = sane; it takes the CE RR inside"
+     }
+    ],
+    "walkthrough": "'Anglican' gives CE (Church of England) and 'bishop' gives RR (Right Reverend, the style of a bishop). Put CERR 'into' SANE ('sound', of mind): SAN(CERR)E = SANCERRE, the Loire white wine — a very respectable 'tipple'."
+   }
   }
  ]
 } /*JSON-END*/;
