@@ -238,9 +238,16 @@ Two habits to break specifically, both mechanically detectable and both flagged 
 - **Do not weld the definition on with a copula.** `Cold heap is inexpensive`
   makes the clue assert its own answer. Real setters make the definition earn its
   place in the sentence's meaning.
-- **Do not stand the anagram indicator next to its fodder.** `Naples rebuilt`
-  points straight at the anagram. Separate them, or choose an indicator that reads
-  as ordinary description in the surface.
+- ~~**Do not stand the anagram indicator next to its fodder.**~~ **Withdrawn —
+  this was wrong.** It was written from a judge's remark and never checked against
+  practice. Measured over 38,830 published anagram clues with a structurally
+  verified fodder, **88.9% put the indicator directly against it**; `Naples
+  rebuilt` is the normal shape, not a tell. The half of the advice worth keeping
+  is the second half: choose an indicator that reads as ordinary description in
+  the surface. Where it sits matters far less than whether it sounds like an
+  instruction. See the concealment section of `tools/clue_quality.py` for the
+  measurement, including why the position effect that looked significant
+  (p=0.03) does not survive being one of six cuts tried on thirteen clues.
 
 And one thing not to over-correct: **economy was already fine** (+0.15), so the
 answer is not "write longer clues". `terse` fires on ten of the twenty, including
