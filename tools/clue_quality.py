@@ -15,6 +15,14 @@ comma or a copula, with no sentence wrapped around them.
   Cold heap is inexpensive            (2.33/5 — part + part IS definition)
   Identity tucked into southeast      (2.80/5 — pure assembly instructions)
 
+Rewriting those six clues produced a second complaint, and it is the sharper one:
+*they still do not read as real sentences or carry a joke.* `That Conservative
+lot, and mean with it` is a grammatical fragment with no finite verb — nothing a
+person would ever say out loud. Three further checks look for that: a clue with
+no finite verb (`not-a-sentence`), a clue that opens by telling the solver what
+to do (`imperative-opening`), and a clue built out of word pairs that no
+published setter has ever written (`unattested-phrasing`).
+
 Every warning here is a smell, not an error. Exit status is 0 either way — this
 informs the setter, it does not block the build.
 
@@ -35,11 +43,63 @@ one clue cannot refute it, but do not treat them as authority. Re-run this table
 after the next graded puzzle; a check that keeps pointing the wrong way should be
 deleted, not defended.
 
+How often each check fires on clues nobody thinks are broken — 1000 clues drawn
+at random from times_xwd_times, fifteensquared and bigdave44, held out of the
+corpus tables so `unattested-phrasing` cannot find its own input attested
+(`python3 tools/clue_quality.py --calibrate`). Beside it, the same checks on our
+20, both as they were graded and as they stand after rewriting:
+
+    check                    published   A001 graded   A001 rewritten
+    copula-definition             1.1%          10%            5%
+    fenced-definition             5.9%          15%           10%
+    indicator-abuts-fodder         n/a          20%           20%
+    stock-indicator                n/a           5%            5%
+    terse                        20.0%          50%           30%
+    not-a-sentence               48.3%          60%           45%
+    imperative-opening            1.5%           0%            0%
+    unattested-phrasing           5.7%           0%            0%
+
+    n/a: reads an annotation the corpus does not carry, so it cannot be run on
+    published clues at all. Those two rates are not evidence of anything.
+
+A second draw (`--calibrate --sample 800 --seed 5`) gives 48.0%, 2.2% and 3.5%
+for the three new checks, so the published column is not an artefact of one
+sample.
+
+Read that table before trusting any of these, because two of the three new checks
+fire on MORE published clues than on ours, and a check that flags Araucaria is a
+broken check:
+
+  * `not-a-sentence` flags nearly half the Times. Published setters write
+    verbless clues constantly — `Bird — large one in sort of American pie`,
+    `Old man in sham woolly shawl` — and they are fine, because a noun phrase can
+    still be a thing a person would say. The check does point the right way at
+    the margin (60% on the 20 as graded, 45% on the same 20 after rewriting,
+    against 48% published), but a 12-point gap on n=20 is a nudge in aggregate
+    and nothing at all on a single clue. Do not rewrite a clue because this
+    fired — reread it aloud, and decide for yourself.
+  * `unattested-phrasing` fires on 5.7% of published clues and on none of ours,
+    at any threshold that keeps the published rate under 10%. The reason is
+    measurable: our clues' unattested content-bigram fraction averages 0.39 and
+    the published median is 0.38. Our phrasing is as attested as the Times'. So
+    whatever is wrong with `That Conservative lot, and mean with it`, it is not
+    that the word pairs are strange — it is that the pairs are ordinary and the
+    sentence they make is not one anybody needed to say. The check earns nothing
+    today; it is kept as a guard against letter-driven word salad, which is a
+    failure we have not made yet.
+  * `imperative-opening` also fires more on published (1.5%) than on ours (0%),
+    but all 15 published firings are real solver-instructions (`Cut complaints
+    associated with take-out`, `Get rid of endless booty…`), so the check is
+    doing what it says; the shape is simply rare everywhere. It is a guard, not a
+    diagnosis.
+
   python3 tools/clue_quality.py tools/data/authored_A001_clues.json
+  python3 tools/clue_quality.py --calibrate --sample 1000
 """
 
 import argparse
 import json
+import random
 import re
 import sqlite3
 import statistics
@@ -59,27 +119,191 @@ COPULAS = r"(?:is|are|was|were|gives|makes|means|provides|produces|becomes|yield
 # frequency, which is why judges could see the mechanism coming.
 STOCK_PERCENTILE = 0.02
 
+# Every second row of the corpus: 330k of the 660k clues, spread across all ten
+# sources because the rowids interleave. The bigram table it builds has ~870k
+# entries and costs a few seconds and a few hundred MB; set this to 1 for the
+# whole corpus if you are willing to pay double for a slightly denser table.
+CORPUS_SAMPLE_MODULUS = 2
+
+# --- the finite-verb inventory ----------------------------------------------
+# There is no POS tagger here and there will not be one; the whole tool is
+# stdlib. So "does this clue contain a finite verb" is answered by a closed-class
+# inventory plus two corpus-derived open-class sets (see load_corpus_norms).
+#
+# Its limits, stated up front:
+#   * A finite verb outside the inventory and outside the corpus sets is missed,
+#     so a real sentence can be flagged. Rare present-tense verbs ("Minister
+#     resigns") are the usual victims.
+#   * -ed forms are hopelessly ambiguous in cryptic English: `Dream disturbed,
+#     carrying a gun` is a noun phrase but `Morgan dropped a million` is a
+#     sentence, and they are the same shape. The tie is broken by asking whether
+#     the corpus ever uses that word as a wordplay indicator; if it does, it is
+#     assumed to be doing mechanism duty rather than being the sentence's verb.
+#     That is a guess, and it is wrong on some clues in both directions.
+#   * "'s" is counted as a verb, though it is a genitive at least as often as it
+#     is `is`/`has`. That direction is chosen deliberately: everywhere this
+#     inventory guesses, it guesses towards "there is a verb", because a missed
+#     warning costs nothing and a wrong one scolds a good clue.
+#   * No agreement, no clause structure, no scope. A finite verb anywhere in the
+#     clue counts, even inside a subordinate clause, and a bare plural present
+#     ("Compilers keep secrets") is missed entirely for want of a subject number.
+COPULA_FORMS = {
+    "is", "are", "was", "were", "am", "isn't", "aren't", "wasn't", "weren't",
+    "has", "have", "had", "hasn't", "haven't", "hadn't",
+    "does", "do", "did", "doesn't", "don't", "didn't",
+    "will", "won't", "would", "wouldn't", "can", "can't", "cannot", "could",
+    "couldn't", "may", "might", "must", "mustn't", "shall", "should",
+    "shouldn't", "ought", "need", "dare", "'s", "'re", "'ll", "'ve", "'d",
+}
+# Irregular finite pasts. Deliberately excludes forms that are commoner as nouns
+# or adjectives in clue English (left, lost, won, put, hit, set, cast, read,
+# rose, bore, wound, drew, shot, spent, ground), because a false negative here
+# only costs a missed warning while a false positive scolds a good clue.
+IRREGULAR_PAST = {
+    "went", "saw", "took", "gave", "came", "said", "told", "knew", "thought",
+    "wrote", "broke", "kept", "sent", "met", "brought", "caught", "fell",
+    "felt", "heard", "meant", "paid", "sold", "stood", "understood", "became",
+    "began", "drove", "ate", "flew", "grew", "bought", "built", "chose",
+    "fought", "forgot", "hid", "rode", "rang", "sang", "sank", "slept",
+    "spoke", "stole", "swam", "taught", "tore", "woke", "blew", "dug", "fed",
+    "fled", "froze", "hung", "leapt", "lit", "shook", "shone", "sprang",
+    "stuck", "swore", "swept", "threw", "wore", "struck", "led", "ran",
+}
+# Words that end in -ed and are not past tenses. The -eed family (speed, need,
+# breed, indeed) is excluded wholesale, which costs "agreed" and "freed"; the
+# rest are the -ed nouns and adjectives frequent enough in clue English to
+# matter. Without this, `Space losing its head at speed` reads "speed" as a verb.
+ED_NOT_A_VERB = {
+    "sacred", "hundred", "hatred", "kindred", "wicked", "naked", "aged",
+    "united", "limited", "moped", "shred", "biped", "quadruped", "tweed",
+    "shed", "sled", "embed", "inbred", "crossbred", "learned", "beloved",
+    "rugged", "ragged", "jagged", "wretched", "crooked", "blessed", "cursed",
+}
+# Verbs that tell the SOLVER what to do with the letters. An imperative is
+# grammatically a sentence, which is why these words are exempt from
+# `not-a-sentence` — but an imperative addressed to the solver is not a surface,
+# which is why they get their own warning instead. The two checks never fire on
+# the same clue: this list is folded into the imperative openers that satisfy
+# check 1, and then flagged by check 2.
+ASSEMBLY_VERBS = {
+    "take", "put", "add", "note", "place", "insert", "get", "set", "bring",
+    "give", "append", "attach", "combine", "include", "join", "move",
+    "position", "remove", "replace", "return", "swap", "use", "keep", "hold",
+    "follow", "precede", "surround", "contain", "drop", "cut", "trim",
+}
+# Words too common to carry any information about whether a phrase is real
+# English. A bigram of two of these is not evidence of anything.
+FUNCTION_WORDS = {
+    "a", "an", "the", "of", "in", "on", "at", "to", "for", "with", "by",
+    "from", "as", "and", "or", "but", "not", "no", "nor", "so", "if", "then",
+    "than", "there", "here", "it", "its", "this", "that", "these", "those",
+    "he", "she", "they", "we", "i", "you", "his", "her", "their", "my", "our",
+    "your", "him", "them", "us", "me", "who", "whom", "whose", "which",
+    "what", "when", "where", "how", "why", "up", "down", "out", "off", "over",
+    "under", "into", "about", "after", "before", "between", "through",
+    "during", "against", "one", "some", "any", "all", "is", "are", "was",
+    "were", "be", "been", "being", "am", "has", "have", "had", "do", "does",
+    "did", "will", "would", "can", "could", "may", "might", "must", "should",
+    "'s", "'re", "'ll", "'ve", "'d", "'t",
+}
+
+# `unattested-phrasing` fires when this fraction or more of a clue's content
+# bigrams are absent from the corpus. Chosen from the published-clue
+# distribution, not from taste: 1000 held-out broadsheet clues have a median
+# unattested fraction of 0.38, p90 of 0.75 and p95 of 0.83, so 0.8 sits in the
+# tail and fires on 5.7% of them. 0.75 would fire on 10.5%, which is too loud.
+UNATTESTED_FRACTION = 0.8
+# Below this many content bigrams the fraction is too coarse to mean anything —
+# one unlucky pair out of two is 50% and says nothing.
+UNATTESTED_MIN_BIGRAMS = 4
+
 
 def words(clue):
     return re.findall(r"[A-Za-z']+", clue)
 
 
 def strip_enum(clue):
-    return re.sub(r"\s*\([\d,\-\s]+\)\s*$", "", clue).strip()
+    # The corpus is scraped from blogs and uses curly apostrophes; normalise, or
+    # every contraction in it ("doesn't", "he's") tokenises as a nonsense word.
+    clue = clue.replace("’", "'").replace("‘", "'")
+    return re.sub(r"\s*\([\d,\-\s/]+\)\s*$", "", clue).strip()
 
 
-def load_corpus_norms(path):
-    """Median clue length by answer length, and indicator frequencies."""
+def tokens(clue):
+    """Lowercased words, with contractions split off as their own token."""
+    out = []
+    for w in re.findall(r"[a-z']+", strip_enum(clue).lower()):
+        m = re.match(r"^(.*?)('s|'re|'ll|'ve|'d|n't)$", w)
+        if m and m.group(1):
+            out.extend([m.group(1), m.group(2).replace("n't", "'t")])
+        else:
+            out.append(w)
+    return [w for w in out if w]
+
+
+def bigrams(toks):
+    return list(zip(toks, toks[1:]))
+
+
+def stems(word):
+    """Candidate base forms of a third-person -s word. No real morphology."""
+    if not word.endswith("s") or len(word) < 4:
+        return ()
+    out = [word[:-1]]
+    if word.endswith("es"):
+        out.append(word[:-2])
+    if word.endswith("ies"):
+        out.append(word[:-3] + "y")
+    return tuple(out)
+
+
+def load_corpus_norms(path, exclude=None):
+    """Corpus norms: clue length, indicator frequency, verb sets, bigrams.
+
+    `exclude` is a set of clue strings to leave out of the bigram table, so that
+    calibration can score published clues against a corpus that does not already
+    contain them.
+    """
     if not Path(path).exists():
         return None
+    exclude = exclude or set()
     db = sqlite3.connect(path)
+
     lengths = {}
-    for ans, clue in db.execute(
-        "select answer, clue from clues where answer is not null "
-        "and length(answer) between 3 and 12 limit 120000"
-    ):
-        n = len("".join(c for c in ans if c.isalpha()))
-        lengths.setdefault(n, []).append(len(words(strip_enum(clue))))
+    seen_bigrams = set()
+    after_to = {}       # word -> times it followed "to" (infinitive evidence)
+    after_det = {}      # word -> times it followed a determiner (noun evidence)
+    after_subj = {}     # word -> times it followed a subject pronoun (verb evidence)
+    determiners = {"the", "a", "an", "his", "her", "its", "their", "this",
+                   "that", "these", "those", "my", "our", "your", "every"}
+    subjects = {"he", "she", "they", "we", "who", "which", "you", "i"}
+
+    rows = db.execute(
+        "select answer, clue from clues where clue is not null "
+        f"and rowid % {CORPUS_SAMPLE_MODULUS} = 0"
+    )
+    n_rows = 0
+    for ans, clue in rows:
+        n_rows += 1
+        toks = tokens(clue)
+        if ans:
+            n = len("".join(c for c in ans if c.isalpha()))
+            if 3 <= n <= 12:
+                lengths.setdefault(n, []).append(len(words(strip_enum(clue))))
+        if clue.strip() not in exclude:
+            for bg in bigrams(toks):
+                seen_bigrams.add(bg)
+        for i, w in enumerate(toks):
+            if not i:
+                continue
+            prev = toks[i - 1]
+            if prev == "to":
+                after_to[w] = after_to.get(w, 0) + 1
+            elif prev in determiners:
+                after_det[w] = after_det.get(w, 0) + 1
+            elif prev in subjects:
+                after_subj[w] = after_subj.get(w, 0) + 1
+
     median_words = {n: statistics.median(v) for n, v in lengths.items() if len(v) > 50}
 
     freq = {}
@@ -89,7 +313,53 @@ def load_corpus_norms(path):
     ranked = sorted(freq.items(), key=lambda kv: -kv[1])
     cutoff = max(1, int(len(ranked) * STOCK_PERCENTILE))
     stock = {w for w, _ in ranked[:cutoff]}
-    return {"median_words": median_words, "stock": stock, "known": set(freq)}
+
+    # Base forms, from infinitives: "to bury", "to alter". A noun that sometimes
+    # follows "to" (a destination) is filtered out by the determiner count.
+    base_verbs = {w for w, c in after_to.items()
+                  if c >= 6 and after_det.get(w, 0) < 0.5 * c}
+    # Present-tense -s forms: the word follows a subject pronoun at least as
+    # often as it follows a determiner ("gets" does, "stars" and "papers" do
+    # not). The second signal — stem is a known infinitive — is applied at check
+    # time by finite_verbs(), so a word never seen in either context still gets
+    # a hearing. Both are measured on clues of the exact register we write in.
+    verby_s = {w for w, c in after_subj.items()
+               if w.endswith("s") and c >= 2 and c >= after_det.get(w, 0)}
+
+    return {"median_words": median_words, "stock": stock,
+            "verby_s": verby_s, "base_verbs": base_verbs | ASSEMBLY_VERBS,
+            "bigrams": seen_bigrams, "indicator_vocab": set(freq),
+            "n_rows": n_rows}
+
+
+def finite_verbs(toks, norms):
+    """Words in `toks` that can be read as the finite verb of a clause."""
+    found = []
+    for w in toks:
+        if w in COPULA_FORMS or w in IRREGULAR_PAST:
+            found.append(w)
+        elif norms and (w in norms["verby_s"]
+                        or any(s in norms["base_verbs"] for s in stems(w))):
+            found.append(w)
+        elif w.endswith("ed") and len(w) > 4 and not w.endswith("eed") \
+                and w not in ED_NOT_A_VERB:
+            # Past tense or participle-as-indicator? Ask the corpus whether the
+            # word has a life as a wordplay indicator; if it does, assume it is
+            # the mechanism talking, not the sentence.
+            if not norms or w not in norms["indicator_vocab"]:
+                found.append(w)
+    return found
+
+
+def opens_imperative(toks, norms):
+    if not toks:
+        return None
+    first = toks[0]
+    if first in COPULA_FORMS:
+        return None
+    if first in ASSEMBLY_VERBS or (norms and first in norms["base_verbs"]):
+        return first
+    return None
 
 
 def check(eid, spec, norms):
@@ -130,7 +400,44 @@ def check(eid, spec, norms):
                             f"points at the anagram instead of hiding it"))
                 break
 
+    # 6. No finite verb: a noun phrase, not an utterance.
+    toks = tokens(clue)
+    imperative = opens_imperative(toks, norms)
+    verbs = finite_verbs(toks, norms)
+    if not verbs and not imperative:
+        out.append(("not-a-sentence",
+                    "no finite verb found, so this is a noun phrase rather than "
+                    "an utterance; published setters do this on half their clues "
+                    "and get away with it, so the question is only whether the "
+                    "phrase is one a person would actually say aloud"))
+
+    # 7. Opens by telling the solver what to do. Grammatically a sentence
+    #    (which is why check 6 lets it through), but the addressee is the solver,
+    #    not anyone inside the surface — instructions wearing a sentence's
+    #    clothes.
+    if imperative and imperative in ASSEMBLY_VERBS:
+        out.append(("imperative-opening",
+                    f"'{imperative}' opens the clue by instructing the solver; "
+                    f"the sentence's addressee is the person holding the pencil, "
+                    f"so there is no scene for anyone else to picture"))
+
     if norms:
+        # 8. Phrasing nobody has ever published. Not a rule against novelty —
+        #    a rule against word pairs that only exist because the letters
+        #    needed them.
+        content = [(a, b) for a, b in bigrams(toks)
+                   if a not in FUNCTION_WORDS or b not in FUNCTION_WORDS]
+        if len(content) >= UNATTESTED_MIN_BIGRAMS:
+            missing = [bg for bg in content if bg not in norms["bigrams"]]
+            frac = len(missing) / len(content)
+            if frac >= UNATTESTED_FRACTION:
+                shown = ", ".join(f"'{a} {b}'" for a, b in missing[:3])
+                out.append(("unattested-phrasing",
+                            f"{len(missing)} of {len(content)} content word "
+                            f"pairs never appear in {norms['n_rows']:,} published "
+                            f"clues ({shown}); the phrasing was built to fit the "
+                            f"letters, not spoken"))
+
         # 4. Stock indicators. Rarity is the cheapest misdirection there is.
         for ind in ann.get("indicators") or []:
             k = ind.strip().lower()
@@ -152,12 +459,88 @@ def check(eid, spec, norms):
     return out
 
 
+CODES = ["copula-definition", "fenced-definition", "indicator-abuts-fodder",
+         "stock-indicator", "terse", "not-a-sentence", "imperative-opening",
+         "unattested-phrasing"]
+
+CALIBRATION_SOURCES = ("times_xwd_times", "fifteensquared", "bigdave44")
+
+
+def calibrate(corpus, n, seed):
+    """Firing rate of every check on published broadsheet clues.
+
+    A check that fires often on the Times is not measuring our problem, it is
+    measuring English. The published clues are held out of the bigram table so
+    `unattested-phrasing` cannot trivially find its own input attested.
+    """
+    db = sqlite3.connect(corpus)
+    marks = ",".join("?" * len(CALIBRATION_SOURCES))
+    rows = [(c, a, d) for c, a, d in db.execute(
+        f"select clue, answer, definition from clues where source in ({marks}) "
+        f"and clue is not null and answer is not null", CALIBRATION_SOURCES)]
+    random.Random(seed).shuffle(rows)
+    sample = rows[:n]
+    print(f"sampling {len(sample)} clues from "
+          f"{', '.join(CALIBRATION_SOURCES)} (seed {seed})")
+
+    held_out = {c.strip() for c, _, _ in sample}
+    print("building corpus norms with those clues held out...")
+    norms = load_corpus_norms(corpus, exclude=held_out)
+    print(f"{norms['n_rows']:,} corpus clues, {len(norms['bigrams']):,} bigrams, "
+          f"{len(norms['verby_s']):,} present-tense verb forms, "
+          f"{len(norms['base_verbs']):,} base forms")
+
+    # The published clues carry no annotation, so the three checks that read one
+    # (copula-definition, fenced-definition, indicator-abuts-fodder) get the
+    # corpus `definition` column and nothing else; stock-indicator and
+    # indicator-abuts-fodder cannot run at all and are reported as n/a.
+    counts = {c: 0 for c in CODES}
+    fracs = []
+    for clue, answer, definition in sample:
+        spec = {"clue": clue, "annotation": {
+            "answer": answer, "definition": definition or "", "indicators": []}}
+        for code, _ in check("pub", spec, norms):
+            counts[code] += 1
+        toks = tokens(strip_enum(clue))
+        content = [(a, b) for a, b in bigrams(toks)
+                   if a not in FUNCTION_WORDS or b not in FUNCTION_WORDS]
+        if len(content) >= UNATTESTED_MIN_BIGRAMS:
+            fracs.append(sum(bg not in norms["bigrams"] for bg in content)
+                         / len(content))
+
+    print("\nfiring rate on published clues:")
+    for code in CODES:
+        note = ""
+        if code in ("stock-indicator", "indicator-abuts-fodder"):
+            note = "  (needs an annotation; not comparable)"
+        print(f"  {code:24} {counts[code] / len(sample):6.1%}{note}")
+
+    fracs.sort()
+    print(f"\nunattested content-bigram fraction, published clues "
+          f"(n={len(fracs)} of {len(sample)} have >= {UNATTESTED_MIN_BIGRAMS} "
+          f"content pairs; the rest can never fire):")
+    for pct in (50, 75, 90, 95, 98, 99):
+        print(f"  p{pct:<3} {fracs[int(len(fracs) * pct / 100)]:.2f}")
+    for thresh in (0.4, 0.5, 0.6, 0.667, 0.75, 0.8, 1.0):
+        rate = sum(f >= thresh for f in fracs) / len(sample)
+        print(f"  threshold {thresh:.3f} would fire on {rate:6.2%} of the "
+              f"{len(sample)} sampled clues")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("clues", nargs="?",
                     default="tools/data/authored_A001_clues.json")
     ap.add_argument("--corpus", default=str(CORPUS))
+    ap.add_argument("--calibrate", action="store_true",
+                    help="report each check's firing rate on published clues")
+    ap.add_argument("--sample", type=int, default=1000)
+    ap.add_argument("--seed", type=int, default=17)
     args = ap.parse_args()
+
+    if args.calibrate:
+        calibrate(args.corpus, args.sample, args.seed)
+        return
 
     path = Path(args.clues)
     if not path.is_absolute():

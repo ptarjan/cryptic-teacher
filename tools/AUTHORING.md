@@ -245,3 +245,37 @@ Two habits to break specifically, both mechanically detectable and both flagged 
 And one thing not to over-correct: **economy was already fine** (+0.15), so the
 answer is not "write longer clues". `terse` fires on ten of the twenty, including
 the best ones. More words only help if they are buying a surface idea.
+
+## The surface is a sentence, and it carries a joke
+
+The six worst clues were rewritten under the rule above, and the rewrites were
+read back as: *they still do not read as real sentences or have cute puns*.
+`That Conservative lot, and mean with it (5)` is the shape to recognise — a
+grammatical fragment with no finite verb, assembled out of two definitions and a
+conjunction, and not a thing any human being has ever said. Two tests, both
+applied before the clue counts as finished:
+
+**Say it aloud with no crossword in mind.** If it is not something a person would
+actually say — a headline, a complaint, a line of gossip, a piece of advice — it
+is not finished. Not "is it grammatical"; grammatical fragments pass that and
+still die on the page. The question is whether anyone would ever utter it.
+
+**Name the joke in one clause.** *She hopes he'll change — at the altar.* *The
+bully's name-calling turns out to be a list of stars.* If you cannot say what the
+joke is in one clause, there is no penny-drop for the solver to have, and no
+amount of polishing the wordplay will put one there.
+
+And the honest note, because the rule in the previous section did not bind. Faced
+with a mechanism that was already chosen, the author kept it and went hunting for
+a surface that would accommodate it — mechanism-first with a coat of paint, which
+is the thing the rule was written to stop. **The rule has teeth only if you are
+willing to throw the mechanism away.** Four of the six rewrites that finally
+worked changed clue type entirely; three of them are in A001 — CHEAP went from
+charade to anagram, SIDE from container to hidden, ALTER from anagram to
+homophone. The sentence came first and the mechanism had to be found inside it.
+
+`tools/clue_quality.py` flags `not-a-sentence`, `imperative-opening` and
+`unattested-phrasing` for this, but read its calibration table before you trust
+them: the first fires on nearly half of all published Times clues, and the third
+has never fired on one of ours. Verblessness is not the disease and strange
+phrasing is not the disease. Both tests above are still judgements, made aloud.

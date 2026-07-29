@@ -13,5 +13,14 @@ tools/data/clueability.tsv
 
 # Blind-grading packets built by tools/grade_clues.py. They quote 60 published
 # newspaper clues out of the georgeho corpus, which carries no declared licence,
-# so they stay local. Regenerate with the same --seed for identical packets.
+# so they stay local.
+#
+# This comment used to claim that re-running with the same --seed reproduces the
+# same packets. It does not, and believing it cost us a controlled comparison:
+# the seeded shuffle depends on the rival pool, so fixing a bug that changed one
+# answer's eligible rivals silently moved the A/B/C/D labels for every answer
+# after it, and the round-one key was overwritten by a round-two key that looked
+# exactly like it. Rounds are now archived under grading/runs/<runid>/ and
+# score_grading.py refuses to join scores whose run it cannot find. Nothing here
+# is regenerable from a seed — if a round is not archived, it is gone.
 tools/data/grading/
