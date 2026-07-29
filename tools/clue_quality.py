@@ -93,6 +93,100 @@ broken check:
     doing what it says; the shape is simply rare everywhere. It is a guard, not a
     diagnosis.
 
+The concealment complaint, and why no check came out of it
+---------------------------------------------------------
+Blind grading produced a second, quite separate criticism, which three judges
+wrote down independently and unprompted: not that the clues lacked wit but that
+they gave the mechanism away — "the anagrind is the second word", "the hiding
+place announced by the first two words", "entirely fair and entirely
+telegraphed". That is a claim about where indicators sit, so it can be measured.
+
+It was measured against the 559,848 clues of times_xwd_times, fifteensquared and
+bigdave44. 444,664 of them contain one of the 13,920 indicator phrases in the
+corpus's `indicators` table. In 38,830 the answer is a letter-for-letter anagram
+of a run of clue words, so the fodder is verified by sorting rather than guessed
+and the anagrind is whichever anagram indicator sits outside it; 12,166 more
+hide the answer across a word boundary, giving the same structural certainty
+about hidden-word clues. Our side is the 13 clues of A001 that carry an
+annotated indicator. "Wordplay region" below means the clue minus its
+definition, which is where an indicator is actually free to move.
+
+    measure                                        published        A001
+    indicator abuts its fodder (verified anagram)      88.9%      4 of 5
+      ...counting any candidate anagrind               94.5%
+    indicator abuts its hiding place (hidden)          92.2%      2 of 2
+    indicator starts in the clue's first two words     36.7%     10 of 13
+    indicator in first two words of the wordplay       53.0%     11 of 13
+    indicator IS the first word of the wordplay        26.6%      4 of 13
+    indicator in the first quarter of the wordplay     41.6%      6 of 13
+    mean normalised position in the wordplay            0.40        0.35
+    definition sits at a clue boundary                 99.4%     20 of 20
+    punctuation between indicator and fodder            8.3%      0 of 5
+    every content word used by the mechanism           62.3%      3 of 5
+
+The criticism does not reproduce as a measurable property, and two parts of it
+are simply false:
+
+  * Adjacency is the published norm, overwhelmingly. Nine anagram clues in ten
+    put the anagrind directly against its fodder, and hidden-word clues are
+    tighter still. Our four-in-five is unremarkable. `indicator-abuts-fodder`
+    therefore does not mean "unlike published practice" — it flags the commonest
+    shape in the corpus. It is kept only because it is the check with the second
+    strongest correlation to judge score above (-0.45), and that correlation, not
+    the shape, is the whole of its claim to exist. Read it as "this clue had no
+    other disguise", never as "setters do not do this".
+  * Rarity does not separate once indicators are compared like with like. The
+    existing `stock-indicator` premise — that published setters use each
+    indicator about once — is an artefact of counting rows in the `indicators`
+    table, which holds one row per (wordplay, indicator) pair and so tops out at
+    5; the real usage counts live in its `clue_rowids` column. Counted properly,
+    the anagrind of a published anagram clue has a median of 31 recorded uses
+    (p25 6, p75 137) — published anagrinds are stock words half the time. Ours
+    have a median of 136, which is the 60th percentile of published practice on
+    n=5; our two hidden-word indicators land at the 44th. Against a pooled
+    all-types distribution ours look commoner (mean percentile 0.69), but that
+    pool mixes anagram indicators with container and deletion ones drawn from far
+    larger vocabularies, and the comparison is worthless. A rarity percentile
+    does not discriminate better than the current top-2% cutoff; it discriminates
+    no better than chance, so nothing was changed.
+
+Position is the one place a gap appears, and it did not survive being poked. Our
+indicator starts in the clue's first two words on 10 of 13 against a published
+36.7%, which looks damning; but published clues are longer than ours, and the
+rate depends strongly on clue length and on whether the definition is leading or
+trailing. Conditioned on both, the expected count is 6.0 of 13 against our 10
+(Poisson-binomial p=0.015). Conditioned instead on the length of the wordplay
+region — the fairer control, and one our clues do not fail: our median region is
+5 words and so is the corpus's — the expectation is 7.5 of 13 against our 11
+(p=0.032).
+
+Then the same property was binarised five other ways, and every one of them
+comes out flat: indicator as the wordplay's first word, 26.6% published against
+4 of 13; indicator in the first quarter of the region, 41.6% against 6 of 13;
+mean normalised position, 0.40 published against our 0.35 (permutation p=0.30 on
+region-length-matched draws). The whole effect lives at exactly one cut — the
+indicator being the *second* word of the wordplay, 26.4% published against 7 of
+13 — which is the very phrase the judges used, and which is what one expects to
+find after trying six cuts on thirteen clues. A p of 0.03 chosen from six
+attempts is not a finding.
+
+So: no check was added. Any threshold loose enough to catch our shape fires on
+roughly half the Times, which is the `not-a-sentence` failure over again, and
+the stricter thresholds show no gap at all. Three other candidate tells were
+tried and are dead on arrival: the definition sits at a clue boundary in 99.4% of
+published clues (it is a convention of the genre, not a tell), punctuation
+between indicator and fodder is rare everywhere, and the fraction of clues whose
+every content word does mechanism duty is 62.3% published against 3 of our 5.
+
+The honest summary is that the judges were describing something real about how
+the clues read and reaching for the nearest structural explanation, which turned
+out to be wrong. Our indicators are not placed unusually and are not unusually
+stock. Whatever is being seen when a clue feels telegraphed, it is not the
+position or the frequency of the indicator, and the search for it should look
+somewhere other than the mechanism's coordinates. Re-run this against the next
+graded puzzle before believing any of it; n=13 refutes nothing on its own, it
+only fails to establish.
+
   python3 tools/clue_quality.py tools/data/authored_A001_clues.json
   python3 tools/clue_quality.py --calibrate --sample 1000
 """
