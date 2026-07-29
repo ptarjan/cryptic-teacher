@@ -33,7 +33,30 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "BASSCLARINET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BASS CLARINET",
+    "definition": "where this is played?",
+    "indicators": [
+     "played"
+    ],
+    "anagram": {
+     "fodder": "BANS RECITALS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bans recitals",
+      "gives": "BANSRECITALS",
+      "note": "anagram fodder, 12 letters"
+     },
+     {
+      "clueFragment": "played",
+      "gives": "",
+      "note": "anagram indicator — the letters are 'played' with"
+     }
+    ],
+    "walkthrough": "'Played' tells you to rearrange the letters of BANS RECITALS, which make BASS CLARINET. The definition points back into the clue: 'where this is played?' asks you to name the instrument you would hear at recitals, so the fodder doubles as the scene of the answer."
+   }
   },
   {
    "id": "1-down",
@@ -54,7 +77,35 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "BALTICSEA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BALTIC SEA",
+    "definition": "chilly water",
+    "indicators": [
+     "cracked"
+    ],
+    "anagram": {
+     "fodder": "BASALT ICE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Basalt",
+      "gives": "BASALT",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "ice",
+      "gives": "ICE",
+      "note": "more fodder, mixed in with the rest"
+     },
+     {
+      "clueFragment": "cracked",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Cracked' is the anagram indicator: break up BASALT together with ICE and the nine letters resettle as BALTIC SEA — 'chilly water' indeed. The geology-and-ice surface suits the frigid answer perfectly."
+   }
   },
   {
    "id": "2-down",
@@ -71,7 +122,29 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHALLOWS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + &lit",
+    "answer": "SHALLOWS",
+    "definition": "Mum permits paddling here?",
+    "indicators": [],
+    "pieces": [
+     "SH",
+     "ALLOWS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "SH",
+      "note": "keeping mum = staying quiet: sh!"
+     },
+     {
+      "clueFragment": "permits",
+      "gives": "ALLOWS",
+      "note": "permits = allows"
+     }
+    ],
+    "walkthrough": "'Mum' gives SH — as in keeping mum, shushing. 'Permits' gives ALLOWS. SH + ALLOWS = SHALLOWS, and the whole clue paints the answer too: the shallows are exactly where mum permits paddling, so the wordplay and the definition share every word."
+   }
   },
   {
    "id": "3-down",
@@ -88,7 +161,29 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHARD",
+    "definition": "Vegetable",
+    "indicators": [],
+    "pieces": [
+     "C",
+     "HARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "c = cold, as on a tap"
+     },
+     {
+      "clueFragment": "resistant to the bite",
+      "gives": "HARD",
+      "note": "something hard resists biting"
+     }
+    ],
+    "walkthrough": "C is the standard abbreviation for 'cold', and something 'resistant to the bite' is HARD. C + HARD = CHARD, the leafy 'Vegetable'."
+   }
   },
   {
    "id": "4-down",
@@ -105,7 +200,35 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARTICHOKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ARTICHOKE",
+    "definition": "Vegetable",
+    "indicators": [],
+    "pieces": [
+     "ART",
+     "I",
+     "CHOKE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "skill = art"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "I stands for itself"
+     },
+     {
+      "clueFragment": "fail at a crucial moment",
+      "gives": "CHOKE",
+      "note": "to choke = to fail under pressure"
+     }
+    ],
+    "walkthrough": "'Skill' gives ART, then I stands for itself, and to 'fail at a crucial moment' is to CHOKE. ART + I + CHOKE assembles the 'Vegetable' ARTICHOKE."
+   }
   },
   {
    "id": "5-down",
@@ -122,7 +245,38 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICONIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ICONIC",
+    "definition": "Admired",
+    "indicators": [
+     "about"
+    ],
+    "pieces": [
+     "I",
+     "CON",
+     "I",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pair",
+      "gives": "II",
+      "note": "a pair of ones — two Is"
+     },
+     {
+      "clueFragment": "to study",
+      "gives": "CON",
+      "note": "con is an old word for to study"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     }
+    ],
+    "walkthrough": "A 'pair' here is two Is. They sit 'about' (around) CON, an old word meaning 'to study', giving I-CON-I. Add C, the chemical symbol for 'carbon', and you have ICONIC — 'Admired'."
+   }
   },
   {
    "id": "6-down",
@@ -139,7 +293,31 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERASE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "ERASE",
+    "definition": "Delete",
+    "indicators": [
+     "finally"
+    ],
+    "pieces": [
+     "ERAS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "ERAS",
+      "note": "times = eras of history, not the newspaper"
+     },
+     {
+      "clueFragment": "article finally",
+      "gives": "E",
+      "note": "the last letter of articlE"
+     }
+    ],
+    "walkthrough": "'Times' — eras of history — gives ERAS. 'Article finally' means the last letter of articlE, an E. ERAS + E = ERASE, meaning 'Delete'. The surface points at the newspaper, but the wordplay wants plain eras."
+   }
   },
   {
    "id": "7-down",
@@ -156,7 +334,31 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPUSES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OPUSES",
+    "definition": "work",
+    "indicators": [
+     "supporting"
+    ],
+    "pieces": [
+     "OP",
+     "USES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Applications",
+      "gives": "USES",
+      "note": "applications = uses"
+     },
+     {
+      "clueFragment": "section of stage",
+      "gives": "OP",
+      "note": "OP ('opposite prompt') is the side of a theatre stage opposite the prompter"
+     }
+    ],
+    "walkthrough": "In a down clue, 'supporting' means sitting underneath. USES ('applications') supports OP, the 'opposite prompt' side — a genuine section of a theatre stage. OP + USES = OPUSES: a composer's 'work', taken as the whole body of it."
+   }
   },
   {
    "id": "8-down",
@@ -177,7 +379,32 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATONCE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AT ONCE",
+    "definition": "Immediately",
+    "indicators": [
+     "to bring in"
+    ],
+    "pieces": [
+     "AT ON",
+     "C",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreeing",
+      "gives": "ATONE",
+      "note": "to be at one with someone is to agree"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C = Conservative, the party label"
+     }
+    ],
+    "walkthrough": "'Agreeing' gives AT ONE — to be at one with someone is to agree with them. 'To bring in' inserts C for 'Conservative': AT ON(C)E. The result, AT ONCE, means 'Immediately'."
+   }
   },
   {
    "id": "9-across",
@@ -194,7 +421,31 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLKA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "POLKA",
+    "definition": "a dance",
+    "indicators": [
+     "leading"
+    ],
+    "pieces": [
+     "POLK",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old President",
+      "gives": "POLK",
+      "note": "James K Polk, 11th US President"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A = America(n)"
+     }
+    ],
+    "walkthrough": "James K Polk, the 'Old President', goes in front ('leading') of A for 'America'. POLK + A = POLKA, 'a dance' — and the surface borrows the idiom 'to lead someone a dance'."
+   }
   },
   {
    "id": "10-across",
@@ -211,7 +462,44 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTRONAUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ASTRONAUT",
+    "definition": "Nasa employee",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "A",
+     "STR",
+     "ON",
+     "A",
+     "UT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "the first Australian: A, as in A$"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "working = on, like a machine"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "the second Australian, another A"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "STRUT",
+      "note": "a strut is a support; ON A goes inside it"
+     }
+    ],
+    "walkthrough": "The first 'Australian' gives an A to start. Then 'working' (ON) 'with' the second 'Australian' (another A) goes 'in' a 'support' — a STRUT: STR(ON A)UT. A + STRONAUT = ASTRONAUT, the 'Nasa employee'."
+   }
   },
   {
    "id": "11-across",
@@ -232,7 +520,32 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "SKIDLID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SKID LID",
+    "definition": "protective headgear?",
+    "indicators": [
+     "carrying"
+    ],
+    "pieces": [
+     "S",
+     "KID",
+     "LID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went down the Cresta",
+      "gives": "SLID",
+      "note": "you SLID down the Cresta Run toboggan track"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "child = kid"
+     }
+    ],
+    "walkthrough": "If you 'went down the Cresta' — the famous toboggan run — you SLID. 'Carrying' KID (a 'child') gives S(KID)LID: SKID LID, slang for a motorcyclist's 'protective headgear'."
+   }
   },
   {
    "id": "12-across",
@@ -249,7 +562,29 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHILEAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHILEAN",
+    "definition": "South American",
+    "indicators": [],
+    "pieces": [
+     "CHI",
+     "LEAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "chi is the Greek letter χ"
+     },
+     {
+      "clueFragment": "offering little of profit",
+      "gives": "LEAN",
+      "note": "lean years offer little profit"
+     }
+    ],
+    "walkthrough": "CHI is the 'Greek character' — the letter χ — and a business 'offering little of profit' is LEAN. CHI + LEAN = CHILEAN, a 'South American'."
+   }
   },
   {
    "id": "13-across",
@@ -270,7 +605,38 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "SASHWINDOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SASH WINDOW",
+    "definition": "Source of light",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "S",
+     "ASH",
+     "WIND",
+     "OW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "remains after a fire = ash"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "WIND",
+      "note": "a wind is a current of air"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "SOW",
+      "note": "to plant seed is to sow; ASH WIND sits inside it"
+     }
+    ],
+    "walkthrough": "'Remains' gives ASH and 'current' gives WIND — a moving current of air. Both go 'in' SOW, 'to plant': S(ASH WIND)OW. The result is SASH WINDOW, a 'Source of light' for any room."
+   }
   },
   {
    "id": "14-down",
@@ -287,7 +653,36 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEODYMIUM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NEODYMIUM",
+    "definition": "Metal",
+    "indicators": [
+     "rocks",
+     "gaining"
+    ],
+    "anagram": {
+     "fodder": "YOU MINED M"
+    },
+    "blocks": [
+     {
+      "clueFragment": "You mined",
+      "gives": "YOUMINED",
+      "note": "anagram fodder, 8 letters"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "m = mass in physics, 'gained' by the fodder"
+     },
+     {
+      "clueFragment": "rocks",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Rocks' shakes up YOU MINED, which first 'gains' M for 'mass'. Those nine letters rearrange into NEODYMIUM, a rare-earth 'Metal' — and one you would indeed mine."
+   }
   },
   {
    "id": "15-across",
@@ -304,7 +699,25 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIPE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RIPE",
+    "definition": "Ready",
+    "indicators": [
+     "leader’s ousted"
+    ],
+    "pieces": [
+     "RIPE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to complain",
+      "gives": "GRIPE",
+      "note": "gripe = complain; its leader G is then ousted"
+     }
+    ],
+    "walkthrough": "'To complain' is to GRIPE. When its 'leader’s ousted' — the front G removed — GRIPE becomes RIPE, meaning 'Ready'."
+   }
   },
   {
    "id": "16-down",
@@ -321,7 +734,47 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INHERITOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INHERITOR",
+    "definition": "recipient of legacy?",
+    "indicators": [],
+    "pieces": [
+     "I",
+     "N",
+     "HER",
+     "IT",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "I stands for itself"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "n = note"
+     },
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "that woman = her"
+     },
+     {
+      "clueFragment": "sex-appeal",
+      "gives": "IT",
+      "note": "it = sex appeal, as in 'she's got it'"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or = gold in heraldry"
+     }
+    ],
+    "walkthrough": "Chain the pieces: I, then N ('note'), then HER ('that woman'), then IT (old slang for 'sex-appeal'), then OR ('gold' in heraldry). I-N-HER-IT-OR is the 'recipient of legacy'."
+   }
   },
   {
    "id": "17-down",
@@ -342,7 +795,44 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "PINCENEZ",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PINCE-NEZ",
+    "definition": "They help one view",
+    "indicators": [
+     "over",
+     "elevating"
+    ],
+    "pieces": [
+     "PIN",
+     "CE",
+     "NEZ"
+    ],
+    "subReversals": [
+     {
+      "from": "ZEN",
+      "to": "NEZ"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fix",
+      "gives": "PIN",
+      "note": "to fix = to pin"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE = Church of England"
+     },
+     {
+      "clueFragment": "Eastern philosophy",
+      "gives": "ZEN",
+      "note": "ZEN, 'elevating' — reversed upwards in this down entry"
+     }
+    ],
+    "walkthrough": "'Fix' gives PIN, which sits 'over' CE (the 'Church' of England) in this down entry. 'Elevating' ZEN — the 'Eastern philosophy' — sends it upwards as NEZ. PIN + CE + NEZ makes PINCE-NEZ, glasses that clip the nose: 'They help one view'."
+   }
   },
   {
    "id": "18-across",
@@ -359,7 +849,32 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRAY",
+    "definition": "salver",
+    "indicators": [
+     "to bring in"
+    ],
+    "pieces": [
+     "TR",
+     "A",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "TRY",
+      "note": "a go = a try"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the A from the clue, brought inside"
+     }
+    ],
+    "walkthrough": "'Go' as a noun is a TRY. 'To bring in' inserts the A: TR(A)Y. A TRAY is a 'salver' — the butler's carrying dish."
+   }
   },
   {
    "id": "18-down",
@@ -376,7 +891,25 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUSCAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TUSCAN",
+    "definition": "from part of Italy",
+    "indicators": [
+     "Parts swapped"
+    ],
+    "anagram": {
+     "fodder": "CANTUS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Latin song",
+      "gives": "CANTUS",
+      "note": "cantus is Latin for song, as in cantus firmus"
+     }
+    ],
+    "walkthrough": "The 'Latin song' is a CANTUS. Its two 'parts swapped' — CAN and TUS changing places — give TUSCAN, meaning 'from part of Italy', as in Tuscan wine. A tidy two-chunk shuffle rather than a full jumble."
+   }
   },
   {
    "id": "19-across",
@@ -397,7 +930,37 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "COMEHITHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "COME-HITHER",
+    "definition": "Alluring?",
+    "indicators": [
+     "not love"
+    ],
+    "pieces": [
+     "COME",
+     "HIT",
+     "HER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Happen",
+      "gives": "COME",
+      "note": "to come to pass = to happen"
+     },
+     {
+      "clueFragment": "success",
+      "gives": "HIT",
+      "note": "a success = a hit"
+     },
+     {
+      "clueFragment": "leading man",
+      "gives": "HER",
+      "note": "HERO, the leading man, minus O — 'love' in tennis"
+     }
+    ],
+    "walkthrough": "'Happen' gives COME (as in come to pass), a 'success' is a HIT, and the 'leading man' is a HERO who loses his O — 'love', the tennis score for nothing. COME + HIT + HER(O) = COME-HITHER, meaning 'Alluring'."
+   }
   },
   {
    "id": "20-down",
@@ -414,7 +977,31 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESULT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RESULT",
+    "definition": "outcome",
+    "indicators": [
+     "rejecting"
+    ],
+    "pieces": [
+     "RE",
+     "SULT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerned with",
+      "gives": "RE",
+      "note": "re = concerning, as in memo headers"
+     },
+     {
+      "clueFragment": "Muslim leader",
+      "gives": "SULT",
+      "note": "a SULTAN who 'rejects' the AN"
+     }
+    ],
+    "walkthrough": "'Concerned with' gives RE. The 'Muslim leader' is a SULTAN, who 'rejects' the AN to leave SULT. RE + SULT = RESULT, an 'outcome'."
+   }
   },
   {
    "id": "21-down",
@@ -431,7 +1018,29 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPEH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TEMPEH",
+    "definition": "Javanese food",
+    "indicators": [],
+    "pieces": [
+     "TEMPE",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beautiful spot",
+      "gives": "TEMPE",
+      "note": "the Vale of Tempe in Greece, a classical byword for beauty"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "h = hot, as on a tap"
+     }
+    ],
+    "walkthrough": "The 'Beautiful spot' is TEMPE — the Vale of Tempe, the classical Greek beauty spot. Add H for 'hot' and you get TEMPEH, the fermented soybean cake that is a staple 'Javanese food'."
+   }
   },
   {
    "id": "22-across",
@@ -448,7 +1057,31 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SILVERY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SILVERY",
+    "definition": "gleaming",
+    "indicators": [
+     "A lot of"
+    ],
+    "pieces": [
+     "SIL",
+     "VERY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mud",
+      "gives": "SIL",
+      "note": "'A lot of' SILT — all but its last letter"
+     },
+     {
+      "clueFragment": "intensely",
+      "gives": "VERY",
+      "note": "intensely = very"
+     }
+    ],
+    "walkthrough": "'Mud' is SILT, and 'a lot of' it — most but not all — keeps SIL. 'Intensely' gives VERY. SIL + VERY = SILVERY, 'gleaming' like moonlight on water."
+   }
   },
   {
    "id": "23-down",
@@ -465,7 +1098,22 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LYRIC",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LYRIC",
+    "definition": "this theatre?",
+    "indicators": [
+     "seen around"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only rich",
+      "gives": "LYRIC",
+      "note": "hidden inside onLY RICh"
+     }
+    ],
+    "walkthrough": "The answer is 'seen around' the phrase 'Only rich': onLY RICh conceals LYRIC. The definition is 'this theatre?' — the Lyric, in the West End and Hammersmith — and the surface winks that only the rich are seen around it."
+   }
   },
   {
    "id": "24-across",
@@ -482,7 +1130,35 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNCORKS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNCORKS",
+    "definition": "No longer suppresses",
+    "indicators": [
+     "struggling"
+    ],
+    "anagram": {
+     "fodder": "SCORN UK"
+    },
+    "blocks": [
+     {
+      "clueFragment": "scorn",
+      "gives": "SCORN",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "UK",
+      "gives": "UK",
+      "note": "more fodder, mixed in with the rest"
+     },
+     {
+      "clueFragment": "struggling",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Struggling' signals the anagram: mix SCORN with UK and the seven letters give UNCORKS. To uncork feelings is to let them out — exactly matching 'No longer suppresses'."
+   }
   },
   {
    "id": "24-down",
@@ -499,7 +1175,30 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UNDER",
+    "definition": "subordinate",
+    "indicators": [
+     "No"
+    ],
+    "pieces": [
+     "UNDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to steal",
+      "gives": "PLUNDER",
+      "note": "to plunder = to steal"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "pl = place, as on street maps; 'No place' removes it"
+     }
+    ],
+    "walkthrough": "'To steal' is to PLUNDER. 'No place' removes PL — the map abbreviation for place — leaving UNDER, meaning 'subordinate', as in an under-secretary."
+   }
   },
   {
    "id": "25-across",
@@ -516,7 +1215,43 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATROPHIED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ATROPHIED",
+    "definition": "becoming degenerate",
+    "indicators": [
+     "regressed"
+    ],
+    "pieces": [
+     "A",
+     "TROP",
+     "HIED"
+    ],
+    "subReversals": [
+     {
+      "from": "PORT",
+      "to": "TROP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "active",
+      "gives": "A",
+      "note": "a = active"
+     },
+     {
+      "clueFragment": "harbour",
+      "gives": "TROP",
+      "note": "PORT ('harbour') 'regressed' — written backwards"
+     },
+     {
+      "clueFragment": "Moved fast",
+      "gives": "HIED",
+      "note": "hied = hurried, placed 'after' the rest"
+     }
+    ],
+    "walkthrough": "A stands for 'active'. The 'harbour' is a PORT, which 'regressed' (reversed) becomes TROP. 'Moved fast' gives HIED, placed 'after' the rest. A + TROP + HIED = ATROPHIED — wasted away, 'becoming degenerate'."
+   }
   },
   {
    "id": "26-across",
@@ -533,7 +1268,31 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NATAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NATAL",
+    "definition": "Describing birth",
+    "indicators": [
+     "Not entirely"
+    ],
+    "pieces": [
+     "N",
+     "ATAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n = name"
+     },
+     {
+      "clueFragment": "in any way",
+      "gives": "ATAL",
+      "note": "AT ALL = in any way; 'Not entirely' trims the final L"
+     }
+    ],
+    "walkthrough": "N abbreviates 'name'. 'In any way' gives AT ALL, but 'Not entirely' means you stop short of the last letter: ATAL. N + ATAL = NATAL, an adjective 'Describing birth'."
+   }
   },
   {
    "id": "27-across",
@@ -554,7 +1313,36 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
     ]
    },
    "solution": "OCKHAMSRAZOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "OCKHAM'S RAZOR",
+    "definition": "reducing unnecessary quantities",
+    "indicators": [
+     "Wild",
+     "twice cut down"
+    ],
+    "anagram": {
+     "fodder": "SHAMROCK AZOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "shamrock",
+      "gives": "SHAMROCK",
+      "note": "anagram fodder, 8 letters"
+     },
+     {
+      "clueFragment": "Portuguese islands",
+      "gives": "AZOR",
+      "note": "the AZORES, 'twice cut down' — losing their last two letters"
+     },
+     {
+      "clueFragment": "Wild",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Wild' anagrams SHAMROCK together with AZOR — the AZORES ('Portuguese islands') 'twice cut down', shedding their final two letters. The twelve letters resolve to OCKHAM'S RAZOR, the philosophical principle of 'reducing unnecessary quantities': never multiply entities beyond need."
+   }
   }
  ]
 } /*JSON-END*/;

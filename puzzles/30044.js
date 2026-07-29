@@ -33,7 +33,39 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEARPIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BEAR PIT",
+    "definition": "Scene of confusion",
+    "indicators": [
+     "accompanied by",
+     "in"
+    ],
+    "pieces": [
+     "B",
+     "EAR",
+     "P",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hearing organ",
+      "gives": "EAR",
+      "note": "the ear is the organ of hearing"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p = piano, the musical marking for soft"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "BIT",
+      "note": "EAR and P sit inside it"
+     }
+    ],
+    "walkthrough": "'Hearing organ' gives EAR, and 'piano' is P — the musical marking. Put EAR 'accompanied by' P inside BIT ('piece') and you get B-EAR-P-IT: a BEAR PIT, a 'Scene of confusion'."
+   }
   },
   {
    "id": "1-down",
@@ -50,7 +82,37 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BECKON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BECKON",
+    "definition": "attempt to draw",
+    "indicators": [
+     "taking",
+     "instead of"
+    ],
+    "pieces": [
+     "B",
+     "ECKON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consider",
+      "gives": "ECKON",
+      "note": "RECKON = consider, minus its R"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "chess notation — it takes the R's place"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "",
+      "note": "R in chess notation, the letter removed"
+     }
+    ],
+    "walkthrough": "'Consider' gives RECKON. Now do the chess swap: take B ('bishop') 'instead of' R ('rook'), and RECKON becomes BECKON. To beckon is to make an 'attempt to draw' someone towards you."
+   }
   },
   {
    "id": "2-down",
@@ -67,7 +129,28 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALIGHT",
+    "definition": "Stop training or being coached, say",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "LIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A"
+     },
+     {
+      "clueFragment": "match?",
+      "gives": "LIGHT",
+      "note": "a match is what you offer when asked for a light"
+     }
+    ],
+    "walkthrough": "The definition is the sly part: to ALIGHT is to get off a vehicle, so it means 'Stop training or being coached, say' — stepping down from a train or a coach ('say' flags that these are examples). The wordplay is A + LIGHT, since 'a match?' is a light — as in 'have you got a light?'."
+   }
   },
   {
    "id": "3-down",
@@ -84,7 +167,37 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROTRACTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PROTRACTED",
+    "definition": "Long",
+    "indicators": [
+     "cut"
+    ],
+    "pieces": [
+     "PRO",
+     "TRACT",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro = for, as in pros and cons"
+     },
+     {
+      "clueFragment": "pamphlet",
+      "gives": "TRACT",
+      "note": "a tract is a short pamphlet"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "EDUCATION 'cut' down to its familiar short form"
+     }
+    ],
+    "walkthrough": "'For' gives PRO (think pros and cons), 'pamphlet' gives TRACT, and 'education cut' short leaves ED. PRO + TRACT + ED = PROTRACTED, meaning 'Long'."
+   }
   },
   {
    "id": "4-down",
@@ -101,7 +214,22 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEETH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TEETH",
+    "definition": "Effective power",
+    "indicators": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moderate ethically",
+      "gives": "TEETH",
+      "note": "hidden across the two words: modera-TE ETH-ically"
+     }
+    ],
+    "walkthrough": "The answer is hiding across 'modera-TE ETH-ically'. TEETH means 'Effective power' — a law with teeth is one that can actually bite."
+   }
   },
   {
    "id": "5-across",
@@ -124,7 +252,42 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
     ]
    },
    "solution": "TURNTHE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "TURN THE OTHER CHEEK",
+    "definition": "don’t retaliate",
+    "indicators": [
+     "breaks into",
+     "out"
+    ],
+    "anagram": {
+     "fodder": "HE HE HE TRUCK TO RENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "He repeatedly",
+      "gives": "HEHEHE",
+      "note": "HE three times over"
+     },
+     {
+      "clueFragment": "truck to rent",
+      "gives": "TRUCKTORENT",
+      "note": "the rest of the fodder, 11 letters"
+     },
+     {
+      "clueFragment": "breaks into",
+      "gives": "",
+      "note": "anagram indicator — the HEs break into the rest"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "",
+      "note": "second anagram indicator"
+     }
+    ],
+    "walkthrough": "'He repeatedly' supplies HE HE HE, which 'breaks into' TRUCK TO RENT, with 'out' confirming the jumble. Those seventeen letters rearrange to TURN THE OTHER CHEEK (running on into 11 across) — the biblical advice to 'don’t retaliate'."
+   }
   },
   {
    "id": "5-down",
@@ -141,7 +304,41 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THEREUPON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THEREUPON",
+    "definition": "immediately after that",
+    "indicators": [],
+    "pieces": [
+     "THE",
+     "RE",
+     "UP",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re = about, concerning"
+     },
+     {
+      "clueFragment": "state of India",
+      "gives": "UP",
+      "note": "UP = Uttar Pradesh, India's most populous state"
+     },
+     {
+      "clueFragment": "occurring",
+      "gives": "ON",
+      "note": "what's occurring is on"
+     }
+    ],
+    "walkthrough": "'Article' gives THE, 'about' gives RE, the 'state of India' is UP (Uttar Pradesh), and 'occurring' gives ON. THE + RE + UP + ON = THEREUPON, 'immediately after that'."
+   }
   },
   {
    "id": "6-down",
@@ -158,7 +355,26 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REEF",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REEF",
+    "definition": "Part of sail",
+    "definition2": "that mariners steer clear of",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Part of sail",
+      "gives": "REEF",
+      "note": "the strip of sail that can be rolled in to shorten it"
+     },
+     {
+      "clueFragment": "that mariners steer clear of",
+      "gives": "REEF",
+      "note": "the ridge of rock near the surface"
+     }
+    ],
+    "walkthrough": "Two nautical meanings: a REEF is the 'Part of sail' that can be rolled in to shorten it, and a REEF of rocks is exactly what 'mariners steer clear of'. Same sailors, very different feelings about each."
+   }
   },
   {
    "id": "7-down",
@@ -175,7 +391,38 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTORIAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TUTORIAL",
+    "definition": "this class has few students",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "T",
+     "U",
+     "TO",
+     "RIAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "closed",
+      "gives": "TO",
+      "note": "a door pulled to is closed"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "TRIAL",
+      "note": "a court case — it wraps around U and TO"
+     }
+    ],
+    "walkthrough": "U ('University') and TO ('closed', as in a door pulled to) go 'in' TRIAL ('case'): T-U-TO-RIAL = TUTORIAL. The definition is the rest of the clue — 'this class has few students'."
+   }
   },
   {
    "id": "8-down",
@@ -192,7 +439,26 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELLIPSES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ELLIPSES",
+    "definition": "Orbits",
+    "definition2": "… more than once",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Orbits",
+      "gives": "ELLIPSES",
+      "note": "planetary orbits are ellipses — Kepler's discovery"
+     },
+     {
+      "clueFragment": "… more than once",
+      "gives": "ELLIPSES",
+      "note": "the '…' mark is an ellipsis; several are ellipses"
+     }
+    ],
+    "walkthrough": "Planetary 'Orbits' are ELLIPSES — that was Kepler's discovery. And the '…' printed in the clue is itself an ellipsis, so '… more than once' also gives ELLIPSES. The clue's own punctuation does the work."
+   }
   },
   {
    "id": "9-across",
@@ -209,7 +475,22 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHINO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CHINO",
+    "definition": "Fabric",
+    "indicators": [
+     "only some of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which I notice",
+      "gives": "CHINO",
+      "note": "hidden: whi-CH I NO-tice"
+     }
+    ],
+    "walkthrough": "'Only some of' tells you to look inside the words: 'whi-CH I NO-tice' conceals CHINO, the cotton 'Fabric' of chino trousers."
+   }
   },
   {
    "id": "10-across",
@@ -226,7 +507,33 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEMENTAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "ELEMENTAL",
+    "definition": "Basic",
+    "indicators": [
+     "conclusions of"
+    ],
+    "pieces": [
+     "E",
+     "L",
+     "E",
+     "MENTAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article reveal state",
+      "gives": "ELE",
+      "note": "their 'conclusions' (last letters): articlE / reveaL / statE"
+     },
+     {
+      "clueFragment": "of mind",
+      "gives": "MENTAL",
+      "note": "mental = of the mind"
+     }
+    ],
+    "walkthrough": "The 'conclusions of' articlE, reveaL and statE give E, L and E. 'Of mind' gives MENTAL. E + L + E + MENTAL = ELEMENTAL, meaning 'Basic'."
+   }
   },
   {
    "id": "11-across",
@@ -248,7 +555,9 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
     ]
    },
    "solution": "OTHERCHEEK",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "5-across"
+   }
   },
   {
    "id": "12-across",
@@ -265,7 +574,36 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAP",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "TRAP",
+    "definition": "Speaker’s",
+    "indicators": [
+     "reversal"
+    ],
+    "pieces": [
+     "TRAP"
+    ],
+    "subReversals": [
+     {
+      "from": "PART",
+      "to": "TRAP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "role",
+      "gives": "TRAP",
+      "note": "a role is a PART; reversed it becomes TRAP"
+     },
+     {
+      "clueFragment": "reversal",
+      "gives": "",
+      "note": "reversal indicator"
+     }
+    ],
+    "walkthrough": "A 'role' is a PART, and a 'reversal' of PART gives TRAP. The definition is 'Speaker’s': a TRAP is slang for the mouth — the very thing a speaker speaks with, as in 'shut your trap'."
+   }
   },
   {
    "id": "13-down",
@@ -282,7 +620,37 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNWEARABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "UNWEARABLE",
+    "definition": "Wrong to assume",
+    "indicators": [
+     "yields to"
+    ],
+    "pieces": [
+     "UN",
+     "W",
+     "EARABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it’s hard to accept",
+      "gives": "UNBEARABLE",
+      "note": "the starting word — its first B will give way"
+     },
+     {
+      "clueFragment": "chess player",
+      "gives": "",
+      "note": "B = Black, the player who drops out"
+     },
+     {
+      "clueFragment": "opponent",
+      "gives": "W",
+      "note": "W = White, who takes Black's place"
+     }
+    ],
+    "walkthrough": "'It’s hard to accept' gives UNBEARABLE. Then the 'chess player' B (Black) 'yields to' the 'opponent' W (White): swap the first B for a W and you have UNWEARABLE — 'Wrong to assume', since to assume clothing is to put it on."
+   }
   },
   {
    "id": "14-across",
@@ -299,7 +667,38 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIPPENDALE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CHIPPENDALE",
+    "definition": "furniture designer",
+    "indicators": [
+     "installed by"
+    ],
+    "pieces": [
+     "CHIP",
+     "P",
+     "END",
+     "ALE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damage",
+      "gives": "CHIP",
+      "note": "to damage the edge of something is to chip it"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "goes inside PALE"
+     },
+     {
+      "clueFragment": "inferior",
+      "gives": "PALE",
+      "note": "as in a pale imitation"
+     }
+    ],
+    "walkthrough": "'Damage' gives CHIP. Then END ('finish') is 'installed by' — placed inside — PALE ('inferior', as in a pale imitation), making P-END-ALE. CHIP + PENDALE = CHIPPENDALE, the great Georgian 'furniture designer'."
+   }
   },
   {
    "id": "15-down",
@@ -316,7 +715,35 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INGENIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INGENIOUS",
+    "definition": "originally gifted",
+    "indicators": [],
+    "pieces": [
+     "IN",
+     "GEN",
+     "IOUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Present",
+      "gives": "IN",
+      "note": "in = present, as in 'is she in?'"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen = information, British slang"
+     },
+     {
+      "clueFragment": "evidence of problems with money",
+      "gives": "IOUS",
+      "note": "a pile of IOUs — notes acknowledging debts"
+     }
+    ],
+    "walkthrough": "'Present' gives IN (as in 'is she in?'), 'information' gives GEN, and 'evidence of problems with money' gives IOUS — a stack of IOUs. IN + GEN + IOUS = INGENIOUS, which is 'originally gifted' in the word's root sense: born with genius in you."
+   }
   },
   {
    "id": "16-down",
@@ -337,7 +764,29 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
     ]
    },
    "solution": "CROSSOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CROSS OUT",
+    "definition": "strike",
+    "indicators": [],
+    "pieces": [
+     "CROSS",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aggrieved",
+      "gives": "CROSS",
+      "note": "cross = annoyed, aggrieved"
+     },
+     {
+      "clueFragment": "having downed tools",
+      "gives": "OUT",
+      "note": "workers who have downed tools are out — on strike"
+     }
+    ],
+    "walkthrough": "'Aggrieved' gives CROSS, and workers 'having downed tools' are OUT — on strike. CROSS + OUT = 'strike' in the other sense: to strike a word from a list. The industrial-action surface hides the stationery-drawer answer."
+   }
   },
   {
    "id": "17-down",
@@ -354,7 +803,36 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SERIATIM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SERIATIM",
+    "definition": "point by point",
+    "indicators": [
+     "nameless",
+     "demolished"
+    ],
+    "anagram": {
+     "fodder": "A MIISTER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "joins the fodder"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "MIISTER",
+      "note": "MINISTER made 'nameless' — without N for name"
+     },
+     {
+      "clueFragment": "demolished",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Take A plus MINISTER made 'nameless' — stripped of its N (name) — and let 'demolished' do the mixing: A + MIISTER rearranges to SERIATIM, a Latin borrowing meaning 'point by point'."
+   }
   },
   {
    "id": "18-across",
@@ -375,7 +853,48 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
     ]
    },
    "solution": "REEMERGENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + anagram",
+    "answer": "RE-EMERGENCE",
+    "definition": "Second Coming?",
+    "indicators": [
+     "embracing",
+     "odd"
+    ],
+    "pieces": [
+     "RE",
+     "EMERGENCE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GENRE ME CE",
+      "gives": "EMERGENCE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re = concerning"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "Church of England"
+     },
+     {
+      "clueFragment": "person writing",
+      "gives": "ME",
+      "note": "the setter himself"
+     },
+     {
+      "clueFragment": "genre",
+      "gives": "GENRE",
+      "note": "made 'odd' — anagrammed — around ME and CE"
+     }
+    ],
+    "walkthrough": "'It’s concerning' gives RE. Then CE ('church') 'embracing' ME ('person writing' — the setter) lands 'in odd genre': the letters of GENRE rearrange around ME and CE to make E-ME-RGEN-CE = EMERGENCE. RE + EMERGENCE is a RE-EMERGENCE — wryly defined as a 'Second Coming?'."
+   }
   },
   {
    "id": "19-down",
@@ -392,7 +911,32 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAROLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PAROLE",
+    "definition": "temporarily free",
+    "indicators": [
+     "under"
+    ],
+    "pieces": [
+     "P",
+     "A",
+     "ROLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A character",
+      "gives": "AROLE",
+      "note": "a character = A ROLE"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "p = pressure in physics; A ROLE sits under it in this down entry"
+     }
+    ],
+    "walkthrough": "'A character' is A ROLE, and it goes 'under pressure' — beneath P, the physics symbol for pressure, in this down entry. P + A + ROLE = PAROLE: out on parole, you are 'temporarily free'."
+   }
   },
   {
    "id": "20-down",
@@ -409,7 +953,38 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENNIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TENNIS",
+    "definition": "court action?",
+    "indicators": [
+     "up"
+    ],
+    "pieces": [
+     "TEN",
+     "NI",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "S IN NET",
+      "to": "TENNIS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Succeeded",
+      "gives": "S",
+      "note": "s = succeeded, the genealogy abbreviation"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "INNET",
+      "note": "caught = IN NET"
+     }
+    ],
+    "walkthrough": "'Succeeded' gives S, and 'caught' is IN NET. Read them 'up' this down entry — S-IN-NET reversed — and you get TENNIS: 'court action?', the action that happens on a tennis court."
+   }
   },
   {
    "id": "21-across",
@@ -426,7 +1001,29 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SKIN",
+    "definition": "Coverage for everyone",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "KIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "s = small, as on clothing labels"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "your kin are your family"
+     }
+    ],
+    "walkthrough": "'Small' gives S and 'family' gives KIN. S + KIN = SKIN — 'Coverage for everyone', since everybody comes wrapped in it."
+   }
   },
   {
    "id": "22-across",
@@ -448,7 +1045,30 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
     ]
    },
    "solution": "INYOURFACE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN-YOUR-FACE",
+    "definition": "impossible to ignore",
+    "indicators": [
+     "fomented"
+    ],
+    "anagram": {
+     "fodder": "A FURY I ONCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A fury I once",
+      "gives": "AFURYIONCE",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "fomented",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Fomented' stirs up the letters of A FURY I ONCE, which rearrange to IN-YOUR-FACE — 'impossible to ignore'. The fomented fury of the surface is exactly the in-your-face mood of the answer."
+   }
   },
   {
    "id": "23-down",
@@ -465,7 +1085,37 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OXEYE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "OXEYE",
+    "definition": "plant",
+    "indicators": [
+     "announced"
+    ],
+    "pieces": [
+     "O",
+     "X",
+     "EYE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love = zero in tennis, written as O"
+     },
+     {
+      "clueFragment": "letter specifying location",
+      "gives": "X",
+      "note": "X marks the spot"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "EYE",
+      "note": "'announced', EYE sounds like I"
+     }
+    ],
+    "walkthrough": "'Love' is O (a tennis zero), the 'letter specifying location' is X — X marks the spot — and 'I announced' sounds out as EYE. O + X + EYE = OXEYE, the daisy-like 'plant'."
+   }
   },
   {
    "id": "24-down",
@@ -482,7 +1132,30 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VEIL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VEIL",
+    "definition": "Screen features",
+    "indicators": [
+     "broadcast"
+    ],
+    "anagram": {
+     "fodder": "LIVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "LIVE",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Broadcast' scatters the letters of LIVE into VEIL. The definition is 'Screen features': a veil is what screens the wearer's features from view. 'Live broadcast' reads as one TV phrase, which is the trap."
+   }
   },
   {
    "id": "25-across",
@@ -504,7 +1177,26 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTHENOSE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ON THE NOSE",
+    "definition": "Option for better",
+    "definition2": "location for spectacles",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Option for better",
+      "gives": "ONTHENOSE",
+      "note": "a better (bettor) can put money on the nose — a win-only bet"
+     },
+     {
+      "clueFragment": "location for spectacles",
+      "gives": "ONTHENOSE",
+      "note": "where your glasses perch"
+     }
+    ],
+    "walkthrough": "Read 'better' as the gambler, not the comparative: a better's 'option' is to put money ON THE NOSE — a bet to win only. And the 'location for spectacles' is literal: glasses sit on the nose."
+   }
   },
   {
    "id": "26-across",
@@ -521,7 +1213,26 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROWN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BROWN",
+    "definition": "Toast",
+    "definition2": "former PM",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Toast",
+      "gives": "BROWN",
+      "note": "to toast bread is to brown it"
+     },
+     {
+      "clueFragment": "former PM",
+      "gives": "BROWN",
+      "note": "Gordon Brown, prime minister 2007–2010"
+     }
+    ],
+    "walkthrough": "To 'Toast' bread is to BROWN it, and Gordon BROWN is the 'former PM'. Five letters, two meanings, no fuss."
+   }
   },
   {
    "id": "27-across",
@@ -538,7 +1249,26 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPLES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TEMPLES",
+    "definition": "Flat parts below domes",
+    "definition2": "places of worship",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Flat parts below domes",
+      "gives": "TEMPLES",
+      "note": "the flat sides of the head, below the 'dome' — the crown"
+     },
+     {
+      "clueFragment": "places of worship",
+      "gives": "TEMPLES",
+      "note": "the buildings"
+     }
+    ],
+    "walkthrough": "Your TEMPLES are the 'Flat parts below domes' — the dome being the top of your head — and TEMPLES are also 'places of worship'. The architectural surface makes both readings feel like buildings."
+   }
   },
   {
    "id": "28-across",
@@ -555,7 +1285,38 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYELETS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EYELETS",
+    "definition": "Holes",
+    "indicators": [
+     "about"
+    ],
+    "pieces": [
+     "E",
+     "YE",
+     "LET",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "YES",
+      "note": "goes 'about' LET"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to let is to permit"
+     }
+    ],
+    "walkthrough": "'European' gives E; then YES ('agreement') goes 'about' LET ('permit'), making YE-LET-S. E + YELETS = EYELETS, the small 'Holes' that laces thread through."
+   }
   }
  ]
 } /*JSON-END*/;

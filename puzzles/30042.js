@@ -29,7 +29,31 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOONSET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MOONSET",
+    "definition": "Disappearance of Ganymede, say",
+    "indicators": [
+     "before"
+    ],
+    "pieces": [
+     "MO",
+     "ONSET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short time",
+      "gives": "MO",
+      "note": "a mo = a moment, a short time"
+     },
+     {
+      "clueFragment": "dawn",
+      "gives": "ONSET",
+      "note": "the dawn of something is its onset"
+     }
+    ],
+    "walkthrough": "Ganymede is a moon of Jupiter, so its 'Disappearance' below the horizon is a MOONSET — 'say' flags the definition by example. Build it from MO (a 'short time') placed 'before' ONSET (the 'dawn' or beginning of something). MO + ONSET gives MOONSET."
+   }
   },
   {
    "id": "1-down",
@@ -46,7 +70,32 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILORD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MILORD",
+    "definition": "noble",
+    "indicators": [
+     "swilling"
+    ],
+    "pieces": [
+     "MIL",
+     "OR",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beer",
+      "gives": "MILD",
+      "note": "mild is a traditional dark English beer; split MIL…D"
+     },
+     {
+      "clueFragment": "if not",
+      "gives": "OR",
+      "note": "'hurry, or you'll be late' means 'if not, you'll be late'"
+     }
+    ],
+    "walkthrough": "'Noble' is the definition: MILORD is the old form of address for an English nobleman. MILD (a traditional 'Beer') goes 'swilling' around OR, which means 'if not' — as in 'hurry, or you'll be late'. MIL(OR)D makes MILORD."
+   }
   },
   {
    "id": "2-down",
@@ -63,7 +112,37 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OXLIPS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OXLIPS",
+    "definition": "Plants",
+    "indicators": [
+     "coming first"
+    ],
+    "pieces": [
+     "O",
+     "X",
+     "LIPS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love = zero in tennis"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "the X at the end of a letter"
+     },
+     {
+      "clueFragment": "where kiss planted",
+      "gives": "LIPS",
+      "note": "you plant a kiss on the lips"
+     }
+    ],
+    "walkthrough": "The definition is 'Plants' — OXLIPS are woodland primulas. X is a 'kiss', and LIPS are 'where kiss planted'. With O ('love', the tennis score) 'coming first', O + X + LIPS spells OXLIPS."
+   }
   },
   {
    "id": "3-down",
@@ -84,7 +163,30 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     ]
    },
    "solution": "SECONDHOME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SECOND HOME",
+    "definition": "the other place?",
+    "indicators": [
+     "Diabolical"
+    ],
+    "anagram": {
+     "fodder": "DEMON CHOSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "demon chose",
+      "gives": "DEMONCHOSE",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "Diabolical",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Diabolical' tells you to jumble DEMON CHOSE — ten letters in all. They rearrange to SECOND HOME, which the definition playfully calls 'the other place?': the other place you live."
+   }
   },
   {
    "id": "4-down",
@@ -101,7 +203,31 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIBER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "TIBER",
+    "definition": "Italian flower",
+    "indicators": [
+     "up"
+    ],
+    "pieces": [
+     "TIBER"
+    ],
+    "subReversals": [
+     {
+      "from": "REBIT",
+      "to": "TIBER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again chewed",
+      "gives": "REBIT",
+      "note": "chewed again = RE-BIT"
+     }
+    ],
+    "walkthrough": "'Italian flower' is crossword code for an Italian river — something that flows — and here it is the TIBER. Something 'again chewed' is REBIT, and 'up' in this down clue turns it around: REBIT read upwards gives TIBER."
+   }
   },
   {
    "id": "5-across",
@@ -122,7 +248,39 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     ]
    },
    "solution": "SUNLAMP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SUN-LAMP",
+    "definition": "Lighter",
+    "indicators": [
+     "entered into",
+     "by"
+    ],
+    "pieces": [
+     "S",
+     "UN",
+     "LAM",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article from France",
+      "gives": "UN",
+      "note": "the French indefinite article"
+     },
+     {
+      "clueFragment": "poetry competition",
+      "gives": "SLAM",
+      "note": "a poetry slam; split S…LAM"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p = penny"
+     }
+    ],
+    "walkthrough": "A SUN-LAMP is a 'Lighter' — a thing that gives light. UN, an 'article from France', is 'entered into' SLAM (a 'poetry competition'), making S(UN)LAM, and that is followed 'by' P for 'Penny'. Together: SUN-LAMP."
+   }
   },
   {
    "id": "5-down",
@@ -139,7 +297,30 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUBGENERA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUBGENERA",
+    "definition": "biology classes",
+    "indicators": [
+     "wriggling"
+    ],
+    "anagram": {
+     "fodder": "A GRUB SEEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A grub seen",
+      "gives": "AGRUBSEEN",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "wriggling",
+      "gives": "",
+      "note": "anagram indicator — a fine image for a grub"
+     }
+    ],
+    "walkthrough": "'Wriggling' — just what a grub does — is the anagram indicator. Shuffle the nine letters of A GRUB SEEN and they resettle as SUBGENERA, the 'biology classes' that sit just below a genus."
+   }
   },
   {
    "id": "6-down",
@@ -156,7 +337,28 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NULL",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "NULL",
+    "definition": "Empty",
+    "indicators": [
+     "finally"
+    ],
+    "pieces": [
+     "N",
+     "U",
+     "L",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pan? You fill vessel",
+      "gives": "NULL",
+      "note": "final letters of paN, yoU, filL, vesseL"
+     }
+    ],
+    "walkthrough": "'Finally' points to last letters: paN, yoU, filL and vesseL end in N, U, L and L. That spells NULL, which 'Empty' defines — a null set has nothing in it."
+   }
   },
   {
    "id": "7-down",
@@ -173,7 +375,29 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTELOPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANTELOPE",
+    "definition": "graceful animal",
+    "indicators": [],
+    "pieces": [
+     "ANT",
+     "ELOPE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resident of nest",
+      "gives": "ANT",
+      "note": "ants live in nests"
+     },
+     {
+      "clueFragment": "fly off",
+      "gives": "ELOPE",
+      "note": "to elope is to fly off — to run away, classically to marry"
+     }
+    ],
+    "walkthrough": "The 'graceful animal' is the ANTELOPE. A 'Resident of nest' is an ANT, and to 'fly off' is to ELOPE — to run away, classically with a lover. ANT + ELOPE bounds away as ANTELOPE."
+   }
   },
   {
    "id": "8-down",
@@ -195,7 +419,30 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLATFORM",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "PLATFORM HEELS",
+    "definition": "‘70s attire",
+    "indicators": [],
+    "pieces": [
+     "PLATFORM",
+     "HEELS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Villains",
+      "gives": "HEELS",
+      "note": "heels = villains, as in wrestling slang"
+     },
+     {
+      "clueFragment": "waiting to board train, perhaps",
+      "gives": "PLATFORM",
+      "note": "where you stand waiting to board a train"
+     }
+    ],
+    "walkthrough": "The definition is '70s attire: PLATFORM HEELS were the towering shoes of the disco decade. 'Villains' are HEELS — the bad guys, in wrestling slang — and people 'waiting to board train, perhaps' stand on a PLATFORM. Stand the heels on the platform and PLATFORM HEELS runs on into 26 across."
+   }
   },
   {
    "id": "9-across",
@@ -212,7 +459,37 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LILAC",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "LILAC",
+    "definition": "Colour",
+    "indicators": [
+     "observed in",
+     "given a twirl"
+    ],
+    "pieces": [
+     "LILAC"
+    ],
+    "subReversals": [
+     {
+      "from": "CALIL",
+      "to": "LILAC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter I, slipped inside"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "CALL",
+      "note": "give someone a ring = a call; I sits in it as CAL-I-L"
+     }
+    ],
+    "walkthrough": "The 'Colour' is LILAC. I is 'observed in' CALL (a 'ring' on the telephone), giving CAL-I-L, and 'given a twirl' spins the whole thing round: CALIL backwards is LILAC."
+   }
   },
   {
    "id": "10-across",
@@ -233,7 +510,40 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     ]
    },
    "solution": "BUBBLETEA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BUBBLE TEA",
+    "definition": "drink",
+    "indicators": [
+     "fluid"
+    ],
+    "anagram": {
+     "fodder": "B BEAT BLUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Black",
+      "gives": "B",
+      "note": "b = black, as on pencils"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "",
+      "note": "link word joining B to the fodder"
+     },
+     {
+      "clueFragment": "beat blue",
+      "gives": "BEATBLUE",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "fluid",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The 'drink' is BUBBLE TEA. Take B for 'Black', 'then' the letters of BEAT BLUE, and let 'fluid' stir all nine together: B + BEAT BLUE shakes out as BUBBLE TEA."
+   }
   },
   {
    "id": "11-across",
@@ -250,7 +560,29 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIPSNORTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RIPSNORTER",
+    "definition": "Wow",
+    "indicators": [],
+    "pieces": [
+     "RIP",
+     "SNORTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has snuffed it",
+      "gives": "RIP",
+      "note": "rest in peace — written for someone who has died"
+     },
+     {
+      "clueFragment": "the snuff taker",
+      "gives": "SNORTER",
+      "note": "snuff is snorted, so its taker is a snorter"
+     }
+    ],
+    "walkthrough": "A RIPSNORTER is a 'Wow' — something remarkable. The 'snuff taker' is a SNORTER, since snuff is snorted, and because they have 'snuffed it' — died — RIP goes in front. RIP + SNORTER: a late lamented snuff user."
+   }
   },
   {
    "id": "12-across",
@@ -267,7 +599,25 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLEF",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CLEF",
+    "definition": "Musical symbol",
+    "indicators": [
+     "briefly"
+    ],
+    "pieces": [
+     "CLEF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "CLEF",
+      "note": "split = CLEFT; 'briefly' drops its last letter"
+     }
+    ],
+    "walkthrough": "A CLEF is the 'Musical symbol' at the start of a stave. 'Split' gives CLEFT, and 'briefly' cuts it short by a letter, leaving CLEF."
+   }
   },
   {
    "id": "13-down",
@@ -288,7 +638,32 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     ]
    },
    "solution": "POOHPOOHED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "POOH-POOHED",
+    "definition": "sniffed at",
+    "indicators": [
+     "for a reporter"
+    ],
+    "pieces": [
+     "POOH",
+     "POOH",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big jobs",
+      "gives": "POOHPOOH",
+      "note": "nursery slang for poos — 'for a reporter', they sound like POOH, POOH"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ed = editor, the crossword journalist"
+     }
+    ],
+    "walkthrough": "'Sniffed at' is the definition: to POOH-POOH something is to dismiss it. 'Big jobs' is nursery talk for what ends up in the potty, and 'for a reporter' — as spoken aloud — they become POOH, POOH. Add ED, the usual 'journalist', and POOH + POOH + ED gives POOH-POOHED."
+   }
   },
   {
    "id": "14-across",
@@ -305,7 +680,22 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEDGEHOPPER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HEDGEHOPPER",
+    "definition": "Anything but a high-flier",
+    "indicators": [
+     "did you say?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the guillotine",
+      "gives": "HEDGEHOPPER",
+      "note": "the guillotine is a head-chopper; said aloud, 'head-chopper' becomes HEDGEHOPPER"
+     }
+    ],
+    "walkthrough": "A HEDGEHOPPER flies dangerously low — 'Anything but a high-flier'. The guillotine is a head-chopper, and 'did you say?' asks you to listen: 'head-chopper' spoken quickly sounds like HEDGEHOPPER."
+   }
   },
   {
    "id": "15-down",
@@ -322,7 +712,38 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIGNITARY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "DIGNITARY",
+    "definition": "Big noise",
+    "indicators": [
+     "splits"
+    ],
+    "pieces": [
+     "DI",
+     "G",
+     "NIT",
+     "ARY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g = good"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "NIT",
+      "note": "a nit is a louse's egg"
+     },
+     {
+      "clueFragment": "log",
+      "gives": "DIARY",
+      "note": "a diary is a log; split DI…ARY"
+     }
+    ],
+    "walkthrough": "A 'Big noise' is an important person — a DIGNITARY. G for 'good' plus NIT (an 'egg', a louse's egg) together make the 'good egg' that 'splits' DIARY, a 'log'. DI + G + NIT + ARY builds DIGNITARY."
+   }
   },
   {
    "id": "16-down",
@@ -339,7 +760,38 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESCARGOT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ESCARGOT",
+    "definition": "Slow mover",
+    "indicators": [
+     "off",
+     "before"
+    ],
+    "pieces": [
+     "ESCAR",
+     "GOT"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RACES",
+      "gives": "ESCAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "races",
+      "gives": "ESCAR",
+      "note": "anagram of RACES, signalled by 'off'"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "GOT",
+      "note": "caught = got"
+     }
+    ],
+    "walkthrough": "The 'Slow mover' is an ESCARGOT — a snail, at least on a French menu. RACES goes 'off' (an anagram) to make ESCAR, which sits 'before' GOT, meaning 'caught'. ESCAR + GOT: dinner at a snail's pace."
+   }
   },
   {
    "id": "17-down",
@@ -356,7 +808,38 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VINDALOO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "VINDALOO",
+    "definition": "dish that’s hot",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "VIN",
+     "DAL",
+     "O",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lentils",
+      "gives": "DAL",
+      "note": "dal = the Indian lentil dish, lentils"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a zero in cricket"
+     },
+     {
+      "clueFragment": "red or white",
+      "gives": "VINO",
+      "note": "wine; split VIN…O"
+     }
+    ],
+    "walkthrough": "The 'dish that's hot' is a VINDALOO. DAL ('Lentils') and O (a 'duck', the cricket zero) go 'in' VINO — 'red or white' wine. VIN + DAL + O + O assembles the VINDALOO."
+   }
   },
   {
    "id": "18-across",
@@ -373,7 +856,36 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEISMOGRAPH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SEISMOGRAPH",
+    "definition": "shaking recorder",
+    "indicators": [
+     "First of",
+     "crazy"
+    ],
+    "anagram": {
+     "fodder": "M PARISH GOES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "First of musicians",
+      "gives": "M",
+      "note": "first letter of Musicians"
+     },
+     {
+      "clueFragment": "parish goes",
+      "gives": "PARISHGOES",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "A SEISMOGRAPH records earthquakes — a 'shaking recorder'. Take the 'First of musicians', M, put it in with PARISH GOES, and let 'crazy' shake all eleven letters up: they settle as SEISMOGRAPH."
+   }
   },
   {
    "id": "19-down",
@@ -390,7 +902,31 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGREED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "AGREED",
+    "definition": "You’re on",
+    "indicators": [
+     "peak of"
+    ],
+    "pieces": [
+     "A",
+     "GREED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Annapurna",
+      "gives": "A",
+      "note": "its peak — the first letter in this down clue"
+     },
+     {
+      "clueFragment": "asking for a lot",
+      "gives": "GREED",
+      "note": "greed is wanting, and asking for, a lot"
+     }
+    ],
+    "walkthrough": "'You're on' is what you say when a deal is struck — AGREED. The 'peak of Annapurna' in this down clue is its top letter, A, and 'asking for a lot' is GREED. A + GREED makes AGREED."
+   }
   },
   {
    "id": "20-down",
@@ -407,7 +943,32 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRASHY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRASHY",
+    "definition": "Worthless",
+    "indicators": [
+     "fills"
+    ],
+    "pieces": [
+     "TR",
+     "ASH",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "ASH",
+      "note": "ash is a wood"
+     },
+     {
+      "clueFragment": "crack",
+      "gives": "TRY",
+      "note": "have a crack at = have a try at; split TR…Y"
+     }
+    ],
+    "walkthrough": "'Worthless' defines TRASHY. ASH (a 'wood') 'fills' TRY (a 'crack', as in having a crack at something): TR + ASH + Y makes TRASHY."
+   }
   },
   {
    "id": "21-across",
@@ -424,7 +985,36 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASDA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "ASDA",
+    "definition": "superstore",
+    "indicators": [
+     "Turning left"
+    ],
+    "pieces": [
+     "ASDA"
+    ],
+    "subReversals": [
+     {
+      "from": "ADS A",
+      "to": "ASDA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notices",
+      "gives": "ADS",
+      "note": "notices = advertisements"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the A from the clue"
+     }
+    ],
+    "walkthrough": "The 'superstore' is ASDA. 'Notices' are ADS; add A, then 'Turning left' — reading backwards in this across clue — flips ADS A into ASDA."
+   }
   },
   {
    "id": "22-across",
@@ -441,7 +1031,38 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FISHMONGER",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "FISHMONGER",
+    "definition": "in the gutter?",
+    "indicators": [
+     "keeps"
+    ],
+    "pieces": [
+     "FI",
+     "SH",
+     "MO",
+     "NGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obscene gesture",
+      "gives": "FINGER",
+      "note": "giving someone the finger; split FI…NGER"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh! = quiet"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO = medical officer"
+     }
+    ],
+    "walkthrough": "A FISHMONGER spends the day gutting fish, so the definition asks who is 'in the gutter?'. The 'Obscene gesture' is the FINGER, which 'keeps' SH ('quiet') and MO (a 'doctor', the medical officer) inside: FI + SH + MO + NGER."
+   }
   },
   {
    "id": "23-down",
@@ -458,7 +1079,32 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOTEL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HOTEL",
+    "definition": "Accommodation",
+    "indicators": [
+     "picked up?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weed",
+      "gives": "HOE",
+      "note": "to weed the garden is to hoe"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "TELL",
+      "note": "to grass on someone is to tell on them"
+     },
+     {
+      "clueFragment": "in which",
+      "gives": "",
+      "note": "link words for the drug-deal surface"
+     }
+    ],
+    "walkthrough": "'Accommodation' is the definition. To 'weed' is to HOE, and to 'grass' on someone is to TELL, and 'picked up?' says to listen: 'hoe-tell' sounds like HOTEL — where the weed and grass of the surface might change hands."
+   }
   },
   {
    "id": "24-down",
@@ -475,7 +1121,36 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PILS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "PILS",
+    "definition": "Beer",
+    "indicators": [
+     "from below"
+    ],
+    "pieces": [
+     "PILS"
+    ],
+    "subReversals": [
+     {
+      "from": "SLIP",
+      "to": "PILS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hiccup",
+      "gives": "SLIP",
+      "note": "a slip = a small mistake, a hiccup"
+     },
+     {
+      "clueFragment": "bringing",
+      "gives": "",
+      "note": "link word"
+     }
+    ],
+    "walkthrough": "The 'Beer' is PILS, short for pilsner. A 'hiccup' is a SLIP — a minor mistake — and 'from below' in this down clue reads it upwards: SLIP climbs back up as PILS."
+   }
   },
   {
    "id": "25-across",
@@ -492,7 +1167,38 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GALLIVANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "GALLIVANT",
+    "definition": "search for diversion?",
+    "indicators": [
+     "having impeded"
+    ],
+    "pieces": [
+     "GALL",
+     "I",
+     "VAN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bother",
+      "gives": "GALL",
+      "note": "gall = irritation, bother"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "split I…T around the vehicle"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van"
+     }
+    ],
+    "walkthrough": "To GALLIVANT is to gad about — to 'search for diversion?'. GALL ('Bother') comes first; then IT, 'having impeded' VAN (a 'vehicle'), wraps around it as I(VAN)T. GALL + I + VAN + T makes GALLIVANT."
+   }
   },
   {
    "id": "26-across",
@@ -512,7 +1218,9 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "HEELS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "8-down"
+   }
   },
   {
    "id": "27-across",
@@ -529,7 +1237,31 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TROTSKY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TROTSKY",
+    "definition": "Red",
+    "indicators": [
+     "ahead of"
+    ],
+    "pieces": [
+     "TROT",
+     "SKY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pace",
+      "gives": "TROT",
+      "note": "a trot is a pace"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "SKY",
+      "note": "sky blue"
+     }
+    ],
+    "walkthrough": "The 'Red' is Leon TROTSKY, the Russian revolutionary. A 'pace' is a TROT, placed 'ahead of' SKY, a shade of 'blue'. TROT + SKY = TROTSKY."
+   }
   },
   {
    "id": "28-across",
@@ -550,7 +1282,40 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     ]
    },
    "solution": "LADYDAY",
-   "annotation": null
+   "annotation": {
+    "type": "outer letters + container + charade + last letter",
+    "answer": "LADY DAY",
+    "definition": "celebration in March",
+    "indicators": [
+     "Case",
+     "packed into",
+     "end of"
+    ],
+    "pieces": [
+     "LA",
+     "DY",
+     "DA",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "driveway",
+      "gives": "DY",
+      "note": "its case — the outer letters — is D…Y"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "LADA",
+      "note": "the Lada; split LA…DA"
+     },
+     {
+      "clueFragment": "end of holiday",
+      "gives": "Y",
+      "note": "last letter of holidaY"
+     }
+    ],
+    "walkthrough": "LADY DAY, 25 March, is the 'celebration in March'. The 'Case' of 'driveway' — its outer letters — is DY, which is 'packed into' a LADA ('car'), and the 'end of holiday' adds a final Y. LA + DY + DA + Y spells LADY DAY."
+   }
   }
  ]
 } /*JSON-END*/;
