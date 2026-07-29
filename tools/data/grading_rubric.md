@@ -15,8 +15,13 @@ own that has nothing to do with the answer?
   only in crosswords.
 - **1** — word salad, or a bare list of instructions with no surface meaning at all.
 
-Watch for the tell of machine-made clues: technically grammatical, semantically inert.
-"Cold heap is inexpensive" parses fine and means nothing.
+Watch for the tell of flat setting: technically grammatical, semantically inert — a
+clue that parses fine and means nothing.
+
+Do **not** quote an example here. The first version of this rubric illustrated that
+failure with a real clue from the packets, and two judges said outright that seeing it
+named told them what to look for. An example in the standard contaminates the very
+thing the standard measures.
 
 ## 2. Misdirection
 

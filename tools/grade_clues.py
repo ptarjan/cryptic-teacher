@@ -56,7 +56,16 @@ def usable(clue, answer):
     """Reject corpus rows that would make the packet unfair or unreadable."""
     if not clue or len(clue) < 12:
         return False
-    if enumeration(clue) is None:
+    enum = enumeration(clue)
+    if enum is None:
+        return False
+    # The enumeration must add up to the answer we are comparing against. The
+    # corpus stores multi-word answers unspaced, so a (4,6) PACESETTER clue is
+    # filed under an answer that starts with PACE and sails through a naive
+    # answer match — then a judge sees a ten-letter clue in a four-letter
+    # packet, scores it as broken, and the comparison for that word is junk.
+    parts = [int(n) for n in re.findall(r"\d+", enum)]
+    if sum(parts) != len(answer):
         return False
     # Some rows carry the answer inline, or blog annotation in braces.
     if re.search(rf"\b{re.escape(answer)}\b", clue, re.I):
