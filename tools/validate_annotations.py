@@ -122,6 +122,20 @@ def is_plural(ans):
     return is_word(ans[:-1]) or (ans.endswith("ES") and is_word(ans[:-2]))
 
 
+# Nouns that are already plural without an -S, so "aircraft" really does define
+# PLANES and "cattle" really does define COWS. Without these the plural check
+# fires on a perfectly fair definition and invites a definitionNote that would
+# be a lie — the definition agrees with the answer, English just spells it oddly.
+INVARIANT_PLURALS = {
+    "aircraft", "cattle", "clergy", "crossroads", "deer", "fish", "folk",
+    "grouse", "headquarters", "means", "offspring", "people", "police",
+    "salmon", "series", "sheep", "species", "swine", "trout", "vermin",
+    "youth", "kin", "poultry", "livestock", "personnel", "staff", "troops",
+    "media", "data", "criteria", "phenomena", "bacteria", "children", "men",
+    "women", "feet", "teeth", "geese", "mice", "lice", "oxen", "dice",
+}
+
+
 def is_gerund(ans):
     """Is the answer really an -ING form? MARAUDING is (MARAUD is a word);
     VIKING, STRING and SPRING are not, which is what made this check noisy."""
@@ -155,7 +169,8 @@ def check_part_of_speech(tag, ann, warnings):
                         f"add a definitionNote saying why it is fair")
     # Multi-word answers are phrases whose trailing -S is rarely the head's
     # inflection: PICK UP THE PIECES is a verb phrase, defined by a verb phrase.
-    elif is_plural(ans) and " " not in (ann.get("answer") or "") and not ends(("s",)):
+    elif (is_plural(ans) and " " not in (ann.get("answer") or "")
+          and not ends(("s",)) and not (set(dwords) & INVARIANT_PLURALS)):
         warnings.append(f"{tag}: answer looks plural but the definition "
                         f"({ann.get('definition')!r}) is not — check the part of speech, "
                         f"or add a definitionNote saying why it is fair")
