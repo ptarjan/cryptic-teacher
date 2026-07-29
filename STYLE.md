@@ -31,6 +31,12 @@ alternate letters of bAgGiEr); 30066 5D ALLOCATE = `anagram + last letter`
 When a new type part is needed, add it to `TYPE_PARTS` in the validator, this
 list, and a level-1 blurb in `TYPE_BLURBS` in `app.js` — all three, in one commit.
 
+`cryptic definition` is capped at **two per puzzle**, a validator ERROR above
+that (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable
+mechanism, so reaching for a third means either the clue's wordplay has not been
+found yet or — when we wrote the clue ourselves — a joke got written and a
+mechanism did not. See `tools/AUTHORING.md`, "The sentence AND the wordplay".
+
 ### The definition must be substitutable (feedback 2026-07-29)
 A definition has to be able to REPLACE the answer in a sentence — which means
 matching its part of speech and its inflection. Paul's words: "the part of speech

@@ -336,4 +336,75 @@ THERE, ARMED, ORGAN, PETERS, REPORTERS) yielded a funny sentence and no funny
 mechanism. A puzzle that is a third cryptic definitions is unbalanced by any
 published standard. If a future pass can find Patella-class charades for those
 six, it should — but a sound mechanism is not a reason to keep a clue nobody
-enjoys reading.
+enjoys reading. That pass happened; the next section is what it found.
+
+## The sentence AND the wordplay (feedback 2026-07-29, same day)
+
+The twenty rewritten clues were read back and the verdict was one sentence:
+
+> **They are good for sentences now but they don't have wordplay anymore.**
+
+He was right, and the arithmetic is in the section above: six of twenty had
+become bare cryptic definitions. So the rule, in his terms and now permanent:
+
+> A clue needs the sentence **and** the wordplay. Both, in the same handful of
+> words. A funny sentence with no mechanism is a cryptic definition, and a
+> cryptic definition is a treat, not a technique: **at most two in a twenty-clue
+> puzzle**, enforced by `tools/validate_annotations.py` as an ERROR.
+
+Two routes to the same answer is the entire deal. A joke with no mechanism is a
+quiz question — the solver either shares your reference or is stuck with nothing
+to work on, and no crossing letter helps them reason. That is why the cap is a
+number and not a preference.
+
+**Why this failure mode recurs, and will recur again.** A funny sentence is much
+easier to find than a funny mechanism. Every minute spent chasing the pub-joke
+standard is a minute of pressure to drop the mechanism, because the mechanism is
+the part that will not bend. Each of those six clues was *individually*
+defensible; the damage was only visible when you counted them, which nobody
+does by eye. Hence a whole-puzzle check rather than a per-clue one. The ceiling
+of 2 is measured, not invented: across the annotated puzzles in `puzzles/`, only
+30039 carries any cryptic definitions at all, and it carries exactly two.
+
+**The second half of the rule: a narrated mechanism is not a hidden one.** Two
+A001 clues had a real mechanism and still failed, because the indicator was an
+instruction wearing a sentence:
+
+    There's a bit of the president in our team (4)   SIDE
+    Every ship needs a leader in front (10)          LEADERSHIP
+
+`a bit of` and `in front` are not description, they are the setter leaning over
+the solver's shoulder saying *take part of this word* and *put that one first*.
+Both were fixed by making the indicator carry ordinary meaning, or by removing
+it entirely:
+
+    There's a mole in the president's team (4)          in = the only signal, and
+                                                        a mole really is buried
+                                                        in pre-SIDE-nt
+    Leaders get hip and mistake it for direction (10)   a charade needs no
+                                                        indicator at all
+
+The test to apply: **would this word be in the sentence if there were no
+crossword?** `in` survives it. `a bit of` does not. Watch especially for
+`a bit of`, `some of`, `in front`, `turned`, `rebuilt`, `back` and `about` doing
+nothing but announcing the machinery.
+
+What the pass actually produced, as a worked record of what "both" costs — four
+cryptic definitions converted, two kept:
+
+| answer | was (no mechanism) | now | mechanism |
+| --- | --- | --- | --- |
+| THERE | Where the grass is greener | Time here would be better spent yonder | charade, T + HERE |
+| REPORTERS | These porters carry stories, not bags | The press are riddled with pet errors | anagram of PET ERRORS |
+| ORGAN | The only instrument you can donate | The donor's dreadful groan comes from the instrument | anagram of GROAN |
+| PETERS | What Peter does when Paul gets paid | With the Queen among the pets, interest dwindles | container, ER in PETS |
+| PACE | Expectant fathers do it up and down | *kept* | — |
+| ARMED | What the Venus de Milo isn't | *kept* | — |
+
+PACE and ARMED are the two allowed cryptic definitions. They were kept because
+their mechanisms are the weakest available, not because their jokes are the
+best: PACE offers only an anagram of CAPE or the charade P + ACE, neither of
+which supports a joke, and every synonym of ARMED is a phrase (`carrying a
+weapon`, `under arms`), so no clue can define it tightly enough to be worth the
+machinery. That is the honest test for spending one of your two: **not "is this
+funny" but "is the mechanism I would swap it for actually worse than nothing".**
