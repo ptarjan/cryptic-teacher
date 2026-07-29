@@ -45,6 +45,11 @@ half of this (plural / `-ing` disagreement) as warnings. The judgement half is
 yours — the validator deliberately skips `-ly` and long descriptive phrases,
 because a warning nobody reads is worse than no warning.
 
+Agreement is about grammar, not spelling: `aircraft` genuinely is a plural and so
+genuinely does define PLANES. Those nouns live in `INVARIANT_PLURALS` in the
+validator; extend that set rather than papering over the warning with a
+`definitionNote`, which would tell the learner a mismatch exists when it does not.
+
 ### Account for every word (feedback 2026-07-29)
 Every content word of the clue must be claimed by the parse: it belongs to the
 definition, to an indicator, or to a block's `clueFragment`. A word left over is
