@@ -286,3 +286,54 @@ homophone. The sentence came first and the mechanism had to be found inside it.
 them: the first fires on nearly half of all published Times clues, and the third
 has never fired on one of ours. Verblessness is not the disease and strange
 phrasing is not the disease. Both tests above are still judgements, made aloud.
+
+## The standard is a pub joke, not a rubric score (feedback 2026-07-29)
+
+Everything above was written from the blind-grading round, and the round-two
+rewrites were judged against it and passed. Then a human read the five clues that
+had beaten their entire human field and said: *those aren't very good, none of
+those are real sentences.* He was right, and it invalidates the scoreboard rather
+than the clues:
+
+> `Newspaper: Morgan dropped a million (5)` is a colon-gloss. `Concerning hotel
+> staff, the press (9)` is a verbless fragment opening on a naked RE marker.
+> `Dwindles as time enters the Lords (6)` is a front definition welded to a
+> narration of its own wordplay. `Pool turned into a circuit (4)` wears "turned"
+> as a visible instruction. **They won a blind comparison because the judges were
+> rewarding rubric-compliance.** Beating a field is not evidence of quality when
+> the field and the judges share a rubric.
+
+The target to write against is a named clue, not a table:
+
+    Two girls, one on each knee (7)   = PATELLA
+    Die of cold (3,4)                 = ICE CUBE
+    Amundsen's forwarding address (4) = MUSH
+    A stiff examination (4-6)         = POST-MORTEM
+
+Short, complete, funny, and the definition is invisible because it is
+load-bearing in the sentence. There is no crossword furniture anywhere in them —
+and note that PATELLA is a plain charade, so "no furniture" does not mean "no
+mechanism". It means `one on each knee` is simultaneously the assembly
+instruction and the picture.
+
+The rules that follow, applied to all twenty A001 clues in the 2026-07-29 pass:
+
+1. **A complete English utterance.** Subject and finite verb, or an idiom a
+   person actually says. Imperatives are fine (`Die of cold`).
+2. **Banned furniture:** definitions glossed off behind a colon or comma; clues
+   opening `Concerning` / `About` / `Regarding`; `Sounds like`; any clue that is
+   a bare noun phrase listing wordplay and then meaning.
+3. **The pun must be nameable and cute.** The reader should smile. If the only
+   pleasure is that the mechanism resolves, the clue fails, however sound it is.
+4. **Shorter is better** — the target class runs 3-6 words.
+5. **Mechanism is chosen last**, out of material the sentence already contains.
+   If nothing fits, find a different sentence; never repair it by narrating the
+   wordplay.
+
+The honest cost, recorded so the trade is visible: pushing for the pun raised the
+cryptic-definition count in A001 from one to six, because several answers (PACE,
+THERE, ARMED, ORGAN, PETERS, REPORTERS) yielded a funny sentence and no funny
+mechanism. A puzzle that is a third cryptic definitions is unbalanced by any
+published standard. If a future pass can find Patella-class charades for those
+six, it should — but a sound mechanism is not a reason to keep a clue nobody
+enjoys reading.
