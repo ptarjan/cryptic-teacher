@@ -20,7 +20,9 @@ Annotation schema (see `puzzles/30066.js` for 28 worked examples):
   "answer": "DISPLAY FORM (spaces/apostrophes/hyphens ok; letters must equal the solution)",
   "definition": "exact substring of the clue text",
   "definition2": "second definition, only for double definitions",
+  "definitionNote": "only when the definition genuinely disagrees with the answer in number or part of speech: a sentence explaining why the setter is allowed it",
   "indicators": ["exact substring", "..."],
+  "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
   "blocks": [
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"}
   ],
@@ -55,8 +57,18 @@ Rules:
   plural definition, an `-ing` answer an `-ing` definition, a verb a verb. This is the
   single most common annotation mistake; the validator warns on the mechanical cases.
 - Account for EVERY content word of the clue. Each one must sit inside the definition,
-  inside an indicator, or inside a block's `clueFragment`. A leftover word means you have
-  missed a piece of wordplay (30067 13A dropped `state` = CAL and nobody noticed).
+  inside an indicator, inside `linkWords`, or inside a block's `clueFragment`. A leftover
+  word means you have missed a piece of wordplay (30067 13A dropped `state` = CAL and
+  nobody noticed). It is always one of four things, so decide which: a **link word**
+  ("indicating", "to locate" — no letters, put it in `linkWords`); an **indicator** you
+  overlooked (anything saying where a piece goes, e.g. "facing"); a **letter you never
+  named** (a deletion needs a block for the letter removed — "hard" = H — not just for the
+  word it came out of); or **genuine surface padding**, which still gets a block with an
+  empty `gives` and a note saying it is surface only.
+- If the definition genuinely does NOT agree with the answer ("Lousy payment" = PEANUTS,
+  "hearing aid" = EARPHONES), do not stretch it and do not ignore it: add a
+  `definitionNote` explaining the mismatch to the learner. The validator requires a real
+  sentence, and the note is shown in the app under the definition rung.
 - Never hedge in a `walkthrough`. Words like "jokingly", "somehow", "if you squint" are a
   validator ERROR: if the explanation needs a fudge, the parse is wrong. Go back and
   find the parse that needs no excuse.

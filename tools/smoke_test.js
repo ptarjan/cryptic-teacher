@@ -33,6 +33,13 @@ class FakeEl {
       contains(c) { return this._set.has(c); }
     };
   }
+  // Setting an id must publish the element, exactly as a real DOM does. Without
+  // this, an element built by createElement() was invisible to getElementById(),
+  // which then minted a SECOND, empty element under the same id — so app code and
+  // test code silently held different objects and every assertion about a
+  // dynamically-created element (clue rows, hint buttons) was vacuous.
+  set id(v) { this._id = String(v || ""); if (this._id) registry[this._id] = this; }
+  get id() { return this._id; }
   set className(v) { this.classList._set = new Set(String(v).split(/\s+/).filter(Boolean)); }
   get className() { return [...this.classList._set].join(" "); }
   set innerHTML(v) { this._innerHTML = String(v); if (v === "") this.children = []; }
@@ -271,6 +278,49 @@ assert(registry["puzzle-title"].innerHTML.includes("auto hints"), "auto-hints pu
 assert(registry["hint-body"].innerHTML.includes("auto hints") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
 assert(registry["hint-next"].innerHTML.includes("Reveal answer"), "auto-hints puzzle offers Reveal answer");
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hints puzzle offers letter escape hatch");
+
+// --- link words and definition notes reach the screen (feedback 2026-07-29) ---
+// Both fields exist to answer a learner's question — "what does this word do?"
+// and "why doesn't the definition match the answer?" — so data that never
+// renders is worse than no data. Drive the real UI to a clue that has each.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const findClue = (field) => {
+    for (const id of Object.keys(puzzles).sort().reverse()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation;
+        if (a && (Array.isArray(a[field]) ? a[field].length : a[field])) return { id, e };
+      }
+    }
+    return null;
+  };
+  const openClue = ({ id, e }) => {
+    registry["btn-picker"].onclick();
+    const li = registry["picker-list"].children.find((x) => x.children[0].innerHTML.includes("№ " + id));
+    assert(li, `picker lists puzzle ${id}`);
+    li.children[0].onclick();
+    const row = registry["clue-" + e.id];
+    assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
+    row.listeners.click[0]();
+    // rung 1 = family, rung 2 = definition, which is where both fields hang
+    registry["hint-next"].children[0].onclick();
+    registry["hint-next"].children[0].onclick();
+  };
+
+  const linked = findClue("linkWords");
+  assert(linked, "at least one annotation names its link words");
+  openClue(linked);
+  assert(registry["hint-body"].innerHTML.includes("just a link"),
+    "link words are explained on the definition rung: " + registry["hint-body"].innerHTML);
+  assert(registry["hint-clue"].innerHTML.includes('mark class="link"'),
+    "link words are highlighted in the clue: " + registry["hint-clue"].innerHTML);
+
+  const noted = findClue("definitionNote");
+  assert(noted, "at least one annotation explains a definition that disagrees with its answer");
+  openClue(noted);
+  assert(registry["hint-body"].innerHTML.includes("def-note"),
+    "the definition note is shown to the learner: " + registry["hint-body"].innerHTML);
+}
 
 // --- tutorial toggle ---
 registry["btn-tutorial"].onclick();
