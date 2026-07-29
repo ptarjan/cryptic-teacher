@@ -5,7 +5,11 @@ Checks, for every annotated entry:
   - annotation has type, definition, walkthrough, answer, blocks
   - every " + "-joined part of `type` is in the controlled vocabulary (TYPE_PARTS)
   - answer letters match the grid solution (group-aware for linked entries)
-  - definition / definition2 / every indicator is an exact substring of the clue
+  - definition / definition2 / every indicator / every linkWord is an exact
+    substring of the clue, and every content word of the clue is claimed by one
+    of those or by a block (check_coverage)
+  - definition and answer agree in inflection, unless a definitionNote explains
+    why they don't (check_part_of_speech)
   - anagram fodder letters match the answer letters (multiset)
   - charade/container "pieces" concatenate exactly to the answer letters
   - hidden answers actually occur in the clue's letters
@@ -58,6 +62,21 @@ FILLER_WORDS = {
 HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
           "for some reason", "don't ask", "close enough")
 
+# A real English wordlist, used to tell a genuine inflection from a coincidence:
+# MARAUDING is a gerund (MARAUD is a word) but VIKING is not (VIK is not), and
+# EARPHONES is a plural (EARPHONE is a word). Without it the part-of-speech
+# checks fire on every answer that merely happens to end in -S or -ING.
+def _load_words():
+    for p in ("/usr/share/dict/words", "/usr/dict/words"):
+        try:
+            return {w.strip().lower() for w in open(p, encoding="utf-8", errors="ignore")}
+        except OSError:
+            continue
+    return set()  # no dictionary here: the inflection checks quietly stand down
+
+
+WORDS = _load_words()
+
 
 def letters(s):
     return re.sub(r"[^A-Z]", "", (s or "").upper())
@@ -71,15 +90,17 @@ def words_of(s):
 def check_coverage(tag, ann, clue, warnings):
     """Every content word of the clue must be claimed by the parse.
 
-    A clue word that is in neither the definition, an indicator, nor a block
-    fragment is wordplay the annotation silently dropped (feedback 2026-07-29:
-    30067 13A never accounted for 'state' = CAL, and the walkthrough hedged
-    instead of admitting it)."""
+    A clue word that is in neither the definition, an indicator, a link phrase,
+    nor a block fragment is wordplay the annotation silently dropped (feedback
+    2026-07-29: 30067 13A never accounted for 'state' = CAL, and the walkthrough
+    hedged instead of admitting it)."""
     claimed = set()
     for src in [ann.get("definition"), ann.get("definition2")]:
         claimed |= set(words_of(src))
     for ind in ann.get("indicators", []):
         claimed |= set(words_of(ind))
+    for lw in ann.get("linkWords", []):
+        claimed |= set(words_of(lw))
     for b in ann.get("blocks", []):
         claimed |= set(words_of(b.get("clueFragment")))
     loose = [w for w in words_of(clue) if w not in claimed and w not in FILLER_WORDS]
@@ -89,26 +110,55 @@ def check_coverage(tag, ann, clue, warnings):
             f"definition, an indicator, nor a block — wordplay may be unaccounted for")
 
 
+def is_word(s):
+    return s.lower() in WORDS
+
+
+def is_plural(ans):
+    """Is the answer really a plural, or does it just end in S? Checked against a
+    real wordlist so PEANUTS (PEANUT) warns and CHAOS / TENNIS never do."""
+    if not ans.endswith("S") or ans.endswith(("SS", "US", "IS")):
+        return False
+    return is_word(ans[:-1]) or (ans.endswith("ES") and is_word(ans[:-2]))
+
+
+def is_gerund(ans):
+    """Is the answer really an -ING form? MARAUDING is (MARAUD is a word);
+    VIKING, STRING and SPRING are not, which is what made this check noisy."""
+    if not ans.endswith("ING"):
+        return False
+    stem = ans[:-3]
+    return (is_word(stem) or is_word(stem + "E")
+            or (len(stem) > 2 and stem[-1] == stem[-2] and is_word(stem[:-1])))
+
+
 def check_part_of_speech(tag, ann, warnings):
     """The definition must be substitutable for the answer, which means their
     inflections agree: a plural answer needs a plural definition, an -ing answer
     an -ing definition (feedback 2026-07-29 — "the part of speech needs to be
     right"). Only the mechanical, unambiguous endings are checked here; the
-    judgement call lives in STYLE.md and tools/annotate_prompt.md."""
+    judgement call lives in STYLE.md and tools/annotate_prompt.md.
+
+    A `definitionNote` silences this: some setters genuinely define a plural with
+    a mass noun ("Lousy payment" = PEANUTS), and the honest response is to
+    explain that to the learner, not to fake agreement the clue does not have."""
     ans = letters(ann.get("answer"))
     dwords = words_of(ann.get("definition"))
-    if not ans or not dwords:
+    if not ans or not dwords or ann.get("definitionNote"):
         return
     ends = lambda sufs: any(w.endswith(sufs) for w in dwords)
     # A long definition is usually a descriptive phrase ("About to go off perhaps"
     # = TICKING), where the -ing test says nothing; only short ones are meaningful.
-    if ans.endswith("ING") and len(ans) > 5 and len(dwords) <= 2 and not ends(("ing",)):
+    if is_gerund(ans) and len(dwords) <= 2 and not ends(("ing",)):
         warnings.append(f"{tag}: answer ends -ING but no word in the definition does "
-                        f"({ann.get('definition')!r}) — check the part of speech")
-    elif ans.endswith("S") and len(ans) > 4 and not ans.endswith(("SS", "US", "IS", "OUS")) \
-            and not ends(("s",)):
+                        f"({ann.get('definition')!r}) — check the part of speech, or "
+                        f"add a definitionNote saying why it is fair")
+    # Multi-word answers are phrases whose trailing -S is rarely the head's
+    # inflection: PICK UP THE PIECES is a verb phrase, defined by a verb phrase.
+    elif is_plural(ans) and " " not in (ann.get("answer") or "") and not ends(("s",)):
         warnings.append(f"{tag}: answer looks plural but the definition "
-                        f"({ann.get('definition')!r}) is not — check the part of speech")
+                        f"({ann.get('definition')!r}) is not — check the part of speech, "
+                        f"or add a definitionNote saying why it is fair")
     # Deliberately NOT checked: -LY (plenty of adverbs don't end in -ly: "always"),
     # and -ing definitions for non-ing answers ("Working vessel" = DREDGER is fine).
     # A noisy warning is a warning nobody reads.
@@ -176,6 +226,11 @@ def validate_puzzle(puzzle):
         for ind in ann.get("indicators", []):
             if ind not in clue:
                 errors.append(f"{tag}: indicator {ind!r} not found in clue {clue!r}")
+        # Link words ("to locate", "indicating") join definition to wordplay and
+        # carry no letters of their own — they must still be named, not ignored.
+        for lw in ann.get("linkWords", []):
+            if lw not in clue:
+                errors.append(f"{tag}: linkWord {lw!r} not found in clue {clue!r}")
         for b in ann.get("blocks", []):
             frag = b.get("clueFragment")
             if frag and frag not in clue:
@@ -201,6 +256,13 @@ def validate_puzzle(puzzle):
                 or "definition" in (ann.get("type") or "")
                 or "homophone" in (ann.get("type") or "")):
             warnings.append(f"{tag}: no machine-checkable assembly (pieces/anagram) provided")
+
+        # A definitionNote silences the part-of-speech check, so it has to say
+        # something: a one-word "fine" would turn the check into an off switch.
+        note = ann.get("definitionNote")
+        if note is not None and len(str(note).strip()) < 25:
+            errors.append(f"{tag}: definitionNote {note!r} is too thin — explain to the "
+                          f"learner why the mismatch is fair, or drop the note")
 
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)

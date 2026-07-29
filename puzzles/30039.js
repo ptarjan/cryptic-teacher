@@ -2,7 +2,8 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
+window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
+{
  "id": "30039",
  "number": 30039,
  "name": "Cryptic crossword No 30,039",
@@ -173,7 +174,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
       "note": "to hone is to perfect, sharpen"
      }
     ],
-    "walkthrough": "The 'US lawman' is Wyatt EARP, and 'perfects' gives HONES (as in honing a skill). EARP + HONES = EARPHONES, wittily defined as a 'hearing aid'."
+    "walkthrough": "The 'US lawman' is Wyatt EARP, and 'perfects' gives HONES (as in honing a skill). EARP + HONES = EARPHONES, wittily defined as a 'hearing aid'.",
+    "definitionNote": "The answer is plural but the definition is singular: 'a hearing aid' is being used loosely for the kit as a whole, the way you would call a pair of earphones 'a headset'. Setters allow themselves this with objects that come in pairs."
    }
   },
   {
@@ -209,7 +211,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
       "note": "a harvester literally faces rows of corn"
      }
     ],
-    "walkthrough": "The 'Hairy arrangement' is CORNROWS, the braided hairstyle. Read the word again as CORN ROWS and it's what a harvester faces in the field. The question mark admits the second reading is whimsical."
+    "walkthrough": "The 'Hairy arrangement' is CORNROWS, the braided hairstyle. Read the word again as CORN ROWS and it's what a harvester faces in the field. The question mark admits the second reading is whimsical.",
+    "definitionNote": "CORNROWS is plural but 'arrangement' is singular, because the many braids together make one hairstyle — the plural word names a single arrangement."
    }
   },
   {
@@ -796,7 +799,10 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
       "note": "hidden inside pud-DING BAT-ter"
      }
     ],
-    "walkthrough": "'Ingredients of' tells you the answer is hiding inside the next words: pud-DINGBAT-ter conceals DINGBAT, a 'special symbol' — the typographic ornaments in fonts like Zapf Dingbats."
+    "walkthrough": "'Ingredients of' tells you the answer is hiding inside the next words: pud-DINGBAT-ter conceals DINGBAT, a 'special symbol' — the typographic ornaments in fonts like Zapf Dingbats.",
+    "linkWords": [
+     "indicating"
+    ]
    }
   },
   {
@@ -1150,4 +1156,5 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
    }
   }
  ]
-} /*JSON-END*/;
+}
+/*JSON-END*/;

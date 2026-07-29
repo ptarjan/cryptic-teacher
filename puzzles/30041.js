@@ -2,7 +2,8 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
+window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
+{
  "id": "30041",
  "number": 30041,
  "name": "Cryptic crossword No 30,041",
@@ -1164,11 +1165,16 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
      },
      {
       "clueFragment": "therefore",
-      "gives": "ENCE",
-      "note": "HENCE, told 'to dispose of hard' (H)"
+      "gives": "HENCE",
+      "note": "therefore = hence"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H = hard, the pencil grading — this is the letter to dispose of"
      }
     ],
-    "walkthrough": "'Pressure' is P, and 'therefore' is HENCE — which is told 'to dispose of hard', dropping the H. P + ENCE = PENCE, 'cash'."
+    "walkthrough": "'Pressure' is P and 'therefore' is HENCE. 'Hard' is H — the grading stamped on a pencil — and the clue says 'to dispose of' it, so HENCE loses its H and leaves ENCE. P + ENCE = PENCE, the 'cash'."
    }
   },
   {
@@ -1428,4 +1434,5 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
    }
   }
  ]
-} /*JSON-END*/;
+}
+/*JSON-END*/;

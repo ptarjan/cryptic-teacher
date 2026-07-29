@@ -2,7 +2,8 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
+window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
+{
  "id": "30043",
  "number": 30043,
  "name": "Cryptic crossword No 30,043",
@@ -357,7 +358,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
       "note": "OP ('opposite prompt') is the side of a theatre stage opposite the prompter"
      }
     ],
-    "walkthrough": "In a down clue, 'supporting' means sitting underneath. USES ('applications') supports OP, the 'opposite prompt' side — a genuine section of a theatre stage. OP + USES = OPUSES: a composer's 'work', taken as the whole body of it."
+    "walkthrough": "In a down clue, 'supporting' means sitting underneath. USES ('applications') supports OP, the 'opposite prompt' side — a genuine section of a theatre stage. OP + USES = OPUSES: a composer's 'work', taken as the whole body of it.",
+    "definitionNote": "OPUSES is plural but the definition 'work' is singular, taken as a mass noun: a composer's 'work' means everything they wrote, which is exactly their opuses."
    }
   },
   {
@@ -1345,4 +1347,5 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
    }
   }
  ]
-} /*JSON-END*/;
+}
+/*JSON-END*/;

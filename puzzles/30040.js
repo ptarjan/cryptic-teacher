@@ -2,7 +2,8 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
+window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
+{
  "id": "30040",
  "number": 30040,
  "name": "Cryptic crossword No 30,040",
@@ -661,7 +662,10 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'At sea' is the anagram indicator: shake up TAR WAS HERE and you get SHEARWATER, the 'marine bird'. Lovely surface — a tar is a sailor, exactly who you'd expect to have scrawled 'was here' out on the ocean."
+    "walkthrough": "'At sea' is the anagram indicator: shake up TAR WAS HERE and you get SHEARWATER, the 'marine bird'. Lovely surface — a tar is a sailor, exactly who you'd expect to have scrawled 'was here' out on the ocean.",
+    "linkWords": [
+     "to locate"
+    ]
    }
   },
   {
@@ -756,6 +760,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
     "definition": "Islander",
     "indicators": [
      "disheartened",
+     "facing",
      "start of"
     ],
     "pieces": [
@@ -780,7 +785,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
       "note": "a riot = disorder"
      }
     ],
-    "walkthrough": "'Clearly disheartened' scoops out the middle of CLEARLY, leaving just C and Y. That faces the 'start of public' (P) and 'disorder' (RIOT). CY + P + RIOT = CYPRIOT, an 'Islander' from Cyprus."
+    "walkthrough": "'Clearly disheartened' scoops out the middle of CLEARLY, leaving just C and Y. 'Facing' then places that in front of what follows: the 'start of public' (P) and 'disorder' (RIOT). CY + P + RIOT = CYPRIOT, an 'Islander' from Cyprus."
    }
   },
   {
@@ -1148,4 +1153,5 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/ {
    }
   }
  ]
-} /*JSON-END*/;
+}
+/*JSON-END*/;

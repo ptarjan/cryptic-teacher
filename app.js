@@ -203,6 +203,7 @@
       };
       push(ann.definition, "def");
       push(ann.definition2, "def2");
+      (ann.linkWords || []).forEach((w) => push(w, "link"));
       if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
       marks.sort((a, b) => a.i - b.i);
       // drop overlaps
@@ -585,6 +586,23 @@
       });
     }
 
+    // Two footnotes hang off the definition rung, both of them things a learner
+    // would otherwise be left puzzling over. `definitionNote` explains a
+    // definition that deliberately does NOT agree with the answer ("Lousy
+    // payment" = PEANUTS); `linkWords` names the connective words that carry no
+    // wordplay at all, which is the commonest reason a beginner keeps hunting
+    // for a mechanism that was never there.
+    const defStep = steps[steps.length - 1];
+    if (ann.definitionNote) {
+      defStep.html += `<p class="def-note">${esc(ann.definitionNote)}</p>`;
+    }
+    if ((ann.linkWords || []).length) {
+      const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(", ");
+      defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are" : "is"}
+        just a link — words that join the definition to the wordplay and contribute
+        no letters of their own.</p>`;
+    }
+
     // Indicators only exist for some clue types — no rung that says "none".
     if (inds.length) {
       steps.push({
@@ -706,6 +724,7 @@
       if (stepShown(ann, "definition", level)) {
         body.innerHTML += `<div class="legend"><mark class="def">definition</mark>${
           stepShown(ann, "indicators", level) ? ' · <mark class="ind">indicator</mark>' : ""
+        }${(ann.linkWords || []).length ? ' · <mark class="link">link</mark>' : ""
         } highlighted in the clue above</div>`;
       }
 

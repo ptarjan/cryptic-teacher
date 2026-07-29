@@ -56,6 +56,57 @@ hedging words in a walkthrough (`jokingly`, `somehow`, `if you squint`, …) are
 hard ERROR — if a walkthrough needs a hedge, the parse is wrong, not the clue.
 Extend `HEDGES` in the validator when a new fudge shows up.
 
+### What the leftover words turned out to be (feedback 2026-07-29)
+Working through every warning `check_coverage()` raised produced four distinct
+causes, and each one has a right answer. When a clue word is unaccounted for, it
+is one of these — never "ignore it":
+
+1. **A link word.** "Special symbol *indicating* ingredients of pudding batter",
+   "Tar was here at sea *to locate* marine bird". These join definition to
+   wordplay and contribute no letters. Declare them in `linkWords` (verbatim
+   substrings, validated). They are then greyed and struck through in the clue
+   and named on the definition rung — beginners hunt for a mechanism in these
+   words precisely because nothing ever tells them there isn't one.
+2. **An indicator you missed.** 30040 17D's "facing" is not padding: it is what
+   puts CY in front of P + RIOT. If a word tells you where a piece goes, it is an
+   indicator.
+3. **A letter you never named.** 30041 26A ("Pressure, therefore, to dispose of
+   hard cash") deleted an H without ever saying *hard* = H. A deletion must have
+   a block for the thing deleted, not just for the thing it is deleted from.
+4. **Genuine surface padding.** 30067 20D splits the phrase "from bad to worse"
+   and uses only half. That is a real solving insight, so it gets a block with an
+   empty `gives` and a note saying so — claimed and explained, not silently
+   dropped.
+
+### When the definition really doesn't agree: say so (feedback 2026-07-29)
+Sometimes the setter's definition genuinely does not match the answer's number or
+part of speech — "Lousy payment" for PEANUTS, "hearing aid" for EARPHONES, "work"
+for OPUSES. Do not paper over it and do not stretch the definition to fit. Add a
+`definitionNote`: a sentence, shown to the learner under the definition rung,
+saying what disagrees and why the setter is allowed it (mass-noun idiom, objects
+that come in pairs, a plural naming one thing). It also silences
+`check_part_of_speech()`, so the validator requires it to be a real explanation
+(≥25 chars), never a rubber stamp. The unexplained mismatch is the bug; the
+explained one is a lesson.
+
+### Heuristics must know real words (feedback 2026-07-29)
+The first cut of `check_part_of_speech()` warned on VIKING because it ends in
+`-ING`, and on PICK UP THE PIECES because it ends in `-S`. Both were noise, and
+noise is what makes a check ignorable. It now consults `/usr/share/dict/words`:
+an answer is only treated as a gerund if the stem is a word (MARAUD yes, VIK no)
+and only as a plural if the singular is (EARPHONE yes, CHAOS no), and multi-word
+answers are skipped since their trailing `-S` belongs to an internal noun. If the
+wordlist is missing, the check stands down rather than guessing. General rule for
+any new validator check: prove the pattern is real before warning about it, and
+test the check against every annotated puzzle before committing it.
+
+### Fakes must not diverge from the real thing (feedback 2026-07-29)
+`tools/smoke_test.js` uses a fake DOM. Setting `el.id` on a created element did
+not publish it to `getElementById`, so the app and the test held two different
+objects with the same id and assertions about dynamically-created elements were
+quietly vacuous. When a test harness fakes an API, the fake has to keep that
+API's contracts — a divergence does not fail loudly, it makes tests lie.
+
 ### Existing schema rules
 See `tools/annotate_prompt.md`: verbatim definition/indicator substrings,
 letter-perfect pieces/fodder, `linkedTo` stubs for grouped entries, validator

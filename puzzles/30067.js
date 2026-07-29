@@ -2,7 +2,8 @@
 // Annotations (type/definition/indicators/blocks/walkthrough) are original
 // to this project. Edit the annotation objects freely; keep the JSON markers.
 window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
-window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
+window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
+{
  "id": "30067",
  "number": 30067,
  "name": "Cryptic crossword No 30,067",
@@ -846,14 +847,19 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
     },
     "blocks": [
      {
-      "clueFragment": "to worse",
-      "gives": "TOWORSE",
-      "note": "anagram fodder — 'from bad' points at it"
-     },
-     {
       "clueFragment": "develops",
       "gives": "",
       "note": "anagram indicator"
+     },
+     {
+      "clueFragment": "from bad",
+      "gives": "",
+      "note": "surface only — the familiar phrase 'from bad to worse' is split, and only the second half is fodder"
+     },
+     {
+      "clueFragment": "to worse",
+      "gives": "TOWORSE",
+      "note": "anagram fodder, 7 letters"
      }
     ],
     "walkthrough": "'Develops' rearranges the letters of TO WORSE into WOOSTER — 'Bertie', P.G. Wodehouse's amiable idiot. The phrase 'from bad to worse' is split so that 'to worse' becomes the fodder."
@@ -1184,7 +1190,8 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
       "note": "Charles Schulz's comic strip, home of Snoopy"
      }
     ],
-    "walkthrough": "Double definition: being paid PEANUTS is a 'Lousy payment', and Peanuts is Charles Schulz's celebrated 'cartoon' strip."
+    "walkthrough": "Double definition: being paid PEANUTS is a 'Lousy payment', and Peanuts is Charles Schulz's celebrated 'cartoon' strip.",
+    "definitionNote": "PEANUTS is plural but 'payment' is singular, because peanuts here is an idiom that behaves like a mass noun: 'the payment was peanuts', never 'a peanut'."
    }
   },
   {
@@ -1236,4 +1243,5 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    }
   }
  ]
-} /*JSON-END*/;
+}
+/*JSON-END*/;
