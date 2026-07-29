@@ -194,3 +194,54 @@ unfillable, because it had full-width 13-letter entries and only ~200 clueable
 13-letter words exist above the floor, two of which then had to interlock with
 12s. The current 13x13 has a maximum entry of 7 and fills instantly. A grid full
 of maximal entries is a grid you will fight.
+
+## What blind grading found
+
+Twenty original clues (A001) were scored against 60 published clues for the same
+answers, drawn from the Times, Guardian, FT and Independent blogs. Three judges,
+no provenance shown, five axes from `tools/data/grading_rubric.md`. Build the
+packets with `tools/grade_clues.py`, score them with `tools/score_grading.py`.
+
+                  ours   human    gap
+    surface       3.10    3.73   -0.63
+    misdirection  2.47    3.68   -1.21
+    penny-drop    2.43    3.41   -0.98
+    economy       4.17    4.02   +0.15
+    fairness      4.72    4.00   +0.72
+    OVERALL       3.38    3.77   -0.39
+
+Beat the best human clue for the same answer on 1 of 20. Judges asked to pick the
+machine-written clue were right 50% of the time against 25% chance.
+
+Read that table as a diagnosis, not a scoreboard. **Soundness is solved and it is
+not what is missing.** The +0.72 on fairness is real and it is earned by
+`validate_annotations.py` — the human clues in the field included an anagram with
+no anagram indicator, a hidden word with no hidden indicator, and one clue with no
+derivation at all, and every judge found them. Our clues never fail that way.
+
+The loss is entirely in **misdirection and penny-drop**, and both come from the
+same habit: writing the mechanism down in order and putting a sentence around it
+afterwards. `Later rewritten, to change` is fodder, indicator, definition, in that
+order, fenced off with a comma. It is perfectly fair and it is not a clue anyone
+would enjoy. Our worst six all have that shape.
+
+So the rule that follows is about *sequence*, not vocabulary:
+
+> Decide what the clue is going to be **about** before you decide how it works.
+> A surface idea — a scene, a joke, a piece of news — is the thing being written;
+> the mechanism has to be fitted into it. Assembling parts and then smoothing the
+> result is what produced every clue we lost with.
+
+Two habits to break specifically, both mechanically detectable and both flagged by
+`tools/clue_quality.py`:
+
+- **Do not weld the definition on with a copula.** `Cold heap is inexpensive`
+  makes the clue assert its own answer. Real setters make the definition earn its
+  place in the sentence's meaning.
+- **Do not stand the anagram indicator next to its fodder.** `Naples rebuilt`
+  points straight at the anagram. Separate them, or choose an indicator that reads
+  as ordinary description in the surface.
+
+And one thing not to over-correct: **economy was already fine** (+0.15), so the
+answer is not "write longer clues". `terse` fires on ten of the twenty, including
+the best ones. More words only help if they are buying a surface idea.
