@@ -53,25 +53,42 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "What Peter does when Paul gets paid (6)",
+   "clue": "With the Queen among the pets, interest dwindles (6)",
    "group": [
     "1-down"
    ],
    "solution": "PETERS",
    "annotation": {
-    "type": "cryptic definition",
+    "type": "container",
     "answer": "PETERS",
-    "definition": "What Peter does when Paul gets paid",
+    "definition": "dwindles",
     "definitionNote": "PETERS means 'dwindles' only inside the phrasal verb 'peters out', so the clue is leaning on that idiom rather than on the bare word.",
-    "indicators": [],
+    "indicators": [
+     "among"
+    ],
+    "pieces": [
+     "PET",
+     "ER",
+     "S"
+    ],
     "blocks": [
      {
-      "clueFragment": "What Peter does when Paul gets paid",
-      "gives": "PETERS",
-      "note": "rob Peter to pay Paul and Peter's money peters out"
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina — ER is the crossword's shorthand for the Queen, worth memorising alongside ANT for worker"
+     },
+     {
+      "clueFragment": "the pets",
+      "gives": "PETS",
+      "note": "the container, split between PET and S to let the Queen in"
+     },
+     {
+      "clueFragment": "interest",
+      "gives": "",
+      "note": "surface only — what a nation's attention does by the tenth corgi photograph"
      }
     ],
-    "walkthrough": "Rob Peter to pay Paul and Peter is the one left short — he peters out. The sentence is the definition, and the name inside it is the answer: the clue tells you who is being robbed and then makes his name the verb for it. Note the idiom carries the meaning; 'peter' alone needs its 'out'."
+    "walkthrough": "'Among' is the container instruction wearing an ordinary sense: put the Queen among the pets and ER goes inside PETS, which splits to give PET-ER-S. That is PETERS, and what interest does is peter out. The corgis are the misdirection — you are looking at a royal photocall while the monarch quietly climbs inside another word."
    }
   },
   {
@@ -151,36 +168,36 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": "Every ship needs a leader in front (10)",
+   "clue": "Leaders get hip and mistake it for direction (10)",
    "group": [
     "4-down"
    ],
    "solution": "LEADERSHIP",
    "annotation": {
-    "type": "&lit",
+    "type": "charade",
     "answer": "LEADERSHIP",
-    "definition": "Every ship needs a leader in front",
-    "definitionNote": "A semi-&lit: the sentence as a whole describes leadership, while only 'leader' and 'ship' supply letters and 'in front' says where to put them.",
-    "indicators": [
-     "in front"
+    "definition": "direction",
+    "indicators": [],
+    "linkWords": [
+     "mistake it for"
     ],
     "pieces": [
-     "LEADER",
-     "SHIP"
+     "LEADERS",
+     "HIP"
     ],
     "blocks": [
      {
-      "clueFragment": "ship",
-      "gives": "SHIP",
-      "note": "the vessel itself"
+      "clueFragment": "Leaders",
+      "gives": "LEADERS",
+      "note": "the word itself, taken whole"
      },
      {
-      "clueFragment": "leader",
-      "gives": "LEADER",
-      "note": "the one at the head of anything"
+      "clueFragment": "hip",
+      "gives": "HIP",
+      "note": "hip as in with-it, and the last thing a cabinet minister ever is"
      }
     ],
-    "walkthrough": "Put the LEADER 'in front' of the SHIP and they run together as LEADERSHIP. The instruction is invisible because it is also the sense of the sentence, and the sentence is the definition too: what every ship needs at the front is precisely leadership."
+    "walkthrough": "A charade needs no instruction word at all — the pieces simply stand in the order the clue prints them. LEADERS, then HIP, is LEADERSHIP, which is 'direction'. The seam is invisible because 'leaders get hip' is a whole idea on its own, and the joke is the politician who buys a skateboard and files it under strategy."
    }
   },
   {
@@ -227,7 +244,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": "There's a bit of the president in our team (4)",
+   "clue": "There's a mole in the president's team (4)",
    "group": [
     "6-down"
    ],
@@ -237,24 +254,21 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "answer": "SIDE",
     "definition": "team",
     "indicators": [
-     "a bit of"
-    ],
-    "linkWords": [
-     "in our"
+     "in"
     ],
     "blocks": [
      {
-      "clueFragment": "the president",
+      "clueFragment": "the president's",
       "gives": "SIDE",
-      "note": "hidden inside pre-SIDE-nt"
+      "note": "hiding in pre-SIDE-nt"
      },
      {
-      "clueFragment": "There's",
+      "clueFragment": "There's a mole",
       "gives": "",
-      "note": "surface only — the glue that makes it a sentence"
+      "note": "surface only — though it is also a fair description of what the clue is up to"
      }
     ],
-    "walkthrough": "'A bit of' is the hidden-word signal, and there the answer sits, inside pre-SIDE-nt. A SIDE is a 'team'. The sentence is funny before you solve it — a bit of the president being on our team is exactly what people suspect of presidents — and that is what stops you counting letters."
+    "walkthrough": "The whole instruction is one small word: something is 'in' the president's, and what is in there is pre-SIDE-nt. A SIDE is a 'team'. Nothing in the sentence sounds like an order, which is the point — the mole it reports really is buried in the longest word, doing exactly what a mole does."
    }
   },
   {
@@ -314,24 +328,36 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 5,
-   "clue": "Where the grass is greener (5)",
+   "clue": "Time here would be better spent yonder (5)",
    "group": [
     "8-across"
    ],
    "solution": "THERE",
    "annotation": {
-    "type": "cryptic definition",
+    "type": "charade",
     "answer": "THERE",
-    "definition": "Where the grass is greener",
+    "definition": "yonder",
     "indicators": [],
+    "linkWords": [
+     "would be better spent"
+    ],
+    "pieces": [
+     "T",
+     "HERE"
+    ],
     "blocks": [
      {
-      "clueFragment": "Where the grass is greener",
-      "gives": "THERE",
-      "note": "the proverb says the grass is always greener over there — never here"
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "t is the standard abbreviation for time — the letter on every stopwatch and in every equation"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "HERE",
+      "note": "the word itself, lifted straight out of the clue"
      }
     ],
-    "walkthrough": "The proverb does the defining. The grass is always greener somewhere else, and the word for somewhere else is THERE. Nothing is shuffled or hidden; five words with no machinery in them are usually a definition in disguise, and the sooner you try that reading the sooner you are out."
+    "walkthrough": "Take the abbreviation first: 'time' is T. Then 'here' comes across whole, and T followed by HERE runs together as THERE, which is 'yonder'. The sentence is the grass-is-greener grumble, and the wordplay makes the same move it does — one letter of time is all it takes to turn here into somewhere better."
    }
   },
   {
@@ -372,25 +398,29 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": "These porters carry stories, not bags (9)",
+   "clue": "The press are riddled with pet errors (9)",
    "group": [
     "10-across"
    ],
    "solution": "REPORTERS",
    "annotation": {
-    "type": "cryptic definition",
+    "type": "anagram",
     "answer": "REPORTERS",
-    "definition": "These porters carry stories, not bags",
-    "definitionNote": "The clue defines the press by describing them, not by offering a synonym, so 'these porters' has to be read as a pun on re-porters rather than as hotel staff.",
-    "indicators": [],
+    "definition": "The press",
+    "indicators": [
+     "riddled"
+    ],
+    "anagram": {
+     "fodder": "PET ERRORS"
+    },
     "blocks": [
      {
-      "clueFragment": "These porters carry stories, not bags",
-      "gives": "REPORTERS",
-      "note": "re-porters: they carry, but what they carry is copy"
+      "clueFragment": "pet errors",
+      "gives": "PET ERRORS",
+      "note": "the nine letters to rearrange"
      }
     ],
-    "walkthrough": "The answer is sitting in the clue with its disguise half off: re-PORTERS, porters of a second kind. They carry, as porters do, but what they carry is other people's stories. Nothing announces the pun — the only signal is that 'these porters' plainly cannot be the ones at the Ritz."
+    "walkthrough": "'Riddled' is the anagram indicator, and it is not decoration: a riddle is a coarse sieve, and letters put through one come out shaken. PET ERRORS holds exactly the nine letters of REPORTERS, which is 'the press'. The joke is that the newspapermen and their favourite mistakes turn out to be the same thing, letter for letter."
    }
   },
   {
@@ -593,24 +623,37 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": "The only instrument you can donate (5)",
+   "clue": "The donor's dreadful groan comes from the instrument (5)",
    "group": [
     "15-across"
    ],
    "solution": "ORGAN",
    "annotation": {
-    "type": "cryptic definition",
+    "type": "anagram",
     "answer": "ORGAN",
-    "definition": "The only instrument you can donate",
-    "indicators": [],
+    "definition": "the instrument",
+    "indicators": [
+     "dreadful"
+    ],
+    "anagram": {
+     "fodder": "GROAN"
+    },
+    "linkWords": [
+     "comes from"
+    ],
     "blocks": [
      {
-      "clueFragment": "The only instrument you can donate",
-      "gives": "ORGAN",
-      "note": "the one in the church and the one on the donor card"
+      "clueFragment": "groan",
+      "gives": "GROAN",
+      "note": "the five letters to rearrange"
+     },
+     {
+      "clueFragment": "The donor's",
+      "gives": "",
+      "note": "surface only — and the joke, since this is the one instrument a donor can give away"
      }
     ],
-    "walkthrough": "Two senses are being rubbed together: the instrument in a church and the organ on a donor card. Neither is stated. The clue simply makes an absurd claim — you cannot post a piano to a hospital — and the absurdity is the signal. When a sentence says something odd about an everyday object, look for the word that leads a second life."
+    "walkthrough": "'Dreadful' is the anagram indicator and it sits right against its fodder: shake GROAN and the five letters resettle as ORGAN, 'the instrument'. Both senses stay alive while you solve it — the one on the donor card and the one at the back of the church — and a groan is roughly what the church one sounds like anyway."
    }
   },
   {

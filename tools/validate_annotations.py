@@ -16,6 +16,9 @@ Checks, for every annotated entry:
   - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
   - linkedTo targets exist and cover their group
 
+And one whole-puzzle check:
+  - at most MAX_CRYPTIC_DEFINITIONS clues typed "cryptic definition"
+
 Usage: python3 tools/validate_annotations.py [puzzle-number ...]
 With no arguments, validates every puzzle that has at least one annotation.
 Exits non-zero if any check fails.
@@ -41,6 +44,18 @@ TYPE_PARTS = {
     "first letter", "first letters", "last letter", "last letters",
     "middle letter", "middle letters", "outer letters", "alternate letters",
 }
+
+
+# A cryptic definition has no checkable mechanism: the solver either sees the
+# joke or is stuck. One or two per puzzle is a treat, more is a quiz. Measured
+# over the annotated puzzles in puzzles/: only one published puzzle (30039)
+# carries any cryptic definitions at all, and it carries exactly two — so this
+# ceiling has never fired on a Guardian grid. It exists because OUR authoring
+# pass drifts over it: chasing a funny surface produced six in one rewrite of
+# A001, since a funny sentence is far easier to find than a funny mechanism
+# (feedback 2026-07-29: "they don't have wordplay anymore"). See AUTHORING.md,
+# "The sentence AND the wordplay".
+MAX_CRYPTIC_DEFINITIONS = 2
 
 
 # Words that carry no wordplay on their own, so they don't need to be claimed by
@@ -192,6 +207,23 @@ def multiset_diff(a, b):
     return extra, missing
 
 
+def check_cryptic_definition_cap(entries, errors):
+    """A puzzle may not lean on cryptic definitions (see MAX_CRYPTIC_DEFINITIONS).
+
+    This is the one check that looks at the puzzle rather than the clue: every
+    individual cryptic definition can be perfectly good and the set still be
+    wrong, which is exactly how six of them got into A001 unnoticed."""
+    cds = [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+           for e in entries
+           if (e.get("annotation") or {}).get("type") == "cryptic definition"]
+    if len(cds) > MAX_CRYPTIC_DEFINITIONS:
+        errors.append(
+            f"puzzle: {len(cds)} cryptic definitions ({', '.join(cds)}) — at most "
+            f"{MAX_CRYPTIC_DEFINITIONS} allowed. A cryptic definition has no checkable "
+            f"wordplay, so past two the puzzle stops being solvable and starts being "
+            f"guessable; find the mechanism these clues are hiding (AUTHORING.md)")
+
+
 def validate_puzzle(puzzle):
     errors, warnings = [], []
     by_id = {e["id"]: e for e in puzzle["entries"]}
@@ -294,6 +326,9 @@ def validate_puzzle(puzzle):
         for sub in ann.get("subReversals", []):
             if letters(sub["from"])[::-1] != letters(sub["to"]):
                 errors.append(f"{tag}: subReversal {sub['from']} reversed != {sub['to']}")
+
+    if annotated:
+        check_cryptic_definition_cap(puzzle["entries"], errors)
 
     return annotated, errors, warnings
 

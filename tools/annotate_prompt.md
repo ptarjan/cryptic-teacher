@@ -42,6 +42,14 @@ Rules:
   `charade + alternate letters`), using only the controlled vocabulary in
   STYLE.md / `TYPE_PARTS` in the validator. If a clue truly needs a new type
   part, add it to `TYPE_PARTS`, STYLE.md, and `TYPE_BLURBS` in `app.js` together.
+- `cryptic definition` is capped at TWO per puzzle and the validator ERRORS above that
+  (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable wordplay, so a third
+  one almost always means you gave up on a clue: go back and find the charade, hidden word
+  or container it is hiding. If you are WRITING clues rather than annotating them (see
+  `tools/AUTHORING.md`), the same cap is the rule that keeps a funny sentence from
+  replacing the mechanism — a clue needs both, and a funny sentence is much easier to find
+  than a funny mechanism. Related: an indicator that reads as a visible instruction
+  (`a bit of`, `in front`, `turned`, `rebuilt`) is a mechanism narrated, not hidden.
 - `definition`, `definition2` and every string in `indicators` MUST occur verbatim in the
   clue (match the exact characters — Guardian clues use curly apostrophes `’` and en
   dashes `–`).
