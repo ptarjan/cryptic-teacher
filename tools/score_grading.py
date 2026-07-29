@@ -16,7 +16,20 @@ Reports, in order of how much they should change our behaviour:
   * inter-judge agreement, so a lopsided result from one harsh judge is visible
 
   python3 tools/score_grading.py --grading tools/data/grading \
-      --scores /tmp/clue-judging/scores
+      --packets tools/data/grading/packets --scores /tmp/clue-judging/scores
+
+The key is resolved through the packets the judges actually saw, never through
+whatever key.json happens to be sitting in grading/ today. That distinction cost
+us a round: we scored one set of packets, edited a few clues, rebuilt, and the
+rebuild overwrote key.json with a different A/B/C/D shuffle. The old scores were
+still there and still perfectly loadable, and joining them to the new key would
+have produced a full report - clean columns, plausible numbers, every "ours" row
+belonging to somebody else's clue. Nothing would have looked wrong.
+
+So each packet carries the run id of the round that built it, and we load
+runs/<runid>/key.json. If the packets do not say which round they are from, or
+that round was never archived, this exits instead of guessing. A missing report
+is a nuisance; a confidently mislabelled one is worse than no experiment at all.
 """
 
 import argparse
@@ -26,6 +39,55 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 AXES = ["surface", "misdirection", "pennydrop", "economy", "fairness"]
+
+
+def load_key(grading, packets_dir):
+    """Find the key belonging to these packets, or refuse to score them."""
+    files = sorted(Path(packets_dir).glob("*.json"))
+    if not files:
+        raise SystemExit(f"no packets under {packets_dir}")
+
+    runs = {}
+    for p in files:
+        runs.setdefault(json.loads(p.read_text()).get("run"), []).append(p.name)
+
+    if None in runs:
+        raise SystemExit(
+            f"{len(runs[None])} packet(s) in {packets_dir} carry no run id "
+            f"(e.g. {runs[None][0]}), so there is no way to tell which round "
+            "produced them.\nThese scores cannot be safely joined. Joining them "
+            "to grading/key.json would not fail - it would silently label the "
+            "wrong clue as ours in every packet whose shuffle has since moved, "
+            "and the report would look entirely normal.\nIf these packets predate "
+            "run ids, their round is unrecoverable; re-run tools/grade_clues.py "
+            "and re-judge."
+        )
+    if len(runs) > 1:
+        raise SystemExit(
+            f"{packets_dir} mixes {len(runs)} rounds ("
+            + ", ".join(f"{r}: {len(v)} packets" for r, v in sorted(runs.items()))
+            + ").\nA single scoring pass cannot span rounds; each packet's key "
+            "lives with its own run. Rebuild the directory from one run under "
+            f"{grading / 'runs'}."
+        )
+
+    rid = next(iter(runs))
+    key_path = grading / "runs" / rid / "key.json"
+    if not key_path.exists():
+        archived = sorted(p.name for p in (grading / "runs").glob("*")) if (
+            grading / "runs"
+        ).exists() else []
+        raise SystemExit(
+            f"packets in {packets_dir} are from run {rid}, but no key is archived "
+            f"at {key_path}.\nThese scores cannot be safely joined to anything. "
+            "Falling back to grading/key.json is exactly the mistake this check "
+            "exists to prevent: it belongs to a different round, and using it "
+            "would silently mislabel which clue was ours while still printing a "
+            "clean-looking report.\n"
+            + (f"archived runs: {', '.join(archived)}" if archived else
+               f"no runs archived under {grading / 'runs'}")
+        )
+    return rid, json.loads(key_path.read_text())
 
 
 def load_scores(scores_dir):
@@ -40,12 +102,17 @@ def load_scores(scores_dir):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--grading", default="tools/data/grading")
+    ap.add_argument("--packets", default=None,
+                    help="the packets the judges saw (default <grading>/packets)")
     ap.add_argument("--scores", default="/tmp/clue-judging/scores")
     ap.add_argument("--json-out", default=None)
     args = ap.parse_args()
 
-    key = json.loads((ROOT / args.grading / "key.json").read_text())
+    grading = ROOT / args.grading
+    packets_dir = Path(args.packets) if args.packets else grading / "packets"
+    rid, key = load_key(grading, packets_dir)
     judges = load_scores(args.scores)
+    print(f"run {rid}: key from {grading / 'runs' / rid / 'key.json'}")
 
     # rows: (judge, answer, label, is_ours, {axis: score})
     rows = []
@@ -132,6 +199,7 @@ def main():
 
     if args.json_out:
         Path(args.json_out).write_text(json.dumps({
+            "run": rid,
             "axis_means_ours": {a: round(mean([r[4][a] for r in mine]), 3) for a in AXES},
             "axis_means_human": {a: round(mean([r[4][a] for r in theirs]), 3) for a in AXES},
             "axis_gap": {a: round(v, 3) for a, v in axis_gap.items()},

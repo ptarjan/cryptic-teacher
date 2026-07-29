@@ -17,12 +17,33 @@ side of the wall, and is only applied after the scores come back.
 
 Writes grading/packets/<ANSWER>.json (what the judge sees) and grading/key.json
 (which label was ours). Never show the judge the key.
+
+Every round is also archived under grading/runs/<runid>/, and that is not
+housekeeping. We once ran a round, scored it, edited a few clues, re-ran this
+script, and lost the first round entirely: the re-run overwrote key.json, and
+because the A/B/C/D shuffle had moved, the surviving scores could no longer be
+joined to any key. The numbers were fine. Nobody could ever again say which
+clue they belonged to. That killed the untouched-clue control and with it the
+only reason the second round's comparison meant anything.
+
+Note the shuffle moved even though the seed did not. The rng is consumed as the
+packets are built, so changing which rivals one answer draws shifts every draw
+after it. "Same seed, same packets" is only true if the inputs are byte-identical,
+which is exactly the assumption an edit breaks.
+
+So the run id is a hash of the packet contents. Identical inputs land in the
+same run directory; any change at all gets a new one. grading/packets and
+grading/key.json stay as the convenience copy of the newest run, but they are
+now derived - copies of an archive that keeps every round re-scorable. A result
+nobody can re-derive is not a result.
 """
 
 import argparse
+import hashlib
 import json
 import random
 import re
+import shutil
 import sqlite3
 import unicodedata
 from pathlib import Path
@@ -99,6 +120,44 @@ def fetch_rivals(db, answer, want, rng):
     return pool[:want]
 
 
+def run_id(packets):
+    """Fingerprint a round by what the judges will actually see.
+
+    Covers every answer and every clue text in label order, so re-running with
+    unchanged clues gives the same id and the same run directory, while any
+    edit gives a new one. The labels are hashed on purpose: two rounds with the
+    same clues but a different A/B/C/D are different rounds, and must never be
+    allowed to share a key.
+    """
+    h = hashlib.sha1()
+    for p in sorted(packets, key=lambda p: p["answer"]):
+        h.update(p["answer"].encode())
+        for c in p["clues"]:
+            h.update(b"\x1f")
+            h.update(c["label"].encode())
+            h.update(c["clue"].encode())
+        h.update(b"\x1e")
+    return h.hexdigest()[:12]
+
+
+def write_round(dest, packets, key, rid):
+    """Write packets + key into dest, replacing whatever was there.
+
+    Replacing rather than merging: a leftover packet from an older round would
+    sit in the directory carrying a different run id, and the next judging pass
+    would quietly be a mixture of two rounds.
+    """
+    if (dest / "packets").exists():
+        shutil.rmtree(dest / "packets")
+    (dest / "packets").mkdir(parents=True, exist_ok=True)
+    for p in packets:
+        (dest / "packets" / f"{p['answer']}.json").write_text(
+            json.dumps(p, indent=1, ensure_ascii=False) + "\n"
+        )
+    (dest / "key.json").write_text(json.dumps(key, indent=1) + "\n")
+    (dest / "run.txt").write_text(rid + "\n")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--clues", default="tools/data/authored_A001_clues.json")
@@ -112,9 +171,8 @@ def main():
     rng = random.Random(args.seed)
 
     out = ROOT / args.out
-    (out / "packets").mkdir(parents=True, exist_ok=True)
 
-    key, thin = {}, []
+    key, thin, packets = {}, [], []
     for eid, spec in sorted(ours.items()):
         if eid.startswith("_"):
             continue
@@ -144,12 +202,23 @@ def main():
             "ours": next(labels[i] for i, c in enumerate(clues) if c["_ours"]),
             "entry": eid,
         }
-        (out / "packets" / f"{answer}.json").write_text(
-            json.dumps(packet, indent=1, ensure_ascii=False) + "\n"
-        )
+        packets.append(packet)
 
-    (out / "key.json").write_text(json.dumps(key, indent=1) + "\n")
-    print(f"wrote {len(key)} packets to {out / 'packets'}")
+    rid = run_id(packets)
+    for p in packets:
+        # Judge-visible, and safe to be. It is an opaque hex digest of the
+        # packet contents: no ordering, no provenance, nothing about which
+        # clue is ours or where any clue came from. Its only job is to let
+        # score_grading find the key that belongs to these exact packets.
+        p["run"] = rid
+
+    write_round(out / "runs" / rid, packets, key, rid)
+    # The convenience copy: what a judging session picks up by default. Derived
+    # from the archive above, and safe to lose.
+    write_round(out, packets, key, rid)
+
+    print(f"wrote {len(key)} packets to {out / 'packets'} (run {rid})")
+    print(f"archived at {out / 'runs' / rid}")
     if thin:
         # Say so out loud. A silently short packet would quietly weaken the
         # comparison for that word while the summary still read "20 answers".
