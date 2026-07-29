@@ -548,7 +548,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "NAUTICAL",
    "annotation": {
-    "type": "homophone",
+    "type": "charade + homophone",
     "answer": "NAUTICAL",
     "definition": "of the crew",
     "indicators": [
@@ -561,12 +561,17 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/ {
       "note": "indecent = naughty"
      },
      {
+      "clueFragment": "state",
+      "gives": "CAL",
+      "note": "California, the US state, abbreviated CAL"
+     },
+     {
       "clueFragment": "Called out",
       "gives": "",
-      "note": "homophone indicator"
+      "note": "homophone indicator — say the charade aloud"
      }
     ],
-    "walkthrough": "Say 'naughty-cal' (an 'indecent state', jokingly adjectived) out loud and you hear NAUTICAL — the definition is 'of the crew', i.e. to do with sailors. A groan-worthy sound-alike in the old seaside-postcard tradition."
+    "walkthrough": "Build the wordplay first: 'indecent' gives NAUGHTY, and 'state' gives CAL — California. Run them together and you have NAUGHTY + CAL. Now 'Called out' tells you to say that aloud: 'naughty-cal' is NAUTICAL. The definition is the adjective phrase 'of the crew', and it matches NAUTICAL's part of speech — 'nautical matters' are the crew's matters, to do with ships and sailing."
    }
   },
   {

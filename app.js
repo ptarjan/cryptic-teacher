@@ -364,10 +364,52 @@
   // ---------- checking / revealing ----------
   function canCheck() { return hasSolutions(); }
 
-  function checkCells(list) {
+  // A check must ALWAYS visibly answer (feedback 2026-07-29: checking a correct
+  // entry changed nothing on screen, so the button read as broken). Two signals:
+  // a sentence in #check-result saying what was found, and a brief pulse on the
+  // squares that were examined, so you can see WHICH squares the check covered.
+  function checkCells(list, scope) {
     if (!canCheck()) return;
-    list.forEach((c) => { if (c.letter && c.letter !== c.sol) c.wrong = true; });
+    let wrong = 0, right = 0, blank = 0;
+    list.forEach((c) => {
+      if (!c.letter) { blank++; return; }
+      if (c.letter !== c.sol) { c.wrong = true; wrong++; } else right++;
+    });
+    announceCheck(scope || "grid", wrong, right, blank);
+    pulseCells(list);
     refreshAll(); saveState();
+  }
+
+  let checkMsgTimer = null;
+  function announceCheck(scope, wrong, right, blank) {
+    const el = $("check-result");
+    if (!el) return;
+    const s = (n) => (n === 1 ? "" : "s");
+    let msg, cls;
+    if (!wrong && !right) {
+      msg = `Nothing to check yet — no letters typed in the ${scope}.`;
+      cls = "idle";
+    } else if (wrong) {
+      msg = `${wrong} wrong letter${s(wrong)} marked in red`
+          + (right ? `, ${right} correct` : "")
+          + (blank ? `, ${blank} still blank` : "") + ".";
+      cls = "bad";
+    } else {
+      msg = `All ${right} letter${s(right)} in the ${scope} correct`
+          + (blank ? ` so far — ${blank} square${s(blank)} still blank` : "") + ".";
+      cls = "ok";
+    }
+    el.className = "check-result " + cls;
+    el.textContent = msg;
+    clearTimeout(checkMsgTimer);
+    checkMsgTimer = setTimeout(() => {
+      el.textContent = ""; el.className = "check-result";
+    }, 6000);
+  }
+
+  function pulseCells(list) {
+    list.forEach((c) => { if (c.el) c.el.classList.add("pulse"); });
+    setTimeout(() => list.forEach((c) => { if (c.el) c.el.classList.remove("pulse"); }), 600);
   }
   function entryCells(e) { const out = []; for (let i = 0; i < e.length; i++) out.push(cellAt(e, i)); return out; }
 
@@ -776,9 +818,9 @@
     $("btn-picker").onclick = () => togglePicker();
     $("btn-picker-close").onclick = () => togglePicker(false);
 
-    $("chk-letter").onclick = () => { const c = cells[cur.y][cur.x]; if (c) checkCells([c]); };
-    $("chk-entry").onclick = () => { const e = currentEntry(); if (e) checkCells(entryCells(e)); };
-    $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all); };
+    $("chk-letter").onclick = () => { const c = cells[cur.y][cur.x]; if (c) checkCells([c], "square"); };
+    $("chk-entry").onclick = () => { const e = currentEntry(); if (e) checkCells(entryCells(e), "entry"); };
+    $("chk-grid").onclick = () => { const all = []; forEachCell((c) => all.push(c)); checkCells(all, "grid"); };
     $("clear-entry").onclick = () => {
       const e = currentEntry();
       if (!e) return;

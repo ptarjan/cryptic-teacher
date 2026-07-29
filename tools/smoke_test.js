@@ -231,10 +231,32 @@ kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
 assert(registry["scorebar"].innerHTML.includes("Solved"), "scorebar renders: " + registry["scorebar"].innerHTML);
 assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least one clue solved after reveal+typing");
 
-// --- check buttons ---
-registry["chk-grid"].onclick();
-registry["chk-entry"].onclick();
-registry["chk-letter"].onclick();
+// --- check buttons: a check must ALWAYS report a result (feedback 2026-07-29) ---
+// A check that silently does nothing when the letters are right reads as a broken
+// button; every check writes a sentence into #check-result and pulses the squares.
+{
+  const box = document.getElementById("check-result");
+  const msg = () => box.textContent;
+  assert(fs.readFileSync(path.join(ROOT, "index.html"), "utf8").includes('id="check-result"'),
+    "index.html has the #check-result live region for check feedback");
+
+  registry["chk-entry"].onclick();   // this entry currently holds mistyped Z's
+  assert(/wrong letter/.test(msg()), "wrong letters are reported: " + JSON.stringify(msg()));
+  assert(box.className.includes("bad"), "wrong result styled as bad: " + box.className);
+
+  registry["clear-entry"].onclick();
+  registry["chk-entry"].onclick();
+  assert(/Nothing to check/.test(msg()), "empty entry says there is nothing to check: " + JSON.stringify(msg()));
+
+  registry["chk-grid"].onclick();    // only correct (revealed) letters remain
+  assert(/correct/.test(msg()), "an all-correct check confirms it: " + JSON.stringify(msg()));
+  assert(box.className.includes("ok"), "correct result styled as ok: " + box.className);
+  assert(lightCells.some((c) => c.classList.contains("pulse")),
+    "checked squares pulse so the check's scope is visible");
+
+  registry["chk-letter"].onclick();
+  assert(msg().length > 0, "checking a single square reports something too");
+}
 
 // --- picker ---
 registry["btn-picker"].onclick();

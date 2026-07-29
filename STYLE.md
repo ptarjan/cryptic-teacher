@@ -31,6 +31,31 @@ alternate letters of bAgGiEr); 30066 5D ALLOCATE = `anagram + last letter`
 When a new type part is needed, add it to `TYPE_PARTS` in the validator, this
 list, and a level-1 blurb in `TYPE_BLURBS` in `app.js` — all three, in one commit.
 
+### The definition must be substitutable (feedback 2026-07-29)
+A definition has to be able to REPLACE the answer in a sentence — which means
+matching its part of speech and its inflection. Paul's words: "the part of speech
+needs to be right." A plural answer needs a plural definition, an `-ing` answer an
+`-ing` definition, a verb a verb. Write the substitution out before you commit to a
+definition: *"NAUTICAL matters" → "matters of the crew"* works, so the adjective
+phrase `of the crew` is a fair definition; *"payment" → PEANUTS* would need the
+noun to agree in number.
+
+`check_part_of_speech()` in `tools/validate_annotations.py` catches the mechanical
+half of this (plural / `-ing` disagreement) as warnings. The judgement half is
+yours — the validator deliberately skips `-ly` and long descriptive phrases,
+because a warning nobody reads is worse than no warning.
+
+### Account for every word (feedback 2026-07-29)
+Every content word of the clue must be claimed by the parse: it belongs to the
+definition, to an indicator, or to a block's `clueFragment`. A word left over is
+wordplay you have not explained. 30067 13A ("Called out indecent state of the
+crew") was annotated as a homophone of NAUGHTY alone, and `state` = CAL
+(California) was silently dropped; the walkthrough then papered over the gap with
+"jokingly adjectived". `check_coverage()` flags leftover words as warnings, and
+hedging words in a walkthrough (`jokingly`, `somehow`, `if you squint`, …) are a
+hard ERROR — if a walkthrough needs a hedge, the parse is wrong, not the clue.
+Extend `HEDGES` in the validator when a new fudge shows up.
+
 ### Existing schema rules
 See `tools/annotate_prompt.md`: verbatim definition/indicator substrings,
 letter-perfect pieces/fodder, `linkedTo` stubs for grouped entries, validator
@@ -64,6 +89,15 @@ must pass before commit.
   already knows. Concretely: after the level-5 walkthrough names the answer,
   the final rung is "Fill in answer" — never letter reveals (feedback
   2026-07-26).
+- Every check must SAY what it found (feedback 2026-07-29: "I clicked it and
+  didn't see anything change"). Checking used to mark wrong letters and nothing
+  else, so checking a correct entry was indistinguishable from a dead button.
+  A check now always writes a sentence into `#check-result` — wrong letters
+  marked, all correct so far, or nothing typed yet — and pulses the squares it
+  examined so its scope is visible too. General rule: no control may respond to a
+  click with silence; if there is nothing to report, report that. See
+  `checkCells()`/`announceCheck()` in `app.js` and the check assertions in
+  `tools/smoke_test.js`.
 - "Reveal one letter" is a standalone anytime escape hatch, hidden once the
   entry is solved; using it never advances the ladder but always counts in
   scoring (meter, scorebar, and no-hints tally).

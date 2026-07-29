@@ -39,8 +39,79 @@ TYPE_PARTS = {
 }
 
 
+# Words that carry no wordplay on their own, so they don't need to be claimed by
+# the definition, an indicator or a block (see check_coverage).
+FILLER_WORDS = {
+    "a", "an", "and", "the", "of", "to", "in", "on", "at", "for", "with", "by",
+    "from", "as", "is", "are", "was", "were", "be", "s", "that", "this", "it",
+    "its", "his", "her", "their", "some", "one", "or", "but", "not", "no",
+    "into", "up", "out", "off", "over", "about", "after", "before", "when",
+    "we", "you", "i", "he", "she", "they", "me", "him", "them", "us",
+    # linking verbs: connective grammar, never fodder on their own
+    "has", "have", "had", "having", "been", "being", "get", "gets", "got",
+    "make", "makes", "made", "may", "might", "can", "will", "would", "must",
+    "do", "does", "did", "gives", "give", "goes", "go", "if", "so", "all",
+}
+# Hedges that excuse an unexplained chunk instead of parsing it. A walkthrough
+# that needs one is nearly always hiding a wrong parse (feedback 2026-07-29:
+# 30067 13A "jokingly adjectived" was papering over state = CAL).
+HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
+          "for some reason", "don't ask", "close enough")
+
+
 def letters(s):
     return re.sub(r"[^A-Z]", "", (s or "").upper())
+
+
+def words_of(s):
+    """Lowercase word list, with the (8) enumeration and punctuation dropped."""
+    return re.findall(r"[a-z]+", re.sub(r"\([^)]*\)", " ", (s or "").lower()))
+
+
+def check_coverage(tag, ann, clue, warnings):
+    """Every content word of the clue must be claimed by the parse.
+
+    A clue word that is in neither the definition, an indicator, nor a block
+    fragment is wordplay the annotation silently dropped (feedback 2026-07-29:
+    30067 13A never accounted for 'state' = CAL, and the walkthrough hedged
+    instead of admitting it)."""
+    claimed = set()
+    for src in [ann.get("definition"), ann.get("definition2")]:
+        claimed |= set(words_of(src))
+    for ind in ann.get("indicators", []):
+        claimed |= set(words_of(ind))
+    for b in ann.get("blocks", []):
+        claimed |= set(words_of(b.get("clueFragment")))
+    loose = [w for w in words_of(clue) if w not in claimed and w not in FILLER_WORDS]
+    if loose:
+        warnings.append(
+            f"{tag}: clue word(s) {', '.join(sorted(set(loose)))} belong to neither the "
+            f"definition, an indicator, nor a block — wordplay may be unaccounted for")
+
+
+def check_part_of_speech(tag, ann, warnings):
+    """The definition must be substitutable for the answer, which means their
+    inflections agree: a plural answer needs a plural definition, an -ing answer
+    an -ing definition (feedback 2026-07-29 — "the part of speech needs to be
+    right"). Only the mechanical, unambiguous endings are checked here; the
+    judgement call lives in STYLE.md and tools/annotate_prompt.md."""
+    ans = letters(ann.get("answer"))
+    dwords = words_of(ann.get("definition"))
+    if not ans or not dwords:
+        return
+    ends = lambda sufs: any(w.endswith(sufs) for w in dwords)
+    # A long definition is usually a descriptive phrase ("About to go off perhaps"
+    # = TICKING), where the -ing test says nothing; only short ones are meaningful.
+    if ans.endswith("ING") and len(ans) > 5 and len(dwords) <= 2 and not ends(("ing",)):
+        warnings.append(f"{tag}: answer ends -ING but no word in the definition does "
+                        f"({ann.get('definition')!r}) — check the part of speech")
+    elif ans.endswith("S") and len(ans) > 4 and not ans.endswith(("SS", "US", "IS", "OUS")) \
+            and not ends(("s",)):
+        warnings.append(f"{tag}: answer looks plural but the definition "
+                        f"({ann.get('definition')!r}) is not — check the part of speech")
+    # Deliberately NOT checked: -LY (plenty of adverbs don't end in -ly: "always"),
+    # and -ing definitions for non-ing answers ("Working vessel" = DREDGER is fine).
+    # A noisy warning is a warning nobody reads.
 
 
 def load(path):
@@ -130,6 +201,14 @@ def validate_puzzle(puzzle):
                 or "definition" in (ann.get("type") or "")
                 or "homophone" in (ann.get("type") or "")):
             warnings.append(f"{tag}: no machine-checkable assembly (pieces/anagram) provided")
+
+        check_coverage(tag, ann, clue, warnings)
+        check_part_of_speech(tag, ann, warnings)
+        low = (ann.get("walkthrough") or "").lower()
+        for h in HEDGES:
+            if h in low:
+                errors.append(f"{tag}: walkthrough hedges with {h!r} — parse the chunk "
+                              f"properly instead of excusing it (STYLE.md)")
 
         for sub in ann.get("subAnagrams", []):
             extra, missing = multiset_diff(letters(sub["fodder"]), letters(sub["gives"]))

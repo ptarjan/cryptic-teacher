@@ -50,6 +50,16 @@ Rules:
 - For linked entries (a `group` with several ids, e.g. "1-across"/"9-across" where one
   clue reads "See 1"), put the full annotation on the FIRST entry of the group with
   `"coversGroup": true`, and give the other entries `{"linkedTo": "<first-id>"}`.
+- The `definition` must be SUBSTITUTABLE for the answer: same part of speech, same
+  inflection. Say the swap out loud before you settle on it — a plural answer needs a
+  plural definition, an `-ing` answer an `-ing` definition, a verb a verb. This is the
+  single most common annotation mistake; the validator warns on the mechanical cases.
+- Account for EVERY content word of the clue. Each one must sit inside the definition,
+  inside an indicator, or inside a block's `clueFragment`. A leftover word means you have
+  missed a piece of wordplay (30067 13A dropped `state` = CAL and nobody noticed).
+- Never hedge in a `walkthrough`. Words like "jokingly", "somehow", "if you squint" are a
+  validator ERROR: if the explanation needs a fudge, the parse is wrong. Go back and
+  find the parse that needs no excuse.
 - Do not guess: if a parsing doesn't produce the answer's letters exactly, it is wrong —
   rethink it. Consult the setter's usual tricks; check fifteensquared.net if reachable.
 
