@@ -64,7 +64,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "The definition is 'Scientific fact' (a theorem, loosely — and the linked answer runs into 9 across). Take MAYBE and remove its insides ('lacking substance') to leave ME. Add the letters of FLAT-EARTHERS MOST and mix everything, with 'stupid' signalling the anagram: ME + FLATEARTHERSMOST rearranges to FERMAT'S LAST THEOREM. Lovely surface: flat-earthers really are ignoring scientific fact."
+    "walkthrough": "The surface is the joke — flat-earthers really are the people ignoring scientific fact — and the answer runs on into 9 across. 'Lacking substance' is worth learning: a word emptied of its middle."
    }
   },
   {
@@ -114,7 +114,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Mobile' is the anagram indicator. Jumble LINE SCARY PHONE 'connected with' F for 'female' — fifteen letters in all — and you get FRENCH POLYNESIA, a 'Foreign land'. The telephone-themed surface hides the geography completely."
+    "walkthrough": "The surface is all telephones — line, phone, mobile — and not one word of it suggests the South Pacific. That distance between surface and answer is what makes a long anagram hard to see."
    }
   },
   {
@@ -153,7 +153,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "a run = a series (of shows, results…)"
      }
     ],
-    "walkthrough": "'Concerning' gives RE and 'series' gives RUN. RE + RUN = RERUN, defined by 'Once more broadcast'."
+    "walkthrough": "The whole clue reads as a line from a television listing, which is how the definition and the wordplay manage to hide inside the same sentence about repeats."
    }
   },
   {
@@ -196,7 +196,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "Ant of Ant & Dec"
      }
     ],
-    "walkthrough": "'Host' gives ARMY (an old word for a great multitude), and the 'part of TV duo' is ANT, of Ant & Dec. ARMY + ANT is 'a crawler' — the insect. 'Host' doing double duty as a TV word is the misdirection."
+    "walkthrough": "'Host' is placed to look like a presenter standing beside his co-star, and it means a multitude instead. ANT is worth knowing in its own right — the crossword's standard worker."
    }
   },
   {
@@ -244,7 +244,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "TINY with no 'padding' (inner letters) leaves T…Y"
      }
     ],
-    "walkthrough": "Take the 'foot' (final letter) out of SOCK to get SOC. 'That is' gives IE. 'Tiny without padding' keeps only the outside of T(in)Y = TY. SOC + IE + TY = SOCIETY, a 'Club'."
+    "walkthrough": "Two deletions dressed up as clothing: the foot comes off a sock, and the padding is the soft middle of a word. Both sit so neatly in the surface that neither reads as an instruction."
    }
   },
   {
@@ -290,7 +290,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Order' instructs you to rearrange AT LOCAL plus the last letter ('ultimately') of storE. Those eight letters make ALLOCATE, meaning 'deal' (out) — as in allocating shares."
+    "walkthrough": "'Order' opens the clue looking like something you place at a shop counter, and it is the anagram instruction. Indicators like the first word, where they pass as ordinary nouns."
    }
   },
   {
@@ -340,7 +340,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "anagram indicator — the letters are set loose"
      }
     ],
-    "walkthrough": "The definition is simply 'Act'. Take the letters of THEATRE WORK PG plus the middle ('essentially') of fILm, and 'getting released' frees them to rearrange into TIGHTROPE WALKER — a circus act. The film-certificate surface conceals a fifteen-letter anagram."
+    "walkthrough": "'Act' on its own is the definition, which gives you very little to aim at, and the film-certificate surface hides fifteen letters of fodder. A short definition beside a long answer usually means an anagram."
    }
   },
   {
@@ -386,7 +386,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "FLIES goes 'all over the place' (an anagram) together with the 'end of swat', T. FLIES + T rearranges to STIFLE, meaning 'Squash'. A neat all-one-picture surface about swatting flies."
+    "walkthrough": "Every word belongs to one picture of swatting flies, so nothing sticks out as fodder or as instruction. That is what a well-made anagram looks like."
    }
   },
   {
@@ -435,7 +435,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "I = one"
      }
     ],
-    "walkthrough": "'Small' gives WEE. 'Place cleared' empties PLACE down to its outer letters P…E, which then 'screen' (contain) I for 'one': P(I)E. WEE + PIE = WEEPIE, a 'sad film' — and 'screen' is a lovely thematic container indicator."
+    "walkthrough": "'To screen' does both jobs at once: it is the container instruction, meaning to conceal, and it belongs to the world of the answer. WEE for small is Scots, and a crossword regular."
    }
   },
   {
@@ -505,7 +505,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "standard abbreviation"
      }
     ],
-    "walkthrough": "'Pass' gives COL (a mountain pass). 'Person' gives ONE, which 'inhales' (wraps around) G for 'good', making O(G)NE. COL + OGNE = COLOGNE, defined by 'scent'."
+    "walkthrough": "The surface is someone walking past and catching a whiff, which is why 'Pass' reads as a verb. It is a noun here — a col, the dip between two peaks."
    }
   },
   {
@@ -559,7 +559,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "a fun date is an enjoyable time"
      }
     ],
-    "walkthrough": "'Enjoyable time' gives FUN DATE. The 'sheath' of the word 'contraceptive' — its outside letters — is C…E; 'withdraw' reverses that to EC. Put EC 'during' (inside) FUNDATE, after the F, and you get F-EC-UNDATE: to fecundate is to make fertile, i.e. 'to get pregnant'. A very Tramp-like risqué surface."
+    "walkthrough": "Tramp at his most risqué, and 'sheath' works in both readings at once — the outer letters of contraceptive, and what the surface means by it. Reversed to EC, it slips into FUN DATE after the F."
    }
   },
   {
@@ -604,7 +604,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "a tup is a ram"
      }
     ],
-    "walkthrough": "'Focus for rescuing' means the centre of the word 'rescuing', which is CU. 'Sheep' gives TUP (a ram). CU + TUP = CUT UP, meaning 'in distress'."
+    "walkthrough": "'Focus for' is an unusual way of asking for the exact middle of a word. And the definition is idiom rather than dictionary: you are cut up when something has upset you."
    }
   },
   {
@@ -639,7 +639,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "SEXPOT 'stripped' of its outer letters S and T"
      }
     ],
-    "walkthrough": "Strip the outside letters from SEXPOT — (s)EXPO(t) — and you're left with EXPO, a 'show' or exhibition."
+    "walkthrough": "The joke lives entirely in the surface. 'Stripped' takes the outside off, which is worth noting — elsewhere the same word can mean the insides go instead."
    }
   },
   {
@@ -692,7 +692,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "at home = at ease, relaxed"
      }
     ],
-    "walkthrough": "'Intimate' as a verb gives SAY, which 'squeezes' the core of parTner: S(T)AY = STAY. 'Relaxed' gives AT HOME (as in feeling at home). STAY + AT-HOME describes someone 'in armchair?' — an armchair fan is a stay-at-home."
+    "walkthrough": "'Intimate' looks like an adjective in a clue about a couple, and it is a verb: to intimate is to hint. The definition is the armchair, where a stay-at-home does his supporting."
    }
   },
   {
@@ -747,7 +747,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "SUIT anagrammed ('casual' = disarranged)"
      }
     ],
-    "walkthrough": "'Casual suit' rearranges SUIT into T…ISU. 'I squeeze' gives I + RAM, which you push 'into' it: T(I RAM)ISU. The definition is the playful 'that could be taken in when not satisfied?' — a dessert you find room for even when you've eaten plenty."
+    "walkthrough": "'Taken in' is tailoring on the surface — a suit altered because it does not satisfy — and eating underneath: the pudding you find room for when you are still not full."
    }
   },
   {
@@ -787,7 +787,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Destroying' tells you to jumble 'climate, sun'. The ten letters of CLIMATESUN rearrange to CULMINATES, which means 'reaches highest point'. The surface — the sun destroying the climate — is pure misdirection."
+    "walkthrough": "The surface is a headline about the sun destroying the climate, topical enough that you read it for meaning and never count the letters sitting in front of you."
    }
   },
   {
@@ -834,7 +834,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "a date = an era, a period"
      }
     ],
-    "walkthrough": "The 'Apple device' is a MAC; 'set up' reverses it (this is a down clue) to CAM. 'Date' gives ERA. CAM + ERA = CAMERA, a 'feature on smartphone' — the tech surface never mentions photography."
+    "walkthrough": "The tech surface never once mentions photography, and 'set up' is positional: in a down clue it lifts MAC back up the grid rather than telling you to arrange anything."
    }
   },
   {
@@ -883,7 +883,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "aft = the back of a boat"
      }
     ],
-    "walkthrough": "'Island' gives I, and the 'lifeboat team' is the RNLI, which 'wanting number' drops its N to leave RLI. Put I + RLI 'in' AFT ('back of boat'): A(IRLI)FT = AIRLIFT, a 'Rescue' by air. The maritime surface hides an aerial answer."
+    "walkthrough": "A maritime surface hiding an answer that happens by air. The RNLI is the sort of British initialism worth having ready — setters reach for it whenever a clue goes near the sea."
    }
   },
   {
@@ -922,7 +922,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "might = power, strength"
      }
     ],
-    "walkthrough": "'Those people' gives 'EM (as in \"give 'em a chance\") and 'might' gives POWER. EM + POWER = EMPOWER, 'Give authority?'. The second sentence of the clue doubles as a wink: those people might, indeed, em-power."
+    "walkthrough": "The second half of the clue winks at its own answer: those people might, indeed, em-power. And 'EM for them is apostrophe-dropped speech, a favourite two-letter piece."
    }
   },
   {
@@ -964,7 +964,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "used literally"
      }
     ],
-    "walkthrough": "'Risk money' gives BET. It 'accepts' (takes in) the A from the clue: BE(A)T. The definition is 'flutter' — as a heart may beat or flutter. Note the trap: 'flutter' looks like the betting word, but here BET is the wordplay and 'flutter' the definition."
+    "walkthrough": "The trap is a straight swap: 'flutter' looks like the betting word and 'risk money' like the definition, when it is the other way round. A flutter is what a heart does."
    }
   },
   {
@@ -1006,7 +1006,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "butt = end (of a cigarette, say)"
      }
     ],
-    "walkthrough": "'Attempt' gives TRY, which stretches 'to cover' END ('butt'): TR(END)Y. The definition is 'Stylish'."
+    "walkthrough": "'Butt' is a cigarette end, not the anatomy the surface invites you to picture. Hearing 'attempt' as a noun is the other small step."
    }
   },
   {
@@ -1053,7 +1053,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "GA(g) — a gag cut short"
      }
     ],
-    "walkthrough": "M is the abbreviation for 'Mark' (the currency), 'one' gives AN, and a 'short joke' is GA — a GAG missing its last letter. M + AN + GA = MANGA, the Japanese 'form of comic'."
+    "walkthrough": "Capitalised, Mark looks like a man being addressed; it is the old German currency, and M is its abbreviation. Setters dress abbreviations as proper names constantly."
    }
   },
   {
@@ -1095,7 +1095,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "pro = prostitute (crossword staple)"
      }
     ],
-    "walkthrough": "'Money returned' is a REBATE, which 'picks up' (takes on board) PRO, a 'sex worker': RE(PRO)BATE. The definition is 'Rake' — not the garden tool but the dissolute character. REPROBATE."
+    "walkthrough": "'Rake' is the trap: not the garden tool but the eighteenth-century wastrel, a sense you meet far more often in crosswords than in life."
    }
   },
   {
@@ -1136,7 +1136,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "vert = green in heraldry (and French)"
      }
     ],
-    "walkthrough": "'Hole' gives the letter O, placed 'on' VERT, the heraldic word for 'green'. O + VERT = OVERT, meaning 'Visible'. The golfing surface (hole, green) is entirely decorative."
+    "walkthrough": "The golfing surface, hole and green, is entirely decorative. VERT is heraldry's green, and it sits alongside OR for gold as a colour a setter can turn into letters."
    }
   },
   {
@@ -1188,7 +1188,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "I = international"
      }
     ],
-    "walkthrough": "A 'ball into box' is a CROSS; 'missing header' removes its first letter, leaving ROSS. 'During' gives IN and 'international' gives I. ROSS + IN + I = ROSSINI, and the definition is 'He scored' — the composer, not a striker. The whole clue reads like football but is really about opera."
+    "walkthrough": "The whole clue reads as football and is really about opera, with 'missing header' the best pun in the puzzle: a header removed means the first letter goes."
    }
   },
   {
@@ -1237,7 +1237,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "COKE ('fizzy stuff') minus O ('round')"
      }
     ],
-    "walkthrough": "W is 'with'; 'wine' gives RED. The 'fizzy stuff' is COKE, which goes 'out of round' — loses its O — leaving CKE. RED 'drinking' CKE gives RE-CKE-D, and W in front makes WRECKED, slang for 'drunk'."
+    "walkthrough": "The surface is an ordinary evening's drinking, and the two smallest words do the most work — 'with' is a single letter, and 'round' is the O taken out of the coke."
    }
   },
   {
@@ -1292,7 +1292,7 @@ window.CRYPTIC_PUZZLES["30066"] = /*JSON-START*/ {
       "note": "TO + R (r = run, as on a cricket scorecard)"
      }
     ],
-    "walkthrough": "'Dirty' gives ADULT. The 'river' (R) is 'checked by' — held inside — the Environment Agency's initials EA, giving ERA. 'To run' spells TO + R (run) = TOR, which comes 'after' the rest. ADULT + ERA + TOR = ADULTERATOR, a 'Polluter'. The surface about a dirty river being checked by the EA is a classic Tramp red herring."
+    "walkthrough": "A dirty river being checked by the Environment Agency is a complete and plausible news story, which is the red herring. 'Dirty' for adult, as in adult films, is the piece to see first."
    }
   }
  ]

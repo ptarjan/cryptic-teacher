@@ -64,7 +64,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "EAR and P sit inside it"
      }
     ],
-    "walkthrough": "'Hearing organ' gives EAR, and 'piano' is P — the musical marking. Put EAR 'accompanied by' P inside BIT ('piece') and you get B-EAR-P-IT: a BEAR PIT, a 'Scene of confusion'."
+    "walkthrough": "Organ, piano, piece — the surface is all music, and every one of those words is doing something else underneath. The organ here is the one you hear with, not the one in the church loft."
    }
   },
   {
@@ -111,7 +111,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "R in chess notation, the letter removed"
      }
     ],
-    "walkthrough": "'Consider' gives RECKON. Now do the chess swap: take B ('bishop') 'instead of' R ('rook'), and RECKON becomes BECKON. To beckon is to make an 'attempt to draw' someone towards you."
+    "walkthrough": "'Attempt to draw' looks like part of the chess game the rest of the clue is describing, and it is nothing of the sort. The definition hiding inside the surface's own subject is the clue's best moment."
    }
   },
   {
@@ -149,7 +149,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "a match is what you offer when asked for a light"
      }
     ],
-    "walkthrough": "The definition is the sly part: to ALIGHT is to get off a vehicle, so it means 'Stop training or being coached, say' — stepping down from a train or a coach ('say' flags that these are examples). The wordplay is A + LIGHT, since 'a match?' is a light — as in 'have you got a light?'."
+    "walkthrough": "The definition is the whole joke: to alight is to step down from a train or a coach, so 'Stop training or being coached' is about transport, not exercise, with 'say' flagging both as examples."
    }
   },
   {
@@ -196,7 +196,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "EDUCATION 'cut' down to its familiar short form"
      }
     ],
-    "walkthrough": "'For' gives PRO (think pros and cons), 'pamphlet' gives TRACT, and 'education cut' short leaves ED. PRO + TRACT + ED = PROTRACTED, meaning 'Long'."
+    "walkthrough": "'Long for' reads as yearning, and the split falls right between the two words — 'Long' is the definition and 'for' has already started the wordplay. Seeing that seam is the hard part."
    }
   },
   {
@@ -228,7 +228,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "hidden across the two words: modera-TE ETH-ically"
      }
     ],
-    "walkthrough": "The answer is hiding across 'modera-TE ETH-ically'. TEETH means 'Effective power' — a law with teeth is one that can actually bite."
+    "walkthrough": "'Effective power' is fair because of the idiom: a law with teeth is one that can actually bite. The surface, a moderate behaving ethically, reads like a leader column."
    }
   },
   {
@@ -286,7 +286,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "second anagram indicator"
      }
     ],
-    "walkthrough": "'He repeatedly' supplies HE HE HE, which 'breaks into' TRUCK TO RENT, with 'out' confirming the jumble. Those seventeen letters rearrange to TURN THE OTHER CHEEK (running on into 11 across) — the biblical advice to 'don’t retaliate'."
+    "walkthrough": "A burglary report on the surface, the Sermon on the Mount underneath. 'He repeatedly' is the device worth remembering: a word plus 'repeatedly' means write it out more than once."
    }
   },
   {
@@ -337,7 +337,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "what's occurring is on"
      }
     ],
-    "walkthrough": "'Article' gives THE, 'about' gives RE, the 'state of India' is UP (Uttar Pradesh), and 'occurring' gives ON. THE + RE + UP + ON = THEREUPON, 'immediately after that'."
+    "walkthrough": "Four small pieces laid end to end with no instruction word anywhere. The difficulty is all in 'state of India' — two letters naming Uttar Pradesh, not a remark about the country's condition."
    }
   },
   {
@@ -373,7 +373,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "the ridge of rock near the surface"
      }
     ],
-    "walkthrough": "Two nautical meanings: a REEF is the 'Part of sail' that can be rolled in to shorten it, and a REEF of rocks is exactly what 'mariners steer clear of'. Same sailors, very different feelings about each."
+    "walkthrough": "Two nautical senses, and the surface keeps them in one world: same sailors, very different feelings about each."
    }
   },
   {
@@ -421,7 +421,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "a court case — it wraps around U and TO"
      }
     ],
-    "walkthrough": "U ('University') and TO ('closed', as in a door pulled to) go 'in' TRIAL ('case'): T-U-TO-RIAL = TUTORIAL. The definition is the rest of the clue — 'this class has few students'."
+    "walkthrough": "The definition is the entire back half of the clue, which is unusual and easy to miss. And 'closed' for TO — a door pulled to — is the kind of two-letter trick worth memorising."
    }
   },
   {
@@ -457,7 +457,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "the '…' mark is an ellipsis; several are ellipses"
      }
     ],
-    "walkthrough": "Planetary 'Orbits' are ELLIPSES — that was Kepler's discovery. And the '…' printed in the clue is itself an ellipsis, so '… more than once' also gives ELLIPSES. The clue's own punctuation does the work."
+    "walkthrough": "The clue's own punctuation is the wordplay: those three dots are not the setter trailing off, they are an ellipsis printed there for you to read as a thing."
    }
   },
   {
@@ -489,7 +489,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "hidden: whi-CH I NO-tice"
      }
     ],
-    "walkthrough": "'Only some of' tells you to look inside the words: 'whi-CH I NO-tice' conceals CHINO, the cotton 'Fabric' of chino trousers."
+    "walkthrough": "Hidden words are easiest to miss when the surface is this flat. Nothing in 'only some of which I notice' asks for attention, which is exactly how the fabric slips past you."
    }
   },
   {
@@ -532,7 +532,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "mental = of the mind"
      }
     ],
-    "walkthrough": "The 'conclusions of' articlE, reveaL and statE give E, L and E. 'Of mind' gives MENTAL. E + L + E + MENTAL = ELEMENTAL, meaning 'Basic'."
+    "walkthrough": "'Conclusions of' reaches across three words, not one. Stopping at the first word after the indicator is the commonest reason a last-letters clue refuses to come out."
    }
   },
   {
@@ -602,7 +602,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "reversal indicator"
      }
     ],
-    "walkthrough": "A 'role' is a PART, and a 'reversal' of PART gives TRAP. The definition is 'Speaker’s': a TRAP is slang for the mouth — the very thing a speaker speaks with, as in 'shut your trap'."
+    "walkthrough": "'Role reversal' is a phrase in its own right, which is what hides the instruction inside it. And the definition is a single word: your trap is your mouth, as in shut your trap."
    }
   },
   {
@@ -649,7 +649,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "W = White, who takes Black's place"
      }
     ],
-    "walkthrough": "'It’s hard to accept' gives UNBEARABLE. Then the 'chess player' B (Black) 'yields to' the 'opponent' W (White): swap the first B for a W and you have UNWEARABLE — 'Wrong to assume', since to assume clothing is to put it on."
+    "walkthrough": "The definition turns on an older sense of assume — to assume a garment is to put it on, so what cannot be worn cannot be assumed. Without that, 'Wrong to assume' looks like more chess talk."
    }
   },
   {
@@ -697,7 +697,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "as in a pale imitation"
      }
     ],
-    "walkthrough": "'Damage' gives CHIP. Then END ('finish') is 'installed by' — placed inside — PALE ('inferior', as in a pale imitation), making P-END-ALE. CHIP + PENDALE = CHIPPENDALE, the great Georgian 'furniture designer'."
+    "walkthrough": "The surface is a botched bit of home improvement, and it holds together because damage, finish and installed all belong to that world before they belong to the wordplay."
    }
   },
   {
@@ -742,7 +742,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "a pile of IOUs — notes acknowledging debts"
      }
     ],
-    "walkthrough": "'Present' gives IN (as in 'is she in?'), 'information' gives GEN, and 'evidence of problems with money' gives IOUS — a stack of IOUs. IN + GEN + IOUS = INGENIOUS, which is 'originally gifted' in the word's root sense: born with genius in you."
+    "walkthrough": "The definition repays a moment's thought: 'originally gifted' means gifted from the origin — born with genius in you, which is what the word's Latin root actually says."
    }
   },
   {
@@ -785,7 +785,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "workers who have downed tools are out — on strike"
      }
     ],
-    "walkthrough": "'Aggrieved' gives CROSS, and workers 'having downed tools' are OUT — on strike. CROSS + OUT = 'strike' in the other sense: to strike a word from a list. The industrial-action surface hides the stationery-drawer answer."
+    "walkthrough": "The industrial-action surface hides a stationery-drawer answer: 'strike' here means striking a word from a list, not walking off the job."
    }
   },
   {
@@ -831,7 +831,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Take A plus MINISTER made 'nameless' — stripped of its N (name) — and let 'demolished' do the mixing: A + MIISTER rearranges to SERIATIM, a Latin borrowing meaning 'point by point'."
+    "walkthrough": "Two operations stacked on each other: 'nameless' takes the N out before 'demolished' shuffles what remains. Setters do this often, and the fodder never counts until you do the deletion first."
    }
   },
   {
@@ -893,7 +893,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "made 'odd' — anagrammed — around ME and CE"
      }
     ],
-    "walkthrough": "'It’s concerning' gives RE. Then CE ('church') 'embracing' ME ('person writing' — the setter) lands 'in odd genre': the letters of GENRE rearrange around ME and CE to make E-ME-RGEN-CE = EMERGENCE. RE + EMERGENCE is a RE-EMERGENCE — wryly defined as a 'Second Coming?'."
+    "walkthrough": "'Second Coming?' is the wry part, question mark and all — a religious phrase stretched over an everyday word. The build is fiddly: GENRE's letters scatter around ME and CE to give EMERGENCE, with RE in front."
    }
   },
   {
@@ -935,7 +935,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "p = pressure in physics; A ROLE sits under it in this down entry"
      }
     ],
-    "walkthrough": "'A character' is A ROLE, and it goes 'under pressure' — beneath P, the physics symbol for pressure, in this down entry. P + A + ROLE = PAROLE: out on parole, you are 'temporarily free'."
+    "walkthrough": "'A character under pressure' is a phrase from a hundred book reviews, which is why it takes a while to hear 'under' as a position: A ROLE sits beneath P, this being a down clue."
    }
   },
   {
@@ -983,7 +983,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "caught = IN NET"
      }
     ],
-    "walkthrough": "'Succeeded' gives S, and 'caught' is IN NET. Read them 'up' this down entry — S-IN-NET reversed — and you get TENNIS: 'court action?', the action that happens on a tennis court."
+    "walkthrough": "'Court action?' is the pun, and the question mark is the setter's warning that he does not mean the legal kind. In a down clue, 'up' is what tells you to read the letters backwards."
    }
   },
   {
@@ -1022,7 +1022,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "your kin are your family"
      }
     ],
-    "walkthrough": "'Small' gives S and 'family' gives KIN. S + KIN = SKIN — 'Coverage for everyone', since everybody comes wrapped in it."
+    "walkthrough": "'Coverage for everyone' is fair in a pleasing way — everybody comes wrapped in it — while the surface sounds like a line from an insurance advertisement."
    }
   },
   {
@@ -1067,7 +1067,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Fomented' stirs up the letters of A FURY I ONCE, which rearrange to IN-YOUR-FACE — 'impossible to ignore'. The fomented fury of the surface is exactly the in-your-face mood of the answer."
+    "walkthrough": "The fury the surface describes is precisely the mood of the answer, so the fodder never looks like fodder. It looks like a sentence that means what it says."
    }
   },
   {
@@ -1114,7 +1114,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "'announced', EYE sounds like I"
      }
     ],
-    "walkthrough": "'Love' is O (a tennis zero), the 'letter specifying location' is X — X marks the spot — and 'I announced' sounds out as EYE. O + X + EYE = OXEYE, the daisy-like 'plant'."
+    "walkthrough": "Three different tricks inside five letters, and the surface — a love letter naming a rendezvous — holds them together so smoothly that not one of them announces itself."
    }
   },
   {
@@ -1154,7 +1154,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Broadcast' scatters the letters of LIVE into VEIL. The definition is 'Screen features': a veil is what screens the wearer's features from view. 'Live broadcast' reads as one TV phrase, which is the trap."
+    "walkthrough": "'Live broadcast' reads as a single television phrase, which is the trap: 'broadcast' belongs to the wordplay and 'live' is the fodder. 'Screen features' then means hiding a face, not TV."
    }
   },
   {
@@ -1195,7 +1195,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "where your glasses perch"
      }
     ],
-    "walkthrough": "Read 'better' as the gambler, not the comparative: a better's 'option' is to put money ON THE NOSE — a bet to win only. And the 'location for spectacles' is literal: glasses sit on the nose."
+    "walkthrough": "Read 'better' as the gambler rather than the comparative. That one re-reading is the whole clue, and once it flips, the spectacles perching on your nose do the rest."
    }
   },
   {
@@ -1231,7 +1231,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "Gordon Brown, prime minister 2007–2010"
      }
     ],
-    "walkthrough": "To 'Toast' bread is to BROWN it, and Gordon BROWN is the 'former PM'. Five letters, two meanings, no fuss."
+    "walkthrough": "Two words, two definitions, no wordplay at all — and the surface pretends to be a toast raised at a dinner for the former prime minister."
    }
   },
   {
@@ -1267,7 +1267,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "the buildings"
      }
     ],
-    "walkthrough": "Your TEMPLES are the 'Flat parts below domes' — the dome being the top of your head — and TEMPLES are also 'places of worship'. The architectural surface makes both readings feel like buildings."
+    "walkthrough": "The surface keeps both halves architectural, domes and places of worship together, so it takes a moment to notice that the first dome is the top of a head."
    }
   },
   {
@@ -1315,7 +1315,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "to let is to permit"
      }
     ],
-    "walkthrough": "'European' gives E; then YES ('agreement') goes 'about' LET ('permit'), making YE-LET-S. E + YELETS = EYELETS, the small 'Holes' that laces thread through."
+    "walkthrough": "The surface is a paragraph of Brussels news, which is why 'European' looks like the subject of a sentence rather than a single letter waiting at the front of the answer."
    }
   }
  ]

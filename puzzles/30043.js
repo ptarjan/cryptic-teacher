@@ -56,7 +56,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator — the letters are 'played' with"
      }
     ],
-    "walkthrough": "'Played' tells you to rearrange the letters of BANS RECITALS, which make BASS CLARINET. The definition points back into the clue: 'where this is played?' asks you to name the instrument you would hear at recitals, so the fodder doubles as the scene of the answer."
+    "walkthrough": "The definition points back into the clue: 'where this is played?' asks for the instrument you would hear at those very recitals, so the fodder is also the scene of the answer."
    }
   },
   {
@@ -105,7 +105,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Cracked' is the anagram indicator: break up BASALT together with ICE and the nine letters resettle as BALTIC SEA — 'chilly water' indeed. The geology-and-ice surface suits the frigid answer perfectly."
+    "walkthrough": "The surface reads as a geology field note, and the trap is that it already sounds like chilly water — when a clue's plain meaning matches the answer's, you stop looking for letters to move."
    }
   },
   {
@@ -144,7 +144,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "permits = allows"
      }
     ],
-    "walkthrough": "'Mum' gives SH — as in keeping mum, shushing. 'Permits' gives ALLOWS. SH + ALLOWS = SHALLOWS, and the whole clue paints the answer too: the shallows are exactly where mum permits paddling, so the wordplay and the definition share every word."
+    "walkthrough": "Every word works twice over: read straight it is a mother at the beach, read as wordplay it is silence plus permission, and the shallows really are where paddling is allowed."
    }
   },
   {
@@ -183,7 +183,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "something hard resists biting"
      }
     ],
-    "walkthrough": "C is the standard abbreviation for 'cold', and something 'resistant to the bite' is HARD. C + HARD = CHARD, the leafy 'Vegetable'."
+    "walkthrough": "'Vegetable, cold, resistant to the bite' reads like a gardener's note on a hardy crop, which is exactly what stops you seeing 'cold' as its one-letter abbreviation."
    }
   },
   {
@@ -228,7 +228,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "to choke = to fail under pressure"
      }
     ],
-    "walkthrough": "'Skill' gives ART, then I stands for itself, and to 'fail at a crucial moment' is to CHOKE. ART + I + CHOKE assembles the 'Vegetable' ARTICHOKE."
+    "walkthrough": "The happy accident is that an artichoke really does have a choke — the hairy heart you cut away — so the last piece of the charade is also part of the vegetable."
    }
   },
   {
@@ -276,7 +276,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "C is the chemical symbol for carbon"
      }
     ],
-    "walkthrough": "A 'pair' here is two Is. They sit 'about' (around) CON, an old word meaning 'to study', giving I-CON-I. Add C, the chemical symbol for 'carbon', and you have ICONIC — 'Admired'."
+    "walkthrough": "The surface is two admirers signing up for chemistry together; the trap is 'pair', which is not people at all but simply the letter I written twice."
    }
   },
   {
@@ -317,7 +317,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "the last letter of articlE"
      }
     ],
-    "walkthrough": "'Times' — eras of history — gives ERAS. 'Article finally' means the last letter of articlE, an E. ERAS + E = ERASE, meaning 'Delete'. The surface points at the newspaper, but the wordplay wants plain eras."
+    "walkthrough": "The capital T on 'Times' points hard at the newspaper, and the wordplay wants nothing of the sort — just plain eras, stretches of history."
    }
   },
   {
@@ -358,7 +358,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "OP ('opposite prompt') is the side of a theatre stage opposite the prompter"
      }
     ],
-    "walkthrough": "In a down clue, 'supporting' means sitting underneath. USES ('applications') supports OP, the 'opposite prompt' side — a genuine section of a theatre stage. OP + USES = OPUSES: a composer's 'work', taken as the whole body of it.",
+    "walkthrough": "In a down clue 'supporting' means sitting underneath, so USES goes below OP rather than after it. Across and down clues read position words differently, and this one only works pointing down.",
     "definitionNote": "OPUSES is plural but the definition 'work' is singular, taken as a mass noun: a composer's 'work' means everything they wrote, which is exactly their opuses."
    }
   },
@@ -405,7 +405,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "C = Conservative, the party label"
      }
     ],
-    "walkthrough": "'Agreeing' gives AT ONE — to be at one with someone is to agree with them. 'To bring in' inserts C for 'Conservative': AT ON(C)E. The result, AT ONCE, means 'Immediately'."
+    "walkthrough": "The surface is coalition horse-trading, which is why 'agreeing' reads as politics rather than as the phrase AT ONE waiting to be prised open."
    }
   },
   {
@@ -446,7 +446,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "A = America(n)"
      }
     ],
-    "walkthrough": "James K Polk, the 'Old President', goes in front ('leading') of A for 'America'. POLK + A = POLKA, 'a dance' — and the surface borrows the idiom 'to lead someone a dance'."
+    "walkthrough": "The surface borrows the idiom 'to lead someone a dance', so 'leading' looks like part of that phrase rather than an instruction about where to put the president."
    }
   },
   {
@@ -500,7 +500,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "a strut is a support; ON A goes inside it"
      }
     ],
-    "walkthrough": "The first 'Australian' gives an A to start. Then 'working' (ON) 'with' the second 'Australian' (another A) goes 'in' a 'support' — a STRUT: STR(ON A)UT. A + STRONAUT = ASTRONAUT, the 'Nasa employee'."
+    "walkthrough": "Two Australians for two As is the sly part: the same word clued twice, landing in two different places, so you go hunting for something more elaborate than a repeated letter."
    }
   },
   {
@@ -546,7 +546,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "child = kid"
      }
     ],
-    "walkthrough": "If you 'went down the Cresta' — the famous toboggan run — you SLID. 'Carrying' KID (a 'child') gives S(KID)LID: SKID LID, slang for a motorcyclist's 'protective headgear'."
+    "walkthrough": "Capitalised, Cresta looks like a place name in a holiday snapshot. The answer is biker slang, and it comes from the same idea — sliding when you would rather not."
    }
   },
   {
@@ -585,7 +585,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "lean years offer little profit"
      }
     ],
-    "walkthrough": "CHI is the 'Greek character' — the letter χ — and a business 'offering little of profit' is LEAN. CHI + LEAN = CHILEAN, a 'South American'."
+    "walkthrough": "'Offering little of profit' looks like an instruction to shorten a word, and it is nothing of the kind: it is a plain definition of LEAN. That false signal is the whole difficulty."
    }
   },
   {
@@ -637,7 +637,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "to plant seed is to sow; ASH WIND sits inside it"
      }
     ],
-    "walkthrough": "'Remains' gives ASH and 'current' gives WIND — a moving current of air. Both go 'in' SOW, 'to plant': S(ASH WIND)OW. The result is SASH WINDOW, a 'Source of light' for any room."
+    "walkthrough": "The surface reads like a report from a factory — remains current in plant — and 'Source of light' for a window is the kind of sideways definition worth getting used to."
    }
   },
   {
@@ -683,7 +683,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Rocks' shakes up YOU MINED, which first 'gains' M for 'mass'. Those nine letters rearrange into NEODYMIUM, a rare-earth 'Metal' — and one you would indeed mine."
+    "walkthrough": "'You mined rocks' is exactly how you would come by the metal, and that is what makes the fodder invisible: it describes the answer while spelling it."
    }
   },
   {
@@ -718,7 +718,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "gripe = complain; its leader G is then ousted"
      }
     ],
-    "walkthrough": "'To complain' is to GRIPE. When its 'leader’s ousted' — the front G removed — GRIPE becomes RIPE, meaning 'Ready'."
+    "walkthrough": "The surface is a party grumbling after a coup, and 'leader' does the same job in both readings: the head of a party, and the head of a word."
    }
   },
   {
@@ -775,7 +775,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "or = gold in heraldry"
      }
     ],
-    "walkthrough": "Chain the pieces: I, then N ('note'), then HER ('that woman'), then IT (old slang for 'sex-appeal'), then OR ('gold' in heraldry). I-N-HER-IT-OR is the 'recipient of legacy'."
+    "walkthrough": "Five pieces in a row and not one instruction word — a pure charade. The leer at a woman in gold is there to keep you reading the clue as a sentence."
    }
   },
   {
@@ -833,7 +833,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "ZEN, 'elevating' — reversed upwards in this down entry"
      }
     ],
-    "walkthrough": "'Fix' gives PIN, which sits 'over' CE (the 'Church' of England) in this down entry. 'Elevating' ZEN — the 'Eastern philosophy' — sends it upwards as NEZ. PIN + CE + NEZ makes PINCE-NEZ, glasses that clip the nose: 'They help one view'."
+    "walkthrough": "The bonus sits in the answer's own French: nez is nose, and a pince-nez pinches it. Both 'over' and 'elevating' are positional words that only work because this is a down clue."
    }
   },
   {
@@ -875,7 +875,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "the A from the clue, brought inside"
      }
     ],
-    "walkthrough": "'Go' as a noun is a TRY. 'To bring in' inserts the A: TR(A)Y. A TRAY is a 'salver' — the butler's carrying dish."
+    "walkthrough": "Read as an order to a servant it is one smooth sentence, and that hides the fact that 'Go' is a noun here — a go, a try — rather than the verb it looks like."
    }
   },
   {
@@ -910,7 +910,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "cantus is Latin for song, as in cantus firmus"
      }
     ],
-    "walkthrough": "The 'Latin song' is a CANTUS. Its two 'parts swapped' — CAN and TUS changing places — give TUSCAN, meaning 'from part of Italy', as in Tuscan wine. A tidy two-chunk shuffle rather than a full jumble."
+    "walkthrough": "Not the usual full jumble: 'Parts swapped' means two chunks changing places, CAN and TUS. Worth spotting when an anagram refuses to come out — sometimes only the halves move."
    }
   },
   {
@@ -961,7 +961,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "HERO, the leading man, minus O — 'love' in tennis"
      }
     ],
-    "walkthrough": "'Happen' gives COME (as in come to pass), a 'success' is a HIT, and the 'leading man' is a HERO who loses his O — 'love', the tennis score for nothing. COME + HIT + HER(O) = COME-HITHER, meaning 'Alluring'."
+    "walkthrough": "The pieces divide as COME-HIT-HER, which is not how the answer reads at all. And 'love' for O comes from tennis, one of the handful of ways a setter can clue nothing."
    }
   },
   {
@@ -1002,7 +1002,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "a SULTAN who 'rejects' the AN"
      }
     ],
-    "walkthrough": "'Concerned with' gives RE. The 'Muslim leader' is a SULTAN, who 'rejects' the AN to leave SULT. RE + SULT = RESULT, an 'outcome'."
+    "walkthrough": "'Rejecting' sounds as though it should reverse something; here it simply throws letters away, and the news-bulletin surface keeps you thinking about the man rather than his title."
    }
   },
   {
@@ -1041,7 +1041,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "h = hot, as on a tap"
      }
     ],
-    "walkthrough": "The 'Beautiful spot' is TEMPE — the Vale of Tempe, the classical Greek beauty spot. Add H for 'hot' and you get TEMPEH, the fermented soybean cake that is a staple 'Javanese food'."
+    "walkthrough": "The Vale of Tempe is worth filing away — setters reach for it whenever they want a beauty spot — and the holiday-brochure surface gives no hint that the answer is a soybean cake."
    }
   },
   {
@@ -1082,7 +1082,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "intensely = very"
      }
     ],
-    "walkthrough": "'Mud' is SILT, and 'a lot of' it — most but not all — keeps SIL. 'Intensely' gives VERY. SIL + VERY = SILVERY, 'gleaming' like moonlight on water."
+    "walkthrough": "'A lot of' is the indicator to learn here: most of a word, not all of it. The surface, a muddy field described with feeling, gives nothing away about gleaming."
    }
   },
   {
@@ -1114,7 +1114,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "hidden inside onLY RICh"
      }
     ],
-    "walkthrough": "The answer is 'seen around' the phrase 'Only rich': onLY RICh conceals LYRIC. The definition is 'this theatre?' — the Lyric, in the West End and Hammersmith — and the surface winks that only the rich are seen around it."
+    "walkthrough": "A hidden word whose cover story does the hiding: 'seen around' sounds like gossip about who frequents the place, and the place is the Lyric — Hammersmith, or the West End."
    }
   },
   {
@@ -1159,7 +1159,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Struggling' signals the anagram: mix SCORN with UK and the seven letters give UNCORKS. To uncork feelings is to let them out — exactly matching 'No longer suppresses'."
+    "walkthrough": "'No longer suppresses' looks too loose to be a definition until you think of uncorking your feelings rather than a bottle. Then it is exact."
    }
   },
   {
@@ -1199,7 +1199,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "pl = place, as on street maps; 'No place' removes it"
      }
     ],
-    "walkthrough": "'To steal' is to PLUNDER. 'No place' removes PL — the map abbreviation for place — leaving UNDER, meaning 'subordinate', as in an under-secretary."
+    "walkthrough": "'No place' reads as moral disapproval — nowhere is fit to steal from — and that is what disguises it as an instruction to delete two letters."
    }
   },
   {
@@ -1252,7 +1252,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "hied = hurried, placed 'after' the rest"
      }
     ],
-    "walkthrough": "A stands for 'active'. The 'harbour' is a PORT, which 'regressed' (reversed) becomes TROP. 'Moved fast' gives HIED, placed 'after' the rest. A + TROP + HIED = ATROPHIED — wasted away, 'becoming degenerate'."
+    "walkthrough": "The surface is a port town in decline, which is the same story the answer tells. 'Regressed' is the reversal word: in an across clue it means backwards, right to left."
    }
   },
   {
@@ -1293,7 +1293,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "AT ALL = in any way; 'Not entirely' trims the final L"
      }
     ],
-    "walkthrough": "N abbreviates 'name'. 'In any way' gives AT ALL, but 'Not entirely' means you stop short of the last letter: ATAL. N + ATAL = NATAL, an adjective 'Describing birth'."
+    "walkthrough": "It reads like a question on a form, and 'Not entirely' is the giveaway — a phrase that merely qualifies the sentence on the surface, but underneath tells you to drop a final letter."
    }
   },
   {
@@ -1343,7 +1343,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Wild' anagrams SHAMROCK together with AZOR — the AZORES ('Portuguese islands') 'twice cut down', shedding their final two letters. The twelve letters resolve to OCKHAM'S RAZOR, the philosophical principle of 'reducing unnecessary quantities': never multiply entities beyond need."
+    "walkthrough": "The definition is the principle stated properly: entities are not to be multiplied beyond necessity. The clue then enacts it, cutting the Azores down before shaving the whole thing into shape."
    }
   }
  ]

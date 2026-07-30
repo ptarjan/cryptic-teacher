@@ -53,7 +53,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "alternate letters of bAgGiEr"
      }
     ],
-    "walkthrough": "'Clothes' gives GARB. 'Baggier with holes at intervals' means take every other letter of bAgGiEr: AGE. GARB + AGE = GARBAGE, 'Rubbish'."
+    "walkthrough": "One picture of worn-out clothing from start to finish, and the instruction is hidden inside it: 'with holes at intervals' means take every other letter and let the rest be the holes."
    }
   },
   {
@@ -85,7 +85,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "hidden: squAD A MAN Triumphantly"
      }
     ],
-    "walkthrough": "'Arrests' tells you the answer is held inside the clue: squAD A MAN Triumphantly conceals ADAMANT, meaning 'Unyielding'. Hidden words are easy to miss precisely because everything you need is in plain sight."
+    "walkthrough": "'Arrests' is both the hiding instruction and part of the police story on the surface. Hidden words are easy to miss precisely because everything you need is already in plain sight."
    }
   },
   {
@@ -134,7 +134,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "a bus"
      }
     ],
-    "walkthrough": "'Attempt' gives GO, which 'climbs' (reverses, in a down entry) to OG and goes 'into' BUS, the 'conveyance': B(OG)US = BOGUS, 'Fraudulent'."
+    "walkthrough": "'To climb' only means reverse because this is a down clue; in an across entry the same word would do nothing. Position words always depend on which way the answer runs."
    }
   },
   {
@@ -173,7 +173,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "more than 'just good friends' = lovers"
      }
     ],
-    "walkthrough": "People who 'are not just good friends' are LOVERS, and G ('good') is lifted out front: G + LOVERS = GLOVERS, glove-makers — wittily defined as 'Creators of digital protection', protection for your digits."
+    "walkthrough": "'Creators of digital protection' is the joke, and it survives being explained: digits are fingers, so gloves protect them. Nothing to do with computers."
    }
   },
   {
@@ -213,7 +213,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Wasted' signals an anagram of HELP SAY, whose seven letters rearrange to SHAPELY — 'in trim'."
+    "walkthrough": "On the surface this is a squandered gym membership. 'Wasted' is the anagram word, and it means ruined or thrown away rather than thin."
    }
   },
   {
@@ -259,7 +259,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "OTT = over the top"
      }
     ],
-    "walkthrough": "'In base' puts OTT ('extravagant', over the top) inside HUB ('base'): H(OTT)UB = HOT TUB. The definition is the whole playful phrase 'to luxuriate in this?' — extravagance you soak in."
+    "walkthrough": "The definition is the whole playful phrase, 'to luxuriate in this?', the question mark conceding that it describes the answer rather than defining it. OTT for over the top is worth having ready."
    }
   },
   {
@@ -308,7 +308,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Transforming' mixes SPIRITED with H ('hotel' in the NATO alphabet). The nine letters give PETRI DISH — 'a place of culture', bacterial rather than artistic. The definition's double meaning is the whole joke."
+    "walkthrough": "'A place of culture' is the joke — bacterial, not artistic — and 'hotel' for H comes from the NATO alphabet, which setters will use for any of its twenty-six letters."
    }
   },
   {
@@ -355,7 +355,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "the first bit of Turkey"
      }
     ],
-    "walkthrough": "'Meat' gives LAMB, 'like' gives AS, and 'a bit of turkey' contributes T. LAMB + AS + T = LAMBAST, to 'Roast' — as in criticise severely. The dinner-table surface hides the scolding."
+    "walkthrough": "'Roast' works in both worlds, which is what holds the dinner-table surface together: to roast a person is to criticise them, and that sense is the definition."
    }
   },
   {
@@ -402,7 +402,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "carnations are 'pinks', the flower"
      }
     ],
-    "walkthrough": "'Robe outwardly' gives its outside letters, RE. Then IN (literal) and CARNATION — a 'pink' is a carnation, the flower. RE + IN + CARNATION = REINCARNATION, 'Being born again'."
+    "walkthrough": "'Pink' for carnation is the piece to learn — a pink is a flower of that family, and setters treat the two words as interchangeable. The robe keeps you thinking about colour."
    }
   },
   {
@@ -443,7 +443,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "last letter of workinG"
      }
     ],
-    "walkthrough": "A 'Frier' is a PAN; 'finally working' gives the last letter of workinG. PAN + G = PANG, a 'Hungry feeling?'."
+    "walkthrough": "'Frier' looks like a person at the stove and is the pan itself. That single re-reading is the whole clue, which is why it only needs four letters."
    }
   },
   {
@@ -495,7 +495,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Exercising' mixes ANIMATE plus TOE ('toes almost', i.e. TOES without its last letter). Those ten letters give ONE AT A TIME, meaning 'in sequence'."
+    "walkthrough": "The surface is a fitness class, and the answer is a phrase rather than a word. Worth remembering when an anagram will not resolve: the letters may be waiting to break into four short pieces."
    }
   },
   {
@@ -530,7 +530,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "informal for a Tasmanian — Hobart is Tasmania's capital"
      }
     ],
-    "walkthrough": "Two definitions: a 'tassie' is a Scots word for a small cup, and a Tassie is an Australian nickname for a Tasmanian — 'one from Hobart'. The 'or' pivots between them."
+    "walkthrough": "The 'or' is the pivot between two unrelated worlds, Burns and Tasmania, and the question mark on the second half concedes that Hobart is an example rather than a definition."
    }
   },
   {
@@ -572,7 +572,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "homophone indicator — say the charade aloud"
      }
     ],
-    "walkthrough": "Build the wordplay first: 'indecent' gives NAUGHTY, and 'state' gives CAL — California. Run them together and you have NAUGHTY + CAL. Now 'Called out' tells you to say that aloud: 'naughty-cal' is NAUTICAL. The definition is the adjective phrase 'of the crew', and it matches NAUTICAL's part of speech — 'nautical matters' are the crew's matters, to do with ships and sailing."
+    "walkthrough": "Say the pieces aloud and 'naughty-cal' falls out — the homophone is the whole clue. 'State' for CAL is the kind of abbreviation to expect once a charade needs three letters from nowhere."
    }
   },
   {
@@ -611,7 +611,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "the Isle of Man"
      }
     ],
-    "walkthrough": "'From US' gives STATES and 'island' gives MAN (the Isle of Man). STATES + MAN = STATESMAN, and the definition is 'New magazine': put 'New' in front and you have the New Statesman. A definition-by-completion trick worth remembering."
+    "walkthrough": "The definition works by completion: the answer is not itself a magazine, but put 'New' in front and you have one. Setters use this whenever a title has a spare first word."
    }
   },
   {
@@ -651,7 +651,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "An 'injured' BRAINSTEM — its nine letters rearranged — gives TRIBESMAN, a 'Fellow in community'. A tidy single-word anagram with a grisly medical surface."
+    "walkthrough": "A single-word anagram under a grisly medical surface, and the only real difficulty is believing it is that simple."
    }
   },
   {
@@ -697,7 +697,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "a trig point, the hilltop survey pillar"
      }
     ],
-    "walkthrough": "H ('height') followed by TRIG (a trig point, the 'elevated point used to measure') reads HTRIG; 'Looking west' — right to left in an across entry — turns it into GIRTH, the 'circumference'."
+    "walkthrough": "'Looking west' is the reversal, and it can only mean that in an across entry, west being leftwards on the page. The surveying surface holds together from start to finish."
    }
   },
   {
@@ -732,7 +732,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "the everyday sense"
      }
     ],
-    "walkthrough": "A double definition. To 'peach' on someone is to inform on them — to split. And 'burst open' is the ordinary sense of SPLIT. The fruit reading is the decoy."
+    "walkthrough": "The fruit is the decoy: to peach on someone is to inform on them, an old sense that survives almost nowhere outside crosswords."
    }
   },
   {
@@ -773,7 +773,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "to recede = to go back"
      }
     ],
-    "walkthrough": "The 'opening of park' is P, and 'go back' gives RECEDE. P + RECEDE = PRECEDE, to 'Arrive before'."
+    "walkthrough": "The surface is a note about opening hours, and the definition sits at the front, where two ordinary words — 'Arrive before' — disguise the fact that together they are one meaning."
    }
   },
   {
@@ -817,7 +817,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "anagram indicator — perished like old rubber"
      }
     ],
-    "walkthrough": "'Perished' (decayed, like perished rubber) is the anagram indicator. The letters of WHOSE TWIN rearrange to SNOW WHITE, the fairy-tale 'Beautiful girl'. The surface teases you toward twins and tragedy; the wordplay is pure anagram."
+    "walkthrough": "'Perished' means decayed, the way old rubber perishes, and that is the anagram word. The surface points you towards twins and tragedy instead."
    }
   },
   {
@@ -862,7 +862,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "anagram fodder, 7 letters"
      }
     ],
-    "walkthrough": "'Develops' rearranges the letters of TO WORSE into WOOSTER — 'Bertie', P.G. Wodehouse's amiable idiot. The phrase 'from bad to worse' is split so that 'to worse' becomes the fodder."
+    "walkthrough": "A familiar phrase split in half so that only 'to worse' is fodder. You read 'from bad to worse' as a single unit, which is exactly how the letters hide in the open."
    }
   },
   {
@@ -897,7 +897,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "marking with a tick = marking as correct"
      }
     ],
-    "walkthrough": "Double definition: something TICKING (a bomb, 'perhaps') is about to go off, and TICKING a box is 'indicating right' — marking it correct."
+    "walkthrough": "Both halves sound like the same sentence about a bomb, and that is what stops you hearing the second one as a pen marking a box correct."
    }
   },
   {
@@ -945,7 +945,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "mist"
      }
     ],
-    "walkthrough": "F ('following', the abbreviation used in page references) and I ('one') sit 'in' MIST ('poor visibility'): MIS(FI)T = MISFIT, a 'Weirdo'."
+    "walkthrough": "The surface is someone being followed through fog, and it works because 'following' reads as a verb when it is really the abbreviation you meet in page references."
    }
   },
   {
@@ -986,7 +986,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "an edict is a proclamation"
      }
     ],
-    "walkthrough": "'Genial' gives BENIGN, and 'half' of it is BEN. 'Proclamation' gives EDICT. BEN + EDICT = BENEDICT, a papal name borne by sixteen 'Popes'."
+    "walkthrough": "'Pope's' is the definition with a hidden 'is' attached — the apostrophe-s joins the two halves of the clue rather than giving the Pope anything to own. Seeing that is the hard step."
    }
   },
   {
@@ -1033,7 +1033,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "to lock = to close up"
      }
     ],
-    "walkthrough": "'Business' gives CO, and 'is over' turns it over: OC. 'Close up' gives LOCK. OC + LOCK = O'CLOCK, 'The precise hour' — as in six o'clock sharp."
+    "walkthrough": "The surface is a shop shutting for the night, and 'is over' does double duty: closing time above, and turn the letters round underneath."
    }
   },
   {
@@ -1074,7 +1074,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Take BALLET, remove T ('timeless' = without time), and set the remaining letters 'dancing': BALLE rearranges to LABEL, a 'Brief description'."
+    "walkthrough": "'Timeless' for a word with its T removed is worth filing away. Setters lean on it constantly, alongside 'endless' and 'heartless' for the letters at the other ends."
    }
   },
   {
@@ -1116,7 +1116,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "the extremes (outer letters) of SmarT"
      }
     ],
-    "walkthrough": "The 'couple of hairstyles' are a PERM and an AFRO; 'extremely smart' gives the outer letters of SmarT, ST. PERM + AFRO + ST = PERMAFROST, the frozen ground that is a 'feature of the Arctic'."
+    "walkthrough": "Two hairdos and a smart appearance make a complete little scene at the salon, which is about as far from the Arctic as a surface can get."
    }
   },
   {
@@ -1155,7 +1155,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "oil, the fossil fuel"
      }
     ],
-    "walkthrough": "'Black' gives B and 'a source of energy' gives OIL. B + OIL = BOIL, which is what you do when 'In rage' — you seethe."
+    "walkthrough": "The difficulty is placement: 'In rage' opens the clue looking like a scene-setter, when it is the definition. To boil is to seethe."
    }
   },
   {
@@ -1190,7 +1190,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "Charles Schulz's comic strip, home of Snoopy"
      }
     ],
-    "walkthrough": "Double definition: being paid PEANUTS is a 'Lousy payment', and Peanuts is Charles Schulz's celebrated 'cartoon' strip.",
+    "walkthrough": "The surface is a cartoonist grumbling about his fee, and the two definitions sit either side of 'for', which is doing nothing at all but joining them.",
     "definitionNote": "PEANUTS is plural but 'payment' is singular, because peanuts here is an idiom that behaves like a mass noun: 'the payment was peanuts', never 'a peanut'."
    }
   },
@@ -1239,7 +1239,7 @@ window.CRYPTIC_PUZZLES["30067"] = /*JSON-START*/
       "note": "a log is a record"
      }
     ],
-    "walkthrough": "'Hear' gives TRY (as a court tries a case), which goes 'about' I ('one') + LOG ('record'): TR(I LOG)Y = TRILOGY, 'a set of three'."
+    "walkthrough": "'Hear' as a court hears a case is the step to find, and the surface — a record, a hearing — keeps you in a recording studio rather than a courtroom."
    }
   }
  ]
