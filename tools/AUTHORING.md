@@ -408,3 +408,139 @@ which supports a joke, and every synonym of ARMED is a phrase (`carrying a
 weapon`, `under arms`), so no clue can define it tightly enough to be worth the
 machinery. That is the honest test for spending one of your two: **not "is this
 funny" but "is the mechanism I would swap it for actually worse than nothing".**
+
+## Exactly two pieces (feedback 2026-07-29, same day again)
+
+The twenty clues above were read back once more, and the verdict was about the
+words that are not the clue:
+
+> **A good cryptic clue doesn't have anything superfluous which isn't directly
+> part of the wordplay. It should be exactly two pieces. Definition, optional
+> joinery and wordplay.**
+
+So every single word must be doing one of exactly three jobs: it is part of the
+DEFINITION, part of the WORDPLAY (fodder or indicator), or a LINK WORD joining
+the two. Nothing else. A word that exists only to make the surface read nicely
+is a fault, **however good the resulting sentence** — and it has one signature in
+this schema: a block with `"gives": ""`, the "surface only" padding STYLE.md's
+leftover-words rule tells the annotator to record. Nine of the twenty A001 clues
+carried one, which is what made this a rule instead of a note.
+
+`check_two_pieces()` in `tools/validate_annotations.py` makes it a hard ERROR,
+scoped by `is_authored()` to puzzles whose id starts with a letter. That scoping
+is load-bearing, not politeness: real setters pad, and the annotator has to be
+able to say so faithfully. Unscoped, the check fires **eighteen times on 30039
+alone** — mostly on double definitions, where a block legitimately carries no
+letters. A check that lights up honest work is a broken check.
+
+The flip side of that scoping is that the daily sweep globs `[0-9]*.js` and so
+never sees an authored puzzle. After editing `tools/data/authored_*_clues.json`,
+rebuild and validate **by id** — this is the mandatory step, not optional:
+
+```bash
+python3 tools/build_authored_puzzle.py --clues tools/data/authored_A001_clues.json \
+    --id A001 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" --date 1785283200000
+python3 tools/validate_annotations.py A001     # must say 20/20 annotated — OK
+node --check puzzles/A001.js && node tools/smoke_test.js
+```
+
+**Why this recurs, and the deeper point.** A funny sentence is easy if you are
+allowed filler: put `There's a…`, `Our…`, `she hopes he'll…` around any two
+pieces and something readable falls out. Banning filler is what separates a clue
+from a joke that happens to contain the answer. The rule makes the job harder,
+not easier — you now need every word to serve the machinery *and* the sentence
+to be funny, which is the actual craft. Expect to throw candidates away; the
+rejects for this pass are logged with reasons in the commit's checkpoint.
+
+Worked before and after, all nine:
+
+| answer | was (padding in **bold**) | now | mechanism |
+| --- | --- | --- | --- |
+| ORGAN | **The donor's** dreadful groan comes from the instrument | The instrument makes a dreadful groan | anagram of GROAN |
+| INTER | Milan club bury **the opposition** | Milan club buried in winter | hidden in w-INTER |
+| PLEASE | Delight **mother** with the magic word | Delight in the magic word | double definition |
+| PETERS | With the Queen among the pets, **interest** dwindles | Surrounded by pets, the Queen dwindles | container, ER in PETS |
+| SIDE | **There's a mole** in the president's team | *clue unchanged, re-annotated* | hidden in pre-SIDE-nt |
+| REPRESENTS | **Our** rep resents **the people** he speaks for | Rep resents what he stands for | charade, REP + RESENTS |
+| STOREY | Ground floor, and **the world's your** oyster | The oyster lives on the ground floor | anagram of OYSTER |
+| ARGUE | **There's** a row among the star guests | *clue unchanged, re-annotated* | hidden in st-ARGUE-sts |
+| ALTER | At the altar **she hopes he'll** change | Husband slips out of the halter to change | deletion, HALTER less H |
+
+Two of the nine were **mis-annotation, not filler**, and that is a legitimate
+outcome the rule has to leave room for:
+
+* SIDE's `There's a mole in` is not padding, it is the hidden-word **indicator**.
+  A mole is a thing concealed inside an organisation; the phrase says *something
+  is buried in here* without a single word of crossword instruction, which is
+  exactly what an indicator is supposed to do. The previous annotation even said
+  so ("it is also a fair description of what the clue is up to") and still filed
+  it under surface.
+* ARGUE's `There's` is **joinery**. It carries no letters and it is not
+  definition, but it is the finite verb that makes the clue an utterance rather
+  than a noun phrase. It belongs in `linkWords`, where the app already greys it
+  and tells the learner there is no mechanism hiding in it.
+
+The test for that call: does the word contribute letters, restrict the parse, or
+hold the sentence together grammatically? Anything else is filler. Note the
+asymmetry — an indicator or a link word is *claimed*, so it can be shown to the
+solver; padding can only be apologised for.
+
+**Is shorter usually the answer?** Mostly, and the numbers are honest about the
+exception. The seven rewritten clues went 49 words to 43 (mean 7.0 to 6.1; all
+twenty went 139 to 133); four got shorter, INTER and STOREY stayed the same
+length, and ALTER got one word LONGER because the padding-free version needed a
+real mechanism (HALTER less H) where the padded one had leaned on a homophone
+plus a joke told in the padding. Padding is a *symptom* of a clue a word or two
+too long, but the cure is finding the mechanism the sentence can pay for, not
+cutting words until it fits.
+
+**And the cryptic definitions.** Under a strict reading of "exactly two pieces",
+PACE and ARMED fail outright: they have one piece, a definition, and no wordplay
+at all. They were left in place deliberately. The rule as stated governs
+*superfluous* words, and in a cryptic definition every word is part of the
+definition, so nothing is superfluous; the count, not the anatomy, is what keeps
+them honest, and `MAX_CRYPTIC_DEFINITIONS` already holds that at two. Recorded
+for whoever revisits it: **ARMED is an anagram of DREAM**, and `Venus de Milo's
+broken dream` is a real semi-&lit with `broken` doing double duty on a broken
+statue. It was not applied because it is a bare noun phrase, which trades the
+missing mechanism for a hard-rule-1 failure. If the two CDs ever have to go, that
+is the clue to start from.
+
+## When the blocks already told them (feedback 2026-07-29)
+
+> **When you basically give the whole answer in the building blocks you don't
+> need to have the full walkthrough.**
+
+The `blocks[]` rung already lays the answer out fragment by fragment, letter by
+letter, with a note on each. A walkthrough that then re-narrates the same steps
+is padding in the teaching UI, and it arrives at exactly the moment the learner
+has stopped needing it. All twenty A001 walkthroughs ran 44-63 words, median 54,
+and every one of them restated its own blocks.
+
+What earns its place is the thing the blocks **cannot show**:
+
+* why the surface misleads you (`the corgis are the misdirection`),
+* the joke, named in one clause (`the rep who resents is, letter for letter, the
+  man who represents`),
+* a convention the solver may not know (`ER = Queen`, `worker = ANT`,
+  `H = husband`),
+* why a definition is fair when it looks as though it is not.
+
+Trimmed on that principle the same twenty run 19-42 words, median 32 — which is
+the median of the 231 published-puzzle walkthroughs in `puzzles/`, arrived at
+independently. `check_walkthrough_budget()` warns above 45 words (the published
+90th percentile is 42) whenever there is a blocks rung above it.
+
+Two things to know before touching this:
+
+* **The walkthrough may be short but never absent.** `ladderSteps()` in `app.js`
+  always pushes the "Full walkthrough" rung, and the validator requires the
+  field, so an empty one renders as a labelled rung with a blank paragraph — a
+  visual hole plus a missing home for the mechanism line on clues with no blocks.
+* **The check is a budget, not a redundancy detector,** and the code says so. A
+  semantic version was built and thrown away: scoring the fraction of
+  walkthrough vocabulary already present in the clue and blocks gave 0.21 for
+  the bad A001 set, 0.16 after the rewrite and 0.30 for published puzzles — the
+  good walkthroughs scored *worse* than the bad ones, because naming the joke
+  means reusing the clue's own words. Don't rebuild it without new evidence; the
+  judgement half of this rule is procedure, not machinery.

@@ -41,7 +41,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "what a man does in a hospital corridor: he paces"
      }
     ],
-    "walkthrough": "There is nothing to take apart here — the whole sentence is the definition, told sideways. What an expectant father does up and down a corridor is PACE, which is also the speed he is not managing to keep. When a short clue offers no indicator and no obvious fodder, try reading it as one plain statement with a single word that fits."
+    "walkthrough": "No indicator, no fodder, nothing to take apart: when a short clue offers none of those, read it as one plain statement and hunt for the single word it describes sideways."
    }
   },
   {
@@ -53,7 +53,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 6,
-   "clue": "With the Queen among the pets, interest dwindles (6)",
+   "clue": "Surrounded by pets, the Queen dwindles (6)",
    "group": [
     "1-down"
    ],
@@ -64,7 +64,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "definition": "dwindles",
     "definitionNote": "PETERS means 'dwindles' only inside the phrasal verb 'peters out', so the clue is leaning on that idiom rather than on the bare word.",
     "indicators": [
-     "among"
+     "Surrounded by"
     ],
     "pieces": [
      "PET",
@@ -73,22 +73,17 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     ],
     "blocks": [
      {
-      "clueFragment": "the Queen",
-      "gives": "ER",
-      "note": "Elizabeth Regina — ER is the crossword's shorthand for the Queen, worth memorising alongside ANT for worker"
-     },
-     {
-      "clueFragment": "the pets",
+      "clueFragment": "pets",
       "gives": "PETS",
       "note": "the container, split between PET and S to let the Queen in"
      },
      {
-      "clueFragment": "interest",
-      "gives": "",
-      "note": "surface only — what a nation's attention does by the tenth corgi photograph"
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina — ER is the crossword's shorthand for the Queen, worth memorising alongside ANT for worker"
      }
     ],
-    "walkthrough": "'Among' is the container instruction wearing an ordinary sense: put the Queen among the pets and ER goes inside PETS, which splits to give PET-ER-S. That is PETERS, and what interest does is peter out. The corgis are the misdirection — you are looking at a royal photocall while the monarch quietly climbs inside another word."
+    "walkthrough": "The corgis are the misdirection: it is an ordinary sentence about a royal photocall, and while you picture it the monarch quietly climbs inside another word."
    }
   },
   {
@@ -122,7 +117,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the five letters to rearrange"
      }
     ],
-    "walkthrough": "'Bruised' is the anagram indicator and PEACH is the fodder: five letters that resettle as CHEAP. The indicator is not decoration — bruising is exactly why fruit ends up in the reduced box, so the word that scrambles the letters is also the reason the price fell. And a peach, in the other sense, is a beauty; this one is going for nothing."
+    "walkthrough": "Bruising is exactly why fruit ends up in the reduced box, so the word that scrambles the letters is also the reason the price fell. And a peach, in the other sense, is a beauty."
    }
   },
   {
@@ -156,7 +151,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the six letters to rearrange"
      }
     ],
-    "walkthrough": "'Flattened' is doing two jobs at once. It is the history — Naples was bombed flat in 1943 — and it is the instruction to flatten the letters of NAPLES, which resettle as PLANES. The aircraft come out of the city's own name, and that is the whole joke."
+    "walkthrough": "'Flattened' is doing two jobs at once: it is the history — Naples was bombed flat in 1943 — and it is the instruction. The aircraft come out of the city's own name, and that is the whole joke."
    }
   },
   {
@@ -197,7 +192,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "hip as in with-it, and the last thing a cabinet minister ever is"
      }
     ],
-    "walkthrough": "A charade needs no instruction word at all — the pieces simply stand in the order the clue prints them. LEADERS, then HIP, is LEADERSHIP, which is 'direction'. The seam is invisible because 'leaders get hip' is a whole idea on its own, and the joke is the politician who buys a skateboard and files it under strategy."
+    "walkthrough": "A charade needs no instruction word at all — the pieces just stand in the order the clue prints them. The joke is the minister who buys a skateboard and files it under strategy."
    }
   },
   {
@@ -232,7 +227,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the famous are big names"
      }
     ],
-    "walkthrough": "Both halves define the answer and the comma hides the seam. What you call someone is NAMES, and the stars are NAMES. Said aloud it is one fluent remark about celebrity, and the pleasure is watching 'call' change job as the second half lands."
+    "walkthrough": "The comma hides the seam, and the pleasure is watching 'call' quietly change job as the second half lands."
    }
   },
   {
@@ -254,21 +249,16 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "answer": "SIDE",
     "definition": "team",
     "indicators": [
-     "in"
+     "There's a mole in"
     ],
     "blocks": [
      {
       "clueFragment": "the president's",
       "gives": "SIDE",
       "note": "hiding in pre-SIDE-nt"
-     },
-     {
-      "clueFragment": "There's a mole",
-      "gives": "",
-      "note": "surface only — though it is also a fair description of what the clue is up to"
      }
     ],
-    "walkthrough": "The whole instruction is one small word: something is 'in' the president's, and what is in there is pre-SIDE-nt. A SIDE is a 'team'. Nothing in the sentence sounds like an order, which is the point — the mole it reports really is buried in the longest word, doing exactly what a mole does."
+    "walkthrough": "A mole is a thing concealed inside an organisation, so the sentence is the hiding instruction without ever sounding like one — and the mole really is buried in the longest word, doing exactly what a mole does."
    }
   },
   {
@@ -280,7 +270,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 10,
-   "clue": "Our rep resents the people he speaks for (10)",
+   "clue": "Rep resents what he stands for (10)",
    "group": [
     "7-down"
    ],
@@ -288,15 +278,18 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
    "annotation": {
     "type": "charade",
     "answer": "REPRESENTS",
-    "definition": "speaks for",
+    "definition": "stands for",
     "indicators": [],
+    "linkWords": [
+     "what he"
+    ],
     "pieces": [
      "REP",
      "RESENTS"
     ],
     "blocks": [
      {
-      "clueFragment": "rep",
+      "clueFragment": "Rep",
       "gives": "REP",
       "note": "the union man, or the one from the sales office"
      },
@@ -304,19 +297,9 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "clueFragment": "resents",
       "gives": "RESENTS",
       "note": "the word itself, lifted straight from the clue"
-     },
-     {
-      "clueFragment": "Our",
-      "gives": "",
-      "note": "surface only — it makes the sentence a member's complaint"
-     },
-     {
-      "clueFragment": "the people",
-      "gives": "",
-      "note": "surface only — the members on the other end of the grievance"
      }
     ],
-    "walkthrough": "'Rep' is REP and 'resents' hands over RESENTS unchanged; run them together and you have REPRESENTS, which is what 'speaks for' means. The whole joke lives in the seam: the man who resents his members is, letter for letter, the man who represents them."
+    "walkthrough": "Say it aloud and the false word-division does all the work: the rep who resents is, letter for letter, the man who represents."
    }
   },
   {
@@ -357,7 +340,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the word itself, lifted straight out of the clue"
      }
     ],
-    "walkthrough": "Take the abbreviation first: 'time' is T. Then 'here' comes across whole, and T followed by HERE runs together as THERE, which is 'yonder'. The sentence is the grass-is-greener grumble, and the wordplay makes the same move it does — one letter of time is all it takes to turn here into somewhere better."
+    "walkthrough": "The grass-is-greener grumble is also the wordplay: one letter of time is all it takes to turn here into somewhere better."
    }
   },
   {
@@ -386,7 +369,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the statue lost both arms, so this is the one thing she cannot be"
      }
     ],
-    "walkthrough": "The statue has no arms, so the one word she can never be is ARMED. The pleasure is the double sense sitting inside it: armed means carrying a weapon, and it also just means having arms. Clues that define by denial are worth spotting — the answer is the thing the sentence says is missing."
+    "walkthrough": "Definition by denial — the answer is the thing the sentence says is missing. The pleasure is the second sense sitting inside it: armed means carrying a weapon, and it also just means having arms."
    }
   },
   {
@@ -420,7 +403,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the nine letters to rearrange"
      }
     ],
-    "walkthrough": "'Riddled' is the anagram indicator, and it is not decoration: a riddle is a coarse sieve, and letters put through one come out shaken. PET ERRORS holds exactly the nine letters of REPORTERS, which is 'the press'. The joke is that the newspapermen and their favourite mistakes turn out to be the same thing, letter for letter."
+    "walkthrough": "A riddle is a coarse sieve, so 'riddled' really does mean shaken up rather than merely infested. The joke is that the newspapermen and their favourite mistakes are the same nine letters."
    }
   },
   {
@@ -432,7 +415,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": "Ground floor, and the world's your oyster (6)",
+   "clue": "The oyster lives on the ground floor (6)",
    "group": [
     "11-down"
    ],
@@ -442,7 +425,10 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "answer": "STOREY",
     "definition": "floor",
     "indicators": [
-     "Ground"
+     "ground"
+    ],
+    "linkWords": [
+     "lives on"
     ],
     "anagram": {
      "fodder": "OYSTER"
@@ -452,14 +438,9 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "clueFragment": "oyster",
       "gives": "OYSTER",
       "note": "the six letters to rearrange"
-     },
-     {
-      "clueFragment": "the world's your",
-      "gives": "",
-      "note": "surface only — the estate agent's promise, which is what puts an oyster in the sentence"
      }
     ],
-    "walkthrough": "'Ground' is the anagram indicator: grind OYSTER up and the letters resettle as STOREY, a 'floor'. The trick worth stealing is that 'ground floor' reads as one ordinary phrase, so the instruction hides inside the definition's own scenery — and the estate agent's patter is what makes an oyster turn up in a flat."
+    "walkthrough": "'Ground floor' reads as one ordinary phrase, so the instruction hides inside the definition's own scenery. And the sentence is true: the oyster does live on the sea's ground floor."
    }
   },
   {
@@ -498,7 +479,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the crossword worker is almost always an ANT, occasionally a BEE"
      }
     ],
-    "walkthrough": "'Help' gives ASSIST and 'worker' gives ANT — the first piece of crossword shorthand worth memorising. Together they make ASSISTANT, and the sentence you took them from is also the definition: an assistant is help from a worker. The anthill pays for both halves at once, because a queen's helper really would be an ant."
+    "walkthrough": "The sentence you took the pieces out of is also the definition, and the anthill pays for both at once: a queen's helper really would be an ant."
    }
   },
   {
@@ -522,19 +503,17 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "indicators": [
      "among"
     ],
+    "linkWords": [
+     "There's"
+    ],
     "blocks": [
      {
       "clueFragment": "the star guests",
       "gives": "ARGUE",
       "note": "hidden inside st-ARGUE-sts"
-     },
-     {
-      "clueFragment": "There's",
-      "gives": "",
-      "note": "surface only — the glue that makes it a caption"
      }
     ],
-    "walkthrough": "'Among' is quietly doing the work: the answer is among the letters that follow, and st-ARGUE-sts hands it over. To 'row' — rhyming with cow — is to argue. The sentence is a tabloid caption, and the row really is inside the star guests, exactly where the story says it is."
+    "walkthrough": "'Row' here rhymes with cow, not with toe — that switch of sense is the whole misdirection. And the row really is inside the star guests, exactly where the caption says it is."
    }
   },
   {
@@ -546,29 +525,34 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 5,
-   "clue": "At the altar she hopes he'll change (5)",
+   "clue": "Husband slips out of the halter to change (5)",
    "group": [
     "13-down"
    ],
    "solution": "ALTER",
    "annotation": {
-    "type": "homophone",
+    "type": "deletion",
     "answer": "ALTER",
     "definition": "change",
-    "indicators": [],
+    "indicators": [
+     "slips out of"
+    ],
+    "pieces": [
+     "ALTER"
+    ],
     "blocks": [
      {
-      "clueFragment": "At the altar",
-      "gives": "ALTAR",
-      "note": "said aloud, ALTAR is ALTER"
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "h = husband, the standard abbreviation (it also does hard, hot and hospital)"
      },
      {
-      "clueFragment": "she hopes he'll",
-      "gives": "",
-      "note": "surface only — and the joke the sentence is actually making"
+      "clueFragment": "the halter",
+      "gives": "HALTER",
+      "note": "take the H out of HALTER and ALTER is left"
      }
     ],
-    "walkthrough": "ALTAR and ALTER sound identical, so the clue can print one and mean the other. A setter would often flag that with 'we hear'; here the pun signals itself, and the definition is simply 'change'. The joke is the sentence: the altar is exactly where a bride hopes her man will change, and he never does."
+    "walkthrough": "H = husband is shorthand worth memorising, and slipping out of a halter is a real thing to do, so nothing sounds like an instruction. The joke is that a horse wears a halter — and so, apparently, does a married man."
    }
   },
   {
@@ -611,7 +595,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "read backwards it becomes the answer"
      }
     ],
-    "walkthrough": "'Back' is the reversal indicator and it reads as part of the scene — you are back at the pool. POOL turned round is LOOP, a 'circuit'. In a down clue the reversal runs upwards, so the P that began the word ends it."
+    "walkthrough": "'Back' reads as part of the scene rather than an order, which is why it hides. In a down clue the reversal runs upwards, so the P that began the word ends it."
    }
   },
   {
@@ -623,7 +607,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": "The donor's dreadful groan comes from the instrument (5)",
+   "clue": "The instrument makes a dreadful groan (5)",
    "group": [
     "15-across"
    ],
@@ -631,7 +615,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
    "annotation": {
     "type": "anagram",
     "answer": "ORGAN",
-    "definition": "the instrument",
+    "definition": "The instrument",
     "indicators": [
      "dreadful"
     ],
@@ -639,21 +623,16 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      "fodder": "GROAN"
     },
     "linkWords": [
-     "comes from"
+     "makes a"
     ],
     "blocks": [
      {
       "clueFragment": "groan",
       "gives": "GROAN",
       "note": "the five letters to rearrange"
-     },
-     {
-      "clueFragment": "The donor's",
-      "gives": "",
-      "note": "surface only — and the joke, since this is the one instrument a donor can give away"
      }
     ],
-    "walkthrough": "'Dreadful' is the anagram indicator and it sits right against its fodder: shake GROAN and the five letters resettle as ORGAN, 'the instrument'. Both senses stay alive while you solve it — the one on the donor card and the one at the back of the church — and a groan is roughly what the church one sounds like anyway."
+    "walkthrough": "'Dreadful' describes the noise and instructs you to shake the letters, which is why it does not sound like an order. The joke is that the instrument's own groan is the instrument."
    }
   },
   {
@@ -665,35 +644,26 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 5,
-   "clue": "Milan club bury the opposition (5)",
+   "clue": "Milan club buried in winter (5)",
    "group": [
     "16-across"
    ],
    "solution": "INTER",
    "annotation": {
-    "type": "double definition",
+    "type": "hidden word",
     "answer": "INTER",
-    "definition": "bury",
-    "definition2": "Milan club",
-    "indicators": [],
+    "definition": "Milan club",
+    "indicators": [
+     "buried in"
+    ],
     "blocks": [
      {
-      "clueFragment": "Milan club",
+      "clueFragment": "winter",
       "gives": "INTER",
-      "note": "Internazionale, never spelt out on a back page"
-     },
-     {
-      "clueFragment": "bury",
-      "gives": "INTER",
-      "note": "to inter is to bury"
-     },
-     {
-      "clueFragment": "the opposition",
-      "gives": "",
-      "note": "surface only — it turns two definitions into a football headline"
+      "note": "the answer is buried in w-INTER"
      }
     ],
-    "walkthrough": "Both halves define the answer. 'Milan club' is INTER, and to 'bury' is to inter. Read straight through it is an ordinary back-page headline, which is exactly what hides the seam: burying the opposition is what a good team does and what an undertaker does, and only one word means both."
+    "walkthrough": "'Buried in' is the back-page verb and the only instruction you get. The second gag is that to inter IS to bury, so the answer means exactly what the clue does to it."
    }
   },
   {
@@ -705,7 +675,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 6,
-   "clue": "Delight mother with the magic word (6)",
+   "clue": "Delight in the magic word (6)",
    "group": [
     "17-across"
    ],
@@ -716,6 +686,9 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "definition": "Delight",
     "definition2": "the magic word",
     "indicators": [],
+    "linkWords": [
+     "in"
+    ],
     "blocks": [
      {
       "clueFragment": "Delight",
@@ -726,14 +699,9 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "clueFragment": "the magic word",
       "gives": "PLEASE",
       "note": "what a parent is fishing for when a child forgets"
-     },
-     {
-      "clueFragment": "mother",
-      "gives": "",
-      "note": "surface only — the parent doing the fishing"
      }
     ],
-    "walkthrough": "Say please and you have done both things at once: PLEASE means to delight, and 'the magic word' is what every parent calls it. The two definitions are cause and effect, which is why the sentence sounds like ordinary family advice rather than a clue."
+    "walkthrough": "The seam hides inside an idiom: 'delight in' looks like one verb, so nobody notices that 'Delight' has already finished its job before the second definition starts."
    }
   },
   {
@@ -764,7 +732,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "said aloud, PRAY is PREY"
      }
     ],
-    "walkthrough": "'Is heard to' tells you to use your ears. What the animal is doing is PRAY, and out loud that is PREY — 'the wolf's dinner'. The joke needs no unpacking once you picture it: the creature with the best reason to pray is the one about to be eaten."
+    "walkthrough": "The joke needs no unpacking once you picture it: the creature with the best reason to pray is the one about to be eaten."
    }
   }
  ]
