@@ -633,7 +633,13 @@ def validate_puzzle(puzzle):
             if joined != ans_letters:
                 errors.append(f"{tag}: pieces {ann['pieces']} join to {joined}, expected {ans_letters}")
         if "hidden" in (ann.get("type") or ""):
-            if ans_letters not in letters(clue):
+            # A reversed hidden word sits in the clue back to front (30045 26A
+            # hides LEND across "commanD NELson"), so when the type also declares
+            # the reversal, the mirror image counts as found.
+            clue_letters = letters(clue)
+            reversed_ok = ("reversal" in ann["type"]
+                           and ans_letters[::-1] in clue_letters)
+            if ans_letters not in clue_letters and not reversed_ok:
                 errors.append(f"{tag}: hidden answer {ans_letters} not found inside clue letters")
         if not (ann.get("anagram") or ann.get("pieces")
                 or "hidden" in (ann.get("type") or "")

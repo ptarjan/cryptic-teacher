@@ -38,13 +38,18 @@ fi
 # --- 2. pick up solutions that have since been published (prize puzzles) ---
 python3 tools/fetch_puzzle.py --refresh-unsolved
 
-# --- 3. annotate the oldest un-annotated puzzles, if any and if claude exists ---
+# --- 3. annotate the newest un-annotated puzzles, if any and if claude exists ---
+# Newest-first, deliberately. Oldest-first looks tidier — the backlog drains in
+# order — but it means today's puzzle is always the LAST one to get hints, so the
+# top of the site (where people actually land) is permanently unannotated while
+# the job grinds through last month. Newest-first costs nothing: the backlog
+# still drains, just from the other end.
 ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 pending=$(python3 - "$ANNOTATE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
-todo = sorted(p["number"] for p in idx["puzzles"]
-              if not p["annotated"] and p.get("hasSolutions"))
+todo = sorted((p["number"] for p in idx["puzzles"]
+               if not p["annotated"] and p.get("hasSolutions")), reverse=True)
 print(" ".join(str(n) for n in todo[:int(sys.argv[1])]))
 EOF
 )
@@ -78,7 +83,11 @@ fi
 python3 tools/stamp_assets.py
 
 if [ -n "$(git status --porcelain)" ]; then
-  git add puzzles/ index.html
+  # The validator goes in too. Annotation runs are allowed to loosen it when a
+  # published clue turns out to be legal in a way it didn't know about (30045
+  # 26A hides its answer backwards). Staging only puzzles/ pushed the puzzle and
+  # left the loosening behind, so the committed tree failed its own validator.
+  git add puzzles/ index.html tools/validate_annotations.py
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>')"
   # Push only if a remote exists (GitHub Pages picks it up from master).
   git remote get-url origin >/dev/null 2>&1 && git push origin HEAD || true
