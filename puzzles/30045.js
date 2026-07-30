@@ -34,7 +34,30 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADAMANDEVE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ADAM AND EVE",
+    "definition": "biblical origin story",
+    "indicators": [
+     "alternative"
+    ],
+    "anagram": {
+     "fodder": "DAVE MADE AN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dave made an",
+      "gives": "DAVEMADEAN",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "alternative",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Dave contributes nothing but his letters — 'alternative' does the shuffling. Two biblical names make the answer hard to see in such a modern, chatty surface."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +74,32 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMPS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AMPS",
+    "definition": "Current measures",
+    "indicators": [
+     "is inside"
+    ],
+    "pieces": [
+     "A",
+     "MP",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "while = AS, the two-letter shell"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "the usual Member of Parliament"
+     }
+    ],
+    "walkthrough": "AS meaning 'while' is a workhorse container shell — two letters that swallow almost anything — and MP is one of the first abbreviations every solver learns. 'Current' here is electrical, not up to date."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +116,25 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATOP",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + cryptic definition",
+    "answer": "ATOP",
+    "definition": "on the summit",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Queue said",
+      "gives": "",
+      "note": "'queue' said aloud is the letter Q"
+     },
+     {
+      "clueFragment": "to follow these characters",
+      "gives": "ATOP",
+      "note": "the characters Q follows in the alphabet are A to P — which spells the answer"
+     }
+    ],
+    "walkthrough": "Say 'queue' aloud and you have the letter Q, which comes straight after the characters A to P. Read the answer as 'A to P' and the alphabet joke lands."
+   }
   },
   {
    "id": "3-down",
@@ -91,7 +157,36 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "ACEINTHEHOLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ACE IN THE HOLE",
+    "definition": "secret edge",
+    "indicators": [
+     "before"
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "pieces": [
+     "ACE",
+     "IN",
+     "THE",
+     "HOLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Champion",
+      "gives": "ACE",
+      "note": "an ace is a champion"
+     },
+     {
+      "clueFragment": "successful putt",
+      "gives": "INTHEHOLE",
+      "note": "where a successful putt leaves the ball"
+     }
+    ],
+    "walkthrough": "'Before' just sets the order: ACE, then where a holed putt ends up. The phrase itself comes from poker, not golf — the face-down card that gives you a hidden advantage."
+   }
   },
   {
    "id": "4-down",
@@ -108,7 +203,29 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAPE",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "DRAPE",
+    "definition": "Cover",
+    "indicators": [
+     "beginnings of"
+    ],
+    "pieces": [
+     "D",
+     "R",
+     "A",
+     "P",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debate regarding act prohibiting euthanasia",
+      "gives": "DRAPE",
+      "note": "the beginnings — first letters — of the five words"
+     }
+    ],
+    "walkthrough": "'Beginnings of' points at the initial letters of the five words that follow. The sombre parliamentary surface is a decoy; the clue is a pure acrostic."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +242,29 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VICARIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VICARIOUS",
+    "definition": "Indirect",
+    "indicators": [],
+    "pieces": [
+     "VICAR",
+     "IOUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "service provider",
+      "gives": "VICAR",
+      "note": "the service is a church service, so its provider is a vicar"
+     },
+     {
+      "clueFragment": "promises to pay",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay"
+     }
+    ],
+    "walkthrough": "'Service provider' wants you thinking broadband; the service is in a church. Vicarious pleasure is felt indirectly, through someone else — hence the definition."
+   }
   },
   {
    "id": "6-across",
@@ -142,7 +281,22 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STOP",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "STOP",
+    "definition": "check",
+    "indicators": [
+     "Component of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "post-operative",
+      "gives": "STOP",
+      "note": "hidden inside poST-OPerative"
+     }
+    ],
+    "walkthrough": "'Component of' flags a hidden word, and the hyphen is no barrier — hidden answers run straight across punctuation. 'Check' as in halt something."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +317,29 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "THESEAGULL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "THE SEAGULL",
+    "definition": "Drama",
+    "definition2": "one stealing chips",
+    "indicators": [],
+    "linkWords": [
+     "created by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drama",
+      "gives": "",
+      "note": "Chekhov's 1896 play The Seagull"
+     },
+     {
+      "clueFragment": "one stealing chips",
+      "gives": "",
+      "note": "the British seaside menace that swoops on your lunch"
+     }
+    ],
+    "walkthrough": "Chekhov's play — and the definite article works hard, because at the seaside the seagull really is the one stealing your chips."
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +360,29 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRETTYPASS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PRETTY PASS",
+    "definition": "Difficult spot",
+    "definition2": "picturesque route through mountains",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Difficult spot",
+      "gives": "",
+      "note": "'come to a pretty pass' = reach a sorry state"
+     },
+     {
+      "clueFragment": "picturesque route through mountains",
+      "gives": "",
+      "note": "a mountain pass that happens to be pretty"
+     }
+    ],
+    "walkthrough": "'Come to a pretty pass' is an old idiom for landing in a sorry state; a mountain pass can certainly be pretty. One phrase, two readings, no letters moved."
+   }
   },
   {
    "id": "9-across",
@@ -201,7 +399,35 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROVENANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PROVENANCE",
+    "definition": "History",
+    "indicators": [
+     "found in"
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "PROVEN",
+     "AN",
+     "CE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "French region",
+      "gives": "PROVENCE",
+      "note": "AN drops inside it"
+     }
+    ],
+    "walkthrough": "Provence supplies the shell and the article drops in. Provenance is the history of an object's ownership — an auction-house word, which is why 'History' alone defines it."
+   }
   },
   {
    "id": "10-across",
@@ -218,7 +444,26 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MEME",
+    "definition": "Widespread idea",
+    "indicators": [
+     "repeated"
+    ],
+    "pieces": [
+     "ME",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter referring to himself"
+     }
+    ],
+    "walkthrough": "'Setter' pointing at the setter himself is classic crossword self-reference: ME, said twice. A meme is exactly an idea that spreads."
+   }
   },
   {
    "id": "11-down",
@@ -240,7 +485,30 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASKMEANOTHER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASK ME ANOTHER",
+    "definition": "I can’t answer that",
+    "indicators": [
+     "in chaos"
+    ],
+    "anagram": {
+     "fodder": "ONE HAS MARKET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One has market",
+      "gives": "ONEHASMARKET",
+      "note": "anagram fodder, 12 letters"
+     },
+     {
+      "clueFragment": "in chaos",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The definition is the whole exasperated phrase at the end — 'ask me another' is what you say when you can't answer. The question mark excuses the odd economics surface."
+   }
   },
   {
    "id": "12-across",
@@ -261,7 +529,30 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "INRETROSPECT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN RETROSPECT",
+    "definition": "during review",
+    "indicators": [
+     "representation"
+    ],
+    "anagram": {
+     "fodder": "RESTRICT OPEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Restrict open",
+      "gives": "RESTRICTOPEN",
+      "note": "anagram fodder, 12 letters"
+     },
+     {
+      "clueFragment": "representation",
+      "gives": "",
+      "note": "anagram indicator: a re-presentation of the letters"
+     }
+    ],
+    "walkthrough": "'Representation' earns its length as the anagram signal — a re-presentation of the fodder. 'During review' captures looking back at events once they are over."
+   }
   },
   {
    "id": "13-down",
@@ -282,7 +573,30 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "USERMANUAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "USER MANUAL",
+    "definition": "guidance it provides",
+    "indicators": [
+     "about"
+    ],
+    "anagram": {
+     "fodder": "LAMA UNSURE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lama unsure",
+      "gives": "LAMAUNSURE",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'About' is the anagram signal, easy to dismiss as filler. The 'it' in the definition points at the answer itself: a user manual is exactly guidance it provides."
+   }
   },
   {
    "id": "14-down",
@@ -299,7 +613,29 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CASTRATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CASTRATION",
+    "definition": "that ensures kids are excluded in future",
+    "indicators": [],
+    "pieces": [
+     "CAST",
+     "RATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actors’",
+      "gives": "CAST",
+      "note": "the actors in a production"
+     },
+     {
+      "clueFragment": "share",
+      "gives": "RATION",
+      "note": "a share = a ration"
+     }
+    ],
+    "walkthrough": "CAST plus RATION, with a pitch-black definition: 'kids' are offspring — including baby goats, where the operation is routine — so it guarantees none in future."
+   }
   },
   {
    "id": "15-across",
@@ -316,7 +652,34 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAGHETTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPAGHETTO",
+    "definition": "very small portion of pasta",
+    "indicators": [
+     "beside"
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "pieces": [
+     "SPA",
+     "GHETTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recreation area",
+      "gives": "SPA",
+      "note": "a spa is a recreation area"
+     },
+     {
+      "clueFragment": "slum",
+      "gives": "GHETTO",
+      "note": "a ghetto is a slum"
+     }
+    ],
+    "walkthrough": "The definition is the joke: spaghetto really is the Italian singular of spaghetti — one solitary strand, the smallest possible portion of pasta."
+   }
   },
   {
    "id": "16-down",
@@ -337,7 +700,29 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOOKISSUE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TOOK ISSUE",
+    "definition": "Kidnapped",
+    "definition2": "had disagreement",
+    "indicators": [],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kidnapped",
+      "gives": "",
+      "note": "issue = children in legal English, so kidnapping is taking someone's issue"
+     },
+     {
+      "clueFragment": "had disagreement",
+      "gives": "",
+      "note": "the everyday sense: took issue with something"
+     }
+    ],
+    "walkthrough": "'Issue' meaning children survives mainly in legal English and in crosswords — worth memorising. The everyday sense of objecting shares exactly the same two words."
+   }
   },
   {
    "id": "17-across",
@@ -358,7 +743,27 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "MUGUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MUG UP",
+    "definition": "Do some research",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "MUG",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "facelift?",
+      "gives": "MUGUP",
+      "note": "read it in two halves: mug = face, lifted = up"
+     }
+    ],
+    "walkthrough": "To mug up is British slang for cramming a subject. The question mark licenses splitting 'facelift' in two: a mug is slang for a face, and something lifted goes up."
+   }
   },
   {
    "id": "18-across",
@@ -375,7 +780,25 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETCH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "RETCH",
+    "definition": "Almost vomit",
+    "indicators": [
+     "contents of"
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret chamber",
+      "gives": "RETCH",
+      "note": "hidden across secRET CHamber"
+     }
+    ],
+    "walkthrough": "'Contents of' says look inside what follows, and the answer runs across the word break. To retch is to heave without quite succeeding — hence 'almost' vomit."
+   }
   },
   {
    "id": "19-across",
@@ -392,7 +815,31 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBSTACLES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "OBSTACLES",
+    "definition": "Blocks",
+    "indicators": [
+     "heartless"
+    ],
+    "pieces": [
+     "OBS",
+     "TACLES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former pupil’s",
+      "gives": "OBS",
+      "note": "OB = old boy, the crossword's former pupil, keeping his ’s"
+     },
+     {
+      "clueFragment": "challenges",
+      "gives": "TACLES",
+      "note": "TACKLES with its heart (the K) removed"
+     }
+    ],
+    "walkthrough": "OB for old boy is a standard former pupil, and his possessive S is part of the build. 'Heartless' then strips the middle letter from TACKLES."
+   }
   },
   {
    "id": "20-across",
@@ -417,7 +864,26 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANALLTIMELOW",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "AN ALL-TIME LOW",
+    "definition": "Limbo dancer’s record performance?",
+    "definition2": "It couldn’t be worse for some",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Limbo dancer’s record performance?",
+      "gives": "",
+      "note": "a limbo record is literally the lowest anyone has ever gone"
+     },
+     {
+      "clueFragment": "It couldn’t be worse for some",
+      "gives": "",
+      "note": "the everyday phrase for rock bottom"
+     }
+    ],
+    "walkthrough": "Both halves define the same phrase: a limbo champion's record really is the lowest ever achieved, and rock bottom, for some, couldn't be worse. The question mark flags the literal reading."
+   }
   },
   {
    "id": "21-down",
@@ -434,7 +900,30 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXALT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EXALT",
+    "definition": "Praise",
+    "indicators": [
+     "plasticity of"
+    ],
+    "anagram": {
+     "fodder": "LATEX"
+    },
+    "blocks": [
+     {
+      "clueFragment": "latex?",
+      "gives": "LATEX",
+      "note": "anagram fodder, 5 letters"
+     },
+     {
+      "clueFragment": "plasticity of",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Plasticity of' is the anagram signal — latex is mouldable, which is why the surface reads so naturally. Five letters reshape into a word of praise."
+   }
   },
   {
    "id": "22-down",
@@ -451,7 +940,23 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MYNA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MYNA",
+    "definition": "Bird impersonator",
+    "indicators": [
+     "sounds",
+     "to some"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lightweight",
+      "gives": "MINOR",
+      "note": "a lightweight concern is a minor one; said aloud it gives the bird"
+     }
+    ],
+    "walkthrough": "The myna is the great avian mimic, hence 'bird impersonator'. 'To some' is the setter being honest: only in non-rhotic accents does 'minor' sound quite like MYNA."
+   }
   },
   {
    "id": "23-down",
@@ -468,7 +973,22 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "USAF",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "USAF",
+    "definition": "It protects Americans",
+    "indicators": [
+     "caught in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "calamitous aftermath",
+      "gives": "USAF",
+      "note": "hidden across calamitoUS AFtermath"
+     }
+    ],
+    "walkthrough": "'Caught in' flags the hidden word, running across the break in calamitoUS AFtermath — and a surface about protection after calamity suits the United States Air Force nicely."
+   }
   },
   {
    "id": "24-across",
@@ -485,7 +1005,31 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNIT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UNIT",
+    "definition": "squad",
+    "indicators": [
+     "quits"
+    ],
+    "pieces": [
+     "UN",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incompetent",
+      "gives": "UNFIT",
+      "note": "incompetent = unfit"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F = fellow, as in academic titles like FRS"
+     }
+    ],
+    "walkthrough": "F for fellow comes from academic honours — FRS and friends. Send him away from the middle of UNFIT and the squad remains."
+   }
   },
   {
    "id": "25-across",
@@ -506,7 +1050,30 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "ISAACHAYES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ISAAC HAYES",
+    "definition": "soul pioneer",
+    "indicators": [
+     "articulated"
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I dismiss",
+      "gives": "I SACK",
+      "note": "said aloud: ISAAC"
+     },
+     {
+      "clueFragment": "unclear vision",
+      "gives": "HAZE",
+      "note": "said aloud: HAYES"
+     }
+    ],
+    "walkthrough": "'Articulated' asks you to say both halves aloud: 'I sack' and 'haze'. Isaac Hayes — the voice of Shaft — is the soul pioneer being spelled out."
+   }
   },
   {
    "id": "26-across",
@@ -523,7 +1090,32 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEND",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "LEND",
+    "definition": "Advance",
+    "indicators": [
+     "part of",
+     "rejected"
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "subReversals": [
+     {
+      "from": "DNEL",
+      "to": "LEND"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "command Nelson",
+      "gives": "DNEL",
+      "note": "hidden across commanD NELson"
+     }
+    ],
+    "walkthrough": "The fragment hides across 'command Nelson' and 'rejected' sends it back — a backwards reading, which suits an across entry. 'Advance' means lend, as a bank advances money."
+   }
   },
   {
    "id": "27-across",
@@ -544,7 +1136,30 @@ window.CRYPTIC_PUZZLES["30045"] = /*JSON-START*/ {
     ]
    },
    "solution": "BETTERHALF",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BETTER HALF",
+    "definition": "Spouse",
+    "indicators": [
+     "getting uneven"
+    ],
+    "anagram": {
+     "fodder": "FELT BREATH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "felt breath",
+      "gives": "FELTBREATH",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "getting uneven",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Getting uneven' shakes up the fodder. 'Better half' is the affectionate term for a spouse — a warm answer hiding in a worrying surface about laboured breathing."
+   }
   }
  ]
 } /*JSON-END*/;

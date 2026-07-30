@@ -33,7 +33,29 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIGHFIVES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HIGH FIVES",
+    "definition": "Congratulations",
+    "indicators": [],
+    "pieces": [
+     "HIGH",
+     "FIVES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lofted",
+      "gives": "HIGH",
+      "note": "lofted = high up in the air"
+     },
+     {
+      "clueFragment": "sixes, almost",
+      "gives": "FIVES",
+      "note": "numbers that almost reach sixes"
+     }
+    ],
+    "walkthrough": "The surface is pure cricket — batters lofting sixes — but no letters move at all: 'almost sixes' are simply fives, and the question mark owns up to the arithmetic joke."
+   }
   },
   {
    "id": "1-down",
@@ -50,7 +72,35 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOBBITS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOBBITS",
+    "definition": "creatures in a hole",
+    "indicators": [],
+    "pieces": [
+     "HOB",
+     "BIT",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ferret",
+      "gives": "HOB",
+      "note": "a hob is a male ferret"
+     },
+     {
+      "clueFragment": "wounded",
+      "gives": "BIT",
+      "note": "past tense of bite"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation"
+     }
+    ],
+    "walkthrough": "Tolkien's opening line — 'In a hole in the ground there lived a hobbit' — makes the definition fair. HOB for a male ferret is a crossword staple worth filing away."
+   }
   },
   {
    "id": "2-down",
@@ -67,7 +117,38 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOULASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GOULASH",
+    "definition": "stew",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "GO",
+     "U",
+     "LASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "have a go = have a try"
+     },
+     {
+      "clueFragment": "united",
+      "gives": "U",
+      "note": "as in Man U"
+     },
+     {
+      "clueFragment": "batter",
+      "gives": "LASH",
+      "note": "to batter = to lash, as a verb"
+     }
+    ],
+    "walkthrough": "The surface wants 'batter' to be the cake mixture next to the stew, but it is the verb — to lash. U for united comes straight off the football results."
+   }
   },
   {
    "id": "3-down",
@@ -88,7 +169,32 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     ]
    },
    "solution": "FUNCTIONKEY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FUNCTION KEY",
+    "definition": "one usually on laptop",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "FUNCTION",
+     "KEY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Social gathering",
+      "gives": "FUNCTION",
+      "note": "a function is a formal social event"
+     },
+     {
+      "clueFragment": "vital",
+      "gives": "KEY",
+      "note": "key = vital, as in 'a key decision'"
+     }
+    ],
+    "walkthrough": "The definition is by example: F1 to F12 run along the top of a laptop keyboard, so a function key is 'one usually on laptop'."
+   }
   },
   {
    "id": "4-down",
@@ -105,7 +211,35 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VEGGIES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VEGGIES",
+    "definition": "Selective eaters",
+    "indicators": [
+     "to eat"
+    ],
+    "linkWords": [
+     "may have"
+    ],
+    "pieces": [
+     "V",
+     "EGG",
+     "IES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "struggles",
+      "gives": "VIES",
+      "note": "vies = struggles, competes"
+     },
+     {
+      "clueFragment": "this protein",
+      "gives": "EGG",
+      "note": "the protein that VIES swallows"
+     }
+    ],
+    "walkthrough": "Veggies here are the vegetarians, not the vegetables — the selective eaters. The joke is that the wordplay acts out the surface: VIES really does have to eat an EGG."
+   }
   },
   {
    "id": "5-down",
@@ -122,7 +256,35 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRAYED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STRAYED",
+    "definition": "wandered off",
+    "indicators": [
+     "across"
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "ST",
+     "R",
+     "AYED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had accommodation",
+      "gives": "STAYED",
+      "note": "stayed = had accommodation, as at a hotel"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "map-key abbreviation"
+     }
+    ],
+    "walkthrough": "STAYED spans the R just as the surface has the lodgings sitting across the water. R for river is one of the commonest single-letter abbreviations."
+   }
   },
   {
    "id": "6-across",
@@ -139,7 +301,30 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAFF",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CHAFF",
+    "definition": "Tease",
+    "indicators": [
+     "off"
+    ],
+    "pieces": [
+     "CHAFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "CHAFF",
+      "note": "a CHAFFINCH, one of Britain's commonest garden birds, with the INCH removed"
+     },
+     {
+      "clueFragment": "a small distance",
+      "gives": "INCH",
+      "note": "the letters taken off the bird"
+     }
+    ],
+    "walkthrough": "To chaff someone is to tease them good-naturedly — the banter sense, not the wheat husks the farming-flavoured surface suggests."
+   }
   },
   {
    "id": "6-down",
@@ -156,7 +341,28 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CIA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CIA",
+    "definition": "Agency",
+    "indicators": [
+     "brief"
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "CIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goodbye",
+      "gives": "CIA",
+      "note": "CIAO, the Italian goodbye, stopped just before the O"
+     }
+    ],
+    "walkthrough": "The Central Intelligence Agency, made by cutting a farewell short. In a three-letter entry, 'brief' doing the trimming is nearly always the whole trick."
+   }
   },
   {
    "id": "7-down",
@@ -173,7 +379,30 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUDIBLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AUDIBLE",
+    "definition": "in hearing",
+    "indicators": [
+     "to be reviewed"
+    ],
+    "anagram": {
+     "fodder": "BAIL DUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bail due",
+      "gives": "BAILDUE",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "to be reviewed",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The surface is a courtroom, and 'hearing' completes the legal picture so well that it hides the definition: 'in hearing' — within earshot — is AUDIBLE."
+   }
   },
   {
    "id": "8-down",
@@ -194,7 +423,32 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     ]
    },
    "solution": "FORDEAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FOR DEAD",
+    "definition": "left like this?",
+    "definitionNote": "The definition works by completion rather than substitution: someone in the clue's sorry state has been 'left FOR DEAD', so 'left like this?' points at the phrase the answer finishes.",
+    "indicators": [
+     "shot by arrow"
+    ],
+    "pieces": [
+     "FORD",
+     "EAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having crossed river",
+      "gives": "FORD",
+      "note": "a ford is where you cross a river"
+     },
+     {
+      "clueFragment": "the head",
+      "gives": "EAD",
+      "note": "HEAD with its top letter shot away — 'EAD"
+     }
+    ],
+    "walkthrough": "In a down entry the first letter of HEAD really is its head, and the arrow shoots it off. The whole grisly scene — river forded, arrow in the head — leaves someone for dead."
+   }
   },
   {
    "id": "9-across",
@@ -211,7 +465,31 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRUIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BRUIN",
+    "definition": "bear",
+    "indicators": [
+     "going after"
+    ],
+    "pieces": [
+     "B",
+     "RUIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "as in pencil grades"
+     },
+     {
+      "clueFragment": "Disaster",
+      "gives": "RUIN",
+      "note": "goes after the B"
+     }
+    ],
+    "walkthrough": "Bruin — Dutch for brown — is the bear's name in the medieval Reynard fables, and crosswords have kept it alive ever since."
+   }
   },
   {
    "id": "10-across",
@@ -228,7 +506,33 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GERMANDER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GERMANDER",
+    "definition": "plant",
+    "indicators": [
+     "cancelling"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "GERMANDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manipulate voting arrangement",
+      "gives": "GERRYMANDER",
+      "note": "the base word, before surgery"
+     },
+     {
+      "clueFragment": "all-out rally",
+      "gives": "RY",
+      "note": "RALLY with ALL out — and this RY is what gets cancelled"
+     }
+    ],
+    "walkthrough": "A deletion built from another deletion: 'all-out rally' manufactures the RY before 'cancelling' removes it from GERRYMANDER. Germander is a family of flowering plants."
+   }
   },
   {
    "id": "11-across",
@@ -245,7 +549,22 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "IDA",
+    "definition": "Princess on stage",
+    "indicators": [
+     "may sound like"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a duck",
+      "gives": "EIDER",
+      "note": "the sea duck famous for its down"
+     }
+    ],
+    "walkthrough": "Princess Ida is Gilbert and Sullivan's operetta — hence 'on stage'. Say IDA aloud and you get 'eider', the duck whose down fills your duvet."
+   }
   },
   {
    "id": "12-across",
@@ -262,7 +581,30 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRISYLLABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRISYLLABLE",
+    "definition": "functioning as an example",
+    "indicators": [
+     "Unfortunately"
+    ],
+    "anagram": {
+     "fodder": "STILL BARELY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "still barely",
+      "gives": "STILLBARELY",
+      "note": "anagram fodder, 11 letters"
+     },
+     {
+      "clueFragment": "Unfortunately",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The definition is self-referential: count the beats in 'func-tion-ing' — three, so the word is itself an example of a trisyllable."
+   }
   },
   {
    "id": "13-down",
@@ -283,7 +625,26 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOSINGHEART",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LOSING HEART",
+    "definition": "Despairing",
+    "definition2": "how ‘miserable’ becomes me",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Despairing",
+      "gives": "",
+      "note": "to lose heart is to despair"
+     },
+     {
+      "clueFragment": "‘miserable’ becomes me",
+      "gives": "",
+      "note": "strip the heart — every inner letter — out of MISERABLE and only M…E survives: 'me'"
+     }
+    ],
+    "walkthrough": "The second definition is an instruction acted out on the word itself: MISERABLE losing its heart leaves just ME. 'Becomes me' adds a layer of false modesty to the gloom."
+   }
   },
   {
    "id": "14-across",
@@ -300,7 +661,34 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCHLOSS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SCHLOSS",
+    "definition": "grand house",
+    "indicators": [
+     "halved"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SCH",
+     "LOSS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academy halved",
+      "gives": "SCH",
+      "note": "SCHOOL cut to its first half"
+     },
+     {
+      "clueFragment": "deficit",
+      "gives": "LOSS",
+      "note": "a loss = a deficit"
+     }
+    ],
+    "walkthrough": "Schloss is the German for a castle or stately home — the grand house. An English academy, halved, opens a German answer."
+   }
   },
   {
    "id": "15-across",
@@ -317,7 +705,29 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISTEND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DISTEND",
+    "definition": "to exaggerate",
+    "indicators": [],
+    "pieces": [
+     "DIS",
+     "TEND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detectives",
+      "gives": "DIS",
+      "note": "Detective Inspectors"
+     },
+     {
+      "clueFragment": "are liable",
+      "gives": "TEND",
+      "note": "'they tend to' = 'they are liable to'"
+     }
+    ],
+    "walkthrough": "To distend is to swell or inflate, and blowing something up beyond its true size is exactly what exaggeration does — that shared image is what makes the definition fair."
+   }
   },
   {
    "id": "16-across",
@@ -334,7 +744,28 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STARKER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STARKER",
+    "definition": "More grim",
+    "indicators": [
+     "nearly"
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "pieces": [
+     "STARKER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naked",
+      "gives": "STARKER",
+      "note": "STARKERS — British slang for nude — stopped just short of its final S"
+     }
+    ],
+    "walkthrough": "Stark means bleak, so its comparative answers 'more grim'. STARKERS is gloriously British slang for naked — setters adore it, so file it away."
+   }
   },
   {
    "id": "16-down",
@@ -351,7 +782,29 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLEEPER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SLEEPER",
+    "definition": "Spy",
+    "definition2": "simple earring",
+    "indicators": [],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spy",
+      "gives": "SLEEPER",
+      "note": "a sleeper agent lies low for years before being activated"
+     },
+     {
+      "clueFragment": "simple earring",
+      "gives": "SLEEPER",
+      "note": "a plain ring worn to keep a new piercing open"
+     }
+    ],
+    "walkthrough": "Espionage and jewellery, with nothing in common but the word. Railway sleepers would make it a triple — English works this word hard."
+   }
   },
   {
    "id": "17-down",
@@ -372,7 +825,37 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     ]
    },
    "solution": "AGESAGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AGES AGO",
+    "definition": "Way back",
+    "indicators": [
+     "first to drop"
+    ],
+    "pieces": [
+     "AGES",
+     "A",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wise guy’s",
+      "gives": "AGES",
+      "note": "SAGE'S — a wise guy's — without its opening S"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "straight from the clue"
+     },
+     {
+      "clueFragment": "board game",
+      "gives": "GO",
+      "note": "the ancient Japanese board game"
+     }
+    ],
+    "walkthrough": "'Way back' is the adverb, as in 'way back when'. Note that SAGE keeps its possessive S when its own first letter drops — the apostrophe simply disappears."
+   }
   },
   {
    "id": "18-down",
@@ -389,7 +872,33 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REWOUND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REWOUND",
+    "definition": "Turned back",
+    "indicators": [
+     "taking",
+     "in"
+    ],
+    "pieces": [
+     "R",
+     "EW",
+     "OUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opposite directions",
+      "gives": "EW",
+      "note": "east and west, a facing pair on the compass"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "ROUND",
+      "note": "takes the EW in"
+     }
+    ],
+    "walkthrough": "'Turned back' as a tape or a clock is rewound. Compass points are a setter's favourite way to smuggle in E, W, N and S — 'opposite directions' always means a facing pair."
+   }
   },
   {
    "id": "19-across",
@@ -406,7 +915,46 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INNARDS",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "INNARDS",
+    "definition": "guts",
+    "indicators": [
+     "wanting",
+     "in"
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "pieces": [
+     "INN",
+     "ARD",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Youngster with",
+      "gives": "",
+      "note": "with the Guardian alongside, this describes a WARD"
+     },
+     {
+      "clueFragment": "Guardian",
+      "gives": "WARD",
+      "note": "a youngster with a guardian is a ward — the italics wink at this very newspaper"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "W in the phonetic alphabet; 'wanting' removes it, leaving ARD"
+     },
+     {
+      "clueFragment": "pubs",
+      "gives": "INNS",
+      "note": "the ARD goes inside"
+     }
+    ],
+    "walkthrough": "The italicised Guardian is the setter's wink: a youngster with a guardian is a WARD in the legal sense. Whiskey is the radio operator's W, not the drink the pubs suggest."
+   }
   },
   {
    "id": "19-down",
@@ -427,7 +975,30 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     ]
    },
    "solution": "INUTERO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN UTERO",
+    "definition": "Happening before delivery",
+    "indicators": [
+     "to change"
+    ],
+    "anagram": {
+     "fodder": "ROUTINE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "routine",
+      "gives": "ROUTINE",
+      "note": "anagram fodder, 7 letters"
+     },
+     {
+      "clueFragment": "to change",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Delivery' is the midwife's, not the postman's: in utero means in the womb, so before delivery. A neat single-word anagram — ROUTINE rearranged completely."
+   }
   },
   {
    "id": "20-down",
@@ -444,7 +1015,40 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAVIOLI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RAVIOLI",
+    "definition": "pasta",
+    "indicators": [
+     "brief"
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "pieces": [
+     "R",
+     "A",
+     "VIOLI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "cricket scorecard abbreviation"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "straight from the clue"
+     },
+     {
+      "clueFragment": "fiddle",
+      "gives": "VIOLI",
+      "note": "VIOLIN — a fiddle — cut short"
+     }
+    ],
+    "walkthrough": "Fiddle and violin are the same instrument, one word posher than the other; only the N is lost. The surface's 'brief fiddle' sounds like a minor swindle, which is the misdirection."
+   }
   },
   {
    "id": "21-down",
@@ -461,7 +1065,32 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRETCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STRETCH",
+    "definition": "strain",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "ST",
+     "RETCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A way",
+      "gives": "ST",
+      "note": "a street"
+     },
+     {
+      "clueFragment": "to heave",
+      "gives": "RETCH",
+      "note": "to retch is to heave, in the queasy sense"
+     }
+    ],
+    "walkthrough": "'Strain' defines STRETCH as verb or noun. The surface implies hauling on a rope, but the heaving here is the stomach's — to retch."
+   }
   },
   {
    "id": "22-across",
@@ -482,7 +1111,38 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     ]
    },
    "solution": "EVELYNWAUGH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "EVELYN WAUGH",
+    "definition": "author",
+    "indicators": [
+     "Bizarrely"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "WE ENVY AL UGH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "we envy",
+      "gives": "WEENVY",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "almost all",
+      "gives": "AL",
+      "note": "ALL stopping short of its last letter"
+     },
+     {
+      "clueFragment": "that’s horrible",
+      "gives": "UGH",
+      "note": "the exclamation of disgust joins the fodder"
+     }
+    ],
+    "walkthrough": "Evelyn Waugh wrote Decline and Fall and Brideshead Revisited, and the surface reads like a review of his satire: we do envy almost all that's horrible in him."
+   }
   },
   {
    "id": "23-across",
@@ -499,7 +1159,29 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAR",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "VAR",
+    "definition": "One checks whistleblower",
+    "definition2": "French department",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One checks whistleblower",
+      "gives": "VAR",
+      "note": "the Video Assistant Referee reviews the on-pitch referee's decisions"
+     },
+     {
+      "clueFragment": "French department",
+      "gives": "VAR",
+      "note": "the Var, on the Mediterranean coast of Provence"
+     }
+    ],
+    "walkthrough": "The whistleblower is not a leaker but the referee holding an actual whistle, second-guessed from the VAR booth every football weekend."
+   }
   },
   {
    "id": "24-across",
@@ -516,7 +1198,26 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLAYHOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PLAYHOUSE",
+    "definition": "theatre",
+    "definition2": "Wendy’s",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Wendy’s",
+      "gives": "",
+      "note": "a child's Wendy house — named for Wendy in Peter Pan — is a playhouse"
+     },
+     {
+      "clueFragment": "theatre",
+      "gives": "",
+      "note": "many theatres are called the Playhouse"
+     }
+    ],
+    "walkthrough": "The Lost Boys build a little house around Wendy in Peter Pan, which is how toy houses got the name — and since Peter Pan began as a play, the question mark is well earned."
+   }
   },
   {
    "id": "25-down",
@@ -533,7 +1234,33 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUB",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "HUB",
+    "definition": "centre of activity",
+    "indicators": [
+     "dropping"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "HUB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Partner",
+      "gives": "HUBBY",
+      "note": "an informal husband"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "the letters dropped from HUBBY"
+     }
+    ],
+    "walkthrough": "The letters to remove are sitting right there in the clue: hubby drops 'by', and the deletion hides in plain sight as the visitor 'dropping by'."
+   }
   },
   {
    "id": "26-across",
@@ -550,7 +1277,26 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFOOT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "AFOOT",
+    "definition": "Under way",
+    "definition2": "a short distance",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Under way",
+      "gives": "AFOOT",
+      "note": "'the game's afoot' — in progress"
+     },
+     {
+      "clueFragment": "a short distance",
+      "gives": "AFOOT",
+      "note": "split the answer: A FOOT, twelve inches"
+     }
+    ],
+    "walkthrough": "Split the answer and 'a foot' really is a short distance. 'The game's afoot' was Shakespeare's line in Henry V long before Sherlock Holmes borrowed it."
+   }
   },
   {
    "id": "27-across",
@@ -567,7 +1313,32 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHOMB",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RHOMB",
+    "definition": "shape",
+    "indicators": [],
+    "linkWords": [
+     "found in"
+    ],
+    "pieces": [
+     "RHO",
+     "MB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign character",
+      "gives": "RHO",
+      "note": "the Greek letter"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "Bachelor of Medicine, from the Latin Medicinae Baccalaureus"
+     }
+    ],
+    "walkthrough": "A rhomb is a rhombus with its Latin tail docked. Crossword doctors come in many flavours — DR, MO, GP and, as here, MB."
+   }
   },
   {
    "id": "28-across",
@@ -584,7 +1355,39 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DROITWICH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DROITWICH",
+    "definition": "spa town",
+    "indicators": [
+     "missing"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "DROIT",
+     "WICH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opposite of gauche",
+      "gives": "DROIT",
+      "note": "French: gauche is left, droit is right"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "WHICH",
+      "note": "the pronoun"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "the abbreviation removed from WHICH"
+     }
+    ],
+    "walkthrough": "Droitwich Spa in Worcestershire made its name on salt and brine baths. Droit, the French for right, also gives English 'adroit' — the opposite of gauche in both senses."
+   }
   }
  ]
 } /*JSON-END*/;

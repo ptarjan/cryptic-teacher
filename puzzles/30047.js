@@ -33,7 +33,32 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOCOME",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TO COME",
+    "definition": "Expected",
+    "indicators": [
+     "binding"
+    ],
+    "pieces": [
+     "TO",
+     "CO",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co. = company, firm"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome; it binds the CO as TO-CO-ME"
+     }
+    ],
+    "walkthrough": "'Binding' is what books get, which is why it hides so well as the container instruction — the TOME simply closes around the firm."
+   }
   },
   {
    "id": "1-down",
@@ -50,7 +75,43 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TROUPERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "TROUPERS",
+    "definition": "cast on tour",
+    "indicators": [
+     "about",
+     "taking"
+    ],
+    "pieces": [
+     "TROUPERS"
+    ],
+    "subReversals": [
+     {
+      "from": "S REPUORT",
+      "to": "TROUPERS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "s = small, as on clothing labels"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "REPORT",
+      "note": "'taking' the U it reads REP-U-ORT"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U = upper-class, posh"
+     }
+    ],
+    "definitionNote": "TROUPERS is plural while 'cast' is a collective singular: the one word names a whole company of performers, so the setter may fairly define the plural with it.",
+    "walkthrough": "'About' turns the whole assembly — S plus REP-U-ORT — end for end, and the ellipsis just runs the surface on into 2 down."
+   }
   },
   {
    "id": "2-down",
@@ -71,7 +132,32 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
     ]
    },
    "solution": "CREWNECK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CREW NECK",
+    "definition": "Jersey’s cut?",
+    "indicators": [],
+    "linkWords": [
+     "meaning"
+    ],
+    "pieces": [
+     "CREW",
+     "NECK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "CREW",
+      "note": "a band of people = a crew"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "NECK",
+      "note": "to neck a drink = to down it"
+     }
+    ],
+    "walkthrough": "The capital J sends you to the Channel Islands; the jersey in question is the woollen one, and its cut is the neckline."
+   }
   },
   {
    "id": "3-down",
@@ -88,7 +174,26 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MATCH",
+    "definition": "Spill",
+    "definition2": "double",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Spill",
+      "gives": "MATCH",
+      "note": "a spill is a thin strip of wood or paper for lighting fires — a match's job"
+     },
+     {
+      "clueFragment": "double",
+      "gives": "MATCH",
+      "note": "your double is your match, your exact counterpart"
+     }
+    ],
+    "walkthrough": "Two words, no indicator: nearly always two definitions. 'Spill' meaning a fire-lighting taper is old household vocabulary that crosswords keep alive."
+   }
   },
   {
    "id": "4-across",
@@ -105,7 +210,35 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPERIAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "IMPERIAL",
+    "definition": "August",
+    "indicators": [
+     "touring"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "IMPERI",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risk",
+      "gives": "IMPERIL",
+      "note": "to risk = to imperil; it 'tours' the A"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A = America"
+     }
+    ],
+    "walkthrough": "August sits at the end of the clue so its capital letter passes as the month; read it as the adjective — august, majestic, imperial."
+   }
   },
   {
    "id": "5-down",
@@ -122,7 +255,38 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISREPRESENTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "MISREPRESENTS",
+    "definition": "delivers inaccurately",
+    "indicators": [
+     "lines"
+    ],
+    "pieces": [
+     "MIS",
+     "REP",
+     "RESENT",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Theatre",
+      "gives": "REP",
+      "note": "rep = repertory theatre"
+     },
+     {
+      "clueFragment": "feel bitter about",
+      "gives": "RESENT",
+      "note": "to resent is to feel bitter about"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MISS",
+      "note": "REPRESENT 'lines' her: MIS-REPRESENT-S"
+     }
+    ],
+    "walkthrough": "'Lines' is the container word — a lining goes inside — and the theatre surface makes you hear an actor's lines instead. Note that 'about' belongs to 'feel bitter about', not to any reversal."
+   }
   },
   {
    "id": "6-down",
@@ -139,7 +303,41 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDURANCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ENDURANCE",
+    "definition": "patient suffering",
+    "indicators": [
+     "Doctor",
+     "having killed"
+    ],
+    "anagram": {
+     "fodder": "CURE AN END"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cure can",
+      "gives": "CURECAN",
+      "note": "anagram fodder — one letter too many"
+     },
+     {
+      "clueFragment": "having killed cold",
+      "gives": "",
+      "note": "kill a C (c = cold, as on taps) before mixing"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "END",
+      "note": "joins the fodder"
+     },
+     {
+      "clueFragment": "Doctor",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Doctor' at the head of a clue is the oldest anagram signal there is, and the surface's grim prescription — suffer to the end — is exactly what the answer means."
+   }
   },
   {
    "id": "7-down",
@@ -156,7 +354,35 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "INTERN",
+    "definition": "Trainee",
+    "indicators": [
+     "on",
+     "ultimately"
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "INTER",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bury",
+      "gives": "INTER",
+      "note": "to bury = to inter; the capital B plays at the Lancashire town"
+     },
+     {
+      "clueFragment": "reception, ultimately",
+      "gives": "N",
+      "note": "the last letter of receptioN"
+     }
+    ],
+    "walkthrough": "'On' is positional and only works because this is a down entry: INTER sits on the N in the grid."
+   }
   },
   {
    "id": "8-down",
@@ -173,7 +399,32 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUSHLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "LUSHLY",
+    "definition": "Sumptuously",
+    "indicators": [
+     "sitting on",
+     "exhausted"
+    ],
+    "pieces": [
+     "LUSH",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "LUSH",
+      "note": "a drunk = a lush"
+     },
+     {
+      "clueFragment": "lavatory, exhausted",
+      "gives": "LY",
+      "note": "LAVATORY 'exhausted' — emptied down to its outer letters"
+     }
+    ],
+    "walkthrough": "'Sitting on' is positional in a down entry — LUSH above LY — and 'exhausted' empties a word the way 'on vacation' does at 22 down."
+   }
   },
   {
    "id": "9-across",
@@ -190,7 +441,31 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "OVERT",
+    "definition": "Open",
+    "indicators": [
+     "first in"
+    ],
+    "pieces": [
+     "OVER",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Up",
+      "gives": "OVER",
+      "note": "up = over, finished — as in 'time's up'"
+     },
+     {
+      "clueFragment": "The",
+      "gives": "T",
+      "note": "its first letter"
+     }
+    ],
+    "walkthrough": "'The Open' reads as the golf championship, which is the disguise: 'Open' alone is the definition, and 'The' only donates its first letter."
+   }
   },
   {
    "id": "10-across",
@@ -207,7 +482,32 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSTDATES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "POSTDATES",
+    "definition": "Comes after",
+    "indicators": [
+     "gathered in"
+    ],
+    "pieces": [
+     "POST",
+     "DATE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poles",
+      "gives": "POSTS",
+      "note": "poles = fence posts, not North and South"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "DATE",
+      "note": "a date, taken in by the POSTS"
+     }
+    ],
+    "walkthrough": "'Gathered in' is harvest language, and it points the right way round: the POSTS gather the DATE in, as farmers gather in a crop."
+   }
   },
   {
    "id": "10-down",
@@ -228,7 +528,34 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRIMEMINISTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRIME MINISTER",
+    "definition": "Eden?",
+    "indicators": [
+     "before"
+    ],
+    "linkWords": [
+     "describes"
+    ],
+    "pieces": [
+     "PRIME",
+     "MINISTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ready",
+      "gives": "PRIME",
+      "note": "to ready = to prime"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "MINISTER",
+      "note": "a minister"
+     }
+    ],
+    "walkthrough": "Eden is a definition by example — Anthony Eden held the office in the 1950s — and the question mark admits it. The surface wants the other Eden, the paradise a clergyman might describe."
+   }
   },
   {
    "id": "11-across",
@@ -249,7 +576,33 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUNCHLINE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PUNCH LINE",
+    "definition": "to get to the other side",
+    "indicators": [],
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "PUNCH",
+     "LINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judy’s husband",
+      "gives": "PUNCH",
+      "note": "Mr Punch, of Punch and Judy"
+     },
+     {
+      "clueFragment": "job say",
+      "gives": "LINE",
+      "note": "a line = a job — 'what line are you in?'; 'say' marks it as one example"
+     }
+    ],
+    "definitionNote": "The definition is by example, not by synonym: 'to get to the other side' is the most famous punch line there is — the answer to 'Why did the chicken cross the road?'",
+    "walkthrough": "Fed hides the oldest joke in the language by never telling it: the definition is simply that joke's punch line, quoted."
+   }
   },
   {
    "id": "12-across",
@@ -266,7 +619,38 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RURAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RURAL",
+    "definition": "of the country",
+    "indicators": [
+     "Largely",
+     "going by",
+     "without"
+    ],
+    "pieces": [
+     "RU",
+     "RAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Largely regret",
+      "gives": "RU",
+      "note": "most of RUE (regret)"
+     },
+     {
+      "clueFragment": "rail",
+      "gives": "RAL",
+      "note": "after losing its I"
+     },
+     {
+      "clueFragment": "without one",
+      "gives": "",
+      "note": "the instruction: I (one) comes out of RAIL"
+     }
+    ],
+    "walkthrough": "Two subtractions in five words: 'largely' keeps most of RUE, and 'one' is the I that leaves RAIL. The ellipses just sew this surface to its neighbours."
+   }
   },
   {
    "id": "13-across",
@@ -283,7 +667,41 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RACKETEERING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "RACKETEERING",
+    "definition": "extortion",
+    "indicators": [
+     "working",
+     "close to",
+     "shed"
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "anagram": {
+     "fodder": "TRACK ENGIEER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "track engineer",
+      "gives": "TRACKENGINEER",
+      "note": "anagram fodder — thirteen letters, one too many"
+     },
+     {
+      "clueFragment": "close to train shed",
+      "gives": "",
+      "note": "shed the N, the close (last letter) of traiN"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "definitionNote": "RACKETEERING ends in -ing but it is a plain noun here — the name of the crime, as in 'racketeering charges' — so the noun 'extortion' matches it exactly.",
+    "walkthrough": "A railway surface built to hide railway-free wordplay: 'shed' is the verb, not the building, and 'close to train' names the N it throws away."
+   }
   },
   {
    "id": "14-down",
@@ -300,7 +718,33 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENAMOURED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENAMOURED",
+    "definition": "Charmed",
+    "indicators": [
+     "change of"
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "anagram": {
+     "fodder": "DEMEANOUR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "demeanour",
+      "gives": "DEMEANOUR",
+      "note": "anagram fodder — nine letters"
+     },
+     {
+      "clueFragment": "change of",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Change of demeanour' is such an everyday phrase that the instruction hides in plain sight — the change is literal, letter by letter."
+   }
   },
   {
    "id": "15-down",
@@ -317,7 +761,39 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STOPPAGE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion + last letter",
+    "answer": "STOPPAGE",
+    "definition": "Check",
+    "indicators": [
+     "using",
+     "to knock out",
+     "at the back"
+    ],
+    "pieces": [
+     "STO",
+     "PP",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warehouse facility",
+      "gives": "STORAGE",
+      "note": "about to lose a letter"
+     },
+     {
+      "clueFragment": "powers",
+      "gives": "PP",
+      "note": "p = power, twice"
+     },
+     {
+      "clueFragment": "door at the back",
+      "gives": "",
+      "note": "the R (back of dooR) that the PP knocks out of STORAGE"
+     }
+    ],
+    "walkthrough": "A substitution: the PP evicts the R from STORAGE and squats in its place. 'Check' is the noun — a stoppage in play."
+   }
   },
   {
    "id": "16-down",
@@ -334,7 +810,25 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRURIENT",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "PRURIENT",
+    "definition": "Juicy",
+    "indicators": [
+     "finally showing"
+    ],
+    "pieces": [
+     "PRURIENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gossip for you – Salvador Dali Tate Modern exhibit",
+      "gives": "PRURIENT",
+      "note": "the last letters of all eight words in a row"
+     }
+    ],
+    "walkthrough": "Eight consecutive final letters is a marathon — most setters stop at four. 'Juicy' means salacious, which is what the gossip surface was priming you for all along."
+   }
   },
   {
    "id": "17-across",
@@ -355,7 +849,46 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAXINSPECTOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TAX INSPECTOR",
+    "definition": "Revenue man",
+    "indicators": [
+     "checks in",
+     "on",
+     "at the earliest opportunity"
+    ],
+    "pieces": [
+     "TAX",
+     "IN",
+     "S",
+     "P",
+     "ECTOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duty",
+      "gives": "TAX",
+      "note": "duty = tax; 'on duty' hangs the rest after it"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "spelled straight into the answer"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p = piano, quiet, from sheet music"
+     },
+     {
+      "clueFragment": "zone",
+      "gives": "SECTOR",
+      "note": "the P checks in as early as it can: S-P-ECTOR"
+     }
+    ],
+    "walkthrough": "'At the earliest opportunity' does precise work: P could lodge anywhere in SECTOR, and Fed tells you to take the first berth, right after the S."
+   }
   },
   {
    "id": "18-down",
@@ -372,7 +905,42 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSCARS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "OSCARS",
+    "definition": "awards",
+    "indicators": [
+     "upset",
+     "about"
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "O",
+     "SCAR",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "SO",
+      "to": "OS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "OS",
+      "note": "SO (very), 'upset' in this down entry"
+     },
+     {
+      "clueFragment": "Mark",
+      "gives": "SCAR",
+      "note": "a mark = a scar; O…S closes 'about' it"
+     }
+    ],
+    "walkthrough": "'Upset' can only mean read-upwards in a down clue, and the capital M on Mark is the disguise — no saint or gospel, just a blemish."
+   }
   },
   {
    "id": "19-down",
@@ -389,7 +957,32 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MYOPIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters + deletion",
+    "answer": "MYOPIA",
+    "definition": "Viewer’s complaint",
+    "indicators": [
+     "leads to",
+     "being cancelled"
+    ],
+    "pieces": [
+     "MYO",
+     "PIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical Youth’s opening",
+      "gives": "MYO",
+      "note": "the leads (first letters) of those three words"
+     },
+     {
+      "clueFragment": "piano number being cancelled",
+      "gives": "PIA",
+      "note": "PIANO with its No. (number) cancelled"
+     }
+    ],
+    "walkthrough": "Musical Youth were a real 1980s band, which is what sells the surface. The trick to file away: 'number' is the abbreviation No., and PIANO cancels those two letters."
+   }
   },
   {
    "id": "20-across",
@@ -410,7 +1003,25 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
     ]
    },
    "solution": "SAYSO",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "SAY-SO",
+    "definition": "Rumour",
+    "indicators": [
+     "odds must be cut"
+    ],
+    "pieces": [
+     "SAYSO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is, many Ascot",
+      "gives": "SAYSO",
+      "note": "cut the odd letters of iS mAnY aScOt and read what is left"
+     }
+    ],
+    "walkthrough": "'Odds' points at the racecourse, but they are the odd-numbered letters — cut them and the evens spell the answer. Note the fodder starts at 'is': even link-looking words can be letters."
+   }
   },
   {
    "id": "21-across",
@@ -427,7 +1038,35 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INNKEEPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INNKEEPER",
+    "definition": "part in nativity play?",
+    "indicators": [],
+    "pieces": [
+     "IN",
+     "N",
+     "KEEPER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool",
+      "gives": "IN",
+      "note": "cool = in, fashionable"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n = name"
+     },
+     {
+      "clueFragment": "probably number one",
+      "gives": "KEEPER",
+      "note": "the goalkeeper — the player who probably wears shirt number 1"
+     }
+    ],
+    "walkthrough": "'Probably' is fair play: keepers usually wear the number 1 shirt, not always. And the question mark concedes the innkeeper never appears in the gospels — only in school nativity plays."
+   }
   },
   {
    "id": "22-down",
@@ -444,7 +1083,38 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPAT",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "EXPAT",
+    "definition": "he’s far from home",
+    "indicators": [
+     "in",
+     "on vacation"
+    ],
+    "pieces": [
+     "E",
+     "XPA",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross",
+      "gives": "X",
+      "note": "a cross = an X"
+     },
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "pa = father"
+     },
+     {
+      "clueFragment": "Egypt",
+      "gives": "ET",
+      "note": "'on vacation' — vacated, leaving only the outer letters"
+     }
+    ],
+    "walkthrough": "'On vacation' means vacated — emptied — a pun worth keeping: Egypt on holiday loses everything inside. The definition is a little sentence standing for the person it describes."
+   }
   },
   {
    "id": "23-across",
@@ -461,7 +1131,38 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPIRATES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ASPIRATES",
+    "definition": "Supplies air to",
+    "indicators": [
+     "on board"
+    ],
+    "pieces": [
+     "A",
+     "S",
+     "PIRATE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the A from the clue — not joinery here"
+     },
+     {
+      "clueFragment": "buccaneer",
+      "gives": "PIRATE",
+      "note": "a pirate, going aboard"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS = steamship; 'on board' puts the rest between its letters"
+     }
+    ],
+    "walkthrough": "'On board ship' is a fixed convention: inside the letters SS. To aspirate is to supply air — what the h does in 'hat'."
+   }
   },
   {
    "id": "24-across",
@@ -478,7 +1179,25 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHASE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PHASE",
+    "definition": "stage",
+    "indicators": [
+     "in audition"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worry",
+      "gives": "FAZE",
+      "note": "to faze = to worry; 'in audition' means heard aloud"
+     }
+    ],
+    "walkthrough": "FAZE and PHASE are exact sound-twins, and 'in audition' keeps the hearing signal inside the theatre. A phase is a stage — of the moon, of a project, of a teenager."
+   }
   },
   {
    "id": "25-across",
@@ -495,7 +1214,38 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STANDARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "STANDARD",
+    "definition": "model",
+    "indicators": [
+     "after",
+     "discovered"
+    ],
+    "pieces": [
+     "STAN",
+     "D",
+     "ARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Laurel",
+      "gives": "STAN",
+      "note": "Stan Laurel"
+     },
+     {
+      "clueFragment": "Day",
+      "gives": "D",
+      "note": "d = day, placed after STAN"
+     },
+     {
+      "clueFragment": "Hardy discovered",
+      "gives": "ARD",
+      "note": "HARDY dis-covered: its outer letters stripped off"
+     }
+    ],
+    "walkthrough": "'Discovered' read as dis-covered — the covers taken off — is a classic worth banking. The famous duo split unevenly: Laurel gives his first name, Hardy only his middle."
+   }
   },
   {
    "id": "26-across",
@@ -512,7 +1262,31 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "ATTEST",
+    "definition": "show",
+    "indicators": [
+     "Every now and then"
+    ],
+    "pieces": [
+     "ATT",
+     "EST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say, Tati",
+      "gives": "ATT",
+      "note": "every second letter of sAy TaTi"
+     },
+     {
+      "clueFragment": "is in French",
+      "gives": "EST",
+      "note": "French for 'is'"
+     }
+    ],
+    "walkthrough": "Jacques Tati, the French film-maker, keeps the surface in France — where 'is' translates to EST. His name only lends its alternate letters."
+   }
   }
  ]
 } /*JSON-END*/;
