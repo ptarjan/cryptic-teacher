@@ -305,16 +305,38 @@ than the clues:
 
 The target to write against is a named clue, not a table:
 
-    Two girls, one on each knee (7)   = PATELLA
-    Die of cold (3,4)                 = ICE CUBE
-    Amundsen's forwarding address (4) = MUSH
-    A stiff examination (4-6)         = POST-MORTEM
+    Two girls, one on each knee (7)               = PATELLA
+    Die of cold (3,4)                             = ICE CUBE
+    Amundsen's forwarding address (4)             = MUSH
+    A stiff examination (4-6)                     = POST-MORTEM
+    Bergamot herbal extract for bodybuilder? (6)  = MOTHER
 
 Short, complete, funny, and the definition is invisible because it is
 load-bearing in the sentence. There is no crossword furniture anywhere in them —
 and note that PATELLA is a plain charade, so "no furniture" does not mean "no
 mechanism". It means `one on each knee` is simultaneously the assembly
 instruction and the picture.
+
+MOTHER (added 2026-07-30) is the same lesson for a hidden word, and it is the
+sharpest example of Rule 1 below — **exactly two pieces, nothing superfluous**:
+
+    Bergamot herbal   wordplay fodder — berga|MOT HER|bal
+    extract           the hidden indicator, and also a real herbal product
+    for               joinery
+    bodybuilder?      definition
+
+Five words, no waste, and every one of them is doing double duty. `extract` is
+the crossword instruction *and* the thing a herbal shop sells, so the indicator
+never surfaces as an instruction. `bodybuilder?` is the joke: the reader is
+holding a gym, the answer is that mothers build bodies. The `?` is doing its
+proper job — flagging a definition that is true but whimsical — not apologising
+for a loose one. Contrast the hidden words in A001 (`Milan club buried in
+winter`), which are sound but where the container word is visibly there to hide
+letters.
+
+Test a candidate against this one before shipping it: can you write the
+four-line table above for your clue, with every word of the surface landing in
+exactly one row?
 
 The rules that follow, applied to all twenty A001 clues in the 2026-07-29 pass:
 
