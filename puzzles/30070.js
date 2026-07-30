@@ -29,7 +29,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BACKLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BACKLIGHT",
+    "definition": "put in the shade?",
+    "indicators": [],
+    "pieces": ["BACK", "LIGHT"],
+    "blocks": [
+     {"clueFragment": "Rugby player", "gives": "BACK", "note": "a back is a rugby position, behind the forwards"},
+     {"clueFragment": "lacking weight", "gives": "LIGHT", "note": "light = lacking weight"}
+    ],
+    "walkthrough": "To backlight something is to light it from behind, throwing its face into shadow — so the question-marked definition is fair. Rugby's BACKS are a crossword staple for 'player'."
+   }
   },
   {
    "id": "1-down",
@@ -50,7 +61,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
     ]
    },
    "solution": "BYGUM",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BY GUM",
+    "definition": "How stamps are affixed?",
+    "definition2": "Crikey!",
+    "indicators": [],
+    "blocks": [
+     {"clueFragment": "How stamps are affixed?", "gives": "BY GUM", "note": "stamps are stuck on by gum — read literally"},
+     {"clueFragment": "Crikey!", "gives": "BY GUM", "note": "by gum! — a dated exclamation of surprise"}
+    ],
+    "walkthrough": "A whimsical double definition: the literal reading (stamps really are affixed by gum) and the exclamation, a politely softened 'by God!' still heard in northern England."
+   }
   },
   {
    "id": "2-down",
@@ -67,7 +89,20 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CELESTIAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CELESTIAL",
+    "definition": "Starry",
+    "indicators": ["in"],
+    "pieces": ["CEL", "EST", "I", "A", "L"],
+    "blocks": [
+     {"clueFragment": "Parisian is", "gives": "EST", "note": "'is' in French — est"},
+     {"clueFragment": "one", "gives": "I", "note": "I = one"},
+     {"clueFragment": "active", "gives": "A", "note": "a = active"},
+     {"clueFragment": "political group", "gives": "CELL", "note": "a cell is a small political unit; it wraps round the rest"}
+    ],
+    "walkthrough": "EST + I + A sit inside CELL — the sleeper-unit sense of 'political group'. 'Parisian is' for EST is a piece of French vocabulary worth banking."
+   }
   },
   {
    "id": "3-down",
@@ -84,7 +119,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LITERATURE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LITERATURE",
+    "definition": "writing",
+    "indicators": ["brought in", "fantastic"],
+    "anagram": {"fodder": "RARE TITLE U"},
+    "blocks": [
+     {"clueFragment": "University", "gives": "U", "note": "U = university, 'brought in' to the mix"},
+     {"clueFragment": "rare title", "gives": "RARETITLE", "note": "anagram fodder, nine letters"}
+    ],
+    "walkthrough": "An anagram of RARE TITLE with U folded in. The surface about a university awarding an odd degree keeps 'fantastic' looking like praise rather than an instruction."
+   }
   },
   {
    "id": "4-down",
@@ -101,7 +147,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GARAGED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "GARAGED",
+    "definition": "stored",
+    "indicators": ["salvaged from"],
+    "pieces": ["GARAGE", "D"],
+    "blocks": [
+     {"clueFragment": "Book", "gives": "B", "note": "B = book — this is what gets salvaged (taken out)"},
+     {"clueFragment": "rubbish", "gives": "GARAGE", "note": "GARBAGE (rubbish) minus that B"},
+     {"clueFragment": "daughter", "gives": "D", "note": "d = daughter"}
+    ],
+    "walkthrough": "'Salvaged from' means the B is lifted out of the rubbish, not added to it. The definition is the innocuous last word: a garaged car is a stored one."
+   }
   },
   {
    "id": "5-down",
@@ -118,7 +176,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWISTED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "TWISTED",
+    "definition": "Peculiar",
+    "indicators": ["warped", "hosted by"],
+    "pieces": ["T", "WIST", "ED"],
+    "subAnagrams": [{"fodder": "WITS", "gives": "WIST"}],
+    "blocks": [
+     {"clueFragment": "wits", "gives": "WIST", "note": "WITS 'warped' — anagrammed"},
+     {"clueFragment": "talks provider?", "gives": "TED", "note": "TED talks; the ? nods to defining by brand"}
+    ],
+    "walkthrough": "TED — the talks brand — hosts warped WITS. The definition and the anagram indicator sit shoulder to shoulder, so 'Peculiar warped' reads like one description."
+   }
   },
   {
    "id": "6-across",
@@ -135,7 +205,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOTTO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "MOTTO",
+    "definition": "Words to live by",
+    "indicators": ["not initially", "backwards"],
+    "pieces": ["MOTTO"],
+    "subReversals": [{"from": "OTTOM", "to": "MOTTO"}],
+    "blocks": [
+     {"clueFragment": "arse", "gives": "OTTOM", "note": "BOTTOM (arse) 'not initially' — drop the B"}
+    ],
+    "walkthrough": "Translate 'arse' to BOTTOM first, then obey both instructions: lose the first letter, read it backwards. The rude idiom 'arse-backwards' smuggles the reversal indicator past you."
+   }
   },
   {
    "id": "6-down",
@@ -152,7 +233,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MODE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MODE",
+    "definition": "A way",
+    "indicators": [],
+    "pieces": ["M", "ODE"],
+    "blocks": [
+     {"clueFragment": "meter", "gives": "M", "note": "m = metre, in its American spelling"},
+     {"clueFragment": "rhyme?", "gives": "ODE", "note": "an ode is a poem — 'rhyme' loosely, hence the ?"}
+    ],
+    "walkthrough": "The surface promises poetry, but 'meter' is just the abbreviation M and the ode is the crossword's all-purpose poem. A mode is simply a way of doing something."
+   }
   },
   {
    "id": "7-down",
@@ -169,7 +261,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUNNY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TUNNY",
+    "definition": "Fish",
+    "definition2": "like the location where fish are readily shot?",
+    "indicators": [],
+    "blocks": [
+     {"clueFragment": "Fish", "gives": "TUNNY", "note": "a tunny is the tuna"},
+     {"clueFragment": "like the location where fish are readily shot?", "gives": "TUNNY", "note": "tun + -y: like a TUN, a barrel — as in shooting fish in a barrel"}
+    ],
+    "walkthrough": "As sun gives sunny, tun gives TUNNY: barrel-like — and a barrel is where fish are proverbially easy to shoot. The plain definition is the everyday name for the tuna."
+   }
   },
   {
    "id": "8-down",
@@ -186,7 +289,17 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPERETTAS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OPERETTAS",
+    "definition": "musical works",
+    "indicators": ["to distort"],
+    "anagram": {"fodder": "STEREO APT"},
+    "blocks": [
+     {"clueFragment": "Stereo apt", "gives": "STEREOAPT", "note": "anagram fodder, nine letters"}
+    ],
+    "walkthrough": "The surface grumbles about hi-fi equipment; the answer is Gilbert-and-Sullivan territory. 'Apt to distort' hides the anagram instruction inside a plausible complaint."
+   }
   },
   {
    "id": "9-across",
@@ -203,7 +316,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GILET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GILET",
+    "definition": "a padded jacket",
+    "indicators": [],
+    "pieces": ["GI", "LET"],
+    "blocks": [
+     {"clueFragment": "Joe, for one", "gives": "GI", "note": "a Joe is an example of a GI — an American soldier"},
+     {"clueFragment": "allowed", "gives": "LET", "note": "let = allowed"}
+    ],
+    "walkthrough": "'For one' signals definition by example: Joe, as in GI Joe, is one particular GI. The French-derived gilet has become the standard word for the padded bodywarmer."
+   }
   },
   {
    "id": "10-across",
@@ -224,7 +348,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAINDANCE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "RAIN DANCE",
+    "definition": "Call for monsoon?",
+    "indicators": ["dropping", "in"],
+    "pieces": ["RA", "INDAN", "CE"],
+    "blocks": [
+     {"clueFragment": "Mumbai resident", "gives": "INDIAN", "note": "an Indian"},
+     {"clueFragment": "one", "gives": "I", "note": "I = one — this is what gets dropped"},
+     {"clueFragment": "a hurry", "gives": "RACE", "note": "to race = to hurry; it wraps round the rest"}
+    ],
+    "walkthrough": "INDIAN drops an I and squeezes into RACE. The question-marked definition is the ritual dance performed to summon rain — a monsoon, keeping the Mumbai surface honest."
+   }
   },
   {
    "id": "11-across",
@@ -245,7 +381,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
     ]
    },
    "solution": "MISERYGUTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MISERY GUTS",
+    "definition": "grumbler",
+    "indicators": ["mauled"],
+    "anagram": {"fodder": "TIGRESS YUM"},
+    "blocks": [
+     {"clueFragment": "Tigress", "gives": "TIGRESS", "note": "anagram fodder"},
+     {"clueFragment": "‘Yum!’", "gives": "YUM", "note": "joins the fodder — ten letters in all"}
+    ],
+    "walkthrough": "'Mauled' is both what a tigress does and what has happened to the letters. A misery guts is British slang for a habitual complainer."
+   }
   },
   {
    "id": "12-across",
@@ -262,7 +409,17 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TYPE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TYPE",
+    "definition": "kind",
+    "indicators": ["Some"],
+    "linkWords": ["would be"],
+    "blocks": [
+     {"clueFragment": "charity, perhaps", "gives": "TYPE", "note": "hidden across the join: chariTY PErhaps"}
+    ],
+    "walkthrough": "'Some' tells you to take only part of what follows, and the answer straddles the comma. 'Charity, perhaps' is pure camouflage — only its letters matter."
+   }
   },
   {
    "id": "13-down",
@@ -283,7 +440,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
     ]
    },
    "solution": "STREETLAMP",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "STREET LAMP",
+    "definition": "by the way, it’s illuminating",
+    "indicators": ["swallowing", "up"],
+    "pieces": ["STREE", "TLAM", "P"],
+    "subReversals": [{"from": "MALT", "to": "TLAM"}],
+    "blocks": [
+     {"clueFragment": "US actress", "gives": "STREEP", "note": "Meryl Streep"},
+     {"clueFragment": "whisky", "gives": "TLAM", "note": "MALT (whisky), sent 'up' this down entry"}
+    ],
+    "walkthrough": "STREEP swallows reversed MALT. The whole closing phrase defines: a street lamp is illuminating and stands by the way — the wayside — not a conversational aside at all."
+   }
   },
   {
    "id": "14-across",
@@ -300,7 +469,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAINTED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PAINTED",
+    "definition": "in make-up?",
+    "indicators": ["to embrace"],
+    "pieces": ["PA", "I", "NTED"],
+    "blocks": [
+     {"clueFragment": "Showed desire", "gives": "PANTED", "note": "panted (after) = showed desire"},
+     {"clueFragment": "one", "gives": "I", "note": "I = one, embraced"}
+    ],
+    "walkthrough": "PANTED takes in I. 'In make-up?' is a fair adjectival definition — a painted face is a made-up one, as in 'painted lady'."
+   }
   },
   {
    "id": "14-down",
@@ -317,7 +497,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHARISAIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "PHARISAIC",
+    "definition": "hypocritical",
+    "indicators": ["upset", "about"],
+    "linkWords": ["being"],
+    "anagram": {"fodder": "A CHAP IS RI"},
+    "blocks": [
+     {"clueFragment": "A chap is", "gives": "ACHAPIS", "note": "anagram fodder, 'upset'"},
+     {"clueFragment": "scripture lessons", "gives": "RI", "note": "RI = religious instruction, taken in"}
+    ],
+    "walkthrough": "An anagram of A CHAP IS placed about RI. The Pharisees are the New Testament's byword for showy piety, which is how PHARISAIC comes to mean hypocritical."
+   }
   },
   {
    "id": "15-across",
@@ -334,7 +526,20 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DATASET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "DATASET",
+    "definition": "information",
+    "indicators": ["to accept"],
+    "linkWords": ["for"],
+    "pieces": ["DA", "TA", "SET"],
+    "blocks": [
+     {"clueFragment": "US lawyer", "gives": "DA", "note": "DA = district attorney"},
+     {"clueFragment": "thanks", "gives": "TA", "note": "ta = thanks, accepted in the middle"},
+     {"clueFragment": "ready", "gives": "SET", "note": "set = ready"}
+    ],
+    "walkthrough": "DA and SET accept TA between them. DA for 'US lawyer' and TA for 'thanks' are two of the most reused scraps in cryptics — worth banking."
+   }
   },
   {
    "id": "16-down",
@@ -351,7 +556,20 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUFFICING",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "SUFFICING",
+    "definition": "appearing to be enough",
+    "indicators": ["Promoting"],
+    "pieces": ["SU", "FF", "ICING"],
+    "subReversals": [{"from": "US", "to": "SU"}],
+    "blocks": [
+     {"clueFragment": "us", "gives": "SU", "note": "US 'promoted' — sent up this down entry"},
+     {"clueFragment": "following", "gives": "FF", "note": "ff = 'and following', as in page references"},
+     {"clueFragment": "cake decoration", "gives": "ICING", "note": "icing"}
+    ],
+    "walkthrough": "'Promoting' works as a reversal because the entry runs downwards — promotion sends US up the grid. The scholarly abbreviation ff for 'following' is the clue's best disguise."
+   }
   },
   {
    "id": "17-across",
@@ -372,7 +590,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATLARGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container + first letter",
+    "answer": "AT LARGE",
+    "definition": "in general",
+    "indicators": ["almost entirely", "securing"],
+    "pieces": ["A", "T", "L", "ARGE"],
+    "blocks": [
+     {"clueFragment": "A", "gives": "A", "note": "taken as itself"},
+     {"clueFragment": "goal", "gives": "TARGE", "note": "TARGET (goal) 'almost entirely' — last letter off"},
+     {"clueFragment": "first place in league", "gives": "L", "note": "the first letter of 'league'"}
+    ],
+    "walkthrough": "TARGE(t) secures L and follows A. The sense needed is 'the public at large' — in general — not the fugitive meaning the surface hints at."
+   }
   },
   {
    "id": "18-down",
@@ -389,7 +619,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERELONG",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ERELONG",
+    "definition": "soon",
+    "indicators": ["probing"],
+    "pieces": ["ER", "ELON", "G"],
+    "blocks": [
+     {"clueFragment": "Billionaire", "gives": "ELON", "note": "Elon Musk, by example"},
+     {"clueFragment": "work unit", "gives": "ERG", "note": "the erg, physics' unit of work"}
+    ],
+    "walkthrough": "ELON probes ERG. Erelong is a poetic word for soon — and 'work unit' for ERG is a physics chestnut every solver eventually banks."
+   }
   },
   {
    "id": "19-across",
@@ -406,7 +647,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DREYFUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container",
+    "answer": "DREYFUS",
+    "definition": "figure in French scandal",
+    "indicators": ["largely", "involving"],
+    "pieces": ["D", "RE", "Y", "FUS"],
+    "blocks": [
+     {"clueFragment": "Duke", "gives": "D", "note": "D = duke"},
+     {"clueFragment": "decline", "gives": "REFUS", "note": "REFUSE (decline) 'largely' — most of it"},
+     {"clueFragment": "unknown", "gives": "Y", "note": "y, algebra's unknown, taken inside"}
+    ],
+    "walkthrough": "D + REFUS(e) involving Y. Alfred Dreyfus was the wrongly convicted officer at the centre of the affair that split 1890s France — the 'figure in French scandal'."
+   }
   },
   {
    "id": "19-down",
@@ -423,7 +676,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAMOSEL",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion + reversal",
+    "answer": "DAMOSEL",
+    "definition": "the old girl",
+    "indicators": ["involving", "cut", "upset"],
+    "pieces": ["DA", "MOS", "EL"],
+    "subReversals": [{"from": "LESOMAD", "to": "DAMOSEL"}],
+    "blocks": [
+     {"clueFragment": "Starring role", "gives": "LEAD", "note": "the lead"},
+     {"clueFragment": "some", "gives": "SOM", "note": "SOME 'cut' — last letter off — taken inside"}
+    ],
+    "walkthrough": "LEAD involving SOM(e), then the whole thing upset — reversed up this down entry. 'The old girl' is fair because DAMOSEL is the archaic spelling of damsel."
+   }
   },
   {
    "id": "20-across",
@@ -440,7 +705,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITCH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ITCH",
+    "definition": "Desire",
+    "indicators": ["discarding"],
+    "pieces": ["ITCH"],
+    "blocks": [
+     {"clueFragment": "to lose", "gives": "DITCH", "note": "to ditch = to lose, get rid of"},
+     {"clueFragment": "diamonds", "gives": "D", "note": "D = diamonds, the card suit — this is what's discarded"}
+    ],
+    "walkthrough": "DITCH sheds its D. Card-suit abbreviations (D, H, C, S) are standard currency, and the definition is 'desire' as in an itch to travel."
+   }
   },
   {
    "id": "21-down",
@@ -457,7 +733,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COBRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COBRA",
+    "definition": "Government committee",
+    "indicators": [],
+    "pieces": ["CO", "BRA"],
+    "blocks": [
+     {"clueFragment": "firm", "gives": "CO", "note": "co. = company, a firm"},
+     {"clueFragment": "support", "gives": "BRA", "note": "a bra is a support"}
+    ],
+    "walkthrough": "COBRA is the UK government's emergency committee, named for the Cabinet Office Briefing Rooms. CO for 'firm' and BRA for 'support' are both crossword standards."
+   }
   },
   {
    "id": "22-across",
@@ -474,7 +761,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERMITTING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PERMITTING",
+    "definition": "Allowing",
+    "indicators": ["but not"],
+    "pieces": ["PERM", "ITTING"],
+    "blocks": [
+     {"clueFragment": "style", "gives": "PERM", "note": "a perm is a hairstyle"},
+     {"clueFragment": "suitable", "gives": "FITTING", "note": "fitting = suitable"},
+     {"clueFragment": "fine", "gives": "F", "note": "f = fine, as on pencils — this is what's dropped"}
+    ],
+    "walkthrough": "PERM plus FITTING shorn of its F. Definition and answer agree in form — 'allowing' for PERMITTING — which is exactly the agreement a fair setter owes you."
+   }
   },
   {
    "id": "23-down",
@@ -491,7 +790,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GROSS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GROSS",
+    "definition": "Unrefined",
+    "definition2": "Imperial measure?",
+    "indicators": [],
+    "blocks": [
+     {"clueFragment": "Unrefined", "gives": "GROSS", "note": "gross = coarse, unrefined"},
+     {"clueFragment": "Imperial measure?", "gives": "GROSS", "note": "a gross = twelve dozen, 144 — an old traders' quantity"}
+    ],
+    "walkthrough": "A gross — twelve dozen — belongs to the old pre-metric world of counting, so 'Imperial' carries a question mark. The other sense is plain: coarse, crude, unrefined."
+   }
   },
   {
    "id": "24-down",
@@ -508,7 +818,19 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGOG",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AGOG",
+    "definition": "Eager",
+    "indicators": ["removed from"],
+    "linkWords": ["to see"],
+    "pieces": ["A", "GOG"],
+    "blocks": [
+     {"clueFragment": "a medal", "gives": "A GONG", "note": "a gong is forces slang for a medal"},
+     {"clueFragment": "name", "gives": "N", "note": "n = name — this is what's removed"}
+    ],
+    "walkthrough": "A GONG loses its N. 'To see' is pure joinery between definition and wordplay — no letters hide in it."
+   }
   },
   {
    "id": "25-across",
@@ -525,7 +847,20 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMBIGUOUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + deletion",
+    "answer": "AMBIGUOUS",
+    "definition": "of doubtful value",
+    "indicators": ["blocking", "mostly"],
+    "linkWords": ["That’s"],
+    "pieces": ["AM", "BIGU", "OUS"],
+    "blocks": [
+     {"clueFragment": "Pompous", "gives": "BIG", "note": "big = pompous, self-important"},
+     {"clueFragment": "Unionist", "gives": "U", "note": "U = Unionist, the political abbreviation"},
+     {"clueFragment": "a timid one", "gives": "AMOUS", "note": "A MOUSE (a timid one), 'mostly' — the E drops"}
+    ],
+    "walkthrough": "BIG + U block A MOUS(e). 'Of doubtful value' defines fairly: what is ambiguous is of uncertain meaning or worth."
+   }
   },
   {
    "id": "26-across",
@@ -542,7 +877,20 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMIGO",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "AMIGO",
+    "definition": "Friend",
+    "indicators": ["backing", "invest in"],
+    "linkWords": ["to"],
+    "pieces": ["A", "MI", "GO"],
+    "subReversals": [{"from": "IM", "to": "MI"}],
+    "blocks": [
+     {"clueFragment": "I’m", "gives": "MI", "note": "I'M sent backing"},
+     {"clueFragment": "a success", "gives": "A GO", "note": "a go = a success, as in making a go of things"}
+    ],
+    "walkthrough": "Reversed I'M invests in A GO. Amigo is the Spanish loan-word English uses for a pal — a one-word definition hiding at the front."
+   }
   },
   {
    "id": "27-across",
@@ -559,7 +907,18 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLANG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CLANG",
+    "definition": "Big noise",
+    "indicators": ["estranging nearly all?"],
+    "pieces": ["CLAN", "G"],
+    "blocks": [
+     {"clueFragment": "family", "gives": "CLAN", "note": "a clan is a family"},
+     {"clueFragment": "group", "gives": "G", "note": "GROUP, estranging nearly all of its letters, keeps only its G"}
+    ],
+    "walkthrough": "'Family group' looks like one unit, but only 'family' gives CLAN; 'group' then estranges nearly all of itself down to a single G. The question mark owns up to that playful liberty."
+   }
   },
   {
    "id": "28-across",
@@ -576,7 +935,20 @@ window.CRYPTIC_PUZZLES["30070"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GALAPAGOS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "GALAPAGOS",
+    "definition": "islands",
+    "indicators": ["contributing to"],
+    "linkWords": ["in"],
+    "pieces": ["GA", "LAP", "AGO", "S"],
+    "blocks": [
+     {"clueFragment": "Drink", "gives": "LAP", "note": "to lap = to drink, as a cat does"},
+     {"clueFragment": "in the past", "gives": "AGO", "note": "ago = in the past"},
+     {"clueFragment": "atmosphere", "gives": "GAS", "note": "gas = atmosphere; it takes the rest in"}
+    ],
+    "walkthrough": "LAP + AGO contribute to — go inside — GAS. Darwin's islands answer to a one-word definition while the wordplay wears all the disguise."
+   }
   }
  ]
 } /*JSON-END*/;

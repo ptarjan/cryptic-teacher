@@ -33,7 +33,38 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIBDEM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LIB-DEM",
+    "definition": "political type",
+    "indicators": [
+     "about"
+    ],
+    "pieces": [
+     "L",
+     "I",
+     "B",
+     "DEM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "l = line, as in a line of verse"
+     },
+     {
+      "clueFragment": "from the same source",
+      "gives": "IDEM",
+      "note": "idem is the Latin citation tag meaning 'the same source as before'"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B = British, wrapped inside IDEM ('about')"
+     }
+    ],
+    "walkthrough": "IDEM is Latin for 'the same' — footnotes use it to repeat a source just cited. Wrap it round B and out comes a compressed political label, the first of this grid's many squashed-together words."
+   }
   },
   {
    "id": "2-down",
@@ -50,7 +81,30 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POINSETTIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POINSETTIA",
+    "definition": "Popular houseplant",
+    "indicators": [
+     "adapted"
+    ],
+    "anagram": {
+     "fodder": "I SET IN A POT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I set in a pot",
+      "gives": "ISETINAPOT",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "adapted",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The fodder hides in plain sight as potting instructions — the surface is a gardener repotting, which is exactly where a houseplant answer hides best."
+   }
   },
   {
    "id": "3-down",
@@ -67,7 +121,35 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUTOCUES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "AUTOCUES",
+    "definition": "They help people with deliveries",
+    "indicators": [
+     "after",
+     "we hear"
+    ],
+    "linkWords": [
+     "gets in"
+    ],
+    "pieces": [
+     "AUTO",
+     "CUES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUTO",
+      "note": "auto = car"
+     },
+     {
+      "clueFragment": "line, we hear",
+      "gives": "CUES",
+      "note": "sounds like 'queues' — lines of people"
+     }
+    ],
+    "walkthrough": "Autocues help speakers with the delivery of their lines — nothing to do with parcels. The homophone touches only 'line': queues become CUES."
+   }
   },
   {
    "id": "4-across",
@@ -84,7 +166,41 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEWBIE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "NEWBIE",
+    "definition": "novice",
+    "indicators": [
+     "about"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "N",
+     "EW",
+     "B",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pay attention",
+      "gives": "NB",
+      "note": "NB — nota bene, 'note well' — splits around the insertion"
+     },
+     {
+      "clueFragment": "opposing points",
+      "gives": "EW",
+      "note": "east and west, opposite compass points"
+     },
+     {
+      "clueFragment": "namely",
+      "gives": "IE",
+      "note": "i.e. = namely"
+     }
+    ],
+    "walkthrough": "The surface sounds like a debating tip. 'Opposing points' is a classic signal for a compass pair, and NB and IE are both Latin tags worth memorising."
+   }
   },
   {
    "id": "4-down",
@@ -101,7 +217,32 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEWSPEAK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NEWSPEAK",
+    "definition": "made-up propaganda",
+    "indicators": [],
+    "linkWords": [
+     "That’s"
+    ],
+    "pieces": [
+     "NEWS",
+     "PEAK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quartet playing",
+      "gives": "NEWS",
+      "note": "the quartet is the four compass points N, E, W, S, 'playing' together in that order"
+     },
+     {
+      "clueFragment": "best performance",
+      "gives": "PEAK",
+      "note": "a peak is a best performance — being at your peak"
+     }
+    ],
+    "walkthrough": "Newspeak is the invented propaganda language of Orwell's Nineteen Eighty-Four — and its author is waiting at 23 across. 'Quartet' for the four compass points is a trick worth filing away."
+   }
   },
   {
    "id": "5-down",
@@ -118,7 +259,41 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WAITRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + anagram",
+    "answer": "WAITRESS",
+    "definition": "Female serving",
+    "indicators": [
+     "half of",
+     "replacement"
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "WA",
+     "ITRESS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SISTER",
+      "gives": "ITRESS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half of ward",
+      "gives": "WA",
+      "note": "the first half of WArd — the RD is dropped"
+     },
+     {
+      "clueFragment": "sister",
+      "gives": "ITRESS",
+      "note": "'replacement' redeals the letters of SISTER"
+     }
+    ],
+    "walkthrough": "The surface stays on the hospital ward, but 'female serving' means waiting tables. A word's 'replacement' — its letters redealt — is a gentler anagram signal than the usual chaos words."
+   }
   },
   {
    "id": "6-across",
@@ -135,7 +310,40 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOCUSOAP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "DOCUSOAP",
+    "definition": "TV series",
+    "indicators": [
+     "traversing"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "DOC",
+     "US",
+     "OAP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "DOC",
+      "note": "doc = medic"
+     },
+     {
+      "clueFragment": "aged Brit",
+      "gives": "OAP",
+      "note": "old-age pensioner, the standard aged Brit"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US, straddled ('traversing') by DOC and OAP"
+     }
+    ],
+    "walkthrough": "A docusoap — documentary crossed with soap opera — is another of this grid's blended words. OAP, old-age pensioner, is the crossword's standard Brit of a certain age."
+   }
   },
   {
    "id": "7-down",
@@ -156,7 +364,26 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
     ]
    },
    "solution": "OPED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "OP-ED",
+    "definition": "Newspaper article",
+    "definition2": "began in old-fashioned way",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper article",
+      "gives": "OPED",
+      "note": "an op-ed, the opinion piece opposite the editorial page"
+     },
+     {
+      "clueFragment": "began in old-fashioned way",
+      "gives": "OPED",
+      "note": "'ope' is archaic for open, and what oped, opened — began"
+     }
+    ],
+    "walkthrough": "An op-ed sits opposite the editorial page — that's where the name comes from. 'Ope' is poetic old English for open, and a meeting that opens has begun."
+   }
   },
   {
    "id": "8-down",
@@ -173,7 +400,31 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAHS",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "PAHS",
+    "definition": "Negative reactions",
+    "indicators": [
+     "primarily"
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "P",
+     "A",
+     "H",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pedant and his sort",
+      "gives": "PAHS",
+      "note": "first letters ('primarily') of Pedant And His Sort"
+     }
+    ],
+    "walkthrough": "'Primarily' points at first letters, and the pedant's own initials spell out his little snorts of contempt — pah! The fodder suits the answer beautifully."
+   }
   },
   {
    "id": "9-across",
@@ -190,7 +441,34 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEIRDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WEIRDO",
+    "definition": "eccentric",
+    "indicators": [
+     "leading"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "WEIR",
+     "DO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current controller",
+      "gives": "WEIR",
+      "note": "a weir controls a river's current — not electricity"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do = a party, a bit of a do"
+     }
+    ],
+    "walkthrough": "The 'current' is a river's, not a wire's — a weir holds it back. DO for 'party' is core crossword vocabulary, and here 'eccentric' is a noun."
+   }
   },
   {
    "id": "10-across",
@@ -207,7 +485,33 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INFOTECH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INFOTECH",
+    "definition": "computer applications etc",
+    "indicators": [
+     "shifted"
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "FOCI THEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Foci then",
+      "gives": "FOCITHEN",
+      "note": "anagram fodder, 8 letters"
+     },
+     {
+      "clueFragment": "shifted",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Infotech squeezes information and technology into one word, like so many answers in this grid. The stray mark after 'etc' is the Guardian's typo, not a clue."
+   }
   },
   {
    "id": "11-across",
@@ -224,7 +528,47 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PORTMANTEAU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone + container",
+    "answer": "PORTMANTEAU",
+    "definition": "Piece of luggage",
+    "indicators": [
+     "heard",
+     "consuming"
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "PORT",
+     "MAN",
+     "TEA",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left on board",
+      "gives": "PORT",
+      "note": "port is the left side when you're on board ship"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "MAN",
+      "note": "man = guy"
+     },
+     {
+      "clueFragment": "you heard",
+      "gives": "U",
+      "note": "U sounds like 'you'"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "TEA",
+      "note": "TEA is swallowed ('consuming') by MAN + U"
+     }
+    ],
+    "walkthrough": "Portmanteau — Lewis Carroll's word for two meanings packed into one case — is this puzzle's theme named in a single answer. On board ship, left is always PORT."
+   }
   },
   {
    "id": "12-down",
@@ -245,7 +589,32 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
     ]
    },
    "solution": "NAILBITING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NAIL-BITING",
+    "definition": "Suspenseful",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "NAIL",
+     "BIT",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "BIT",
+      "note": "a bit = a part"
+     },
+     {
+      "clueFragment": "capture",
+      "gives": "NAILING",
+      "note": "nailing = capturing; it opens up around BIT"
+     }
+    ],
+    "walkthrough": "To nail a culprit is to capture them, and the -ING form opens up to swallow the BIT. 'Suspenseful' is the whole definition — one word doing honest work."
+   }
   },
   {
    "id": "13-down",
@@ -262,7 +631,33 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WORDFEST",
-   "annotation": null
+   "annotation": {
+    "type": "last letters + container",
+    "answer": "WORDFEST",
+    "definition": "literary event",
+    "indicators": [
+     "Concluding pieces from",
+     "in"
+    ],
+    "pieces": [
+     "WOR",
+     "DFE",
+     "ST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head of state",
+      "gives": "DFE",
+      "note": "the concluding pieces — last letters — of heaD, oF and statE"
+     },
+     {
+      "clueFragment": "last",
+      "gives": "WORST",
+      "note": "coming last is doing worst; DFE slots inside"
+     }
+    ],
+    "walkthrough": "'Concluding pieces from' harvests the last letters of all three words that follow, even little 'of'. A wordfest — word plus festival — keeps the grid's blended-word theme running."
+   }
   },
   {
    "id": "14-down",
@@ -279,7 +674,31 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TELEPLAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + &lit",
+    "answer": "TELEPLAY",
+    "definition": "Drama as seen from the box",
+    "indicators": [
+     "as seen from"
+    ],
+    "pieces": [
+     "TELE",
+     "PLAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the box",
+      "gives": "TELE",
+      "note": "the box = the telly, TELE for short"
+     },
+     {
+      "clueFragment": "Drama",
+      "gives": "PLAY",
+      "note": "a play = a drama, following TELE"
+     }
+    ],
+    "walkthrough": "The whole clue is the definition — a teleplay is exactly drama seen on the box — while TELE and PLAY rebuild it, so every word earns its keep twice."
+   }
   },
   {
    "id": "15-across",
@@ -296,7 +715,33 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSEGAI",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ASSEGAI",
+    "definition": "Weapon",
+    "indicators": [
+     "deployed in",
+     "unending"
+    ],
+    "pieces": [
+     "ASS",
+     "EG",
+     "AI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for instance",
+      "gives": "EG",
+      "note": "e.g. = for instance"
+     },
+     {
+      "clueFragment": "unending attack",
+      "gives": "ASSAI",
+      "note": "ASSAIL (attack) 'unending' — its final L is dropped"
+     }
+    ],
+    "walkthrough": "An assegai is a slender African throwing spear — an obscure answer, so the wordplay is generous. 'Unending' clips the tail off ASSAIL before EG is deployed inside."
+   }
   },
   {
    "id": "16-down",
@@ -313,7 +758,41 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GALUMPHS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "GALUMPHS",
+    "definition": "Proceeds clumsily",
+    "indicators": [
+     "about"
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "GA",
+     "LUMP",
+     "H",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk",
+      "gives": "GAS",
+      "note": "gas = idle talk; it wraps 'about' the rest"
+     },
+     {
+      "clueFragment": "growth",
+      "gives": "LUMP",
+      "note": "a lump = a growth"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "h = height, as on measurements"
+     }
+    ],
+    "walkthrough": "To galumph — Lewis Carroll's blend of gallop and triumph, from Jabberwocky — keeps the portmanteau theme going. GAS for 'talk' is standard crossword currency."
+   }
   },
   {
    "id": "17-across",
@@ -330,7 +809,40 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUSSORE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TUSSORE",
+    "definition": "Coarse fabric",
+    "indicators": [
+     "after"
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "pieces": [
+     "T",
+     "US",
+     "SORE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short time",
+      "gives": "T",
+      "note": "time cut short: T"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "the word itself"
+     },
+     {
+      "clueFragment": "hurt",
+      "gives": "SORE",
+      "note": "sore = hurt"
+     }
+    ],
+    "walkthrough": "Tussore, a coarse wild silk, may be unfamiliar — the kindly charade makes up for it. 'Short time' cutting TIME down to T is a move you'll meet constantly."
+   }
   },
   {
    "id": "18-across",
@@ -347,7 +859,30 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LABRADOODLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LABRADOODLE",
+    "definition": "pet",
+    "indicators": [
+     "Awfully"
+    ],
+    "anagram": {
+     "fodder": "ADORABLE OLD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "adorable old",
+      "gives": "ADORABLEOLD",
+      "note": "anagram fodder, 11 letters"
+     },
+     {
+      "clueFragment": "Awfully",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "An anagram that behaves like a definition too: a labradoodle — labrador crossed with poodle, another blend — genuinely is an awfully adorable old pet. Brendan picks fodder that tells the truth."
+   }
   },
   {
    "id": "19-down",
@@ -364,7 +899,25 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OARING",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "OARING",
+    "definition": "having a row",
+    "indicators": [
+     "losing head"
+    ],
+    "pieces": [
+     "OARING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bellowing, losing head",
+      "gives": "OARING",
+      "note": "ROARING (bellowing) loses its head — the R goes"
+     }
+    ],
+    "walkthrough": "Two rows: the definition's row rhymes with 'go' — pulling oars — while the surface's shouting match rhymes with 'cow'. Beheading ROARING settles which one you need."
+   }
   },
   {
    "id": "20-down",
@@ -381,7 +934,30 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STYE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STYE",
+    "definition": "that could affect one’s view of things",
+    "indicators": [
+     "’s gone out of"
+    ],
+    "pieces": [
+     "STYE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pound",
+      "gives": "L",
+      "note": "£ is written L, from Latin libra — this is the letter that goes"
+     },
+     {
+      "clueFragment": "fashion",
+      "gives": "STYLE",
+      "note": "style = fashion, left as STYE once the L has gone"
+     }
+    ],
+    "walkthrough": "'Pound' giving L, from the Latin libra behind the £ sign, is everywhere in crosswords. A stye is the eyelid swelling that genuinely does affect your view of things."
+   }
   },
   {
    "id": "21-down",
@@ -398,7 +974,26 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CASE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CASE",
+    "definition": "Legal action",
+    "definition2": "that may be taken on by boarder",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Legal action",
+      "gives": "CASE",
+      "note": "the case a lawyer takes on"
+     },
+     {
+      "clueFragment": "taken on by boarder",
+      "gives": "CASE",
+      "note": "the suitcase a passenger takes on board"
+     }
+    ],
+    "walkthrough": "Two cases: the one a lawyer takes on, and the one a passenger takes on board. 'Boarder' does the misleading — it sounds like a lodger, not a traveller."
+   }
   },
   {
    "id": "22-across",
@@ -415,7 +1010,47 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEAMMATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TEAMMATE",
+    "definition": "Fellow in squad",
+    "indicators": [
+     "raving",
+     "in first half",
+     "otherwise",
+     "in second"
+    ],
+    "anagram": {
+     "fodder": "AT ME AT ME"
+    },
+    "pieces": [
+     "TEAM",
+     "MATE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "AT ME",
+      "gives": "TEAM"
+     },
+     {
+      "fodder": "AT ME",
+      "gives": "MATE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at me",
+      "gives": "TEAM",
+      "note": "'raving' scrambles AT ME into the first half"
+     },
+     {
+      "clueFragment": "at me",
+      "gives": "MATE",
+      "note": "'otherwise' scrambles the same four letters differently for the second half"
+     }
+    ],
+    "walkthrough": "One four-letter scrap, AT ME, is shuffled twice over — 'raving' one way for the front half, 'otherwise' another for the back. Economical fodder, spent twice."
+   }
   },
   {
    "id": "23-across",
@@ -432,7 +1067,31 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORWELL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ORWELL",
+    "definition": "One English author",
+    "indicators": [
+     "abridged"
+    ],
+    "pieces": [
+     "OR",
+     "WELL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the word itself, lifted straight into the answer"
+     },
+     {
+      "clueFragment": "another abridged",
+      "gives": "WELL",
+      "note": "H G WELLS, another English author, abridged — the final S is cut"
+     }
+    ],
+    "walkthrough": "George Orwell is the 'one', H G Wells the 'another', losing his final S. The pair also anchor the grid's theme: Orwell coined NEWSPEAK, sitting at 4 down."
+   }
   },
   {
    "id": "24-across",
@@ -449,7 +1108,33 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEPHANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ELEPHANT",
+    "definition": "Owner of trunk",
+    "indicators": [
+     "must be repacked"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "THE PLANE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "the plane",
+      "gives": "THEPLANE",
+      "note": "anagram fodder, 8 letters"
+     },
+     {
+      "clueFragment": "must be repacked",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The trunk belongs to the animal, not the luggage rack — and by lovely economy the fodder is 'the plane' all that repacking was for."
+   }
   },
   {
    "id": "25-across",
@@ -466,7 +1151,26 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNOTTY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "KNOTTY",
+    "definition": "Like bad deal",
+    "definition2": "difficult to undo",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Like bad deal",
+      "gives": "KNOTTY",
+      "note": "deal is cheap softwood — a bad plank is knotty, full of knots"
+     },
+     {
+      "clueFragment": "difficult to undo",
+      "gives": "KNOTTY",
+      "note": "a knotty problem is hard to untangle"
+     }
+    ],
+    "walkthrough": "'Deal' is timber — pine or fir — not a bargain, and a poor plank is full of knots. The second sense, a knotty problem, shares the same tangled picture."
+   }
   }
  ]
 } /*JSON-END*/;

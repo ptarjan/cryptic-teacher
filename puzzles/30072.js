@@ -33,7 +33,43 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "KENNINGTONOVAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KENNINGTON OVAL",
+    "definition": "sports venue",
+    "indicators": [
+     "behind"
+    ],
+    "pieces": [
+     "KENNING",
+     "TO",
+     "NOVA",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knowledge of Glasgow",
+      "gives": "KENNING",
+      "note": "Scots — a Glaswegian's 'kenning' is knowledge, as in 'beyond my kennin'"
+     },
+     {
+      "clueFragment": "Accompanied by",
+      "gives": "TO",
+      "note": "as in singing to a piano — 'to' an accompaniment"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "NOVA",
+      "note": "an exploding star"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L = left; 'behind' puts the whole TO-NOVA-L run after KENNING"
+     }
+    ],
+    "walkthrough": "Don't hunt for a Glasgow ground: the Oval is in London, and 'Glasgow' is only there to flag KENNING as Scots for knowledge. 'Behind' tells you the star-and-left assembly follows it."
+   }
   },
   {
    "id": "1-down",
@@ -54,7 +90,46 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "KERBCRAWLING",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "KERB CRAWLING",
+    "definition": "sleazy activity",
+    "indicators": [
+     "in",
+     "about"
+    ],
+    "pieces": [
+     "K",
+     "ER",
+     "B",
+     "C",
+     "RAWL",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charles",
+      "gives": "KING",
+      "note": "King Charles — K…ING wraps round everything else"
+     },
+     {
+      "clueFragment": "his mum",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen's royal cypher"
+     },
+     {
+      "clueFragment": "dust-up",
+      "gives": "BRAWL",
+      "note": "split round the constant"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c — the speed of light, physics' favourite constant"
+     }
+    ],
+    "walkthrough": "Two containers at once: KING (Charles) wraps everything, and inside it the BRAWL wraps the C. ER = Elizabeth Regina is a convention worth learning — setters lean on royal cyphers constantly."
+   }
   },
   {
    "id": "2-down",
@@ -71,7 +146,25 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAIAD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NAIAD",
+    "definition": "Water nymph",
+    "indicators": [
+     "transformed"
+    ],
+    "anagram": {
+     "fodder": "DIANA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Diana",
+      "gives": "DIANA",
+      "note": "the goddess supplies her own five letters"
+     }
+    ],
+    "walkthrough": "Diana's own letters rearrange into one of the nymphs who attended the goddess of the hunt — surface and wordplay are the same five letters."
+   }
   },
   {
    "id": "3-down",
@@ -92,7 +185,26 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "INGENERAL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "IN GENERAL",
+    "definition": "Mostly",
+    "definition2": "where soldiers are trained to place their trust",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Mostly",
+      "gives": "",
+      "note": "the everyday sense: in general = mostly, on the whole"
+     },
+     {
+      "clueFragment": "where soldiers are trained to place their trust",
+      "gives": "",
+      "note": "whimsically, troops put their faith in (their) general"
+     }
+    ],
+    "walkthrough": "One word of definition, then the joke: soldiers are drilled to place their trust in their general."
+   }
   },
   {
    "id": "4-down",
@@ -109,7 +221,40 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GESTAPO",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "GESTAPO",
+    "definition": "Harsh and unscrupulous",
+    "definitionNote": "The answer is a noun — the Nazi secret police, and by extension any brutal enforcement outfit — defined here by its notorious qualities rather than by another noun.",
+    "indicators": [
+     "seizing",
+     "racy"
+    ],
+    "pieces": [
+     "G",
+     "ESTAP",
+     "O"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TAPES",
+      "gives": "ESTAP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "activity",
+      "gives": "GO",
+      "note": "on the go = active; G…O seizes the rest"
+     },
+     {
+      "clueFragment": "racy tapes",
+      "gives": "ESTAP",
+      "note": "the letters of TAPES, made 'racy' — shuffled"
+     }
+    ],
+    "walkthrough": "GO as in 'on the go'. The definition is really the Gestapo's reputation — and the surface, an outfit seizing tapes, is uncomfortably close to the literal truth."
+   }
   },
   {
    "id": "5-down",
@@ -131,7 +276,32 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTHEUP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ON THE UP",
+    "definition": "getting better",
+    "indicators": [
+     "Awfully",
+     "after leaving",
+     "new"
+    ],
+    "anagram": {
+     "fodder": "OUPTHEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "sick",
+      "gives": "",
+      "note": "the letters S, I, C, K — scattered ('awfully') through SOUP KITCHEN — depart"
+     },
+     {
+      "clueFragment": "soup kitchen",
+      "gives": "OUPTHEN",
+      "note": "what is left of SOUP KITCHEN once SICK has gone"
+     }
+    ],
+    "walkthrough": "A deletion inside an anagram: 'awfully' licenses taking SICK's letters from wherever they sit in SOUP KITCHEN, and 'new' stirs what remains."
+   }
   },
   {
    "id": "6-down",
@@ -148,7 +318,26 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ONSET",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ONSET",
+    "definition": "Start",
+    "definition2": "rolling the cameras here",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Start",
+      "gives": "",
+      "note": "an onset is a start — the straight sense"
+     },
+     {
+      "clueFragment": "rolling the cameras here",
+      "gives": "",
+      "note": "read it as ON SET — where a film crew rolls the cameras"
+     }
+    ],
+    "walkthrough": "A start, or where filming starts: on set. The second reading is the whimsical one, which is why it carries the cameras."
+   }
   },
   {
    "id": "7-down",
@@ -165,7 +354,37 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADDRESSEE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ADDRESSEE",
+    "definition": "name on envelope",
+    "indicators": [
+     "surrounding"
+    ],
+    "pieces": [
+     "AD",
+     "DRES",
+     "SEE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notices",
+      "gives": "AD",
+      "note": "the first of the two 'notices' — a small ad"
+     },
+     {
+      "clueFragment": "hip-hop doctor’s",
+      "gives": "DRES",
+      "note": "Dr Dre's — sandwiched by the notices"
+     },
+     {
+      "clueFragment": "Notices",
+      "gives": "SEE",
+      "note": "…and the second: to see something is to notice it"
+     }
+    ],
+    "walkthrough": "'Notices' is plural because it supplies both slices of the sandwich: an AD in front, SEE behind, with the hip-hop doctor's in the middle."
+   }
   },
   {
    "id": "8-across",
@@ -182,7 +401,32 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RUING",
+    "definition": "Regretful of",
+    "definitionNote": "'Ruing' is a participle and 'regretful of' an adjective phrase, but they swap cleanly — 'ruing the loss' means 'regretful of the loss' — so the definition is fair.",
+    "indicators": [
+     "deposited after"
+    ],
+    "pieces": [
+     "RUIN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bankruptcy",
+      "gives": "RUIN",
+      "note": "financial ruin"
+     },
+     {
+      "clueFragment": "£1000",
+      "gives": "G",
+      "note": "a grand — standard crossword currency"
+     }
+    ],
+    "walkthrough": "G for grand — £1000 — is a staple abbreviation; 'deposited after' banks it at the end of the ruin."
+   }
   },
   {
    "id": "9-across",
@@ -203,7 +447,29 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "SETASIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SET-ASIDE",
+    "definition": "Discarded",
+    "indicators": [],
+    "pieces": [
+     "SET A",
+     "SIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top class",
+      "gives": "SETA",
+      "note": "school streaming: the top class is Set A"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side, as in a football side"
+     }
+    ],
+    "walkthrough": "School streaming does the work — in many schools the top class is called Set A, and a side is a team in sport."
+   }
   },
   {
    "id": "10-down",
@@ -224,7 +490,41 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAIDENVOYAGE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MAIDEN VOYAGE",
+    "definition": "initial crossing?",
+    "indicators": [
+     "welcomes"
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "M",
+     "AID",
+     "ENVOY",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sorcerer",
+      "gives": "MAGE",
+      "note": "M…AGE, wrapped round the rest"
+     },
+     {
+      "clueFragment": "assistance",
+      "gives": "AID",
+      "note": "help"
+     },
+     {
+      "clueFragment": "diplomat",
+      "gives": "ENVOY",
+      "note": "an envoy"
+     }
+    ],
+    "walkthrough": "The sorcerer swallows both the help and the diplomat. 'Initial crossing' is the definition — a ship's first trip across the water."
+   }
   },
   {
    "id": "11-across",
@@ -241,7 +541,48 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CADENZA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container + middle letter",
+    "answer": "CADENZA",
+    "definition": "Solo",
+    "indicators": [
+     "turn",
+     "touring",
+     "centre of"
+    ],
+    "pieces": [
+     "CA",
+     "DENZA"
+    ],
+    "subReversals": [
+     {
+      "from": "AZNED",
+      "to": "DENZA"
+     },
+     {
+      "from": "AC",
+      "to": "CA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crossword guru",
+      "gives": "AZED",
+      "note": "Jonathan Crowther — Azed of the Observer, the setters' setter"
+     },
+     {
+      "clueFragment": "centre of 1",
+      "gives": "N",
+      "note": "the middle letter of ONE, which Azed 'tours' (wraps round): AZ-N-ED"
+     },
+     {
+      "clueFragment": "ac?",
+      "gives": "AC",
+      "note": "the 'ac' tags along as letters; then the whole AZNED-AC does a turn"
+     }
+    ],
+    "walkthrough": "Azed took his pseudonym from Deza, a Spanish Grand Inquisitor, spelt backwards — so sending him round a turn is a fitting tribute. The question mark owns up to the liberties taken with '1ac'."
+   }
   },
   {
    "id": "12-across",
@@ -258,7 +599,22 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXTREMA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EXTREMA",
+    "definition": "Maximum and minimum values",
+    "indicators": [
+     "taken out of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "context, remarkably",
+      "gives": "EXTREMA",
+      "note": "spelled out across the two words: contEXT REMArkably"
+     }
+    ],
+    "walkthrough": "'Taken out of context' sounds like a complaint about quotation, but it is a literal instruction — the answer sits inside those letters."
+   }
   },
   {
    "id": "13-across",
@@ -275,7 +631,22 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALTER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ALTER",
+    "definition": "Change",
+    "indicators": [
+     "in telephone call?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "location of union meeting",
+      "gives": "ALTAR",
+      "note": "the union is a wedding, and the altar is where it happens"
+     }
+    ],
+    "walkthrough": "Weddings are the 'union' here, and 'in telephone call' tells you to listen rather than read: altar and alter sound the same."
+   }
   },
   {
    "id": "14-down",
@@ -296,7 +667,27 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOMCRUISE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOM CRUISE",
+    "definition": "Actor",
+    "linkWords": [
+     "suggesting"
+    ],
+    "indicators": [],
+    "pieces": [
+     "TOM",
+     "CRUISE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a spot of 1dn?",
+      "gives": "TOM CRUISE",
+      "note": "'tom' is old slang for a prostitute, and to 'cruise' is to drive around looking for custom — a bit of kerb crawling (1 down)"
+     }
+    ],
+    "walkthrough": "The actor's name reads as a little kerb crawling: a tom on the cruise. The cross-reference to 1 down is the whole engine of the clue."
+   }
   },
   {
    "id": "15-across",
@@ -313,7 +704,29 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPPRESSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OPPRESSED",
+    "definition": "Under a great burden",
+    "indicators": [],
+    "pieces": [
+     "OP",
+     "PRESSED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with work",
+      "gives": "OP",
+      "note": "op. — an opus; 'with' bolts it on at the front"
+     },
+     {
+      "clueFragment": "Ms Viner perhaps",
+      "gives": "PRESSED",
+      "note": "Katharine Viner edits the Guardian: a press ed."
+     }
+    ],
+    "walkthrough": "'Perhaps' concedes Ms Viner is only one example of a press ed. — any newspaper editor would do."
+   }
   },
   {
    "id": "16-down",
@@ -334,7 +747,25 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "ELCAPITAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EL CAPITAN",
+    "definition": "a daring climb?",
+    "indicators": [
+     "Sort of"
+    ],
+    "anagram": {
+     "fodder": "ALPINE ACT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "alpine act",
+      "gives": "ALPINEACT",
+      "note": "nine letters to shuffle"
+     }
+    ],
+    "walkthrough": "El Capitan in Yosemite is the daring climb — famously scaled without ropes in Free Solo. 'Sort of' quietly does the shuffling."
+   }
   },
   {
    "id": "17-across",
@@ -351,7 +782,29 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMPLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAMPLIGHT",
+    "definition": "An essential for burner of midnight oil",
+    "indicators": [],
+    "pieces": [
+     "LAM",
+     "PLIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "LAM",
+      "note": "to lam = to hit, as in 'lam into'"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "PLIGHT",
+      "note": "a spot — the tight kind"
+     }
+    ],
+    "walkthrough": "Both halves are rougher than they look: to LAM is to hit, and the spot here is a PLIGHT. Burn the midnight oil and this is what you read by."
+   }
   },
   {
    "id": "18-down",
@@ -368,7 +821,25 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GELATIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GELATIN",
+    "definition": "It’s a bit gluey",
+    "indicators": [
+     "on a cycle"
+    ],
+    "anagram": {
+     "fodder": "ELATING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "getting up",
+      "gives": "ELATING",
+      "note": "elating = uplifting, getting your spirits up"
+     }
+    ],
+    "walkthrough": "A rare device: 'on a cycle' means the letters rotate — push the G of ELATING from the back round to the front. Gelatin genuinely is the gluey bit: glue is made from it."
+   }
   },
   {
    "id": "19-down",
@@ -385,7 +856,41 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOSSPOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TOSSPOT",
+    "definition": "Old drunkard",
+    "indicators": [
+     "up"
+    ],
+    "pieces": [
+     "TOS",
+     "SPOT"
+    ],
+    "subReversals": [
+     {
+      "from": "SOT",
+      "to": "TOS"
+     },
+     {
+      "from": "TOPS",
+      "to": "SPOT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wino",
+      "gives": "TOS",
+      "note": "a wino is a SOT, sent climbing"
+     },
+     {
+      "clueFragment": "beats",
+      "gives": "SPOT",
+      "note": "beats = TOPS, also sent climbing"
+     }
+    ],
+    "walkthrough": "This is a down entry, so 'up' sends TOPS and SOT bottom-to-top together. 'Old' flags that tosspot is an archaic word for a drunkard."
+   }
   },
   {
    "id": "20-across",
@@ -402,7 +907,29 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLEAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLEAN",
+    "definition": "Guiltless",
+    "indicators": [],
+    "pieces": [
+     "C",
+     "LEAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c = circa, about"
+     },
+     {
+      "clueFragment": "Jack Sprat’s diet, it’s implied",
+      "gives": "LEAN",
+      "note": "he could eat no fat — so what he did eat, by implication, was the lean"
+     }
+    ],
+    "walkthrough": "The nursery rhyme is the key: Jack Sprat could eat no fat, so his diet — never stated outright — was the lean."
+   }
   },
   {
    "id": "21-across",
@@ -419,7 +946,43 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NARWHAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NARWHAL",
+    "definition": "Arctic resident",
+    "indicators": [
+     "in retirement"
+    ],
+    "pieces": [
+     "NAR",
+     "W",
+     "HAL"
+    ],
+    "subReversals": [
+     {
+      "from": "RAN",
+      "to": "NAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worked",
+      "gives": "NAR",
+      "note": "worked = RAN, sent backwards 'in retirement'"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w = with"
+     },
+     {
+      "clueFragment": "supercomputer",
+      "gives": "HAL",
+      "note": "HAL 9000, the computer in 2001: A Space Odyssey"
+     }
+    ],
+    "walkthrough": "The tusked whale of the Arctic. HAL is cinema's most famous computer, and 'in retirement' — withdrawing — is a direction-neutral way to reverse RAN."
+   }
   },
   {
    "id": "22-down",
@@ -436,7 +999,27 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEELS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HEELS",
+    "definition": "Spurs",
+    "indicators": [
+     "reportedly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are improving",
+      "gives": "HEALS",
+      "note": "sounds like 'heals' — mends, gets better"
+     },
+     {
+      "clueFragment": "(still in need of work)",
+      "gives": "",
+      "note": "a parenthetical dig — even improving, Tottenham remain a work in progress — keeping you on the football reading of Spurs"
+     }
+    ],
+    "walkthrough": "A heel is the spur a fighting cock wears — the sense behind 'well-heeled', originally meaning armed for the pit. The football club is pure decoy."
+   }
   },
   {
    "id": "23-across",
@@ -453,7 +1036,39 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAPSAGO",
-   "annotation": null
+   "annotation": {
+    "type": "first letter + container + charade",
+    "answer": "SAPSAGO",
+    "definition": "Cheese",
+    "indicators": [
+     "initially",
+     "stops"
+    ],
+    "pieces": [
+     "SA",
+     "P",
+     "SA",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "production",
+      "gives": "P",
+      "note": "just its first letter, which 'stops' — plugs — the gap"
+     },
+     {
+      "clueFragment": "its",
+      "gives": "SASA",
+      "note": "'it' = SA (sex appeal, the 'It' in It girl); the plural gives a pair of them"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "GO",
+      "note": "a run at something = a go at it"
+     }
+    ],
+    "walkthrough": "Sapsago is a hard green Swiss cheese. 'It' = SA is vintage crosswordese for sex appeal; Enigmatist pluralises it to get two, then the P stops the gap between them."
+   }
   },
   {
    "id": "24-down",
@@ -470,7 +1085,35 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMIGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMIGO",
+    "definition": "Friend",
+    "indicators": [],
+    "pieces": [
+     "AM",
+     "I",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "AM",
+      "note": "first person: is = am"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "GO",
+      "note": "have a shot = have a go"
+     }
+    ],
+    "walkthrough": "Read it as a tiny sentence: is = AM, one = I, shot = GO — and a Spanish friend appears."
+   }
   },
   {
    "id": "25-across",
@@ -487,7 +1130,35 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIDESTEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SIDESTEP",
+    "definition": "Dodge",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "IDEST",
+     "EP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "section",
+      "gives": "S",
+      "note": "s. — as in a legal citation"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IDEST",
+      "note": "id est — 'that is' before it was abbreviated to i.e."
+     },
+     {
+      "clueFragment": "recording",
+      "gives": "EP",
+      "note": "an extended-play record"
+     }
+    ],
+    "walkthrough": "The trick is 'that is' expanded to its full Latin, id est, rather than the usual two-letter i.e."
+   }
   },
   {
    "id": "26-across",
@@ -504,7 +1175,22 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAIGA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TAIGA",
+    "definition": "Forest",
+    "indicators": [
+     "according to recital"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dweller there – fearfully symmetrical",
+      "gives": "TIGER",
+      "note": "Blake's 'Tyger Tyger, burning bright… thy fearful symmetry'; Siberian tigers really do live in the taiga"
+     }
+    ],
+    "walkthrough": "The taiga is the great northern forest, and its most famous dweller arrives via Blake's poem — 'fearful symmetry' is the Tyger's own phrase, delivered 'according to recital'."
+   }
   },
   {
    "id": "27-across",
@@ -525,7 +1211,55 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     ]
    },
    "solution": "KENSINGTONGORE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "KENSINGTON GORE",
+    "definition": "the way to the Proms?",
+    "indicators": [
+     "takes"
+    ],
+    "pieces": [
+     "KEN",
+     "SING",
+     "T",
+     "ON",
+     "GO",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Planet",
+      "gives": "",
+      "note": "italicised because it is a title: the Daily Planet, Superman's paper"
+     },
+     {
+      "clueFragment": "reporter",
+      "gives": "KENT",
+      "note": "Clark Kent, the Planet's reporter — split round the chorus"
+     },
+     {
+      "clueFragment": "chorus",
+      "gives": "SING",
+      "note": "to chorus = to sing together; it sits inside KENT"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the first 'on' spells itself"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "GO",
+      "note": "to leave = to go"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "the second 'on' = re, about"
+     }
+    ],
+    "walkthrough": "Kensington Gore is the road at the Royal Albert Hall, where the Proms play — and the name later became stage slang for fake blood. The italics flag Planet as a newspaper: Clark Kent's Daily Planet."
+   }
   }
  ]
 } /*JSON-END*/;

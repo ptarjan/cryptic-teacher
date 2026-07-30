@@ -9,8 +9,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Enigmatist",
    "date": 1785369600000,
    "file": "30072.js",
-   "v": "535673c9",
-   "annotated": false,
+   "v": "ac2bda11",
+   "annotated": true,
    "hasSolutions": true
   },
   {
@@ -20,8 +20,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brendan",
    "date": 1785283200000,
    "file": "30071.js",
-   "v": "7dde0f3c",
-   "annotated": false,
+   "v": "aa22e1aa",
+   "annotated": true,
    "hasSolutions": true
   },
   {
@@ -31,8 +31,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1785196800000,
    "file": "30070.js",
-   "v": "547d7b8b",
-   "annotated": false,
+   "v": "2931e56c",
+   "annotated": true,
    "hasSolutions": true
   },
   {
