@@ -16,18 +16,25 @@ Checks, for every annotated entry:
   - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
   - linkedTo targets exist and cover their group
 
-And two checks that apply only to puzzles we WROTE (see is_authored):
+And five checks that apply only to puzzles we WROTE (see is_authored):
   - no block may have an empty `gives`: every word of an authored clue is
     definition, wordplay or joinery, never surface padding (check_two_pieces)
   - the walkthrough stays inside MAX_WALKTHROUGH_WORDS when the blocks already
     spell the answer out (check_walkthrough_budget)
+  - every linkWord stands in for an equals sign (check_link_words_are_equivalences)
+  - an anagram indicator touches its fodder (check_indicator_adjacency)
+  - a reversal indicator points the way the entry runs (check_reversal_direction)
 
 And one whole-puzzle check:
   - at most MAX_CRYPTIC_DEFINITIONS clues typed "cryptic definition"
 
-Usage: python3 tools/validate_annotations.py [puzzle-number ...]
+Usage: python3 tools/validate_annotations.py [--unscoped] [puzzle-number ...]
 With no arguments, validates every puzzle that has at least one annotation.
-Exits non-zero if any check fails.
+`--unscoped` runs the authored-only checks on published puzzles too — that is
+the CALIBRATION harness, not a mode to ship in: a check that flags Araucaria is
+a broken check, so every authored-only rule is measured across the eight
+annotated Guardian puzzles before it is trusted. Exits non-zero if any check
+fails.
 """
 
 import json
@@ -78,15 +85,21 @@ MAX_CRYPTIC_DEFINITIONS = 2
 MAX_WALKTHROUGH_WORDS = 45
 
 
+# Set by --unscoped: run the authored-only checks on published puzzles as well.
+# This exists so the calibration in every authored check's docstring can be
+# reproduced in one command instead of a throwaway script.
+FORCE_AUTHORED_CHECKS = False
+
+
 def is_authored(puzzle):
     """Did we write this puzzle, or is it a published Guardian grid?
 
     Authored puzzles get IDs starting with a letter (A001) — the convention
     tools/build_authored_puzzle.py already uses. The distinction matters because
-    the two checks below are AUTHORING rules, not annotation rules: real setters
+    the checks below are AUTHORING rules, not annotation rules: real setters
     pad their surfaces and write long clues, and an annotation of a published
     grid has to be able to record that faithfully."""
-    return not str(puzzle.get("id", ""))[:1].isdigit()
+    return FORCE_AUTHORED_CHECKS or not str(puzzle.get("id", ""))[:1].isdigit()
 
 
 def check_two_pieces(tag, ann, errors):
@@ -136,6 +149,249 @@ def check_walkthrough_budget(tag, ann, warnings):
             f"{tag}: walkthrough is {len(wt)} words with a building-blocks rung above it "
             f"(budget {MAX_WALKTHROUGH_WORDS}) — cut whatever the blocks already say and "
             f"keep only what they cannot show (STYLE.md, 'the blocks already told them')")
+
+
+# A link word stands in for an equals sign. It may assert equivalence (is, are,
+# 's), derivation (gives, makes, becomes, yields, produces, leads to, means,
+# spells, indicates, reveals, to locate) or plain prepositional joining (for,
+# from, of, in, with, by, as, after) — and it may be grammatical glue holding
+# those together (articles, determiners, pronouns, relative pronouns). Anything
+# else is a content word doing surface work, i.e. padding wearing a link word's
+# coat, and it makes the clue a THREE-piece clue.
+#
+# Built from the standard link-word vocabulary, then widened by measurement:
+# `after` (x3) and `having` (x1) were added because published clues use them in
+# the joinery position. See check_link_words_are_equivalences for the counts.
+EQUIVALENCE_LINKS = {
+    # equivalence
+    "is", "are", "was", "were", "be", "been", "being", "am", "s",
+    # derivation: the wordplay turns into / hands you the answer
+    "gives", "give", "given", "giving", "makes", "make", "made", "making",
+    "becomes", "become", "became", "becoming", "yields", "yield", "yielding",
+    "produces", "produce", "producing", "provides", "provide", "providing",
+    "has", "have", "had", "having", "shows", "show", "showing", "brings",
+    "bring", "bringing", "gets", "get", "getting", "got", "leads", "lead",
+    "leading", "means", "meaning", "meant", "spells", "spelling", "needs",
+    "need", "reveals", "reveal", "revealing", "finds", "find", "finding",
+    "locate", "locates", "locating", "indicates", "indicate", "indicating",
+    "denotes", "denote", "denoting",
+    # prepositional joining
+    "for", "from", "in", "of", "with", "to", "into", "as", "by", "at", "on",
+    "after", "and", "or",
+    # grammatical glue: articles, determiners, pronouns, relatives
+    "a", "an", "the", "another", "this", "that", "these", "those", "one",
+    "his", "her", "its", "their", "our", "your", "my",
+    "what", "who", "whom", "which", "where", "when", "there", "here",
+    "it", "he", "she", "they", "you", "we", "i", "not", "no", "all",
+}
+
+
+def check_link_words_are_equivalences(tag, ann, errors):
+    """A link word has to stand in for an equals sign (feedback 2026-07-30).
+
+    "lives on" does not. It joins nothing and asserts nothing; it is surface
+    padding wearing a link word's coat, and declaring it in `linkWords` makes
+    the annotation look sound while the clue is quietly in three pieces —
+    wordplay, PADDING, definition. That is the same fault check_two_pieces
+    catches when the annotator is honest enough to file it as a block with an
+    empty `gives`; this check closes the other door.
+
+    CALIBRATION (unscoped, the eight annotated Guardian puzzles): the corpus
+    declares only TWO link words in 234 entries — `indicating` (30039 18D) and
+    `to locate` (30040 14D) — and both pass. Two data points is thin, so the
+    whitelist was also measured against a proxy with 50x the sample: every clue
+    word in the corpus that the annotation claims for nothing (definition,
+    indicator, block, link) is a word sitting in the joinery position. There are
+    105 such occurrences over 28 distinct words; 101 were already whitelisted
+    and the four misses were `after` (x3) and `having` (x1), both plainly
+    grammatical, both since added. Hit rate on published work: 0/105.
+
+    The rule bites on our own clues, where it caught three of twenty: `would be
+    better spent` (THERE), `mistake it for` (LEADERSHIP), `lives on` (STOREY).
+    If it ever fires on a link word a real setter would use, WIDEN THE LIST —
+    the whitelist is the rule, and a false positive here means the vocabulary is
+    short, not that the setter is wrong."""
+    for lw in ann.get("linkWords", []):
+        bad = [t for t in words_of(lw) if t not in EQUIVALENCE_LINKS]
+        if bad:
+            errors.append(
+                f"{tag}: linkWord {lw!r} is not a link word — {', '.join(bad)} asserts no "
+                f"equivalence between wordplay and definition. A link word stands in for an "
+                f"equals sign (is/gives/makes/for/from/'s); anything else is padding, and a "
+                f"clue with padding is in three pieces, not two (AUTHORING.md, 'Link words "
+                f"are an equals sign'). Rewrite the clue, or widen EQUIVALENCE_LINKS if a "
+                f"real setter would use this")
+
+
+# What may stand between an anagram indicator and its fodder: grammatical glue
+# binding the one to the other, and nothing else. `Naples WAS flattened`, `A grub
+# seen wriggling`, `Latin song IN parts swapped` are all fine.
+FODDER_GLUE = {
+    "a", "an", "the", "this", "that", "these", "those", "another",
+    "is", "are", "was", "were", "be", "been", "being", "s",
+    "with", "of", "in", "and", "to", "for", "from", "by", "as", "at", "on",
+    "its", "his", "her", "their",
+}
+
+
+def _letter_offsets(clue):
+    """The clue's letters, plus the index in `clue` each one came from."""
+    idx = [i for i, ch in enumerate(clue) if ch.isalpha()]
+    return "".join(clue[i].upper() for i in idx), idx
+
+
+def _fodder_spans(clue, fodder, blocks):
+    """Where in the clue text the anagram fodder sits, as (start, end) offsets.
+
+    Two ways to find it, and every candidate either way is returned, because the
+    adjacency check passes if ANY reading of the clue is clean:
+
+    1. verbatim: the fodder's letters, in order, inside the clue's letters —
+       then snapped outwards to whole words. Snapping is what makes `Bedsore
+       very` work for fodder BEDSORE V (the letters stop mid-`very`); it can
+       only widen a span, so it can only make the check more lenient.
+    2. from the blocks that feed the anagram, when together they account for all
+       of the fodder — the case where the fodder is scattered (`B BEAT BLUE`).
+    """
+    from collections import Counter
+    spans = []
+    letts, idx = _letter_offsets(clue)
+    f = letters(fodder)
+    if f:
+        for m in re.finditer("(?=" + re.escape(f) + ")", letts):
+            s, e = idx[m.start()], idx[m.start() + len(f) - 1] + 1
+            while s > 0 and clue[s - 1].isalpha():
+                s -= 1
+            while e < len(clue) and clue[e].isalpha():
+                e += 1
+            spans.append((s, e))
+    parts, total = [], ""
+    for b in blocks:
+        g, frag = letters(b.get("gives")), b.get("clueFragment")
+        if not g or not frag or frag not in clue:
+            continue
+        if not (Counter(g) - Counter(f)):        # this block feeds the anagram
+            i = clue.find(frag)
+            parts.append((i, i + len(frag)))
+            total += g
+    if parts and sorted(total) == sorted(f):
+        spans.append((min(s for s, _ in parts), max(e for _, e in parts)))
+    return spans
+
+
+def check_indicator_adjacency(tag, ann, clue, errors, warnings):
+    """An anagram indicator has to be next to the fodder it operates on.
+
+    `ground` cannot reach back over `lives on the` to shuffle `The oyster`. Only
+    grammatical glue may stand between the two (FODDER_GLUE) — plus the
+    definition, which really does sometimes sit in the gap, and any span the
+    annotation has already confessed to as padding (a block with an empty
+    `gives`, itself an ERROR in an authored puzzle).
+
+    Note this is NOT the withdrawn advice in AUTHORING.md about indicator
+    placement. That one said do not put the indicator next to the fodder, as a
+    style preference, and was killed by measurement (88.9% of published anagrams
+    do exactly that). This says the opposite thing about a different subject: it
+    is a soundness rule, and the measurement supports it.
+
+    CALIBRATION (unscoped, the eight annotated Guardian puzzles): 42 anagram
+    clues, 39 with a locatable fodder span, 0 flagged. The three unlocatable
+    ones (30040 8A, 30040 11A, 30041 20A) all build their fodder by deleting
+    letters, so no span in the clue holds it; they are skipped, and an authored
+    clue in that shape gets a warning rather than a false ERROR. The two
+    allowances above are each carrying exactly one published clue: 30043 1A
+    (`Bans recitals - where this is played?`, definition in the gap) and 30067
+    20D (`Bertie develops from bad to worse`, annotated padding in the gap)."""
+    if not ann.get("anagram"):
+        return
+    spans = _fodder_spans(clue, ann["anagram"].get("fodder"), ann.get("blocks", []))
+    inds = [(clue.find(i), clue.find(i) + len(i), i) for i in ann.get("indicators", [])
+            if i in clue]
+    if not inds:
+        return
+    if not spans:
+        warnings.append(
+            f"{tag}: cannot locate the anagram fodder in the clue text, so adjacency is "
+            f"unchecked — normal when letters are deleted to build the fodder, but in a "
+            f"clue we wrote, check by eye that the indicator touches it")
+        return
+    allowed = set(FODDER_GLUE)
+    for src in (ann.get("definition"), ann.get("definition2")):
+        allowed |= set(words_of(src))
+    for b in ann.get("blocks", []):
+        if not str(b.get("gives") or "").strip():
+            allowed |= set(words_of(b.get("clueFragment")))
+    best = None
+    for fs, fe in spans:
+        for istart, iend, ind in inds:
+            gap = clue[fe:istart] if istart >= fe else clue[iend:fs] if iend <= fs else ""
+            bad = [w for w in words_of(gap) if w not in allowed]
+            if not bad:
+                return
+            if best is None or len(bad) < len(best[1]):
+                best = (ind, bad)
+    errors.append(
+        f"{tag}: anagram indicator {best[0]!r} is separated from its fodder by "
+        f"{', '.join(best[1])} — an indicator only operates on what it stands next to. "
+        f"Move it against the fodder, or cut the words in between (AUTHORING.md, "
+        f"'An indicator operates on what it touches')")
+
+
+# A reversal runs along the entry, so the indicator has to name the entry's own
+# direction. Words that name a horizontal reversal (fine in an across entry,
+# wrong in a down one) and a vertical one (the mirror). Anything not listed —
+# turning, revolutionary, overturned, about, over, regressed, withdraw, tipped,
+# given a twirl, reversal — is direction-neutral and always fair.
+HORIZONTAL_REVERSAL = {
+    "back", "backs", "backed", "backing", "backward", "backwards",
+    "returning", "returned", "returns", "retreating", "retreats", "retreat",
+    "west", "westward", "westwards", "westerly", "left", "leftward", "leftwards",
+}
+VERTICAL_REVERSAL = {
+    "up", "upward", "upwards", "uphill", "rising", "rises", "risen", "rise",
+    "climbing", "climbs", "climb", "ascending", "ascends", "ascent", "ascend",
+    "lifted", "lifting", "lifts", "lift", "raised", "raises", "raising",
+    "elevated", "elevating", "elevates", "erected", "hoisted", "mounting",
+    "north", "northward", "northwards", "northerly", "below", "underneath",
+}
+
+
+def check_reversal_direction(tag, ann, direction, errors):
+    """A reversal indicator must point the way the entry runs.
+
+    An across answer reads right to left when it is reversed, so it comes
+    `back`, `returning`, `west`. A down answer reads bottom to top, so it comes
+    `up`, `rising`, `climbing`, `from below`. `Back at the pool` cannot reverse
+    a DOWN entry: there is no backwards on a vertical axis.
+
+    CALIBRATION (unscoped, the eight annotated Guardian puzzles): 19 reversal
+    clues, 0 flagged, and the convention is not merely un-violated but actively
+    observed — of the 19, ten down entries use a vertical indicator (`pulled
+    up`, `up`, `from below`, `elevating`, `set up`, `to climb`) and four across
+    entries a horizontal one (`backing`, `Turning left`, `Looking west`,
+    `regressed`), with no crossover in either direction. The remaining five use
+    direction-neutral indicators (`turning`, `Revolutionary`, `given a twirl`,
+    `reversal`, `Withdraw`), which is the escape hatch when the surface wants a
+    word the axis will not license.
+
+    Only declared indicators are examined, and only on clues whose type or
+    subReversals say a reversal happens, so an ordinary `up` elsewhere in the
+    surface is not the check's business (30039 11A reverses UP itself)."""
+    if "reversal" not in (ann.get("type") or "") and not ann.get("subReversals"):
+        return
+    wrong = VERTICAL_REVERSAL if direction == "across" else HORIZONTAL_REVERSAL
+    axis = ("an across entry reads right to left when reversed, so it wants "
+            "back / returning / west"
+            if direction == "across" else
+            "a down entry reads bottom to top, so it wants up / rising / "
+            "climbing / lifted / from below")
+    for ind in ann.get("indicators", []):
+        hits = [w for w in words_of(ind) if w in wrong]
+        if hits:
+            errors.append(
+                f"{tag}: reversal indicator {ind!r} points the wrong way for a "
+                f"{direction} entry ({', '.join(hits)}) — {axis} (AUTHORING.md, "
+                f"'A reversal runs along the entry')")
 
 
 # Words that carry no wordplay on their own, so they don't need to be claimed by
@@ -397,6 +653,9 @@ def validate_puzzle(puzzle):
         if authored:
             check_two_pieces(tag, ann, errors)
             check_walkthrough_budget(tag, ann, warnings)
+            check_link_words_are_equivalences(tag, ann, errors)
+            check_indicator_adjacency(tag, ann, clue, errors, warnings)
+            check_reversal_direction(tag, ann, e["direction"], errors)
         low = (ann.get("walkthrough") or "").lower()
         for h in HEDGES:
             if h in low:
@@ -418,6 +677,13 @@ def validate_puzzle(puzzle):
 
 
 def main(argv):
+    global FORCE_AUTHORED_CHECKS
+    if "--unscoped" in argv:
+        FORCE_AUTHORED_CHECKS = True
+        argv = [a for a in argv if a != "--unscoped"]
+        print("--unscoped: authoring rules applied to published puzzles too. This is "
+              "CALIBRATION — every hit is either a broken check or a rare setter's "
+              "liberty, and the default reading is the former.")
     if argv:
         paths = [PUZZLE_DIR / f"{a}.js" for a in argv]
     else:
