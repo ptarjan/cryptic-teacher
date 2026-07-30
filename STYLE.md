@@ -89,6 +89,47 @@ is one of these — never "ignore it":
    empty `gives` and a note saying so — claimed and explained, not silently
    dropped.
 
+### Exactly two pieces — in clues we WRITE (feedback 2026-07-29)
+Paul's words: "A good cryptic clue doesn't have anything superfluous which isn't
+directly part of the wordplay. It should be exactly two pieces. Definition,
+optional joinery and wordplay." So every word of an authored clue is part of the
+definition, part of the wordplay (fodder or indicator), or a link word joining
+the two — and case 4 above, surface padding, is **not available**. A block with
+`"gives": ""` is a validator ERROR in an authored puzzle (`check_two_pieces`).
+
+This does not change annotation of PUBLISHED puzzles one bit. Real setters pad,
+the annotator must be able to record it faithfully, and the check is scoped by
+`is_authored()` (ids starting with a letter) for exactly that reason: unscoped it
+fires eighteen times on 30039 alone. If it ever lights up a Guardian grid, the
+scoping is broken — do not relax the rule.
+
+When a word looks like padding, first ask whether it is really doing one of the
+other jobs, because two of the nine A001 cases were mis-annotation: SIDE's
+"There's a mole in" is the hidden-word *indicator* (a mole is a thing concealed
+inside an organisation), and ARGUE's "There's" is *joinery*, the finite verb that
+makes the clue an utterance — it belongs in `linkWords`. The deeper point, and
+why this recurs: a funny sentence is easy if you are allowed filler, so banning
+filler is what separates a clue from a joke that happens to contain the answer.
+See `tools/AUTHORING.md`, "Exactly two pieces".
+
+### The blocks already told them (feedback 2026-07-29)
+Paul's words: "When you basically give the whole answer in the building blocks
+you don't need to have the full walkthrough." The `blocks[]` rung already gives
+the learner fragment → letters with a note on each, so a walkthrough that
+re-narrates the same steps is padding in the teaching UI. Keep only what the
+blocks CANNOT show: why the surface misleads, the joke in one clause, a
+convention (`ER` = Queen, `worker` = ANT, `H` = husband), or why a definition is
+fair. A001's twenty walkthroughs went from 44-63 words (median 54) to 19-42
+(median 32), which is the published median.
+
+`check_walkthrough_budget()` warns above `MAX_WALKTHROUGH_WORDS` (45; the
+published 90th percentile is 42) when a blocks rung exists, and — like the rule
+above — only on authored puzzles. It is a budget, not a redundancy detector: a
+semantic version scoring recycled vocabulary was built, measured and rejected
+because good walkthroughs scored worse than bad ones. The walkthrough may be
+short but never absent: `ladderSteps()` always emits the rung, so an empty one is
+a labelled hole in the ladder.
+
 ### When the definition really doesn't agree: say so (feedback 2026-07-29)
 Sometimes the setter's definition genuinely does not match the answer's number or
 part of speech — "Lousy payment" for PEANUTS, "hearing aid" for EARPHONES, "work"

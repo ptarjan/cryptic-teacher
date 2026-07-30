@@ -16,6 +16,12 @@ Checks, for every annotated entry:
   - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
   - linkedTo targets exist and cover their group
 
+And two checks that apply only to puzzles we WROTE (see is_authored):
+  - no block may have an empty `gives`: every word of an authored clue is
+    definition, wordplay or joinery, never surface padding (check_two_pieces)
+  - the walkthrough stays inside MAX_WALKTHROUGH_WORDS when the blocks already
+    spell the answer out (check_walkthrough_budget)
+
 And one whole-puzzle check:
   - at most MAX_CRYPTIC_DEFINITIONS clues typed "cryptic definition"
 
@@ -56,6 +62,80 @@ TYPE_PARTS = {
 # (feedback 2026-07-29: "they don't have wordplay anymore"). See AUTHORING.md,
 # "The sentence AND the wordplay".
 MAX_CRYPTIC_DEFINITIONS = 2
+
+
+# "A good cryptic clue doesn't have anything superfluous which isn't directly
+# part of the wordplay. It should be exactly two pieces. Definition, optional
+# joinery and wordplay." (feedback 2026-07-29). A word that exists only to make
+# the surface read nicely is a fault, and in this schema it has exactly one
+# signature: a block with an empty `gives`, i.e. "surface only" padding.
+#
+# A walkthrough budget for the companion rule: "When you basically give the whole
+# answer in the building blocks you don't need to have the full walkthrough."
+# 45 is measured, not invented — across the 231 annotated walkthroughs in
+# puzzles/ the median is 32 words and the 90th percentile is 42, while the A001
+# set that prompted the feedback ran 44-63 with a median of 54.
+MAX_WALKTHROUGH_WORDS = 45
+
+
+def is_authored(puzzle):
+    """Did we write this puzzle, or is it a published Guardian grid?
+
+    Authored puzzles get IDs starting with a letter (A001) — the convention
+    tools/build_authored_puzzle.py already uses. The distinction matters because
+    the two checks below are AUTHORING rules, not annotation rules: real setters
+    pad their surfaces and write long clues, and an annotation of a published
+    grid has to be able to record that faithfully."""
+    return not str(puzzle.get("id", ""))[:1].isdigit()
+
+
+def check_two_pieces(tag, ann, errors):
+    """Every word of a clue we wrote must be doing one of three jobs.
+
+    Definition, wordplay (fodder or indicator), or joinery. Nothing else — and a
+    block with an empty `gives` is the annotation saying out loud that a word is
+    there for the surface alone. That is legitimate when ANNOTATING a published
+    clue (30039 5A, 30040 16A and 30067 20D all carry one, and STYLE.md's
+    "leftover words" rule tells the annotator to record it rather than drop it),
+    which is why this only fires on authored puzzles.
+
+    The deeper point, from AUTHORING.md: a funny sentence is easy if you are
+    allowed filler. Banning filler is what separates a clue from a joke that
+    happens to contain the answer."""
+    for b in ann.get("blocks", []):
+        if not str(b.get("gives") or "").strip():
+            frag = b.get("clueFragment") or "(no fragment)"
+            errors.append(
+                f"{tag}: block {frag!r} has an empty 'gives' — surface padding is not "
+                f"allowed in a clue we wrote. Every word must be definition, wordplay "
+                f"or joinery: rewrite the clue without it, or work out which job it is "
+                f"really doing (AUTHORING.md, 'Exactly two pieces')")
+
+
+def check_walkthrough_budget(tag, ann, warnings):
+    """When the blocks already spell the answer out, the walkthrough is short.
+
+    Honest about what this can and cannot see: it is a BUDGET, not a redundancy
+    detector. It cannot tell a long walkthrough that teaches something from a
+    long one that re-narrates the blocks — but in our own puzzles the long ones
+    have always been the re-narrating ones (19 of the 20 A001 walkthroughs that
+    prompted the rule were over budget, and every one of them restated its
+    blocks). A semantic detector was tried and thrown away: scoring the fraction
+    of walkthrough vocabulary already present in the clue and blocks separated
+    nothing (A001 before 0.21, after 0.16, published puzzles 0.30 — the good
+    walkthroughs scored WORSE than the bad ones, because naming the joke means
+    reusing the clue's own words). Do not re-add it without new evidence.
+
+    The judgement half stays procedure: keep only what the blocks cannot show —
+    why the surface misleads, the joke, a convention (ER = Queen), or why the
+    definition is fair."""
+    wt = (ann.get("walkthrough") or "").split()
+    has_blocks = any(b.get("gives") or b.get("note") for b in ann.get("blocks", []))
+    if has_blocks and len(wt) > MAX_WALKTHROUGH_WORDS:
+        warnings.append(
+            f"{tag}: walkthrough is {len(wt)} words with a building-blocks rung above it "
+            f"(budget {MAX_WALKTHROUGH_WORDS}) — cut whatever the blocks already say and "
+            f"keep only what they cannot show (STYLE.md, 'the blocks already told them')")
 
 
 # Words that carry no wordplay on their own, so they don't need to be claimed by
@@ -228,6 +308,7 @@ def validate_puzzle(puzzle):
     errors, warnings = [], []
     by_id = {e["id"]: e for e in puzzle["entries"]}
     annotated = 0
+    authored = is_authored(puzzle)
 
     for e in puzzle["entries"]:
         ann = e.get("annotation")
@@ -313,6 +394,9 @@ def validate_puzzle(puzzle):
 
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)
+        if authored:
+            check_two_pieces(tag, ann, errors)
+            check_walkthrough_budget(tag, ann, warnings)
         low = (ann.get("walkthrough") or "").lower()
         for h in HEDGES:
             if h in low:

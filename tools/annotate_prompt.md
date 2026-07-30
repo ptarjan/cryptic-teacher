@@ -26,7 +26,7 @@ Annotation schema (see `puzzles/30066.js` for 28 worked examples):
   "blocks": [
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"}
   ],
-  "walkthrough": "2-4 sentences assembling the answer step by step, friendly teaching tone.",
+  "walkthrough": "1-2 sentences, 45 words max: what the blocks CANNOT show. Friendly teaching tone.",
 
   "pieces": ["CHUNKS", "THAT", "CONCATENATE", "TO", "THE", "ANSWER"],
   "anagram": {"fodder": "LETTERS WHOSE MULTISET EQUALS THE ANSWER"},
@@ -72,7 +72,22 @@ Rules:
   overlooked (anything saying where a piece goes, e.g. "facing"); a **letter you never
   named** (a deletion needs a block for the letter removed — "hard" = H — not just for the
   word it came out of); or **genuine surface padding**, which still gets a block with an
-  empty `gives` and a note saying it is surface only.
+  empty `gives` and a note saying it is surface only. That fourth option exists only when
+  you are ANNOTATING a published clue. If you are WRITING one (`tools/AUTHORING.md`), it
+  is forbidden: "a good cryptic clue doesn't have anything superfluous which isn't
+  directly part of the wordplay — it should be exactly two pieces, definition, optional
+  joinery and wordplay". An empty `gives` in an authored puzzle is a validator ERROR
+  (`check_two_pieces`), so rewrite the clue without the word, or work out which of the
+  other three jobs it is really doing — a word can be an indicator hiding in plain
+  description ("There's a mole in" = something is concealed inside) or joinery that only
+  holds the sentence up ("There's").
+- The `walkthrough` is short, because the blocks already did the work: "when you
+  basically give the whole answer in the building blocks you don't need to have the full
+  walkthrough". Do not re-narrate fragment → letters. Write only what the blocks cannot
+  show — why the surface misleads, the joke in one clause, a convention the solver may
+  not know (`ER` = Queen, `worker` = ANT), or why a definition is fair. One or two
+  sentences is normal; over 45 words the validator warns (authored puzzles). It must
+  never be empty: the app always renders the walkthrough rung.
 - If the definition genuinely does NOT agree with the answer ("Lousy payment" = PEANUTS,
   "hearing aid" = EARPHONES), do not stretch it and do not ignore it: add a
   `definitionNote` explaining the mismatch to the learner. The validator requires a real
