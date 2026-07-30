@@ -52,7 +52,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "the dawn of something is its onset"
      }
     ],
-    "walkthrough": "Ganymede is a moon of Jupiter, so its 'Disappearance' below the horizon is a MOONSET — 'say' flags the definition by example. Build it from MO (a 'short time') placed 'before' ONSET (the 'dawn' or beginning of something). MO + ONSET gives MOONSET."
+    "walkthrough": "Ganymede is a moon of Jupiter, so 'say' is doing real work: the definition is by example, and a moonset is the general case."
    }
   },
   {
@@ -94,7 +94,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "'hurry, or you'll be late' means 'if not, you'll be late'"
      }
     ],
-    "walkthrough": "'Noble' is the definition: MILORD is the old form of address for an English nobleman. MILD (a traditional 'Beer') goes 'swilling' around OR, which means 'if not' — as in 'hurry, or you'll be late'. MIL(OR)D makes MILORD."
+    "walkthrough": "'if not' for OR is the substitution to learn — say 'hurry, or you'll be late' and you can hear it. The beer surface hides the nobleman completely."
    }
   },
   {
@@ -141,7 +141,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "you plant a kiss on the lips"
      }
     ],
-    "walkthrough": "The definition is 'Plants' — OXLIPS are woodland primulas. X is a 'kiss', and LIPS are 'where kiss planted'. With O ('love', the tennis score) 'coming first', O + X + LIPS spells OXLIPS."
+    "walkthrough": "'kiss' does two jobs a few words apart: first the X, then the thing you plant on lips. Oxlips are woodland primulas, cousins of the cowslip."
    }
   },
   {
@@ -185,7 +185,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Diabolical' tells you to jumble DEMON CHOSE — ten letters in all. They rearrange to SECOND HOME, which the definition playfully calls 'the other place?': the other place you live."
+    "walkthrough": "The definition is a joke rather than a synonym, and the question mark is the setter's apology for it. 'Diabolical' meanwhile suits the demon so well it stops looking like an instruction."
    }
   },
   {
@@ -226,7 +226,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "chewed again = RE-BIT"
      }
     ],
-    "walkthrough": "'Italian flower' is crossword code for an Italian river — something that flows — and here it is the TIBER. Something 'again chewed' is REBIT, and 'up' in this down clue turns it around: REBIT read upwards gives TIBER."
+    "walkthrough": "'flower' is crossword code for a river — a thing that flows — and it is one of the first conventions worth learning. This one is Italian."
    }
   },
   {
@@ -279,7 +279,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "p = penny"
      }
     ],
-    "walkthrough": "A SUN-LAMP is a 'Lighter' — a thing that gives light. UN, an 'article from France', is 'entered into' SLAM (a 'poetry competition'), making S(UN)LAM, and that is followed 'by' P for 'Penny'. Together: SUN-LAMP."
+    "walkthrough": "'Lighter' is a noun meaning a thing that gives light, not the thing in your pocket, and that switch is the clue's one real joke."
    }
   },
   {
@@ -319,7 +319,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "anagram indicator — a fine image for a grub"
      }
     ],
-    "walkthrough": "'Wriggling' — just what a grub does — is the anagram indicator. Shuffle the nine letters of A GRUB SEEN and they resettle as SUBGENERA, the 'biology classes' that sit just below a genus."
+    "walkthrough": "'wriggling' is exactly what a grub does, so the indicator disappears into the sentence. Subgenera sit just below a genus in the biological order."
    }
   },
   {
@@ -357,7 +357,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "final letters of paN, yoU, filL, vesseL"
      }
     ],
-    "walkthrough": "'Finally' points to last letters: paN, yoU, filL and vesseL end in N, U, L and L. That spells NULL, which 'Empty' defines — a null set has nothing in it."
+    "walkthrough": "Four last letters in a row, and 'finally' at the very end is the only word telling you so. 'Empty pan?' reads as one phrase, which is how the definition hides."
    }
   },
   {
@@ -396,7 +396,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "to elope is to fly off — to run away, classically to marry"
      }
     ],
-    "walkthrough": "The 'graceful animal' is the ANTELOPE. A 'Resident of nest' is an ANT, and to 'fly off' is to ELOPE — to run away, classically with a lover. ANT + ELOPE bounds away as ANTELOPE."
+    "walkthrough": "ANT is the crossword's favourite three letters — worker, insect, resident of nest — and 'fly off' for elope keeps the whole surface about escape."
    }
   },
   {
@@ -441,7 +441,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "where you stand waiting to board a train"
      }
     ],
-    "walkthrough": "The definition is '70s attire: PLATFORM HEELS were the towering shoes of the disco decade. 'Villains' are HEELS — the bad guys, in wrestling slang — and people 'waiting to board train, perhaps' stand on a PLATFORM. Stand the heels on the platform and PLATFORM HEELS runs on into 26 across."
+    "walkthrough": "HEELS for villains is wrestling slang, the piece most solvers need told once. The station surface gives nothing away, and the answer runs on into 26 across."
    }
   },
   {
@@ -488,7 +488,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "give someone a ring = a call; I sits in it as CAL-I-L"
      }
     ],
-    "walkthrough": "The 'Colour' is LILAC. I is 'observed in' CALL (a 'ring' on the telephone), giving CAL-I-L, and 'given a twirl' spins the whole thing round: CALIL backwards is LILAC."
+    "walkthrough": "'ring' is the telephone sense. And 'given a twirl' turns the whole assembly rather than any one piece — reversing after inserting is an order worth watching for."
    }
   },
   {
@@ -542,7 +542,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "The 'drink' is BUBBLE TEA. Take B for 'Black', 'then' the letters of BEAT BLUE, and let 'fluid' stir all nine together: B + BEAT BLUE shakes out as BUBBLE TEA."
+    "walkthrough": "'Black then beat blue' reads as a decorating instruction, which is why none of it looks like fodder. B for black comes off the side of a pencil."
    }
   },
   {
@@ -581,7 +581,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "snuff is snorted, so its taker is a snorter"
      }
     ],
-    "walkthrough": "A RIPSNORTER is a 'Wow' — something remarkable. The 'snuff taker' is a SNORTER, since snuff is snorted, and because they have 'snuffed it' — died — RIP goes in front. RIP + SNORTER: a late lamented snuff user."
+    "walkthrough": "The joke is the entire surface: a snuff taker who has snuffed it. Both halves of the answer fall out of that one grim pun."
    }
   },
   {
@@ -616,7 +616,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "split = CLEFT; 'briefly' drops its last letter"
      }
     ],
-    "walkthrough": "A CLEF is the 'Musical symbol' at the start of a stave. 'Split' gives CLEFT, and 'briefly' cuts it short by a letter, leaving CLEF."
+    "walkthrough": "'briefly' nearly always means drop the last letter — and 'split' is the word being cut, not an instruction to do the cutting."
    }
   },
   {
@@ -662,7 +662,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "ed = editor, the crossword journalist"
      }
     ],
-    "walkthrough": "'Sniffed at' is the definition: to POOH-POOH something is to dismiss it. 'Big jobs' is nursery talk for what ends up in the potty, and 'for a reporter' — as spoken aloud — they become POOH, POOH. Add ED, the usual 'journalist', and POOH + POOH + ED gives POOH-POOHED."
+    "walkthrough": "'for a reporter' is the homophone signal: something as it would be spoken. The nursery joke does the rest, and ED is the usual crossword journalist."
    }
   },
   {
@@ -694,7 +694,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "the guillotine is a head-chopper; said aloud, 'head-chopper' becomes HEDGEHOPPER"
      }
     ],
-    "walkthrough": "A HEDGEHOPPER flies dangerously low — 'Anything but a high-flier'. The guillotine is a head-chopper, and 'did you say?' asks you to listen: 'head-chopper' spoken quickly sounds like HEDGEHOPPER."
+    "walkthrough": "The whole clue is one long joke — a guillotine is a head-chopper, and said quickly that becomes a flier who skims the hedges rather than climbing above them."
    }
   },
   {
@@ -742,7 +742,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "a diary is a log; split DI…ARY"
      }
     ],
-    "walkthrough": "A 'Big noise' is an important person — a DIGNITARY. G for 'good' plus NIT (an 'egg', a louse's egg) together make the 'good egg' that 'splits' DIARY, a 'log'. DI + G + NIT + ARY builds DIGNITARY."
+    "walkthrough": "'good egg' is a compliment on the surface and two separate pieces underneath, G and NIT. Spotting that split is the whole difficulty."
    }
   },
   {
@@ -790,7 +790,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "caught = got"
      }
     ],
-    "walkthrough": "The 'Slow mover' is an ESCARGOT — a snail, at least on a French menu. RACES goes 'off' (an anagram) to make ESCAR, which sits 'before' GOT, meaning 'caught'. ESCAR + GOT: dinner at a snail's pace."
+    "walkthrough": "The slow mover is a snail, at least on a French menu — and 'races' pretending to be speed is the setter's joke at its expense."
    }
   },
   {
@@ -838,7 +838,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "wine; split VIN…O"
      }
     ],
-    "walkthrough": "The 'dish that's hot' is a VINDALOO. DAL ('Lentils') and O (a 'duck', the cricket zero) go 'in' VINO — 'red or white' wine. VIN + DAL + O + O assembles the VINDALOO."
+    "walkthrough": "Duck for zero comes from cricket, and 'red or white' for wine keeps the surface at the dinner table. The fiddly part is two Os arriving from two different places."
    }
   },
   {
@@ -884,7 +884,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "A SEISMOGRAPH records earthquakes — a 'shaking recorder'. Take the 'First of musicians', M, put it in with PARISH GOES, and let 'crazy' shake all eleven letters up: they settle as SEISMOGRAPH."
+    "walkthrough": "'shaking recorder' is a fair definition and a fine disguise: it reads as a nervous witness, while 'crazy' is the word actually doing the shaking."
    }
   },
   {
@@ -925,7 +925,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "greed is wanting, and asking for, a lot"
      }
     ],
-    "walkthrough": "'You're on' is what you say when a deal is struck — AGREED. The 'peak of Annapurna' in this down clue is its top letter, A, and 'asking for a lot' is GREED. A + GREED makes AGREED."
+    "walkthrough": "'You're on' is what you say when a deal is struck, which makes it a fair definition even though it looks like a fragment. 'peak of' means top letter because the clue runs down."
    }
   },
   {
@@ -967,7 +967,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "have a crack at = have a try at; split TR…Y"
      }
     ],
-    "walkthrough": "'Worthless' defines TRASHY. ASH (a 'wood') 'fills' TRY (a 'crack', as in having a crack at something): TR + ASH + Y makes TRASHY."
+    "walkthrough": "'crack' as a go at something is the substitution to spot. Everything else is a plausible sentence about DIY, which is what keeps it hidden."
    }
   },
   {
@@ -1013,7 +1013,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "the A from the clue"
      }
     ],
-    "walkthrough": "The 'superstore' is ASDA. 'Notices' are ADS; add A, then 'Turning left' — reading backwards in this across clue — flips ADS A into ASDA."
+    "walkthrough": "In an across clue, 'Turning left' means read backwards — the same job 'up' does in a down clue. That is the only instruction here."
    }
   },
   {
@@ -1061,7 +1061,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "MO = medical officer"
      }
     ],
-    "walkthrough": "A FISHMONGER spends the day gutting fish, so the definition asks who is 'in the gutter?'. The 'Obscene gesture' is the FINGER, which 'keeps' SH ('quiet') and MO (a 'doctor', the medical officer) inside: FI + SH + MO + NGER."
+    "walkthrough": "'in the gutter?' sounds like a moral judgement and describes a man gutting fish; the question mark is the setter enjoying himself. The obscene gesture is the finger."
    }
   },
   {
@@ -1103,7 +1103,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "link words for the drug-deal surface"
      }
     ],
-    "walkthrough": "'Accommodation' is the definition. To 'weed' is to HOE, and to 'grass' on someone is to TELL, and 'picked up?' says to listen: 'hoe-tell' sounds like HOTEL — where the weed and grass of the surface might change hands."
+    "walkthrough": "Weed and grass each have a straight sense and a drug sense, and the clue is built so the drug reading arrives first. 'picked up?' asks you to listen instead."
    }
   },
   {
@@ -1149,7 +1149,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "link word"
      }
     ],
-    "walkthrough": "The 'Beer' is PILS, short for pilsner. A 'hiccup' is a SLIP — a minor mistake — and 'from below' in this down clue reads it upwards: SLIP climbs back up as PILS."
+    "walkthrough": "'from below' means read upwards, which only makes sense in a down clue — one of those small rules that turns a clue from impossible into obvious."
    }
   },
   {
@@ -1197,7 +1197,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "a van"
      }
     ],
-    "walkthrough": "To GALLIVANT is to gad about — to 'search for diversion?'. GALL ('Bother') comes first; then IT, 'having impeded' VAN (a 'vehicle'), wraps around it as I(VAN)T. GALL + I + VAN + T makes GALLIVANT."
+    "walkthrough": "To gallivant is to gad about, so the question mark carries a definition that is a description rather than a synonym. IT split around a VAN is the move to spot."
    }
   },
   {
@@ -1260,7 +1260,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "sky blue"
      }
     ],
-    "walkthrough": "The 'Red' is Leon TROTSKY, the Russian revolutionary. A 'pace' is a TROT, placed 'ahead of' SKY, a shade of 'blue'. TROT + SKY = TROTSKY."
+    "walkthrough": "'Red' is a person here, not a colour, and both pieces come from ordinary words — the surface reads like a paint chart."
    }
   },
   {
@@ -1314,7 +1314,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "last letter of holidaY"
      }
     ],
-    "walkthrough": "LADY DAY, 25 March, is the 'celebration in March'. The 'Case' of 'driveway' — its outer letters — is DY, which is 'packed into' a LADA ('car'), and the 'end of holiday' adds a final Y. LA + DY + DA + Y spells LADY DAY."
+    "walkthrough": "Lady Day, 25 March, is the feast of the Annunciation and an old quarter day; setters use it, so it is worth knowing. 'Case' meaning outer letters is the unusual instruction."
    }
   }
  ]

@@ -60,7 +60,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "insertion indicator — P cuts into OUTLAY"
      }
     ],
-    "walkthrough": "The 'leader of party' is P, and 'expenditure' gives OUTLAY. 'Cutting' tells you P slices into OUTLAY: OUT + P + LAY = OUTPLAY, which is to 'Perform better than' someone."
+    "walkthrough": "'Cutting expenditure' reads as a single piece of budget news, which is why 'cutting' never sounds like an instruction to slide a letter in."
    }
   },
   {
@@ -107,7 +107,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "TERM (to name) losing M (money)"
      }
     ],
-    "walkthrough": "'70s music' is DISCO, and 'a French' is UN (the French for 'a'). Then 'name' as a verb gives TERM, which 'losing money' drops its M to leave TER. DISCO + UN + TER = DISCOUNTER, a 'Cheap outlet'."
+    "walkthrough": "The hard step is 'name' as a verb — to name is to TERM — and only then does 'money' take its M away. Everything else is disco and schoolboy French."
    }
   },
   {
@@ -139,7 +139,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "hidden: jarroW EARlier"
      }
     ],
-    "walkthrough": "'Seen in' flags a hidden word: look inside 'jarroW EARlier' and WEAR is sitting there across the join. The definition is 'Sport' — to sport a hat is to wear it. Jarrow, up in the north-east near the River Wear, makes a fitting hiding place."
+    "walkthrough": "'Sport' reads as a noun — games, athletics — and it is really the verb: to sport a hat is to wear it. Jarrow sits near the River Wear, so even the hiding place fits."
    }
   },
   {
@@ -179,7 +179,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Concocted' says to mix up DIM BORE, and those seven letters rearrange to BROMIDE — a 'placatory statement', a soothing platitude. The surface even sounds like the sort of dull person who'd utter one."
+    "walkthrough": "A bromide is a soothing platitude, named after the sedative — and the surface even sounds like the sort of dull person who would utter one."
    }
   },
   {
@@ -235,7 +235,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "to mind = to object ('do you mind?')"
      }
     ],
-    "walkthrough": "'Performing' gives ON (an actor who's on stage is 'on'), 'individual' gives ONE, and 'singular' is the grammar abbreviation S. Then 'object' is a verb here: to MIND is to object. ON + ONE + S + MIND = ON ONE'S MIND, which is how you'd describe something 'of concern?'."
+    "walkthrough": "'Object' looks like a noun and turns out to be a verb: do you mind? That switch is the clue's one real difficulty; everything before it is small dull abbreviations."
    }
   },
   {
@@ -284,7 +284,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "the letter A, tucked inside"
      }
     ],
-    "walkthrough": "'Face' is MUG in slang, and 'Revolutionary' turns it round to GUM. That then 'encapsulates' the A from the clue: GU(A)M = GUAM, the 'US territory' in the Pacific."
+    "walkthrough": "'Revolutionary face' sounds like a poster of Che, and it means MUG turned round. Note that the 'a' is not a link word here — you actually use the letter."
    }
   },
   {
@@ -339,7 +339,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "YEN (longing) 'overturned' in this down clue"
      }
     ],
-    "walkthrough": "Put H for 'Husband' in CUT ('trim') to get C(H)UT. Then take YEN, a 'longing', and since this is a down clue 'overturned' flips it to NEY. CHUT + NEY = CHUTNEY, the 'Indian food' on the side of your curry."
+    "walkthrough": "H for husband and YEN for longing are both worth filing away. In a down clue 'overturned' means read upwards, and the curry-house surface covers all three moves."
    }
   },
   {
@@ -385,7 +385,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Take TERM IN USE and remove the 'end of churches' — the S — leaving eight letters. 'Possibly' signals the anagram, and they rearrange to MUTINEER. The definition is 'Christian, say': Fletcher Christian, who led the mutiny on the Bounty, is the most famous mutineer of all."
+    "walkthrough": "The payoff is the definition: Fletcher Christian led the mutiny on the Bounty, so 'Christian, say' is a fair example — and the S leaves before the shuffle, not after."
    }
   },
   {
@@ -427,7 +427,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "SOUGHT (looked for) with S (sun) taken out"
      }
     ],
-    "walkthrough": "The 'middle of canal' is its central letter, N. 'Looked for' gives SOUGHT, and 'when sun is out' removes the S (s = sun) to leave OUGHT. N + OUGHT = NOUGHT — a 'Duck', the cricketer's word for a score of zero."
+    "walkthrough": "Duck for zero is cricket's gift to crosswords, and it is the definition here — not the bird the canal invites you to picture."
    }
   },
   {
@@ -474,7 +474,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "TRUMP cut short — 'snubbed' as in snub-nosed"
      }
     ],
-    "walkthrough": "'Special' abbreviates to SP, and 'city' is EC — the postcode of the City of London. Then a 'snubbed president' is TRUMP with his end cut off (snubbed, like a snub nose): TRUM. SP + EC + TRUM = SPECTRUM, the 'Colourful band' of a rainbow."
+    "walkthrough": "'Snubbed' means cut short, as in a snub nose, rather than slighted — and the president loses his last letter for it. That double sense is the whole joke."
    }
   },
   {
@@ -520,7 +520,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Start with PUT MANY, and 'after scrubbing article' delete the A. 'Off' tells you to jumble the six letters that remain, giving NUMPTY — a 'Dimwit', in cheerfully Scottish style."
+    "walkthrough": "Numpty is cheerfully Scottish. The surface — putting people off — sounds like a real complaint rather than a bag of letters waiting to be shaken."
    }
   },
   {
@@ -570,7 +570,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "The 'Supermarket' is ALDI, which goes 'among' the letters of RESTAURANTS — fifteen letters in all. 'Stricken' is the anagram indicator, and they rearrange to NATURAL DISASTER, of which a 'flood, maybe' is one example. A stricken supermarket in a flood is a neat all-in-one picture."
+    "walkthrough": "'Among' only tells you ALDI joins the other letters — in an anagram, where a piece goes makes no difference. And a stricken supermarket in a flood is very nearly the answer already."
    }
   },
   {
@@ -622,7 +622,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "y, an algebraic unknown"
      }
     ],
-    "walkthrough": "'Paul S' is Paul Simon, so his partner is Art Garfunkel — ART G. 'In Paris to go' is the French verb ALLER, and an 'unknown' is Y from algebra. In this down clue ALLER sits 'over' the Y: ART G + ALLER + Y = ART GALLERY, a 'site with a collection?'."
+    "walkthrough": "'Paul S's partner' is the pleasure of the clue — Simon and Garfunkel, reduced to ART G. After that it is French and algebra, and 'in Paris' is the standard signal to translate."
    }
   },
   {
@@ -662,7 +662,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'At sea' is the anagram indicator: shake up TAR WAS HERE and you get SHEARWATER, the 'marine bird'. Lovely surface — a tar is a sailor, exactly who you'd expect to have scrawled 'was here' out on the ocean.",
+    "walkthrough": "Lovely surface: a tar is a sailor, exactly the person you would expect to have scrawled 'was here' out on the ocean, and 'at sea' means both lost and jumbled.",
     "linkWords": [
      "to locate"
     ]
@@ -701,7 +701,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "a state = a condition ('in a bad state')"
      }
     ],
-    "walkthrough": "A compact double definition. To 'Declare' something is to STATE it, and a 'condition' is a STATE — as in being in a sorry state. Two meanings, one word."
+    "walkthrough": "A two-word clue with no indicator and nothing to take apart is nearly always two definitions. The only work is finding the word that answers both."
    }
   },
   {
@@ -736,7 +736,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "DIVERSIONS (amusements) keeping only its first half"
      }
     ],
-    "walkthrough": "'Amusements' are DIVERSIONS; '(not half)' tells you to throw away half the word, keeping the first five letters: DIVER. That's 'one working in a suit' — a diving suit, not a pinstripe."
+    "walkthrough": "'Not half' is a standard instruction: keep the first half, drop the rest. The joke is 'working in a suit' — a diving suit, not a pinstripe."
    }
   },
   {
@@ -785,7 +785,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "a riot = disorder"
      }
     ],
-    "walkthrough": "'Clearly disheartened' scoops out the middle of CLEARLY, leaving just C and Y. 'Facing' then places that in front of what follows: the 'start of public' (P) and 'disorder' (RIOT). CY + P + RIOT = CYPRIOT, an 'Islander' from Cyprus."
+    "walkthrough": "'Disheartened' always means scoop out the middle, leaving the two ends. The surface, unrest on a sunny island, keeps you reading news rather than instructions."
    }
   },
   {
@@ -827,7 +827,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "A + DD (Doctor of Divinity)"
      }
     ],
-    "walkthrough": "A 'Duke' is slang for a FIST — as in 'put up your dukes'. It's 'defending' (wrapped around) 'a theologian': A plus DD, a Doctor of Divinity. F(ADD)IST = FADDIST, 'one given to temporary obsession?'."
+    "walkthrough": "'Put up your dukes' is where the fists come from, and DD for Doctor of Divinity is standard shorthand. The surface, a duke defending a theologian, is period drama."
    }
   },
   {
@@ -868,7 +868,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "CURES (curés, French priests) minus E (English)"
      }
     ],
-    "walkthrough": "'With Italian' is CON — the Italian for 'with'. 'French priests' are CURÉS, and '(not English)' removes the E to leave CURS. CON + CURS = CONCURS, which means 'Agrees'."
+    "walkthrough": "Two languages in seven letters: Italian con and French curés. The ecclesiastical surface is exactly what stops you hearing either as a foreign word."
    }
   },
   {
@@ -914,7 +914,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Treated' is the anagram indicator here — a sneaky choice, since 'terribly' looks like one but is actually fodder. Rearrange ANDORRA TERRIBLY, all fifteen letters, and you get BY TRIAL AND ERROR: 'in an experimental way?'."
+    "walkthrough": "'Treated' is the anagram indicator — a sneaky choice, since 'terribly' looks like one and is actually fodder."
    }
   },
   {
@@ -946,7 +946,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "hidden: exTRA VELodrome"
      }
     ],
-    "walkthrough": "'Held in' points to a hidden answer: 'exTRA VELodrome' conceals TRAVEL across the two words. The definition is 'Insurable activity' — think travel insurance."
+    "walkthrough": "Hidden words hide best inside long words, and 'velodrome' is long enough that nobody looks. 'Insurable activity' gives it away once you think of travel insurance."
    }
   },
   {
@@ -987,7 +987,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "eTOn without its outer letters"
      }
     ],
-    "walkthrough": "'Excluding outsiders' strips the first and last letters from both 'over' and 'Eton', leaving VE and TO. Together they make VETO — a 'Sanction' in the blocking sense, as when a president vetoes a bill."
+    "walkthrough": "'Sanction' is its own opposite: it can mean approve or forbid, and here it is the blocking sense. Two words stripped of their outsides is an unusual way to build four letters."
    }
   },
   {
@@ -1029,7 +1029,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "to ditch = to abandon; it circles the SPA"
      }
     ],
-    "walkthrough": "'Abandon' gives DITCH, which goes 'Circling' the 'resort', SPA: DI(SPA)TCH. The definition is 'speed' — to do something with dispatch is to do it quickly."
+    "walkthrough": "The surface is all holiday, and the definition is the noun sense of 'speed' — to do something with dispatch is to do it quickly."
    }
   },
   {
@@ -1065,7 +1065,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "the kitchen sink"
      }
     ],
-    "walkthrough": "A double definition. To 'Decline' is to SINK — spirits or share prices can do it — and the 'feature in a kitchen' is of course the kitchen SINK."
+    "walkthrough": "Both senses are so ordinary that the clue barely looks cryptic, which is the trap. 'Decline' is the abstract sense while the kitchen keeps you thinking literally."
    }
   },
   {
@@ -1101,7 +1101,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "to potter (about) = to move without urgency"
      }
     ],
-    "walkthrough": "Two definitions again. In snooker, 'One engaged in break, perhaps' is a POTTER — someone potting balls to build a break. And to 'move with little energy' is to POTTER about. The 'perhaps' signals the first sense is a playful example."
+    "walkthrough": "'Break' sends you to snooker, and 'perhaps' concedes that a potter is only one example of someone making one. The two senses share nothing but their letters."
    }
   },
   {
@@ -1149,7 +1149,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "sound = sane; it takes the CE RR inside"
      }
     ],
-    "walkthrough": "'Anglican' gives CE (Church of England) and 'bishop' gives RR (Right Reverend, the style of a bishop). Put CERR 'into' SANE ('sound', of mind): SAN(CERR)E = SANCERRE, the Loire white wine — a very respectable 'tipple'."
+    "walkthrough": "CE for Church of England and RR for Right Reverend are both standard; the surface, an ecclesiastical wine tasting, is built to keep them looking like people."
    }
   }
  ]

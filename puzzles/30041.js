@@ -54,7 +54,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "to garden is to hoe"
      }
     ],
-    "walkthrough": "'Pee' is the letter P, and to 'garden' is to HOE. Put P 'in' HOE and you get HO(P)E — Bob Hope, the 'Old comedian'. The surface about someone weeing in the garden is pure misdirection."
+    "walkthrough": "The surface — someone weeing in the garden — is pure misdirection, and it works because a letter spelled out as a word is the last thing anyone looks for."
    }
   },
   {
@@ -99,7 +99,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Inflamed' signals the anagram. Mix BEDSORE with V for 'very' and the eight letters rearrange to OBSERVED — 'spotted'. A grisly surface hiding a gentle answer."
+    "walkthrough": "A grisly surface hiding a gentle answer. The step people miss is 'very' donating a single letter to the fodder — anagrams often take a stray abbreviation along."
    }
   },
   {
@@ -140,7 +140,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a fanatic is a nut; with the ’s it supplies NUTS"
      }
     ],
-    "walkthrough": "A 'fanatic' is a NUT, so 'fanatic’s' supplies the letters NUTS. In this down clue 'Tipped' turns them upside down: NUTS read upwards is STUN, to 'bowl over'."
+    "walkthrough": "The apostrophe-s earns its keep: 'fanatic’s' hands you four letters, not three. In a down clue 'Tipped' means read them upwards."
    }
   },
   {
@@ -185,7 +185,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Smashed' is the anagram indicator. Jumble CURST LP together with O for 'over' and you get SCULPTOR — 'Old Moore?', as in Henry Moore. The question mark flags the definition by example."
+    "walkthrough": "'Old Moore?' is definition by example — Henry Moore is one sculptor among many, which is what the question mark concedes. O for 'over' comes off a cricket scorecard."
    }
   },
   {
@@ -232,7 +232,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "d = duke"
      }
     ],
-    "walkthrough": "'After battle' places the rest after FRAY, a battle. E for 'English' and D for 'duke' follow: FRAY + E + D = FRAYED, 'worn out'."
+    "walkthrough": "E for English and D for duke are the kind of one-letter abbreviations that vanish into a battlefield surface, which is exactly why the clue reads so smoothly."
    }
   },
   {
@@ -277,7 +277,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "someone who eggs you on"
      }
     ],
-    "walkthrough": "'Sack' gives BOOT (to sack is to boot out), 'Latin' gives L, and a 'person encouraging' is an EGGER — one who eggs you on. BOOT + L + EGGER = BOOTLEGGER, 'a criminal' who smuggles liquor."
+    "walkthrough": "EGGER is the invented-looking piece that makes this hard — one who eggs you on. 'Sack Latin person' meanwhile reads like an order barked by an emperor."
    }
   },
   {
@@ -318,7 +318,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a ruler of the realm"
      }
     ],
-    "walkthrough": "The 'short woman' is VI — Violet cut down — 'married to', i.e. joined to, KING, a 'ruler'. VI + KING = VIKING, a 'Raider'."
+    "walkthrough": "'Married to' is only a joiner: it says the two pieces sit side by side and nothing more. Vi for Violet is the sort of shortened name setters use constantly."
    }
   },
   {
@@ -350,7 +350,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a lark is a bird"
      }
     ],
-    "walkthrough": "A 'Lark' is a BIRD, and 'broadcast' says to sound it out: spoken aloud, BIRD gives BYRD — William Byrd, the Tudor 'English composer'. 'The Lark Ascending' is by Vaughan Williams, which is the trap."
+    "walkthrough": "'The Lark Ascending' is by Vaughan Williams, and that is the trap. The lark here is just a bird, said aloud."
    }
   },
   {
@@ -382,7 +382,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "hidden inside exORBITant"
      }
     ],
-    "walkthrough": "'Housing' tells you the answer is hiding in plain sight: exORBITant houses ORBIT, a 'revolution' around a planet."
+    "walkthrough": "One long word is all it takes to hide a five-letter answer, and 'Exorbitant' is long enough that nobody thinks to look inside it."
    }
   },
   {
@@ -422,7 +422,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "anagram indicator — think of a house removal"
      }
     ],
-    "walkthrough": "'Removing' — as in a house removal — shuffles the letters of OUR CITY IS into CURIOSITY. The definition is 'cat killer?': curiosity killed the cat, as the proverb has it."
+    "walkthrough": "'Removing' is a house removal, not a subtraction — that is the trick. And the definition is a whole proverb folded into two words: curiosity killed the cat."
    }
   },
   {
@@ -463,7 +463,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "you vote by marking an X on the ballot"
      }
     ],
-    "walkthrough": "'On the outside' is EXTERNALLY. 'Having no vote' removes the X — the cross you mark on a ballot — and E(X)TERNALLY becomes ETERNALLY, 'Always'."
+    "walkthrough": "X for a vote is worth remembering — it is the cross on the ballot paper. 'On the outside' looks like a definition and is really the word being trimmed."
    }
   },
   {
@@ -505,7 +505,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "trad jazz, the revival of early jazz styles"
      }
     ],
-    "walkthrough": "'Jazz revival' gives TRAD — trad jazz, the revivalist style. I for 'one' is 'introduced in' it: TR(I)AD = TRIAD, 'Some notes' — a three-note chord."
+    "walkthrough": "Trad jazz genuinely was a revival, so 'jazz revival' is a straight substitution rather than an instruction. And 'Some notes' is fair for a chord of three."
    }
   },
   {
@@ -554,7 +554,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "to vet something is to check it"
      }
     ],
-    "walkthrough": "'To act' is DO. 'Almost timid' is CO — COY cut short — and 'when held in check' puts it inside VET, since to vet is to check: VE(CO)T. DO + VECOT = DOVECOT, 'A place for fliers' — the pigeons."
+    "walkthrough": "Three separate moves in seven letters, which is why this one takes a while: 'almost' clips a letter, 'held in' inserts, and only then do the parts stack up."
    }
   },
   {
@@ -596,7 +596,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "n = northern"
      }
     ],
-    "walkthrough": "'Deserts' — as in just deserts — are DUES. They go 'surrounding' N for 'northern': DU(N)ES, sandy 'hills'. Neat trap: the surface points at Sahara-style deserts, which is where the answer actually lives."
+    "walkthrough": "Neat trap: the surface points at Sahara sand, while 'Deserts' is the just-deserts sense, meaning dues. The sand only comes back in the answer."
    }
   },
   {
@@ -647,7 +647,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Large escapes from' takes L out of the letters of HATCH WE LEFT, and 'undone' mixes what remains. HATCH WE EFT rearranges to CHEW THE FAT — to 'Gas', or chat idly."
+    "walkthrough": "'Gas' is the definition and it means to chat idly, not the thing escaping from the hatch — the surface is built entirely to keep you reading it the other way."
    }
   },
   {
@@ -692,7 +692,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "r = right"
      }
     ],
-    "walkthrough": "'Doctor' gives DR, to 'creep' is to EDGE, and 'right' is R. DR + EDGE + R = DREDGER, a 'Working vessel' that scoops up the seabed."
+    "walkthrough": "The dash and the question mark make the surface sound like an insult thrown across a room; nothing in it admits to three pieces stacked in order."
    }
   },
   {
@@ -741,7 +741,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a joey is a baby kangaroo — a roo"
      }
     ],
-    "walkthrough": "A 'Joey' is a baby kangaroo, a ROO. T for 'Troy' — the weight abbreviation — 'punches' it: RO(T)O. R for 'Run' comes 'after': ROTO + R = ROTOR, a 'Turner'. The capitalised Joey Turner is pure invention."
+    "walkthrough": "Capital letters are free in a cryptic: 'Joey Turner' looks like a man and is really a baby kangaroo and a definition. T for troy weight is the obscure piece."
    }
   },
   {
@@ -783,7 +783,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a G is a grand — a thousand"
      }
     ],
-    "walkthrough": "'Without clothes' is NUDE. The second 'without' means outside: NUDE goes round G, 'much money' (a grand). NUD(G)E = NUDGE, a 'Jog' with the elbow."
+    "walkthrough": "The two 'withouts' mean different things — the first is 'lacking', the second is 'outside'. Same word, two jobs, a few syllables apart."
    }
   },
   {
@@ -818,7 +818,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a snooker red, potted — put in a pocket"
      }
     ],
-    "walkthrough": "Two definitions: RED is 'Wine', and a snooker RED is 'often put in a pocket' — potted, fifteen times a frame. The surface wants you thinking of a hip flask."
+    "walkthrough": "The surface wants you thinking of a hip flask. The second definition is snooker, where a red is put in a pocket fifteen times a frame."
    }
   },
   {
@@ -857,7 +857,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a ling is a long cod-like fish"
      }
     ],
-    "walkthrough": "To 'Throw away' is to DUMP, and the 'fish' is a LING. DUMP + LING = DUMPLING, a 'pudding'."
+    "walkthrough": "LING is one of a handful of fish setters keep for their letters — ide, ling, dace, eel. They are worth learning as a set."
    }
   },
   {
@@ -908,7 +908,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Maybe' marks the anagram. Start with GET LAID, then 'after ace date’s removed' take out A (ace) and D (date). The five letters left — GETLI — rearrange to GILET, a sleeveless 'top'."
+    "walkthrough": "'removed top' reads as one phrase and does two jobs: 'removed' finishes the deletions and 'top' is the definition. The bawdy surface is there to stop you making that cut."
    }
   },
   {
@@ -951,7 +951,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a wave is a gesture"
      }
     ],
-    "walkthrough": "'Extended' gives LONG and a 'gesture' is a WAVE. LONG WAVE is 'used by some broadcasters?' — the long-wave radio band. Read as one phrase, an extended gesture is a long wave too, which is the joke."
+    "walkthrough": "Read as one phrase, an extended gesture is a long wave — the wordplay and the surface are the same picture, which is the whole joke."
    }
   },
   {
@@ -997,7 +997,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "a bus or tram station is a stop"
      }
     ],
-    "walkthrough": "'Frequently' is OFT, 'to be found in' STOP — a 'station' where the bus calls. S(OFT)TOP = SOFT TOP, a convertible 'vehicle'."
+    "walkthrough": "'Frequently to be found in station' reads as a complete sentence about buses, so nothing marks the point where the definition takes over."
    }
   },
   {
@@ -1040,7 +1040,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "the 'cap' — top letter, in a down clue — of Detachable"
      }
     ],
-    "walkthrough": "'Of superior quality' is FINER, which 'includes' the cap — the top letter, this being a down clue — of 'Detachable': D. FIN(D)ER = FINDER, the 'Small telescope' mounted on a big one to aim it."
+    "walkthrough": "'cap' means top letter, and top only means first because this is a down clue — in an across clue the same word would have to do something else."
    }
   },
   {
@@ -1081,7 +1081,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "t = temperature"
      }
     ],
-    "walkthrough": "The 'tree' is a PLANE, and it 'gains' T for 'temperature': PLANE + T = PLANET, of which 'Mercury' is one — the question mark flags the example."
+    "walkthrough": "Mercury is one planet among eight, which is what the question mark concedes. The plane tree is the piece solvers walk past, since the surface is all thermometers."
    }
   },
   {
@@ -1128,7 +1128,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "r = river"
      }
     ],
-    "walkthrough": "A 'Prospector' is a MINER. It goes 'collecting' A ('top grade') and R ('river'): M(AR)INER = MARINER, a 'tar' — an old word for a sailor."
+    "walkthrough": "'tar' for a sailor is old slang worth knowing — it comes from tarpaulin. The prospector surface keeps you thinking of gold rather than of the sea."
    }
   },
   {
@@ -1174,7 +1174,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "H = hard, the pencil grading — this is the letter to dispose of"
      }
     ],
-    "walkthrough": "'Pressure' is P and 'therefore' is HENCE. 'Hard' is H — the grading stamped on a pencil — and the clue says 'to dispose of' it, so HENCE loses its H and leaves ENCE. P + ENCE = PENCE, the 'cash'."
+    "walkthrough": "H for hard is stamped on the side of a pencil. Note that the deletion is aimed at the middle piece, not at the whole — 'hard' names the letter to lose."
    }
   },
   {
@@ -1215,7 +1215,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "c = cold, as on a tap"
      }
     ],
-    "walkthrough": "A garden 'bed' is a PATCH. Make it 'less cold' by removing C — the cold tap — and PAT(C)H becomes PATH, a 'Way'."
+    "walkthrough": "C for cold comes off a tap and 'bed' is the garden sense: two small domestic swaps that let the surface read as ordinary grumbling."
    }
   },
   {
@@ -1260,7 +1260,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Twists' is the anagram indicator: the letters of WHAT ALLEY rearrange to ALL THE WAY, 'to the very end'. A twisting alley might well run all the way, which makes the whole clue read beautifully."
+    "walkthrough": "A twisting alley might well run all the way, so the surface and the answer describe the same thing — which is what makes this one read so beautifully."
    }
   },
   {
@@ -1301,7 +1301,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "her = female pronoun"
      }
     ],
-    "walkthrough": "'One' — A — comes 'pursuing', i.e. after, HER, the 'female': HER + A = HERA, queen of the Greek gods and a 'character in mythology'."
+    "walkthrough": "'One' for the single letter A is a small, common trick: it is the indefinite article. 'pursuing' only tells you which piece comes second."
    }
   },
   {
@@ -1343,7 +1343,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "the last letter of addictioN"
      }
     ],
-    "walkthrough": "A 'period' is a YEAR; 'Drug-free' removes E, the drug ecstasy, leaving YAR. Add the 'end of addiction' — N — for YARN: a tall tale, and 'do not swallow one!' warns you not to believe it."
+    "walkthrough": "E for ecstasy is standard in modern cryptics. The definition is the joke — 'do not swallow one' means do not believe the tall tale."
    }
   },
   {
@@ -1389,7 +1389,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "an underground explorer"
      }
     ],
-    "walkthrough": "'Later' is THEN, 'hosting' a CAVER — an underground 'explorer'. THE(CAVER)N = THE CAVERN, the 'Legendary music venue' in Liverpool where the Beatles made their name."
+    "walkthrough": "'hosting' is a venue word doing a container's job, which is why it hides so well in a clue about a music venue. The Cavern is the Liverpool cellar the Beatles played."
    }
   },
   {
@@ -1430,7 +1430,7 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/
       "note": "on = over, as in 'a blanket over the bed'"
      }
     ],
-    "walkthrough": "'Collar at last' gives R, the final letter of collaR, and 'on' means OVER. R + OVER = ROVER, a classic name for a 'dog?' — the question mark admitting not every dog answers to it."
+    "walkthrough": "The question mark admits not every dog answers to Rover. 'on' meaning OVER is the sort of tiny synonym that is hardest to see coming."
    }
   }
  ]

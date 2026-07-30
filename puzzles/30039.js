@@ -51,7 +51,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a rite is a ceremony"
      }
     ],
-    "walkthrough": "'Special' abbreviates to SP, and a 'ceremony' is a RITE. SP + RITE = SPRITE, the 'fairy'. The word 'for' simply links the wordplay to the definition."
+    "walkthrough": "'Special ceremony' reads as one phrase — a wedding, a coronation — and that is what hides the seam between the two pieces. 'For' is only glue."
    }
   },
   {
@@ -93,7 +93,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "knock over a chessboard and you must literally pick up the pieces"
      }
     ],
-    "walkthrough": "Two readings of the same phrase. To 'recover from shock' is to PICK UP THE PIECES; and if you upset a chessboard, you would literally have to pick up the pieces. The question mark signals the playful literal reading."
+    "walkthrough": "'Upsetting the board' first reads as annoying the directors; the question mark is the setter admitting he means it literally, with a chessboard on the floor."
    }
   },
   {
@@ -135,7 +135,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "the Roman numeral one"
      }
     ],
-    "walkthrough": "'During school time' translates to IN TERM. That phrase is 'accepting' (taking in) I, the Roman numeral for 'one': IN TER(I)M = INTERIM, meaning 'temporary'."
+    "walkthrough": "The hard step is hearing 'during school time' as the phrase IN TERM rather than as scene-setting. Once it is written out, the insertion is the easy part."
    }
   },
   {
@@ -174,7 +174,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "to hone is to perfect, sharpen"
      }
     ],
-    "walkthrough": "The 'US lawman' is Wyatt EARP, and 'perfects' gives HONES (as in honing a skill). EARP + HONES = EARPHONES, wittily defined as a 'hearing aid'.",
+    "walkthrough": "Wyatt Earp is one of a small cast of names setters keep on hand for their letters. The surface, a lawman with a hearing problem, gives nothing away.",
     "definitionNote": "The answer is plural but the definition is singular: 'a hearing aid' is being used loosely for the kit as a whole, the way you would call a pair of earphones 'a headset'. Setters allow themselves this with objects that come in pairs."
    }
   },
@@ -211,7 +211,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a harvester literally faces rows of corn"
      }
     ],
-    "walkthrough": "The 'Hairy arrangement' is CORNROWS, the braided hairstyle. Read the word again as CORN ROWS and it's what a harvester faces in the field. The question mark admits the second reading is whimsical.",
+    "walkthrough": "The pleasure is the second reading: split the word and the harvester really is facing rows of corn. The question mark is the setter apologising for it.",
     "definitionNote": "CORNROWS is plural but 'arrangement' is singular, because the many braids together make one hairstyle — the plural word names a single arrangement."
    }
   },
@@ -252,7 +252,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "remove the first letter (the 'starter') of Screamed"
      }
     ],
-    "walkthrough": "'Made huge fuss' gives SCREAMED. 'Denied starter' tells you to remove its first letter, leaving CREAMED — 'like some potatoes'. A nice menu-flavoured deletion: the starter is denied."
+    "walkthrough": "The joke is on the menu — 'denied starter' sounds like a diner going without a first course, and it is also the instruction to drop the opening S."
    }
   },
   {
@@ -293,7 +293,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a joystick is a lever"
      }
     ],
-    "walkthrough": "A 'joystick' is a LEVER. In this down clue, 'pulled up' reverses it: LEVER read upwards is REVEL, meaning to 'delight' (in something)."
+    "walkthrough": "'Pulled up' is doing double duty: it suits a joystick, and in a down clue it means read the letters upwards."
    }
   },
   {
@@ -332,7 +332,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a sack is a big bag"
      }
     ],
-    "walkthrough": "'Hurried' gives RAN and a 'big bag' is a SACK. RAN + SACK = RANSACK, to 'plunder'. 'With' and 'for' are just the glue holding the surface together."
+    "walkthrough": "The surface is already the crime, told innocently — a man hurrying off with a big bag. 'With' and 'for' are only glue."
    }
   },
   {
@@ -383,7 +383,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Excitedly' is the anagram indicator. Shuffle the fifteen letters of INVITE WHORE THEN and you get WITHER ON THE VINE — to 'fail through inanition', i.e. to fade away from sheer neglect or emptiness."
+    "walkthrough": "Inanition is exhaustion from lack of nourishment, so the definition is exact rather than loose. The startling surface is there to stop you counting letters."
    }
   },
   {
@@ -427,7 +427,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Fails' signals the anagram: rearrange CATHETER to get ACT THREE. In a five-act play, act three is 'halfway through' — the 'perhaps' concedes that not every play has five acts."
+    "walkthrough": "In a five-act play the middle is act three, and 'perhaps' is the setter conceding that not every play has five acts — that little word is what makes the definition fair."
    }
   },
   {
@@ -462,7 +462,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "vanity = conceitedness"
      }
     ],
-    "walkthrough": "A cryptic definition in one stroke: VANITY means 'conceitedness', and a VANITY case is a small bag for cosmetics. So a 'case of conceitedness' would literally be a vanity case."
+    "walkthrough": "The trick is 'case': it reads as 'an instance of' and it means the cosmetics bag. Both senses are true at once, which is what a cryptic definition lives on."
    }
   },
   {
@@ -509,7 +509,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "RR = Rolls-Royce"
      }
     ],
-    "walkthrough": "'Turning' reverses the word UP to give PU, and the 'classy car' is an RR — a Rolls-Royce. PU + RR = PURR, to 'express pleasure' like a contented cat (or, indeed, a smooth engine)."
+    "walkthrough": "The sly bit is that 'up' is not an instruction but the word to be turned. And a purr belongs equally to a contented cat and a Rolls-Royce engine."
    }
   },
   {
@@ -562,7 +562,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a particular = a DETAIL, 'backing' (reversed)"
      }
     ],
-    "walkthrough": "'To sing wordlessly' is to HUM, and 'one' gives I. A 'particular' is a DETAIL, which 'backing' reverses to LIATED. HUM + I + LIATED = HUMILIATED, 'mortified'."
+    "walkthrough": "'Backing' reads as musical accompaniment, which is why it hides so well as a reversal instruction — and DETAIL turned round is the least visible of the three pieces."
    }
   },
   {
@@ -604,7 +604,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "tame = weak, feeble"
      }
     ],
-    "walkthrough": "'Tin' is the chemical symbol SN, and 'in tin' puts TAME ('weak') inside it: S(TAME)N = STAMEN. The stamen is a flower's pollen-bearing organ — the 'fertiliser' of the plant world."
+    "walkthrough": "'Fertiliser' sounds like something you buy in a sack, but a stamen is what fertilises a flower. The garden-centre surface is the trap; the definition is exact."
    }
   },
   {
@@ -644,7 +644,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "pollsters record undecided answers as 'don't know'"
      }
     ],
-    "walkthrough": "Two definitions. In a quiz, to 'pass' on a question is to say you DON'T KNOW; and 'don't know' is the classic 'reply to pollster' — the box on every opinion survey."
+    "walkthrough": "'Pass' is quiz-show jargon and 'don't know' is polling jargon. The clue works by setting two specialist idioms side by side with nothing to mark the join."
    }
   },
   {
@@ -684,7 +684,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Mess' is the anagram indicator: jumble the letters of IT'S ENOUGH and you get NOUGHTIES — the decade 2000–2009, the 'ten years at the start of century'."
+    "walkthrough": "The surface sounds like a fed-up parent, which is why 'mess' never looks like an instruction. The question mark covers a definition that fits only one particular century."
    }
   },
   {
@@ -731,7 +731,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "accustomed (to) = used (to)"
      }
     ],
-    "walkthrough": "'Wounded' scrambles HERO into REHO, and 'accustomed' gives USED (as in 'used to'). REHO + USED = REHOUSED, meaning 'moved elsewhere' — given a new home."
+    "walkthrough": "Only 'hero' is fodder — the rest is a straight charade piece. Anagrams that eat just part of a clue are the ones solvers walk past."
    }
   },
   {
@@ -767,7 +767,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "split the word as ONE'S ELF — my own little helper"
      }
     ],
-    "walkthrough": "As one word, ONESELF is a slightly grand way of saying 'me'. Split it as ONE'S ELF and it becomes 'my little helper' — an elf of one's own. The question mark winks at the wordplay."
+    "walkthrough": "The gag is the apostrophe you cannot hear: one's elf. Splitting a solid word into a possessive is a favourite trick, and the question mark is the wink."
    }
   },
   {
@@ -799,7 +799,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "hidden inside pud-DING BAT-ter"
      }
     ],
-    "walkthrough": "'Ingredients of' tells you the answer is hiding inside the next words: pud-DINGBAT-ter conceals DINGBAT, a 'special symbol' — the typographic ornaments in fonts like Zapf Dingbats.",
+    "walkthrough": "Hidden words live or die by the surface, and 'pudding batter' is entirely innocent. A dingbat is a typographic ornament — the little flowers and pointing hands in fonts like Zapf Dingbats.",
     "linkWords": [
      "indicating"
     ]
@@ -841,7 +841,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "'what a shame' = 'what a pity'"
      }
     ],
-    "walkthrough": "'Promoted' gives UP, and a 'shame' is a PITY ('what a pity!'). UP + PITY = UPPITY, meaning 'arrogant'. The dash just separates wordplay from the last definition-friendly word."
+    "walkthrough": "'Promoted – shame' reads as one wry line about office politics, so nothing announces itself as wordplay. The dash is punctuation, not an instruction."
    }
   },
   {
@@ -883,7 +883,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a counter is a ledge, a shelf"
      }
     ],
-    "walkthrough": "'Paid' abbreviates to PD, and a 'counter' is a LEDGE. Put PD 'across' (around) the LEDGE: P(LEDGE)D = PLEDGED, meaning 'promised'. The surface sounds like an over-the-counter transaction."
+    "walkthrough": "'Paid across the counter' is a whole plausible transaction, and that is the disguise — 'across' is the instruction hiding in the middle of it."
    }
   },
   {
@@ -918,7 +918,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a round of drinks after a round of golf"
      }
     ],
-    "walkthrough": "A cryptic definition built on golf slang: the NINETEENTH hole is the clubhouse bar — a 'drinking hole' where you buy a round (of drinks) after a round (of golf). Both senses of 'round' do the work."
+    "walkthrough": "The joke turns on 'round' meaning both a circuit of the course and a set of drinks, and on 'drinking hole' being literally true: the clubhouse bar is the nineteenth hole."
    }
   },
   {
@@ -960,7 +960,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "the ide, a freshwater fish beloved of setters"
      }
     ],
-    "walkthrough": "The 'monarch formerly' is ER — Elizabeth Regina, the late Queen. She is 'eating' an IDE, the crossword-friendly 'fish': E(IDE)R = EIDER, the 'duck' whose down fills duvets."
+    "walkthrough": "'Fish and duck' reads as a menu, which is why the seam is invisible. ER and IDE are both worth memorising — setters reach for them constantly."
    }
   },
   {
@@ -992,7 +992,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "to exploit = to use; 'recounted' means said aloud"
      }
     ],
-    "walkthrough": "'Recounted' — said aloud — is the homophone indicator. 'Exploit' gives USE, which spoken aloud sounds like EWES, the 'farm animals'. The possessive apostrophe in the surface is pure misdirection."
+    "walkthrough": "'Recounted' means said out loud, not retold, and spotting that is the whole clue. The possessive apostrophe belongs to the surface only; the answer is a plain plural."
    }
   },
   {
@@ -1033,7 +1033,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "S = saint, as in S. Francis"
      }
     ],
-    "walkthrough": "A 'statement of belief' is a CREED, placed 'by' (next to) S for 'saint'. In the grid the saint comes first: S + CREED = SCREED, a 'tedious speech' or long-winded piece of writing."
+    "walkthrough": "'By' tells you the two pieces are adjacent but not in which order — here the saint comes first, and only the enumeration and the crossing letters settle it."
    }
   },
   {
@@ -1077,7 +1077,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "things to be thrown away go in the BIN, so RINGS goes inside B…IN"
      }
     ],
-    "walkthrough": "'Items of jewellery' are RINGS. If they are 'to be thrown away', they go in the BIN — so put RINGS inside BIN: B(RINGS)IN = BRINGS IN, meaning 'yields', as in what an investment brings in."
+    "walkthrough": "'To be thrown away' clues BIN by description rather than synonym, which is the hard step. And 'yields' is the financial sense — what an investment brings in."
    }
   },
   {
@@ -1118,7 +1118,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "'you're asking for it' = you're inviting trouble"
      }
     ],
-    "walkthrough": "Two readings of ASK FOR IT. 'To seek computer assistance' is to ask for IT — the Information Technology helpdesk. And to 'invite trouble' is to ask for it, as any parent will warn you."
+    "walkthrough": "The join is invisible because both halves are idioms and IT changes from pronoun to department. 'You're asking for it' is the parental version."
    }
   },
   {
@@ -1152,7 +1152,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "SOD (a piece of turf) + DEN (a fox's home, called an 'earth')"
      }
     ],
-    "walkthrough": "'Earth' has two crossword-friendly senses here: a SOD is a piece of turf, and a fox's lair — its DEN — is also called an earth. SOD + DEN = SODDEN, 'very wet'."
+    "walkthrough": "A fox's lair is called an earth — that is the sense solvers miss, and the clue needs 'earth' to mean two different things at once."
    }
   }
  ]
