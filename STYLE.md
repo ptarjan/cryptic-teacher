@@ -112,6 +112,42 @@ why this recurs: a funny sentence is easy if you are allowed filler, so banning
 filler is what separates a clue from a joke that happens to contain the answer.
 See `tools/AUTHORING.md`, "Exactly two pieces".
 
+### The joints: link words, adjacency, direction (feedback 2026-07-30)
+Three rules about how the pieces of a clue attach to each other, all three
+ERRORs in `tools/validate_annotations.py`, all three scoped by `is_authored()`,
+all three calibrated at **zero hits** across the eight annotated Guardian
+puzzles before shipping (`--unscoped` runs them on published grids; the counts
+and the reasoning are in `tools/AUTHORING.md`, "The joints").
+
+1. **A link word stands in for an equals sign.** Paul's words: "link words have
+   to stand in for an equals sign." It may assert equivalence (`is`, `'s`),
+   derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`,
+   `indicating`, `to locate`) or plain prepositional joining (`for`, `from`,
+   `of`, `in`, `with`, `after`), and it may be grammatical glue holding those
+   together. Anything else is a content word doing surface work: `lives on`,
+   `would be better spent`, `mistake it for`. Declaring padding in `linkWords`
+   is the loophole in the two-pieces rule — the annotation looks sound while the
+   clue is quietly in three pieces — so `EQUIVALENCE_LINKS` in the validator is
+   a whitelist, not a blacklist. Widen it when a real setter's link word fails;
+   never widen it for one of ours.
+2. **An indicator operates on what it touches.** An anagram indicator must be
+   adjacent to its fodder, with only grammatical glue between (`FODDER_GLUE`:
+   `was`, `is`, `a`, `the`, `of`, `in`, `with`). `Naples was flattened by
+   aircraft` is fine; `The oyster lives on the ground floor` is not, because
+   `ground` cannot reach back over three words to shuffle `The oyster`.
+   Measured from character offsets in the clue, so it is arithmetic, not taste.
+3. **A reversal runs along the entry.** An across answer reversed reads right to
+   left, so it wants `back` / `returning` / `retreating` / `west`; a down answer
+   reads bottom to top, so it wants `up` / `rising` / `climbing` / `lifted` /
+   `from below`. There is no backwards on a vertical axis. Neutral vocabulary
+   (`turning`, `about`, `overturned`, `revolutionary`, `reversal`) is always
+   safe and is the escape hatch when the surface wants a word the axis will not
+   license. The eight Guardian puzzles observe this 19 times out of 19.
+
+The post-mortem worth remembering: STOREY *felt* like the best clue in the set
+because the padding is what made the surface smooth. Surface quality is not
+evidence of soundness.
+
 ### The blocks already told them (feedback 2026-07-29)
 Paul's words: "When you basically give the whole answer in the building blocks
 you don't need to have the full walkthrough." The `blocks[]` rung already gives

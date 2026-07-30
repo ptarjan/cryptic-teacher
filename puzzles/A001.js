@@ -163,7 +163,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 10,
-   "clue": "Leaders get hip and mistake it for direction (10)",
+   "clue": "Leaders get hip and find direction (10)",
    "group": [
     "4-down"
    ],
@@ -174,7 +174,8 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "definition": "direction",
     "indicators": [],
     "linkWords": [
-     "mistake it for"
+     "get",
+     "and find"
     ],
     "pieces": [
      "LEADERS",
@@ -311,7 +312,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 5,
-   "clue": "Time here would be better spent yonder (5)",
+   "clue": "Time here leads to yonder (5)",
    "group": [
     "8-across"
    ],
@@ -322,7 +323,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "definition": "yonder",
     "indicators": [],
     "linkWords": [
-     "would be better spent"
+     "leads to"
     ],
     "pieces": [
      "T",
@@ -340,7 +341,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the word itself, lifted straight out of the clue"
      }
     ],
-    "walkthrough": "The grass-is-greener grumble is also the wordplay: one letter of time is all it takes to turn here into somewhere better."
+    "walkthrough": "T is the standard abbreviation for time and 'here' is lifted whole, so the charade needs no instruction word. The joke is the sentence's own: our time here leads to the hereafter."
    }
   },
   {
@@ -415,7 +416,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 5
    },
    "length": 6,
-   "clue": "The oyster lives on the ground floor (6)",
+   "clue": "Ground oyster makes a floor (6)",
    "group": [
     "11-down"
    ],
@@ -425,10 +426,10 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "answer": "STOREY",
     "definition": "floor",
     "indicators": [
-     "ground"
+     "Ground"
     ],
     "linkWords": [
-     "lives on"
+     "makes a"
     ],
     "anagram": {
      "fodder": "OYSTER"
@@ -440,7 +441,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "note": "the six letters to rearrange"
      }
     ],
-    "walkthrough": "'Ground floor' reads as one ordinary phrase, so the instruction hides inside the definition's own scenery. And the sentence is true: the oyster does live on the sea's ground floor."
+    "walkthrough": "Crushed oyster shell really is laid as flooring, so 'Ground' describes the stuff and shuffles it in the same breath. The joke is which floor you get: not the surface underfoot but a whole storey of the building."
    }
   },
   {
@@ -564,7 +565,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "y": 7
    },
    "length": 4,
-   "clue": "Back at the pool for another circuit (4)",
+   "clue": "Up the pool for another circuit (4)",
    "group": [
     "14-down"
    ],
@@ -574,7 +575,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "answer": "LOOP",
     "definition": "circuit",
     "indicators": [
-     "Back"
+     "Up"
     ],
     "linkWords": [
      "for another"
@@ -592,10 +593,10 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      {
       "clueFragment": "pool",
       "gives": "POOL",
-      "note": "read backwards it becomes the answer"
+      "note": "read upward — this is a down entry — it becomes the answer"
      }
     ],
-    "walkthrough": "'Back' reads as part of the scene rather than an order, which is why it hides. In a down clue the reversal runs upwards, so the P that began the word ends it."
+    "walkthrough": "A down entry has no 'backwards': its reversal runs upward, which is why 'Up' and never 'Back' can do this job here. And a swimmer going up the pool really is on another circuit."
    }
   },
   {

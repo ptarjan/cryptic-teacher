@@ -566,3 +566,119 @@ Two things to know before touching this:
   good walkthroughs scored *worse* than the bad ones, because naming the joke
   means reusing the clue's own words. Don't rebuild it without new evidence; the
   judgement half of this rule is procedure, not machinery.
+
+## The joints: link words, adjacency, direction (feedback 2026-07-30)
+
+The clue offered as the best of the pass was rejected, and the two objections
+were both structural. Here is what was offered, with its annotation:
+
+    The oyster lives on the ground floor (6)   = STOREY
+
+    The oyster    fodder
+    lives on      link
+    ground        anagram indicator
+    floor         definition
+
+> **A link word has to stand in for an equals sign**, and **an anagram
+> indicator has to be next to the fodder it operates on.**
+
+Both faults are in that one clue. `lives on` asserts no equivalence between
+wordplay and definition — it is surface padding wearing a link word's coat,
+which makes the clue three pieces (wordplay, PADDING, definition) and a direct
+breach of "Exactly two pieces" above. And `ground` cannot reach back over
+`lives on the` to shuffle `The oyster`: an indicator only operates on what it
+touches.
+
+**The lesson underneath both, and the reason this one is worth a section: STOREY
+felt like the best clue in the set precisely because of the fault.** The padding
+is what made the surface smooth. `The oyster lives on the ground floor` scans
+like a line from a nature programme, and it scans that way because three of its
+words are free to serve the picture instead of the machinery. A sound clue has
+to buy its surface with words that are already working. **Surface quality is
+therefore not evidence of soundness — it is very often evidence against it,
+because the easiest way to a smooth surface is to stop paying for it.**
+
+A third fault of the same family turned up while auditing for the first two, and
+it survived calibration:
+
+> **A reversal indicator must point the way the entry runs.** `Back at the pool
+> for another circuit (4)` = LOOP was **14-DOWN**. There is no backwards on a
+> vertical axis.
+
+### The three rules
+
+| rule | check | what it allows |
+| --- | --- | --- |
+| Link words are an equals sign | `check_link_words_are_equivalences` | equivalence (`is`, `'s`), derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`, `indicating`, `to locate`), prepositional joining (`for`, `from`, `of`, `in`, `with`, `after`), and grammatical glue. Nothing else — `EQUIVALENCE_LINKS` is the whole rule |
+| An indicator operates on what it touches | `check_indicator_adjacency` | only `FODDER_GLUE` between an anagram indicator and its fodder (`was`, `is`, `a`, `the`, `of`, `in`, `with`), plus the definition, which does sometimes sit in the gap |
+| A reversal runs along the entry | `check_reversal_direction` | across: `back`, `returning`, `retreating`, `west`. Down: `up`, `rising`, `climbing`, `lifted`, `raised`, `from below`. Neutral (`turning`, `about`, `overturned`, `revolutionary`, `reversal`) is always safe |
+
+All three are ERRORs, scoped by `is_authored()` like the two-pieces rule.
+
+### Calibration, which is the part that matters
+
+The standing discipline: **a check that flags Araucaria is a broken check.** Run
+every authoring rule across the eight annotated Guardian puzzles before trusting
+it, and keep the count:
+
+```bash
+python3 tools/validate_annotations.py --unscoped 30039 30040 30041 30042 30043 30044 30066 30067
+```
+
+`--unscoped` exists for exactly this and is not a mode to ship in. What it found:
+
+| check | published sample | hits |
+| --- | --- | --- |
+| link words are equivalences | 2 declared link words, plus 105 unclaimed joinery-position words as a proxy | 0 (after adding `after` and `having`, the only two misses) |
+| indicator adjacency | 42 anagram clues, 39 with a locatable fodder span | 0 |
+| reversal direction | 19 reversal clues | 0 |
+
+Two of those numbers are worth reading closely.
+
+* **The link-word corpus is thin — two instances in 234 entries** — so the
+  whitelist could not be calibrated directly, and a second measurement was
+  built rather than shrugged at: every clue word the annotation claims for
+  nothing is a word standing in the joinery position, and there are 105 of
+  those. Four fell outside the whitelist, all of them grammatical (`after` x3,
+  `having`), and the list was widened. When a corpus is too small to calibrate
+  against, find the proxy with the bigger sample; do not ship on two points.
+* **Reversal direction is not merely un-violated, it is actively observed.** Ten
+  down entries use a vertical indicator, four across entries a horizontal one,
+  five use neutral vocabulary, and there is no crossover in either direction.
+  That is what a real convention looks like in data, as against a rule somebody
+  wrote down.
+
+Two published clues sit inside the adjacency check's allowances rather than
+outside its scope, and both allowances were added because of them: 30043 1A
+(`Bans recitals – where this is played?`) puts its definition between fodder and
+anagrind, and 30067 20D (`Bertie develops from bad to worse`) puts annotated
+padding there. Three more (30040 8A, 30040 11A, 30041 20A) build their fodder by
+deleting letters, so no span of the clue holds it; those are skipped, with a
+warning when the clue is ours.
+
+Note the adjacency rule is *not* a reversal of the withdrawn advice at the top of
+this file. That one said an anagrind next to its fodder is a *tell* and was
+killed by measurement (88.9% of published anagrams do it). This says a separated
+one is *unsound*. Different claims about different things, and the same
+measurement supports both: adjacency is the norm because adjacency is how
+indicators work. `tools/clue_quality.py` still carries the
+`indicator-abuts-fodder` smell on its correlation with judge score alone, and it
+now says so — the only legal response to it is a different indicator, never a
+moved one.
+
+### What the audit changed
+
+| answer | was | now | fault |
+| --- | --- | --- | --- |
+| STOREY | The oyster lives on the ground floor | Ground oyster makes a floor | link word + adjacency |
+| THERE | Time here would be better spent yonder | Time here leads to yonder | link word (four words of padding) |
+| LEADERSHIP | Leaders get hip and mistake it for direction | Leaders get hip and find direction | link word (`mistake it`) |
+| LOOP | Back at the pool for another circuit | Up the pool for another circuit | reversal direction (down entry) |
+
+STOREY keeps the pun it was written for — floor-as-surface against
+floor-as-storey — and pays for it honestly: crushed oyster shell really is laid
+as flooring, so `Ground` describes the material and shuffles it in the same
+breath, and `makes` is a true equals. Five words, four jobs, no passengers.
+LOOP's walkthrough now teaches the direction convention instead of quietly
+contradicting it: the old one already said "in a down clue the reversal runs
+upwards" while using `Back` to do it.

@@ -134,7 +134,11 @@ are simply false:
     shape in the corpus. It is kept only because it is the check with the second
     strongest correlation to judge score above (-0.45), and that correlation, not
     the shape, is the whole of its claim to exist. Read it as "this clue had no
-    other disguise", never as "setters do not do this".
+    other disguise", never as "setters do not do this". Since 2026-07-30 the
+    opposite is a hard rule: `check_indicator_adjacency` in
+    validate_annotations.py ERRORs when an anagram indicator is NOT next to its
+    fodder, because an indicator only operates on what it touches. So the only
+    legal response to this smell is a different indicator, never a moved one.
   * Rarity does not separate once indicators are compared like with like. The
     existing `stock-indicator` premise — that published setters use each
     indicator about once — is an artefact of counting rows in the `indicators`
@@ -489,9 +493,16 @@ def check(eid, spec, norms):
             pat = rf"\b{re.escape(fodder.lower())}\s+{re.escape(ind.lower())}\b|" \
                   rf"\b{re.escape(ind.lower())}\s+{re.escape(fodder.lower())}\b"
             if re.search(pat, lower):
+                # NOT a suggestion to move the indicator: adjacency is REQUIRED
+                # (check_indicator_adjacency in validate_annotations.py makes a
+                # separated indicator a hard ERROR — an indicator only operates
+                # on what it touches). This smell survives only on its -0.45
+                # correlation with judge score, and the fix is always to change
+                # the indicator, never to slide it away from the fodder.
                 out.append(("indicator-abuts-fodder",
-                            f"'{ind}' sits directly against '{fodder}', which "
-                            f"points at the anagram instead of hiding it"))
+                            f"'{ind}' sits directly against '{fodder}' with no "
+                            f"disguise — pick an indicator that reads as ordinary "
+                            f"description; do NOT move it, adjacency is required"))
                 break
 
     # 6. No finite verb: a noun phrase, not an utterance.
