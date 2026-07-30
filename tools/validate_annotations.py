@@ -434,8 +434,15 @@ def letters(s):
 
 
 def words_of(s):
-    """Lowercase word list, with the (8) enumeration and punctuation dropped."""
-    return re.findall(r"[a-z]+", re.sub(r"\([^)]*\)", " ", (s or "").lower()))
+    """Lowercase word list, with markup, the (8) enumeration and punctuation dropped.
+
+    Guardian clue text sometimes carries literal HTML — 30046 19A and 30072 27A
+    both italicise a word — and without the strip the coverage check reported
+    the tag name 'span' as an unclaimed clue word. There is nothing honest to
+    claim it with, because it isn't a word of the clue.
+    """
+    s = re.sub(r"<[^>]*>", " ", s or "")
+    return re.findall(r"[a-z]+", re.sub(r"\([^)]*\)", " ", s.lower()))
 
 
 def check_coverage(tag, ann, clue, warnings):
