@@ -5,16 +5,21 @@
 #   1. Fetches the newest Guardian cryptic if we don't have it yet.
 #   2. Re-fetches puzzles whose solutions weren't published yet (Saturday prize
 #      crosswords publish theirs about a week late).
-#   3. Asks Claude Code (headless) to annotate the oldest un-annotated puzzles,
-#      following tools/annotate_prompt.md — ANNOTATE_MAX per run (default 3).
-#      The Guardian publishes six puzzles a week, so one per run never drains a
-#      backlog; it barely keeps up. Stops early if a run fails (usually a session
-#      limit) rather than burning the rest of the quota on doomed attempts.
+#   3. Asks Claude Code (headless) to annotate the newest un-annotated puzzles,
+#      following tools/annotate_prompt.md — ANNOTATE_MAX per run (default 3),
+#      and only while the account's weekly usage window is under
+#      ANNOTATE_MAX_WEEKLY_PCT (default 50). The Guardian publishes six puzzles
+#      a week, so one per run never drains a backlog; it barely keeps up. Stops
+#      early if a run fails (usually a session limit) rather than burning the
+#      rest of the quota on doomed attempts.
 #   4. Validates, reindexes, and commits (and pushes, if a remote is set up).
 #
-# Install (do this manually — nothing installs itself):
-#   crontab -e
-#   15 6 * * *  /Users/pt/github/cryptic-teacher/tools/daily_update.sh >> /Users/pt/github/cryptic-teacher/.update.log 2>&1
+# Install: this runs as the LaunchAgent ~/Library/LaunchAgents/com.pt.cryptic-teacher.plist,
+# NOT as a crontab entry, and must stay that way. The `claude` CLI keeps its
+# OAuth credentials in the *login* keychain; cron runs outside the GUI login
+# session, cannot unlock it, and every run dies with "Not logged in".
+#   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.pt.cryptic-teacher.plist
+#   launchctl kickstart -k gui/$(id -u)/com.pt.cryptic-teacher   # run it now
 #
 # Requirements: python3, git, and the `claude` CLI on PATH for the annotation step.
 
@@ -53,6 +58,29 @@ todo = sorted((p["number"] for p in idx["puzzles"]
 print(" ".join(str(n) for n in todo[:int(sys.argv[1])]))
 EOF
 )
+
+# Annotation is the only thing here that spends inference, and a crossword
+# backlog is never worth being rate-limited for real work. Skip it once the
+# account's weekly window is more than ANNOTATE_MAX_WEEKLY_PCT spent; steps 1,
+# 2 and 4 still run, so the newest puzzle is still fetched and published, just
+# without hints until the window resets.
+#
+# If the usage check itself fails we annotate anyway, loudly. A silent gate
+# that can never open is the exact failure this repo has already shipped twice
+# (cron with no PATH to claude, oldest-first ordering): the backlog stops
+# draining and nothing says so. Overspending is visible; not running isn't.
+ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
+if [ -n "$pending" ]; then
+  weekly=$(python3 tools/weekly_usage.py)
+  if [ -z "$weekly" ]; then
+    echo "WARNING: weekly usage unknown — annotating anyway (see error above)"
+  elif [ "$weekly" -gt "$ANNOTATE_MAX_WEEKLY_PCT" ]; then
+    echo "weekly usage ${weekly}% > ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $pending"
+    pending=""
+  else
+    echo "weekly usage ${weekly}% (limit ${ANNOTATE_MAX_WEEKLY_PCT}%) — annotating $pending"
+  fi
+fi
 
 if [ -n "$pending" ]; then
   if command -v claude >/dev/null 2>&1; then
