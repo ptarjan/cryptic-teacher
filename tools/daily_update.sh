@@ -86,7 +86,12 @@ if [ -n "$pending" ]; then
   if command -v claude >/dev/null 2>&1; then
     for num in $pending; do
       echo "annotating puzzle $num with Claude Code..."
+      # Pinned, not inherited. This used to name no model and take whatever
+      # ~/.claude/settings.json defaulted to, which meant a settings edit made
+      # for an interactive session silently retuned the nightly job — it moved
+      # from Fable to Opus that way on 2026-07-30 without anyone deciding to.
       claude -p "Annotate Guardian cryptic No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Do not commit — the calling script commits." \
+        --model "${ANNOTATE_MODEL:-fable}" \
         --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
         --max-turns 80 || {
           echo "claude annotation run for $num failed (session limit?); stopping here, will retry next run"
