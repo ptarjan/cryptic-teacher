@@ -871,6 +871,19 @@
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
 
+  // Badge the exception, never the norm (feedback 2026-08-01: "since it only
+  // lists full hints we don't have to show it"). Once the picker stopped
+  // listing un-annotated puzzles, a "full hints" badge on every row said the
+  // same thing about every row, which is the same as saying nothing while
+  // still costing a line of the row. So there is no full-hints badge in the
+  // app at all now: annotated is what a listed puzzle IS, and the badge exists
+  // only to warn you when the one in front of you isn't. The archive page
+  // (tools/build_seo_pages.py) still badges both, and correctly — it lists
+  // every puzzle, so there the two states are a real distinction.
+  function hintsBadge(annotated) {
+    return annotated ? "" : `<span class="badge auto">auto hints</span>`;
+  }
+
   // What the picker lists, and why it isn't everything.
   //
   // This is a teaching site, so a puzzle with no hand-written annotations can't
@@ -943,8 +956,7 @@
       btn.innerHTML = `<span class="p-num">№ ${p.number}</span>
         <span class="p-setter">${esc(p.setter)}</span>
         <span class="p-meta">${d}</span>
-        <span class="p-tags">${difficultyBadge(p)}
-          <span class="badge ${p.annotated ? "full" : "auto"}">${p.annotated ? "full hints" : "auto hints"}</span>
+        <span class="p-tags">${difficultyBadge(p)}${hintsBadge(p.annotated)}
           ${filled ? `<span class="p-prog">${filled} letters in</span>` : ""}</span>`;
       btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
       li.appendChild(btn);
@@ -979,8 +991,8 @@
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
     $("app").classList.remove("hidden");
     $("puzzle-title").innerHTML =
-      `${esc(P.name)} — set by <em>${esc(P.setter)}</em> ` +
-      `<span class="badge ${meta.annotated ? "full" : "auto"}">${meta.annotated ? "full hints" : "auto hints"}</span>`;
+      `${esc(P.name)} — set by <em>${esc(P.setter)}</em>` +
+      (meta.annotated ? "" : " " + hintsBadge(false));
     renderGrid();
     renderClues();
     const checkable = canCheck();

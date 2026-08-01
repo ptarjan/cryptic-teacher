@@ -251,6 +251,17 @@ must pass before commit.
   needs no mouse. Do not "simplify" this by filtering only the rendered rows —
   that would make the un-annotated puzzles unreachable from the app, and the
   smoke test asserts the search path specifically.
+- Badge the exception, never the norm (feedback 2026-08-01: "since it only lists
+  full hints we don't have to show it"). There is no "full hints" badge anywhere
+  in the app — not on picker rows, not on the puzzle title. Once the picker
+  listed annotated puzzles only, that badge asserted the same thing about every
+  row, which communicates nothing while still taking a line of the row; being
+  taught is simply what a puzzle here IS. The `auto hints` badge stays, because
+  it is now the only thing the badge slot ever says, and it says it exactly when
+  the puzzle in front of you is the odd one out. The generated archive page
+  (`tools/build_seo_pages.py`) does badge both states, and should: it lists every
+  puzzle, so there the distinction is real. Generalise this — a label that every
+  item carries is decoration, not information.
 - Rung 1 names the clue FAMILY, never the precise type (feedback 2026-07-26:
   "the type of clues seem a bit specific for a first hint"). Opening a clue with
   `charade + alternate letters` hands over the whole mechanism. The families,
