@@ -152,7 +152,15 @@ assert(/No [\d,]+/.test(openTitle), "a Guardian cryptic opened: " + openTitle);
 const openId = (openTitle.match(/No ([\d,]+)/) || [, ""])[1].replace(/,/g, "");
 const openPuz = (global.window.CRYPTIC_PUZZLES || {})[openId];
 assert(openPuz, "the opened puzzle's data is loaded: " + openId);
-assert(registry["puzzle-title"].innerHTML.includes("hints"), "title carries a hint badge: " + openTitle);
+// The badge marks the exception, not the norm: an annotated puzzle's title
+// carries no badge at all (see STYLE.md, "Badge the exception"). So the title
+// must agree with the index rather than always saying something.
+{
+  const idx = (global.CRYPTIC_INDEX.puzzles || []).find((p) => String(p.number) === openId);
+  const badged = registry["puzzle-title"].innerHTML.includes("auto hints");
+  assert(idx && badged === !idx.annotated,
+    "title badge disagrees with the index for " + openId + ": badged=" + badged);
+}
 
 // The walkthrough below is the full-hints path: it climbs the hint ladder and
 // reveals letters, and neither exists on a puzzle with no annotations or no
@@ -396,10 +404,24 @@ registry["btn-picker"].onclick();
 assert(pickerRows().length >= 5, "picker lists the annotated puzzles: " + pickerRows().length);
 assert(registry["picker-search"].value === "", "the filter box starts empty on open");
 {
-  const html = pickerHTMLNow();
-  assert(html.includes("full hints"), "annotated puzzles are listed");
-  // The load-bearing one: an un-annotated puzzle must not be in the default
-  // list. It is playable but it cannot teach, and it is the majority of rows.
+  // "current" is the row for the puzzle already open, which is listed whatever
+  // its annotation state — don't hide the user's own work. Everything else in a
+  // default list has to have earned its place.
+  const others = pickerRows().filter((li) => !/current/.test(li.className || ""));
+  const html = others.map((li) => li.children[0].innerHTML).join("");
+  // No full-hints badge anywhere (feedback 2026-08-01: "since it only lists full
+  // hints we don't have to show it"). A label every row carries distinguishes
+  // nothing; the badge marks the exception now, not the norm.
+  assert(!pickerHTMLNow().includes("full hints"),
+    "picker rows carry a full-hints badge that says the same thing about every row");
+  // Structural rather than textual, so deleting the badge can't quietly turn
+  // this into a test of nothing: the listed numbers must BE the annotated ones.
+  const annotatedNums = new Set(allPuzzles.filter((p) => p.annotated).map((p) => String(p.number)));
+  const listedNums = others.map((li) => (li.children[0].innerHTML.match(/№ (\d+)/) || [])[1]);
+  const strays = listedNums.filter((n) => !annotatedNums.has(n));
+  assert(listedNums.length && !strays.length,
+    "un-annotated puzzles are listed by default: " + strays.join(", "));
+  // The badge is the visible half of the same rule.
   assert(!html.includes("auto hints"),
     "un-annotated puzzles are listed by default: " + pickerRows().length + " rows");
   assert(pickerRows().length < allPuzzles.length,
