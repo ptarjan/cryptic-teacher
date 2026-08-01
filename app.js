@@ -707,11 +707,27 @@
       });
     }
 
+    // The half of the clue that isn't mechanical.
+    //
+    // The blocks spell the answer OUT of the wordplay and the definition rung
+    // points at the words, but until now nothing ever joined the two ends:
+    // why do those words mean this answer? (Feedback 2026-08-01: "in the full
+    // walkthrough explain why the answer matches the definition".) That link is
+    // where the actual vocabulary of cryptics lives — a definition by synonym,
+    // by example, by a sense of the word nobody uses outside crosswords — and
+    // it is exactly what a solver is missing when they have the right letters
+    // and no confidence in them. It goes LAST, immediately before the answer,
+    // because it is the step that turns a spelling into a solve.
+    const fit = ann.definitionFit
+      ? `<p class="def-fit"><mark class="def">${esc(ann.definition)}</mark>${
+          ann.definition2 ? ` and <mark class="def2">${esc(ann.definition2)}</mark>` : ""
+        } → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
+      : "";
     steps.push({
       key: "walkthrough",
       label: "Full walkthrough",
       html: (steps.some((s) => s.key === "blocks") || isDD || isCD ? "" : mechanics) +
-        `<p>${esc(ann.walkthrough)}</p><p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
+        `<p>${esc(ann.walkthrough)}</p>${fit}<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
     return steps;
   }
