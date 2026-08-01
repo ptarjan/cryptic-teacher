@@ -543,6 +543,36 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   const legend = (registry["hint-body"].innerHTML.match(/<div class="legend">[\s\S]*?<\/div>/) || [""])[0];
   assert(legend.includes('mark class="ind"') && !legend.includes('mark class="def"'),
     "the legend must name exactly the marks that were drawn: " + legend);
+
+  // --- the walkthrough joins the definition to the answer ---
+  // Feedback 2026-08-01: "in the full walkthrough explain why the answer matches
+  // the definition". The blocks spell the answer out of the wordplay, but nothing
+  // used to say why those words MEAN it. This tests the render path only — the
+  // sentence is written by the annotator and policed by
+  // check_definition_fit in tools/validate_annotations.py, so the field is
+  // synthesised here rather than waiting on a puzzle that happens to carry one.
+  {
+    const e = withInd.e;
+    e.annotation.definitionFit = "SMOKE-FIT: the answer is an instance of the definition.";
+    registry["clue-" + e.id].listeners.click[0]();
+    let guard = 0;
+    while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && guard++ < 8) {
+      registry["hint-next"].children[0].onclick();
+      if (registry["hint-body"].innerHTML.includes("Answer:")) break;
+    }
+    const walk = registry["hint-body"].innerHTML;
+    assert(walk.includes("SMOKE-FIT"),
+      "the walkthrough never explains why the answer matches the definition: " + walk.slice(-400));
+    const fitLine = (walk.match(/<p class="def-fit">[\s\S]*?<\/p>/) || [""])[0];
+    // letters only: esc() turns an apostrophe in FERMAT'S LAST THEOREM into an
+    // entity, so a raw substring match would flake on the puzzle, not the code
+    const bare = (s) => s.replace(/[^A-Za-z]/g, "");
+    assert(fitLine.includes('mark class="def"') && bare(fitLine).includes(bare(e.annotation.answer)),
+      "the fit line must name both ends it is joining: " + fitLine);
+    assert(walk.indexOf("SMOKE-FIT") < walk.lastIndexOf("Answer:"),
+      "the fit comes before the answer — it is what turns a spelling into a solve");
+    delete e.annotation.definitionFit;
+  }
 }
 
 // --- tutorial toggle ---

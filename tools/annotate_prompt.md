@@ -27,6 +27,7 @@ Annotation schema (see `puzzles/30066.js` for 28 worked examples):
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"}
   ],
   "walkthrough": "1-2 sentences, 45 words max: what the blocks CANNOT show. Friendly teaching tone.",
+  "definitionFit": "REQUIRED. One sentence, 30 words max: why the ANSWER means the DEFINITION.",
 
   "pieces": ["CHUNKS", "THAT", "CONCATENATE", "TO", "THE", "ANSWER"],
   "anagram": {"fodder": "LETTERS WHOSE MULTISET EQUALS THE ANSWER"},
@@ -88,6 +89,22 @@ Rules:
   not know (`ER` = Queen, `worker` = ANT), or why a definition is fair. One or two
   sentences is normal; over 45 words the validator warns (authored puzzles). It must
   never be empty: the app always renders the walkthrough rung.
+- `definitionFit` is REQUIRED on every clue: one sentence saying why the ANSWER means the
+  DEFINITION. This is the half of a cryptic that isn't mechanical. The blocks spell the
+  answer out of the wordplay and the definition rung points at the words, but nothing
+  else ever joins the two ends, and that link is where the vocabulary of cryptics
+  actually lives. Name the RELATION, don't just restate: a plain synonym, a definition by
+  example ("Alsatian" defines a DOG only as an instance of one), a sense of the word that
+  survives mainly in crosswords, a technical or regional use, a whole-phrase idiom. Good:
+  `"a crawler → ARMY ANT: army ants move in a crawling column, and 'crawler' also carries
+  the sense of a grovelling flatterer the surface is pointing at."` Bad: `"an army ant is
+  a crawler"` — that is the definition read backwards, and teaches nothing. For a double
+  definition, cover BOTH senses; for `&lit`, say why the whole clue reads straight. If the
+  honest answer is "it's an everyday synonym", say which sense and why it isn't the first
+  one that comes to mind. It is separate from `definitionNote`: the note justifies a
+  definition that DISAGREES with the answer grammatically (number, part of speech);
+  `definitionFit` explains the meaning, and every clue has one. Over 30 words the
+  validator warns.
 - If the definition genuinely does NOT agree with the answer ("Lousy payment" = PEANUTS,
   "hearing aid" = EARPHONES), do not stretch it and do not ignore it: add a
   `definitionNote` explaining the mismatch to the learner. The validator requires a real

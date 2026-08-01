@@ -236,6 +236,21 @@ must pass before commit.
   reintroduce a scalar here. A rung a clue does not HAVE must never gate one it
   does (many clues have no indicators rung and no blocks rung), which is why
   availability is computed against this clue's steps, not a fixed list.
+- The full walkthrough must end by saying WHY the answer means the definition
+  (feedback 2026-08-01: "in the full walkthrough explain why the answer matches
+  the definition"). This is the `definitionFit` field, required on every
+  annotation, rendered immediately before the answer. The blocks spell the answer
+  out of the wordplay and the definition rung points at the words, but nothing
+  used to join the two ends — and that link is the non-mechanical half of a
+  cryptic, the half a solver is missing when they have the right letters and no
+  confidence in them. Name the RELATION: plain synonym, definition by example,
+  a sense that survives mainly in crosswords, a technical or regional use, a
+  whole-phrase idiom. Restating the definition with the answer substituted in
+  ("an army ant is a crawler") is a validator ERROR — it contains no content word
+  that isn't already in the definition or the answer, which is exactly how
+  `check_definition_fit` detects it. Distinct from `definitionNote`, which
+  justifies a definition that DISAGREES with the answer grammatically; every clue
+  has a fit, only a few need a note.
 - Every rung marks up its OWN words in the clue text, independently of the other
   rungs, and the legend names exactly the marks that were drawn (feedback
   2026-08-01: "if I choose just the indicator clue now it doesn't highlight the

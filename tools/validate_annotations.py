@@ -413,6 +413,47 @@ FILLER_WORDS = {
 HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
           "for some reason", "don't ask", "close enough")
 
+# `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
+# required on 2026-08-01 (feedback: "in the full walkthrough explain why the
+# answer matches the definition"). The 14 hand-annotated puzzles predate it, so
+# absence is a WARNING with a running backlog count printed at the end of a full
+# run. Flip this to True the moment that count reaches zero; leaving it False
+# once the backfill is done turns a rule into a suggestion, and the whole point
+# of putting checks here is that feedback stops depending on anyone remembering.
+REQUIRE_DEFINITION_FIT = False
+
+
+def check_definition_fit(tag, ann, errors, warnings):
+    """Why the answer MEANS the definition — the non-mechanical half of a clue.
+
+    Two failure modes worth catching mechanically. Thin: a handful of words that
+    assert rather than explain. Backwards: the definition read out again with the
+    answer swapped in ("an army ant is a crawler"), which looks like an
+    explanation and teaches nothing — detectable because it contains no content
+    word that isn't already in the definition or the answer.
+    """
+    fit = ann.get("definitionFit")
+    if fit is None:
+        msg = (f"{tag}: no definitionFit — say in one sentence why the answer means "
+               f"the definition (tools/annotate_prompt.md)")
+        (errors if REQUIRE_DEFINITION_FIT else warnings).append(msg)
+        return
+    fit = str(fit).strip()
+    if len(fit) < 25:
+        errors.append(f"{tag}: definitionFit {fit!r} is too thin — name the relation "
+                      f"(synonym, definition by example, crossword sense), don't assert it")
+        return
+    if len(fit.split()) > 30:
+        warnings.append(f"{tag}: definitionFit is {len(fit.split())} words — 30 max")
+    known = set(re.findall(r"[a-z']+", (ann.get("definition") or "").lower()))
+    known |= set(re.findall(r"[a-z']+", (ann.get("definition2") or "").lower()))
+    known |= set(re.findall(r"[a-z']+", (ann.get("answer") or "").lower()))
+    fresh = [w for w in re.findall(r"[a-z']+", fit.lower())
+             if w not in known and w not in FILLER_WORDS and len(w) > 2]
+    if len(fresh) < 3:
+        errors.append(f"{tag}: definitionFit {fit!r} just restates the definition with the "
+                      f"answer in it — explain WHY the two mean the same")
+
 # A real English wordlist, used to tell a genuine inflection from a coincidence:
 # MARAUDING is a gerund (MARAUD is a word) but VIKING is not (VIK is not), and
 # EARPHONES is a plural (EARPHONE is a word). Without it the part-of-speech
@@ -661,6 +702,8 @@ def validate_puzzle(puzzle):
             errors.append(f"{tag}: definitionNote {note!r} is too thin — explain to the "
                           f"learner why the mismatch is fair, or drop the note")
 
+        check_definition_fit(tag, ann, errors, warnings)
+
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)
         if authored:
@@ -702,6 +745,7 @@ def main(argv):
     else:
         paths = sorted(PUZZLE_DIR.glob("[0-9]*.js"))
     failed = False
+    fit_backlog = 0
     for path in paths:
         if not path.exists():
             print(f"MISSING {path}")
@@ -722,6 +766,16 @@ def main(argv):
             print(f"  ERROR: {err}")
         if errors:
             failed = True
+        fit_backlog += sum("no definitionFit" in w for w in warnings)
+    # Printed as one number rather than 400 warning lines' worth of noise, and
+    # printed even when everything passes: this is a backlog that has to reach
+    # zero before REQUIRE_DEFINITION_FIT can be flipped, and a backlog nobody
+    # sees is a backlog nobody drains.
+    if fit_backlog:
+        print(f"\ndefinitionFit backlog: {fit_backlog} clue(s) still have no explanation of "
+              f"why the answer means the definition. Flip REQUIRE_DEFINITION_FIT at zero.")
+    elif not REQUIRE_DEFINITION_FIT:
+        print("\ndefinitionFit backlog is EMPTY — set REQUIRE_DEFINITION_FIT = True now.")
     return 1 if failed else 0
 
 
