@@ -210,6 +210,29 @@ registry["hx-letter"].onclick();
 assert(/letters? revealed/.test(registry["scorebar"].innerHTML), "letter reveals counted in score: " + registry["scorebar"].innerHTML);
 assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter shows reveal count: " + registry["hint-meter"].innerHTML);
 
+// --- pick a rung out of order ---
+// The ladder recommends an order; it does not impose one. Taking the LAST rung
+// offered must reveal that rung and nothing else — the whole point is not being
+// handed the definition on the way to something further down. children[0] is
+// the recommended next rung and leads; the skip-ahead buttons follow it.
+{
+  const buttons = registry["hint-next"].children;
+  assert(buttons.length >= 3, "every unrevealed rung is offered, not just the next: " + buttons.length);
+  assert(/^Show hint \d/.test(buttons[0].textContent), "recommended rung leads: " + buttons[0].textContent);
+  const last = buttons[buttons.length - 1];
+  const wanted = last.textContent;                 // e.g. "5 · The full walkthrough"
+  last.onclick();
+  const shown = registry["hint-body"].innerHTML;
+  assert(shown.includes("hint-step"), "the chosen rung is revealed");
+  const stepCount = (shown.match(/class="hint-step"/g) || []).length;
+  assert(stepCount === 1, `choosing rung "${wanted}" revealed ${stepCount} rungs, not just the one`);
+  assert(!registry["hint-clue"].innerHTML.includes('mark class="def"'),
+    "skipping to a later rung does NOT leak the definition highlight");
+  // and it stays out of order without renumbering: the rung keeps its ladder number
+  assert(shown.includes(wanted.split(" · ")[0] + " · "), "rung keeps its ladder number: " + shown.slice(0, 120));
+}
+registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
+
 // --- walk the hint ladder: the ladder is per-clue, so click until it runs out ---
 let rungs = 0;
 while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && rungs < 8) {

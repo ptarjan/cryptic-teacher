@@ -210,6 +210,16 @@ must pass before commit.
   "where does the clue split?", an &lit asks "how can the whole clue be the
   definition?"); no rung may merely restate an earlier one. See `ladderSteps()`
   in `app.js`; the ladder length is per clue and shown as "x/N" in the meter.
+- The ladder's order is a RECOMMENDATION, never a gate (feedback 2026-08-01:
+  "can I choose my hint instead of being forced to get the definition first?").
+  Every unrevealed rung is offered at once; the next one leads and is labelled
+  "Show hint N", the rest are quiet skip-ahead buttons. A rung keeps its ladder
+  number wherever it is taken, so gaps in the numbering show what was skipped.
+  This is a data-model rule as much as a UI one: revealed rungs are a SET
+  (`hintsShown`, entryKey -> rung keys), not a high-water mark. An integer can
+  only express "the first N", so any rung it granted dragged in every rung
+  below it — which is precisely the forcing being complained about. Do not
+  reintroduce a scalar here.
 - Rung 1 names the clue FAMILY, never the precise type (feedback 2026-07-26:
   "the type of clues seem a bit specific for a first hint"). Opening a clue with
   `charade + alternate letters` hands over the whole mechanism. The families,

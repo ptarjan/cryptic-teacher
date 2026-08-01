@@ -309,6 +309,10 @@ button:disabled:hover { border-color: var(--line); }
 #hint-escape button:hover { color: var(--fg); }
 #hint-next button { border-color: var(--accent); color: var(--accent); background: transparent; }
 #hint-next button:hover { background: var(--accent-soft); }
+/* The rungs you can skip ahead to. Deliberately quieter than the next one: the
+   ladder's order is still the advice, this is just the door out of it. */
+#hint-next button.ghost { border-color: var(--line); color: var(--muted); }
+#hint-next button.ghost:hover { border-color: var(--accent); color: var(--accent); }
 
 mark.def { background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px; }
 /* second half of a double definition — same family, distinguishable */
