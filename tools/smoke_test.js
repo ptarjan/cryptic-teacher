@@ -108,6 +108,10 @@ global.window = {
 global.document = document;
 global.localStorage = global.window.localStorage;
 global.confirm = () => true;
+// app.js reads ?p=<number> so the static answer pages can hand off into the app.
+// Override CT_TEST_QUERY to boot the harness on a specific puzzle.
+global.location = { search: process.env.CT_TEST_QUERY || "", href: "", hash: "" };
+global.URLSearchParams = URLSearchParams;
 
 // load index + tutorial + app
 new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);

@@ -770,6 +770,21 @@
   }
 
   // ---------- picker ----------
+  // Difficulty comes from tools/difficulty.py, which rates a puzzle against the
+  // rest of the collection rather than in the abstract — see its header for why
+  // an absolute rating is not something the data supports. The tooltip carries
+  // that caveat, because a bare word like "Brutal" reads as a fact.
+  function difficultyBadge(p) {
+    const d = p.difficulty;
+    if (!d) return "";
+    const pct = d.percentile === null || d.percentile === undefined ? "" :
+      ` — harder than ${d.percentile}% of the puzzles here`;
+    const basis = (d.basis || []).join(", ");
+    return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
+      d.band + pct + ". Judged on " + basis + ", relative to other Guardian cryptics."
+    )}">${esc(d.band.toLowerCase())}</span>`;
+  }
+
   function renderPicker() {
     const ul = $("picker-list");
     ul.innerHTML = "";
@@ -782,6 +797,7 @@
       const btn = document.createElement("button");
       btn.innerHTML = `<span class="p-num">№ ${p.number}</span>
         <span>${esc(p.setter)}</span>
+        ${difficultyBadge(p)}
         <span class="badge ${p.annotated ? "full" : "auto"}">${p.annotated ? "full hints" : "auto hints"}</span>
         <span class="p-meta">${d}${filled ? " · " + filled + " letters in" : ""}</span>`;
       btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
@@ -885,9 +901,14 @@
       return;
     }
     loadPuzzleScripts(() => {
+      // ?p=30072 wins over the remembered puzzle: the static answer pages under
+      // /puzzles/<n>/ link in that way, and dropping someone on last night's
+      // puzzle instead of the one they clicked would be baffling.
+      const asked = new URLSearchParams(location.search).get("p");
       const last = store.get("ct:last", null);
       const firstAnnotated = (INDEX.puzzles.find((p) => p.annotated) || INDEX.puzzles[0]).id;
-      const want = (last && window.CRYPTIC_PUZZLES[last]) ? last : firstAnnotated;
+      const want = (asked && window.CRYPTIC_PUZZLES[asked]) ? asked
+        : (last && window.CRYPTIC_PUZZLES[last]) ? last : firstAnnotated;
       openPuzzle(want);
     });
   }

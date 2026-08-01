@@ -12,7 +12,9 @@
 #      a week, so one per run never drains a backlog; it barely keeps up. Stops
 #      early if a run fails (usually a session limit) rather than burning the
 #      rest of the quota on doomed attempts.
-#   4. Validates, reindexes, and commits (and pushes, if a remote is set up).
+#   4. Validates, reindexes, rebuilds the static crawlable pages
+#      (tools/build_seo_pages.py — one per puzzle, plus the hub, the tutorial
+#      and the sitemap), and commits (and pushes, if a remote is set up).
 #
 # Install: this runs as the LaunchAgent ~/Library/LaunchAgents/com.pt.cryptic-teacher.plist,
 # NOT as a crontab entry, and must stay that way. The `claude` CLI keeps its
@@ -112,7 +114,15 @@ if ! python3 tools/validate_annotations.py; then
   exit 1
 fi
 
-# Re-stamp index.html so phones don't serve yesterday's cached assets.
+# Rebuild the crawlable pages: one per puzzle, the archive hub, the tutorial and
+# the sitemap. After validation, deliberately — these pages publish the
+# annotations as plain text, so a run that produced a bad annotation should have
+# already bailed out above rather than putting it in front of a search engine.
+python3 tools/build_seo_pages.py
+
+# Re-stamp index.html so phones don't serve yesterday's cached assets. Last,
+# because build_seo_pages.py rewrites part of index.html and the stamp has to
+# reflect the file as it finally stands.
 python3 tools/stamp_assets.py
 
 if [ -n "$(git status --porcelain)" ]; then
@@ -120,7 +130,7 @@ if [ -n "$(git status --porcelain)" ]; then
   # published clue turns out to be legal in a way it didn't know about (30045
   # 26A hides its answer backwards). Staging only puzzles/ pushed the puzzle and
   # left the loosening behind, so the committed tree failed its own validator.
-  git add puzzles/ index.html tools/validate_annotations.py
+  git add puzzles/ index.html learn/ sitemap.xml tools/validate_annotations.py
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>')"
   # Push only if a remote exists (GitHub Pages picks it up from master).
   git remote get-url origin >/dev/null 2>&1 && git push origin HEAD || true

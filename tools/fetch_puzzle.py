@@ -129,9 +129,22 @@ def puzzle_is_annotated(puzzle):
 
 
 def reindex():
+    # Difficulty needs every puzzle at once (each rating is relative to the
+    # others), so it is scored in one pass here rather than per-file. It is
+    # optional on purpose: tools/difficulty.py leans on the gitignored lexicon,
+    # and a clone that hasn't fetched it should still get a working index.
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from difficulty import all_scores
+        ratings = all_scores()
+    except Exception as err:  # noqa: BLE001 — never let this break the index
+        print(f"difficulty scoring skipped: {err}")
+        ratings = {}
+
     puzzles = []
     for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
         p = read_puzzle_file(path)
+        rating = ratings.get(str(p["number"]))
         puzzles.append({
             "id": p["id"],
             "number": p["number"],
@@ -144,6 +157,14 @@ def reindex():
             "v": hashlib.md5(path.read_bytes()).hexdigest()[:8],
             "annotated": puzzle_is_annotated(p),
             "hasSolutions": all(e.get("solution") for e in p["entries"]),
+            # Absent for puzzles with too little to go on — an unrated puzzle
+            # shows no badge rather than a made-up one.
+            "difficulty": rating and {
+                "band": rating["band"],
+                "index": rating["index"],
+                "percentile": rating["percentile"],
+                "basis": rating["basis"],
+            },
         })
     puzzles.sort(key=lambda p: p["number"], reverse=True)
     index = {"latest": puzzles[0]["id"] if puzzles else None, "puzzles": puzzles}

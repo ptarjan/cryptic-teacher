@@ -11,7 +11,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30073.js",
    "v": "473674a9",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Brutal",
+    "index": 0.885,
+    "percentile": 94,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30072",
@@ -22,7 +31,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30072.js",
    "v": "ac2bda11",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.662,
+    "percentile": 9,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30071",
@@ -33,7 +52,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30071.js",
    "v": "aa22e1aa",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Brutal",
+    "index": 1.207,
+    "percentile": 97,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30070",
@@ -44,7 +73,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30070.js",
    "v": "2931e56c",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.318,
+    "percentile": 33,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30069",
@@ -55,7 +94,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30069.js",
    "v": "f6e1e317",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.561,
+    "percentile": 15,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30068",
@@ -66,7 +114,8 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30068.js",
    "v": "85bf5e79",
    "annotated": false,
-   "hasSolutions": false
+   "hasSolutions": false,
+   "difficulty": null
   },
   {
    "id": "30067",
@@ -77,7 +126,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30067.js",
    "v": "abeac1be",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.5,
+    "percentile": 88,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30066",
@@ -88,7 +147,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30066.js",
    "v": "efc9a9a9",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.158,
+    "percentile": 64,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30065",
@@ -99,7 +168,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30065.js",
    "v": "90bd4b9a",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.261,
+    "percentile": 42,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30064",
@@ -110,7 +188,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30064.js",
    "v": "a9e3ff57",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.441,
+    "percentile": 82,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30063",
@@ -121,7 +208,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30063.js",
    "v": "ca8666ef",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.261,
+    "percentile": 42,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30062",
@@ -132,7 +228,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30062.js",
    "v": "2d37de04",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.439,
+    "percentile": 79,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30061",
@@ -143,7 +248,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30061.js",
    "v": "499fb56b",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": -0.175,
+    "percentile": 48,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30060",
@@ -154,7 +268,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30060.js",
    "v": "68915796",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.304,
+    "percentile": 76,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30059",
@@ -165,7 +288,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30059.js",
    "v": "c5131ed2",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.458,
+    "percentile": 21,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30058",
@@ -176,7 +308,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30058.js",
    "v": "1f87194a",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.453,
+    "percentile": 85,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30057",
@@ -187,7 +328,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30057.js",
    "v": "20f8f83e",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": -0.004,
+    "percentile": 58,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30056",
@@ -198,7 +348,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30056.js",
    "v": "600dee56",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.197,
+    "percentile": 73,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30055",
@@ -209,7 +368,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30055.js",
    "v": "01e3fd37",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.178,
+    "percentile": 70,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30054",
@@ -220,7 +388,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30054.js",
    "v": "044ccacd",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.509,
+    "percentile": 18,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30053",
@@ -231,7 +408,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30053.js",
    "v": "d0b96696",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.07,
+    "percentile": 61,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30052",
@@ -242,7 +428,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30052.js",
    "v": "f4fc2829",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.383,
+    "percentile": 24,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30051",
@@ -253,7 +448,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30051.js",
    "v": "6a5e1c96",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Brutal",
+    "index": 1.765,
+    "percentile": 100,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30050",
@@ -264,7 +468,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30050.js",
    "v": "d1df845e",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.268,
+    "percentile": 39,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30049",
@@ -275,7 +488,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30049.js",
    "v": "3e239c44",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Gentle",
+    "index": -0.991,
+    "percentile": 0,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30048",
@@ -286,7 +508,16 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30048.js",
    "v": "0273bde5",
    "annotated": false,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.362,
+    "percentile": 27,
+    "basis": [
+     "checking",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30047",
@@ -297,7 +528,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30047.js",
    "v": "e7921d77",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": -0.048,
+    "percentile": 52,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30046",
@@ -308,7 +549,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30046.js",
    "v": "8d51cf49",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.691,
+    "percentile": 6,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30045",
@@ -319,7 +570,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30045.js",
    "v": "df191183",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.596,
+    "percentile": 12,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30044",
@@ -330,7 +591,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30044.js",
    "v": "416a5f65",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.337,
+    "percentile": 30,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30043",
@@ -341,7 +612,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30043.js",
    "v": "c589e1d6",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.307,
+    "percentile": 36,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30042",
@@ -352,7 +633,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30042.js",
    "v": "0178de48",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": 0.162,
+    "percentile": 67,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30041",
@@ -363,7 +654,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30041.js",
    "v": "e5361ca3",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Moderate",
+    "index": -0.783,
+    "percentile": 3,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30040",
@@ -374,7 +675,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30040.js",
    "v": "6f19c4ac",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Brutal",
+    "index": 0.881,
+    "percentile": 91,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   },
   {
    "id": "30039",
@@ -385,7 +696,17 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "file": "30039.js",
    "v": "0a629bd2",
    "annotated": true,
-   "hasSolutions": true
+   "hasSolutions": true,
+   "difficulty": {
+    "band": "Tough",
+    "index": -0.032,
+    "percentile": 55,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
   }
  ]
 } /*JSON-END*/;
