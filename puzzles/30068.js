@@ -28,7 +28,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "1-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "PREDAWN",
    "annotation": null
   },
   {
@@ -45,7 +45,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "2-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "ROUTINE",
    "annotation": null
   },
   {
@@ -62,7 +62,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "3-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "DRUNK",
    "annotation": null
   },
   {
@@ -79,7 +79,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "4-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "WAGONER",
    "annotation": null
   },
   {
@@ -96,7 +96,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "5-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "GORILLA",
    "annotation": null
   },
   {
@@ -113,7 +113,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "6-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "OXFORD",
    "annotation": null
   },
   {
@@ -134,7 +134,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      3
     ]
    },
-   "solution": null,
+   "solution": "ILLHUMOUR",
    "annotation": null
   },
   {
@@ -155,7 +155,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      3
     ]
    },
-   "solution": null,
+   "solution": "LOOROLL",
    "annotation": null
   },
   {
@@ -178,7 +178,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      10
     ]
    },
-   "solution": null,
+   "solution": "GOTHEWHOLEHOG",
    "annotation": null
   },
   {
@@ -195,7 +195,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "10-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "TUTU",
    "annotation": null
   },
   {
@@ -212,7 +212,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "11-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "GOODFELLOW",
    "annotation": null
   },
   {
@@ -234,7 +234,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      4
     ]
    },
-   "solution": null,
+   "solution": "SINKIN",
    "annotation": null
   },
   {
@@ -251,7 +251,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "13-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "HEREUPON",
    "annotation": null
   },
   {
@@ -273,7 +273,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      6
     ]
    },
-   "solution": null,
+   "solution": "TEAFORTWO",
    "annotation": null
   },
   {
@@ -290,7 +290,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "15-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "FACTORISE",
    "annotation": null
   },
   {
@@ -307,7 +307,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "16-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "JOLLY",
    "annotation": null
   },
   {
@@ -324,7 +324,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "17-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "SPACE",
    "annotation": null
   },
   {
@@ -341,7 +341,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "18-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "PAINTER",
    "annotation": null
   },
   {
@@ -362,7 +362,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      4
     ]
    },
-   "solution": null,
+   "solution": "SOURCREAM",
    "annotation": null
   },
   {
@@ -379,7 +379,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "20-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "RELIEVE",
    "annotation": null
   },
   {
@@ -396,7 +396,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "21-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "AMERICA",
    "annotation": null
   },
   {
@@ -413,7 +413,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "22-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "WHEEZE",
    "annotation": null
   },
   {
@@ -430,7 +430,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "23-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "PINOCHLE",
    "annotation": null
   },
   {
@@ -447,7 +447,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "24-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "LARDER",
    "annotation": null
   },
   {
@@ -464,7 +464,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "25-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "RIGHT",
    "annotation": null
   },
   {
@@ -485,7 +485,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      6
     ]
    },
-   "solution": null,
+   "solution": "STRIKEZONE",
    "annotation": null
   },
   {
@@ -502,7 +502,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "27-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "GRIT",
    "annotation": null
   },
   {
@@ -519,7 +519,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
     "28-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "FREEZER",
    "annotation": null
   },
   {
@@ -542,7 +542,7 @@ window.CRYPTIC_PUZZLES["30068"] = /*JSON-START*/ {
      7
     ]
    },
-   "solution": null,
+   "solution": "LETTHAT",
    "annotation": null
   }
  ]
