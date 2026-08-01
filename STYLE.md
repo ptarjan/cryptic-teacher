@@ -236,6 +236,22 @@ must pass before commit.
   reintroduce a scalar here. A rung a clue does not HAVE must never gate one it
   does (many clues have no indicators rung and no blocks rung), which is why
   availability is computed against this clue's steps, not a fixed list.
+- Every rung marks up its OWN words in the clue text, independently of the other
+  rungs, and the legend names exactly the marks that were drawn (feedback
+  2026-08-01: "if I choose just the indicator clue now it doesn't highlight the
+  parts of clue"). `clueHTML` used to gate ALL highlighting on the definition
+  rung, and the legend with it. That was invisible while the ladder was strictly
+  ordered and became a bug the moment tier 0 allowed any order: taking the
+  indicators first — the legitimate route, since working out where the
+  definition sits is most of the skill — spent a hint and lit nothing, so the
+  one rung you paid for showed you nothing. The general rule, and the thing to
+  check whenever a rung is added: **highlight exactly what has been revealed,
+  and never anything that hasn't.** Link words ride with the definition rung
+  (they betray where the definition ends), which is a deliberate pairing, not
+  another gate. This is the second bug of this exact shape — a display keyed off
+  one rung when it should be keyed off its own — so the smoke test now drives
+  the indicators-alone route directly and asserts both directions: the indicator
+  is marked, the definition is not.
 - The puzzle picker lists only puzzles with `annotated: true`, plus the one
   currently open and any with saved progress (feedback 2026-08-01: "we only want
   to only show ones that have full annotations", alongside "hard to navigate as

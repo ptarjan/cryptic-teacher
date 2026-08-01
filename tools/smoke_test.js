@@ -505,6 +505,44 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   openClue(noted);
   assert(registry["hint-body"].innerHTML.includes("def-note"),
     "the definition note is shown to the learner: " + registry["hint-body"].innerHTML);
+
+  // --- a rung highlights its own words, on its own ---
+  // Feedback 2026-08-01: "if I choose just the indicator clue now it doesn't
+  // highlight the parts of clue". All clue markup used to be gated on the
+  // definition rung, which was invisible while the ladder was strictly ordered
+  // and broke the day tier 0 allowed any order — so the legitimate route
+  // (indicators first, work the definition out yourself) spent a hint and lit
+  // nothing. Drive exactly that route, and check both directions: what was
+  // asked for is marked, what wasn't is not.
+  const withInd = (() => {
+    for (const id of Object.keys(puzzles).sort().reverse()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation;
+        // the indicator has to literally occur in the clue or there is nothing
+        // to mark, and a linked clue renders its holder's text instead
+        if (a && !a.linkedTo && (a.indicators || []).some((s) => e.clue.includes(s))) return { id, e };
+      }
+    }
+    return null;
+  })();
+  assert(withInd, "at least one annotation names an indicator that occurs in its clue");
+  registry["btn-picker"].onclick();
+  typeInPicker(String(withInd.id));
+  registry["picker-list"].children
+    .find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + withInd.id))
+    .children[0].onclick();
+  registry["clue-" + withInd.e.id].listeners.click[0]();
+  const indBtn = registry["hint-next"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
+  assert(indBtn, "the indicators rung is offered from cold: " + registry["hint-next"].innerHTML);
+  indBtn.onclick();
+  const marked = registry["hint-clue"].innerHTML;
+  assert(marked.includes('mark class="ind"'),
+    "the indicators rung highlighted nothing in the clue: " + marked);
+  assert(!marked.includes('mark class="def"') && !marked.includes('mark class="link"'),
+    "the indicators rung leaked definition markup: " + marked);
+  const legend = (registry["hint-body"].innerHTML.match(/<div class="legend">[\s\S]*?<\/div>/) || [""])[0];
+  assert(legend.includes('mark class="ind"') && !legend.includes('mark class="def"'),
+    "the legend must name exactly the marks that were drawn: " + legend);
 }
 
 // --- tutorial toggle ---
