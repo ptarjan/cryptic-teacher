@@ -42,9 +42,16 @@
   let entries = [];      // puzzle entries in tab order (across by number, then down)
   let byId = {};
   let cur = { x: 0, y: 0, dir: "across" };
-  let hintLevels = {};   // entryKey -> highest hint level revealed (0..6)
+  // entryKey -> array of rung keys revealed ("definition", "blocks", …), in the
+  // order the solver asked for them. A SET, not a high-water mark: the ladder
+  // has a recommended order but no required one, so wanting the indicators
+  // without being told the definition first is a legitimate way to solve and
+  // the model has to be able to represent it. The old integer couldn't — it
+  // could only say "the first N", so every rung dragged in the ones below it.
+  let hintsShown = {};
+  let hintLevels = {};   // legacy: entryKey -> highest level, migrated on read
   let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
-  let solvedWith = {};   // entryKey -> hint level in force when first solved
+  let solvedWith = {};   // entryKey -> how many rungs were up when first solved
   let saveTimer = null;
   let touchAnchor = null; // touchstart position, to distinguish taps from scrolls
 
@@ -63,11 +70,12 @@
     saveTimer = setTimeout(() => {
       const letters = {};
       forEachCell((c) => { if (c.letter) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
-      store.set(stateKey(), { letters, hintLevels, revealsUsed, solvedWith });
+      store.set(stateKey(), { letters, hintsShown, revealsUsed, solvedWith });
     }, 150);
   }
   function restoreState() {
     const s = store.get(stateKey(), null);
+    hintsShown = (s && s.hintsShown) || {};
     hintLevels = (s && s.hintLevels) || {};
     revealsUsed = (s && s.revealsUsed) || {};
     solvedWith = (s && s.solvedWith) || {};
@@ -190,10 +198,10 @@
     refreshClues();
   }
 
-  function clueHTML(e, level) {
+  function clueHTML(e) {
     const ann = annOf(e);
     let html = esc(e.clue);
-    const shown = (key) => stepShown(ann, key, level);
+    const shown = (key) => isShown(e, key);
     if (ann && shown("definition")) {
       const marks = [];
       const push = (text, cls) => {
@@ -228,8 +236,7 @@
       const li = $("clue-" + e.id);
       if (!li) return;
       const holder = (e.annotation && e.annotation.linkedTo) ? byId[e.annotation.linkedTo] : e;
-      const level = hintLevels[entryKey(e)] || 0;
-      li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e, level) : esc(e.clue);
+      li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e) : esc(e.clue);
       li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e));
       li.classList.toggle("solved", isEntrySolved(e));
     });
@@ -438,7 +445,7 @@
   function fillAnswer() {
     const e = currentEntry();
     if (!e || !canCheck()) return;
-    bumpHint(e, ladderSteps(annOf(e)).length + 1);
+    showHint(e, ANSWER_RUNG);
     entryCells(e).forEach(revealCell);
     checkSolvedEntries(); refreshAll(); saveState();
   }
@@ -451,9 +458,8 @@
 
   function checkSolvedEntries() {
     entries.forEach((e) => {
-      const key = entryKey(e);
       if (isEntrySolved(e) && solvedWith[e.id] === undefined) {
-        solvedWith[e.id] = hintLevels[key] || 0;
+        solvedWith[e.id] = shownRungs(e).length;
       }
     });
   }
@@ -525,9 +531,29 @@
     return hits.join(" ") || "";
   }
 
-  function bumpHint(e, level) {
+  // The whole answer isn't a teaching rung — it's the end of the road — but it
+  // shares the ladder's bookkeeping so it counts against the score like one.
+  const ANSWER_RUNG = "answer";
+  // Which rungs are up for this clue. Migration from the old high-water integer
+  // happens lazily here rather than in restoreState(): converting "level 3" into
+  // rung keys needs ladderSteps(), which needs the annotation, and at restore
+  // time the model isn't built yet. Reading is the first moment both exist.
+  function shownRungs(e) {
     const key = entryKey(e);
-    if ((hintLevels[key] || 0) < level) { hintLevels[key] = level; saveState(); }
+    if (!hintsShown[key]) {
+      const old = hintLevels[key] || 0;
+      hintsShown[key] = old > 0
+        ? ladderSteps(annOf(e)).slice(0, old).map((s) => s.key).concat(
+            old > ladderSteps(annOf(e)).length ? [ANSWER_RUNG] : [])
+        : [];
+    }
+    return hintsShown[key];
+  }
+  const isShown = (e, rung) => shownRungs(e).indexOf(rung) >= 0;
+  function showHint(e, rung) {
+    if (isShown(e, rung)) return;
+    shownRungs(e).push(rung);
+    saveState();
   }
 
   // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
@@ -637,12 +663,6 @@
     return steps;
   }
 
-  // Has the rung named `key` been revealed at this hint level?
-  function stepShown(ann, key, level) {
-    const i = ladderSteps(ann).findIndex((s) => s.key === key);
-    return i >= 0 && level >= i + 1;
-  }
-
   function hintStepHTML(step, position) {
     return `<div class="hint-step"><span class="step-label">${position} · ${esc(step.label)}</span>${step.html}</div>`;
   }
@@ -687,11 +707,11 @@
     const holder = (e.annotation && e.annotation.linkedTo) ? byId[e.annotation.linkedTo] : e;
     const ann = annOf(e);
     const key = entryKey(e);
-    const level = hintLevels[key] || 0;
+    const level = shownRungs(e).filter((r) => r !== ANSWER_RUNG).length;
 
     let clueLine = `<span class="entry-tag">${tag(e)}</span>`;
     if (holder !== e) clueLine += `<span class="muted">(linked with ${tag(holder)}) </span>`;
-    clueLine += clueHTML(holder, level);
+    clueLine += clueHTML(holder);
     $("hint-clue").innerHTML = clueLine;
     $("hint-pattern").innerHTML = patternHTML(e);
 
@@ -700,9 +720,9 @@
     const revealsNote = reveals ? ` · ${reveals} letter${reveals > 1 ? "s" : ""} revealed` : "";
     $("hint-meter").innerHTML = solved
       ? ((solvedWith[e.id] || reveals)
-          ? `Solved after hint level ${solvedWith[e.id] || 0}${revealsNote}`
+          ? `Solved with ${solvedWith[e.id] || 0} hint${solvedWith[e.id] === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints — bravo!")
-      : (ann ? `Hint ladder: <strong>${level}</strong>/${ladderSteps(ann).length} used on this clue${revealsNote}`
+      : (ann ? `Hints: <strong>${level}</strong>/${ladderSteps(ann).length} used on this clue${revealsNote}`
              : revealsNote.replace(" · ", ""));
 
     const body = $("hint-body");
@@ -719,21 +739,38 @@
         $("hx-entry").onclick = fillAnswer;
       }
     } else {
+      // Revealed rungs always read in ladder order and keep their ladder
+      // number, whatever order they were asked for in. The numbering is the
+      // teaching sequence, not a click log — a solver who took 4 before 2 has
+      // still met them as steps 2 and 4, and gaps in the numbers show what
+      // they skipped.
       const steps = ladderSteps(ann);
-      steps.slice(0, level).forEach((s, i) => { body.innerHTML += hintStepHTML(s, i + 1); });
-      if (stepShown(ann, "definition", level)) {
+      steps.forEach((s, i) => {
+        if (isShown(e, s.key)) body.innerHTML += hintStepHTML(s, i + 1);
+      });
+      if (isShown(e, "definition")) {
         body.innerHTML += `<div class="legend"><mark class="def">definition</mark>${
-          stepShown(ann, "indicators", level) ? ' · <mark class="ind">indicator</mark>' : ""
+          isShown(e, "indicators") ? ' · <mark class="ind">indicator</mark>' : ""
         }${(ann.linkWords || []).length ? ' · <mark class="link">link</mark>' : ""
         } highlighted in the clue above</div>`;
       }
 
-      if (level < steps.length) {
+      // Every unrevealed rung is offered, not just the next one. The ladder's
+      // order is a recommendation — it builds definition → indicators → blocks
+      // because that is how a solver reasons — but it was enforced, so wanting
+      // the indicators meant being handed the definition first, which is the
+      // one thing most solvers would rather work out for themselves. The next
+      // rung still leads and still says "hint N", so the suggested path costs
+      // one obvious click; the rest sit beside it, quieter, for the taking.
+      const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
+      togo.forEach(({ s, n }, j) => {
         const btn = document.createElement("button");
-        btn.textContent = `Show hint ${level + 1} · ${steps[level].label}`;
-        btn.onclick = () => { bumpHint(e, level + 1); refreshAll(); };
+        if (j > 0) btn.className = "ghost small";
+        btn.textContent = j === 0 ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}`;
+        btn.onclick = () => { showHint(e, s.key); refreshAll(); };
         next.appendChild(btn);
-      } else if (canCheck() && !solved) {
+      });
+      if (!togo.length && canCheck() && !solved) {
         next.innerHTML = `<button id="hx-entry">${FILL_LABEL}</button>`;
         $("hx-entry").onclick = fillAnswer;
       }
@@ -756,12 +793,13 @@
       const key = entryKey(e);
       if (counted[key]) return;
       counted[key] = true;
+      const rungs = shownRungs(e).length;
       const group = entries.filter((g) => entryKey(g) === key);
       if (group.every(isEntrySolved) && group.length) {
         solved++;
-        if (!(hintLevels[key] > 0) && !(revealsUsed[key] > 0)) noHints++;
+        if (!rungs && !(revealsUsed[key] > 0)) noHints++;
       }
-      levelsUsed += hintLevels[key] || 0;
+      levelsUsed += rungs;
       lettersRevealed += revealsUsed[key] || 0;
     });
     $("scorebar").innerHTML =
@@ -826,7 +864,7 @@
     meta = INDEX.puzzles.find((p) => p.id === id) || { annotated: false };
     store.set("ct:last", id);
     buildModel();
-    hintLevels = {}; revealsUsed = {}; solvedWith = {};
+    hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {};
     restoreState();
     const first = entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
@@ -872,7 +910,7 @@
       if (!confirm("Clear the grid and all hint history for this puzzle?")) return;
       store.del(stateKey());
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
-      hintLevels = {}; revealsUsed = {}; solvedWith = {};
+      hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {};
       refreshAll();
     };
 
