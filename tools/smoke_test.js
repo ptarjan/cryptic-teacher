@@ -72,11 +72,12 @@ class FakeEl {
 }
 
 const registry = {};
-const ids = ["picker-panel","picker-list","btn-picker","btn-picker-close","btn-tutorial",
+const ids = ["picker-panel","picker-list","picker-search","picker-more","btn-picker","btn-picker-close","btn-tutorial",
   "tutorial","app","puzzle-title","scorebar","grid","kbd","chk-letter","chk-entry","chk-grid",
   "clear-entry","reset-puzzle","clues-across","clues-down","hint-panel","hint-clue","hint-pattern",
   "hint-meter","hint-body","hint-next"];
-ids.forEach((id) => { registry[id] = new FakeEl(id === "kbd" ? "input" : "div", id); });
+const inputIds = new Set(["kbd", "picker-search"]);
+ids.forEach((id) => { registry[id] = new FakeEl(inputIds.has(id) ? "input" : "div", id); });
 registry["app"].classList.add("hidden");
 registry["tutorial"].classList.add("hidden");
 registry["picker-panel"].classList.add("hidden");
@@ -379,14 +380,58 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
   assert(msg().length > 0, "checking a single square reports something too");
 }
 
-// --- picker ---
+// --- picker: taught puzzles by default, everything by search ---
+// The rule is two-sided and both sides are feedback (2026-08-01, "we only want
+// to only show ones that have full annotations", plus "hard to navigate as we
+// get more puzzles"). Default list = what can actually teach you. Search = the
+// whole collection, so nothing is unreachable and a number you know still works.
+const allPuzzles = global.CRYPTIC_INDEX.puzzles || [];
+const pickerRows = () => registry["picker-list"].children;
+const pickerHTMLNow = () => pickerRows().map((li) => li.children[0].innerHTML).join("");
+const typeInPicker = (q) => {
+  registry["picker-search"].value = q;
+  registry["picker-search"].listeners.input[0]();
+};
 registry["btn-picker"].onclick();
-assert(registry["picker-list"].children.length >= 25, "picker lists all puzzles");
-const pickerHTML = registry["picker-list"].children.map((li) => li.children[0].innerHTML).join("");
-assert(pickerHTML.includes("full hints") && pickerHTML.includes("auto hints"), "both badges present");
+assert(pickerRows().length >= 5, "picker lists the annotated puzzles: " + pickerRows().length);
+assert(registry["picker-search"].value === "", "the filter box starts empty on open");
+{
+  const html = pickerHTMLNow();
+  assert(html.includes("full hints"), "annotated puzzles are listed");
+  // The load-bearing one: an un-annotated puzzle must not be in the default
+  // list. It is playable but it cannot teach, and it is the majority of rows.
+  assert(!html.includes("auto hints"),
+    "un-annotated puzzles are listed by default: " + pickerRows().length + " rows");
+  assert(pickerRows().length < allPuzzles.length,
+    "something is hidden, so the footer count means something");
+  assert(/archive|search/i.test(registry["picker-more"].innerHTML),
+    "the hidden ones are still signposted: " + registry["picker-more"].innerHTML);
+}
+// filtering narrows, and matches setters as well as numbers
+{
+  const target = allPuzzles.find((p) => p.annotated);
+  typeInPicker(String(target.number));
+  assert(pickerRows().length === 1 && pickerHTMLNow().includes("№ " + target.number),
+    "filtering by number finds exactly that puzzle");
+  typeInPicker(target.setter.toLowerCase());
+  assert(pickerHTMLNow().includes("№ " + target.number),
+    "filtering by setter works: " + target.setter);
+  typeInPicker("zzzznotasetter");
+  assert(pickerRows().length === 1 && /picker-empty/.test(pickerRows()[0].className),
+    "a filter that matches nothing says so rather than showing everything");
+}
 
 // --- open an un-annotated puzzle (auto hints degradation) ---
-const autoBtn = registry["picker-list"].children.find((li) => li.children[0].innerHTML.includes("auto hints")).children[0];
+// Reachable only by searching for it now — which is exactly the escape hatch
+// that makes hiding them by default acceptable.
+// hasSolutions matters: the escape hatches asserted below are the reveal
+// buttons, and a puzzle whose answers the Guardian hasn't published yet has
+// nothing to reveal.
+const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && global.window.CRYPTIC_PUZZLES[p.id]);
+typeInPicker(String(autoPuzzle.number));
+const autoRow = pickerRows().find((li) => li.children[0] && li.children[0].innerHTML.includes("auto hints"));
+assert(autoRow, `searching for ${autoPuzzle.number} surfaces the un-annotated puzzle`);
+const autoBtn = autoRow.children[0];
 autoBtn.onclick();
 assert(registry["puzzle-title"].innerHTML.includes("auto hints"), "auto-hints puzzle opened");
 assert(registry["hint-body"].innerHTML.includes("auto hints") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
@@ -409,9 +454,13 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     return null;
   };
   const openClue = ({ id, e }) => {
+    // Search by number rather than scanning the default list: the default list
+    // is annotated-only, and a puzzle can carry annotated clues while its index
+    // flag says otherwise (mid-annotation, or a partial hand-edit).
     registry["btn-picker"].onclick();
-    const li = registry["picker-list"].children.find((x) => x.children[0].innerHTML.includes("№ " + id));
-    assert(li, `picker lists puzzle ${id}`);
+    typeInPicker(String(id));
+    const li = registry["picker-list"].children.find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + id));
+    assert(li, `picker finds puzzle ${id} when searched for`);
     li.children[0].onclick();
     const row = registry["clue-" + e.id];
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);

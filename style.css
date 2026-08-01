@@ -94,7 +94,20 @@ button:disabled:hover { border-color: var(--line); }
 }
 .panel-head { display: flex; justify-content: space-between; align-items: center; }
 .small-note { font-size: .82rem; }
+/* The filter box is the picker's navigation, not a nicety: the collection grows
+   by a puzzle a night and the panel is 70vh tall, so scrolling stopped being a
+   way to find anything at around thirty rows. Full width and first in the panel
+   because it is focused on open — it should look like the thing you're already
+   typing into. */
+#picker-search {
+  width: 100%; margin: 10px 0 2px; padding: 7px 10px;
+  font: inherit; font-size: .92rem;
+  border: 1px solid var(--line); border-radius: 8px;
+  background: var(--bg); color: inherit;
+}
+#picker-search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 #picker-list { list-style: none; margin: 8px 0 0; padding: 0; }
+#picker-list li.picker-empty { padding: 10px 4px; font-size: .9rem; }
 #picker-list li { border-top: 1px solid var(--line); }
 #picker-list button {
   display: grid; width: 100%; text-align: left;

@@ -871,14 +871,68 @@
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
 
+  // What the picker lists, and why it isn't everything.
+  //
+  // This is a teaching site, so a puzzle with no hand-written annotations can't
+  // do the thing the site is for: you can type letters into it and check them,
+  // and that's all. Listing those alongside the taught ones (2026-08-01: "we
+  // only want to only show ones that have full annotations") made the one dialog
+  // whose job is "what should I do next" answer mostly with things that won't
+  // teach you anything — 22 of 36 rows, and the ratio gets worse every night,
+  // because fetching is daily and annotating is one puzzle per run.
+  //
+  // Hidden is not gone. A query searches EVERY puzzle, annotated or not, so
+  // typing a number you know still finds it; the archive page lists them all;
+  // and ?p=<n> opens any of them. Two rows are also never hidden, both the same
+  // rule — don't hide the user's own work: the puzzle currently open (so the
+  // highlighted row can't vanish out from under them) and any puzzle they have
+  // letters saved against.
+  function pickerProgress(p) {
+    const prog = store.get("ct:" + p.id, null);
+    return prog && prog.letters ? Object.keys(prog.letters).length : 0;
+  }
+  function pickerHaystack(p) {
+    const d = p.date ? new Date(p.date).toISOString().slice(0, 10) : "";
+    // Both spellings of the number: the site writes "No 30,074" everywhere, and
+    // a solver copying that in shouldn't get nothing back.
+    return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d,
+      p.difficulty ? p.difficulty.band : ""].join(" ").toLowerCase();
+  }
+  function pickerRows(q) {
+    // Every term has to match somewhere, so "imogen 2026" narrows rather than
+    // widens — the useful behaviour when the list is long enough to need a
+    // filter at all.
+    const terms = q.split(/\s+/).filter(Boolean);
+    return INDEX.puzzles.filter((p) => {
+      if (terms.length) {
+        const hay = pickerHaystack(p);
+        return terms.every((t) => hay.includes(t));
+      }
+      return p.annotated || (P && p.id === P.id) || pickerProgress(p) > 0;
+    });
+  }
+
   function renderPicker() {
     const ul = $("picker-list");
     ul.innerHTML = "";
-    INDEX.puzzles.forEach((p) => {
+    const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
+    const rows = pickerRows(q);
+    const hidden = INDEX.puzzles.length - rows.length;
+    $("picker-more").innerHTML = !hidden ? "" : q
+      ? `${hidden} other puzzle${hidden > 1 ? "s" : ""} don’t match.`
+      : `${hidden} more without hand-written hints — search by number, or `
+        + `<a href="puzzles/">browse the whole archive</a>.`;
+    if (!rows.length) {
+      const li = document.createElement("li");
+      li.className = "picker-empty";
+      li.innerHTML = `<span class="muted">Nothing matches “${esc(q)}”.</span>`;
+      ul.appendChild(li);
+      return;
+    }
+    rows.forEach((p) => {
       const li = document.createElement("li");
       if (P && p.id === P.id) li.className = "current";
-      const prog = store.get("ct:" + p.id, null);
-      const filled = prog && prog.letters ? Object.keys(prog.letters).length : 0;
+      const filled = pickerProgress(p);
       const d = p.date ? new Date(p.date).toISOString().slice(0, 10) : "";
       const btn = document.createElement("button");
       // Order here is the grid's, not the eye's: the badges are markup-last but
@@ -901,7 +955,14 @@
     const el = $("picker-panel");
     const want = (show === undefined) ? el.classList.contains("hidden") : show;
     el.classList.toggle("hidden", !want);
-    if (want) renderPicker();
+    // Opening always starts from a clean list. A filter left over from last time
+    // would look like puzzles had gone missing.
+    const box = $("picker-search");
+    if (want) {
+      if (box) { box.value = ""; }
+      renderPicker();
+      if (box && box.focus) box.focus();
+    }
   }
 
   // ---------- puzzle lifecycle ----------
@@ -944,6 +1005,18 @@
     };
     $("btn-picker").onclick = () => togglePicker();
     $("btn-picker-close").onclick = () => togglePicker(false);
+    // Typing is the whole navigation model once the list outgrows a screen, so
+    // the box is focused on open and Enter takes the top row — number in, puzzle
+    // open, no mouse. Escape gets you back out; the global key handler ignores
+    // inputs, so it has to be handled here.
+    $("picker-search").addEventListener("input", () => renderPicker());
+    $("picker-search").addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") { togglePicker(false); focusKbd(); return; }
+      if (ev.key !== "Enter") return;
+      const first = $("picker-list").children[0];
+      const btn = first && first.children[0];
+      if (btn && btn.onclick) btn.onclick();
+    });
 
     $("chk-letter").onclick = () => { const c = cells[cur.y][cur.x]; if (c) checkCells([c], "square"); };
     $("chk-entry").onclick = () => { const e = currentEntry(); if (e) checkCells(entryCells(e), "entry"); };

@@ -236,6 +236,21 @@ must pass before commit.
   reintroduce a scalar here. A rung a clue does not HAVE must never gate one it
   does (many clues have no indicators rung and no blocks rung), which is why
   availability is computed against this clue's steps, not a fixed list.
+- The puzzle picker lists only puzzles with `annotated: true`, plus the one
+  currently open and any with saved progress (feedback 2026-08-01: "we only want
+  to only show ones that have full annotations", alongside "hard to navigate as
+  we get more puzzles"). The two are the same problem: fetching is nightly and
+  annotating is one puzzle per run, so the un-taught puzzles are the majority and
+  they grow faster than the taught ones. A row that cannot teach you anything is
+  noise in the one dialog whose job is "what should I do next".
+  Hidden must never mean unreachable, and that is what makes the filter
+  load-bearing rather than decorative: **a query searches every puzzle**,
+  annotated or not, so a number you know still finds its puzzle; the archive page
+  lists them all and the picker footer links to it; `?p=<n>` opens anything. The
+  box is focused on open and Enter takes the top row, so number-in/puzzle-open
+  needs no mouse. Do not "simplify" this by filtering only the rendered rows —
+  that would make the un-annotated puzzles unreachable from the app, and the
+  smoke test asserts the search path specifically.
 - Rung 1 names the clue FAMILY, never the precise type (feedback 2026-07-26:
   "the type of clues seem a bit specific for a first hint"). Opening a clue with
   `charade + alternate letters` hands over the whole mechanism. The families,
