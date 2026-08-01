@@ -210,26 +210,42 @@ registry["hx-letter"].onclick();
 assert(/letters? revealed/.test(registry["scorebar"].innerHTML), "letter reveals counted in score: " + registry["scorebar"].innerHTML);
 assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter shows reveal count: " + registry["hint-meter"].innerHTML);
 
-// --- pick a rung out of order ---
-// The ladder recommends an order; it does not impose one. Taking the LAST rung
-// offered must reveal that rung and nothing else — the whole point is not being
-// handed the definition on the way to something further down. children[0] is
-// the recommended next rung and leads; the skip-ahead buttons follow it.
+// --- pick a rung out of order, but not out of tier ---
+// Two rules pull against each other and both have to hold. Free choice WITHIN a
+// tier: taking any offered rung reveals that rung and nothing else, so wanting
+// the indicators doesn't hand you the definition on the way. No choice ACROSS
+// tiers: the building blocks and the walkthrough restate the early rungs while
+// giving away the answer, so they stay disabled until the early ones are up.
+// Lose either half and this is no longer a teaching ladder.
 {
   const buttons = registry["hint-next"].children;
-  assert(buttons.length >= 3, "every unrevealed rung is offered, not just the next: " + buttons.length);
-  assert(/^Show hint \d/.test(buttons[0].textContent), "recommended rung leads: " + buttons[0].textContent);
-  const last = buttons[buttons.length - 1];
-  const wanted = last.textContent;                 // e.g. "5 · The full walkthrough"
+  const open = buttons.filter((b) => !b.disabled);
+  const locked = buttons.filter((b) => b.disabled);
+  assert(open.length >= 2, "the first tier offers a choice, not a single next step: " + open.length);
+  assert(/^Show hint \d/.test(open[0].textContent), "recommended rung leads: " + open[0].textContent);
+  assert(locked.length >= 1, "later rungs are locked from cold, not free for the taking");
+  assert(/walkthrough/i.test(locked[locked.length - 1].textContent),
+    "the walkthrough is never one click from cold: " + locked[locked.length - 1].textContent);
+  // The load-bearing one. Checking only that SOME button is disabled is not
+  // enough: an app that offers every rung AND redundantly lists the late ones
+  // as disabled would satisfy that, and did. What must hold is that no late
+  // rung is clickable yet.
+  assert(!open.some((b) => /walkthrough|building blocks|what each half means/i.test(b.textContent)),
+    "a late rung is offered from cold: " + open.map((b) => b.textContent).join(" | "));
+  const last = open[open.length - 1];
+  const wanted = last.textContent;                 // e.g. "3 · Spot the indicator words"
   last.onclick();
   const shown = registry["hint-body"].innerHTML;
   assert(shown.includes("hint-step"), "the chosen rung is revealed");
   const stepCount = (shown.match(/class="hint-step"/g) || []).length;
   assert(stepCount === 1, `choosing rung "${wanted}" revealed ${stepCount} rungs, not just the one`);
-  assert(!registry["hint-clue"].innerHTML.includes('mark class="def"'),
-    "skipping to a later rung does NOT leak the definition highlight");
-  // and it stays out of order without renumbering: the rung keeps its ladder number
+  // out of order without renumbering: the rung keeps its ladder number
   assert(shown.includes(wanted.split(" · ")[0] + " · "), "rung keeps its ladder number: " + shown.slice(0, 120));
+  // the definition highlight is the giveaway that a rung leaked. Position 2 IS
+  // the definition rung on every clue, so it should light up exactly then.
+  const lit = registry["hint-clue"].innerHTML.includes('mark class="def"');
+  assert(lit === wanted.startsWith("2 · "),
+    `definition highlight should appear only for the definition rung (took "${wanted}", lit=${lit})`);
 }
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
 

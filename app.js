@@ -250,7 +250,24 @@
     return id ? byId[id] : null;
   }
 
+  // Choosing a clue should put the clue in front of you. On a phone the layout
+  // is a single column — grid, toolbar, hint panel, then the clue lists — so
+  // picking an entry updated a panel that was off the bottom of the screen if
+  // you'd come from the grid and off the top if you'd come from the list, and
+  // either way you had to go looking for it. block:"nearest" is what keeps
+  // this from being annoying: it scrolls the least it can, and does nothing at
+  // all when the panel is already visible, which is the desktop two-column
+  // case. Only fires when the SELECTED ENTRY CHANGES — scrolling on every
+  // keystroke or arrow key would be intolerable.
+  function scrollToHintPanel() {
+    const p = $("hint-panel");
+    if (p && !p.classList.contains("hidden") && p.scrollIntoView) {
+      p.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
+
   function onCellClick(c) {
+    const before = currentEntry();
     if (cur.x === c.x && cur.y === c.y) {
       const other = cur.dir === "across" ? "down" : "across";
       if (c[other]) cur.dir = other;
@@ -260,6 +277,8 @@
     }
     focusKbd();
     refreshAll();
+    const after = currentEntry();
+    if (after && (!before || entryKey(before) !== entryKey(after))) scrollToHintPanel();
   }
 
   function selectEntry(e, jumpToStart) {
@@ -275,6 +294,7 @@
       cur.x = c0.x; cur.y = c0.y;
     }
     refreshAll();
+    scrollToHintPanel();
   }
 
   const cellAt = (e, i) => cells[e.position.y + (e.direction === "down" ? i : 0)][e.position.x + (e.direction === "across" ? i : 0)];
@@ -550,6 +570,25 @@
     return hintsShown[key];
   }
   const isShown = (e, rung) => shownRungs(e).indexOf(rung) >= 0;
+
+  // Tiers, not a chain, and not a free-for-all either. Inside a tier the order
+  // is the solver's business; across tiers it can't be, because a later rung
+  // contains the earlier ones' answers — the building blocks name the
+  // definition and the indicators on the way to spelling out the wordplay, and
+  // the walkthrough hands over everything. Unrestricted choice (the first cut
+  // of this, 2026-08-01) put "skip to the walkthrough" one click from cold,
+  // which isn't a ladder at all. So: pick freely among the things the clue
+  // asks you to SPOT, then assemble, then be told.
+  const RUNG_TIER = { type: 0, definition: 0, indicators: 0, blocks: 1, walkthrough: 2 };
+  // A rung unlocks once every rung of an earlier tier THIS CLUE HAS is up.
+  // Per-clue is the whole point: lots of clues have no indicators rung and no
+  // blocks rung, and a rung that doesn't exist must never be a lock nobody can
+  // open.
+  function rungAvailable(e, steps, key) {
+    const tier = RUNG_TIER[key] || 0;
+    return steps.every((s) => (RUNG_TIER[s.key] || 0) >= tier || isShown(e, s.key));
+  }
+
   function showHint(e, rung) {
     if (isShown(e, rung)) return;
     shownRungs(e).push(rung);
@@ -755,19 +794,28 @@
         } highlighted in the clue above</div>`;
       }
 
-      // Every unrevealed rung is offered, not just the next one. The ladder's
-      // order is a recommendation — it builds definition → indicators → blocks
-      // because that is how a solver reasons — but it was enforced, so wanting
-      // the indicators meant being handed the definition first, which is the
-      // one thing most solvers would rather work out for themselves. The next
-      // rung still leads and still says "hint N", so the suggested path costs
-      // one obvious click; the rest sit beside it, quieter, for the taking.
+      // Every unlocked rung is offered at once, not just the next one: wanting
+      // the indicators shouldn't mean being handed the definition on the way,
+      // since working out where the definition sits is most of the skill. The
+      // recommended one still leads and still says "hint N", so the taught path
+      // costs one obvious click and a sideways move costs one deliberate one.
+      // Rungs from a later tier are shown but disabled rather than hidden — the
+      // ladder has a shape and the solver should be able to see it coming.
       const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
-      togo.forEach(({ s, n }, j) => {
+      const open = togo.filter(({ s }) => rungAvailable(e, steps, s.key));
+      open.forEach(({ s, n }, j) => {
         const btn = document.createElement("button");
         if (j > 0) btn.className = "ghost small";
         btn.textContent = j === 0 ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}`;
         btn.onclick = () => { showHint(e, s.key); refreshAll(); };
+        next.appendChild(btn);
+      });
+      togo.filter(({ s }) => !rungAvailable(e, steps, s.key)).forEach(({ s, n }) => {
+        const btn = document.createElement("button");
+        btn.className = "ghost small locked";
+        btn.disabled = true;
+        btn.textContent = `${n} · ${s.label}`;
+        btn.title = "Take the hints above first — this one gives them away";
         next.appendChild(btn);
       });
       if (!togo.length && canCheck() && !solved) {
