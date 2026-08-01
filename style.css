@@ -100,6 +100,24 @@ button:disabled:hover { border-color: var(--line); }
 .badge.full { background: var(--def-bg); color: var(--def-fg); }
 .badge.auto { background: var(--ind-bg); color: var(--ind-fg); }
 
+/* Difficulty. Outlined rather than filled so it reads as a note about the
+   puzzle and doesn't compete with the hint badges next to it, which say
+   something about what this site offers. Warm as it gets harder. */
+.badge.diff {
+  background: none; border: 1px solid currentColor; opacity: .85;
+  min-width: 5.4em; text-align: center;
+}
+.badge.diff-gentle   { color: #2f7d52; }
+.badge.diff-moderate { color: #7a6a1f; }
+.badge.diff-tough    { color: #a3541b; }
+.badge.diff-brutal   { color: #a33025; }
+@media (prefers-color-scheme: dark) {
+  .badge.diff-gentle   { color: #6fc48f; }
+  .badge.diff-moderate { color: #ccb455; }
+  .badge.diff-tough    { color: #e39055; }
+  .badge.diff-brutal   { color: #e8756a; }
+}
+
 /* ---------- layout ---------- */
 .puzzle-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px; margin: 14px 0 4px; }
 .puzzle-head h2 { margin: 0; font-size: 1.15rem; }
@@ -315,4 +333,74 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   body { padding: 0 8px 40px; }
   #grid { --cellsize: calc((100vw - 20px) / var(--cols, 15) - 1px); }
   .layout { gap: 10px; }
+}
+
+/* ---------- static pages (tools/build_seo_pages.py) ----------
+   The archive pages under /puzzles/<n>/ and /learn/ are plain documents with no
+   JavaScript, so they get a narrower measure and prose-first spacing rather than
+   the app's two-column solving layout. They share this stylesheet on purpose:
+   one set of colours, one dark mode, nothing to keep in sync. */
+.static-page { max-width: 760px; }
+.static-page .brand { padding-top: 18px; }
+.home-link { color: inherit; text-decoration: none; font-size: 1.35rem; }
+.home-link:hover { color: var(--accent); }
+.crumbs { font-size: .82rem; color: var(--muted); margin: 6px 0 22px; }
+.crumbs a { color: var(--muted); }
+.static-main h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 10px; }
+.static-main h2 { font-size: 1.25rem; margin: 34px 0 6px;
+                  border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+.s-facts { color: var(--muted); font-size: .9rem; margin: 0 0 16px; }
+.s-cta { margin: 18px 0 24px; }
+.cta {
+  display: inline-block; background: var(--accent); color: var(--bg);
+  padding: 9px 16px; border-radius: 8px; text-decoration: none; font-weight: 700;
+}
+.cta:hover { filter: brightness(1.12); }
+
+.s-clue { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.s-clue:last-child { border-bottom: 0; }
+.s-clue h3 { font-size: 1rem; margin: 0 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
+.s-num { color: var(--muted); font-weight: 400; min-width: 5.5em; }
+.s-answer { letter-spacing: 1px; }
+.s-cluetext { margin: 0 0 8px; font-style: italic; }
+.s-def { margin: 0 0 8px; font-size: .92rem; }
+.s-def strong { background: var(--def-bg); color: var(--def-fg); padding: 0 4px; border-radius: 3px; }
+.s-type { color: var(--muted); }
+.s-blocks { margin: 0 0 8px; padding-left: 20px; font-size: .92rem; }
+.s-blocks li { margin-bottom: 3px; }
+.s-frag { background: var(--ind-bg); color: var(--ind-fg); padding: 0 4px; border-radius: 3px; }
+.s-note { color: var(--muted); }
+.s-walk { margin: 0; font-size: .95rem; }
+.s-todo { font-size: .9rem; }
+
+.s-index { list-style: none; padding: 0; margin: 18px 0 0; }
+.s-index a {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit;
+}
+.s-index a:hover { background: var(--accent-soft); }
+.s-index .p-num { font-weight: 700; min-width: 5.4em; }
+.s-index .p-meta { color: var(--muted); font-size: .82rem; margin-left: auto; }
+
+.s-pager { display: flex; justify-content: space-between; gap: 16px; margin: 32px 0 0; }
+
+/* The crawl path out of the app's homepage. Quiet — it sits below the puzzle
+   and is an index, not a call to action. */
+.seo-nav { margin: 40px 0 0; padding-top: 18px; border-top: 1px solid var(--line); }
+.seo-nav h2 { font-size: 1.05rem; margin: 0 0 6px; }
+.seo-nav p { font-size: .9rem; color: var(--muted); margin: 0 0 10px; }
+.seo-nav ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .88rem;
+}
+
+.diff-gentle   { color: #2f7d52; }
+.diff-moderate { color: #7a6a1f; }
+.diff-tough    { color: #a3541b; }
+.diff-brutal   { color: #a33025; }
+@media (prefers-color-scheme: dark) {
+  .diff-gentle   { color: #6fc48f; }
+  .diff-moderate { color: #ccb455; }
+  .diff-tough    { color: #e39055; }
+  .diff-brutal   { color: #e8756a; }
 }
