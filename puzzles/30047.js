@@ -57,7 +57,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "a tome; it binds the CO as TO-CO-ME"
      }
     ],
-    "walkthrough": "'Binding' is what books get, which is why it hides so well as the container instruction — the TOME simply closes around the firm."
+    "walkthrough": "'Binding' is what books get, which is why it hides so well as the container instruction — the TOME simply closes around the firm.",
+    "definitionFit": "Something 'to come' is anticipated but hasn't happened yet, which is exactly what 'expected' means — a plain synonym."
    }
   },
   {
@@ -110,7 +111,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
      }
     ],
     "definitionNote": "TROUPERS is plural while 'cast' is a collective singular: the one word names a whole company of performers, so the setter may fairly define the plural with it.",
-    "walkthrough": "'About' turns the whole assembly — S plus REP-U-ORT — end for end, and the ellipsis just runs the surface on into 2 down."
+    "walkthrough": "'About' turns the whole assembly — S plus REP-U-ORT — end for end, and the ellipsis just runs the surface on into 2 down.",
+    "definitionFit": "Troupers are performers who tour together as a company, so 'cast on tour' describes precisely the group the word names."
    }
   },
   {
@@ -156,7 +158,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "to neck a drink = to down it"
      }
     ],
-    "walkthrough": "The capital J sends you to the Channel Islands; the jersey in question is the woollen one, and its cut is the neckline."
+    "walkthrough": "The capital J sends you to the Channel Islands; the jersey in question is the woollen one, and its cut is the neckline.",
+    "definitionFit": "A crew neck names the plain round-necked style in which a jersey's collar is cut, so 'Jersey's cut' describes it directly."
    }
   },
   {
@@ -192,7 +195,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "your double is your match, your exact counterpart"
      }
     ],
-    "walkthrough": "Two words, no indicator: nearly always two definitions. 'Spill' meaning a fire-lighting taper is old household vocabulary that crosswords keep alive."
+    "walkthrough": "Two words, no indicator: nearly always two definitions. 'Spill' meaning a fire-lighting taper is old household vocabulary that crosswords keep alive.",
+    "definitionFit": "A spill was an old fire-lighting taper, a sense crosswords keep alive; your 'double' is your exact match — two unrelated meanings, one word."
    }
   },
   {
@@ -237,7 +241,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "A = America"
      }
     ],
-    "walkthrough": "August sits at the end of the clue so its capital letter passes as the month; read it as the adjective — august, majestic, imperial."
+    "walkthrough": "August sits at the end of the clue so its capital letter passes as the month; read it as the adjective — august, majestic, imperial.",
+    "definitionFit": "'August' the adjective means grand and majestic, a sense IMPERIAL shares exactly — regal splendour, not the month sharing its spelling."
    }
   },
   {
@@ -285,7 +290,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "REPRESENT 'lines' her: MIS-REPRESENT-S"
      }
     ],
-    "walkthrough": "'Lines' is the container word — a lining goes inside — and the theatre surface makes you hear an actor's lines instead. Note that 'about' belongs to 'feel bitter about', not to any reversal."
+    "walkthrough": "'Lines' is the container word — a lining goes inside — and the theatre surface makes you hear an actor's lines instead. Note that 'about' belongs to 'feel bitter about', not to any reversal.",
+    "definitionFit": "To misrepresent is literally to deliver something inaccurately — a transparent synonym once the theatre disguise is stripped away."
    }
   },
   {
@@ -336,7 +342,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Doctor' at the head of a clue is the oldest anagram signal there is, and the surface's grim prescription — suffer to the end — is exactly what the answer means."
+    "walkthrough": "'Doctor' at the head of a clue is the oldest anagram signal there is, and the surface's grim prescription — suffer to the end — is exactly what the answer means.",
+    "definitionFit": "Endurance is the capacity to bear hardship without giving in, exactly what patient, prolonged suffering requires — a direct synonym."
    }
   },
   {
@@ -381,7 +388,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "the last letter of receptioN"
      }
     ],
-    "walkthrough": "'On' is positional and only works because this is a down entry: INTER sits on the N in the grid."
+    "walkthrough": "'On' is positional and only works because this is a down entry: INTER sits on the N in the grid.",
+    "definitionFit": "An intern is a trainee gaining supervised work experience, a plain modern synonym with no hidden twist."
    }
   },
   {
@@ -423,7 +431,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "LAVATORY 'exhausted' — emptied down to its outer letters"
      }
     ],
-    "walkthrough": "'Sitting on' is positional in a down entry — LUSH above LY — and 'exhausted' empties a word the way 'on vacation' does at 22 down."
+    "walkthrough": "'Sitting on' is positional in a down entry — LUSH above LY — and 'exhausted' empties a word the way 'on vacation' does at 22 down.",
+    "definitionFit": "Lushly means luxuriantly, in rich abundance — a plain synonym for sumptuously, both adverbs describing lavish excess."
    }
   },
   {
@@ -464,7 +473,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "its first letter"
      }
     ],
-    "walkthrough": "'The Open' reads as the golf championship, which is the disguise: 'Open' alone is the definition, and 'The' only donates its first letter."
+    "walkthrough": "'The Open' reads as the golf championship, which is the disguise: 'Open' alone is the definition, and 'The' only donates its first letter.",
+    "definitionFit": "Overt means open and unconcealed, done without any attempt at secrecy — a direct synonym, not the golf tournament the surface suggests."
    }
   },
   {
@@ -506,7 +516,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "a date, taken in by the POSTS"
      }
     ],
-    "walkthrough": "'Gathered in' is harvest language, and it points the right way round: the POSTS gather the DATE in, as farmers gather in a crop."
+    "walkthrough": "'Gathered in' is harvest language, and it points the right way round: the POSTS gather the DATE in, as farmers gather in a crop.",
+    "definitionFit": "To postdate something is literally to come after it in time, so 'comes after' is a direct, near-etymological synonym for the answer."
    }
   },
   {
@@ -554,7 +565,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "a minister"
      }
     ],
-    "walkthrough": "Eden is a definition by example — Anthony Eden held the office in the 1950s — and the question mark admits it. The surface wants the other Eden, the paradise a clergyman might describe."
+    "walkthrough": "Eden is a definition by example — Anthony Eden held the office in the 1950s — and the question mark admits it. The surface wants the other Eden, the paradise a clergyman might describe.",
+    "definitionFit": "Eden names the answer only by example — Anthony Eden was one Prime Minister, and the question mark admits this is an instance, not a synonym."
    }
   },
   {
@@ -601,7 +613,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
      }
     ],
     "definitionNote": "The definition is by example, not by synonym: 'to get to the other side' is the most famous punch line there is — the answer to 'Why did the chicken cross the road?'",
-    "walkthrough": "Fed hides the oldest joke in the language by never telling it: the definition is simply that joke's punch line, quoted."
+    "walkthrough": "Fed hides the oldest joke in the language by never telling it: the definition is simply that joke's punch line, quoted.",
+    "definitionFit": "This famously is the punch line to 'why did the chicken cross the road' — the definition quotes that joke's ending directly, not a paraphrase."
    }
   },
   {
@@ -649,7 +662,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "the instruction: I (one) comes out of RAIL"
      }
     ],
-    "walkthrough": "Two subtractions in five words: 'largely' keeps most of RUE, and 'one' is the I that leaves RAIL. The ellipses just sew this surface to its neighbours."
+    "walkthrough": "Two subtractions in five words: 'largely' keeps most of RUE, and 'one' is the I that leaves RAIL. The ellipses just sew this surface to its neighbours.",
+    "definitionFit": "Rural describes anything belonging to the countryside rather than a town, so 'of the country' is a direct, everyday synonym."
    }
   },
   {
@@ -700,7 +714,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
      }
     ],
     "definitionNote": "RACKETEERING ends in -ing but it is a plain noun here — the name of the crime, as in 'racketeering charges' — so the noun 'extortion' matches it exactly.",
-    "walkthrough": "A railway surface built to hide railway-free wordplay: 'shed' is the verb, not the building, and 'close to train' names the N it throws away."
+    "walkthrough": "A railway surface built to hide railway-free wordplay: 'shed' is the verb, not the building, and 'close to train' names the N it throws away.",
+    "definitionFit": "Racketeering is the organised-crime term for running an extortion racket, so 'extortion' names the crime the word denotes exactly."
    }
   },
   {
@@ -743,7 +758,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Change of demeanour' is such an everyday phrase that the instruction hides in plain sight — the change is literal, letter by letter."
+    "walkthrough": "'Change of demeanour' is such an everyday phrase that the instruction hides in plain sight — the change is literal, letter by letter.",
+    "definitionFit": "To be enamoured is to be charmed or captivated by someone or something, a plain everyday synonym pair."
    }
   },
   {
@@ -792,7 +808,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "the R (back of dooR) that the PP knocks out of STORAGE"
      }
     ],
-    "walkthrough": "A substitution: the PP evicts the R from STORAGE and squats in its place. 'Check' is the noun — a stoppage in play."
+    "walkthrough": "A substitution: the PP evicts the R from STORAGE and squats in its place. 'Check' is the noun — a stoppage in play.",
+    "definitionFit": "A stoppage is a check on play or progress — a halt imposed from outside — matching the sporting and everyday senses of 'check'."
    }
   },
   {
@@ -827,7 +844,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "the last letters of all eight words in a row"
      }
     ],
-    "walkthrough": "Eight consecutive final letters is a marathon — most setters stop at four. 'Juicy' means salacious, which is what the gossip surface was priming you for all along."
+    "walkthrough": "Eight consecutive final letters is a marathon — most setters stop at four. 'Juicy' means salacious, which is what the gossip surface was priming you for all along.",
+    "definitionFit": "'Juicy' as slang for salacious gossip carries exactly the sense 'prurient' does: an excessive, unhealthy interest in sexual detail."
    }
   },
   {
@@ -887,7 +905,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "the P checks in as early as it can: S-P-ECTOR"
      }
     ],
-    "walkthrough": "'At the earliest opportunity' does precise work: P could lodge anywhere in SECTOR, and Fed tells you to take the first berth, right after the S."
+    "walkthrough": "'At the earliest opportunity' does precise work: P could lodge anywhere in SECTOR, and Fed tells you to take the first berth, right after the S.",
+    "definitionFit": "A tax inspector is literally the government's revenue man, the official who checks what is owed — a plain descriptive synonym."
    }
   },
   {
@@ -939,7 +958,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "a mark = a scar; O…S closes 'about' it"
      }
     ],
-    "walkthrough": "'Upset' can only mean read-upwards in a down clue, and the capital M on Mark is the disguise — no saint or gospel, just a blemish."
+    "walkthrough": "'Upset' can only mean read-upwards in a down clue, and the capital M on Mark is the disguise — no saint or gospel, just a blemish.",
+    "definitionFit": "The Oscars are one famous, specific set of awards — the film industry's own — so 'awards' is the general category the answer belongs to."
    }
   },
   {
@@ -981,7 +1001,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "PIANO with its No. (number) cancelled"
      }
     ],
-    "walkthrough": "Musical Youth were a real 1980s band, which is what sells the surface. The trick to file away: 'number' is the abbreviation No., and PIANO cancels those two letters."
+    "walkthrough": "Musical Youth were a real 1980s band, which is what sells the surface. The trick to file away: 'number' is the abbreviation No., and PIANO cancels those two letters.",
+    "definitionFit": "Myopia is short-sightedness, literally an eye complaint that afflicts a viewer's distance vision — a plain medical synonym."
    }
   },
   {
@@ -1020,7 +1041,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "cut the odd letters of iS mAnY aScOt and read what is left"
      }
     ],
-    "walkthrough": "'Odds' points at the racecourse, but they are the odd-numbered letters — cut them and the evens spell the answer. Note the fodder starts at 'is': even link-looking words can be letters."
+    "walkthrough": "'Odds' points at the racecourse, but they are the odd-numbered letters — cut them and the evens spell the answer. Note the fodder starts at 'is': even link-looking words can be letters.",
+    "definitionFit": "'Say-so' can mean an unverified claim taken purely on someone's word — the same unsubstantiated assertion a rumour is."
    }
   },
   {
@@ -1065,7 +1087,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "the goalkeeper — the player who probably wears shirt number 1"
      }
     ],
-    "walkthrough": "'Probably' is fair play: keepers usually wear the number 1 shirt, not always. And the question mark concedes the innkeeper never appears in the gospels — only in school nativity plays."
+    "walkthrough": "'Probably' is fair play: keepers usually wear the number 1 shirt, not always. And the question mark concedes the innkeeper never appears in the gospels — only in school nativity plays.",
+    "definitionFit": "The innkeeper is the stock role played in every school nativity, so the definition names the exact part by the play it appears in."
    }
   },
   {
@@ -1113,7 +1136,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "'on vacation' — vacated, leaving only the outer letters"
      }
     ],
-    "walkthrough": "'On vacation' means vacated — emptied — a pun worth keeping: Egypt on holiday loses everything inside. The definition is a little sentence standing for the person it describes."
+    "walkthrough": "'On vacation' means vacated — emptied — a pun worth keeping: Egypt on holiday loses everything inside. The definition is a little sentence standing for the person it describes.",
+    "definitionFit": "An expat is precisely someone living far from their home country, so the description substitutes directly for the answer."
    }
   },
   {
@@ -1161,7 +1185,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "SS = steamship; 'on board' puts the rest between its letters"
      }
     ],
-    "walkthrough": "'On board ship' is a fixed convention: inside the letters SS. To aspirate is to supply air — what the h does in 'hat'."
+    "walkthrough": "'On board ship' is a fixed convention: inside the letters SS. To aspirate is to supply air — what the h does in 'hat'.",
+    "definitionFit": "To aspirate a sound is literally to supply it with breath, the h-sound in 'hat' — a direct technical synonym for 'supplies air to'."
    }
   },
   {
@@ -1196,7 +1221,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "to faze = to worry; 'in audition' means heard aloud"
      }
     ],
-    "walkthrough": "FAZE and PHASE are exact sound-twins, and 'in audition' keeps the hearing signal inside the theatre. A phase is a stage — of the moon, of a project, of a teenager."
+    "walkthrough": "FAZE and PHASE are exact sound-twins, and 'in audition' keeps the hearing signal inside the theatre. A phase is a stage — of the moon, of a project, of a teenager.",
+    "definitionFit": "A phase is a stage of development — of the moon, a project, a life — a plain synonym once decoupled from the homophone's worry sense."
    }
   },
   {
@@ -1244,7 +1270,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "HARDY dis-covered: its outer letters stripped off"
      }
     ],
-    "walkthrough": "'Discovered' read as dis-covered — the covers taken off — is a classic worth banking. The famous duo split unevenly: Laurel gives his first name, Hardy only his middle."
+    "walkthrough": "'Discovered' read as dis-covered — the covers taken off — is a classic worth banking. The famous duo split unevenly: Laurel gives his first name, Hardy only his middle.",
+    "definitionFit": "A standard is a model example others are measured against, so 'model' is a direct synonym for the benchmark sense of the word."
    }
   },
   {
@@ -1285,7 +1312,8 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
       "note": "French for 'is'"
      }
     ],
-    "walkthrough": "Jacques Tati, the French film-maker, keeps the surface in France — where 'is' translates to EST. His name only lends its alternate letters."
+    "walkthrough": "Jacques Tati, the French film-maker, keeps the surface in France — where 'is' translates to EST. His name only lends its alternate letters.",
+    "definitionFit": "To attest something is to show or demonstrate its truth formally, a slightly formal synonym for the everyday 'show'."
    }
   }
  ]

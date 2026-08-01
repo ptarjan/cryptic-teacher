@@ -60,7 +60,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "insertion indicator — P cuts into OUTLAY"
      }
     ],
-    "walkthrough": "'Cutting expenditure' reads as a single piece of budget news, which is why 'cutting' never sounds like an instruction to slide a letter in."
+    "walkthrough": "'Cutting expenditure' reads as a single piece of budget news, which is why 'cutting' never sounds like an instruction to slide a letter in.",
+    "definitionFit": "To outplay an opponent is to perform noticeably better than them during a game or contest."
    }
   },
   {
@@ -107,7 +108,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "TERM (to name) losing M (money)"
      }
     ],
-    "walkthrough": "The hard step is 'name' as a verb — to name is to TERM — and only then does 'money' take its M away. Everything else is disco and schoolboy French."
+    "walkthrough": "The hard step is 'name' as a verb — to name is to TERM — and only then does 'money' take its M away. Everything else is disco and schoolboy French.",
+    "definitionFit": "A discounter is a retail outlet that sells goods cheaply, undercutting standard prices."
    }
   },
   {
@@ -139,7 +141,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "hidden: jarroW EARlier"
      }
     ],
-    "walkthrough": "'Sport' reads as a noun — games, athletics — and it is really the verb: to sport a hat is to wear it. Jarrow sits near the River Wear, so even the hiding place fits."
+    "walkthrough": "'Sport' reads as a noun — games, athletics — and it is really the verb: to sport a hat is to wear it. Jarrow sits near the River Wear, so even the hiding place fits.",
+    "definitionFit": "To wear a garment is, in slightly old-fashioned usage, to sport it."
    }
   },
   {
@@ -179,7 +182,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "A bromide is a soothing platitude, named after the sedative — and the surface even sounds like the sort of dull person who would utter one."
+    "walkthrough": "A bromide is a soothing platitude, named after the sedative — and the surface even sounds like the sort of dull person who would utter one.",
+    "definitionFit": "A bromide is a soothing, placatory platitude, named after the sedative once used to calm people down."
    }
   },
   {
@@ -235,7 +239,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "to mind = to object ('do you mind?')"
      }
     ],
-    "walkthrough": "'Object' looks like a noun and turns out to be a verb: do you mind? That switch is the clue's one real difficulty; everything before it is small dull abbreviations."
+    "walkthrough": "'Object' looks like a noun and turns out to be a verb: do you mind? That switch is the clue's one real difficulty; everything before it is small dull abbreviations.",
+    "definitionFit": "Something on one's mind is currently occupying one's thoughts and causing concern or worry."
    }
   },
   {
@@ -284,7 +289,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "the letter A, tucked inside"
      }
     ],
-    "walkthrough": "'Revolutionary face' sounds like a poster of Che, and it means MUG turned round. Note that the 'a' is not a link word here — you actually use the letter."
+    "walkthrough": "'Revolutionary face' sounds like a poster of Che, and it means MUG turned round. Note that the 'a' is not a link word here — you actually use the letter.",
+    "definitionFit": "Guam is an island in the western Pacific that is an unincorporated US territory."
    }
   },
   {
@@ -339,7 +345,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "YEN (longing) 'overturned' in this down clue"
      }
     ],
-    "walkthrough": "H for husband and YEN for longing are both worth filing away. In a down clue 'overturned' means read upwards, and the curry-house surface covers all three moves."
+    "walkthrough": "H for husband and YEN for longing are both worth filing away. In a down clue 'overturned' means read upwards, and the curry-house surface covers all three moves.",
+    "definitionFit": "Chutney is a spiced fruit or vegetable condiment central to Indian cooking."
    }
   },
   {
@@ -385,7 +392,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "The payoff is the definition: Fletcher Christian led the mutiny on the Bounty, so 'Christian, say' is a fair example — and the S leaves before the shuffle, not after."
+    "walkthrough": "The payoff is the definition: Fletcher Christian led the mutiny on the Bounty, so 'Christian, say' is a fair example — and the S leaves before the shuffle, not after.",
+    "definitionFit": "Fletcher Christian, who led the mutiny on the Bounty, is a famous example of a mutineer, someone who rebels against authority."
    }
   },
   {
@@ -427,7 +435,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "SOUGHT (looked for) with S (sun) taken out"
      }
     ],
-    "walkthrough": "Duck for zero is cricket's gift to crosswords, and it is the definition here — not the bird the canal invites you to picture."
+    "walkthrough": "Duck for zero is cricket's gift to crosswords, and it is the definition here — not the bird the canal invites you to picture.",
+    "definitionFit": "In cricket a batsman out for nought is said to make a duck, so 'duck' is slang for a score of zero."
    }
   },
   {
@@ -474,7 +483,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "TRUMP cut short — 'snubbed' as in snub-nosed"
      }
     ],
-    "walkthrough": "'Snubbed' means cut short, as in a snub nose, rather than slighted — and the president loses his last letter for it. That double sense is the whole joke."
+    "walkthrough": "'Snubbed' means cut short, as in a snub nose, rather than slighted — and the president loses his last letter for it. That double sense is the whole joke.",
+    "definitionFit": "A spectrum is the colourful band of light produced when white light is split apart, as by a prism."
    }
   },
   {
@@ -520,7 +530,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Numpty is cheerfully Scottish. The surface — putting people off — sounds like a real complaint rather than a bag of letters waiting to be shaken."
+    "walkthrough": "Numpty is cheerfully Scottish. The surface — putting people off — sounds like a real complaint rather than a bag of letters waiting to be shaken.",
+    "definitionFit": "A numpty is Scottish slang for a foolish or stupid person, a dimwit."
    }
   },
   {
@@ -570,7 +581,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Among' only tells you ALDI joins the other letters — in an anagram, where a piece goes makes no difference. And a stricken supermarket in a flood is very nearly the answer already."
+    "walkthrough": "'Among' only tells you ALDI joins the other letters — in an anagram, where a piece goes makes no difference. And a stricken supermarket in a flood is very nearly the answer already.",
+    "definitionFit": "A flood is one example of a natural disaster, an extreme event caused by nature that brings widespread destruction."
    }
   },
   {
@@ -622,7 +634,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "y, an algebraic unknown"
      }
     ],
-    "walkthrough": "'Paul S's partner' is the pleasure of the clue — Simon and Garfunkel, reduced to ART G. After that it is French and algebra, and 'in Paris' is the standard signal to translate."
+    "walkthrough": "'Paul S's partner' is the pleasure of the clue — Simon and Garfunkel, reduced to ART G. After that it is French and algebra, and 'in Paris' is the standard signal to translate.",
+    "definitionFit": "An art gallery is a site that houses a curated collection of paintings and other artworks for public display."
    }
   },
   {
@@ -663,6 +676,7 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
      }
     ],
     "walkthrough": "Lovely surface: a tar is a sailor, exactly the person you would expect to have scrawled 'was here' out on the ocean, and 'at sea' means both lost and jumbled.",
+    "definitionFit": "A shearwater is a seabird named for the way it skims low over the ocean waves in flight.",
     "linkWords": [
      "to locate"
     ]
@@ -701,7 +715,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "a state = a condition ('in a bad state')"
      }
     ],
-    "walkthrough": "A two-word clue with no indicator and nothing to take apart is nearly always two definitions. The only work is finding the word that answers both."
+    "walkthrough": "A two-word clue with no indicator and nothing to take apart is nearly always two definitions. The only work is finding the word that answers both.",
+    "definitionFit": "To state something is to declare it formally, and a state is also the condition something is currently in."
    }
   },
   {
@@ -736,7 +751,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "DIVERSIONS (amusements) keeping only its first half"
      }
     ],
-    "walkthrough": "'Not half' is a standard instruction: keep the first half, drop the rest. The joke is 'working in a suit' — a diving suit, not a pinstripe."
+    "walkthrough": "'Not half' is a standard instruction: keep the first half, drop the rest. The joke is 'working in a suit' — a diving suit, not a pinstripe.",
+    "definitionFit": "A diver is someone who works underwater wearing a diving suit and breathing apparatus."
    }
   },
   {
@@ -785,7 +801,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "a riot = disorder"
      }
     ],
-    "walkthrough": "'Disheartened' always means scoop out the middle, leaving the two ends. The surface, unrest on a sunny island, keeps you reading news rather than instructions."
+    "walkthrough": "'Disheartened' always means scoop out the middle, leaving the two ends. The surface, unrest on a sunny island, keeps you reading news rather than instructions.",
+    "definitionFit": "A Cypriot is a native or inhabitant of Cyprus, an island nation in the Mediterranean."
    }
   },
   {
@@ -827,7 +844,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "A + DD (Doctor of Divinity)"
      }
     ],
-    "walkthrough": "'Put up your dukes' is where the fists come from, and DD for Doctor of Divinity is standard shorthand. The surface, a duke defending a theologian, is period drama."
+    "walkthrough": "'Put up your dukes' is where the fists come from, and DD for Doctor of Divinity is standard shorthand. The surface, a duke defending a theologian, is period drama.",
+    "definitionFit": "A faddist is someone who takes up crazes and short-lived enthusiasms with great, temporary intensity."
    }
   },
   {
@@ -868,7 +886,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "CURES (curés, French priests) minus E (English)"
      }
     ],
-    "walkthrough": "Two languages in seven letters: Italian con and French curés. The ecclesiastical surface is exactly what stops you hearing either as a foreign word."
+    "walkthrough": "Two languages in seven letters: Italian con and French curés. The ecclesiastical surface is exactly what stops you hearing either as a foreign word.",
+    "definitionFit": "To concur with someone is to agree with their opinion or judgement."
    }
   },
   {
@@ -914,7 +933,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'Treated' is the anagram indicator — a sneaky choice, since 'terribly' looks like one and is actually fodder."
+    "walkthrough": "'Treated' is the anagram indicator — a sneaky choice, since 'terribly' looks like one and is actually fodder.",
+    "definitionFit": "Doing something by trial and error means testing repeated attempts and learning from mistakes, an experimental way of finding a solution."
    }
   },
   {
@@ -946,7 +966,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "hidden: exTRA VELodrome"
      }
     ],
-    "walkthrough": "Hidden words hide best inside long words, and 'velodrome' is long enough that nobody looks. 'Insurable activity' gives it away once you think of travel insurance."
+    "walkthrough": "Hidden words hide best inside long words, and 'velodrome' is long enough that nobody looks. 'Insurable activity' gives it away once you think of travel insurance.",
+    "definitionFit": "Travel is journeying somewhere, an activity commonly insured against cancellation, loss or injury abroad."
    }
   },
   {
@@ -987,7 +1008,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "eTOn without its outer letters"
      }
     ],
-    "walkthrough": "'Sanction' is its own opposite: it can mean approve or forbid, and here it is the blocking sense. Two words stripped of their outsides is an unusual way to build four letters."
+    "walkthrough": "'Sanction' is its own opposite: it can mean approve or forbid, and here it is the blocking sense. Two words stripped of their outsides is an unusual way to build four letters.",
+    "definitionFit": "A veto is the power to forbid or block a decision, the prohibitive sense of 'sanction' rather than its approving one."
    }
   },
   {
@@ -1029,7 +1051,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "to ditch = to abandon; it circles the SPA"
      }
     ],
-    "walkthrough": "The surface is all holiday, and the definition is the noun sense of 'speed' — to do something with dispatch is to do it quickly."
+    "walkthrough": "The surface is all holiday, and the definition is the noun sense of 'speed' — to do something with dispatch is to do it quickly.",
+    "definitionFit": "Dispatch is a noun meaning promptness or speed, as in doing a task 'with dispatch'."
    }
   },
   {
@@ -1065,7 +1088,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "the kitchen sink"
      }
     ],
-    "walkthrough": "Both senses are so ordinary that the clue barely looks cryptic, which is the trap. 'Decline' is the abstract sense while the kitchen keeps you thinking literally."
+    "walkthrough": "Both senses are so ordinary that the clue barely looks cryptic, which is the trap. 'Decline' is the abstract sense while the kitchen keeps you thinking literally.",
+    "definitionFit": "To sink is to decline or drop in level, and a sink is also the basin fixture found in every kitchen."
    }
   },
   {
@@ -1101,7 +1125,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "to potter (about) = to move without urgency"
      }
     ],
-    "walkthrough": "'Break' sends you to snooker, and 'perhaps' concedes that a potter is only one example of someone making one. The two senses share nothing but their letters."
+    "walkthrough": "'Break' sends you to snooker, and 'perhaps' concedes that a potter is only one example of someone making one. The two senses share nothing but their letters.",
+    "definitionFit": "A potter is someone who makes a break in snooker by potting balls, and to potter is also to move about aimlessly without urgency."
    }
   },
   {
@@ -1149,7 +1174,8 @@ window.CRYPTIC_PUZZLES["30040"] = /*JSON-START*/
       "note": "sound = sane; it takes the CE RR inside"
      }
     ],
-    "walkthrough": "CE for Church of England and RR for Right Reverend are both standard; the surface, an ecclesiastical wine tasting, is built to keep them looking like people."
+    "walkthrough": "CE for Church of England and RR for Right Reverend are both standard; the surface, an ecclesiastical wine tasting, is built to keep them looking like people.",
+    "definitionFit": "Sancerre is a dry French white wine from the Loire Valley, a tipple enjoyed with a meal."
    }
   }
  ]

@@ -51,7 +51,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a rite is a ceremony"
      }
     ],
-    "walkthrough": "'Special ceremony' reads as one phrase — a wedding, a coronation — and that is what hides the seam between the two pieces. 'For' is only glue."
+    "walkthrough": "'Special ceremony' reads as one phrase — a wedding, a coronation — and that is what hides the seam between the two pieces. 'For' is only glue.",
+    "definitionFit": "A sprite is a small mischievous woodland spirit, one of the classic names for a fairy in folklore."
    }
   },
   {
@@ -93,7 +94,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "knock over a chessboard and you must literally pick up the pieces"
      }
     ],
-    "walkthrough": "'Upsetting the board' first reads as annoying the directors; the question mark is the setter admitting he means it literally, with a chessboard on the floor."
+    "walkthrough": "'Upsetting the board' first reads as annoying the directors; the question mark is the setter admitting he means it literally, with a chessboard on the floor.",
+    "definitionFit": "Pick up the pieces is the standard idiom for recovering from a shock, and also literally describes gathering scattered chess pieces after a board is knocked over."
    }
   },
   {
@@ -135,7 +137,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "the Roman numeral one"
      }
     ],
-    "walkthrough": "The hard step is hearing 'during school time' as the phrase IN TERM rather than as scene-setting. Once it is written out, the insertion is the easy part."
+    "walkthrough": "The hard step is hearing 'during school time' as the phrase IN TERM rather than as scene-setting. Once it is written out, the insertion is the easy part.",
+    "definitionFit": "Interim describes a temporary interval between two states, from the Latin word meaning 'meanwhile'."
    }
   },
   {
@@ -175,6 +178,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
      }
     ],
     "walkthrough": "Wyatt Earp is one of a small cast of names setters keep on hand for their letters. The surface, a lawman with a hearing problem, gives nothing away.",
+    "definitionFit": "Earphones are the device worn over or in the ears to listen privately, loosely called a hearing aid for sound in general, not the medical kind.",
     "definitionNote": "The answer is plural but the definition is singular: 'a hearing aid' is being used loosely for the kit as a whole, the way you would call a pair of earphones 'a headset'. Setters allow themselves this with objects that come in pairs."
    }
   },
@@ -212,6 +216,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
      }
     ],
     "walkthrough": "The pleasure is the second reading: split the word and the harvester really is facing rows of corn. The question mark is the setter apologising for it.",
+    "definitionFit": "Cornrows are tight braids arranged across the scalp, and splitting the word gives the literal rows of corn a harvester works through.",
     "definitionNote": "CORNROWS is plural but 'arrangement' is singular, because the many braids together make one hairstyle — the plural word names a single arrangement."
    }
   },
@@ -252,7 +257,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "remove the first letter (the 'starter') of Screamed"
      }
     ],
-    "walkthrough": "The joke is on the menu — 'denied starter' sounds like a diner going without a first course, and it is also the instruction to drop the opening S."
+    "walkthrough": "The joke is on the menu — 'denied starter' sounds like a diner going without a first course, and it is also the instruction to drop the opening S.",
+    "definitionFit": "Creamed potatoes are mashed together with cream or butter, so 'creamed' names that familiar side-dish preparation."
    }
   },
   {
@@ -293,7 +299,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a joystick is a lever"
      }
     ],
-    "walkthrough": "'Pulled up' is doing double duty: it suits a joystick, and in a down clue it means read the letters upwards."
+    "walkthrough": "'Pulled up' is doing double duty: it suits a joystick, and in a down clue it means read the letters upwards.",
+    "definitionFit": "To revel is to take exuberant delight or pleasure in something, as at a lively celebration."
    }
   },
   {
@@ -332,7 +339,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a sack is a big bag"
      }
     ],
-    "walkthrough": "The surface is already the crime, told innocently — a man hurrying off with a big bag. 'With' and 'for' are only glue."
+    "walkthrough": "The surface is already the crime, told innocently — a man hurrying off with a big bag. 'With' and 'for' are only glue.",
+    "definitionFit": "To ransack a place is to search it violently and steal everything of value, exactly what plundering means."
    }
   },
   {
@@ -383,7 +391,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Inanition is exhaustion from lack of nourishment, so the definition is exact rather than loose. The startling surface is there to stop you counting letters."
+    "walkthrough": "Inanition is exhaustion from lack of nourishment, so the definition is exact rather than loose. The startling surface is there to stop you counting letters.",
+    "definitionFit": "To wither on the vine is to fail and decay through lack of nourishment or support, precisely the medical sense of inanition."
    }
   },
   {
@@ -427,7 +436,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "In a five-act play the middle is act three, and 'perhaps' is the setter conceding that not every play has five acts — that little word is what makes the definition fair."
+    "walkthrough": "In a five-act play the middle is act three, and 'perhaps' is the setter conceding that not every play has five acts — that little word is what makes the definition fair.",
+    "definitionFit": "In a conventional five-act structure the midpoint falls in act three, hence 'halfway through' a play."
    }
   },
   {
@@ -462,7 +472,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "vanity = conceitedness"
      }
     ],
-    "walkthrough": "The trick is 'case': it reads as 'an instance of' and it means the cosmetics bag. Both senses are true at once, which is what a cryptic definition lives on."
+    "walkthrough": "The trick is 'case': it reads as 'an instance of' and it means the cosmetics bag. Both senses are true at once, which is what a cryptic definition lives on.",
+    "definitionFit": "Vanity means excessive pride in one's own appearance or achievements, the ordinary word for conceitedness that the cosmetics-case pun disguises."
    }
   },
   {
@@ -509,7 +520,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "RR = Rolls-Royce"
      }
     ],
-    "walkthrough": "The sly bit is that 'up' is not an instruction but the word to be turned. And a purr belongs equally to a contented cat and a Rolls-Royce engine."
+    "walkthrough": "The sly bit is that 'up' is not an instruction but the word to be turned. And a purr belongs equally to a contented cat and a Rolls-Royce engine.",
+    "definitionFit": "Purring is the soft sound of contentment made by a happy cat or a smoothly running engine, the sensory sign of pleasure."
    }
   },
   {
@@ -562,7 +574,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a particular = a DETAIL, 'backing' (reversed)"
      }
     ],
-    "walkthrough": "'Backing' reads as musical accompaniment, which is why it hides so well as a reversal instruction — and DETAIL turned round is the least visible of the three pieces."
+    "walkthrough": "'Backing' reads as musical accompaniment, which is why it hides so well as a reversal instruction — and DETAIL turned round is the least visible of the three pieces.",
+    "definitionFit": "To be humiliated is to be deeply mortified and shamed, having one's pride publicly wounded."
    }
   },
   {
@@ -604,7 +617,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "tame = weak, feeble"
      }
     ],
-    "walkthrough": "'Fertiliser' sounds like something you buy in a sack, but a stamen is what fertilises a flower. The garden-centre surface is the trap; the definition is exact."
+    "walkthrough": "'Fertiliser' sounds like something you buy in a sack, but a stamen is what fertilises a flower. The garden-centre surface is the trap; the definition is exact.",
+    "definitionFit": "A stamen is the male part of a flower that produces the pollen which fertilises it."
    }
   },
   {
@@ -644,7 +658,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "pollsters record undecided answers as 'don't know'"
      }
     ],
-    "walkthrough": "'Pass' is quiz-show jargon and 'don't know' is polling jargon. The clue works by setting two specialist idioms side by side with nothing to mark the join."
+    "walkthrough": "'Pass' is quiz-show jargon and 'don't know' is polling jargon. The clue works by setting two specialist idioms side by side with nothing to mark the join.",
+    "definitionFit": "Saying 'pass' in a quiz and answering 'don't know' to a pollster are both ways of declining to commit to an answer."
    }
   },
   {
@@ -684,7 +699,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "The surface sounds like a fed-up parent, which is why 'mess' never looks like an instruction. The question mark covers a definition that fits only one particular century."
+    "walkthrough": "The surface sounds like a fed-up parent, which is why 'mess' never looks like an instruction. The question mark covers a definition that fits only one particular century.",
+    "definitionFit": "The noughties are the decade nicknamed for its double-zero digits, spanning the dawn of a new millennium."
    }
   },
   {
@@ -731,7 +747,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "accustomed (to) = used (to)"
      }
     ],
-    "walkthrough": "Only 'hero' is fodder — the rest is a straight charade piece. Anagrams that eat just part of a clue are the ones solvers walk past."
+    "walkthrough": "Only 'hero' is fodder — the rest is a straight charade piece. Anagrams that eat just part of a clue are the ones solvers walk past.",
+    "definitionFit": "To be rehoused is to be moved to a new home elsewhere, typically after being displaced."
    }
   },
   {
@@ -767,7 +784,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "split the word as ONE'S ELF — my own little helper"
      }
     ],
-    "walkthrough": "The gag is the apostrophe you cannot hear: one's elf. Splitting a solid word into a possessive is a favourite trick, and the question mark is the wink."
+    "walkthrough": "The gag is the apostrophe you cannot hear: one's elf. Splitting a solid word into a possessive is a favourite trick, and the question mark is the wink.",
+    "definitionFit": "Oneself is a formal way of saying 'me', and splitting the word gives one's own little elf, a private helper."
    }
   },
   {
@@ -800,6 +818,7 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
      }
     ],
     "walkthrough": "Hidden words live or die by the surface, and 'pudding batter' is entirely innocent. A dingbat is a typographic ornament — the little flowers and pointing hands in fonts like Zapf Dingbats.",
+    "definitionFit": "A dingbat is a decorative typographic symbol, one of the ornamental characters found in fonts like Wingdings.",
     "linkWords": [
      "indicating"
     ]
@@ -841,7 +860,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "'what a shame' = 'what a pity'"
      }
     ],
-    "walkthrough": "'Promoted – shame' reads as one wry line about office politics, so nothing announces itself as wordplay. The dash is punctuation, not an instruction."
+    "walkthrough": "'Promoted – shame' reads as one wry line about office politics, so nothing announces itself as wordplay. The dash is punctuation, not an instruction.",
+    "definitionFit": "Uppity describes someone acting with arrogant self-importance, above their supposed station."
    }
   },
   {
@@ -883,7 +903,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a counter is a ledge, a shelf"
      }
     ],
-    "walkthrough": "'Paid across the counter' is a whole plausible transaction, and that is the disguise — 'across' is the instruction hiding in the middle of it."
+    "walkthrough": "'Paid across the counter' is a whole plausible transaction, and that is the disguise — 'across' is the instruction hiding in the middle of it.",
+    "definitionFit": "To have pledged something is to have formally promised or committed to it, often as a binding vow."
    }
   },
   {
@@ -918,7 +939,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "a round of drinks after a round of golf"
      }
     ],
-    "walkthrough": "The joke turns on 'round' meaning both a circuit of the course and a set of drinks, and on 'drinking hole' being literally true: the clubhouse bar is the nineteenth hole."
+    "walkthrough": "The joke turns on 'round' meaning both a circuit of the course and a set of drinks, and on 'drinking hole' being literally true: the clubhouse bar is the nineteenth hole.",
+    "definitionFit": "The nineteenth hole is golfers' nickname for the clubhouse bar, the traditional drinking spot visited after finishing eighteen holes."
    }
   },
   {
@@ -960,7 +982,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "the ide, a freshwater fish beloved of setters"
      }
     ],
-    "walkthrough": "'Fish and duck' reads as a menu, which is why the seam is invisible. ER and IDE are both worth memorising — setters reach for them constantly."
+    "walkthrough": "'Fish and duck' reads as a menu, which is why the seam is invisible. ER and IDE are both worth memorising — setters reach for them constantly.",
+    "definitionFit": "An eider is a large sea duck prized for the soft down it produces, used to fill eiderdown quilts."
    }
   },
   {
@@ -992,7 +1015,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "to exploit = to use; 'recounted' means said aloud"
      }
     ],
-    "walkthrough": "'Recounted' means said out loud, not retold, and spotting that is the whole clue. The possessive apostrophe belongs to the surface only; the answer is a plain plural."
+    "walkthrough": "'Recounted' means said out loud, not retold, and spotting that is the whole clue. The possessive apostrophe belongs to the surface only; the answer is a plain plural.",
+    "definitionFit": "Ewes are female sheep, the farm animals kept for wool and lambs."
    }
   },
   {
@@ -1033,7 +1057,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "S = saint, as in S. Francis"
      }
     ],
-    "walkthrough": "'By' tells you the two pieces are adjacent but not in which order — here the saint comes first, and only the enumeration and the crossing letters settle it."
+    "walkthrough": "'By' tells you the two pieces are adjacent but not in which order — here the saint comes first, and only the enumeration and the crossing letters settle it.",
+    "definitionFit": "A screed is a long, tedious piece of writing or speech that drones on at wearisome length."
    }
   },
   {
@@ -1077,7 +1102,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "things to be thrown away go in the BIN, so RINGS goes inside B…IN"
      }
     ],
-    "walkthrough": "'To be thrown away' clues BIN by description rather than synonym, which is the hard step. And 'yields' is the financial sense — what an investment brings in."
+    "walkthrough": "'To be thrown away' clues BIN by description rather than synonym, which is the hard step. And 'yields' is the financial sense — what an investment brings in.",
+    "definitionFit": "To bring something in is to yield or generate it as income, the way an investment brings in returns."
    }
   },
   {
@@ -1118,7 +1144,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "'you're asking for it' = you're inviting trouble"
      }
     ],
-    "walkthrough": "The join is invisible because both halves are idioms and IT changes from pronoun to department. 'You're asking for it' is the parental version."
+    "walkthrough": "The join is invisible because both halves are idioms and IT changes from pronoun to department. 'You're asking for it' is the parental version.",
+    "definitionFit": "Asking for IT means requesting help from the Information Technology department, while 'asking for it' idiomatically means inviting trouble on yourself."
    }
   },
   {
@@ -1152,7 +1179,8 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/
       "note": "SOD (a piece of turf) + DEN (a fox's home, called an 'earth')"
      }
     ],
-    "walkthrough": "A fox's lair is called an earth — that is the sense solvers miss, and the clue needs 'earth' to mean two different things at once."
+    "walkthrough": "A fox's lair is called an earth — that is the sense solvers miss, and the clue needs 'earth' to mean two different things at once.",
+    "definitionFit": "Sodden describes ground or fabric soaked completely through with water, drenched well beyond merely damp."
    }
   }
  ]

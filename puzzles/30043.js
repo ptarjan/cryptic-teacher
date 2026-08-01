@@ -56,7 +56,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator — the letters are 'played' with"
      }
     ],
-    "walkthrough": "The definition points back into the clue: 'where this is played?' asks for the instrument you would hear at those very recitals, so the fodder is also the scene of the answer."
+    "walkthrough": "The definition points back into the clue: 'where this is played?' asks for the instrument you would hear at those very recitals, so the fodder is also the scene of the answer.",
+    "definitionFit": "'Where this is played' asks what instrument such recitals happen on, and a bass clarinet is a genuine recital instrument, so the cryptic phrasing still names it straight."
    }
   },
   {
@@ -105,7 +106,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "The surface reads as a geology field note, and the trap is that it already sounds like chilly water — when a clue's plain meaning matches the answer's, you stop looking for letters to move."
+    "walkthrough": "The surface reads as a geology field note, and the trap is that it already sounds like chilly water — when a clue's plain meaning matches the answer's, you stop looking for letters to move.",
+    "definitionFit": "The Baltic Sea is a real body of cold northern water, so 'chilly water' is a plain, factual description of the sea itself, not a play on words."
    }
   },
   {
@@ -144,7 +146,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "permits = allows"
      }
     ],
-    "walkthrough": "Every word works twice over: read straight it is a mother at the beach, read as wordplay it is silence plus permission, and the shallows really are where paddling is allowed."
+    "walkthrough": "Every word works twice over: read straight it is a mother at the beach, read as wordplay it is silence plus permission, and the shallows really are where paddling is allowed.",
+    "definitionFit": "Shallows are the paddling-depth water at a beach — exactly what a mum would allow a child to wade into, so the whole clue reads as a straight description."
    }
   },
   {
@@ -183,7 +186,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "something hard resists biting"
      }
     ],
-    "walkthrough": "'Vegetable, cold, resistant to the bite' reads like a gardener's note on a hardy crop, which is exactly what stops you seeing 'cold' as its one-letter abbreviation."
+    "walkthrough": "'Vegetable, cold, resistant to the bite' reads like a gardener's note on a hardy crop, which is exactly what stops you seeing 'cold' as its one-letter abbreviation.",
+    "definitionFit": "Chard is a leafy vegetable, so 'Vegetable' names it by category — a definition by example, one member standing in for the whole class."
    }
   },
   {
@@ -228,7 +232,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "to choke = to fail under pressure"
      }
     ],
-    "walkthrough": "The happy accident is that an artichoke really does have a choke — the hairy heart you cut away — so the last piece of the charade is also part of the vegetable."
+    "walkthrough": "The happy accident is that an artichoke really does have a choke — the hairy heart you cut away — so the last piece of the charade is also part of the vegetable.",
+    "definitionFit": "An artichoke is a vegetable too, so 'Vegetable' again names the answer by example rather than as an exact one-word synonym."
    }
   },
   {
@@ -276,7 +281,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "C is the chemical symbol for carbon"
      }
     ],
-    "walkthrough": "The surface is two admirers signing up for chemistry together; the trap is 'pair', which is not people at all but simply the letter I written twice."
+    "walkthrough": "The surface is two admirers signing up for chemistry together; the trap is 'pair', which is not people at all but simply the letter I written twice.",
+    "definitionFit": "Iconic means revered as a symbol worth admiring, which is simply a stronger, more visual way of saying admired."
    }
   },
   {
@@ -317,7 +323,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "the last letter of articlE"
      }
     ],
-    "walkthrough": "The capital T on 'Times' points hard at the newspaper, and the wordplay wants nothing of the sort — just plain eras, stretches of history."
+    "walkthrough": "The capital T on 'Times' points hard at the newspaper, and the wordplay wants nothing of the sort — just plain eras, stretches of history.",
+    "definitionFit": "Erase originally meant to rub or scrape a mark out, and that physical act is now used as the general, everyday synonym for delete."
    }
   },
   {
@@ -359,6 +366,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
      }
     ],
     "walkthrough": "In a down clue 'supporting' means sitting underneath, so USES goes below OP rather than after it. Across and down clues read position words differently, and this one only works pointing down.",
+    "definitionFit": "An opus is a numbered creative work, most often musical, so a composer's opuses are simply their collected works under another name.",
     "definitionNote": "OPUSES is plural but the definition 'work' is singular, taken as a mass noun: a composer's 'work' means everything they wrote, which is exactly their opuses."
    }
   },
@@ -405,7 +413,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "C = Conservative, the party label"
      }
     ],
-    "walkthrough": "The surface is coalition horse-trading, which is why 'agreeing' reads as politics rather than as the phrase AT ONE waiting to be prised open."
+    "walkthrough": "The surface is coalition horse-trading, which is why 'agreeing' reads as politics rather than as the phrase AT ONE waiting to be prised open.",
+    "definitionFit": "'At once' is the everyday phrase for happening without delay, which is exactly what 'immediately' means — a straightforward phrasal synonym."
    }
   },
   {
@@ -446,7 +455,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "A = America(n)"
      }
     ],
-    "walkthrough": "The surface borrows the idiom 'to lead someone a dance', so 'leading' looks like part of that phrase rather than an instruction about where to put the president."
+    "walkthrough": "The surface borrows the idiom 'to lead someone a dance', so 'leading' looks like part of that phrase rather than an instruction about where to put the president.",
+    "definitionFit": "A polka is one specific fast couple dance in duple time, so 'a dance' names the answer by example rather than by genre."
    }
   },
   {
@@ -500,7 +510,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "a strut is a support; ON A goes inside it"
      }
     ],
-    "walkthrough": "Two Australians for two As is the sly part: the same word clued twice, landing in two different places, so you go hunting for something more elaborate than a repeated letter."
+    "walkthrough": "Two Australians for two As is the sly part: the same word clued twice, landing in two different places, so you go hunting for something more elaborate than a repeated letter.",
+    "definitionFit": "Astronauts are the specific staff trained and sent into space by an agency like Nasa, so 'Nasa employee' pins down their job exactly."
    }
   },
   {
@@ -546,7 +557,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "child = kid"
      }
     ],
-    "walkthrough": "Capitalised, Cresta looks like a place name in a holiday snapshot. The answer is biker slang, and it comes from the same idea — sliding when you would rather not."
+    "walkthrough": "Capitalised, Cresta looks like a place name in a holiday snapshot. The answer is biker slang, and it comes from the same idea — sliding when you would rather not.",
+    "definitionFit": "'Skid lid' is British slang for a motorcycle crash helmet, so 'protective headgear' describes its job while the question mark flags the slang."
    }
   },
   {
@@ -585,7 +597,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "lean years offer little profit"
      }
     ],
-    "walkthrough": "'Offering little of profit' looks like an instruction to shorten a word, and it is nothing of the kind: it is a plain definition of LEAN. That false signal is the whole difficulty."
+    "walkthrough": "'Offering little of profit' looks like an instruction to shorten a word, and it is nothing of the kind: it is a plain definition of LEAN. That false signal is the whole difficulty.",
+    "definitionFit": "A Chilean is a native of Chile, one specific nationality within South America, so the definition names the answer by geographic example."
    }
   },
   {
@@ -637,7 +650,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "to plant seed is to sow; ASH WIND sits inside it"
      }
     ],
-    "walkthrough": "The surface reads like a report from a factory — remains current in plant — and 'Source of light' for a window is the kind of sideways definition worth getting used to."
+    "walkthrough": "The surface reads like a report from a factory — remains current in plant — and 'Source of light' for a window is the kind of sideways definition worth getting used to.",
+    "definitionFit": "A sash window is what lets daylight into a room, so calling it a 'source of light' describes its function rather than naming it directly."
    }
   },
   {
@@ -683,7 +697,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'You mined rocks' is exactly how you would come by the metal, and that is what makes the fodder invisible: it describes the answer while spelling it."
+    "walkthrough": "'You mined rocks' is exactly how you would come by the metal, and that is what makes the fodder invisible: it describes the answer while spelling it.",
+    "definitionFit": "Neodymium is a specific rare-earth element that is indeed a metal, so 'Metal' names it by category, one example among many elements."
    }
   },
   {
@@ -718,7 +733,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "gripe = complain; its leader G is then ousted"
      }
     ],
-    "walkthrough": "The surface is a party grumbling after a coup, and 'leader' does the same job in both readings: the head of a party, and the head of a word."
+    "walkthrough": "The surface is a party grumbling after a coup, and 'leader' does the same job in both readings: the head of a party, and the head of a word.",
+    "definitionFit": "'Ripe' extends beyond fruit to mean fully prepared or timed just right, which is precisely the sense 'Ready' carries here."
    }
   },
   {
@@ -775,7 +791,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "or = gold in heraldry"
      }
     ],
-    "walkthrough": "Five pieces in a row and not one instruction word — a pure charade. The leer at a woman in gold is there to keep you reading the clue as a sentence."
+    "walkthrough": "Five pieces in a row and not one instruction word — a pure charade. The leer at a woman in gold is there to keep you reading the clue as a sentence.",
+    "definitionFit": "An inheritor is literally someone who receives an inheritance, so 'recipient of legacy' is a precise paraphrase of that legal role, not a stretch."
    }
   },
   {
@@ -833,7 +850,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "ZEN, 'elevating' — reversed upwards in this down entry"
      }
     ],
-    "walkthrough": "The bonus sits in the answer's own French: nez is nose, and a pince-nez pinches it. Both 'over' and 'elevating' are positional words that only work because this is a down clue."
+    "walkthrough": "The bonus sits in the answer's own French: nez is nose, and a pince-nez pinches it. Both 'over' and 'elevating' are positional words that only work because this is a down clue.",
+    "definitionFit": "Pince-nez are glasses that clip to the nose, so wearing them literally helps one view things more clearly — a plain functional synonym."
    }
   },
   {
@@ -875,7 +893,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "the A from the clue, brought inside"
      }
     ],
-    "walkthrough": "Read as an order to a servant it is one smooth sentence, and that hides the fact that 'Go' is a noun here — a go, a try — rather than the verb it looks like."
+    "walkthrough": "Read as an order to a servant it is one smooth sentence, and that hides the fact that 'Go' is a noun here — a go, a try — rather than the verb it looks like.",
+    "definitionFit": "A salver is simply a formal, old-fashioned name for a flat serving tray, so the two words are near-exact synonyms, one plainer than the other."
    }
   },
   {
@@ -910,7 +929,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "cantus is Latin for song, as in cantus firmus"
      }
     ],
-    "walkthrough": "Not the usual full jumble: 'Parts swapped' means two chunks changing places, CAN and TUS. Worth spotting when an anagram refuses to come out — sometimes only the halves move."
+    "walkthrough": "Not the usual full jumble: 'Parts swapped' means two chunks changing places, CAN and TUS. Worth spotting when an anagram refuses to come out — sometimes only the halves move.",
+    "definitionFit": "Tuscan means belonging to Tuscany, a region of Italy, so 'from part of Italy' is simply a paraphrase of the region's own adjective."
    }
   },
   {
@@ -961,7 +981,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "HERO, the leading man, minus O — 'love' in tennis"
      }
     ],
-    "walkthrough": "The pieces divide as COME-HIT-HER, which is not how the answer reads at all. And 'love' for O comes from tennis, one of the handful of ways a setter can clue nothing."
+    "walkthrough": "The pieces divide as COME-HIT-HER, which is not how the answer reads at all. And 'love' for O comes from tennis, one of the handful of ways a setter can clue nothing.",
+    "definitionFit": "A come-hither look is a classic idiom for an inviting, seductive glance, so 'Alluring' names its everyday sense directly."
    }
   },
   {
@@ -1002,7 +1023,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "a SULTAN who 'rejects' the AN"
      }
     ],
-    "walkthrough": "'Rejecting' sounds as though it should reverse something; here it simply throws letters away, and the news-bulletin surface keeps you thinking about the man rather than his title."
+    "walkthrough": "'Rejecting' sounds as though it should reverse something; here it simply throws letters away, and the news-bulletin surface keeps you thinking about the man rather than his title.",
+    "definitionFit": "A result is simply what follows from an action, which is exactly what an outcome is — a direct, everyday synonym pair."
    }
   },
   {
@@ -1041,7 +1063,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "h = hot, as on a tap"
      }
     ],
-    "walkthrough": "The Vale of Tempe is worth filing away — setters reach for it whenever they want a beauty spot — and the holiday-brochure surface gives no hint that the answer is a soybean cake."
+    "walkthrough": "The Vale of Tempe is worth filing away — setters reach for it whenever they want a beauty spot — and the holiday-brochure surface gives no hint that the answer is a soybean cake.",
+    "definitionFit": "Tempeh is a fermented soybean cake that originated on Java, so 'Javanese food' names its true regional origin, not a loose guess."
    }
   },
   {
@@ -1082,7 +1105,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "intensely = very"
      }
     ],
-    "walkthrough": "'A lot of' is the indicator to learn here: most of a word, not all of it. The surface, a muddy field described with feeling, gives nothing away about gleaming."
+    "walkthrough": "'A lot of' is the indicator to learn here: most of a word, not all of it. The surface, a muddy field described with feeling, gives nothing away about gleaming.",
+    "definitionFit": "Silvery describes a bright, metallic sheen like polished silver, which is exactly the shining quality 'gleaming' points at."
    }
   },
   {
@@ -1114,7 +1138,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "hidden inside onLY RICh"
      }
     ],
-    "walkthrough": "A hidden word whose cover story does the hiding: 'seen around' sounds like gossip about who frequents the place, and the place is the Lyric — Hammersmith, or the West End."
+    "walkthrough": "A hidden word whose cover story does the hiding: 'seen around' sounds like gossip about who frequents the place, and the place is the Lyric — Hammersmith, or the West End.",
+    "definitionFit": "The Lyric is a real theatre's actual name, in Hammersmith or the West End, so 'this theatre' identifies a specific proper noun, not a description."
    }
   },
   {
@@ -1159,7 +1184,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "'No longer suppresses' looks too loose to be a definition until you think of uncorking your feelings rather than a bottle. Then it is exact."
+    "walkthrough": "'No longer suppresses' looks too loose to be a definition until you think of uncorking your feelings rather than a bottle. Then it is exact.",
+    "definitionFit": "To uncork is to let something pent-up burst free, so 'no longer suppresses' describes that same release, extended from bottles to feelings."
    }
   },
   {
@@ -1199,7 +1225,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "pl = place, as on street maps; 'No place' removes it"
      }
     ],
-    "walkthrough": "'No place' reads as moral disapproval — nowhere is fit to steal from — and that is what disguises it as an instruction to delete two letters."
+    "walkthrough": "'No place' reads as moral disapproval — nowhere is fit to steal from — and that is what disguises it as an instruction to delete two letters.",
+    "definitionFit": "Being 'under' someone in an organisation means being their subordinate, so the preposition and the noun describe the same rank relationship."
    }
   },
   {
@@ -1252,7 +1279,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "hied = hurried, placed 'after' the rest"
      }
     ],
-    "walkthrough": "The surface is a port town in decline, which is the same story the answer tells. 'Regressed' is the reversal word: in an across clue it means backwards, right to left."
+    "walkthrough": "The surface is a port town in decline, which is the same story the answer tells. 'Regressed' is the reversal word: in an across clue it means backwards, right to left.",
+    "definitionFit": "To atrophy is to waste away through disuse, which is precisely what 'becoming degenerate' describes — a decline in condition or strength."
    }
   },
   {
@@ -1293,7 +1321,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "AT ALL = in any way; 'Not entirely' trims the final L"
      }
     ],
-    "walkthrough": "It reads like a question on a form, and 'Not entirely' is the giveaway — a phrase that merely qualifies the sentence on the surface, but underneath tells you to drop a final letter."
+    "walkthrough": "It reads like a question on a form, and 'Not entirely' is the giveaway — a phrase that merely qualifies the sentence on the surface, but underneath tells you to drop a final letter.",
+    "definitionFit": "Natal is the adjective form of birth, as in 'prenatal' or a natal chart, so it literally describes anything to do with being born."
    }
   },
   {
@@ -1343,7 +1372,8 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "The definition is the principle stated properly: entities are not to be multiplied beyond necessity. The clue then enacts it, cutting the Azores down before shaving the whole thing into shape."
+    "walkthrough": "The definition is the principle stated properly: entities are not to be multiplied beyond necessity. The clue then enacts it, cutting the Azores down before shaving the whole thing into shape.",
+    "definitionFit": "Ockham's razor is the principle of shaving away needless assumptions, so 'reducing unnecessary quantities' restates its own famous formula in plainer words."
    }
   }
  ]
