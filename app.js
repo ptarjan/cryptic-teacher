@@ -198,36 +198,50 @@
     refreshClues();
   }
 
+  // Every rung marks up its OWN words, independently of the others.
+  //
+  // This used to be gated on the definition rung: no definition, no markup of
+  // any kind. That was invisible while the ladder was strictly ordered, and
+  // broke the moment tier 0 let you take the rungs in any order — ask for the
+  // indicators first, which is a legitimate route because working out where the
+  // definition sits is most of the skill, and the clue stayed completely
+  // unmarked, so the one hint you spent showed you nothing (feedback
+  // 2026-08-01: "if I choose just the indicator clue now it doesn't highlight
+  // the parts of clue"). Rule: highlight exactly what has been revealed, and
+  // never anything that hasn't.
   function clueHTML(e) {
     const ann = annOf(e);
-    let html = esc(e.clue);
+    if (!ann) return esc(e.clue);
     const shown = (key) => isShown(e, key);
-    if (ann && shown("definition")) {
-      const marks = [];
-      const push = (text, cls) => {
-        if (!text) return;
-        const i = e.clue.indexOf(text);
-        if (i >= 0) marks.push({ i, len: text.length, cls });
-      };
+    const marks = [];
+    const push = (text, cls) => {
+      if (!text) return;
+      const i = e.clue.indexOf(text);
+      if (i >= 0) marks.push({ i, len: text.length, cls });
+    };
+    if (shown("definition")) {
       push(ann.definition, "def");
       push(ann.definition2, "def2");
+      // Link words ride with the definition: their whole job is to show where
+      // the definition stops and the wordplay starts, which gives away the
+      // definition's edge. They are not a rung of their own.
       (ann.linkWords || []).forEach((w) => push(w, "link"));
-      if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
-      marks.sort((a, b) => a.i - b.i);
-      // drop overlaps
-      const keep = [];
-      let end = -1;
-      marks.forEach((m) => { if (m.i >= end) { keep.push(m); end = m.i + m.len; } });
-      let out = "", pos = 0;
-      keep.forEach((m) => {
-        out += esc(e.clue.slice(pos, m.i));
-        out += `<mark class="${m.cls}">` + esc(e.clue.slice(m.i, m.i + m.len)) + "</mark>";
-        pos = m.i + m.len;
-      });
-      out += esc(e.clue.slice(pos));
-      html = out;
     }
-    return html;
+    if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
+    if (!marks.length) return esc(e.clue);
+    marks.sort((a, b) => a.i - b.i);
+    // drop overlaps
+    const keep = [];
+    let end = -1;
+    marks.forEach((m) => { if (m.i >= end) { keep.push(m); end = m.i + m.len; } });
+    let out = "", pos = 0;
+    keep.forEach((m) => {
+      out += esc(e.clue.slice(pos, m.i));
+      out += `<mark class="${m.cls}">` + esc(e.clue.slice(m.i, m.i + m.len)) + "</mark>";
+      pos = m.i + m.len;
+    });
+    out += esc(e.clue.slice(pos));
+    return out;
   }
 
   function refreshClues() {
@@ -787,11 +801,19 @@
       steps.forEach((s, i) => {
         if (isShown(e, s.key)) body.innerHTML += hintStepHTML(s, i + 1);
       });
-      if (isShown(e, "definition")) {
-        body.innerHTML += `<div class="legend"><mark class="def">definition</mark>${
-          isShown(e, "indicators") ? ' · <mark class="ind">indicator</mark>' : ""
-        }${(ann.linkWords || []).length ? ' · <mark class="link">link</mark>' : ""
-        } highlighted in the clue above</div>`;
+      // The legend is built from what is actually highlighted, for the same
+      // reason clueHTML is: it was keyed off the definition rung, so taking the
+      // indicators alone left the marks unexplained as well as absent.
+      const legend = [];
+      if (isShown(e, "definition")) legend.push('<mark class="def">definition</mark>');
+      if (isShown(e, "indicators") && (ann.indicators || []).length) {
+        legend.push('<mark class="ind">indicator</mark>');
+      }
+      if (isShown(e, "definition") && (ann.linkWords || []).length) {
+        legend.push('<mark class="link">link</mark>');
+      }
+      if (legend.length) {
+        body.innerHTML += `<div class="legend">${legend.join(" · ")} highlighted in the clue above</div>`;
       }
 
       // Every unlocked rung is offered at once, not just the next one: wanting
