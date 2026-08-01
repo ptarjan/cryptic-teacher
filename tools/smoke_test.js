@@ -139,10 +139,40 @@ new Function("window", "document", "localStorage", "confirm",
 // --- assertions after boot ---
 assert(!registry["app"].classList.contains("hidden"), "app visible after boot");
 assert(Object.keys(global.window.CRYPTIC_PUZZLES || {}).length >= 25, "all puzzle scripts loaded");
-assert(registry["puzzle-title"].innerHTML.includes("30,06"), "a flagship puzzle opened: " + registry["puzzle-title"].innerHTML);
-assert(registry["grid"].children.length === 225, "grid has 225 cells, got " + registry["grid"].children.length);
+// Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
+// every day, and a test that only ever exercises a frozen fixture stops
+// covering the puzzles people actually land on. Everything below therefore
+// derives its expectations (entry lengths, letters to type) from whichever
+// puzzle opened, rather than hard-coding one puzzle's answers — the previous
+// version typed "COLOGNE" and silently began failing the day the app stopped
+// booting on No 30,067. Set CT_TEST_QUERY=?p=30067 to pin one while debugging.
+const openTitle = registry["puzzle-title"].innerHTML;
+assert(/No [\d,]+/.test(openTitle), "a Guardian cryptic opened: " + openTitle);
+const openId = (openTitle.match(/No ([\d,]+)/) || [, ""])[1].replace(/,/g, "");
+const openPuz = (global.window.CRYPTIC_PUZZLES || {})[openId];
+assert(openPuz, "the opened puzzle's data is loaded: " + openId);
+assert(registry["puzzle-title"].innerHTML.includes("hints"), "title carries a hint badge: " + openTitle);
+
+// The walkthrough below is the full-hints path: it climbs the hint ladder and
+// reveals letters, and neither exists on a puzzle with no annotations or no
+// published solutions (Saturday prize crosswords arrive bare). Both of those
+// degraded paths get their own section further down. Landing here on one is a
+// pinning mistake, so say it once rather than failing eight assertions and
+// crashing on a button the app was right not to render.
+const openMeta = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === openId) || {};
+if (!openMeta.annotated || !openMeta.hasSolutions) {
+  console.error(`SKIPPED: No ${openId} is ${openMeta.annotated ? "unsolved" : "un-annotated"}, ` +
+    "and the main walkthrough needs a full-hints puzzle. Unset CT_TEST_QUERY, or pin an annotated one.");
+  process.exit(2);
+}
+
+const cellCount = openPuz.dimensions.cols * openPuz.dimensions.rows;
+assert(registry["grid"].children.length === cellCount,
+  `grid has ${cellCount} cells, got ` + registry["grid"].children.length);
 const lightCells = registry["grid"].children.filter((c) => !c.classList.contains("block"));
-assert(lightCells.length > 150, "light cells present: " + lightCells.length);
+// Guardian blocked grids run from roughly 140 to 180 light squares; the old
+// floor of 150 was one puzzle's figure, and No 30,071 (140) tripped it.
+assert(lightCells.length > 120, "light cells present: " + lightCells.length);
 assert(registry["clues-across"].children.length > 10, "across clues rendered");
 assert(registry["clues-down"].children.length > 10, "down clues rendered");
 assert(registry["hint-clue"].innerHTML.length > 10, "hint panel shows a clue");
@@ -213,29 +243,65 @@ assert(kd, "document keydown listener registered");
 
 // --- type into the grid via keyboard events ---
 const ev = (key) => ({ key, preventDefault() {}, shiftKey: false, target: registry["kbd"] });
-kd(ev("Tab"));          // next entry
-"COLOGNE".split("").forEach((ch) => kd(ev(ch)));
+const clickBox = (i) => registry["hint-pattern"].listeners.click[0]({ target: { dataset: { i: String(i) } } });
+const curIndex = () => patBoxes().findIndex((b) => b.includes("cur"));
+
+// Which entry the grid is on, read back the way a solver sees it: the app marks
+// the current square `sel` and the rest of its entry `hl`. Going through the DOM
+// keeps this test honest — app.js keeps its state closed over inside an IIFE, and
+// a test that reached into that state would stop testing what the page renders.
+function currentEntry() {
+  const cols = openPuz.dimensions.cols;
+  const lit = [];
+  registry["grid"].children.forEach((el, i) => {
+    if (el.classList.contains("sel") || el.classList.contains("hl")) {
+      lit.push({ x: i % cols, y: Math.floor(i / cols) });
+    }
+  });
+  return openPuz.entries.find((e) => e.length === lit.length && lit.every(({ x, y }) =>
+    e.direction === "across"
+      ? y === e.position.y && x >= e.position.x && x < e.position.x + e.length
+      : x === e.position.x && y >= e.position.y && y < e.position.y + e.length));
+}
+// A letter the entry definitely doesn't want at this square. Typing a fixed "Z"
+// made the wrong-letter assertions vacuous on any answer containing a Z.
+const wrongLetter = (right) => "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").find((c) => c !== right);
+
+// Tab to an entry long enough for the cursor tests below (they punch a gap at
+// index 4) and whose answer is published — prize puzzles arrive without one.
+let target = null;
+for (let i = 0; i < openPuz.entries.length && !target; i++) {
+  kd(ev("Tab"));
+  const e = currentEntry();
+  if (e && e.solution && e.length >= 6) target = e;
+}
+assert(target, "found an entry to type into");
+const answer = target.solution;
+const len = answer.length;
+answer.split("").forEach((ch) => kd(ev(ch)));
 // the pattern strip is live: it now shows the typed letters, all in place
 {
   const boxes = patBoxes();
-  assert(boxes.length === 7, "pattern strip follows the 7-letter entry: " + boxes.length);
-  assert(patHTML().includes("7 of 7 letters in place"), "pattern counts typed letters: " + patHTML());
-  assert(/data-i="6"/.test(patHTML()), "boxes carry their index so they can be clicked: " + patHTML());
+  assert(boxes.length === len, `pattern strip follows the ${len}-letter entry: ` + boxes.length);
+  assert(patHTML().includes(`${len} of ${len} letters in place`), "pattern counts typed letters: " + patHTML());
+  assert(new RegExp(`data-i="${len - 1}"`).test(patHTML()), "boxes carry their index so they can be clicked: " + patHTML());
 }
 // --- clicking a pattern box moves the cursor; typing skips filled squares ---
 {
-  const clickBox = (i) => registry["hint-pattern"].listeners.click[0]({ target: { dataset: { i: String(i) } } });
-  const curIndex = () => patBoxes().findIndex((b) => b.includes("cur"));
+  const bad = wrongLetter(answer[4]);
   assert(registry["hint-pattern"].listeners.click, "pattern strip has a click handler");
   clickBox(4);
   assert(curIndex() === 4, "clicking a pattern box moves the cursor there, got " + curIndex());
   kd(ev("Delete"));                       // punch a single gap at index 4
-  assert(patHTML().includes("6 of 7 letters in place"), "gap cleared: " + patHTML());
+  assert(patHTML().includes(`${len - 1} of ${len} letters in place`), "gap cleared: " + patHTML());
   clickBox(0);
-  kd(ev("Z"));                            // overwrite index 0 ...
+  kd(ev(wrongLetter(answer[0])));         // overwrite index 0 ...
   assert(curIndex() === 4, "typing skips filled squares to the next gap, got " + curIndex());
-  kd(ev("Z"));                            // ... and with no gap left it just steps on
-  assert(patHTML().includes("7 of 7 letters in place"), "grid refilled: " + patHTML());
+  kd(ev(bad));                            // ... and with no gap left it just steps on
+  assert(patHTML().includes(`${len} of ${len} letters in place`), "grid refilled: " + patHTML());
+  // leave the entry correct again: the solved count below expects it
+  clickBox(0); kd(ev(answer[0]));
+  clickBox(4); kd(ev(answer[4]));
 }
 
 kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
@@ -251,7 +317,12 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
   assert(fs.readFileSync(path.join(ROOT, "index.html"), "utf8").includes('id="check-result"'),
     "index.html has the #check-result live region for check feedback");
 
-  registry["chk-entry"].onclick();   // this entry currently holds mistyped Z's
+  // Mistype the entry here rather than relying on what the navigation keys above
+  // happened to leave in it — that coupling is what made these three assertions
+  // fail the moment the app booted on a different puzzle.
+  clickBox(0);
+  kd(ev(wrongLetter(answer[0])));
+  registry["chk-entry"].onclick();
   assert(/wrong letter/.test(msg()), "wrong letters are reported: " + JSON.stringify(msg()));
   assert(box.className.includes("bad"), "wrong result styled as bad: " + box.className);
 
