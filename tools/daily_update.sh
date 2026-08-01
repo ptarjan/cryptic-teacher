@@ -114,28 +114,31 @@ if ! python3 tools/validate_annotations.py; then
   exit 1
 fi
 
-# Boot the app against tonight's data. Nothing else ever runs this, which is how
-# it came to sit broken for weeks: it had hard-coded one puzzle's answers, so it
-# started failing the day the app stopped booting on that puzzle and nobody was
-# looking. Warn rather than exit — a smoke failure means the app mishandles the
-# new puzzle, which is worth shouting about but isn't a reason to withhold the
-# puzzle itself. Skipped (exit 2) just means tonight's puzzle has no hints yet.
-if command -v node >/dev/null 2>&1; then
-  node tools/smoke_test.js
-  smoke_rc=$?
-  [ $smoke_rc -ne 0 ] && [ $smoke_rc -ne 2 ] && echo "WARNING: smoke test failed (rc=$smoke_rc) — the app may be broken for today's puzzle"
-fi
-
 # Rebuild the crawlable pages: one per puzzle, the archive hub, the tutorial and
 # the sitemap. After validation, deliberately — these pages publish the
 # annotations as plain text, so a run that produced a bad annotation should have
 # already bailed out above rather than putting it in front of a search engine.
 python3 tools/build_seo_pages.py
 
-# Re-stamp index.html so phones don't serve yesterday's cached assets. Last,
-# because build_seo_pages.py rewrites part of index.html and the stamp has to
-# reflect the file as it finally stands.
+# Re-stamp index.html so phones don't serve yesterday's cached assets. After
+# build_seo_pages.py, because that rewrites part of index.html and the stamp has
+# to reflect the file as it finally stands.
 python3 tools/stamp_assets.py
+
+# Boot the app against tonight's data. Nothing else ever runs this, which is how
+# it came to sit broken for weeks: it had hard-coded one puzzle's answers, so it
+# started failing the day the app stopped booting on that puzzle and nobody was
+# looking. Dead last, after the pages are built and stamped, so it tests the
+# tree as it is about to be committed — run any earlier and it reports the
+# stale ?v= stamps that stamp_assets.py is about to fix. Warn rather than exit:
+# a smoke failure means the app mishandles the new puzzle, which is worth
+# shouting about but isn't a reason to withhold the puzzle itself. Skipped
+# (exit 2) just means tonight's puzzle has no hints yet.
+if command -v node >/dev/null 2>&1; then
+  node tools/smoke_test.js
+  smoke_rc=$?
+  [ $smoke_rc -ne 0 ] && [ $smoke_rc -ne 2 ] && echo "WARNING: smoke test failed (rc=$smoke_rc) — the app may be broken for today's puzzle"
+fi
 
 if [ -n "$(git status --porcelain)" ]; then
   # The validator goes in too. Annotation runs are allowed to loosen it when a

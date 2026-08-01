@@ -86,13 +86,32 @@ button:disabled:hover { border-color: var(--line); }
 #picker-list { list-style: none; margin: 8px 0 0; padding: 0; }
 #picker-list li { border-top: 1px solid var(--line); }
 #picker-list button {
-  display: flex; width: 100%; text-align: left; gap: 10px; align-items: baseline;
+  display: grid; width: 100%; text-align: left;
   background: none; border: none; padding: 8px 4px; font-size: .92rem;
 }
 #picker-list button:hover { background: var(--accent-soft); }
-#picker-list .p-num { font-weight: 700; min-width: 4.6em; }
-#picker-list .p-meta { color: var(--muted); font-size: .8rem; margin-left: auto; text-align: right; }
+#picker-list .p-num { min-width: 4.6em; }
 #picker-list li.current button { background: var(--accent-soft); }
+
+/* A puzzle row carries five things — number, setter, difficulty, hint badge,
+   date — and they have never fitted across the 430px picker panel. Laid out as
+   one flex line they didn't overflow visibly; instead the setter and the date
+   wrapped inside their own boxes, so every row came out a different height and
+   the list read as rubble. Two rows of grid instead: the number and the date
+   are pinned to opposite corners of the top line and the badges get a line of
+   their own, which holds its shape at any width rather than degrading into
+   whatever the text happened to do. */
+#picker-list button, .s-index a {
+  grid-template-columns: auto 1fr auto;
+  gap: 2px 10px; align-items: baseline;
+}
+.p-num { font-weight: 700; grid-column: 1; white-space: nowrap; }
+/* min-width:0 is what actually lets the ellipsis happen: a grid item's default
+   min-width is auto, i.e. never shrink below the longest word. */
+.p-setter { grid-column: 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.p-meta { grid-column: 3; justify-self: end; white-space: nowrap; color: var(--muted); font-size: .8rem; }
+.p-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.p-prog { color: var(--muted); font-size: .78rem; }
 .badge {
   font-size: .68rem; padding: 1px 7px; border-radius: 999px;
   text-transform: uppercase; letter-spacing: .4px; white-space: nowrap;
@@ -375,12 +394,19 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 
 .s-index { list-style: none; padding: 0; margin: 18px 0 0; }
 .s-index a {
-  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  display: grid;
   padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit;
 }
 .s-index a:hover { background: var(--accent-soft); }
-.s-index .p-num { font-weight: 700; min-width: 5.4em; }
-.s-index .p-meta { color: var(--muted); font-size: .82rem; margin-left: auto; }
+.s-index .p-num { min-width: 5.4em; }
+.s-index .p-meta { font-size: .82rem; }
+/* The archive is a full-width page rather than a 430px panel, so once there is
+   room it collapses back to the single line the two-line row stands in for. */
+@media (min-width: 640px) {
+  .s-index a { grid-template-columns: auto auto 1fr auto; align-items: center; }
+  .s-index .p-tags { grid-column: 3; justify-self: start; }
+  .s-index .p-meta { grid-column: 4; }
+}
 
 .s-pager { display: flex; justify-content: space-between; gap: 16px; margin: 32px 0 0; }
 

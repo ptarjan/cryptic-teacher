@@ -303,9 +303,10 @@ def hub_page(idx):
                  else '<span class="badge auto">answers only</span>')
         rows.append(
             f'<li><a href="{BASE}/puzzles/{p["number"]}/">'
-            f'<span class="p-num">No {p["number"]:,}</span> '
-            f'<span>{esc(p.get("setter") or "")}</span> {badge} {hints}'
-            f'<span class="p-meta">{esc(when)}</span></a></li>')
+            f'<span class="p-num">No {p["number"]:,}</span>'
+            f'<span class="p-setter">{esc(p.get("setter") or "")}</span>'
+            f'<span class="p-meta">{esc(when)}</span>'
+            f'<span class="p-tags">{badge}{hints}</span></a></li>')
 
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
                "name": title, "url": canonical, "description": desc}

@@ -795,11 +795,17 @@
       const filled = prog && prog.letters ? Object.keys(prog.letters).length : 0;
       const d = p.date ? new Date(p.date).toISOString().slice(0, 10) : "";
       const btn = document.createElement("button");
+      // Order here is the grid's, not the eye's: the badges are markup-last but
+      // render on their own second line (see .p-tags in style.css). Progress
+      // sits with them because it is a status like they are, and because
+      // gluing it onto the date made the one nowrap element in the row long
+      // enough to shove everything else off the line.
       btn.innerHTML = `<span class="p-num">№ ${p.number}</span>
-        <span>${esc(p.setter)}</span>
-        ${difficultyBadge(p)}
-        <span class="badge ${p.annotated ? "full" : "auto"}">${p.annotated ? "full hints" : "auto hints"}</span>
-        <span class="p-meta">${d}${filled ? " · " + filled + " letters in" : ""}</span>`;
+        <span class="p-setter">${esc(p.setter)}</span>
+        <span class="p-meta">${d}</span>
+        <span class="p-tags">${difficultyBadge(p)}
+          <span class="badge ${p.annotated ? "full" : "auto"}">${p.annotated ? "full hints" : "auto hints"}</span>
+          ${filled ? `<span class="p-prog">${filled} letters in</span>` : ""}</span>`;
       btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
       li.appendChild(btn);
       ul.appendChild(li);
