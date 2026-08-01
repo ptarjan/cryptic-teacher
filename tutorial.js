@@ -95,6 +95,6 @@ also defines it.</div>
   <li>Try the <strong>first word(s) and last word(s) as the definition</strong>; the rest is wordplay.</li>
   <li>Hunt for <strong>indicator words</strong> — they tell you which machinery is in play.</li>
   <li>Count letters relentlessly. If "confused" sits next to exactly 9 letters and the answer has 9, it's an anagram.</li>
-  <li>Use crossing letters, and don't be too proud for the hint ladder — each level is designed to teach you the next skill, not to give the game away. Take them in any order: the suggested next one is offered first, but if you only want the indicators, take the indicators.</li>
+  <li>Use crossing letters, and don't be too proud for the hint ladder — each level is designed to teach you the next skill, not to give the game away. The first few — what kind of clue it is, where the definition sits, which words are indicators — can be taken in any order you like, so if you only want the indicators, take the indicators. The building blocks and the full walkthrough wait until you've had those, because they give them away.</li>
 </ol>
 `;

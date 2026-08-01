@@ -49,6 +49,17 @@ h1, h2, h3, .tool, .ghost, .badge, .toolbar-label, #scorebar, .clue-num {
   font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
+/* There was no base link rule at all, so every link the stylesheet didn't name
+   individually — the whole crawl index at the foot of the page, the footer —
+   fell through to the browser default: #0000EE blue, and #551A8B purple once
+   visited. Against a warm off-white the pair look like a 1997 directory, and
+   the purple made a read archive page look broken rather than read. One accent
+   colour instead, visited included, with the underline saved for hover so a
+   long list of puzzle numbers reads as a list and not as a rash. */
+a { color: var(--accent); text-decoration: none; }
+a:visited { color: var(--accent); }
+a:hover, a:focus-visible { text-decoration: underline; }
+
 header {
   display: flex; flex-wrap: wrap; gap: 12px;
   align-items: baseline; justify-content: space-between;
@@ -313,6 +324,14 @@ button:disabled:hover { border-color: var(--line); }
    ladder's order is still the advice, this is just the door out of it. */
 #hint-next button.ghost { border-color: var(--line); color: var(--muted); }
 #hint-next button.ghost:hover { border-color: var(--accent); color: var(--accent); }
+/* Rungs from a later tier: visible so the ladder's shape is legible, disabled
+   because they give away the ones above them. Shown rather than hidden — a
+   button that appears out of nowhere reads as a glitch, one that unlocks reads
+   as progress. */
+#hint-next button.locked, #hint-next button.locked:hover {
+  border-color: var(--line); color: var(--muted);
+  opacity: .45; cursor: not-allowed; background: transparent;
+}
 
 mark.def { background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px; }
 /* second half of a double definition — same family, distinguishable */
@@ -396,9 +415,22 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 .s-walk { margin: 0; font-size: .95rem; }
 .s-todo { font-size: .9rem; }
 
-.s-index { list-style: none; padding: 0; margin: 18px 0 0; }
+/* ONE grid for the whole list, not one grid per row. Every <a> used to be its
+   own grid container, so each row sized its own columns from its own contents
+   and nothing lined up down the page: thirty-four setter names and thirty-four
+   dates each starting at a different x, which is what made the archive look
+   like a pile rather than a table. Subgrid is what lets the row keep being a
+   real anchor — its own padding, hover and single click target — while taking
+   its column positions from the list above it. A browser without subgrid drops
+   the declaration and falls back to the shared per-row template, i.e. exactly
+   the old ragged-but-working layout, so there is nothing to guard. */
+.s-index {
+  list-style: none; padding: 0; margin: 18px 0 0;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 0 10px;
+}
+.s-index li { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
 .s-index a {
-  display: grid;
+  grid-column: 1 / -1; display: grid; grid-template-columns: subgrid;
   padding: 9px 10px; border-radius: 8px; text-decoration: none; color: inherit;
 }
 .s-index a:hover { background: var(--accent-soft); }
@@ -407,7 +439,8 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 /* The archive is a full-width page rather than a 430px panel, so once there is
    room it collapses back to the single line the two-line row stands in for. */
 @media (min-width: 640px) {
-  .s-index a { grid-template-columns: auto auto 1fr auto; align-items: center; }
+  .s-index { grid-template-columns: auto auto 1fr auto; }
+  .s-index a { align-items: center; }
   .s-index .p-tags { grid-column: 3; justify-self: start; }
   .s-index .p-meta { grid-column: 4; }
 }
