@@ -42,13 +42,13 @@ The three components, each 0-1, hardest = 1:
              happens when it isn't there.
 
   device     Which wordplay machinery the clues use, for annotated puzzles
-             only, on two axes. CONFIRMATION: hidden words give themselves up;
-             a bare cryptic definition offers no second confirmation at all, so
-             you can never be sure you are right. SPOTTING: a clue that records
-             no indicator gives the solver nothing to notice — which is the
-             charade's whole character, and the commonest clue we hold. Stacked
-             devices and long piece-chains cost extra on top of their parts,
-             because the solver has to find the seams as well as the pieces.
+             only, on two axes. RECOGNITION: hidden words give themselves up; a
+             bare cryptic definition offers no second confirmation at all, so
+             you can never be sure you are right. ASSEMBLY: how much work it is
+             to build the answer once you know how — the number of pieces, and
+             how many of those pieces are one- or two-letter conventions rather
+             than words you could think of. Assembly is the heavier of the two,
+             because recognition is the part that gets cheap with practice.
 
 Weights are stated below as an editorial judgement, not a fit. Change them if
 you disagree; the components are printed alongside so the change is arguable.
@@ -79,9 +79,14 @@ JSON_END = "/*JSON-END*/"
 WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25}
 
 # Per-device hardness, 0 = gives itself away, 1 = you may never be certain.
-# Ordered by how much confirmation the solver gets back ONCE THEY SPOT IT — this
-# table is a confirmation cost only. Spotting is a second, separate axis, and it
-# is handled by UNINDICATED_COST and SEAM_COST below.
+# Ordered by how much confirmation the solver gets back ONCE THE ANSWER IS BUILT
+# — this table is a confirmation cost only. The work of building it is a second,
+# separate axis, handled by SEAM_COST and OPAQUE_PIECE_COST below. Note what that
+# means for the charade at 0.45: a charade confirms itself well (every letter is
+# accounted for), so it sits low here, and everything that makes a particular
+# charade hard is priced on the other axis, per clue. That is deliberate — "not
+# all charades are hard" (Paul, 2026-08-02), and a family-level bump would say
+# they are.
 DEVICE_COST = {
     "hidden word": 0.15,
     "anagram": 0.30,
@@ -102,35 +107,53 @@ DEVICE_COST = {
 DEVICE_DEFAULT = 0.50
 STACKING_COST = 0.12               # per device beyond the first
 
-# Spotting cost, the axis DEVICE_COST deliberately leaves out. Added 2026-08-02
-# (Paul: "make sure we grade hardness based on the charades too", after the
-# Guardian ones "mostly because [of] charades").
+# --- the second axis: what the clue costs to WORK, not to recognise -----------
 #
-# The case is in our own annotations, not in taste. Across the 408 hand-annotated
-# clues we hold, charade is far and away the commonest family — 76 bare, plus
-# another ~65 compounded with a deletion, container, reversal or letter-pick, so
-# roughly a third of every clue written. And 54 of those 76 bare charades record
-# NO indicator at all. An anagram announces itself ("awfully", "smashed"); a
-# hidden word announces itself ("some of"). A charade's joiners, when it has any,
-# are invisible function words — the top ones in our data are "about", "after",
-# "in", "before", "on", "by". Nothing in the clue says "this is a charade". That
-# is a real cost the old table couldn't see, because it scored only how sure you
-# can be after the fact.
+# Added 2026-08-02, then immediately re-aimed by Paul: "it isn't knowing it is a
+# charade that is hard. It is doing the charade." The first cut priced spotting
+# (an unindicated clue gives you nothing to notice) and that was the wrong
+# target. Recognition is cheap and it is also learnable in an afternoon — by the
+# time you have met thirty charades you assume charade by default. The work that
+# does not get cheaper is the assembly: turning each fragment of the clue into
+# the right few letters, then getting them in the right order.
 #
-# Both of these read a tracked field of the annotation (`indicators`, `pieces`),
-# so they are facts about the clue as recorded, not a text-matching guess.
-UNINDICATED_COST = 0.15
+# So the weight moved off recognition and onto assembly, and assembly is priced
+# from what is actually in the annotation — `pieces`, the literal chunks the
+# answer is built from. 273 of our clues record them: 26 ones, 105 twos, 92
+# threes, 42 fours, 6 fives, 2 sixes.
+
+# Per piece beyond the second, for the families that record `pieces`. Two parts
+# is a joint; five is a chain, and every extra link is another sub-clue to solve
+# AND another ordering decision to get right.
+#
+# These two are sized together, against saturation: the per-clue cost is capped
+# at 1.0, and a ceiling that a tenth of all clues reach is a ceiling that has
+# stopped measuring. At 0.09/0.06 it is 6%, i.e. only the genuinely extreme
+# ones — A+T+L+ARGE, E+L+E+MENTAL — and the rest of the range stays live.
+SEAM_COST = 0.09
+
+# Per piece of one or two letters. This is the real charade tax and the reason
+# the piece COUNT alone isn't enough. "US lawman perfects" -> EARP + HONES is a
+# two-piece charade whose pieces are both things you can simply think of; the
+# definition of each is a normal synonym problem. "Special ceremony" -> SP + RITE
+# is the same shape and the same piece count, but SP is not a synonym for
+# anything — it is a convention you either have memorised or you don't, and no
+# amount of staring at "special" will produce it. Every one- and two-letter piece
+# is a lookup of that kind (S/R/N/E for compass points and abbreviations, I for
+# one, O for love/nothing, RE for about, and the rest of the list). Those are
+# what make a charade feel like work rather than like thinking.
+OPAQUE_PIECE_COST = 0.06
+OPAQUE_LEN = 2
+
+# Recognition, kept but demoted from 0.15 — a charade's joiners are invisible
+# function words ("about", "after", "in", "before", "on", "by") and 54 of our 76
+# bare charades record no indicator at all, so the effect is real. It is just not
+# what makes them hard, so it is now a nudge rather than a component.
+UNINDICATED_COST = 0.06
 # ...except where the family is unindicated by definition. A double definition
 # has no indicator because there is nothing to indicate, and its 0.55 already
 # prices that; bumping it too would just re-level the whole class.
 ALWAYS_UNINDICATED = {"double definition", "cryptic definition"}
-
-# Per piece beyond the second, for the families that record `pieces`. A two-part
-# charade is a joint; a five-part one is a chain, and the solver has to find
-# every seam AND get the order right. Our data has 98 two-piece charades but also
-# 33 fours, five fives and two sixes — a spread wide enough to be worth scoring
-# rather than averaging away.
-SEAM_COST = 0.07
 
 # Cut points in standard deviations from the baseline mean, so the band names
 # mean "…for a Guardian daily cryptic" — not "…for a crossword". A median
@@ -206,10 +229,11 @@ def obscurity(puz, rank):
 def device(puz):
     """Mean wordplay cost. None when the puzzle has no annotations yet.
 
-    Three things add up: how hard the machinery is to confirm (DEVICE_COST),
-    how many separate devices are stacked (STACKING_COST), and how hard the
-    clue is to *spot* in the first place — UNINDICATED_COST when the clue names
-    no indicator, SEAM_COST per extra piece to assemble.
+    Two axes. RECOGNITION: how hard the machinery is to confirm once you see it
+    (DEVICE_COST), plus a nudge when the clue names no indicator at all.
+    ASSEMBLY: the work of actually building the answer — SEAM_COST per extra
+    piece, OPAQUE_PIECE_COST per piece too short to be a synonym. Assembly
+    carries the larger share, deliberately; see the note above SEAM_COST.
     """
     costs = []
     for e in puz["entries"]:
@@ -228,7 +252,14 @@ def device(puz):
         # from; annotate_prompt.md asks for it on charades, containers and
         # deletions. Two is the floor — every one of those families has at
         # least two parts by definition, so only the extra seams cost.
-        cost += SEAM_COST * max(0, len(ann.get("pieces") or []) - 2)
+        pieces = [str(p) for p in (ann.get("pieces") or [])]
+        cost += SEAM_COST * max(0, len(pieces) - 2)
+        # Strip anything that isn't a letter first: pieces are written as the
+        # letters they contribute, but a few carry a hyphen or an apostrophe
+        # from the answer, and "A-" is a one-letter lookup, not a two.
+        cost += OPAQUE_PIECE_COST * sum(
+            1 for p in pieces
+            if 0 < len([c for c in p if c.isalpha()]) <= OPAQUE_LEN)
         costs.append(min(1.0, cost))
     # A part-annotated puzzle would report whichever clues happened to be done
     # first, which is not a fact about the puzzle. Require most of it.
