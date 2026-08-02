@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.pt.cryptic-teacher-prereset</string>
+  <!-- Spends the tail of the weekly usage window on annotation backfills, an
+       hour before it resets around 05:00. Unspent quota does not roll over, so
+       this is the one time of the week when there is nothing to protect it for.
+       The sibling job (com.pt.cryptic-teacher, 06:15) does the normal daily
+       fetch and stays under its 50% usage gate. -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/pt/github/cryptic-teacher/tools/prereset_backfill.sh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/pt/github/cryptic-teacher</string>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>4</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StandardOutPath</key>
+  <string>/Users/pt/github/cryptic-teacher/.prereset.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/pt/github/cryptic-teacher/.prereset.log</string>
+</dict>
+</plist>
