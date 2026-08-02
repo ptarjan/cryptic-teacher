@@ -355,6 +355,46 @@ must pass before commit.
 - On touch devices, a scroll gesture must never select a cell or clue — tap
   detection uses a movement threshold (feedback 2026-07-26).
 
+## How Minute Cryptic writes a hint (the reference corpus)
+
+Paul, 2026-08-01: *"our hints should be like theirs."* Minute Cryptic is one clue
+a day with a progressive hint ladder — the same shape as our six rungs, and
+better written. `node tools/fetch_minutecryptic.js` keeps a local copy of their
+55 fully worked examples in `tools/data/minutecryptic/course.json`, refreshed by
+the nightly job. It is GITIGNORED: their copyrighted teaching material, no
+declared licence, kept to read and learn from. Never copy a sentence of it into
+a puzzle file — write our own in the same manner.
+
+Read the corpus before writing hints. What it actually shows, measured across
+all 55:
+
+- **Every single hint highlights a span of the clue — 156 of 156.** Not just the
+  definition and the indicators: the *fodder* hint highlights the fodder too.
+  This is the same rule as "every rung marks up its OWN words" above, carried
+  further than we carry it: our `blocks` rung names `clueFragment` in prose but
+  doesn't mark it in the clue. A hint that talks about words without pointing at
+  them makes the solver do the search twice.
+- **Two or three hints, never more** (46 clues have 3, 9 have 2). The ladder
+  before the answer is short. Ours is longer because it also carries the type
+  and the full walkthrough, but the *middle* of ours should stay this tight.
+- **Their default order is indicators → fodder → definition** (41 of 55), not
+  definition-first. They give you the machinery and make you find the definition
+  yourself, because locating the definition is the skill. Double definitions are
+  the exception: those go `definition 1` → `definition 2`.
+- **~25 words a hint** (median), ~73 for the closing explanation. Short.
+- **Written as an invitation, in the first person plural.** "Our anagram
+  indicator is 'crazy'"; "we'll need a synonym for one, and just a single crucial
+  letter from the other"; "Does it have a meaning that can correspond with
+  'bolt'?" A hint asks the solver to do the next step — it does not perform the
+  step for them. Compare our declarative register, which too often just states
+  the finding.
+- **A hint never leaks the answer.** The definition hint says "'produce' — that's
+  the word we're trying to replace in our answer", naming the job of the word
+  rather than what it resolves to. Only the closing explanation says the answer.
+- **The closing explanation ends warmly** ("Nice one! Let's double down with
+  another clue"). We don't have to copy the chirpiness, but note that it ends by
+  looking forward, not by restating.
+
 ## Deploy rules
 
 - Icons and the social card are GENERATED, never hand-edited. The 5x5 crossword

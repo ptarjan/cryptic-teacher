@@ -45,6 +45,18 @@ fi
 # --- 2. pick up solutions that have since been published (prize puzzles) ---
 python3 tools/fetch_puzzle.py --refresh-unsolved
 
+# --- 2b. refresh the Minute Cryptic reference corpus ---
+# Their hint ladder is the same shape as ours and better written, so we keep a
+# local copy of their 55 worked examples to write against; it also archives
+# their daily clue, which is only ever available on the day. Costs two HTTP
+# requests and no inference, and lands in gitignored tools/data/minutecryptic/,
+# so it runs unconditionally and never blocks the puzzle work. Failures print
+# and are ignored — a scrape of somebody else's bundle is expected to break the
+# day they change it, and that is not a reason to hold back tonight's puzzle.
+if command -v node >/dev/null 2>&1; then
+  node tools/fetch_minutecryptic.js --quiet || echo "WARNING: minutecryptic capture failed"
+fi
+
 # --- 3. annotate the newest un-annotated puzzles, if any and if claude exists ---
 # Newest-first, deliberately. Oldest-first looks tidier — the backlog drains in
 # order — but it means today's puzzle is always the LAST one to get hints, so the
