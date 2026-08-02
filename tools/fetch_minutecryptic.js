@@ -13,24 +13,35 @@
 //                  character span it highlights in the clue. This is a teaching
 //                  corpus, and it is what "our hints should be like theirs"
 //                  actually means in data.
-//   daily.jsonl  — the day's clues from their public API. Clue text, setter,
-//                  enumeration, date. NO answers and NO hints. Archived anyway
-//                  because it is one cheap request and a year of real clues is
-//                  worth having; do not expect hints to appear in it.
+//   hints.jsonl  — ONE fully worked clue per day, the same shape as a course
+//                  example: clue, answer, par, and the ordered hint ladder with
+//                  types, colours and highlight spans. This is today's puzzle,
+//                  and it is only available while it IS today — so this file
+//                  grows by exactly one row a day and nothing can backfill it.
+//                  A missed run is a clue lost for good, which is the reason
+//                  the nightly job must keep calling this.
+//   daily.jsonl  — the clue LIST. Clue text, setter, enumeration, date, for
+//                  today and a handful of recent days. No answers, no hints;
+//                  cheap, and a year of real clues is worth having.
 //
-// WHAT LOGGING IN DOES AND DOES NOT BUY (checked 2026-08-02, so nobody has to
-// go and find out again). We have an account, and it authenticates fine — the
-// site is Supabase-backed, so a password grant plus the session cookie gets a
-// real logged-in session. It gets us exactly one thing the anonymous path
-// cannot see: the MINI clues, a second daily-ish series that the anon
-// recommendation endpoint never returns. It does NOT get us the hint ladders,
-// and the earlier note claiming it would was wrong. The daily hint texts and
-// the back catalogue sit behind a PAID membership, not behind auth: the
-// account's `subscriptions` row is empty, and every /archive/<date> page 307s
-// straight to /subscribe — including dates this account has already solved.
-// There is no hints table, RPC or REST route in their bundle either; the
-// player fetches them on a surface we do not reach. So: log in for the minis,
-// and treat course.json as the only hint corpus we actually have.
+// WHERE THE HINTS LIVE (mapped 2026-08-02 with a headless browser, after two
+// wrong answers, so nobody has to do it a third time). Their player pulls the
+// whole of today's puzzle from ONE undocumented route:
+//
+//     GET /api/daily_puzzle/today?tz=<IANA zone>
+//
+// It is not in the JS bundle as a literal and it is not linked from anything —
+// the only way to see it is to run the page and watch the network. It needs no
+// account at all: signed out it returns the same answer, hints and spans. The
+// sibling route /api/daily_puzzle/date/<YYYY-MM-DD> is the archive, and that
+// one is 403 "Membership required" for us and 401 signed out.
+//
+// So the paywall is real but it is a paywall on the PAST, not on hints. What
+// logging in buys is the MINI clue list, which the anonymous recommendation
+// route never returns; the mini puzzles themselves are members-only, as is
+// every /archive/<date> page. Nothing about the account unlocks a back
+// catalogue — the corpus is built forward, one clue a night, plus the 55
+// course examples baked into the bundle.
 //
 // The bundle filenames carry content hashes and change whenever they deploy, so
 // the chunk list is discovered from the live HTML every run rather than pinned.
@@ -214,6 +225,49 @@ async function fetchSeries(type) {
   return rows;
 }
 
+// --- today's worked clue, hints and all ------------------------------------
+
+// The route their player actually loads the puzzle from. It is undocumented,
+// unlinked and absent from the JS bundle as a literal — found by driving the
+// page in a headless browser and reading the network log — and it hands over
+// the whole thing: clue tokens, answer, letter reveal order, par, explainer
+// video, and the ordered hints with their type, colour and highlight spans.
+//
+// No auth required, deliberately not sent: this is the shape their own signed
+// out visitors get, and asking for it as a guest keeps us off the account.
+//
+// ONLY today's. /api/daily_puzzle/date/<YYYY-MM-DD> is the archive twin and
+// answers 403 "Membership required". So every night this runs is one clue
+// gained, and every night it doesn't is one clue gone permanently — which is
+// why a failure here is loud in the log rather than silent.
+async function fetchTodaysPuzzle() {
+  return get(`${SITE}/api/daily_puzzle/today?tz=${encodeURIComponent(TZ())}`, true);
+}
+
+// One row per puzzle date, append-only, never rewritten. Keyed on date rather
+// than puzzleId because the date is the thing we can't get a second chance at
+// and it makes a gap obvious at a glance.
+function appendHints(puz) {
+  if (!puz || !puz.date || !Array.isArray(puz.hints) || !puz.hints.length) {
+    return { fresh: 0, total: null, why: "response carried no hints" };
+  }
+  const file = path.join(OUT, "hints.jsonl");
+  const dates = new Set();
+  if (fs.existsSync(file)) {
+    for (const line of fs.readFileSync(file, "utf8").split("\n")) {
+      if (!line.trim()) continue;
+      try { dates.add(JSON.parse(line).date); } catch { /* skip a torn line */ }
+    }
+  }
+  if (dates.has(puz.date)) return { fresh: 0, total: dates.size };
+  // Flatten the clue back to a string. They ship it as tokens so the player can
+  // highlight spans; the spans are character offsets into the joined text, so
+  // storing the join alongside them keeps the corpus self-describing.
+  const row = { ...puz, clueText: (puz.clue || []).map((c) => c.text).join(" ") };
+  fs.appendFileSync(file, JSON.stringify(row) + "\n");
+  return { fresh: 1, total: dates.size + 1 };
+}
+
 // Append-only, deduped by puzzle id. Their API returns a rolling window of
 // several clues, so consecutive days overlap heavily; rewriting the file would
 // be simpler but would lose anything they later unpublish.
@@ -246,6 +300,20 @@ function appendDaily(rows) {
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
+
+  // FIRST, and before signing in — deliberately, on both counts. It is the only
+  // thing here that cannot be fetched again tomorrow, and it needs no account,
+  // so it must not sit downstream of a login that might be failing.
+  let hintsMsg = "hints: failed";
+  try {
+    const { fresh, total, why } = appendHints(await fetchTodaysPuzzle());
+    hintsMsg = why
+      ? `hints: NOTHING CAPTURED — ${why} (today's ladder is lost; check the route)`
+      : `hints: +${fresh} (${total} worked clues)`;
+  } catch (e) {
+    hintsMsg = `hints: FAILED — ${e.message} (today's ladder is lost; check the route)`;
+  }
+  log("  " + hintsMsg);
 
   // Never fatal. A login that stops working should cost us the minis, not the
   // nightly capture — daily_update.sh calls this and a hard failure here would
@@ -292,5 +360,5 @@ function appendDaily(rows) {
   }
   log("  " + courseMsg);
 
-  if (QUIET) console.log(`minutecryptic — ${authMsg}; ${dailyMsg}; ${courseMsg}`);
+  if (QUIET) console.log(`minutecryptic — ${hintsMsg}; ${authMsg}; ${dailyMsg}; ${courseMsg}`);
 })();
