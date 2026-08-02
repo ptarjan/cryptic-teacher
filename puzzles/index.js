@@ -23,7 +23,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Kite",
    "date": 1785542400000,
    "file": "30074.js",
-   "v": "6614a2d1",
+   "v": "980c0359",
    "annotated": false,
    "hasSolutions": false,
    "difficulty": null

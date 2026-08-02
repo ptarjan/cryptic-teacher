@@ -5,6 +5,7 @@ window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
 window.CRYPTIC_PUZZLES["30074"] = /*JSON-START*/ {
  "id": "30074",
  "number": 30074,
+ "series": "cryptic",
  "name": "Prize crossword No 30,074",
  "setter": "Kite",
  "date": 1785542400000,
