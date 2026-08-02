@@ -142,6 +142,10 @@ button:disabled:hover { border-color: var(--line); }
 }
 .badge.full { background: var(--def-bg); color: var(--def-fg); }
 .badge.auto { background: var(--ind-bg); color: var(--ind-fg); }
+/* Quiptic. Filled, not outlined: unlike the difficulty badge this isn't a
+   judgement we made, it's which crossword the Guardian published, and a solver
+   scanning for an easier one should be able to spot it without reading. */
+.badge.series { background: var(--def-bg); color: var(--def-fg); }
 
 /* Difficulty. Outlined rather than filled so it reads as a note about the
    puzzle and doesn't compete with the hint badges next to it, which say

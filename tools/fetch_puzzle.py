@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
-"""Fetch a Guardian cryptic crossword and convert it to this app's puzzle format.
+"""Fetch a Guardian crossword and convert it to this app's puzzle format.
 
 Usage:
-  python3 tools/fetch_puzzle.py 30066            # fetch cryptic No 30,066
-  python3 tools/fetch_puzzle.py --latest         # find + fetch the newest cryptic
-  python3 tools/fetch_puzzle.py --backfill [N]   # fetch the last N puzzles (default 30)
-                                                 # ending at the newest; skips ones already
-                                                 # on disk and 404s; ~1s delay per request
+  python3 tools/fetch_puzzle.py 30066            # fetch by number, any series
+  python3 tools/fetch_puzzle.py --latest         # newest of EVERY series (cryptic + quiptic)
+  python3 tools/fetch_puzzle.py --backfill [N] [series]
+                                                 # fetch the last N puzzles (default 30)
+                                                 # of one series (default cryptic) ending at
+                                                 # the newest; skips ones already on disk and
+                                                 # 404s; ~1s delay per request
   python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
                                                  # from the puzzle files already on disk
   python3 tools/fetch_puzzle.py --refresh-unsolved  # re-fetch puzzles still missing
                                                  # solutions (Saturday prize puzzles
                                                  # publish theirs about a week late)
 
-Covers both weekday cryptics and Saturday prize crosswords — one number sequence,
-two URLs. The Guardian publishes six a week; there is no Sunday cryptic.
+Covers weekday cryptics, Saturday prize crosswords (one number sequence, two
+URLs — six a week, no Sunday cryptic) and the Monday Quiptic, the Guardian's
+beginner tier, which runs its own much lower number sequence. See SERIES below.
 
 Writes puzzles/<number>.js (preserving any existing per-clue annotations),
 then rebuilds puzzles/index.json and puzzles/index.js.
@@ -36,19 +39,43 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
-# The Guardian publishes a cryptic Monday–Saturday (nothing on Sunday), but
-# Saturday's is the PRIZE crossword: same number sequence, different URL. Looking
-# only at /cryptic/ silently loses one puzzle in six — 30044, 30050, 30056… were
-# all missing here until this list gained its second entry. Prize solutions are
-# withheld for about a week, so a freshly-fetched prize puzzle has
-# hasSolutions=false until --refresh-unsolved picks it up again later.
-SERIES_URLS = [
-    "https://www.theguardian.com/crosswords/series/cryptic",
-    "https://www.theguardian.com/crosswords/series/prize",
-]
+# Two independent series, each with its own number sequence.
+#
+# cryptic — the daily, Monday–Saturday (nothing on Sunday). Saturday's is the
+#   PRIZE crossword: same number sequence, different URL. Looking only at
+#   /cryptic/ silently loses one puzzle in six — 30044, 30050, 30056… were all
+#   missing here until "prize" was added. Prize solutions are withheld for about
+#   a week, so a freshly-fetched prize puzzle has hasSolutions=false until
+#   --refresh-unsolved picks it up again later.
+# quiptic — the Guardian's beginner tier, Mondays, "for beginners and those in a
+#   hurry". Added 2026-08-01 (Paul: "are there any easier puzzles, I'm finding
+#   the guardian ones pretty hard"). Same page shape, same converter, solutions
+#   published same-day.
+#
+# The two number ranges are ~30,000 and ~1,400 and both count upward, so a bare
+# number is still unambiguous and puzzle ids / filenames / URLs stay plain
+# integers. That is deliberate: prefixing quiptic ids would have moved nothing
+# but would have forced every existing /puzzles/<n>/ page and stored progress key
+# to grow a special case. Revisit in ~550 years, when the quiptic sequence
+# reaches 30,000.
+SERIES = {
+    "cryptic": {
+        "label": "Cryptic",
+        "index": ["https://www.theguardian.com/crosswords/series/cryptic",
+                  "https://www.theguardian.com/crosswords/series/prize"],
+        "link_re": r"/crosswords/(?:cryptic|prize)/(\d+)",
+    },
+    "quiptic": {
+        "label": "Quiptic",
+        "index": ["https://www.theguardian.com/crosswords/series/quiptic"],
+        "link_re": r"/crosswords/quiptic/(\d+)",
+    },
+}
+# Tried in order for a bare number; the first that isn't a 404 wins.
 PUZZLE_URLS = [
     "https://www.theguardian.com/crosswords/cryptic/{num}",
     "https://www.theguardian.com/crosswords/prize/{num}",
+    "https://www.theguardian.com/crosswords/quiptic/{num}",
 ]
 
 JSON_START = "/*JSON-START*/"
@@ -108,6 +135,12 @@ def convert(data):
     return {
         "id": str(data["number"]),
         "number": data["number"],
+        # Which Guardian series this came from — "cryptic" or "quiptic". Taken
+        # from the page's own id ("crosswords/quiptic/1393") rather than from
+        # whichever URL happened to answer, so a re-fetch through a different
+        # route can't relabel a puzzle. Prize crosswords are part of the cryptic
+        # sequence and are labelled "cryptic"; the site never separates them.
+        "series": "quiptic" if "/quiptic/" in "/" + data["id"] else "cryptic",
         "name": data["name"],
         "setter": (data.get("creator") or {}).get("name", "Unknown"),
         "date": data.get("date"),
@@ -148,6 +181,10 @@ def reindex():
         puzzles.append({
             "id": p["id"],
             "number": p["number"],
+            # Absent on every file written before quiptics existed, and every one
+            # of those is a cryptic — so default rather than forcing a re-fetch
+            # of 36 puzzles to add one string.
+            "series": p.get("series", "cryptic"),
             "name": p["name"],
             "setter": p["setter"],
             "date": p.get("date"),
@@ -166,7 +203,13 @@ def reindex():
                 "basis": rating["basis"],
             },
         })
-    puzzles.sort(key=lambda p: p["number"], reverse=True)
+    # Newest first BY DATE, not by number. With one series those agreed; with two
+    # they don't — quiptic 1,393 and cryptic 30,073 came out the same week, and
+    # sorting on the number would bury every quiptic below every cryptic forever.
+    # Ties (a Monday publishes both) put the cryptic first, so the daily cryptic
+    # stays the puzzle the site opens on.
+    puzzles.sort(key=lambda p: (p.get("date") or 0, p["series"] == "cryptic", p["number"]),
+                 reverse=True)
     index = {"latest": puzzles[0]["id"] if puzzles else None, "puzzles": puzzles}
     (PUZZLE_DIR / "index.json").write_text(
         json.dumps(index, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -205,11 +248,12 @@ def fetch_number(num):
     return puzzle, is_new
 
 
-def backfill(count):
-    """Fetch the last `count` puzzles ending at the newest, skipping ones we
-    already have. Guardian cryptic numbers are sequential; some numbers may be
-    missing (404) — skip those gracefully. Polite ~1s delay between requests."""
-    latest = find_latest_number()
+def backfill(count, series="cryptic"):
+    """Fetch the last `count` puzzles of one series ending at the newest,
+    skipping ones we already have. Guardian numbers are sequential within a
+    series; some may be missing (404) — skip those gracefully. Polite ~1s delay
+    between requests."""
+    latest = find_latest_number(series)
     fetched, skipped, missing = 0, 0, 0
     for num in range(latest, latest - count, -1):
         path = PUZZLE_DIR / f"{num}.js"
@@ -259,17 +303,18 @@ def refresh_unsolved():
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 
 
-def find_latest_number():
+def find_latest_number(series="cryptic"):
+    spec = SERIES[series]
     nums = []
-    for series in SERIES_URLS:
+    for url in spec["index"]:
         try:
-            page = http_get(series)
+            page = http_get(url)
         except Exception as err:
-            print(f"series {series} unavailable: {err}")
+            print(f"series {url} unavailable: {err}")
             continue
-        nums += [int(n) for n in re.findall(r"/crosswords/(?:cryptic|prize)/(\d+)", page)]
+        nums += [int(n) for n in re.findall(spec["link_re"], page)]
     if not nums:
-        raise SystemExit("No cryptic puzzle links found on series pages")
+        raise SystemExit(f"No {series} puzzle links found on series pages")
     return max(nums)
 
 
@@ -287,16 +332,37 @@ def main(argv):
         return 0
     if argv[0] == "--backfill":
         count = int(argv[1]) if len(argv) > 1 else 30
-        backfill(count)
+        series = argv[2] if len(argv) > 2 else "cryptic"
+        if series not in SERIES:
+            raise SystemExit(f"Unknown series {series!r}; try {'/'.join(SERIES)}")
+        backfill(count, series)
         return 0
     if argv[0] == "--latest":
-        num = find_latest_number()
-        path = PUZZLE_DIR / f"{num}.js"
-        if path.exists():
-            print(f"up-to-date {num}")
+        # Every series, not just the cryptic. A per-series loop rather than one
+        # max() because the two sequences are unrelated: 30,073 is not "newer"
+        # than 1,393, and taking the larger would mean the quiptic never
+        # downloads. One series being down doesn't stop the others.
+        got, up_to_date = [], []
+        for series in SERIES:
+            try:
+                num = find_latest_number(series)
+            except SystemExit as err:
+                print(err)
+                continue
+            if (PUZZLE_DIR / f"{num}.js").exists():
+                up_to_date.append(f"{series} {num}")
+                continue
+            try:
+                fetch_number(num)
+                got.append(str(num))
+            except Exception as err:
+                print(f"{series} {num} failed: {err}")
+        if up_to_date and not got:
+            print("up-to-date " + ", ".join(up_to_date))
             return 3
-        fetch_number(num)
-        print(num)
+        if not got:
+            return 1
+        print(" ".join(got))
         return 0
     m = re.search(r"(\d{3,})", argv[0])
     if not m:
