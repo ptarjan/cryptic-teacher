@@ -922,6 +922,17 @@
     return annotated ? "" : `<span class="badge auto">auto hints</span>`;
   }
 
+  // Same principle as the hints badge: badge the exception, not the norm. Almost
+  // everything here is the daily cryptic, so only the Quiptic — the Guardian's
+  // beginner tier — gets called out. It is the one thing a struggling solver
+  // most wants to find in this list, so it says "easier", not "quiptic".
+  function seriesBadge(p) {
+    if ((p.series || "cryptic") !== "quiptic") return "";
+    return `<span class="badge series" title="Guardian Quiptic — their beginner
+      crossword, published Mondays. Same clue types as the daily cryptic, but
+      gentler: plainer definitions and fewer buried indicators.">quiptic</span>`;
+  }
+
   // What the picker lists, and why it isn't everything.
   //
   // This is a teaching site, so a puzzle with no hand-written annotations can't
@@ -947,7 +958,7 @@
     // Both spellings of the number: the site writes "No 30,074" everywhere, and
     // a solver copying that in shouldn't get nothing back.
     return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d,
-      p.difficulty ? p.difficulty.band : ""].join(" ").toLowerCase();
+      p.series || "cryptic", p.difficulty ? p.difficulty.band : ""].join(" ").toLowerCase();
   }
   function pickerRows(q) {
     // Every term has to match somewhere, so "imogen 2026" narrows rather than
@@ -994,7 +1005,7 @@
       btn.innerHTML = `<span class="p-num">№ ${p.number}</span>
         <span class="p-setter">${esc(p.setter)}</span>
         <span class="p-meta">${d}</span>
-        <span class="p-tags">${difficultyBadge(p)}${hintsBadge(p.annotated)}
+        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}
           ${filled ? `<span class="p-prog">${filled} letters in</span>` : ""}</span>`;
       btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
       li.appendChild(btn);

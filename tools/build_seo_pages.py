@@ -66,8 +66,19 @@ def puzzles():
     out = []
     for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
         out.append(load(path))
-    out.sort(key=lambda p: p["number"], reverse=True)
+    # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
+    # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
+    # sit alongside cryptics (~30,000) it would file every quiptic at the end of
+    # time and make prev/next hop between series.
+    out.sort(key=lambda p: (p.get("date") or 0, p.get("series", "cryptic") == "cryptic",
+                            p["number"]), reverse=True)
     return out
+
+
+def kind(p):
+    """"Cryptic" or "Quiptic" — the Guardian's own name for the series, used in
+    titles and headings so a Quiptic page doesn't claim to be a cryptic."""
+    return "Quiptic" if p.get("series") == "quiptic" else "Cryptic"
 
 
 def index_json():
@@ -195,21 +206,24 @@ def clue_html(e):
 
 def puzzle_page(puz, meta, prev_p, next_p):
     num, setter = puz["number"], puz.get("setter") or "unknown setter"
+    what = kind(puz)                  # "Cryptic" or "Quiptic"
+    lower = what.lower()
     pretty = f"{num:,}"
     when = datestr(puz.get("date"))
     diff = (meta or {}).get("difficulty") or {}
     annotated = (meta or {}).get("annotated")
     canonical = f"{BASE}/puzzles/{num}/"
 
-    title = f"Guardian Cryptic Crossword No {pretty} by {setter} — answers explained"
-    desc = (f"Every clue in Guardian cryptic crossword No {pretty} by {setter}"
+    title = f"Guardian {what} Crossword No {pretty} by {setter} — answers explained"
+    desc = (f"Every clue in Guardian {lower} crossword No {pretty} by {setter}"
             + (f", published {when}" if when else "")
             + ", with the answer, the definition and how the wordplay works."
             if annotated else
-            f"Answers to every clue in Guardian cryptic crossword No {pretty} by {setter}"
+            f"Answers to every clue in Guardian {lower} crossword No {pretty} by {setter}"
             + (f", published {when}." if when else "."))
 
-    crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"), (f"No {pretty}", "")]
+    crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
+              (f"{what} No {pretty}", "")]
 
     across = [e for e in puz["entries"] if e["direction"] == "across" and e.get("clue")]
     down = [e for e in puz["entries"] if e["direction"] == "down" and e.get("clue")]
@@ -239,7 +253,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "description": desc,
         "author": {"@type": "Person", "name": "Paul Tarjan", "url": "https://paultarjan.com/"},
         "isAccessibleForFree": True,
-        "about": {"@type": "Game", "name": f"Guardian Cryptic Crossword No {pretty}"},
+        "about": {"@type": "Game", "name": f"Guardian {what} Crossword No {pretty}"},
     }
     if puz.get("date"):
         article_ld["datePublished"] = datestr(puz["date"], "%Y-%m-%d")
@@ -247,7 +261,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     body = [
         masthead(crumbs),
         "<main class=\"static-main\">",
-        f"<h1>Guardian Cryptic Crossword No {pretty}</h1>",
+        f"<h1>Guardian {what} Crossword No {pretty}</h1>",
         f'<p class="s-facts">{" &middot; ".join(facts)}</p>',
         f'<p class="s-cta"><a class="cta" href="{BASE}/?p={num}">Solve this puzzle with '
         f'progressive hints &rarr;</a></p>',
@@ -301,12 +315,16 @@ def hub_page(idx):
                  f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
         hints = ('<span class="badge full">full hints</span>' if p.get("annotated")
                  else '<span class="badge auto">answers only</span>')
+        # Only the Quiptic is badged — the cryptic is the norm here, and the
+        # numbers alone ("No 1,393" among the 30,000s) don't explain themselves.
+        series = ('<span class="badge series">quiptic</span>'
+                  if p.get("series") == "quiptic" else "")
         rows.append(
             f'<li><a href="{BASE}/puzzles/{p["number"]}/">'
             f'<span class="p-num">No {p["number"]:,}</span>'
             f'<span class="p-setter">{esc(p.get("setter") or "")}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
-            f'<span class="p-tags">{badge}{hints}</span></a></li>')
+            f'<span class="p-tags">{series}{badge}{hints}</span></a></li>')
 
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
                "name": title, "url": canonical, "description": desc}

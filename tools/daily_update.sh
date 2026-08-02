@@ -2,7 +2,9 @@
 # Daily updater for Cryptic Teacher — designed for a cron job on the Mac mini.
 #
 # What it does:
-#   1. Fetches the newest Guardian cryptic if we don't have it yet.
+#   1. Fetches the newest puzzle of each Guardian series we follow — the daily
+#      cryptic and the Monday Quiptic (their beginner tier) — if we don't have
+#      it yet.
 #   2. Re-fetches puzzles whose solutions weren't published yet (Saturday prize
 #      crosswords publish theirs about a week late).
 #   3. Asks Claude Code (headless) to annotate the newest un-annotated puzzles,
@@ -35,7 +37,7 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/b
 
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
-# --- 1. fetch the latest puzzle (exit 3 = nothing new, which is fine) ---
+# --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
 python3 tools/fetch_puzzle.py --latest
 fetch_rc=$?
 if [ $fetch_rc -ne 0 ] && [ $fetch_rc -ne 3 ]; then

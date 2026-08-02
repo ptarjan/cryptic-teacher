@@ -42,11 +42,13 @@ The three components, each 0-1, hardest = 1:
              happens when it isn't there.
 
   device     Which wordplay machinery the clues use, for annotated puzzles
-             only. Hidden words give themselves up; a bare cryptic definition
-             offers no second confirmation at all, so you can never be sure you
-             are right. Compound clues (charade + container + deletion) cost
-             extra on top of their parts, because the solver has to find the
-             seams as well as the pieces.
+             only, on two axes. CONFIRMATION: hidden words give themselves up;
+             a bare cryptic definition offers no second confirmation at all, so
+             you can never be sure you are right. SPOTTING: a clue that records
+             no indicator gives the solver nothing to notice — which is the
+             charade's whole character, and the commonest clue we hold. Stacked
+             devices and long piece-chains cost extra on top of their parts,
+             because the solver has to find the seams as well as the pieces.
 
 Weights are stated below as an editorial judgement, not a fit. Change them if
 you disagree; the components are printed alongside so the change is arguable.
@@ -77,7 +79,9 @@ JSON_END = "/*JSON-END*/"
 WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25}
 
 # Per-device hardness, 0 = gives itself away, 1 = you may never be certain.
-# Ordered by how much confirmation the solver gets back once they spot it.
+# Ordered by how much confirmation the solver gets back ONCE THEY SPOT IT — this
+# table is a confirmation cost only. Spotting is a second, separate axis, and it
+# is handled by UNINDICATED_COST and SEAM_COST below.
 DEVICE_COST = {
     "hidden word": 0.15,
     "anagram": 0.30,
@@ -97,6 +101,36 @@ DEVICE_COST = {
 }
 DEVICE_DEFAULT = 0.50
 STACKING_COST = 0.12               # per device beyond the first
+
+# Spotting cost, the axis DEVICE_COST deliberately leaves out. Added 2026-08-02
+# (Paul: "make sure we grade hardness based on the charades too", after the
+# Guardian ones "mostly because [of] charades").
+#
+# The case is in our own annotations, not in taste. Across the 408 hand-annotated
+# clues we hold, charade is far and away the commonest family — 76 bare, plus
+# another ~65 compounded with a deletion, container, reversal or letter-pick, so
+# roughly a third of every clue written. And 54 of those 76 bare charades record
+# NO indicator at all. An anagram announces itself ("awfully", "smashed"); a
+# hidden word announces itself ("some of"). A charade's joiners, when it has any,
+# are invisible function words — the top ones in our data are "about", "after",
+# "in", "before", "on", "by". Nothing in the clue says "this is a charade". That
+# is a real cost the old table couldn't see, because it scored only how sure you
+# can be after the fact.
+#
+# Both of these read a tracked field of the annotation (`indicators`, `pieces`),
+# so they are facts about the clue as recorded, not a text-matching guess.
+UNINDICATED_COST = 0.15
+# ...except where the family is unindicated by definition. A double definition
+# has no indicator because there is nothing to indicate, and its 0.55 already
+# prices that; bumping it too would just re-level the whole class.
+ALWAYS_UNINDICATED = {"double definition", "cryptic definition"}
+
+# Per piece beyond the second, for the families that record `pieces`. A two-part
+# charade is a joint; a five-part one is a chain, and the solver has to find
+# every seam AND get the order right. Our data has 98 two-piece charades but also
+# 33 fours, five fives and two sixes — a spread wide enough to be worth scoring
+# rather than averaging away.
+SEAM_COST = 0.07
 
 # Cut points in standard deviations from the baseline mean, so the band names
 # mean "…for a Guardian daily cryptic" — not "…for a crossword". A median
@@ -170,17 +204,32 @@ def obscurity(puz, rank):
 
 
 def device(puz):
-    """Mean wordplay cost. None when the puzzle has no annotations yet."""
+    """Mean wordplay cost. None when the puzzle has no annotations yet.
+
+    Three things add up: how hard the machinery is to confirm (DEVICE_COST),
+    how many separate devices are stacked (STACKING_COST), and how hard the
+    clue is to *spot* in the first place — UNINDICATED_COST when the clue names
+    no indicator, SEAM_COST per extra piece to assemble.
+    """
     costs = []
     for e in puz["entries"]:
-        kind = ((e.get("annotation") or {}).get("type") or "").strip()
+        ann = e.get("annotation") or {}
+        kind = (ann.get("type") or "").strip()
         if not kind:
             continue
         parts = [p.strip().lower() for p in kind.split("+") if p.strip()]
         if not parts:
             continue
-        base = max(DEVICE_COST.get(p, DEVICE_DEFAULT) for p in parts)
-        costs.append(min(1.0, base + STACKING_COST * (len(parts) - 1)))
+        cost = max(DEVICE_COST.get(p, DEVICE_DEFAULT) for p in parts)
+        cost += STACKING_COST * (len(parts) - 1)
+        if not (ann.get("indicators") or []) and not (set(parts) & ALWAYS_UNINDICATED):
+            cost += UNINDICATED_COST
+        # `pieces` is the answer broken into the chunks the wordplay builds it
+        # from; annotate_prompt.md asks for it on charades, containers and
+        # deletions. Two is the floor — every one of those families has at
+        # least two parts by definition, so only the extra seams cost.
+        cost += SEAM_COST * max(0, len(ann.get("pieces") or []) - 2)
+        costs.append(min(1.0, cost))
     # A part-annotated puzzle would report whichever clues happened to be done
     # first, which is not a fact about the puzzle. Require most of it.
     if len(costs) < 0.8 * len(puz["entries"]):
@@ -215,7 +264,20 @@ def score(puz, rank, base):
     # Grid geometry on its own is not a difficulty rating. A prize puzzle whose
     # solutions haven't been published yet has nothing but `checking`, and 30068
     # duly came out "Brutal" on an empty grid. Two components or no rating.
-    if len(zs) < 2:
+    #
+    # And `device` specifically, not just any two — the wordplay is the only
+    # component that measures the CLUES. That used to be a hunch; adding the
+    # Guardian Quiptic gave it a control group, because the Quiptic is the
+    # Guardian's own beginner crossword and so is known-easier by editorial
+    # fiat. Scored on checking + obscurity alone, our eight quiptics came out at
+    # −0.07 against the cryptics' +0.09: a sixth of a standard deviation, i.e.
+    # indistinguishable. Quiptic 1,393 was rated BRUTAL, harder than 86% of the
+    # collection, on the strength of an open grid. A rating that can't separate
+    # the beginner puzzle from the daily is not measuring difficulty, it is
+    # measuring the grid — so an unannotated puzzle now gets no band at all,
+    # which the index and the picker already handle by showing no badge. The
+    # quiptic badge is a fact about the puzzle and stands on its own.
+    if len(zs) < 2 or "device" not in zs:
         return None
     total = sum(WEIGHTS[k] for k in zs)
     index = sum(WEIGHTS[k] * z for k, z in zs.items()) / total
