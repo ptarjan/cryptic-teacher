@@ -162,6 +162,23 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
     "title badge disagrees with the index for " + openId + ": badged=" + badged);
 }
 
+// No difficulty band without having solved the puzzle first (Paul, 2026-08-02:
+// "if you can't grade without solving just leave it unknown until you solve").
+// tools/difficulty.py enforces this by requiring its wordplay component, which
+// only exists once a puzzle is annotated — but that is one `if` guarding a rule
+// that matters, and the failure is silent and plausible-looking: the Guardian's
+// beginner Quiptic came out rated BRUTAL on the shape of its grid. So check the
+// shipped index rather than trusting the generator, and check every puzzle
+// rather than the one the app happened to open.
+{
+  const graded = (global.CRYPTIC_INDEX.puzzles || [])
+    .filter((p) => p.difficulty && !p.annotated)
+    .map((p) => p.number);
+  assert(graded.length === 0,
+    "unsolved puzzles carry a difficulty band: " + graded.join(", ")
+    + " — grade from the annotations or leave it unknown");
+}
+
 // The walkthrough below is the full-hints path: it climbs the hint ladder and
 // reveals letters, and neither exists on a puzzle with no annotations or no
 // published solutions (Saturday prize crosswords arrive bare). Both of those
