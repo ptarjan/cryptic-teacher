@@ -413,6 +413,32 @@ FILLER_WORDS = {
 HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
           "for some reason", "don't ask", "close enough")
 
+# Working-out left in the published text. A walkthrough is the finished
+# explanation; if it is still arguing with itself, the model shipped its scratch
+# pad. Found 2026-08-05 benchmarking Haiku 4.5 as a cheaper annotator: it passed
+# every mechanical check on 30073 and then handed the reader a 1A walkthrough
+# that backtracked five times ("No wait—", "Still wrong.", "That's not it
+# either.") and gave up without a parse. Nothing here caught it, because every
+# field was present and every letter added up — the checks were all about
+# structure and none about whether the prose was finished.
+#
+# Two guards, deliberately: the phrase list below, and WALKTHROUGH_HARD_MAX.
+# The phrases are a text match and so only catch the wordings seen so far; the
+# word cap is structural and catches dumped reasoning whatever it says, because
+# reasoning-in-public is long and a finished walkthrough is short.
+#
+# It is a second, higher ceiling on top of MAX_WALKTHROUGH_WORDS (45), not a
+# replacement: that one is a style budget and warns, on authored puzzles only,
+# when the prose repeats what the blocks already said. This one is an ERROR on
+# every puzzle and asks a cruder question — is this even a walkthrough? The
+# longest of the 405 in the repo when this went in was 37 words, so 60 is slack
+# and nothing that hits it is a near miss on the style budget.
+BACKTRACKS = ("no wait", "no, wait", "hold on", "scratch that", "still wrong",
+              "that's not it", "that is not it", "not it either", "re-examine",
+              "let me try", "let me reconsider", "on second thought",
+              "correct parse", "actually:", "ignore that", "wait—", "wait --")
+WALKTHROUGH_HARD_MAX = 60
+
 # `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
 # required on 2026-08-01 (feedback: "in the full walkthrough explain why the
 # answer matches the definition"). The 14 hand-annotated puzzles predate it, so
@@ -712,11 +738,26 @@ def validate_puzzle(puzzle):
             check_link_words_are_equivalences(tag, ann, errors)
             check_indicator_adjacency(tag, ann, clue, errors, warnings)
             check_reversal_direction(tag, ann, e["direction"], errors)
-        low = (ann.get("walkthrough") or "").lower()
+        walk = ann.get("walkthrough") or ""
+        low = walk.lower()
         for h in HEDGES:
             if h in low:
                 errors.append(f"{tag}: walkthrough hedges with {h!r} — parse the chunk "
                               f"properly instead of excusing it (STYLE.md)")
+        if len(walk.split()) > WALKTHROUGH_HARD_MAX:
+            errors.append(f"{tag}: walkthrough is {len(walk.split())} words "
+                          f"(max {WALKTHROUGH_HARD_MAX}) — that length is working-out, "
+                          f"not an explanation; the blocks already did the mechanics")
+        # Notes and definitionFit are published too, so they get the same check.
+        for field, text in ([("walkthrough", walk),
+                             ("definitionFit", ann.get("definitionFit") or "")]
+                            + [("block note", b.get("note") or "")
+                               for b in ann.get("blocks", [])]):
+            for marker in BACKTRACKS:
+                if marker in text.lower():
+                    errors.append(f"{tag}: {field} contains {marker!r} — that is "
+                                  f"working-out, not an explanation. Settle the parse "
+                                  f"first, then write the finished sentence")
 
         for sub in ann.get("subAnagrams", []):
             extra, missing = multiset_diff(letters(sub["fodder"]), letters(sub["gives"]))

@@ -67,6 +67,16 @@ hedging words in a walkthrough (`jokingly`, `somehow`, `if you squint`, …) are
 hard ERROR — if a walkthrough needs a hedge, the parse is wrong, not the clue.
 Extend `HEDGES` in the validator when a new fudge shows up.
 
+The published text is the finished explanation, never the working-out. A
+walkthrough, a `definitionFit` or a block `note` that is still arguing with
+itself ("No wait—", "Still wrong.", "Actually:", "Correct parse:") is a hard
+ERROR, as is any walkthrough over `WALKTHROUGH_HARD_MAX` words. Found
+2026-08-05 benchmarking a cheaper annotation model: it passed every mechanical
+check on 30073 and handed the reader a 177-word 1A walkthrough that backtracked
+five times and never landed on a parse. Settle the parse first — think as long
+as you like — then write the sentence. If you cannot settle it, the annotation
+is not ready, and an unannotated clue is better than a published argument.
+
 ### What the leftover words turned out to be (feedback 2026-07-29)
 Working through every warning `check_coverage()` raised produced four distinct
 causes, and each one has a right answer. When a clue word is unaccounted for, it

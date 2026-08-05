@@ -118,6 +118,12 @@ Rules:
 - Never hedge in a `walkthrough`. Words like "jokingly", "somehow", "if you squint" are a
   validator ERROR: if the explanation needs a fudge, the parse is wrong. Go back and
   find the parse that needs no excuse.
+- Never leave your working-out in a `walkthrough`, `definitionFit` or block `note`. Those
+  fields are what the learner reads; they are the finished explanation, not the thinking
+  that produced it. "No wait—", "Still wrong.", "Actually:", "Correct parse:" and a
+  walkthrough over `WALKTHROUGH_HARD_MAX` words are validator ERRORS. Work the clue out
+  for as long as you need, then write the settled sentence. If you cannot settle it,
+  leave the clue unannotated and say so — that is better than publishing an argument.
 - Do not guess: if a parsing doesn't produce the answer's letters exactly, it is wrong —
   rethink it. Consult the setter's usual tricks; check fifteensquared.net if reachable.
 
