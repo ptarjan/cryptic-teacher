@@ -104,8 +104,9 @@ todo=$(python3 - <<'EOF'
 import json
 idx = json.load(open("puzzles/index.json"))
 todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")]
-# Quiptics first (the beginner puzzles are the ones worth having hints on), then
-# newest-first within each series so today's puzzle is never last in the queue.
+# Gentler series first — quiptic and everyman ahead of the daily cryptic, since
+# the beginner puzzles are the ones worth having hints on — then newest-first
+# within each series so today's puzzle is never last in the queue.
 todo.sort(key=lambda p: (p.get("series", "cryptic") == "cryptic", -p["number"]))
 print(" ".join(str(p["number"]) for p in todo))
 EOF
