@@ -16,6 +16,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "12426",
+   "number": 12426,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,426",
+   "setter": "Lark",
+   "date": 1785888000000,
+   "file": "12426.js",
+   "v": "96ab845d",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
    "id": "30076",
    "number": 30076,
    "series": "cryptic",
@@ -29,6 +42,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "12425",
+   "number": 12425,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,425",
+   "setter": "Deri",
+   "date": 1785801600000,
+   "file": "12425.js",
+   "v": "c4711b80",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
    "id": "30075",
    "number": 30075,
    "series": "cryptic",
@@ -37,6 +63,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1785715200000,
    "file": "30075.js",
    "v": "e481c26b",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
+   "id": "12424",
+   "number": 12424,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,424",
+   "setter": "Hippogryph",
+   "date": 1785715200000,
+   "file": "12424.js",
+   "v": "1e92fd2e",
    "annotated": false,
    "hasSolutions": true,
    "difficulty": null
@@ -68,6 +107,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "12423",
+   "number": 12423,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,423",
+   "setter": "Quince",
+   "date": 1785542400000,
+   "file": "12423.js",
+   "v": "bb7c91ee",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
    "id": "30073",
    "number": 30073,
    "series": "cryptic",
@@ -76,6 +128,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1785456000000,
    "file": "30073.js",
    "v": "473674a9",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
+   "id": "12422",
+   "number": 12422,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,422",
+   "setter": "Phi",
+   "date": 1785456000000,
+   "file": "12422.js",
+   "v": "6fe0ddc7",
    "annotated": false,
    "hasSolutions": true,
    "difficulty": null
@@ -103,6 +168,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    }
   },
   {
+   "id": "12421",
+   "number": 12421,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,421",
+   "setter": "Mog",
+   "date": 1785369600000,
+   "file": "12421.js",
+   "v": "bd83b818",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
    "id": "30071",
    "number": 30071,
    "series": "cryptic",
@@ -123,6 +201,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
      "obscurity"
     ]
    }
+  },
+  {
+   "id": "12420",
+   "number": 12420,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,420",
+   "setter": "Eccles",
+   "date": 1785283200000,
+   "file": "12420.js",
+   "v": "c414d0ad",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
   },
   {
    "id": "30070",
@@ -147,6 +238,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    }
   },
   {
+   "id": "12419",
+   "number": 12419,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,419",
+   "setter": "Punk",
+   "date": 1785196800000,
+   "file": "12419.js",
+   "v": "23b864f6",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
    "id": "30069",
    "number": 30069,
    "series": "cryptic",
@@ -155,6 +259,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1785110400000,
    "file": "30069.js",
    "v": "f6e1e317",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
+   "id": "12418",
+   "number": 12418,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,418",
+   "setter": "Italicus",
+   "date": 1785110400000,
+   "file": "12418.js",
+   "v": "f70b473e",
    "annotated": false,
    "hasSolutions": true,
    "difficulty": null
@@ -181,6 +298,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "date": 1784937600000,
    "file": "30068.js",
    "v": "16fb79c9",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
+   "id": "12417",
+   "number": 12417,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,417",
+   "setter": "Bluejacket",
+   "date": 1784937600000,
+   "file": "12417.js",
+   "v": "08163517",
    "annotated": false,
    "hasSolutions": true,
    "difficulty": null

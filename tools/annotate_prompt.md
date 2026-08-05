@@ -1,7 +1,10 @@
 # Annotation task for Claude Code
 
-You are annotating a Guardian cryptic crossword for the Cryptic Teacher app in this
-repository. The target puzzle file is `puzzles/<NUMBER>.js` (the newest file whose
+You are annotating a broadsheet cryptic crossword for the Cryptic Teacher app in this
+repository — a Guardian daily or Quiptic, the Observer's Everyman, or the Independent's
+daily. The puzzle file's `series` and the tools/series.py table say which; the house
+styles differ a little but the annotation schema below is identical for all of them.
+The target puzzle file is `puzzles/<NUMBER>.js` (the newest file whose
 entries still have `"annotation": null` — `puzzles/index.json` lists which puzzles have
 `"annotated": false`). Work on the OLDEST un-annotated puzzle first if several are
 pending, so the backlog drains in order.
@@ -53,7 +56,10 @@ Rules:
   (`a bit of`, `in front`, `turned`, `rebuilt`) is a mechanism narrated, not hidden.
 - `definition`, `definition2` and every string in `indicators` MUST occur verbatim in the
   clue (match the exact characters — Guardian clues use curly apostrophes `’` and en
-  dashes `–`).
+  dashes `–`, Independent clues use straight `'` and hyphens, so copy from the file
+  rather than retyping). Independent clues may also contain `<i>` tags around a title
+  or a foreign word; that markup is part of the clue string, so a definition that
+  spans it has to include it.
 - Provide `pieces` for charades/containers/deletions (the final letter chunks in answer
   order) or `anagram.fodder` for anagrams (including any extra letters joined in). Use
   `subAnagrams`/`subReversals` for embedded steps. Double definitions, homophones and

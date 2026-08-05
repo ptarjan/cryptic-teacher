@@ -39,6 +39,10 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlparse
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -55,6 +59,24 @@ NAV_END = "<!-- SEO-NAV-END -->"
 
 def esc(s):
     return html.escape(str(s or ""), quote=True)
+
+
+# Setters italicise titles and foreign words, and both the Guardian and the
+# Independent ship that as markup inside the clue string: "Case for <i>Turandot</i>
+# lyrics…". The app renders clue text as HTML and always has; these static pages
+# were escaping it, so every such clue read "&lt;i&gt;Turandot&lt;/i&gt;" on the
+# page that is supposed to be the readable one.
+#
+# So: escape everything, then put back exactly these tags. A whitelist and not a
+# "don't escape clues" shortcut, because clue text is scraped from two
+# publishers' feeds and is not ours to trust — anything they send that isn't on
+# this list still comes out as visible text rather than as markup.
+CLUE_TAGS = ("i", "b", "em", "strong", "span", "sub", "sup")
+_CLUE_TAG_RE = re.compile(r"&lt;(/?)(" + "|".join(CLUE_TAGS) + r")&gt;")
+
+
+def esc_clue(s):
+    return _CLUE_TAG_RE.sub(r"<\1\2>", esc(s))
 
 
 def load(path):
@@ -75,27 +97,16 @@ def puzzles():
     return out
 
 
-# What each series is actually called, and by whom. Titles and headings are built
-# from this rather than from a hardcoded "Guardian Cryptic", so a Quiptic page
-# doesn't claim to be a cryptic and an Everyman page doesn't credit the wrong
-# paper — Everyman is the Observer's Sunday puzzle, only syndicated onto the
-# Guardian's site. Keyed off the series recorded by tools/fetch_puzzle.py;
-# anything unlisted falls back to the Guardian cryptic, which is right both for
-# the daily and for the Saturday prize that shares its number sequence.
-SERIES_META = {
-    "cryptic": {"kind": "Cryptic", "publisher": "Guardian"},
-    "quiptic": {"kind": "Quiptic", "publisher": "Guardian"},
-    "everyman": {"kind": "Everyman", "publisher": "Observer"},
-}
-DEFAULT_META = SERIES_META["cryptic"]
-
-
+# Titles and headings are built from tools/series.py rather than from a
+# hardcoded "Guardian Cryptic", so a Quiptic page doesn't claim to be a cryptic
+# and an Everyman page doesn't credit the wrong paper — Everyman is the
+# Observer's Sunday puzzle, only syndicated onto the Guardian's site.
 def kind(p):
-    return SERIES_META.get(p.get("series"), DEFAULT_META)["kind"]
+    return series_meta.kind(p.get("series"))
 
 
 def publisher(p):
-    return SERIES_META.get(p.get("series"), DEFAULT_META)["publisher"]
+    return series_meta.publisher(p.get("series"))
 
 
 def index_json():
@@ -197,7 +208,7 @@ def clue_html(e):
     bits = [f'<article class="s-clue" id="{esc(e["id"])}">',
             f'<h3><span class="s-num">{esc(num)}</span> '
             f'<span class="s-answer">{esc(answer)}</span></h3>',
-            f'<p class="s-cluetext">{esc(e.get("clue"))}</p>']
+            f'<p class="s-cluetext">{esc_clue(e.get("clue"))}</p>']
 
     if ann.get("definition"):
         kind = ann.get("type") or ""
@@ -302,8 +313,12 @@ def puzzle_page(puz, meta, prev_p, next_p):
             "are no wordplay explanations on it — the hand-written hint ladder is added a few "
             f'puzzles a night. <a href="{BASE}/puzzles/">Browse the annotated ones</a>.</p>')
     if puz.get("sourceUrl"):
+        # Link text is the host we actually fetched from, not a hardcoded
+        # "theguardian.com" — the Independent's puzzles come from somewhere else
+        # entirely, and crediting the wrong site is worse than not crediting one.
+        host = re.sub(r"^www\.", "", urlparse(puz["sourceUrl"]).netloc)
         body.append(f'<p class="muted small-note">Original puzzle: '
-                    f'<a href="{esc(puz["sourceUrl"])}" rel="nofollow">theguardian.com</a></p>')
+                    f'<a href="{esc(puz["sourceUrl"])}" rel="nofollow">{esc(host)}</a></p>')
 
     for label, entries in (("Across", across), ("Down", down)):
         body.append(f'<section class="s-list"><h2>{label}</h2>')

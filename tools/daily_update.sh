@@ -2,9 +2,9 @@
 # Daily updater for Cryptic Teacher — designed for a cron job on the Mac mini.
 #
 # What it does:
-#   1. Fetches the newest puzzle of each Guardian series we follow — the daily
-#      cryptic and the Monday Quiptic (their beginner tier) — if we don't have
-#      it yet.
+#   1. Fetches the newest puzzle of every series we follow — the Guardian daily
+#      cryptic, the Monday Quiptic (their beginner tier), the Sunday Everyman
+#      from the Observer, and the Independent's daily — if we don't have it yet.
 #   2. Re-fetches puzzles whose solutions weren't published yet (Saturday prize
 #      crosswords publish theirs about a week late).
 #   3. Asks Claude Code (headless) to annotate the newest un-annotated puzzles,
@@ -38,11 +38,16 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/b
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
-python3 tools/fetch_puzzle.py --latest
-fetch_rc=$?
-if [ $fetch_rc -ne 0 ] && [ $fetch_rc -ne 3 ]; then
-  echo "fetch failed (rc=$fetch_rc); continuing to annotation of any backlog"
-fi
+# Two fetchers, run independently on purpose: the Guardian's site going down
+# should not cost us the Independent's puzzle, and vice versa. Neither failing
+# stops the run — there is usually a backlog worth annotating regardless.
+for fetcher in fetch_puzzle fetch_independent; do
+  python3 "tools/$fetcher.py" --latest
+  fetch_rc=$?
+  if [ $fetch_rc -ne 0 ] && [ $fetch_rc -ne 3 ]; then
+    echo "$fetcher fetch failed (rc=$fetch_rc); continuing"
+  fi
+done
 
 # --- 2. pick up solutions that have since been published (prize puzzles) ---
 python3 tools/fetch_puzzle.py --refresh-unsolved
@@ -106,7 +111,7 @@ if [ -n "$pending" ]; then
       # ~/.claude/settings.json defaulted to, which meant a settings edit made
       # for an interactive session silently retuned the nightly job — it moved
       # from Fable to Opus that way on 2026-07-30 without anyone deciding to.
-      claude -p "Annotate Guardian cryptic No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Do not commit — the calling script commits." \
+      claude -p "Annotate cryptic crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Do not commit — the calling script commits." \
         --model "${ANNOTATE_MODEL:-fable}" \
         --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
         --max-turns 80 || {

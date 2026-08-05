@@ -101,13 +101,18 @@ python3 tools/fetch_puzzle.py --reindex >/dev/null
 
 # --- 1. un-annotated puzzles, quiptics first ---------------------------------
 todo=$(python3 - <<'EOF'
-import json
+import json, sys
+sys.path.insert(0, "tools")
+import series
 idx = json.load(open("puzzles/index.json"))
 todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")]
-# Gentler series first — quiptic and everyman ahead of the daily cryptic, since
-# the beginner puzzles are the ones worth having hints on — then newest-first
-# within each series so today's puzzle is never last in the queue.
-todo.sort(key=lambda p: (p.get("series", "cryptic") == "cryptic", -p["number"]))
+# Gentler series first — the beginner puzzles are the ones worth having hints on,
+# because the people they are for are exactly the people who can't get through
+# them unaided — then newest-first within a tier so today's puzzle is never last
+# in the queue. The ranking is tools/series.py's, not a test for "cryptic": with
+# four series and two publishers, "is it the Guardian daily" stopped being the
+# same question as "is it hard".
+todo.sort(key=lambda p: (series.gentleness(p.get("series")), -p["number"]))
 print(" ".join(str(p["number"]) for p in todo))
 EOF
 )
@@ -116,7 +121,9 @@ echo "un-annotated backlog: ${todo:-none}"
 for num in $todo; do
   if past_deadline; then echo "past $DEADLINE — stopping"; break; fi
   echo "--- annotating $num ---"
-  run_claude "Annotate Guardian crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit. Do not commit — the calling script commits." || {
+  # Not "Guardian crossword": since 2026-08-05 some of these are the
+  # Independent's. The puzzle file records its own series and publisher.
+  run_claude "Annotate crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit. Do not commit — the calling script commits." || {
     echo "annotation run for $num failed (window exhausted?) — stopping here"
     git checkout -- "puzzles/$num.js" 2>/dev/null
     break
