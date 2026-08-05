@@ -75,10 +75,27 @@ def puzzles():
     return out
 
 
+# What each series is actually called, and by whom. Titles and headings are built
+# from this rather than from a hardcoded "Guardian Cryptic", so a Quiptic page
+# doesn't claim to be a cryptic and an Everyman page doesn't credit the wrong
+# paper — Everyman is the Observer's Sunday puzzle, only syndicated onto the
+# Guardian's site. Keyed off the series recorded by tools/fetch_puzzle.py;
+# anything unlisted falls back to the Guardian cryptic, which is right both for
+# the daily and for the Saturday prize that shares its number sequence.
+SERIES_META = {
+    "cryptic": {"kind": "Cryptic", "publisher": "Guardian"},
+    "quiptic": {"kind": "Quiptic", "publisher": "Guardian"},
+    "everyman": {"kind": "Everyman", "publisher": "Observer"},
+}
+DEFAULT_META = SERIES_META["cryptic"]
+
+
 def kind(p):
-    """"Cryptic" or "Quiptic" — the Guardian's own name for the series, used in
-    titles and headings so a Quiptic page doesn't claim to be a cryptic."""
-    return "Quiptic" if p.get("series") == "quiptic" else "Cryptic"
+    return SERIES_META.get(p.get("series"), DEFAULT_META)["kind"]
+
+
+def publisher(p):
+    return SERIES_META.get(p.get("series"), DEFAULT_META)["publisher"]
 
 
 def index_json():
@@ -120,7 +137,7 @@ def head(title, description, canonical, extra=""):
 
 
 FOOTER = f"""<footer>
-  <p class="muted">Puzzles &copy; Guardian News &amp; Media, quoted here with original
+  <p class="muted">Puzzles &copy; their original publishers, quoted here with original
   explanation for the purpose of study and review. Annotations and hints are original
   to this project. <a href="{BASE}/">Solve with hints</a> &middot;
   <a href="{BASE}/puzzles/">All puzzles</a> &middot;
@@ -206,7 +223,8 @@ def clue_html(e):
 
 def puzzle_page(puz, meta, prev_p, next_p):
     num, setter = puz["number"], puz.get("setter") or "unknown setter"
-    what = kind(puz)                  # "Cryptic" or "Quiptic"
+    what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
+    paper = publisher(puz)            # "Guardian", "Observer"
     lower = what.lower()
     pretty = f"{num:,}"
     when = datestr(puz.get("date"))
@@ -214,12 +232,17 @@ def puzzle_page(puz, meta, prev_p, next_p):
     annotated = (meta or {}).get("annotated")
     canonical = f"{BASE}/puzzles/{num}/"
 
-    title = f"Guardian {what} Crossword No {pretty} by {setter} — answers explained"
-    desc = (f"Every clue in Guardian {lower} crossword No {pretty} by {setter}"
+    # "Everyman Crossword No 4,096 by Everyman" is the setter's pseudonym said
+    # twice. Where the series name IS the byline — the Observer has kept Everyman
+    # anonymous since 1945 — the attribution is already in the title, so drop it.
+    by = "" if setter == what else f" by {setter}"
+
+    title = f"{paper} {what} Crossword No {pretty}{by} — answers explained"
+    desc = (f"Every clue in {paper} {lower} crossword No {pretty}{by}"
             + (f", published {when}" if when else "")
             + ", with the answer, the definition and how the wordplay works."
             if annotated else
-            f"Answers to every clue in Guardian {lower} crossword No {pretty} by {setter}"
+            f"Answers to every clue in {paper} {lower} crossword No {pretty}{by}"
             + (f", published {when}." if when else "."))
 
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
@@ -253,7 +276,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         "description": desc,
         "author": {"@type": "Person", "name": "Paul Tarjan", "url": "https://paultarjan.com/"},
         "isAccessibleForFree": True,
-        "about": {"@type": "Game", "name": f"Guardian {what} Crossword No {pretty}"},
+        "about": {"@type": "Game", "name": f"{paper} {what} Crossword No {pretty}"},
     }
     if puz.get("date"):
         article_ld["datePublished"] = datestr(puz["date"], "%Y-%m-%d")
@@ -261,7 +284,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     body = [
         masthead(crumbs),
         "<main class=\"static-main\">",
-        f"<h1>Guardian {what} Crossword No {pretty}</h1>",
+        f"<h1>{paper} {what} Crossword No {pretty}</h1>",
         f'<p class="s-facts">{" &middot; ".join(facts)}</p>',
         f'<p class="s-cta"><a class="cta" href="{BASE}/?p={num}">Solve this puzzle with '
         f'progressive hints &rarr;</a></p>',
@@ -315,10 +338,11 @@ def hub_page(idx):
                  f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
         hints = ('<span class="badge full">full hints</span>' if p.get("annotated")
                  else '<span class="badge auto">answers only</span>')
-        # Only the Quiptic is badged — the cryptic is the norm here, and the
-        # numbers alone ("No 1,393" among the 30,000s) don't explain themselves.
-        series = ('<span class="badge series">quiptic</span>'
-                  if p.get("series") == "quiptic" else "")
+        # Only the non-cryptic series are badged — the cryptic is the norm here,
+        # and the numbers alone ("No 1,393" among the 30,000s) don't explain
+        # themselves. Mirrors seriesBadge() in app.js.
+        series = (f'<span class="badge series">{esc(p["series"])}</span>'
+                  if p.get("series", "cryptic") != "cryptic" else "")
         rows.append(
             f'<li><a href="{BASE}/puzzles/{p["number"]}/">'
             f'<span class="p-num">No {p["number"]:,}</span>'

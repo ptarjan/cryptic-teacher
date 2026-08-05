@@ -923,14 +923,24 @@
   }
 
   // Same principle as the hints badge: badge the exception, not the norm. Almost
-  // everything here is the daily cryptic, so only the Quiptic — the Guardian's
-  // beginner tier — gets called out. It is the one thing a struggling solver
-  // most wants to find in this list, so it says "easier", not "quiptic".
+  // everything here is the daily cryptic, so that one gets no badge and the
+  // gentler series get called out — which is the thing a struggling solver most
+  // wants to find in this list. A table rather than a chain of ifs so that
+  // adding a series to tools/fetch_puzzle.py needs one entry here and nothing
+  // else; an unlisted series simply goes unbadged, same as the cryptic.
+  const SERIES_BADGE = {
+    quiptic: `Guardian Quiptic — their beginner crossword, published Mondays.
+      Same clue types as the daily cryptic, but gentler: plainer definitions and
+      fewer buried indicators.`,
+    everyman: `Everyman — the Observer's Sunday cryptic. The gentlest of the
+      broadsheet puzzles and scrupulously fair: definitions sit at one end, and
+      the wordplay always spells the answer out if you can hear it.`,
+  };
+
   function seriesBadge(p) {
-    if ((p.series || "cryptic") !== "quiptic") return "";
-    return `<span class="badge series" title="Guardian Quiptic — their beginner
-      crossword, published Mondays. Same clue types as the daily cryptic, but
-      gentler: plainer definitions and fewer buried indicators.">quiptic</span>`;
+    const why = SERIES_BADGE[p.series || "cryptic"];
+    if (!why) return "";
+    return `<span class="badge series" title="${why}">${p.series}</span>`;
   }
 
   // What the picker lists, and why it isn't everything.
