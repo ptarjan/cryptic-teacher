@@ -922,12 +922,15 @@
     return annotated ? "" : `<span class="badge auto">auto hints</span>`;
   }
 
-  // Same principle as the hints badge: badge the exception, not the norm. Almost
-  // everything here is the daily cryptic, so that one gets no badge and the
-  // gentler series get called out — which is the thing a struggling solver most
-  // wants to find in this list. A table rather than a chain of ifs so that
-  // adding a series to tools/fetch_puzzle.py needs one entry here and nothing
-  // else; an unlisted series simply goes unbadged, same as the cryptic.
+  // Same principle as the hints badge: badge the exception, not the norm. The
+  // Guardian daily is the norm here and gets no badge; everything else says what
+  // it is, either because it is gentler — the thing a struggling solver most
+  // wants to find in this list — or because it is a different paper with a
+  // different house style. A table rather than a chain of ifs, so a new series
+  // is one entry; an unlisted one simply goes unbadged, same as the cryptic.
+  //
+  // This text is prose for a human choosing what to attempt next, which is why
+  // it lives here and not in tools/series.py with the machine-readable facts.
   const SERIES_BADGE = {
     quiptic: `Guardian Quiptic — their beginner crossword, published Mondays.
       Same clue types as the daily cryptic, but gentler: plainer definitions and
@@ -935,6 +938,9 @@
     everyman: `Everyman — the Observer's Sunday cryptic. The gentlest of the
       broadsheet puzzles and scrupulously fair: definitions sit at one end, and
       the wordplay always spells the answer out if you can hear it.`,
+    independent: `The Independent's daily cryptic, Monday to Saturday. About as
+      hard as the Guardian, with a regular cast of setters — Phi, Quince, Eccles,
+      Hippogryph — so their habits are worth learning if you like one of them.`,
   };
 
   function seriesBadge(p) {
