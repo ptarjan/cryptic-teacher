@@ -109,6 +109,43 @@ def publisher(p):
     return series_meta.publisher(p.get("series"))
 
 
+def papers(idx):
+    """The papers this collection actually holds, commonest first.
+
+    Site-wide copy said "Guardian" for a year because that was all there was;
+    it kept saying it after the Independent and the Observer's Everyman
+    arrived (2026-08-05), so the archive page's title, description and heading
+    all named one paper above a list of three. Derived rather than written out:
+    a sentence naming the collection cannot be true for long if a human has to
+    remember to update it whenever a series is added.
+    """
+    counts = {}
+    for p in idx["puzzles"]:
+        if p.get("hasSolutions"):
+            counts[publisher(p)] = counts.get(publisher(p), 0) + 1
+    names = sorted(counts, key=lambda n: (-counts[n], n))
+    if len(names) < 2:
+        return names[0] if names else "broadsheet"
+    return ", ".join(names[:-1]) + " and " + names[-1]
+
+
+def assert_names_all_papers(where, text, idx):
+    """No paper may be named in site-wide copy unless all of them are.
+
+    The mechanical form of the rule above, for the pages a human still writes
+    by hand. Naming one paper is fine on a puzzle page — that page IS one
+    paper's puzzle — but in copy that describes the whole collection it is a
+    claim about all of it, and a wrong one the moment a second paper lands.
+    """
+    present = {publisher(p) for p in idx["puzzles"] if p.get("hasSolutions")}
+    named = {n for n in present if n in text}
+    if named and named != present:
+        raise SystemExit(
+            f"{where}: names {sorted(named)} but the collection also holds "
+            f"{sorted(present - named)}. Copy about the whole site names every "
+            f"paper in it or none of them — see papers() in build_seo_pages.py.")
+
+
 def index_json():
     return json.loads((PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))
 
@@ -337,9 +374,10 @@ def puzzle_page(puz, meta, prev_p, next_p):
 # ------------------------------------------------------------------ hub page
 
 def hub_page(idx):
-    title = "Guardian cryptic crossword answers and explanations — every puzzle"
-    desc = ("Every Guardian cryptic crossword we have annotated, with answers and a "
-            "full wordplay explanation for each clue, newest first.")
+    who = papers(idx)                 # "Guardian, Independent and Observer"
+    title = f"Cryptic crossword answers and explanations — {who}"
+    desc = (f"Every cryptic crossword we have annotated from the {who}, with answers "
+            "and a full wordplay explanation for each clue, newest first.")
     canonical = f"{BASE}/puzzles/"
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "")]
 
@@ -371,7 +409,7 @@ def hub_page(idx):
     body = [
         masthead(crumbs),
         '<main class="static-main">',
-        "<h1>Guardian cryptic crosswords, explained</h1>",
+        "<h1>Cryptic crosswords, explained</h1>",
         "<p>Every puzzle we hold, newest first. A <strong>full hints</strong> puzzle has "
         "every clue hand-annotated: the clue family, where the definition hides, and the "
         "wordplay taken apart step by step. An <strong>answers only</strong> puzzle has the "
@@ -483,6 +521,11 @@ def homepage_nav(idx):
 def patch_homepage(idx):
     path = ROOT / "index.html"
     text = path.read_text(encoding="utf-8")
+    # The <head> only: title, descriptions and the JSON-LD blurb are copy about
+    # the site as a whole. The body below carries per-puzzle links, where naming
+    # one paper is simply what that puzzle is.
+    assert_names_all_papers("index.html <head>",
+                            text.split("</head>", 1)[0], idx)
     nav = homepage_nav(idx)
     if NAV_START in text and NAV_END in text:
         new = re.sub(re.escape(NAV_START) + r".*?" + re.escape(NAV_END), lambda _: nav,

@@ -436,6 +436,17 @@ all 55:
   `check()` — 180-degree symmetry, no run of exactly two, every white square
   connected — which refuses to write the file if they fail. A run of ONE is
   fine: that is an unchecked square inside the perpendicular light.
+- **Copy about the whole site names every paper in it, or none of them**
+  (feedback 2026-08-06: the archive page still said "Guardian cryptic crosswords,
+  explained" over a list that included the Independent and Everyman). Naming one
+  paper on a puzzle page is right — that page IS that paper's puzzle. Doing it in
+  a site title, meta description or heading is a claim about the whole
+  collection, and it went wrong the day a second series landed. The archive
+  page's title and description are now DERIVED from the publishers actually
+  present (`papers()` in `tools/build_seo_pages.py`), and the hand-written
+  homepage `<head>` is checked against the same list by
+  `assert_names_all_papers()`, which fails the build rather than shipping a
+  half-true sentence. Prefer "broadsheet" where a stable phrase is wanted.
 - The canonical URL is `https://paultarjan.com/cryptic-teacher/`. It appears in
   `<link rel=canonical>`, `og:url`, `og:image`, the JSON-LD, `sitemap.xml`,
   `robots.txt` and `tools/og_card.html` — if it ever moves, all seven change

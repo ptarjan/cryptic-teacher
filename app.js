@@ -905,7 +905,7 @@
       ` — harder than ${d.percentile}% of the puzzles here`;
     const basis = (d.basis || []).join(", ");
     return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
-      d.band + pct + ". Judged on " + basis + ", relative to other Guardian cryptics."
+      d.band + pct + ". Judged on " + basis + ", relative to the other puzzles here."
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
 
