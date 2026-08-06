@@ -1,8 +1,9 @@
 # Cryptic Teacher
 
 A static, no-framework web app that teaches you to solve cryptic crosswords using real
-Guardian puzzles — with an escalating **hint ladder per clue** instead of a bare answer
-key. Each hint level teaches the next solving skill:
+broadsheet puzzles — the Guardian's cryptic and Quiptic, the Independent's daily, and
+the Observer's Everyman — with an escalating **hint ladder per clue** instead of a bare
+answer key. Each hint level teaches the next solving skill:
 
 1. **Clue type** — anagram? charade? container? hidden word? …
 2. **Definition** — the definition part of the clue is highlighted.
@@ -112,9 +113,9 @@ python3 tools/fetch_puzzle.py --reindex
 
 `tools/daily_update.sh` runs once a day on a machine with the `claude` CLI: it fetches
 the newest puzzle, re-fetches any puzzle still waiting on published solutions, has Claude
-annotate the oldest un-annotated ones (`ANNOTATE_MAX` per run, default 3 — the Guardian
-publishes six a week, so one a day would never catch up), validates, reindexes, commits,
-and pushes if a remote is configured.
+annotate the oldest un-annotated ones (`ANNOTATE_MAX` per run, default 3 — the tracked
+series publish about fourteen puzzles a week between them, so one a day would never
+catch up), validates, reindexes, commits, and pushes if a remote is configured.
 
 The Guardian runs a cryptic Monday–Saturday, with Saturday's appearing as the *Prize*
 crossword under a different URL; the fetcher watches both series. Prize solutions are
@@ -150,6 +151,8 @@ a keychain, a plain cron entry is fine:
 
 ## Credits
 
-Puzzle grids and clues © Guardian News & Media, fetched from theguardian.com for
+Puzzle grids and clues remain the copyright of their publishers — Guardian News &
+Media (the Guardian's cryptic and Quiptic, and the Observer's Everyman as syndicated
+there) and Independent Digital News & Media — and are fetched from their own sites for
 personal study. All annotations, hints and tutorial content are original to this
-project. Not affiliated with the Guardian.
+project. Not affiliated with any of them.
