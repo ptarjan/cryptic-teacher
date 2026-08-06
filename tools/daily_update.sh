@@ -34,6 +34,21 @@ cd "$REPO" || exit 1
 # was invisible and every run silently skipped annotation. Keep this list in sync
 # with wherever the CLI actually installs.
 export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/bin:$PATH"
+# The CLI keys its keychain item by CLAUDE_CONFIG_DIR: the entry is named
+# "Claude Code-credentials-<first 8 of sha256(configdir)>", and with the variable
+# unset it reads the legacy un-suffixed "Claude Code-credentials" instead. A
+# file-based /login on 2026-07-31 wrote the suffixed entry and emptied the legacy
+# one, so from then until 2026-08-06 every run of this script died on "Failed to
+# authenticate: OAuth session expired and could not be refreshed" and annotated
+# nothing for seven days — while interactive sessions and the Discord bridge
+# (which sets this variable, see com.pt.discord-claude.plist) kept working, so
+# nothing looked broken. Set it here rather than only in the plist: the failure
+# is silent and non-obvious, and this way it survives being run by hand too.
+export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+
+# alert() — puts a failure in Discord instead of only in this log. See alert.sh
+# for why: the seven silent days above are what a log-only failure looks like.
+. "$REPO/tools/alert.sh"
 
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
@@ -115,13 +130,12 @@ if [ -n "$pending" ]; then
         --model "${ANNOTATE_MODEL:-fable}" \
         --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
         --max-turns 80 || {
-          echo "claude annotation run for $num failed (session limit?); stopping here, will retry next run"
+          alert "annotation of $num failed — no puzzle got hints today. Check the tail of .update.log; if it says \"Failed to authenticate\", the CLI needs a fresh /login (and CLAUDE_CONFIG_DIR must be set, see the note in daily_update.sh)."
           break
         }
     done
   else
-    echo "ERROR: claude CLI not on PATH ($PATH) — annotation of $pending skipped."
-    echo "       The backlog will never drain until this is fixed."
+    alert "claude CLI not on PATH ($PATH) — annotation of $pending skipped. The backlog will never drain until this is fixed."
   fi
 fi
 

@@ -15,6 +15,14 @@
   --def-fg: #14501f;
   --ind-bg: #f6d9f0;
   --ind-fg: #7a1d66;
+  /* Row badges get their own palette, deliberately not the hint-rung one above.
+     See the .badge block for what each colour is allowed to mean. */
+  --badge-cov-bg: #d5e9f5;   /* we have written hints for this puzzle */
+  --badge-cov-fg: #0f4d6f;
+  --badge-none-bg: #e7e3db;  /* we haven't; solutions only */
+  --badge-none-fg: #5b564d;
+  --badge-series-bg: #e9def5; /* which crossword this is */
+  --badge-series-fg: #543a75;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -32,6 +40,12 @@
     --def-fg: #b9e4bf;
     --ind-bg: #4a2342;
     --ind-fg: #eab8de;
+    --badge-cov-bg: #1e3f52;
+    --badge-cov-fg: #a4d6ef;
+    --badge-none-bg: #2c3138;
+    --badge-none-fg: #a6a49c;
+    --badge-series-bg: #3a2b4d;
+    --badge-series-fg: #dcc4f2;
   }
 }
 
@@ -140,12 +154,30 @@ button:disabled:hover { border-color: var(--line); }
   font-size: .68rem; padding: 1px 7px; border-radius: 999px;
   text-transform: uppercase; letter-spacing: .4px; white-space: nowrap;
 }
-.badge.full { background: var(--def-bg); color: var(--def-fg); }
-.badge.auto { background: var(--ind-bg); color: var(--ind-fg); }
-/* Quiptic. Filled, not outlined: unlike the difficulty badge this isn't a
-   judgement we made, it's which crossword the Guardian published, and a solver
-   scanning for an easier one should be able to spot it without reading. */
-.badge.series { background: var(--def-bg); color: var(--def-fg); }
+/* A badge's colour names ONE axis, and no two axes may share a colour. There
+   are three of them on a puzzle row and they answer different questions:
+
+     which crossword it is   — series: independent, quiptic, everyman   (purple)
+     what this site has      — full hints / answers only        (blue / neutral)
+     how hard we found it    — gentle…brutal          (warm, outlined not filled)
+
+   They used to collide. `series` and `full hints` were both var(--def-bg), the
+   same green pill: on the archive page an Independent puzzle and an annotated
+   one were indistinguishable at a glance, so the green read as "this one has
+   hints" on rows where it only meant "this one is the Independent". Worse, both
+   of those colours were the hint-rung palette — green is the definition
+   highlight and pink the indicator highlight in the solving view, where the
+   picker sits beside the grid — so a row badge was tinted with a meaning it
+   didn't have. Hence the separate --badge-* variables: the rungs own def/ind,
+   the rows own these, and neither borrows from the other.
+
+   Filled for the facts, outlined for the judgement. Series stays filled and
+   prominent because a solver hunting for something gentler should spot the
+   Quiptic without reading; the difficulty band is the one thing on the row we
+   made up, so it stays outlined and quieter than the facts around it. */
+.badge.full   { background: var(--badge-cov-bg);    color: var(--badge-cov-fg); }
+.badge.auto   { background: var(--badge-none-bg);   color: var(--badge-none-fg); }
+.badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg); }
 
 /* Difficulty. Outlined rather than filled so it reads as a note about the
    puzzle and doesn't compete with the hint badges next to it, which say
