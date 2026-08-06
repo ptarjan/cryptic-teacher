@@ -37,6 +37,12 @@ set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
 export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/bin:$PATH"
+# Without this the CLI reads the legacy un-suffixed keychain entry, which a
+# file-based /login emptied on 2026-07-31, and every run dies on "Failed to
+# authenticate: OAuth session expired and could not be refreshed". See the longer
+# note in daily_update.sh.
+export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+. "$REPO/tools/alert.sh"
 
 # Hard stop before the window turns over. Past this point we would be spending
 # the NEW week's quota on a backlog, which is the opposite of the point — the
@@ -63,7 +69,16 @@ run_claude() {
   claude -p "$1" \
     --model "$MODEL" \
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
-    --max-turns 80
+    --max-turns 80 2>&1 | tee /tmp/ct-prereset-claude.txt
+  local rc=${PIPESTATUS[0]}
+  # Running out of window is how this job is SUPPOSED to end, so a plain failure
+  # stays quiet. A broken login is a different animal: it fails identically, at
+  # the same point, every night, and it hid there for seven days (2026-07-31 to
+  # 2026-08-06) precisely because it looked like the normal ending.
+  if [ $rc -ne 0 ] && grep -qi "Failed to authenticate\|Not logged in" /tmp/ct-prereset-claude.txt; then
+    alert "pre-reset backfill cannot authenticate — the CLI needs a fresh /login. Nothing has been backfilled since this started."
+  fi
+  return $rc
 }
 
 # Commit whatever a task produced, but only if the tree still validates. A run

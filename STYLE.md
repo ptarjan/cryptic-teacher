@@ -364,6 +364,19 @@ must pass before commit.
   one-square step, so overwriting a full entry still works. See `advanceToGap()`.
 - On touch devices, a scroll gesture must never select a cell or clue — tap
   detection uses a movement threshold (feedback 2026-07-26).
+- **A row badge's colour names exactly one axis, and no two axes share a
+  colour** (feedback 2026-08-06: "the colors for the pills conflate things").
+  There are three axes on a puzzle row and they answer different questions:
+  which crossword it is (`series`), what this site has for it (`full hints` /
+  `answers only`), and how hard we judged it (`gentle`…`brutal`). `series` and
+  `full hints` were both `--def-bg` green, so on the archive page an Independent
+  puzzle looked annotated; and both borrowed the hint-rung palette, where green
+  means *definition* and pink means *indicator* in the solving view the picker
+  sits beside. Badges now have their own `--badge-*` variables — purple for
+  which paper, blue for hinted, neutral for not, and difficulty stays outlined
+  rather than filled because it is the only one of the three we made up. A new
+  badge picks an existing axis's colour or brings its own; it never reuses
+  another axis's.
 
 ## How Minute Cryptic writes a hint (the reference corpus)
 
@@ -409,9 +422,20 @@ all 55:
 
 - Icons and the social card are GENERATED, never hand-edited. The 5x5 crossword
   motif lives in `tools/make_icons.py` (favicon.ico, favicon-16/32, icon-192/512,
-  apple-touch-icon) and is duplicated by hand in `favicon.svg` — change one, change
-  both. The 1200x630 card is `tools/og_card.html` rendered by `tools/make_og.sh`
-  (real type needs a browser, so headless Chrome draws it).
+  apple-touch-icon, and now `favicon.svg` too — the SVG used to be hand-kept "in
+  sync" and drifted). The 1200x630 card is `tools/og_card.html` rendered by
+  `tools/make_og.sh` (real type needs a browser, so headless Chrome draws it).
+- **Every grid we draw must be a grid that could exist** (feedback 2026-08-06:
+  "the social share icon isn't a valid cryptic grid"). Both the card and the
+  icon were drawn by eye, symmetric and handsome, and both were impossible: their
+  blocks left runs of two white squares, and no British cryptic has a two-letter
+  entry. A solver spots that instantly, and the card is the one image people see
+  before they have seen the site. So: the card's grid is DERIVED from a puzzle we
+  publish (`tools/make_og_grid.py`, which reads the entry geometry out of
+  `puzzles/<n>.js`), and both it and the icon motif go through the same
+  `check()` — 180-degree symmetry, no run of exactly two, every white square
+  connected — which refuses to write the file if they fail. A run of ONE is
+  fine: that is an unchecked square inside the perpendicular light.
 - The canonical URL is `https://paultarjan.com/cryptic-teacher/`. It appears in
   `<link rel=canonical>`, `og:url`, `og:image`, the JSON-LD, `sitemap.xml`,
   `robots.txt` and `tools/og_card.html` — if it ever moves, all seven change
