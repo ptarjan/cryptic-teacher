@@ -30,7 +30,41 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAPLANDER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LAPLANDER",
+    "definition": "Finn",
+    "indicators": [
+     "dividing"
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "LA",
+     "PLAN",
+     "DER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plot",
+      "gives": "PLAN",
+      "note": "a plot is a plan or scheme"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "'the' in French"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "'the' in German"
+     }
+    ],
+    "walkthrough": "LA is 'the' in French and DER is 'the' in German — borrowed articles are a setter's favourite trick. 'Dividing' places PLAN between the two.",
+    "definitionFit": "Lapland is the far north of Finland, so a Laplander can fairly be called a Finn — a definition by broad example."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +81,35 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LICIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LICIT",
+    "definition": "allowed",
+    "indicators": [
+     "Mostly"
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "LIC",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tongue",
+      "gives": "LIC",
+      "note": "LICK — to tongue — with 'mostly' dropping its last letter"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "lifted straight into the answer"
+     }
+    ],
+    "walkthrough": "'Mostly' trims the last letter off LICK, and IT comes along unchanged. 'That's' is the joinery pointing at the definition.",
+    "definitionFit": "Licit means lawful or permitted — 'allowed' exactly — a word met far more often in its negative, illicit."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +126,26 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREJUDGED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PREJUDGED",
+    "definition": "made assumptions without facts",
+    "indicators": [
+     "erroneously"
+    ],
+    "anagram": {
+     "fodder": "RUDE GP JED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rude GP, Jed",
+      "gives": "PREJUDGED",
+      "note": "anagram, signalled by 'erroneously'"
+     }
+    ],
+    "walkthrough": "'Erroneously' is the anagram signal, and the impolite doctor exists only to supply letters. The definition is the whole closing phrase.",
+    "definitionFit": "To prejudge is to reach a verdict before hearing the evidence — precisely making assumptions without the facts."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +162,29 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUTOPILOTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AUTOPILOTS",
+    "definition": "robot drivers?",
+    "indicators": [
+     "dished out"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "OIL UP TOAST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Oil up toast",
+      "gives": "AUTOPILOTS",
+      "note": "anagram, 'dished out'"
+     }
+    ],
+    "walkthrough": "'Dished out' does the scrambling — picture toast being served. The question mark softens the definition, since an autopilot flies rather than drives.",
+    "definitionFit": "Autopilots steer planes and ships with no human hand — machine pilots, so 'robot drivers' with its question mark is fair."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +205,48 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
     ]
    },
    "solution": "DABHAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DAB HAND",
+    "definition": "Expert",
+    "indicators": [],
+    "pieces": [
+     "DAB",
+     "H",
+     "A",
+     "N",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft touch",
+      "gives": "DAB",
+      "note": "a dab is a light, gentle touch"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H = hot, as on a tap"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A = Australian"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N = knight, chess notation"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D = date"
+     }
+    ],
+    "walkthrough": "A 'dab' is a light touch; the rest is an abbreviation parade, with chess supplying N for knight — the K is already taken by the king.",
+    "definitionFit": "A dab hand is British idiom for an expert — someone practised and skilful, a dab hand at cards, say."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +263,23 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESIDES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "RESIDES",
+    "definition": "Remains",
+    "indicators": [
+     "buried in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "structures I’d established",
+      "gives": "RESIDES",
+      "note": "hidden: structuRES I’D EStablished"
+     }
+    ],
+    "walkthrough": "'Buried in' is the burial notice: the answer lies in plain sight across all three words, and the sombre surface is the disguise.",
+    "definitionFit": "To reside is to remain or dwell — 'remains' as a verb of staying put, while the surface pushes you towards funeral remains."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +296,34 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOKER",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "JOKER",
+    "definition": "Comedian",
+    "indicators": [
+     "being embraced by",
+     "half-cut"
+    ],
+    "pieces": [
+     "J",
+     "OK",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "fine = OK"
+     },
+     {
+      "clueFragment": "Jeremy",
+      "gives": "JER",
+      "note": "'half-cut' keeps only the first half of JEREMY — the wrapper"
+     }
+    ],
+    "walkthrough": "'Half-cut' reads as drunk but means exactly what it says: only half of Jeremy survives. One of several playing cards dealt through this puzzle.",
+    "definitionFit": "A joker is a comedian, always cracking jokes — and the joker is also the extra card in the pack, fitting the theme."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +340,30 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JACK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "JACK",
+    "definition": "Sailor",
+    "definition2": "a card",
+    "indicators": [],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "JACK",
+      "note": "Jack Tar, the old name for a sailor"
+     },
+     {
+      "clueFragment": "a card",
+      "gives": "JACK",
+      "note": "the court card between ten and queen"
+     }
+    ],
+    "walkthrough": "One word, two jobs: Jack Tar the sailor and the jack in a pack of cards. The exclamation mark winks at the double duty.",
+    "definitionFit": "Jack is the old generic name for a sailor — Jack Tar — and the jack is the court card between ten and queen."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +380,23 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNAVE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "KNAVE",
+    "definition": "rascal",
+    "indicators": [
+     "picked up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church centre",
+      "gives": "KNAVE",
+      "note": "sounds like NAVE, the central body of a church"
+     }
+    ],
+    "walkthrough": "'Picked up' means 'as heard': say NAVE — the central body of a church — aloud and the silent K appears in the spelling.",
+    "definitionFit": "A knave is an old word for a rogue or rascal — and also the older name for the jack, this puzzle's favourite card."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +413,47 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETALIATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "RETALIATE",
+    "definition": "Get revenge",
+    "indicators": [
+     "consumed by",
+     "is thrown up"
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "RETA",
+     "LIAT",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "EATER",
+      "to": "RETAE"
+     },
+     {
+      "from": "TAIL",
+      "to": "LIAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rump",
+      "gives": "TAIL",
+      "note": "the tail is an animal's rump end"
+     },
+     {
+      "clueFragment": "diner",
+      "gives": "EATER",
+      "note": "a diner is simply an eater"
+     }
+    ],
+    "walkthrough": "TAIL — the rump — is consumed by an EATER, and the whole meal 'is thrown up': fair play in a down entry, where a reversal reads upwards.",
+    "definitionFit": "To retaliate is to hit back — to take your revenge for a wrong done to you."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +470,26 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CHEAT",
+    "definition": "fraud",
+    "indicators": [
+     "Unconventionally"
+    ],
+    "anagram": {
+     "fodder": "TEACH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "teach",
+      "gives": "CHEAT",
+      "note": "anagram, marked by 'unconventionally'"
+     }
+    ],
+    "walkthrough": "'Unconventionally' warns that TEACH needs rearranging — a neat five-letter anagram whose surface points at exam-room dishonesty.",
+    "definitionFit": "A cheat is a fraud: both name someone who deceives for gain, or the deception itself."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +506,27 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUSHCRAFT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BUSHCRAFT",
+    "definition": "Topiary techniques",
+    "definition2": "essential in rural Australia",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Topiary techniques",
+      "gives": "BUSHCRAFT",
+      "note": "read literally: craft practised on bushes — which is what topiary is"
+     },
+     {
+      "clueFragment": "essential in rural Australia",
+      "gives": "BUSHCRAFT",
+      "note": "the wilderness survival skill, vital in the Australian bush"
+     }
+    ],
+    "walkthrough": "The clue splits after 'techniques'. Read one way, shaping bushes is literally bush craft; read the other, bushcraft is the survival skill of the outback.",
+    "definitionFit": "Read literally, bushcraft is craft applied to bushes — topiary, whimsically — while bushcraft proper, wilderness survival skill, is essential in the bush, Australia's rural interior."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +547,41 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRUMPCARDS",
-   "annotation": null
+   "annotation": {
+    "type": "container + container + first letter",
+    "answer": "TRUMP CARDS",
+    "definition": "they have an advantage",
+    "definitionNote": "The definition is a clause, not a matching noun phrase: the setter defines trump cards by what their holders enjoy — an advantage.",
+    "indicators": [
+     "concealing",
+     "entertaining",
+     "originally"
+    ],
+    "pieces": [
+     "TRUMP",
+     "CARD",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President’s",
+      "gives": "TRUMPS",
+      "note": "President Trump plus the possessive S — the outer wrapper"
+     },
+     {
+      "clueFragment": "scoundrel",
+      "gives": "CAD",
+      "note": "a cad is a scoundrel"
+     },
+     {
+      "clueFragment": "Royal",
+      "gives": "R",
+      "note": "'originally' takes its first letter"
+     }
+    ],
+    "walkthrough": "TRUMPS — the President with his possessive S — conceals CARD, itself a CAD entertaining the first letter of Royal. Two nested containers, one card theme.",
+    "definitionFit": "Trumps outrank every other suit for the hand, so the players holding them enjoy a built-in advantage — literal in whist, figurative everywhere else."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +598,38 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "DEAL",
+    "definition": "Lay out",
+    "indicators": [
+     "discounting",
+     "instead"
+    ],
+    "pieces": [
+     "D",
+     "EAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banquet, perhaps",
+      "gives": "MEAL",
+      "note": "a banquet is an example of a meal"
+     },
+     {
+      "clueFragment": "a thousand",
+      "gives": "M",
+      "note": "Roman numeral M = 1,000, taken away"
+     },
+     {
+      "clueFragment": "five hundred",
+      "gives": "D",
+      "note": "Roman numeral D = 500, put in M's place"
+     }
+    ],
+    "walkthrough": "A banquet is a meal 'perhaps'; then one Roman numeral is discounted and another put in its place — letter swaps like this are worth learning to spot.",
+    "definitionFit": "To deal is to lay out the cards around the table — the card-table sense of laying out, right on theme for this puzzle."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +646,26 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INQUISITOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INQUISITOR",
+    "definition": "One asking questions",
+    "indicators": [
+     "after collapsing"
+    ],
+    "anagram": {
+     "fodder": "IN ROI QUITS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in RoI quits",
+      "gives": "INQUISITOR",
+      "note": "anagram — RoI is the Republic of Ireland"
+     }
+    ],
+    "walkthrough": "'After collapsing' scrambles the letters, with RoI — the Republic of Ireland — supplying the awkward middle. The surface imagines an Irish resignation.",
+    "definitionFit": "An inquisitor is literally one who asks questions — an official interrogator, sharing its root with inquiry and inquest."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +682,33 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAGGLED",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "HAGGLED",
+    "definition": "negotiated bargain",
+    "definitionNote": "Strictly HAGGLED means 'bargained': the setter's 'negotiated bargain' compresses 'negotiated a bargain', dropping the article for the surface.",
+    "indicators": [
+     "finally"
+    ],
+    "pieces": [
+     "H",
+     "A",
+     "G",
+     "G",
+     "L",
+     "E",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh Prada bag – cracking steal – one pound",
+      "gives": "HAGGLED",
+      "note": "the last letters of each word: posH pradA baG crackinG steaL onE pounD"
+     }
+    ],
+    "walkthrough": "'Finally' harvests the last letter of each of the seven preceding words — the designer-handbag bargain is pure window dressing.",
+    "definitionFit": "To haggle is to negotiate over a price — to drive a bargain — so the closing phrase describes exactly what a haggler did."
+   }
   },
   {
    "id": "14-down",
@@ -310,7 +725,26 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEARTENED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HEARTENED",
+    "definition": "Full of courage",
+    "indicators": [
+     "ground"
+    ],
+    "anagram": {
+     "fodder": "HE RENTED A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "he rented a",
+      "gives": "HEARTENED",
+      "note": "anagram, signalled by 'ground'"
+     }
+    ],
+    "walkthrough": "'Ground' — the past tense of grind — is the anagram signal, easy to miss because it reads as a football ground in the surface.",
+    "definitionFit": "To be heartened is to be given heart, the traditional seat of bravery — so 'full of courage' fits the encouraged state."
+   }
   },
   {
    "id": "15-across",
@@ -327,7 +761,40 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SANGRIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letters",
+    "answer": "SANGRIA",
+    "definition": "drink",
+    "indicators": [
+     "endlessly",
+     "starts to"
+    ],
+    "pieces": [
+     "S",
+     "ANGR",
+     "I",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soprano",
+      "gives": "S",
+      "note": "S = soprano, the voice-part abbreviation"
+     },
+     {
+      "clueFragment": "irate",
+      "gives": "ANGR",
+      "note": "ANGRY = irate, 'endlessly' dropping its last letter"
+     },
+     {
+      "clueFragment": "inevitably abuse",
+      "gives": "IA",
+      "note": "their starting letters"
+     }
+    ],
+    "walkthrough": "Three mechanisms in a row: an abbreviation, ANGRY docked of its tail, then two initials. The soprano's tantrum is only surface noise.",
+    "definitionFit": "Sangria is the Spanish punch of red wine and fruit — a drink, defined plainly while the surface stages an operatic strop."
+   }
   },
   {
    "id": "16-down",
@@ -344,7 +811,42 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFORTIFY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "REFORTIFY",
+    "definition": "increase security again",
+    "indicators": [
+     "patrols"
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "RE",
+     "FORT",
+     "IF",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engineers",
+      "gives": "RE",
+      "note": "the Royal Engineers"
+     },
+     {
+      "clueFragment": "40",
+      "gives": "FORTY",
+      "note": "spelt out, standing guard around IF"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided = if"
+     }
+    ],
+    "walkthrough": "RE is the Royal Engineers, a cryptic staple. FORTY — the 40, spelt out — patrols the perimeter of IF, the standard 'provided'.",
+    "definitionFit": "To refortify is to strengthen a position's defences once more — to increase its security again after it has lapsed."
+   }
   },
   {
    "id": "17-across",
@@ -361,7 +863,39 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUDITED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "AUDITED",
+    "definition": "did examinations",
+    "indicators": [
+     "inside"
+    ],
+    "pieces": [
+     "AU",
+     "DI",
+     "T",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au, gold's chemical symbol"
+     },
+     {
+      "clueFragment": "passed",
+      "gives": "DIED",
+      "note": "passed = passed away, the wrapper"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t = time, as in physics"
+     }
+    ],
+    "walkthrough": "AU is gold's chemical symbol and 'passed' is the gentle euphemism for DIED; T for time slips inside, exactly as instructed.",
+    "definitionFit": "To audit is to examine accounts officially, so 'did examinations' matches the past tense — examinations of the financial kind."
+   }
   },
   {
    "id": "18-down",
@@ -378,7 +912,45 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIAMOND",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + outer letters",
+    "answer": "DIAMOND",
+    "definition": "jewel",
+    "indicators": [
+     "hauled up",
+     "case of"
+    ],
+    "pieces": [
+     "DIAM",
+     "O",
+     "ND"
+    ],
+    "subReversals": [
+     {
+      "from": "MAID",
+      "to": "DIAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady-in-waiting",
+      "gives": "DIAM",
+      "note": "a MAID, hauled up the grid"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O = over, from cricket scoring"
+     },
+     {
+      "clueFragment": "nicked",
+      "gives": "ND",
+      "note": "its 'case' — the outer letters"
+     }
+    ],
+    "walkthrough": "The MAID is 'hauled up' the down entry, O is the cricket over, and 'case of nicked' keeps only that word's outer letters.",
+    "definitionFit": "A diamond is a precious jewel — and, in a puzzle dealt from a full pack, also one of the four card suits."
+   }
   },
   {
    "id": "19-across",
@@ -395,7 +967,42 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHUFFLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SHUFFLE",
+    "definition": "Lazy movement",
+    "indicators": [
+     "borders on",
+     "after"
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "S",
+     "HUFF",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "s = son, as in family trees"
+     },
+     {
+      "clueFragment": "sulk",
+      "gives": "HUFF",
+      "note": "a huff is a sulk"
+     },
+     {
+      "clueFragment": "lacklustre",
+      "gives": "LE",
+      "note": "its 'borders' — first and last letters"
+     }
+    ],
+    "walkthrough": "'Borders on' keeps just the outer letters of lacklustre, and 'after sulk' queues them behind HUFF. The card pack gets shuffled too, of course.",
+    "definitionFit": "A shuffle is a dragging, unhurried gait — lazy movement — as well as what the dealer does to the cards."
+   }
   },
   {
    "id": "19-down",
@@ -412,7 +1019,34 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUCCESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "SUCCESS",
+    "definition": "achieving the goal",
+    "indicators": [
+     "including",
+     "principally"
+    ],
+    "pieces": [
+     "SU",
+     "CCE",
+     "SS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work out",
+      "gives": "SUSS",
+      "note": "to suss is to work out — the wrapper"
+     },
+     {
+      "clueFragment": "cardio circuit exercise",
+      "gives": "CCE",
+      "note": "their principal (first) letters"
+     }
+    ],
+    "walkthrough": "SUSS — slang for 'work out' — swallows the initials of the cardio routine. The gym surface hides that 'work out' is wordplay, not definition.",
+    "definitionFit": "Success is the achieving of what you aimed at — reaching the goal — the noun for a goal attained."
+   }
   },
   {
    "id": "20-across",
@@ -429,7 +1063,29 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TURN",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "TURN",
+    "definition": "Act",
+    "indicators": [
+     "what are the odds?!"
+    ],
+    "pieces": [
+     "T",
+     "U",
+     "R",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tour Reno",
+      "gives": "TURN",
+      "note": "the odd-numbered letters: ToUr ReNo"
+     }
+    ],
+    "walkthrough": "'What are the odds?!' is a genuine instruction: keep the odd-numbered letters of 'tour Reno' and discard the rest.",
+    "definitionFit": "A turn is a stage act — each performer on a variety bill did a 'turn' — a sense kept alive mainly by theatre and crosswords."
+   }
   },
   {
    "id": "21-down",
@@ -446,7 +1102,35 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUMMY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RUMMY",
+    "definition": "game",
+    "indicators": [
+     "Headless"
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "R",
+     "UMMY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "r = run, from cricket scorecards"
+     },
+     {
+      "clueFragment": "Egyptian corpse",
+      "gives": "UMMY",
+      "note": "a MUMMY, 'headless' removing its first letter"
+     }
+    ],
+    "walkthrough": "R is the cricket scorecard's run; 'headless' then beheads the MUMMY. Another game for the puzzle's running card table.",
+    "definitionFit": "Rummy is the card game of melding sets and runs — one more hand dealt into this puzzle's deck of card references."
+   }
   },
   {
    "id": "22-across",
@@ -463,7 +1147,21 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WATCHSTRAP",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "WATCHSTRAP",
+    "definition": "Might this keep you to time?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Might this keep you to time?",
+      "gives": "WATCHSTRAP",
+      "note": "it keeps your watch — your timekeeper — fastened to you"
+     }
+    ],
+    "walkthrough": "A pure cryptic definition: the strap keeps your watch — the timekeeper — attached to you, so it keeps you 'to time'. The question mark flags the pun.",
+    "definitionFit": "A watchstrap fastens the watch to your wrist; the watch keeps time, so the strap is what keeps timekeeping on you."
+   }
   },
   {
    "id": "23-down",
@@ -480,7 +1178,30 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POKER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "POKER",
+    "definition": "One thrusting",
+    "definition2": "stud?",
+    "indicators": [],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One thrusting",
+      "gives": "POKER",
+      "note": "the fireside iron you thrust into the coals"
+     },
+     {
+      "clueFragment": "stud?",
+      "gives": "POKER",
+      "note": "stud is a variety of poker — the question mark marks the example"
+     }
+    ],
+    "walkthrough": "The split comes at 'into': a fire iron does the thrusting, while stud — with its farmyard surface — is really a form of the card game.",
+    "definitionFit": "A poker is the rod thrust into a fire, and stud is a variety of the card game poker — definition by example, hence the question mark."
+   }
   },
   {
    "id": "24-down",
@@ -497,7 +1218,32 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEAD",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "HEAD",
+    "definition": "leader",
+    "indicators": [
+     "missing"
+    ],
+    "pieces": [
+     "HEA",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got wind of",
+      "gives": "HEARD",
+      "note": "to get wind of something is to hear of it"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R = Republican, the letter that goes missing"
+     }
+    ],
+    "walkthrough": "'Got wind of' gives HEARD, then the Republican R goes 'missing'. The surface teases a vanished politician; the mechanics are one deleted letter.",
+    "definitionFit": "The head of a firm, school or state is its leader — the person at the top of the body."
+   }
   },
   {
    "id": "25-across",
@@ -518,7 +1264,36 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
     ]
    },
    "solution": "NUMBERONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NUMBER ONE",
+    "definition": "Wee",
+    "indicators": [],
+    "pieces": [
+     "NUMBER",
+     "ON",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anaesthetist",
+      "gives": "NUMBER",
+      "note": "read it as NUMB-ER — something that numbs"
+     },
+     {
+      "clueFragment": "under the influence of",
+      "gives": "ON",
+      "note": "to be on a drug is to be under its influence"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E = ecstasy"
+     }
+    ],
+    "walkthrough": "'Anaesthetist' is read whimsically as NUMB-ER — something that numbs — and being 'on E' is being under ecstasy's influence.",
+    "definitionFit": "'Number one' is nursery slang for a wee, matching the childish register of the definition — numbers one and two, as told to toddlers."
+   }
   },
   {
    "id": "26-across",
@@ -535,7 +1310,30 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRICK",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "TRICK",
+    "definition": "technique",
+    "indicators": [
+     "Evenly sliced"
+    ],
+    "pieces": [
+     "T",
+     "R",
+     "I",
+     "C",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turnip cake",
+      "gives": "TRICK",
+      "note": "slice the even letters away and TuRnIp CaKe leaves T, R, I, C, K"
+     }
+    ],
+    "walkthrough": "'Evenly sliced' means the even-placed letters are sliced away, counting across both words. A trick also completes the card theme.",
+    "definitionFit": "A trick is a technique — the tricks of a trade — and in card play it is also the batch of cards one round wins."
+   }
   },
   {
    "id": "27-across",
@@ -552,7 +1350,32 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRYAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "DRYAD",
+    "definition": "Spirit",
+    "indicators": [
+     "initially"
+    ],
+    "pieces": [
+     "DRY",
+     "AD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without alcohol",
+      "gives": "DRY",
+      "note": "a dry event serves no alcohol"
+     },
+     {
+      "clueFragment": "astonishingly delicious",
+      "gives": "AD",
+      "note": "their initial letters"
+     }
+    ],
+    "walkthrough": "A dry do serves no alcohol; the initials of 'astonishingly delicious' finish the job. The surface points at gin; the answer is Greek myth.",
+    "definitionFit": "A dryad is a tree nymph — a woodland spirit of Greek myth — while the surface sends you to the drinks cabinet."
+   }
   },
   {
    "id": "28-across",
@@ -569,7 +1392,26 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DESTROYER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DESTROYER",
+    "definition": "Warship",
+    "indicators": [
+     "manoeuvring"
+    ],
+    "anagram": {
+     "fodder": "DOES RETRY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "does retry",
+      "gives": "DESTROYER",
+      "note": "anagram, signalled by 'manoeuvring'"
+     }
+    ],
+    "walkthrough": "'Manoeuvring' is the anagram indicator, aptly nautical for a clue about a warship. Nine letters of fodder across two words.",
+    "definitionFit": "A destroyer is a class of fast escort warship — the definition names the naval vessel directly."
+   }
   }
  ]
 } /*JSON-END*/;
