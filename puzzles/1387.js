@@ -34,7 +34,39 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
     ]
    },
    "solution": "FIREALARM",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "FIRE ALARM",
+    "definition": "warning",
+    "indicators": [
+     "receiving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "FIRM",
+      "note": "a company is a firm; it opens up to take the rest inside"
+     },
+     {
+      "clueFragment": "genuine",
+      "gives": "REAL",
+      "note": "genuine = real"
+     },
+     {
+      "clueFragment": "anonymous",
+      "gives": "A",
+      "note": "A = anonymous, the abbreviation used for an unnamed author"
+     }
+    ],
+    "pieces": [
+     "FI",
+     "REAL",
+     "A",
+     "RM"
+    ],
+    "walkthrough": "FIRM swallows REAL and A together, splitting as FI(REAL A)RM. The surface suggests a whistleblower's anonymous tip; the answer is a much more literal warning.",
+    "definitionFit": "A fire alarm is a device that raises a warning — the definition names the machine by its function, warning being what it exists to do."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +83,27 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORTY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FORTY",
+    "definition": "Score twice",
+    "definition2": "like A Castle?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Score twice",
+      "gives": "FORTY",
+      "note": "a score is twenty, so two of them make forty"
+     },
+     {
+      "clueFragment": "like A Castle?",
+      "gives": "FORTY",
+      "note": "read the answer as FORT-Y: resembling a fort, i.e. a castle"
+     }
+    ],
+    "walkthrough": "The capitals in 'A Castle' suggest a person's name, but the clue wants FORT plus the adjective ending -Y — castle-like, as the question mark concedes.",
+    "definitionFit": "A score is twenty, so score twice is forty; and FORTY split as FORT-Y whimsically means fort-like, which is exactly what a castle is."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +120,23 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIMBAUD",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RIMBAUD",
+    "definition": "French poet",
+    "indicators": [
+     "reportedly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "traumatised Vietnam veteran on film",
+      "gives": "RIMBAUD",
+      "note": "sounds like RAMBO, Sylvester Stallone's traumatised veteran in First Blood"
+     }
+    ],
+    "walkthrough": "Arthur Rimbaud and John Rambo are pronounced alike in English — a favourite crossword pairing of poet and action hero.",
+    "definitionFit": "Arthur Rimbaud was the 19th-century French Symbolist poet who wrote A Season in Hell, so the definition points straight at him by class."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +153,33 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AGENT",
+    "definition": "spy",
+    "indicators": [],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A = American, a standard abbreviation"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "GENT",
+      "note": "a chap is a gent, short for gentleman"
+     }
+    ],
+    "pieces": [
+     "A",
+     "GENT"
+    ],
+    "walkthrough": "A for American is a dictionary abbreviation worth banking; the rest is a chap being a GENT.",
+    "definitionFit": "An agent here is a secret agent — someone spying for an intelligence service, not the estate or travel kind."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +196,27 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTRACT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ATTRACT",
+    "definition": "entice",
+    "indicators": [
+     "Content of",
+     "up"
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dustcart taken",
+      "gives": "ATTRACT",
+      "note": "dus(TCARTTA)ken holds the letters; 'taken up' in this down entry reads them bottom to top"
+     }
+    ],
+    "walkthrough": "The answer hides backwards across 'dustcart taken': lift TCARTTA up the grid and it spells ATTRACT. Fitting that a dustcart clue turns on its contents.",
+    "definitionFit": "To attract is to entice — both mean to draw someone in, as a magnet or a bargain does."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +233,26 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARAUDING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MARAUDING",
+    "definition": "Sacking",
+    "indicators": [
+     "after reshuffle"
+    ],
+    "anagram": {
+     "fodder": "MAIN GUARD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "main guard",
+      "gives": "MAINGUARD",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "A guard being sacked is the surface joke: reshuffle MAIN GUARD and the guards become the raiders they were meant to stop.",
+    "definitionFit": "Sacking here is the pillaging sense — marauding troops sack towns — not dismissal from a job, which is what the surface wants you to hear."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +269,33 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HASH",
+    "definition": "cannabis",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possesses",
+      "gives": "HAS",
+      "note": "possesses = has"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is street shorthand for heroin, a crossword staple"
+     }
+    ],
+    "pieces": [
+     "HAS",
+     "H"
+    ],
+    "walkthrough": "Every word of the surface stays inside the drugs world — possession charges and all — which is exactly why the simple HAS + H build is easy to miss.",
+    "definitionFit": "Hash is short for hashish, the resin form of cannabis — an everyday informal synonym for the drug."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +312,40 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEATHEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HEATHEN",
+    "definition": "non-believer",
+    "indicators": [],
+    "linkWords": [
+     "to",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H = hard, as on pencil grades"
+     },
+     {
+      "clueFragment": "consume",
+      "gives": "EAT",
+      "note": "consume = eat"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a chicken is a hen"
+     }
+    ],
+    "pieces": [
+     "H",
+     "EAT",
+     "HEN"
+    ],
+    "walkthrough": "Three short pieces in a row; the pencil-grade H = hard is the convention worth remembering.",
+    "definitionFit": "A heathen is someone outside a (traditionally Christian) faith, so 'non-believer' is a plain synonym."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +362,29 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHAMBOLIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHAMBOLIC",
+    "definition": "chaotic",
+    "indicators": [
+     "broken"
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "anagram": {
+     "fodder": "CLAIMS HOB"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Claims hob",
+      "gives": "CLAIMSHOB",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "A broken hob is a nicely domestic disaster for a word meaning total disorder.",
+    "definitionFit": "Shambolic means chaotic or disorganised — from 'shambles', originally a butcher's slaughterhouse and hence any scene of mess."
+   }
   },
   {
    "id": "8-across",
@@ -187,7 +401,26 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRUMBEAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DRUMBEAT",
+    "definition": "rhythm",
+    "indicators": [
+     "altering"
+    ],
+    "anagram": {
+     "fodder": "MAD BRUTE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mad brute",
+      "gives": "MADBRUTE",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "'Mad' looks like the anagram signal but is actually fodder — 'altering' does the shuffling.",
+    "definitionFit": "A drumbeat sets and carries a rhythm; the question mark concedes it is one particular rhythm-maker standing for rhythm in general."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +437,26 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REAGAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "REAGAN",
+    "definition": "US President",
+    "indicators": [
+     "volatile"
+    ],
+    "anagram": {
+     "fodder": "ANGER A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Anger a",
+      "gives": "ANGERA",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "walkthrough": "'Volatile' is an instability word, a classic anagram signal — and anger makes apt fodder for a head of state.",
+    "definitionFit": "Ronald Reagan, the actor turned politician, served as US president from 1981 to 1989 — the definition names the office and lets you pick the holder."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +473,34 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TYRANT",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "TYRANT",
+    "definition": "Despot",
+    "indicators": [
+     "into",
+     "regularly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurried",
+      "gives": "RAN",
+      "note": "hurried = ran"
+     },
+     {
+      "clueFragment": "tryst",
+      "gives": "TYT",
+      "note": "the odd letters of TrYsT, taken 'regularly'"
+     }
+    ],
+    "pieces": [
+     "TY",
+     "RAN",
+     "T"
+    ],
+    "walkthrough": "RAN slips inside TYT, the regular letters of 'tryst' — the runner interrupting the secret meeting.",
+    "definitionFit": "A tyrant is a despot: both name an absolute ruler who governs oppressively, straight synonyms."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +521,42 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
     ]
    },
    "solution": "ABUDHABI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ABU DHABI",
+    "definition": "emirate",
+    "indicators": [
+     "briefly"
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own A"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "BUD",
+      "note": "friend = bud, informal American"
+     },
+     {
+      "clueFragment": "addiction",
+      "gives": "HABI",
+      "note": "HABIT (addiction) cut short by 'briefly'"
+     }
+    ],
+    "pieces": [
+     "A",
+     "BUD",
+     "HABI"
+    ],
+    "walkthrough": "The pieces respell themselves across the answer's two words: A BUD HABI(T) becomes ABU DHABI, capital of the UAE.",
+    "definitionFit": "Abu Dhabi is one of the seven emirates making up the United Arab Emirates, so 'emirate' defines it by class."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +573,30 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LADDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LADDER",
+    "definition": "that gets one climbing",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L = large, as on clothing labels"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ADDER",
+      "note": "the adder is Britain's native venomous snake"
+     }
+    ],
+    "pieces": [
+     "L",
+     "ADDER"
+    ],
+    "walkthrough": "A snake inside the answer to a climbing clue is a wink at Snakes and Ladders, where snakes send you down and ladders send you up.",
+    "definitionFit": "A ladder is exactly what gets you climbing — the question mark flags a playful description doing duty as the definition."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +613,35 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTRIBUTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ATTRIBUTE",
+    "definition": "Virtue",
+    "indicators": [
+     "perhaps"
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watching",
+      "gives": "AT",
+      "note": "watching a show means being AT it"
+     },
+     {
+      "clueFragment": "Björn Again show",
+      "gives": "TRIBUTE",
+      "note": "Björn Again are an ABBA tribute act, so their show is a tribute — 'perhaps' flags the example"
+     }
+    ],
+    "pieces": [
+     "AT",
+     "TRIBUTE"
+    ],
+    "walkthrough": "Watching Björn Again means you are AT a TRIBUTE — the band are the best-known ABBA tribute act, punningly named for Björn Ulvaeus.",
+    "definitionFit": "An attribute is a quality something has, and a virtue is a good one — 'virtue of the plan' and 'attribute of the plan' swap comfortably."
+   }
   },
   {
    "id": "14-down",
@@ -293,7 +658,46 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUNABOUTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RUNABOUTS",
+    "definition": "small cars",
+    "indicators": [],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organise",
+      "gives": "RUN",
+      "note": "to organise an event is to run it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a'"
+     },
+     {
+      "clueFragment": "contest",
+      "gives": "BOUT",
+      "note": "a contest, especially in boxing, is a bout"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S = son, the family-tree abbreviation"
+     }
+    ],
+    "pieces": [
+     "RUN",
+     "A",
+     "BOUT",
+     "S"
+    ],
+    "walkthrough": "Four pieces chain together; only the boxing sense of 'contest' and the genealogist's S = son need spotting.",
+    "definitionFit": "A runabout is a small light car for short local trips — a slightly dated word that survives happily in crosswords."
+   }
   },
   {
    "id": "15-across",
@@ -310,7 +714,29 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIANGLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRIANGLE",
+    "definition": "shape",
+    "indicators": [
+     "changes"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "INTEGRAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Integral",
+      "gives": "INTEGRAL",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "INTEGRAL and TRIANGLE are a classic anagram pair — the mathematical surface is a bonus.",
+    "definitionFit": "A triangle is a three-sided shape — definition by class, with the maths-flavoured surface nudging you towards calculus instead of geometry."
+   }
   },
   {
    "id": "16-across",
@@ -332,7 +758,29 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEPONIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STEP ON IT",
+    "definition": "hurry",
+    "indicators": [
+     "Wasted"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "SET POINT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "set point",
+      "gives": "SETPOINT",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "A tennis surface hides a driving phrase: waste the SET POINT and you are left with an instruction to accelerate.",
+    "definitionFit": "'Step on it' means hurry — from stepping on a car's accelerator, a whole-phrase idiom rather than a word-for-word match."
+   }
   },
   {
    "id": "17-down",
@@ -349,7 +797,33 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREFACE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PREFACE",
+    "definition": "introduction",
+    "indicators": [
+     "around"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walk",
+      "gives": "PACE",
+      "note": "to walk = to pace"
+     },
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "a match official is the ref"
+     }
+    ],
+    "pieces": [
+     "P",
+     "REF",
+     "ACE"
+    ],
+    "walkthrough": "The official is a sports referee, tucked inside a stately walk: P(REF)ACE.",
+    "definitionFit": "A preface is the introduction at the front of a book — 'pre-face' literally names what comes before the main text."
+   }
   },
   {
    "id": "18-down",
@@ -366,7 +840,29 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOENAIL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TOENAIL",
+    "definition": "protective cover",
+    "indicators": [
+     "about"
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "anagram": {
+     "fodder": "NATO LIE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "NATO lie",
+      "gives": "NATOLIE",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "walkthrough": "Geopolitical intrigue dissolves into anatomy once 'about' scrambles NATO LIE.",
+    "definitionFit": "A toenail is the hard plate shielding the top of the toe — quite literally a protective cover for the digit."
+   }
   },
   {
    "id": "19-across",
@@ -383,7 +879,26 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GREECE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "GREECE",
+    "definition": "country",
+    "indicators": [
+     "Announcement of"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil",
+      "gives": "GREECE",
+      "note": "sounds like GREASE, an oily lubricant"
+     }
+    ],
+    "walkthrough": "GREASE said aloud gives the country — the same pun the musical Grease has traded on for decades.",
+    "definitionFit": "Greece is a southern European country — a plain class definition; the letters simply arrive by ear rather than on the page."
+   }
   },
   {
    "id": "20-down",
@@ -400,7 +915,26 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETHANOL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ETHANOL",
+    "definition": "something bad for them",
+    "indicators": [
+     "drunk"
+    ],
+    "anagram": {
+     "fodder": "LOAN THE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Loan the",
+      "gives": "LOANTHE",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "walkthrough": "'Drunk' does double duty: it scrambles LOAN THE, and it is also the 'them' the definition points back at — a neat little loop.",
+    "definitionFit": "Ethanol is the alcohol in drink, so for a drunk it is precisely the harmful substance — the question mark winks at the self-reference."
+   }
   },
   {
    "id": "21-across",
@@ -417,7 +951,43 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIKEABLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "LIKEABLE",
+    "definition": "nice",
+    "indicators": [
+     "about",
+     "Lively"
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tell story",
+      "gives": "LIE",
+      "note": "to tell a story is to lie"
+     },
+     {
+      "clueFragment": "Blake",
+      "gives": "KEABL",
+      "note": "BLAKE shuffled by 'Lively'"
+     }
+    ],
+    "pieces": [
+     "LI",
+     "KEABL",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BLAKE",
+      "gives": "KEABL"
+     }
+    ],
+    "walkthrough": "LIE goes 'about' (around) the scrambled BLAKE. The actor Blake Lively is pure misdirection — her surname is the anagram signal.",
+    "definitionFit": "Likeable means pleasant or nice — someone easy to warm to, a plain synonym."
+   }
   },
   {
    "id": "22-across",
@@ -434,7 +1004,36 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REHEAR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REHEAR",
+    "definition": "Try again",
+    "indicators": [
+     "stuck in"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "'Eh?' — the puzzled way of saying 'what?'"
+     },
+     {
+      "clueFragment": "bottom",
+      "gives": "REAR",
+      "note": "bottom = rear"
+     }
+    ],
+    "pieces": [
+     "R",
+     "EH",
+     "EAR"
+    ],
+    "walkthrough": "The definition is courtroom language: a case tried again is reheard. 'Eh?' for 'what?' is a little interjection worth banking.",
+    "definitionFit": "To rehear a case is to try it again in court — 'try' in the judicial sense of hearing a case, not of attempting something."
+   }
   },
   {
    "id": "22-down",
@@ -451,7 +1050,32 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REMUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "REMUS",
+    "definition": "Legendary brother",
+    "indicators": [
+     "beginning to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raise",
+      "gives": "R",
+      "note": "the beginning of Raise"
+     },
+     {
+      "clueFragment": "flightless birds",
+      "gives": "EMUS",
+      "note": "emus cannot fly"
+     }
+    ],
+    "pieces": [
+     "R",
+     "EMUS"
+    ],
+    "walkthrough": "Remus was one of Rome's legendary twin founders, suckled by a wolf — which makes 'raise' a sly word to take a beginning from.",
+    "definitionFit": "Remus is the brother of Romulus in the legend of Rome's founding, so 'legendary brother' defines him by example."
+   }
   },
   {
    "id": "23-down",
@@ -468,7 +1092,38 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AESOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "AESOP",
+    "definition": "Greek storyteller",
+    "indicators": [
+     "upset"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own A"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "ESOP",
+      "note": "POSE (to model, as for a portrait) turned upwards"
+     }
+    ],
+    "pieces": [
+     "A",
+     "ESOP"
+    ],
+    "subReversals": [
+     {
+      "from": "POSE",
+      "to": "ESOP"
+     }
+    ],
+    "walkthrough": "In a down entry 'upset' flips POSE on its head. The surface's difficult model is a red herring.",
+    "definitionFit": "Aesop is the ancient Greek fabulist credited with the fables of the tortoise and the hare, so 'storyteller' fits him by example."
+   }
   },
   {
    "id": "24-across",
@@ -485,7 +1140,26 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUVALU",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TUVALU",
+    "definition": "Pacific islands",
+    "indicators": [
+     "some might say"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where you might need to go",
+      "gives": "TUVALU",
+      "note": "said loosely, 'to a loo' — the place a person needing 'to go' is headed"
+     }
+    ],
+    "walkthrough": "Needing 'to go' is needing the loo; say 'to a loo' quickly and the island nation appears. 'Some might say' flags the deliberately loose pronunciation.",
+    "definitionFit": "Tuvalu is a Pacific nation made up of nine low-lying islands, so the plural 'islands' fairly names the whole country."
+   }
   },
   {
    "id": "25-across",
@@ -502,7 +1176,38 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADMONISH",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ADMONISH",
+    "definition": "Rebuke",
+    "indicators": [
+     "pinching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beautiful Greek",
+      "gives": "ADONIS",
+      "note": "Adonis, the byword for male beauty in Greek myth"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H = husband, a standard abbreviation"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M = millions"
+     }
+    ],
+    "pieces": [
+     "AD",
+     "M",
+     "ONISH"
+    ],
+    "walkthrough": "ADONIS and H make the 'beautiful Greek husband', who then pinches M near the front: AD(M)ONISH.",
+    "definitionFit": "To admonish someone is to rebuke them, though usually more in gentle warning than in anger — a close verb-for-verb synonym."
+   }
   },
   {
    "id": "26-across",
@@ -519,7 +1224,23 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MERE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "MERE",
+    "definition": "Lake",
+    "indicators": [
+     "somewhat"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shimmered",
+      "gives": "MERE",
+      "note": "hidden in shimMEREd"
+     }
+    ],
+    "walkthrough": "'Somewhat' asks for only part of 'shimmered' — and a shimmering lake makes the surface picture-perfect.",
+    "definitionFit": "A mere is a lake or pond — an old English word that survives in place names like Windermere and, of course, in crosswords."
+   }
   },
   {
    "id": "27-across",
@@ -540,7 +1261,30 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
     ]
    },
    "solution": "SALESSLIP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SALES SLIP",
+    "definition": "Receipt",
+    "definition2": "disappointing news for rep?",
+    "indicators": [],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Receipt",
+      "gives": "SALESSLIP",
+      "note": "a sales slip is the American term for a shop receipt"
+     },
+     {
+      "clueFragment": "disappointing news for rep?",
+      "gives": "SALESSLIP",
+      "note": "read as a sentence: sales slip, i.e. fall — grim news for a sales rep"
+     }
+    ],
+    "walkthrough": "One phrase, two readings: the paper in the till, or sales taking a dive — which a sales rep would rather not hear about.",
+    "definitionFit": "A sales slip is a receipt in American usage; reread as a sentence, sales that slip are exactly what a sales rep dreads."
+   }
   }
  ]
 } /*JSON-END*/;
