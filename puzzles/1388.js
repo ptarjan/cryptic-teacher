@@ -30,7 +30,27 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUTCHER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "BUTCHER",
+    "definition": "Make a mess of",
+    "indicators": [
+     "missing opening",
+     "when playing"
+    ],
+    "anagram": {
+     "fodder": "CHUBERT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Schubert, missing opening",
+      "gives": "CHUBERT",
+      "note": "SCHUBERT drops its opening S, leaving seven letters to shuffle"
+     }
+    ],
+    "walkthrough": "The composer loses his first letter and the rest is rearranged — 'playing' is the anagram signal hiding inside the musical surface.",
+    "definitionFit": "To butcher a performance is to mangle it — the butcher's rough chopping applied figuratively to any bungled job."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +67,36 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BIGOTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BIGOTED",
+    "definition": "ignoring alternative views?",
+    "indicators": [],
+    "pieces": [
+     "BIG",
+     "OT",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Substantial",
+      "gives": "BIG",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "religious books",
+      "gives": "OT",
+      "note": "the Old Testament — a crossword staple"
+     },
+     {
+      "clueFragment": "edited",
+      "gives": "ED",
+      "note": "the standard abbreviation, as in 'ed.'"
+     }
+    ],
+    "walkthrough": "Two crossword staples do the work: OT for the Old Testament and ED for 'edited'. The question mark softens a definition that describes rather than names.",
+    "definitionFit": "A bigoted person is intolerant, deaf to any view but their own — the question mark flags a definition by description rather than a synonym."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +113,26 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TROUSSEAU",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TROUSSEAU",
+    "definition": "It’s for after the wedding",
+    "indicators": [
+     "to move around"
+    ],
+    "anagram": {
+     "fodder": "USES A TOUR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Uses a tour",
+      "gives": "USESATOUR",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "Nothing in the touring surface hints at weddings — the mark of a well-disguised anagram. The French spelling makes the letter run hard to see.",
+    "definitionFit": "A trousseau is the outfit of clothes and linen a bride collects for her married life — a word English borrowed from French."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +149,39 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HENNA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + reversal",
+    "answer": "HENNA",
+    "definition": "Hair dye",
+    "indicators": [
+     "initially",
+     "promoted"
+    ],
+    "pieces": [
+     "H",
+     "ENNA"
+    ],
+    "subReversals": [
+     {
+      "from": "ANNE H",
+      "to": "HENNA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anne",
+      "gives": "ANNE",
+      "note": "the actress's first name, used literally"
+     },
+     {
+      "clueFragment": "Hathaway initially",
+      "gives": "H",
+      "note": "the first letter of Hathaway"
+     }
+    ],
+    "walkthrough": "'Promoted' is a lift: in a down entry, sending ANNE H upwards reads it bottom to top. Celebrity names are favourite fodder for initial letters.",
+    "definitionFit": "Henna is a reddish plant dye used on hair for millennia — the straightforward name of the colouring agent."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +198,33 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROCHESTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ROCHESTER",
+    "definition": "romantic hero",
+    "indicators": [
+     "includes"
+    ],
+    "pieces": [
+     "RO",
+     "CHE",
+     "STER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "List",
+      "gives": "ROSTER",
+      "note": "a roster is a list — it wraps around CHE"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the crossword's default revolutionary"
+     }
+    ],
+    "walkthrough": "CHE for 'revolutionary' is worth memorising. Here he slots into a roster, and the definition points at Jane Eyre's brooding Mr Rochester.",
+    "definitionFit": "Mr Rochester is the love interest of Charlotte Brontë's Jane Eyre — a definition by example, one famous romantic hero standing for the answer."
+   }
   },
   {
    "id": "5-across",
@@ -115,7 +241,30 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHICAGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHICAGO",
+    "definition": "US city",
+    "indicators": [],
+    "pieces": [
+     "CHIC",
+     "AGO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smart",
+      "gives": "CHIC",
+      "note": "chic = stylish, smart"
+     },
+     {
+      "clueFragment": "in the past",
+      "gives": "AGO",
+      "note": "as in 'long ago'"
+     }
+    ],
+    "walkthrough": "CHIC and AGO simply sit side by side; the surface makes 'smart in the past' feel like one idea to hide the join.",
+    "definitionFit": "Chicago is the great city on Lake Michigan — the third largest in the United States."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +281,30 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COMET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COMET",
+    "definition": "Old aeroplane",
+    "indicators": [],
+    "pieces": [
+     "CO",
+     "MET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "the standard abbreviation, as in '& Co'"
+     },
+     {
+      "clueFragment": "satisfied",
+      "gives": "MET",
+      "note": "as demands or conditions are met"
+     }
+    ],
+    "walkthrough": "CO for company is standard, and 'satisfied' gives MET as in 'demands met'. The definition recalls the de Havilland Comet, the first jet airliner.",
+    "definitionFit": "The de Havilland Comet of 1949 was the first commercial jet airliner — an aeroplane now firmly of the past."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +325,36 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
     ]
    },
    "solution": "ILLHEALTH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ILL HEALTH",
+    "definition": "sickness",
+    "indicators": [
+     "struggling"
+    ],
+    "anagram": {
+     "fodder": "I L THE HALL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "used literally in the fodder"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l = left, joining the fodder rather than pointing a direction"
+     },
+     {
+      "clueFragment": "the hall",
+      "gives": "THEHALL",
+      "note": "the rest of the fodder, seven letters"
+     }
+    ],
+    "walkthrough": "'Left' contributes its abbreviation L to the fodder rather than acting as a direction — a favourite bit of misdirection in anagram clues.",
+    "definitionFit": "Ill health is simply the state of being unwell — a mass-noun phrase matching 'sickness' in both sense and number."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +371,33 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADIEU",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ADIEU",
+    "definition": "Farewell",
+    "indicators": [
+     "investing in"
+    ],
+    "pieces": [
+     "A",
+     "DIE",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish",
+      "gives": "DIE",
+      "note": "to finish is to die, as an engine or a battery does"
+     },
+     {
+      "clueFragment": "a University?",
+      "gives": "AU",
+      "note": "A plus U for university — the shell DIE is invested in"
+     }
+    ],
+    "walkthrough": "'Investing in' is the container signal: what you invest, you clothe. DIE for 'finish' is gentler than it looks — think of an engine dying.",
+    "definitionFit": "Adieu is the French goodbye long naturalised into English — the word for a parting, often a final one."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +414,33 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCTOPUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OCTOPUS",
+    "definition": "sea creature",
+    "indicators": [],
+    "linkWords": [
+     "to get"
+    ],
+    "pieces": [
+     "OCT",
+     "OPUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A month’s",
+      "gives": "OCT",
+      "note": "October abbreviated; the possessive ’s just glues the surface"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OPUS",
+      "note": "a musical or literary work — Latin, and a crossword staple"
+     }
+    ],
+    "walkthrough": "OCT is the calendar abbreviation and OPUS the composer's 'work'; together they assemble something unexpectedly tentacled.",
+    "definitionFit": "An octopus is the eight-armed mollusc of the deep — a staple crossword sea creature."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +457,33 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GROAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GROAN",
+    "definition": "Sound of discomfort",
+    "indicators": [],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "G",
+     "ROAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "a standard abbreviation"
+     },
+     {
+      "clueFragment": "red horse?",
+      "gives": "ROAN",
+      "note": "a roan has a reddish-brown coat — the question mark admits it's loose"
+     }
+    ],
+    "walkthrough": "A roan is a horse with a reddish coat, so 'red horse?' is fair with its question mark. G for 'good' does the rest.",
+    "definitionFit": "A groan is the low noise a person makes in pain or weariness — a sound that signals discomfort."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +500,42 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COMPLAINT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "COMPLAINT",
+    "definition": "protest",
+    "indicators": [
+     "in"
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "pieces": [
+     "CO",
+     "M",
+     "PLAIN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M = Monsieur, the crossword's standard Frenchman"
+     },
+     {
+      "clueFragment": "not elaborate",
+      "gives": "PLAIN",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "the bed that wraps around M + PLAIN"
+     }
+    ],
+    "walkthrough": "M is Monsieur and COT the bed doing the wrapping. The definition 'protest' is the noun sense, as in lodging a complaint.",
+    "definitionFit": "A complaint is a formal expression of grievance — to lodge one is to register a protest."
+   }
   },
   {
    "id": "11-across",
@@ -238,7 +552,29 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TESTAMENT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TESTAMENT",
+    "definition": "What’s left",
+    "definition2": "religious text",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What’s left",
+      "gives": "TESTAMENT",
+      "note": "a last will and testament sets out what someone has left"
+     },
+     {
+      "clueFragment": "religious text",
+      "gives": "TESTAMENT",
+      "note": "the Bible divides into the Old and New Testaments"
+     }
+    ],
+    "walkthrough": "The split comes at 'in': a will on one side, the Bible on the other, with the question mark nodding at the wordplay-free construction.",
+    "definitionFit": "A testament is a will — the document saying what someone has left behind — and Testament names each half of the Bible."
+   }
   },
   {
    "id": "12-across",
@@ -255,7 +591,33 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EQUIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "EQUIP",
+    "definition": "Provide material for",
+    "indicators": [
+     "after",
+     "end of"
+    ],
+    "pieces": [
+     "E",
+     "QUIP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "QUIP",
+      "note": "a quip is a witty remark"
+     },
+     {
+      "clueFragment": "end of game",
+      "gives": "E",
+      "note": "the last letter of 'game'"
+     }
+    ],
+    "walkthrough": "Watch the order: 'after' places QUIP behind the E, so the single letter leads despite being named second.",
+    "definitionFit": "To equip is to fit someone out with what a task requires — providing the material they need."
+   }
   },
   {
    "id": "13-across",
@@ -272,7 +634,24 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRESS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "DRESS",
+    "definition": "Garment",
+    "indicators": [
+     "rejected",
+     "among"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lesser designs",
+      "gives": "DRESS",
+      "note": "read backwards inside the phrase: lesSER Designs"
+     }
+    ],
+    "walkthrough": "'Among' says the answer hides in plain sight and 'rejected' turns it around — in an across entry, sent back means read right to left.",
+    "definitionFit": "A dress is the one-piece frock — the most everyday sense of 'garment' there is."
+   }
   },
   {
    "id": "14-down",
@@ -289,7 +668,33 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWORDPLAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWORDPLAY",
+    "definition": "combative stuff",
+    "indicators": [],
+    "linkWords": [
+     "It’s"
+    ],
+    "pieces": [
+     "S",
+     "WORDPLAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "as on clothing labels"
+     },
+     {
+      "clueFragment": "component of clue?",
+      "gives": "WORDPLAY",
+      "note": "wordplay is the mechanical half of every cryptic clue"
+     }
+    ],
+    "walkthrough": "A self-referential treat: wordplay really is a component of every cryptic clue, and adding 'small' itself (S) completes the answer.",
+    "definitionFit": "Swordplay is fencing — fighting with blades — so it is literally combative; the clue winks at the 'wordplay' hiding in the answer."
+   }
   },
   {
    "id": "15-across",
@@ -306,7 +711,29 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAMLINES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRAMLINES",
+    "definition": "transport routes",
+    "indicators": [
+     "Rebuilt"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "TERMINALS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "terminals",
+      "gives": "TERMINALS",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "One word supplies all nine letters — TERMINALS 'rebuilt' — and the station surface keeps the fodder camouflaged as railway scenery.",
+    "definitionFit": "Tramlines are the rails trams run along — fixed routes for a form of public transport."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +750,41 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUTHENTIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AUTHENTIC",
+    "definition": "Real",
+    "indicators": [
+     "Not quite"
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "AU",
+     "THEN",
+     "TIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "subsequently",
+      "gives": "THEN",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "mark of correctness?",
+      "gives": "TIC",
+      "note": "a TICK that is 'not quite' finished — the K falls off"
+     }
+    ],
+    "walkthrough": "'Not quite' clips the K off TICK. AU for gold is one of the commonest crossword conventions, straight from the periodic table.",
+    "definitionFit": "Authentic means genuine — the real article rather than a fake or forgery."
+   }
   },
   {
    "id": "17-down",
@@ -340,7 +801,42 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NURSEMAID",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "NURSEMAID",
+    "definition": "Nanny",
+    "indicators": [
+     "fake",
+     "on"
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "NURSEMA",
+     "ID"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SURNAME",
+      "gives": "NURSEMA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surname",
+      "gives": "NURSEMA",
+      "note": "anagram of SURNAME, signalled by 'fake'"
+     },
+     {
+      "clueFragment": "documents?",
+      "gives": "ID",
+      "note": "identity documents"
+     }
+    ],
+    "walkthrough": "'Fake' shuffles SURNAME, and 'on' stacks it above ID — in a down entry, 'on' means on top of. ID for 'documents' is a modern staple.",
+    "definitionFit": "A nursemaid is a woman employed to look after young children — precisely a nanny's job."
+   }
   },
   {
    "id": "18-across",
@@ -357,7 +853,40 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLUTOCRAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "PLUTOCRAT",
+    "definition": "fat cat?",
+    "indicators": [
+     "seizing",
+     "tail of"
+    ],
+    "pieces": [
+     "PLUTO",
+     "C",
+     "R",
+     "AT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cartoon dog",
+      "gives": "PLUTO",
+      "note": "Disney's dog"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "CAT",
+      "note": "wraps around the seized letter"
+     },
+     {
+      "clueFragment": "tail of another",
+      "gives": "R",
+      "note": "the last letter of 'another'"
+     }
+    ],
+    "walkthrough": "Disney's Pluto meets a cat that has swallowed the tail of 'another'. 'Fat cat' for a moneyed magnate gives the surface its wink.",
+    "definitionFit": "A plutocrat is someone whose power comes from wealth — 'fat cat' is the slang label for just such a figure."
+   }
   },
   {
    "id": "18-down",
@@ -374,7 +903,32 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PILGRIM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PILGRIM",
+    "definition": "religious traveller",
+    "indicators": [
+     "dismissing last"
+    ],
+    "pieces": [
+     "PIL",
+     "GRIM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large house",
+      "gives": "PIL",
+      "note": "a PILE — a grand mansion — dismissing its last letter"
+     },
+     {
+      "clueFragment": "dour",
+      "gives": "GRIM",
+      "note": "a plain synonym"
+     }
+    ],
+    "walkthrough": "'Dismissing last' docks the E from PILE, a pile being a grand mansion in British usage. GRIM for 'dour' completes the trip.",
+    "definitionFit": "A pilgrim journeys to a sacred site — Canterbury or Mecca — travelling for religious reasons."
+   }
   },
   {
    "id": "19-across",
@@ -391,7 +945,32 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAREM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "HAREM",
+    "definition": "women living together?",
+    "indicators": [
+     "evicting"
+    ],
+    "pieces": [
+     "HAR",
+     "EM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area of New York",
+      "gives": "HARLEM",
+      "note": "the Manhattan district, about to lose a letter"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "the Roman numeral for 50 — the letter evicted"
+     }
+    ],
+    "walkthrough": "HARLEM is the New York district; evicting its Roman-numeral 50 leaves the answer. Deletion clues often disguise the doomed letter as a number.",
+    "definitionFit": "A harem is the women of a household collectively, sharing one set of quarters — hence the playful 'living together'."
+   }
   },
   {
    "id": "20-down",
@@ -408,7 +987,39 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISHEAR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "MISHEAR",
+    "definition": "Fail to understand",
+    "indicators": [
+     "upset",
+     "over"
+    ],
+    "pieces": [
+     "MI",
+     "SHEAR"
+    ],
+    "subReversals": [
+     {
+      "from": "IM",
+      "to": "MI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m",
+      "gives": "MI",
+      "note": "I'M turned upside down"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "SHEAR",
+      "note": "as sheep are shorn"
+     }
+    ],
+    "walkthrough": "'Upset' flips I'M, which is fair in a down entry; 'over' then places MI above SHEAR, just as the grid reads.",
+    "definitionFit": "To mishear is to catch someone's words wrongly, taking in something other than what was said — one way of failing to understand."
+   }
   },
   {
    "id": "21-across",
@@ -425,7 +1036,25 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LINED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LINED",
+    "definition": "showing signs of age?",
+    "indicators": [],
+    "pieces": [
+     "LINE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End of quatrain, say",
+      "gives": "LINED",
+      "note": "a quatrain's four lines can be labelled a to d, so its end is 'line d'"
+     }
+    ],
+    "walkthrough": "The trick is naming a quatrain's fourth line 'line d', as rhyme schemes label verses a to d — 'say' concedes it is one example of such labelling.",
+    "definitionFit": "A lined face is wrinkled — creases being the classic mark of growing old."
+   }
   },
   {
    "id": "22-down",
@@ -442,7 +1071,32 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NASAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NASAL",
+    "definition": "regarding the nose",
+    "indicators": [
+     "taking"
+    ],
+    "pieces": [
+     "NASA",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American agency",
+      "gives": "NASA",
+      "note": "the US space agency"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "a standard abbreviation"
+     }
+    ],
+    "walkthrough": "NASA is the American agency and L the abbreviation for line. The answer is an adjective, matching the 'regarding' phrasing.",
+    "definitionFit": "Nasal is the adjective meaning 'of the nose' — as in a nasal voice or the nasal passages."
+   }
   },
   {
    "id": "23-across",
@@ -463,7 +1117,35 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
     ]
    },
    "solution": "SWEETPEAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWEET PEAS",
+    "definition": "Multiple bloomers",
+    "indicators": [
+     "after"
+    ],
+    "linkWords": [
+     "in having"
+    ],
+    "pieces": [
+     "SWEET",
+     "PEAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "veg",
+      "gives": "PEAS",
+      "note": "placed 'after' the dessert"
+     },
+     {
+      "clueFragment": "dessert",
+      "gives": "SWEET",
+      "note": "the sweet course, in British usage"
+     }
+    ],
+    "walkthrough": "SWEET as a noun — the pudding course — is a British usage worth knowing, and 'bloomers' means flowers here, not underwear.",
+    "definitionFit": "Sweet peas are climbing garden flowers — 'bloomers' is the crossword's playful word for things that bloom, and 'multiple' signals the plural."
+   }
   },
   {
    "id": "23-down",
@@ -480,7 +1162,26 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STERN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "STERN",
+    "definition": "Rear of ship",
+    "indicators": [
+     "part of"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coaster, note",
+      "gives": "STERN",
+      "note": "the letters straddle the comma: coaSTER, Note"
+     }
+    ],
+    "walkthrough": "'Part of' marks a hidden answer, and the letters straddle the punctuation — running across a break is the setter's favourite camouflage.",
+    "definitionFit": "The stern is a vessel's rear end — nautical vocabulary, the opposite of the bow."
+   }
   },
   {
    "id": "24-down",
@@ -497,7 +1198,26 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TABLE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TABLE",
+    "definition": "Furniture item",
+    "indicators": [
+     "Not at first"
+    ],
+    "pieces": [
+     "TABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not likely to wobble?",
+      "gives": "STABLE",
+      "note": "STABLE, about to lose its first letter"
+     }
+    ],
+    "walkthrough": "'Not at first' removes the initial S from STABLE — and the wobble question is the clue's own joke about tables.",
+    "definitionFit": "A table is a flat-topped piece of furniture — an everyday item you would certainly hope doesn't wobble."
+   }
   },
   {
    "id": "25-across",
@@ -514,7 +1234,46 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESILIENT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + container",
+    "answer": "RESILIENT",
+    "definition": "Readily recovering",
+    "indicators": [
+     "taken aback",
+     "in"
+    ],
+    "pieces": [
+     "RE",
+     "SI",
+     "LIE",
+     "NT"
+    ],
+    "subReversals": [
+     {
+      "from": "IS",
+      "to": "SI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "SI",
+      "note": "IS reversed — 'taken aback'"
+     },
+     {
+      "clueFragment": "deception",
+      "gives": "LIE",
+      "note": "a plain synonym"
+     },
+     {
+      "clueFragment": "lease?",
+      "gives": "RENT",
+      "note": "the lease that wraps around SI + LIE"
+     }
+    ],
+    "walkthrough": "'Taken aback' reverses IS, and 'in lease' wraps RENT around the middle. Three mechanisms in one clue, each with its own signal.",
+    "definitionFit": "Resilient describes what springs back into shape after a knock — recovering readily from setbacks."
+   }
   },
   {
    "id": "26-across",
@@ -531,7 +1290,30 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BRACE",
+    "definition": "Support",
+    "indicators": [],
+    "pieces": [
+     "B",
+     "RACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "a standard abbreviation"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "RACE",
+      "note": "a plain synonym"
+     }
+    ],
+    "walkthrough": "As simple as charades come: B for British in front of a race. The definition is the verb, as in bracing a shelf.",
+    "definitionFit": "To brace something is to support or strengthen it, as a builder braces a wall — a plain verb synonym."
+   }
   },
   {
    "id": "27-across",
@@ -548,7 +1330,39 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MALAYAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "MALAYAN",
+    "definition": "Some south-east Asian",
+    "indicators": [
+     "penning"
+    ],
+    "pieces": [
+     "M",
+     "A",
+     "LAY",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "split M…AN around what he pens in"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "LAY",
+      "note": "a lay is an old poetic word for a song"
+     }
+    ],
+    "walkthrough": "'Penning' means enclosing — the MAN pens in A LAY. A lay as a song is archaic vocabulary that survives mainly in crosswords.",
+    "definitionFit": "A Malayan is a person from Malaya — one particular south-east Asian nationality, which is why the clue says 'Some'."
+   }
   },
   {
    "id": "28-across",
@@ -565,7 +1379,40 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEDDAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CHEDDAR",
+    "definition": "Gorge in Somerset?",
+    "indicators": [
+     "to take",
+     "in"
+    ],
+    "pieces": [
+     "C",
+     "HED",
+     "D",
+     "AR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He had",
+      "gives": "HED",
+      "note": "contracted to HE'D"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "a standard family-tree abbreviation"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "CAR",
+      "note": "closes around HE'D + D"
+     }
+    ],
+    "walkthrough": "HE'D — 'he had' — takes D for daughter, and the car closes around them both. Cheddar the gorge, not the cheese, is the destination.",
+    "definitionFit": "Cheddar is the Somerset village at the foot of its famous limestone gorge — the answer is the place name, cheese notwithstanding."
+   }
   }
  ]
 } /*JSON-END*/;
