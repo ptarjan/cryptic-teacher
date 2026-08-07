@@ -4,11 +4,25 @@
 <dict>
   <key>Label</key>
   <string>com.pt.cryptic-teacher-prereset</string>
-  <!-- Spends the tail of the weekly usage window on annotation backfills, an
-       hour before it resets around 05:00. Unspent quota does not roll over, so
-       this is the one time of the week when there is nothing to protect it for.
-       The sibling job (com.pt.cryptic-teacher, 06:15) does the normal daily
-       fetch and stays under its 50% usage gate. -->
+  <!-- Spends the tail of the weekly usage window on annotation backfills, in
+       the last couple of hours before it resets. Unspent quota does not roll
+       over, so that is the one time of the week when there is nothing to
+       protect it for. The sibling job (com.pt.cryptic-teacher, 06:15) does the
+       normal daily fetch and stays under its 50% usage gate.
+
+       Fired EVERY HOUR, and on almost every firing it reads the reset time from
+       the usage API, sees the window is days away and exits in under a second
+       having spent nothing. That looks wasteful and is the point: the previous
+       version ran at 04:00 daily on the assumption that the week turned over
+       around 05:00, so an hour of deliberately UNGATED inference ran seven
+       nights a week rather than one, which took the week to 68% by Friday and
+       left the 06:15 job hitting limits the backfill had created. The reset is
+       a timestamp the API will hand over; asking hourly is cheaper than being
+       wrong about it, and it follows daylight saving and account changes for
+       free. Do not put a time of day back in here.
+
+       launchd will not start a second copy while one is still running, so an
+       hourly trigger cannot overlap a backfill that is mid-puzzle. -->
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
@@ -17,12 +31,32 @@
   <key>WorkingDirectory</key>
   <string>/Users/pt/github/cryptic-teacher</string>
   <key>StartCalendarInterval</key>
-  <dict>
-    <key>Hour</key>
-    <integer>4</integer>
-    <key>Minute</key>
-    <integer>0</integer>
-  </dict>
+  <array>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>0</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>1</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>2</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>3</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>4</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>5</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>6</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>7</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>8</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>9</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>10</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>11</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>12</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>13</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>14</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>15</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>16</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>17</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>18</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>19</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>20</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>21</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>22</integer></dict>
+    <dict><key>Minute</key><integer>5</integer><key>Hour</key><integer>23</integer></dict>
+  </array>
   <key>RunAtLoad</key>
   <false/>
   <key>StandardOutPath</key>

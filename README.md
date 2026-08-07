@@ -47,7 +47,16 @@ tools/validate_annotations.py   proves every annotation actually spells its answ
 tools/annotate_prompt.md        the prompt the daily Claude Code job follows to annotate
 tools/daily_update.sh           daily script: fetch latest, annotate backlog, validate, commit
 tools/com.pt.cryptic-teacher.plist  LaunchAgent that runs daily_update.sh at 06:15
+tools/weekly_usage.py           how much of a Claude quota window is spent, and when it resets
+tools/prereset_backfill.sh      burns the tail of the weekly quota on backfills, ungated
+tools/com.pt.cryptic-teacher-prereset.plist  LaunchAgent that polls prereset_backfill.sh hourly
 ```
+
+The two scheduled jobs split the quota deliberately: the 06:15 one annotates at most three
+puzzles and only below 50% of the week (and 70% of the rolling five-hour window, re-checked
+between puzzles), while the hourly one does nothing at all until `weekly_usage.py --resets-in`
+says the weekly window is within two hours of turning over — at which point unspent quota is
+about to vanish, so it spends the remainder with no gate.
 
 ## Puzzle file format
 
