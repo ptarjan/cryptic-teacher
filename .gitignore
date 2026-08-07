@@ -1,6 +1,13 @@
 # Logs of the LaunchAgent runs (daily 06:15, pre-reset backfill 04:00) — local only.
 .update.log
 .prereset.log
+
+# Scheduled-job state, meaningful only on the machine that ran it: the last
+# usage/reset reading (weekly_usage.py falls back to it when the CLI's access
+# token has lapsed) and one empty file per already-sent alert (alert.sh dedupes
+# on it, see ALERT_REPEAT_HOURS).
+.usage_cache.json
+.alert-state/
 puzzles/__pycache__/
 tools/__pycache__/
 __pycache__/
