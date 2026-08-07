@@ -9,11 +9,12 @@
 #      crosswords publish theirs about a week late).
 #   3. Asks Claude Code (headless) to annotate the newest un-annotated puzzles,
 #      following tools/annotate_prompt.md — ANNOTATE_MAX per run (default 3),
-#      and only while the account's weekly usage window is under
-#      ANNOTATE_MAX_WEEKLY_PCT (default 50). The Guardian publishes six puzzles
+#      while the account's weekly usage window is under ANNOTATE_MAX_WEEKLY_PCT
+#      (default 50) and its five-hour window is under ANNOTATE_MAX_SESSION_PCT
+#      (default 70), re-read between puzzles. The Guardian publishes six puzzles
 #      a week, so one per run never drains a backlog; it barely keeps up. Stops
-#      early if a run fails (usually a session limit) rather than burning the
-#      rest of the quota on doomed attempts.
+#      early if a run fails rather than burning the rest of the quota on doomed
+#      attempts.
 #   4. Validates, reindexes, rebuilds the static crawlable pages
 #      (tools/build_seo_pages.py — one per puzzle, plus the hub, the tutorial
 #      and the sitemap), and commits (and pushes, if a remote is set up).
@@ -105,11 +106,17 @@ EOF
 # that can never open is the exact failure this repo has already shipped twice
 # (cron with no PATH to claude, oldest-first ordering): the backlog stops
 # draining and nothing says so. Overspending is visible; not running isn't.
+#
+# Loudly is doing a lot of work in that sentence, and it wasn't enough. From
+# 2026-08-01 to 08-07 the check failed every single night — a blanked keychain
+# entry, see weekly_usage.py — and printed exactly this WARNING into a log
+# nobody reads, so the gate was open for a week while the week ran to 68%.
+# A fail-open gate needs its failures to reach a person, hence the alert below.
 ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
 if [ -n "$pending" ]; then
   weekly=$(python3 tools/weekly_usage.py)
   if [ -z "$weekly" ]; then
-    echo "WARNING: weekly usage unknown — annotating anyway (see error above)"
+    alert "the weekly usage gate can't read the quota, so tonight's annotation ran ungated. It fails open by design, but a gate that is permanently open is not a gate — see the \"cannot read weekly usage\" line in .update.log."
   elif [ "$weekly" -gt "$ANNOTATE_MAX_WEEKLY_PCT" ]; then
     echo "weekly usage ${weekly}% > ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $pending"
     pending=""
@@ -118,24 +125,60 @@ if [ -n "$pending" ]; then
   fi
 fi
 
+# The five-hour window is the one this loop actually spends, so it is re-read
+# before every puzzle. Checking it once up front is worthless — it reads near
+# zero at 06:15 by construction — and that is why runs kept annotating two
+# puzzles and then dying on the third with "you've hit your limit", which is a
+# quota being discovered by crashing into it rather than being budgeted.
+ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-70}"
+annotated_ok=0
+stop_reason=""
+
 if [ -n "$pending" ]; then
   if command -v claude >/dev/null 2>&1; then
+    run_log="$(mktemp -t cryptic-annotate)"
     for num in $pending; do
-      echo "annotating puzzle $num with Claude Code..."
+      session=$(python3 tools/weekly_usage.py --group session)
+      if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
+        stop_reason="five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — $num waits for the reset"
+        break
+      fi
+      echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
       # Pinned, not inherited. This used to name no model and take whatever
       # ~/.claude/settings.json defaulted to, which meant a settings edit made
       # for an interactive session silently retuned the nightly job — it moved
       # from Fable to Opus that way on 2026-07-30 without anyone deciding to.
-      claude -p "Annotate cryptic crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Do not commit — the calling script commits." \
+      if claude -p "Annotate cryptic crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Do not commit — the calling script commits." \
         --model "${ANNOTATE_MODEL:-fable}" \
         --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
-        --max-turns 80 || {
-          alert "annotation of $num failed — no puzzle got hints today. Check the tail of .update.log; if it says \"Failed to authenticate\", the CLI needs a fresh /login (and CLAUDE_CONFIG_DIR must be set, see the note in daily_update.sh)."
-          break
-        }
+        --max-turns 80 2>&1 | tee "$run_log"
+      then
+        annotated_ok=$((annotated_ok + 1))
+      else
+        # The CLI says why it stopped on its last line — a spend limit, an
+        # expired login, a network failure. Carrying that sentence into the
+        # alert is the difference between "go and read a 270k-line log" and
+        # knowing whether this needs a /login or just needs tomorrow.
+        stop_reason="$num failed: $(grep -v '^[[:space:]]*$' "$run_log" | tail -1 | cut -c1-200)"
+        break
+      fi
     done
+    rm -f "$run_log"
   else
-    alert "claude CLI not on PATH ($PATH) — annotation of $pending skipped. The backlog will never drain until this is fixed."
+    stop_reason="claude CLI not on PATH ($PATH)"
+  fi
+fi
+
+# Alert on the backlog not moving, not on a command exiting non-zero. A run that
+# annotates two puzzles and then meets a rate limit has done its job; a run that
+# annotates none has silently stalled, which is this repo's signature failure —
+# it shipped that three times (no PATH to claude, oldest-first ordering, a gate
+# reading a blanked keychain entry) and each time the log knew and nobody did.
+if [ -n "$stop_reason" ]; then
+  if [ "$annotated_ok" -eq 0 ]; then
+    alert "no puzzle got hints today — $stop_reason. If that mentions authentication the CLI needs a fresh /login; see the CLAUDE_CONFIG_DIR note in daily_update.sh. Full output: .update.log."
+  else
+    echo "annotated $annotated_ok puzzle(s), then stopped: $stop_reason"
   fi
 fi
 
@@ -182,14 +225,36 @@ if command -v node >/dev/null 2>&1; then
 fi
 
 if [ -n "$(git status --porcelain)" ]; then
-  # The validator goes in too. Annotation runs are allowed to loosen it when a
-  # published clue turns out to be legal in a way it didn't know about (30045
-  # 26A hides its answer backwards). Staging only puzzles/ pushed the puzzle and
-  # left the loosening behind, so the committed tree failed its own validator.
-  git add puzzles/ index.html learn/ sitemap.xml tools/validate_annotations.py
+  # By pathspec, never `git add -A`: an interactive session shares this checkout
+  # and a bare commit swallows its half-finished work. But the list has to cover
+  # everything an annotation run is ALLOWED to change, and twice it hasn't:
+  #   - tools/validate_annotations.py, which a run may loosen when a published
+  #     clue turns out to be legal in a way it didn't know about (30045 26A
+  #     hides its answer backwards). Committed the puzzle, left the loosening,
+  #     and the committed tree then failed its own validator.
+  #   - app.js and STYLE.md, which a run must edit when a clue needs a wordplay
+  #     type the vocabulary doesn't have yet. On 2026-08-07 puzzle 30079 brought
+  #     in `cycling` and `substitution`; the puzzle shipped and app.js did not,
+  #     so the live site had two clues whose type matched no family and no
+  #     blurb. The validator passed — it validates puzzles, not the app.
+  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md tools/validate_annotations.py
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>')"
+  # And name whatever is STILL modified. Both misses above were a file nobody
+  # had thought of, and no amount of thinking harder about the list fixes the
+  # third one; only noticing that something was left behind does. Untracked
+  # files are excluded — scratch files are normal here — but a tracked file the
+  # job modified and did not commit is work that will never reach the site.
+  left=$(git status --porcelain --untracked-files=no | awk '{print $2}' | tr '\n' ' ')
+  [ -n "$left" ] && alert "the daily update changed these files and committed none of them: $left. Add them to the git add pathspec in daily_update.sh, or revert them."
   # Push only if a remote exists (GitHub Pages picks it up from master).
-  git remote get-url origin >/dev/null 2>&1 && git push origin HEAD || true
+  # --autostash and a rebase first: the remote is routinely ahead of the mini
+  # (interactive sessions push to it all day), and this used to be a bare push
+  # swallowed by `|| true`, so a rejected push looked exactly like a successful
+  # one and the day's puzzle quietly never reached the site.
+  if git remote get-url origin >/dev/null 2>&1; then
+    git pull --rebase --autostash -q && git push -q origin HEAD ||
+      alert "the daily update committed today's puzzle but could not push it, so the site is still showing yesterday's. See the tail of .update.log."
+  fi
 else
   echo "nothing to commit"
 fi

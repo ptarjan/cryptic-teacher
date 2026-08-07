@@ -23,10 +23,16 @@ the list below together):
   `spoonerism`
 - Letter selection: `first letter(s)`, `last letter(s)`, `middle letter(s)`,
   `outer letters`, `alternate letters`
+- Letter movement: `cycling` (letters rotate from one end of the assembly to
+  the other, keeping their order), `substitution` (one indicated letter or
+  chunk stands in for another)
 
 Worked examples: 30067 1A GARBAGE = `charade + alternate letters` (GARB +
 alternate letters of bAgGiEr); 30066 5D ALLOCATE = `anagram + last letter`
-(anagram of A COL TALE... + storE "ultimately").
+(anagram of A COL TALE... + storE "ultimately"); 30079 7D TSUNAMIS =
+`charade + cycling` (A + MIST + SUN, back half cycled to the front); 30079
+15D LAUGH LINE = `charade + substitution` (TAUGHT + IN + E with student Ls
+"covering" for the tense Ts).
 
 When a new type part is needed, add it to `TYPE_PARTS` in the validator, this
 list, and a level-1 blurb in `TYPE_BLURBS` in `app.js` — all three, in one commit.
@@ -448,6 +454,30 @@ all 55:
   `stamp_assets.py --check` sweeps all 70 pages and fails the nightly run on a
   bare reference. Note what this does NOT fix: caches still holding the old URL.
   Re-share the link to force a refetch, and expect a day's lag.
+- **A scheduled job never guesses a fact the API will tell it** ("fix the cron",
+  2026-08-07). Two jobs spend inference here, and both were budgeting against
+  numbers they had made up. `prereset_backfill.sh` deliberately runs with NO
+  usage gate, which is only safe in the last hour before quota that cannot roll
+  over evaporates — it identified that hour as "04:00 to 04:55" and was fired
+  daily, so an ungated hour ran seven nights a week instead of one. The reset is
+  a timestamp in `GET /api/oauth/usage`; the job now polls hourly and exits in a
+  second unless `weekly_usage.py --resets-in` says the window really is closing.
+  Meanwhile `daily_update.sh` checked the five-hour session window once, before
+  spending any of it, when it necessarily reads near zero — so it approved three
+  annotations and discovered the limit by crashing into it on the third. A
+  budget is re-read between the things that spend it. Same rule as
+  `series.py` being the only source of truth for what a series is: if something
+  can be looked up, looking it up is not optional.
+- **A gate that fails open must shout when it fails** (same day). The weekly
+  usage check had read a keychain entry that a `/login` blanked on 2026-07-31,
+  so it got HTTP 429 every night for a week and printed `WARNING: weekly usage
+  unknown — annotating anyway` into `.update.log`. Failing open was the right
+  call and the warning was accurate; it just went somewhere nobody looks, so a
+  gate that had stopped existing kept being trusted. Anything that decides
+  whether to spend money or quota routes its own failure through `alert()`.
+  Correspondingly, alert on the OUTCOME, not on an exit code: a run that
+  annotates two puzzles and then meets a rate limit has done its job, and the
+  old code alerted "no puzzle got hints today" while two puzzles got hints.
 - **Copy about the whole site names every paper in it, or none of them**
   (feedback 2026-08-06: the archive page still said "Guardian cryptic crosswords,
   explained" over a list that included the Independent and Everyman). Naming one

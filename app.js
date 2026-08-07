@@ -521,7 +521,9 @@
     ["middle letter", "Middle letters: take just the centre of an indicated word."],
     ["outer letters", "Outer letters: keep only the outside letters of an indicated word."],
     ["cryptic definition", "A cryptic definition: no separable wordplay — the whole clue is one sly description."],
-    ["spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."]
+    ["spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."],
+    ["cycling", "Cycling: letters move from one end to the other without changing their order — the word rotates rather than shuffles."],
+    ["substitution", "A substitution: one indicated letter or chunk stands in for another — make the swap and the answer appears."]
   ];
 
   // Rung 1 must not hand the mechanism over. It names the FAMILY — the shape of
@@ -538,7 +540,7 @@
       match: (t) => t.includes("&lit") },
     { label: "Rearrangement",
       blurb: "Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.",
-      match: (t) => t.includes("anagram") },
+      match: (t) => t.includes("anagram") || t.includes("cycling") },
     { label: "Sound",
       blurb: "The wordplay describes how the answer sounds rather than how it is spelled.",
       match: (t) => t.includes("homophone") || t.includes("spoonerism") },
@@ -547,7 +549,7 @@
       match: (t) => t.includes("charade") },
     { label: "Alteration",
       blurb: "A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.",
-      match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") },
+      match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") },
     { label: "Extraction",
       blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
       match: (t) => t.includes("hidden") || t.includes("letter") }
