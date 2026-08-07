@@ -30,7 +30,32 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAMBLERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "RAMBLERS",
+    "definition": "Countryside walkers",
+    "indicators": [
+     "regularly"
+    ],
+    "pieces": [
+     "RAMBLE",
+     "RS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go on",
+      "gives": "RAMBLE",
+      "note": "to go on — to talk at length — is to ramble"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "RS",
+      "note": "the even letters of gRaSs, taken 'regularly'"
+     }
+    ],
+    "walkthrough": "The surface pictures hikers misbehaving on the lawn, but 'go on' means chatter — the chatty sense of RAMBLE — before grass surrenders its alternate letters.",
+    "definitionFit": "Ramblers are Britain's recreational countryside walkers — the Ramblers is the national walking charity — so the definition is close to literal, plural matching plural."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +72,28 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGO",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "AGO",
+    "definition": "in the past",
+    "indicators": [
+     "Principles of"
+    ],
+    "pieces": [
+     "A",
+     "G",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ancient Greece overthrown",
+      "gives": "AGO",
+      "note": "the first letters of the three words"
+     }
+    ],
+    "walkthrough": "'Principles' puns on 'principal': take the principal — first — letters. The toppled civilisation is pure surface drama.",
+    "definitionFit": "Ago places an event in the past, as in 'long ago' — an adverb matching the clue's adverbial phrase."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +110,29 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARGE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BARGE",
+    "definition": "Move clumsily",
+    "definition2": "boat",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move clumsily",
+      "gives": "BARGE",
+      "note": "to barge is to shove gracelessly, as in 'barge past'"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "BARGE",
+      "note": "a barge is a flat-bottomed canal or river boat"
+     }
+    ],
+    "walkthrough": "The surface has you rowing badly; the split comes at 'in', leaving a verb on one side and a noun on the other.",
+    "definitionFit": "To barge is to blunder or shove your way somewhere, and a barge is the flat-bottomed cargo boat — one spelling doing two unrelated jobs."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +149,30 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELECTRICAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ELECTRICAL",
+    "definition": "a kind of energy",
+    "definitionNote": "ELECTRICAL is an adjective while 'a kind of energy' reads as a noun phrase; the setter lets the adjective stand for electrical energy itself, a common liberty with kinds and types.",
+    "indicators": [
+     "played"
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "CELTIC REAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Celtic and Real",
+      "gives": "CELTICREAL",
+      "note": "two famous football clubs supply the ten letters — 'and' adds none"
+     }
+    ],
+    "walkthrough": "Celtic and Real Madrid keep the surface on the pitch, where 'played' looks innocent — but it is the anagram indicator rearranging the clubs' letters.",
+    "definitionFit": "Electrical names the energy carried by electric charge — mains power — one of the standard kinds of energy in physics."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +189,29 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SECOND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SECOND",
+    "definition": "Back",
+    "definition2": "a mo",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back",
+      "gives": "SECOND",
+      "note": "to second a proposal is to back it"
+     },
+     {
+      "clueFragment": "a mo",
+      "gives": "SECOND",
+      "note": "a mo — a moment — is a second"
+     }
+    ],
+    "walkthrough": "The whole clue reads as 'I'll be right back', which is the misdirection: split it at 'in' and each half defines the answer on its own.",
+    "definitionFit": "To second a motion is to back it, and a mo — a moment — is a second: a verb on one side, a noun on the other."
+   }
   },
   {
    "id": "6-across",
@@ -115,7 +228,35 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROMPT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PROMPT",
+    "definition": "timely",
+    "indicators": [
+     "on"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "PROM",
+     "PT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "esplanade",
+      "gives": "PROM",
+      "note": "the seaside promenade — an esplanade"
+     },
+     {
+      "clueFragment": "Physical training",
+      "gives": "PT",
+      "note": "PT is the standard abbreviation for physical training"
+     }
+    ],
+    "walkthrough": "In an across entry 'on' means 'following', so PT goes after PROM even though the clue names it first — a positional trick worth learning.",
+    "definitionFit": "Prompt means acting without delay — a prompt reply is a timely one — adjective for adjective."
+   }
   },
   {
    "id": "6-down",
@@ -132,7 +273,26 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PIER",
+    "definition": "breakwater",
+    "indicators": [
+     "Reportedly"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "PIER",
+      "note": "sounds like PEER — to look closely"
+     }
+    ],
+    "walkthrough": "Say 'peer' aloud and you hear the answer — a classic seaside soundalike pair.",
+    "definitionFit": "A pier is a structure built out into the sea that shelters the water behind it, which is why dictionaries define it partly as a breakwater."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +309,44 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORCHESTRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ORCHESTRA",
+    "definition": "group of musicians",
+    "indicators": [
+     "next to"
+    ],
+    "pieces": [
+     "OR",
+     "CHEST",
+     "R",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "OR",
+      "note": "OR is heraldry's word for gold — a crossword staple"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "CHEST",
+      "note": "a chest is a box"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R abbreviates right"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the little word counts itself into the answer"
+     }
+    ],
+    "walkthrough": "Even the 'a' is a working part here, gluing itself onto the end — not every small word is padding.",
+    "definitionFit": "An orchestra is a large ensemble of musicians — strings, wind and percussion playing together — the everyday sense of the word."
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +363,46 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROCUREMENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PROCUREMENT",
+    "definition": "Acquisition",
+    "indicators": [
+     "excluded"
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "PRO",
+     "CURE",
+     "MENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "professional",
+      "gives": "PRO",
+      "note": "a pro is a professional"
+     },
+     {
+      "clueFragment": "remedy",
+      "gives": "CURE",
+      "note": "a cure is a remedy"
+     },
+     {
+      "clueFragment": "meant",
+      "gives": "MENT",
+      "note": "MEANT once its A has gone"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A for amateur, the sports abbreviation — this is the letter 'excluded' from MEANT"
+     }
+    ],
+    "walkthrough": "Amateur = A comes from sport, where A once distinguished unpaid players from professionals — apt in a clue that opens with PRO.",
+    "definitionFit": "Procurement is the formal business word for acquiring goods and services — an organisation's procurement is its acquisition — noun matching noun."
+   }
   },
   {
    "id": "9-across",
@@ -183,7 +419,29 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOURCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SOURCE",
+    "definition": "Origin",
+    "indicators": [
+     "flexible"
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "COURSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "course",
+      "gives": "COURSE",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "walkthrough": "'Flexible' bends COURSE into shape — a neat pairing, since a river's course begins at its source.",
+    "definitionFit": "A source is where something originates — a river's source, the source of a rumour — a plain synonym for origin."
+   }
   },
   {
    "id": "10-across",
@@ -200,7 +458,26 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COERCION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "COERCION",
+    "definition": "Force",
+    "indicators": [
+     "translation of"
+    ],
+    "anagram": {
+     "fodder": "CICERO NO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cicero? No!",
+      "gives": "CICERONO",
+      "note": "the Roman orator plus the exclamation supply the eight letters"
+     }
+    ],
+    "walkthrough": "'Translation' is a sly indicator for a Latin orator: it rearranges Cicero's letters, NO included, rather than his prose.",
+    "definitionFit": "Coercion is compelling someone by pressure or threats, which is exactly what using force on them amounts to — both nouns."
+   }
   },
   {
    "id": "11-across",
@@ -217,7 +494,38 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIMESTONE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "LIMESTONE",
+    "definition": "rock",
+    "indicators": [
+     "Travelling"
+    ],
+    "pieces": [
+     "LIMESTO",
+     "NE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MILESTO",
+      "gives": "LIMESTO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miles to",
+      "gives": "MILESTO",
+      "note": "seven letters sent 'travelling'"
+     },
+     {
+      "clueFragment": "north-eastern",
+      "gives": "NE",
+      "note": "the compass abbreviation, tacked on unshuffled"
+     }
+    ],
+    "walkthrough": "The setter splits the work: an anagram builds the front while NE simply follows it — the compass point stays out of the shuffle.",
+    "definitionFit": "Limestone is a sedimentary rock — the stone of the Pennines and of cave country — so 'rock' defines it by its category."
+   }
   },
   {
    "id": "12-down",
@@ -234,7 +542,26 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERACTION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INTERACTION",
+    "definition": "joint performance",
+    "indicators": [
+     "improvised"
+    ],
+    "anagram": {
+     "fodder": "ANCIENT TRIO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ancient trio",
+      "gives": "ANCIENTTRIO",
+      "note": "eleven letters of fodder"
+     }
+    ],
+    "walkthrough": "'Improvised' — just what a trio might do on stage — is the anagram signal, and the musical surface hides a much drier word.",
+    "definitionFit": "An interaction is parties acting on each other — its Latin roots are 'between' and 'action' — so a joint performance is what the word literally describes."
+   }
   },
   {
    "id": "13-across",
@@ -251,7 +578,23 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VENUS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "VENUS",
+    "definition": "goddess",
+    "indicators": [
+     "surrounding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seven ushers",
+      "gives": "VENUS",
+      "note": "hidden across the two words: seVEN UShers"
+     }
+    ],
+    "walkthrough": "'Surrounding' says the ushers have the goddess inside them — the answer runs straight across the gap between the words.",
+    "definitionFit": "Venus is the Roman goddess of love and beauty — a definition by example, since 'goddess' could name many others."
+   }
   },
   {
    "id": "14-down",
@@ -268,7 +611,29 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARAMETERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PARAMETERS",
+    "definition": "boundaries",
+    "indicators": [
+     "Badly"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "PARSE A TERM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "parse a term",
+      "gives": "PARSEATERM",
+      "note": "the ten letters of fodder"
+     }
+    ],
+    "walkthrough": "A self-aware clue — parsing it is exactly what you are doing — with 'badly' handling the mangling.",
+    "definitionFit": "Strictly parameters are variables, but everyday use — 'within the parameters' — means limits or boundaries, and that looser sense is the one defined here."
+   }
   },
   {
    "id": "15-across",
@@ -285,7 +650,33 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAGIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + first letters",
+    "answer": "TRAGIC",
+    "definition": "Very sad",
+    "indicators": [
+     "ending to",
+     "leads to"
+    ],
+    "pieces": [
+     "T",
+     "RAGIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hamlet",
+      "gives": "T",
+      "note": "the play's final letter — its 'ending'"
+     },
+     {
+      "clueFragment": "riots against Gertrude in consequence",
+      "gives": "RAGIC",
+      "note": "the leading letters of the five words"
+     }
+    ],
+    "walkthrough": "'Leads to' looks like joinery but is the instruction: take the leads — the front letters — of the last five words. Fitting, for a play that ends strewn with bodies.",
+    "definitionFit": "Tragic means very sad — desperately so — and the word comes straight from tragedy, the genre Hamlet defines."
+   }
   },
   {
    "id": "16-down",
@@ -302,7 +693,32 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPARATUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "APPARATUS",
+    "definition": "piece of equipment",
+    "indicators": [
+     "initially",
+     "complicated"
+    ],
+    "anagram": {
+     "fodder": "A STRAP UP A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Astronauts",
+      "gives": "A",
+      "note": "'initially' keeps just its first letter"
+     },
+     {
+      "clueFragment": "strap up a",
+      "gives": "STRAPUPA",
+      "note": "eight more letters for the mix"
+     }
+    ],
+    "walkthrough": "'Initially' trims Astronauts to a single A before 'complicated' shuffles everything — the spacewalk surface disguises a very general word.",
+    "definitionFit": "Apparatus is the equipment assembled for a particular purpose — gym apparatus, laboratory apparatus — so the definition names its everyday sense."
+   }
   },
   {
    "id": "17-across",
@@ -319,7 +735,23 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SARTRE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SARTRE",
+    "definition": "philosopher",
+    "indicators": [
+     "absorbs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris art revolution",
+      "gives": "SARTRE",
+      "note": "hidden across all three words: pariS ART REvolution"
+     }
+    ],
+    "walkthrough": "A lovely match of surface and answer: Sartre was the great philosopher of Paris cafe society, and he is literally sitting in 'Paris art revolution'.",
+    "definitionFit": "Jean-Paul Sartre, the French existentialist, is a philosopher defined by example — and the Parisian surface is a broad hint at which one."
+   }
   },
   {
    "id": "18-across",
@@ -336,7 +768,36 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPEAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REPEAL",
+    "definition": "Withdraw",
+    "indicators": [
+     "across"
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "REPE",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drive back",
+      "gives": "REPEL",
+      "note": "to drive back an attack is to repel it — it opens around the A"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "A",
+      "note": "the one-letter abbreviation, as in A$ for the Australian dollar"
+     }
+    ],
+    "walkthrough": "'Drive back' is one unit meaning REPEL, not a reversal — the surface wants you picturing an outback road trip that never happens.",
+    "definitionFit": "To repeal a law is to withdraw it — take it back off the statute book — both verbs in their base form."
+   }
   },
   {
    "id": "19-across",
@@ -353,7 +814,33 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PALATE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PALATE",
+    "definition": "sense of taste",
+    "indicators": [
+     "overwhelms"
+    ],
+    "pieces": [
+     "P",
+     "A",
+     "LATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dish",
+      "gives": "PLATE",
+      "note": "a plate is a dish — it swallows the A"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter taken inside"
+     }
+    ],
+    "walkthrough": "'Overwhelms' is the container signal: the dish engulfs the A, and the food surface steers you neatly past the anatomical answer.",
+    "definitionFit": "The palate is the roof of the mouth and, by extension, the faculty of tasting itself — a discerning palate — so the definition names that extended use."
+   }
   },
   {
    "id": "20-down",
@@ -370,7 +857,33 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRIEND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FRIEND",
+    "definition": "Mate",
+    "indicators": [
+     "around"
+    ],
+    "pieces": [
+     "FRIE",
+     "N",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooked",
+      "gives": "FRIED",
+      "note": "cooked in hot fat — it wraps round the N"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon, as on old timetables"
+     }
+    ],
+    "walkthrough": "'Cooked' looks like an anagram indicator but is fodder here: FRIED, with midday's N dropped in.",
+    "definitionFit": "Mate is the informal British word for a friend — a pal — rather than the chess move or the ship's officer."
+   }
   },
   {
    "id": "21-across",
@@ -387,7 +900,23 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCARF",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SCARF",
+    "definition": "muffler",
+    "indicators": [
+     "clutches"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar frequently",
+      "gives": "SCARF",
+      "note": "hidden across the two words: oSCAR Frequently"
+     }
+    ],
+    "walkthrough": "Oscar clutches the answer literally: it runs from inside his name into the word after it.",
+    "definitionFit": "A muffler is an older word for a scarf — something wound round the neck to muffle you against the cold — not the car silencer."
+   }
   },
   {
    "id": "22-across",
@@ -408,7 +937,51 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
     ]
    },
    "solution": "FREEGIFTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "FREE GIFTS",
+    "definition": "Incentives to buy",
+    "indicators": [
+     "at first",
+     "then"
+    ],
+    "pieces": [
+     "FREE",
+     "G",
+     "I",
+     "FT",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liberal",
+      "gives": "FREE",
+      "note": "liberal means free — generous, unrestricted"
+     },
+     {
+      "clueFragment": "Guardian",
+      "gives": "G",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "Independent",
+      "gives": "I",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "FT",
+      "gives": "FT",
+      "note": "already initials, so it goes in whole"
+     },
+     {
+      "clueFragment": "Sun",
+      "gives": "S",
+      "note": "its first letter"
+     }
+    ],
+    "walkthrough": "'At first' serves every paper in the queue — the FT being initials already — and a Guardian puzzle clueing its rivals is a nice in-joke.",
+    "definitionFit": "Free gifts are the giveaways papers bundle to tempt readers, so they are incentives to buy — a plural phrase matching a plural definition."
+   }
   },
   {
    "id": "23-down",
@@ -425,7 +998,41 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IBIZA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "IBIZA",
+    "definition": "island",
+    "indicators": [
+     "opening"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "I",
+     "BIZ",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "BIZ",
+      "note": "the showbiz-style shortening"
+     },
+     {
+      "clueFragment": "account’s",
+      "gives": "A",
+      "note": "its opening letter"
+     }
+    ],
+    "walkthrough": "Three abbreviations in a row — physics, slang and an initial — assemble the Balearic party island out of office paperwork.",
+    "definitionFit": "Ibiza is one of Spain's Balearic islands, so 'island' defines it by example — the financial surface hides a holiday destination."
+   }
   },
   {
    "id": "24-down",
@@ -442,7 +1049,26 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + first letter",
+    "answer": "ANON",
+    "definition": "immediately according to Shakespeare",
+    "indicators": [
+     "loses hat"
+    ],
+    "pieces": [
+     "ANON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member of clergy",
+      "gives": "CANON",
+      "note": "a canon is a cathedral cleric — about to lose its top"
+     }
+    ],
+    "walkthrough": "In a down entry the 'hat' is the top letter, so the C comes off CANON. 'I come, anon!' is how Shakespeare's characters say they'll be right there.",
+    "definitionFit": "Anon is the archaic adverb for soon or immediately, familiar from Shakespeare — hence the qualifier steering you towards Elizabethan English."
+   }
   },
   {
    "id": "25-across",
@@ -459,7 +1085,34 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISTANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DISTANCE",
+    "definition": "Reserve",
+    "indicators": [
+     "placing",
+     "in"
+    ],
+    "pieces": [
+     "D",
+     "IST",
+     "ANCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st — 'first' written with figures, the 1 reading as I"
+     },
+     {
+      "clueFragment": "tango?",
+      "gives": "DANCE",
+      "note": "a tango is a dance — the question mark flags the definition by example"
+     }
+    ],
+    "walkthrough": "'Placing … in' does the inserting: IST sits inside DANCE. The question mark concedes that tango is only one dance among many.",
+    "definitionFit": "Distance is reserve in the emotional sense — keeping someone at a distance is treating them with cool detachment — both nouns."
+   }
   },
   {
    "id": "26-across",
@@ -476,7 +1129,24 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELICIT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ELICIT",
+    "definition": "Produce",
+    "indicators": [
+     "broadcast",
+     "roughly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unlawful",
+      "gives": "ELICIT",
+      "note": "sounds like ILLICIT — unlawful"
+     }
+    ],
+    "walkthrough": "ILLICIT and ELICIT are not quite identical aloud, and the setter admits it: 'roughly' licenses the loose soundalike.",
+    "definitionFit": "To elicit a reaction is to produce or draw it out — both verbs — and the pair here is a famous confusable in written English."
+   }
   },
   {
    "id": "27-down",
@@ -493,7 +1163,26 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ILL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + outer letters",
+    "answer": "ILL",
+    "definition": "Unwell",
+    "indicators": [
+     "Unwrap"
+    ],
+    "pieces": [
+     "ILL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tablets",
+      "gives": "PILLS",
+      "note": "tablets are pills — unwrapping strips off the outer P and S"
+     }
+    ],
+    "walkthrough": "'Unwrap' means exactly what it says: peel the outside letters off PILLS, the way you would the packaging.",
+    "definitionFit": "Ill means unwell — the plainest of synonyms — and the medicinal surface keeps both words in the sickroom."
+   }
   },
   {
    "id": "28-across",
@@ -510,7 +1199,32 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNISON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNISON",
+    "definition": "Complete agreement",
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "UNI",
+     "SON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic",
+      "gives": "UNI",
+      "note": "university, informally — the academic place"
+     },
+     {
+      "clueFragment": "offspring?",
+      "gives": "SON",
+      "note": "a son is one kind of offspring — the question mark allows for daughters"
+     }
+    ],
+    "walkthrough": "An 'academic offspring' sounds like a professor's child; the wordplay just glues UNI to SON.",
+    "definitionFit": "To act or speak in unison is to do it in complete agreement — the word literally means 'one sound'."
+   }
   },
   {
    "id": "29-across",
@@ -527,7 +1241,33 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISMALLY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DISMALLY",
+    "definition": "Sadly",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "DI",
+     "SMALL",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not big",
+      "gives": "SMALL",
+      "note": "not big = small"
+     },
+     {
+      "clueFragment": "home-improvement",
+      "gives": "DIY",
+      "note": "do-it-yourself — it wraps around SMALL"
+     }
+    ],
+    "walkthrough": "DIY — the home-improvement habit — splits around SMALL. The comma after 'Sadly' is misdirection, making the definition read as a passing comment.",
+    "definitionFit": "Dismally means in a gloomy, cheerless way — to fail dismally is to fail sadly — adverb for adverb."
+   }
   }
  ]
 } /*JSON-END*/;
