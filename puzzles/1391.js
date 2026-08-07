@@ -35,7 +35,50 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRESENCEOFMIND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRESENCE OF MIND",
+    "definition": "quick thinking",
+    "linkWords": [
+     "shows"
+    ],
+    "pieces": [
+     "PRESENCE",
+     "OF",
+     "M",
+     "IN",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appearance",
+      "gives": "PRESENCE",
+      "note": "an appearance is a presence"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "sits in the answer as itself"
+     },
+     {
+      "clueFragment": "Bond’s boss",
+      "gives": "M",
+      "note": "M runs MI6 in the James Bond films"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "also stands as itself"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is the international vehicle code for Germany (Deutschland)"
+     }
+    ],
+    "walkthrough": "Two little words — 'of' and 'in' — spell themselves, a trick worth spotting: not every clue word is a code for something else.",
+    "definitionFit": "Presence of mind is the idiom for quick thinking — keeping your wits about you when events demand an instant response."
+   }
   },
   {
    "id": "1-down",
@@ -56,7 +99,32 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRECIOUSMETALS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PRECIOUS METALS",
+    "definition": "gold, silver, etc.",
+    "indicators": [
+     "probing",
+     "dug up"
+    ],
+    "anagram": {
+     "fodder": "A CLUMPIEST ORES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "one = A, probing (going inside) the mix"
+     },
+     {
+      "clueFragment": "clumpiest ores",
+      "gives": "CLUMPIESTORES",
+      "note": "the main anagram fodder, 13 letters"
+     }
+    ],
+    "walkthrough": "'Dug up' disturbs the letters — apt for ores — and 'probing' pushes the A from 'one' in among them. The surface stays in the mine all the way.",
+    "definitionFit": "Gold and silver are the classic precious metals, so the 'etc.' list defines the answer by its best-known examples."
+   }
   },
   {
    "id": "2-down",
@@ -73,7 +141,33 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELICITS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ELICITS",
+    "definition": "Extracts",
+    "indicators": [
+     "between"
+    ],
+    "pieces": [
+     "E",
+     "LICIT",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what’s allowed",
+      "gives": "LICIT",
+      "note": "licit means lawful — allowed"
+     },
+     {
+      "clueFragment": "bridge opponents?",
+      "gives": "ES",
+      "note": "East and South sit on opposing partnerships at the bridge table, and they split to the two ends"
+     }
+    ],
+    "walkthrough": "Bridge partnerships are North–South against East–West, so East and South are genuinely opponents — a convention setters lean on for stray letters.",
+    "definitionFit": "To elicit is to draw something out of someone — 'extracts' — and both verbs wear the same third-person S."
+   }
   },
   {
    "id": "3-down",
@@ -90,7 +184,26 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESTIMABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ESTIMABLE",
+    "definition": "Excellent",
+    "indicators": [
+     "possibly"
+    ],
+    "anagram": {
+     "fodder": "MEALS BITE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "meals with bite",
+      "gives": "MEALSBITE",
+      "note": "the anagram fodder — 'with' simply joins the two words and adds no letters"
+     }
+    ],
+    "walkthrough": "'Possibly' is the quiet kind of anagram indicator: it just admits the letters could be otherwise. The food surface hides an adjective of praise.",
+    "definitionFit": "Estimable means worthy of esteem — deserving admiration — which is the approving sense 'excellent' carries."
+   }
   },
   {
    "id": "4-down",
@@ -107,7 +220,33 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANOODLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CANOODLE",
+    "definition": "to snog",
+    "indicators": [
+     "Surrounded by"
+    ],
+    "pieces": [
+     "CAN",
+     "OO",
+     "DLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low light",
+      "gives": "CANDLE",
+      "note": "a candle gives a low, dim light — it wraps round the OO"
+     },
+     {
+      "clueFragment": "loves",
+      "gives": "OO",
+      "note": "love = O (a zero score, as in tennis), so loves = OO"
+     }
+    ],
+    "walkthrough": "'Love' for O is one of the oldest conventions in cryptics — from the tennis score — and the plural doubles it. The candlelit surface is doing exactly what the answer describes.",
+    "definitionFit": "To canoodle is to kiss and cuddle, and 'snog' is the British slang for just that — matching to-infinitives."
+   }
   },
   {
    "id": "5-down",
@@ -124,7 +263,39 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPENER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OPENER",
+    "definition": "I bat first",
+    "definitionNote": "The definition speaks in the first person: the answer introduces itself, since a cricket opener could truthfully say 'I bat first'.",
+    "indicators": [
+     "brought in"
+    ],
+    "pieces": [
+     "O",
+     "PE",
+     "NER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "training at school",
+      "gives": "PE",
+      "note": "physical education — school training"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "a single is one"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "r = run on a cricket scorecard"
+     }
+    ],
+    "walkthrough": "PE is 'brought in' to ONE + R, landing after the O. The cricket surface is honest for once: single, run and batting first all belong to the same game as the answer.",
+    "definitionFit": "In cricket the opener is the batter sent in first, so the clue's first-person claim 'I bat first' describes an opener exactly."
+   }
   },
   {
    "id": "6-down",
@@ -141,7 +312,29 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MATCH",
+    "definition": "Striker",
+    "definition2": "soccer game",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Striker",
+      "gives": "MATCH",
+      "note": "a match is a striker — the light you strike"
+     },
+     {
+      "clueFragment": "soccer game",
+      "gives": "MATCH",
+      "note": "a game of football is a match"
+     }
+    ],
+    "walkthrough": "The surface wants you picturing a centre-forward, but the 'striker' here lives in a matchbox — a match is what you strike.",
+    "definitionFit": "A match is a striker in the sense of a light you strike, and a soccer match is a game — the footballer is the decoy joining the two."
+   }
   },
   {
    "id": "7-down",
@@ -158,7 +351,39 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NARRATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NARRATE",
+    "definition": "to tell story",
+    "indicators": [
+     "up",
+     "supported by"
+    ],
+    "pieces": [
+     "NAR",
+     "RATE"
+    ],
+    "subReversals": [
+     {
+      "from": "RAN",
+      "to": "NAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurried",
+      "gives": "RAN",
+      "note": "hurried = ran; it climbs the grid to read NAR"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to rate something is to judge it"
+     }
+    ],
+    "walkthrough": "In a down entry, 'up' turns RAN on its head and 'supported by' puts RATE underneath, holding it up — both indicators only make sense on a vertical answer.",
+    "definitionFit": "To narrate is to tell a story — the definition drops the article, headline-style, but verb matches verb."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +407,26 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
     ]
    },
    "solution": "READONLYMEMORY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "READ-ONLY MEMORY",
+    "definition": "computer data",
+    "indicators": [
+     "to spoil"
+    ],
+    "anagram": {
+     "fodder": "RELY ON ARMY DEMO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rely on army demo",
+      "gives": "RELYONARMYDEMO",
+      "note": "the anagram fodder, 14 letters"
+     }
+    ],
+    "walkthrough": "A single clean anagram: the military surface dissolves into a chip. Fourteen letters of fodder with nothing left over — count them when a long answer looks daunting.",
+    "definitionFit": "Read-only memory is the chip holding a computer's fixed, unerasable data — the definition names the contents, the answer names their home."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +443,39 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXISTENCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "EXISTENCE",
+    "definition": "Life",
+    "indicators": [
+     "perturbed",
+     "attending"
+    ],
+    "pieces": [
+     "EXISTEN",
+     "CE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SIXTEEN",
+      "gives": "EXISTEN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sixteen",
+      "gives": "EXISTEN",
+      "note": "'perturbed' shuffles its seven letters"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "Church of England"
+     }
+    ],
+    "walkthrough": "CE for church — the Church of England — is a fixture of British crosswords; here it 'attends' the scrambled SIXTEEN at the end.",
+    "definitionFit": "Existence is life in the plainest sense — 'a hard life' and 'a hard existence' swap without strain."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +492,36 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THREE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THREE",
+    "definition": "triumvirate",
+    "indicators": [
+     "will accept"
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "TH",
+     "R",
+     "EE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the Bible, you",
+      "gives": "THEE",
+      "note": "thee is the biblical 'you'"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R = Rex, Latin for king"
+     }
+    ],
+    "walkthrough": "Two conventions in one small grid entry: THEE as the scriptural 'you', and R for Rex on coins and royal ciphers.",
+    "definitionFit": "A triumvirate is a ruling group of three — Caesar, Pompey and Crassus — so the bare number stands in for it by example."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +538,32 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDIOM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IDIOM",
+    "definition": "Way of speaking",
+    "indicators": [
+     "associated with"
+    ],
+    "pieces": [
+     "ID",
+     "IOM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’d",
+      "gives": "ID",
+      "note": "the contraction, letters as printed"
+     },
+     {
+      "clueFragment": "Man?",
+      "gives": "IOM",
+      "note": "the Isle of Man, abbreviated IoM — the question mark flags the abbreviation"
+     }
+    ],
+    "walkthrough": "'Man' with a question mark is the Isle of Man, whose abbreviation IOM supplies most of the answer.",
+    "definitionFit": "An idiom is a way of speaking — a turn of phrase peculiar to a language, region or person."
+   }
   },
   {
    "id": "12-across",
@@ -250,7 +580,34 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERHEARD",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "OVERHEARD",
+    "definition": "Picked up",
+    "indicators": [
+     "source of",
+     "entering"
+    ],
+    "pieces": [
+     "OVERHEA",
+     "R",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reek",
+      "gives": "R",
+      "note": "'source of' takes its first letter"
+     },
+     {
+      "clueFragment": "near the ceiling?",
+      "gives": "OVERHEAD",
+      "note": "what's near the ceiling is overhead"
+     }
+    ],
+    "walkthrough": "The R from 'reek' slips into OVERHEAD just before the final D. The surface smell is a distraction; the answer is about ears, not noses.",
+    "definitionFit": "To overhear something is to pick it up without being the intended listener — 'picked up' matches the past form overheard."
+   }
   },
   {
    "id": "13-across",
@@ -267,7 +624,26 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNSUBTLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNSUBTLE",
+    "definition": "Blunt?",
+    "indicators": [
+     "to anagram this answer"
+    ],
+    "anagram": {
+     "fodder": "USE BLUNT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Use ‘blunt’",
+      "gives": "USEBLUNT",
+      "note": "take these eight letters literally — they are the fodder"
+     }
+    ],
+    "walkthrough": "A self-referential joke: the instruction means exactly what it says. Anagram the words 'use blunt' and the answer appears — the setter being anything but subtle.",
+    "definitionFit": "Unsubtle means lacking finesse — blunt in the figurative sense of direct and undiplomatic, not the knife-edge sense."
+   }
   },
   {
    "id": "14-across",
@@ -284,7 +660,32 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLEMN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SOLEMN",
+    "definition": "Glum",
+    "indicators": [
+     "losing heart"
+    ],
+    "pieces": [
+     "SOLE",
+     "MN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "SOLE",
+      "note": "sole = single, only"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MN",
+      "note": "MAN 'losing heart' drops his middle letter A"
+     }
+    ],
+    "walkthrough": "'Losing heart' is the standard signal to remove a word's middle letter — the poor fellow is left as just M and N.",
+    "definitionFit": "Solemn means gravely serious, and glum means gloomily so — the shared long-faced mood makes them fair synonyms."
+   }
   },
   {
    "id": "15-down",
@@ -301,7 +702,38 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERTIRED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERTIRED",
+    "definition": "exhausted?",
+    "linkWords": [
+     "shown by"
+    ],
+    "pieces": [
+     "OVERT",
+     "IRE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear",
+      "gives": "OVERT",
+      "note": "overt = open, clear to see"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is anger"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "d = daughter, a genealogy abbreviation"
+     }
+    ],
+    "walkthrough": "Three synonyms and abbreviations stacked in clue order — the family row in the surface never happened.",
+    "definitionFit": "To be overtired is to be tired past the point of recovery — exhausted — with the question mark conceding the words aren't quite equally strong."
+   }
   },
   {
    "id": "16-down",
@@ -318,7 +750,38 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISRUPTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DISRUPTS",
+    "definition": "Puts out?",
+    "indicators": [
+     "out"
+    ],
+    "pieces": [
+     "D",
+     "ISRUPTS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "PUTSSIR",
+      "gives": "ISRUPTS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "d = duke, from chess and peerage abbreviations"
+     },
+     {
+      "clueFragment": "puts Sir",
+      "gives": "ISRUPTS",
+      "note": "the second 'out' scrambles these seven letters"
+     }
+    ],
+    "walkthrough": "The setter uses 'puts out' twice — once as the definition, once split so that 'out' scrambles 'puts Sir'. Seeing one phrase do two jobs is the whole trick here.",
+    "definitionFit": "To put someone out is to inconvenience or unsettle them, which is what disrupting does — the question mark flags the informal match."
+   }
   },
   {
    "id": "17-across",
@@ -335,7 +798,26 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEDLEY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MEDLEY",
+    "definition": "the mix",
+    "indicators": [
+     "By the sound of it"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclined to interfere",
+      "gives": "MEDLEY",
+      "note": "sounds like 'meddly' — apt to meddle"
+     }
+    ],
+    "walkthrough": "Someone inclined to interfere might whimsically be called 'meddly', and said aloud that is the answer. Homophones of invented words are fair when the base word — meddle — is real.",
+    "definitionFit": "A medley is a mixture — of tunes, or of swimming strokes — so 'the mix' defines it straight."
+   }
   },
   {
    "id": "18-down",
@@ -352,7 +834,32 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DELIVER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "DELIVER",
+    "definition": "Work as postman?",
+    "indicators": [
+     "getting up"
+    ],
+    "pieces": [
+     "DELIVER"
+    ],
+    "subReversals": [
+     {
+      "from": "REVILED",
+      "to": "DELIVER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hated",
+      "gives": "REVILED",
+      "note": "reviled = hated; read upwards it spells the answer"
+     }
+    ],
+    "walkthrough": "REVILED and DELIVER are exact reverses — a classic pair. 'Getting up' works because this is a down entry: the word climbs.",
+    "definitionFit": "Delivering letters is a postman's job, so 'work as postman' defines the verb by the occupation — the question mark admits postmen do more than deliver."
+   }
   },
   {
    "id": "19-across",
@@ -369,7 +876,43 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LITERACY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LITERACY",
+    "definition": "writing skill?",
+    "indicators": [
+     "absorbing"
+    ],
+    "pieces": [
+     "LIT",
+     "E",
+     "RACY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On fire",
+      "gives": "LIT",
+      "note": "lit = on fire, also slang for exciting"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "",
+      "note": "surface glue joining the two outer pieces"
+     },
+     {
+      "clueFragment": "sexy",
+      "gives": "RACY",
+      "note": "racy = risqué, sexy"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E = English, absorbed between LIT and RACY"
+     }
+    ],
+    "walkthrough": "LIT and RACY together absorb the E — 'absorbing' is the container signal. The steamy surface is a long way from the classroom.",
+    "definitionFit": "Literacy is the ability to read and write; 'writing skill' names half the pair, hence the setter's question mark."
+   }
   },
   {
    "id": "20-down",
@@ -386,7 +929,41 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACRONYM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ACRONYM",
+    "definition": "quango, for example",
+    "indicators": [
+     "bringing in"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "A",
+     "CRONY",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "stands as itself"
+     },
+     {
+      "clueFragment": "Member",
+      "gives": "M",
+      "note": "m = member, as in club listings"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "CRONY",
+      "note": "a crony is a close friend"
+     }
+    ],
+    "walkthrough": "A and M — the Member — bring CRONY in between them. The parliamentary surface of members and friends is pure misdirection.",
+    "definitionFit": "'Quango' is spelt from initial letters (quasi-autonomous non-governmental organisation), so it is one example of an acronym — a definition by example."
+   }
   },
   {
    "id": "21-down",
@@ -403,7 +980,35 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADVENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADVENT",
+    "definition": "Church season",
+    "indicators": [
+     "after"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "AD",
+     "VENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promotional item",
+      "gives": "AD",
+      "note": "an ad — an advertisement"
+     },
+     {
+      "clueFragment": "Be emotional",
+      "gives": "VENT",
+      "note": "to vent is to let feelings out"
+     }
+    ],
+    "walkthrough": "'After' puts VENT after AD — in a down entry, that means below it. Note the answer also means an arrival, which is exactly what the season awaits.",
+    "definitionFit": "Advent is the liturgical season before Christmas — a Church season by name and by calendar."
+   }
   },
   {
    "id": "22-across",
@@ -424,7 +1029,26 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
     ]
    },
    "solution": "TALLORDER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TALL ORDER",
+    "definition": "Monks requiring long robes",
+    "definition2": "a difficult request",
+    "blocks": [
+     {
+      "clueFragment": "Monks requiring long robes",
+      "gives": "TALL ORDER",
+      "note": "read literally: a religious order made up of tall monks"
+     },
+     {
+      "clueFragment": "a difficult request",
+      "gives": "TALL ORDER",
+      "note": "the everyday idiom for a demanding ask"
+     }
+    ],
+    "walkthrough": "One definition is literal-minded whimsy — a religious order of tall monks, hence the long robes — and the other is the everyday idiom.",
+    "definitionFit": "Monks belong to an order, and tall ones would make it a tall order needing long robes; figuratively a tall order is a demanding, near-unreasonable request."
+   }
   },
   {
    "id": "23-down",
@@ -441,7 +1065,41 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OGLES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + first letter",
+    "answer": "OGLES",
+    "definition": "Looks longingly at",
+    "indicators": [
+     "bit of",
+     "in",
+     "battered"
+    ],
+    "pieces": [
+     "O",
+     "G",
+     "LES"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SOLE",
+      "gives": "OLES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ginger",
+      "gives": "G",
+      "note": "'bit of' takes its first letter"
+     },
+     {
+      "clueFragment": "sole",
+      "gives": "OLES",
+      "note": "'battered' — apt for a fish — jumbles it around the G"
+     }
+    ],
+    "walkthrough": "'Battered' doing double duty — cooking term on the surface, anagram indicator underneath — is the joke; the G from 'ginger' lands inside the shaken SOLE.",
+    "definitionFit": "To ogle someone is to eye them with open desire — 'looks longingly at', third person matching third person."
+   }
   },
   {
    "id": "24-across",
@@ -458,7 +1116,23 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERSE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TERSE",
+    "definition": "Short",
+    "indicators": [
+     "extract from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easter service",
+      "gives": "TERSE",
+      "note": "hidden: easTER SErvice"
+     }
+    ],
+    "walkthrough": "'Extract from' tells you to pull the answer straight out of the letters — it spans the two words of the churchy surface.",
+    "definitionFit": "Terse speech is clipped and brief — 'short' in the sense of few words, with a hint of curtness."
+   }
   },
   {
    "id": "25-across",
@@ -475,7 +1149,36 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEVEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letter",
+    "answer": "LEVEL",
+    "definition": "Flat",
+    "indicators": [
+     "change of direction",
+     "at the outset"
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "pieces": [
+     "L",
+     "EVEL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "REVEL",
+      "note": "a revel is a lively party — about to change its first letter"
+     },
+     {
+      "clueFragment": "change of direction",
+      "gives": "L",
+      "note": "the opening R (right) becomes the other direction, L (left)"
+     }
+    ],
+    "walkthrough": "'Direction' here means the everyday kind: R for right and L for left. Swap one for the other at the front of REVEL and the party flattens out.",
+    "definitionFit": "Level ground is flat ground — a plain synonym, once you see 'flat' is the adjective, not the apartment."
+   }
   },
   {
    "id": "26-across",
@@ -492,7 +1195,26 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESPERANTO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ESPERANTO",
+    "definition": "language",
+    "indicators": [
+     "after translating"
+    ],
+    "anagram": {
+     "fodder": "NO REPEATS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "No repeats",
+      "gives": "NOREPEATS",
+      "note": "the anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "'After translating' is a pointed indicator for a clue about an invented international language — the fodder rearranges with nothing left over.",
+    "definitionFit": "Esperanto is the best-known constructed language, so the bare category word 'language' defines it fairly, if broadly."
+   }
   },
   {
    "id": "27-across",
@@ -516,7 +1238,45 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
     ]
    },
    "solution": "CRASHTESTDUMMY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "CRASH-TEST DUMMY",
+    "definition": "Vehicle experimenter’s tool",
+    "indicators": [
+     "wrecked",
+     "before"
+    ],
+    "pieces": [
+     "CRASHTE",
+     "ST",
+     "DUMMY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "THECARS",
+      "gives": "CRASHTE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the cars",
+      "gives": "CRASHTE",
+      "note": "'wrecked' — apt for cars — scrambles the seven letters"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "st = street, a way"
+     },
+     {
+      "clueFragment": "misleading move",
+      "gives": "DUMMY",
+      "note": "in rugby or football, a dummy is a feinted pass — a misleading move"
+     }
+    ],
+    "walkthrough": "Wrecked cars, then ST for a way, all 'before' the DUMMY — a sporting feint, not a fool. The whole surface is one long staged collision.",
+    "definitionFit": "A crash-test dummy is the instrumented figure engineers strap into cars to study impacts — literally the tool of someone experimenting on vehicles."
+   }
   }
  ]
 } /*JSON-END*/;
