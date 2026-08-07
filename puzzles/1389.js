@@ -34,7 +34,35 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADAGENCY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AD AGENCY",
+    "definition": "marketing firm",
+    "indicators": [
+     "wanting"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "AD",
+     "AGENCY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E.g. Red Cross",
+      "gives": "AIDAGENCY",
+      "note": "the Red Cross is one example of an aid agency — hence the 'e.g.'"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "note": "i = information, as on tourist signs — the letter AID AGENCY goes 'wanting'"
+     }
+    ],
+    "walkthrough": "The 'e.g.' is working, not decorating: the Red Cross stands for AID AGENCY, which then loses its I. Losing a letter turns one business into a very different one.",
+    "definitionFit": "An ad agency is a firm that creates and places advertising — the commercial arm of marketing — so 'marketing firm' describes the business plainly."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +79,29 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALFA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ALFA",
+    "definition": "How Nato spells out start of attack",
+    "indicators": [
+     "regularly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "falls flat",
+      "gives": "ALFA",
+      "note": "the even letters of fAlLs FlAt, taken 'regularly'"
+     }
+    ],
+    "walkthrough": "The definition is the whole opening clause: on the radio, NATO says 'Alfa' for the letter A. The wordplay then finds the same word sitting in 'falls flat'.",
+    "definitionFit": "ALFA is the NATO phonetic alphabet's codeword for the letter A — the 'start of attack' — so the clue asks how NATO would spell that initial aloud.",
+    "pieces": [
+     "A",
+     "L",
+     "F",
+     "A"
+    ]
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +118,26 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALAS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ALAS",
+    "definition": "Unfortunately",
+    "indicators": [
+     "essential to"
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medical assessment",
+      "gives": "ALAS",
+      "note": "hidden across the join: medicAL ASsessment"
+     }
+    ],
+    "walkthrough": "'Essential to' points at the core of the words — the answer runs straight across the gap between them.",
+    "definitionFit": "Alas is the sighing interjection for 'unfortunately' — each can open a sentence to lament what follows."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +154,29 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARNER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + first letter",
+    "answer": "EARNER",
+    "definition": "income-generating activity",
+    "indicators": [
+     "lacks head"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "EARNER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "LEARNER",
+      "note": "a learner — the L-plate sense — about to lose its top letter"
+     }
+    ],
+    "walkthrough": "In a down entry the 'head' is the top letter, so LEARNER loses its L. 'A nice little earner' is the idiom the definition leans on.",
+    "definitionFit": "An earner — as in 'a nice little earner' — is British slang for an activity that brings money in, matching the clue's noun phrase."
+   }
   },
   {
    "id": "4-down",
@@ -109,7 +200,34 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "CANDOATTITUDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CAN-DO ATTITUDE",
+    "definition": "focus on achievement",
+    "indicators": [
+     "Excitedly"
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "anagram": {
+     "fodder": "TOUT CANDIDATE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tout candidate",
+      "gives": "TOUTCANDIDATE",
+      "note": "anagram fodder, 13 letters"
+     },
+     {
+      "clueFragment": "Excitedly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The electioneering surface — someone excitedly touting a candidate — supplies every letter, and 'excitedly' is the word that shakes them up.",
+    "definitionFit": "A can-do attitude is an optimistic readiness to get things done, so it is a mindset focused on achieving — noun phrase for noun phrase."
+   }
   },
   {
    "id": "5-across",
@@ -126,7 +244,29 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNIPES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SNIPES",
+    "definition": "Has a go at",
+    "definition2": "birds",
+    "linkWords": [
+     "finding these"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Has a go at",
+      "gives": "SNIPES",
+      "note": "to snipe at someone is to have a go at them — potshots from cover"
+     },
+     {
+      "clueFragment": "birds",
+      "gives": "SNIPES",
+      "note": "snipe are long-billed wading birds"
+     }
+    ],
+    "walkthrough": "Split before 'finding': a verb about criticism on one side, a wading bird on the other.",
+    "definitionFit": "To snipe at someone is to have a go at them, and snipes are long-billed wading birds — a verb and a plural noun sharing one spelling."
+   }
   },
   {
    "id": "6-down",
@@ -147,7 +287,39 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "NEWDELHI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "NEW DELHI",
+    "definition": "Capital",
+    "indicators": [
+     "invested in"
+    ],
+    "pieces": [
+     "NEW",
+     "DEL",
+     "H",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "Hotel is the NATO codeword for H"
+     },
+     {
+      "clueFragment": "fresh",
+      "gives": "NEW",
+      "note": "fresh = new"
+     },
+     {
+      "clueFragment": "food store",
+      "gives": "DELI",
+      "note": "a delicatessen — it takes the H in"
+     }
+    ],
+    "walkthrough": "'Invested in' is the container signal: the H is deposited inside the DELI, with NEW in front. A second NATO codeword in one corner of the grid.",
+    "definitionFit": "New Delhi is the capital of India, so the single word 'capital' defines it by example."
+   }
   },
   {
    "id": "7-down",
@@ -164,7 +336,29 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEDESTRIAN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PEDESTRIAN",
+    "definition": "Kind of crossing",
+    "definition2": "slow and boring",
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of crossing",
+      "gives": "PEDESTRIAN",
+      "note": "a pedestrian crossing — the walkers' kind"
+     },
+     {
+      "clueFragment": "slow and boring",
+      "gives": "PEDESTRIAN",
+      "note": "pedestrian prose is plodding and dull"
+     }
+    ],
+    "walkthrough": "Split at 'that’s': the road-safety sense on one side, the sniffy adjective on the other.",
+    "definitionFit": "A pedestrian crossing is the road crossing made for walkers, while pedestrian as an adjective means plodding and uninspired — 'slow and boring'."
+   }
   },
   {
    "id": "8-down",
@@ -185,7 +379,37 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "STRONGSUIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STRONG SUIT",
+    "definition": "one’s best feature",
+    "linkWords": [
+     "It may be"
+    ],
+    "pieces": [
+     "STRONG",
+     "SUIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Healthy",
+      "gives": "STRONG",
+      "note": "healthy = strong, in rude health"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "",
+      "note": "surface glue joining the two pieces"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "SUIT",
+      "note": "a verb: clothes that suit you fit you"
+     }
+    ],
+    "walkthrough": "'Fit' is the trap — paired with 'healthy' it looks like the same idea twice, but it is the tailoring verb SUIT. The question mark flags the playful definition.",
+    "definitionFit": "From cards, where your strong suit holds your best cards: figuratively it is the thing you do best — your best feature."
+   }
   },
   {
    "id": "9-across",
@@ -202,7 +426,43 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRAGRANCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "FRAGRANCE",
+    "definition": "bouquet",
+    "indicators": [
+     "Silly",
+     "about"
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "FRA",
+     "GRAN",
+     "CE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FARCE",
+      "gives": "FRACE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farce",
+      "gives": "FRACE",
+      "note": "'silly' shuffles it, and it opens around GRAN"
+     },
+     {
+      "clueFragment": "elderly relative",
+      "gives": "GRAN",
+      "note": "grandmother, tucked inside the shaken FARCE"
+     }
+    ],
+    "walkthrough": "The jumbled FARCE opens up to admit GRAN — 'about' says the farce goes around her. 'Bouquet' is the wine-taster's word for a scent.",
+    "definitionFit": "A fragrance is a pleasant smell, and bouquet is exactly that — the scent of a wine or a bunch of flowers — noun for noun."
+   }
   },
   {
    "id": "10-down",
@@ -223,7 +483,31 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "ENDURANCETEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENDURANCE TEST",
+    "definition": "long difficult trial",
+    "indicators": [
+     "Misplaced"
+    ],
+    "anagram": {
+     "fodder": "UTTERANCES END"
+    },
+    "blocks": [
+     {
+      "clueFragment": "utterances end",
+      "gives": "UTTERANCESEND",
+      "note": "anagram fodder, 13 letters"
+     },
+     {
+      "clueFragment": "Misplaced",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Misplaced' opens the clue looking like a comment on the utterances; it is the instruction to rearrange them.",
+    "definitionFit": "An endurance test is a prolonged trial of stamina — 'long' and 'difficult' each earn their place in the definition."
+   }
   },
   {
    "id": "11-across",
@@ -240,7 +524,30 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WIDER",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "WIDER",
+    "definition": "More extensive",
+    "indicators": [
+     "initially"
+    ],
+    "pieces": [
+     "W",
+     "I",
+     "D",
+     "E",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work involved designing employment rules",
+      "gives": "WIDER",
+      "note": "the first letters of the five words"
+     }
+    ],
+    "walkthrough": "'Initially' governs the whole run of five words, and the office-jargon surface keeps them looking innocent.",
+    "definitionFit": "Wider means more extensive — a wider search covers more ground — comparative matching comparative."
+   }
   },
   {
    "id": "12-across",
@@ -261,7 +568,29 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "SECONDSEASON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SECOND SEASON",
+    "definition": "Summer",
+    "definition2": "what new TV shows look forward to",
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Summer",
+      "gives": "SECONDSEASON",
+      "note": "of the year's four seasons, spring is first and summer second"
+     },
+     {
+      "clueFragment": "what new TV shows look forward to",
+      "gives": "SECONDSEASON",
+      "note": "a new show's hope: renewal for a second season"
+     }
+    ],
+    "walkthrough": "The exclamation mark admits the whimsy: neither half is a dictionary definition, but both point squarely at the answer.",
+    "definitionFit": "Summer is literally the year's second season, after spring; and a freshly launched TV show hopes for renewal — its second season."
+   }
   },
   {
    "id": "13-down",
@@ -278,7 +607,32 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAGNATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STAGNATION",
+    "definition": "lack of progress",
+    "linkWords": [
+     "showing"
+    ],
+    "pieces": [
+     "STAG",
+     "NATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men-only",
+      "gives": "STAG",
+      "note": "a stag do is a men-only party"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "NATION",
+      "note": "a race = a nation, a people"
+     }
+    ],
+    "walkthrough": "The surface conjures a strange sporting event, but 'race' is the peoples sense, and the men-only affair is a stag night.",
+    "definitionFit": "Stagnation is the state of standing still — water that no longer flows — so as a state of affairs it is a lack of progress."
+   }
   },
   {
    "id": "14-down",
@@ -299,7 +653,29 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEADYHAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STEADY HAND",
+    "definition": "one unlikely to get flustered",
+    "pieces": [
+     "STEADY",
+     "HAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stable",
+      "gives": "STEADY",
+      "note": "stable = steady, firm"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand = a worker, as in farmhand"
+     }
+    ],
+    "walkthrough": "The joke is that a 'stable worker' could literally be a stable hand — the same two crossword staples read as one job.",
+    "definitionFit": "A steady hand is the person who stays calm when things wobble — the idiom names exactly the unflappable character the definition describes."
+   }
   },
   {
    "id": "15-across",
@@ -316,7 +692,36 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TUTS",
+    "definition": "Complains",
+    "indicators": [
+     "empty",
+     "by"
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "pieces": [
+     "TU",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "threats",
+      "gives": "TS",
+      "note": "'empty' strips out the middle, leaving the outer T and S"
+     },
+     {
+      "clueFragment": "workers group",
+      "gives": "TU",
+      "note": "TU = trade union"
+     }
+    ],
+    "walkthrough": "'By' just sets the pieces side by side, with the union first even though the clue names it last. Tutting is that little click of the tongue in disapproval.",
+    "definitionFit": "To tut is to make the clicking sound of disapproval — someone who tuts at a thing complains about it — third person matching 'complains'."
+   }
   },
   {
    "id": "16-across",
@@ -337,7 +742,33 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "STARCHARTS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STAR CHARTS",
+    "definition": "sources of astronomical data",
+    "indicators": [
+     "repository for"
+    ],
+    "pieces": [
+     "STAR",
+     "CHAR",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Establishes",
+      "gives": "STARTS",
+      "note": "establishes = starts (a business, say) — it opens around CHAR"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "CHAR",
+      "note": "a char — charwoman — is 'a daily', the old word for a cleaner who comes each day"
+     }
+    ],
+    "walkthrough": "'Repository for' makes STARTS the container holding CHAR. 'Daily' for a charwoman is vintage British usage, and a favourite way to smuggle in CHAR.",
+    "definitionFit": "Star charts are maps of the night sky — the astronomer's working documents — so they are sources of astronomical data, plural for plural."
+   }
   },
   {
    "id": "17-down",
@@ -354,7 +785,42 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADMIRERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ADMIRERS",
+    "definition": "lovers",
+    "indicators": [
+     "concealing"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "A",
+     "D",
+     "MIRE",
+     "RS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "stands as itself"
+     },
+     {
+      "clueFragment": "doctor’s",
+      "gives": "DRS",
+      "note": "DR plus the ’s — it wraps round MIRE"
+     },
+     {
+      "clueFragment": "soft spot",
+      "gives": "MIRE",
+      "note": "a mire is literally a soft spot — boggy ground"
+     }
+    ],
+    "walkthrough": "'Soft spot' is the trap: it means literal soft ground, MIRE, which the doctor conceals. The affection sense of 'soft spot' belongs to the answer instead.",
+    "definitionFit": "Admirers are people romantically taken with someone — secret admirers, suitors — so 'lovers' fits, plural to plural."
+   }
   },
   {
    "id": "18-across",
@@ -375,7 +841,34 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "GRANDPIANO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GRAND PIANO",
+    "definition": "Instrument",
+    "indicators": [
+     "ground"
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "anagram": {
+     "fodder": "ON PARADING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "on parading",
+      "gives": "ONPARADING",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "",
+      "note": "anagram indicator — ground as in milled, the past tense of grind"
+     }
+    ],
+    "walkthrough": "'Ground' looks like the parade ground it sits next to, but it is the past tense of grind — the letters of 'on parading' are milled into the answer.",
+    "definitionFit": "A grand piano is a concert-hall musical instrument, so the generic 'instrument' defines it by class — the broad word for the specific keyboard."
+   }
   },
   {
    "id": "19-across",
@@ -392,7 +885,29 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAXI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TAXI",
+    "definition": "means of transport",
+    "pieces": [
+     "TAX",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test",
+      "gives": "TAX",
+      "note": "to tax is to test or strain — 'taxing questions'"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     }
+    ],
+    "walkthrough": "'Test' is a verb here — a heavy load taxes your strength — and physics lends the I.",
+    "definitionFit": "A taxi is a car for hire — a means of transport in the most literal sense, the generic phrase defining a specific vehicle."
+   }
   },
   {
    "id": "20-down",
@@ -413,7 +928,42 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "PONYUP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PONY UP",
+    "definition": "Pay",
+    "indicators": [
+     "to take on"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "PO",
+     "NY",
+     "U",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "POP",
+      "note": "pop = father — he opens up to take the letters in"
+     },
+     {
+      "clueFragment": "big city",
+      "gives": "NY",
+      "note": "NY = New York"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U = university, as in degree listings"
+     }
+    ],
+    "walkthrough": "POP 'takes on' — swallows — New York and its U; read together the insides are NYU, the famous university. To pony up is American slang for settling what you owe.",
+    "definitionFit": "To pony up is informal American English for handing over money owed — 'pony up the cash' — so it means pay, verb for verb."
+   }
   },
   {
    "id": "21-across",
@@ -435,7 +985,35 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANYMINUTENOW",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANY MINUTE NOW",
+    "definition": "imminent",
+    "definitionNote": "ANY MINUTE NOW is an adverbial phrase while 'imminent' is an adjective, but after 'is' they fill the same slot: the announcement is imminent / any minute now.",
+    "indicators": [
+     "reshuffle"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "NEW MUTINY ON A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "New mutiny on a",
+      "gives": "NEWMUTINYONA",
+      "note": "anagram fodder, 12 letters"
+     },
+     {
+      "clueFragment": "reshuffle",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "A perfectly political surface — mutiny brewing, a reshuffle coming — with the indicator posing as a noun at the end of the fodder.",
+    "definitionFit": "'Any minute now' is the idiom for something on the very point of happening, which is what 'imminent' means."
+   }
   },
   {
    "id": "22-down",
@@ -452,7 +1030,35 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LION",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "LION",
+    "definition": "Predator",
+    "indicators": [
+     "only half of"
+    ],
+    "linkWords": [
+     "consumes"
+    ],
+    "pieces": [
+     "LI",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "LI",
+      "note": "the front half of LIve"
+     },
+     {
+      "clueFragment": "ones",
+      "gives": "ON",
+      "note": "the front half of ONes"
+     }
+    ],
+    "walkthrough": "'Only half of' applies to each word in turn, keeping the front of both — and the predator doing the consuming in the surface is the answer itself.",
+    "definitionFit": "A lion is a big-cat predator — a definition by example, since 'predator' covers many hunters and the surface even shows it feeding."
+   }
   },
   {
    "id": "23-down",
@@ -469,7 +1075,32 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "METH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "METH",
+    "definition": "drug",
+    "linkWords": [
+     "to get"
+    ],
+    "pieces": [
+     "MET",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ran into",
+      "gives": "MET",
+      "note": "met = ran into, encountered"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H = hospital, as on road signs"
+     }
+    ],
+    "walkthrough": "'Ran into' is the past tense MET, and the road-sign H completes the street name for methamphetamine.",
+    "definitionFit": "Meth is the street shortening of methamphetamine, so the generic 'drug' defines it as class to instance."
+   }
   },
   {
    "id": "24-across",
@@ -486,7 +1117,33 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMAGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "IMAGE",
+    "definition": "Icon",
+    "indicators": [
+     "featured on outside of"
+    ],
+    "pieces": [
+     "I",
+     "MAG",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. = that is — its two letters split to the two ends"
+     },
+     {
+      "clueFragment": "journal",
+      "gives": "MAG",
+      "note": "a mag — magazine — is a journal"
+     }
+    ],
+    "walkthrough": "This container works outside-in: IE goes 'on the outside of' MAG, one letter at each end.",
+    "definitionFit": "An icon — on a screen or in a church — is a small picture, and an image is a picture: noun for noun, the visual sense of both."
+   }
   },
   {
    "id": "25-across",
@@ -507,7 +1164,24 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "EVERYTIME",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "EVERY TIME",
+    "definition": "consistently",
+    "indicators": [
+     "Reverse",
+     "part of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremity revealed",
+      "gives": "EVERYTIME",
+      "note": "read backwards inside: extrEMITY REVEaled"
+     }
+    ],
+    "walkthrough": "A hidden answer running right to left across the join of two words — 'reverse' gives the direction, 'part of' says it is buried.",
+    "definitionFit": "'Every time' means on each occasion without fail — he wins every time / he wins consistently — an adverbial phrase matching the adverb."
+   }
   },
   {
    "id": "26-across",
@@ -524,7 +1198,26 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUDISM",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "NUDISM",
+    "definition": "Philosophy advocating a stripped-down life?",
+    "walkthrough": "'Stripped-down' usually means pared back to essentials; here it is literal — a life with no clothes on. The question mark signals the pun.",
+    "definitionFit": "Nudism is the practice — its followers would say philosophy — of living unclothed, so 'a stripped-down life' describes it both literally and punningly.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "stripped-down life",
+      "gives": "",
+      "note": "literally a life with the clothes stripped off"
+     },
+     {
+      "clueFragment": "Philosophy advocating",
+      "gives": "",
+      "note": "the -ISM ending: a doctrine with advocates"
+     }
+    ]
+   }
   },
   {
    "id": "27-across",
@@ -546,7 +1239,38 @@ window.CRYPTIC_PUZZLES["1389"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATAPINCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AT A PINCH",
+    "definition": "If necessary",
+    "indicators": [
+     "after"
+    ],
+    "pieces": [
+     "A",
+     "TAP",
+     "INCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "stands as itself"
+     },
+     {
+      "clueFragment": "knock",
+      "gives": "TAP",
+      "note": "a tap is a light knock"
+     },
+     {
+      "clueFragment": "move slowly",
+      "gives": "INCH",
+      "note": "to inch along is to move slowly"
+     }
+    ],
+    "walkthrough": "'After' reverses the clue's order: INCH goes behind A TAP. The definition is the whole phrase 'if necessary', not just 'if'.",
+    "definitionFit": "'At a pinch' is the British idiom for 'if absolutely necessary' — both slot into a sentence the same way: it will do at a pinch."
+   }
   }
  ]
 } /*JSON-END*/;
