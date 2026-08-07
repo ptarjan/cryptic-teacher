@@ -30,7 +30,29 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LISTERIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LISTERIA",
+    "definition": "Bacterium",
+    "indicators": [
+     "rum"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "real, is it",
+      "gives": "REAL IS IT",
+      "note": "the eight anagram letters, posing as the setter's own doubt"
+     }
+    ],
+    "anagram": {
+     "fodder": "REAL IS IT"
+    },
+    "walkthrough": "'Rum' means odd or strange — a classic anagram signal — and the mock-hesitant 'is it?' is not doubt but fodder.",
+    "definitionFit": "Listeria is the food-poisoning bacterium named after the pioneering surgeon Joseph Lister."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +69,35 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AGAR",
+    "definition": "Setter",
+    "indicators": [
+     "that’s short"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article supplies its own letter"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "GAR",
+      "note": "a dress is GARB; 'that's short' cuts off the final letter"
+     }
+    ],
+    "pieces": [
+     "A",
+     "GAR"
+    ],
+    "walkthrough": "The surface dangles a crossword setter in a frock; the real setter works in the kitchen.",
+    "definitionFit": "Agar is the seaweed-derived gelling agent that makes jellies set — a 'setter' in the culinary sense."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +114,36 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STUMPY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STUMPY",
+    "definition": "squat",
+    "indicators": [
+     "squeezed by"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belly",
+      "gives": "TUM",
+      "note": "your tum is your belly"
+     },
+     {
+      "clueFragment": "fifth columnist",
+      "gives": "SPY",
+      "note": "a fifth columnist is an enemy agent working within — a spy"
+     }
+    ],
+    "pieces": [
+     "S",
+     "TUM",
+     "PY"
+    ],
+    "walkthrough": "TUM sits inside SPY, just as 'squeezed by' promises — the fifth columnist has the belly surrounded.",
+    "definitionFit": "Squat and stumpy both describe a short, thick-set build — everyday synonyms, both adjectives."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +160,23 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNKNOWN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "UNKNOWN",
+    "definition": "Nobody",
+    "indicators": [
+     "drinks"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk now nobody",
+      "gives": "UNKNOWN",
+      "note": "the answer runs straight across all three words: drUNK NOW Nobody"
+     }
+    ],
+    "walkthrough": "'Drinks' pictures the phrase swallowing the answer whole — a hidden word stretched across three words of a strangely teetotal scene.",
+    "definitionFit": "An unknown is a person the public has never heard of — just what we mean by a nobody."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +193,43 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COVERLET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "COVERLET",
+    "definition": "warmer at night?",
+    "indicators": [
+     "Activation of",
+     "in"
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lever",
+      "gives": "VERLE",
+      "note": "'activation of' sets the lever's letters moving"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a bed — it wraps around the shuffled lever"
+     }
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "LEVER",
+      "gives": "VERLE"
+     }
+    ],
+    "pieces": [
+     "CO",
+     "VERLE",
+     "T"
+    ],
+    "walkthrough": "An anagram tucked inside a container: the activated LEVER climbs into the COT. The question mark excuses the playful definition.",
+    "definitionFit": "A coverlet is a bedspread — the top layer that keeps a sleeper warm through the night."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +250,26 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ]
    },
    "solution": "SECONDBEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SECOND-BEST",
+    "definition": "Inferior",
+    "indicators": [
+     "after training"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss, decent",
+      "gives": "BOSS DECENT",
+      "note": "the ten anagram letters"
+     }
+    ],
+    "anagram": {
+     "fodder": "BOSS DECENT"
+    },
+    "walkthrough": "'After training' does the rearranging — the boss emerges decent, but still only second-best.",
+    "definitionFit": "Something second-best is by definition not quite the best, and so inferior to it — an adjective, as in 'a second-best effort'."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +286,33 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAWAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "GAWAIN",
+    "definition": "Knight",
+    "indicators": [
+     "originally",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guzzling absinthe",
+      "gives": "GA",
+      "note": "'originally' takes just the two initial letters"
+     },
+     {
+      "clueFragment": "the wagon",
+      "gives": "WAIN",
+      "note": "a wain is an old word for a farm wagon"
+     }
+    ],
+    "pieces": [
+     "GA",
+     "WAIN"
+    ],
+    "walkthrough": "In a down entry 'on' stacks GA on top of WAIN — and a knight 'on the wagon' should certainly guzzle no absinthe.",
+    "definitionFit": "Sir Gawain was one of King Arthur's knights of the Round Table, hero of 'Sir Gawain and the Green Knight'."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +329,29 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KINGSTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KINGSTON",
+    "definition": "somewhere in 15",
+    "blocks": [
+     {
+      "clueFragment": "More than one man",
+      "gives": "KINGS",
+      "note": "chess and draughts call their pieces men, and kings are the grandest of them"
+     },
+     {
+      "clueFragment": "mountain",
+      "gives": "TON",
+      "note": "informally, a mountain of work is a ton of it"
+     }
+    ],
+    "pieces": [
+     "KINGS",
+     "TON"
+    ],
+    "walkthrough": "Paul splits the phrase 'man mountain' in two and clues each half separately — the misdirection is in the join.",
+    "definitionFit": "Kingston is Jamaica's capital city, so it sits on the island that 15 across names."
+   }
   },
   {
    "id": "9-across",
@@ -175,7 +373,43 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ]
    },
    "solution": "OPERA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OPERA STAR",
+    "coversGroup": true,
+    "definition": "Willard White, perhaps",
+    "indicators": [
+     "breaks through"
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis"
+     },
+     {
+      "clueFragment": "prayer in 15",
+      "gives": "RASTA",
+      "note": "a Rastafarian — Jamaica's man of prayer"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "PER",
+      "note": "as in 'per head' = 'for each' — even this little word is wordplay"
+     }
+    ],
+    "pieces": [
+     "O",
+     "PE",
+     "RASTA",
+     "R"
+    ],
+    "walkthrough": "RASTA bursts through the middle of PER, with O in front — Paul turns even the innocent 'for' into building material.",
+    "definitionFit": "Sir Willard White is the Jamaican-born operatic bass — 'perhaps' flags him as one example of an opera star."
+   }
   },
   {
    "id": "10-across",
@@ -195,7 +429,9 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "STAR",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "9-across"
+   }
   },
   {
    "id": "11-across",
@@ -216,7 +452,47 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ]
    },
    "solution": "MONTEGOBAY",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "MONTEGO BAY",
+    "definition": "somewhere in 15",
+    "indicators": [
+     "catches",
+     "wandering",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Python",
+      "gives": "MONTY",
+      "note": "Monty Python — the comedy troupe, not the snake"
+     },
+     {
+      "clueFragment": "boa",
+      "gives": "OBA",
+      "note": "the snake that really is here, sent 'wandering'"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "'say' = for example = e.g."
+     }
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BOA",
+      "gives": "OBA"
+     }
+    ],
+    "pieces": [
+     "MONT",
+     "EG",
+     "OBA",
+     "Y"
+    ],
+    "walkthrough": "The joke is that the Python isn't the reptile: MONTY catches EG with the wandering boa inside.",
+    "definitionFit": "Montego Bay is Jamaica's famous resort city on the north coast — another somewhere on the island of 15."
+   }
   },
   {
    "id": "12-across",
@@ -233,7 +509,44 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TROPHY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + last letter",
+    "answer": "TROPHY",
+    "definition": "something for the winner?",
+    "indicators": [
+     "turns",
+     "approaching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H = hard, as on pencils"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "the nautical left"
+     },
+     {
+      "clueFragment": "end of rally",
+      "gives": "Y",
+      "note": "'end of' takes the last letter of 'rally'"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "H PORT",
+      "to": "TROPH"
+     }
+    ],
+    "pieces": [
+     "TROPH",
+     "Y"
+    ],
+    "walkthrough": "'Turns' spins the whole of H + PORT round in one go before it meets the tail of 'rally'.",
+    "definitionFit": "A trophy is the silverware handed to whoever wins — the question mark winks at the rally-driving surface."
+   }
   },
   {
    "id": "13-down",
@@ -254,7 +567,40 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLASTICBAG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "PLASTIC BAG",
+    "definition": "lightweight item",
+    "indicators": [
+     "concluding",
+     "featuring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thing",
+      "gives": "BAG",
+      "note": "slang: your bag is your thing, as in 'not my bag'"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "PIC",
+      "note": "a pic is a picture — a film"
+     },
+     {
+      "clueFragment": "final",
+      "gives": "LAST",
+      "note": "this is what PIC 'features' — LAST goes inside"
+     }
+    ],
+    "pieces": [
+     "P",
+     "LAST",
+     "IC",
+     "BAG"
+    ],
+    "walkthrough": "'Concluding' is positional: the thing brings up the rear, after PIC has swallowed LAST.",
+    "definitionFit": "A plastic bag weighs next to nothing — a literally lightweight item, whatever the surface's talk of closing credits."
+   }
   },
   {
    "id": "14-across",
@@ -275,7 +621,29 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ]
    },
    "solution": "WELLDONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WELL DONE",
+    "definition": "Hats off",
+    "blocks": [
+     {
+      "clueFragment": "supply",
+      "gives": "WELL",
+      "note": "a well is a source or supply, as in 'a well of sympathy'"
+     },
+     {
+      "clueFragment": "a wrap",
+      "gives": "DONE",
+      "note": "film-set slang: 'that's a wrap' means it's finished — done"
+     }
+    ],
+    "pieces": [
+     "WELL",
+     "DONE"
+    ],
+    "walkthrough": "Read 'supply' as a noun and 'a wrap' as the end of filming, and the congratulation assembles itself.",
+    "definitionFit": "'Well done!' and 'hats off!' are both exclamations congratulating someone on a job admirably completed."
+   }
   },
   {
    "id": "15-across",
@@ -292,7 +660,26 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JAMAICA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "JAMAICA",
+    "definition": "country",
+    "indicators": [
+     "to speak"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was she not given a choice",
+      "gives": "JA MAKE ’ER",
+      "note": "said aloud, 'ja make 'er?' asks whether she was forced to go"
+     }
+    ],
+    "walkthrough": "The old music-hall gag: 'My wife's gone to the West Indies.' 'Jamaica?' 'No, she went of her own accord.'",
+    "definitionFit": "Jamaica is the Caribbean island country the whole puzzle keeps returning to — the plain geographical definition."
+   }
   },
   {
    "id": "16-down",
@@ -309,7 +696,34 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIPMUNK",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CHIPMUNK",
+    "definition": "Rodent",
+    "indicators": [
+     "taking",
+     "around"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wodge",
+      "gives": "CHUNK",
+      "note": "a wodge is a thick lump — a chunk"
+     },
+     {
+      "clueFragment": "lunchtime?",
+      "gives": "IPM",
+      "note": "1pm, with a Roman numeral I standing for the 1"
+     }
+    ],
+    "pieces": [
+     "CH",
+     "IPM",
+     "UNK"
+    ],
+    "walkthrough": "'Lunchtime?' is 1pm — written with a Roman I — a lovely bit of setter's sleight of hand.",
+    "definitionFit": "A chipmunk is the small striped North American ground squirrel — a rodent, plainly defined."
+   }
   },
   {
    "id": "17-across",
@@ -326,7 +740,23 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STREWTH",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "STREWTH",
+    "definition": "Oath",
+    "indicators": [
+     "would Aussie say?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "’s not a pretence",
+      "gives": "’S TRUTH",
+      "note": "what is no pretence is the truth — ''s truth', short for 'God's truth'"
+     }
+    ],
+    "walkthrough": "'Strewth' contracts 'God's truth', and the truth is exactly what a pretence is not.",
+    "definitionFit": "Strewth is a mild exclamation of surprise — an oath in the swearing sense, stereotypically heard from Australians."
+   }
   },
   {
    "id": "18-down",
@@ -343,7 +773,24 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIFLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TRIFLING",
+    "definition": "Frivolous",
+    "blocks": [
+     {
+      "clueFragment": "throw, cast and pitch?",
+      "gives": "TRIFLING",
+      "note": "three ways of saying FLING — so, a tri-FLING"
+     }
+    ],
+    "pieces": [
+     "TRI",
+     "FLING"
+    ],
+    "walkthrough": "Count the synonyms: throw, cast and pitch are three flings, and the question mark admits the cheek.",
+    "definitionFit": "Trifling means trivial, of no consequence — 'a trifling sum' is a frivolous one; both words are adjectives."
+   }
   },
   {
    "id": "19-down",
@@ -360,7 +807,42 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHUKKAS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "CHUKKAS",
+    "definition": "Periods on horseback",
+    "indicators": [
+     "into"
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "UK",
+      "note": "the United Kingdom"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K = king, as in chess notation"
+     },
+     {
+      "clueFragment": "himself",
+      "gives": "CHAS",
+      "note": "Chas, short for Charles — the British king himself"
+     }
+    ],
+    "pieces": [
+     "CH",
+     "UK",
+     "K",
+     "AS"
+    ],
+    "walkthrough": "The joke: UK and K spell 'British king', and they sit inside CHAS — Charles, the British king in person.",
+    "definitionFit": "A chukka is one of the timed periods a polo match is divided into — and polo is played on horseback."
+   }
   },
   {
    "id": "20-across",
@@ -380,7 +862,9 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "SALTFISH",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "26-across"
+   }
   },
   {
    "id": "21-down",
@@ -397,7 +881,35 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABACUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ABACUS",
+    "definition": "Counter",
+    "indicators": [
+     "denied"
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a god",
+      "gives": "A BACCHUS",
+      "note": "A, then Bacchus, the Roman god of wine"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "the abbreviation that 'denied' strips out of Bacchus"
+     }
+    ],
+    "pieces": [
+     "A",
+     "BACUS"
+    ],
+    "walkthrough": "Bacchus loses his CH — denied church — and what remains counts beads, not blessings.",
+    "definitionFit": "An abacus is the bead-frame used for counting — a counter in the calculating sense, not a shop's."
+   }
   },
   {
    "id": "22-across",
@@ -414,7 +926,38 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATOIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PATOIS",
+    "definition": "15 by the sound of it?",
+    "linkWords": [
+     "’s taken"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "your old man is your pa"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "supplies its own letters"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "the standard map abbreviation"
+     }
+    ],
+    "pieces": [
+     "PA",
+     "TO",
+     "IS"
+    ],
+    "walkthrough": "PA is packed off: 'to' gives itself and 'island' shrinks to IS — a gentle build under a lovely definition.",
+    "definitionFit": "Patois is Jamaican creole — what 15 across sounds like when it speaks, hence '15 by the sound of it'."
+   }
   },
   {
    "id": "22-down",
@@ -431,7 +974,33 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERUKE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PERUKE",
+    "definition": "wig",
+    "indicators": [
+     "snatches"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ralph",
+      "gives": "PUKE",
+      "note": "to ralph is slang for to vomit — to puke"
+     },
+     {
+      "clueFragment": "‘er",
+      "gives": "ER",
+      "note": "'her' with the aitch dropped"
+     }
+    ],
+    "pieces": [
+     "P",
+     "ER",
+     "UKE"
+    ],
+    "walkthrough": "Not a man's name at all: 'ralph' is slang for being sick, and PUKE grabs the dropped-aitch 'er.",
+    "definitionFit": "A peruke is the long powdered wig worn in the 17th and 18th centuries — a period word for a hairpiece."
+   }
   },
   {
    "id": "23-across",
@@ -448,7 +1017,32 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATCHMAKER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MATCHMAKER",
+    "definition": "Cupid",
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One struck",
+      "gives": "MATCH",
+      "note": "a match is something you strike"
+     },
+     {
+      "clueFragment": "god",
+      "gives": "MAKER",
+      "note": "the Maker — God as creator"
+     }
+    ],
+    "pieces": [
+     "MATCH",
+     "MAKER"
+    ],
+    "walkthrough": "'One struck by god' sounds like a thunderbolt victim; really it is a struck match beside the Maker.",
+    "definitionFit": "Cupid, whose arrows pair lovers off, is the archetypal matchmaker — a definition by example from myth."
+   }
   },
   {
    "id": "24-across",
@@ -468,7 +1062,9 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "BOLT",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "25-across"
+   }
   },
   {
    "id": "24-down",
@@ -485,7 +1081,26 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEEF",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BEEF",
+    "definition": "Bellyache",
+    "definition2": "something in 15’s patty?",
+    "blocks": [
+     {
+      "clueFragment": "Bellyache",
+      "gives": "BEEF",
+      "note": "to bellyache is to gripe — to beef"
+     },
+     {
+      "clueFragment": "something in 15’s patty?",
+      "gives": "BEEF",
+      "note": "the meat inside a Jamaican beef patty"
+     }
+    ],
+    "walkthrough": "Two meanings split by the dash: the grumble, and the filling of Jamaica's best-loved pastry.",
+    "definitionFit": "To beef is to gripe or bellyache, while beef is also the spiced meat that fills a Jamaican patty."
+   }
   },
   {
    "id": "25-across",
@@ -507,7 +1122,39 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ]
    },
    "solution": "USAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "USAIN BOLT",
+    "coversGroup": true,
+    "definition": "Favourite from 15",
+    "indicators": [
+     "past"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "used just as it stands"
+     },
+     {
+      "clueFragment": "sprint",
+      "gives": "BOLT",
+      "note": "to sprint is to bolt"
+     },
+     {
+      "clueFragment": "team featuring Gatlin, Gay etc?",
+      "gives": "USA",
+      "note": "Justin Gatlin and Tyson Gay sprinted for the United States"
+     }
+    ],
+    "pieces": [
+     "USA",
+     "IN",
+     "BOLT"
+    ],
+    "walkthrough": "Gatlin and Gay were Bolt's great American rivals — here reduced to the team he sprints past.",
+    "definitionFit": "Usain Bolt, the fastest sprinter in history, is Jamaica's national hero — the island's favourite son."
+   }
   },
   {
    "id": "26-across",
@@ -530,7 +1177,32 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ]
    },
    "solution": "ACKEEAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ACKEE AND SALTFISH",
+    "coversGroup": true,
+    "definition": "dish from 15",
+    "indicators": [
+     "fantastic"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the first of the sixteen anagram letters"
+     },
+     {
+      "clueFragment": "island chef takes",
+      "gives": "ISLAND CHEF TAKES",
+      "note": "the rest of the fodder for 'fantastic' to cook up"
+     }
+    ],
+    "anagram": {
+     "fodder": "A ISLAND CHEF TAKES"
+    },
+    "walkthrough": "'Fantastic' cooks all sixteen letters at once — a whole island chef goes into the pot for Jamaica's national dish.",
+    "definitionFit": "Ackee and saltfish — buttery ackee fruit scrambled with salted cod — is Jamaica's beloved national dish."
+   }
   }
  ]
 } /*JSON-END*/;
