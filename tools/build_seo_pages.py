@@ -43,6 +43,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
+from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -59,6 +60,17 @@ NAV_END = "<!-- SEO-NAV-END -->"
 
 def esc(s):
     return html.escape(str(s or ""), quote=True)
+
+
+def asset(rel):
+    """An absolute, content-stamped URL for one of our own static files.
+
+    Never write these out by hand. og.png was linked bare for a month; when the
+    card's grid was redrawn the URL stayed identical, so every service that had
+    already unfurled the site kept showing the old picture. The hash in the URL
+    is what makes a corrected image reach someone who saw the wrong one.
+    """
+    return esc(asset_url(rel, BASE + "/"))
 
 
 # Setters italicise titles and foreign words, and both the Guardian and the
@@ -168,17 +180,17 @@ def head(title, description, canonical, extra=""):
 <link rel="canonical" href="{esc(canonical)}">
 <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="{esc(BASE)}/favicon.ico" sizes="32x32">
-<link rel="icon" href="{esc(BASE)}/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="{esc(BASE)}/apple-touch-icon.png">
+<link rel="icon" href="{asset("favicon.ico")}" sizes="32x32">
+<link rel="icon" href="{asset("favicon.svg")}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{asset("apple-touch-icon.png")}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Cryptic Teacher">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{esc(canonical)}">
-<meta property="og:image" content="{esc(BASE)}/og.png">
+<meta property="og:image" content="{asset("og.png")}">
 <meta name="twitter:card" content="summary_large_image">
-{extra}<link rel="stylesheet" href="{esc(BASE)}/style.css">
+{extra}<link rel="stylesheet" href="{asset("style.css")}">
 </head>
 <body class="static-page">
 """

@@ -158,6 +158,14 @@ python3 tools/build_seo_pages.py
 # to reflect the file as it finally stands.
 python3 tools/stamp_assets.py
 
+# And prove every page's asset URLs carry their content hash. An unstamped
+# reference isn't a broken page — it looks perfect locally — it's a fix that
+# never reaches anyone whose browser, or whose chat app's link unfurler, still
+# holds the old bytes. That is precisely how a corrected social card went on
+# showing an impossible grid, so it gets shouted about rather than logged.
+python3 tools/stamp_assets.py --check ||
+  alert "unstamped asset URLs are shipping — caches will keep serving the old file. See the UNSTAMPED lines in .update.log."
+
 # Boot the app against tonight's data. Nothing else ever runs this, which is how
 # it came to sit broken for weeks: it had hard-coded one puzzle's answers, so it
 # started failing the day the app stopped booting on that puzzle and nobody was
