@@ -436,6 +436,18 @@ all 55:
   `check()` — 180-degree symmetry, no run of exactly two, every white square
   connected — which refuses to write the file if they fail. A run of ONE is
   fine: that is an unchecked square inside the perpendicular light.
+- **Changing a file's bytes means changing its URL** (feedback 2026-08-06: "the
+  image still isn't a valid cryptic" — a week after the impossible grid above was
+  replaced with a real one). The new card was correct on disk and correct on the
+  server; what people saw was Discord's unfurl, cached against `og.png`, a URL
+  that had not moved. Browsers you can tell to hard-refresh; a chat app's link
+  cache you cannot, so the only lever is a URL it has never seen. Every static
+  file referenced by a page — `og.png` and the icons included, not just CSS and
+  JS — carries `?v=<content hash>`: `asset()` in `tools/build_seo_pages.py` for
+  generated pages, `tools/stamp_assets.py` for the hand-written homepage, and
+  `stamp_assets.py --check` sweeps all 70 pages and fails the nightly run on a
+  bare reference. Note what this does NOT fix: caches still holding the old URL.
+  Re-share the link to force a refetch, and expect a day's lag.
 - **Copy about the whole site names every paper in it, or none of them**
   (feedback 2026-08-06: the archive page still said "Guardian cryptic crosswords,
   explained" over a list that included the Independent and Everyman). Naming one
