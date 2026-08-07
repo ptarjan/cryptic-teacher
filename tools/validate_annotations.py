@@ -56,6 +56,10 @@ TYPE_PARTS = {
     # letter-selection mechanisms
     "first letter", "first letters", "last letter", "last letters",
     "middle letter", "middle letters", "outer letters", "alternate letters",
+    # letter-movement mechanisms: a rotation that keeps letter order (30079 7D
+    # TSUNAMIS = A MIST SUN cycled), and a swap of one indicated letter for
+    # another (30079 15D LAUGH LINE = TAUGHT IN E with Ls covering the Ts)
+    "cycling", "substitution",
 }
 
 
@@ -539,10 +543,17 @@ def is_word(s):
     return s.lower() in WORDS
 
 
+# Words that end in S with a dictionary word in front of it, yet are not
+# plurals at all: ALAS is an interjection, not more than one ALA (a wing).
+# Without this the plural check invites a definitionNote that would lie —
+# same principle as INVARIANT_PLURALS below, on the answer side.
+NOT_PLURALS = {"ALAS"}
+
+
 def is_plural(ans):
     """Is the answer really a plural, or does it just end in S? Checked against a
     real wordlist so PEANUTS (PEANUT) warns and CHAOS / TENNIS never do."""
-    if not ans.endswith("S") or ans.endswith(("SS", "US", "IS")):
+    if not ans.endswith("S") or ans.endswith(("SS", "US", "IS")) or ans in NOT_PLURALS:
         return False
     return is_word(ans[:-1]) or (ans.endswith("ES") and is_word(ans[:-2]))
 
@@ -815,7 +826,10 @@ def main(argv):
     if fit_backlog:
         print(f"\ndefinitionFit backlog: {fit_backlog} clue(s) still have no explanation of "
               f"why the answer means the definition. Flip REQUIRE_DEFINITION_FIT at zero.")
-    elif not REQUIRE_DEFINITION_FIT:
+    elif not REQUIRE_DEFINITION_FIT and not argv:
+        # Only a FULL run can prove the backlog empty — a single-puzzle run
+        # counts only its own clues, and saying "empty" there once prompted a
+        # premature flip that broke every backfill puzzle (2026-08-07).
         print("\ndefinitionFit backlog is EMPTY — set REQUIRE_DEFINITION_FIT = True now.")
     return 1 if failed else 0
 
