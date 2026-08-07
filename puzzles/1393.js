@@ -30,7 +30,45 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPANISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPANISH",
+    "definition": "European language",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SPA",
+     "N",
+     "IS",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resort",
+      "gives": "SPA",
+      "note": "a spa = a resort town"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n = name, as on a form"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "lifted straight into the answer"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H = hard, the pencil grade"
+     }
+    ],
+    "walkthrough": "Two single-letter abbreviations do the quiet work: N for 'name' and H for 'hard', from pencil grading. 'Is' rides into the answer unchanged — a move worth learning to spot.",
+    "definitionFit": "Spanish is the tongue of Spain and much of Latin America — one of Europe's major languages, so the definition names it fairly."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +89,38 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     ]
    },
    "solution": "PHASEIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "PHASE IN",
+    "definition": "Gradually introduce",
+    "indicators": [
+     "for repair"
+    ],
+    "pieces": [
+     "PHASE",
+     "IN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "HEAPS",
+      "gives": "PHASE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heaps",
+      "gives": "PHASE",
+      "note": "anagram of HEAPS, 'for repair'"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "at home = in"
+     }
+    ],
+    "walkthrough": "'For repair' is the anagram signal — broken things need repairing — and 'at home' = IN is one of the commonest small fillers in cryptic wordplay.",
+    "definitionFit": "To phase something in is to bring it into use step by step — a gradual introduction rather than a sudden switch."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +137,23 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORMA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NORMA",
+    "definition": "Woman",
+    "indicators": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oregon or Maine",
+      "gives": "NORMA",
+      "note": "hidden inside: OregoN OR MAine"
+     }
+    ],
+    "walkthrough": "'Found in' says the answer is sitting in plain sight; the two American states exist only to carry the hidden letters.",
+    "definitionFit": "Norma is a woman's given name — think Norma Jeane Baker, or Bellini's opera — so 'Woman' defines it by example."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +170,32 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUBTLER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SUBTLER",
+    "definition": "More delicate",
+    "indicators": [
+     "sort of",
+     "less"
+    ],
+    "anagram": {
+     "fodder": "TRUBLES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "troubles, nothing less",
+      "gives": "TRUBLES",
+      "note": "TROUBLES with the O removed — 'nothing' is the letter O, 'less' takes it away"
+     },
+     {
+      "clueFragment": "sort of",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Nothing' meaning the letter O is a staple of cryptic subtraction: TROUBLES loses its O, and 'sort of' rearranges the seven letters that remain.",
+    "definitionFit": "Subtle means delicate or understated, and both words here are comparatives — subtler is exactly 'more delicate'."
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +212,23 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SATCHEL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SATCHEL",
+    "definition": "Bag for books",
+    "indicators": [
+     "put in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stores at Cheltenham",
+      "gives": "SATCHEL",
+      "note": "hidden inside: storeS AT CHELtenham"
+     }
+    ],
+    "walkthrough": "'Put in' flags a hidden word: the bag is packed inside the shopping phrase, which is pure camouflage.",
+    "definitionFit": "A satchel is the classic school bag with a shoulder strap, made for carrying books to and from lessons."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +245,45 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABRUPT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "ABRUPT",
+    "definition": "unexpected",
+    "indicators": [
+     "Fancy",
+     "front in"
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "anagram": {
+     "fodder": "BAR UP T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "BAR",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "elevated",
+      "gives": "UP",
+      "note": "elevated = up — the word itself joins the fodder"
+     },
+     {
+      "clueFragment": "Torquay",
+      "gives": "T",
+      "note": "the 'front' (first letter) of Torquay"
+     },
+     {
+      "clueFragment": "Fancy",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Fancy' opens the clue looking like a cry of surprise and is really the anagram order; 'elevated' doesn't move anything — it simply contributes the word UP to the mix.",
+    "definitionFit": "An abrupt ending or change is one that arrives suddenly and without warning — in a word, unexpected."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +300,39 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONCOURSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONCOURSE",
+    "definition": "large open space",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "C",
+     "ON",
+     "COURSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C = Charlie in the NATO alphabet"
+     },
+     {
+      "clueFragment": "attending",
+      "gives": "ON",
+      "note": "attending a course = being ON it"
+     },
+     {
+      "clueFragment": "programme of study",
+      "gives": "COURSE",
+      "note": "a course of study"
+     }
+    ],
+    "walkthrough": "Charlie for C comes from the NATO phonetic alphabet, a crossword favourite; 'attending' becomes ON because you are on a course while you attend it.",
+    "definitionFit": "A concourse is the big open hall of a station or airport where crowds gather and circulate."
+   }
   },
   {
    "id": "8-down",
@@ -153,7 +349,27 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEMENT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ELEMENT",
+    "definition": "Perhaps, lead",
+    "definition2": "factor",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps, lead",
+      "gives": "ELEMENT",
+      "note": "lead is one example of a chemical element — 'perhaps' flags the definition by example"
+     },
+     {
+      "clueFragment": "factor",
+      "gives": "ELEMENT",
+      "note": "an element = a factor, one part of a situation"
+     }
+    ],
+    "walkthrough": "'Perhaps' is the courteous flag that lead is only an example of the answer, not a synonym for it — the mark of definition by example.",
+    "definitionFit": "Lead is one of the chemical elements, which 'perhaps' signals as an example, and an element is also a factor — a contributing part of something."
+   }
   },
   {
    "id": "9-down",
@@ -176,7 +392,31 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALLINGOODTIME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALL IN GOOD TIME",
+    "definition": "in due course",
+    "indicators": [
+     "move"
+    ],
+    "anagram": {
+     "fodder": "LEADING LIMO TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Leading limo to",
+      "gives": "LEADINGLIMOTO",
+      "note": "anagram fodder, 13 letters"
+     },
+     {
+      "clueFragment": "move",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The sneaky part is that 'to' belongs to the fodder — count and the thirteen letters are all there before 'move' gives the order.",
+    "definitionFit": "'All in good time' is the set phrase counselling patience: the thing will happen in due course, when the moment is right."
+   }
   },
   {
    "id": "10-across",
@@ -193,7 +433,26 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAIR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PAIR",
+    "definition": "couple",
+    "indicators": [
+     "Mention of"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orchard fruit",
+      "gives": "PAIR",
+      "note": "sounds like PEAR, the orchard fruit"
+     }
+    ],
+    "walkthrough": "'Mention of' asks for the sound rather than the spelling: PEAR and PAIR are perfect homophones, and the grid wants the one meaning two.",
+    "definitionFit": "A pair and a couple are both exactly two of something — plain synonyms."
+   }
   },
   {
    "id": "11-across",
@@ -214,7 +473,21 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     ]
    },
    "solution": "BELLRINGER",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "BELL-RINGER",
+    "definition": "One regularly making changes?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "One regularly making changes?",
+      "gives": "BELLRINGER",
+      "note": "in bell-ringing, a 'change' is one order in which the bells are rung"
+     }
+    ],
+    "walkthrough": "A cryptic definition: 'changes' sounds like alterations, but in campanology a change is a sequence rung on church bells, so this person makes changes every practice night.",
+    "definitionFit": "Change-ringing is the English art of sounding church bells in shifting orders called changes, so a bell-ringer really is one who regularly makes changes."
+   }
   },
   {
    "id": "12-across",
@@ -231,7 +504,38 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DERAIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DERAIL",
+    "definition": "Throw off course",
+    "indicators": [
+     "backsliding"
+    ],
+    "pieces": [
+     "DE",
+     "RAIL"
+    ],
+    "subReversals": [
+     {
+      "from": "LIAR ED",
+      "to": "DERAIL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dishonest type",
+      "gives": "RAIL",
+      "note": "LIAR, turned around in the answer"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "DE",
+      "note": "ED (editor), turned around in the answer"
+     }
+    ],
+    "walkthrough": "Build LIAR + ED — the abbreviated editor is the crossword's stock journalist — then 'backsliding' turns the whole thing tail-first to send it off the rails.",
+    "definitionFit": "To derail a train, or a plan, is literally to throw it off its course and off the rails."
+   }
   },
   {
    "id": "13-across",
@@ -248,7 +552,35 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPROPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IMPROPER",
+    "definition": "not acceptable",
+    "indicators": [
+     "leaving"
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "IM",
+     "PROPER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This person’s",
+      "gives": "IM",
+      "note": "'this person is' — the setter speaking — reads I'M"
+     },
+     {
+      "clueFragment": "to thrive after leaving society",
+      "gives": "PROPER",
+      "note": "PROSPER ('to thrive') with S for 'society' taken out"
+     }
+    ],
+    "walkthrough": "'This person' is the setter, so 'this person's' compresses to I'M; S is the standard abbreviation for society, and PROSPER loses it.",
+    "definitionFit": "Improper behaviour breaks the rules of decency or protocol — conduct that is simply not acceptable."
+   }
   },
   {
    "id": "14-across",
@@ -265,7 +597,33 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENCOURAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "ENCOURAGE",
+    "definition": "Rally",
+    "indicators": [
+     "those heading",
+     "before"
+    ],
+    "pieces": [
+     "ENC",
+     "OURAGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each new company",
+      "gives": "ENC",
+      "note": "the heading (first) letters of Each New Company"
+     },
+     {
+      "clueFragment": "this period",
+      "gives": "OURAGE",
+      "note": "read as two words: OUR AGE, the time we live in"
+     }
+    ],
+    "walkthrough": "'Those heading' harvests three initials at once, and 'this period' has to be re-spaced as OUR AGE — the era we are living through.",
+    "definitionFit": "To rally people is to hearten and spur them on — precisely what encouraging them means."
+   }
   },
   {
    "id": "15-down",
@@ -287,7 +645,27 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTHECASE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ON THE CASE",
+    "definition": "Dealing with a problem",
+    "definition2": "like an attentive lawyer?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Dealing with a problem",
+      "gives": "ONTHECASE",
+      "note": "the everyday idiom for tackling something"
+     },
+     {
+      "clueFragment": "like an attentive lawyer?",
+      "gives": "ONTHECASE",
+      "note": "a lawyer at work is literally on the case"
+     }
+    ],
+    "walkthrough": "The split comes after 'problem'. The question mark concedes the second half is playful: a lawyer minding their brief really is on the case.",
+    "definitionFit": "Someone on the case is actively dealing with a matter in the everyday idiom, and a diligent lawyer is literally working on a legal case."
+   }
   },
   {
    "id": "16-across",
@@ -304,7 +682,23 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRATE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "GRATE",
+    "definition": "framework of bars",
+    "indicators": [
+     "Reportedly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "substantial",
+      "gives": "GRATE",
+      "note": "sounds like GREAT = substantial"
+     }
+    ],
+    "walkthrough": "'Reportedly' asks for the sound: say GREAT aloud and you hear the fireplace fitting.",
+    "definitionFit": "A grate is the metal frame of bars that holds coals in a fireplace or covers a drain."
+   }
   },
   {
    "id": "17-across",
@@ -321,7 +715,37 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPITE",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "SPITE",
+    "definition": "deliberate nastiness",
+    "indicators": [
+     "First of",
+     "in"
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "pieces": [
+     "S",
+     "P",
+     "ITE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police",
+      "gives": "P",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "SITE",
+      "note": "a place = a site"
+     }
+    ],
+    "walkthrough": "'First of' takes the single P, and 'in' does the placing: it goes inside SITE, not after it.",
+    "definitionFit": "Spite is malice — the urge to hurt or annoy someone on purpose, nastiness done by design."
+   }
   },
   {
    "id": "18-down",
@@ -338,7 +762,43 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROFANE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + alternate letters",
+    "answer": "PROFANE",
+    "definition": "Crude",
+    "indicators": [
+     "around",
+     "intermittently"
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "PR",
+     "O",
+     "FA",
+     "NE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advertising",
+      "gives": "PR",
+      "note": "PR = public relations, i.e. advertising"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "wrapped 'around' the FA"
+     },
+     {
+      "clueFragment": "flag",
+      "gives": "FA",
+      "note": "'intermittently' — every other letter of FlAg"
+     }
+    ],
+    "walkthrough": "Three devices stacked up: PR for publicity, then ONE opens to admit FA, the alternate letters of 'flag'.",
+    "definitionFit": "Profane language is coarse and irreverent — crude in the sense of swearing, not of unrefined oil."
+   }
   },
   {
    "id": "19-across",
@@ -359,7 +819,31 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOUBLETOP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DOUBLE TOP",
+    "definition": "Score in darts",
+    "indicators": [
+     "to get excited"
+    ],
+    "anagram": {
+     "fodder": "LED PUB TOO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "led pub too",
+      "gives": "LEDPUBTOO",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "to get excited",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The pub surface is a wink at where darts actually gets played, and it swallows the fodder whole — three innocent words in a row.",
+    "definitionFit": "In darts, double top means the double-20 bed at the very top of the board, a favourite winning score."
+   }
   },
   {
    "id": "20-down",
@@ -376,7 +860,46 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAFFLED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + anagram",
+    "answer": "BAFFLED",
+    "definition": "in a confused state",
+    "indicators": [
+     "probing",
+     "complicated"
+    ],
+    "pieces": [
+     "B",
+     "A",
+     "FF",
+     "LED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DEAL",
+      "gives": "ALED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B = British, as in BBC"
+     },
+     {
+      "clueFragment": "brace of fellows",
+      "gives": "FF",
+      "note": "a brace = two, and F = fellow, so FF"
+     },
+     {
+      "clueFragment": "deal",
+      "gives": "ALED",
+      "note": "anagram of DEAL, 'complicated'"
+     }
+    ],
+    "walkthrough": "'Brace' is sporting slang for a pair, so two F's report for duty; 'probing' pushes them into the shaken-up DEAL, with B in front.",
+    "definitionFit": "Baffled means utterly puzzled — precisely the muddled state of mind the definition describes."
+   }
   },
   {
    "id": "21-down",
@@ -393,7 +916,21 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVEREAT",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "OVEREAT",
+    "definition": "Acquire too much fuel?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Acquire too much fuel?",
+      "gives": "OVEREAT",
+      "note": "read 'fuel' as food — the body's energy supply"
+     }
+    ],
+    "walkthrough": "A cryptic definition: food is the fuel the body runs on, so taking too much of it on board is exactly this.",
+    "definitionFit": "To overeat is to take in more food than the body needs — and since food is its fuel, that is acquiring too much of it."
+   }
   },
   {
    "id": "22-down",
@@ -410,7 +947,30 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMONS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DEMONS",
+    "definition": "people of great energy",
+    "indicators": [],
+    "pieces": [
+     "DEMO",
+     "NS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Model",
+      "gives": "DEMO",
+      "note": "a demo = a demonstration model or version"
+     },
+     {
+      "clueFragment": "couple of Poles",
+      "gives": "NS",
+      "note": "the magnetic poles, North and South"
+     }
+    ],
+    "walkthrough": "The capital P in 'Poles' points you at nationality, but these are the compass kind — N and S.",
+    "definitionFit": "A demon for work is someone of fierce, tireless energy — dynamos rather than devils in this sense."
+   }
   },
   {
    "id": "23-across",
@@ -431,7 +991,39 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONEVENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "NON-EVENT",
+    "definition": "Drab outcome",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "N",
+     "ON",
+     "EVEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at work",
+      "gives": "ON",
+      "note": "at work = on, operating"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "EVEN",
+      "note": "still = even, as in 'still more'"
+     },
+     {
+      "clueFragment": "area around Darwin",
+      "gives": "NT",
+      "note": "the Northern Territory, whose capital is Darwin — it wraps the rest"
+     }
+    ],
+    "walkthrough": "Darwin is the misdirection: the naturalist springs to mind, but it's the Australian city, and NT — the area around it — encloses everything else.",
+    "definitionFit": "A non-event is an occasion that falls flat: a big build-up ending in a dull, drab result."
+   }
   },
   {
    "id": "24-across",
@@ -448,7 +1040,39 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FABLED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FABLED",
+    "definition": "legendary",
+    "indicators": [],
+    "linkWords": [
+     "being"
+    ],
+    "pieces": [
+     "F",
+     "AB",
+     "LED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F = fine, the pencil grade"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB = able seaman, the crossword's stock sailor"
+     },
+     {
+      "clueFragment": "was ahead of others",
+      "gives": "LED",
+      "note": "led the field"
+     }
+    ],
+    "walkthrough": "Two abbreviations every solver ends up learning: F for fine, from pencil grading, and AB for the able-bodied seaman.",
+    "definitionFit": "Something fabled is celebrated in fables and legend — legendary in the storied, much-told sense."
+   }
   },
   {
    "id": "25-down",
@@ -465,7 +1089,36 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BANAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BANAL",
+    "definition": "of a hackneyed nature",
+    "indicators": [],
+    "pieces": [
+     "BAN",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Embargo",
+      "gives": "BAN",
+      "note": "an embargo = a ban"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "stands as itself"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l = line, as in 'l.10' of a poem"
+     }
+    ],
+    "walkthrough": "The definition is phrased as 'of a … nature' so an adjective can close the clue; L for line comes from printed editions of poetry and plays.",
+    "definitionFit": "Banal means trite and overused — exactly what we call an idea of a hackneyed nature."
+   }
   },
   {
    "id": "26-across",
@@ -482,7 +1135,45 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARANORMAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PARANORMAL",
+    "definition": "defying rational explanation?",
+    "indicators": [],
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "PA",
+     "RAN",
+     "OR",
+     "MAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa = father"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "ran the show"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR = other ranks, ordinary soldiers"
+     },
+     {
+      "clueFragment": "badly in France",
+      "gives": "MAL",
+      "note": "the French for 'badly'"
+     }
+    ],
+    "walkthrough": "A four-part charade built from crossword old faithfuls — PA, OR for other ranks, and a scrap of schoolroom French to finish.",
+    "definitionFit": "Paranormal phenomena — ghosts, telepathy, hauntings — are by definition those that science cannot rationally explain."
+   }
   },
   {
    "id": "27-across",
@@ -499,7 +1190,32 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEED",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "NEED",
+    "definition": "Requirement",
+    "indicators": [
+     "at intervals"
+    ],
+    "pieces": [
+     "NE",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "NE",
+      "note": "the even-placed letters of oNcE"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "ED",
+      "note": "the even-placed letters of rEaDy"
+     }
+    ],
+    "walkthrough": "'At intervals' means take every other letter — here the second and fourth of each word.",
+    "definitionFit": "A need is a requirement — something that cannot be done without; the two are plain synonyms."
+   }
   },
   {
    "id": "28-across",
@@ -516,7 +1232,32 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELEASE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RELEASE",
+    "definition": "Put out",
+    "indicators": [
+     "before"
+    ],
+    "pieces": [
+     "RE",
+     "LEASE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "re, the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "rental agreement",
+      "gives": "LEASE",
+      "note": "a lease = a rental agreement"
+     }
+    ],
+    "walkthrough": "'Note' in a cryptic usually means the sol-fa scale — do, re, mi — and 'before' simply sets RE ahead of LEASE.",
+    "definitionFit": "To release a record, film or statement is to put it out — to publish or issue it to the public."
+   }
   },
   {
    "id": "29-across",
@@ -533,7 +1274,45 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADULATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ADULATE",
+    "definition": "Flatter",
+    "indicators": [
+     "to tour"
+    ],
+    "pieces": [
+     "A",
+     "DU",
+     "LA",
+     "T",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A = American"
+     },
+     {
+      "clueFragment": "scheduled",
+      "gives": "DUE",
+      "note": "opens up to admit LA and T"
+     },
+     {
+      "clueFragment": "Californian city",
+      "gives": "LA",
+      "note": "Los Angeles"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "t = tons"
+     }
+    ],
+    "walkthrough": "'To tour' is the container order: DUE goes travelling around the city and the T, splitting into DU … E.",
+    "definitionFit": "To adulate someone is to praise them fawningly — flattery carried to excess."
+   }
   }
  ]
 } /*JSON-END*/;
