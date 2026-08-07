@@ -478,6 +478,21 @@ all 55:
   Correspondingly, alert on the OUTCOME, not on an exit code: a run that
   annotates two puzzles and then meets a rate limit has done its job, and the
   old code alerted "no puzzle got hints today" while two puzzles got hints.
+- **A job that borrows a credential must survive that credential going stale**
+  (2026-08-07, hours after the two rules above). `weekly_usage.py` reads the
+  CLI's OAuth access token but nothing here refreshes it — only running `claude`
+  does, as a side effect. The token lives about eight hours, so on a quiet
+  afternoon every read returned HTTP 401, and the hourly poll would have gone
+  blind at 3am on reset night, the single hour it exists for. Borrowing the
+  credential is still right; assuming it is live is not. Cache the last good
+  reading and say on stderr when you are using it — but only where staleness is
+  harmless: `resets_at` is an absolute timestamp and stays true, a percentage
+  goes off, so it expires after six hours and the gate goes back to unknown.
+- **The same alert twice is the same silence** (same day). One lapsed token made
+  an hourly job post four identical paragraphs to Discord, and a channel that
+  cries wolf on the hour teaches its one reader to scroll past it — the silent
+  failure again with the opposite mask. `alert()` now sends an identical message
+  at most once per `ALERT_REPEAT_HOURS` (12). The log still records every one.
 - **Copy about the whole site names every paper in it, or none of them**
   (feedback 2026-08-06: the archive page still said "Guardian cryptic crosswords,
   explained" over a list that included the Independent and Everyman). Naming one
