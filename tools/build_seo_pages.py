@@ -44,6 +44,10 @@ from urllib.parse import urlparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
+# Which clue a puzzle's card shows, and how to describe it. Imported rather than
+# reimplemented: the alt text has to describe the picture that was actually
+# drawn, and only the generator knows which clue that was.
+from make_og_card import alt_text as card_alt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
@@ -168,8 +172,17 @@ def datestr(ms, fmt="%-d %B %Y"):
     return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime(fmt)
 
 
-def head(title, description, canonical, extra=""):
-    """The shared <head>. Kept identical to index.html's, minus the app-only bits."""
+def head(title, description, canonical, extra="", image=None, image_alt=None):
+    """The shared <head>. Kept identical to index.html's, minus the app-only bits.
+
+    `image` is the social card. Puzzle pages pass their own — a clue out of that
+    very puzzle — and everything else falls back to the site card. Sharing a
+    hundred pages as one picture of somebody else's crossword was a wasted
+    unfurl: the card is the only part of the page most people will ever see.
+    """
+    card = asset(image) if image else asset("og.png")
+    alt = (f'<meta property="og:image:alt" content="{esc(image_alt)}">\n'
+           if image_alt else "")
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,8 +201,8 @@ def head(title, description, canonical, extra=""):
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{esc(canonical)}">
-<meta property="og:image" content="{asset("og.png")}">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{card}">
+{alt}<meta name="twitter:card" content="summary_large_image">
 {extra}<link rel="stylesheet" href="{asset("style.css")}">
 </head>
 <body class="static-page">
@@ -391,8 +404,16 @@ def puzzle_page(puz, meta, prev_p, next_p):
         body.append(f'<nav class="s-pager">{" ".join(nav)}</nav>')
     body.append("</main>")
 
+    # This puzzle's own social card, if one has been rendered. Existence on disk
+    # is the condition rather than "is it annotated", because the page must not
+    # advertise an image that isn't there — and asset() would fail on it anyway,
+    # having nothing to hash.
+    card = alt = None
+    if (ROOT / f"og/{num}.png").exists():
+        card, alt = f"og/{num}.png", card_alt(num)
+
     return (head(title, desc, canonical,
-                 ld(article_ld) + ld(breadcrumb_ld(crumbs)))
+                 ld(article_ld) + ld(breadcrumb_ld(crumbs)), card, alt)
             + "\n".join(body) + "\n" + FOOTER)
 
 

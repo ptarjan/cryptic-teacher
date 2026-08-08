@@ -10,44 +10,137 @@ cryptic can read the whole card in four seconds and know both what the site is
 and that the trick is learnable.
 
 Everything on it comes out of a published puzzle. Nothing here is retyped — the
-wording of the rungs is lifted from app.js's ladderSteps() by hand ONCE, and the
-clue, definition, indicator and hidden span are read from the annotation, so a
-card that disagrees with the app is a build error rather than a thing nobody
-noticed. The highlight in particular is computed, not marked up: it finds where
-the answer's letters actually sit inside the clue and fails if they don't.
+wording of the rungs is the app's own, the family labels and blurbs are checked
+against app.js's FAMILIES table on every build, and the clue, definition,
+indicator and hidden span are read from the annotation. A card that disagrees
+with the app is a build error rather than a thing nobody noticed. The highlight
+in particular is computed, not marked up: it finds where the answer's letters
+actually sit inside the clue and fails if they don't.
 
-The clue is a hidden word on purpose. It is the one family whose mechanism is
-fully visible in a still image: the answer is right there in the clue and the
-reader gets the aha without being told it. An anagram card would just be a claim.
+Every puzzle page gets its own card, showing the best clue in that puzzle
+(2026-08-08). One shared card meant a hundred pages unfurling as the same
+picture of somebody else's crossword; the clue on the card is now from the
+puzzle you are actually sharing. "Best" is decided by score(), and it is a
+question about the PICTURE rather than about the clue's merit as a clue — these
+are published setters, so soundness is a given and what varies is whether the
+mechanism survives being looked at for four seconds in a thumbnail. A clue
+qualifies only if its mechanism is visible in a still image: the answer's
+letters underlined where they hide, or the anagram fodder shown unscrambled, or
+failing those an indicator to point at. An unqualified puzzle keeps the site
+card rather than shipping a weak one.
 
-Usage:  python3 tools/make_og_card.py [puzzle] [entry-id]   (run by make_og.sh)
+The answer is the one thing every card withholds, so no card may contain it —
+check_no_answer() enforces that on the rendered HTML, because the rungs are
+assembled from annotation prose that frequently does give it away.
+
+Usage:
+  python3 tools/make_og_card.py                    # site card, in tools/og_card.html
+  python3 tools/make_og_card.py 30066              # best clue in one puzzle
+  python3 tools/make_og_card.py 30066 4-down       # a clue you picked yourself
+  python3 tools/make_og_card.py --out /tmp/c.html 30066
+  python3 tools/make_og_card.py --list             # puzzles that can carry a card
 """
 import html
+import json
 import re
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 CARD = REPO / "tools" / "og_card.html"
+APP = REPO / "app.js"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
-# definition anyone can check, and NORMA sitting across the state line.
+# definition anyone can check, and NORMA sitting across the state line. This is
+# the card for the homepage and for any puzzle that has no card of its own.
 DEFAULT_PUZZLE = 1393
 DEFAULT_ENTRY = "3-down"
+
+# app.js's FAMILIES, ported. Ported tables rot, so this one is compared against
+# app.js on every build (check_families_match_app) — label, blurb and match keys
+# all three, since a card that names a family the app doesn't use, or describes
+# it differently, is the exact drift the comparison exists to catch.
+FAMILIES = [
+    ("Definitions only",
+     "No letter mechanics at all — the clue works by definition alone. The work "
+     "is spotting which words are doing the defining.",
+     ("double definition", "cryptic definition")),
+    ("&lit",
+     "The whole clue does double duty: read it once as a definition, then read "
+     "the very same words again as wordplay.",
+     ("&lit",)),
+    ("Rearrangement",
+     "Letters handed to you in the clue get shuffled into the answer. Find the "
+     "fodder and count it against the enumeration.",
+     ("anagram", "cycling")),
+    ("Sound",
+     "The wordplay describes how the answer sounds rather than how it is spelled.",
+     ("homophone", "spoonerism")),
+    ("Charade",
+     "The answer is built from pieces laid end to end, each clued separately — "
+     "read the wordplay left to right.",
+     ("charade",)),
+    ("Alteration",
+     "A piece of the wordplay is changed rather than just joined on: put inside "
+     "something, turned around, or trimmed.",
+     ("container", "reversal", "deletion", "substitution")),
+    ("Extraction",
+     "The answer's letters are already sitting in the clue in order — the job is "
+     "working out which ones to pick out.",
+     ("hidden", "letter")),
+]
+FALLBACK_FAMILY = ("Wordplay",
+                   "The clue has a definition at one end and wordplay at the other.",
+                   ())
+
+
+def check_families_match_app():
+    """Fail the build if app.js's FAMILIES and the port above have drifted."""
+    src = APP.read_text(encoding="utf-8")
+    block = src.split("const FAMILIES = [", 1)[1].split("\n  ];", 1)[0]
+    theirs = []
+    for chunk in block.split("{ label:")[1:]:
+        label = re.search(r'^\s*"([^"]*)"', chunk).group(1)
+        blurb = re.search(r'blurb:\s*"((?:[^"\\]|\\.)*)"', chunk).group(1)
+        keys = tuple(re.findall(r't\.includes\("([^"]+)"\)', chunk))
+        theirs.append((label, blurb.replace('\\"', '"'), keys))
+    if theirs != FAMILIES:
+        raise SystemExit("og card: FAMILIES in make_og_card.py no longer matches "
+                         "app.js. The card would describe a clue differently from "
+                         "the app that teaches it — re-port the table.\n"
+                         f"  app.js: {theirs}\n  here:   {FAMILIES}")
+
+
+def family_of(type_):
+    t = (type_ or "").lower()
+    for fam in FAMILIES:
+        if any(k in t for k in fam[2]):
+            return fam
+    return FALLBACK_FAMILY
+
+
+def first_sentence(text):
+    """The head of a blurb: enough for a thumbnail, still the app's own words."""
+    head = re.split(r"\s+—\s+|(?<=[.!?])\s+", text.strip())[0].rstrip(".") + "."
+    # The clue beside it is set from a newspaper's own copy, curly quotes and
+    # all; a straight apostrophe in our prose two lines below it looks like a
+    # rendering fault rather than a choice.
+    return head.replace("'", "’")
 
 
 def load(number):
     text = (REPO / f"puzzles/{number}.js").read_text(encoding="utf-8")
-    import json
     body = text.split("/*JSON-START*/", 1)[1].rsplit("/*JSON-END*/", 1)[0]
     return json.loads(body)
+
+
+def norm(s):
+    return (s.replace("’", "'").replace("‘", "'")
+             .replace("–", "-").replace("—", "-").lower())
 
 
 def span_of(clue, phrase, start=0):
     """Where `phrase` sits in `clue`, tolerant of the typographic apostrophes and
     dashes the papers use and the annotations sometimes don't."""
-    def norm(s):
-        return (s.replace("’", "'").replace("‘", "'")
-                 .replace("–", "-").replace("—", "-").lower())
     i = norm(clue).find(norm(phrase), start)
     if i < 0:
         raise SystemExit(f"og card: {phrase!r} is not in the clue {clue!r}")
@@ -64,7 +157,7 @@ def hidden_span(clue, fragment, answer):
     """
     fs, fe = span_of(clue, fragment)
     letters = [i for i in range(fs, fe) if clue[i].isalpha()]
-    want = answer.replace(" ", "").upper()
+    want = re.sub(r"[^A-Z]", "", answer.upper())
     for k in range(len(letters) - len(want) + 1):
         run = letters[k:k + len(want)]
         if "".join(clue[i] for i in run).upper() == want:
@@ -89,67 +182,286 @@ def marked_clue(clue, marks):
     return "".join(out)
 
 
-def build(number, entry_id):
-    puz = load(number)
-    entry = next((e for e in puz["entries"] if e["id"] == entry_id), None)
-    if not entry:
-        raise SystemExit(f"og card: puzzle {number} has no entry {entry_id}")
+def bare_clue(entry):
+    """The clue without its enumeration, plus the enumeration on its own."""
+    clue = re.sub(r"\s*\(\d+[\d,\-\s]*\)\s*$", "", entry["clue"])
+    return clue, entry["clue"][len(clue):].strip()
+
+
+def plan(entry):
+    """What this clue's card would show, or None if it can't carry one.
+
+    Three things can make a mechanism visible in a still picture, and a clue
+    needs at least one of them: the answer's own letters underlined where they
+    hide, the anagram fodder laid out unscrambled, or an indicator word to point
+    at. Everything else — a charade with no indicator, say — is a card that just
+    reprints a clue and marks the definition, which teaches nobody anything they
+    couldn't have guessed.
+    """
     ann = entry.get("annotation") or {}
-    if "hidden" not in (ann.get("type") or ""):
-        raise SystemExit(f"og card: {entry_id} is a {ann.get('type')!r}; the card's "
-                         "layout shows the answer hiding in the clue, which only a "
-                         "hidden word does")
-    clue = re.sub(r"\s*\(\d+[\d,\-]*\)\s*$", "", entry["clue"])
-    enumeration = entry["clue"][len(clue):].strip()
-    block = (ann.get("blocks") or [{}])[0]
+    if not ann.get("definition") or not ann.get("answer") or not entry.get("clue"):
+        return None
+    clue, _ = bare_clue(entry)
+    if len(clue) > 78:
+        return None                                 # no type size makes this fit
+    t = (ann.get("type") or "").lower()
+    p = {"clue": clue, "ann": ann, "hidden": None, "fodder": None,
+         "indicator": None, "family": family_of(ann.get("type"))}
+    try:
+        p["definition"] = span_of(clue, ann["definition"])
+        for ind in ann.get("indicators") or []:
+            p["indicator"] = p["indicator"] or ind
+            span_of(clue, ind)                      # must be quotable from the clue
+        if "hidden" in t and "reversal" not in t:
+            block = next((b for b in ann.get("blocks") or []
+                          if b.get("clueFragment")), None)
+            if block:
+                p["hidden"] = hidden_span(clue, block["clueFragment"], ann["answer"])
+        fodder = ((ann.get("anagram") or {}).get("fodder") or "").strip()
+        # A fodder line is only worth showing when it is the whole story. With a
+        # second mechanism stacked on top, the letters on the card are not the
+        # letters that get shuffled, and a card that shows the wrong ones is
+        # worse than a card that shows none.
+        if fodder and t == "anagram":
+            p["fodder"] = fodder
+    except SystemExit:
+        return None                                 # annotation and clue disagree
+    if not (p["hidden"] or p["fodder"] or p["indicator"]):
+        return None
+    return p
 
-    ds, de = span_of(clue, ann["definition"])
-    inds = [span_of(clue, i) for i in ann.get("indicators", [])]
-    hs, he = hidden_span(clue, block["clueFragment"], ann["answer"])
 
-    # The rungs, in the app's order and close to the app's words. Trimmed, because
-    # a card is read in a thumbnail — but never rephrased into a claim the app
-    # doesn't make.
-    rungs = [
-        ("Extraction",
-         "The answer&rsquo;s letters are already sitting in the clue, in order."),
-        (f'The definition is <mark class="def">{html.escape(ann["definition"])}</mark>',
-         "Everything else is wordplay."),
-        (f'<mark class="ind">{html.escape(ann["indicators"][0])}</mark> '
-         "says so out loud",
-         "Two states, carrying letters across the border."),
-    ]
+def score(entry, p):
+    """How good a PICTURE this clue makes. Higher is better; ties break on id.
+
+    Not a judgement of the clue — these are published setters and the clue is
+    theirs. What varies from clue to clue is whether a stranger scrolling past
+    can take the mechanism in at a glance, and that is mostly about length and
+    about whether the trick can be pointed at rather than described.
+    """
+    ann, clue = p["ann"], p["clue"]
+    s = 0.0
+    # Visible mechanism, in the order of how much of itself a still image shows.
+    if p["hidden"]:
+        s += 6                  # the answer is right there, underlined
+    elif p["fodder"]:
+        s += 3                  # the letters are there, just not in order
+    elif p["indicator"]:
+        s += 1
+    # Length. The clue is the biggest thing on the card and it is read in a
+    # thumbnail; past about sixty characters it wraps to a third line and the
+    # rungs get squeezed. Very short clues are legible but say too little.
+    n = len(clue)
+    s -= max(0, n - 58) * 0.10
+    s -= max(0, 24 - n) * 0.15
+    # A definition at one end is the rule the card's second rung teaches; a clue
+    # that demonstrates it is worth more than one that quietly doesn't.
+    ds, de = p["definition"]
+    if ds == 0 or de == len(clue):
+        s += 1
+    # Answers spelled out as blanks along the footer: past about fifteen letters
+    # the row of boxes crowds the strapline out.
+    letters = len(re.sub(r"[^A-Za-z]", "", ann["answer"]))
+    s -= max(0, letters - 15) * 0.5
+    # Surface reading. Punctuation that splits the clue into fragments (colons,
+    # semicolons, ellipses) reads as machinery rather than as a sentence, and a
+    # sentence is what makes someone stop scrolling.
+    if re.search(r"[:;]|\.\.\.|…", clue):
+        s -= 1
+    if len(clue.split()) < 4:
+        s -= 1
+    return s
+
+
+def pick(number):
+    """The best clue in one puzzle, as (entry_id, plan), or (None, None).
+
+    Candidates are tried in score order and the first one that actually draws
+    wins. Scoring can't see everything that makes a card impossible — a rung
+    that turns out to name the answer, two marks that overlap — and a puzzle
+    with twenty-nine other clues in it should quietly show one of those rather
+    than fail the nightly build over its best one.
+    """
+    ranked = []
+    for entry in load(number)["entries"]:
+        p = plan(entry)
+        if p:
+            ranked.append(((score(entry, p), entry["id"]), entry, p))
+    for _, entry, p in sorted(ranked, key=lambda r: r[0], reverse=True):
+        try:
+            compose(entry, p)
+        except SystemExit:
+            continue
+        return entry["id"], p
+    return None, None
+
+
+def rungs_for(p):
+    """Three rungs, in the app's order and close to the app's words.
+
+    Trimmed, because a card is read in a thumbnail — but never rephrased into a
+    claim the app doesn't make, and never carrying the answer.
+    """
+    ann = p["ann"]
+    label, blurb, _ = p["family"]
+    out = [(html.escape(label), html.escape(first_sentence(blurb)))]
+    out.append((f'The definition is <mark class="def">'
+                f'{html.escape(ann["definition"])}</mark>',
+                "Everything else is wordplay."))
+    if p["hidden"] and p["indicator"]:
+        out.append((f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
+                    "says so out loud",
+                    "The underline is the answer, in order, straddling the words."))
+    elif p["fodder"]:
+        n = len(re.sub(r"[^A-Za-z]", "", p["fodder"]))
+        out.append((f'Shuffle <span class="fodder">{html.escape(p["fodder"])}</span>',
+                    f"{n} letters, and the enumeration says where they land."))
+    elif p["indicator"]:
+        out.append((f'The instruction is <mark class="ind">'
+                    f'{html.escape(p["indicator"])}</mark>',
+                    "It tells you what to do with the rest."))
+    else:
+        out.append(("The answer is hiding in the clue itself",
+                    "The underline is where its letters sit, in order."))
+    return out
+
+
+def check_no_answer(clue_html, prose_html, answer):
+    """No card may print the answer.
+
+    The rungs are built out of annotation prose written for a reader who has
+    already given up — `gives` fields and block notes say the answer outright —
+    so this is a live hazard rather than a theoretical one. It is only ever a
+    whole-word match: a hidden-word card deliberately shows the answer's LETTERS
+    inside other words, and that is the card working, not the card leaking.
+
+    The two halves are read differently, and the difference is the whole trick.
+    Tags are stripped from the clue with nothing in their place, because the
+    marks sit mid-word and MERE hiding in "shimmered" must not be pulled apart
+    into a word by removing the underline around it. In the rungs they are
+    stripped to a space instead, so that an answer wrapped in its own tag can't
+    hide inside a join.
+    """
+    word = re.sub(r"[^A-Za-z]+", r"[^A-Za-z]*", answer.strip())
+    pattern = rf"(?<![A-Za-z]){word}(?![A-Za-z])"
+    for part, joiner in ((clue_html, ""), (prose_html, " ")):
+        if re.search(pattern, html.unescape(re.sub(r"<[^>]+>", joiner, part)), re.I):
+            raise SystemExit(f"og card: the card prints the answer {answer!r}, "
+                             "which is the one thing it exists not to do")
+
+
+def compose(entry, p, number=0):
+    """The card's inner HTML for one clue, or SystemExit if it can't be drawn."""
+    ann, clue = p["ann"], p["clue"]
+    _, enumeration = bare_clue(entry)
+
+    marks = [(*p["definition"], "def")]
+    if p["hidden"]:
+        marks.append((*p["hidden"], "hit"))
+    for ind in ann.get("indicators") or []:
+        marks.append((*span_of(clue, ind), "ind"))
+    try:
+        clue_html = marked_clue(clue, marks)
+    except SystemExit:
+        # Overlapping marks are a real defect in the annotation, but not one
+        # worth failing a nightly image build over: the definition alone still
+        # makes an honest card.
+        clue_html = marked_clue(clue, [(*p["definition"], "def")])
+
     steps = "".join(
         f'<li><span class="n">{i + 1}</span><span class="t"><b>{head}</b>'
         f'<span class="sub">{tail}</span></span></li>'
-        for i, (head, tail) in enumerate(rungs))
+        for i, (head, tail) in enumerate(rungs_for(p)))
 
-    clue_html = marked_clue(clue, [(ds, de, "def"), (hs, he, "hit")]
-                            + [(s, e, "ind") for s, e in inds])
     # The answer is the one thing the card withholds. A reader who has followed
-    # the three rungs can now read it straight off the clue — which is the whole
-    # sales pitch, and it only works if we don't say it for them.
-    dots = "".join('<span class="dot"></span>' for _ in ann["answer"])
+    # the three rungs can now work it out — which is the whole sales pitch, and
+    # it only works if we don't say it for them.
+    dots = "".join('<span class="dot"></span>' if c.isalnum() else
+                   '<span class="gap"></span>' for c in ann["answer"])
 
-    return f"""<!--CARD-START {number} {entry_id}-->
-  <div class="clue">{clue_html} <span class="enum">{html.escape(enumeration)}</span></div>
+    # Type size by clue length, because the clue is the only element on the card
+    # whose height nobody controls. At 52px a clue wraps at about forty
+    # characters, and a two-line clue at that size pushes the answer row off the
+    # bottom of the 630px card — which is how the first cut of this shipped a
+    # 30,066 card with the strapline sliced in half. The thresholds are set so
+    # that nothing ever takes three lines; plan() refuses anything longer still.
+    size = " small" if len(clue) > 64 else " long" if len(clue) > 36 else ""
+    check_no_answer(clue_html, steps, ann["answer"])
+    return f"""<!--CARD-START {number} {entry["id"]}-->
+  <div class="clue{size}">{clue_html} <span class="enum">{html.escape(enumeration)}</span></div>
   <ol class="rungs">{steps}</ol>
   <div class="held"><span class="lbl">Answer</span><span class="dots">{dots}</span>
     <span class="held-note">&mdash; yours to spot, not ours to hand over</span></div>
   <!--CARD-END-->"""
 
 
-def main():
-    number = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PUZZLE
-    entry_id = sys.argv[2] if len(sys.argv) > 2 else DEFAULT_ENTRY
+def build(number, entry_id=None):
+    """One puzzle's card: the clue you named, or the best clue it has."""
+    check_families_match_app()
+    entries = load(number)["entries"]
+    if entry_id is None:
+        entry_id, p = pick(number)
+        if not entry_id:
+            raise SystemExit(f"og card: no clue in puzzle {number} can carry a card")
+    else:
+        entry = next((e for e in entries if e["id"] == entry_id), None)
+        if not entry:
+            raise SystemExit(f"og card: puzzle {number} has no entry {entry_id}")
+        p = plan(entry)
+        if not p:
+            raise SystemExit(f"og card: {number} {entry_id} has no annotation the "
+                             "card can draw — see plan()")
+    return compose(next(e for e in entries if e["id"] == entry_id), p, number)
+
+
+def alt_text(number, entry_id=None):
+    """What a screen reader gets. Describes the card, so it is generated beside
+    it — an alt text that has drifted from the picture is worse than none."""
+    if entry_id is None:
+        entry_id, p = pick(number)
+    else:
+        p = plan(next(e for e in load(number)["entries"] if e["id"] == entry_id))
+    if not p:
+        return None
+    shown = ("the answer underlined where it hides in the clue" if p["hidden"] else
+             "the letters to be rearranged spelled out" if p["fodder"] else
+             "the indicator marked")
+    entry = next(e for e in load(number)["entries"] if e["id"] == entry_id)
+    return (f'The cryptic clue "{entry["clue"]}" taken apart: the definition '
+            f'marked, {shown}, and the answer itself left blank.')
+
+
+def render(number, entry_id, out_path):
     text = CARD.read_text(encoding="utf-8")
-    new, n = re.subn(r"<!--CARD-START.*?<!--CARD-END-->", lambda _: build(number, entry_id),
-                     text, flags=re.S)
+    new, n = re.subn(r"<!--CARD-START.*?<!--CARD-END-->",
+                     lambda _: build(number, entry_id), text, flags=re.S)
     if n != 1:
         raise SystemExit("og_card.html is missing its <!--CARD-START--> markers")
-    CARD.write_text(new, encoding="utf-8")
-    print(f"og card: puzzle {number} {entry_id}, hidden span checked")
+    Path(out_path).write_text(new, encoding="utf-8")
+
+
+def main():
+    args = sys.argv[1:]
+    if "--list" in args:
+        # Which puzzles can carry a card, for make_og.sh to loop over. Printed
+        # rather than globbed by the shell so that "has a usable annotation" is
+        # decided in exactly one place.
+        for f in sorted((REPO / "puzzles").glob("*.js")):
+            if f.stem.isdigit() and pick(int(f.stem))[0]:
+                print(f.stem)
+        return 0
+    out = CARD
+    if "--out" in args:
+        i = args.index("--out")
+        out = Path(args[i + 1])
+        del args[i:i + 2]
+    number = int(args[0]) if args else DEFAULT_PUZZLE
+    entry_id = args[1] if len(args) > 1 else (DEFAULT_ENTRY if not args else None)
+    render(number, entry_id, out)
+    chosen = entry_id or pick(number)[0]
+    print(f"og card: puzzle {number} {chosen} -> {out}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
