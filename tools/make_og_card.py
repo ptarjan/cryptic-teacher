@@ -320,8 +320,18 @@ def rungs_for(p):
                     "says so out loud",
                     "The underline is the answer, in order, straddling the words."))
     elif p["fodder"]:
+        # Name the indicator, don't just paint it. The card marks it pink in the
+        # clue either way, and a pink word the rungs never mention reads as an
+        # unexplained claim — on 30,079 it was enough to make me doubt a correct
+        # annotation, when the actual answer was that the obvious-looking
+        # candidate was inside the fodder and this word was the real one.
         n = len(re.sub(r"[^A-Za-z]", "", p["fodder"]))
-        out.append((f'Shuffle <span class="fodder">{html.escape(p["fodder"])}</span>',
+        head = f'Shuffle <span class="fodder">{html.escape(p["fodder"])}</span>'
+        if p["indicator"]:
+            head = (f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
+                    f'says to shuffle <span class="fodder">'
+                    f'{html.escape(p["fodder"])}</span>')
+        out.append((head,
                     f"{n} letters, and the enumeration says where they land."))
     elif p["indicator"]:
         out.append((f'The instruction is <mark class="ind">'

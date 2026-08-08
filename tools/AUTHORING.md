@@ -611,9 +611,10 @@ it survived calibration:
 | --- | --- | --- |
 | Link words are an equals sign | `check_link_words_are_equivalences` | equivalence (`is`, `'s`), derivation (`gives`, `makes`, `becomes`, `yields`, `means`, `leads to`, `indicating`, `to locate`), prepositional joining (`for`, `from`, `of`, `in`, `with`, `after`), and grammatical glue. Nothing else — `EQUIVALENCE_LINKS` is the whole rule |
 | An indicator operates on what it touches | `check_indicator_adjacency` | only `FODDER_GLUE` between an anagram indicator and its fodder (`was`, `is`, `a`, `the`, `of`, `in`, `with`), plus the definition, which does sometimes sit in the gap |
+| An indicator is not its own fodder | `check_indicator_outside_fodder` | nothing: a word whose letters are being shuffled cannot also be the instruction to shuffle them, so the indicator must sit outside every locatable reading of the fodder. Adjacency can't see this — an indicator inside the fodder has no gap to measure, and scores as perfectly placed |
 | A reversal runs along the entry | `check_reversal_direction` | across: `back`, `returning`, `retreating`, `west`. Down: `up`, `rising`, `climbing`, `lifted`, `raised`, `from below`. Neutral (`turning`, `about`, `overturned`, `revolutionary`, `reversal`) is always safe |
 
-All three are ERRORs, scoped by `is_authored()` like the two-pieces rule.
+All four are ERRORs, scoped by `is_authored()` like the two-pieces rule.
 
 ### Calibration, which is the part that matters
 
