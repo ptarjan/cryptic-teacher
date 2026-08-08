@@ -1,43 +1,83 @@
 <!DOCTYPE html>
 <!-- Source for og.png. Rendered by tools/make_og.sh with headless Chrome at
-     1200x630 — hand-editing og.png is not a thing; edit this and re-run. -->
+     1200x630 — hand-editing og.png is not a thing; edit this and re-run.
+
+     The card is one clue being taken apart, not a grid: a grid shows the thing
+     people already believe they can't do. Colours and marks are the app's own
+     (style.css: --def-bg, --ind-bg), so the card is a screenshot of the product
+     in spirit even though it is typeset here. -->
 <html>
 <head>
 <meta charset="utf-8">
 <style>
   html, body { margin: 0; padding: 0; width: 1200px; height: 630px; }
-  body {
-    background: #faf8f4; color: #14171a; display: flex; align-items: center;
-    gap: 64px; padding: 0 80px; box-sizing: border-box;
-    font-family: Georgia, "Times New Roman", serif;
-    border-top: 10px solid #0f5c86;
+  :root {
+    --ink: #14171a; --muted: #6b6b6b; --line: #ddd8ce; --accent: #0f5c86;
+    --def-bg: #cdeccd; --def-fg: #14501f;
+    --ind-bg: #f6d9f0; --ind-fg: #7a1d66;
   }
-  :root { --cell: 26px; }
-  .grid { display: grid; grid-template-columns: repeat(15, var(--cell)); gap: 2px;
-          background: #9199a3; border: 5px solid #14171a; flex: none; }
-  .c { width: var(--cell); height: var(--cell); background: #fff; }
-  .b { background: #14171a; }
-  .a { background: #0f5c86; }
-  h1 { font-size: 76px; margin: 0 0 14px; letter-spacing: -1px; }
-  p { font-size: 34px; margin: 0; color: #3c4348; line-height: 1.35; }
-  .url { margin-top: 34px; font: 600 26px/1 -apple-system, Helvetica, sans-serif;
-         color: #0f5c86; letter-spacing: .5px; }
+  body {
+    background: #faf8f4; color: var(--ink); box-sizing: border-box;
+    padding: 54px 72px 0; border-top: 10px solid var(--accent);
+    font-family: Georgia, "Times New Roman", serif;
+    display: flex; flex-direction: column;
+  }
+  header { display: flex; align-items: baseline; justify-content: space-between; }
+  .brand { font-size: 34px; font-weight: 700; letter-spacing: -.5px; }
+  .url { font: 600 22px/1 -apple-system, Helvetica, sans-serif;
+         color: var(--accent); letter-spacing: .4px; }
+
+  .clue { font-size: 52px; line-height: 1.28; margin: 34px 0 6px; }
+  .enum { color: var(--muted); }
+  mark { padding: 0 4px; border-radius: 4px; }
+  mark.def { background: var(--def-bg); color: var(--def-fg); }
+  mark.ind { background: var(--ind-bg); color: var(--ind-fg); }
+  /* The letters of the answer, where they were hiding. Not a highlighter — an
+     underline, because the words still belong to the surface reading too. */
+  mark.hit { background: none; padding: 0;
+             box-shadow: inset 0 -7px 0 rgba(15, 92, 134, .4); }
+
+  .rungs { list-style: none; margin: 30px 0 0; padding: 0; }
+  .rungs li { display: flex; align-items: baseline; gap: 18px; margin-bottom: 22px; }
+  .rungs .n {
+    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    background: var(--accent); color: #fff; text-align: center;
+    font: 700 19px/34px -apple-system, Helvetica, sans-serif;
+  }
+  .rungs .t { font-size: 29px; line-height: 1.25; }
+  .rungs b { font-weight: 400; }
+  /* The rung's own words on one line, the app's explanation under it — run
+     together on a single line they read as one sentence and neither lands. */
+  .rungs .sub { display: block; font-size: 24px; color: var(--muted); margin-top: 4px; }
+  .rungs mark { font-size: 27px; }
+
+  .held {
+    border-top: 2px solid var(--line); margin-top: auto; padding: 20px 0 22px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .lbl { font: 700 17px/1 -apple-system, Helvetica, sans-serif;
+         letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); }
+  .dots { display: flex; gap: 9px; }
+  .dot { width: 26px; height: 32px; border: 2px solid var(--line);
+         border-radius: 3px; background: #fff; }
+  .held-note { font-size: 22px; color: var(--muted); font-style: italic; }
 </style>
 </head>
 <body>
-  <!-- The grid between these markers is GENERATED from a real puzzle by
-       tools/make_og_grid.py, which make_og.sh runs first. Don't hand-edit it:
-       the 5x5 that used to sit here was drawn by eye and had eight two-letter
-       lights, which no cryptic grid has. -->
-  <!--GRID-START 30066-->
-  <div class="grid" style="grid-template-columns: repeat(15, var(--cell))"><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c a"></div><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c b"></div><div class="c b"></div><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c"></div><div class="c b"></div><div class="c b"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div><div class="c b"></div><div class="c b"></div></div>
-  <!--GRID-END-->
-  <div>
-    <h1>Cryptic Teacher</h1>
-    <!-- Not "Guardian": since 2026-08-05 the site also carries the Independent's
-         daily and the Observer's Everyman. -->
-    <p>Real broadsheet cryptics, with hints that teach the mechanics<br>instead of handing you the answer.</p>
+  <header>
+    <div class="brand">Cryptic Teacher</div>
     <div class="url">paultarjan.com/cryptic-teacher</div>
-  </div>
+  </header>
+
+  <!-- Everything between these markers is GENERATED from a published puzzle by
+       tools/make_og_card.py, which make_og.sh runs first. Don't hand-edit it:
+       the highlight is a factual claim about where the answer's letters sit, and
+       the generator checks it against the clue rather than trusting a human. -->
+  <!--CARD-START 1393 3-down-->
+  <div class="clue"><mark class="def">Woman</mark> <mark class="ind">found in</mark> Orego<mark class="hit">n or Ma</mark>ine <span class="enum">(5)</span></div>
+  <ol class="rungs"><li><span class="n">1</span><span class="t"><b>Extraction</b><span class="sub">The answer&rsquo;s letters are already sitting in the clue, in order.</span></span></li><li><span class="n">2</span><span class="t"><b>The definition is <mark class="def">Woman</mark></b><span class="sub">Everything else is wordplay.</span></span></li><li><span class="n">3</span><span class="t"><b><mark class="ind">found in</mark> says so out loud</b><span class="sub">Two states, carrying letters across the border.</span></span></li></ol>
+  <div class="held"><span class="lbl">Answer</span><span class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+    <span class="held-note">&mdash; yours to spot, not ours to hand over</span></div>
+  <!--CARD-END-->
 </body>
 </html>

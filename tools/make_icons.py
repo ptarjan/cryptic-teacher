@@ -151,7 +151,7 @@ def check_motif():
     """Refuse to draw a mini-grid that isn't a legal one. Shares the social
     card's checker so the two artefacts can never disagree about the rules."""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from make_og_grid import check
+    from grid_rules import check
     check([[(r, c) not in BLOCKS for c in range(5)] for r in range(5)])
 
 
