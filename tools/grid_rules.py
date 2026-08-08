@@ -1,32 +1,33 @@
 #!/usr/bin/env python3
-"""Build the social card's grid out of a REAL puzzle, and prove it is legal.
+"""What makes a blocked British cryptic grid legal, and the check that enforces it.
 
-The card used to carry a hand-drawn 5x5 lattice. It was 180-degree symmetric and
-looked the part, but it was not a crossword: eight of its lights were two cells
-long, and no British cryptic has a two-letter entry. Anyone who solves these
-would clock it in the thumbnail — which is the one image the site shows people
-who have never been here.
+The favicon motif was drawn by eye. It was 180-degree symmetric and looked the
+part, but it was not a crossword: eight of its lights were two cells long, and no
+British cryptic has a two-letter entry. A solver clocks that instantly, and an
+icon is seen by people who have never seen the site.
 
-So the grid is no longer drawn. It is derived from a puzzle we actually publish
-(the entries give the white squares; everything else is a block), and then
-checked against the conventions before it can be written out. Drawing a grid
-freehand is exactly the kind of thing that looks right and isn't; deriving it
-from a real one cannot be wrong, and the check is there for the day someone
-points this at something that isn't a real grid.
+So no grid here is drawn and trusted. `check()` is the shared rulebook —
+tools/make_icons.py runs its 5x5 motif through it, and `mask()` derives a real
+grid out of a published puzzle for anything that needs one to compare against.
+Drawing a grid freehand is exactly the kind of thing that looks right and isn't.
 
-Usage:  python3 tools/make_og_grid.py [puzzle-number]   (called by make_og.sh)
+The social card no longer carries a grid at all (see tools/make_og_card.py: it
+shows one clue coming apart instead, which is the thing the site actually does).
+The rules outlived the picture, which is why they live in their own module.
+
+Usage:  python3 tools/grid_rules.py [puzzle-number]   # check a real grid passes
 """
 import json
-import re
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-CARD = REPO / "tools" / "og_card.html"
 DEFAULT_PUZZLE = 30066          # Tramp, 15x15, fully annotated
 # One light in accent blue, the way the app highlights the entry you're on.
 # A middle row rather than the top one: against the border, row 1 read as a
 # banner across the grid instead of as a single answer.
+# The card used to light one entry in accent blue; mask() still reports it so a
+# future picture can, and so the id is validated against the puzzle.
 HIGHLIGHT = "14-across"
 
 
@@ -102,30 +103,17 @@ def check(white):
 
 
 def main():
+    """Prove the rules pass on a grid that is definitely legal — a published one.
+
+    Without this the checker is only ever exercised by the icon motif, and a rule
+    written too strictly would show up as a broken icon build rather than as what
+    it is: a rule that real crosswords break.
+    """
     number = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PUZZLE
     puz = load(number)
-    white, lit = mask(puz)
+    white, _ = mask(puz)
     check(white)
-
-    cols = len(white[0])
-
-    def cls(x, y):
-        if not white[y][x]:
-            return "c b"
-        return "c a" if (x, y) in lit else "c"
-
-    cells = "".join(f'<div class="{cls(x, y)}"></div>'
-                    for y in range(len(white)) for x in range(cols))
-    block = (f'<!--GRID-START {puz["number"]}-->\n'
-             f'  <div class="grid" style="grid-template-columns: repeat({cols}, var(--cell))">'
-             f'{cells}</div>\n  <!--GRID-END-->')
-
-    html = CARD.read_text(encoding="utf-8")
-    html, n = re.subn(r"<!--GRID-START.*?<!--GRID-END-->", block, html, flags=re.S)
-    if n != 1:
-        raise SystemExit("og_card.html is missing its <!--GRID-START--> markers")
-    CARD.write_text(html, encoding="utf-8")
-    print(f"og grid: puzzle {puz['number']}, {cols}x{len(white)}, checks passed")
+    print(f"puzzle {number}: {len(white[0])}x{len(white)}, checks passed")
 
 
 if __name__ == "__main__":
