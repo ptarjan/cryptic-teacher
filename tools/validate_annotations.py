@@ -23,6 +23,7 @@ And five checks that apply only to puzzles we WROTE (see is_authored):
     spell the answer out (check_walkthrough_budget)
   - every linkWord stands in for an equals sign (check_link_words_are_equivalences)
   - an anagram indicator touches its fodder (check_indicator_adjacency)
+  - and is not made of the fodder's own letters (check_indicator_outside_fodder)
   - a reversal indicator points the way the entry runs (check_reversal_direction)
 
 And one whole-puzzle check:
@@ -339,6 +340,45 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
         f"{', '.join(best[1])} — an indicator only operates on what it stands next to. "
         f"Move it against the fodder, or cut the words in between (AUTHORING.md, "
         f"'An indicator operates on what it touches')")
+
+
+def check_indicator_outside_fodder(tag, ann, clue, errors):
+    """An anagram indicator cannot be made of letters the anagram eats.
+
+    The instruction and the material are two different jobs, and one word cannot
+    hold both: if `spin` is inside PAID TO SPIN then its letters are already
+    spoken for, and whatever tells you to shuffle them has to be some other word.
+    Obvious once stated, and easy to get backwards anyway — `spin`, `cooked`,
+    `broken`, `wild` all read as instructions wherever they appear, so a reader
+    (or a model annotating in bulk) will happily nominate one that is really
+    fodder. That is exactly what happened on 30,079 13D, where the annotation had
+    it right and a human review of the card had it wrong.
+
+    Adjacency alone cannot catch this: check_indicator_adjacency measures the gap
+    BETWEEN indicator and fodder, and an indicator sitting inside the fodder has
+    no gap at all, so it scores as perfectly placed.
+
+    Only flagged when every locatable reading of the fodder swallows the
+    indicator, matching the adjacency check's rule that any clean reading wins.
+
+    CALIBRATION (2026-08-08, all 116 annotations carrying a fodder): 0 flagged.
+    A guard against a future annotation, not a description of a present one.
+    """
+    if not ann.get("anagram"):
+        return
+    spans = _fodder_spans(clue, ann["anagram"].get("fodder"), ann.get("blocks", []))
+    if not spans:
+        return
+    for ind in ann.get("indicators", []):
+        i = clue.find(ind)
+        if i < 0:
+            continue
+        if all(i < fe and i + len(ind) > fs for fs, fe in spans):
+            errors.append(
+                f"{tag}: anagram indicator {ind!r} sits inside the fodder "
+                f"{ann['anagram']['fodder']!r} — its letters are already being "
+                f"shuffled, so it cannot also be the instruction to shuffle them. "
+                f"The indicator is some other word in the clue.")
 
 
 # A reversal runs along the entry, so the indicator has to name the entry's own
@@ -748,6 +788,7 @@ def validate_puzzle(puzzle):
             check_walkthrough_budget(tag, ann, warnings)
             check_link_words_are_equivalences(tag, ann, errors)
             check_indicator_adjacency(tag, ann, clue, errors, warnings)
+            check_indicator_outside_fodder(tag, ann, clue, errors)
             check_reversal_direction(tag, ann, e["direction"], errors)
         walk = ann.get("walkthrough") or ""
         low = walk.lower()

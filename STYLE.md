@@ -532,6 +532,20 @@ all 55:
   describe a clue differently from the app that teaches it. A puzzle with no
   clue that qualifies keeps the site card; shipping a weak card is worse than
   shipping the generic one.
+- **A word being shuffled cannot be the word that says to shuffle**
+  (2026-08-08). Reviewing 30,079's card I called its indicator wrong — "School"
+  looked odd and "to spin" looked like the obvious anagram indicator. It wasn't:
+  `spin` is inside the fodder PAID TO SPIN, so its letters were already spoken
+  for, and the annotation was right. The failure is text matching over structure
+  — `spin`, `cooked`, `broken`, `wild` read as instructions wherever they sit, so
+  eyes and bulk annotation alike will nominate one that is really material. Now
+  `check_indicator_outside_fodder` decides it, because adjacency cannot: an
+  indicator inside its fodder has no gap to measure and scores as perfectly
+  placed. Zero violations across all 116 annotations carrying a fodder — a guard
+  against a future one. The card was complicit too: it painted the indicator pink
+  and never mentioned it, so rung 3 now reads "<ind> says to shuffle <fodder>"
+  rather than "Shuffle <fodder>". A mark the prose never explains is a claim the
+  reader has to take on trust, and this one didn't survive being taken on trust.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
