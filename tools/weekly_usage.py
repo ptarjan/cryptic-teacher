@@ -25,9 +25,10 @@ The keychain item is keyed by CLAUDE_CONFIG_DIR, exactly as the CLI keys it:
 "Claude Code-credentials-<first 8 of sha256(configdir)>". Hard-coding the legacy
 un-suffixed name cost seven days (2026-08-01 to 08-07): a file-based /login had
 blanked that entry to an empty accessToken, so every run sent `Bearer ` with no
-token, the API answered 429, and the gate — which fails open on purpose — waved
+token, the API answered 429, and the gate — which used to fail open — waved
 through three annotations a night with no idea the week was 68% spent. An empty
 token is therefore a hard error here rather than a request nobody authorised.
+It fails closed now; see gate() and daily_update.sh.
 
 Nothing here refreshes that token — only the CLI does, when it runs. The access
 token lives about eight hours, so on a quiet machine every read after it lapses
@@ -38,7 +39,9 @@ night and skip the one hour it exists for, so every successful read is cached to
 .usage_cache.json and a failed read falls back to it. `resets_at` is an absolute
 timestamp, which is exactly what makes it safe to cache: a stamp still in the
 future is as true today as it was this morning. A percentage isn't, so a cached
-one is only honoured for six hours and says so on stderr.
+one is only honoured for six hours as a *number* and says so on stderr — but it
+never stops being a lower bound, because usage inside a window only goes up, and
+gate() spends that fact where usage_pct() has to give up.
 
 We report the worst window in the requested group, not just the headline one.
 The API returns an all-models weekly limit alongside per-model scoped ones
@@ -49,11 +52,13 @@ Usage:
   python3 tools/weekly_usage.py                    # weekly, prints e.g. "68"
   python3 tools/weekly_usage.py --group session    # the five-hour window
   python3 tools/weekly_usage.py --resets-in        # hours left, e.g. "116.9"
+  python3 tools/weekly_usage.py --gate 50          # "spend" / "skip" / "unknown"
                                        # exits 2, printing why, if it can't tell
 """
 
 import datetime
 import hashlib
+import io
 import json
 import os
 import subprocess
@@ -192,6 +197,58 @@ def _live_usage_pct(group):
     return max(float(p) for p in pcts)
 
 
+def gate(limit, group="weekly"):
+    """Decide whether a spend is allowed: "spend", "skip", or "unknown".
+
+    The caller's real question is not "what is the percentage" but "am I over the
+    line", and those are not equally hard. Usage inside a window only ever goes
+    up, so ANY reading taken inside the current window is a lower bound on where
+    the window stands now, however old it is. A stale reading is therefore
+    decisive in exactly one direction: a cached 75% from ten hours ago proves the
+    week is at least 75% today, and if the limit is 50% that is a "skip" with no
+    guesswork in it. It proves nothing the other way — a stale 20% may since have
+    become 90% — so a low stale reading is "unknown", not "spend".
+
+    That asymmetry is the whole point. usage_pct() refuses a cache older than six
+    hours because a percentage rots as a *number*; it does not rot as a *floor*.
+    Throwing the floor away is what happened on 2026-08-08: the gate held a
+    10-hour-old 75%, declared itself blind, and waved through an annotation run
+    against a 50% limit that the number it was holding already failed.
+
+    What makes the reading a bound rather than a coincidence is that it belongs
+    to the window we are still in, which is why the cached reset stamp is checked
+    first. Once the window turns over the counter goes back to zero and yesterday
+    says nothing about today.
+    """
+    try:
+        return "skip" if usage_pct(group) > limit else "spend"
+    except READ_ERRORS as exc:
+        live_error = exc
+    cache = _cache_read()
+    cached, resets = cache.get(f"{group}.percent"), cache.get(f"{group}.resets_at")
+    if not cached or not resets:
+        print(f"cannot read {group} usage and no cached reading to bound it: "
+              f"{live_error}", file=sys.stderr)
+        return "unknown"
+    if datetime.datetime.fromisoformat(resets["value"]) <= _now():
+        print(f"cannot read {group} usage; the cached reading is from a window "
+              f"that has since reset, so it bounds nothing: {live_error}",
+              file=sys.stderr)
+        return "unknown"
+    age_h = (_now() - datetime.datetime.fromisoformat(cached["at"])
+             ).total_seconds() / 3600.0
+    floor = float(cached["value"])
+    if floor > limit:
+        print(f"cannot read {group} usage, but the reading from {age_h:.1f}h ago "
+              f"was {floor:.0f}% and usage only rises within a window, so it is "
+              f"at least that now — over the {limit}% limit", file=sys.stderr)
+        return "skip"
+    print(f"cannot read {group} usage; the reading from {age_h:.1f}h ago was "
+          f"{floor:.0f}%, under the {limit}% limit, and a floor cannot show it "
+          f"has stayed there: {live_error}", file=sys.stderr)
+    return "unknown"
+
+
 def resets_in_hours(group="weekly"):
     """Hours until the window turns over, from the API's own `resets_at`.
 
@@ -239,6 +296,56 @@ def _live_resets_at(group):
     return min(datetime.datetime.fromisoformat(s) for s in stamps)
 
 
+def self_test():
+    """Prove the four gate verdicts without touching the network or the keychain.
+
+    A gate is worth exactly what its wrong answers cost, and this one's wrong
+    answers are "spend someone's whole week on crosswords". It has been wrong
+    twice in production and both times the logic looked obviously right in the
+    diff, so the four cases are pinned here and daily_update.sh runs them before
+    it trusts a verdict. No fixtures on disk: the point is that the reasoning
+    holds, not that a file parses.
+    """
+    global _live_usage_pct, _cache_read
+    live, read, err = _live_usage_pct, _cache_read, sys.stderr
+    now = _now()
+    hours = datetime.timedelta(hours=1)
+    cases = [
+        # label, cached %, reading age, reset in, expected verdict
+        ("stale reading over the limit is a floor, so it decides",
+         75.0, 10 * hours, 96 * hours, "skip"),
+        ("stale reading under the limit bounds nothing upward",
+         20.0, 10 * hours, 96 * hours, "unknown"),
+        ("a reading from a window that has since reset is not a floor",
+         75.0, 200 * hours, -1 * hours, "unknown"),
+        ("a fresh reading is just a reading",
+         75.0, 2 * hours, 96 * hours, "skip"),
+    ]
+    failures = []
+    try:
+        def unreachable(_group):
+            raise RuntimeError("HTTP Error 429: Too Many Requests")
+        _live_usage_pct = unreachable
+        # The cases deliberately simulate an unreadable quota, and gate()
+        # narrates that on stderr. Left unmuzzled it writes four "cannot read
+        # weekly usage" lines into .update.log every night — the exact sentence
+        # the real alert tells a human to go and look for. Swallow them.
+        sys.stderr = io.StringIO()
+        for label, pct, age, until, want in cases:
+            _cache_read = lambda p=pct, a=age, u=until: {
+                "weekly.percent": {"value": p, "at": (now - a).isoformat()},
+                "weekly.resets_at": {"value": (now + u).isoformat(),
+                                     "at": (now - a).isoformat()}}
+            got = gate(50)
+            if got != want:
+                failures.append(f"{label}: got {got!r}, want {want!r}")
+    finally:
+        _live_usage_pct, _cache_read, sys.stderr = live, read, err
+    for f in failures:
+        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
+    return 1 if failures else 0
+
+
 def main():
     group = "weekly"
     if "--group" in sys.argv:
@@ -247,6 +354,17 @@ def main():
             print(f"unknown group {group!r}; expected one of "
                   f"{', '.join(sorted(LEGACY_FIELD))}", file=sys.stderr)
             return 2
+    if "--self-test" in sys.argv:
+        ok = self_test()
+        print("gate self-test: 4 cases pass" if ok == 0 else "gate self-test FAILED")
+        return ok
+    if "--gate" in sys.argv:
+        # A verdict, not a number, and never an empty string: a caller that has
+        # to decide something must be handed a decision or an explicit "I don't
+        # know", because "" reads as false in shell and quietly means "go".
+        verdict = gate(float(sys.argv[sys.argv.index("--gate") + 1]), group)
+        print(verdict)
+        return 2 if verdict == "unknown" else 0
     want = "resets" if "--resets-in" in sys.argv else "usage"
     try:
         if want == "resets":

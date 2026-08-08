@@ -497,12 +497,26 @@ all 55:
   credential is still right; assuming it is live is not. Cache the last good
   reading and say on stderr when you are using it — but only where staleness is
   harmless: `resets_at` is an absolute timestamp and stays true, a percentage
-  goes off, so it expires after six hours and the gate goes back to unknown.
+  goes off, so as a number it expires after six hours. As a floor it never does
+  — see the next rule but one.
 - **The same alert twice is the same silence** (same day). One lapsed token made
   an hourly job post four identical paragraphs to Discord, and a channel that
   cries wolf on the hour teaches its one reader to scroll past it — the silent
   failure again with the opposite mask. `alert()` now sends an identical message
   at most once per `ALERT_REPEAT_HOURS` (12). The log still records every one.
+- **A spend gate fails closed, and a stale reading is still a floor** (2026-08-08).
+  The gate could not reach the usage API, so it ran the annotator ungated at 82%
+  of the week — while holding a ten-hour-old cached reading of 75% against a 50%
+  limit. It had the answer and threw it away, because it was asking "what is the
+  percentage" (which rots) instead of "am I over the line" (which doesn't):
+  usage only rises inside a window, so any reading from the current window is a
+  lower bound forever, and a floor above the limit is a decision. `gate()` returns
+  `spend`/`skip`/`unknown`, never a bare number that an empty string can silently
+  turn into "go". And `unknown` now skips — the old fail-open bet was that a
+  stalled backlog is invisible while overspending isn't, which stopped being true
+  the day skipping started raising an alert. Its four cases run offline as
+  `--self-test` before any verdict is believed, because a broken gate says
+  "spend" just as confidently as a working one.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so

@@ -102,27 +102,44 @@ EOF
 # 2 and 4 still run, so the newest puzzle is still fetched and published, just
 # without hints until the window resets.
 #
-# If the usage check itself fails we annotate anyway, loudly. A silent gate
-# that can never open is the exact failure this repo has already shipped twice
-# (cron with no PATH to claude, oldest-first ordering): the backlog stops
-# draining and nothing says so. Overspending is visible; not running isn't.
+# This gate used to fail OPEN — if it couldn't read the quota it annotated
+# anyway and printed a warning — on the argument that overspending is visible
+# while a stalled backlog isn't. That argument has now been tested twice and
+# lost both times. From 2026-08-01 to 08-07 the read failed every night against
+# a blanked keychain entry and the week ran to 68% with the gate wide open; on
+# 08-08 it failed again, ran ungated at 82%, and the annotation died on a limit
+# anyway — so fail-open didn't even buy the puzzle it was spending for.
 #
-# Loudly is doing a lot of work in that sentence, and it wasn't enough. From
-# 2026-08-01 to 08-07 the check failed every single night — a blanked keychain
-# entry, see weekly_usage.py — and printed exactly this WARNING into a log
-# nobody reads, so the gate was open for a week while the week ran to 68%.
-# A fail-open gate needs its failures to reach a person, hence the alert below.
+# It fails CLOSED now, and the premise that made fail-open tempting is gone:
+# a skipped night raises an alert into Discord, so "nothing says so" is no
+# longer true. One day of backlog is recoverable; a week of someone's quota
+# spent by a gate that had stopped gating is not.
+#
+# The verdict comes from weekly_usage.py rather than from arithmetic here,
+# because "am I over the line" is answerable in cases where "what is the
+# percentage" isn't: usage only rises within a window, so even a stale cached
+# reading is a floor, and a floor above the limit is a decision. That is the
+# case this gate actually met on 08-08 — it was holding a 10-hour-old 75%
+# against a 50% limit and called itself blind.
 ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
+if [ -n "$pending" ] && ! python3 tools/weekly_usage.py --self-test; then
+  # The gate's own four cases, run offline before its verdict is believed. A
+  # gate whose logic is broken says "spend" as confidently as a working one, so
+  # a failing self-test is treated as the worst verdict rather than ignored.
+  alert "the weekly usage gate is failing its own self-test, so annotation was skipped. The gate logic itself is wrong — see the SELF-TEST lines in .update.log."
+  pending=""
+fi
 if [ -n "$pending" ]; then
-  weekly=$(python3 tools/weekly_usage.py)
-  if [ -z "$weekly" ]; then
-    alert "the weekly usage gate can't read the quota, so tonight's annotation ran ungated. It fails open by design, but a gate that is permanently open is not a gate — see the \"cannot read weekly usage\" line in .update.log."
-  elif [ "$weekly" -gt "$ANNOTATE_MAX_WEEKLY_PCT" ]; then
-    echo "weekly usage ${weekly}% > ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $pending"
-    pending=""
-  else
-    echo "weekly usage ${weekly}% (limit ${ANNOTATE_MAX_WEEKLY_PCT}%) — annotating $pending"
-  fi
+  case "$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT")" in
+    spend)
+      echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $pending" ;;
+    skip)
+      echo "weekly usage over ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $pending"
+      pending="" ;;
+    *)
+      alert "the weekly usage gate can't read the quota, so tonight's annotation was skipped rather than run ungated. Nothing is broken on the site — the newest puzzle still published, just without hints. See the \"cannot read weekly usage\" line in .update.log."
+      pending="" ;;
+  esac
 fi
 
 # The five-hour window is the one this loop actually spends, so it is re-read
