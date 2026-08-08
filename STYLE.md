@@ -517,6 +517,21 @@ all 55:
   the day skipping started raising an alert. Its four cases run offline as
   `--self-test` before any verdict is believed, because a broken gate says
   "spend" just as confidently as a working one.
+- **A shared social card wastes the only view most pages get** (2026-08-08).
+  Every puzzle page unfurled as the same picture of Quiptic 1,393, so a hundred
+  different links previewed as somebody else's crossword. Each page now shows
+  the best clue in its own puzzle, and "best" is a question about the PICTURE,
+  not about the clue — these are published setters, soundness is a given, and
+  what varies is whether the mechanism survives four seconds in a thumbnail. So
+  `score()` ranks on visible mechanism (answer underlined where it hides >
+  anagram fodder laid out > an indicator to point at), on length, and on whether
+  the definition sits at one end. Two things are structural rather than
+  reviewed: no card may print its answer — live, not theoretical, because the
+  rungs are built from annotation prose that gives it away — and the family
+  labels are diffed against app.js's FAMILIES on every build, so a card cannot
+  describe a clue differently from the app that teaches it. A puzzle with no
+  clue that qualifies keeps the site card; shipping a weak card is worse than
+  shipping the generic one.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
