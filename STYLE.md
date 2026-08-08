@@ -493,6 +493,22 @@ all 55:
   cries wolf on the hour teaches its one reader to scroll past it — the silent
   failure again with the opposite mask. `alert()` now sends an identical message
   at most once per `ALERT_REPEAT_HOURS` (12). The log still records every one.
+- **Two renderings of one link must share one joiner** (Search Console,
+  2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
+  `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
+  the structured data was right and the link a reader or a crawler could actually
+  click was `paultarjan.com/puzzles/`, a 404 on all 71 puzzle pages, for as long
+  as those pages have existed. Nothing shows in a browser: the page renders, the
+  crumb looks like a crumb. The site is served from a subpath, so a root-relative
+  href is never correct here; `site_url()` is the only joiner and
+  `assert_no_root_relative()` fails the build on any `href="/…"` it did not make.
+- **A URL that is not the canonical must say which page is** (same day). `?p=30054`
+  shipped declaring the homepage canonical, so every share of a specific puzzle
+  credited the front page and Search Console filed the puzzle as "alternate page
+  with proper canonical tag". The static write-up at `/puzzles/30054/` is the page
+  that deserves it. The app now rewrites the canonical at boot when `?p=` names a
+  puzzle that has one — and only then, because an unannotated puzzle has no static
+  page and the homepage is the honest answer.
 - **Copy about the whole site names every paper in it, or none of them**
   (feedback 2026-08-06: the archive page still said "Guardian cryptic crosswords,
   explained" over a list that included the Independent and Everyman). Naming one

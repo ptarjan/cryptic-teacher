@@ -84,9 +84,18 @@ registry["picker-panel"].classList.add("hidden");
 
 const storage = {};
 const docListeners = {};
+// index.html's <link rel="canonical">, stood up so the ?p= rewrite is testable.
+// Read out of the shipped file rather than retyped, so the harness cannot be
+// testing a canonical the site does not actually have.
+const canonicalLink = new FakeEl("link");
+canonicalLink.href = (fs.readFileSync(path.join(ROOT, "index.html"), "utf8")
+  .match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
 const document = {
   readyState: "complete",
   head: new FakeEl("head"),
+  querySelector(sel) {
+    return sel === 'link[rel="canonical"]' ? canonicalLink : null;
+  },
   createElement(tag) {
     const el = new FakeEl(tag);
     Object.defineProperty(el, "onclickCapture", { value: null, writable: true });
@@ -152,6 +161,20 @@ assert(/No [\d,]+/.test(openTitle), "a Guardian cryptic opened: " + openTitle);
 const openId = (openTitle.match(/No ([\d,]+)/) || [, ""])[1].replace(/,/g, "");
 const openPuz = (global.window.CRYPTIC_PUZZLES || {})[openId];
 assert(openPuz, "the opened puzzle's data is loaded: " + openId);
+// A ?p= URL hands its indexing credit to the static write-up, not to the
+// homepage. It shipped canonicalling to the site root, so every link to a
+// specific puzzle credited the front page and Search Console filed the puzzle
+// under "alternate page with proper canonical tag" (2026-08-07). With no ?p the
+// URL really is the homepage, and so is the canonical.
+{
+  const home = "https://paultarjan.com/cryptic-teacher/";
+  const asked = new URLSearchParams(global.location.search).get("p");
+  const meta = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === asked);
+  const want = (meta && meta.hasSolutions) ? `${home}puzzles/${meta.number}/` : home;
+  assert(canonicalLink.href === want,
+    `canonical should be ${want}, got ${canonicalLink.href}`);
+}
+
 // The badge marks the exception, not the norm: an annotated puzzle's title
 // carries no badge at all (see STYLE.md, "Badge the exception"). So the title
 // must agree with the index rather than always saying something.
