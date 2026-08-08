@@ -222,7 +222,14 @@ def plan(entry):
         # second mechanism stacked on top, the letters on the card are not the
         # letters that get shuffled, and a card that shows the wrong ones is
         # worse than a card that shows none.
-        if fodder and t == "anagram":
+        # And only when the reader can find every one of those letters on the
+        # card. Plenty of "anagram" annotations quietly substitute first: 30,079's
+        # fodder is CRUELLY AT MAN, but the clue says "crew", and a rung reading
+        # "Shuffle CRUELLY AT MAN" over a clue with no MAN in it asks the reader to
+        # take a step the picture never shows. Such a clue keeps its indicator rung.
+        if fodder and t == "anagram" and all(
+                re.search(rf"(?<![A-Za-z]){w}(?![A-Za-z])", clue, re.I)
+                for w in re.findall(r"[A-Za-z]+", fodder)):
             p["fodder"] = fodder
     except SystemExit:
         return None                                 # annotation and clue disagree
