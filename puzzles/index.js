@@ -16,6 +16,19 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": null
   },
   {
+   "id": "12429",
+   "number": 12429,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,429",
+   "setter": "Knut",
+   "date": 1786147200000,
+   "file": "12429.js",
+   "v": "f01e23b1",
+   "annotated": false,
+   "hasSolutions": true,
+   "difficulty": null
+  },
+  {
    "id": "30079",
    "number": 30079,
    "series": "cryptic",
