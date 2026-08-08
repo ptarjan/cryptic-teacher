@@ -1075,6 +1075,22 @@
   }
 
   // ---------- boot ----------
+
+  // ?p=30054 is one app URL among thousands, and it shipped declaring the
+  // homepage as its canonical — so Google folded every share and every link to
+  // a specific puzzle into the site root, and Search Console listed the puzzle
+  // as "alternate page with proper canonical tag" (2026-08-07). The page that
+  // deserves that credit is the write-up at /puzzles/30054/, which says the same
+  // things without needing JavaScript. Point at it, but only when it exists:
+  // an unannotated puzzle has no static page, and the homepage is then honest.
+  function pointCanonicalAtStaticPage(asked) {
+    const link = document.querySelector('link[rel="canonical"]');
+    if (!link || !asked) return;
+    const p = INDEX.puzzles.find((q) => q.id === asked);
+    if (!p || !p.hasSolutions) return;
+    link.href = new URL(`puzzles/${p.number}/`, link.href).href;
+  }
+
   function boot() {
     $("tutorial").innerHTML = window.TUTORIAL_HTML || "<p>Tutorial unavailable.</p>";
     $("btn-tutorial").onclick = () => {
@@ -1149,6 +1165,7 @@
       // /puzzles/<n>/ link in that way, and dropping someone on last night's
       // puzzle instead of the one they clicked would be baffling.
       const asked = new URLSearchParams(location.search).get("p");
+      pointCanonicalAtStaticPage(asked);
       const last = store.get("ct:last", null);
       const firstAnnotated = (INDEX.puzzles.find((p) => p.annotated) || INDEX.puzzles[0]).id;
       const want = (asked && window.CRYPTIC_PUZZLES[asked]) ? asked

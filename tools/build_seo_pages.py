@@ -209,6 +209,19 @@ FOOTER = f"""<footer>
 """
 
 
+def site_url(path):
+    """A crumb path made absolute. Both renderings of a crumb go through here.
+
+    The site lives at /cryptic-teacher/, so a root-relative href is never right:
+    it points at paultarjan.com, which is a different site. The crumb tuples used
+    to be joined to BASE by breadcrumb_ld and emitted raw by masthead, so the
+    structured data was correct while the link a crawler could actually follow
+    was `/puzzles/` — a 404 on every one of the 70-odd puzzle pages, reported by
+    Search Console on 2026-08-07. One joiner, both callers, no room to disagree.
+    """
+    return BASE + path
+
+
 def masthead(crumbs):
     """Site header plus a breadcrumb trail — the crawl path back up, and the
     thing that stops a visitor landing from search from feeling stranded."""
@@ -216,7 +229,7 @@ def masthead(crumbs):
     for i, (label, href) in enumerate(crumbs):
         last = i == len(crumbs) - 1
         parts.append(f"<span aria-current=\"page\">{esc(label)}</span>" if last
-                     else f"<a href=\"{esc(href)}\">{esc(label)}</a>")
+                     else f"<a href=\"{esc(site_url(href))}\">{esc(label)}</a>")
     return f"""<header>
   <div class="brand">
     <a class="home-link" href="{BASE}/"><strong>Cryptic Teacher</strong></a>
@@ -229,7 +242,7 @@ def masthead(crumbs):
 
 def breadcrumb_ld(crumbs):
     items = [{"@type": "ListItem", "position": i + 1, "name": label,
-              **({"item": BASE + href} if href else {})}
+              **({"item": site_url(href)} if href else {})}
              for i, (label, href) in enumerate(crumbs)]
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
             "itemListElement": items}
@@ -567,7 +580,28 @@ def outputs():
     files[ROOT / "sitemap.xml"] = sitemap(idx)
     path, text = patch_homepage(idx)
     files[path] = text
+    assert_no_root_relative(files)
     return files
+
+
+def assert_no_root_relative(files):
+    """No generated link may start at /, because the site does not.
+
+    GitHub Pages serves this out of /cryptic-teacher/; `/puzzles/` resolves to
+    paultarjan.com/puzzles/, which 404s. Nothing in a browser catches that — the
+    page renders fine and only the crawler notices — so it is checked here, where
+    every generated href passes through. Links are absolute (BASE + path) or
+    relative to the page; a leading slash is neither.
+    """
+    bad = []
+    for path, text in files.items():
+        if path.suffix != ".html":
+            continue
+        for m in re.finditer(r'(?:href|src)="(/[^/][^"]*)"', text):
+            bad.append(f"{path.relative_to(ROOT)}: {m.group(1)}")
+    if bad:
+        raise SystemExit("root-relative links in generated pages (the site lives "
+                         f"at {BASE}/, so these 404):\n  " + "\n  ".join(bad[:20]))
 
 
 def main():
