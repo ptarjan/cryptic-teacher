@@ -28,6 +28,12 @@
          color: var(--accent); letter-spacing: .4px; }
 
   .clue { font-size: 52px; line-height: 1.28; margin: 34px 0 6px; }
+  /* Setters' clues run to any length they like, and the clue is the only thing
+     on the card whose height nobody controls. Past about forty characters a
+     52px clue takes a second line and shoves the answer row off the bottom, so
+     the generator asks for a size that fits — see make_og_card.py's build(). */
+  .clue.long { font-size: 42px; line-height: 1.26; }
+  .clue.small { font-size: 36px; line-height: 1.3; }
   .enum { color: var(--muted); }
   mark { padding: 0 4px; border-radius: 4px; }
   mark.def { background: var(--def-bg); color: var(--def-fg); }
@@ -50,6 +56,11 @@
      together on a single line they read as one sentence and neither lands. */
   .rungs .sub { display: block; font-size: 24px; color: var(--muted); margin-top: 4px; }
   .rungs mark { font-size: 27px; }
+  /* Anagram fodder: the letters as the solver must hold them, before they mean
+     anything. Spaced and monospaced because the point is that they are loose
+     letters now, not the words they still look like. */
+  .fodder { font: 27px/1 "SF Mono", Menlo, monospace; letter-spacing: 2px;
+            text-transform: uppercase; }
 
   .held {
     border-top: 2px solid var(--line); margin-top: auto; padding: 20px 0 22px;
@@ -60,6 +71,10 @@
   .dots { display: flex; gap: 9px; }
   .dot { width: 26px; height: 32px; border: 2px solid var(--line);
          border-radius: 3px; background: #fff; }
+  /* Where the answer has a space, hyphen or apostrophe: a hole in the row of
+     boxes rather than a box, because the enumeration is a real clue and the
+     card shouldn't imply a letter that isn't there. */
+  .gap { width: 14px; }
   .held-note { font-size: 22px; color: var(--muted); font-style: italic; }
 </style>
 </head>
@@ -75,7 +90,7 @@
        the generator checks it against the clue rather than trusting a human. -->
   <!--CARD-START 1393 3-down-->
   <div class="clue"><mark class="def">Woman</mark> <mark class="ind">found in</mark> Orego<mark class="hit">n or Ma</mark>ine <span class="enum">(5)</span></div>
-  <ol class="rungs"><li><span class="n">1</span><span class="t"><b>Extraction</b><span class="sub">The answer&rsquo;s letters are already sitting in the clue, in order.</span></span></li><li><span class="n">2</span><span class="t"><b>The definition is <mark class="def">Woman</mark></b><span class="sub">Everything else is wordplay.</span></span></li><li><span class="n">3</span><span class="t"><b><mark class="ind">found in</mark> says so out loud</b><span class="sub">Two states, carrying letters across the border.</span></span></li></ol>
+  <ol class="rungs"><li><span class="n">1</span><span class="t"><b>Extraction</b><span class="sub">The answer’s letters are already sitting in the clue in order.</span></span></li><li><span class="n">2</span><span class="t"><b>The definition is <mark class="def">Woman</mark></b><span class="sub">Everything else is wordplay.</span></span></li><li><span class="n">3</span><span class="t"><b><mark class="ind">found in</mark> says so out loud</b><span class="sub">The underline is the answer, in order, straddling the words.</span></span></li></ol>
   <div class="held"><span class="lbl">Answer</span><span class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
     <span class="held-note">&mdash; yours to spot, not ours to hand over</span></div>
   <!--CARD-END-->

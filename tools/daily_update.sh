@@ -207,6 +207,13 @@ if ! python3 tools/validate_annotations.py; then
   exit 1
 fi
 
+# Draw the social cards for any puzzle whose annotation landed tonight. Before
+# build_seo_pages.py, which points each page at its own card only if the file is
+# already on disk — a page built first would advertise the site card for a day
+# and then quietly change its mind. Only redraws what changed, so this is one
+# Chrome launch on most nights and none at all on a night with no annotation.
+bash tools/make_og.sh --all
+
 # Rebuild the crawlable pages: one per puzzle, the archive hub, the tutorial and
 # the sitemap. After validation, deliberately — these pages publish the
 # annotations as plain text, so a run that produced a bad annotation should have
@@ -254,7 +261,7 @@ if [ -n "$(git status --porcelain)" ]; then
   #     in `cycling` and `substitution`; the puzzle shipped and app.js did not,
   #     so the live site had two clues whose type matched no family and no
   #     blurb. The validator passed — it validates puzzles, not the app.
-  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md tools/validate_annotations.py
+  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md og.png og/ tools/validate_annotations.py
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>')"
   # And name whatever is STILL modified. Both misses above were a file nobody
   # had thought of, and no amount of thinking harder about the list fixes the
