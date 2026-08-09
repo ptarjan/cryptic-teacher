@@ -49,7 +49,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Fed",
    "date": 1786060800000,
    "file": "30079.js",
-   "v": "58218ea2",
+   "v": "a14dbfe5",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -84,7 +84,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1785974400000,
    "file": "30078.js",
-   "v": "c9dbbc24",
+   "v": "74ba61f9",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -860,7 +860,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1782604800000,
    "file": "1388.js",
-   "v": "7ef1d1b1",
+   "v": "b8c9f851",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -882,7 +882,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brendan",
    "date": 1782518400000,
    "file": "30044.js",
-   "v": "416a5f65",
+   "v": "0c345ca3",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -904,7 +904,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1782432000000,
    "file": "30043.js",
-   "v": "c06df0e3",
+   "v": "5f7bddbb",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -926,7 +926,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1782345600000,
    "file": "30042.js",
-   "v": "0178de48",
+   "v": "1804be0e",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -948,7 +948,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brummie",
    "date": 1782259200000,
    "file": "30041.js",
-   "v": "e5361ca3",
+   "v": "8bdbdc0d",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -992,7 +992,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Vulcan",
    "date": 1782086400000,
    "file": "30039.js",
-   "v": "97b44f3a",
+   "v": "c2020005",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {

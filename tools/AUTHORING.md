@@ -475,7 +475,18 @@ fires on 4 of the 9 existing cryptic definitions, a `definition` spanning the
 whole clue on 8 of 9, a known indicator word appearing in the clue on 3 of 9, and
 "blocks concatenate to the right letters in the wrong order with no mechanism
 named" on 11 of 175 charades (all of them correct — the blocks are simply listed
-in clue order, as in PEAS + SWEET for SWEET PEAS). So
+in clue order, as in PEAS + SWEET for SWEET PEAS). Three of those four are still
+dead. **The fourth was misjudged and is now `check_blocks_in_answer_order`**
+(2026-08-09): "all of them correct" was wrong — the letters are correct and the
+ORDER is the teaching, and PEAS before SWEET makes the learner reassemble what
+the annotation exists to show. What made it look like noise was scope. Narrowed
+to `type == "charade"` exactly, it is 10 of 127 with no false positives, because
+every hit outside that scope is a container or a rotation whose blocks are
+*supposed* to precede the positional step. The backlog was fixed in the same
+commit and the gate starts at zero. The lesson generalises: before shelving a
+check for lighting up honest work, check whether it is the rule that is wrong or
+only its scope, and whether "honest work" is a judgement you actually made or a
+default you granted the existing corpus. So
 `check_cryptic_definition_cap()` warns when a puzzle sits exactly ON the cap and
 names the clues, and a human reads them. That is the whole of the defence, and it
 is deliberate: the check that would catch the remaining case does not exist,

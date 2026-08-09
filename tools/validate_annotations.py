@@ -882,6 +882,72 @@ def check_blocks_decompose(entries, errors, warnings):
             f"and then give the answer in one block — at most {MAX_UNDECOMPOSED}")
 
 
+# Zero, unlike its neighbours, because the backlog it found was cleared in the
+# same commit that added the check (2026-08-09) and the fix is mechanical — there
+# is one ordering of the blocks that spells the answer, so there is nothing to
+# weigh up. A check whose corpus is clean should start its gate closed.
+MAX_MISORDERED = 0
+
+
+def check_blocks_in_answer_order(entries, errors, warnings):
+    """A charade's blocks have to be listed in the order the answer reads.
+
+    The app renders blocks top to bottom, so a learner reads them as the build.
+    `PEAS` then `SWEET` for SWEET PEAS (1388 23A) hands over the right letters in
+    the wrong order and quietly asks the learner to do the reassembly that the
+    annotation exists to show. Nothing caught it: `check_blocks_account_for_answer`
+    compares multisets, so a permutation passes it perfectly.
+
+    This is the one of the four checks measured on 2026-08-08 and shelved that
+    turned out to be worth having. It was shelved as "11 of 175 charades, all of
+    them correct" — correct being the wrong word. The letters are correct; the
+    ORDER is the teaching, and it is wrong. Backlog size is not a reason to drop
+    a check (Paul, 2026-08-09), only false positives are, and re-measured under a
+    tight scope there are none.
+
+    SCOPE is the whole trick. It applies only to `type == "charade"` exactly.
+    Any positional mechanism in the mix legitimately lists blocks out of final
+    order: a container's inner piece goes inside rather than after, and a
+    rotation is *defined* by blocks assembled before the spin — 30079 7D TSUNAMIS
+    is A + MIST + SUN and only then cycled, which a looser scope flags and which
+    is perfectly annotated. Widening from `charade` to "charade and nothing
+    positional" adds 4 hits, 2 of them false. So it stays narrow.
+
+    CALIBRATION (2026-08-09): 10 of 127 pure charades, every one a genuine
+    misordering (1388 23A, 30039 24A, 30041 28D, 30042 8D, 30043 7D, 30044 19D,
+    30078 25A, 30079 8D/11A/22A). Warned so the backlog surfaces without failing
+    a build that was already green; errors past MAX_MISORDERED, because a run
+    that does it repeatedly is listing blocks off the clue rather than the parse.
+    """
+    hits = []
+    for e in entries:
+        ann = e.get("annotation") or {}
+        if not ann or "linkedTo" in ann:
+            continue
+        if (ann.get("type") or "").strip() != "charade":
+            continue
+        got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
+        want = letters(ann.get("answer") or e.get("solution"))
+        if not got or got == want:
+            continue
+        from collections import Counter
+        # Wrong letters are a different fault, already reported by
+        # check_blocks_account_for_answer. Only a permutation is this one.
+        if Counter(got) != Counter(want):
+            continue
+        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        hits.append(tag)
+        warnings.append(
+            f"{tag}: the blocks read {got!r} but the answer is {want!r} — same "
+            f"letters, wrong order. The app renders blocks top to bottom, so "
+            f"list them in answer order and let each clueFragment point back at "
+            f"wherever it sits in the clue")
+    if len(hits) > MAX_MISORDERED:
+        errors.append(
+            f"puzzle: {len(hits)} charades ({', '.join(hits)}) list their blocks in "
+            f"clue order rather than answer order — at most {MAX_MISORDERED}")
+
+
 def check_blocks_carry_notes(entries, warnings):
     """A block that claims letters has to say why it gets them.
 
@@ -1043,6 +1109,7 @@ def validate_puzzle(puzzle):
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
         check_blocks_account_for_answer(puzzle["entries"], errors, warnings)
         check_blocks_decompose(puzzle["entries"], errors, warnings)
+        check_blocks_in_answer_order(puzzle["entries"], errors, warnings)
         check_blocks_carry_notes(puzzle["entries"], warnings)
 
     return annotated, errors, warnings

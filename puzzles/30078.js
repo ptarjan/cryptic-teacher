@@ -1132,6 +1132,11 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     ],
     "blocks": [
      {
+      "clueFragment": "team featuring Gatlin, Gay etc?",
+      "gives": "USA",
+      "note": "Justin Gatlin and Tyson Gay sprinted for the United States"
+     },
+     {
       "clueFragment": "in",
       "gives": "IN",
       "note": "used just as it stands"
@@ -1140,11 +1145,6 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
       "clueFragment": "sprint",
       "gives": "BOLT",
       "note": "to sprint is to bolt"
-     },
-     {
-      "clueFragment": "team featuring Gatlin, Gay etc?",
-      "gives": "USA",
-      "note": "Justin Gatlin and Tyson Gay sprinted for the United States"
      }
     ],
     "pieces": [

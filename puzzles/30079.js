@@ -469,14 +469,14 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
     ],
     "blocks": [
      {
-      "clueFragment": "Pine",
-      "gives": "ACHE",
-      "note": "to pine is to ache"
-     },
-     {
       "clueFragment": "nut",
       "gives": "HEAD",
       "note": "slang for the head; it begins the answer"
+     },
+     {
+      "clueFragment": "Pine",
+      "gives": "ACHE",
+      "note": "to pine is to ache"
      }
     ],
     "pieces": [
@@ -596,6 +596,11 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
     ],
     "blocks": [
      {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "the state's postal code; 'opening' sends it to the front"
+     },
+     {
       "clueFragment": "Call",
       "gives": "TERM",
       "note": "to call something is to term it"
@@ -604,11 +609,6 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
       "clueFragment": "Musk",
       "gives": "ELON",
       "note": "first name of the Tesla owner"
-     },
-     {
-      "clueFragment": "Washington",
-      "gives": "WA",
-      "note": "the state's postal code; 'opening' sends it to the front"
      }
     ],
     "pieces": [
@@ -1106,14 +1106,14 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
     ],
     "blocks": [
      {
-      "clueFragment": "Hunk",
-      "gives": "PIECE",
-      "note": "a hunk of bread is a piece"
-     },
-     {
       "clueFragment": "reason",
       "gives": "THINK",
       "note": "'to start' sends it to the front"
+     },
+     {
+      "clueFragment": "Hunk",
+      "gives": "PIECE",
+      "note": "a hunk of bread is a piece"
      }
     ],
     "pieces": [
