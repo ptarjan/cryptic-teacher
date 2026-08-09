@@ -181,5 +181,5 @@ Commit only the puzzle file + regenerated `puzzles/index.json`/`index.js` with m
 ```
 Annotate <NUMBER> (<Setter>): full 6-level hint data
 
-Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Co-Authored-By: Claude <YOUR OWN MODEL, e.g. Opus 5> <noreply@anthropic.com>
 ```
