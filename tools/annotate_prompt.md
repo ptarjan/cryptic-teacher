@@ -49,7 +49,17 @@ Rules:
 - `cryptic definition` is capped at TWO per puzzle and the validator ERRORS above that
   (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable wordplay, so a third
   one almost always means you gave up on a clue: go back and find the charade, hidden word
-  or container it is hiding. If you are WRITING clues rather than annotating them (see
+  or container it is hiding. Treat the SECOND one the same way — the validator now warns
+  at exactly two, because it is the type you can reach for without solving anything, which
+  makes reaching for it twice a measure of how much you gave up rather than a property of
+  the puzzle. Before you type a clue `cryptic definition`, spend one more pass hunting for
+  a container: "Periods on horseback where British king into himself?" looks like a whole-
+  clue definition of CHUKKAS and is really CHAS (the king himself) around UK + K. Writing
+  the whole clue into `definition` and the whole answer into one block is not an
+  annotation, it is a note saying you could not do it — and it is invisible to every other
+  check, since a cryptic definition claims no letters and so can contradict nothing. If
+  you truly cannot solve the clue, leave it `null` and say so. That is honest and someone
+  will finish it; a cryptic definition that isn't one is a wrong answer nobody can find. If you are WRITING clues rather than annotating them (see
   `tools/AUTHORING.md`), the same cap is the rule that keeps a funny sentence from
   replacing the mechanism — a clue needs both, and a funny sentence is much easier to find
   than a funny mechanism. Related: an indicator that reads as a visible instruction

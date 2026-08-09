@@ -668,15 +668,38 @@ def multiset_diff(a, b):
     return extra, missing
 
 
-def check_cryptic_definition_cap(entries, errors):
+def check_cryptic_definition_cap(entries, errors, warnings=None):
     """A puzzle may not lean on cryptic definitions (see MAX_CRYPTIC_DEFINITIONS).
 
     This is the one check that looks at the puzzle rather than the clue: every
     individual cryptic definition can be perfectly good and the set still be
-    wrong, which is exactly how six of them got into A001 unnoticed."""
+    wrong, which is exactly how six of them got into A001 unnoticed.
+
+    Sitting exactly ON the cap warns as well as going over it, because a
+    cryptic definition is the only type an annotator can reach for without
+    solving anything, which makes the count a measure of giving up. The
+    2026-08-08 model benchmark is the evidence: Sonnet annotated two puzzles
+    and landed on exactly 2 in both, passing by spending its whole surrender
+    budget — and on 30078, where Fable's annotation of the same clues existed
+    to diff against, both of its cryptic definitions turned out to be clues
+    Fable had solved (9A OPERA STAR, 19D CHUKKAS = CHAS round UK + K).
+    Nothing mechanical can tell a real cryptic definition from a shrug: it
+    claims no letters, so it contradicts nothing. Measured on this corpus, a
+    block handing over the answer catches 4 of 9, a whole-clue definition 8 of
+    9, and an indicator word appearing in the clue 3 of 9 — all of them
+    Fable's own correct work, so none of them is a rule. A human reading the
+    two named clues is the only check there is, and this warning is how they
+    get named.
+    """
     cds = [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
            for e in entries
            if (e.get("annotation") or {}).get("type") == "cryptic definition"]
+    if len(cds) == MAX_CRYPTIC_DEFINITIONS and warnings is not None:
+        warnings.append(
+            f"puzzle: at the cryptic-definition cap ({', '.join(cds)}). Not an error, "
+            f"but this is where an annotator that could not solve a clue puts it, and "
+            f"nothing downstream can tell that from a real cryptic definition. Read "
+            f"those two clues and satisfy yourself there is no wordplay in them")
     if len(cds) > MAX_CRYPTIC_DEFINITIONS:
         errors.append(
             f"puzzle: {len(cds)} cryptic definitions ({', '.join(cds)}) — at most "
@@ -1016,7 +1039,7 @@ def validate_puzzle(puzzle):
                 errors.append(f"{tag}: subReversal {sub['from']} reversed != {sub['to']}")
 
     if annotated:
-        check_cryptic_definition_cap(puzzle["entries"], errors)
+        check_cryptic_definition_cap(puzzle["entries"], errors, warnings)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
         check_blocks_account_for_answer(puzzle["entries"], errors, warnings)
         check_blocks_decompose(puzzle["entries"], errors, warnings)

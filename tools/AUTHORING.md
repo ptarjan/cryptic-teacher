@@ -465,6 +465,22 @@ since a setter occasionally reuses the word deliberately, and ERRORS past
 `MAX_DEFINITION_REUSE` in one puzzle, since that is a run that described the
 clues instead of solving them.
 
+There is one fault none of this catches, and it is worth knowing the shape of it
+so nobody spends another afternoon trying. A `cryptic definition` claims no
+letters, so it contradicts nothing and no consistency check can reach it — which
+makes it the one type an annotator can reach for without solving anything. Four
+candidate rules were measured against this corpus on 2026-08-08 and all four were
+thrown away for lighting up honest work: a block handing over the whole answer
+fires on 4 of the 9 existing cryptic definitions, a `definition` spanning the
+whole clue on 8 of 9, a known indicator word appearing in the clue on 3 of 9, and
+"blocks concatenate to the right letters in the wrong order with no mechanism
+named" on 11 of 175 charades (all of them correct — the blocks are simply listed
+in clue order, as in PEAS + SWEET for SWEET PEAS). So
+`check_cryptic_definition_cap()` warns when a puzzle sits exactly ON the cap and
+names the clues, and a human reads them. That is the whole of the defence, and it
+is deliberate: the check that would catch the remaining case does not exist,
+because every version of it is wrong more often than it is right.
+
 The flip side of that scoping is that the daily sweep globs `[0-9]*.js` and so
 never sees an authored puzzle. After editing `tools/data/authored_*_clues.json`,
 rebuild and validate **by id** — this is the mandatory step, not optional:
