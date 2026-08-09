@@ -455,6 +455,16 @@ able to say so faithfully. Unscoped, the check fires **eighteen times on 30039
 alone** — mostly on double definitions, where a block legitimately carries no
 letters. A check that lights up honest work is a broken check.
 
+The mirror-image fault needs no scoping, because it is wrong in a published grid
+too: the DEFINITION's own words being spent again as wordplay.
+`check_definition_not_fodder()` catches it. A block yielding letters out of words
+the definition already claimed means the two halves overlap, and its worst form
+is invisible to every other check — `definition: "Hard rock"` beside a block
+`"Hard rock" > HORSE` concatenates perfectly and says nothing. It warns per clue,
+since a setter occasionally reuses the word deliberately, and ERRORS past
+`MAX_DEFINITION_REUSE` in one puzzle, since that is a run that described the
+clues instead of solving them.
+
 The flip side of that scoping is that the daily sweep globs `[0-9]*.js` and so
 never sees an authored puzzle. After editing `tools/data/authored_*_clues.json`,
 rebuild and validate **by id** — this is the mandatory step, not optional:
