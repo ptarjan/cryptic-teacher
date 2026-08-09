@@ -98,6 +98,14 @@ Rules:
   other three jobs it is really doing — a word can be an indicator hiding in plain
   description ("There's a mole in" = something is concealed inside) or joinery that only
   holds the sentence up ("There's").
+- List the BLOCKS in the order the ANSWER reads, not the order the clue reads. The app
+  renders them top to bottom, so they are the build a learner follows. A charade clued
+  "Peas ... sweet" for SWEET PEAS gets blocks SWEET then PEAS, each `clueFragment` still
+  pointing back at wherever its words sit in the clue. Same letters in the wrong order
+  passes every multiset check and still makes the learner do the reassembly the
+  annotation exists to show; `check_blocks_in_answer_order` now ERRORS on it. This
+  applies to pure charades — where a container, reversal or rotation is in the mix, the
+  blocks are assembled before the positional step and that order is the right one.
 - The `walkthrough` is short, because the blocks already did the work: "when you
   basically give the whole answer in the building blocks you don't need to have the full
   walkthrough". Do not re-narrate fragment → letters. Write only what the blocks cannot
@@ -105,6 +113,15 @@ Rules:
   not know (`ER` = Queen, `worker` = ANT), or why a definition is fair. One or two
   sentences is normal; over 45 words the validator warns (authored puzzles). It must
   never be empty: the app always renders the walkthrough rung.
+  Naming a letter chunk is not automatically re-narration — the test is what the
+  sentence is FOR. `OCT is the calendar abbreviation and OPUS the composer's 'work'`
+  teaches two conventions the solver keeps forever, and needs the capitals. `The
+  official is a sports referee, tucked inside a stately walk: P(REF)ACE` draws, in
+  words, the picture the blocks already drew an inch higher. Teach a convention, name a
+  joke, explain why a definition is fair — but never spend the walkthrough narrating
+  which piece goes inside which. `python3 tools/find_renarration.py` lists the current
+  candidates, worst first; it deliberately does not gate, because no lexical rule
+  separates those two sentences and every version that tried was wrong half the time.
 - `definitionFit` is REQUIRED on every clue: one sentence saying why the ANSWER means the
   DEFINITION. This is the half of a cryptic that isn't mechanical. The blocks spell the
   answer out of the wordplay and the definition rung points at the words, but nothing
