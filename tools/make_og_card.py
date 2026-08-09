@@ -303,6 +303,51 @@ def pick(number):
     return None, None
 
 
+IND_QUOTES = "\"'‘’“”"
+
+
+def indicator_gloss(ann, ind, family):
+    """The annotation's own words for why this indicator means what it means.
+
+    Written wordplay explanations almost always open by glossing the indicator —
+    "'Some' tells you to take only part of what follows", "'Put in' flags a
+    hidden word" — and that sentence is better than anything the card can say
+    generically, because it is about THIS word rather than about the family. The
+    card was writing its own line and ignoring one already sitting in the file.
+
+    Only the opening clause is taken. The rest of a walkthrough is about the
+    clue, not the indicator ("...and the answer straddles the comma"), and the
+    rung is one line read in a thumbnail. Anything that won't fit, doesn't lead
+    with the indicator, or gives the answer away returns None and the caller
+    keeps its generic wording — a card should never be blocked by prose.
+
+    Borrowed prose that names the wrong mechanism is dropped rather than fatal:
+    check_prose_stays_in_family guards words the CARD chose, and these are the
+    annotator's. annotate_prompt.md carries the same rule for the source.
+    """
+    walk = (ann.get("walkthrough") or "").strip()
+    if not walk:
+        return None
+    first = re.split(r"(?<=[.!?])\s+", walk)[0]
+    m = re.match(rf"[{IND_QUOTES}]?{re.escape(ind)}[{IND_QUOTES}]?\s+(.+)",
+                 first, re.I)
+    if not m:
+        return None
+    tail = re.split(r"\s*[;:]\s*|,\s+(?:and|so|but|which|then)\s+|\s+—\s+",
+                    m.group(1))[0].rstrip(" .,;:—")
+    if not tail or len(ind) + 1 + len(tail) > 64:
+        return None
+    answer = re.sub(r"[^A-Za-z]+", r"[^A-Za-z]*", ann["answer"].strip())
+    if re.search(rf"(?<![A-Za-z]){answer}(?![A-Za-z])", tail, re.I):
+        return None
+    head = f'<mark class="ind">{html.escape(ind)}</mark> {html.escape(tail)}'
+    try:
+        check_prose_stays_in_family(head, family)
+    except RuntimeError:
+        return None
+    return head
+
+
 def rungs_for(p):
     """Three rungs, in the app's order and close to the app's words.
 
@@ -315,9 +360,12 @@ def rungs_for(p):
     out.append((f'The definition is <mark class="def">'
                 f'{html.escape(ann["definition"])}</mark>',
                 "Everything else is wordplay."))
+    gloss = (indicator_gloss(ann, p["indicator"], p["family"])
+             if p["indicator"] else None)
     if p["hidden"] and p["indicator"]:
-        out.append((f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
-                    "says it is hidden here",
+        out.append((gloss or
+                    (f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
+                     "says it is hidden here"),
                     "The underline is the answer, in order, straddling the words."))
     elif p["fodder"]:
         # Name the indicator, don't just paint it. The card marks it pink in the
@@ -334,8 +382,9 @@ def rungs_for(p):
         out.append((head,
                     f"{n} letters, and the enumeration says where they land."))
     elif p["indicator"]:
-        out.append((f'The instruction is <mark class="ind">'
-                    f'{html.escape(p["indicator"])}</mark>',
+        out.append((gloss or
+                    (f'The instruction is <mark class="ind">'
+                     f'{html.escape(p["indicator"])}</mark>'),
                     "It tells you what to do with the rest."))
     else:
         out.append(("The answer is hiding in the clue itself",

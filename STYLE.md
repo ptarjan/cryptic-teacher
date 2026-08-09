@@ -563,6 +563,16 @@ all 55:
   because `pick()` reads SystemExit as "this clue can't draw" and would quietly
   ship the bug on a different clue. Applies past the cards: a walkthrough that
   says "sounds like" about a charade is the same error with a wider audience.
+- **Quote the explanation that already exists** (2026-08-08). The reworded rung
+  3 was still the card talking about the family: "<ind> says it is hidden here",
+  the same line on all sixteen hidden-word cards. The annotations had the better
+  sentence all along, because a walkthrough almost always opens by glossing the
+  indicator itself — "'Some' tells you to take only part of what follows", "'Put
+  in' flags a hidden word". `indicator_gloss` lifts that opening clause when it
+  leads with the indicator, fits a thumbnail line, and doesn't give the answer
+  away; 8 of 16 qualify today, and the other 8 keep the generic line, because a
+  card must never be blocked by prose. Writing a second explanation beside one
+  that already exists is how the two drift apart.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
