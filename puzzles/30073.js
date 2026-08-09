@@ -33,26 +33,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIGHTEA",
-   "annotation": {
-    "type": "spoonerism",
-    "answer": "HIGH TEA",
-    "definition": "meal",
-    "indicators": [
-     "Spooner’s"
-    ],
-    "pieces": [
-     "HIGHTEA"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "man from Bangkok",
-      "gives": "HIGHTEA",
-      "note": "Spoonerize 'Thai he' (a man from Thailand) — swap the initial sounds to get 'High tea'"
-     }
-    ],
-    "walkthrough": "The source phrase is 'Thai he' — a man (he) from Bangkok (Thai) — and swapping the initial sounds turns Thai-he into High-tea.",
-    "definitionFit": "High tea is a British early-evening meal, so 'meal' names it directly."
-   }
+   "annotation": null
   },
   {
    "id": "2-down",
@@ -69,41 +50,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRONIST",
-   "annotation": {
-    "type": "charade + last letter",
-    "answer": "IRONIST",
-    "definition": "George Bernard Shaw?",
-    "indicators": [
-     "ultimately"
-    ],
-    "linkWords": [
-     "for"
-    ],
-    "pieces": [
-     "IRON",
-     "IS",
-     "T"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Club",
-      "gives": "IRON",
-      "note": "a golf club can be an iron"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used literally"
-     },
-     {
-      "clueFragment": "perfect",
-      "gives": "T",
-      "note": "the last letter of perfecT"
-     }
-    ],
-    "walkthrough": "Shaw's reputation for saying the opposite of what he meant is the joke behind the question mark — an ironist is exactly that.",
-    "definitionFit": "Shaw was famous for biting irony, so he is cited as one specific example of an ironist rather than the plain dictionary word."
-   }
+   "annotation": null
   },
   {
    "id": "3-down",
@@ -120,39 +67,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HORSE",
-   "annotation": {
-    "type": "charade + container + middle letter",
-    "answer": "HORSE",
-    "definition": "Mount",
-    "indicators": [
-     "capturing"
-    ],
-    "pieces": [
-     "H",
-     "OR",
-     "S",
-     "E"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Hard",
-      "gives": "H",
-      "note": "standard abbreviation, as on a pencil"
-     },
-     {
-      "clueFragment": "rock",
-      "gives": "ORE",
-      "note": "ore is rock bearing metal"
-     },
-     {
-      "clueFragment": "the heart of Mason",
-      "gives": "S",
-      "note": "the exact middle letter of MASON"
-     }
-    ],
-    "walkthrough": "Mason Mount plays the surface as a footballer, but the definition is hiding in his surname: a mount is a horse you ride.",
-    "definitionFit": "A mount is literally a horse you get up on and ride, so 'Mount' defines HORSE directly."
-   }
+   "annotation": null
   },
   {
    "id": "4-down",
@@ -169,43 +84,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EUGENIA",
-   "annotation": {
-    "type": "charade + anagram",
-    "answer": "EUGENIA",
-    "definition": "Plant",
-    "indicators": [
-     "New"
-    ],
-    "pieces": [
-     "E",
-     "UGENIA"
-    ],
-    "subAnagrams": [
-     {
-      "fodder": "GUINEA",
-      "gives": "UGENIA"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "eastern",
-      "gives": "E",
-      "note": "e = eastern, compass abbreviation"
-     },
-     {
-      "clueFragment": "Guinea",
-      "gives": "GUINEA",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "New",
-      "gives": "",
-      "note": "anagram indicator"
-     }
-    ],
-    "walkthrough": "Eugenia is a genus of flowering plants and trees, and the country hides in plain sight once 'New' tells you Guinea has been rearranged.",
-    "definitionFit": "Eugenia is the botanical genus name for a group of flowering plants and trees, including the clove tree."
-   }
+   "annotation": null
   },
   {
    "id": "5-across",
@@ -222,33 +101,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIGGER",
-   "annotation": {
-    "type": "container",
-    "answer": "TRIGGER",
-    "definition": "cause",
-    "indicators": [
-     "defending"
-    ],
-    "pieces": [
-     "T",
-     "R",
-     "IGGER"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bouncer",
-      "gives": "TIGGER",
-      "note": "Tigger, the bouncy Winnie-the-Pooh character"
-     },
-     {
-      "clueFragment": "right",
-      "gives": "R",
-      "note": "standard abbreviation"
-     }
-    ],
-    "walkthrough": "'Bouncer' looks like a nightclub doorman, but it's Tigger — famously bouncy — defending (holding inside itself) the letter for right.",
-    "definitionFit": "A trigger is what causes or sets off an event, an everyday sense of the word."
-   }
+   "annotation": null
   },
   {
    "id": "6-down",
@@ -269,32 +122,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "REDRUM",
-   "annotation": {
-    "type": "reversal",
-    "answer": "RED RUM",
-    "definition": "3",
-    "indicators": [
-     "after receiving a tip"
-    ],
-    "pieces": [
-     "REDRUM"
-    ],
-    "subReversals": [
-     {
-      "from": "MURDER",
-      "to": "REDRUM"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "makes a killing",
-      "gives": "MURDER",
-      "note": "to make a killing, read literally, is to commit murder"
-     }
-    ],
-    "walkthrough": "Red Rum is the horse named at 3, and his name is famous for being MURDER written backwards — 'receiving a tip' is the setter's way of saying tipped over.",
-    "definitionFit": "Red Rum, three-time Grand National winner, is one of the most famous racehorses of all — a straightforward example of a horse."
-   }
+   "annotation": null
   },
   {
    "id": "7-down",
@@ -311,30 +139,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GATESHEAD",
-   "annotation": {
-    "type": "charade",
-    "answer": "GATESHEAD",
-    "definition": "Northern town",
-    "indicators": [],
-    "pieces": [
-     "GATES",
-     "HEAD"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Billionaire",
-      "gives": "GATES",
-      "note": "Bill Gates, the Microsoft billionaire"
-     },
-     {
-      "clueFragment": "boss",
-      "gives": "HEAD",
-      "note": "a boss is the head of an organisation"
-     }
-    ],
-    "walkthrough": "Two ordinary words for wealth and authority turn out to spell a place name once they're put together.",
-    "definitionFit": "Gateshead is a town in North East England, on the south bank of the Tyne opposite Newcastle."
-   }
+   "annotation": null
   },
   {
    "id": "8-down",
@@ -355,24 +160,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "ELNINOS",
-   "annotation": {
-    "type": "hidden word + reversal",
-    "answer": "EL NINOS",
-    "definition": "Climatic events",
-    "indicators": [
-     "during",
-     "climbing"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "season in Lesotho",
-      "gives": "ELNINOS",
-      "note": "read backwards inside: sea-SONINLE-sotho"
-     }
-    ],
-    "walkthrough": "'Climbing' tells a down clue to read upward, and doing that across the join of 'season' and 'Lesotho' spells the answer in reverse.",
-    "definitionFit": "El Nino events are a periodic warming of the Pacific that disrupts weather patterns worldwide — a genuine climatic phenomenon."
-   }
+   "annotation": null
   },
   {
    "id": "9-down",
@@ -393,31 +181,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "PANTOMIMEDAME",
-   "annotation": {
-    "type": "anagram",
-    "answer": "PANTOMIME DAME",
-    "definition": "cross-dresser",
-    "indicators": [
-     "about"
-    ],
-    "anagram": {
-     "fodder": "EMMA MADE POINT"
-    },
-    "blocks": [
-     {
-      "clueFragment": "Emma made point",
-      "gives": "EMMAMADEPOINT",
-      "note": "anagram fodder, 13 letters"
-     },
-     {
-      "clueFragment": "about",
-      "gives": "",
-      "note": "anagram indicator"
-     }
-    ],
-    "walkthrough": "All thirteen letters of the answer are hiding in 'Emma made point' — a long anagram is often the setter's way of disguising a compound answer.",
-    "definitionFit": "A pantomime dame is the tradition's cross-dressing comic role, a man in outrageous women's costume."
-   }
+   "annotation": null
   },
   {
    "id": "10-across",
@@ -434,26 +198,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOUR",
-   "annotation": {
-    "type": "deletion",
-    "answer": "FOUR",
-    "definition": "Square",
-    "indicators": [
-     "left out"
-    ],
-    "pieces": [
-     "FOUR"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "meal",
-      "gives": "FLOUR",
-      "note": "meal, in the milling sense, is ground grain — flour"
-     }
-    ],
-    "walkthrough": "Flour loses its L (‘left’ out), and what remains spells the number.",
-    "definitionFit": "A square has exactly four sides, so 'Square' names the number the way 'a dozen' names twelve."
-   }
+   "annotation": null
   },
   {
    "id": "11-across",
@@ -470,30 +215,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRANDSTAND",
-   "annotation": {
-    "type": "charade",
-    "answer": "GRANDSTAND",
-    "definition": "Show off",
-    "indicators": [],
-    "pieces": [
-     "GRAND",
-     "STAND"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "magnificent",
-      "gives": "GRAND",
-      "note": "grand = magnificent, splendid"
-     },
-     {
-      "clueFragment": "stomach",
-      "gives": "STAND",
-      "note": "to stomach something is to stand it, tolerate it"
-     }
-    ],
-    "walkthrough": "'Stomach' is a verb here, not the organ — to stomach something is to stand it.",
-    "definitionFit": "To grandstand is to show off for an audience, playing to the crowd rather than doing the job quietly."
-   }
+   "annotation": null
   },
   {
    "id": "12-across",
@@ -510,36 +232,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIDEON",
-   "annotation": {
-    "type": "anagram",
-    "answer": "GIDEON",
-    "definition": "Christian",
-    "indicators": [
-     "wrong"
-    ],
-    "anagram": {
-     "fodder": "DOING E"
-    },
-    "blocks": [
-     {
-      "clueFragment": "doing",
-      "gives": "DOING",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "Bale finally",
-      "gives": "E",
-      "note": "the last letter of balE"
-     },
-     {
-      "clueFragment": "wrong",
-      "gives": "",
-      "note": "anagram indicator"
-     }
-    ],
-    "walkthrough": "Christian Bale lends his first name to the surface and just his last letter to the wordplay; 'doing wrong' rearranges around it.",
-    "definitionFit": "Gideon is a name strongly tied to Christians, most famously the Gideons who place Bibles in hotel rooms."
-   }
+   "annotation": null
   },
   {
    "id": "13-across",
@@ -556,38 +249,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRUSSING",
-   "annotation": {
-    "type": "charade + first letter",
-    "answer": "TRUSSING",
-    "definition": "preparing joint",
-    "indicators": [
-     "front of"
-    ],
-    "pieces": [
-     "TRUSS",
-     "IN",
-     "G"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "PM briefly",
-      "gives": "TRUSS",
-      "note": "Liz Truss, Prime Minister for a famously brief 49 days"
-     },
-     {
-      "clueFragment": "in",
-      "gives": "IN",
-      "note": "used literally"
-     },
-     {
-      "clueFragment": "front of No.11",
-      "gives": "G",
-      "note": "the first letter of 11 across, GRANDSTAND"
-     }
-    ],
-    "walkthrough": "'No.11' plays two roles at once — it reads as the Chancellor's address next to a Prime Minister, and it's really a pointer to entry 11.",
-    "definitionFit": "Trussing is the cookery term for tying up a joint of meat or a bird before roasting."
-   }
+   "annotation": null
   },
   {
    "id": "14-across",
@@ -608,39 +270,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "STUDFARMS",
-   "annotation": {
-    "type": "anagram",
-    "answer": "STUD FARMS",
-    "definition": "birthplaces of 6 and 28",
-    "indicators": [
-     "confused by"
-    ],
-    "linkWords": [
-     "showing"
-    ],
-    "anagram": {
-     "fodder": "DR FAUST MS"
-    },
-    "blocks": [
-     {
-      "clueFragment": "Dr Faust",
-      "gives": "DRFAUST",
-      "note": "anagram fodder"
-     },
-     {
-      "clueFragment": "manuscript",
-      "gives": "MS",
-      "note": "ms = manuscript, standard abbreviation"
-     },
-     {
-      "clueFragment": "confused by",
-      "gives": "",
-      "note": "anagram indicator"
-     }
-    ],
-    "walkthrough": "Red Rum and Shergar, the horses at 6 and 28, were both foaled at stud farms — the anagram just needed a scholar and his manuscript to disguise it.",
-    "definitionFit": "A stud farm is where horses are bred, exactly the birthplace both racehorses share."
-   }
+   "annotation": null
   },
   {
    "id": "15-down",
@@ -661,36 +291,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "DIGDEEPER",
-   "annotation": {
-    "type": "anagram + first letter",
-    "answer": "DIG DEEPER",
-    "definition": "investigate more thoroughly",
-    "indicators": [
-     "off"
-    ],
-    "anagram": {
-     "fodder": "PEDIGREE D"
-    },
-    "blocks": [
-     {
-      "clueFragment": "Pedigree",
-      "gives": "PEDIGREE",
-      "note": "anagram fodder, 8 letters"
-     },
-     {
-      "clueFragment": "dog’s heading",
-      "gives": "D",
-      "note": "the first letter of dog"
-     },
-     {
-      "clueFragment": "off",
-      "gives": "",
-      "note": "anagram indicator"
-     }
-    ],
-    "walkthrough": "A pedigree dog gives its whole self to the anagram, and just the head of 'dog' besides.",
-    "definitionFit": "To dig deeper is exactly to investigate something more thoroughly, digging past the surface answer."
-   }
+   "annotation": null
   },
   {
    "id": "16-across",
@@ -707,23 +308,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENSE",
-   "annotation": {
-    "type": "homophone",
-    "answer": "SENSE",
-    "definition": "Soundness of judgement",
-    "indicators": [
-     "in speech"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "some change for Donald Trump",
-      "gives": "CENTS",
-      "note": "cents are small change, fittingly American for Trump, and sound like the answer"
-     }
-    ],
-    "walkthrough": "Said aloud, American cents is a homophone of the answer.",
-    "definitionFit": "Sense, in the phrase 'soundness of judgement', is common sense — sound, sensible thinking."
-   }
+   "annotation": null
   },
   {
    "id": "17-across",
@@ -740,33 +325,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOGGY",
-   "annotation": {
-    "type": "container",
-    "answer": "BOGGY",
-    "definition": "description of Slough",
-    "indicators": [
-     "entertained by"
-    ],
-    "pieces": [
-     "BO",
-     "GG",
-     "Y"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "youth’s",
-      "gives": "BOY",
-      "note": "a youth is a boy"
-     },
-     {
-      "clueFragment": "3 whimsically",
-      "gives": "GG",
-      "note": "'3' is a horse — whimsically, a child's word for one is a gee-gee, hence its doubled G"
-     }
-    ],
-    "walkthrough": "Slough's very name comes from an old word for a bog, so a child's blunt verdict on the place is the definition.",
-    "definitionFit": "Slough takes its name from an Old English word for a bog or swamp, so 'boggy' describes it at the root."
-   }
+   "annotation": null
   },
   {
    "id": "18-down",
@@ -783,37 +342,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTRICH",
-   "annotation": {
-    "type": "deletion + anagram",
-    "answer": "OSTRICH",
-    "definition": "Bird",
-    "indicators": [
-     "not up",
-     "dancing"
-    ],
-    "anagram": {
-     "fodder": "CORTSHI"
-    },
-    "blocks": [
-     {
-      "clueFragment": "courtship",
-      "gives": "COURTSHIP",
-      "note": "9 letters, before losing UP"
-     },
-     {
-      "clueFragment": "not up",
-      "gives": "CORTSHI",
-      "note": "COURTSHIP loses U and P, leaving CORTSHI"
-     },
-     {
-      "clueFragment": "dancing",
-      "gives": "",
-      "note": "anagram indicator"
-     }
-    ],
-    "walkthrough": "'Not up for courtship' reads as a bird uninterested in mating rituals, while cryptically it just means take U and P out.",
-    "definitionFit": "An ostrich is a large flightless bird, the biggest living bird species."
-   }
+   "annotation": null
   },
   {
    "id": "19-across",
@@ -830,26 +359,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMACKDOWN",
-   "annotation": {
-    "type": "cryptic definition",
-    "answer": "SMACKDOWN",
-    "definition": "3D wrestling match",
-    "indicators": [],
-    "blocks": [
-     {
-      "clueFragment": "3D",
-      "gives": "",
-      "note": "3D — Dudley Death Drop — is the Dudley Boyz's famous tag-team finishing move"
-     },
-     {
-      "clueFragment": "wrestling match",
-      "gives": "",
-      "note": "SmackDown is WWE's flagship wrestling show"
-     }
-    ],
-    "walkthrough": "The '3D' is real wrestling trivia, not a cross-reference: it's the Dudley Boyz's finisher, delivered at a SmackDown.",
-    "definitionFit": "SmackDown is WWE's long-running wrestling television brand, so 'wrestling match' names it plainly."
-   }
+   "annotation": null
   },
   {
    "id": "20-down",
@@ -866,39 +376,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLTISH",
-   "annotation": {
-    "type": "charade",
-    "answer": "COLTISH",
-    "definition": "frisky",
-    "indicators": [],
-    "linkWords": [
-     "and"
-    ],
-    "pieces": [
-     "COLT",
-     "IS",
-     "H"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "3",
-      "gives": "COLT",
-      "note": "'3' is a horse — specifically a young one, a colt"
-     },
-     {
-      "clueFragment": "is",
-      "gives": "IS",
-      "note": "used literally"
-     },
-     {
-      "clueFragment": "hot",
-      "gives": "H",
-      "note": "h = hot, as marked on a tap"
-     }
-    ],
-    "walkthrough": "A young horse supplies the root of the word, and a tap marking supplies its last letter.",
-    "definitionFit": "Coltish means frisky and full of restless energy, exactly like a young horse."
-   }
+   "annotation": null
   },
   {
    "id": "21-down",
@@ -915,40 +393,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WARZONE",
-   "annotation": {
-    "type": "container + reversal",
-    "answer": "WARZONE",
-    "definition": "front?",
-    "indicators": [
-     "containing",
-     "up"
-    ],
-    "pieces": [
-     "WAR",
-     "ZO",
-     "NE"
-    ],
-    "subReversals": [
-     {
-      "from": "OZ",
-      "to": "ZO"
-     }
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spin bowler",
-      "gives": "WARNE",
-      "note": "Shane Warne, Australia's legendary spin bowler"
-     },
-     {
-      "clueFragment": "Australia",
-      "gives": "OZ",
-      "note": "a nickname for Australia"
-     }
-    ],
-    "walkthrough": "Facing Warne bowling for Australia felt like combat to batsmen, which is the joke behind the question mark — and Oz turns round inside his name.",
-    "definitionFit": "The front, in military language, is the war zone — where the fighting actually happens."
-   }
+   "annotation": null
   },
   {
    "id": "22-down",
@@ -965,21 +410,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLICKA",
-   "annotation": {
-    "type": "cryptic definition",
-    "answer": "FLICKA",
-    "definition": "Movie about mustang",
-    "indicators": [],
-    "blocks": [
-     {
-      "clueFragment": "Movie about mustang",
-      "gives": "",
-      "note": "Flicka (2006) is a film about a wild mustang"
-     }
-    ],
-    "walkthrough": "No wordplay to unpick here — the clue simply describes the film's plot.",
-    "definitionFit": "Flicka is a 2006 film in which the central character is a wild mustang."
-   }
+   "annotation": null
   },
   {
    "id": "23-across",
@@ -996,34 +427,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEEPLED",
-   "annotation": {
-    "type": "container + alternate letters",
-    "answer": "STEEPLED",
-    "definition": "inspired?",
-    "indicators": [
-     "taking",
-     "oddly"
-    ],
-    "pieces": [
-     "STEE",
-     "PLE",
-     "D"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "3",
-      "gives": "STEED",
-      "note": "'3' is a horse — a steed"
-     },
-     {
-      "clueFragment": "pulse",
-      "gives": "PLE",
-      "note": "the odd-numbered letters of PULSE: P, L, E"
-     }
-    ],
-    "walkthrough": "A steed takes in the odd letters of 'pulse', slotting them in just before its own last letter.",
-    "definitionFit": "Steepled fingers — tips touching, forming a little spire — are the classic pose of someone deep in thought, inspired."
-   }
+   "annotation": null
   },
   {
    "id": "24-across",
@@ -1040,30 +444,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIVERY",
-   "annotation": {
-    "type": "charade + last letter",
-    "answer": "LIVERY",
-    "definition": "uniform",
-    "indicators": [],
-    "pieces": [
-     "LIVER",
-     "Y"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Organ",
-      "gives": "LIVER",
-      "note": "the liver is a bodily organ"
-     },
-     {
-      "clueFragment": "Symphony’s finale",
-      "gives": "Y",
-      "note": "the last letter of symphonY"
-     }
-    ],
-    "walkthrough": "Saint-Saëns' 'Organ Symphony' supplies the pun, but the wordplay just wants a bodily organ and one final letter.",
-    "definitionFit": "A livery is a distinctive uniform, historically worn by servants or tradesmen and now by companies' vehicles and staff."
-   }
+   "annotation": null
   },
   {
    "id": "25-down",
@@ -1080,31 +461,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VISOR",
-   "annotation": {
-    "type": "deletion",
-    "answer": "VISOR",
-    "definition": "the shade",
-    "indicators": [
-     "spending"
-    ],
-    "pieces": [
-     "VISOR"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Counsellor",
-      "gives": "ADVISOR",
-      "note": "a counsellor is an advisor"
-     },
-     {
-      "clueFragment": "a day",
-      "gives": "AD",
-      "note": "a = a, day = d"
-     }
-    ],
-    "walkthrough": "Spend the AD at the front of advisor and the shading device is what's left.",
-    "definitionFit": "A visor shades the eyes from the sun, whether on a cap or fitted to a car windscreen."
-   }
+   "annotation": null
   },
   {
    "id": "26-across",
@@ -1121,30 +478,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIPPOCAMPI",
-   "annotation": {
-    "type": "double definition",
-    "answer": "HIPPOCAMPI",
-    "definition": "Bits of grey matter",
-    "definition2": "fish",
-    "indicators": [],
-    "linkWords": [
-     "in"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Bits of grey matter",
-      "gives": "HIPPOCAMPI",
-      "note": "the hippocampi are paired brain structures central to memory"
-     },
-     {
-      "clueFragment": "fish",
-      "gives": "HIPPOCAMPI",
-      "note": "Hippocampus is also the genus name for seahorses"
-     }
-    ],
-    "walkthrough": "One sense lives in your skull, the other swims — both are called hippocampi.",
-    "definitionFit": "The hippocampi are the brain's memory centres, and Hippocampus is also the scientific genus of seahorses, a fish."
-   }
+   "annotation": null
   },
   {
    "id": "27-across",
@@ -1161,27 +495,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOE",
-   "annotation": {
-    "type": "cycling",
-    "answer": "SHOE",
-    "definition": "Oxford?",
-    "indicators": [
-     "cycling"
-    ],
-    "pieces": [
-     "S",
-     "HOE"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Weeds",
-      "gives": "HOES",
-      "note": "hoes are used to clear weeds"
-     }
-    ],
-    "walkthrough": "Cycling moves the last letter of hoes round to the front, turning a gardening tool into a shoe. Cycling moves letters without changing their order.",
-    "definitionFit": "An Oxford is a classic style of lace-up shoe, so the answer is exactly what 'Oxford' names."
-   }
+   "annotation": null
   },
   {
    "id": "28-across",
@@ -1198,41 +512,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHERGAR",
-   "annotation": {
-    "type": "charade + deletion",
-    "answer": "SHERGAR",
-    "definition": "3",
-    "indicators": [
-     "tattered"
-    ],
-    "linkWords": [
-     "coming"
-    ],
-    "pieces": [
-     "SHE",
-     "R",
-     "GAR"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "That woman",
-      "gives": "SHE",
-      "note": "used literally"
-     },
-     {
-      "clueFragment": "round",
-      "gives": "R",
-      "note": "standard abbreviation"
-     },
-     {
-      "clueFragment": "tattered clothing",
-      "gives": "GAR",
-      "note": "GARB loses its last letter, torn at the edge"
-     }
-    ],
-    "walkthrough": "Shergar, the racehorse kidnapped in 1983, is another famous answer to 'a horse'.",
-    "definitionFit": "Shergar was a champion racehorse, one of the most famous horses in British sporting history."
-   }
+   "annotation": null
   },
   {
    "id": "29-across",
@@ -1249,40 +529,7 @@ window.CRYPTIC_PUZZLES["30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARGER",
-   "annotation": {
-    "type": "charade + deletion",
-    "answer": "CHARGER",
-    "definition": "tray",
-    "indicators": [
-     "cut"
-    ],
-    "linkWords": [
-     "by"
-    ],
-    "pieces": [
-     "CHAR",
-     "GER"
-    ],
-    "blocks": [
-     {
-      "clueFragment": "Spice Girl",
-      "gives": "GINGER",
-      "note": "Geri Halliwell was Ginger Spice"
-     },
-     {
-      "clueFragment": "cut",
-      "gives": "GER",
-      "note": "GINGER trimmed down to its last three letters"
-     },
-     {
-      "clueFragment": "tea",
-      "gives": "CHAR",
-      "note": "char is British slang for tea"
-     }
-    ],
-    "walkthrough": "Ginger Spice is trimmed down to her tail end and set beside a cuppa.",
-    "definitionFit": "A charger is a large ornamental plate used as an under-plate at a formal table setting — a serving tray for the meal."
-   }
+   "annotation": null
   }
  ]
 } /*JSON-END*/;
