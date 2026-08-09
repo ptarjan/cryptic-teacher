@@ -685,6 +685,80 @@ def check_cryptic_definition_cap(entries, errors):
             f"guessable; find the mechanism these clues are hiding (AUTHORING.md)")
 
 
+# Function words are shared by every English phrase; an overlap on "of" or "in"
+# between a definition and a block is a coincidence, not a reused definition.
+DEFINITION_STOPWORDS = frozenset(
+    "a an the of in on at to for and or is are be by with from as that it its "
+    "this his her their s no not".split())
+
+# Real setters do sometimes make the definition word earn its keep twice — "Blunt?
+# Use 'blunt' to anagram this answer", "Nobody drunk now nobody drinks!". Across
+# the 671 annotated clues in this repo that happens 4 times, never twice in one
+# puzzle. So one is a device and a handful is a broken annotation run.
+MAX_DEFINITION_REUSE = 3
+
+# The two halves of a cryptic sit side by side and do not overlap: &lit means the
+# whole clue is both at once, a double definition is two definitions and no
+# wordplay, a cryptic definition is no wordplay at all.
+DEFINITION_REUSE_EXEMPT = ("&lit", "double definition", "cryptic definition")
+
+
+def check_definition_not_fodder(entries, errors, warnings):
+    """The definition's words may not also be the wordplay's letters.
+
+    A clue is two pieces — definition, optional joinery, wordplay — so a block
+    that yields letters out of words the definition has already claimed is the
+    annotation eating its own tail. The commonest form is a block whose fragment
+    IS the definition and whose `gives` is the whole answer: "Hard rock" > HORSE.
+    That says the answer is the answer, and every existing check passes it, since
+    the letters concatenate and the substrings are verbatim.
+
+    This is the hole a 2026-08-08 Haiku benchmark fell through: 29/29 annotated,
+    validator OK, and 17 of 27 non-exempt clues had no real wordplay in them at
+    all — wrong definitions dressed up in blocks that restated them. A model that
+    cannot solve the clue can still satisfy a consistency checker, so consistency
+    was never the bar; this is.
+
+    CALIBRATION (2026-08-08, all 671 annotated clues): 4 warn, in 4 different
+    puzzles, all genuine setter devices where the definition word is deliberately
+    reused as fodder. None reach the cap. The Haiku run scores 17 in one puzzle.
+    """
+    hits = []
+    for e in entries:
+        ann = e.get("annotation") or {}
+        if not ann or "linkedTo" in ann:
+            continue
+        if any(x in (ann.get("type") or "") for x in DEFINITION_REUSE_EXEMPT):
+            continue
+        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        dw = set(re.findall(r"[a-z]+", (ann.get("definition") or "").lower()))
+        dw -= DEFINITION_STOPWORDS
+        if not dw:
+            continue
+        for b in ann.get("blocks", []):
+            # An empty `gives` is surface padding, which claims no letters and so
+            # cannot be stealing any from the definition.
+            if not re.sub(r"[^A-Za-z]", "", str(b.get("gives") or "")):
+                continue
+            frag = b.get("clueFragment") or ""
+            shared = dw & set(re.findall(r"[a-z]+", frag.lower()))
+            if shared:
+                hits.append(tag)
+                warnings.append(
+                    f"{tag}: block {frag!r} gives {b.get('gives')!r} out of "
+                    f"{sorted(shared)}, which the definition {ann.get('definition')!r} "
+                    f"has already claimed. A clue is definition + wordplay, not one "
+                    f"phrase doing both — unless the setter reuses the word on "
+                    f"purpose, this parse is faked out of the definition")
+                break
+    if len(hits) > MAX_DEFINITION_REUSE:
+        errors.append(
+            f"puzzle: {len(hits)} clues ({', '.join(hits)}) build wordplay out of "
+            f"their own definition — at most {MAX_DEFINITION_REUSE} allowed. One is a "
+            f"setter's device; this many means the clues were not solved, only "
+            f"described. Re-annotate rather than patch")
+
+
 def validate_puzzle(puzzle):
     errors, warnings = [], []
     by_id = {e["id"]: e for e in puzzle["entries"]}
@@ -821,6 +895,7 @@ def validate_puzzle(puzzle):
 
     if annotated:
         check_cryptic_definition_cap(puzzle["entries"], errors)
+        check_definition_not_fodder(puzzle["entries"], errors, warnings)
 
     return annotated, errors, warnings
 

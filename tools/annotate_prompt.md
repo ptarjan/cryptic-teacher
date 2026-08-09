@@ -130,6 +130,14 @@ Rules:
   turnaround. Used loosely — "found in says so out loud", meaning *announces itself* —
   they name a device this clue does not use, to the one reader who cannot yet tell the
   difference. The prose is fine English and wrong anyway. Say what the clue actually does.
+- The definition's words are NOT available as wordplay. A block whose `clueFragment`
+  repeats a word the `definition` already claimed is the annotation eating its own tail,
+  and its worst form passes every other check: `definition: "Hard rock"` with a block
+  `"Hard rock" > HORSE` says the answer is the answer. If you cannot see the wordplay,
+  the clue is unsolved — leave it `null` and say so, which the instructions above already
+  allow. Do not describe the clue and call it a parse. `check_definition_not_fodder`
+  warns per clue (a setter occasionally reuses the word on purpose: "Nobody drunk now
+  nobody drinks!") and ERRORS once several clues in one puzzle do it.
 - Do not guess: if a parsing doesn't produce the answer's letters exactly, it is wrong —
   rethink it. Consult the setter's usual tricks; check fifteensquared.net if reachable.
 

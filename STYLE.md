@@ -573,6 +573,24 @@ all 55:
   away; 8 of 16 qualify today, and the other 8 keep the generic line, because a
   card must never be blocked by prose. Writing a second explanation beside one
   that already exists is how the two drift apart.
+- **A consistent parse is not a correct one** (2026-08-08). Benchmarking Haiku
+  against Fable on 30073, Haiku returned `29/29 annotated — OK` in six and a half
+  minutes and the validator had nothing to say. Seventeen of its twenty-seven
+  non-exempt clues contained no wordplay at all: HORSE was `definition: "Hard
+  rock"` with a block `"Hard rock" > HORSE`, TRIGGER was defined as "Bouncer"
+  when "Bouncer" is the wordplay (TIGGER round R) and "cause" is the definition.
+  Every check passed because every check tested CONSISTENCY — letters
+  concatenate, substrings are verbatim — and a model that cannot solve the clue
+  can still be perfectly consistent about a parse it invented. So consistency was
+  never the bar. `check_definition_not_fodder` adds the missing one: the two
+  halves of a cryptic sit side by side, and a block yielding letters out of words
+  the definition already claimed is the annotation eating its own tail. It warns
+  per clue, because a setter does occasionally reuse the word on purpose ("Nobody
+  drunk now nobody drinks!"), and ERRORS past three in one puzzle, because that
+  is no longer a device. Calibrated on all 671 annotated clues: 4 warnings in 4
+  different puzzles, 0 errors; the Haiku run scores 17 in one. The general rule:
+  when you add a model to a pipeline, the checks that passed for the old one are
+  now a measurement of the new one, and they only measure what they test.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
