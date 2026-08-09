@@ -122,6 +122,13 @@ EOF
 # case this gate actually met on 08-08 — it was holding a 10-hour-old 75%
 # against a 50% limit and called itself blind.
 ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
+# The annotating model, and the commit trailer derived FROM it rather than typed
+# beside it. The trailer used to be a hardcoded "Claude Fable 5", which survived
+# the 07-30 accidental switch to Opus and credited the wrong model in every
+# commit for a week. One name, one place: change the model and the history
+# follows.
+ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
+. "$REPO/tools/annotate_model.sh"
 if [ -n "$pending" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
   # gate whose logic is broken says "spend" as confidently as a working one, so
@@ -165,8 +172,12 @@ if [ -n "$pending" ]; then
       # ~/.claude/settings.json defaulted to, which meant a settings edit made
       # for an interactive session silently retuned the nightly job — it moved
       # from Fable to Opus that way on 2026-07-30 without anyone deciding to.
+      # Opus on purpose since 2026-08-09: benchmarked head-to-head against Fable
+      # on 30078 (see STYLE.md), it matched — 23/25 types, 22/25 definitions,
+      # zero cryptic definitions, both hard clues solved — in the same wall time
+      # for a third of the cost, because the bill is nearly all output tokens.
       if claude -p "Annotate cryptic crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Do not commit — the calling script commits." \
-        --model "${ANNOTATE_MODEL:-fable}" \
+        --model "$ANNOTATE_MODEL" \
         --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
         --max-turns 80 2>&1 | tee "$run_log"
       then
@@ -262,7 +273,7 @@ if [ -n "$(git status --porcelain)" ]; then
   #     so the live site had two clues whose type matched no family and no
   #     blurb. The validator passed — it validates puzzles, not the app.
   git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md og.png og/ tools/validate_annotations.py
-  git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>')"
+  git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$ANNOTATE_TRAILER")"
   # And name whatever is STILL modified. Both misses above were a file nobody
   # had thought of, and no amount of thinking harder about the list fixes the
   # third one; only noticing that something was left behind does. Untracked

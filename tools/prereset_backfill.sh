@@ -49,7 +49,13 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/b
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 . "$REPO/tools/alert.sh"
 
-MODEL="${ANNOTATE_MODEL:-fable}"
+# Kept in step with daily_update.sh — Opus since 2026-08-09, benchmarked against
+# Fable on 30078 (STYLE.md). Matching quality at a third the cost matters more
+# here than anywhere: this script exists to burn the tail of the weekly window,
+# so a cheaper annotator is straightforwardly more puzzles per reset.
+ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
+. "$REPO/tools/annotate_model.sh"
+MODEL="$ANNOTATE_MODEL"
 # How close to the reset counts as "the last hour of the week", and how long a
 # forced manual run is allowed to spend.
 WINDOW_HOURS="${WINDOW_HOURS:-2}"
@@ -133,7 +139,7 @@ commit_puzzle() {
     # By pathspec, never `git add .`: the nightly job and any interactive
     # session share this checkout, and a bare commit swallows their staged work.
     git add "puzzles/$num.js"
-    git commit -q -m "$what $num" -m "Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
+    git commit -q -m "$what $num" -m "$ANNOTATE_TRAILER"
     # --autostash, because the tree is never clean here: the reindex above and
     # the rebuilt pages are sitting unstaged while we commit one puzzle file,
     # and a plain `pull --rebase` refuses outright ("cannot pull with rebase:
@@ -244,7 +250,7 @@ if [ -n "$(git status --porcelain)" ]; then
   # a new wordplay type edits app.js and STYLE.md as well as the puzzle, and
   # leaving those behind ships a clue the app cannot describe.
   git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md tools/validate_annotations.py
-  git commit -q -m "$(printf 'Republish after pre-reset backfill\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>')"
+  git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$ANNOTATE_TRAILER")"
   git pull --rebase --autostash -q && git push -q origin HEAD ||
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi
