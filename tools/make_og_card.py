@@ -267,7 +267,7 @@ def score(entry, p):
     if ds == 0 or de == len(clue):
         s += 1
     # Answers spelled out as blanks along the footer: past about fifteen letters
-    # the row of boxes crowds the strapline out.
+    # the row of boxes runs out of card to sit on.
     letters = len(re.sub(r"[^A-Za-z]", "", ann["answer"]))
     s -= max(0, letters - 15) * 0.5
     # Surface reading. Punctuation that splits the clue into fragments (colons,
@@ -317,7 +317,7 @@ def rungs_for(p):
                 "Everything else is wordplay."))
     if p["hidden"] and p["indicator"]:
         out.append((f'<mark class="ind">{html.escape(p["indicator"])}</mark> '
-                    "says so out loud",
+                    "says it is hidden here",
                     "The underline is the answer, in order, straddling the words."))
     elif p["fodder"]:
         # Name the indicator, don't just paint it. The card marks it pink in the
@@ -367,6 +367,59 @@ def check_no_answer(clue_html, prose_html, answer):
                              "which is the one thing it exists not to do")
 
 
+# Phrases that name a device rather than describe one. Each belongs on its own
+# family's cards and is a wrong signpost anywhere else. Deliberately short: only
+# wording that in a cryptic can mean nothing but this one mechanism. "Says",
+# "said" and "inside" are ordinary English in an instruction — listing them would
+# flag "says to shuffle" and teach nobody anything.
+FAMILY_SIGNALS = {
+    "Sound": ("aloud", "out loud", "sounds like", "we hear", "reportedly",
+              "spoken", "pronounced", "homophone"),
+    "Rearrangement": ("anagram", "shuffle", "scrambled", "jumbled", "rearranged"),
+    "Extraction": ("hidden", "hiding", "buried", "concealed"),
+    "Alteration": ("reversed", "backwards", "turned around", "inserted"),
+}
+
+
+def check_prose_stays_in_family(prose_html, family):
+    """The card's own words may not borrow another family's signal.
+
+    Rung 3 on a hidden-word card read "<ind> says so out loud" from the day the
+    cards shipped. "Out loud" was meant as "announces itself", but in a cryptic
+    it means one thing only — the answer is a soundalike. So the same card said
+    Extraction on rung 1 and pointed at Sound on rung 3, about the same clue, to
+    a reader who is there precisely because they don't yet know the difference.
+
+    Only the card's OWN prose is scanned. The marks hold the setter's words and
+    the annotator's, and an Extraction clue is perfectly entitled to an indicator
+    that reads like a homophone; that is the clue, not the card mis-teaching it.
+
+    Not a SystemExit, unlike every other check here, because pick() treats that
+    as "this clue can't draw" and quietly tries the next one. A borrowed signal
+    is a defect in the template, not in the clue, so falling back would hide it
+    behind a different card and ship it on all the rest. It should stop a build.
+
+    CALIBRATION (2026-08-08, every card the 23 eligible puzzles can draw): 0
+    flagged once the hidden rung was reworded — this is the fix held in place,
+    not a backlog.
+    """
+    own = FAMILY_SIGNALS.get(family[0], ())
+    # The marks and the fodder are quoted from the clue and the annotation. Only
+    # the words the card puts around them are ours to be judged on.
+    mine = re.sub(r'<mark\b[^>]*>.*?</mark>|<span class="fodder">.*?</span>',
+                  " ", prose_html, flags=re.S)
+    mine = html.unescape(re.sub(r"<[^>]+>", " ", mine)).lower()
+    for label, signals in FAMILY_SIGNALS.items():
+        if label == family[0]:
+            continue
+        for sig in signals:
+            if sig in mine and sig not in own:
+                raise RuntimeError(
+                    f"og card: this {family[0]} card's own prose says {sig!r}, which "
+                    f"names the {label} mechanism. The card would teach one device "
+                    f"in rung 1 and point at another lower down — reword it.")
+
+
 def compose(entry, p, number=0):
     """The card's inner HTML for one clue, or SystemExit if it can't be drawn."""
     ann, clue = p["ann"], p["clue"]
@@ -400,15 +453,15 @@ def compose(entry, p, number=0):
     # whose height nobody controls. At 52px a clue wraps at about forty
     # characters, and a two-line clue at that size pushes the answer row off the
     # bottom of the 630px card — which is how the first cut of this shipped a
-    # 30,066 card with the strapline sliced in half. The thresholds are set so
+    # 30,066 card with its bottom row sliced in half. The thresholds are set so
     # that nothing ever takes three lines; plan() refuses anything longer still.
     size = " small" if len(clue) > 64 else " long" if len(clue) > 36 else ""
     check_no_answer(clue_html, steps, ann["answer"])
+    check_prose_stays_in_family(steps, p["family"])
     return f"""<!--CARD-START {number} {entry["id"]}-->
   <div class="clue{size}">{clue_html} <span class="enum">{html.escape(enumeration)}</span></div>
   <ol class="rungs">{steps}</ol>
-  <div class="held"><span class="lbl">Answer</span><span class="dots">{dots}</span>
-    <span class="held-note">&mdash; yours to spot, not ours to hand over</span></div>
+  <div class="held"><span class="lbl">Answer</span><span class="dots">{dots}</span></div>
   <!--CARD-END-->"""
 
 

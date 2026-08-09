@@ -546,6 +546,23 @@ all 55:
   and never mentioned it, so rung 3 now reads "<ind> says to shuffle <fodder>"
   rather than "Shuffle <fodder>". A mark the prose never explains is a claim the
   reader has to take on trust, and this one didn't survive being taken on trust.
+- **Explaining prose may not borrow another device's signal words**
+  (2026-08-08). Rung 3 of every hidden-word card read "<ind> says so out loud"
+  from the day the cards shipped. "Out loud" was meant as *announces itself*; in
+  a cryptic it means one thing only, that the answer is a soundalike. So the card
+  said Extraction on rung 1 and pointed at Sound on rung 3, about one clue, to a
+  reader who is there precisely because they can't yet tell those apart — and it
+  read so oddly that Paul took the rung for part of the clue. Ordinary writing
+  advice doesn't catch this: the sentence is fine English and only wrong because
+  the vocabulary is already spoken for. `check_prose_stays_in_family` now fails
+  the build on it, scanning only the words the card contributes — never the marks
+  and the fodder, which quote the clue, and an Extraction clue may perfectly well
+  own an indicator that reads like a homophone. The list is short on purpose:
+  only wording that can mean nothing but its own mechanism, so "says to shuffle"
+  survives and "out loud" doesn't. It raises RuntimeError rather than SystemExit
+  because `pick()` reads SystemExit as "this clue can't draw" and would quietly
+  ship the bug on a different clue. Applies past the cards: a walkthrough that
+  says "sounds like" about a charade is the same error with a wider audience.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so

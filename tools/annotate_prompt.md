@@ -124,6 +124,12 @@ Rules:
   walkthrough over `WALKTHROUGH_HARD_MAX` words are validator ERRORS. Work the clue out
   for as long as you need, then write the settled sentence. If you cannot settle it,
   leave the clue unannotated and say so — that is better than publishing an argument.
+- Never borrow another mechanism's signal words to explain this one. "Aloud", "out loud",
+  "sounds like", "reportedly", "spoken" mean homophone; "shuffle", "anagram", "jumbled"
+  mean rearrangement; "hidden", "buried" mean extraction; "reversed", "backwards" mean
+  turnaround. Used loosely — "found in says so out loud", meaning *announces itself* —
+  they name a device this clue does not use, to the one reader who cannot yet tell the
+  difference. The prose is fine English and wrong anyway. Say what the clue actually does.
 - Do not guess: if a parsing doesn't produce the answer's letters exactly, it is wrong —
   rethink it. Consult the setter's usual tricks; check fifteensquared.net if reachable.
 
