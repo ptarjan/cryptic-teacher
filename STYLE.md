@@ -604,6 +604,18 @@ all 55:
   every puzzle file before annotation starts, so the model is never solving the
   crossword — it is explaining a clue whose answer it has been handed, and Haiku
   failed at that easier job. Nothing here says anything about solving.
+  The Sonnet leg of the same benchmark, run on the same puzzle with the same
+  prompt and the same flags, is the other half of the result and it lands the
+  opposite way: 2034s against Haiku's 395s, zero flags on all four of the new
+  checks (0/26 fodder, 0/19 accounting, 0/14 decomposition, 0/53 missing notes)
+  where Haiku now ERRORs twice, and all 29 parses correct on a hand read. It is
+  committed as 30073. So the job is not too hard for a cheaper model than Fable —
+  Sonnet does it — and the failure mode is not "small model, slightly worse
+  annotations" but "small model, confidently fabricated ones", which is a
+  different risk and the reason the checks above are worth their cost. Where the
+  two differ is time: five times slower than Haiku, and the nightly job runs
+  unattended against a weekly quota, so a model swap is a throughput decision as
+  much as a quality one.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
