@@ -604,18 +604,46 @@ all 55:
   every puzzle file before annotation starts, so the model is never solving the
   crossword — it is explaining a clue whose answer it has been handed, and Haiku
   failed at that easier job. Nothing here says anything about solving.
-  The Sonnet leg of the same benchmark, run on the same puzzle with the same
-  prompt and the same flags, is the other half of the result and it lands the
-  opposite way: 2034s against Haiku's 395s, zero flags on all four of the new
-  checks (0/26 fodder, 0/19 accounting, 0/14 decomposition, 0/53 missing notes)
-  where Haiku now ERRORs twice, and all 29 parses correct on a hand read. It is
-  committed as 30073. So the job is not too hard for a cheaper model than Fable —
-  Sonnet does it — and the failure mode is not "small model, slightly worse
-  annotations" but "small model, confidently fabricated ones", which is a
-  different risk and the reason the checks above are worth their cost. Where the
-  two differ is time: five times slower than Haiku, and the nightly job runs
-  unattended against a weekly quota, so a model swap is a throughput decision as
-  much as a quality one.
+  The Sonnet leg of the same benchmark clears every mechanical bar Haiku fails:
+  2034s, zero flags on all four of the new checks (0/26 fodder, 0/19 accounting,
+  0/14 decomposition, 0/53 missing notes), 29 parses correct on a hand read,
+  committed as 30073. On that evidence alone Sonnet looks like a drop-in for
+  Fable. It is not, and the reason is a lesson about benchmarks rather than about
+  models: **30073 was in the backlog, so Fable had never annotated it, so there
+  was nothing to compare against.** A clean validator run is an absence of
+  detected faults, and the whole point of the entry above is that absence of
+  detected faults is not quality. Only another annotator's work on the SAME clues
+  can say whether a parse was the best available one.
+  Re-run properly on 30078, which Fable had already done (2026-08-08, same
+  prompt, same flags, Fable's annotation stripped to null in a worktree), the
+  answer inverts:
+
+  |        | time  | steps | input  | output | agrees w/ Fable   |
+  |--------|-------|-------|--------|--------|-------------------|
+  | Fable  | 990s  | 54    | 5.73M  | 480k   | —                 |
+  | Sonnet | 1705s | 92    | 18.2M  | 300k   | 21/25 type, 20/25 def |
+
+  Sonnet is 1.7x slower, costs 3.2x the input tokens, writes a third less, and is
+  worse. The four disagreements are the whole story. Two are cosmetic (a trailing
+  `?` inside the definition span). One is a real Sonnet win: 17A STREWTH, split as
+  `’S` + TRUTH rather than lumped as one homophone. One is a real Sonnet loss: 5D
+  COVERLET typed `anagram` with blocks `lever` > LEVER and `bed` > COT, which
+  performs no anagram and hides the container — Fable's `COT` around `VERLE` is
+  simply correct. And **two clues Sonnet could not solve at all**, 9A OPERA STAR
+  and 19D CHUKKAS, it filed as `cryptic definition` with the entire clue as the
+  definition — the same surrender Haiku made, in a model honest enough to label
+  it. Fable had solved both, and 19D (`CHAS` around `UK` + `K`) is the best clue
+  in the puzzle.
+  Two things follow. First, `MAX_CRYPTIC_DEFINITIONS = 2` earns its keep as a
+  model-quality tripwire and not just a style rule: Sonnet landed on exactly 2 in
+  both benchmark puzzles, i.e. it passed by using its entire surrender budget,
+  and a third punt would have ERRORed the run. When a model is at the cap, read
+  the capped clues — that is where the giving-up is. Second, the failure mode
+  that matters is not fabrication (Haiku) but *quiet under-solving*: a correct,
+  well-formed, validator-clean annotation of the easy clues plus a shrug at the
+  hard ones. No mechanical check can catch that, because a cryptic definition
+  claims no letters and so cannot contradict anything. Only a diff against a
+  better annotator finds it. Keep Fable pinned.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
