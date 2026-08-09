@@ -49,7 +49,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Fed",
    "date": 1786060800000,
    "file": "30079.js",
-   "v": "a14dbfe5",
+   "v": "a828a421",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -84,7 +84,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1785974400000,
    "file": "30078.js",
-   "v": "74ba61f9",
+   "v": "4ba20f74",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -197,7 +197,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Chandler",
    "date": 1785628800000,
    "file": "1393.js",
-   "v": "147bf772",
+   "v": "dde353e0",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -271,7 +271,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Enigmatist",
    "date": 1785369600000,
    "file": "30072.js",
-   "v": "ac2bda11",
+   "v": "efdc7e04",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -306,7 +306,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brendan",
    "date": 1785283200000,
    "file": "30071.js",
-   "v": "aa22e1aa",
+   "v": "dfb417aa",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -341,7 +341,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1785196800000,
    "file": "30070.js",
-   "v": "2931e56c",
+   "v": "f972729c",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -402,7 +402,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Dice",
    "date": 1785024000000,
    "file": "1392.js",
-   "v": "d1111135",
+   "v": "4e129333",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -533,7 +533,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1784419200000,
    "file": "1391.js",
-   "v": "9a1a1f46",
+   "v": "62064c24",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -633,7 +633,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Turnstone",
    "date": 1783814400000,
    "file": "1390.js",
-   "v": "7a177b9b",
+   "v": "970d48dd",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -733,7 +733,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Anto",
    "date": 1783209600000,
    "file": "1389.js",
-   "v": "14ac4d04",
+   "v": "c554cdc4",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -794,7 +794,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Fed",
    "date": 1782864000000,
    "file": "30047.js",
-   "v": "7c50f4d8",
+   "v": "9cce6838",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -816,7 +816,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Imogen",
    "date": 1782777600000,
    "file": "30046.js",
-   "v": "8d51cf49",
+   "v": "ab0e42e1",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -860,7 +860,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1782604800000,
    "file": "1388.js",
-   "v": "b8c9f851",
+   "v": "0f6171fc",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -882,7 +882,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Brendan",
    "date": 1782518400000,
    "file": "30044.js",
-   "v": "0c345ca3",
+   "v": "4d401333",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -904,7 +904,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Pangakupu",
    "date": 1782432000000,
    "file": "30043.js",
-   "v": "5f7bddbb",
+   "v": "64035ff3",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -926,7 +926,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Paul",
    "date": 1782345600000,
    "file": "30042.js",
-   "v": "1804be0e",
+   "v": "72088317",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {
@@ -1014,7 +1014,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Budmo",
    "date": 1782000000000,
    "file": "1387.js",
-   "v": "9f879c64",
+   "v": "2b86dd23",
    "annotated": true,
    "hasSolutions": true,
    "difficulty": {

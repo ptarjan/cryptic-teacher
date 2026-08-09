@@ -262,7 +262,7 @@ window.CRYPTIC_PUZZLES["1388"] = /*JSON-START*/ {
       "note": "as in 'long ago'"
      }
     ],
-    "walkthrough": "CHIC and AGO simply sit side by side; the surface makes 'smart in the past' feel like one idea to hide the join.",
+    "walkthrough": "The surface makes 'smart in the past' feel like one idea — a fashion that has dated — and that is exactly what hides the join between the two halves.",
     "definitionFit": "Chicago is the great city on Lake Michigan — the third largest in the United States."
    }
   },

@@ -893,7 +893,7 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
       "note": "made 'odd' — anagrammed — around ME and CE"
      }
     ],
-    "walkthrough": "'Second Coming?' is the wry part, question mark and all — a religious phrase stretched over an everyday word. The build is fiddly: GENRE's letters scatter around ME and CE to give EMERGENCE, with RE in front."
+    "walkthrough": "'Second Coming?' is the wry part, question mark and all — a religious phrase stretched over an everyday word. The build is unusually layered: an anagram that has to be assembled around two inserted pieces rather than on its own."
    }
   },
   {

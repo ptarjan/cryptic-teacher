@@ -364,7 +364,7 @@ window.CRYPTIC_PUZZLES["30043"] = /*JSON-START*/ {
       "note": "applications = uses"
      }
     ],
-    "walkthrough": "In a down clue 'supporting' means sitting underneath, so USES goes below OP rather than after it. Across and down clues read position words differently, and this one only works pointing down.",
+    "walkthrough": "In a down clue 'supporting' means sitting underneath rather than coming after. Across and down entries read position words differently, and this one only works pointing down. OP is theatre jargon for the side of the stage opposite the prompter.",
     "definitionFit": "An opus is a numbered creative work, most often musical, so a composer's opuses are simply their collected works under another name.",
     "definitionNote": "OPUSES is plural but the definition 'work' is singular, taken as a mass noun: a composer's 'work' means everything they wrote, which is exactly their opuses."
    }

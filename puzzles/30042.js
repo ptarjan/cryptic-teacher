@@ -1197,7 +1197,7 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "note": "a van"
      }
     ],
-    "walkthrough": "To gallivant is to gad about, so the question mark carries a definition that is a description rather than a synonym. IT split around a VAN is the move to spot."
+    "walkthrough": "To gallivant is to gad about, so the question mark carries a definition that describes rather than translates. A two-letter word splitting open to admit another is the move to spot."
    }
   },
   {

@@ -141,7 +141,7 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
      "TUM",
      "PY"
     ],
-    "walkthrough": "TUM sits inside SPY, just as 'squeezed by' promises — the fifth columnist has the belly surrounded.",
+    "walkthrough": "A fifth columnist really is a spy, so the wordplay hides inside a plain description rather than an instruction. 'Squat' is wanted as an adjective, not as the crouch.",
     "definitionFit": "Squat and stumpy both describe a short, thick-set build — everyday synonyms, both adjectives."
    }
   },
@@ -310,7 +310,7 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
      "GA",
      "WAIN"
     ],
-    "walkthrough": "In a down entry 'on' stacks GA on top of WAIN — and a knight 'on the wagon' should certainly guzzle no absinthe.",
+    "walkthrough": "'On the wagon' means teetotal, which is exactly what the absinthe is there to contradict. In a down clue 'on' simply stacks one piece above another.",
     "definitionFit": "Sir Gawain was one of King Arthur's knights of the Round Table, hero of 'Sir Gawain and the Green Knight'."
    }
   },
@@ -407,7 +407,7 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
      "RASTA",
      "R"
     ],
-    "walkthrough": "RASTA bursts through the middle of PER, with O in front — Paul turns even the innocent 'for' into building material.",
+    "walkthrough": "The step that unlocks it is reading 'prayer' as a person rather than something said. 'For' looks like joinery and is building material — Paul rarely wastes a word.",
     "definitionFit": "Sir Willard White is the Jamaican-born operatic bass — 'perhaps' flags him as one example of an opera star."
    }
   },
@@ -490,7 +490,7 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
      "OBA",
      "Y"
     ],
-    "walkthrough": "The joke is that the Python isn't the reptile: MONTY catches EG with the wandering boa inside.",
+    "walkthrough": "The joke is that the Python is a comedy troupe and the boa is only letters — two snakes in one clue and neither of them real. 'Say' for e.g. is a workhorse worth banking.",
     "definitionFit": "Montego Bay is Jamaica's famous resort city on the north coast — another somewhere on the island of 15."
    }
   },
@@ -598,7 +598,7 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
      "IC",
      "BAG"
     ],
-    "walkthrough": "'Concluding' is positional: the thing brings up the rear, after PIC has swallowed LAST.",
+    "walkthrough": "'Thing' for a bag comes straight out of 'not my bag', and it is the best moment in the clue. 'Concluding' is positional rather than definitional: it says where a piece goes, not what it means.",
     "definitionFit": "A plastic bag weighs next to nothing — a literally lightweight item, whatever the surface's talk of closing credits."
    }
   },
@@ -840,7 +840,7 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
      "K",
      "AS"
     ],
-    "walkthrough": "The joke: UK and K spell 'British king', and they sit inside CHAS — Charles, the British king in person.",
+    "walkthrough": "Reading 'himself' as the king's own familiar name is the step that unlocks it. The clue also reads straight through as a description of polo, which is the fun of it.",
     "definitionFit": "A chukka is one of the timed periods a polo match is divided into — and polo is played on horseback."
    }
   },

@@ -57,7 +57,7 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
      "BEN",
      "EFIT"
     ],
-    "walkthrough": "'Virtually' means 'almost': BENT stops one letter short before the E-fit gives chase. In the surface the picture pursues the crook; in the wordplay EFIT literally follows BEN.",
+    "walkthrough": "'Virtually' means almost, and it is doing surgery rather than describing: it docks the final letter. An E-fit is the digital identikit UK police issue, hidden here behind ordinary-sounding police work.",
     "definitionFit": "A benefit is an advantage — the sense in 'the benefits of exercise' — a plain synonym while the surface suggests welfare payments."
    }
   },
@@ -438,7 +438,7 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
      "TSUN",
      "AMIS"
     ],
-    "walkthrough": "Assemble A + MIST + SUN, then 'cycles' rotates the string: the back half TSUN comes round to the front. Cycling moves letters without changing their order.",
+    "walkthrough": "Cycling moves letters round without changing their order — the tail comes to the front, like cutting a deck of cards. It is rarer than a reversal and easy to miss, and 'cycles' is its usual signal.",
     "definitionFit": "Tsunamis are enormous sea waves — a plain plural-for-plural definition hiding at the end of a chatty surface."
    }
   },
@@ -1397,7 +1397,7 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
      "TIRE",
      "D"
     ],
-    "walkthrough": "Read straight, the weary drink the wine; 'quite the opposite' has RED swallow TIRE instead. The clue and its answer describe the same sleepy evening.",
+    "walkthrough": "'Quite the opposite' is an instruction, not a comment: it inverts the container the clue has just described, so the drinker becomes the drunk. The clue and its answer describe the same sleepy evening.",
     "definitionFit": "Someone who has retired for the night is in bed — the verb's going-to-bed sense rather than the pensioner's."
    }
   }
