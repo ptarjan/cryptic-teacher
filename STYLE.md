@@ -643,7 +643,30 @@ all 55:
   well-formed, validator-clean annotation of the easy clues plus a shrug at the
   hard ones. No mechanical check can catch that, because a cryptic definition
   claims no letters and so cannot contradict anything. Only a diff against a
-  better annotator finds it. Keep Fable pinned.
+  better annotator finds it.
+  Opus 5, run third on the same 30078 clues with the same prompt and flags,
+  changes the conclusion. It is the only leg that reaches Fable's standard:
+
+  |          | time  | steps | input | output | vs Fable            | cost   |
+  |----------|-------|-------|-------|--------|---------------------|--------|
+  | Fable 5  | 990s  | 54    | 5.73M | 480k   | —                   | $35.91 |
+  | Opus 5   | 1038s | 45    | 7.30M | 215k   | 23/25 type, 22/25 def | $12.06 |
+  | Sonnet 5 | 1705s | 92    | 18.2M | 300k   | 21/25 type, 20/25 def | $7.56  |
+
+  Opus used **zero** cryptic definitions and solved both clues Sonnet punted —
+  9A OPERA STAR as `O + PE(RASTA)R` and 19D CHUKKAS as `CHAS` round `UK + K`.
+  All three definition differences are a trailing `?` inside or outside the
+  span, which is cosmetic. Of the two type differences, Opus is right once (17A
+  STREWTH as `charade + homophone`, since `’S` + TRUTH is a charade before it is
+  a homophone — the same win Sonnet found) and Fable is right once (19D, where
+  Opus dropped the `+ charade` that `UK + K` plainly is). That is parity, in the
+  same wall time, at a third of the cost, and the saving is almost entirely
+  output tokens: Fable writes 2.2x as many at 2x the rate, which is $24 of a $36
+  puzzle. What the cheap legs got wrong was never cheapness, it was the model
+  being unable to solve the two hardest clues, and Opus can.
+  One puzzle is one puzzle, and the whole lesson above is that a single clean
+  run is not evidence. Before repinning, run Opus against two or three more
+  Fable-annotated puzzles and diff. The pin stays on Fable until that holds.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
