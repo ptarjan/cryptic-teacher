@@ -590,7 +590,20 @@ all 55:
   is no longer a device. Calibrated on all 671 annotated clues: 4 warnings in 4
   different puzzles, 0 errors; the Haiku run scores 17 in one. The general rule:
   when you add a model to a pipeline, the checks that passed for the old one are
-  now a measurement of the new one, and they only measure what they test.
+  now a measurement of the new one, and they only measure what they test. Three
+  more came out of the same run, all of them comparisons the annotation already
+  contained and nothing was making: the blocks' letters against the answer
+  (`check_blocks_account_for_answer` — Haiku's TRIGGER had immaculate `pieces`
+  and blocks reading T + R + IG), the blocks against `pieces`
+  (`check_blocks_decompose` — "Two types of earth" > SODDEN names a charade and
+  then doesn't do it), and a note on every block that claims letters
+  (`check_blocks_carry_notes`). Two of the three flag this repo's own work, five
+  clues and one clue respectively, which is the point: a check worth adding
+  usually finds something you did yourself.
+  Worth knowing what this benchmark did NOT test. The published solution is in
+  every puzzle file before annotation starts, so the model is never solving the
+  crossword — it is explaining a clue whose answer it has been handed, and Haiku
+  failed at that easier job. Nothing here says anything about solving.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
