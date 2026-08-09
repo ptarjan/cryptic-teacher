@@ -130,6 +130,15 @@ Rules:
   turnaround. Used loosely — "found in says so out loud", meaning *announces itself* —
   they name a device this clue does not use, to the one reader who cannot yet tell the
   difference. The prose is fine English and wrong anyway. Say what the clue actually does.
+- The BLOCKS are the parse, not a sketch of one. They are what the app renders, so three
+  things are checked and all three are things a wrong parse gets wrong: their letters must
+  add up to exactly the answer's letters (`check_blocks_account_for_answer` — deletions and
+  substitutions excepted, since they name letters that go away); if `pieces` takes the
+  answer apart into chunks, the blocks must take it apart the same way rather than handing
+  the whole answer over in one lump (`check_blocks_decompose` — "Two types of earth" >
+  SODDEN names the charade without doing it); and every block that claims letters needs a
+  `note` saying why those words give those letters (`check_blocks_carry_notes`). That note
+  is the teaching, and skipping it is how an invented block hides.
 - The definition's words are NOT available as wordplay. A block whose `clueFragment`
   repeats a word the `definition` already claimed is the annotation eating its own tail,
   and its worst form passes every other check: `definition: "Hard rock"` with a block

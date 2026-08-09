@@ -759,6 +759,128 @@ def check_definition_not_fodder(entries, errors, warnings):
             f"described. Re-annotate rather than patch")
 
 
+# Mechanisms where the blocks legitimately do not add up to the answer: a
+# deletion or substitution names letters that are taken away, and the three
+# definition-only types plus the sound types claim no letters at all.
+UNBALANCED_TYPES = ("deletion", "substitution", "cryptic definition",
+                    "double definition", "homophone", "spoonerism", "&lit")
+
+# Per puzzle, not per clue. One under-decomposed clue is a judgement call a real
+# annotator makes; several is a run that stopped doing the work. Across the 671
+# annotated clues here the worst puzzle has exactly one of each.
+MAX_UNBALANCED = 2
+MAX_UNDECOMPOSED = 2
+
+
+def check_blocks_account_for_answer(entries, errors, warnings):
+    """The letters the blocks hand over have to be the answer's letters.
+
+    Not a restatement of the `pieces` check: `pieces` is the annotator's own
+    summary and is checked against the answer, so a parse can have immaculate
+    pieces and blocks that say something else entirely. Haiku's TRIGGER did:
+    pieces T/RIG/GER, blocks T + R + IG. The blocks are what the app renders —
+    they are what the learner reads — and nothing was comparing them to anything.
+
+    CALIBRATION (2026-08-08, 489 in-scope clues): 2 warn. 30045 10A (MEME, where
+    "repeated" doubles a single ME block) is the honest exception this stays a
+    warning for; 30079 15D is a substitution and is now out of scope.
+    """
+    hits = []
+    for e in entries:
+        ann = e.get("annotation") or {}
+        if not ann or "linkedTo" in ann:
+            continue
+        if any(x in (ann.get("type") or "") for x in UNBALANCED_TYPES):
+            continue
+        from collections import Counter
+        got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
+        if not got:
+            continue
+        want = letters(ann.get("answer") or e.get("solution"))
+        if Counter(got) != Counter(want):
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            hits.append(tag)
+            extra, missing = multiset_diff(got, want)
+            warnings.append(
+                f"{tag}: the blocks give {got!r}, but the answer is {want!r}"
+                + (f" (extra {extra!r})" if extra else "")
+                + (f" (missing {missing!r})" if missing else "")
+                + " — the blocks are what the learner actually reads, so they have "
+                  "to be the parse, not a sketch of one")
+    if len(hits) > MAX_UNBALANCED:
+        errors.append(
+            f"puzzle: {len(hits)} clues ({', '.join(hits)}) have blocks whose letters "
+            f"are not the answer's — at most {MAX_UNBALANCED} allowed. Letters that "
+            f"don't add up mean the wordplay was described rather than worked out")
+
+
+def check_blocks_decompose(entries, errors, warnings):
+    """If `pieces` takes the answer apart, the blocks must take it apart too.
+
+    A charade with `pieces: ["SOD", "DEN"]` and one block reading
+    `"Two types of earth" > SODDEN` has named the mechanism and then not
+    performed it, which is the whole of what a learner came for. The comparison
+    is free: the annotation already contains both halves and nothing checked
+    that they agree.
+
+    CALIBRATION (2026-08-08): 5 of 398 clues with 2+ pieces, one per puzzle, and
+    all five are genuine under-decomposition in this repo's own annotations
+    (30039 27A SODDEN, 30045 17A MUG UP, 30072 14D TOM CRUISE, 30078 18D
+    TRIFLING, 1388 21A LINED). Warned, not errored, so the backlog surfaces
+    without failing a build that was already green.
+    """
+    hits = []
+    for e in entries:
+        ann = e.get("annotation") or {}
+        if not ann or "linkedTo" in ann:
+            continue
+        pieces = ann.get("pieces") or []
+        if len(pieces) < 2:
+            continue
+        # `pieces` spelled out letter by letter — A+L+F+A, N+U+D+I+T+Y — is an
+        # anagram's letter list, not a charade's chunks, and one block holding the
+        # whole fodder is exactly right there. Ten of the fifteen first flagged
+        # were this; a rule that lights up honest work is a broken rule.
+        if all(len(letters(p)) <= 1 for p in pieces):
+            continue
+        full = [b for b in ann.get("blocks", [])
+                if letters(b.get("gives")) == letters(ann.get("answer"))]
+        lettered = [b for b in ann.get("blocks", []) if letters(b.get("gives"))]
+        if full and len(lettered) == 1:
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            hits.append(tag)
+            warnings.append(
+                f"{tag}: pieces are {'+'.join(ann['pieces'])} but there is one block "
+                f"handing over the whole answer — split it, one block per piece. "
+                f"Naming a charade is not doing the charade")
+    if len(hits) > MAX_UNDECOMPOSED:
+        errors.append(
+            f"puzzle: {len(hits)} clues ({', '.join(hits)}) name a multi-piece parse "
+            f"and then give the answer in one block — at most {MAX_UNDECOMPOSED}")
+
+
+def check_blocks_carry_notes(entries, warnings):
+    """A block that claims letters has to say why it gets them.
+
+    The `note` is where the convention lives — `worker` = ANT, `setter` = ME —
+    and it is the only field that can be wrong in a way the letters can't reveal.
+    Haiku left 10 of its 50 letter-bearing blocks unexplained, including the ones
+    it had invented. CALIBRATION: 1 of 1347 across this repo (30044 2D, `a` > A,
+    where there is genuinely nothing to say). Warning only, for that reason.
+    """
+    for e in entries:
+        ann = e.get("annotation") or {}
+        if not ann or "linkedTo" in ann:
+            continue
+        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        for b in ann.get("blocks", []):
+            if letters(b.get("gives")) and not str(b.get("note") or "").strip():
+                warnings.append(
+                    f"{tag}: block {b.get('clueFragment')!r} > {b.get('gives')!r} has "
+                    f"no note. Say why those words give those letters — that sentence "
+                    f"is the teaching, and its absence is how an invented block hides")
+
+
 def validate_puzzle(puzzle):
     errors, warnings = [], []
     by_id = {e["id"]: e for e in puzzle["entries"]}
@@ -896,6 +1018,9 @@ def validate_puzzle(puzzle):
     if annotated:
         check_cryptic_definition_cap(puzzle["entries"], errors)
         check_definition_not_fodder(puzzle["entries"], errors, warnings)
+        check_blocks_account_for_answer(puzzle["entries"], errors, warnings)
+        check_blocks_decompose(puzzle["entries"], errors, warnings)
+        check_blocks_carry_notes(puzzle["entries"], warnings)
 
     return annotated, errors, warnings
 
