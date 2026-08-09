@@ -664,9 +664,29 @@ all 55:
   output tokens: Fable writes 2.2x as many at 2x the rate, which is $24 of a $36
   puzzle. What the cheap legs got wrong was never cheapness, it was the model
   being unable to solve the two hardest clues, and Opus can.
-  One puzzle is one puzzle, and the whole lesson above is that a single clean
-  run is not evidence. Before repinning, run Opus against two or three more
-  Fable-annotated puzzles and diff. The pin stays on Fable until that holds.
+  **Pinned to Opus on 2026-08-09** on this one puzzle. I argued for two or three
+  more diffs first, on the grounds that a single clean run is not evidence — the
+  exact lesson this entry exists to record. Paul overruled it and took the
+  saving. So the pin rests on one puzzle: read the first few nightly runs, and
+  if a run sits at `MAX_CRYPTIC_DEFINITIONS`, read the capped clues.
+
+  A later read of the *prose* — the half a learner actually sees — splits the
+  verdict the structural diff had called parity. Fable writes better: 18 words
+  per walkthrough against Opus's 30, and the funnier line nearly every time
+  (`Bacchus loses his CH — denied church — and what remains counts beads, not
+  blessings`). Opus teaches better, which is what the prompt asks for. The rule
+  above says a walkthrough carries what the blocks *cannot* show and never
+  re-narrates fragment → letters; **Fable breaks it in 8 of 25 clues, Opus in
+  3**. Fable on 9A is `RASTA bursts through the middle of PER, with O in front`,
+  which is precisely what the app already renders underneath; Opus writes `the
+  step that unlocks it is reading 'prayer' as a person rather than a thing
+  said`. Opus also banks transferable convention (`EG for 'say' is a workhorse
+  abbreviation`, `6-4 means hyphenated`) where Fable banks none. Opus's own vice
+  is boilerplate — `so 'X' names it by what it does` recurs — and a definitionFit
+  averaging 24 words against a 30-word cap, so it writes with no headroom.
+
+  The number that reframes the cost table: Fable spent 2.2x the output tokens
+  and produced 40% *less* finished prose. That $24 was iteration, not product.
 - **Two renderings of one link must share one joiner** (Search Console,
   2026-08-07). Breadcrumb crumbs were `("Puzzles", "/puzzles/")`, and
   `breadcrumb_ld()` joined them to BASE while `masthead()` emitted them raw — so
