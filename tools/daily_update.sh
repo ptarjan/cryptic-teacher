@@ -280,6 +280,16 @@ if [ -n "$(git status --porcelain)" ]; then
   #     so the live site had two clues whose type matched no family and no
   #     blurb. The validator passed — it validates puzzles, not the app.
   git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md og.png og/ tools/validate_annotations.py
+  # Then put back anything that was already modified before this run started.
+  # The pathspec is not enough on its own: app.js and index.html are on it
+  # because an annotation run legitimately edits them, and they are also exactly
+  # what an interactive session has open. On 2026-08-10 this job swallowed a
+  # half-written sync feature into "Daily update: fetch latest cryptic" — the
+  # work survived, but it landed in the wrong commit with the wrong message,
+  # and it could as easily have been committed broken.
+  printf '%s\n' "$DIRTY_BEFORE" | while read -r f; do
+    [ -n "$f" ] && git restore --staged -- "$f" 2>/dev/null
+  done
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$ANNOTATE_TRAILER")"
   # And name whatever is STILL modified. Both misses above were a file nobody
   # had thought of, and no amount of thinking harder about the list fixes the
