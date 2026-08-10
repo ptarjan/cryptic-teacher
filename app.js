@@ -866,8 +866,10 @@
 
     // The escape hatch lives outside the ladder: available at any level.
     if (canCheck() && !solved) {
-      escape.innerHTML = `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>
-        <span class="muted">(counts against your score)</span>`;
+      // No "(counts against your score)" rider. The scorebar already reports
+      // revealed letters, so the warning was redundant, and a learner who is
+      // stuck should be nudged toward the help rather than taxed for taking it.
+      escape.innerHTML = `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>`;
       $("hx-letter").onclick = revealLetter;
     }
   }
