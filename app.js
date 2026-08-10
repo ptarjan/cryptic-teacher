@@ -1268,7 +1268,17 @@
       if (v) typeLetter(v[v.length - 1]);
       ev.target.value = "";
     });
-    $("grid").addEventListener("mousedown", () => focusKbd());
+    // Every control that moves the cursor must also raise the soft keyboard, and
+    // it has to do it on mousedown. iOS only opens the keyboard for a focus()
+    // that happens inside the gesture, and the pattern strip re-renders itself on
+    // the way through — by the time focus() ran, the button that was tapped had
+    // been thrown away with the rest of the strip's innerHTML, and the tap had
+    // nothing left to belong to, so tapping a box moved the cursor and then left
+    // you with no keyboard (Paul, iPad, 2026-08-09). The grid had always done it
+    // this way and worked; the strip had not. Listed together so a third way to
+    // steer cannot be added without it.
+    ["grid", "hint-pattern"].forEach((id) =>
+      $(id).addEventListener("mousedown", () => focusKbd()));
 
     // The letter-pattern strip is a second way to steer: click a box to put the
     // cursor on that square of the current entry.
@@ -1279,7 +1289,9 @@
       if (!e || !Number.isInteger(idx)) return;
       const c = cellAt(e, Math.max(0, Math.min(e.length - 1, idx)));
       cur.x = c.x; cur.y = c.y;
-      refreshAll(); focusKbd();
+      // Focus first: refreshAll() rebuilds this strip and removes the node the
+      // click is still travelling through.
+      focusKbd(); refreshAll();
     });
 
     if (!INDEX.puzzles.length) {
