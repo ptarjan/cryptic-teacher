@@ -300,7 +300,15 @@ button:disabled:hover { border-color: var(--line); }
   margin: 10px 0 14px; font-size: .8rem;
 }
 .toolbar-label { color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-size: .7rem; }
-.toolbar-gap { flex: 0 0 10px; }
+/* This was an empty 10px spacer, which inside a 6px-gap flex row rendered as a
+   22px hole between "grid" and "clear entry" — wider than the gaps either side
+   of it and attached to nothing, so the row read as badly spaced rather than
+   grouped. It is a real division (checking vs destroying), so it is drawn as
+   one. */
+.toolbar-gap {
+  flex: 0 0 1px; align-self: stretch; min-height: 1.3em;
+  background: var(--line); margin: 0 3px;
+}
 
 /* A check must always report what it found — a silent check reads as a dead
    button (feedback 2026-07-29). See announceCheck()/pulseCells() in app.js. */
@@ -435,6 +443,18 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    would just be a longer line to squint at. */
 @media (max-width: 1079px) {
   .left-col, .clues-col { flex: 1 1 100%; }
+  /* Once the column is the whole screen the 40px desktop cap leaves the grid
+     floating in dead space — 619px of crossword in 788px of iPad. Let the cells
+     grow into the width they now have; bigger squares are also better targets
+     for a finger than for a mouse. Still capped, or a stacked landscape tablet
+     would draw 65px cells. */
+  #grid { --cellsize: min(calc((100vw - 40px) / var(--cols, 15) - 1px), 56px); }
+  /* Touch targets. .tool is 4px/.8rem — about 26px tall, which is fine under a
+     cursor and mean under a thumb. */
+  .toolbar { gap: 8px; }
+  .tool { font-size: .88rem; padding: 8px 14px; }
+  #hint-next { gap: 10px; }
+  #hint-next button, #hint-escape button { font-size: .95rem; padding: 9px 14px; }
   #hint-panel { padding: 14px 18px; }
   .hint-clue { font-size: 1.3rem; line-height: 1.45; margin-bottom: 6px; }
   #hint-meter { font-size: .85rem; }

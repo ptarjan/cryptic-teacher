@@ -422,11 +422,25 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   assert(registry["hint-clue"].innerHTML.includes('mark class="link"'),
     "link words are highlighted in the clue: " + registry["hint-clue"].innerHTML);
 
+  // A definitionNote explains why the definition does not agree with the ANSWER,
+  // so it is written about the answer and routinely names it — 16 in the corpus
+  // did, and one of them handed TRUMP CARDS over on rung 2 (Paul, 2026-08-09).
+  // It belongs beside definitionFit on the walkthrough, not on the definition
+  // rung. Assert BOTH ends: absent early, present late. Only checking that it is
+  // shown somewhere is what let it sit on the wrong rung for months.
   const noted = findClue("definitionNote");
   assert(noted, "at least one annotation explains a definition that disagrees with its answer");
   openClue(noted);
+  assert(!registry["hint-body"].innerHTML.includes("def-note"),
+    "the definition note is NOT on the definition rung — it names the answer: " +
+    registry["hint-body"].innerHTML);
+  for (let i = 0; i < 8; i++) {
+    const btn = registry["hint-next"].children[0];
+    if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+    btn.onclick();
+  }
   assert(registry["hint-body"].innerHTML.includes("def-note"),
-    "the definition note is shown to the learner: " + registry["hint-body"].innerHTML);
+    "the definition note is shown on the walkthrough rung: " + registry["hint-body"].innerHTML);
 
   // --- a rung highlights its own words, on its own ---
   // Feedback 2026-08-01: "if I choose just the indicator clue now it doesn't
