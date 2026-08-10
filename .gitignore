@@ -39,3 +39,9 @@ tools/data/grading/
 # same posture as tools/data/grading/ — kept locally to read and learn from,
 # never committed, republished, or copied into a puzzle file.
 tools/data/minutecryptic/
+
+# Wrangler's local cache, written next to sync/wrangler.toml on every deploy.
+# It holds the Cloudflare account id and account name, which are not secrets but
+# are nobody else's business, and this repo is public. Deleting it costs one
+# extra prompt on the next deploy.
+sync/.wrangler/
