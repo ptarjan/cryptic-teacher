@@ -304,6 +304,14 @@ answer.split("").forEach((ch) => kd(ev(ch)));
 {
   const bad = wrongLetter(answer[4]);
   assert(registry["hint-pattern"].listeners.click, "pattern strip has a click handler");
+  // Moving the cursor is only half of it — on a tablet you then need somewhere to
+  // type. iOS raises the soft keyboard only for a focus() inside the gesture, and
+  // the click handler re-renders this strip out from under the tapped button, so
+  // the focus has to be hooked on mousedown like the grid's (Paul, iPad,
+  // 2026-08-09). Both cursor controls, asserted together: a new one that forgets
+  // this is a box you can tap and then cannot type into.
+  ["grid", "hint-pattern"].forEach((id) => assert(registry[id].listeners.mousedown,
+    `${id} raises the keyboard on mousedown, not after its own re-render`));
   clickBox(4);
   assert(curIndex() === 4, "clicking a pattern box moves the cursor there, got " + curIndex());
   kd(ev("Delete"));                       // punch a single gap at index 4
