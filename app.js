@@ -190,7 +190,8 @@
       entries.filter((e) => e.direction === dir).forEach((e) => {
         const li = document.createElement("li");
         li.id = "clue-" + e.id;
-        li.innerHTML = `<span class="clue-num">${e.number}</span><span class="clue-text"></span>`;
+        li.innerHTML = `<span class="clue-num">${e.number}</span><span class="clue-text"></span>` +
+          `<span class="checkers"></span>`;
         li.addEventListener("click", () => { selectEntry(e, true); focusKbd(); });
         ol.appendChild(li);
       });
@@ -244,6 +245,30 @@
     return out;
   }
 
+  // A CHECKING letter is the crossword term for a square this entry shares with
+  // one crossing the other way — the letters another answer hands you for free.
+  // They are what decides which clue to attack next, and the grid makes you hunt
+  // for them: you have to find the entry, run your eye along it and count what is
+  // already there. One dot per checking square, in order along the entry, filled
+  // when that square has a letter, says the same thing at a glance and from the
+  // list you are already reading.
+  //
+  // Deliberately NOT a count of every filled square: letters you typed yourself
+  // are not checking letters, they are your own guess, and counting them would
+  // make a half-typed answer look like a well-supported one. Unchecked squares
+  // get no dot at all rather than a permanently empty one — nothing will ever
+  // fill them for you, so a dot there would only ever read as a gap.
+  function checkerDots(e) {
+    const dots = entryCells(e)
+      .filter((c) => c && c.across && c.down)
+      .map((c) => `<i class="${c.letter ? "on" : ""}"></i>`);
+    if (!dots.length) return "";
+    const got = dots.filter((d) => d.includes("on")).length;
+    const label = `${got} of ${dots.length} crossing letters filled`;
+    return `<span class="dots" title="${label}" aria-label="${label}" role="img">` +
+      dots.join("") + "</span>";
+  }
+
   function refreshClues() {
     const curE = currentEntry();
     entries.forEach((e) => {
@@ -251,8 +276,12 @@
       if (!li) return;
       const holder = (e.annotation && e.annotation.linkedTo) ? byId[e.annotation.linkedTo] : e;
       li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e) : esc(e.clue);
+      const solved = isEntrySolved(e);
+      // Nothing to tell you about a clue you have finished — the row greys out
+      // and a full row of dots would just be noise on every solved line.
+      li.querySelector(".checkers").innerHTML = solved ? "" : checkerDots(e);
       li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e));
-      li.classList.toggle("solved", isEntrySolved(e));
+      li.classList.toggle("solved", solved);
     });
   }
 

@@ -81,7 +81,15 @@ function boot(opts) {
         }
         return null;
       };
-      return find(this) || new FakeEl("span");
+      const hit = find(this);
+      if (hit) return hit;
+      // This DOM does not build children out of innerHTML, so a span written by
+      // the page's own markup string is never found above. Hand back a stable
+      // stand-in per selector rather than a fresh throwaway: the app writes into
+      // these (clue text, checking dots), and a test can only assert on what was
+      // written if the same object comes back on the next lookup.
+      this._qs = this._qs || {};
+      return (this._qs[sel] = this._qs[sel] || new FakeEl("span"));
     }
     focus() {}
     scrollIntoView() {}

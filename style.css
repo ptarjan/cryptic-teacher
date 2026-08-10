@@ -218,6 +218,16 @@ button:disabled:hover { border-color: var(--line); }
 .clue-list li.solved { opacity: .55; }
 .clue-list li.solved .clue-text::after { content: " ✓"; color: var(--ok); }
 .clue-num { font-weight: 700; min-width: 1.7em; text-align: right; }
+/* Checking letters (app.js checkerDots): one dot per crossing square, filled
+   when you already have that letter. Sized to be read by scanning the column
+   rather than by looking at any one row — 4px, right-aligned so the dots form
+   their own vertical strip, and pinned to the first line so a clue that wraps
+   does not float them down the middle of nowhere. Small enough to ignore while
+   you read the clue, dense enough that the well-crossed clue jumps out. */
+.checkers { margin-left: auto; align-self: flex-start; padding-top: .55em; }
+.dots { display: flex; gap: 2px; }
+.dots i { width: 4px; height: 4px; border-radius: 50%; background: var(--line); }
+.dots i.on { background: var(--accent); }
 
 /* ---------- grid ----------
    Cells stay lighter than their letters in BOTH schemes (crossword convention —
