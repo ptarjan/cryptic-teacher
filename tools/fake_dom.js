@@ -95,15 +95,28 @@ function boot(opts) {
     scrollIntoView() {}
   }
 
-  const ids = ["picker-panel","picker-list","picker-search","picker-more","btn-picker","btn-picker-close","btn-tutorial",
-    "tutorial","app","puzzle-title","scorebar","grid","kbd","chk-letter","chk-entry","chk-grid",
-    "clear-entry","reset-puzzle","clues-across","clues-down","hint-panel","hint-clue","hint-pattern",
-    "hint-meter","hint-body","hint-next"];
-  const inputIds = new Set(["kbd", "picker-search"]);
-  ids.forEach((id) => { registry[id] = new FakeEl(inputIds.has(id) ? "input" : "div", id); });
-  registry["app"].classList.add("hidden");
-  registry["tutorial"].classList.add("hidden");
-  registry["picker-panel"].classList.add("hidden");
+  // The stub's elements are read out of index.html rather than retyped here.
+  // The hand-kept version of this list was three lists really — which ids
+  // exist, which are inputs, and which start hidden — and all three had to be
+  // updated by hand whenever the page grew a control. Miss the third and the
+  // symptom is baffling: a panel the page ships closed is open in the harness,
+  // so the first click closes it and every assertion after that is upside down
+  // (Paul, sync panel, 2026-08-10). Parsed, a new control is simply present,
+  // in the state the page actually ships it in.
+  {
+    const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+    const tags = /<([a-zA-Z]+)((?:[^>"']|"[^"]*"|'[^']*')*)>/g;
+    let m;
+    while ((m = tags.exec(html)) !== null) {
+      const attrs = m[2];
+      const id = attrs.match(/\sid="([^"]+)"/);
+      if (!id) continue;
+      const el = new FakeEl(m[1].toLowerCase(), id[1]);
+      const cls = attrs.match(/\sclass="([^"]*)"/);
+      if (cls) el.className = cls[1];
+      registry[id[1]] = el;
+    }
+  }
 
   const storage = {};
   const docListeners = {};
@@ -135,7 +148,13 @@ function boot(opts) {
     localStorage: {
       getItem: (k) => (k in storage ? storage[k] : null),
       setItem: (k, v) => { storage[k] = String(v); },
-      removeItem: (k) => { delete storage[k]; }
+      removeItem: (k) => { delete storage[k]; },
+      // Sync has to enumerate every saved puzzle to build the envelope it
+      // uploads, so the stub needs the iteration half of the Storage API too —
+      // without it the whole sync path is unreachable from the smoke test,
+      // which is exactly the path that must not break silently.
+      get length() { return Object.keys(storage).length; },
+      key(i) { const ks = Object.keys(storage); return i < ks.length ? ks[i] : null; }
     }
   };
   global.document = document;

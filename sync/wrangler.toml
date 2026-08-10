@@ -1,0 +1,15 @@
+name = "cryptic-teacher-sync"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# One namespace, keys "s:<CODE>", values the merged save envelope. No index, no
+# list endpoint: a code is only ever reachable by knowing it.
+#
+# Setup, once:
+#   wrangler login
+#   wrangler kv namespace create SAVES     # paste the id below
+#   wrangler deploy
+# then put the deployed URL into SYNC_ENDPOINT in ../app.js.
+[[kv_namespaces]]
+binding = "SAVES"
+id = "85f9de552ea64b229c113df624fb6ca0"

@@ -629,3 +629,19 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .diff-tough    { color: #e39055; }
   .diff-brutal   { color: #e8756a; }
 }
+
+/* The sync code is going to be read off one screen and typed into another, by
+   hand, probably on a phone. Monospaced and spaced out so O/0-style misreads
+   are impossible to make — the alphabet in app.js already excludes the
+   ambiguous glyphs, this makes the rest legible from arm's length. */
+.sync-code {
+  font: 700 1.6rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .18em; margin: 6px 0 10px; user-select: all;
+}
+#sync-join-code {
+  font: 700 1rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .12em; text-transform: uppercase; width: 9.5em;
+  padding: 7px 8px; border: 1px solid var(--line); border-radius: 5px;
+  background: var(--bg); color: var(--fg);
+}
+#sync-panel p { margin: 8px 0; }
