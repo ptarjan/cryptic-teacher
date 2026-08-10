@@ -567,6 +567,47 @@
     return hits.join(" ") || "";
   }
 
+  // What an indicator actually INSTRUCTS, and how to recognise its family next
+  // time. The rung used to read "these tell you what to do with the rest", which
+  // is true of every indicator in every clue ever written — content-free, and a
+  // rung the solver spends a hint on. The operation is derivable from the type we
+  // already store, so this costs nothing and cannot drift from the annotation.
+  //
+  // Plain language, not the jargon: "rearrange the letters it points at" rather
+  // than "anagram indicator". The precise mechanism is still held back for the
+  // building-blocks rung (see `mechanics`), and naming the job is the teaching
+  // content — naming the term would only be the label.
+  const INDICATOR_OPS = [
+    ["anagram", "rearrange the letters it points at",
+      "Anagram indicators describe a mess rather than a meaning: disorder, drunkenness, cooking, damage, movement. If a word tells you something is broken, stirred or at sea, suspect fodder nearby."],
+    ["container", "put one piece inside another",
+      "Containers are clued by words for holding and swallowing — in, about, around, eating, grips, hosting. The tricky ones read as ordinary prepositions."],
+    ["reversal", "write a piece backwards",
+      "Reversal words say turn or go back: recalled, returning, over, about. In a DOWN clue, anything meaning upwards does it too — up, rising, climbing — which is why the same clue can work one way and not the other."],
+    ["deletion", "drop letters from a word",
+      "Deletion words name the part to lose: endless and short take the tail, headless and beheaded the front, gutted and heartless the middle, almost and nearly one final letter."],
+    ["hidden", "find a run of letters already sitting in the clue",
+      "Hidden-word markers are quiet on purpose — in, some of, part of, held by, a bit of. They point at consecutive letters spanning the gap between two words."],
+    ["homophone", "take how a word sounds, not how it is spelled",
+      "Sound indicators name an ear: we hear, reportedly, on the radio, said, aloud, announced."],
+    ["spoonerism", "swap the opening sounds of two words",
+      "Spoonerisms all but announce themselves — the Reverend Spooner is named in the clue."],
+    ["alternate letters", "take every other letter",
+      "Alternates are signalled by oddly, evenly, regularly, alternately, or by 'every other'."],
+    ["first letter", "take the opening letter of the words it points at",
+      "Initials come from leading words: initially, first, leaders, heads, primarily, to start."],
+    ["last letter", "take the final letter of the words it points at",
+      "Finals come from trailing words: finally, last, ends, tails, ultimately."],
+    ["middle letter", "take just the middle of a word",
+      "Centre words: heart of, middle, centrally, core."],
+    ["outer letters", "keep only the outside letters of a word",
+      "Outer words: outskirts, extremes, borders, bookends, both sides."],
+    ["cycling", "move letters from one end to the other, keeping their order",
+      "Cycling is rarer than an anagram and looks like one until you notice the order survives: cycles, rotated, circulating."],
+    ["substitution", "swap one letter or chunk for another",
+      "Substitution is clued by exchange words: for, replacing, instead of, in place of, takes over from."]
+  ];
+
   // The whole answer isn't a teaching rung — it's the end of the road — but it
   // shares the ladder's bookkeeping so it counts against the score like one.
   const ANSWER_RUNG = "answer";
@@ -579,8 +620,8 @@
     if (!hintsShown[key]) {
       const old = hintLevels[key] || 0;
       hintsShown[key] = old > 0
-        ? ladderSteps(annOf(e)).slice(0, old).map((s) => s.key).concat(
-            old > ladderSteps(annOf(e)).length ? [ANSWER_RUNG] : [])
+        ? ladderSteps(annOf(e), e.clue).slice(0, old).map((s) => s.key).concat(
+            old > ladderSteps(annOf(e), e.clue).length ? [ANSWER_RUNG] : [])
         : [];
     }
     return hintsShown[key];
@@ -612,7 +653,29 @@
   }
 
   // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
-  function ladderSteps(ann) {
+  // Where the definition sits, and therefore where the wordplay starts. A fair
+  // cryptic splits into exactly two parts and finding that seam is most of the
+  // battle, so the seam is what this rung should hand over. It is computable
+  // from the clue text, which means every clue gets its own sentence instead of
+  // the one about definitions living at one end that used to print 25 times a
+  // puzzle. Falls back to a bare full stop when the definition is not a literal
+  // substring (a normalised apostrophe, an &lit) rather than guessing.
+  function defPlace(clue, definition) {
+    const bare = String(clue || "").replace(/\s*\([^)]*\)\s*$/, "").trim();
+    const def = String(definition || "").trim();
+    if (!bare || !def) return ".";
+    const at = bare.toLowerCase().indexOf(def.toLowerCase());
+    if (at < 0) return ".";
+    const trim = (s) => s.trim().replace(/^[,;:.—–-]+|[,;:—–-]+$/g, "").trim();
+    const before = trim(bare.slice(0, at));
+    const after = trim(bare.slice(at + def.length));
+    if (!before && !after) return " — which is the whole clue, and that is what makes this one unusual.";
+    if (!before) return `, so the clue opens with it and “${esc(after)}” is the wordplay.`;
+    if (!after) return `, right at the end — so “${esc(before)}” is the wordplay.`;
+    return `, sitting mid-clue, so the wordplay is “${esc(before)}” and “${esc(after)}” either side of it.`;
+  }
+
+  function ladderSteps(ann, clue) {
     if (!ann) return [];
     const t = (ann.type || "").toLowerCase();
     const isDD = t.includes("double definition");
@@ -659,24 +722,32 @@
           is a whole-clue description that only makes sense once you see it the setter's way.</p>`
       });
     } else {
+      // Not "everything else is wordplay, and definitions sit at one end" — that
+      // sentence was identical on every clue in the corpus, so the rung's only
+      // clue-specific content was the highlight itself. Say WHERE it sits and
+      // WHERE the wordplay therefore starts: the split point is the actual
+      // solving move, and it is computable from the clue text we already have.
       steps.push({
         key: "definition",
         label: "Where is the definition?",
-        html: `<p>The definition is <mark class="def">${esc(ann.definition)}</mark>. Everything
-          else is wordplay — in a fair cryptic the definition always sits at one end of the clue.</p>`
+        html: `<p>The definition is <mark class="def">${esc(ann.definition)}</mark>${defPlace(clue, ann.definition)}</p>`
       });
     }
 
-    // Two footnotes hang off the definition rung, both of them things a learner
-    // would otherwise be left puzzling over. `definitionNote` explains a
-    // definition that deliberately does NOT agree with the answer ("Lousy
-    // payment" = PEANUTS); `linkWords` names the connective words that carry no
-    // wordplay at all, which is the commonest reason a beginner keeps hunting
-    // for a mechanism that was never there.
+    // `linkWords` names the connective words that carry no wordplay at all,
+    // which is the commonest reason a beginner keeps hunting for a mechanism
+    // that was never there. It hangs off the definition rung because it is about
+    // the CLUE, and a solver can act on it without knowing the answer.
+    //
+    // `definitionNote` used to hang here too and could not: it explains why the
+    // definition does not agree with the ANSWER ("payment" for PEANUTS, singular
+    // for a plural), so it is written about the answer and 16 of them in the
+    // corpus named it outright — TRUMP CARDS handed over on rung 2. Rewording
+    // them would only have hidden a structural mistake: a note comparing the
+    // answer to the definition is not an early hint, whatever words it uses. It
+    // now renders beside definitionFit on the walkthrough rung, where the answer
+    // is already on the table, and the validator gates the early fields at zero.
     const defStep = steps[steps.length - 1];
-    if (ann.definitionNote) {
-      defStep.html += `<p class="def-note">${esc(ann.definitionNote)}</p>`;
-    }
     if ((ann.linkWords || []).length) {
       const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(", ");
       defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are" : "is"}
@@ -686,11 +757,27 @@
 
     // Indicators only exist for some clue types — no rung that says "none".
     if (inds.length) {
+      const ops = INDICATOR_OPS.filter(([k]) => t.includes(k));
+      const marks = inds.map((i) => `<mark class="ind">${esc(i)}</mark>`).join(", ");
+      let html;
+      if (ops.length === 1) {
+        html = `<p>${marks} — ${inds.length > 1 ? "they tell" : "it tells"} you to
+          ${ops[0][1]}.</p><p class="muted">${ops[0][2]}</p>`;
+      } else if (ops.length > 1) {
+        // A compound type has more than one operation and usually more than one
+        // indicator, and nothing in the annotation maps word to job. Saying so is
+        // the honest move, and pairing them up is exactly the work of this rung.
+        html = `<p>${marks} — this clue does two things, and the indicators are
+          what tell them apart:</p><ul>${ops.map(([, op]) => `<li>${op}</li>`).join("")}</ul>
+          <p class="muted">Which word calls for which is the step to work out here.</p>`;
+      } else {
+        html = `<p>${marks} — ${inds.length > 1 ? "these tell" : "this tells"} you
+          what to do with the rest of the wordplay.</p>`;
+      }
       steps.push({
         key: "indicators",
         label: inds.length > 1 ? "Spot the indicator words" : "Spot the indicator word",
-        html: `<p>${inds.map((i) => `<mark class="ind">${esc(i)}</mark>`).join(", ")} —
-          ${inds.length > 1 ? "these tell you" : "this tells you"} what to do with the rest.</p>`
+        html
       });
     }
 
@@ -725,11 +812,15 @@
           ann.definition2 ? ` and <mark class="def2">${esc(ann.definition2)}</mark>` : ""
         } → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
       : "";
+    // Why the definition may fairly disagree with the answer in number or part of
+    // speech — a footnote to the fit, so it sits with it rather than two rungs above.
+    const note = ann.definitionNote
+      ? `<p class="def-note">${esc(ann.definitionNote)}</p>` : "";
     steps.push({
       key: "walkthrough",
       label: "Full walkthrough",
       html: (steps.some((s) => s.key === "blocks") || isDD || isCD ? "" : mechanics) +
-        `<p>${esc(ann.walkthrough)}</p>${fit}<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
+        `<p>${esc(ann.walkthrough)}</p>${fit}${note}<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
     return steps;
   }
@@ -793,7 +884,7 @@
       ? ((solvedWith[e.id] || reveals)
           ? `Solved with ${solvedWith[e.id] || 0} hint${solvedWith[e.id] === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints — bravo!")
-      : (ann ? `Hints: <strong>${level}</strong>/${ladderSteps(ann).length} used on this clue${revealsNote}`
+      : (ann ? `Hints: <strong>${level}</strong>/${ladderSteps(ann, e.clue).length} used on this clue${revealsNote}`
              : revealsNote.replace(" · ", ""));
 
     const body = $("hint-body");
@@ -815,7 +906,7 @@
       // teaching sequence, not a click log — a solver who took 4 before 2 has
       // still met them as steps 2 and 4, and gaps in the numbers show what
       // they skipped.
-      const steps = ladderSteps(ann);
+      const steps = ladderSteps(ann, e.clue);
       steps.forEach((s, i) => {
         if (isShown(e, s.key)) body.innerHTML += hintStepHTML(s, i + 1);
       });

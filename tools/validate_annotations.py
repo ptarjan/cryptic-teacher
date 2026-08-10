@@ -524,6 +524,43 @@ def check_definition_fit(tag, ann, errors, warnings):
         errors.append(f"{tag}: definitionFit {fit!r} just restates the definition with the "
                       f"answer in it — explain WHY the two mean the same")
 
+# An early rung must not contain the answer. The hint ladder is a ladder: rung 1
+# names the family, rung 2 the definition, rung 3 the indicators, and only the
+# building blocks and the walkthrough are entitled to spell the answer out. A
+# field rendered above that line which names the answer collapses the ladder —
+# the solver pays a hint and is handed the solve.
+#
+# Found 2026-08-09 by Paul, on 1392 11-across: `definitionNote` read "the setter
+# defines trump cards by what their holders enjoy", printed on the DEFINITION
+# rung. Sixteen notes in the corpus did the same, and the reason is structural
+# rather than careless — a definitionNote exists to explain why the definition
+# does not agree with the ANSWER, so it is written about the answer and always
+# will be. It was moved to the walkthrough rung rather than reworded, because
+# rewording would leave the next one free to make the same mistake.
+#
+# So this guards the fields that stay early, where naming the answer is never
+# necessary and never fair. Letters only, so "trump cards" is caught by
+# TRUMPCARDS and a stray hyphen or apostrophe cannot slip it through.
+EARLY_RUNG_FIELDS = ("definition", "definition2", "indicators", "linkWords")
+
+
+def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
+    """No field shown before the building blocks may spell out the answer."""
+    ans = re.sub(r"[^a-z]", "", str(ann.get("answer") or "").lower())
+    if len(ans) < 4:
+        return  # too short to distinguish a leak from a coincidence
+    for field in EARLY_RUNG_FIELDS:
+        val = ann.get(field)
+        if not val:
+            continue
+        parts = val if isinstance(val, list) else [val]
+        for part in parts:
+            if ans in re.sub(r"[^a-z]", "", str(part).lower()):
+                errors.append(
+                    f"{tag}: {field} {part!r} contains the answer — it is shown "
+                    f"before the building blocks, so it hands over the solve for "
+                    f"the price of a hint. Say it in the walkthrough instead.")
+
 # A real English wordlist, used to tell a genuine inflection from a coincidence:
 # MARAUDING is a gerund (MARAUD is a word) but VIKING is not (VIK is not), and
 # EARPHONES is a plural (EARPHONE is a word). Without it the part-of-speech
@@ -1065,6 +1102,7 @@ def validate_puzzle(puzzle):
                           f"learner why the mismatch is fair, or drop the note")
 
         check_definition_fit(tag, ann, errors, warnings)
+        check_no_answer_in_early_rungs(tag, ann, errors, warnings)
 
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)
