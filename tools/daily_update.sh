@@ -31,6 +31,13 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
+# What was already dirty before this run touched anything. The leftover check at
+# the end subtracts it: this checkout is shared with interactive sessions, and
+# without the snapshot a half-written feature sitting in the working tree gets
+# reported every night as "the daily update changed these files" — an alert that
+# names innocent files, cannot be acted on, and trains you to ignore the one
+# that matters (2026-08-10, mid-edit on the sync panel).
+DIRTY_BEFORE="$(git status --porcelain --untracked-files=no | awk '{print $2}' | sort)"
 # cron runs with a bare PATH (/usr/bin:/bin), so the `claude` CLI in ~/.local/bin
 # was invisible and every run silently skipped annotation. Keep this list in sync
 # with wherever the CLI actually installs.
@@ -279,7 +286,8 @@ if [ -n "$(git status --porcelain)" ]; then
   # third one; only noticing that something was left behind does. Untracked
   # files are excluded — scratch files are normal here — but a tracked file the
   # job modified and did not commit is work that will never reach the site.
-  left=$(git status --porcelain --untracked-files=no | awk '{print $2}' | tr '\n' ' ')
+  left=$(comm -23 <(git status --porcelain --untracked-files=no | awk '{print $2}' | sort) \
+                  <(printf '%s\n' "$DIRTY_BEFORE") | tr '\n' ' ')
   [ -n "$left" ] && alert "the daily update changed these files and committed none of them: $left. Add them to the git add pathspec in daily_update.sh, or revert them."
   # Push only if a remote exists (GitHub Pages picks it up from master).
   # --autostash and a rebase first: the remote is routinely ahead of the mini

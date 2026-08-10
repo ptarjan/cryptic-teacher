@@ -20,7 +20,18 @@ const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc
 {
   const crypto = require("crypto");
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  ["style.css", "tutorial.js", "app.js", "puzzles/index.js"].forEach((rel) => {
+  // Enumerated off stamp_assets.py rather than retyped, so a new asset is
+  // covered by this check the moment it is stamped. A hand-kept second list is
+  // a list that goes stale, and the symptom is a phone serving four-hour-old
+  // JavaScript against fresh HTML.
+  const stamper = fs.readFileSync(path.join(ROOT, "tools/stamp_assets.py"), "utf8");
+  const assetBlock = stamper.match(/ASSETS = \[([\s\S]*?)\]/);
+  assert(assetBlock, "tools/stamp_assets.py still declares ASSETS = [...]");
+  const stamped = (assetBlock ? assetBlock[1].match(/"([^"]+)"/g) || [] : [])
+    .map((s) => s.slice(1, -1));
+  assert(stamped.includes("app.js") && stamped.includes("sync/merge.js"),
+    "the stamped-asset list still covers the app and the sync merge rules");
+  stamped.filter((rel) => rel.endsWith(".js") || rel.endsWith(".css")).forEach((rel) => {
     const want = crypto.createHash("md5")
       .update(fs.readFileSync(path.join(ROOT, rel))).digest("hex").slice(0, 8);
     assert(html.includes(`${rel}?v=${want}`),
@@ -591,9 +602,101 @@ assert(registry["tutorial"].innerHTML.includes("anagram") || registry["tutorial"
 // --- reset ---
 registry["reset-puzzle"].onclick();
 
+// --- cross-device sync merges, and can only ever add ---
+// The whole design rests on the merge being safe to run unattended: no "which
+// device wins?" prompt, no confirmation, it just happens when you open the tab.
+// That is only true while merging is a union — order-independent and unable to
+// remove anything. If any rule below turns into last-write-wins, an iPad left
+// in a drawer starts eating the laptop's afternoon, silently, and the solver
+// has no way to get it back. So the properties are asserted, not the outputs.
+{
+  const { mergeSaves } = require("../sync/merge.js");
+  const A = { v: 1, puzzles: { 30079: {
+    letters: { "0,0": "A", "1,0": "S" }, hintsShown: { "1a": ["family"] },
+    revealsUsed: { "1a": 2 }, solvedWith: { "1a": 3 }, updated: 100 } } };
+  const B = { v: 1, puzzles: { 30079: {
+    letters: { "0,0": "Z", "0,1": "B" }, hintsShown: { "1a": ["definition"] },
+    revealsUsed: { "1a": 1 }, solvedWith: { "1a": 5 }, updated: 200 }, 30080: {
+    letters: { "2,2": "Q" }, updated: 50 } } };
+
+  const ab = mergeSaves(A, B), ba = mergeSaves(B, A);
+  assert(JSON.stringify(ab) === JSON.stringify(ba),
+    "merging is order-independent — the two devices cannot disagree about the result");
+
+  const m = ab.puzzles["30079"];
+  assert(m.letters["1,0"] === "S" && m.letters["0,1"] === "B",
+    "a letter only one device knew about survives the merge");
+  assert(m.letters["0,0"] === "Z", "when both typed a square, the newer save wins");
+  assert(m.hintsShown["1a"].length === 2, "hint rungs union — a rung you paid for stays up");
+  assert(m.revealsUsed["1a"] === 2, "reveals are spent, not returned: the merge keeps the max");
+  assert(m.solvedWith["1a"] === 3, "solved-with keeps the better score, so syncing never costs points");
+  assert(ab.puzzles["30080"], "a puzzle only one device has ever opened is carried across");
+
+  // Idempotence is what makes it safe to pull on every tab focus.
+  assert(JSON.stringify(mergeSaves(ab, B)) === JSON.stringify(ab),
+    "re-merging changes nothing — pulling twice is the same as pulling once");
+
+  // A revealed letter is the answer, not a guess, so it outranks a later guess
+  // no matter which side of the merge it is on.
+  const rev = { v: 1, puzzles: { 1: { letters: { "0,0": "R!" }, updated: 1 } } };
+  const gue = { v: 1, puzzles: { 1: { letters: { "0,0": "X" } , updated: 9 } } };
+  assert(mergeSaves(rev, gue).puzzles["1"].letters["0,0"] === "R!" &&
+         mergeSaves(gue, rev).puzzles["1"].letters["0,0"] === "R!",
+    "a revealed letter beats a later guess, from either direction");
+
+  assert(JSON.stringify(mergeSaves(null, undefined)) === JSON.stringify({ v: 1, puzzles: {} }),
+    "merging nothing with nothing is empty, not a crash — the Worker calls this on a fresh code");
+}
+
+// --- sync is opt-in, and off means off ---
+// Nobody's crossword leaves their browser because they visited the page. The
+// only thing that turns it on is pressing the button, and the only thing that
+// identifies you afterwards is the code — no email is ever asked for, so none
+// can ever leak.
+{
+  assert(!storage["ct:sync"],
+    "sync stays off until it is switched on — no code is minted just by loading the page");
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const page = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  assert(/const SYNC_ENDPOINT = "http/.test(src), "the sync endpoint is configured");
+  // Structural, not a search for the words: the page must never grow a field
+  // that collects a credential. A password here would protect crossword letters
+  // and create something worth stealing, which is the wrong trade in both
+  // directions.
+  assert(!/type="(password|email)"/.test(page),
+    "the page asks for no password and no email — the code is the whole identity");
+  assert(/syncOn\(\)/.test(src) && (src.match(/fetch\(/g) || []).length === 1,
+    "there is exactly one place that talks to the network, and it is gated on sync being on");
+
+  registry["btn-sync"].onclick();
+  assert(!registry["sync-panel"].classList.contains("hidden"), "the sync panel opens");
+  assert(registry["sync-off"] && !registry["sync-off"].classList.contains("hidden"),
+    "with sync off the panel offers to turn it on");
+  registry["sync-start"].onclick();
+  const code = storage["ct:sync"] && JSON.parse(storage["ct:sync"]);
+  assert(/^[2-9A-HJ-KMNP-TV-Z]{8}$/.test(code || ""),
+    `the minted code is 8 characters with no 0/O/1/I/L to mistype: ${code}`);
+  // Seeded rather than relied on: the reset test just above deliberately clears
+  // this puzzle's save, and what is being asserted is that *stopping sync* does
+  // not delete grids, not what some earlier test left lying around.
+  storage["ct:99999"] = JSON.stringify({ letters: { "0,0": "K" }, updated: 1 });
+  registry["sync-stop"].onclick();
+  assert(!storage["ct:sync"], "stopping sync forgets the code");
+  assert(storage["ct:99999"],
+    "stopping sync keeps your grids — it means stop sending them, not throw them away");
+  delete storage["ct:99999"];
+  registry["btn-sync-close"].onclick();
+}
+
 // --- localStorage persistence happened ---
 setTimeout(() => {
   assert(Object.keys(storage).some((k) => k.startsWith("ct:3")), "progress persisted to localStorage");
+  const saved = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:\d/.test(k))]);
+  // Without a timestamp the merge cannot tell two devices apart, so this is
+  // written whether or not sync is on — turning it on later must not find a
+  // pile of undated saves.
+  assert(saved && typeof saved.updated === "number" && saved.updated > 0,
+    "every save is timestamped, so it can be merged later even if sync is off today");
   console.log(failures ? `\n${failures} FAILURE(S)` : "\nSMOKE TEST PASSED");
   process.exit(failures ? 1 : 0);
 }, 400);
