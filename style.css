@@ -225,9 +225,21 @@ button:disabled:hover { border-color: var(--line); }
    tone rather than pure white, so a 15x15 grid isn't a slab of glare. Cell size
    scales to viewport width via --cols (set by JS). Blocked squares are solid
    black; separator lines are a quiet mid grey, so the two never look alike. */
-#grid-wrap { position: relative; }
+/* Cell size is measured off the box the grid actually sits in, not off the
+   window. `100vw` was the wrong ruler twice over: it ignores body's 1180px
+   max-width and the flex column's share of the row, and on iOS it is the one
+   length on the page that moves with the browser chrome — Safari resolved it
+   before the toolbar had settled, drew undersized cells, and only recomputed at
+   the first scroll-triggered relayout, so the grid started small and jumped
+   bigger the moment you scrolled (Paul, iPad, 2026-08-09). A container query
+   unit is resolved against #grid-wrap at layout time, so it cannot be stale and
+   cannot disagree with the column the grid has to fit inside. The breakpoints
+   below tune --cellcap only; nobody should be writing viewport maths again. */
+#grid-wrap { position: relative; container-type: inline-size; }
 #grid {
-  --cellsize: min(calc((100vw - 40px) / var(--cols, 15) - 1px), 40px);
+  --gridspace: calc(100cqi - 4px);   /* 4px = the grid's own 2px border each side */
+  --cellcap: 40px;
+  --cellsize: min(calc(var(--gridspace) / var(--cols, 15) - 1px), var(--cellcap));
   --gridline: #9199a3;
   --blockfill: #14171a;
   --cellbg: #ffffff;
@@ -240,6 +252,16 @@ button:disabled:hover { border-color: var(--line); }
   display: grid; gap: 1px; background: var(--gridline);
   border: 2px solid var(--blockfill); width: fit-content; max-width: 100%;
   touch-action: manipulation; outline: none;
+}
+/* Safari has had container units since 16.0 and every other engine since 2022,
+   so the block above is what runs everywhere that matters. This is the pre-2023
+   branch only: without cq support --gridspace would compute to nothing, taking
+   --cellsize with it and collapsing the grid to auto-width, so those browsers
+   get the old viewport maths and its scroll wobble rather than no grid. It is
+   gated by `@supports not` on purpose — the smoke test forbids viewport units
+   in any #grid rule outside this one branch. */
+@supports not (width: 1cqi) {
+  #grid { --gridspace: calc(100vw - 40px); }
 }
 @media (prefers-color-scheme: dark) {
   #grid {
@@ -448,7 +470,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      grow into the width they now have; bigger squares are also better targets
      for a finger than for a mouse. Still capped, or a stacked landscape tablet
      would draw 65px cells. */
-  #grid { --cellsize: min(calc((100vw - 40px) / var(--cols, 15) - 1px), 56px); }
+  #grid { --cellcap: 56px; }
   /* Touch targets. .tool is 4px/.8rem — about 26px tall, which is fine under a
      cursor and mean under a thumb. */
   .toolbar { gap: 8px; }
@@ -470,7 +492,9 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 
 @media (max-width: 700px) {
   body { padding: 0 8px 40px; }
-  #grid { --cellsize: calc((100vw - 20px) / var(--cols, 15) - 1px); }
+  /* Phone: no cap at all, the grid takes the column. 999px is "uncapped" —
+     min() has no identity value and --cellcap has to stay a length. */
+  #grid { --cellcap: 999px; }
   .layout { gap: 10px; }
 }
 

@@ -28,6 +28,32 @@ const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc
   });
 }
 
+// --- the grid measures its container, never the window ---
+// Sizing cells off `100vw` ignores body's max-width and the flex column, and on
+// iOS Safari resolves against a viewport that is still moving while the toolbar
+// collapses: the grid drew small and jumped bigger at the first scroll (Paul,
+// iPad, 2026-08-09). --cellsize must be declared once, off --gridspace, and no
+// #grid rule may reach for a viewport unit again — the breakpoints tune
+// --cellcap. Asserted here because it is invisible in a headless DOM and the
+// only place it shows up is on a real tablet.
+{
+  const all = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
+  // The one sanctioned exception: the `@supports not (width: 1cqi)` branch that
+  // keeps pre-2023 browsers from getting no grid at all.
+  const css = all.replace(/@supports not \(width: 1cqi\)\s*\{[^{}]*\{[^}]*\}[^}]*\}/g, "");
+  const decls = css.match(/--cellsize\s*:/g) || [];
+  assert(decls.length === 1,
+    `--cellsize is declared exactly once (found ${decls.length}); breakpoints ` +
+    `override --cellcap, not the whole calculation`);
+  (css.match(/#grid\b[^{]*\{[^}]*\}/g) || []).forEach((rule) => {
+    assert(!/\b\d*\.?\d+v(w|h|min|max)\b/.test(rule),
+      "no #grid rule sizes itself in viewport units — use container units " +
+      "(--gridspace) so the grid tracks its column, not the browser chrome: " + rule);
+  });
+  assert(/--gridspace:\s*calc\(100cqi/.test(css),
+    "the grid's space comes from a container query unit");
+}
+
 // --- assertions after boot ---
 assert(!registry["app"].classList.contains("hidden"), "app visible after boot");
 assert(Object.keys(global.window.CRYPTIC_PUZZLES || {}).length >= 25, "all puzzle scripts loaded");
