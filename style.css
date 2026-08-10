@@ -336,10 +336,19 @@ button:disabled:hover { border-color: var(--line); }
    22px hole between "grid" and "clear entry" — wider than the gaps either side
    of it and attached to nothing, so the row read as badly spaced rather than
    grouped. It is a real division (checking vs destroying), so it is drawn as
-   one. */
+   one.
+
+   `margin-left: auto` sends everything after the rule to the far end of the row
+   (Paul, 2026-08-09). The two groups are not peers: the check buttons are what
+   you reach for constantly, the clear/reset pair is what you must not hit by
+   accident, and putting the whole row's slack between them says that with
+   distance instead of with a hairline. The right edge is a real edge to align
+   to — .left-col is 640px and a 15x40px grid is 619px, and every touch
+   breakpoint uncaps the cells so the grid takes the column — so the pair lands
+   under the grid's corner rather than floating in dead space. */
 .toolbar-gap {
   flex: 0 0 1px; align-self: stretch; min-height: 1.3em;
-  background: var(--line); margin: 0 3px;
+  background: var(--line); margin: 0 3px 0 auto;
 }
 
 /* A check must always report what it found — a silent check reads as a dead
@@ -505,6 +514,12 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   /* Phone: no cap at all, the grid takes the column. 999px is "uncapped" —
      min() has no identity value and --cellcap has to stay a length. */
   #grid { --cellcap: 999px; }
+  /* Six touch-sized buttons do not fit one phone line, and once the row wraps
+     there is no slack left to push anything into: `margin-left: auto` would
+     only strand the divider at the end of whichever line it landed on. Back to
+     a plain divider — at this width the two groups are separated by being on
+     different lines, which is the same job done by the wrap. */
+  .toolbar-gap { margin: 0 3px; }
   .layout { gap: 10px; }
 }
 
