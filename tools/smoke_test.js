@@ -304,6 +304,26 @@ kd(ev("ArrowDown")); kd(ev("ArrowRight")); kd(ev("Backspace")); kd(ev("Enter"));
 assert(registry["scorebar"].innerHTML.includes("Solved"), "scorebar renders: " + registry["scorebar"].innerHTML);
 assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least one clue solved after reveal+typing");
 
+// --- checking letters in the clue list (Paul, 2026-08-09) ---
+// One dot per crossing square, filled once that square has a letter, so you can
+// see from the list which clue the grid has already half-given you. Having just
+// solved an entry, every clue it crosses must show at least one filled dot, and
+// the solved row itself must show none. Asserted at both ends: dots that never
+// light up are useless, and dots left on finished clues are noise on every line.
+{
+  const rows = Object.keys(registry).filter((k) => /^clue-/.test(k)).map((k) => registry[k]);
+  assert(rows.length > 10, "clue rows rendered: " + rows.length);
+  const dots = (r) => ((r.querySelector(".checkers") || {}).innerHTML) || "";
+  assert(rows.some((r) => dots(r).includes('<i class="on">')),
+    "solving an entry lights the crossing-letter dots on the clues it crosses");
+  assert(rows.some((r) => dots(r).includes('<i class="">')),
+    "squares still empty show an unfilled dot");
+  const done = rows.filter((r) => r.classList.contains("solved"));
+  assert(done.length, "at least one clue row is marked solved");
+  done.forEach((r) => assert(!dots(r).includes("<i "),
+    "a solved clue shows no crossing-letter dots: " + dots(r)));
+}
+
 // --- check buttons: a check must ALWAYS report a result (feedback 2026-07-29) ---
 // A check that silently does nothing when the letters are right reads as a broken
 // button; every check writes a sentence into #check-result and pulses the squares.
