@@ -676,6 +676,15 @@ registry["reset-puzzle"].onclick();
   const code = storage["ct:sync"] && JSON.parse(storage["ct:sync"]);
   assert(/^[2-9A-HJ-KMNP-TV-Z]{8}$/.test(code || ""),
     `the minted code is 8 characters with no 0/O/1/I/L to mistype: ${code}`);
+  // Copying is the only step of sync that happens outside the app, so it is the
+  // easiest one to break without noticing: the code is useless until it reaches
+  // the other device, and a Copy button that quietly puts nothing on the
+  // clipboard looks identical to one that works.
+  assert(registry["sync-code"].textContent === code, "the panel shows the code it minted");
+  registry["sync-copy"].onclick();
+  assert(global.navigator.clipboard.text === code,
+    "Copy puts exactly the shown code on the clipboard");
+
   // Seeded rather than relied on: the reset test just above deliberately clears
   // this puzzle's save, and what is being asserted is that *stopping sync* does
   // not delete grids, not what some earlier test left lying around.

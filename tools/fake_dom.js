@@ -158,6 +158,18 @@ function boot(opts) {
     }
   };
   global.document = document;
+  // The sync panel's Copy button is the only way most people will move the code
+  // to their other device. Without a clipboard here the harness can only reach
+  // the "your browser won't let me" branch, which is the branch nobody uses.
+  const clipboard = {
+    text: null,
+    writeText(v) { clipboard.text = String(v); return Promise.resolve(); }
+  };
+  // defineProperty, not assignment: Node 22 ships its own read-only global
+  // navigator, and a plain `global.navigator = …` throws.
+  Object.defineProperty(global, "navigator", {
+    value: { clipboard }, writable: true, configurable: true
+  });
   global.localStorage = global.window.localStorage;
   global.confirm = () => true;
   // app.js reads ?p=<number> so the static answer pages can hand off into the app.

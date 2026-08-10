@@ -227,6 +227,23 @@
     if (el) el.textContent = msg;
   }
 
+  // Showing the code is not the job; moving it to the other device is. Eight
+  // characters is exactly the length that gets mistyped, so the clipboard is
+  // the happy path — it needs a secure context and a user gesture, and running
+  // inside the click gives us both. Where the browser withholds it the code is
+  // still one tap from selected (user-select: all), and the status line says so
+  // rather than leaving a button that looks broken.
+  function copySyncCode() {
+    const code = store.get("ct:sync", null);
+    if (!code) return;
+    const clip = typeof navigator !== "undefined" && navigator.clipboard;
+    if (!clip) { syncNote("Press and hold the code to copy it."); return; }
+    clip.writeText(code).then(
+      () => syncNote("Code copied — type or paste it on the other device."),
+      () => syncNote("Press and hold the code to copy it.")
+    );
+  }
+
   function renderSyncPanel() {
     const code = store.get("ct:sync", null);
     $("sync-code").textContent = code || "—";
@@ -1393,6 +1410,7 @@
       syncNote("Uploading…");
       syncPush();
     };
+    $("sync-copy").onclick = copySyncCode;
     $("sync-join").onclick = () => {
       const raw = ($("sync-join-code").value || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
       if (raw.length !== 8) { syncNote("A code is 8 characters."); return; }

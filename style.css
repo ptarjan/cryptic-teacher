@@ -634,6 +634,10 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    hand, probably on a phone. Monospaced and spaced out so O/0-style misreads
    are impossible to make — the alphabet in app.js already excludes the
    ambiguous glyphs, this makes the rest legible from arm's length. */
+/* The code is read off one screen and typed into another, so it is monospaced,
+   spaced out, and select-all on a single tap for anyone whose browser will not
+   give us the clipboard. */
+.sync-code-row { display: flex; align-items: baseline; gap: 10px; }
 .sync-code {
   font: 700 1.6rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
   letter-spacing: .18em; margin: 6px 0 10px; user-select: all;
