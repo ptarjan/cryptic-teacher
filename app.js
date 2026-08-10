@@ -19,6 +19,16 @@
     del(key) { try { localStorage.removeItem(key); } catch (e) {} }
   };
 
+  // ---------- sync across machines ----------
+  // The Worker in sync/. Blank it and every path below goes inert and the Sync
+  // button hides itself, so the page keeps working exactly as it did offline —
+  // which is also what happens for anyone who never turns sync on.
+  const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
+  // Reserved localStorage names, so scanning for saves cannot pick up settings.
+  // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
+  const SYNC_RESERVED = { last: 1, sync: 1 };
+  const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
+
   // ---------- load all puzzle files listed in puzzles/index.js ----------
   const INDEX = (window.CRYPTIC_INDEX && window.CRYPTIC_INDEX.puzzles) ? window.CRYPTIC_INDEX : { latest: null, puzzles: [] };
   window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
@@ -70,7 +80,11 @@
     saveTimer = setTimeout(() => {
       const letters = {};
       forEachCell((c) => { if (c.letter) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
-      store.set(stateKey(), { letters, hintsShown, revealsUsed, solvedWith });
+      // `updated` is what lets two machines be merged without asking which one
+      // to believe (see sync/merge.js). It is written even with sync switched
+      // off, so turning it on later does not treat today's work as undated.
+      store.set(stateKey(), { letters, hintsShown, revealsUsed, solvedWith, updated: Date.now() });
+      syncPushSoon();
     }, 150);
   }
   function restoreState() {
@@ -85,6 +99,140 @@
         if (v) { c.letter = v[0]; c.revealed = v.length > 1; }
       });
     }
+  }
+
+  /* ---------- sync engine ----------
+     No account, no password: the eight-character code IS the identity. There is
+     nothing here worth protecting with a login — it is which squares of a
+     newspaper crossword you have filled in — and a password would only add a
+     thing to forget, a reset flow to maintain, and an email address of Paul's
+     to store. Lose the code and nothing is lost either: the save still sits in
+     localStorage on every machine you have used, so you mint a fresh code from
+     one of them.
+
+     Direction of travel is always "add": the client merges the server's copy
+     into its own and the server merges the client's into its own, using the
+     same rules, so an iPad that has been shut in a drawer for a week cannot
+     push a stale grid over the laptop's afternoon. That is the property that
+     makes this safe to run automatically in the background instead of behind a
+     "sync now?" prompt nobody would press. */
+  const syncOn = () => !!(SYNC_ENDPOINT && store.get("ct:sync", null));
+
+  function newSyncCode() {
+    const n = 8;
+    const out = [];
+    const buf = new Uint8Array(n);
+    if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(buf);
+    else for (let i = 0; i < n; i++) buf[i] = Math.floor(Math.random() * 256);
+    // Rejection-free bias is irrelevant at 30 symbols and this stake; 8 symbols
+    // is ~39 bits, and there is no endpoint that lets anyone enumerate them.
+    for (let i = 0; i < n; i++) out.push(CODE_ALPHABET[buf[i] % CODE_ALPHABET.length]);
+    return out.join("");
+  }
+
+  // Everything this browser has saved, in the wire shape merge.js expects.
+  function localEnvelope() {
+    const puzzles = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || k.indexOf("ct:") !== 0) continue;
+      const id = k.slice(3);
+      if (SYNC_RESERVED[id]) continue;
+      const v = store.get(k, null);
+      if (v && typeof v === "object") puzzles[id] = v;
+    }
+    const env = { v: 1, puzzles };
+    const last = store.get("ct:last", null);
+    if (last) env.last = { id: String(last), updated: (puzzles[last] || {}).updated || 0 };
+    return env;
+  }
+
+  // Returns true if anything about the puzzle currently on screen changed, so
+  // the caller knows whether it has to redraw under the solver's hands.
+  function applyEnvelope(env) {
+    if (!env || !env.puzzles) return false;
+    const openId = P ? String(P.id) : null;
+    let openChanged = false;
+    Object.keys(env.puzzles).forEach((id) => {
+      const merged = env.puzzles[id];
+      const before = JSON.stringify(store.get("ct:" + id, null));
+      const after = JSON.stringify(merged);
+      if (before === after) return;
+      store.set("ct:" + id, merged);
+      if (id === openId) openChanged = true;
+    });
+    if (env.last && env.last.id && !store.get("ct:last", null)) store.set("ct:last", env.last.id);
+    return openChanged;
+  }
+
+  function syncFetch(method, body) {
+    const code = store.get("ct:sync", null);
+    if (!SYNC_ENDPOINT || !code) return Promise.reject(new Error("sync off"));
+    return fetch(SYNC_ENDPOINT.replace(/\/$/, "") + "/s/" + encodeURIComponent(code), {
+      method,
+      headers: body ? { "content-type": "application/json" } : undefined,
+      body: body ? JSON.stringify(body) : undefined,
+    }).then((r) => {
+      if (r.status === 404 && method === "GET") return null; // code not used yet
+      if (!r.ok) throw new Error("sync " + r.status);
+      return r.json();
+    });
+  }
+
+  let syncTimer = null, syncBusy = false, syncAgain = false;
+  function syncPushSoon() {
+    if (!syncOn()) return;
+    clearTimeout(syncTimer);
+    // Typing a letter saves; pushing on every keystroke would be a request per
+    // letter. Two seconds of quiet is well inside "I picked up the iPad".
+    syncTimer = setTimeout(syncPush, 2000);
+  }
+  function syncPush() {
+    if (!syncOn()) return Promise.resolve();
+    if (syncBusy) { syncAgain = true; return Promise.resolve(); }
+    syncBusy = true;
+    return syncFetch("PUT", localEnvelope())
+      .then((merged) => {
+        // The response is the merged truth, including anything another machine
+        // pushed while this one was typing — so a push is also a pull.
+        if (applyEnvelope(merged)) { restoreState(); refreshAll(); }
+        syncNote("Synced");
+      })
+      .catch(() => syncNote("Offline — will retry"))
+      .then(() => {
+        syncBusy = false;
+        if (syncAgain) { syncAgain = false; syncPushSoon(); }
+      });
+  }
+  function syncPull() {
+    if (!syncOn()) return Promise.resolve();
+    return syncFetch("GET", null)
+      .then((remote) => {
+        if (!remote) return syncPush(); // first machine on this code
+        const merged = CTMerge.mergeSaves(localEnvelope(), remote);
+        if (applyEnvelope(merged)) { restoreState(); refreshAll(); }
+        syncNote("Synced");
+        // Push back whatever the server did not have. Cheap, and it means the
+        // machine you just opened is not the only one holding your morning.
+        if (JSON.stringify(merged) !== JSON.stringify(remote)) return syncPush();
+      })
+      .catch(() => syncNote("Offline — will retry"));
+  }
+
+  // One line of state, under the code, and never a modal or a toast: syncing is
+  // background work, and interrupting someone mid-clue to tell them it went
+  // fine is worse than saying nothing.
+  function syncNote(msg) {
+    const el = $("sync-status");
+    if (el) el.textContent = msg;
+  }
+
+  function renderSyncPanel() {
+    const code = store.get("ct:sync", null);
+    $("sync-code").textContent = code || "—";
+    $("sync-on").classList.toggle("hidden", !code);
+    $("sync-off").classList.toggle("hidden", !!code);
+    syncNote(code ? "" : "Not syncing — this machine only.");
   }
 
   function forEachCell(fn) {
@@ -1227,6 +1375,45 @@
     };
     $("btn-picker").onclick = () => togglePicker();
     $("btn-picker-close").onclick = () => togglePicker(false);
+
+    // ---- sync ----
+    // The button is only offered if there is somewhere to sync to. A control
+    // that explains it cannot work is worse than no control.
+    if (!SYNC_ENDPOINT) $("btn-sync").classList.add("hidden");
+    $("btn-sync").onclick = () => {
+      const el = $("sync-panel");
+      const want = el.classList.contains("hidden");
+      el.classList.toggle("hidden", !want);
+      if (want) { renderSyncPanel(); if (syncOn()) syncPull(); }
+    };
+    $("btn-sync-close").onclick = () => $("sync-panel").classList.add("hidden");
+    $("sync-start").onclick = () => {
+      store.set("ct:sync", newSyncCode());
+      renderSyncPanel();
+      syncNote("Uploading…");
+      syncPush();
+    };
+    $("sync-join").onclick = () => {
+      const raw = ($("sync-join-code").value || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+      if (raw.length !== 8) { syncNote("A code is 8 characters."); return; }
+      store.set("ct:sync", raw);
+      renderSyncPanel();
+      syncNote("Fetching…");
+      // Pull, not push: the machine you are joining *from* is the one that knows
+      // things, and the merge means joining can only ever add to what is here.
+      syncPull();
+    };
+    $("sync-stop").onclick = () => {
+      // Local progress is deliberately left alone. Stopping sync means "don't
+      // send my crosswords anywhere any more", not "throw away my crosswords".
+      store.del("ct:sync");
+      renderSyncPanel();
+    };
+    // Coming back to a tab is exactly when the other machine's work is waiting,
+    // and it is the cheapest possible moment to ask.
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && syncOn()) syncPull();
+    });
     // Typing is the whole navigation model once the list outgrows a screen, so
     // the box is focused on open and Enter takes the top row — number in, puzzle
     // open, no mouse. Escape gets you back out; the global key handler ignores
@@ -1310,6 +1497,10 @@
       const want = (asked && window.CRYPTIC_PUZZLES[asked]) ? asked
         : (last && window.CRYPTIC_PUZZLES[last]) ? last : firstAnnotated;
       openPuzzle(want);
+      // After the grid is up, not before: the pull is a network round trip and
+      // the solver should be looking at yesterday's letters while it happens,
+      // not a blank page. If it brings anything new, applyEnvelope redraws.
+      if (syncOn()) syncPull();
     });
   }
 
