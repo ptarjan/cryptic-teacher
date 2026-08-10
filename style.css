@@ -388,10 +388,16 @@ button:disabled:hover { border-color: var(--line); }
    unchecked ones are dashed, because nothing will ever cross them. */
 .pattern { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 2px 0 8px; }
 .pat-boxes { display: flex; flex-wrap: wrap; gap: 3px; }
+/* These are not decoration, they are the control you tap to say which square you
+   are typing into, and you read the letters in them while you do it. At .82rem
+   they were ~20x23px — under a fingertip and under the 44px iOS minimum, and the
+   letters too small to check at a glance (Paul, 2026-08-09). Sized in em off the
+   box's own font-size, so the one number below moves the letter and the target
+   together and the breakpoint only has to raise the font. */
 .pat-box {
-  width: 1.55em; height: 1.75em; border-radius: 3px;
+  width: 1.7em; height: 1.95em; border-radius: 3px;
   display: inline-flex; align-items: center; justify-content: center;
-  font: 700 .82rem/1 -apple-system, Helvetica, Arial, sans-serif;
+  font: 700 1.05rem/1 -apple-system, Helvetica, Arial, sans-serif;
   background: var(--bg); color: var(--fg); border: 1px solid var(--line);
   padding: 0; margin: 0; cursor: pointer; -webkit-appearance: none;
   touch-action: manipulation;
@@ -499,6 +505,13 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .tool { font-size: .88rem; padding: 8px 14px; }
   #hint-next { gap: 10px; }
   #hint-next button, #hint-escape button { font-size: .95rem; padding: 9px 14px; }
+  /* Same reasoning as .tool, and it matters more here: this strip is how you pick
+     the square you are typing into, so it gets tapped far more often than any
+     button on the page. 1.35rem carries the em box to ~38x43px, at the iOS
+     minimum. A 15-letter entry is then ~660px, which still fits the stacked
+     column. */
+  .pat-box { font-size: 1.35rem; }
+  .pat-boxes { gap: 5px; }
   #hint-panel { padding: 14px 18px; }
   .hint-clue { font-size: 1.3rem; line-height: 1.45; margin-bottom: 6px; }
   #hint-meter { font-size: .85rem; }
