@@ -885,8 +885,12 @@
     const note = `${filled} of ${cs.length} letter${cs.length > 1 ? "s" : ""} in place · `
       + (unchecked ? `${checked} checked, ${unchecked} unchecked (dashed — no crossing clue)`
                    : `all ${checked} checked`);
-    return `<span class="pat-boxes" role="img" aria-label="${esc(note)}">${boxes}</span>`
-      + `<span class="pat-note muted">${esc(note)}</span>`;
+    // The note is for screen readers only. Printed next to the boxes it restated
+    // what the boxes already show — which squares have letters, and which are
+    // dashed — in twenty words of prose sitting directly under the clue you are
+    // trying to read (Paul, 2026-08-09). The clue is what the box is for; every
+    // line that is not the clue pushes it further from being read.
+    return `<span class="pat-boxes" role="img" aria-label="${esc(note)}">${boxes}</span>`;
   }
 
   function renderHintPanel() {
@@ -913,7 +917,8 @@
       ? ((solvedWith[e.id] || reveals)
           ? `Solved with ${solvedWith[e.id] || 0} hint${solvedWith[e.id] === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints — bravo!")
-      : (ann ? `Hints: <strong>${level}</strong>/${ladderSteps(ann, e.clue).length} used on this clue${revealsNote}`
+      // "used on this clue" — you are looking at the clue. Just the count.
+      : (ann ? `Hints <strong>${level}</strong>/${ladderSteps(ann, e.clue).length}${revealsNote}`
              : revealsNote.replace(" · ", ""));
 
     const body = $("hint-body");

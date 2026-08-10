@@ -148,6 +148,24 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   assert(patHTML().includes("checked"), "pattern summary mentions checking: " + patHTML());
 }
 
+// --- the current-clue box is the clue, not a status report (Paul, 2026-08-09) ---
+// The pattern strip used to print its aria-label next to the boxes: twenty words
+// restating what the boxes already show, sitting between the clue and the reader.
+// The summary stays for screen readers, which cannot see the boxes; it must never
+// come back as visible prose, and the meter beside it must stay a count. Asserted
+// at both ends so neither half can rot — the label has to still be there, and the
+// strip has to still be nothing but boxes.
+{
+  assert(/aria-label="[^"]*letters? in place/.test(patHTML()),
+    "the pattern strip still describes itself to a screen reader: " + patHTML());
+  assert((patHTML().match(/<span/g) || []).length === 1,
+    "the pattern strip renders the boxes and nothing else — the summary is the " +
+    "aria-label, not a line of prose under the clue: " + patHTML());
+  const meter = registry["hint-meter"].innerHTML.replace(/<[^>]*>/g, "");
+  assert(meter.length < 40,
+    `the hint meter is a count, not a sentence (${meter.length} chars): ${meter}`);
+}
+
 // --- every validator type part must be claimed by a family in app.js (STYLE.md) ---
 {
   const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"), appSrc.indexOf("function familyOf"));
