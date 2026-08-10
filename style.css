@@ -423,6 +423,31 @@ mark.link {
 
 footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; }
 
+/* Tablets sat in the desktop two-column layout and it never fitted. The left
+   column's basis is 640px, but at 768-1024px it shrinks to ~430-600px while the
+   grid still lays out 15 cells at the 40px cap — 619px — so the grid overflowed
+   its own column AND the hint panel, the part you actually read, was squeezed
+   into a little over half the width. Two columns only earn their keep once the
+   left column can hold a full-size grid at its full basis (640 + 380 + gap +
+   padding = 1078px); below that they cost more than they give. Stacking hands
+   the current clue and its hints the whole width instead of 56% of it, and the
+   type goes up with the measure — a wider column with the same 1.02rem clue
+   would just be a longer line to squint at. */
+@media (max-width: 1079px) {
+  .left-col, .clues-col { flex: 1 1 100%; }
+  #hint-panel { padding: 14px 18px; }
+  .hint-clue { font-size: 1.3rem; line-height: 1.45; margin-bottom: 6px; }
+  #hint-meter { font-size: .85rem; }
+  /* The clue itself wants every pixel — it is one line and it is the thing being
+     read. The walkthrough prose does not: stacked on a landscape tablet the panel
+     is ~990px, which at this size is a 95-character line, and long measures are
+     the other way text gets hard to read. Cap the paragraphs, not the panel. */
+  .hint-step p, .hint-step ul { font-size: 1.08rem; max-width: 64ch; }
+  .hint-step .mechanism { font-size: .9rem; }
+  .def-note { font-size: .95rem; }
+  .clue-list ol { font-size: 1rem; }
+}
+
 @media (max-width: 700px) {
   body { padding: 0 8px 40px; }
   #grid { --cellsize: calc((100vw - 20px) / var(--cols, 15) - 1px); }
