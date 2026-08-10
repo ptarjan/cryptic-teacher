@@ -211,8 +211,12 @@ button:disabled:hover { border-color: var(--line); }
   margin: 8px 0 4px; font-size: .85rem; text-transform: uppercase; letter-spacing: 1px;
   border-bottom: 1px solid var(--line); padding-bottom: 3px;
 }
-.clue-list ol { list-style: none; margin: 0; padding: 0; font-size: .92rem; }
-.clue-list li { padding: 4px 6px; border-radius: 5px; cursor: pointer; display: flex; gap: 7px; }
+/* The clue list is not a table of contents you glance at, it is the text you
+   read for minutes at a time while you think — .92rem was sized like chrome
+   (Paul, 2026-08-09). Body-copy size and a real line-height instead; the list
+   gets taller, which costs nothing, the column scrolls anyway. */
+.clue-list ol { list-style: none; margin: 0; padding: 0; font-size: 1.02rem; line-height: 1.45; }
+.clue-list li { padding: 5px 6px; border-radius: 5px; cursor: pointer; display: flex; gap: 7px; }
 .clue-list li:hover { background: var(--accent-soft); }
 .clue-list li.active { background: var(--accent-soft); outline: 1px solid var(--accent); }
 .clue-list li.solved { opacity: .55; }
@@ -374,7 +378,7 @@ button:disabled:hover { border-color: var(--line); }
   border: 1px solid var(--line); border-left: 4px solid var(--accent);
   border-radius: 8px; background: var(--card); padding: 12px 15px; margin-top: 4px;
 }
-.hint-clue { font-size: 1.02rem; margin-bottom: 4px; }
+.hint-clue { font-size: 1.15rem; line-height: 1.45; margin-bottom: 4px; }
 .hint-clue .entry-tag { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; margin-right: 6px; }
 #hint-meter { font-size: .8rem; margin-bottom: 8px; }
 
@@ -398,7 +402,6 @@ button:disabled:hover { border-color: var(--line); }
 .pat-box.revealed { color: var(--accent); }
 .pat-box.wrong { color: var(--wrong); border-color: var(--wrong); }
 .pat-box.cur { outline: 2px solid var(--sel); outline-offset: 1px; }
-.pat-note { font-size: .75rem; }
 .hint-step { margin: 10px 0; padding-top: 8px; border-top: 1px dashed var(--line); }
 .hint-step .step-label {
   font: 700 .72rem/1 -apple-system, Helvetica, sans-serif;
@@ -506,7 +509,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .hint-step p, .hint-step ul { font-size: 1.08rem; max-width: 64ch; }
   .hint-step .mechanism { font-size: .9rem; }
   .def-note { font-size: .95rem; }
-  .clue-list ol { font-size: 1rem; }
+  .clue-list ol { font-size: 1.14rem; }
 }
 
 @media (max-width: 700px) {
