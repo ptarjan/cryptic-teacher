@@ -601,6 +601,15 @@ assert(registry["tutorial"].innerHTML.includes("anagram") || registry["tutorial"
 
 // --- reset ---
 registry["reset-puzzle"].onclick();
+// Reset leaves a record rather than a hole. An absent save reads as "never
+// played this puzzle", so the other device would hand the whole grid straight
+// back on the next pull — the reset has to be a thing that happened, with a
+// time on it, for the merge to have anything to obey.
+{
+  const after = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:\d+$/.test(k))] || "{}");
+  assert(after.clearedAt > 0 && Object.keys(after.letters || {}).length === 0,
+    "resetting records when it happened, so the reset itself can reach the other device");
+}
 
 // --- cross-device sync merges, and can only ever add ---
 // The whole design rests on the merge being safe to run unattended: no "which
@@ -636,13 +645,67 @@ registry["reset-puzzle"].onclick();
   assert(JSON.stringify(mergeSaves(ab, B)) === JSON.stringify(ab),
     "re-merging changes nothing — pulling twice is the same as pulling once");
 
-  // A revealed letter is the answer, not a guess, so it outranks a later guess
-  // no matter which side of the merge it is on.
-  const rev = { v: 1, puzzles: { 1: { letters: { "0,0": "R!" }, updated: 1 } } };
-  const gue = { v: 1, puzzles: { 1: { letters: { "0,0": "X" } , updated: 9 } } };
+  // When two devices stamped the same square at the same instant there is no
+  // "later" to appeal to, and a revealed letter is the answer rather than an
+  // opinion, so it takes the tie.
+  const rev = { v: 1, puzzles: { 1: { letters: { "0,0": "R!" }, letterAt: { "0,0": 5 }, updated: 5 } } };
+  const gue = { v: 1, puzzles: { 1: { letters: { "0,0": "X" }, letterAt: { "0,0": 5 }, updated: 9 } } };
   assert(mergeSaves(rev, gue).puzzles["1"].letters["0,0"] === "R!" &&
          mergeSaves(gue, rev).puzzles["1"].letters["0,0"] === "R!",
-    "a revealed letter beats a later guess, from either direction");
+    "a revealed letter takes a tied square, from either direction");
+
+  // Rubbing a letter out has to reach the other device. This is the bug Paul
+  // hit on 2026-08-10: absence used to mean only "I never filled this in", so a
+  // deletion could not win an argument it was not allowed to enter, and the
+  // other device handed the letters back on every single pull.
+  const had = { v: 1, puzzles: { 1: {
+    letters: { "0,0": "A", "1,0": "B" }, letterAt: { "0,0": 10, "1,0": 10 }, updated: 10 } } };
+  const cut = { v: 1, puzzles: { 1: {
+    letters: { "1,0": "B" }, letterAt: { "0,0": 20, "1,0": 10 }, updated: 20 } } };
+  ["forwards", "backwards"].forEach((dir, i) => {
+    const m2 = (i ? mergeSaves(cut, had) : mergeSaves(had, cut)).puzzles["1"];
+    assert(!("0,0" in m2.letters), `a deleted letter stays deleted (${dir})`);
+    assert(m2.letters["1,0"] === "B", `deleting one square leaves the others alone (${dir})`);
+  });
+  // And it must stay deleted when the stale device pushes again, which it will.
+  const afterCut = mergeSaves(had, cut);
+  assert(!("0,0" in mergeSaves(afterCut, had).puzzles["1"].letters),
+    "the device that still has the letter cannot resurrect it by pushing");
+
+  // Per-square, not per-puzzle: a device that saved more recently somewhere
+  // else on the grid does not thereby win squares it never touched. The first
+  // version compared whole-puzzle timestamps and got exactly this wrong.
+  const edited = { v: 1, puzzles: { 1: {
+    letters: { "0,0": "Q" }, letterAt: { "0,0": 100 }, updated: 100 } } };
+  const busyElsewhere = { v: 1, puzzles: { 1: {
+    letters: { "0,0": "A", "9,9": "Z" }, letterAt: { "0,0": 10, "9,9": 500 }, updated: 500 } } };
+  assert(mergeSaves(edited, busyElsewhere).puzzles["1"].letters["0,0"] === "Q",
+    "changing a letter beats an older letter, even if that device saved later elsewhere");
+
+  // Reset is the one edit with no square of its own, so it is recorded as a
+  // moment and everything older than it goes.
+  const wiped = { v: 1, puzzles: { 1: {
+    letters: {}, letterAt: {}, hintsShown: {}, revealsUsed: {}, solvedWith: {},
+    clearedAt: 300, updated: 300 } } };
+  const stale = { v: 1, puzzles: { 1: {
+    letters: { "0,0": "A" }, letterAt: { "0,0": 100 },
+    hintsShown: { "1a": ["family"] }, revealsUsed: { "1a": 2 }, updated: 100 } } };
+  const rw = mergeSaves(wiped, stale).puzzles["1"];
+  assert(JSON.stringify(mergeSaves(stale, wiped)) === JSON.stringify(mergeSaves(wiped, stale)),
+    "reset merges the same way round either way");
+  assert(Object.keys(rw.letters).length === 0 && Object.keys(rw.letterAt).length === 0,
+    "resetting on one device empties the grid on the other, instead of being undone by it");
+  assert(!rw.hintsShown["1a"] && !rw.revealsUsed["1a"],
+    "reset clears the hint history too — it said all hint history, and meant it");
+  assert(JSON.stringify(mergeSaves(rw && mergeSaves(wiped, stale), stale)) ===
+         JSON.stringify(mergeSaves(wiped, stale)),
+    "the reset holds when the un-reset device pushes again");
+  // But a reset must not eat work done after it, or picking the iPad back up
+  // after resetting on the laptop would quietly throw the new grid away.
+  const since = { v: 1, puzzles: { 1: {
+    letters: { "5,5": "N" }, letterAt: { "5,5": 400 }, updated: 400 } } };
+  assert(mergeSaves(wiped, since).puzzles["1"].letters["5,5"] === "N",
+    "letters typed after the reset survive it");
 
   assert(JSON.stringify(mergeSaves(null, undefined)) === JSON.stringify({ v: 1, puzzles: {} }),
     "merging nothing with nothing is empty, not a crash — the Worker calls this on a fresh code");
