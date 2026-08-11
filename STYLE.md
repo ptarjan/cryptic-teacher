@@ -43,6 +43,19 @@ mechanism, so reaching for a third means either the clue's wordplay has not been
 found yet or — when we wrote the clue ourselves — a joke got written and a
 mechanism did not. See `tools/AUTHORING.md`, "The sentence AND the wordplay".
 
+The ones that survive that test still have to be annotated into something worth
+paying a hint for. A cryptic definition's `blocks` may not carry `gives`, and
+there must be at least two of them — both validator ERRORS
+(`check_cryptic_definition_blocks`). There is exactly one block shape available
+to an annotator who does not think about it, the whole clue giving the whole
+answer, and it renders as hint 3 of 4 reading “Might this keep you to time?” →
+WATCHSTRAP: the rung before it has just said there is no separable wordplay, and
+this one sells the solve (Paul, 1392 22-across, 2026-08-10). A cryptic
+definition does not split into letters, but it does split into readings — the
+sense the surface pushes, and the sense the setter meant — and one block each is
+the smallest annotation that shows the seam. `app.js` suppresses `gives` on this
+type as well, so a stale annotation cannot leak while it waits to be rewritten.
+
 ### The definition must be substitutable (feedback 2026-07-29)
 A definition has to be able to REPLACE the answer in a sentence — which means
 matching its part of speech and its inflection. Paul's words: "the part of speech

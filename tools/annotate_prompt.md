@@ -64,6 +64,19 @@ Rules:
   replacing the mechanism — a clue needs both, and a funny sentence is much easier to find
   than a funny mechanism. Related: an indicator that reads as a visible instruction
   (`a bit of`, `in front`, `turned`, `rebuilt`) is a mechanism narrated, not hidden.
+- When a clue genuinely IS a cryptic definition, its `blocks` still have to teach something,
+  and the validator now ERRORS if they do not. **No block may carry `gives`** — a cryptic
+  definition yields no letters from any fragment, so a `gives` is always the whole answer
+  wearing a block's clothes, and the blocks rung is shown before the walkthrough. **At least
+  two blocks** — one block spanning the whole clue only restates the clue. What a cryptic
+  definition splits into is not letters but readings: one block for the sense the surface
+  pushes you towards, one for the sense the setter meant. 1392 22A "Might this keep you to
+  time?" (WATCHSTRAP) had a single block reading the whole clue → WATCHSTRAP, so hint 3 of 4
+  charged a learner a hint and handed them the answer, one rung after hint 2 had told them
+  there was no wordplay to find (Paul, 2026-08-10). Written properly it is "keep you to time"
+  = not "make you punctual" but holding something against you, plus "Might this" = the answer
+  is the object itself. Same shape as the good ones already in the corpus: 1389 26A NUDISM,
+  30039 10A VANITY, 30039 21A NINETEENTH.
 - `definition`, `definition2` and every string in `indicators` MUST occur verbatim in the
   clue (match the exact characters — Guardian clues use curly apostrophes `’` and en
   dashes `–`, Independent clues use straight `'` and hyphens, so copy from the file

@@ -525,6 +525,48 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   assert(registry["hint-body"].innerHTML.includes("def-note"),
     "the definition note is shown on the walkthrough rung: " + registry["hint-body"].innerHTML);
 
+  // --- a cryptic definition must not sell the answer on the blocks rung ---
+  // The type has no wordplay, so the only "block" available is the whole clue
+  // giving the whole answer — and that is what four of the nine in the corpus
+  // had. Rendered, hint 3 of 4 read “Might this keep you to time?” → WATCHSTRAP,
+  // one rung after hint 2 had said there was nothing to take apart (Paul, 1392
+  // 22-across, 2026-08-10). The validator now rejects that annotation and app.js
+  // suppresses `gives` for the type; this drives the real ladder to prove it, on
+  // every cryptic definition there is rather than the one that was reported.
+  {
+    const cds = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        if (((e.annotation || {}).type || "") === "cryptic definition") cds.push({ id, e });
+      }
+    }
+    assert(cds.length, "the corpus still has a cryptic definition to check");
+    for (const cd of cds) {
+      const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+      const where = `${cd.id} ${cd.e.id} (${ans})`;
+      openClue(cd);
+      // Climb to the rung BEFORE the walkthrough: every rung a learner can buy
+      // without committing to the last one must leave the answer unspoken.
+      for (let i = 0; i < 8; i++) {
+        const btn = registry["hint-next"].children[0];
+        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        if (/walkthrough/i.test(btn.textContent)) break;
+        btn.onclick();
+        const bare = registry["hint-body"].innerHTML.replace(/[^A-Za-z]/g, "").toUpperCase();
+        assert(!bare.includes(ans),
+          `${where}: a rung before the walkthrough spells the answer out — ` +
+          registry["hint-body"].innerHTML);
+      }
+      const btn = registry["hint-next"].children[0];
+      assert(btn && /walkthrough/i.test(btn.textContent || ""),
+        `${where}: the ladder still ends at the walkthrough, got ` +
+        ((btn && btn.textContent) || "nothing"));
+      btn.onclick();
+      assert(registry["hint-body"].innerHTML.includes("Answer:"),
+        `${where}: the walkthrough is where the answer finally appears`);
+    }
+  }
+
   // --- a rung highlights its own words, on its own ---
   // Feedback 2026-08-01: "if I choose just the indicator clue now it doesn't
   // highlight the parts of clue". All clue markup used to be gated on the
