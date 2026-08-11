@@ -36,9 +36,12 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "indicators": [],
     "blocks": [
      {
-      "clueFragment": "Expectant fathers do it up and down",
-      "gives": "PACE",
-      "note": "what a man does in a hospital corridor: he paces"
+      "clueFragment": "Expectant fathers do it",
+      "note": "the waiting-room cliché — the one thing a man in a maternity corridor is always described as doing"
+     },
+     {
+      "clueFragment": "up and down",
+      "note": "not a direction the answer is spelled in: it is how he moves, back and forth along the same short stretch of floor"
      }
     ],
     "walkthrough": "No indicator, no fodder, nothing to take apart: when a short clue offers none of those, read it as one plain statement and hunt for the single word it describes sideways."
@@ -365,9 +368,12 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
     "indicators": [],
     "blocks": [
      {
-      "clueFragment": "What the Venus de Milo isn't",
-      "gives": "ARMED",
-      "note": "the statue lost both arms, so this is the one thing she cannot be"
+      "clueFragment": "the Venus de Milo",
+      "note": "the statue is famous for what is missing from it, so the clue is pointing at an absence rather than at the marble"
+     },
+     {
+      "clueFragment": "What … isn't",
+      "note": "the definition is negative: you want the word for the state she is not in, and it has a second sense about weapons to lead you off"
      }
     ],
     "walkthrough": "Definition by denial — the answer is the thing the sentence says is missing. The pleasure is the second sense sitting inside it: armed means carrying a weapon, and it also just means having arms."

@@ -480,9 +480,12 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     "indicators": [],
     "blocks": [
      {
-      "clueFragment": "One regularly making changes?",
-      "gives": "BELLRINGER",
-      "note": "in bell-ringing, a 'change' is one order in which the bells are rung"
+      "clueFragment": "making changes",
+      "note": "not alterations, which is what the surface offers: in campanology a 'change' is one fixed order in which a set of church bells is struck"
+     },
+     {
+      "clueFragment": "One regularly",
+      "note": "the changes come round in sequence, over and over — so this is a person with a weekly practice night, not someone reorganising an office"
      }
     ],
     "walkthrough": "A cryptic definition: 'changes' sounds like alterations, but in campanology a change is a sequence rung on church bells, so this person makes changes every practice night.",
@@ -923,9 +926,12 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     "indicators": [],
     "blocks": [
      {
-      "clueFragment": "Acquire too much fuel?",
-      "gives": "OVEREAT",
-      "note": "read 'fuel' as food — the body's energy supply"
+      "clueFragment": "fuel",
+      "note": "not petrol or coal, which is where the surface points: the fuel a body runs on is food, and the question mark admits the stretch"
+     },
+     {
+      "clueFragment": "Acquire too much",
+      "note": "taking on board more of it than you need — the excess is the whole of the answer's meaning"
      }
     ],
     "walkthrough": "A cryptic definition: food is the fuel the body runs on, so taking too much of it on board is exactly this.",

@@ -463,12 +463,12 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
      {
       "clueFragment": "case",
       "gives": "",
-      "note": "points to the phrase 'vanity case'"
+      "note": "not 'an instance of', which is how the surface reads it: the setter means a literal case, and the answer is the first word of a two-word phrase for the small bag you keep your make-up in"
      },
      {
       "clueFragment": "conceitedness",
       "gives": "",
-      "note": "vanity = conceitedness"
+      "note": "the straight definition running underneath the pun — the abstract noun for thinking too well of yourself"
      }
     ],
     "walkthrough": "The trick is 'case': it reads as 'an instance of' and it means the cosmetics bag. Both senses are true at once, which is what a cryptic definition lives on.",
@@ -930,12 +930,12 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
      {
       "clueFragment": "Drinking hole",
       "gives": "",
-      "note": "the 'nineteenth hole' is the golf clubhouse bar"
+      "note": "'hole' is literal, not slang for a dive: golfers name the clubhouse bar by a number, the one just past the count of holes they have played"
      },
      {
       "clueFragment": "round after round",
       "gives": "",
-      "note": "a round of drinks after a round of golf"
+      "note": "two senses stacked — a round of golf, and then the round of drinks bought once it is over"
      }
     ],
     "walkthrough": "The joke turns on 'round' meaning both a circuit of the course and a set of drinks, and on 'drinking hole' being literally true: the clubhouse bar is the nineteenth hole.",

@@ -745,6 +745,71 @@ def check_cryptic_definition_cap(entries, errors, warnings=None):
             f"guessable; find the mechanism these clues are hiding (AUTHORING.md)")
 
 
+def check_cryptic_definition_blocks(tag, ann, errors, warnings):
+    """A cryptic definition's blocks must split the clue, and may not spell the answer.
+
+    The cap above asks whether a clue should be a cryptic definition at all.
+    This asks a different question of the ones that legitimately are: does the
+    annotation of it teach anything?
+
+    There is exactly one block shape available to an annotator who does not
+    think about it — the whole clue, giving the whole answer — and four of the
+    nine cryptic definitions in the corpus had it. Rendered, that is hint 3 of
+    4 reading “Might this keep you to time?” → WATCHSTRAP: the rung before it
+    has just said there is no separable wordplay, and this one charges a hint
+    for the solve (Paul, 1392 22-across, 2026-08-10).
+
+    So `gives` is banned outright. A cryptic definition yields no letters from
+    any fragment — that is the definition of the type — and a `gives` is
+    therefore always the whole answer wearing a block's clothes.
+
+    And a single block is banned, because a block spanning the whole clue
+    restates the clue. What a cryptic definition CAN be taken apart into is
+    ideas: the reading the surface pushes you towards and the reading the
+    setter meant. Two blocks is the smallest annotation that shows the seam,
+    and the four good ones in the corpus (NUDISM, VANITY, NINETEENTH) already
+    look exactly like this. It is a presentation rule, not a lie detector: the
+    clue can be a perfectly honest cryptic definition and still be annotated
+    into a rung that hands over the answer.
+    """
+    if (ann.get("type") or "").lower() != "cryptic definition":
+        return
+    blocks = ann.get("blocks") or []
+    giving = [b.get("clueFragment") or "?" for b in blocks if (b.get("gives") or "").strip()]
+    if giving:
+        errors.append(
+            f"{tag}: cryptic definition has blocks that 'give' letters "
+            f"({', '.join(repr(g) for g in giving)}) — a cryptic definition has no "
+            f"wordplay, so the only thing a fragment can give is the whole answer, "
+            f"and the blocks rung is shown before the walkthrough. Drop `gives` and "
+            f"put the explanation in `note`")
+    if len(blocks) < 2:
+        errors.append(
+            f"{tag}: cryptic definition has {len(blocks)} block(s) — one block spans "
+            f"the whole clue and so only restates it. Split the clue into the reading "
+            f"the surface pushes and the reading the setter meant, one block each, so "
+            f"the rung teaches the seam instead of announcing the answer")
+    # Banning `gives` only closes the obvious door. Splitting the clue properly
+    # and then writing the answer into a note leaks it just the same, and it is
+    # the likelier mistake once the shape is right: 30039 10A VANITY split into
+    # "case" and "conceitedness" and then explained them as "points to the phrase
+    # 'vanity case'" and "vanity = conceitedness". Elsewhere in the corpus a block
+    # note may name the answer — the blocks rung is where a charade spells it out
+    # — so this is the cryptic definition's own rule, and it exists because this
+    # type has no walkthrough-free way to earn it.
+    ans = re.sub(r"[^a-z]", "", str(ann.get("answer") or "").lower())
+    if len(ans) >= 4:
+        for b in blocks:
+            note = b.get("note") or ""
+            if ans in re.sub(r"[^a-z]", "", note.lower()):
+                errors.append(
+                    f"{tag}: cryptic definition block note {note!r} spells the answer "
+                    f"out, and the blocks rung is shown before the walkthrough. For "
+                    f"every other type the blocks are where the answer is assembled; "
+                    f"here there is nothing to assemble, so a note that names it is "
+                    f"just the solve. Describe the reading, not the word")
+
+
 # Function words are shared by every English phrase; an overlap on "of" or "in"
 # between a definition and a block is a coincidence, not a reused definition.
 DEFINITION_STOPWORDS = frozenset(
@@ -1103,6 +1168,7 @@ def validate_puzzle(puzzle):
 
         check_definition_fit(tag, ann, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
+        check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)

@@ -990,17 +990,31 @@
       });
     }
 
+    // A cryptic definition has no building blocks — having none is what makes it
+    // one — so `gives` is never rendered for it, and the rung is named for the
+    // only honest job it has: splitting a clue that does not split into letters
+    // into the two ideas the setter fused together.
+    //
+    // It used to print the whole clue → the whole answer, because that is the
+    // only "block" a cryptic definition can have. So hint 3 of 4 read
+    // “Might this keep you to time?” → WATCHSTRAP: the solver paid for a rung
+    // and was handed the solve, one rung after rung 2 had told them there was no
+    // separable wordplay here (Paul, 1392 22-across, 2026-08-10). The validator
+    // now refuses a `gives` on a cryptic definition and demands the clue be
+    // split, so this suppression is belt to that braces.
     if (blocks.length && blocks.some((b) => b.gives || b.note)) {
       const items = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
-        if (b.gives) s += ` → <span class="gives">${esc(b.gives)}</span>`;
+        if (b.gives && !isCD) s += ` → <span class="gives">${esc(b.gives)}</span>`;
         if (b.note) s += ` <span class="muted">— ${esc(b.note)}</span>`;
         return s + "</li>";
       }).join("");
       steps.push({
         key: "blocks",
-        label: isDD ? "What each half means" : "The building blocks",
+        label: isDD ? "What each half means"
+             : isCD ? "Which words are doing the work?"
+             : "The building blocks",
         html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>`
       });
     }

@@ -1154,9 +1154,12 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
     "indicators": [],
     "blocks": [
      {
-      "clueFragment": "Might this keep you to time?",
-      "gives": "WATCHSTRAP",
-      "note": "it keeps your watch — your timekeeper — fastened to you"
+      "clueFragment": "Might this",
+      "note": "'this' points at the thing itself — the answer is the object being described, not something it does"
+     },
+     {
+      "clueFragment": "keep you to time",
+      "note": "not 'make you punctual', which is how the surface wants you to read it: take it literally as holding something against you, and 'time' as the object that tells it"
      }
     ],
     "walkthrough": "A pure cryptic definition: the strap keeps your watch — the timekeeper — attached to you, so it keeps you 'to time'. The question mark flags the pun.",
