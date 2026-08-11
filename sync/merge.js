@@ -56,18 +56,31 @@
 
   // A letter is "A", or "A!" if it was revealed rather than worked out.
   //
-  // Two devices can only disagree here if you typed different guesses into the
-  // same square. A revealed letter is not a guess, it is the answer, so it wins
-  // outright; otherwise the more recent guess wins, and if even the clocks tie
-  // we pick the lexicographically larger one — arbitrary, but the same
+  // The first version of this treated an absent square as "this device knows
+  // nothing about it" and let the other side's letter through. That is only
+  // half of what absence means. Rubbing a letter out also leaves the square
+  // absent, so a deletion could never win: you cleared two squares, the other
+  // device still had them, and the merge politely put them back — for ever,
+  // because pushing your own save never removed them from the server either
+  // (Paul, 2026-08-10).
+  //
+  // So absence is no longer read from the letters map alone. Each square
+  // carries its own stamp in `letterAt`, written whenever that square changes,
+  // INCLUDING when it is emptied. A stamp with no letter is a deletion, and it
+  // travels like any other edit: the most recent thing you did to a square is
+  // what both devices end up showing.
+  //
+  // Only when the two stamps are identical does anything else matter, and then
+  // a revealed letter beats a guess (it is the answer, not an opinion) and
+  // otherwise the lexicographically larger wins — arbitrary, but the same
   // arbitrary choice on both sides, which is what stops the two ends of a sync
   // from disagreeing forever.
   function pickLetter(av, at, bv, bt) {
+    if (at !== bt) return at > bt ? av : bv;
     if (av === undefined) return bv;
     if (bv === undefined) return av;
     const ar = av.length > 1, br = bv.length > 1;
     if (ar !== br) return ar ? av : bv;
-    if (at !== bt) return at > bt ? av : bv;
     return av >= bv ? av : bv;
   }
 
@@ -81,32 +94,69 @@
     b = isObj(b) ? b : {};
     const at = num(a.updated), bt = num(b.updated);
 
+    // "Reset puzzle" is the one thing a solver does that is not an edit to some
+    // particular square — it is an edit to all of them at once, including the
+    // ones this device never filled in and so has no stamp for. Rather than
+    // manufacture a stamp per square, the reset is recorded as a single moment,
+    // and anything older than the newest reset either side knows about is
+    // dropped. Without this, resetting on the laptop just meant the iPad
+    // refilled the grid.
+    const clearedAt = Math.max(num(a.clearedAt), num(b.clearedAt));
+
+    const aAt = isObj(a.letterAt) ? a.letterAt : {};
+    const bAt = isObj(b.letterAt) ? b.letterAt : {};
+    // Saves written before per-square stamps existed fall back to the one time
+    // the whole puzzle carries. Coarse, but it is the truth about that data —
+    // and it self-corrects the first time either device touches the square.
+    const stamp = (m, k, whole) => (typeof m[k] === "number" && isFinite(m[k]) ? m[k] : whole);
+
     const al = isObj(a.letters) ? a.letters : {};
     const bl = isObj(b.letters) ? b.letters : {};
-    const letters = eachKey(al, bl, (k) => pickLetter(al[k], at, bl[k], bt));
+    const everyAt = eachKey(
+      { ...al, ...aAt }, { ...bl, ...bAt },
+      (k) => Math.max(stamp(aAt, k, al[k] === undefined ? 0 : at),
+                      stamp(bAt, k, bl[k] === undefined ? 0 : bt))
+    );
+    const letters = {}, letterAt = {};
+    Object.keys(everyAt).forEach((k) => {
+      // A stamp from before the last reset is not history worth keeping: the
+      // square was emptied, and dropping the stamp too is what stops letterAt
+      // growing a permanent record of every square ever typed in.
+      if (everyAt[k] < clearedAt) return;
+      letterAt[k] = everyAt[k];
+      const v = pickLetter(al[k], stamp(aAt, k, al[k] === undefined ? 0 : at),
+                           bl[k], stamp(bAt, k, bl[k] === undefined ? 0 : bt));
+      if (v !== undefined) letters[k] = v;
+    });
 
-    const ah = isObj(a.hintsShown) ? a.hintsShown : {};
-    const bh = isObj(b.hintsShown) ? b.hintsShown : {};
+    // Hints and scores have no per-key stamps — they only ever grow, so they
+    // never needed one. A reset is the exception, and the whole side is judged
+    // by when it last saved: a device that has not been touched since the reset
+    // has nothing to contribute that the reset did not mean to throw away.
+    const liveA = at >= clearedAt, liveB = bt >= clearedAt;
+    const ah = liveA && isObj(a.hintsShown) ? a.hintsShown : {};
+    const bh = liveB && isObj(b.hintsShown) ? b.hintsShown : {};
     const hintsShown = eachKey(ah, bh, (k) => unionRungs(ah[k], bh[k]));
 
     // Reveals are spent, not earned: if one device burned three letters on this
     // clue that happened, and the merge must not hand them back.
-    const ar = isObj(a.revealsUsed) ? a.revealsUsed : {};
-    const br = isObj(b.revealsUsed) ? b.revealsUsed : {};
+    const ar = liveA && isObj(a.revealsUsed) ? a.revealsUsed : {};
+    const br = liveB && isObj(b.revealsUsed) ? b.revealsUsed : {};
     const revealsUsed = eachKey(ar, br, (k) => Math.max(num(ar[k]), num(br[k])));
 
     // How many rungs were up when the clue first fell. "First" has no meaning
     // across two clocks, so take the better score. It is the answer you would
     // get if you had done all of this on one machine and solved it on the try
     // that went well, and unlike max it cannot be made worse by syncing.
-    const as = isObj(a.solvedWith) ? a.solvedWith : {};
-    const bs = isObj(b.solvedWith) ? b.solvedWith : {};
+    const as = liveA && isObj(a.solvedWith) ? a.solvedWith : {};
+    const bs = liveB && isObj(b.solvedWith) ? b.solvedWith : {};
     const solvedWith = eachKey(as, bs, (k) => {
       const av = as[k], bv = bs[k];
       return av === undefined ? bv : bv === undefined ? av : Math.min(num(av), num(bv));
     });
 
-    return { letters, hintsShown, revealsUsed, solvedWith, updated: Math.max(at, bt) };
+    return { letters, letterAt, hintsShown, revealsUsed, solvedWith,
+             clearedAt, updated: Math.max(at, bt) };
   }
 
   /* Envelope: { v: 1, puzzles: { "<id>": <save> }, last: { id, updated } }.

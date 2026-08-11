@@ -78,12 +78,27 @@
   function saveState() {
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => {
+      const now = Date.now();
+      const prev = store.get(stateKey(), null) || {};
+      const was = prev.letters || {};
       const letters = {};
       forEachCell((c) => { if (c.letter) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
+      // When each square last changed, carried forward from the previous save
+      // and re-stamped only where something actually moved. Rubbing a letter
+      // out leaves no letter behind, so without this the merge cannot tell a
+      // square you cleared from one you never filled in — and it put the
+      // letters straight back (Paul, 2026-08-10). A stamp with no letter is
+      // how a deletion gets to the other device.
+      const letterAt = Object.assign({}, prev.letterAt);
+      forEachCell((c) => {
+        const k = c.x + "," + c.y;
+        if (letters[k] !== was[k]) letterAt[k] = now;
+      });
       // `updated` is what lets two machines be merged without asking which one
       // to believe (see sync/merge.js). It is written even with sync switched
       // off, so turning it on later does not treat today's work as undated.
-      store.set(stateKey(), { letters, hintsShown, revealsUsed, solvedWith, updated: Date.now() });
+      store.set(stateKey(), { letters, letterAt, hintsShown, revealsUsed, solvedWith,
+                              clearedAt: prev.clearedAt || 0, updated: now });
       syncPushSoon();
     }, 150);
   }
@@ -1456,10 +1471,17 @@
     };
     $("reset-puzzle").onclick = () => {
       if (!confirm("Clear the grid and all hint history for this puzzle?")) return;
-      store.del(stateKey());
+      // Deleting the save is not enough once there is a second device: an empty
+      // slot reads as "never played this", so the other machine would hand the
+      // whole grid back on the next pull. The reset is recorded as a moment
+      // instead, and merge.js drops everything either side knew before it.
+      const now = Date.now();
+      store.set(stateKey(), { letters: {}, letterAt: {}, hintsShown: {}, revealsUsed: {},
+                              solvedWith: {}, clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
       hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {};
       refreshAll();
+      syncPushSoon();
     };
 
     document.addEventListener("keydown", (ev) => {
