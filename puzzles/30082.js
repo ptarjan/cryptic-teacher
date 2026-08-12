@@ -34,7 +34,35 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "FOOTFAULT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FOOT FAULT",
+    "definition": "bad service?",
+    "indicators": [
+     "Splitting"
+    ],
+    "linkWords": [
+     "results in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "payslip",
+      "gives": "FOOT",
+      "note": "split the word and the first half is 'pay' — to foot a bill is to pay it"
+     },
+     {
+      "clueFragment": "payslip",
+      "gives": "FAULT",
+      "note": "the second half is 'slip', and a slip is a fault — a lapse, and to a geologist a crack in the rock"
+     }
+    ],
+    "pieces": [
+     "FOOT",
+     "FAULT"
+    ],
+    "walkthrough": "One word, two halves: the setter hands you 'payslip' whole and 'Splitting' is the instruction to break it open. The tennis court only appears once the answer does.",
+    "definitionFit": "A foot fault is a serve ruled illegal because the server stepped over the baseline — bad service in the umpire's exact sense."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +79,33 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FABULIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FABULIST",
+    "definition": "One telling stories",
+    "indicators": [],
+    "linkWords": [
+     "featuring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fantastic",
+      "gives": "FAB",
+      "note": "fab is the sixties clipping of fabulous"
+     },
+     {
+      "clueFragment": "very minor celebrities",
+      "gives": "ULIST",
+      "note": "fame is graded from the A-list downwards; keep going down the alphabet and the U-list is about as minor as it gets"
+     }
+    ],
+    "pieces": [
+     "FAB",
+     "ULIST"
+    ],
+    "walkthrough": "The A-list, the B-list and the C-list are as far as anyone normally counts. The joke is that the alphabet carries on long after the fame has run out.",
+    "definitionFit": "A fabulist is a teller of fables, and by extension a liar — which is the sense 'telling stories' quietly points at."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +126,33 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "OFUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OF USE",
+    "definition": "Beneficial",
+    "indicators": [],
+    "linkWords": [
+     "to add"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "blend",
+      "gives": "FUSE",
+      "note": "to fuse is to blend two things into one"
+     }
+    ],
+    "pieces": [
+     "O",
+     "FUSE"
+    ],
+    "walkthrough": "Chemistry supplies the shortest counters in the game: O for oxygen, H for hydrogen, N for nitrogen. The (2,3) enumeration warns you the answer is a phrase.",
+    "definitionFit": "'Of use' is the everyday idiom for useful — a prepositional phrase doing an adjective's job, exactly as 'beneficial' does."
+   }
   },
   {
    "id": "3-down",
@@ -93,7 +173,24 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "FIFTHCOLUMNIST",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FIFTH COLUMNIST",
+    "definition": "Internal enemy in appropriate position here?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Internal enemy",
+      "note": "the straight sense: someone inside your own camp working for the other side, a phrase that came out of the Spanish civil war"
+     },
+     {
+      "clueFragment": "in appropriate position here?",
+      "note": "look at where this light sits in the grid — it runs downwards, and it is the fifth of the columns, which is the setter putting the answer where its own name says it belongs"
+     }
+    ],
+    "walkthrough": "There is no separable wordplay here: the whole clue is the definition, with a wink at the grid. Count the columns from the left and the joke pays off.",
+    "definitionFit": "A fifth columnist is a traitor inside the gates, sabotaging from within — and this one has been planted in the grid's own fifth column."
+   }
   },
   {
    "id": "4-down",
@@ -110,7 +207,26 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ULYSSES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ULYSSES",
+    "definition": "something hard to understand?",
+    "indicators": [
+     "Element of"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "July’s session",
+      "gives": "ULYSSES",
+      "note": "the answer straddles the two words: jULY'S SESsion"
+     }
+    ],
+    "walkthrough": "'Element of' is a quiet flag for a hidden answer — a part of what follows. The apostrophe counts as no letter at all, which is what makes the join so hard to see.",
+    "definitionFit": "Joyce's Ulysses is the byword for a novel nobody finishes, so the clue names the book by its reputation rather than by any meaning."
+   }
   },
   {
    "id": "5-down",
@@ -127,7 +243,35 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOURIGA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "TOURIGA",
+    "definition": "Portuguese wine",
+    "indicators": [
+     "central"
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Travel around",
+      "gives": "TOUR",
+      "note": "to tour is to travel around"
+     },
+     {
+      "clueFragment": "Wigan",
+      "gives": "IGA",
+      "note": "the central letters of wIGAn"
+     }
+    ],
+    "pieces": [
+     "TOUR",
+     "IGA"
+    ],
+    "walkthrough": "'Central' wants the middle of the word, not the middle of the town — the geography is a decoy. Wines are routinely named after the grape they are pressed from.",
+    "definitionFit": "Touriga is the grape behind port and the big Douro reds, so the clue names the drink by the variety it comes from."
+   }
   },
   {
    "id": "6-across",
@@ -144,7 +288,27 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEES",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "BEES",
+    "definition": "who will deliver honey?",
+    "definitionNote": "The definition is a relative clause with its noun left out — '[those] who will deliver honey' — so it stands in for a plural without any plural word in it.",
+    "indicators": [
+     "Occasional"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brewers",
+      "gives": "BEES",
+      "note": "take every other letter: BrEwErS"
+     }
+    ],
+    "pieces": [
+     "BEES"
+    ],
+    "walkthrough": "'Occasional' means every other one rather than now and then — a favourite disguise for alternate letters. The brewery in the surface exists only to hide the insects.",
+    "definitionFit": "Nectar is turned into honey in the hive and carried to the comb, so the clue defines the insects by the product everyone knows them for."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +330,26 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "EATNOLEAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EAT NO LEAN",
+    "definition": "Mrs Sprat’s dietary requirement",
+    "indicators": [
+     "processed"
+    ],
+    "anagram": {
+     "fodder": "AT LANE ONE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "at lane one",
+      "gives": "EAT NO LEAN",
+      "note": "'processed' rearranges the nine letters of AT LANE ONE"
+     }
+    ],
+    "walkthrough": "Jack Sprat could eat no fat, and the rhyme gives his wife the opposite half of the bargain. The athletics meeting on the surface is there to make 'lane one' look like scenery.",
+    "definitionFit": "The nursery rhyme splits the diet between the couple: he could eat no fat, so the half left to his wife is the lean."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +366,35 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCROTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SCROTA",
+    "definition": "containers for seed producers",
+    "indicators": [
+     "Gutted"
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scientific",
+      "gives": "SC",
+      "note": "gutted, the word keeps only its shell — the outer letters"
+     },
+     {
+      "clueFragment": "programme",
+      "gives": "ROTA",
+      "note": "a rota is the programme of who does what and when"
+     }
+    ],
+    "pieces": [
+     "SC",
+     "ROTA"
+    ],
+    "walkthrough": "'Gutted' empties a word of everything between its ends. The laboratory tone is cover for anatomy, and the plural in Latin form is what the crossing letters insist on.",
+    "definitionFit": "A scrotum is the pouch holding the testicles, and testicles make sperm — seed — so the plural names the sacs by what they carry."
+   }
   },
   {
    "id": "9-down",
@@ -204,7 +415,26 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "AGATHACHRISTIE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AGATHA CHRISTIE",
+    "definition": "She made crime novels",
+    "indicators": [
+     "evolved"
+    ],
+    "anagram": {
+     "fodder": "AIRTIGHT AS EACH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "airtight as each",
+      "gives": "AGATHA CHRISTIE",
+      "note": "'evolved' rearranges all fourteen letters of AIRTIGHT AS EACH"
+     }
+    ],
+    "walkthrough": "A fourteen-letter anagram hides in plain sight because the fodder reads as praise for a plot — an alibi is exactly what ought to be airtight.",
+    "definitionFit": "Poirot and Miss Marple were hers, and she outsells every other novelist, so 'she' plus a trade points at one woman in particular."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +451,32 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLUFF",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BLUFF",
+    "definition": "Deceive",
+    "definition2": "bank",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Deceive",
+      "gives": "BLUFF",
+      "note": "to bluff at cards is to deceive by pretending to hold what you do not"
+     },
+     {
+      "clueFragment": "friendly",
+      "gives": "BLUFF",
+      "note": "a third sense the clue also uses: a bluff manner is hearty and good-natured, blunt without malice"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "BLUFF",
+      "note": "a bluff is a steep bank or headland above water"
+     }
+    ],
+    "walkthrough": "Three senses in three words, not two: a verb, an adjective and a noun, and only the last of them has anything to do with rivers. English works this word hard.",
+    "definitionFit": "To bluff is to deceive by bold pretence; a bluff person is brusquely friendly; and a bluff is a steep river bank."
+   }
   },
   {
    "id": "11-across",
@@ -238,7 +493,26 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YOUNGSTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "YOUNGSTER",
+    "definition": "child",
+    "indicators": [
+     "wrestled"
+    ],
+    "anagram": {
+     "fodder": "GUTSY NERO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gutsy Nero",
+      "gives": "YOUNGSTER",
+      "note": "'wrestled' throws the nine letters of GUTSY NERO into a new order"
+     }
+    ],
+    "walkthrough": "An adjective in front of a name is the commonest disguise for anagram fodder, because it reads as description. Nero took the throne at sixteen, which makes the surface almost true.",
+    "definitionFit": "A youngster is simply a child — a plain synonym, and the surface uses it as the person the emperor grapples with."
+   }
   },
   {
    "id": "12-across",
@@ -255,7 +529,33 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEECHES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LEECHES",
+    "definition": "Suckers",
+    "indicators": [
+     "before",
+     "short"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, where you take shelter from the wind"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "CHES",
+      "note": "the game is CHESS, docked of its last letter by 'short'"
+     }
+    ],
+    "pieces": [
+     "LEE",
+     "CHES"
+    ],
+    "walkthrough": "'Short' is an instruction rather than a description: it takes the final letter off. The definition works twice over, since a sucker is also a dupe.",
+    "definitionFit": "A leech feeds by clamping its sucker onto a host, so 'suckers' names the creatures by the organ they live by — and by the spongers they stand for."
+   }
   },
   {
    "id": "13-across",
@@ -272,7 +572,38 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTROIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "INTROIT",
+    "definition": "Sacred music",
+    "indicators": [
+     "at heart of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saintly",
+      "gives": "INT",
+      "note": "the heart of saINTly"
+     },
+     {
+      "clueFragment": "shroud",
+      "gives": "RO",
+      "note": "the heart of shROud"
+     },
+     {
+      "clueFragment": "rite",
+      "gives": "IT",
+      "note": "the heart of rITe"
+     }
+    ],
+    "pieces": [
+     "INT",
+     "RO",
+     "IT"
+    ],
+    "walkthrough": "One instruction, three words: 'at heart of' works its way along all of them in turn. The funeral surface is pure decoy — shroud and rite are there for their middles.",
+    "definitionFit": "The introit is the psalm or antiphon sung as the priest enters at the start of Mass — sacred music with a fixed place in the liturgy."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +624,26 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "SERIOUSDAMAGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SERIOUS DAMAGE",
+    "definition": "Acute harm",
+    "indicators": [
+     "horrible"
+    ],
+    "anagram": {
+     "fodder": "IMAGES AROUSED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "images aroused",
+      "gives": "SERIOUS DAMAGE",
+      "note": "'horrible' rearranges the thirteen letters of IMAGES AROUSED"
+     }
+    ],
+    "walkthrough": "Anagram indicators love to pose as adjectives: 'horrible' reads as part of the picture being described, and is really the instruction to break that picture up.",
+    "definitionFit": "Serious damage is grave harm — the phrase a court or an insurer reaches for, with 'acute' carrying the same weight as 'serious'."
+   }
   },
   {
    "id": "15-down",
@@ -310,7 +660,34 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFERENCE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "REFERENCE",
+    "definition": "Endorsement",
+    "indicators": [
+     "after"
+    ],
+    "linkWords": [
+     "would indicate"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top choice",
+      "gives": "PREFERENCE",
+      "note": "your top choice is your preference"
+     },
+     {
+      "clueFragment": "president",
+      "gives": "P",
+      "note": "P is the standard abbreviation, and it is the letter the answer has to sit behind"
+     }
+    ],
+    "pieces": [
+     "REFERENCE"
+    ],
+    "walkthrough": "Nothing here says 'remove'. The clue promises that the answer, parked behind a president's P, spells something else — so work backwards from that word and the P comes away.",
+    "definitionFit": "A reference is the testimonial an employer writes to back a job application, so the word is being used in its recommending sense, not its citation one."
+   }
   },
   {
    "id": "16-down",
@@ -331,7 +708,47 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "CSECTION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "C-SECTION",
+    "definition": "delivery option",
+    "indicators": [
+     "to gather"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the ballot-paper abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "faction",
+      "gives": "SECT",
+      "note": "a sect is a breakaway faction"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "note": "the i of a tourist information sign"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     }
+    ],
+    "pieces": [
+     "C",
+     "SECT",
+     "I",
+     "ON"
+    ],
+    "walkthrough": "'Delivery' is obstetric here rather than postal, and the (1-7) enumeration tells you the answer opens with a single letter and a hyphen — two footholds before you parse a word.",
+    "definitionFit": "A caesarean section is the surgical alternative to a natural birth, so 'delivery option' names it as one of the two ways a baby arrives."
+   }
   },
   {
    "id": "17-across",
@@ -352,7 +769,33 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRUITMACHINES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FRUIT MACHINES",
+    "definition": "gambling opportunities",
+    "indicators": [],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example, Apple",
+      "gives": "FRUIT",
+      "note": "an apple is one example of a fruit; the capital letter sells you the computer company"
+     },
+     {
+      "clueFragment": "devices",
+      "gives": "MACHINES",
+      "note": "a device is a machine"
+     }
+    ],
+    "pieces": [
+     "FRUIT",
+     "MACHINES"
+    ],
+    "walkthrough": "'For example' marks a definition by example: the clue gives you one member and asks for the class it belongs to. Apple's capital A is the setter's only sleight of hand.",
+    "definitionFit": "A fruit machine is the British name for a slot machine, whose reels show cherries and lemons — a chance to gamble in the corner of a pub."
+   }
   },
   {
    "id": "18-down",
@@ -369,7 +812,36 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOPSOIL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TOPSOIL",
+    "definition": "best medium for growth",
+    "indicators": [
+     "adopts"
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour",
+      "gives": "TOIL",
+      "note": "labour as plain hard work is toil; the capital L is party-political misdirection"
+     },
+     {
+      "clueFragment": "works",
+      "gives": "OPS",
+      "note": "ops are operations — works, in the military or business sense"
+     }
+    ],
+    "pieces": [
+     "T",
+     "OPS",
+     "OIL"
+    ],
+    "walkthrough": "A capital letter at the head of a clue proves nothing, and here it does all the misleading: the party and its works turn out to be a gardener's spadework.",
+    "definitionFit": "Topsoil is the fertile upper layer where seeds germinate and roots feed, which is what makes it the best medium for growth in a garden."
+   }
   },
   {
    "id": "19-down",
@@ -386,7 +858,39 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALPINES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALPINES",
+    "definition": "small flowers",
+    "indicators": [],
+    "linkWords": [
+     "produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In Scotland all",
+      "gives": "A",
+      "note": "in Scots, all is written a'"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-label large"
+     },
+     {
+      "clueFragment": "trees",
+      "gives": "PINES",
+      "note": "pines are the trees"
+     }
+    ],
+    "pieces": [
+     "A",
+     "L",
+     "PINES"
+    ],
+    "walkthrough": "Scots dialect earns its keep in crosswords — a' for all, wee for small, ken for know. Here the forest on the surface shrinks to a rockery in the answer.",
+    "definitionFit": "Alpines are the low cushion plants of mountain screes, sold under that name for rock gardens — small by nature rather than by variety."
+   }
   },
   {
    "id": "20-down",
@@ -403,7 +907,40 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPSHOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "UPSHOT",
+    "definition": "a result",
+    "indicators": [
+     "eliminated"
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trophies",
+      "gives": "CUPS",
+      "note": "trophies are cups"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "clubs is the card suit C — the letter that gets eliminated"
+     },
+     {
+      "clueFragment": "stolen",
+      "gives": "HOT",
+      "note": "stolen goods are hot"
+     }
+    ],
+    "pieces": [
+     "UPS",
+     "HOT"
+    ],
+    "walkthrough": "The cards supply the abbreviation, C for clubs as on a bridge scoresheet, while the surface keeps you thinking of golf. Hot for stolen is thieves' slang a setter can rely on.",
+    "definitionFit": "The upshot of an argument is what it finally comes to — an outcome, in a word that now survives almost only in that phrase."
+   }
   },
   {
    "id": "21-across",
@@ -420,7 +957,37 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARSNIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PARSNIP",
+    "definition": "vegetarian food",
+    "indicators": [
+     "when returning"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assigns",
+      "gives": "PINS",
+      "note": "to pin something on somebody is to assign it to them"
+     },
+     {
+      "clueFragment": "blame",
+      "gives": "RAP",
+      "note": "taking the rap is taking the blame"
+     }
+    ],
+    "pieces": [
+     "PARSNIP"
+    ],
+    "subReversals": [
+     {
+      "from": "PINS RAP",
+      "to": "PARSNIP"
+     }
+    ],
+    "walkthrough": "Two halves of one idiom — you pin something on a person and they take the rap — and the whole seven letters then turn round. In an across entry, 'returning' means read right to left.",
+    "definitionFit": "A parsnip is the sweet white root roasted beside the Sunday joint, so the definition points at the vegetable itself rather than at anyone's diet."
+   }
   },
   {
    "id": "22-across",
@@ -437,7 +1004,44 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRIAPIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "PRIAPIC",
+    "definition": "Chap so excited",
+    "definitionNote": "The answer is an adjective and the definition is a noun phrase: the setter describes the man in that state instead of defining the word directly.",
+    "indicators": [
+     "make comeback",
+     "in"
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "PIC",
+      "note": "a pic is a film, and it opens up to take the other piece"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "PAIR",
+      "note": "a couple is a pair, turned round by 'make comeback'"
+     }
+    ],
+    "pieces": [
+     "P",
+     "RIAP",
+     "IC"
+    ],
+    "subReversals": [
+     {
+      "from": "PAIR",
+      "to": "RIAP"
+     }
+    ],
+    "walkthrough": "Priapus, the Greek fertility god drawn with a permanent erection, is behind the word — which is why the excitement in the surface is not the ordinary kind.",
+    "definitionFit": "Priapic means in a state of male sexual arousal, after that god, so the man the clue describes is precisely what the adjective covers."
+   }
   },
   {
    "id": "23-down",
@@ -454,7 +1058,29 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PATES",
+    "definition": "Heads",
+    "definition2": "livers chopped up?",
+    "indicators": [
+     "Depends how you say it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heads",
+      "gives": "PATES",
+      "note": "a pate is the crown of the head — the bald pate"
+     },
+     {
+      "clueFragment": "livers chopped up?",
+      "gives": "PATES",
+      "note": "pâtés, with the accents a crossword grid cannot show"
+     }
+    ],
+    "walkthrough": "Five letters, two words, two quite different sounds — PAYTS for the skulls, pa-TAYS for the starter. A grid carries no accents, which is what lets the setter run them together.",
+    "definitionFit": "A pate is the crown of the head, while a pâté is liver minced to a paste; strip the accents and one spelling covers both."
+   }
   },
   {
    "id": "24-across",
@@ -475,7 +1101,30 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "HANDSDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HANDS DOWN",
+    "definition": "Passes on",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "instruction to tellers",
+      "gives": "HANDS",
+      "note": "the raider's shout across the counter is 'Hands up!' — this is the first word of it"
+     },
+     {
+      "clueFragment": "when bank heist’s over",
+      "gives": "DOWN",
+      "note": "the raid finished, the cashiers' hands come down again"
+     }
+    ],
+    "pieces": [
+     "HANDS",
+     "DOWN"
+    ],
+    "walkthrough": "The wordplay is a little scene rather than a string of abbreviations: an order shouted at the cashiers, then the moment it stops applying to them.",
+    "definitionFit": "To hand something down is to pass it on to whoever comes next — an heirloom, a name, or a judgment from the bench."
+   }
   },
   {
    "id": "25-across",
@@ -492,7 +1141,33 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTTI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TUTTI",
+    "definition": "All together now",
+    "indicators": [],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "express disappointment",
+      "gives": "TUT",
+      "note": "tut is the noise of disapproval"
+     },
+     {
+      "clueFragment": "what comes before do",
+      "gives": "TI",
+      "note": "in sol-fa the scale climbs to ti and only then reaches doh again"
+     }
+    ],
+    "pieces": [
+     "TUT",
+     "TI"
+    ],
+    "walkthrough": "Sol-fa is standing crossword vocabulary — do, re, mi, fa, so, la, ti — and 'before do' asks for the note just under it. The singalong surface hides a marking printed in scores.",
+    "definitionFit": "Tutti is the direction telling the whole orchestra to play at once, after a passage left to the soloists — Italian for 'all'."
+   }
   },
   {
    "id": "26-across",
@@ -509,7 +1184,26 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWEE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TWEE",
+    "definition": "Sentimental",
+    "indicators": [
+     "made even shorter"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short message",
+      "gives": "TWEET",
+      "note": "the short message is a tweet, before it loses its tail"
+     }
+    ],
+    "pieces": [
+     "TWEE"
+    ],
+    "walkthrough": "The answer is a nursery word for cute, supposedly a child's attempt at 'sweet'. The messaging surface is thoroughly modern and the word it hides is Victorian.",
+    "definitionFit": "Twee means so dainty and precious that it grates, so it carries the sneer that 'sentimental' merely implies."
+   }
   },
   {
    "id": "27-across",
@@ -530,7 +1224,35 @@ window.CRYPTIC_PUZZLES["30082"] = /*JSON-START*/ {
     ]
    },
    "solution": "LISTENSIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LISTENS IN",
+    "definition": "bugs",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Catalogue",
+      "gives": "LIST",
+      "note": "to catalogue is to list"
+     },
+     {
+      "clueFragment": "standard",
+      "gives": "ENSIGN",
+      "note": "a standard is a flag — an ensign"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "G",
+      "note": "good is G, and 'no' takes that letter out of ENSIGN"
+     }
+    ],
+    "pieces": [
+     "LIST",
+     "ENSIN"
+    ],
+    "walkthrough": "'Bugs' is a verb here, not a plague of insects, and it is the one word doing definition duty. Standard for flag is a crossword staple worth banking.",
+    "definitionFit": "To bug a room is to plant a device and eavesdrop on what is said there — the phrasal verb names the same act from the listener's side."
+   }
   }
  ]
 } /*JSON-END*/;
