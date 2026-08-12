@@ -373,8 +373,19 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
   // Mistype the entry here rather than relying on what the navigation keys above
   // happened to leave in it — that coupling is what made these three assertions
   // fail the moment the app booted on a different puzzle.
+  //
+  // Half a fix, as it turned out: it stopped depending on the letters left in the
+  // entry but went on deriving the wrong letter from `answer`, which belongs to
+  // the entry we typed into further up, not the one the arrow keys have since
+  // moved to. When the boot puzzle became 1394 the cursor landed in a 14-letter
+  // entry holding one crossing letter, and a letter picked to be wrong for a
+  // different word happened to be right for that one — so the check honestly
+  // reported no errors and these three assertions failed nightly (2026-08-12).
+  // Ask the app which entry the cursor is actually in.
+  const cur = currentEntry();
+  assert(cur && cur.solution, "the cursor sits in an entry with a published solution");
   clickBox(0);
-  kd(ev(wrongLetter(answer[0])));
+  kd(ev(wrongLetter(cur.solution[0])));
   registry["chk-entry"].onclick();
   assert(/wrong letter/.test(msg()), "wrong letters are reported: " + JSON.stringify(msg()));
   assert(box.className.includes("bad"), "wrong result styled as bad: " + box.className);
@@ -804,7 +815,12 @@ registry["reset-puzzle"].onclick();
 
 // --- localStorage persistence happened ---
 setTimeout(() => {
-  assert(Object.keys(storage).some((k) => k.startsWith("ct:3")), "progress persisted to localStorage");
+  // Keyed on the puzzle actually open, not on "ct:3" — that prefix assumed the
+  // boot puzzle would always be a 30xxx Guardian daily, and it stopped being one
+  // the night the reindex made 1394 the newest (2026-08-12). A test that only
+  // passes for one range of puzzle numbers is asserting the wrong thing.
+  assert(storage["ct:" + openId], `progress persisted to localStorage under ct:${openId}, got ` +
+    JSON.stringify(Object.keys(storage)));
   const saved = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:\d/.test(k))]);
   // Without a timestamp the merge cannot tell two devices apart, so this is
   // written whether or not sync is on — turning it on later must not find a

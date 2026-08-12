@@ -69,6 +69,12 @@ import urllib.request
 USAGE_URL = "https://api.anthropic.com/api/oauth/usage"
 # The old shape's field name, per group, for when `limits` isn't in the payload.
 LEGACY_FIELD = {"weekly": "seven_day", "session": "five_hour"}
+# How long each window lasts. Not a fitted constant standing in for a queryable
+# fact — it is the window's definition, and the API's own field names say it
+# ("seven_day", "five_hour"). Used only to roll a reset stamp forward when the
+# API has turned the window over without re-stamping it, and only ever to
+# conclude "not now"; see resets_in_hours().
+WINDOW_LENGTH_HOURS = {"weekly": 7 * 24.0, "session": 5.0}
 CACHE_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     ".usage_cache.json")
@@ -250,7 +256,11 @@ def gate(limit, group="weekly"):
 
 
 def resets_in_hours(group="weekly"):
-    """Hours until the window turns over, from the API's own `resets_at`.
+    """Hours until the window turns over, and whether that is a fact or a floor.
+
+    Returns `(hours, derived)`. `derived` False means an absolute `resets_at`
+    said so, live or cached. True means nobody said so and the number is one
+    window length past the last reset we saw — see below.
 
     The pre-reset backfill needs this because it is defined by the reset, not by
     the clock: "the last hour of the week" was hard-coded as 04:00-04:55 daily,
@@ -262,6 +272,23 @@ def resets_in_hours(group="weekly"):
     does not rot. That is what keeps the 3am backfill from going blind on the
     one night it matters, when nothing has run claude since the afternoon before
     and the access token lapsed hours ago.
+
+    The gap that left, found 2026-08-12 05:05: the reset had happened at 04:59,
+    and for the hour after it the API returned the weekly window with
+    `resets_at: null` — turned over, not yet re-stamped. Live read empty, cached
+    stamp just expired, so this raised and the backfill fired its "can't tell
+    whether this is the hour" alert. It could tell. A window that reset sixty
+    seconds ago is the one moment in the week when "is this the last hour of the
+    window" has a confident answer, and the answer is no.
+
+    So a passed cached stamp is rolled forward by one window length instead of
+    thrown away, and flagged. The flag is the point: a derived number may only
+    ever be used to say "not now". Spending an ungated hour of inference on an
+    inferred reset time is precisely the mistake the hard-coded 04:00 was, and
+    one that would land ON the guess rather than near it. The caller enforces
+    that; see prereset_backfill.sh. Rolling more than one window forward means we
+    have been unable to read for a whole period, which is a real outage and still
+    raises.
     """
     try:
         soonest = _live_resets_at(group)
@@ -271,15 +298,24 @@ def resets_in_hours(group="weekly"):
             raise
         soonest = datetime.datetime.fromisoformat(cached["value"])
         if soonest <= _now():
-            raise RuntimeError(
-                f"{exc}; the cached {group} reset "
-                f"({soonest.astimezone():%b %d %H:%M}) has already passed, so "
-                "there is no telling where the new window stands") from exc
+            period = datetime.timedelta(hours=WINDOW_LENGTH_HOURS[group])
+            rolled = soonest + period
+            if rolled <= _now():
+                raise RuntimeError(
+                    f"{exc}; the cached {group} reset "
+                    f"({soonest.astimezone():%b %d %H:%M}) is more than one "
+                    f"window old, so even the next one it implies has passed "
+                    "and there is no telling where the window stands") from exc
+            print(f"note: {exc}; the cached {group} reset "
+                  f"({soonest.astimezone():%b %d %H:%M}) has passed, so the "
+                  f"window turned over then and the next is no sooner than "
+                  f"{rolled.astimezone():%b %d %H:%M}", file=sys.stderr)
+            return (rolled - _now()).total_seconds() / 3600.0, True
         print(f"note: {exc}; using the cached {group} reset "
               f"{soonest.astimezone():%b %d %H:%M}", file=sys.stderr)
     else:
         _cache_write(f"{group}.resets_at", soonest.isoformat())
-    return (soonest - _now()).total_seconds() / 3600.0
+    return (soonest - _now()).total_seconds() / 3600.0, False
 
 
 def _live_resets_at(group):
@@ -346,6 +382,54 @@ def self_test():
     return 1 if failures else 0
 
 
+def reset_self_test():
+    """Prove what resets_in_hours() does when the API stops naming the reset.
+
+    Pinned because the failure it fixes was silent in the worst way: the job
+    alerted a human at 05:05 on reset morning saying it could not tell where the
+    window stood, an hour after the window had visibly turned over in its own
+    cache. The three cases below are the three shapes that exist, and the third
+    is the one that must never become "spend".
+    """
+    global _live_resets_at, _cache_read
+    live, read, err = _live_resets_at, _cache_read, sys.stderr
+    now = _now()
+    h = datetime.timedelta(hours=1)
+    week = WINDOW_LENGTH_HOURS["weekly"]
+    cases = [
+        # label, cached stamp relative to now, expected (hours, derived)
+        ("a cached stamp still ahead of us is a fact", 96 * h, (96.0, False)),
+        ("a stamp that just passed means the window turned over then, and the "
+         "next one is a window later", -1 * h, (week - 1, True)),
+        ("a stamp more than a window old implies nothing", -(week + 1) * h,
+         None),
+    ]
+    failures = []
+    try:
+        def unreachable(_group):
+            raise RuntimeError("no weekly resets_at in response: ['limits']")
+        _live_resets_at = unreachable
+        sys.stderr = io.StringIO()
+        for label, offset, want in cases:
+            _cache_read = lambda o=offset: {
+                "weekly.resets_at": {"value": (now + o).isoformat(),
+                                     "at": now.isoformat()}}
+            try:
+                hours, derived = resets_in_hours()
+                got = (round(hours), derived)
+            except READ_ERRORS:
+                got = None
+            if want is not None:
+                want = (round(want[0]), want[1])
+            if got != want:
+                failures.append(f"{label}: got {got!r}, want {want!r}")
+    finally:
+        _live_resets_at, _cache_read, sys.stderr = live, read, err
+    for f in failures:
+        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
+    return 1 if failures else 0
+
+
 def main():
     group = "weekly"
     if "--group" in sys.argv:
@@ -355,8 +439,8 @@ def main():
                   f"{', '.join(sorted(LEGACY_FIELD))}", file=sys.stderr)
             return 2
     if "--self-test" in sys.argv:
-        ok = self_test()
-        print("gate self-test: 4 cases pass" if ok == 0 else "gate self-test FAILED")
+        ok = self_test() or reset_self_test()
+        print("gate self-test: 7 cases pass" if ok == 0 else "gate self-test FAILED")
         return ok
     if "--gate" in sys.argv:
         # A verdict, not a number, and never an empty string: a caller that has
@@ -368,9 +452,14 @@ def main():
     want = "resets" if "--resets-in" in sys.argv else "usage"
     try:
         if want == "resets":
-            print(f"{resets_in_hours(group):.1f}")
-        else:
-            print(f"{usage_pct(group):.0f}")
+            hours, derived = resets_in_hours(group)
+            print(f"{hours:.1f}")
+            # Exit 3, not 0: the number is a lower bound inferred from a window
+            # that has demonstrably turned over, not a stamp anybody handed us.
+            # A caller that spends real quota on the answer has to be able to
+            # tell the difference, and stdout is a float either way.
+            return 3 if derived else 0
+        print(f"{usage_pct(group):.0f}")
     except READ_ERRORS as exc:
         print(f"cannot read {group} {want}: {exc}", file=sys.stderr)
         return 2

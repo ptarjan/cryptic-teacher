@@ -78,9 +78,21 @@ echo "=== cryptic-teacher pre-reset backfill $(date '+%Y-%m-%d %H:%M') ==="
 # queryable fact is always the wrong model. So: ask, and if the answer is "not
 # yet", exit having spent nothing. This job is now a poll, not an appointment —
 # see the plist, which fires it hourly precisely because the answer moves.
+#
+# Exit 3 means the answer is derived rather than read: the API had turned the
+# window over without re-stamping it, so the number is one window length past
+# the reset we last saw. That is trustworthy in exactly one direction. It can
+# say "not the pre-reset hour" — the window just started, so of course it isn't
+# — and it must never say "spend", because spending an ungated hour on an
+# inferred reset time is the hard-coded 04:00 all over again, aimed at a guess.
 resets_in=$(python3 tools/weekly_usage.py --resets-in)
+resets_rc=$?
 if [ -z "$resets_in" ]; then
   alert "pre-reset backfill can't read when the weekly window resets, so it can't tell whether this is the hour to spend the remainder. Skipped — see .prereset.log. Nothing is being backfilled until this reads again."
+  exit 1
+fi
+if [ "$resets_rc" = 3 ] && awk "BEGIN{exit !($resets_in <= $WINDOW_HOURS)}"; then
+  alert "pre-reset backfill thinks the weekly window resets in ${resets_in}h, but that is inferred from a reset the API stopped reporting rather than read from it — and it will not spend an ungated hour of inference on a guess. Skipped; see .prereset.log."
   exit 1
 fi
 
