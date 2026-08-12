@@ -30,7 +30,33 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHAIR",
+    "definition": "president",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CH",
+     "AIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "CH",
+      "note": "ch is how a chess scoresheet writes check"
+     },
+     {
+      "clueFragment": "appearance",
+      "gives": "AIR",
+      "note": "an air is the appearance someone gives off"
+     }
+    ],
+    "walkthrough": "Two pieces of standing vocabulary: ch from the chess board, and air for the manner a person presents. The surface pretends to be about vetting a candidate.",
+    "definitionFit": "The chair of a meeting or committee is the person presiding over it, so 'president' names the same office by its other title."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +77,32 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "CRASHBARRIER",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "CRASH BARRIER",
+    "definition": "it can reduce accidents",
+    "indicators": [
+     "Spooner lecturing"
+    ],
+    "pieces": [
+     "CRASH",
+     "BARRIER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrogant",
+      "gives": "CRASH",
+      "note": "arrogant = brash, which gives up its B and takes a C back"
+     },
+     {
+      "clueFragment": "airline",
+      "gives": "BARRIER",
+      "note": "an airline is a carrier; strip the C off the front and put the B there"
+     }
+    ],
+    "walkthrough": "A spoonerism swaps the opening sounds of two words — brash carrier is what you say before the swap. The Reverend's name is the standing signal to do it.",
+    "definitionFit": "A crash barrier is the steel rail along a road or central reservation that stops vehicles leaving the carriageway, which is how it keeps the toll down."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +123,26 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALLOWEDIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALLOWED IN",
+    "definition": "Admitted",
+    "indicators": [
+     "drunk"
+    ],
+    "anagram": {
+     "fodder": "A LONE WILD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a lone wild",
+      "gives": "ALLOWEDIN",
+      "note": "an anagram of A LONE WILD, stirred by 'drunk'"
+     }
+    ],
+    "walkthrough": "'Drunk' is doing the shuffling rather than describing the loner — the surface would much rather you read it as a sad little scene at a bar.",
+    "definitionFit": "To be allowed in is to be admitted: granted entry past a door, a bouncer or a border, in the everyday phrasing rather than the formal one."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +159,36 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROOST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ROOST",
+    "definition": "resting area",
+    "indicators": [
+     "part of"
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "pieces": [
+     "ROO",
+     "S",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "base",
+      "gives": "ROOT",
+      "note": "the root of something is its base — the wrapper"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S = Southern, as on a compass or a map"
+     }
+    ],
+    "walkthrough": "'Base' means root here, not the bottom of anything, while the surface offers an army camp. Compass letters turn up in a clue or two most days.",
+    "definitionFit": "A roost is the perch birds settle on for the night, so 'resting area' names it by its purpose — the sense behind 'coming home to roost'."
+   }
   },
   {
    "id": "4-across",
@@ -106,7 +205,32 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIDESTEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SIDESTEP",
+    "definition": "Avoid",
+    "indicators": [
+     "on"
+    ],
+    "pieces": [
+     "SIDE",
+     "STEP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "border",
+      "gives": "SIDE",
+      "note": "a border is the side of something, its edge"
+     },
+     {
+      "clueFragment": "part of process",
+      "gives": "STEP",
+      "note": "a process is made of steps"
+     }
+    ],
+    "walkthrough": "In an across clue 'on' means 'after', so the step goes on the side and the side is written first. Down clues use the same word the other way round.",
+    "definitionFit": "To sidestep something is to step aside from it, which is what dodging a tackle or a question amounts to — the rugby move gave English the metaphor."
+   }
   },
   {
    "id": "4-down",
@@ -127,7 +251,30 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEESAWING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SEE-SAWING",
+    "definition": "type of irresolute behaviour",
+    "indicators": [],
+    "pieces": [
+     "SEE",
+     "SAWING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "SEE",
+      "note": "to notice something is to see it"
+     },
+     {
+      "clueFragment": "cutting",
+      "gives": "SAWING",
+      "note": "cutting with a saw"
+     }
+    ],
+    "walkthrough": "The (3-6) enumeration announces a hyphen, which is the hint that the two halves stay separate words. The surface pretends a notice is being trimmed.",
+    "definitionFit": "See-sawing is swinging back and forth between two positions like the playground plank, which is exactly what somebody who cannot make up their mind does."
+   }
   },
   {
    "id": "5-down",
@@ -144,7 +291,32 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOHA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "DOHA",
+    "definition": "city",
+    "indicators": [
+     "Half of"
+    ],
+    "pieces": [
+     "DO",
+     "HA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dons",
+      "gives": "DO",
+      "note": "the front half of DOns"
+     },
+     {
+      "clueFragment": "hate",
+      "gives": "HA",
+      "note": "the front half of HAte"
+     }
+    ],
+    "walkthrough": "'Half of' governs both words, not just the one it stands in front of. One indicator doing two jobs is most of the difficulty in a four-letter clue.",
+    "definitionFit": "Doha is the capital of Qatar and its main Gulf port, so 'city' is the plainest sort of definition: the class of thing the name belongs to."
+   }
   },
   {
    "id": "6-down",
@@ -161,7 +333,33 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRUTABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "SCRUTABLE",
+    "definition": "Easy to read",
+    "indicators": [
+     "report of",
+     "on"
+    ],
+    "pieces": [
+     "SCRU",
+     "TABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "report of cheat",
+      "gives": "SCRU",
+      "note": "to screw someone is to cheat them; 'report of' asks for the sound, not the spelling"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "board = table, as in bed and board"
+     }
+    ],
+    "walkthrough": "In a down clue one piece sits 'on' another, so the sound goes above. You will have met the answer far more often wearing its IN- prefix.",
+    "definitionFit": "Scrutable means open to scrutiny — able to be made out and understood — which is why a face that gives nothing away is called inscrutable."
+   }
   },
   {
    "id": "7-down",
@@ -178,7 +376,33 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERODE",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ERODE",
+    "definition": "crumble",
+    "indicators": [
+     "regularly"
+    ],
+    "linkWords": [
+     "includes"
+    ],
+    "pieces": [
+     "E",
+     "R",
+     "O",
+     "D",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weirdo’s diet",
+      "gives": "ERODE",
+      "note": "the even letters of wEiRdO’s DiEt, taken 'regularly'"
+     }
+    ],
+    "walkthrough": "'Regularly' asks for every other letter — the even ones here. Count through the letters and ignore the apostrophe: punctuation never joins in.",
+    "definitionFit": "To erode is to wear away by degrees, and a cliff or a majority that crumbles is doing just that — the same slow loss, literal or figurative."
+   }
   },
   {
    "id": "8-across",
@@ -200,7 +424,39 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALLTOGETHERNOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALL TOGETHER NOW",
+    "definition": "invitation to join in",
+    "indicators": [],
+    "linkWords": [
+     "get"
+    ],
+    "pieces": [
+     "ALL",
+     "TOGETHER",
+     "NOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Every one",
+      "gives": "ALL",
+      "note": "every one of them = all"
+     },
+     {
+      "clueFragment": "gathered",
+      "gives": "TOGETHER",
+      "note": "gathered = together, in one place"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "NOW",
+      "note": "the present is now"
+     }
+    ],
+    "walkthrough": "Three plain synonyms in a row; the difficulty is that the surface reads as a sentence about a party. 'Present' as a time rather than a gift is the pivot.",
+    "definitionFit": "'All together now!' is the call a conductor or a singalong leader makes to bring everybody in at once, so the phrase is itself the invitation."
+   }
   },
   {
    "id": "9-down",
@@ -222,7 +478,30 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "STOPTHEFIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STOP THE FIGHT",
+    "definition": "Finish quarrel",
+    "definition2": "counting to ten?",
+    "indicators": [],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish quarrel",
+      "gives": "STOPTHEFIGHT",
+      "note": "the plain reading: bring the row to an end"
+     },
+     {
+      "clueFragment": "counting to ten?",
+      "gives": "STOPTHEFIGHT",
+      "note": "the referee's count over a floored boxer — reach ten and the bout is over"
+     }
+    ],
+    "walkthrough": "The clue splits after 'quarrel'. The question mark admits the second half is playful: a referee's ten-count is not a synonym so much as the act itself.",
+    "definitionFit": "To stop the fight is to finish a quarrel in plain words, and in boxing the referee's count of ten is exactly how a contest is brought to an end."
+   }
   },
   {
    "id": "10-across",
@@ -243,7 +522,30 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "HOWSTHAT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HOW'S THAT",
+    "definition": "Is it ok",
+    "definition2": "ask for a repeat",
+    "indicators": [],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is it ok",
+      "gives": "HOWSTHAT",
+      "note": "asking whether what you have just done will do"
+     },
+     {
+      "clueFragment": "ask for a repeat",
+      "gives": "HOWSTHAT",
+      "note": "the same words also mean 'say that again'"
+     }
+    ],
+    "walkthrough": "One question with two jobs: it asks for approval, and it asks the speaker to go back. Cricketers use a third sense, appealing to the umpire.",
+    "definitionFit": "'How's that?' invites a verdict on what you have just done, and it is also the standard request to have something said over again."
+   }
   },
   {
    "id": "11-across",
@@ -264,7 +566,37 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATREST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AT REST",
+    "definition": "Relaxed",
+    "indicators": [
+     "enters"
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "A",
+     "T",
+     "R",
+     "EST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a challenge",
+      "gives": "ATEST",
+      "note": "a challenge is a test, with its 'a' in front — the wrapper"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R = Republican, as printed beside a US candidate's name"
+     }
+    ],
+    "walkthrough": "R for Republican, D for Democrat: standard shorthand whenever a clue turns American. Note the answer breaks 2,4 while the wordplay breaks elsewhere.",
+    "definitionFit": "Something at rest is still and untroubled — the phrase covers a body that has stopped moving and a mind put at ease, which is what 'relaxed' asks for."
+   }
   },
   {
    "id": "12-across",
@@ -281,7 +613,36 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABDUCTING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABDUCTING",
+    "definition": "Carrying off",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "B",
+     "DUCTING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "lifted straight into the answer"
+     },
+     {
+      "clueFragment": "second rate",
+      "gives": "B",
+      "note": "second-rate is grade B, the mark below A"
+     },
+     {
+      "clueFragment": "set of pipes",
+      "gives": "DUCTING",
+      "note": "ducting is the run of pipes in a building"
+     }
+    ],
+    "walkthrough": "'Second rate' shrinking to a single letter is the piece that hides best here. The surface sells you plumbing; the answer is a kidnapping.",
+    "definitionFit": "Abducting is carrying a person off against their will, so the definition is the literal action the word names, offered in the same -ing form."
+   }
   },
   {
    "id": "13-down",
@@ -298,7 +659,34 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANNIBALS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CANNIBALS",
+    "definition": "They’ll have him for breakfast",
+    "definitionNote": "The definition is a sentence about the answer rather than a noun you could swap in: 'They' are the people the answer names, and the writer of the wordplay is what they are eating.",
+    "indicators": [
+     "blocking"
+    ],
+    "pieces": [
+     "CAN",
+     "NIB",
+     "ALS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waterways",
+      "gives": "CANALS",
+      "note": "canals are man-made waterways — the wrapper"
+     },
+     {
+      "clueFragment": "Writer",
+      "gives": "NIB",
+      "note": "the nib is the part of a pen that does the writing"
+     }
+    ],
+    "walkthrough": "'Writer' meaning the pen's nib rather than the person is the step that unlocks it, and the question mark warns you the waterways are not really blocked.",
+    "definitionFit": "Cannibals eat human flesh, so the writer caught in the wordplay is literally what is for breakfast — the definition names them by what they would do to him."
+   }
   },
   {
    "id": "14-down",
@@ -315,7 +703,29 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUILELESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GUILELESS",
+    "definition": "natural",
+    "indicators": [
+     "circling"
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "anagram": {
+     "fodder": "I SEE GULLS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I see gulls",
+      "gives": "GUILELESS",
+      "note": "an anagram of I SEE GULLS, set 'circling'"
+     }
+    ],
+    "walkthrough": "'Circling' does the shuffling while the surface has birds wheeling overhead. 'Natural' here means artless and unaffected — nothing to do with nature.",
+    "definitionFit": "Guileless means without guile: open, unaffected, incapable of cunning. That is 'natural' in the sense of an unforced manner, not of the outdoors."
+   }
   },
   {
    "id": "15-across",
@@ -336,7 +746,30 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "BIGUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BIG UP",
+    "definition": "Exaggerate",
+    "indicators": [],
+    "pieces": [
+     "BIG",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "BIG",
+      "note": "large = big"
+     },
+     {
+      "clueFragment": "raise",
+      "gives": "UP",
+      "note": "to up something is to raise it — up the ante"
+     }
+    ],
+    "walkthrough": "Two everyday words nose to tail. The answer is modern slang — to big someone up is to talk them up — which lets the surface pose as a pay rise.",
+    "definitionFit": "To big something up is to praise it beyond its worth, so 'exaggerate' catches the informal verb's meaning in one formal word."
+   }
   },
   {
    "id": "16-down",
@@ -353,7 +786,26 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLAMORISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GLAMORISE",
+    "definition": "Add some sparkle to",
+    "indicators": [
+     "messed with"
+    ],
+    "anagram": {
+     "fodder": "GEM SAILOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gem sailor",
+      "gives": "GLAMORISE",
+      "note": "an anagram of GEM SAILOR, 'messed with'"
+     }
+    ],
+    "walkthrough": "The British -ISE spelling is what makes the letters come out; an American -IZE would leave you a letter short. The surface has a sailor ruining a jewel.",
+    "definitionFit": "To glamorise something is to dress it up so it looks more attractive than it really is — adding sparkle in the figurative sense the definition uses."
+   }
   },
   {
    "id": "17-across",
@@ -374,7 +826,27 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "RUNIN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RUN-IN",
+    "definition": "Dispute",
+    "definition2": "arrest",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Dispute",
+      "gives": "RUNIN",
+      "note": "a run-in is a quarrel or confrontation"
+     },
+     {
+      "clueFragment": "arrest",
+      "gives": "RUNIN",
+      "note": "to run someone in is police slang for taking them into custody"
+     }
+    ],
+    "walkthrough": "A two-word clue is nearly always two definitions. Here one sense is a noun and the other a verb, and the (3-2) enumeration quietly settles the hyphen.",
+    "definitionFit": "A run-in is a quarrel or confrontation, and to run somebody in is the police's own phrase for hauling them into custody."
+   }
   },
   {
    "id": "18-across",
@@ -395,7 +867,26 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "GLIDEPATH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GLIDE PATH",
+    "definition": "aircraft’s landing approach",
+    "indicators": [
+     "disrupted"
+    ],
+    "anagram": {
+     "fodder": "PIGLET HAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Piglet had",
+      "gives": "GLIDEPATH",
+      "note": "an anagram of PIGLET HAD, 'disrupted'"
+     }
+    ],
+    "walkthrough": "The capital P is a setter's licence: Piglet reads as Pooh's friend and is only material. Nine letters is a big anagram, so write them out before you start.",
+    "definitionFit": "A glide path is the sloping line an aircraft follows down to the runway, tracked by radio on an instrument descent — the approach the definition describes."
+   }
   },
   {
    "id": "19-across",
@@ -412,7 +903,34 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYELID",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "EYELID",
+    "definition": "it obscures your vision",
+    "indicators": [
+     "Almost",
+     "during"
+    ],
+    "pieces": [
+     "E",
+     "YEL",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival",
+      "gives": "EID",
+      "note": "Eid, the Muslim festival — the wrapper"
+     },
+     {
+      "clueFragment": "cry out",
+      "gives": "YEL",
+      "note": "to cry out is to yell; 'Almost' lops the last letter off"
+     }
+    ],
+    "walkthrough": "Eid is crossword furniture worth banking, and 'almost' always takes the last letter off, never the first. The dash keeps the definition clear of the wordplay.",
+    "definitionFit": "An eyelid is the fold of skin that covers the eye when it shuts, so the definition names it by the one job it does to your sight."
+   }
   },
   {
    "id": "20-down",
@@ -429,7 +947,34 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERNIE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ERNIE",
+    "definition": "Wise man",
+    "indicators": [],
+    "linkWords": [
+     "spots"
+    ],
+    "pieces": [
+     "ERN",
+     "I",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish river",
+      "gives": "ERNE",
+      "note": "the Erne runs through Fermanagh and Donegal — the wrapper"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physicist's symbol for electric current"
+     }
+    ],
+    "walkthrough": "'Wise man' is not a sage but a man called Wise — the shorter half of Morecambe and Wise. I for current and the Erne are both standing crossword furniture.",
+    "definitionFit": "Ernie Wise was the straight man of Morecambe and Wise, so the definition points at a surname rather than at wisdom: a person named by his other name."
+   }
   },
   {
    "id": "21-across",
@@ -450,7 +995,30 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEAVEOFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LEAVE OFF",
+    "definition": "You must be joking",
+    "indicators": [],
+    "pieces": [
+     "LEAVE",
+     "OFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holiday",
+      "gives": "LEAVE",
+      "note": "leave is time off work — annual leave, compassionate leave"
+     },
+     {
+      "clueFragment": "cancelled",
+      "gives": "OFF",
+      "note": "an event that is off has been cancelled"
+     }
+    ],
+    "walkthrough": "The answer is an exclamation, which is why the definition is a whole sentence rather than a synonym. Both halves are ordinary words in ordinary senses.",
+    "definitionFit": "'Leave off!' is the British exclamation for 'stop it, you can't be serious', so the definition quotes what a speaker would say instead of describing it."
+   }
   },
   {
    "id": "22-down",
@@ -467,7 +1035,30 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VOTES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "VOTES",
+    "definition": "ballots",
+    "indicators": [
+     "Partially",
+     "over"
+    ],
+    "subReversals": [
+     {
+      "from": "SETOV",
+      "to": "VOTES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apologise to Vatican",
+      "gives": "VOTES",
+      "note": "apologiSE TO Vatican holds SETOV, which 'over' turns round"
+     }
+    ],
+    "walkthrough": "Two instructions stacked: take part of the text, then turn what you took round. The run starts in the middle of a word, which is what makes it hard to spot.",
+    "definitionFit": "Votes are the individual choices cast in an election, which is what a box of ballots holds — the paper and the decision marked on it."
+   }
   },
   {
    "id": "23-down",
@@ -484,7 +1075,29 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MERC",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "MERC",
+    "definition": "car",
+    "indicators": [
+     "Starts to"
+    ],
+    "pieces": [
+     "M",
+     "E",
+     "R",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manufacture exceptionally reliable cable",
+      "gives": "MERC",
+      "note": "the first letter of each of the four words"
+     }
+    ],
+    "walkthrough": "'Starts to' flags initials, and the four words behind it are chosen so the surface can talk about a cable car — a vehicle the answer has nothing to do with.",
+    "definitionFit": "A Merc is the everyday British shortening of Mercedes, so 'car' defines it by the class of vehicle the nickname stands for."
+   }
   },
   {
    "id": "24-across",
@@ -505,7 +1118,35 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     ]
    },
    "solution": "ENGAGEMENTRING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ENGAGEMENT RING",
+    "definition": "a sign of serious commitment",
+    "indicators": [
+     "after"
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "ENGAGEMENT",
+     "RING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date",
+      "gives": "ENGAGEMENT",
+      "note": "an engagement is an appointment in the diary"
+     },
+     {
+      "clueFragment": "Call",
+      "gives": "RING",
+      "note": "to call someone on the phone is to ring them"
+     }
+    ],
+    "walkthrough": "'After' sends the ring to the back even though 'Call' opens the clue — the first thing you read is the last thing you write.",
+    "definitionFit": "An engagement ring is the ring given when a couple agree to marry, the public token that the promise has been made and is meant seriously."
+   }
   },
   {
    "id": "25-across",
@@ -522,7 +1163,30 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEDSOCKS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BEDSOCKS",
+    "definition": "nightwear",
+    "definitionNote": "Bedsocks come as a pair and the answer is plural, while 'nightwear' is a mass noun covering anything worn in bed — the setter names the category rather than matching the number.",
+    "indicators": [
+     "turned out"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "DECK BOSS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Deck boss",
+      "gives": "BEDSOCKS",
+      "note": "an anagram of DECK BOSS, 'turned out'"
+     }
+    ],
+    "walkthrough": "'Turned out' does double duty on the surface — dressed, and rearranged — while the deck boss, a bosun, never reaches the answer at all.",
+    "definitionFit": "Bedsocks are socks worn in bed to keep the feet warm, so they sit squarely inside nightwear, the general word for what you sleep in."
+   }
   },
   {
    "id": "26-across",
@@ -539,7 +1203,24 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWEET",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SWEET",
+    "definition": "Tart ironically described like this on menu",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Tart",
+      "note": "not the sharpness the word first offers, nor the slang for a person: the pastry, which is the thing a menu is listing"
+     },
+     {
+      "clueFragment": "ironically described like this on menu",
+      "note": "a British menu heads the pudding course with a word naming the very quality a tart hasn't got"
+     }
+    ],
+    "walkthrough": "A cryptic definition: the menu's word for the pudding course names the one flavour a tart is not, and 'ironically' is the setter owning up to the joke.",
+    "definitionFit": "On a British menu the pudding course is headed 'Sweet', so a tart belongs under it — the answer names its category while meaning the opposite of its taste."
+   }
   }
  ]
 } /*JSON-END*/;
