@@ -93,13 +93,21 @@ fi
 # top of the site (where people actually land) is permanently unannotated while
 # the job grinds through last month. Newest-first costs nothing: the backlog
 # still drains, just from the other end.
+#
+# Newest by DATE, which the index carries, not by puzzle number. Sorting on the
+# number silently means "Guardian dailies first, forever": every 30xxx outranks
+# every quiptic 12xxx and every Everyman 4xxx no matter when it ran, so those
+# two series could never reach the head of the queue while a single Guardian was
+# pending — which is exactly what happened, all 16 quiptics unannotated
+# including the day's own (found 2026-08-12). Number is only a tie-break, for
+# the several series that publish on the same morning.
 ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 pending=$(python3 - "$ANNOTATE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
-todo = sorted((p["number"] for p in idx["puzzles"]
+todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")), reverse=True)
-print(" ".join(str(n) for n in todo[:int(sys.argv[1])]))
+print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
 EOF
 )
 
