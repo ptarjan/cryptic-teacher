@@ -30,7 +30,43 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEASIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "SEASIDE",
+    "definition": "holiday area",
+    "indicators": [
+     "Start to",
+     "inside"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "S",
+     "EAS",
+     "ID",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "survey",
+      "gives": "S",
+      "note": "'Start to' asks for the first letter of survey"
+     },
+     {
+      "clueFragment": "facility",
+      "gives": "EASE",
+      "note": "facility means ease — the knack of doing something without effort"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "your papers are your ID, and they go inside EASE"
+     }
+    ],
+    "walkthrough": "'Facility' is the trap: not a building but the noun ease. Papers for ID is a convention you will meet most weeks, and the surface is busy pretending to be a hotel inspection.",
+    "definitionFit": "In British usage the seaside is the coast thought of as a resort — piers, deckchairs and boarding houses — rather than the shoreline as geography."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +83,27 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESTONIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ESTONIA",
+    "definition": "Russian neighbour",
+    "indicators": [
+     "shuffling",
+     "holding"
+    ],
+    "anagram": {
+     "fodder": "IN SEAT O"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in seat holding nothing",
+      "gives": "ESTONIA",
+      "note": "the letters of IN SEAT shuffled, with the O of 'nothing' held among them"
+     }
+    ],
+    "walkthrough": "Nothing is the letter O — the single most useful equivalence in the game. The surface sells you a restless passenger so that 'shuffling' reads as fidgeting.",
+    "definitionFit": "Estonia shares a long land border with Russia, so the clue defines it by example: one of several countries that would answer to the phrase."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +124,32 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEWUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "SEW UP",
+    "definition": "Conclude",
+    "indicators": [
+     "reportedly"
+    ],
+    "pieces": [
+     "SEW",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in this way",
+      "gives": "SEW",
+      "note": "'in this way' is SO, and 'reportedly' asks for what SO sounds like"
+     },
+     {
+      "clueFragment": "ahead",
+      "gives": "UP",
+      "note": "to be up in a match is to be ahead in it"
+     }
+    ],
+    "walkthrough": "A homophone is the one device where the letters on the page are deliberately the wrong ones: you hear SO and you write SEW.",
+    "definitionFit": "To sew up a deal is to settle it beyond reopening — the tailor's last seam borrowed as a picture of finishing something off."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +166,26 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DEPOSIT",
+    "definition": "Put down",
+    "indicators": [
+     "disbandment of"
+    ],
+    "anagram": {
+     "fodder": "TOP SIDE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "top side",
+      "gives": "DEPOSIT",
+      "note": "the letters of TOP SIDE, broken up by 'disbandment of'"
+     }
+    ],
+    "walkthrough": "'Disbandment' does the shuffling while the surface talks football: a top side being broken up is exactly the sentence a sports page would print.",
+    "definitionFit": "To deposit something is to set it down and leave it there — a coat, a payment at the bank, or the silt a river drops on its bed."
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +202,41 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MALAISE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MALAISE",
+    "definition": "Dejection",
+    "indicators": [
+     "about",
+     "in"
+    ],
+    "pieces": [
+     "M",
+     "ALA",
+     "I",
+     "S",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Middle East",
+      "gives": "ME",
+      "note": "ME is the standard abbreviation for the Middle East — the outer wrapper"
+     },
+     {
+      "clueFragment": "sadly",
+      "gives": "ALAS",
+      "note": "alas is how you say sadly in one word, and it sits inside ME"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I = island, as printed on a chart, and it goes inside ALAS"
+     }
+    ],
+    "walkthrough": "Two containers nested one in the other, and both wrappers are abbreviations worth banking: I for island on any map, ME for the Middle East on any news desk.",
+    "definitionFit": "Malaise is a low, sapping unease you feel in the body as much as the mood, which is why doctors and political columnists both reach for it."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +253,33 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSETS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASSETS",
+    "definition": "Advantages",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "AS",
+     "SETS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as and when are interchangeable — 'as I arrived'"
+     },
+     {
+      "clueFragment": "groups",
+      "gives": "SETS",
+      "note": "a set is a group of things collected together"
+     }
+    ],
+    "walkthrough": "Two very ordinary words doing wordplay duty, which is what makes the join hard to see: nothing in the surface announces that a seam runs through it.",
+    "definitionFit": "An asset is anything that counts in your favour — on a balance sheet or in a team — so the definition names them by what having them buys you."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +300,26 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATPRESENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AT PRESENT",
+    "definition": "currently",
+    "indicators": [
+     "misused"
+    ],
+    "anagram": {
+     "fodder": "PARTS TEEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Parts teen",
+      "gives": "ATPRESENT",
+      "note": "the nine letters of PARTS TEEN, rearranged by 'misused'"
+     }
+    ],
+    "walkthrough": "The (2,7) enumeration is the tell: a nine-letter answer breaking after two letters is nearly always a short phrase, which narrows the guessing enormously.",
+    "definitionFit": "'At present' is the adverbial phrase for right now, so it drops straight into a sentence wherever 'currently' would stand."
+   }
   },
   {
    "id": "8-down",
@@ -161,7 +340,33 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
     ]
    },
    "solution": "SORTOUT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SORT OUT",
+    "definition": "Separate",
+    "indicators": [
+     "captivated by"
+    ],
+    "pieces": [
+     "S",
+     "OR",
+     "TOUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dark-coloured beer",
+      "gives": "STOUT",
+      "note": "stout is the black beer, and it is doing the captivating"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR is Other Ranks, the army's non-officers"
+     }
+    ],
+    "walkthrough": "OR for Other Ranks is one of the few military abbreviations that earns its keep in crosswords. 'Captivated by' is a capture, not a compliment.",
+    "definitionFit": "To sort things out is to divide them into their proper piles — the literal laundry sense, before the phrase drifted into meaning 'fix'."
+   }
   },
   {
    "id": "9-down",
@@ -182,7 +387,29 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLOODRELATIVE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BLOOD RELATIVE",
+    "definition": "Sister, say",
+    "indicators": [
+     "when dressed"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "A BOLDER VIOLET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a bolder violet",
+      "gives": "BLOODRELATIVE",
+      "note": "thirteen letters of A BOLDER VIOLET, rearranged"
+     }
+    ],
+    "walkthrough": "'Say' is the little flag that says you are being given one example rather than a synonym. 'When dressed' shuffles the letters while the surface arranges flowers.",
+    "definitionFit": "A sister is one instance of a blood relative — kin by birth rather than by marriage — and 'say' admits that cousins and uncles would do as well."
+   }
   },
   {
    "id": "10-across",
@@ -199,7 +426,23 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEW",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "STEW",
+    "definition": "dish cooked in liquid",
+    "indicators": [
+     "Some"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paste with",
+      "gives": "STEW",
+      "note": "the answer runs across the gap: paSTE With"
+     }
+    ],
+    "walkthrough": "'Some' is the standing signal to take only part of what follows, and the answer straddles two words, which is exactly where the eye refuses to look.",
+    "definitionFit": "A stew is meat and vegetables simmered slowly in their own broth, so the definition names it by its method — the thing that separates it from a roast."
+   }
   },
   {
    "id": "11-across",
@@ -220,7 +463,33 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
     ]
    },
    "solution": "POLESAPART",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "POLES APART",
+    "definition": "with nothing in common?",
+    "indicators": [],
+    "linkWords": [
+     "given"
+    ],
+    "pieces": [
+     "POLES",
+     "APART"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern Europeans",
+      "gives": "POLES",
+      "note": "Poles are the people of Poland"
+     },
+     {
+      "clueFragment": "a role",
+      "gives": "APART",
+      "note": "an actor's role is a part, so 'a role' is A PART"
+     }
+    ],
+    "walkthrough": "The joke is that the Poles of the first half become the poles of the globe in the answer, and the space quietly moves one letter to the left.",
+    "definitionFit": "Two things poles apart are as far from each other as the north and south poles, the greatest distance the earth offers — hence no shared ground at all."
+   }
   },
   {
    "id": "12-across",
@@ -237,7 +506,42 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNIPES",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + outer letters",
+    "answer": "SNIPES",
+    "definition": "wading birds",
+    "indicators": [
+     "In retreat",
+     "edges of"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SNIP",
+     "ES"
+    ],
+    "subReversals": [
+     {
+      "from": "PINS",
+      "to": "SNIP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secures",
+      "gives": "SNIP",
+      "note": "secures = PINS, turned round by 'In retreat'"
+     },
+     {
+      "clueFragment": "estuaries",
+      "gives": "ES",
+      "note": "the edges of the word, its first and last letters"
+     }
+    ],
+    "walkthrough": "'Secures' is the noun-verb trap: it means fastens with pins, and PINS is what gets turned round. An across entry can only retreat to the left.",
+    "definitionFit": "Snipe are long-billed birds that feed by probing soft mud at the water's edge, which is what places them among the waders alongside curlews and godwits."
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +563,40 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTHEHOP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ON THE HOP",
+    "definition": "Unprepared",
+    "indicators": [
+     "somehow",
+     "touring"
+    ],
+    "pieces": [
+     "ONTHE",
+     "H",
+     "OP"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "HOPE NOT",
+      "gives": "ONTHEOP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hope not",
+      "gives": "ONTHEOP",
+      "note": "seven letters of HOPE NOT, rearranged"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the register's abbreviation for husband, and it tours into the middle"
+     }
+    ],
+    "walkthrough": "The question mark after 'husband' is the setter smiling at his own surface, where a wife is doubting one. H for husband comes straight from the family tree.",
+    "definitionFit": "Catch someone on the hop and you catch them off guard: the phrase pictures a person mid-skip, one foot in the air and no way to react."
+   }
   },
   {
    "id": "14-across",
@@ -276,7 +613,42 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANDATORY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MANDATORY",
+    "definition": "Required",
+    "indicators": [],
+    "pieces": [
+     "M",
+     "AND",
+     "A",
+     "TORY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is the standard shorthand for money, as in the money supply"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "with is being used as a word meaning and, not as joinery"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own a"
+     },
+     {
+      "clueFragment": "rightwinger",
+      "gives": "TORY",
+      "note": "a Tory is the British right-winger of choice"
+     }
+    ],
+    "walkthrough": "Four pieces in five words, and the sting is 'with': everywhere else in the puzzle it would just be glue, and here it is three letters of the answer.",
+    "definitionFit": "Something mandatory is demanded by rule rather than merely expected — compulsory, the way a court order or a uniform policy is."
+   }
   },
   {
    "id": "15-down",
@@ -293,7 +665,44 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISSIDENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "DISSIDENT",
+    "definition": "Rebel",
+    "indicators": [
+     "among"
+    ],
+    "pieces": [
+     "D",
+     "IS",
+     "SIDE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the language code for Dutch"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own is, taken at face value"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team in every British sports report"
+     },
+     {
+      "clueFragment": "conservationists",
+      "gives": "NT",
+      "note": "the National Trust, the crossword's usual conservationists"
+     }
+    ],
+    "walkthrough": "Both outer pieces are abbreviations rather than words, which is why the clue reads so smoothly: nothing in the surface admits that D and NT are letters.",
+    "definitionFit": "A dissident is someone who publicly refuses to go along with the regime they live under, so 'rebel' names the stance rather than any uprising."
+   }
   },
   {
    "id": "16-across",
@@ -310,7 +719,32 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PETTY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PETTY",
+    "definition": "lacking in weight?",
+    "indicators": [
+     "no end of"
+    ],
+    "pieces": [
+     "PE",
+     "TTY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attractive",
+      "gives": "PRETTY",
+      "note": "attractive = pretty, about to lose a letter"
+     },
+     {
+      "clueFragment": "colour",
+      "gives": "R",
+      "note": "the end of the word colour is R — that is the letter that goes"
+     }
+    ],
+    "walkthrough": "'No end of colour' is asking for the last letter of the word itself, not for a shade. The dash marks where the wordplay stops and the definition begins.",
+    "definitionFit": "A petty objection carries no weight — it is trivial, too slight to matter — and the question mark concedes that the weighing here is figurative."
+   }
   },
   {
    "id": "17-across",
@@ -327,7 +761,32 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "SMASH",
+    "definition": "Break",
+    "indicators": [
+     "odd parts of"
+    ],
+    "pieces": [
+     "SM",
+     "ASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "SM",
+      "note": "the odd letters of sOmE, first and third"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a tree"
+     }
+    ],
+    "walkthrough": "ASH belongs with ELM and YEW in the small set of trees setters keep to hand. 'Some' is being taken apart letter by letter rather than meaning 'a few'.",
+    "definitionFit": "To smash something is to break it violently into pieces, so 'break' is the same act with the noise and the force taken out of it."
+   }
   },
   {
    "id": "18-down",
@@ -344,7 +803,41 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASONRY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "MASONRY",
+    "definition": "Stonework",
+    "indicators": [
+     "discontented"
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "pieces": [
+     "MA",
+     "SON",
+     "RY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is mother, informally"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is one sort of child"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "RY",
+      "note": "the word loses its contents and keeps only its outside letters"
+     }
+    ],
+    "walkthrough": "'Discontented' is the elegant one here: a word emptied of its contents keeps only its outside letters. Its cousins do the same job — hollow, gutted, heartless, empty.",
+    "definitionFit": "Masonry is what a mason builds — stone cut, laid and mortared into a wall — so the definition names the finished work by its material."
+   }
   },
   {
    "id": "19-across",
@@ -361,7 +854,27 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLIENTELE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CLIENTELE",
+    "definition": "customers",
+    "definitionNote": "Clientele is a collective singular — one body made up of many people — so the plural definition names the members while the answer names the group they form.",
+    "indicators": [
+     "to move"
+    ],
+    "anagram": {
+     "fodder": "TELL NIECE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tell niece",
+      "gives": "CLIENTELE",
+      "note": "the nine letters of TELL NIECE, rearranged"
+     }
+    ],
+    "walkthrough": "'To move' works both ways at once: on the surface it is persuading a relative to shift house, and underneath it is the instruction to rearrange letters.",
+    "definitionFit": "A clientele is the whole body of people who regularly buy from a business or use a professional, so the definition points at its members."
+   }
   },
   {
    "id": "20-down",
@@ -378,7 +891,27 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXCUSES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "EXCUSES",
+    "definition": "Overlooks",
+    "definition2": "poor grounds?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Overlooks",
+      "gives": "EXCUSES",
+      "note": "to excuse a lapse is to overlook it — the verb reading"
+     },
+     {
+      "clueFragment": "poor grounds?",
+      "gives": "EXCUSES",
+      "note": "the reasons people offer for a failure — the noun reading"
+     }
+    ],
+    "walkthrough": "Four words, no indicators, and the split falls after the first one. The question mark is doing the work of admitting that not every excuse is a poor one.",
+    "definitionFit": "To excuse a fault is to overlook it, and excuses in the plural are the feeble reasons offered for one — the verb forgives, the noun is what gets offered."
+   }
   },
   {
    "id": "21-down",
@@ -395,7 +928,43 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEISURE",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "LEISURE",
+    "definition": "free time",
+    "indicators": [
+     "lately",
+     "taken in by"
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "L",
+     "E",
+     "IS",
+     "URE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enticement",
+      "gives": "LURE",
+      "note": "an enticement is a lure, and it does the taking in"
+     },
+     {
+      "clueFragment": "Employee",
+      "gives": "E",
+      "note": "'lately' asks for the last letter of Employee"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own is, following the E inside the lure"
+     }
+    ],
+    "walkthrough": "'Lately' is asking for a last letter, not telling you when — the sort of double life a short adverb leads. The whole surface reads like an HR memo.",
+    "definitionFit": "Leisure is the stretch of the day left over once work and duty are done, which is precisely the everyday phrase in the definition."
+   }
   },
   {
    "id": "22-down",
@@ -412,7 +981,38 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BANTAM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "BANTAM",
+    "definition": "small chicken",
+    "indicators": [
+     "Hold up"
+    ],
+    "pieces": [
+     "BAN",
+     "TAM"
+    ],
+    "subReversals": [
+     {
+      "from": "MATNAB",
+      "to": "BANTAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thing put on table",
+      "gives": "MAT",
+      "note": "a mat is what goes on the table under a hot dish"
+     },
+     {
+      "clueFragment": "to catch",
+      "gives": "NAB",
+      "note": "to nab someone is to catch them"
+     }
+    ],
+    "walkthrough": "In a down clue 'hold up' can only mean stand the whole assembly on its head, since there is no left or right on a vertical entry.",
+    "definitionFit": "A bantam is a miniature breed of domestic fowl kept for show and eggs — the same smallness that gave bantamweight boxing its name."
+   }
   },
   {
    "id": "23-across",
@@ -429,7 +1029,45 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPIRANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ASPIRANT",
+    "definition": "One with ambition",
+    "indicators": [
+     "to enter"
+    ],
+    "pieces": [
+     "A",
+     "S",
+     "PI",
+     "RAN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own a"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "s is the abbreviation for second, as on a stopwatch"
+     },
+     {
+      "clueFragment": "underground area",
+      "gives": "PIT",
+      "note": "a pit is an underground working, and it takes the insertion"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to manage a business is to run it — this goes inside the pit"
+     }
+    ],
+    "walkthrough": "'Managed' is past tense because RAN has to be, which is the kind of small agreement that confirms a parse. The surface is quietly about the Tube.",
+    "definitionFit": "An aspirant is someone reaching for a post or a title not yet held, so the definition names them by the reaching rather than by any achievement."
+   }
   },
   {
    "id": "24-across",
@@ -446,7 +1084,31 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANDID",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CANDID",
+    "definition": "Plain-spoken",
+    "indicators": [
+     "ignoring"
+    ],
+    "pieces": [
+     "CANDID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person standing for election",
+      "gives": "CANDIDATE",
+      "note": "someone standing for election is a candidate"
+     },
+     {
+      "clueFragment": "latest trio of characters",
+      "gives": "ATE",
+      "note": "the last three letters of CANDIDATE — the part that is ignored"
+     }
+    ],
+    "walkthrough": "'Characters' means letters here rather than people, which is the whole disguise: the surface is about a politician and the mechanism is about spelling.",
+    "definitionFit": "Someone candid says what they actually think without softening it, which is what 'plain-spoken' describes — frankness rather than simple language."
+   }
   },
   {
    "id": "25-down",
@@ -463,7 +1125,23 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NADIA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NADIA",
+    "definition": "Female",
+    "indicators": [
+     "partly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "written a diary",
+      "gives": "NADIA",
+      "note": "the name spans three words: writteN A DIAry"
+     }
+    ],
+    "walkthrough": "'Partly' is the hidden-word flag. A name straddling three words is the hardest kind to spot, because the eye reads the words and not the letters.",
+    "definitionFit": "Nadia is a woman's given name, Russian in origin and familiar from the gymnast Comaneci, so the clue defines it by example rather than by meaning."
+   }
   },
   {
    "id": "26-across",
@@ -480,7 +1158,44 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCENTIVES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + outer letters",
+    "answer": "INCENTIVES",
+    "definition": "things to spur people",
+    "indicators": [
+     "reforms",
+     "to cover",
+     "case for"
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "IN",
+     "CE",
+     "NTIVES"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "INVEST IN",
+      "gives": "INNTIVES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Invest in",
+      "gives": "INNTIVES",
+      "note": "eight letters of INVEST IN, rearranged by 'reforms'"
+     },
+     {
+      "clueFragment": "change",
+      "gives": "CE",
+      "note": "the case of the word change is its outer letters, C and E"
+     }
+    ],
+    "walkthrough": "'Case' asks for the outside letters of the word beside it, the way a case encloses whatever it holds. The surface is a perfectly plausible line about company finance.",
+    "definitionFit": "An incentive is a reward dangled to make somebody act — a bonus, a discount, a tax break — so the definition describes them by the job they do."
+   }
   },
   {
    "id": "27-across",
@@ -497,7 +1212,33 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DRUM",
+    "definition": "percussion instrument",
+    "indicators": [],
+    "linkWords": [
+     "is given"
+    ],
+    "pieces": [
+     "D",
+     "RUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the family-tree abbreviation for daughter"
+     },
+     {
+      "clueFragment": "peculiar",
+      "gives": "RUM",
+      "note": "rum meaning odd, as in 'a rum do'"
+     }
+    ],
+    "walkthrough": "Rum for peculiar is Victorian slang that now survives almost entirely inside crosswords, so it is worth learning the moment you meet it.",
+    "definitionFit": "A drum is the skin-and-shell instrument you strike rather than blow or bow, which is exactly what puts it in the percussion section."
+   }
   },
   {
    "id": "28-across",
@@ -514,7 +1255,32 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SYSTEMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SYSTEMS",
+    "definition": "organised schemes",
+    "indicators": [
+     "after vacation"
+    ],
+    "pieces": [
+     "SY",
+     "STEMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sally",
+      "gives": "SY",
+      "note": "vacated, the name keeps only its outer letters"
+     },
+     {
+      "clueFragment": "checks",
+      "gives": "STEMS",
+      "note": "to stem something is to check it, as in stemming a flow"
+     }
+    ],
+    "walkthrough": "Two traps in five words: 'vacation' means a word emptied out rather than a holiday, and 'checks' wants the sense of halting rather than anything on a bank counter.",
+    "definitionFit": "A system is a set of parts or procedures deliberately arranged to work together, so the definition catches both the plan and the order inside it."
+   }
   },
   {
    "id": "29-across",
@@ -531,7 +1297,39 @@ window.CRYPTIC_PUZZLES["1386"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESCAPEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ESCAPEE",
+    "definition": "Prisoner on the loose",
+    "indicators": [
+     "in"
+    ],
+    "pieces": [
+     "E",
+     "S",
+     "CAPE",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E = eastern, as on any compass"
+     },
+     {
+      "clueFragment": "Kent area",
+      "gives": "SE",
+      "note": "Kent sits in the South East, SE on an address — and it is split open"
+     },
+     {
+      "clueFragment": "cloak",
+      "gives": "CAPE",
+      "note": "a cape is a cloak, and it goes into the gap in SE"
+     }
+    ],
+    "walkthrough": "Both halves of the wrapper are map abbreviations, which is why the clue reads like a police bulletin rather than like wordplay.",
+    "definitionFit": "An escapee is anyone who has got clear of custody, so the definition describes the answer by the situation the person is now in."
+   }
   }
  ]
 } /*JSON-END*/;
