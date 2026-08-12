@@ -36,7 +36,27 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     ]
    },
    "solution": "ARMEDTOTHETEETH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ARMED TO THE TEETH",
+    "definition": "With choppers",
+    "definition2": "battle-ready?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "With choppers",
+      "gives": "ARMEDTOTHETEETH",
+      "note": "choppers are blades — cleavers, machetes — so a man carrying them is armed"
+     },
+     {
+      "clueFragment": "battle-ready?",
+      "gives": "ARMEDTOTHETEETH",
+      "note": "the idiom for carrying every weapon you can hold, kitted out for a fight"
+     }
+    ],
+    "walkthrough": "Choppers are teeth in slang and heavy blades in the hand, and the phrase quietly names both at once. The question mark is the setter owning the whimsy.",
+    "definitionFit": "Choppers are teeth in slang and blades in earnest, so the phrase means loaded with weapons — battle-ready — while its own words stop at the molars."
+   }
   },
   {
    "id": "1-down",
@@ -53,7 +73,23 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALOHA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ALOHA",
+    "definition": "‘Goodbye’",
+    "indicators": [
+     "audible"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A cow",
+      "gives": "ALOHA",
+      "note": "a beast that lows is a lower, so 'a cow' spoken is 'a lower'"
+     }
+    ],
+    "walkthrough": "'Lower' for a cow — a creature that lows — is one of the chestnuts worth banking; it turns up far more often than the moo the surface offers you.",
+    "definitionFit": "Aloha is the Hawaiian word used at both ends of a meeting, so it does farewell duty just as readily as it does hello."
+   }
   },
   {
    "id": "2-down",
@@ -70,7 +106,24 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISDIAL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "MISDIAL",
+    "definition": "Offer ring to one who’s not intended?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Offer ring",
+      "note": "not a jeweller's box being opened: a ring is a telephone call, and offering one means punching in a number"
+     },
+     {
+      "clueFragment": "one who’s not intended",
+      "note": "an 'intended' is a fiancée; drop that reading and this is simply the person you did not mean to reach"
+     }
+    ],
+    "walkthrough": "One joke holds the whole clue up: a proposal made to the wrong woman, read straight, is a call put through to the wrong number.",
+    "definitionFit": "To misdial is to ring a number you did not mean to ring, so the call goes to somebody other than the person you had in mind."
+   }
   },
   {
    "id": "3-down",
@@ -92,7 +145,39 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOTDOTDOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOT DOT DOT",
+    "definition": "…",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "DOT",
+     "DOT",
+     "DOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spot",
+      "gives": "DOT",
+      "note": "a spot on a die or a dress is a dot"
+     },
+     {
+      "clueFragment": "Mark",
+      "gives": "DOT",
+      "note": "the mark sitting over an i — the name looks like a person's, which is the disguise"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "DOT",
+      "note": "the point in a web address is a dot, as is the decimal point"
+     }
+    ],
+    "walkthrough": "Three plain synonyms in a row, and the definition is the punctuation the clue ends on: an ellipsis is precisely three of them.",
+    "definitionFit": "The clue closes on an ellipsis, and this is what English calls that mark when naming it rather than printing it."
+   }
   },
   {
    "id": "4-down",
@@ -109,7 +194,23 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSAKA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OSAKA",
+    "definition": "Japanese port",
+    "indicators": [
+     "characters in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poo-poos a kabuki",
+      "gives": "OSAKA",
+      "note": "the city runs from the tail of 'poos' through 'a' into 'kabuki': poo-po(OS A KA)buki"
+     }
+    ],
+    "walkthrough": "'Characters in' works twice over — the players in a kabuki drama, and the letters inside the words — and the city straddles two word-gaps, which is where the eye refuses to look.",
+    "definitionFit": "Osaka is Japan's great commercial harbour city on its own bay, so the definition points at it by nation and by function, one example among several."
+   }
   },
   {
    "id": "5-down",
@@ -130,7 +231,32 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIPPOCKET",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "HIP POCKET",
+    "definition": "where money may be found",
+    "indicators": [
+     "Spooner’s advice to"
+    ],
+    "pieces": [
+     "HIP",
+     "POCKET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great Expectations</i><span> lad",
+      "gives": "HIP",
+      "note": "Dickens's boy is Pip; he hands his P over and takes an H back"
+     },
+     {
+      "clueFragment": "considering using pawnbroker",
+      "gives": "POCKET",
+      "note": "the advice is 'hock it' — to hock something is to pawn it — and it starts with the P Pip gave up"
+     }
+    ],
+    "walkthrough": "The Reverend Spooner's name is the standing signal to swap two opening sounds, and 'hock' is the pawnshop verb the surface is quietly teaching you.",
+    "definitionFit": "A hip pocket is the back trouser pocket a wallet rides in, so it is literally where a man's money may be found."
+   }
   },
   {
    "id": "6-down",
@@ -147,7 +273,30 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TASTE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TASTE",
+    "definition": "Judgment",
+    "definition2": "hearing’s parallel",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judgment",
+      "gives": "TASTE",
+      "note": "discernment — a person of taste judges well"
+     },
+     {
+      "clueFragment": "hearing’s parallel",
+      "gives": "TASTE",
+      "note": "the five senses run alongside one another, and this is hearing's fellow"
+     }
+    ],
+    "walkthrough": "The split falls after the first word, and the surface hides it by making 'hearing' sound like a courtroom one rather than a sense.",
+    "definitionFit": "The word covers both the tongue's sense, which sits alongside hearing in the famous five, and the faculty of discrimination we mean by good judgment."
+   }
   },
   {
    "id": "7-down",
@@ -164,7 +313,32 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYEWASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "EYEWASH",
+    "definition": "Baloney!",
+    "indicators": [
+     "you say"
+    ],
+    "pieces": [
+     "EYE",
+     "WASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "EYE",
+      "note": "the setter signs himself Everyman, so he is 'I' — and spoken, I is EYE"
+     },
+     {
+      "clueFragment": "practises hygiene",
+      "gives": "WASH",
+      "note": "to wash is to practise hygiene"
+     }
+    ],
+    "walkthrough": "A setter writing himself into his own clue is a standing convention, and here his pen name is the first person; only the sound of it reaches the answer.",
+    "definitionFit": "Eyewash is the everyday word for humbug or nonsense — the eye lotion is real, but it is the figurative sense that 'Baloney!' picks up."
+   }
   },
   {
    "id": "8-down",
@@ -181,7 +355,32 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEREDITY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HEREDITY",
+    "definition": "that’s passed down",
+    "indicators": [
+     "heartless"
+    ],
+    "pieces": [
+     "HERE",
+     "DITY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In this place",
+      "gives": "HERE",
+      "note": "here = in this place"
+     },
+     {
+      "clueFragment": "simple tune",
+      "gives": "DITY",
+      "note": "a simple tune is a DITTY, and heartless takes its middle letter out"
+     }
+    ],
+    "walkthrough": "'Heartless' always means the central letter goes, and a five-letter word has exactly one to lose — which is why the setter reached for a ditty rather than a song.",
+    "definitionFit": "Heredity is the passing of traits from parent to child, so the definition names the mechanism rather than the trait it delivers."
+   }
   },
   {
    "id": "9-across",
@@ -198,7 +397,47 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSSETIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "OSSETIA",
+    "definition": "border region",
+    "indicators": [
+     "to return"
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "pieces": [
+     "O",
+     "SSET",
+     "IA"
+    ],
+    "subReversals": [
+     {
+      "from": "AITESSO",
+      "to": "OSSETIA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "AI",
+      "note": "A1 is the crossword word for excellent, and its 1 does duty as an I"
+     },
+     {
+      "clueFragment": "Miss ‘d’Urberville’",
+      "gives": "TESS",
+      "note": "Hardy's heroine, Tess of the d'Urbervilles"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is the tennis nought"
+     }
+    ],
+    "walkthrough": "Two conventions worth banking for good: love is a nought, and A1 lends its 1 as an I. The colon after 'Excellent' is doing no work but disguise.",
+    "definitionFit": "Ossetia straddles the Caucasus watershed, divided north and south between Russia and Georgia, so the definition places it by the frontier it sits astride."
+   }
   },
   {
    "id": "10-across",
@@ -215,7 +454,26 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PASTEUR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PASTEUR",
+    "definition": "Mouldy Frenchman",
+    "indicators": [
+     "when cleaned up"
+    ],
+    "anagram": {
+     "fodder": "TEARS UP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tears up",
+      "gives": "PASTEUR",
+      "note": "the seven letters of TEARS UP, rearranged"
+     }
+    ],
+    "walkthrough": "The surface shows a weepy old man being tidied. What the clue wants is the same letters in another order, and the definition leans on the man's own science: pasteurisation is what stops food spoiling.",
+    "definitionFit": "Louis Pasteur is the Frenchman whose germ work gave us pasteurisation, the treatment that keeps milk from going off — so mould is what identifies him."
+   }
   },
   {
    "id": "11-across",
@@ -232,7 +490,36 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMIGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMIGO",
+    "definition": "my friend",
+    "indicators": [],
+    "pieces": [
+     "AM",
+     "I",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "AM",
+      "note": "put 'is' into the first person and it becomes AM"
+     },
+     {
+      "clueFragment": "the writer",
+      "gives": "I",
+      "note": "the person writing the clue calls himself I"
+     },
+     {
+      "clueFragment": "to be sold",
+      "gives": "GO",
+      "note": "stock that sells goes — going, going, gone"
+     }
+    ],
+    "walkthrough": "The whole trick is whose voice you are in: 'is' only turns into AM when the speaker is the writer, and the writer is the very next thing the clue names.",
+    "definitionFit": "Amigo is Spanish for friend, borrowed into English as a matey form of address, which is exactly how 'my friend' is used."
+   }
   },
   {
    "id": "12-across",
@@ -249,7 +536,26 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFORESAID",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AFORESAID",
+    "definition": "as previously discussed",
+    "indicators": [
+     "Poorly"
+    ],
+    "anagram": {
+     "fodder": "RAISED OAF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "raised oaf",
+      "gives": "AFORESAID",
+      "note": "the nine letters of RAISED OAF, rearranged"
+     }
+    ],
+    "walkthrough": "'Poorly' sits where an adverb belongs, so it reads as part of the lout's upbringing rather than as the instruction it is.",
+    "definitionFit": "Aforesaid is the legal drafter's word for something named earlier in the same document, which is what an office email means by 'as previously discussed'."
+   }
   },
   {
    "id": "13-across",
@@ -272,7 +578,50 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     ]
    },
    "solution": "ILLDRINKTOTHAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "I'LL DRINK TO THAT",
+    "definition": "bottoms up",
+    "indicators": [
+     "most of"
+    ],
+    "pieces": [
+     "ILL",
+     "DR",
+     "INK",
+     "TOT",
+     "HAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evil",
+      "gives": "ILL",
+      "note": "ill = evil, as in ill will"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "the usual two-letter abbreviation"
+     },
+     {
+      "clueFragment": "to tattoo",
+      "gives": "INK",
+      "note": "to ink somebody is to tattoo them"
+     },
+     {
+      "clueFragment": "most of infants",
+      "gives": "TOT",
+      "note": "infants are TOTS; most of the word drops its last letter"
+     },
+     {
+      "clueFragment": "Covering",
+      "gives": "HAT",
+      "note": "a hat is a covering — for the head"
+     }
+    ],
+    "walkthrough": "Five short pieces run together and none of the joins falls where a word ends: DRINK is built from the doctor and the tattoo, which is where the disguise lives.",
+    "definitionFit": "'Bottoms up' is a drinker's toast, and this is the toast you make when you agree with somebody — both are said with the glass already raised."
+   }
   },
   {
    "id": "14-down",
@@ -289,7 +638,40 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRRITANTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "IRRITANTS",
+    "definition": "Pests",
+    "indicators": [
+     "playing",
+     "at the end"
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "SITAR TIN R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "sitar",
+      "gives": "SITAR",
+      "note": "five of the nine letters"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "TIN",
+      "note": "three more, taken as they stand"
+     },
+     {
+      "clueFragment": "whistler at the end",
+      "gives": "R",
+      "note": "the last letter of whistleR"
+     }
+    ],
+    "walkthrough": "Two instructions are working here and only one is loud: 'playing' shuffles, while 'at the end' quietly asks for a single letter. The impromptu band keeps both looking innocent.",
+    "definitionFit": "An irritant is anything that rubs you the wrong way — a rash, a noise, a neighbour — so the definition names them by the nuisance they cause."
+   }
   },
   {
    "id": "15-down",
@@ -306,7 +688,33 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORDERLIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ORDERLIES",
+    "definition": "hospital staff",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "ORDER",
+     "LIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Calm",
+      "gives": "ORDER",
+      "note": "order is calm — a crowd restored to order is a crowd calmed"
+     },
+     {
+      "clueFragment": "rests",
+      "gives": "LIES",
+      "note": "whatever rests, lies: a book lies on a table"
+     }
+    ],
+    "walkthrough": "The equivalence of calm and order is the step most solvers miss, and the surface's spa-brochure tone is built to keep them missing it.",
+    "definitionFit": "An orderly is the hospital worker who moves patients, beds and equipment rather than nursing them, so the definition names them by employer and rank."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +731,47 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUARDIAN",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + middle letters + reversal",
+    "answer": "GUARDIAN",
+    "definition": "primarily, this one’s charged to protect",
+    "indicators": [
+     "around",
+     "outstripped",
+     "over"
+    ],
+    "pieces": [
+     "GU",
+     "AR",
+     "DIA",
+     "N"
+    ],
+    "subReversals": [
+     {
+      "from": "AID",
+      "to": "DIA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One shooting",
+      "gives": "GUN",
+      "note": "a gun is the thing doing the shooting, and it opens up to let the rest sit inside"
+     },
+     {
+      "clueFragment": "hare",
+      "gives": "AR",
+      "note": "h(AR)e with its outside letters stripped away"
+     },
+     {
+      "clueFragment": "backing",
+      "gives": "DIA",
+      "note": "backing a cause is giving it AID, turned round"
+     }
+    ],
+    "walkthrough": "Two traps in one clue: 'primarily' looks like an instruction to take first letters and only means chiefly, and 'backing' is the noun for support, not a direction.",
+    "definitionFit": "A guardian is the person a court appoints to look after someone who cannot look after themselves, so protection is the whole of the office."
+   }
   },
   {
    "id": "17-across",
@@ -344,7 +792,32 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     ]
    },
    "solution": "UNSATURATEDFAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "UNSATURATED FAT",
+    "definition": "unhealthy ingredient",
+    "indicators": [
+     "endless",
+     "dodgy"
+    ],
+    "anagram": {
+     "fodder": "FUR AUNT TASTED A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "endless fury",
+      "gives": "FUR",
+      "note": "FURY without its last letter"
+     },
+     {
+      "clueFragment": "aunt tasted a",
+      "gives": "AUNTTASTEDA",
+      "note": "eleven more letters, taken as they stand"
+     }
+    ],
+    "walkthrough": "Fourteen letters of fodder is a lot to hold in the head, so anchor the F and the pair of Us first. 'Dodgy' is the shuffle signal, sitting between the letters and the definition.",
+    "definitionFit": "Fat is the ingredient every diet counts, so the clue files this one under 'unhealthy' by its family name rather than by nutrition, where it is the better sort."
+   }
   },
   {
    "id": "18-down",
@@ -361,7 +834,32 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUNBEAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "SUNBEAM",
+    "definition": "Source of warmth",
+    "indicators": [
+     "pronounced"
+    ],
+    "pieces": [
+     "SUN",
+     "BEAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lad’s pronounced",
+      "gives": "SUN",
+      "note": "a lad is a son, and said out loud that is SUN"
+     },
+     {
+      "clueFragment": "grin",
+      "gives": "BEAM",
+      "note": "to beam is to grin broadly"
+     }
+    ],
+    "walkthrough": "Son and sun are the classic English pair of soundalikes, and the surface's grinning boy is the same warmth the answer means, one level down.",
+    "definitionFit": "A sunbeam is a shaft of sunlight, and sunlight is what actually warms you, so the definition names it by its effect rather than by its look."
+   }
   },
   {
    "id": "19-down",
@@ -378,7 +876,32 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTIGUA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ANTIGUA",
+    "definition": "Caribbean island",
+    "indicators": [
+     "bulk of"
+    ],
+    "pieces": [
+     "ANTI",
+     "GUA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opposing",
+      "gives": "ANTI",
+      "note": "anti- is the prefix for opposing"
+     },
+     {
+      "clueFragment": "US territory",
+      "gives": "GUA",
+      "note": "GUAM is the US territory; the bulk of it is all but the last letter"
+     }
+    ],
+    "walkthrough": "'Bulk of' is a standing instruction to drop the final letter, and the comma is the only warning that the geography has crossed an ocean.",
+    "definitionFit": "Antigua, twinned with Barbuda, is an independent state in the Leeward Islands, so the definition places it by sea rather than naming the country."
+   }
   },
   {
    "id": "20-across",
@@ -395,7 +918,26 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RENOVATOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RENOVATOR",
+    "definition": "Fixer-up",
+    "indicators": [
+     "stable? No"
+    ],
+    "anagram": {
+     "fodder": "RAN OVER TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ran over to",
+      "gives": "RENOVATOR",
+      "note": "the nine letters of RAN OVER TO, rearranged"
+     }
+    ],
+    "walkthrough": "The shuffle signal is a negative: 'stable? No' means unstable, so nothing in front of it will stay put. The horse is there to sell you the stable.",
+    "definitionFit": "To renovate is to make an old building good again, so the noun names the person doing it — 'fixer-up' is the informal name for the same trade."
+   }
   },
   {
    "id": "21-down",
@@ -416,7 +958,22 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     ]
    },
    "solution": "VSIGN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + &lit",
+    "answer": "V-SIGN",
+    "definition": "What may you get from chavs",
+    "definitionNote": "A semi-&lit: the whole sentence, 'ignobly' included, is the definition. The mark stops short of that last word because it is also where the letters are hiding, and a definition rung may not hand those over.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "chavs, ignobly",
+      "gives": "VSIGN",
+      "note": "the gesture sits across the comma: cha(VS IGN)obly"
+     }
+    ],
+    "walkthrough": "Every word earns twice: read straight it is an insult offered on a street corner, and read as machinery the answer is sitting in the last two words already.",
+    "definitionFit": "Two fingers raised with the back of the hand turned out is Britain's standard gesture of contempt, which is what 'ignobly' promises."
+   }
   },
   {
    "id": "22-down",
@@ -433,7 +990,38 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RISEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "RISEN",
+    "definition": "out of bed",
+    "indicators": [
+     "getting up"
+    ],
+    "pieces": [
+     "RIS",
+     "EN"
+    ],
+    "subReversals": [
+     {
+      "from": "NESIR",
+      "to": "RISEN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New England",
+      "gives": "NE",
+      "note": "New England shortens to its two initials"
+     },
+     {
+      "clueFragment": "gentleman",
+      "gives": "SIR",
+      "note": "a gentleman is addressed as sir"
+     }
+    ],
+    "walkthrough": "In a down clue 'getting up' means read the letters from the bottom of the column towards the top, and the surface's early riser is the picture that hides it.",
+    "definitionFit": "To have risen is to be up and about, so the definition is the everyday way of saying it — past participle answering past participle."
+   }
   },
   {
    "id": "23-across",
@@ -450,7 +1038,31 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATIO",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "RATIO",
+    "definition": "Principally relative association that indicates odds?",
+    "definitionNote": "A semi-&lit: the whole sentence defines the answer, while five of its six words also give up their opening letters. In a full &lit every word would do both jobs at once.",
+    "indicators": [
+     "Principally"
+    ],
+    "pieces": [
+     "R",
+     "A",
+     "T",
+     "I",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relative association that indicates odds",
+      "gives": "RATIO",
+      "note": "the first letter of each of the five words, in order"
+     }
+    ],
+    "walkthrough": "'Principally' is the initials instruction, and the sentence it points at is also the definition — which is why the clue is true as a statement as well as useful as a machine.",
+    "definitionFit": "It expresses one quantity relative to another, which is precisely how betting odds are quoted: 3 to 1 is one wearing a bookmaker's coat."
+   }
   },
   {
    "id": "24-down",
@@ -467,7 +1079,23 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OARED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "OARED",
+    "definition": "rowed",
+    "indicators": [
+     "loudly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cockney mob",
+      "gives": "OARED",
+      "note": "a mob is a horde, and a Cockney drops the aitch: 'orde"
+     }
+    ],
+    "walkthrough": "The dropped aitch is the whole device, and it is worth remembering: 'Cockney' in a clue nearly always means an H has gone missing from the front of a word.",
+    "definitionFit": "To oar is to propel a boat with oars, so the definition is the past tense of the same action — a verb that survives mainly in crosswords and poetry."
+   }
   },
   {
    "id": "25-across",
@@ -484,7 +1112,27 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IBERIAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "IBERIAN",
+    "definition": "Spanish maybe",
+    "indicators": [
+     "almost",
+     "devious"
+    ],
+    "anagram": {
+     "fodder": "BRAINIE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "brainier – almost",
+      "gives": "BRAINIE",
+      "note": "BRAINIER stopping just short of its last letter"
+     }
+    ],
+    "walkthrough": "'Almost' is the standing instruction to lop the final letter, and 'maybe' is the setter conceding that Spain is only part of the peninsula.",
+    "definitionFit": "The word covers Spain and Portugal together, so a Spaniard is one instance of it rather than a synonym — which is what 'maybe' admits."
+   }
   },
   {
    "id": "26-across",
@@ -501,7 +1149,27 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWINGER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SWINGER",
+    "definition": "Acrobat",
+    "definition2": "one who in 60s was iconic",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Acrobat",
+      "gives": "SWINGER",
+      "note": "the trapeze artist, who works by swinging"
+     },
+     {
+      "clueFragment": "one who in 60s was iconic",
+      "gives": "SWINGER",
+      "note": "the Swinging Sixties turned the word into a label for a fashionable pleasure-seeker"
+     }
+    ],
+    "walkthrough": "Both halves hang off the same verb — one swings from a bar, the other swung through a decade — and the comma is the only mark of where the clue splits.",
+    "definitionFit": "Literally it is one who swings, which covers the trapeze act; figuratively it is the permissive party-goer that 'swinging London' made a byword."
+   }
   },
   {
    "id": "27-across",
@@ -525,7 +1193,24 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOMANISANISLAND",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "NO MAN IS AN ISLAND",
+    "definition": "Is Douglas on a peninsula … ?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Is Douglas",
+      "note": "not a man being asked a question: Douglas is the capital town of the Isle of Man"
+     },
+     {
+      "clueFragment": "on a peninsula",
+      "note": "the honest reply is no — the place it stands on is ringed by sea, not joined on to anywhere"
+     }
+    ],
+    "walkthrough": "The clue is a question and the answer is the reply to it: the geography says no, and the rest of the sentence is Donne's most quoted line.",
+    "definitionFit": "Donne's line means nobody is self-sufficient; the clue makes it literal geography, since Man really is surrounded by water and Douglas is its capital."
+   }
   }
  ]
 } /*JSON-END*/;
