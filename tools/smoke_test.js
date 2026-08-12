@@ -476,6 +476,40 @@ assert(registry["hint-body"].innerHTML.includes("auto hints") || registry["hint-
 assert(registry["hint-next"].innerHTML.includes("Reveal answer"), "auto-hints puzzle offers Reveal answer");
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hints puzzle offers letter escape hatch");
 
+// --- a puzzle we solved ourselves says so ---
+// Prize crosswords get solved here before the paper publishes its key
+// (tools/apply_solution.py), which means the app will happily tell a solver
+// their letter is wrong on the authority of a machine's guess. The disclosure
+// is the whole justification for shipping those answers at all, so it is
+// asserted rather than trusted: it lives in one <p> that one line of app.js
+// unhides, and both are easy to lose in a refactor that nothing else notices.
+{
+  const unofficial = allPuzzles.find((p) => p.solutionsUnofficial && global.window.CRYPTIC_PUZZLES[p.id]);
+  if (unofficial) {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(unofficial.number));
+    const row = pickerRows().find((li) => li.children[0]
+      && li.children[0].innerHTML.includes("№ " + unofficial.number));
+    assert(row && row.children[0].innerHTML.includes("our answers"),
+      `the picker badges No ${unofficial.number} as our own answers`);
+    row.children[0].onclick();
+    const note = registry["unofficial-note"];
+    assert(note && !note.classList.contains("hidden"),
+      `No ${unofficial.number} shows the unofficial-answers note`);
+    assert(note.textContent && /hasn't published|not published/.test(note.textContent),
+      "the note actually says the paper hasn't published these answers: " + (note && note.textContent));
+    // And the note must disappear again on a puzzle with the paper's own answers.
+    const official = allPuzzles.find((p) => p.hasSolutions && !p.solutionsUnofficial
+      && global.window.CRYPTIC_PUZZLES[p.id]);
+    registry["btn-picker"].onclick();
+    typeInPicker(String(official.number));
+    pickerRows().find((li) => li.children[0]
+      && li.children[0].innerHTML.includes("№ " + official.number)).children[0].onclick();
+    assert(registry["unofficial-note"].classList.contains("hidden"),
+      `No ${official.number} has the paper's answers and shows no note`);
+  }
+}
+
 // --- link words and definition notes reach the screen (feedback 2026-07-29) ---
 // Both fields exist to answer a learner's question — "what does this word do?"
 // and "why doesn't the definition match the answer?" — so data that never

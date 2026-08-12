@@ -13,6 +13,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "93f3cd3d",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Brutal",
     "index": 0.865,
@@ -35,6 +36,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "6b41a88d",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -48,6 +50,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "35c5535e",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.575,
@@ -70,6 +73,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "a9993258",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -83,6 +87,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "2eb5d250",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": 0.068,
@@ -105,6 +110,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "ce2bf0df",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -118,6 +124,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "1e8e7847",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.755,
@@ -137,9 +144,10 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Vlad",
    "date": 1786147200000,
    "file": "30080.js",
-   "v": "98b30a4f",
+   "v": "67402616",
    "annotated": false,
-   "hasSolutions": false,
+   "hasSolutions": true,
+   "solutionsUnofficial": true,
    "difficulty": null
   },
   {
@@ -153,6 +161,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "f01e23b1",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -166,6 +175,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "a828a421",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": -0.174,
@@ -188,6 +198,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "80551b38",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -201,6 +212,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "4ba20f74",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Brutal",
     "index": 0.743,
@@ -223,6 +235,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "7358afff",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -236,6 +249,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "4125cefe",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -249,6 +263,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "96ab845d",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -262,6 +277,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "b30b30e6",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -275,6 +291,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "c4711b80",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -288,6 +305,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "e481c26b",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -301,6 +319,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "1e92fd2e",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -314,6 +333,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "82e92ac9",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": 0.194,
@@ -336,6 +356,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "1ae8a35d",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -349,6 +370,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "bb7c91ee",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -362,6 +384,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "473674a9",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -375,6 +398,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "6fe0ddc7",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -388,6 +412,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "efdc7e04",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.558,
@@ -410,6 +435,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "bd83b818",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -423,6 +449,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "dfb417aa",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Brutal",
     "index": 1.22,
@@ -445,6 +472,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "c414d0ad",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -458,6 +486,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "f972729c",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.367,
@@ -480,6 +509,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "23b864f6",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -493,6 +523,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "f6e1e317",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -506,6 +537,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "f70b473e",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -519,6 +551,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "7c113f85",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.445,
@@ -541,6 +574,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "16fb79c9",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -554,6 +588,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "08163517",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -567,6 +602,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "abeac1be",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": 0.443,
@@ -589,6 +625,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "efc9a9a9",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": 0.232,
@@ -611,6 +648,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "90bd4b9a",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -624,6 +662,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "a9e3ff57",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -637,6 +676,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "ca8666ef",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -650,6 +690,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "62064c24",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.695,
@@ -672,6 +713,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "2d37de04",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -685,6 +727,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "499fb56b",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -698,6 +741,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "68915796",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -711,6 +755,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "c5131ed2",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -724,6 +769,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "1f87194a",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -737,6 +783,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "20f8f83e",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -750,6 +797,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "970d48dd",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.68,
@@ -772,6 +820,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "600dee56",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -785,6 +834,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "01e3fd37",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -798,6 +848,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "044ccacd",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -811,6 +862,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "d0b96696",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -824,6 +876,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "f4fc2829",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -837,6 +890,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "6a5e1c96",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -850,6 +904,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "c554cdc4",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.389,
@@ -872,6 +927,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "d1df845e",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -885,6 +941,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "3e239c44",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -898,6 +955,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "0273bde5",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -911,6 +969,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "9cce6838",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": -0.149,
@@ -933,6 +992,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "ab0e42e1",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.835,
@@ -955,6 +1015,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "df191183",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.609,
@@ -977,6 +1038,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "0f6171fc",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.822,
@@ -999,6 +1061,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "4d401333",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": -0.18,
@@ -1021,6 +1084,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "64035ff3",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": -0.2,
@@ -1043,6 +1107,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "72088317",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": 0.222,
@@ -1065,6 +1130,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "8bdbdc0d",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.709,
@@ -1087,6 +1153,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "c32365d0",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Brutal",
     "index": 0.897,
@@ -1109,6 +1176,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "6b5c1455",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": -0.098,
@@ -1131,6 +1199,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "2b86dd23",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.472,
@@ -1153,6 +1222,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "df37d328",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Tough",
     "index": 0.088,
@@ -1175,6 +1245,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "7802f30a",
    "annotated": true,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": {
     "band": "Moderate",
     "index": -0.377,
@@ -1197,6 +1268,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "cfa18dcf",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -1210,6 +1282,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "4fc1b7fe",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -1223,6 +1296,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "fdf71be5",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -1236,6 +1310,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "2be89013",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -1249,6 +1324,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "0a6a1a31",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -1262,6 +1338,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "6908a3bb",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   },
   {
@@ -1275,6 +1352,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "v": "b2a168e4",
    "annotated": false,
    "hasSolutions": true,
+   "solutionsUnofficial": false,
    "difficulty": null
   }
  ]

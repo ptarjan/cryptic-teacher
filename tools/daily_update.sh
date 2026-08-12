@@ -111,6 +111,34 @@ print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
 EOF
 )
 
+# Puzzles the paper hasn't published answers for — Saturday prize crosswords,
+# which withhold them for about a week. They used to be excluded from
+# everything: no solutions means nothing for the annotator to explain, so the
+# newest and most-visited puzzle on the site sat hintless for its whole first
+# week and then took its turn at the back of a queue.
+#
+# So solve it instead. A model solves the grid cold, and tools/apply_solution.py
+# writes it only if every entry is answered, every length fits and all ~58
+# crossings agree — which is not proof, but is a check no accidental fill
+# passes. The answers go in marked as ours (solutionSource), the site says so,
+# the fetcher keeps re-checking every night, and when the official key lands the
+# guess is graded against it and any entry we got wrong loses its annotation and
+# gets rewritten. Being wrong is therefore recoverable and visible; the failure
+# mode we refuse is being wrong and silent, which is why a fill that fails the
+# check writes nothing at all.
+#
+# One a night by default. Solving cold costs far more inference than annotating
+# a solved grid, and there is only ever one unsolved puzzle in the normal week.
+SOLVE_MAX="${SOLVE_MAX:-1}"
+unsolved=$(python3 - "$SOLVE_MAX" <<'EOF'
+import json, sys
+idx = json.load(open("puzzles/index.json"))
+todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
+               if not p.get("hasSolutions")), reverse=True)
+print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
+EOF
+)
+
 # Annotation is the only thing here that spends inference, and a crossword
 # backlog is never worth being rate-limited for real work. Skip it once the
 # account's weekly window is more than ANNOTATE_MAX_WEEKLY_PCT spent; steps 1,
@@ -144,23 +172,26 @@ ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
 # follows.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 . "$REPO/tools/annotate_model.sh"
-if [ -n "$pending" ] && ! python3 tools/weekly_usage.py --self-test; then
+if [ -n "$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
   # gate whose logic is broken says "spend" as confidently as a working one, so
   # a failing self-test is treated as the worst verdict rather than ignored.
   alert "the weekly usage gate is failing its own self-test, so annotation was skipped. The gate logic itself is wrong — see the SELF-TEST lines in .update.log."
   pending=""
+  unsolved=""
 fi
-if [ -n "$pending" ]; then
+if [ -n "$pending$unsolved" ]; then
   case "$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT")" in
     spend)
-      echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $pending" ;;
+      echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $pending${unsolved:+, solving $unsolved}" ;;
     skip)
-      echo "weekly usage over ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $pending"
-      pending="" ;;
+      echo "weekly usage over ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $pending${unsolved:+ and solving of $unsolved}"
+      pending=""
+      unsolved="" ;;
     *)
       alert "the weekly usage gate can't read the quota, so tonight's annotation was skipped rather than run ungated. Nothing is broken on the site — the newest puzzle still published, just without hints. See the \"cannot read weekly usage\" line in .update.log."
-      pending="" ;;
+      pending=""
+      unsolved="" ;;
   esac
 fi
 
@@ -172,6 +203,40 @@ fi
 ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-70}"
 annotated_ok=0
 stop_reason=""
+
+# --- 3a. solve the unsolved, so step 3b has something to annotate ---
+# Runs before the annotation loop and feeds it: a grid solved tonight joins the
+# front of tonight's queue, because it is by definition the newest puzzle and
+# the one people are actually looking at. Same session gate as annotation, and
+# the same trailer, since it is the same model spending the same quota.
+solved_ok=0
+if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
+  for num in $unsolved; do
+    session=$(python3 tools/weekly_usage.py --group session)
+    if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
+      stop_reason="five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — solving $num waits for the reset"
+      break
+    fi
+    fill="${TMPDIR:-/tmp}/cryptic-fill-$num.json"
+    rm -f "$fill"
+    echo "solving puzzle $num cold with Claude Code... (session ${session:-unknown}%)"
+    claude -p "Solve cryptic crossword No $num in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
+      --model "$ANNOTATE_MODEL" \
+      --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
+      --max-turns 120 2>&1 | tail -40
+    # The verdict comes from the checker, not from the model's own report. A
+    # run can exit 0 having given up, and did — the check is what decides.
+    if [ -s "$fill" ] && python3 tools/apply_solution.py "$num" --fill "$fill" --model "$ANNOTATE_MODEL"; then
+      solved_ok=$((solved_ok + 1))
+      pending="$num $pending"
+    else
+      echo "solve of $num rejected — nothing written, the paper's answers are due in a few days anyway"
+    fi
+    rm -f "$fill"
+  done
+  # Whatever solving cost, the annotation budget is still ANNOTATE_MAX puzzles.
+  pending=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')
+fi
 
 if [ -n "$pending" ]; then
   if command -v claude >/dev/null 2>&1; then

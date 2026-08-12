@@ -192,10 +192,45 @@ def convert(data):
 
 
 def merge_annotations(new_puzzle, old_puzzle):
+    """Carry our own work across a re-fetch: annotations always, and a model's
+    solved grid until the paper publishes its own.
+
+    A prize puzzle can be solved here before its answers are out (see
+    tools/apply_solution.py), and refresh_unsolved re-fetches it every night
+    until they are. Without the carryover each of those nightly re-fetches
+    would wipe the fill and the annotations written off it; with it, the day
+    the official key appears it simply replaces the model's, the unofficial
+    marker comes off, and the differences get printed — which is the only
+    grading of a blind solve that ever happens automatically."""
     old = {e["id"]: e.get("annotation") for e in old_puzzle.get("entries", [])}
     for e in new_puzzle["entries"]:
         if old.get(e["id"]) is not None:
             e["annotation"] = old[e["id"]]
+
+    was_model = (old_puzzle.get("solutionSource") or {}).get("kind") == "model"
+    if not was_model:
+        return None
+    official = all(e.get("solution") for e in new_puzzle["entries"])
+    guessed = {e["id"]: e.get("solution") for e in old_puzzle.get("entries", [])}
+    if not official:
+        # Paper still silent — keep the fill and stay flagged.
+        for e in new_puzzle["entries"]:
+            if not e.get("solution") and guessed.get(e["id"]):
+                e["solution"] = guessed[e["id"]]
+        new_puzzle["solutionSource"] = old_puzzle["solutionSource"]
+        return None
+    wrong = [(e["id"], guessed.get(e["id"]), e["solution"])
+             for e in new_puzzle["entries"] if guessed.get(e["id"]) != e["solution"]]
+    # An annotation explains how the clue yields the answer, so an annotation
+    # written off a wrong answer is wrong all the way through — definition,
+    # blocks, walkthrough. Drop it and let the queue write it again against
+    # the real answer, rather than leaving a confident explanation of a word
+    # that was never the answer.
+    missed = {eid for eid, _, _ in wrong}
+    for e in new_puzzle["entries"]:
+        if e["id"] in missed:
+            e["annotation"] = None
+    return wrong
 
 
 def puzzle_is_annotated(puzzle):
@@ -235,6 +270,10 @@ def reindex():
             "v": hashlib.md5(path.read_bytes()).hexdigest()[:8],
             "annotated": puzzle_is_annotated(p),
             "hasSolutions": all(e.get("solution") for e in p["entries"]),
+            # True where the grid was solved here rather than published by the
+            # paper. The site says so wherever it shows those answers: a learner
+            # checking their grid is entitled to know whose answer they lost to.
+            "solutionsUnofficial": bool(p.get("solutionSource")),
             # Absent for puzzles with too little to go on — an unrated puzzle
             # shows no badge rather than a made-up one.
             "difficulty": rating and {
@@ -281,11 +320,18 @@ def fetch_number(num):
     puzzle = convert(data)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     is_new = not path.exists()
+    graded = None
     if not is_new:
-        merge_annotations(puzzle, read_puzzle_file(path))
+        graded = merge_annotations(puzzle, read_puzzle_file(path))
     write_puzzle_file(path, puzzle)
     reindex()
     print(("fetched " if is_new else "refreshed ") + puzzle["id"])
+    if graded is not None:
+        total = len(puzzle["entries"])
+        print(f"BLIND SOLVE GRADED {puzzle['id']}: {total - len(graded)}/{total} correct "
+              f"against the published answers")
+        for eid, mine, theirs in graded:
+            print(f"  miss {eid}: model said {mine}, answer is {theirs}")
     return puzzle, is_new
 
 
@@ -321,19 +367,30 @@ def refresh_unsolved():
     Saturday prize puzzles arrive without solutions and only get them about a
     week later; without this pass they would sit un-annotatable forever, since
     the daily job only annotates puzzles where hasSolutions is true.
+    A puzzle we solved ourselves counts as unsolved here. It has a full grid of
+    letters, so the "any entry missing a solution" test walks straight past it —
+    and walking past it is exactly the failure worth avoiding, because it would
+    mean the one puzzle whose answers are a guess is the one puzzle we stop
+    checking. It stays on this list until the paper publishes and the merge can
+    grade the guess.
+
     Annotations are preserved by fetch_number's merge."""
     pending = []
     for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
         p = read_puzzle_file(path)
-        if not all(e.get("solution") for e in p["entries"]):
+        if not all(e.get("solution") for e in p["entries"]) or p.get("solutionSource"):
             pending.append(p["number"])
     filled = 0
     for num in pending:
         try:
             puzzle, _ = fetch_number(num)
-            if all(e.get("solution") for e in puzzle["entries"]):
+            # A carried-over model fill fills every entry too, so "has letters
+            # everywhere" is not the test — "the paper said so" is.
+            if all(e.get("solution") for e in puzzle["entries"]) and not puzzle.get("solutionSource"):
                 print(f"solutions now published for {num}")
                 filled += 1
+            elif puzzle.get("solutionSource"):
+                print(f"{num}: solutions still withheld — keeping our own fill")
             else:
                 print(f"{num}: solutions still withheld")
         except Exception as err:

@@ -375,6 +375,16 @@ def puzzle_page(puz, meta, prev_p, next_p):
         f'<p class="s-cta"><a class="cta" href="{BASE}/?p={num}">Solve this puzzle with '
         f'progressive hints &rarr;</a></p>',
     ]
+    # A page that prints answers has to say where the answers came from. For a
+    # prize puzzle solved here before the paper published its key, the answers
+    # below are a machine's — right or wrong, and searchable either way, so the
+    # claim gets qualified in the page itself rather than only in the data.
+    if (puz.get("solutionSource") or {}).get("kind") == "model":
+        body.append(
+            f'<p class="unofficial-note">The {paper} has not published the answers to this prize '
+            "crossword yet. The solutions below are our own solve, checked for consistency "
+            "at every crossing in the grid but not confirmed by the paper. They are replaced "
+            "by the official answers as soon as those appear.</p>")
     if annotated:
         body.append(
             "<p>Below is every clue in the puzzle with its answer, the part of the clue that "
@@ -437,6 +447,10 @@ def hub_page(idx):
                  f'{esc(d["band"].lower())}</span>') if d.get("band") else ""
         hints = ('<span class="badge full">full hints</span>' if p.get("annotated")
                  else '<span class="badge auto">answers only</span>')
+        # Same coverage axis as the hints badge, same neutral colour — see
+        # sourceBadge() in app.js.
+        ours = ('<span class="badge auto">our answers</span>'
+                if p.get("solutionsUnofficial") else "")
         # Only the non-cryptic series are badged — the cryptic is the norm here,
         # and the numbers alone ("No 1,393" among the 30,000s) don't explain
         # themselves. Mirrors seriesBadge() in app.js.
@@ -447,7 +461,7 @@ def hub_page(idx):
             f'<span class="p-num">No {p["number"]:,}</span>'
             f'<span class="p-setter">{esc(p.get("setter") or "")}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
-            f'<span class="p-tags">{series}{badge}{hints}</span></a></li>')
+            f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a></li>')
 
     list_ld = {"@context": "https://schema.org", "@type": "CollectionPage",
                "name": title, "url": canonical, "description": desc}

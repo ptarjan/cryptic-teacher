@@ -200,6 +200,13 @@ button:disabled:hover { border-color: var(--line); }
 /* ---------- layout ---------- */
 .puzzle-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px; margin: 14px 0 4px; }
 .puzzle-head h2 { margin: 0; font-size: 1.15rem; }
+/* Shown only on a puzzle we solved ourselves because the paper hadn't yet.
+   Quiet — it is a provenance note, not a warning — but not muted away either:
+   it is the one place the site admits an answer might be wrong. */
+.unofficial-note {
+  margin: 2px 0 10px; font-size: .82rem; line-height: 1.45; color: var(--muted);
+  border-left: 3px solid var(--badge-none-bg); padding-left: 10px; max-width: 62ch;
+}
 #scorebar { font-size: .85rem; color: var(--muted); }
 #scorebar strong { color: var(--fg); }
 

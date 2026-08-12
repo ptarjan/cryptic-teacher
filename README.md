@@ -128,8 +128,19 @@ catch up), validates, reindexes, commits, and pushes if a remote is configured.
 
 The Guardian runs a cryptic Monday–Saturday, with Saturday's appearing as the *Prize*
 crossword under a different URL; the fetcher watches both series. Prize solutions are
-withheld for about a week, so those puzzles sit un-annotatable until
-`--refresh-unsolved` picks up their answers.
+withheld for about a week, and `--refresh-unsolved` re-checks every night until they
+appear.
+
+Rather than leave the newest puzzle hintless for that week, the daily run also *solves*
+it: `SOLVE_MAX` puzzles a night (default 1) go to the model cold, with
+`tools/solve_packet.py` for the clues and the grid's crossing map and
+`tools/solve_prompt.md` for the method. The fill only reaches the puzzle file through
+`tools/apply_solution.py`, which writes nothing unless every entry is answered, every
+answer is the length the grid wants, and all ~58 crossing letters agree. Those answers
+are marked `solutionSource` in the file and `solutionsUnofficial` in the index, the site
+says so wherever it shows them, and the puzzle keeps being re-fetched — so when the
+official key lands it replaces the fill, prints a `BLIND SOLVE GRADED n/30` line, and
+throws away the annotation of any clue we got wrong so the queue rewrites it.
 
 **On macOS, schedule it with the bundled LaunchAgent — not with cron.** The `claude`
 CLI stores its OAuth credentials in the macOS *login* keychain (item
