@@ -1245,6 +1245,15 @@
     return annotated ? "" : `<span class="badge auto">auto hints</span>`;
   }
 
+  // Shares the coverage axis (neutral) with the hints badge on purpose: both
+  // answer "what has this site actually got for this puzzle", and the badge
+  // colour rule in style.css is one colour per axis, not per badge.
+  function sourceBadge(p) {
+    return p.solutionsUnofficial
+      ? `<span class="badge auto" title="The paper hasn't published this one's answers yet — these are ours">our answers</span>`
+      : "";
+  }
+
   // Same principle as the hints badge: badge the exception, not the norm. The
   // Guardian daily is the norm here and gets no badge; everything else says what
   // it is, either because it is gentler — the thing a struggling solver most
@@ -1344,7 +1353,7 @@
       btn.innerHTML = `<span class="p-num">№ ${p.number}</span>
         <span class="p-setter">${esc(p.setter)}</span>
         <span class="p-meta">${d}</span>
-        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}
+        <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}
           ${filled ? `<span class="p-prog">${filled} letters in</span>` : ""}</span>`;
       btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
       li.appendChild(btn);
@@ -1381,6 +1390,19 @@
     $("puzzle-title").innerHTML =
       `${esc(P.name)} — set by <em>${esc(P.setter)}</em>` +
       (meta.annotated ? "" : " " + hintsBadge(false));
+    // Saturday prize puzzles publish their answers about a week late, and this
+    // site solves them in the meantime rather than leaving its newest puzzle
+    // hintless (tools/apply_solution.py). Every letter the checker marks wrong
+    // is then measured against a machine's answer, not the paper's, and someone
+    // being told they are wrong deserves to know who is telling them.
+    const note = $("unofficial-note");
+    note.classList.toggle("hidden", !meta.solutionsUnofficial);
+    note.textContent = meta.solutionsUnofficial
+      ? "Heads up: the Guardian hasn't published this prize puzzle's answers yet. "
+        + "The solutions and hints here are our own solve — checked for consistency "
+        + "across every crossing, but not the paper's. They get replaced by the "
+        + "official ones the day they appear."
+      : "";
     renderGrid();
     renderClues();
     const checkable = canCheck();
