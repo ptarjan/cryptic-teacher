@@ -34,7 +34,24 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROLLINGSTONES",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ROLLING STONES",
+    "definition": "Rock group going downhill?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Rock group",
+      "note": "the surface sells a band: musicians who play rock"
+     },
+     {
+      "clueFragment": "going downhill?",
+      "note": "read the first two words literally instead and you have lumps of stone on a slope, which can only be doing one thing"
+     }
+    ],
+    "walkthrough": "There is no wordplay to find — the whole clue is one picture. A group of rocks heading down a slope is doing exactly what the band's name says.",
+    "definitionFit": "The clue defines the band twice over: a group who play rock, and, taken literally, the moving stones the name itself describes."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +68,39 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELAPSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + first letters",
+    "answer": "RELAPSE",
+    "definition": "setback",
+    "indicators": [
+     "Returning",
+     "starts to"
+    ],
+    "pieces": [
+     "RELAP",
+     "SE"
+    ],
+    "subReversals": [
+     {
+      "from": "PALER",
+      "to": "RELAP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more ashen",
+      "gives": "RELAP",
+      "note": "more ashen is PALER, written the other way round"
+     },
+     {
+      "clueFragment": "suffer extreme",
+      "gives": "SE",
+      "note": "the starting letters of both words"
+     }
+    ],
+    "walkthrough": "The surface is a patient looking worse, which is the very world a relapse belongs to — so the definition hides in plain sight at the end.",
+    "definitionFit": "A relapse is a slide back into an illness or a habit you had beaten, so 'setback' names it as a reverse rather than a mere pause."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +117,35 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEGAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "LEGAL",
+    "definition": "allowed",
+    "linkWords": [
+     "It's"
+    ],
+    "indicators": [
+     "naked"
+    ],
+    "pieces": [
+     "LEG",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stage",
+      "gives": "LEG",
+      "note": "a leg is a stage of a journey or a race"
+     },
+     {
+      "clueFragment": "ramble",
+      "gives": "AL",
+      "note": "a ramble is a WALK, and a naked one has lost its outside letters"
+     }
+    ],
+    "walkthrough": "'Naked' is a stripping instruction: a word with its clothes off keeps only its middle. The surface is Britain's naked rambler and whether the law could touch him.",
+    "definitionFit": "Legal means permitted by law, so 'allowed' is the everyday synonym — not merely tolerated but backed by the statute book."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +166,33 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
     ]
    },
    "solution": "INIRONS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IN IRONS",
+    "definition": "heading directly into the wind",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [],
+    "pieces": [
+     "IN",
+     "IRONS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in = fashionable, what everyone likes"
+     },
+     {
+      "clueFragment": "English actor",
+      "gives": "IRONS",
+      "note": "Jeremy Irons, so the surname alone does the work"
+     }
+    ],
+    "walkthrough": "A surname standing in for its owner is a staple of the Independent. The definition sounds like weather and is in fact sailing jargon.",
+    "definitionFit": "A boat in irons has stalled head to wind and will not turn either way, so the phrase belongs to sailing rather than to shackles."
+   }
   },
   {
    "id": "4-down",
@@ -110,7 +213,39 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
     ]
    },
    "solution": "GATHERINGSTITCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GATHERING STITCH",
+    "definition": "Sewers sometimes require this",
+    "indicators": [
+     "ultimately",
+     "after"
+    ],
+    "pieces": [
+     "GATHERINGS",
+     "T",
+     "ITCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parties",
+      "gives": "GATHERINGS",
+      "note": "a gathering is a party, and the plural is wanted"
+     },
+     {
+      "clueFragment": "decongestant, ultimately",
+      "gives": "T",
+      "note": "the last letter of decongestanT"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "ITCH",
+      "note": "to long for something is to itch for it"
+     }
+    ],
+    "walkthrough": "'Sewers' here are people who sew, not drains, and anyone picturing plumbing has been caught. 'Long' is doing duty as a verb, which is where the tail of the answer hides.",
+    "definitionFit": "A gathering stitch is the loose running stitch a dressmaker draws up to pull fabric into folds, so anyone making a frill genuinely needs one."
+   }
   },
   {
    "id": "5-down",
@@ -131,7 +266,31 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
     ]
    },
    "solution": "TURNTO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TURN TO",
+    "definition": "Result in",
+    "indicators": [
+     "abandoning"
+    ],
+    "pieces": [
+     "TURN TO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second shot?",
+      "gives": "TURNTWO",
+      "note": "if a shot is a turn, the shot that comes second is turn two"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife — and it is the letter that leaves"
+     }
+    ],
+    "walkthrough": "The question mark is the setter conceding that numbering a go this way is a liberty. The surface reads as a golfer whose partner has walked off.",
+    "definitionFit": "If one thing turns to another it becomes it, so 'result in' catches the outcome sense — water turning to ice is what the freezing produced."
+   }
   },
   {
    "id": "6-down",
@@ -152,7 +311,34 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
     ]
    },
    "solution": "NEWMEXICO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NEW MEXICO",
+    "definition": "part of America",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "fancy"
+    ],
+    "anagram": {
+     "fodder": "OX MINCE WE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ox mince we",
+      "gives": "OXMINCEWE",
+      "note": "anagram fodder — nine letters to rearrange"
+     },
+     {
+      "clueFragment": "fancy",
+      "gives": "",
+      "note": "anagram indicator: fancy = elaborate, dressed up differently"
+     }
+    ],
+    "walkthrough": "'Fancy' sits where an adjective describing the mince would go, which is what keeps it from looking like an instruction to shuffle.",
+    "definitionFit": "New Mexico is one of the fifty states, so 'part of America' defines it by class — a single member named by the whole it belongs to."
+   }
   },
   {
    "id": "7-down",
@@ -169,7 +355,33 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINCERE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SINCERE",
+    "definition": "Frank",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [],
+    "pieces": [
+     "SINCE",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "SINCE",
+      "note": "following the war, since the war — the same stretch of time"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "RE means on, as in a memo re expenses"
+     }
+    ],
+    "walkthrough": "'Frank' looks like a man's name in the surface, which is the whole disguise. RE for 'on' is a workhorse abbreviation worth banking.",
+    "definitionFit": "Someone sincere says what they actually mean without pretence, which is what 'frank' describes — openness of speech rather than bare honesty."
+   }
   },
   {
    "id": "8-across",
@@ -186,7 +398,35 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLAG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLAG",
+    "definition": "Scrounge",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "prior to"
+    ],
+    "pieces": [
+     "B",
+     "LAG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the bishop on a chessboard"
+     },
+     {
+      "clueFragment": "arrest",
+      "gives": "LAG",
+      "note": "to lag someone is old slang for having them put away"
+     }
+    ],
+    "walkthrough": "'Lag' is prison slang from the days of transportation — a lag is a convict — and the surface hides it behind a churchman being arrested.",
+    "definitionFit": "To blag is to wheedle something out of somebody for nothing, which is what scrounging is: cadging rather than robbing."
+   }
   },
   {
    "id": "9-across",
@@ -203,7 +443,40 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERTWINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "INTERTWINE",
+    "definition": "Blend",
+    "indicators": [
+     "around",
+     "back of"
+    ],
+    "pieces": [
+     "IN",
+     "T",
+     "ERT",
+     "WINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "INERT",
+      "note": "still = inert, going nowhere"
+     },
+     {
+      "clueFragment": "back of restaurant",
+      "gives": "T",
+      "note": "the last letter of restauranT, which goes inside"
+     },
+     {
+      "clueFragment": "Champagne, say",
+      "gives": "WINE",
+      "note": "champagne is a wine — 'say' marks it as one example"
+     }
+    ],
+    "walkthrough": "'Say' is the standard flag for a definition by example. The surface is a barman's recipe, which is what lets 'still' pass as a word about the drink.",
+    "definitionFit": "Threads that intertwine are wound in and out of one another, and 'blend' is that idea loosened — two things merged past separating."
+   }
   },
   {
    "id": "10-across",
@@ -220,7 +493,33 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APOLLO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "APOLLO",
+    "definition": "God",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [],
+    "pieces": [
+     "A",
+     "POLLO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own a, taken as it stands"
+     },
+     {
+      "clueFragment": "chicken in Spain",
+      "gives": "POLLO",
+      "note": "pollo is Spanish for chicken"
+     }
+    ],
+    "walkthrough": "The surface accuses a deity of cowardice — 'chicken' in the English sense — while the wordplay wants the Spanish word for the bird on the menu.",
+    "definitionFit": "Apollo is the Greek and Roman god of light, music and prophecy, so 'God' defines him by example, one named deity for the class."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +536,40 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESTEEMED",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "ESTEEMED",
+    "definition": "Renowned",
+    "indicators": [
+     "revolutionary",
+     "in"
+    ],
+    "pieces": [
+     "E",
+     "STEEM",
+     "ED"
+    ],
+    "subReversals": [
+     {
+      "from": "DEMEETSE",
+      "to": "ESTEEMED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee, the crossword's handiest short river — it holds the meeting"
+     },
+     {
+      "clueFragment": "has an encounter",
+      "gives": "MEETS",
+      "note": "to have an encounter with somebody is to meet them"
+     }
+    ],
+    "walkthrough": "'Revolutionary' is the instruction to turn the whole assembly round, not a Che or a Red — and that misreading is the trap the surface sets.",
+    "definitionFit": "To be esteemed is to be held in high regard by other people, which is what 'renowned' says of a reputation: known, and thought well of."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +586,39 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERTUSSIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PERTUSSIS",
+    "definition": "dangerous illness",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [],
+    "pieces": [
+     "PERT",
+     "US",
+     "SIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lively",
+      "gives": "PERT",
+      "note": "pert = lively, a touch cheeky with it"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the usual abbreviation"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "SIS",
+      "note": "sis is a sister, informally"
+     }
+    ],
+    "walkthrough": "The apostrophe-s is joinery standing for 'is', not a possessive. Pertussis is whooping cough, so the definition is not being dramatic.",
+    "definitionFit": "Pertussis is the medical name for whooping cough, a bacterial infection that still kills infants, so 'dangerous illness' describes its class."
+   }
   },
   {
    "id": "13-down",
@@ -275,7 +639,31 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
     ]
    },
    "solution": "TREELINED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TREE-LINED",
+    "definition": "with limes on either side?",
+    "indicators": [
+     "Mistakenly"
+    ],
+    "anagram": {
+     "fodder": "ENTER DELI"
+    },
+    "blocks": [
+     {
+      "clueFragment": "enter deli",
+      "gives": "ENTERDELI",
+      "note": "anagram fodder — nine letters, in plain sight"
+     },
+     {
+      "clueFragment": "Mistakenly",
+      "gives": "",
+      "note": "anagram indicator: the letters have been entered wrongly"
+     }
+    ],
+    "walkthrough": "Limes here are trees, not fruit — the lime avenues of an English park — and seeing that is the whole clue. The 4-5 enumeration means a hyphen.",
+    "definitionFit": "A road planted with limes down both sides is tree-lined, so the definition works by example, limes being one particular kind of tree."
+   }
   },
   {
    "id": "14-across",
@@ -292,7 +680,32 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "DIVE",
+    "definition": "fall",
+    "indicators": [
+     "Beginning to"
+    ],
+    "pieces": [
+     "D",
+     "IVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "document",
+      "gives": "D",
+      "note": "the first letter of Document"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "IVE",
+      "note": "the setter speaks as I, so 'setter's' contracts to I've"
+     }
+    ],
+    "walkthrough": "'Setter' is the person who wrote the puzzle, so it means I — a first-person trick that recurs constantly and is worth learning early.",
+    "definitionFit": "To dive is to drop suddenly and steeply — prices dive, a goalkeeper dives — so 'fall' is a plain synonym for the plunge."
+   }
   },
   {
    "id": "15-across",
@@ -309,7 +722,23 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLEW",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BLEW",
+    "definition": "Failed to take",
+    "indicators": [
+     "broadcast"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down",
+      "gives": "BLEW",
+      "note": "down in the sense of gloomy is BLUE, and said aloud that is the answer"
+     }
+    ],
+    "walkthrough": "'Broadcast' is the sound signal here rather than anything to do with television, and 'down' wants the mood, not the direction.",
+    "definitionFit": "If you blew your chance you failed to take it — the slang sense of squandering an opportunity, nothing to do with air."
+   }
   },
   {
    "id": "15-down",
@@ -326,7 +755,36 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BIOMASS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BIOMASS",
+    "definition": "Source of energy",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "stocks"
+    ],
+    "pieces": [
+     "B",
+     "IOM",
+     "ASS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "BASS",
+      "note": "a bass is a fish, and it takes the island inside"
+     },
+     {
+      "clueFragment": "Isle of Man",
+      "gives": "IOM",
+      "note": "IOM is the usual short form of the Isle of Man"
+     }
+    ],
+    "walkthrough": "'Stocks' is the container word — the old wooden frame that held a prisoner fast — while the surface offers the fish stocks a trawlerman worries about.",
+    "definitionFit": "Biomass is organic matter burned or fermented for fuel, so 'source of energy' names it by what it is used for rather than what it is."
+   }
   },
   {
    "id": "16-across",
@@ -343,7 +801,39 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGINCOURT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AGINCOURT",
+    "definition": "conflict",
+    "linkWords": [
+     "that leads to"
+    ],
+    "indicators": [],
+    "pieces": [
+     "A",
+     "GIN",
+     "COURT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own opening A"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "GIN",
+      "note": "gin is the crossword's default drink"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "COURT",
+      "note": "to court someone is the old-fashioned way of dating them"
+     }
+    ],
+    "walkthrough": "'Date' wants the verb, not the diary entry. The surface promises a night out and delivers a battlefield in Picardy in 1415.",
+    "definitionFit": "Agincourt was Henry V's victory over the French, so 'conflict' defines it by example — one named battle standing for the general word."
+   }
   },
   {
    "id": "17-down",
@@ -360,7 +850,28 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUMBERS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NUMBERS",
+    "definition": "Book",
+    "definition2": "anaesthetists",
+    "definitionNote": "The first definition is a title, so a singular 'book' is right even though the word looks plural; the second definition is a genuine plural.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "",
+      "note": "the fourth book of the Old Testament, after Leviticus"
+     },
+     {
+      "clueFragment": "anaesthetists",
+      "gives": "",
+      "note": "split the word after the fourth letter and you have people who make you numb"
+     }
+    ],
+    "walkthrough": "Two words, no letters to assemble. One is straight out of the Pentateuch; the other is a joke about how the answer divides.",
+    "definitionFit": "Numbers is the fourth book of the Pentateuch, and an anaesthetist is literally one who numbs — the same letters read as numb-er rather than as a figure."
+   }
   },
   {
    "id": "18-down",
@@ -377,7 +888,37 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RITALIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RITALIN",
+    "definition": "Drug",
+    "indicators": [
+     "ignoring"
+    ],
+    "pieces": [
+     "R",
+     "ITALIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the party's letter in American politics"
+     },
+     {
+      "clueFragment": "from Rome, possibly",
+      "gives": "ITALIAN",
+      "note": "somebody from Rome is an Italian — 'possibly' concedes it is one example among many"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A for American, and it is the letter that is ignored"
+     }
+    ],
+    "walkthrough": "Both political words are abbreviations in disguise: one arrives as a letter, the other leaves as one, and neither means what the surface implies.",
+    "definitionFit": "Ritalin is the trade name of methylphenidate, prescribed for attention deficit disorder, so 'drug' names the brand by its class."
+   }
   },
   {
    "id": "19-down",
@@ -394,7 +935,35 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORREA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "CORREA",
+    "definition": "bloomer",
+    "linkWords": [
+     "making"
+    ],
+    "indicators": [
+     "regularly"
+    ],
+    "pieces": [
+     "COR",
+     "REA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blimey!",
+      "gives": "COR",
+      "note": "cor is the exclamation blimey usually follows"
+     },
+     {
+      "clueFragment": "Arsenal",
+      "gives": "REA",
+      "note": "the regular letters of aRsEnAl"
+     }
+    ],
+    "walkthrough": "The surface is a fan groaning at a howler, which is the other sense of 'bloomer'. Here the word wants a plant that does the blooming.",
+    "definitionFit": "Correa is an Australian evergreen shrub that flowers through the winter, so 'bloomer' means something that blooms, not the blunder on offer."
+   }
   },
   {
    "id": "20-across",
@@ -411,7 +980,47 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOALPOST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GOALPOST",
+    "definition": "Supporter on football pitch",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "initially ignored"
+    ],
+    "pieces": [
+     "GO",
+     "A",
+     "LP",
+     "OST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "GO",
+      "note": "a go is an attempt"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own a"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "an LP is a long-playing record"
+     },
+     {
+      "clueFragment": "most",
+      "gives": "OST",
+      "note": "MOST with its own initial letter ignored"
+     }
+    ],
+    "walkthrough": "LP for 'record' is worth banking — the long-playing vinyl album. The surface pretends to be somebody chasing a record on the pitch.",
+    "definitionFit": "A goalpost is one of the uprights holding the net up, so 'supporter' is meant literally, a thing that props something rather than a fan."
+   }
   },
   {
    "id": "21-across",
@@ -428,7 +1037,23 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINUTE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MINUTE",
+    "definition": "Tiny",
+    "indicators": [
+     "picked up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amphibian belonging to me",
+      "gives": "MINUTE",
+      "note": "say 'my newt' and the two words run together into the answer"
+     }
+    ],
+    "walkthrough": "'Picked up' means overheard, not lifted. The join is where the trick lives: two words of wordplay collapse into one word of answer.",
+    "definitionFit": "Minute here is the adjective, stressed my-NEWT, meaning extremely small — a different word from the sixty-second one the spelling suggests."
+   }
   },
   {
    "id": "22-down",
@@ -445,7 +1070,36 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NICHE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NICHE",
+    "definition": "corner",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "blocking"
+    ],
+    "pieces": [
+     "NIC",
+     "H",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French football club",
+      "gives": "NICE",
+      "note": "Nice, the Ligue 1 side from the Riviera"
+     },
+     {
+      "clueFragment": "Hearts",
+      "gives": "H",
+      "note": "H is hearts on a bridge scorecard"
+     }
+    ],
+    "walkthrough": "Hearts is a Scottish football club as well, which is the misdirection — here the word wants the card suit, and only its letter.",
+    "definitionFit": "A niche is a recess set into a wall, the sheltered nook where a statue stands, so 'corner' is meant as a snug spot rather than an angle."
+   }
   },
   {
    "id": "23-across",
@@ -462,7 +1116,34 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAUNDRETTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LAUNDRETTE",
+    "definition": "cleaner's",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Dicky"
+    ],
+    "anagram": {
+     "fodder": "LEARNT DUET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "learnt duet",
+      "gives": "LEARNTDUET",
+      "note": "anagram fodder — ten letters"
+     },
+     {
+      "clueFragment": "Dicky",
+      "gives": "",
+      "note": "anagram indicator: dicky is British for shaky or unsound"
+     }
+    ],
+    "walkthrough": "'Dicky' means unsound — a dicky heart, a dicky knee — and here it is the shuffling instruction wearing a man's name.",
+    "definitionFit": "A launderette is the coin-operated shop where clothes get washed, so 'cleaner's' names it by the trade, the possessive standing for premises."
+   }
   },
   {
    "id": "24-across",
@@ -479,7 +1160,23 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CALM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CALM",
+    "definition": "cool",
+    "indicators": [
+     "keeps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local man",
+      "gives": "CALM",
+      "note": "loCAL Man, running across the gap between the words"
+     }
+    ],
+    "walkthrough": "'Keeps' is the concealment word — what keeps a thing holds it inside — and the answer straddles two words rather than sitting inside one.",
+    "definitionFit": "To be calm is to stay unruffled under pressure, which is exactly 'cool' in the sense of composure rather than of temperature."
+   }
   },
   {
    "id": "25-across",
@@ -500,7 +1197,31 @@ window.CRYPTIC_PUZZLES["12432"] = /*JSON-START*/ {
     ]
    },
    "solution": "SADDAMHUSSEIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SADDAM HUSSEIN",
+    "definition": "Old tyrant",
+    "indicators": [
+     "pants"
+    ],
+    "anagram": {
+     "fodder": "USES HANDMAID'S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "uses handmaid's",
+      "gives": "USESHANDMAIDS",
+      "note": "anagram fodder — thirteen letters, apostrophe and all"
+     },
+     {
+      "clueFragment": "pants",
+      "gives": "",
+      "note": "anagram indicator: pants is British slang for rubbish"
+     }
+    ],
+    "walkthrough": "'Pants' means rubbish in modern British slang, and rubbished letters are letters out of order. The Handmaid's Tale in the surface is fine misdirection.",
+    "definitionFit": "Saddam Hussein ruled Iraq for twenty-four years until his overthrow in 2003, so 'old tyrant' points at one dictator, long gone, by description."
+   }
   }
  ]
 } /*JSON-END*/;
