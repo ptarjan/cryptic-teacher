@@ -150,6 +150,10 @@ button:disabled:hover { border-color: var(--line); }
 .p-meta { grid-column: 3; justify-self: end; white-space: nowrap; color: var(--muted); font-size: .8rem; }
 .p-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .p-prog { color: var(--muted); font-size: .78rem; }
+/* Not a badge, so it is exempt from the one-colour-per-axis rule below: it is
+   the only green in the row, and green already means "right" everywhere else
+   in the app (a checked letter, a solved clue in the list). */
+.p-prog.done { color: var(--ok); font-weight: 600; }
 .badge {
   font-size: .68rem; padding: 1px 7px; border-radius: 999px;
   text-transform: uppercase; letter-spacing: .4px; white-space: nowrap;
