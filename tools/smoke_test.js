@@ -510,6 +510,48 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   }
 }
 
+// --- the picker says which puzzles you have finished (Paul, 2026-08-13) ---
+// With 78 rows listed, "have I done this one?" is the first question the list
+// has to answer. It is derived, not stored — from the saved letters against the
+// loaded solutions — so a change to either side can silently break it without
+// breaking anything else. Drive it from both directions: a complete correct
+// grid must read solved, one letter short must not.
+{
+  const target = allPuzzles.find((p) => p.annotated && p.hasSolutions
+    && global.window.CRYPTIC_PUZZLES[p.id]);
+  const puz = global.window.CRYPTIC_PUZZLES[target.id];
+  const letters = {};
+  puz.entries.forEach((e) => {
+    for (let i = 0; i < e.length; i++) {
+      const x = e.position.x + (e.direction === "across" ? i : 0);
+      const y = e.position.y + (e.direction === "across" ? 0 : i);
+      letters[x + "," + y] = e.solution[i];
+    }
+  });
+  const key = "ct:" + target.id;
+  const kept = storage[key];
+  const rowHTML = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(target.number));
+    const li = pickerRows().find((x) => x.children[0]
+      && x.children[0].innerHTML.includes("№ " + target.number));
+    return li ? li.children[0].innerHTML : "";
+  };
+
+  storage[key] = JSON.stringify({ letters, updated: 1 });
+  assert(/solved ✓/.test(rowHTML()),
+    `a complete, correct grid reads as solved in the picker: ${rowHTML().slice(0, 200)}`);
+
+  const oneShort = Object.assign({}, letters);
+  delete oneShort[Object.keys(oneShort)[0]];
+  storage[key] = JSON.stringify({ letters: oneShort, updated: 1 });
+  const partial = rowHTML();
+  assert(!/solved ✓/.test(partial) && new RegExp(Object.keys(letters).length + " letters in").test(partial),
+    `one square short is not solved, and says how far along it is: ${partial.slice(0, 200)}`);
+
+  if (kept === undefined) delete storage[key]; else storage[key] = kept;
+}
+
 // --- link words and definition notes reach the screen (feedback 2026-07-29) ---
 // Both fields exist to answer a learner's question — "what does this word do?"
 // and "why doesn't the definition match the answer?" — so data that never

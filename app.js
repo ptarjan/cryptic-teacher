@@ -1301,12 +1301,50 @@
     const prog = store.get("ct:" + p.id, null);
     return prog && prog.letters ? Object.keys(prog.letters).length : 0;
   }
+  // "Have I finished this one?" — the question a list of 78 puzzles has to
+  // answer before it can answer anything else. It is computed here rather than
+  // stored: every puzzle file is already in memory (loadPuzzleScripts pulls the
+  // lot at startup), so the saved letters can simply be held against the
+  // solutions. A stored `done` flag would be a second copy of a fact the data
+  // already knows, and sync/merge.js would then have to have an opinion about
+  // merging it — see make-the-wrong-version-unwritable.
+  //
+  // Filled-but-wrong deliberately reads as unfinished rather than as "12 wrong":
+  // the check buttons are for that, and a row in the picker is not the place to
+  // tell someone their grid is broken.
+  function pickerStatus(p) {
+    const prog = store.get("ct:" + p.id, null);
+    const letters = (prog && prog.letters) || {};
+    const filled = Object.keys(letters).length;
+    const puz = window.CRYPTIC_PUZZLES[p.id];
+    if (!filled || !puz) return { filled, total: 0, done: false };
+    const want = {};   // "x,y" -> the letter that belongs there
+    puz.entries.forEach((e) => {
+      for (let i = 0; i < e.length; i++) {
+        const x = e.position.x + (e.direction === "across" ? i : 0);
+        const y = e.position.y + (e.direction === "across" ? 0 : i);
+        want[x + "," + y] = e.solution ? e.solution[i] : null;
+      }
+    });
+    const squares = Object.keys(want);
+    // letters[k] is "A" or "A!" — a revealed letter still counts as done. You
+    // used the escape hatch; the scorebar inside the puzzle is where that costs
+    // you something.
+    const done = squares.length > 0
+      && squares.every((k) => want[k] && letters[k] && letters[k][0] === want[k]);
+    return { filled, total: squares.length, done };
+  }
   function pickerHaystack(p) {
     const d = p.date ? new Date(p.date).toISOString().slice(0, 10) : "";
     // Both spellings of the number: the site writes "No 30,074" everywhere, and
     // a solver copying that in shouldn't get nothing back.
+    // "solved" and "started" are searchable for the same reason the row shows
+    // them: with 78 puzzles listed, "which ones have I already done" is a filter,
+    // not just a thing to read off one row at a time.
+    const st = pickerStatus(p);
     return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d,
-      p.series || "cryptic", p.difficulty ? p.difficulty.band : ""].join(" ").toLowerCase();
+      p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
+      st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
   function pickerRows(q) {
     // Every term has to match somewhere, so "imogen 2026" narrows rather than
@@ -1342,7 +1380,7 @@
     rows.forEach((p) => {
       const li = document.createElement("li");
       if (P && p.id === P.id) li.className = "current";
-      const filled = pickerProgress(p);
+      const st = pickerStatus(p);
       const d = p.date ? new Date(p.date).toISOString().slice(0, 10) : "";
       const btn = document.createElement("button");
       // Order here is the grid's, not the eye's: the badges are markup-last but
@@ -1354,7 +1392,9 @@
         <span class="p-setter">${esc(p.setter)}</span>
         <span class="p-meta">${d}</span>
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated)}${sourceBadge(p)}
-          ${filled ? `<span class="p-prog">${filled} letters in</span>` : ""}</span>`;
+          ${!st.filled ? ""
+            : st.done ? `<span class="p-prog done" title="Every square filled in and correct">solved ✓</span>`
+            : `<span class="p-prog">${st.filled}${st.total ? "/" + st.total : ""} letters in</span>`}</span>`;
       btn.onclick = () => { openPuzzle(p.id); togglePicker(false); };
       li.appendChild(btn);
       ul.appendChild(li);
