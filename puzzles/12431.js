@@ -30,7 +30,44 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAVIOLI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade + first letter",
+    "answer": "RAVIOLI",
+    "definition": "Pasta",
+    "indicators": [
+     "Introduction to",
+     "cooking"
+    ],
+    "pieces": [
+     "R",
+     "AVIOLI"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "VOILA I",
+      "gives": "AVIOLI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the recipe abbreviation, the one that heads a prescription"
+     },
+     {
+      "clueFragment": "Voila",
+      "gives": "VOILA",
+      "note": "five of the six letters that go into the pan"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "I",
+      "note": "the introduction to ITALIAN supplies the sixth"
+     }
+    ],
+    "walkthrough": "R for recipe is a chemist's convention crosswords borrowed long ago. Note where this puzzle is set: nearly every surface from here on is a kitchen, and the food words are usually the fodder rather than the meaning.",
+    "definitionFit": "Pasta → RAVIOLI: definition by example — one named kind of stuffed pasta, so the general word fairly covers the particular one."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +84,35 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATIONAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RATIONAL",
+    "definition": "Reasonable",
+    "pieces": [
+     "RATION",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "portion",
+      "gives": "RATION",
+      "note": "a ration is a measured portion of food"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter lifted straight out of the clue"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "walkthrough": "The colon does the misdirection: it makes 'Reasonable portion' read as one phrase, when the definition stops after the very first word.",
+    "definitionFit": "Reasonable → RATIONAL: both mean guided by reason rather than feeling, though RATIONAL leans clinical where 'reasonable' leans polite."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +129,44 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VINDALOO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "VINDALOO",
+    "definition": "hot curry",
+    "indicators": [
+     "half-"
+    ],
+    "pieces": [
+     "V",
+     "IN",
+     "DA",
+     "LOO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     },
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "the word taken as it stands"
+     },
+     {
+      "clueFragment": "half-dark",
+      "gives": "DA",
+      "note": "the first half of DARK"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "LOO is the everyday British toilet, and a crossword workhorse"
+     }
+    ],
+    "walkthrough": "V for very and LOO for toilet are two abbreviations worth banking. The queasy joke the surface is making about a vindaloo and a lavatory is doing all the misdirection.",
+    "definitionFit": "hot curry → VINDALOO: a Goan dish that British curry houses have made shorthand for the fiercest heat on the menu."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +183,32 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "OVEN",
+    "definition": "kitchen appliance",
+    "indicators": [
+     "After the start"
+    ],
+    "pieces": [
+     "OVE",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adore",
+      "gives": "OVE",
+      "note": "to adore is to LOVE, and everything after its start is OVE"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "walkthrough": "'After the start' is a beheading instruction wearing ordinary clothes — in a puzzle full of recipes it reads as a note about timing.",
+    "definitionFit": "kitchen appliance → OVEN: a plain synonym in its category sense, the box that bakes rather than the whole cooker it sits inside."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +225,45 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INITIALLY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "INITIALLY",
+    "definition": "as a starter",
+    "indicators": [
+     "feeding"
+    ],
+    "pieces": [
+     "I",
+     "NIT",
+     "I",
+     "ALL",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two in Rome",
+      "gives": "II",
+      "note": "II is the Roman numeral two, and it splits to take a filling"
+     },
+     {
+      "clueFragment": "Egg",
+      "gives": "NIT",
+      "note": "a nit is a louse's egg"
+     },
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "ALL does duty for completely, as in 'all done'"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra's unknown quantities are X, Y and Z"
+     }
+    ],
+    "walkthrough": "The egg here is the louse's, not the hen's — NIT is the crossword staple, and 'feeding' is a swallowing instruction rather than a meal.",
+    "definitionFit": "as a starter → INITIALLY: both are adverbial and mean at the outset; the food theme is daring you to read 'starter' as a first course."
+   }
   },
   {
    "id": "5-across",
@@ -115,7 +280,38 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VITAMIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "VITAMIN",
+    "definition": "Something good for you",
+    "indicators": [
+     "taking beginners"
+    ],
+    "pieces": [
+     "VIT",
+     "A",
+     "MIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "varied in taste",
+      "gives": "VIT",
+      "note": "the beginners of Varied In Taste"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "'a' is one, as in a minute meaning one minute"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "MIN",
+      "note": "MIN is the everyday abbreviation for minute"
+     }
+    ],
+    "walkthrough": "Three initials and then two abbreviations: the answer is made entirely of shorthand, which is exactly why the surface can stay so smooth.",
+    "definitionFit": "Something good for you → VITAMIN: a functional definition, not a synonym — vitamins are named precisely by the fact that a diet needs them."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +328,33 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VOICE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VOICE",
+    "definition": "Utter",
+    "indicators": [
+     "to eat"
+    ],
+    "pieces": [
+     "V",
+     "O",
+     "ICE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "failing",
+      "gives": "VICE",
+      "note": "a vice is a moral failing"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is the round nothing, zero"
+     }
+    ],
+    "walkthrough": "'Utter' is the verb, not the adjective — you utter and you voice an opinion. Eating as an instruction to swallow one piece inside another is worth banking.",
+    "definitionFit": "Utter → VOICE: both are verbs for saying something aloud, though VOICE leans towards making a view public rather than simply speaking."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +371,32 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIGHTROPE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "TIGHTROPE",
+    "definition": "This creates a problem with balance",
+    "indicators": [
+     "Blending",
+     "in the end"
+    ],
+    "anagram": {
+     "fodder": "HOT TRIPE G"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hot tripe",
+      "gives": "HOTTRIPE",
+      "note": "eight of the nine letters, waiting to be blended"
+     },
+     {
+      "clueFragment": "icing",
+      "gives": "G",
+      "note": "the end of ICING supplies the ninth"
+     }
+    ],
+    "walkthrough": "The definition works by consequence rather than description: a tightrope is not itself a problem with balance, it is the thing that sets one.",
+    "definitionFit": "This creates a problem with balance → TIGHTROPE: defined by what it does to you, a rope stretched taut being the classic test of poise."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +413,29 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOPING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MOPING",
+    "definition": "In a stew",
+    "pieces": [
+     "MO",
+     "PING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief period",
+      "gives": "MO",
+      "note": "a mo is a moment — old slang crosswords keep alive"
+     },
+     {
+      "clueFragment": "microwave's indication that it's finished",
+      "gives": "PING",
+      "note": "the ping a microwave sounds when its timer runs out"
+     }
+    ],
+    "walkthrough": "The long second fragment is a description rather than a synonym: there is no abbreviation to spot, just the noise the machine makes.",
+    "definitionFit": "In a stew → MOPING: both describe someone sunk in low, fretful spirits instead of getting on with things; the theme wants you to picture a casserole."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +452,38 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIACIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "NIACIN",
+    "definition": "Something in fish for example",
+    "indicators": [
+     "cut up"
+    ],
+    "pieces": [
+     "NIAC",
+     "IN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "I CAN",
+      "gives": "NIAC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I can",
+      "gives": "NIAC",
+      "note": "the four letters of I CAN rearranged"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "walkthrough": "'Cut up' reads as kitchen work and is really the shuffle instruction — the game this whole puzzle plays. Niacin is vitamin B3.",
+    "definitionFit": "Something in fish for example → NIACIN: definition by example, naming one nutrient oily fish happens to carry rather than defining the vitamin itself."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +500,31 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENDERISING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TENDERISING",
+    "definition": "making chewing easier",
+    "indicators": [
+     "Assemble"
+    ],
+    "anagram": {
+     "fodder": "INGREDIENTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ingredients",
+      "gives": "INGREDIENTS",
+      "note": "eleven letters, exactly the enumeration"
+     },
+     {
+      "clueFragment": "Assemble",
+      "gives": "",
+      "note": "the anagram indicator, disguised as a recipe instruction"
+     }
+    ],
+    "walkthrough": "The whole clue reads as a line from a cookbook, which is the trap: 'Assemble' is telling you to rearrange letters, not to cook anything.",
+    "definitionFit": "making chewing easier → TENDERISING: the process word for softening meat by beating or marinating, so the food gives the teeth less work."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +541,26 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PEA",
+    "definition": "vegetable",
+    "indicators": [
+     "Chop the end off"
+    ],
+    "pieces": [
+     "PEA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PEA",
+      "note": "the fruit is a PEAR, and the chop takes its final R away"
+     }
+    ],
+    "walkthrough": "Pear and pea sit one letter apart, which is the whole clue. 'Chop the end off' is doing kitchen duty on the surface and letter duty underneath.",
+    "definitionFit": "vegetable → PEA: definition by example — the pea is one vegetable among many, so the general word fairly covers the particular one."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +577,24 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVAL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "OVAL",
+    "definition": "similar to an egg",
+    "indicators": [
+     "comes back",
+     "somewhat"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flavour",
+      "gives": "LAVO",
+      "note": "f-LAVO-ur holds the letters, and an across entry coming back reads them right to left"
+     }
+    ],
+    "walkthrough": "Reversed hidden words are the hardest to spot, because the letters look wrong until you read the other way. 'Somewhat' is the tell that only part of a word is wanted.",
+    "definitionFit": "similar to an egg → OVAL: the adjective for an egg's exact outline, and the word descends from Latin ovum, an egg."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +611,52 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DILETTANTI",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + homophone",
+    "answer": "DILETTANTI",
+    "definition": "Enthusiasts",
+    "indicators": [
+     "sandwiches",
+     "delivered"
+    ],
+    "pieces": [
+     "DI",
+     "L",
+     "ET",
+     "TA",
+     "N",
+     "TI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "DIET",
+      "note": "the word that gets sliced open after its second letter"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left, and it is the filling"
+     },
+     {
+      "clueFragment": "thank-you",
+      "gives": "TA",
+      "note": "TA is the informal thank-you"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N abbreviates note"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TI",
+      "note": "the sol-fa note TI sounds exactly like 'tea'"
+     }
+    ],
+    "walkthrough": "The answer keeps its Italian plural: one dilettante, several dilettanti. 'Delivered' is the sound instruction — a speech is delivered aloud.",
+    "definitionFit": "Enthusiasts → DILETTANTI: amateurs who dabble in an art for love of it, so the definition catches the enthusiasm and politely drops the dabbling."
+   }
   },
   {
    "id": "13-across",
@@ -268,7 +673,47 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMONTILLADO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMONTILLADO",
+    "definition": "Sherry",
+    "pieces": [
+     "AM",
+     "ON",
+     "TILL",
+     "A",
+     "DO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "ante meridiem, the hours before noon"
+     },
+     {
+      "clueFragment": "acceptable",
+      "gives": "ON",
+      "note": "the British idiom — something unacceptable is 'just not on'"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "TILL",
+      "note": "till and before both mean up to a point in time"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter lifted straight out of the clue"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party, another crossword regular"
+     }
+    ],
+    "walkthrough": "Five pieces, none longer than four letters, and every one of them an everyday word — the difficulty is entirely in seeing where to cut.",
+    "definitionFit": "Sherry → AMONTILLADO: definition by example, a medium-dry style from Jerez standing in for the drink as a whole."
+   }
   },
   {
    "id": "14-down",
@@ -285,7 +730,32 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRANSACTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TRANSACTS",
+    "definition": "Deals with",
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "TRANS",
+     "ACTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type of unhealthy fat",
+      "gives": "TRANS",
+      "note": "trans fats are the notoriously unhealthy kind"
+     },
+     {
+      "clueFragment": "gets down to business",
+      "gives": "ACTS",
+      "note": "to act is to stop deliberating and do something"
+     }
+    ],
+    "walkthrough": "Both halves are ordinary English doing double duty: 'trans' is only half a word until the fat names it, and 'acts' is buried in a business idiom.",
+    "definitionFit": "Deals with → TRANSACTS: both are verbs for conducting business with someone, TRANSACTS being the formal, contractual register of the pair."
+   }
   },
   {
    "id": "15-down",
@@ -302,7 +772,31 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMORPHOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AMORPHOUS",
+    "definition": "Lacking a clear plan",
+    "indicators": [
+     "prepare"
+    ],
+    "anagram": {
+     "fodder": "HAM OR SOUP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ham or soup",
+      "gives": "HAMORSOUP",
+      "note": "nine letters of lunch, exactly the enumeration"
+     },
+     {
+      "clueFragment": "prepare",
+      "gives": "",
+      "note": "the anagram indicator, reading as kitchen work"
+     }
+    ],
+    "walkthrough": "AMORPHOUS literally means without shape, from the Greek morphe. Watch how 'or' sits inside the fodder and looks like a choice you are being offered.",
+    "definitionFit": "Lacking a clear plan → AMORPHOUS: the figurative sense of shapeless, used of vague and unstructured things rather than of physical form."
+   }
   },
   {
    "id": "16-down",
@@ -319,7 +813,41 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STOCKIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "STOCKIST",
+    "definition": "Supplier",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "at the core"
+    ],
+    "pieces": [
+     "STOCK",
+     "IS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broth",
+      "gives": "STOCK",
+      "note": "stock is the broth a soup is built on"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word taken as it stands"
+     },
+     {
+      "clueFragment": "nutritional",
+      "gives": "T",
+      "note": "the middle letter of the eleven in NUTRITIONAL"
+     }
+    ],
+    "walkthrough": "That 's is only joinery, not a possessive to unpick — spotting it is half the battle. The pleasure is STOCK doing duty as both broth and shop inventory.",
+    "definitionFit": "Supplier → STOCKIST: retail jargon for a shop authorised to carry a maker's goods, so it supplies at one remove rather than manufacturing."
+   }
   },
   {
    "id": "17-down",
@@ -336,7 +864,40 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTRIGUE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "INTRIGUE",
+    "definition": "Secretly plan",
+    "indicators": [
+     "stuffing",
+     "essence of"
+    ],
+    "pieces": [
+     "IN",
+     "TR",
+     "IG",
+     "UE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "IN",
+      "note": "hot in the fashionable sense is IN"
+     },
+     {
+      "clueFragment": "dependable",
+      "gives": "TRUE",
+      "note": "dependable is TRUE, and it is about to be stuffed"
+     },
+     {
+      "clueFragment": "figs",
+      "gives": "IG",
+      "note": "the essence — the middle — of fIGs"
+     }
+    ],
+    "walkthrough": "'Hot' meaning fashionable is the step to find, and the comma sitting after it is doing its best to make you read heat instead.",
+    "definitionFit": "Secretly plan → INTRIGUE: the verb sense, to scheme covertly, which survives mainly in writing while the noun does the everyday work."
+   }
   },
   {
    "id": "18-across",
@@ -353,7 +914,58 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMYLOPECTIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade + container + reversal",
+    "answer": "AMYLOPECTIN",
+    "definition": "starch component",
+    "indicators": [
+     "unfortunately",
+     "contains",
+     "rejected"
+    ],
+    "pieces": [
+     "AMY",
+     "LO",
+     "PEC",
+     "TIN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MAY",
+      "gives": "AMY"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "CEP",
+      "to": "PEC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "May",
+      "gives": "AMY",
+      "note": "the three letters of MAY shuffled"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "LO",
+      "note": "LO is the archaic 'see', as in lo and behold"
+     },
+     {
+      "clueFragment": "mushroom",
+      "gives": "PEC",
+      "note": "a CEP is the mushroom, and 'rejected' turns it round"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a can is a tin"
+     }
+    ],
+    "walkthrough": "CEP for a mushroom and LO for 'see' are the two bits of crossword vocabulary to bank here. Amylopectin is the branched half of starch; its partner is amylose.",
+    "definitionFit": "starch component → AMYLOPECTIN: technical usage — starch is a mixture, and this branched polysaccharide is the larger of its two constituents."
+   }
   },
   {
    "id": "19-down",
@@ -370,7 +982,33 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HONIED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HONIED",
+    "definition": "Sweet",
+    "indicators": [
+     "with addition of"
+    ],
+    "pieces": [
+     "HON",
+     "I",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made sharper",
+      "gives": "HONED",
+      "note": "to hone a blade is to make it sharper"
+     },
+     {
+      "clueFragment": "iodine",
+      "gives": "I",
+      "note": "I is iodine's chemical symbol"
+     }
+    ],
+    "walkthrough": "HONIED is the older spelling of honeyed and perfectly sound; the crossing letters are what tell you which of the two the setter wants.",
+    "definitionFit": "Sweet → HONIED: sweetened with or as if with honey, and by extension the adjective for flattering, over-sugared talk."
+   }
   },
   {
    "id": "20-down",
@@ -387,7 +1025,38 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SERIES",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "SERIES",
+    "definition": "Course",
+    "indicators": [
+     "doing the work of"
+    ],
+    "pieces": [
+     "SER",
+     "I",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is enough for",
+      "gives": "SERVES",
+      "note": "if a thing serves, it is enough for the purpose"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral one, which moves in"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "the Roman numeral five, whose job I takes over"
+     }
+    ],
+    "walkthrough": "The clue describes a job swap and means a letter swap: Roman numerals let 'one doing the work of five' be read as I standing in for V.",
+    "definitionFit": "Course → SERIES: a course of lectures or of antibiotics is precisely a series of them, the sense that survives in that phrase."
+   }
   },
   {
    "id": "21-across",
@@ -404,7 +1073,51 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERSLEEPS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + last letter",
+    "answer": "OVERSLEEPS",
+    "definition": "fails to rise",
+    "indicators": [
+     "at last",
+     "flipping"
+    ],
+    "pieces": [
+     "OVER",
+     "S",
+     "LEEP",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "PEEL",
+      "to": "LEEP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "OVER",
+      "note": "when something is finished it is over"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-label abbreviation for small"
+     },
+     {
+      "clueFragment": "flake",
+      "gives": "LEEP",
+      "note": "paint that flakes PEELs, and 'flipping' turns it round"
+     },
+     {
+      "clueFragment": "pastries at last",
+      "gives": "S",
+      "note": "the final letter of pastrieS"
+     }
+    ],
+    "walkthrough": "'Flake' as a verb — what old paint does — is the step to find, not a person or a chocolate bar. The definition is delightfully literal.",
+    "definitionFit": "fails to rise → OVERSLEEPS: 'rise' in its getting-out-of-bed sense, so failing at it is exactly sleeping past the hour you meant."
+   }
   },
   {
    "id": "22-down",
@@ -421,7 +1134,26 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EARED",
+    "definition": "as cereal typically is",
+    "indicators": [
+     "initially forgotten"
+    ],
+    "pieces": [
+     "EARED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burned",
+      "gives": "EARED",
+      "note": "burned is SEARED, and forgetting its initial S leaves EARED"
+     }
+    ],
+    "walkthrough": "Cereals grow in ears, which is the sense wanted — nothing here to do with hearing. 'Initially forgotten' is a beheading instruction, not a memory lapse.",
+    "definitionFit": "as cereal typically is → EARED: bearing ears, the botanical term for the seed-heads wheat and barley carry at the top of the stalk."
+   }
   },
   {
    "id": "23-across",
@@ -438,7 +1170,23 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SCAR",
+    "definition": "Spoil",
+    "indicators": [
+     "partway through"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escargot",
+      "gives": "SCAR",
+      "note": "e-SCAR-got: the answer sits inside the snail"
+     }
+    ],
+    "walkthrough": "One word long enough to bury a four-letter answer is all a hidden clue needs, and an unusual menu item is always a good place to start looking.",
+    "definitionFit": "Spoil → SCAR: both are verbs for damaging a surface for good, SCAR carrying the sense of a mark left behind rather than outright ruin."
+   }
   },
   {
    "id": "24-down",
@@ -455,7 +1203,31 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PITA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PITA",
+    "definition": "Bread on American menus",
+    "indicators": [
+     "not"
+    ],
+    "pieces": [
+     "PITA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pisa - feta",
+      "gives": "PITA",
+      "note": "PISAFETA with S, A, F and E struck out leaves P-I-T-A standing in order"
+     },
+     {
+      "clueFragment": "reliable",
+      "gives": "SAFE",
+      "note": "reliable is SAFE, the four letters that 'not' removes"
+     }
+    ],
+    "walkthrough": "Nothing is shuffled here: strike the letters of SAFE out of the town and the cheese and the answer survives in its original order.",
+    "definitionFit": "Bread on American menus → PITA: the American spelling of the flatbread Britain writes as PITTA, so the geography is doing real defining work."
+   }
   },
   {
    "id": "25-across",
@@ -477,7 +1249,29 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
     ]
    },
    "solution": "ICI",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ICI",
+    "definition": "Chemical company at one time",
+    "indicators": [
+     "dissolving",
+     "in odd locations"
+    ],
+    "pieces": [
+     "I",
+     "C",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "biscuit",
+      "gives": "ICI",
+      "note": "B, S, U and T sit in the odd positions of BISCUIT and dissolve away"
+     }
+    ],
+    "walkthrough": "Alternate-letter clues are usually flagged by 'odd' or 'even'; here 'odd locations' names the letters that GO, not the ones that stay.",
+    "definitionFit": "Chemical company at one time → ICI: Imperial Chemical Industries, a British giant broken up and finally swallowed by AkzoNobel, hence the past tense."
+   }
   },
   {
    "id": "26-across",
@@ -494,7 +1288,40 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARBONISING",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + alternate letters",
+    "answer": "CARBONISING",
+    "definition": "extreme grilling",
+    "indicators": [
+     "occasionally",
+     "in"
+    ],
+    "pieces": [
+     "CA",
+     "R",
+     "BON",
+     "ISING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Char occasionally",
+      "gives": "CA",
+      "note": "the alternate letters of C-h-A-r"
+     },
+     {
+      "clueFragment": "emerging",
+      "gives": "RISING",
+      "note": "something emerging is rising"
+     },
+     {
+      "clueFragment": "good, as the French say",
+      "gives": "BON",
+      "note": "BON is French for good, and it drops in behind the R"
+     }
+    ],
+    "walkthrough": "'Char' looks like the definition and is really the fodder — the setter has put the cooking word exactly where you expect the meaning to be.",
+    "definitionFit": "extreme grilling → CARBONISING: burning food to carbon is grilling taken past all usefulness, and the quotation marks admit the definition is a joke."
+   }
   },
   {
    "id": "27-across",
@@ -511,7 +1338,38 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISUSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + deletion",
+    "answer": "DISUSED",
+    "definition": "left to rot",
+    "indicators": [
+     "on the fringes",
+     "missing"
+    ],
+    "pieces": [
+     "DI",
+     "SUSED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deli",
+      "gives": "DI",
+      "note": "the fringes of DELI, its outer letters"
+     },
+     {
+      "clueFragment": "marinated",
+      "gives": "SUSED",
+      "note": "marinated is SOUSED, with the duck's O gone missing"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a zero in cricket, hence the letter O"
+     }
+    ],
+    "walkthrough": "Duck for O comes from cricket's scoreboard and is one of the most useful conventions there is. SOUSED means both pickled and drunk, which the surface enjoys.",
+    "definitionFit": "left to rot → DISUSED: not quite a synonym — DISUSED says only that nothing uses the thing any more, and the decay is what follows."
+   }
   },
   {
    "id": "28-across",
@@ -528,7 +1386,40 @@ window.CRYPTIC_PUZZLES["12431"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STARTLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + deletion",
+    "answer": "STARTLE",
+    "definition": "Surprise",
+    "indicators": [
+     "brief",
+     "if dropped",
+     "reconstituted"
+    ],
+    "pieces": [
+     "STA",
+     "RTLE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TRLE",
+      "gives": "RTLE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief wait",
+      "gives": "STA",
+      "note": "a wait is a STAY, and 'brief' clips its last letter"
+     },
+     {
+      "clueFragment": "trifle, if dropped",
+      "gives": "TRLE",
+      "note": "TRIFLE loses its I and its F, leaving four letters to rebuild"
+     }
+    ],
+    "walkthrough": "A dropped trifle is a fine picture of a surprise, and it is the instruction too: the letters I and F fall out of the word before the rest is put back together.",
+    "definitionFit": "Surprise → STARTLE: both verbs, though STARTLE is the sharper of the two — a sudden jolt rather than any piece of unexpected news."
+   }
   }
  ]
 } /*JSON-END*/;
