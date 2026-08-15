@@ -561,11 +561,5 @@ window.CRYPTIC_PUZZLES["30080"] = /*JSON-START*/ {
    "solution": "PORCHPIRATES",
    "annotation": null
   }
- ],
- "solutionSource": {
-  "kind": "model",
-  "model": "claude-opus-5",
-  "date": "2026-08-12",
-  "check": "30 entries, 58 crossings, 0 conflicts"
- }
+ ]
 } /*JSON-END*/;
