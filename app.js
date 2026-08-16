@@ -745,6 +745,14 @@
     return true;
   }
 
+  // The whole of a linked group, not one leg of it: a linked clue's hints cover
+  // both entries, so getting the first must not hand over the second.
+  function groupSolved(e) {
+    const key = entryKey(e);
+    const group = entries.filter((g) => entryKey(g) === key);
+    return group.length > 0 && group.every(isEntrySolved);
+  }
+
   function checkSolvedEntries() {
     entries.forEach((e) => {
       if (isEntrySolved(e) && solvedWith[e.id] === undefined) {
@@ -897,6 +905,13 @@
   // blocks rung, and a rung that doesn't exist must never be a lock nobody can
   // open.
   function rungAvailable(e, steps, key) {
+    // Solved: nothing left to protect, so the whole ladder opens (Paul,
+    // 2026-08-16). The tiers exist so the walkthrough can't be taken before the
+    // clue has been fought with; once the answer is in the grid the lock stands
+    // between a solver and the explanation of a clue they already got, which is
+    // the one thing this site is for. Reading it afterwards is free — see
+    // hintsCharged.
+    if (groupSolved(e)) return true;
     const tier = RUNG_TIER[key] || 0;
     return steps.every((s) => (RUNG_TIER[s.key] || 0) >= tier || isShown(e, s.key));
   }
@@ -1202,9 +1217,13 @@
     const solved = isEntrySolved(e);
     const reveals = revealsUsed[key] || 0;
     const revealsNote = reveals ? ` · ${reveals} letter${reveals > 1 ? "s" : ""} revealed` : "";
+    // The count the score charges, not the number of rungs currently on screen:
+    // once solved you can open the rest for free, and the meter has to say the
+    // same thing the scorebar does or one of them is lying.
+    const charged = hintsCharged(e);
     $("hint-meter").innerHTML = solved
-      ? ((solvedWith[e.id] || reveals)
-          ? `Solved with ${solvedWith[e.id] || 0} hint${solvedWith[e.id] === 1 ? "" : "s"}${revealsNote}`
+      ? ((charged || reveals)
+          ? `Solved with ${charged} hint${charged === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints — bravo!")
       // "used on this clue" — you are looking at the clue. Just the count.
       : (ann ? `Hints <strong>${level}</strong>/${ladderSteps(ann, e.clue).length}${revealsNote}`
@@ -1260,7 +1279,10 @@
       open.forEach(({ s, n }, j) => {
         const btn = document.createElement("button");
         if (j > 0) btn.className = "ghost small";
-        btn.textContent = j === 0 ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}`;
+        // No "Show hint 5" on a clue that is already in: the rungs stopped being
+        // hints to spend the moment it was solved, and a price hintsCharged no
+        // longer charges shouldn't be advertised.
+        btn.textContent = (j === 0 && !solved) ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}`;
         btn.onclick = () => { showHint(e, s.key); refreshAll(); };
         next.appendChild(btn);
       });
@@ -1289,6 +1311,18 @@
   }
 
   // ---------- score ----------
+  // What this clue costs. Frozen at the moment it was solved: rungs opened after
+  // that are a solver studying a clue they already got, and charging for the
+  // lesson would make the unlock in rungAvailable a trap. The group's cost is the
+  // count when its LAST leg went in, and rungs only ever accumulate, so that is
+  // the largest of the legs' snapshots.
+  function hintsCharged(e) {
+    if (!groupSolved(e)) return shownRungs(e).length;
+    const key = entryKey(e);
+    return entries.filter((g) => entryKey(g) === key)
+      .reduce((n, g) => Math.max(n, solvedWith[g.id] || 0), 0);
+  }
+
   function renderScore() {
     const total = entries.filter((e) => !(e.annotation && e.annotation.linkedTo)).length;
     let solved = 0, noHints = 0, levelsUsed = 0, lettersRevealed = 0;
@@ -1297,9 +1331,8 @@
       const key = entryKey(e);
       if (counted[key]) return;
       counted[key] = true;
-      const rungs = shownRungs(e).length;
-      const group = entries.filter((g) => entryKey(g) === key);
-      if (group.every(isEntrySolved) && group.length) {
+      const rungs = hintsCharged(e);
+      if (groupSolved(e)) {
         solved++;
         if (!rungs && !(revealsUsed[key] > 0)) noHints++;
       }

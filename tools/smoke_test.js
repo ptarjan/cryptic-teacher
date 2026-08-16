@@ -743,6 +743,58 @@ registry["reset-puzzle"].onclick();
     "resetting records when it happened, so the reset itself can reach the other device");
 }
 
+// --- solving a clue opens its whole ladder, for free (Paul, 2026-08-16) ---
+// The tiers exist to stop a walkthrough being taken cold. Once the answer is in
+// the grid there is nothing left to give away, so every rung opens — and opening
+// them must not cost anything, or the unlock is a trap that quietly turns
+// "solved with no hints" into "solved with five". Both halves are asserted:
+// unlock without the free reading is worse than leaving it locked.
+{
+  const taught = allPuzzles.find((p) => p.annotated && p.hasSolutions
+    && global.window.CRYPTIC_PUZZLES[p.id]);
+  registry["btn-picker"].onclick();
+  typeInPicker(String(taught.number));
+  pickerRows().find((li) => li.children[0]
+    && li.children[0].innerHTML.includes("№ " + taught.number)).children[0].onclick();
+  registry["reset-puzzle"].onclick();
+
+  // An entry that is nobody's linked leg, so solving it really does solve the
+  // group the hints belong to.
+  let solo = null;
+  for (let i = 0; i < 40 && !solo; i++) {
+    kd(ev("Tab"));
+    const e = currentEntry();
+    if (e && e.solution && !(e.annotation && e.annotation.linkedTo)
+      && !openPuz.entries.some((g) => g.annotation && g.annotation.linkedTo === e.id)) solo = e;
+  }
+  assert(solo, "found an unlinked entry with a published answer to solve");
+  assert(registry["hint-next"].children.some((b) => b.disabled),
+    "before solving, the late rungs are still locked");
+
+  solo.solution.split("").forEach((ch) => kd(ev(ch)));
+  assert(/Solved with no hints/.test(registry["hint-meter"].innerHTML),
+    "typed it cold: " + registry["hint-meter"].innerHTML);
+  const buttons = registry["hint-next"].children;
+  assert(buttons.length && !buttons.some((b) => b.disabled),
+    "solving unlocks every rung: " + buttons.map((b) => b.textContent + (b.disabled ? " [locked]" : "")).join(" | "));
+  assert(!buttons.some((b) => /^Show hint /.test(b.textContent)),
+    "a solved clue's rungs are the explanation, not hints to spend: "
+      + buttons.map((b) => b.textContent).join(" | "));
+
+  // Read the lot, walkthrough included, and the score must not move.
+  const before = registry["scorebar"].innerHTML;
+  for (let i = 0; i < 8 && registry["hint-next"].children[0]
+    && registry["hint-next"].children[0].onclick; i++) {
+    registry["hint-next"].children[0].onclick();
+  }
+  assert(/hint-step/.test(registry["hint-body"].innerHTML), "the rungs really did open");
+  assert(/Solved with no hints/.test(registry["hint-meter"].innerHTML),
+    "studying a solved clue is free: " + registry["hint-meter"].innerHTML);
+  assert(registry["scorebar"].innerHTML === before,
+    `the scorebar must not move when a solved clue is studied:\n  was ${before}\n  now ${registry["scorebar"].innerHTML}`);
+  registry["reset-puzzle"].onclick();
+}
+
 // --- cross-device sync merges, and can only ever add ---
 // The whole design rests on the merge being safe to run unattended: no "which
 // device wins?" prompt, no confirmation, it just happens when you open the tab.
