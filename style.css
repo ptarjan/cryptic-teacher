@@ -398,7 +398,14 @@ button:disabled:hover { border-color: var(--line); }
    ones a crossing clue can confirm — get a solid accent-underlined box; the
    unchecked ones are dashed, because nothing will ever cross them. */
 .pattern { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 2px 0 8px; }
-.pat-boxes { display: flex; flex-wrap: wrap; gap: 3px; }
+.pat-boxes { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; }
+/* One row per word of the enumeration, so the divisions are visible and a long
+   entry wraps between words in preference to inside one. The gap that says "new
+   word" has to be plainly bigger than the gap between two letters of the same
+   word, or it says nothing. */
+.pat-word { display: flex; flex-wrap: wrap; gap: 3px; }
+.pat-word.brk-space { margin-right: 10px; }
+.pat-sep { margin: 0 1px; color: var(--muted); font: 700 1.05rem/1 -apple-system, Helvetica, Arial, sans-serif; }
 /* These are not decoration, they are the control you tap to say which square you
    are typing into, and you read the letters in them while you do it. At .82rem
    they were ~20x23px — under a fingertip and under the 44px iOS minimum, and the
@@ -522,7 +529,9 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      minimum. A 15-letter entry is then ~660px, which still fits the stacked
      column. */
   .pat-box { font-size: 1.35rem; }
-  .pat-boxes { gap: 5px; }
+  .pat-boxes, .pat-word { gap: 5px; }
+  .pat-word.brk-space { margin-right: 13px; }
+  .pat-sep { font-size: 1.35rem; }
   #hint-panel { padding: 14px 18px; }
   .hint-clue { font-size: 1.3rem; line-height: 1.45; margin-bottom: 6px; }
   #hint-meter { font-size: .85rem; }
