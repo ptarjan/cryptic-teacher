@@ -62,6 +62,19 @@
   let hintLevels = {};   // legacy: entryKey -> highest level, migrated on read
   let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
   let solvedWith = {};   // entryKey -> how many rungs were up when first solved
+  // { startedAt, lastAt, activeMs, solvedAt, solvedMs } — see sync/merge.js.
+  // Nothing on the page reads this: it is recorded because a solve-time index
+  // (the SNITCH divides your time by your own six-month average) can only ever
+  // be built out of history that was already being kept, and there is no such
+  // index for the Guardian, the Independent, Everyman or the Quiptic — see
+  // tools/difficulty.py. Whether a solve was clean stays derivable from
+  // hintsShown and revealsUsed rather than being copied in here.
+  let timing = {};
+  // Elapsed time is not solving time: a crossword is done on a bus, then in an
+  // evening, and the wall clock counts the day in between. Only gaps short
+  // enough to be one sitting are added up. Long is deliberate — staring at a
+  // clue for four minutes IS solving it.
+  const IDLE_MS = 5 * 60 * 1000;
   let saveTimer = null;
   let touchAnchor = null; // touchstart position, to distinguish taps from scrolls
 
@@ -97,8 +110,19 @@
       // `updated` is what lets two machines be merged without asking which one
       // to believe (see sync/merge.js). It is written even with sync switched
       // off, so turning it on later does not treat today's work as undated.
+      // saveState runs on every change a solver makes — a letter, a hint, a
+      // reveal — so the gaps between consecutive saves are the sitting.
+      timing = Object.assign({}, prev.timing);
+      const gap = now - (timing.lastAt || now);
+      if (!timing.startedAt) timing.startedAt = now;
+      if (gap > 0 && gap <= IDLE_MS) timing.activeMs = (timing.activeMs || 0) + gap;
+      timing.lastAt = now;
+      if (!timing.solvedAt && entries.length && entries.every(isEntrySolved)) {
+        timing.solvedAt = now;
+        timing.solvedMs = timing.activeMs || 0;
+      }
       store.set(stateKey(), { letters, letterAt, hintsShown, revealsUsed, solvedWith,
-                              clearedAt: prev.clearedAt || 0, updated: now });
+                              timing, clearedAt: prev.clearedAt || 0, updated: now });
       syncPushSoon();
     }, 150);
   }
@@ -108,6 +132,7 @@
     hintLevels = (s && s.hintLevels) || {};
     revealsUsed = (s && s.revealsUsed) || {};
     solvedWith = (s && s.solvedWith) || {};
+    timing = (s && s.timing) || {};
     if (s && s.letters) {
       forEachCell((c) => {
         const v = s.letters[c.x + "," + c.y];
@@ -1422,7 +1447,7 @@
     meta = INDEX.puzzles.find((p) => p.id === id) || { annotated: false };
     store.set("ct:last", id);
     buildModel();
-    hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {};
+    hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
     restoreState();
     const first = entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
@@ -1552,10 +1577,13 @@
       // whole grid back on the next pull. The reset is recorded as a moment
       // instead, and merge.js drops everything either side knew before it.
       const now = Date.now();
+      // The clock goes with it. "Clear the grid and all hint history" means a
+      // fresh attempt, and an attempt that starts on a grid you have already
+      // solved once is not a time anything should be averaging.
       store.set(stateKey(), { letters: {}, letterAt: {}, hintsShown: {}, revealsUsed: {},
-                              solvedWith: {}, clearedAt: now, updated: now });
+                              solvedWith: {}, timing: {}, clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
-      hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {};
+      hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
       refreshAll();
       syncPushSoon();
     };
