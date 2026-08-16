@@ -801,6 +801,49 @@ registry["reset-puzzle"].onclick();
   assert(panel.getBoundingClientRect().top >= 0 && panel.getBoundingClientRect().top < 20,
     "and that place is its top, just under the top of the screen");
 
+  // --- and it lands above the keyboard, not behind it (Paul, iPad, 2026-08-16) ---
+  // Tapping a clue also raises the soft keyboard, and iOS does not shrink
+  // innerHeight for it — the keys are drawn over the bottom of a viewport that
+  // still claims to be full height. So "fully in view" has to mean the visual
+  // viewport. The band here is 600 tall against an innerHeight of 1000, which is
+  // roughly an iPad in portrait with the keyboard up: anything that measures
+  // innerHeight parks the panel 400px behind the keys.
+  const vv = win.visualViewport;
+  const inBand = () => {
+    const b = panel.getBoundingClientRect();
+    return b.top >= vv.offsetTop && b.bottom <= vv.offsetTop + vv.height;
+  };
+  panel.layout(1200, 400);
+
+  vv.height = 600;                       // keyboard already up
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[0].listeners.click[0]();
+  assert(inBand(), "with the keyboard up the panel lands above it, not behind it: "
+    + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
+
+  // The real sequence: the tap is handled while the keyboard is still sliding up,
+  // so the placement that mattered was measured against the wrong screen and has
+  // to be redone when the viewport actually changes.
+  vv.height = 1000;
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[1].listeners.click[0]();
+  assert(inBand(), "placed against the full screen first");
+  vv.raiseKeyboard(400);
+  assert(inBand(), "and replaced when the keyboard arrives a beat later: "
+    + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
+
+  // But only on the heels of a tap. A viewport that changes while someone is
+  // reading — keyboard dismissed, rotation, a pinch — must not yank the page.
+  vv.height = 1000;
+  win.pageYOffset = 3000; win.scrolls.length = 0;
+  const realNow = Date.now;
+  Date.now = () => realNow() + 60000;
+  vv.raiseKeyboard(400);
+  Date.now = realNow;
+  assert(win.scrolls.length === 0 && win.pageYOffset === 3000,
+    `a viewport change long after the tap must leave the page alone: 3000 -> ${win.pageYOffset}`);
+
+  vv.height = 1000; vv.offsetTop = 0;
   panel.layout(0, 0);   // back to unlaid-out, so nothing below here scrolls
   win.pageYOffset = 0; win.scrolls.length = 0;
 }

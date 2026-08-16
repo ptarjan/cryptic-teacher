@@ -547,22 +547,63 @@
   // makes the move idempotent: after it, the panel is fully on screen, so the
   // next tap takes the already-visible branch and the page holds still. That
   // branch is also what keeps the desktop's two columns from ever scrolling.
+  //
+  // And it measured the wrong screen. iOS does NOT shrink window.innerHeight when
+  // the soft keyboard comes up: the layout viewport stays its full height and the
+  // keys sit on top of the bottom third of it, so a panel this code called "fully
+  // in view" was parked behind them (Paul, iPad, 2026-08-16). visualViewport is
+  // the part still showing — and since tapping a clue also raises the keyboard,
+  // this is the ordinary case, not an edge one.
+  //
+  // The band of the page you can actually see, in the same client coordinates
+  // getBoundingClientRect() speaks. offsetTop is where the visible part starts
+  // inside the layout viewport (the keyboard can push it down as well as cut it
+  // short). innerHeight is the fallback for browsers without visualViewport.
+  function visibleBand() {
+    const vv = window.visualViewport;
+    if (vv && vv.height) {
+      const top = vv.offsetTop || 0;
+      return { top, bottom: top + vv.height };
+    }
+    return { top: 0, bottom: window.innerHeight || 0 };
+  }
+  let lastHintScroll = 0;
   function scrollToHintPanel() {
+    lastHintScroll = Date.now();
+    placeHintPanel();
+  }
+  function placeHintPanel() {
     const p = $("hint-panel");
     if (!p || p.classList.contains("hidden") || !p.getBoundingClientRect) return;
     const go = () => {
       const r = p.getBoundingClientRect();
-      const vh = window.innerHeight || 0;
-      if (!vh || !r.height) return;
+      const band = visibleBand();
+      const vh = band.bottom - band.top;
+      if (vh <= 0 || !r.height) return;
       const y = window.pageYOffset || 0;
       let top;
-      if (r.top >= 0 && r.bottom <= vh) return;          // all there already
-      if (r.height > vh - HINT_SCROLL_GAP) top = y + r.top - HINT_SCROLL_GAP;
-      else if (r.top < 0) top = y + r.top - HINT_SCROLL_GAP;   // above: pull it down
-      else top = y + r.bottom - vh + HINT_SCROLL_GAP;          // below: pull it up
+      if (r.top >= band.top && r.bottom <= band.bottom) return;   // all there already
+      // Too tall to fit, or hanging off the top: line its top up with the top of
+      // the band. Otherwise it is below, so pull its bottom up to the band's floor.
+      if (r.height > vh - HINT_SCROLL_GAP || r.top < band.top) top = y + r.top - band.top - HINT_SCROLL_GAP;
+      else top = y + r.bottom - band.bottom + HINT_SCROLL_GAP;
       window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     };
     if (window.requestAnimationFrame) window.requestAnimationFrame(go); else go();
+  }
+  // The keyboard is not up yet when the tap is handled. focusKbd() asks for it and
+  // it animates in over a couple of hundred milliseconds, so even measuring a
+  // frame later measures a screen that is about to lose its bottom third. Redo the
+  // placement when the viewport actually changes — but only on the heels of a tap,
+  // so a keyboard raised for something else (or dismissed, or a rotation) does not
+  // yank the page out from under a solver who is reading. placeHintPanel(), not
+  // scrollToHintPanel(), so the window cannot keep renewing itself; and it is
+  // idempotent, so the extra calls a keyboard animation fires cost nothing.
+  const HINT_KEYBOARD_WINDOW_MS = 1200;
+  if (window.visualViewport && window.visualViewport.addEventListener) {
+    window.visualViewport.addEventListener("resize", () => {
+      if (Date.now() - lastHintScroll < HINT_KEYBOARD_WINDOW_MS) placeHintPanel();
+    });
   }
 
   function onCellClick(c) {
