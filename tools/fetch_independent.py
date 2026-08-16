@@ -45,8 +45,9 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, UA, merge_annotations,  # noqa: E402
-                          read_puzzle_file, reindex, write_puzzle_file)
+from fetch_puzzle import (PUZZLE_DIR, UA, flatten_clue,  # noqa: E402
+                          merge_annotations, read_puzzle_file, reindex,
+                          write_puzzle_file)
 
 FEED = ("https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/independent/"
         "daily-crossword/c_{ymd}.xml")
@@ -81,11 +82,10 @@ def http_get(url):
 def inner_xml(el):
     """An element's content with its child markup intact.
 
-    Clue text is not plain text: an italicised title comes through as
-    "<span>Case for </span><i>Turandot</i><span> lyrics…</span>". The Guardian
-    does exactly the same thing and the app already renders clue text as HTML,
-    so the honest conversion is to keep the markup rather than flatten a
-    quotation mark's worth of meaning out of the clue.
+    Only so that plain_text() can take it straight back out again — the tags
+    are how the space between "Case for" and an italicised "Turandot" survives
+    the walk, and the stored clue is text, not HTML. See fetch_puzzle.plain_text
+    for why keeping the markup was tried and abandoned.
     """
     parts = [el.text or ""]
     for child in el:
@@ -178,6 +178,7 @@ def parse(xml_bytes, ymd):
                 group.append(eid)
                 built.append((eid, num, across, x1, y1, cells))
             seps = separators(fmt, [len(c[5]) for c in built])
+            text, italics = flatten_clue(inner_xml(clue).strip())
             for i, (eid, num, across, x1, y1, cells) in enumerate(built):
                 entries.append({
                     "id": eid,
@@ -189,8 +190,10 @@ def parse(xml_bytes, ymd):
                     # Guardian data it was built for) expects it inside the clue
                     # text, where a solver reads it. Continuations say "See 10",
                     # matching the Guardian's own wording for the same thing.
-                    "clue": (f"{inner_xml(clue).strip()} ({fmt})" if i == 0
-                             else f"See {nums[0]}"),
+                    # The enumeration goes on the END, so it cannot disturb any
+                    # italic range; a continuation carries none of either.
+                    "clue": f"{text} ({fmt})" if i == 0 else f"See {nums[0]}",
+                    **({"clueItalics": italics} if italics and i == 0 else {}),
                     "group": group,
                     "separatorLocations": seps[i],
                     "solution": "".join(letters.get(c, "") for c in cells).upper(),

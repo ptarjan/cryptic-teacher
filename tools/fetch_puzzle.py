@@ -115,6 +115,77 @@ def http_get(url):
     return urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
 
 
+TAG_RE = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)[^>]*>")
+ITALIC_TAGS = {"i", "em"}
+
+
+def flatten_clue(s):
+    """HTML clue text -> (plain text, italic ranges into that text).
+
+    Both papers ship clues as HTML: an italicised title arrives as
+    "<span>Case for </span><i>Turandot</i><span> lyrics…</span>". Storing that
+    markup was tried and is wrong — the app escapes puzzle text, so the solver
+    read the tags (Paul, on the Independent, 2026-08-15) — but so is throwing
+    it away, because the italics are part of the clue: "<i>Times</i>
+    desperately stifling question" is telling you the newspaper, not the plural
+    of time.
+
+    So the clue stays ONE plain string and the italics travel beside it as
+    [start, length] ranges. The string has to stay plain because every
+    annotation fragment is found in it with indexOf and highlighted by
+    character offset; a tag in the middle would move every offset after it.
+    Ranges are just a second list over the same offsets, so the two agree by
+    construction, and app.js can cut the clue at the boundaries of both.
+
+    The flatten runs character by character rather than as a regex sub so that
+    unescaping entities and collapsing runs of whitespace — both of which
+    change the length — carry the italic flags along with the characters they
+    belong to.
+    """
+    # Nothing to flatten, so nothing is touched. Collapsing whitespace in a
+    # clue that never had markup would edit the paper's own text — the
+    # Independent really does print "Unsuitable pix?  I need ten developed" —
+    # and worse, silently move every annotation offset in a file that had no
+    # problem to fix.
+    if "<" not in s and "&" not in s:
+        return s, []
+
+    chars, depth, pos = [], 0, 0
+    for m in TAG_RE.finditer(s):
+        chars.extend((c, depth > 0) for c in html.unescape(s[pos:m.start()]))
+        if m.group(2).lower() in ITALIC_TAGS:
+            depth = max(0, depth + (-1 if m.group(1) else 1))
+        pos = m.end()
+    chars.extend((c, depth > 0) for c in html.unescape(s[pos:]))
+
+    out = []
+    for c, italic in chars:
+        if not c.isspace():
+            out.append((c, italic))
+        elif out and not out[-1][0].isspace():
+            out.append((" ", italic))
+    while out and out[-1][0].isspace():
+        out.pop()
+
+    ranges, start = [], None
+    for i, (_, italic) in enumerate(out):
+        if italic and start is None:
+            start = i
+        elif not italic and start is not None:
+            ranges.append([start, i - start])
+            start = None
+    if start is not None:
+        ranges.append([start, len(out) - start])
+    return "".join(c for c, _ in out), ranges
+
+
+def plain_text(s):
+    """The text half of flatten_clue, for the strings that have no ranges to
+    keep — annotation fragments, definitions, walkthroughs. Defined in terms of
+    flatten_clue so the two can never disagree about where a character lands."""
+    return flatten_clue(s)[0] if isinstance(s, str) else s
+
+
 def extract_crossword_data(page_html):
     m = re.search(r'<gu-island name="CrosswordComponent"[^>]*props="([^"]*)"', page_html)
     if not m:
@@ -165,13 +236,17 @@ def convert(data):
     """Guardian data -> our puzzle object (annotation: null on every entry)."""
     entries = []
     for e in sorted(data["entries"], key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"])):
+        clue, italics = flatten_clue(e["clue"])
         entries.append({
             "id": e["id"],
             "number": e["number"],
             "direction": e["direction"],
             "position": e["position"],
             "length": e["length"],
-            "clue": e["clue"],
+            "clue": clue,
+            # Omitted rather than written empty: most clues have no italics and
+            # a [] on every entry is 84 files of noise.
+            **({"clueItalics": italics} if italics else {}),
             "group": e["group"],
             "separatorLocations": e.get("separatorLocations") or {},
             "solution": e.get("solution"),
