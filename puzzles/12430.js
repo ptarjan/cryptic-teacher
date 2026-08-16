@@ -126,13 +126,19 @@ window.CRYPTIC_PUZZLES["12430"] = /*JSON-START*/ {
     "y": 1
    },
    "length": 7,
-   "clue": "<span>More recent winner of </span><i>Pop Idol</i><span> seen by European river</span> (7)",
+   "clue": "More recent winner of Pop Idol seen by European river (7)",
    "group": [
     "7-across"
    ],
    "separatorLocations": {},
    "solution": "YOUNGER",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     22,
+     8
+    ]
+   ]
   },
   {
    "id": "8-across",

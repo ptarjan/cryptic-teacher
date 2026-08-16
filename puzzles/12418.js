@@ -187,7 +187,7 @@ window.CRYPTIC_PUZZLES["12418"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 6,
-   "clue": "<span>Lament</span><span> extremely bizarre rule about nursing institute</span> (6)",
+   "clue": "Lament extremely bizarre rule about nursing institute (6)",
    "group": [
     "9-across"
    ],
@@ -238,7 +238,7 @@ window.CRYPTIC_PUZZLES["12418"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 6,
-   "clue": "<span>Opposed</span><span> state surveillance on vacation</span> (6)",
+   "clue": "Opposed state surveillance on vacation (6)",
    "group": [
     "12-across"
    ],
@@ -340,7 +340,7 @@ window.CRYPTIC_PUZZLES["12418"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 8,
-   "clue": "<span>Detective entertained by Melville's name for</span><span> bucolic character</span> (8)",
+   "clue": "Detective entertained by Melville's name for bucolic character (8)",
    "group": [
     "18-across"
    ],
@@ -391,7 +391,7 @@ window.CRYPTIC_PUZZLES["12418"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 6,
-   "clue": "<span>Funny</span><span> bone with a large diameter</span> (6)",
+   "clue": "Funny bone with a large diameter (6)",
    "group": [
     "21-across"
    ],
@@ -408,7 +408,7 @@ window.CRYPTIC_PUZZLES["12418"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 5,
-   "clue": "<span>An epoch</span><span> reflected in entertainment venue</span> (5)",
+   "clue": "An epoch reflected in entertainment venue (5)",
    "group": [
     "22-down"
    ],
@@ -425,13 +425,19 @@ window.CRYPTIC_PUZZLES["12418"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 8,
-   "clue": "<i>Times</i><span> desperately stifling question over inaccurate citation</span> (8)",
+   "clue": "Times desperately stifling question over inaccurate citation (8)",
    "group": [
     "23-across"
    ],
    "separatorLocations": {},
    "solution": "MISQUOTE",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     0,
+     5
+    ]
+   ]
   },
   {
    "id": "24-down",

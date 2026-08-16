@@ -415,9 +415,37 @@
   // 2026-08-01: "if I choose just the indicator clue now it doesn't highlight
   // the parts of clue"). Rule: highlight exactly what has been revealed, and
   // never anything that hasn't.
+  // The setter's italics and the solver's highlights are two independent lists
+  // of ranges over the same plain string (tools/fetch_puzzle.flatten_clue keeps
+  // the clue plain so that annotation fragments can still be found in it by
+  // indexOf). They overlap freely — an italicised title can BE the definition —
+  // so instead of nesting one inside the other the clue is cut at every
+  // boundary either list has and each piece wrapped in whatever covers it.
+  // Adjacent pieces of one italic render as one italic; nothing shows the seam.
+  function markUp(text, marks, italics) {
+    const cuts = [0, text.length];
+    marks.forEach((m) => cuts.push(m.i, m.i + m.len));
+    italics.forEach((r) => cuts.push(r[0], r[0] + r[1]));
+    const pts = cuts.filter((p, i) => p >= 0 && p <= text.length && cuts.indexOf(p) === i)
+                    .sort((a, b) => a - b);
+    let out = "";
+    for (let s = 0; s < pts.length - 1; s++) {
+      const a = pts[s];
+      const covers = (i, len) => i <= a && a < i + len;
+      const m = marks.filter((k) => covers(k.i, k.len))[0];
+      let piece = esc(text.slice(a, pts[s + 1]));
+      if (italics.filter((r) => covers(r[0], r[1])).length) piece = "<i>" + piece + "</i>";
+      out += m ? `<mark class="${m.cls}">${piece}</mark>` : piece;
+    }
+    return out;
+  }
+  // Italics are the setter's, so they show whether or not any hint is up.
+  const italicsOf = (e) => (Array.isArray(e.clueItalics) ? e.clueItalics : []);
+  const plainClueHTML = (e) => markUp(e.clue, [], italicsOf(e));
+
   function clueHTML(e) {
     const ann = annOf(e);
-    if (!ann) return esc(e.clue);
+    if (!ann) return plainClueHTML(e);
     const shown = (key) => isShown(e, key);
     const marks = [];
     const push = (text, cls) => {
@@ -434,20 +462,13 @@
       (ann.linkWords || []).forEach((w) => push(w, "link"));
     }
     if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
-    if (!marks.length) return esc(e.clue);
+    if (!marks.length) return plainClueHTML(e);
     marks.sort((a, b) => a.i - b.i);
     // drop overlaps
     const keep = [];
     let end = -1;
     marks.forEach((m) => { if (m.i >= end) { keep.push(m); end = m.i + m.len; } });
-    let out = "", pos = 0;
-    keep.forEach((m) => {
-      out += esc(e.clue.slice(pos, m.i));
-      out += `<mark class="${m.cls}">` + esc(e.clue.slice(m.i, m.i + m.len)) + "</mark>";
-      pos = m.i + m.len;
-    });
-    out += esc(e.clue.slice(pos));
-    return out;
+    return markUp(e.clue, keep, italicsOf(e));
   }
 
   // A CHECKING letter is the crossword term for a square this entry shares with
@@ -480,7 +501,7 @@
       const li = $("clue-" + e.id);
       if (!li) return;
       const holder = (e.annotation && e.annotation.linkedTo) ? byId[e.annotation.linkedTo] : e;
-      li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e) : esc(e.clue);
+      li.querySelector(".clue-text").innerHTML = (holder === e) ? clueHTML(e) : plainClueHTML(e);
       const solved = isEntrySolved(e);
       // Nothing to tell you about a clue you have finished — the row greys out
       // and a full row of dots would just be noise on every solved line.

@@ -249,13 +249,19 @@ window.CRYPTIC_PUZZLES["12421"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 9,
-   "clue": "<i>So</i><span> keeps bloke from Genesis at front of record book</span> (9)",
+   "clue": "So keeps bloke from Genesis at front of record book (9)",
    "group": [
     "13-across"
    ],
    "separatorLocations": {},
    "solution": "THESAURUS",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     0,
+     2
+    ]
+   ]
   },
   {
    "id": "14-across",

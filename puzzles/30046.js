@@ -909,7 +909,7 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "<span>Youngster with </span><i>Guardian</i><span> wanting whiskey in pubs shows guts</span> (7)",
+   "clue": "Youngster with Guardian wanting whiskey in pubs shows guts (7)",
    "group": [
     "19-across"
    ],
@@ -954,7 +954,13 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
      }
     ],
     "walkthrough": "The italicised Guardian is the setter's wink: a youngster with a guardian is a WARD in the legal sense. Whiskey is the radio operator's W, not the drink the pubs suggest."
-   }
+   },
+   "clueItalics": [
+    [
+     15,
+     8
+    ]
+   ]
   },
   {
    "id": "19-down",

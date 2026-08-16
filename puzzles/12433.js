@@ -64,7 +64,7 @@ window.CRYPTIC_PUZZLES["12433"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 5,
-   "clue": "<span>Film part of </span><i>Black Narcissus</i><span>?</span> (5)",
+   "clue": "Film part of Black Narcissus? (5)",
    "group": [
     "1-down"
    ],
@@ -74,7 +74,7 @@ window.CRYPTIC_PUZZLES["12433"] = /*JSON-START*/ {
     "type": "double definition",
     "answer": "SHOOT",
     "definition": "Film",
-    "definition2": "part of </span><i>Black Narcissus</i>",
+    "definition2": "part of Black Narcissus",
     "indicators": [],
     "blocks": [
      {
@@ -83,14 +83,20 @@ window.CRYPTIC_PUZZLES["12433"] = /*JSON-START*/ {
       "note": "the verb a director uses: to film a scene is to shoot it"
      },
      {
-      "clueFragment": "part of </span><i>Black Narcissus</i>",
+      "clueFragment": "part of Black Narcissus",
       "gives": "",
       "note": "the title hands you a flower, and a narcissus puts out shoots"
      }
     ],
     "walkthrough": "Black Narcissus is a 1947 film, so the italic title looks like the whole point of the clue; the plant hiding inside it is what the second definition wants.",
     "definitionFit": "To film is to shoot, and a shoot is also the new growth on a plant such as a narcissus — two unrelated senses of one word."
-   }
+   },
+   "clueItalics": [
+    [
+     13,
+     15
+    ]
+   ]
   },
   {
    "id": "2-down",
@@ -860,7 +866,7 @@ window.CRYPTIC_PUZZLES["12433"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "<span>Divorced blokes finally get </span><i>Penthouse</i><span>?</span> (9)",
+   "clue": "Divorced blokes finally get Penthouse? (9)",
    "group": [
     "14-down"
    ],
@@ -897,7 +903,13 @@ window.CRYPTIC_PUZZLES["12433"] = /*JSON-START*/ {
     ],
     "walkthrough": "'Divorced' looks like an instruction to split something up and is really just a synonym, which is the main misdirection here. The question mark flags a definition by example.",
     "definitionFit": "A penthouse is the flat on the top floor of a block, so it defines the answer by example: one particular kind standing for the whole."
-   }
+   },
+   "clueItalics": [
+    [
+     28,
+     9
+    ]
+   ]
   },
   {
    "id": "15-down",
@@ -1123,7 +1135,7 @@ window.CRYPTIC_PUZZLES["12433"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "<i>Universal Soldier</i> (7)",
+   "clue": "Universal Soldier (7)",
    "group": [
     "18-down"
    ],
@@ -1149,7 +1161,13 @@ window.CRYPTIC_PUZZLES["12433"] = /*JSON-START*/ {
     ],
     "walkthrough": "Two words, two definitions and no wordplay whatever. The italics make the pair read as a film title, which is exactly what hides the split between them.",
     "definitionFit": "General means applying to everyone, hence 'universal'; and a general is an army's most senior officer, which makes 'soldier' a definition by example."
-   }
+   },
+   "clueItalics": [
+    [
+     0,
+     17
+    ]
+   ]
   },
   {
    "id": "19-across",

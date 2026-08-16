@@ -228,13 +228,19 @@ window.CRYPTIC_PUZZLES["4090"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 7,
-   "clue": "<span>Pair of characters from </span><i>2001</i> (7)",
+   "clue": "Pair of characters from 2001 (7)",
    "group": [
     "11-across"
    ],
    "separatorLocations": {},
    "solution": "NOUGHTS",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     24,
+     4
+    ]
+   ]
   },
   {
    "id": "12-across",
@@ -351,13 +357,19 @@ window.CRYPTIC_PUZZLES["4090"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 7,
-   "clue": "<span>One’s mixed with gin and drop of </span><i>rosso</i> (7)",
+   "clue": "One’s mixed with gin and drop of rosso (7)",
    "group": [
     "17-down"
    ],
    "separatorLocations": {},
    "solution": "NEGRONI",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     33,
+     5
+    ]
+   ]
   },
   {
    "id": "18-across",
@@ -474,13 +486,19 @@ window.CRYPTIC_PUZZLES["4090"] = /*JSON-START*/ {
     "y": 12
    },
    "length": 7,
-   "clue": "<span>One takes a bow before </span><i>and</i><span> after concert</span> (7)",
+   "clue": "One takes a bow before and after concert (7)",
    "group": [
     "24-across"
    ],
    "separatorLocations": {},
    "solution": "CELLIST",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     23,
+     3
+    ]
+   ]
   },
   {
    "id": "25-across",

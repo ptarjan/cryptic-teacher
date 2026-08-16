@@ -874,6 +874,40 @@ registry["reset-puzzle"].onclick();
     "a save from before timing existed merges to an empty clock, not to zeroes");
 }
 
+// --- clue text is text, and its italics are ranges ---
+// The papers ship clues as HTML. tools/fetch_puzzle.flatten_clue takes the tags
+// out and keeps the italics as [start, length] ranges, because the clue string
+// itself has to stay plain: every annotation fragment is located in it by
+// indexOf and highlighted by character offset. Structural, not a spot-check —
+// the failure mode is a tag rendering as a tag, which is what Paul saw on the
+// Independent, and it comes back the moment someone escapes a clue directly.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  assert(!/esc\(\s*e\.clue\s*\)/.test(src),
+    "no clue is escaped straight to the page — that path drops the setter's italics");
+  assert(/clueItalics/.test(src),
+    "app.js reads clueItalics, so the ranges the fetchers write are actually rendered");
+
+  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^\d+\.js$/.test(f));
+  let withItalics = 0;
+  files.forEach((f) => {
+    const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
+    const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
+                                      text.lastIndexOf("}") + 1));
+    puz.entries.forEach((e) => {
+      assert(!/<\/?[a-zA-Z][^>]*>/.test(e.clue),
+        `${puz.id} ${e.id}: clue still carries markup — ${e.clue.slice(0, 60)}`);
+      (e.clueItalics || []).forEach((r) => {
+        withItalics++;
+        assert(r[0] >= 0 && r[1] > 0 && r[0] + r[1] <= e.clue.length,
+          `${puz.id} ${e.id}: italic range ${r} falls outside its clue`);
+      });
+    });
+  });
+  assert(withItalics > 0,
+    "the italics survived the flatten — a run that finds none has thrown them away");
+}
+
 // --- sync is opt-in, and off means off ---
 // Nobody's crossword leaves their browser because they visited the page. The
 // only thing that turns it on is pressing the button, and the only thing that

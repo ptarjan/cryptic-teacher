@@ -232,7 +232,7 @@ window.CRYPTIC_PUZZLES["4092"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 13,
-   "clue": "Drinkin’ G&amp;T in which a little slice (lime?), where the powerful are (7,6)",
+   "clue": "Drinkin’ G&T in which a little slice (lime?), where the powerful are (7,6)",
    "group": [
     "11-down"
    ],
@@ -304,7 +304,7 @@ window.CRYPTIC_PUZZLES["4092"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 9,
-   "clue": "<i>Pop Idol</i><span> Jack in trashed hotel, sonny, stripped off</span> (5,4)",
+   "clue": "Pop Idol Jack in trashed hotel, sonny, stripped off (5,4)",
    "group": [
     "15-down"
    ],
@@ -314,7 +314,13 @@ window.CRYPTIC_PUZZLES["4092"] = /*JSON-START*/ {
     ]
    },
    "solution": "ELTONJOHN",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     0,
+     8
+    ]
+   ]
   },
   {
    "id": "16-down",
@@ -401,13 +407,19 @@ window.CRYPTIC_PUZZLES["4092"] = /*JSON-START*/ {
     "y": 9
    },
    "length": 6,
-   "clue": "<span>Clip of broadcast, </span><i>Rally of the Stars</i> (6)",
+   "clue": "Clip of broadcast, Rally of the Stars (6)",
    "group": [
     "20-down"
    ],
    "separatorLocations": {},
    "solution": "ASTRAL",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     19,
+     18
+    ]
+   ]
   },
   {
    "id": "21-across",

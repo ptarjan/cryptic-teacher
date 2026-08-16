@@ -406,13 +406,19 @@ window.CRYPTIC_PUZZLES["12425"] = /*JSON-START*/ {
     "y": 8
    },
    "length": 8,
-   "clue": "<span>Case for </span><i>Turandot</i><span> lyrics being translated to the letter?</span> (8)",
+   "clue": "Case for Turandot lyrics being translated to the letter? (8)",
    "group": [
     "21-across"
    ],
    "separatorLocations": {},
    "solution": "STRICTLY",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     9,
+     8
+    ]
+   ]
   },
   {
    "id": "22-down",

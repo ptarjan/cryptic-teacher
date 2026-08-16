@@ -1201,7 +1201,7 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     "y": 14
    },
    "length": 14,
-   "clue": "<i>Planet</i><span>’s reporter takes chorus on leave, on the way to the Proms?</span> (10,4)",
+   "clue": "Planet’s reporter takes chorus on leave, on the way to the Proms? (10,4)",
    "group": [
     "27-across"
    ],
@@ -1259,7 +1259,13 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
      }
     ],
     "walkthrough": "Kensington Gore is the road at the Royal Albert Hall, where the Proms play — and the name later became stage slang for fake blood. The italics flag Planet as a newspaper: Clark Kent's Daily Planet."
-   }
+   },
+   "clueItalics": [
+    [
+     0,
+     6
+    ]
+   ]
   }
  ]
 } /*JSON-END*/;

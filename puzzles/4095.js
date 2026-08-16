@@ -308,13 +308,19 @@ window.CRYPTIC_PUZZLES["4095"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 7,
-   "clue": "<span>Some recommend </span><i>Les Six</i><span> as eternal</span> (7)",
+   "clue": "Some recommend Les Six as eternal (7)",
    "group": [
     "16-across"
    ],
    "separatorLocations": {},
    "solution": "ENDLESS",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     15,
+     7
+    ]
+   ]
   },
   {
    "id": "17-across",

@@ -236,13 +236,19 @@ window.CRYPTIC_PUZZLES["12427"] = /*JSON-START*/ {
     "y": 4
    },
    "length": 4,
-   "clue": "<span>Stage production of </span><i>Aida</i><span> short of an alto and soprano</span> (4)",
+   "clue": "Stage production of Aida short of an alto and soprano (4)",
    "group": [
     "11-across"
    ],
    "separatorLocations": {},
    "solution": "DAIS",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     20,
+     4
+    ]
+   ]
   },
   {
    "id": "12-across",

@@ -231,13 +231,19 @@ window.CRYPTIC_PUZZLES["12424"] = /*JSON-START*/ {
     "y": 2
    },
    "length": 9,
-   "clue": "<i>Matilda</i><span> reworked by an Adriatic resident</span> (9)",
+   "clue": "Matilda reworked by an Adriatic resident (9)",
    "group": [
     "10-across"
    ],
    "separatorLocations": {},
    "solution": "DALMATIAN",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     0,
+     7
+    ]
+   ]
   },
   {
    "id": "11-across",

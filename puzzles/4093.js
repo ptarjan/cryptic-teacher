@@ -24,13 +24,19 @@ window.CRYPTIC_PUZZLES["4093"] = /*JSON-START*/ {
     "y": 0
    },
    "length": 4,
-   "clue": "<span>It’s eternal, they say, </span><i>in vitro meat</i> (4)",
+   "clue": "It’s eternal, they say, in vitro meat (4)",
    "group": [
     "1-across"
    ],
    "separatorLocations": {},
    "solution": "ROME",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     24,
+     13
+    ]
+   ]
   },
   {
    "id": "1-down",

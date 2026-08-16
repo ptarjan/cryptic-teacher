@@ -1072,8 +1072,54 @@ def check_blocks_carry_notes(entries, warnings):
                     f"is the teaching, and its absence is how an invented block hides")
 
 
+MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
+
+
+def check_no_markup(puzzle, errors):
+    """No HTML anywhere in a puzzle file. Every string here is displayed
+    escaped, so a tag reaches the solver as a tag — which is exactly what the
+    Independent's clues did (Paul, 2026-08-15): "<span>Film part of </span><i>
+    Black Narcissus</i>?" on the page, verbatim. Both papers ship clues as
+    HTML and tools/fetch_puzzle.plain_text flattens them on the way in; this
+    is the guard that says so out loud if a third source, or a hand edit, ever
+    puts one back.
+
+    It also protects the hint highlighting, which locates its <mark> spans by
+    character offset into the clue string: markup in the clue shifts every
+    offset after it, so an annotation could no longer point at its own words.
+    Walks the whole object rather than a list of fields, because the next
+    field someone adds should not have to be remembered here.
+    """
+    for e in puzzle["entries"]:
+        for r in e.get("clueItalics") or []:
+            ok = (isinstance(r, list) and len(r) == 2
+                  and all(isinstance(n, int) for n in r)
+                  and r[0] >= 0 and r[1] > 0 and r[0] + r[1] <= len(e["clue"]))
+            if not ok:
+                errors.append(f"{e['id']}: clueItalics range {r!r} is not inside the "
+                              f"{len(e['clue'])}-character clue. The ranges index the clue "
+                              f"string, so editing one without the other silently italicises "
+                              f"the wrong words.")
+
+    def walk(o, path):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                walk(v, f"{path}.{k}")
+        elif isinstance(o, list):
+            for i, v in enumerate(o):
+                walk(v, f"{path}[{i}]")
+        elif isinstance(o, str):
+            m = MARKUP_RE.search(o)
+            if m:
+                errors.append(f"{path.lstrip('.')}: HTML in text — {m.group(0)!r} in "
+                              f"{o[:70]!r}. Puzzle text is displayed escaped; run it "
+                              f"through fetch_puzzle.plain_text().")
+    walk(puzzle, "")
+
+
 def validate_puzzle(puzzle):
     errors, warnings = [], []
+    check_no_markup(puzzle, errors)
     by_id = {e["id"]: e for e in puzzle["entries"]}
     annotated = 0
     authored = is_authored(puzzle)
@@ -1242,7 +1288,14 @@ def main(argv):
         annotated, errors, warnings = validate_puzzle(puzzle)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:
+            # Nothing to check about annotations that do not exist yet — but
+            # the checks that walk the whole file (markup) do apply, and
+            # dropping them here would exempt exactly the puzzles nobody has
+            # looked at.
             print(f"{puzzle['id']}: unannotated ({total} clues) — skipped")
+            for err in errors:
+                print(f"  ERROR: {err}")
+            failed = failed or bool(errors)
             continue
         status = "OK" if not errors else "FAIL"
         print(f"{puzzle['id']} ({puzzle['setter']}): {annotated}/{total} annotated — {status}")

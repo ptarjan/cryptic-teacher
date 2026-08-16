@@ -426,13 +426,19 @@ window.CRYPTIC_PUZZLES["4094"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 7,
-   "clue": "<span>Some chic </span><i>élan</i><span> demonstrated in Northern location</span> (7)",
+   "clue": "Some chic élan demonstrated in Northern location (7)",
    "group": [
     "19-across"
    ],
    "separatorLocations": {},
    "solution": "ICELAND",
-   "annotation": null
+   "annotation": null,
+   "clueItalics": [
+    [
+     10,
+     4
+    ]
+   ]
   },
   {
    "id": "20-down",

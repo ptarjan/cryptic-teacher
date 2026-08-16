@@ -644,7 +644,7 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
     "y": 6
    },
    "length": 6,
-   "clue": "<span>Very sad ending to </span><i>Hamlet</i><span> leads to riots against Gertrude in consequence</span> (6)",
+   "clue": "Very sad ending to Hamlet leads to riots against Gertrude in consequence (6)",
    "group": [
     "15-across"
    ],
@@ -676,7 +676,13 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
     ],
     "walkthrough": "'Leads to' looks like joinery but is the instruction: take the leads — the front letters — of the last five words. Fitting, for a play that ends strewn with bodies.",
     "definitionFit": "Tragic means very sad — desperately so — and the word comes straight from tragedy, the genre Hamlet defines."
-   }
+   },
+   "clueItalics": [
+    [
+     19,
+     6
+    ]
+   ]
   },
   {
    "id": "16-down",
@@ -927,7 +933,7 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": "<span>Incentives to buy liberal </span><i>Guardian</i><span> at first, then </span><i>Independent</i><span>, </span><i>FT</i><span> and </span><i>Sun</i> (4,5)",
+   "clue": "Incentives to buy liberal Guardian at first, then Independent, FT and Sun (4,5)",
    "group": [
     "22-across"
    ],
@@ -981,7 +987,25 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
     ],
     "walkthrough": "'At first' serves every paper in the queue — the FT being initials already — and a Guardian puzzle clueing its rivals is a nice in-joke.",
     "definitionFit": "Free gifts are the giveaways papers bundle to tempt readers, so they are incentives to buy — a plural phrase matching a plural definition."
-   }
+   },
+   "clueItalics": [
+    [
+     26,
+     8
+    ],
+    [
+     50,
+     11
+    ],
+    [
+     63,
+     2
+    ],
+    [
+     70,
+     3
+    ]
+   ]
   },
   {
    "id": "23-down",

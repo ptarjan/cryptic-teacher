@@ -991,7 +991,7 @@ window.CRYPTIC_PUZZLES["30085"] = /*JSON-START*/ {
     "y": 10
    },
    "length": 9,
-   "clue": "<span>Relieved apprehension in various readers about </span><i>The Guardian</i><span>s volte-face</span> (9)",
+   "clue": "Relieved apprehension in various readers about The Guardians volte-face (9)",
    "group": [
     "20-across"
    ],
@@ -1030,14 +1030,20 @@ window.CRYPTIC_PUZZLES["30085"] = /*JSON-START*/ {
       "note": "the letters of readers, shuffled by 'various'"
      },
      {
-      "clueFragment": "<i>The Guardian</i>",
+      "clueFragment": "The Guardian",
       "gives": "SU",
       "note": "the paper printing the puzzle is US, and a volte-face turns it about"
      }
     ],
     "walkthrough": "The Guardian calling itself 'us' is the setter winking at the paper the puzzle appears in — a trick every publication's crossword allows itself, and one to watch for in the Times too.",
     "definitionFit": "Relieved apprehension → REASSURED: to reassure somebody is precisely to take their fear away, and the two-word definition matches the verb's past tense."
-   }
+   },
+   "clueItalics": [
+    [
+     47,
+     12
+    ]
+   ]
   },
   {
    "id": "21-down",
