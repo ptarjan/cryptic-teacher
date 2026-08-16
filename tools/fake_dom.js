@@ -93,6 +93,19 @@ function boot(opts) {
     }
     focus() {}
     scrollIntoView() {}
+    // Scrolling is modelled rather than stubbed away, because the bug it hides
+    // is a real one: a panel that took two taps to come into view on an iPad
+    // (Paul, 2026-08-16). layout() nails a box down in PAGE space, and the rect
+    // subtracts the window's scroll — which is what a browser does, so app code
+    // that measures and scrolls can be driven honestly. Unlaid-out elements
+    // report a zero box, and the app has to cope with that too.
+    layout(top, height) { this._box = { top, height }; return this; }
+    getBoundingClientRect() {
+      const b = this._box || { top: 0, height: 0 };
+      const y = (global.window && global.window.pageYOffset) || 0;
+      return { top: b.top - y, bottom: b.top + b.height - y, height: b.height,
+               left: 0, right: 0, width: 0 };
+    }
   }
 
   // The stub's elements are read out of index.html rather than retyped here.
@@ -145,6 +158,23 @@ function boot(opts) {
   };
 
   global.window = {
+    // An iPad in portrait, roughly: tall enough that the grid and the hint panel
+    // cannot both be on screen, which is the whole reason picking a clue scrolls.
+    innerHeight: 1000,
+    pageYOffset: 0,
+    // Every scroll is recorded, not just the last position. "one tap, one move,
+    // and the second tap holds still" is the property that broke, and only the
+    // log can tell that apart from a page that ended up in the right place after
+    // shuffling there in two goes.
+    scrolls: [],
+    scrollTo(opt) {
+      const top = opt && typeof opt === "object" ? opt.top : opt;
+      global.window.pageYOffset = Math.max(0, Number(top) || 0);
+      global.window.scrolls.push(global.window.pageYOffset);
+    },
+    // Synchronous, so the harness stays a straight line. The app only uses it to
+    // get behind a reflow, and there is no reflow here to get behind.
+    requestAnimationFrame(fn) { fn(); return 1; },
     localStorage: {
       getItem: (k) => (k in storage ? storage[k] : null),
       setItem: (k, v) => { storage[k] = String(v); },
