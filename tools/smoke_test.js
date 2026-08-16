@@ -793,10 +793,14 @@ registry["reset-puzzle"].onclick();
   // The stacked layout: panel below the grid, clue lists below the panel, and
   // the solver reading the clue lists.
   panel.layout(1200, 400);
+  // The app now waits for the viewport to hold still before it scrolls, so a tap
+  // is a tap plus the settle it is waiting on. 100ms of fake time clears the 90ms
+  // settle and nothing else the app has running.
+  const tap = (row) => { row.listeners.click[0](); global.flushTimers(100); };
   const settle = () => { win.pageYOffset = 2000; win.scrolls.length = 0; };
 
   settle();
-  clues[0].listeners.click[0]();
+  tap(clues[0]);
   assert(win.scrolls.length === 1,
     "one tap moves the page once, not in instalments: " + JSON.stringify(win.scrolls));
   const landed = win.pageYOffset;
@@ -807,7 +811,7 @@ registry["reset-puzzle"].onclick();
   // The second tap is the bug. A different clue, the panel already in view: the
   // page must hold still rather than finish a journey the first tap started.
   win.scrolls.length = 0;
-  clues[1].listeners.click[0]();
+  tap(clues[1]);
   assert(win.scrolls.length === 0 && win.pageYOffset === landed,
     `picking a second clue with the panel already in view must not move the page: `
       + `${landed} -> ${win.pageYOffset} via ${JSON.stringify(win.scrolls)}`);
@@ -815,7 +819,7 @@ registry["reset-puzzle"].onclick();
   // Coming the other way — up from the grid — the panel is below the fold, and
   // one tap must still be enough.
   win.pageYOffset = 0; win.scrolls.length = 0;
-  clues[0].listeners.click[0]();
+  tap(clues[0]);
   assert(win.scrolls.length === 1, "one move from above too: " + JSON.stringify(win.scrolls));
   r = panel.getBoundingClientRect();
   assert(r.top >= 0 && r.bottom <= win.innerHeight, "and the panel is fully in view from above");
@@ -824,9 +828,9 @@ registry["reset-puzzle"].onclick();
   // be its top, every time — otherwise this is an infinite nudge upward.
   panel.layout(1200, 4000);
   win.pageYOffset = 0; win.scrolls.length = 0;
-  clues[1].listeners.click[0]();
+  tap(clues[1]);
   const tall = win.pageYOffset;
-  clues[0].listeners.click[0]();
+  tap(clues[0]);
   assert(win.pageYOffset === tall,
     `a panel taller than the screen settles at one place, not a new one per tap: ${tall} -> ${win.pageYOffset}`);
   assert(panel.getBoundingClientRect().top >= 0 && panel.getBoundingClientRect().top < 20,
@@ -848,31 +852,41 @@ registry["reset-puzzle"].onclick();
 
   vv.height = 600;                       // keyboard already up
   win.pageYOffset = 0; win.scrolls.length = 0;
-  clues[0].listeners.click[0]();
+  tap(clues[0]);
   assert(inBand(), "with the keyboard up the panel lands above it, not behind it: "
     + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
 
+  // --- and it gets there in one move, not three (Paul, iPhone, 2026-08-16) ---
   // The real sequence: the tap is handled while the keyboard is still sliding up,
-  // so the placement that mattered was measured against the wrong screen and has
-  // to be redone when the viewport actually changes.
+  // so a placement made then is measured against a screen that is about to lose
+  // its bottom third. Placing anyway and correcting on every resize is what
+  // "scrolls down then back up a bit then wiggles" was — each correction started a
+  // smooth scroll over one still in flight, and on a phone Safari's URL bar
+  // collapsing under that scroll fires another resize and feeds the loop. So the
+  // property is not just "ends up in the right place": it is ONE entry in the
+  // scroll log, after the viewport stops moving.
   vv.height = 1000;
   win.pageYOffset = 0; win.scrolls.length = 0;
   clues[1].listeners.click[0]();
-  assert(inBand(), "placed against the full screen first");
+  assert(win.scrolls.length === 0, "nothing moves while the keyboard is still on its way in");
+  vv.raiseKeyboard(200);                 // the keyboard animating in, in stages
   vv.raiseKeyboard(400);
-  assert(inBand(), "and replaced when the keyboard arrives a beat later: "
-    + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
+  assert(win.scrolls.length === 0, "and each stage of it pushes the placement back, it does not scroll");
+  global.flushTimers(100);
+  assert(win.scrolls.length === 1 && inBand(),
+    "one move once the viewport settles, straight to the right place: "
+      + JSON.stringify(win.scrolls) + " -> " + JSON.stringify(panel.getBoundingClientRect())
+      + " band 0.." + vv.height);
 
   // But only on the heels of a tap. A viewport that changes while someone is
-  // reading — keyboard dismissed, rotation, a pinch — must not yank the page.
+  // reading — keyboard dismissed, rotation, a pinch, or just the URL bar sliding
+  // away as they scroll — must not yank the page.
   vv.height = 1000;
   win.pageYOffset = 3000; win.scrolls.length = 0;
-  const realNow = Date.now;
-  Date.now = () => realNow() + 60000;
   vv.raiseKeyboard(400);
-  Date.now = realNow;
+  global.flushTimers(100);
   assert(win.scrolls.length === 0 && win.pageYOffset === 3000,
-    `a viewport change long after the tap must leave the page alone: 3000 -> ${win.pageYOffset}`);
+    `a viewport change with no tap behind it must leave the page alone: 3000 -> ${win.pageYOffset}`);
 
   vv.height = 1000; vv.offsetTop = 0;
   panel.layout(0, 0);   // back to unlaid-out, so nothing below here scrolls
@@ -1147,6 +1161,29 @@ registry["reset-puzzle"].onclick();
         `${puz.id} ${e.id}: strip would break ${drawn} but ${ans} breaks ${real}`);
     });
   });
+
+  // --- and it shrinks to fit rather than stacking one word per line ---
+  // Fourteen boxes at full size are wider than a phone, and flexbox moves a whole
+  // word to the next line rather than shrinking anything, so (3,8,3) came out as
+  // three almost-empty rows (Paul, iPhone, 2026-08-16). CSS cannot count letters,
+  // so the strip publishes its own shape and the stylesheet does the arithmetic.
+  // Both halves are pinned here because either alone is silently useless: markup
+  // with nothing reading it, or a rule sizing off a variable nobody sets.
+  const css = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
+  const strip = registry["hint-pattern"].innerHTML;
+  const n = /--n:\s*(\d+)/.exec(strip), w = /--w:\s*(\d+)/.exec(strip);
+  assert(n && w, "the letter strip publishes --n and --w for the stylesheet: " + strip.slice(0, 120));
+  const words = (strip.match(/class="pat-word /g) || []).length;   // the trailing space skips the last, unbroken one
+  assert(Number(w[1]) === words,
+    `--w counts the word breaks actually drawn: ${w[1]} vs ${words}`);
+  // Both patterns keep their trailing space: without it "pat-box" also matches
+  // the "pat-boxes" wrapper and every count here is one too many.
+  assert(Number(n[1]) === (strip.match(/class="pat-box /g) || []).length,
+    `--n counts the boxes actually drawn: ${n[1]}`);
+  assert(/\.pat-box[^{]*\{[^}]*100cqw[^}]*var\(--n/.test(css.replace(/\/\*[\s\S]*?\*\//g, "")),
+    "and .pat-box sizes itself off --n against the container width");
+  assert(/\.pattern[^{]*\{[^}]*container-type:\s*inline-size/.test(css),
+    "which needs .pattern to be the query container, or 100cqw is the viewport");
 }
 
 // --- sync is opt-in, and off means off ---
