@@ -169,7 +169,10 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
 {
   assert(/aria-label="[^"]*letters? in place/.test(patHTML()),
     "the pattern strip still describes itself to a screen reader: " + patHTML());
-  assert((patHTML().match(/<span/g) || []).length === 1,
+  // Counted spans once; it now wraps each word of the enumeration in one, so the
+  // rule is stated as what it always meant: the only text a sighted solver reads
+  // here is letters and the odd hyphen or apostrophe between words.
+  assert(/^[A-Z’\-]*$/.test(patHTML().replace(/<[^>]*>/g, "")),
     "the pattern strip renders the boxes and nothing else — the summary is the " +
     "aria-label, not a line of prose under the clue: " + patHTML());
   const meter = registry["hint-meter"].innerHTML.replace(/<[^>]*>/g, "");
@@ -906,6 +909,56 @@ registry["reset-puzzle"].onclick();
   });
   assert(withItalics > 0,
     "the italics survived the flatten — a run that finds none has thrown them away");
+}
+
+// --- the letter strip shows where the words break ---
+// The enumeration is the solver's best structural clue and the grid cannot show
+// it, so the strip does (Paul, 2026-08-16). A gap in the wrong place is worse
+// than no gap at all, so the parser is exercised directly and then checked
+// against every answer in the corpus: wherever it claims a division, the answer
+// really does break there.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const from = src.indexOf("const ENUM_SEPS");
+  const to = src.indexOf("\n  }", src.indexOf("function enumBreaks")) + 4;
+  assert(from > 0 && to > from, "enumBreaks is still in app.js to be tested");
+  const enumBreaks = new Function(src.slice(from, to) + "\n  return enumBreaks;")();
+  // Letters per word. An apostrophe break is dropped: it is drawn in the strip
+  // but it does not start a new word, so DON'T is one four-square word either way.
+  const shape = (clue, n) => {
+    const b = enumBreaks(clue, n);
+    if (!b) return null;
+    const cuts = Object.keys(b).filter((k) => b[k] !== "’").map(Number).sort((x, y) => x - y);
+    if (!cuts.length) return null;
+    return cuts.map((c, i) => c - (i ? cuts[i - 1] : 0)).concat(n - cuts[cuts.length - 1]);
+  };
+  assert(String(shape("Actor in a boat (3,6)", 9)) === "3,6", "a comma is a word break");
+  assert(String(shape("Left out (3-5)", 8)) === "3,5", "a hyphen breaks too");
+  assert(shape("Plain one (9)", 9) === null, "one word gets no divisions at all");
+  // The whole group's enumeration sits on the first leg of a linked clue, so it
+  // must not be drawn over that leg's squares alone.
+  assert(shape("Split across two (5,4)", 5) === null, "a total that misses the entry is ignored");
+  assert(shape("Vague (two words)", 9) === null, "prose in the brackets is not an enumeration");
+  assert(String(shape("Feed typo (6.6)", 12)) === "6,6", "a period where a comma was meant");
+
+  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^\d+\.js$/.test(f)).forEach((f) => {
+    const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
+    const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
+                                      text.lastIndexOf("}") + 1));
+    puz.entries.forEach((e) => {
+      const ans = e.annotation && e.annotation.answer;
+      const drawn = shape(e.clue, e.length);
+      if (!ans || !drawn) return;
+      // An apostrophe occupies no square, and the Guardian counts HOW'S as four
+      // — so it is taken out of both sides rather than compared. An enumeration
+      // may legitimately divide an answer that is written solid, (1,1,1) for
+      // I.C.I., so only answers that really are several words are compared.
+      const real = ans.replace(/['’]/g, "").split(/[ \-–]/).filter(Boolean).map((w) => w.length);
+      if (real.length < 2) return;
+      assert(String(drawn) === String(real),
+        `${puz.id} ${e.id}: strip would break ${drawn} but ${ans} breaks ${real}`);
+    });
+  });
 }
 
 // --- sync is opt-in, and off means off ---

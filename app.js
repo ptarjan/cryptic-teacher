@@ -1098,12 +1098,41 @@
     return `<div class="hint-step"><span class="step-label">${position} · ${esc(step.label)}</span>${step.html}</div>`;
   }
 
+  // Where the answer's words break, read straight off the clue's own
+  // enumeration: (3,6) is three boxes, a gap, then six. The grid cannot show
+  // this — its squares run on regardless — so the strip is the only place a
+  // solver can see that they are looking for two words rather than a nine-letter
+  // one, which rules out most of what they were considering (Paul, 2026-08-16).
+  //
+  // Trusted only when the digits add up to the squares THIS entry has. A linked
+  // clue prints the whole group's enumeration on its first leg, so applying it
+  // to one leg would draw the breaks in the wrong places; a mismatch means no
+  // breaks rather than wrong ones, and so does anything that isn't digits and
+  // separators ("(two words)" and friends). "." is a separator because feeds do
+  // print (6.6) where they mean (6,6) — 30079 18-across and 30080 10-across.
+  const ENUM_SEPS = { ",": " ", " ": " ", "-": "-", "–": "-", "—": "-", "'": "’", "’": "’", ".": " " };
+  function enumBreaks(clue, cells) {
+    const m = /\(([^()]+)\)\s*$/.exec(clue || "");
+    if (!m) return null;
+    const breaks = {};
+    let n = 0;
+    for (const tok of m[1].match(/\d+|\S/g) || []) {
+      if (/^\d+$/.test(tok)) { n += Number(tok); continue; }
+      // A separator before any letters, or two in a row, is not an enumeration
+      // this code understands — and a half-understood one draws a wrong gap.
+      if (!ENUM_SEPS[tok] || !n || breaks[n]) return null;
+      breaks[n] = ENUM_SEPS[tok];
+    }
+    return n === cells && Object.keys(breaks).length ? breaks : null;
+  }
+
   // The selected entry's live letter pattern: what's already in the grid, blanks
   // for what isn't, and which squares are CHECKED (shared with a crossing entry,
   // so another clue can confirm them). Unchecked squares are the hard ones —
   // nothing will ever cross them, so they have to come out of the wordplay.
   function patternHTML(e) {
     const cs = entryCells(e);
+    const breaks = enumBreaks(e.clue, cs.length);
     let filled = 0, checked = 0;
     const boxes = cs.map((c, idx) => {
       if (!c) return "";
@@ -1120,9 +1149,29 @@
       // entry, read by the delegated handler in boot()).
       return `<button type="button" class="${cls.join(" ")}" data-i="${idx}"
         title="Jump to this square — ${title}">${c.letter ? esc(c.letter) : ""}</button>`;
-    }).join("");
+    });
+    // Each word is its own flex row so a long entry wraps between words before it
+    // wraps inside one, and so the gap that means "new word" cannot be confused
+    // with the gap that means "the line ran out". A hyphen or apostrophe is drawn
+    // rather than spaced, because it is a character of the answer.
+    const segs = [];
+    let html = "", word = "", at = 0;
+    boxes.forEach((b, i) => {
+      word += b;
+      const sep = breaks && breaks[i + 1];
+      if (!sep) return;
+      html += `<span class="pat-word ${sep === " " ? "brk-space" : "brk-tight"}">${word}</span>`
+            + (sep === " " ? "" : `<span class="pat-sep" aria-hidden="true">${sep}</span>`);
+      segs.push(i + 1 - at);
+      at = i + 1;
+      word = "";
+    });
+    html += `<span class="pat-word">${word}</span>`;
+    if (segs.length) segs.push(cs.length - at);
+
     const unchecked = cs.length - checked;
     const note = `${filled} of ${cs.length} letter${cs.length > 1 ? "s" : ""} in place · `
+      + (segs.length ? `in words of ${segs.join(", ")} · ` : "")
       + (unchecked ? `${checked} checked, ${unchecked} unchecked (dashed — no crossing clue)`
                    : `all ${checked} checked`);
     // The note is for screen readers only. Printed next to the boxes it restated
@@ -1130,7 +1179,7 @@
     // dashed — in twenty words of prose sitting directly under the clue you are
     // trying to read (Paul, 2026-08-09). The clue is what the box is for; every
     // line that is not the clue pushes it further from being read.
-    return `<span class="pat-boxes" role="img" aria-label="${esc(note)}">${boxes}</span>`;
+    return `<span class="pat-boxes" role="img" aria-label="${esc(note)}">${html}</span>`;
   }
 
   function renderHintPanel() {
