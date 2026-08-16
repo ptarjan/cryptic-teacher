@@ -175,6 +175,21 @@ function boot(opts) {
     // Synchronous, so the harness stays a straight line. The app only uses it to
     // get behind a reflow, and there is no reflow here to get behind.
     requestAnimationFrame(fn) { fn(); return 1; },
+    // The soft keyboard, which is the ONLY thing that tells you how much screen
+    // there really is: iOS leaves innerHeight at its full height and draws the
+    // keys over the bottom of it, so a stub without visualViewport can only ever
+    // agree with the bug (Paul, iPad, 2026-08-16). raiseKeyboard() shrinks the
+    // band and fires resize, the way a real keyboard sliding up does.
+    visualViewport: {
+      height: 1000,
+      offsetTop: 0,
+      _on: {},
+      addEventListener(type, fn) { (this._on[type] = this._on[type] || []).push(fn); },
+      raiseKeyboard(px) {
+        this.height = 1000 - px;
+        (this._on.resize || []).forEach((fn) => fn());
+      }
+    },
     localStorage: {
       getItem: (k) => (k in storage ? storage[k] : null),
       setItem: (k, v) => { storage[k] = String(v); },
