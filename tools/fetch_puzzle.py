@@ -358,6 +358,14 @@ def reindex():
                 "basis": rating["basis"],
             },
         })
+        # Carried through from the puzzle FILE, which is why the flag lives
+        # there and not here: this index is rebuilt from those files by every
+        # fetcher run, so a hold recorded straight into index.json would be
+        # wiped by tonight's and the puzzles it was protecting would quietly get
+        # bought. Only written when set — index.js ships to the browser, and 85
+        # copies of a false is payload nobody reads. See tools/hold.py.
+        if p.get("annotateHold"):
+            puzzles[-1]["annotateHold"] = True
     # Newest first BY DATE, not by number. With one series those agreed; with
     # three they don't — quiptic 1,393 and cryptic 30,073 came out the same week,
     # and sorting on the number would bury every quiptic below every cryptic
