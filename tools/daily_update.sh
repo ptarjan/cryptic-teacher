@@ -61,10 +61,12 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
-# Two fetchers, run independently on purpose: the Guardian's site going down
-# should not cost us the Independent's puzzle, and vice versa. Neither failing
-# stops the run — there is usually a backlog worth annotating regardless.
-for fetcher in fetch_puzzle fetch_independent; do
+# Three fetchers, run independently on purpose: one source going down should
+# not cost us the other two. Neither failing stops the run — there is usually
+# a backlog worth annotating regardless. fetch_observer.py --latest never sets
+# annotateHold (see BACKFILL_UNHELD there), so a normal Sunday just joins the
+# queue like any other puzzle.
+for fetcher in fetch_puzzle fetch_independent fetch_observer; do
   python3 "tools/$fetcher.py" --latest
   fetch_rc=$?
   if [ $fetch_rc -ne 0 ] && [ $fetch_rc -ne 3 ]; then
@@ -72,8 +74,11 @@ for fetcher in fetch_puzzle fetch_independent; do
   fi
 done
 
-# --- 2. pick up solutions that have since been published (prize puzzles) ---
+# --- 2. pick up solutions that have since been published (prize puzzles, and
+#     every Everyman — its competition window withholds answers for about a
+#     week, same shape of problem as the Guardian prize below it) ---
 python3 tools/fetch_puzzle.py --refresh-unsolved
+python3 tools/fetch_observer.py --refresh-unsolved
 
 # --- 2b. refresh the Minute Cryptic reference corpus ---
 # Their hint ladder is the same shape as ours and better written, so we keep a

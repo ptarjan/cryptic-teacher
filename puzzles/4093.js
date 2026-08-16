@@ -531,5 +531,6 @@ window.CRYPTIC_PUZZLES["4093"] = /*JSON-START*/ {
    "solution": "CLUE",
    "annotation": null
   }
- ]
+ ],
+ "annotateHold": true
 } /*JSON-END*/;
