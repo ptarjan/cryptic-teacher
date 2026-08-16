@@ -422,6 +422,37 @@ const typeInPicker = (q) => {
 registry["btn-picker"].onclick();
 assert(pickerRows().length >= 5, "picker lists the annotated puzzles: " + pickerRows().length);
 assert(registry["picker-search"].value === "", "the filter box starts empty on open");
+// --- every row says which day of the week it is (Paul, 2026-08-16) ---
+// A Guardian week has a shape — Monday gentle, the Saturday prize hard — so the
+// weekday is a difficulty cue, not trim. Two things have to hold and neither is
+// checkable by eye across 85 rows: the day must AGREE with the date next to it
+// (it is derived, so a timezone slip is the way it goes wrong, and a row reading
+// "Sat 2026-08-16" when that was a Sunday is worse than no day at all), and
+// typing the day's name must find those rows, or the label is a filter that
+// lies about being one.
+{
+  const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const seen = {};
+  pickerRows().forEach((li) => {
+    const m = li.children[0].innerHTML.match(/<span class="p-meta">(\w{3}) (\d{4}-\d{2}-\d{2})</);
+    assert(m, "every picker row carries a weekday and a date: "
+      + (li.children[0].innerHTML.match(/p-meta">[^<]*/) || ["(none)"])[0]);
+    const want = DAYS[new Date(m[2] + "T00:00:00Z").getUTCDay()];
+    assert(m[1] === want, `${m[2]} was a ${want}, not a ${m[1]}`);
+    seen[want] = (seen[want] || 0) + 1;
+  });
+  const day = Object.keys(seen).sort((a, b) => seen[b] - seen[a])[0];
+  const full = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    .find((d) => d.startsWith(day));
+  typeInPicker(full.toLowerCase());
+  const hits = pickerRows();
+  assert(hits.length >= seen[day],
+    `searching "${full.toLowerCase()}" finds its ${seen[day]} row(s), got ${hits.length}`);
+  assert(hits.every((li) => new RegExp(`p-meta">${day} `).test(li.children[0].innerHTML)),
+    `and finds nothing else: ` + hits.map((li) =>
+      (li.children[0].innerHTML.match(/p-meta">[^<]*/) || [""])[0]).join(" | "));
+  typeInPicker("");
+}
 {
   // "current" is the row for the puzzle already open, which is listed whatever
   // its annotation state — don't hide the user's own work. Everything else in a
