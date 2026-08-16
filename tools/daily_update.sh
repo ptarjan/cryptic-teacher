@@ -101,12 +101,21 @@ fi
 # pending — which is exactly what happened, all 16 quiptics unannotated
 # including the day's own (found 2026-08-12). Number is only a tie-break, for
 # the several series that publish on the same morning.
+#
+# `annotateHold` on an index entry keeps a puzzle off BOTH queues — no
+# annotating and no cold-solving. Publishing a puzzle and spending inference on
+# it are separate decisions, and until now they were the same one: a bulk import
+# lands 59 puzzles that are newer than everything pending, they take the whole
+# head of the queue by date, and the next morning the job quietly starts buying
+# them (Paul, Everyman backfill, 2026-08-16: "for the backfill don't spend
+# inference yet"). Import held, lift it when you mean to. tools/hold.py.
 ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 pending=$(python3 - "$ANNOTATE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
 todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
-               if not p["annotated"] and p.get("hasSolutions")), reverse=True)
+               if not p["annotated"] and p.get("hasSolutions")
+               and not p.get("annotateHold")), reverse=True)
 print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
 EOF
 )
@@ -134,7 +143,7 @@ unsolved=$(python3 - "$SOLVE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
 todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
-               if not p.get("hasSolutions")), reverse=True)
+               if not p.get("hasSolutions") and not p.get("annotateHold")), reverse=True)
 print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
 EOF
 )
