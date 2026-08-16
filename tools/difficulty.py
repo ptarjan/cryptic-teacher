@@ -1,11 +1,26 @@
 #!/usr/bin/env python3
 """Score how hard each puzzle is, from what the puzzle file actually says.
 
-There is no ground truth for cryptic difficulty. The Guardian publishes no
-rating, and the one community that does grade by real solve times — Times for
-the Times, whose NITCH divides your time by your own six-month average — covers
-The Times, not the Guardian, and publishes no feed. So this deliberately does
-NOT pretend to be a calibrated absolute. It measures three things that are
+There is no ground truth for cryptic difficulty *here*. The Guardian publishes
+no rating. The one community that does grade by real solve times — the SNITCH
+(times.xwdsnitch.link), whose NITCH divides ~100 solvers' times by their own
+six-month averages, 100 = a normal day — does publish, openly and without a
+login, but it rates The Times, whose puzzles are subscription-only and cannot
+be fetched. Real ratings for puzzles we can't have; puzzles we have with no
+ratings. There is no join, so this deliberately does NOT pretend to be a
+calibrated absolute.
+
+What the SNITCH does buy us is the shape of the thing. Over 136 weeks scraped
+2026-08-15, the mean NITCH by publication day is Mon 72, Tue 83, Wed 92, Thu
+101, Fri 128, Sat 97 (prize), Sun 105 (Sunday Times, a different puzzle) — a
+strictly monotonic Mon-to-Fri climb, Friday 78% slower than Monday. So a
+day-of-week term is a real effect in a graded paper, and worth looking for
+here. It is NOT in this model, on purpose: the Guardian grades by setter
+rotation rather than by editorial fiat, and our 21 scored Guardian cryptics
+give 3-5 per weekday, rho = +0.18 against a +0.43 threshold. Underpowered, not
+absent. Re-run the test at ~100 scored cryptics before adding a term; do not
+fit one to the 21, and do not substitute the unannotated puzzles to pad n — see
+the Quiptic control group in score() for why grid-only scores measure the grid. It measures three things that are
 genuinely in the file, reports each one separately so a reader can disagree
 with the weighting, and bands a puzzle by where it sits *against the rest of
 the collection*: "tougher than 80% of the puzzles here" is a claim the data can
