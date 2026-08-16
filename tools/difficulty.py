@@ -10,6 +10,13 @@ be fetched. Real ratings for puzzles we can't have; puzzles we have with no
 ratings. There is no join, so this deliberately does NOT pretend to be a
 calibrated absolute.
 
+Nor is there a SNITCH for our four series, and the gap is structural rather
+than an oversight: the index needs a fixed cohort of timed solves, which only
+the Times Club site records. Checked 2026-08-15 — Fifteensquared blogs all four
+of ours (Guardian daily and prize, Independent, Everyman, Quick Cryptic) in
+prose with no scale, and the one blog that does rate 1-5 for difficulty,
+bigdave44, is Telegraph-only. Don't go looking again.
+
 What the SNITCH does buy us is the shape of the thing. Over 136 weeks scraped
 2026-08-15, the mean NITCH by publication day is Mon 72, Tue 83, Wed 92, Thu
 101, Fri 128, Sat 97 (prize), Sun 105 (Sunday Times, a different puzzle) — a
