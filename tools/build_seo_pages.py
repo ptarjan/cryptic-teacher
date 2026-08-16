@@ -166,7 +166,11 @@ def index_json():
     return json.loads((PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))
 
 
-def datestr(ms, fmt="%-d %B %Y"):
+def datestr(ms, fmt="%A %-d %B %Y"):
+    # The weekday is in the DEFAULT because a Guardian week has a shape — Monday
+    # gentle, Friday and the Saturday prize hard — so it is a difficulty cue, not
+    # trim (Paul, 2026-08-16). Callers that want a machine date (datePublished,
+    # sitemap lastmod) pass an explicit fmt and are unaffected.
     if not ms:
         return ""
     return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime(fmt)

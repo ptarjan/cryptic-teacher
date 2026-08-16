@@ -1533,15 +1533,32 @@
       && squares.every((k) => want[k] && letters[k] && letters[k][0] === want[k]);
     return { filled, total: squares.length, done };
   }
+  // The date and the day it fell on. A weekday is not decoration on a cryptic:
+  // the Guardian's week has a shape — Monday gentle, Friday and Saturday's prize
+  // hard — so "what day is this from" is a difficulty cue people read before
+  // they start (Paul, 2026-08-16). Always COMPUTED from the timestamp, never
+  // stored: a saved weekday is a second copy of the date, and second copies
+  // disagree. getUTCDay to match the UTC the ISO string is sliced out of, or a
+  // solver west of Greenwich gets a day that contradicts the date beside it.
+  const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  function puzzleDate(p) {
+    if (!p.date) return { iso: "", day: "", short: "" };
+    const dt = new Date(p.date);
+    const day = WEEKDAYS[dt.getUTCDay()] || "";
+    return { iso: dt.toISOString().slice(0, 10), day, short: day.slice(0, 3) };
+  }
   function pickerHaystack(p) {
-    const d = p.date ? new Date(p.date).toISOString().slice(0, 10) : "";
+    const dd = puzzleDate(p);
+    const d = dd.iso;
     // Both spellings of the number: the site writes "No 30,074" everywhere, and
     // a solver copying that in shouldn't get nothing back.
     // "solved" and "started" are searchable for the same reason the row shows
     // them: with 78 puzzles listed, "which ones have I already done" is a filter,
     // not just a thing to read off one row at a time.
     const st = pickerStatus(p);
-    return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d,
+    // The weekday is searchable for that same reason — showing "Sat" in the row
+    // and then not matching "saturday" would be the worse half of the feature.
+    return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d, dd.day,
       p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
       st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
@@ -1580,7 +1597,11 @@
       const li = document.createElement("li");
       if (P && p.id === P.id) li.className = "current";
       const st = pickerStatus(p);
-      const d = p.date ? new Date(p.date).toISOString().slice(0, 10) : "";
+      const dd = puzzleDate(p);
+      // Abbreviated, and the weekday leads. The row is tight — see the note
+      // below about the nowrap element shoving the line — and "Sat" in front is
+      // read at a glance where a trailing full "Saturday" would just be length.
+      const d = dd.iso ? `${dd.short} ${dd.iso}` : "";
       const btn = document.createElement("button");
       // Order here is the grid's, not the eye's: the badges are markup-last but
       // render on their own second line (see .p-tags in style.css). Progress
@@ -1626,8 +1647,13 @@
     const first = entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
     $("app").classList.remove("hidden");
+    // The day spelled out in full here, where there is room for it, and where a
+    // solver about to start wants to know whether they picked a Monday or a
+    // Saturday prize before they wonder why it is fighting back.
+    const when = puzzleDate(meta);
     $("puzzle-title").innerHTML =
       `${esc(P.name)} — set by <em>${esc(P.setter)}</em>` +
+      (when.day ? ` <span class="muted">· ${when.day} ${when.iso}</span>` : "") +
       (meta.annotated ? "" : " " + hintsBadge(false));
     // Saturday prize puzzles publish their answers about a week late, and this
     // site solves them in the meantime rather than leaving its newest puzzle
