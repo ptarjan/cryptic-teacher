@@ -838,6 +838,40 @@ registry["reset-puzzle"].onclick();
 
   assert(JSON.stringify(mergeSaves(null, undefined)) === JSON.stringify({ v: 1, puzzles: {} }),
     "merging nothing with nothing is empty, not a crash — the Worker calls this on a fresh code");
+
+  // Solve times: recorded now so that an index could be built later, which
+  // means the merge has to be as unable to lose them as it is to lose letters.
+  const morning = { v: 1, puzzles: { 1: { timing: {
+    startedAt: 100, lastAt: 400, activeMs: 300 }, updated: 400 } } };
+  const evening = { v: 1, puzzles: { 1: { timing: {
+    startedAt: 900, lastAt: 1500, activeMs: 500, solvedAt: 1500, solvedMs: 500 }, updated: 1500 } } };
+  const day = mergeSaves(morning, evening).puzzles["1"].timing;
+  assert(JSON.stringify(mergeSaves(evening, morning).puzzles["1"].timing) === JSON.stringify(day),
+    "timing merges the same way round either way");
+  assert(day.startedAt === 100 && day.lastAt === 1500,
+    "the earliest start and the latest touch both survive, whichever device saw them");
+  assert(day.activeMs === 500,
+    "grid-time takes the max: a device that was asleep cannot shorten your solve");
+  assert(day.solvedAt === 1500 && day.solvedMs === 500,
+    "completion carries its own elapsed time, as one fact rather than two minima");
+
+  // Two devices that each finished it: the earlier finish is the solve, and its
+  // OWN elapsed time comes with it, not the other one's.
+  const slowFirst = { v: 1, puzzles: { 1: { timing: {
+    startedAt: 0, lastAt: 90, activeMs: 90, solvedAt: 90, solvedMs: 90 }, updated: 90 } } };
+  const quickLater = { v: 1, puzzles: { 1: { timing: {
+    startedAt: 50, lastAt: 60, activeMs: 10, solvedAt: 95, solvedMs: 10 }, updated: 95 } } };
+  const both = mergeSaves(slowFirst, quickLater).puzzles["1"].timing;
+  assert(both.solvedAt === 90 && both.solvedMs === 90,
+    "the pair stays consistent — no reporting a 10ms solve that finished at 90");
+
+  // `wiped` reset at 300, so a device untouched since then contributes nothing.
+  const timedBefore = { v: 1, puzzles: { 1: { timing: {
+    startedAt: 10, lastAt: 90, activeMs: 80, solvedAt: 90, solvedMs: 80 }, updated: 90 } } };
+  assert(JSON.stringify(mergeSaves(wiped, timedBefore).puzzles["1"].timing) === "{}",
+    "reset clears the clock too: the next attempt is not timed from the last one");
+  assert(JSON.stringify(ab.puzzles["30079"].timing) === "{}",
+    "a save from before timing existed merges to an empty clock, not to zeroes");
 }
 
 // --- sync is opt-in, and off means off ---

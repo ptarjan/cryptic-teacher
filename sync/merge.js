@@ -84,6 +84,36 @@
     return av >= bv ? av : bv;
   }
 
+  // How long the solve took. Nothing reads this yet — it exists so that if
+  // there is ever a cohort of solvers to average, the history is already there
+  // to average. A solve-time index cannot be backfilled: an hour not recorded
+  // in 2026 is gone.
+  //
+  // Monotone like everything else here, so merging cannot make a record worse:
+  // the earliest start, the latest touch, the most grid-time either device has
+  // counted, the earliest completion. `solvedAt` and `solvedMs` are one fact
+  // and travel together — taking each minimum separately would report a pair
+  // no device ever measured.
+  function mergeTiming(a, b) {
+    a = isObj(a) ? a : {};
+    b = isObj(b) ? b : {};
+    const earlier = (x, y) => (!num(x) ? num(y) : !num(y) ? num(x) : Math.min(num(x), num(y)));
+    const asv = num(a.solvedAt), bsv = num(b.solvedAt);
+    const won = !asv ? b : !bsv ? a
+      : asv !== bsv ? (asv < bsv ? a : b)
+      : (num(a.solvedMs) <= num(b.solvedMs) ? a : b);
+    const t = {
+      startedAt: earlier(a.startedAt, b.startedAt),
+      lastAt: Math.max(num(a.lastAt), num(b.lastAt)),
+      activeMs: Math.max(num(a.activeMs), num(b.activeMs)),
+      solvedAt: num(won.solvedAt),
+      solvedMs: num(won.solvedMs),
+    };
+    // An untouched puzzle keeps an empty object rather than five zeroes, so
+    // "never started" stays distinguishable from "started at the epoch".
+    return t.startedAt || t.lastAt ? t : {};
+  }
+
   function mergePuzzle(a, b) {
     // No shortcut for "only one side has this puzzle": returning that side
     // unchanged hands back whatever shape it happened to arrive in, and the
@@ -155,7 +185,9 @@
       return av === undefined ? bv : bv === undefined ? av : Math.min(num(av), num(bv));
     });
 
-    return { letters, letterAt, hintsShown, revealsUsed, solvedWith,
+    const timing = mergeTiming(liveA ? a.timing : {}, liveB ? b.timing : {});
+
+    return { letters, letterAt, hintsShown, revealsUsed, solvedWith, timing,
              clearedAt, updated: Math.max(at, bt) };
   }
 
@@ -176,5 +208,5 @@
     return out;
   }
 
-  return { mergeSaves, mergePuzzle, unionRungs, pickLetter };
+  return { mergeSaves, mergePuzzle, mergeTiming, unionRungs, pickLetter };
 });
