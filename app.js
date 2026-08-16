@@ -538,8 +538,8 @@
   // It measured too early. refreshAll() has just rewritten the panel and a
   // different clue is a different height — fewer rungs up, a longer clue, a
   // wider letter strip — so the page reflows and, on iOS, the smooth scroll in
-  // flight gets clamped against a document that changed under it. Measure in a
-  // frame, after layout.
+  // flight gets clamped against a document that changed under it. Measure after
+  // layout, never in the same tick as the tap.
   //
   // And it was relative. "nearest" scrolls the least it can FROM WHERE YOU ARE,
   // so the same tap lands somewhere different depending on where you started,
@@ -567,42 +567,65 @@
     }
     return { top: 0, bottom: window.innerHeight || 0 };
   }
-  let lastHintScroll = 0;
+  // One tap, one move. This used to scroll the moment the tap was handled and
+  // then re-place on every visualViewport resize for the next 1.2 seconds, which
+  // on an iPhone is a fight it cannot win — "scrolls down then back up a bit then
+  // wiggles before stopping" (Paul, iPhone, 2026-08-16). Three things were going
+  // wrong at once, and all three are the same mistake: SCROLLING BEFORE THE
+  // VIEWPORT HAS STOPPED MOVING.
+  //
+  //   down    the first measurement happens with the keyboard still on its way
+  //           in, so the band is the whole screen and the panel gets bottom-
+  //           aligned to a floor that is about to rise;
+  //   back up once the keyboard lands, the panel is taller than what is left of
+  //           the band, so the branch below flips from bottom-aligning to top-
+  //           aligning it and the page walks back the other way;
+  //   wiggle  every re-place issues a fresh smooth scrollTo that clamps the one
+  //           still in flight, and on a phone (not an iPad) Safari collapses its
+  //           URL bar AS WE SCROLL, which fires resize, which re-places, which
+  //           scrolls. The loop only stops because the window times out.
+  //
+  // So wait for the viewport to hold still and then scroll exactly once. Each
+  // resize pushes the placement back another settle; the deadline stops Safari's
+  // toolbar from deferring it indefinitely. When the keyboard is already up
+  // nothing resizes at all and the wait is one settle, which reads as instant.
+  const HINT_SETTLE_MS = 90;
+  const HINT_DEADLINE_MS = 600;
+  let settleTimer = null, settleBy = 0;
   function scrollToHintPanel() {
-    lastHintScroll = Date.now();
-    placeHintPanel();
+    settleBy = Date.now() + HINT_DEADLINE_MS;
+    armHintPlacement();
   }
+  function armHintPlacement() {
+    if (settleTimer) clearTimeout(settleTimer);
+    settleTimer = setTimeout(placeHintPanel, Math.max(0, Math.min(HINT_SETTLE_MS, settleBy - Date.now())));
+  }
+  // Only ever called off that timer, so layout has long since flushed and there
+  // is nothing to measure a frame later for.
   function placeHintPanel() {
+    settleTimer = null; settleBy = 0;
     const p = $("hint-panel");
     if (!p || p.classList.contains("hidden") || !p.getBoundingClientRect) return;
-    const go = () => {
-      const r = p.getBoundingClientRect();
-      const band = visibleBand();
-      const vh = band.bottom - band.top;
-      if (vh <= 0 || !r.height) return;
-      const y = window.pageYOffset || 0;
-      let top;
-      if (r.top >= band.top && r.bottom <= band.bottom) return;   // all there already
-      // Too tall to fit, or hanging off the top: line its top up with the top of
-      // the band. Otherwise it is below, so pull its bottom up to the band's floor.
-      if (r.height > vh - HINT_SCROLL_GAP || r.top < band.top) top = y + r.top - band.top - HINT_SCROLL_GAP;
-      else top = y + r.bottom - band.bottom + HINT_SCROLL_GAP;
-      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-    };
-    if (window.requestAnimationFrame) window.requestAnimationFrame(go); else go();
+    const r = p.getBoundingClientRect();
+    const band = visibleBand();
+    const vh = band.bottom - band.top;
+    if (vh <= 0 || !r.height) return;
+    if (r.top >= band.top && r.bottom <= band.bottom) return;   // all there already
+    const y = window.pageYOffset || 0;
+    // Too tall to fit, or hanging off the top: line its top up with the top of
+    // the band. Otherwise it is below, so pull its bottom up to the band's floor.
+    const top = (r.height > vh - HINT_SCROLL_GAP || r.top < band.top)
+      ? y + r.top - band.top - HINT_SCROLL_GAP
+      : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   }
-  // The keyboard is not up yet when the tap is handled. focusKbd() asks for it and
-  // it animates in over a couple of hundred milliseconds, so even measuring a
-  // frame later measures a screen that is about to lose its bottom third. Redo the
-  // placement when the viewport actually changes — but only on the heels of a tap,
-  // so a keyboard raised for something else (or dismissed, or a rotation) does not
-  // yank the page out from under a solver who is reading. placeHintPanel(), not
-  // scrollToHintPanel(), so the window cannot keep renewing itself; and it is
-  // idempotent, so the extra calls a keyboard animation fires cost nothing.
-  const HINT_KEYBOARD_WINDOW_MS = 1200;
+  // settleBy is the whole guard: a resize matters only while a tap is waiting to
+  // land. A keyboard raised for something else, a dismissal, a rotation or the
+  // URL bar sliding away under an ordinary scroll must not yank the page out from
+  // under someone who is reading.
   if (window.visualViewport && window.visualViewport.addEventListener) {
     window.visualViewport.addEventListener("resize", () => {
-      if (Date.now() - lastHintScroll < HINT_KEYBOARD_WINDOW_MS) placeHintPanel();
+      if (settleBy) armHintPlacement();
     });
   }
 
@@ -1265,7 +1288,13 @@
     // dashed — in twenty words of prose sitting directly under the clue you are
     // trying to read (Paul, 2026-08-09). The clue is what the box is for; every
     // line that is not the clue pushes it further from being read.
-    return `<span class="pat-boxes" role="img" aria-label="${esc(note)}">${html}</span>`;
+    // How many boxes and how many word breaks, so the strip can size itself down
+    // to fit the panel instead of stacking one word per line. CSS cannot count
+    // letters and JS should not be measuring screens, so the count comes from
+    // here and the arithmetic stays in the stylesheet next to the box geometry.
+    const brk = segs.length ? segs.length - 1 : 0;
+    return `<span class="pat-boxes" role="img" style="--n:${cs.length};--w:${brk}"`
+         + ` aria-label="${esc(note)}">${html}</span>`;
   }
 
   function renderHintPanel() {

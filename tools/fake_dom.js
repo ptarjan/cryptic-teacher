@@ -203,6 +203,38 @@ function boot(opts) {
     }
   };
   global.document = document;
+
+  // The app defers work on timers, and one of them is load-bearing: picking a
+  // clue waits for the viewport to stop moving before it scrolls, so that it
+  // scrolls exactly once instead of chasing a keyboard that is still sliding up.
+  // "Exactly once" is not assertable against a real clock without sleeping, so
+  // every timer is recorded as well as scheduled and flushTimers(ms) runs the
+  // ones that were due within ms. They are still scheduled for real underneath,
+  // so the tests that just let things happen keep working as they did.
+  const realSetTimeout = global.setTimeout, realClearTimeout = global.clearTimeout;
+  const pending = new Map();
+  let nextTimer = 1;
+  global.setTimeout = (fn, ms, ...args) => {
+    const id = nextTimer++;
+    const handle = realSetTimeout(() => { pending.delete(id); fn(...args); }, ms);
+    pending.set(id, { fn, args, ms: Number(ms) || 0, handle });
+    return id;
+  };
+  global.clearTimeout = (id) => {
+    const t = pending.get(id);
+    if (!t) return realClearTimeout(id);
+    realClearTimeout(t.handle);
+    pending.delete(id);
+  };
+  global.flushTimers = (ms = 0) => {
+    for (const [id, t] of [...pending]) {
+      if (t.ms > ms) continue;              // not due yet at this much fake time
+      realClearTimeout(t.handle);
+      pending.delete(id);
+      t.fn(...t.args);
+    }
+  };
+
   // The sync panel's Copy button is the only way most people will move the code
   // to their other device. Without a clipboard here the harness can only reach
   // the "your browser won't let me" branch, which is the branch nobody uses.

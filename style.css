@@ -397,7 +397,16 @@ button:disabled:hover { border-color: var(--line); }
    sits outside #grid), so it stays quiet in dark mode. Checked squares — the
    ones a crossing clue can confirm — get a solid accent-underlined box; the
    unchecked ones are dashed, because nothing will ever cross them. */
-.pattern { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 2px 0 8px; }
+/* A long answer used to come out as one word per line — (3,8,3) was three
+   almost-empty rows on a phone (Paul, 2026-08-16) — because flexbox moves a
+   whole word to the next line rather than shrinking anything to make it fit, and
+   at full size fourteen boxes are wider than a phone. The strip sizes itself
+   down instead: patternHTML() reports --n boxes and --w word breaks, and the
+   rule on .pat-box below turns that into the largest font that still fits. It is
+   a container query so that rotating the phone re-fits with no resize listener,
+   and a browser without container units simply keeps the fixed size and wraps
+   the way it used to. */
+.pattern { container-type: inline-size; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 2px 0 8px; }
 .pat-boxes { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; }
 /* One row per word of the enumeration, so the divisions are visible and a long
    entry wraps between words in preference to inside one. The gap that says "new
@@ -416,6 +425,12 @@ button:disabled:hover { border-color: var(--line); }
   width: 1.7em; height: 1.95em; border-radius: 3px;
   display: inline-flex; align-items: center; justify-content: center;
   font: 700 1.05rem/1 -apple-system, Helvetica, Arial, sans-serif;
+  /* Shrink to fit, never grow past the size above. 1.72 rather than 1.7 is a
+     hair of slack so rounding never costs a whole line, and the 12px is what a
+     word break costs on top of the gap already counted. The floor is the iOS tap
+     minimum: below it the box stops being a control you can hit, so the strip
+     goes back to wrapping instead. */
+  font-size: clamp(.8rem, calc((100cqw - (var(--n, 1) - 1) * 3px - var(--w, 0) * 12px) / var(--n, 1) / 1.72), 1.05rem);
   background: var(--bg); color: var(--fg); border: 1px solid var(--line);
   padding: 0; margin: 0; cursor: pointer; -webkit-appearance: none;
   touch-action: manipulation;
@@ -528,7 +543,10 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
      button on the page. 1.35rem carries the em box to ~38x43px, at the iOS
      minimum. A 15-letter entry is then ~660px, which still fits the stacked
      column. */
-  .pat-box { font-size: 1.35rem; }
+  .pat-box {
+    font-size: 1.35rem;
+    font-size: clamp(.85rem, calc((100cqw - (var(--n, 1) - 1) * 5px - var(--w, 0) * 15px) / var(--n, 1) / 1.72), 1.35rem);
+  }
   .pat-boxes, .pat-word { gap: 5px; }
   .pat-word.brk-space { margin-right: 13px; }
   .pat-sep { font-size: 1.35rem; }
