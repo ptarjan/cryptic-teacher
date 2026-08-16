@@ -17,13 +17,11 @@ costs the other two — same reasoning as the comment above that loop. Series is
 (2025-04-20); the Observer was sold to Tortoise Media that month and
 everything from 4097 on only exists at observer.co.uk.
 
-A backfill's output carries "annotateHold": true on all but its newest few
-(see BACKFILL_UNHELD and tools/hold.py) — a bulk import is dozens of puzzles
-newer by date than the whole existing backlog, and the nightly annotator
-queue sorts newest-first, so an unheld import would hand it the whole queue
-on the very next run (Paul, 2026-08-16). --latest never writes the flag: one
-new puzzle a week, arriving through the ordinary nightly path, is exactly
-what that queue is for, so there is nothing to hold it back from.
+A backfill gets no special treatment from the annotation queue: its puzzles
+sort in by date with everything else and get worked newest to oldest, which
+is the order somebody would want them in anyway (Paul, 2026-08-16). The
+nightly job's own rate limit is what keeps a big import from being a big
+bill.
 
 WHERE THIS CAME FROM (2026-08-16). The Everyman article page
 (observer.co.uk/puzzles/everyman/article/everyman-no-N) renders the grid
@@ -93,17 +91,6 @@ API_BASE = "https://content-api.slowdownwiseup.co.uk"
 # reimplementing Next.js's RSC framing for one field.
 UUID_RE = re.compile(r'\\"type\\":\\"puzzle\\",\\"uuid\\":\\"([0-9a-f-]{36})\\"')
 TOPIC_LINK_RE = re.compile(r"/puzzles/everyman/article/everyman-no-(\d+)")
-
-# A backfill lands many puzzles in one run, all newer by date than the whole
-# existing backlog, and tools/daily_update.sh's annotation queue sorts
-# newest-first — so a bulk import would hand the entire queue to Everyman on
-# the very next nightly run, spending inference nobody asked to spend (Paul,
-# 2026-08-16). A single new puzzle a week is exactly what that queue is for,
-# though — Paul was clear the SERIES should stay current, only the one-time
-# catch-up shouldn't be a surprise bill — so backfill() holds everything it
-# writes except the newest few, which is what a plain --latest run every week
-# from here on would have produced on its own.
-BACKFILL_UNHELD = 4
 
 
 def http_get(url):
@@ -183,7 +170,7 @@ def clue_separators(fmt, length):
     return out
 
 
-def convert(num, manifest, data, hold=False):
+def convert(num, manifest, data):
     """Observer data.json -> our puzzle object (solution/annotation blank —
     solutions arrive a week later; see refresh_unsolved). Raises loudly on any
     mismatch between what the clue list claims and what the grid itself says,
@@ -275,12 +262,6 @@ def convert(num, manifest, data, hold=False):
         "sourceUrl": ARTICLE_URL.format(num=num),
         "entries": entries,
     }
-    if hold:
-        # See BACKFILL_UNHELD above: only a bulk backfill sets this, and only
-        # on the puzzles that aren't among its own newest few. Omitted rather
-        # than written false — see tools/hold.py, which only ever checks for
-        # the key's presence.
-        puzzle["annotateHold"] = True
     return puzzle
 
 
@@ -317,23 +298,16 @@ def fill_solutions(entries, solution, rows, cols, num):
         entry["solution"] = letters.upper()
 
 
-def fetch_number(num, hold=False):
+def fetch_number(num):
     uuid = article_uuid(num)
     manifest = puzzle_manifest(uuid)
     data = puzzle_data(manifest)
-    puzzle = convert(num, manifest, data, hold=hold)
+    puzzle = convert(num, manifest, data)
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     is_new = not path.exists()
     if not is_new:
         old = read_puzzle_file(path)
         merge_annotations(puzzle, old)
-        # A re-fetch (fixing a clue, say) defaults hold=False, same as any
-        # other single-puzzle fetch — but it must never SILENTLY lift a hold
-        # a backfill deliberately set. Once held, stays held until something
-        # explicitly clears it (tools/hold.py, or a later backfill of the
-        # newest few).
-        if old.get("annotateHold"):
-            puzzle["annotateHold"] = True
     write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
     print(("fetched " if is_new else "refreshed ") + puzzle["id"])
     return puzzle
@@ -361,9 +335,7 @@ def latest():
 
 def backfill(count=30):
     """Fetch the last `count` puzzles ending at the newest, skipping ones
-    already on disk. Walks newest-first, which is what makes the hold rule
-    below cheap: the first BACKFILL_UNHELD puzzles this loop actually writes
-    ARE the newest ones by construction, no separate date sort needed."""
+    already on disk."""
     newest = find_latest_number()
     fetched = skipped = missing = 0
     for num in range(newest, newest - count, -1):
@@ -372,10 +344,7 @@ def backfill(count=30):
             skipped += 1
             continue
         try:
-            # See BACKFILL_UNHELD: only puzzles past the newest few get held,
-            # so a puzzle already on disk (skipped, above) never has its
-            # existing hold status touched either way.
-            fetch_number(num, hold=fetched >= BACKFILL_UNHELD)
+            fetch_number(num)
             fetched += 1
         except urllib.error.HTTPError as err:
             print(f"skip {num}: HTTP {err.code}")
