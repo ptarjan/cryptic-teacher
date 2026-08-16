@@ -477,6 +477,16 @@ all 55:
   `stamp_assets.py --check` sweeps all 70 pages and fails the nightly run on a
   bare reference. Note what this does NOT fix: caches still holding the old URL.
   Re-share the link to force a refetch, and expect a day's lag.
+- **Pushing is not deploying** (feedback 2026-08-16: "can you always hold off on
+  telling me to reload until it is deployed"). GitHub Pages takes a minute or two
+  to build, and "fixed and pushed — reload" is false for the whole of it: the
+  person who reloads inside that window sees the old bug still there and
+  reasonably concludes the fix did not work, so the next thing they report is a
+  phantom. Nobody is told to reload until `python3 tools/wait_for_deploy.py`
+  exits 0. It polls the live homepage for the local `?v=` stamps, which is the
+  right check because the stamp is the thing a reload actually picks up — proof
+  the new JavaScript is being *served*, not merely that a commit arrived. It is
+  the last step of the pipeline, after the push, not a thing to remember.
 - **A scheduled job never guesses a fact the API will tell it** ("fix the cron",
   2026-08-07). Two jobs spend inference here, and both were budgeting against
   numbers they had made up. `prereset_backfill.sh` deliberately runs with NO
