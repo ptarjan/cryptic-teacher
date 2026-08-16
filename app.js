@@ -528,11 +528,41 @@
   // all when the panel is already visible, which is the desktop two-column
   // case. Only fires when the SELECTED ENTRY CHANGES — scrolling on every
   // keystroke or arrow key would be intolerable.
+  // A little air above the panel when it is scrolled to the top of the screen,
+  // so it reads as the top of something rather than as a cut-off.
+  const HINT_SCROLL_GAP = 8;
+  // scrollIntoView({block:"nearest"}) did this job and did it in two goes on an
+  // iPad in portrait: one tap moved a little, the next moved the rest (Paul,
+  // 2026-08-16). Two causes, both fixed here.
+  //
+  // It measured too early. refreshAll() has just rewritten the panel and a
+  // different clue is a different height — fewer rungs up, a longer clue, a
+  // wider letter strip — so the page reflows and, on iOS, the smooth scroll in
+  // flight gets clamped against a document that changed under it. Measure in a
+  // frame, after layout.
+  //
+  // And it was relative. "nearest" scrolls the least it can FROM WHERE YOU ARE,
+  // so the same tap lands somewhere different depending on where you started,
+  // which is what "a bit, then all the way" is. Computing one absolute target
+  // makes the move idempotent: after it, the panel is fully on screen, so the
+  // next tap takes the already-visible branch and the page holds still. That
+  // branch is also what keeps the desktop's two columns from ever scrolling.
   function scrollToHintPanel() {
     const p = $("hint-panel");
-    if (p && !p.classList.contains("hidden") && p.scrollIntoView) {
-      p.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
+    if (!p || p.classList.contains("hidden") || !p.getBoundingClientRect) return;
+    const go = () => {
+      const r = p.getBoundingClientRect();
+      const vh = window.innerHeight || 0;
+      if (!vh || !r.height) return;
+      const y = window.pageYOffset || 0;
+      let top;
+      if (r.top >= 0 && r.bottom <= vh) return;          // all there already
+      if (r.height > vh - HINT_SCROLL_GAP) top = y + r.top - HINT_SCROLL_GAP;
+      else if (r.top < 0) top = y + r.top - HINT_SCROLL_GAP;   // above: pull it down
+      else top = y + r.bottom - vh + HINT_SCROLL_GAP;          // below: pull it up
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    };
+    if (window.requestAnimationFrame) window.requestAnimationFrame(go); else go();
   }
 
   function onCellClick(c) {

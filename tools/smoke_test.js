@@ -743,6 +743,68 @@ registry["reset-puzzle"].onclick();
     "resetting records when it happened, so the reset itself can reach the other device");
 }
 
+// --- picking a clue scrolls once, and lands in the same place every time ---
+// On an iPad in portrait the grid and the hint panel cannot both be on screen,
+// so picking a clue has to bring the panel to you. scrollIntoView("nearest")
+// did it in two goes: one tap moved a little and the next moved the rest (Paul,
+// 2026-08-16), because it measured before the panel had relaid out and because
+// "least you can move from here" makes the same tap land somewhere different
+// depending on where you were. The fix is an absolute target, so the property to
+// hold is idempotence: after one tap the panel is fully on screen, and tapping
+// again does not move the page at all.
+{
+  const win = global.window;
+  const panel = registry["hint-panel"];
+  const clues = Object.keys(registry).filter((k) => /^clue-/.test(k))
+    .map((k) => registry[k]).filter((r) => r.listeners && r.listeners.click);
+  assert(clues.length >= 2, "found clue rows to click: " + clues.length);
+
+  // The stacked layout: panel below the grid, clue lists below the panel, and
+  // the solver reading the clue lists.
+  panel.layout(1200, 400);
+  const settle = () => { win.pageYOffset = 2000; win.scrolls.length = 0; };
+
+  settle();
+  clues[0].listeners.click[0]();
+  assert(win.scrolls.length === 1,
+    "one tap moves the page once, not in instalments: " + JSON.stringify(win.scrolls));
+  const landed = win.pageYOffset;
+  let r = panel.getBoundingClientRect();
+  assert(r.top >= 0 && r.bottom <= win.innerHeight,
+    `after one tap the whole panel is on screen (top ${r.top}, bottom ${r.bottom}, viewport ${win.innerHeight})`);
+
+  // The second tap is the bug. A different clue, the panel already in view: the
+  // page must hold still rather than finish a journey the first tap started.
+  win.scrolls.length = 0;
+  clues[1].listeners.click[0]();
+  assert(win.scrolls.length === 0 && win.pageYOffset === landed,
+    `picking a second clue with the panel already in view must not move the page: `
+      + `${landed} -> ${win.pageYOffset} via ${JSON.stringify(win.scrolls)}`);
+
+  // Coming the other way — up from the grid — the panel is below the fold, and
+  // one tap must still be enough.
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[0].listeners.click[0]();
+  assert(win.scrolls.length === 1, "one move from above too: " + JSON.stringify(win.scrolls));
+  r = panel.getBoundingClientRect();
+  assert(r.top >= 0 && r.bottom <= win.innerHeight, "and the panel is fully in view from above");
+
+  // A panel taller than the screen cannot be "fully visible", so the rule has to
+  // be its top, every time — otherwise this is an infinite nudge upward.
+  panel.layout(1200, 4000);
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[1].listeners.click[0]();
+  const tall = win.pageYOffset;
+  clues[0].listeners.click[0]();
+  assert(win.pageYOffset === tall,
+    `a panel taller than the screen settles at one place, not a new one per tap: ${tall} -> ${win.pageYOffset}`);
+  assert(panel.getBoundingClientRect().top >= 0 && panel.getBoundingClientRect().top < 20,
+    "and that place is its top, just under the top of the screen");
+
+  panel.layout(0, 0);   // back to unlaid-out, so nothing below here scrolls
+  win.pageYOffset = 0; win.scrolls.length = 0;
+}
+
 // --- solving a clue opens its whole ladder, for free (Paul, 2026-08-16) ---
 // The tiers exist to stop a walkthrough being taken cold. Once the answer is in
 // the grid there is nothing left to give away, so every rung opens — and opening
