@@ -918,12 +918,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1784415600000,
    "file": "4161.js",
-   "v": "e186c7c7",
+   "v": "39361ade",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "30062",
@@ -1040,12 +1039,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1783810800000,
    "file": "4160.js",
-   "v": "9a118da9",
+   "v": "3f50efd7",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "30056",
@@ -1162,12 +1160,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1783206000000,
    "file": "4159.js",
-   "v": "48758966",
+   "v": "e35ae5c6",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "30050",
@@ -1311,12 +1308,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1782601200000,
    "file": "4158.js",
-   "v": "7e9efb5e",
+   "v": "f0eece41",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "30044",
@@ -1487,12 +1483,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1781996400000,
    "file": "4157.js",
-   "v": "cfd59939",
+   "v": "d5a57f9e",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "1386",
@@ -1525,12 +1520,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1781391600000,
    "file": "4156.js",
-   "v": "d1d965e1",
+   "v": "7cc2e8a2",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4155",
@@ -1540,12 +1534,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1780786800000,
    "file": "4155.js",
-   "v": "73da20ba",
+   "v": "0417429f",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4154",
@@ -1555,12 +1548,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1780182000000,
    "file": "4154.js",
-   "v": "be10cc1a",
+   "v": "67304e4c",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4153",
@@ -1570,12 +1562,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1779577200000,
    "file": "4153.js",
-   "v": "8fedd2c6",
+   "v": "abf4678c",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4152",
@@ -1585,12 +1576,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1778972400000,
    "file": "4152.js",
-   "v": "fc78fd5c",
+   "v": "741191ad",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4151",
@@ -1600,12 +1590,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1778367600000,
    "file": "4151.js",
-   "v": "8e9118d7",
+   "v": "c2a33479",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4150",
@@ -1615,12 +1604,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1777762800000,
    "file": "4150.js",
-   "v": "f898112c",
+   "v": "2f7b16f4",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4149",
@@ -1630,12 +1618,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1777158000000,
    "file": "4149.js",
-   "v": "0c4bf428",
+   "v": "11ba2891",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4148",
@@ -1645,12 +1632,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1776553200000,
    "file": "4148.js",
-   "v": "a1e017fb",
+   "v": "ee4d6fe0",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4147",
@@ -1660,12 +1646,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1775948400000,
    "file": "4147.js",
-   "v": "39fdabba",
+   "v": "43d923ce",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4146",
@@ -1675,12 +1660,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1775343600000,
    "file": "4146.js",
-   "v": "f77c1b51",
+   "v": "c6619bf7",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4145",
@@ -1690,12 +1674,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1774742400000,
    "file": "4145.js",
-   "v": "e59a1021",
+   "v": "847c8415",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4144",
@@ -1705,12 +1688,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1774137600000,
    "file": "4144.js",
-   "v": "6c1bf5d1",
+   "v": "81e54569",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4143",
@@ -1720,12 +1702,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1773532800000,
    "file": "4143.js",
-   "v": "ee45d13b",
+   "v": "ca5f0d6b",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4142",
@@ -1735,12 +1716,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1772928000000,
    "file": "4142.js",
-   "v": "0af874fb",
+   "v": "f73aca8d",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4141",
@@ -1750,12 +1730,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1772323200000,
    "file": "4141.js",
-   "v": "1537fd08",
+   "v": "7732b295",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4140",
@@ -1765,12 +1744,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1771718400000,
    "file": "4140.js",
-   "v": "84eb2766",
+   "v": "d3e870ca",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4139",
@@ -1780,12 +1758,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1771113600000,
    "file": "4139.js",
-   "v": "8bc53bda",
+   "v": "18945f07",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4138",
@@ -1795,12 +1772,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1770508800000,
    "file": "4138.js",
-   "v": "58b61c1e",
+   "v": "1294e592",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4137",
@@ -1810,12 +1786,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1769904000000,
    "file": "4137.js",
-   "v": "2f176b1b",
+   "v": "d25eb9ba",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4136",
@@ -1825,12 +1800,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1769299200000,
    "file": "4136.js",
-   "v": "12606559",
+   "v": "eb6625ca",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4135",
@@ -1840,12 +1814,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1768694400000,
    "file": "4135.js",
-   "v": "5e03c4cb",
+   "v": "568f9fed",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4134",
@@ -1855,12 +1828,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1768089600000,
    "file": "4134.js",
-   "v": "c9ebb745",
+   "v": "8b72dcad",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4133",
@@ -1870,12 +1842,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1767484800000,
    "file": "4133.js",
-   "v": "23677762",
+   "v": "13106df9",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4132",
@@ -1885,12 +1856,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1766880000000,
    "file": "4132.js",
-   "v": "6b787107",
+   "v": "b690bd09",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4131",
@@ -1900,12 +1870,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1766275200000,
    "file": "4131.js",
-   "v": "192360a7",
+   "v": "f756a2ea",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4130",
@@ -1915,12 +1884,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1765670400000,
    "file": "4130.js",
-   "v": "93dc3ead",
+   "v": "6bb81b93",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4129",
@@ -1930,12 +1898,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1765065600000,
    "file": "4129.js",
-   "v": "a079af0a",
+   "v": "3fc9cd1d",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4128",
@@ -1945,12 +1912,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1764460800000,
    "file": "4128.js",
-   "v": "76ea09cb",
+   "v": "a5c27baf",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4127",
@@ -1960,12 +1926,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1763856000000,
    "file": "4127.js",
-   "v": "95cbf741",
+   "v": "4e1a5159",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4126",
@@ -1975,12 +1940,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1763251200000,
    "file": "4126.js",
-   "v": "b4d058c3",
+   "v": "163b3606",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4125",
@@ -1990,12 +1954,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1762646400000,
    "file": "4125.js",
-   "v": "69a1deff",
+   "v": "21947f38",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4124",
@@ -2005,12 +1968,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1762041600000,
    "file": "4124.js",
-   "v": "4e0a1f63",
+   "v": "38168198",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4123",
@@ -2020,12 +1982,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1761433200000,
    "file": "4123.js",
-   "v": "12ee3e2c",
+   "v": "8b74fd83",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4122",
@@ -2035,12 +1996,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1760828400000,
    "file": "4122.js",
-   "v": "18bb9fe7",
+   "v": "82d4dffc",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4121",
@@ -2050,12 +2010,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1760223600000,
    "file": "4121.js",
-   "v": "d8e0d1a6",
+   "v": "85a7e6bc",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4120",
@@ -2065,12 +2024,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1759618800000,
    "file": "4120.js",
-   "v": "26d1e5ba",
+   "v": "f3f092d4",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4119",
@@ -2080,12 +2038,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1759014000000,
    "file": "4119.js",
-   "v": "7c727e4a",
+   "v": "8a9ca59b",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4118",
@@ -2095,12 +2052,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1758409200000,
    "file": "4118.js",
-   "v": "3d192c9c",
+   "v": "1fcabae8",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4117",
@@ -2110,12 +2066,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1757804400000,
    "file": "4117.js",
-   "v": "66f70e78",
+   "v": "696a2a65",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4116",
@@ -2125,12 +2080,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1757199600000,
    "file": "4116.js",
-   "v": "8f9c26a7",
+   "v": "8575896f",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4115",
@@ -2140,12 +2094,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1756594800000,
    "file": "4115.js",
-   "v": "a17ae813",
+   "v": "e52d24c9",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4114",
@@ -2155,12 +2108,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1755990000000,
    "file": "4114.js",
-   "v": "11749a48",
+   "v": "850fffa2",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4113",
@@ -2170,12 +2122,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1755385200000,
    "file": "4113.js",
-   "v": "b380882a",
+   "v": "b743fe3d",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4112",
@@ -2185,12 +2136,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1754780400000,
    "file": "4112.js",
-   "v": "842c1233",
+   "v": "12ec4414",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4111",
@@ -2200,12 +2150,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1754175600000,
    "file": "4111.js",
-   "v": "39b2c453",
+   "v": "15b2e223",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4110",
@@ -2215,12 +2164,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1753570800000,
    "file": "4110.js",
-   "v": "da7bab7f",
+   "v": "0d288763",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4109",
@@ -2230,12 +2178,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1752966000000,
    "file": "4109.js",
-   "v": "b34cd307",
+   "v": "86ee9dfb",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4108",
@@ -2245,12 +2192,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1752361200000,
    "file": "4108.js",
-   "v": "4549c2e1",
+   "v": "ab94f980",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4107",
@@ -2260,12 +2206,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1751756400000,
    "file": "4107.js",
-   "v": "9929a891",
+   "v": "7a7235d7",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4106",
@@ -2275,12 +2220,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1751151600000,
    "file": "4106.js",
-   "v": "a7023706",
+   "v": "e761e472",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4105",
@@ -2290,12 +2234,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1750546800000,
    "file": "4105.js",
-   "v": "1d85c839",
+   "v": "af915464",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4104",
@@ -2305,12 +2248,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1749942000000,
    "file": "4104.js",
-   "v": "28a2a83d",
+   "v": "c63c7985",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4103",
@@ -2320,12 +2262,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1749337200000,
    "file": "4103.js",
-   "v": "98d84067",
+   "v": "0594e0fb",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4101",
@@ -2335,12 +2276,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1748127600000,
    "file": "4101.js",
-   "v": "ae202c0b",
+   "v": "ec6649b0",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4100",
@@ -2350,12 +2290,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1747522800000,
    "file": "4100.js",
-   "v": "8ea4fe98",
+   "v": "53189cc2",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4099",
@@ -2365,12 +2304,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1746918000000,
    "file": "4099.js",
-   "v": "28c5d383",
+   "v": "550af03c",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4098",
@@ -2380,12 +2318,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1746313200000,
    "file": "4098.js",
-   "v": "5d5ab490",
+   "v": "5908a914",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4097",
@@ -2395,12 +2332,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1745708400000,
    "file": "4097.js",
-   "v": "fc2da186",
+   "v": "48d56fd2",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4096",
@@ -2433,12 +2369,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1744502400000,
    "file": "4095.js",
-   "v": "8b275bc6",
+   "v": "0c254d6a",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4094",
@@ -2448,12 +2383,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1743897600000,
    "file": "4094.js",
-   "v": "94456632",
+   "v": "74b36a5e",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4093",
@@ -2463,12 +2397,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1743292800000,
    "file": "4093.js",
-   "v": "2946de7d",
+   "v": "192132ec",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4092",
@@ -2478,12 +2411,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1742688000000,
    "file": "4092.js",
-   "v": "966dcfe5",
+   "v": "b1c69aa5",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4091",
@@ -2493,12 +2425,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1742083200000,
    "file": "4091.js",
-   "v": "e5f12bef",
+   "v": "0a6a1a31",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4090",
@@ -2508,12 +2439,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1741478400000,
    "file": "4090.js",
-   "v": "88ad1d24",
+   "v": "1e639ab4",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   },
   {
    "id": "4089",
@@ -2523,12 +2453,11 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1740873600000,
    "file": "4089.js",
-   "v": "3fcce315",
+   "v": "b2a168e4",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,
-   "difficulty": null,
-   "annotateHold": true
+   "difficulty": null
   }
  ]
 } /*JSON-END*/;

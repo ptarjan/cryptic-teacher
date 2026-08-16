@@ -527,6 +527,5 @@ window.CRYPTIC_PUZZLES["4089"] = /*JSON-START*/ {
    "solution": "FRET",
    "annotation": null
   }
- ],
- "annotateHold": true
+ ]
 } /*JSON-END*/;

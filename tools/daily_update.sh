@@ -63,9 +63,7 @@ echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
 # Three fetchers, run independently on purpose: one source going down should
 # not cost us the other two. Neither failing stops the run — there is usually
-# a backlog worth annotating regardless. fetch_observer.py --latest never sets
-# annotateHold (see BACKFILL_UNHELD there), so a normal Sunday just joins the
-# queue like any other puzzle.
+# a backlog worth annotating regardless.
 for fetcher in fetch_puzzle fetch_independent fetch_observer; do
   python3 "tools/$fetcher.py" --latest
   fetch_rc=$?
@@ -107,20 +105,17 @@ fi
 # including the day's own (found 2026-08-12). Number is only a tie-break, for
 # the several series that publish on the same morning.
 #
-# `annotateHold` on an index entry keeps a puzzle off BOTH queues — no
-# annotating and no cold-solving. Publishing a puzzle and spending inference on
-# it are separate decisions, and until now they were the same one: a bulk import
-# lands 59 puzzles that are newer than everything pending, they take the whole
-# head of the queue by date, and the next morning the job quietly starts buying
-# them (Paul, Everyman backfill, 2026-08-16: "for the backfill don't spend
-# inference yet"). Import held, lift it when you mean to. tools/hold.py.
+# A bulk import gets no special treatment: 68 backfilled Everymans simply queue
+# by date like everything else and are worked newest to oldest (Paul, 2026-08-16,
+# on a hold flag that briefly existed here: "no need to do anything special for
+# the backfill"). The rate limit below is what stops a big import from being a
+# big bill, and it already did that job.
 ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 pending=$(python3 - "$ANNOTATE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
 todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
-               if not p["annotated"] and p.get("hasSolutions")
-               and not p.get("annotateHold")), reverse=True)
+               if not p["annotated"] and p.get("hasSolutions")), reverse=True)
 print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
 EOF
 )
@@ -148,7 +143,7 @@ unsolved=$(python3 - "$SOLVE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
 todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
-               if not p.get("hasSolutions") and not p.get("annotateHold")), reverse=True)
+               if not p.get("hasSolutions")), reverse=True)
 print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
 EOF
 )
