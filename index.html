@@ -34,7 +34,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=aaefac2d">
+<link rel="stylesheet" href="style.css?v=63612354">
 <!-- Merge rules, shared verbatim with the sync Worker so the two ends cannot
      drift apart on what "merge" means. -->
 <script src="sync/merge.js?v=05a37c0e"></script>
@@ -97,6 +97,17 @@
 <section id="tutorial" class="hidden"></section>
 
 <main id="app" class="hidden">
+  <!-- The soft keyboard is raised by focusing this, and iOS scrolls whatever has
+       focus into view when the keyboard opens. So WHERE it sits is load-bearing:
+       parked at the top-left of #grid-wrap it dragged the page back up to the
+       grid whenever you picked a clue from further down, undoing the scroll the
+       app had just worked out (Paul, iPhone, 2026-08-16). It is position:fixed
+       instead, which is always in view and so has nothing to scroll to — and it
+       has to live OUT here to be fixed at all, because #grid-wrap is a query
+       container and that makes it the containing block for fixed children. -->
+  <input id="kbd" autocomplete="off" autocapitalize="characters" spellcheck="false"
+         aria-label="Type answers here">
+
   <div class="puzzle-head">
     <h2 id="puzzle-title"></h2>
     <div id="scorebar" title="Solve clues with as few hints as you can"></div>
@@ -109,8 +120,6 @@
     <div class="left-col">
       <div id="grid-wrap">
         <div id="grid" tabindex="0" aria-label="Crossword grid"></div>
-        <input id="kbd" autocomplete="off" autocapitalize="characters" spellcheck="false"
-               aria-label="Type answers here">
       </div>
       <div class="toolbar">
         <span class="toolbar-label">Check:</span>
@@ -164,6 +173,6 @@
 
 <script src="puzzles/index.js?v=68247572"></script>
 <script src="tutorial.js?v=f82ed1bf"></script>
-<script src="app.js?v=f249a171"></script>
+<script src="app.js?v=cf2e9537"></script>
 </body>
 </html>

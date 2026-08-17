@@ -878,6 +878,22 @@ registry["reset-puzzle"].onclick();
       + JSON.stringify(win.scrolls) + " -> " + JSON.stringify(panel.getBoundingClientRect())
       + " band 0.." + vv.height);
 
+  // A keyboard that pans instead of resizing has to count as the viewport still
+  // moving too, or the placement is measured against a band that has slid out
+  // from under it.
+  vv.height = 1000; vv.offsetTop = 0;
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[0].listeners.click[0]();
+  vv.panKeyboard(120);
+  assert(win.scrolls.length === 0, "a pan pushes the placement back as much as a resize does");
+  vv.height = 700;
+  global.flushTimers(100);
+  assert(win.scrolls.length === 1 && inBand(),
+    "and the band it finally measures starts at the pan, not at zero: "
+      + JSON.stringify(panel.getBoundingClientRect()) + " band "
+      + vv.offsetTop + ".." + (vv.offsetTop + vv.height));
+  vv.offsetTop = 0;
+
   // But only on the heels of a tap. A viewport that changes while someone is
   // reading — keyboard dismissed, rotation, a pinch, or just the URL bar sliding
   // away as they scroll — must not yank the page.
@@ -891,6 +907,24 @@ registry["reset-puzzle"].onclick();
   vv.height = 1000; vv.offsetTop = 0;
   panel.layout(0, 0);   // back to unlaid-out, so nothing below here scrolls
   win.pageYOffset = 0; win.scrolls.length = 0;
+
+  // --- and nothing else is allowed to scroll instead of us (Paul, iPhone) ---
+  // Everything above is wasted if the browser scrolls somewhere else afterwards,
+  // and it will: iOS brings the focused element into view when the keyboard
+  // opens, and the app focuses a 1px invisible input to raise it. Parked in the
+  // document at the top of the grid, that input dragged the page back up there
+  // whenever a clue was picked from further down. Fixed, it is always in view
+  // and there is nothing to scroll to — but only outside #grid-wrap, which is a
+  // query container and therefore the containing block for fixed children, so
+  // nesting it back in there would silently make it absolute again. Neither half
+  // is visible in the rendered DOM, so both are checked in the source.
+  const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const css = fs.readFileSync(path.join(ROOT, "style.css"), "utf8");
+  const wrap = /<div id="grid-wrap">([\s\S]*?)<\/div>\s*<div/.exec(html);
+  assert(wrap && !/id="kbd"/.test(wrap[1]),
+    "#kbd stays out of #grid-wrap, or position:fixed resolves against the container");
+  assert(/#kbd\s*\{[^}]*position:\s*fixed/.test(css),
+    "#kbd is fixed, so iOS has nowhere to scroll it into view from");
 }
 
 // --- solving a clue opens its whole ladder, for free (Paul, 2026-08-16) ---

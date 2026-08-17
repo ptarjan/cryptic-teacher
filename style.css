@@ -337,9 +337,18 @@ button:disabled:hover { border-color: var(--line); }
   content: ""; position: absolute; bottom: -4px; left: 50%; width: 2px; height: 7px;
   background: var(--blockfill); z-index: 2;
 }
+/* The invisible input that raises the soft keyboard. Fixed, not absolute: iOS
+   scrolls the focused element into view when the keyboard opens, so an input
+   parked at the top of the document drags the page there and overrides the
+   scroll the app just computed. Fixed means it is always in view and there is
+   nothing to scroll to. Halfway down rather than at the top edge, so it stays
+   inside the visible band even when the keyboard has panned the viewport, and
+   pointer-events:none so a stray pixel cannot swallow a tap — focus is only
+   ever set from code. It must not be nested inside a query container
+   (#grid-wrap), or "fixed" quietly means "absolute" again. */
 #kbd {
-  position: absolute; opacity: 0; left: 0; top: 0; width: 1px; height: 1px;
-  border: none; padding: 0;
+  position: fixed; opacity: 0; left: 0; top: 50%; width: 1px; height: 1px;
+  border: none; padding: 0; pointer-events: none;
 }
 
 .toolbar {
