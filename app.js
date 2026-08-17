@@ -347,8 +347,14 @@
           }, { passive: true });
           div.addEventListener("touchend", (ev) => {
             const t = ev.changedTouches[0];
+            // preventDefault FIRST, on both paths. It is what suppresses the
+            // mouse events iOS synthesises after a touch, and the mousedown
+            // above is one of them — so bailing out before it meant a finger
+            // that HAD moved fell through to mousedown and selected the cell
+            // anyway, which is the exact thing this guard exists to stop.
+            ev.preventDefault();
             if (touchAnchor && Math.hypot(t.clientX - touchAnchor.x, t.clientY - touchAnchor.y) > 10) return;
-            ev.preventDefault(); onCellClick(c);
+            onCellClick(c);
           }, { passive: false });
         }
         grid.appendChild(div);
@@ -1871,7 +1877,17 @@
     // you with no keyboard (Paul, iPad, 2026-08-09). The grid had always done it
     // this way and worked; the strip had not. Listed together so a third way to
     // steer cannot be added without it.
-    ["grid", "hint-pattern"].forEach((id) =>
+    //
+    // The hint buttons are here for the other half of the same problem: they do
+    // not move the cursor, but tapping anything that is not the input BLURS it,
+    // and the keyboard going away is a viewport change — the page reflows and
+    // jumps under you just as the new rung appears, so the hint you asked for
+    // reads as flashing open and shut ("clicking hints sometimes triggers them
+    // quickly open then closed", Paul, iPhone, 2026-08-16). Keeping focus keeps
+    // the keyboard, which is what you want anyway: you are still mid-answer.
+    // Bound to the containers, not the buttons, because refreshAll() throws the
+    // buttons away and rebuilds them on every render.
+    ["grid", "hint-pattern", "hint-next", "hint-escape"].forEach((id) =>
       $(id).addEventListener("mousedown", () => focusKbd()));
 
     // The letter-pattern strip is a second way to steer: click a box to put the

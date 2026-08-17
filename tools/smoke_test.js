@@ -324,8 +324,34 @@ answer.split("").forEach((ch) => kd(ev(ch)));
   // the focus has to be hooked on mousedown like the grid's (Paul, iPad,
   // 2026-08-09). Both cursor controls, asserted together: a new one that forgets
   // this is a box you can tap and then cannot type into.
-  ["grid", "hint-pattern"].forEach((id) => assert(registry[id].listeners.mousedown,
-    `${id} raises the keyboard on mousedown, not after its own re-render`));
+  // The hint buttons are the other half: they don't move the cursor, but tapping
+  // anything that isn't the input blurs it, the keyboard leaving is a viewport
+  // change, and the page reflows just as the new rung lands — so the hint reads
+  // as flashing open and shut ("clicking hints sometimes triggers them quickly
+  // open then closed", Paul, iPhone, 2026-08-16). Listed with the cursor
+  // controls so a new tappable thing in the panel cannot forget it.
+  ["grid", "hint-pattern", "hint-next", "hint-escape"].forEach((id) =>
+    assert(registry[id].listeners.mousedown,
+      `${id} keeps the keyboard on mousedown, not after its own re-render`));
+
+  // A finger that moved across the grid is scrolling, not tapping — and the move
+  // guard used to bail out BEFORE preventDefault. preventDefault on touchend is
+  // the only thing stopping iOS synthesising a mousedown afterwards, and this
+  // same cell listens to mousedown, so a drag skipped the tap handler and was
+  // then selected by the mouse handler it had just dodged. The guard has to
+  // cancel first and decide second.
+  {
+    const cell = registry["grid"].children.find((d) => d.listeners && d.listeners.touchend);
+    assert(cell, "the grid has tappable cells");
+    let prevented = 0;
+    cell.listeners.touchstart[0]({ touches: [{ clientX: 0, clientY: 0 }] });
+    cell.listeners.touchend[0]({
+      changedTouches: [{ clientX: 0, clientY: 200 }],
+      preventDefault: () => prevented++
+    });
+    assert(prevented === 1,
+      "a moved finger still cancels the mousedown it would otherwise fall through to");
+  }
   clickBox(4);
   assert(curIndex() === 4, "clicking a pattern box moves the cursor there, got " + curIndex());
   kd(ev("Delete"));                       // punch a single gap at index 4
