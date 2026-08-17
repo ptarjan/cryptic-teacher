@@ -271,6 +271,21 @@ must pass before commit.
   indicator rung said "this clue does two things" and then listed three, on
   `container + charade + middle letters + reversal` (Paul, 4096 16d, 2026-08-17).
   Number words come off `.length`, always.
+- Rung 3 says what the indicator DOES; `indicatorNotes` says why that word means
+  it. The general sentence ("it tells you to shuffle the letters") is identical on
+  every anagram in the corpus, which is what makes the rung feel content-free to
+  pay for — the complaint has now been made twice ("these tell you what to do with
+  the rest is terrible to pay for a hint for", 2026-08-02; "the indicator didn't
+  explain why stable no was an indicator", 4096 20a, 2026-08-17). One sentence per
+  indicator, keyed by the identical string, naming the sense of the word that
+  carries the instruction: 'stable? No' means unstable, and unstable will not stay
+  in the order it is given. It renders before the answer, so it is gated by
+  `EARLY_RUNG_FIELDS`; the validator counts what is missing and
+  `REQUIRE_INDICATOR_NOTES` flips when the backlog hits zero.
+- Do not point at the surface picture with a definite noun phrase you never drew —
+  see `tools/annotate_prompt.md`. "The impromptu band keeps both looking innocent"
+  on a walkthrough that never mentioned a band ("this doesn't sound natural", 4096
+  14D, 2026-08-17). Name the picture in the clue's own words.
 - A hint that has been bought never leaves the screen. Highlighting a fragment is
   a PLACEMENT, not a search: `indexOf` matched the indicator 'in' inside
   "Conclud(in)g", "island" and "confusion" on 18 clues, and on 15 more the mark it

@@ -541,7 +541,8 @@ def check_definition_fit(tag, ann, errors, warnings):
 # So this guards the fields that stay early, where naming the answer is never
 # necessary and never fair. Letters only, so "trump cards" is caught by
 # TRUMPCARDS and a stray hyphen or apostrophe cannot slip it through.
-EARLY_RUNG_FIELDS = ("definition", "definition2", "indicators", "linkWords")
+EARLY_RUNG_FIELDS = ("definition", "definition2", "indicators", "linkWords",
+                     "indicatorNotes")
 
 
 def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
@@ -553,13 +554,65 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
         val = ann.get(field)
         if not val:
             continue
-        parts = val if isinstance(val, list) else [val]
+        parts = list(val.values()) if isinstance(val, dict) else \
+            (val if isinstance(val, list) else [val])
         for part in parts:
             if ans in re.sub(r"[^a-z]", "", str(part).lower()):
                 errors.append(
                     f"{tag}: {field} {part!r} contains the answer — it is shown "
                     f"before the building blocks, so it hands over the solve for "
                     f"the price of a hint. Say it in the walkthrough instead.")
+
+# An indicator rung that names the words and not the reason is the rung solvers
+# keep saying is not worth paying for ("Spot the indicator words shouldn't be
+# content free clues… they would explain like minute cryptic", 2026-08-02; and
+# again on 4096 20a RENOVATOR, "the indicator didn't explain why stable no was
+# an indicator", 2026-08-17 — the clue is "Fixer-up ran over to stable? No", and
+# "stable? No" is an anagram signal because unstable means not fixed in place,
+# which the rung never said). The general sentence about what an anagram
+# indicator does is the same on every clue in the corpus; the reason THIS word
+# is one is the only part that teaches anything.
+#
+# Optional at first because 793 clues have indicators and none of them have
+# notes yet — same shape as definitionFit: a warning, a backlog counted at the
+# end of a full run, and a flag to flip the day it reaches zero.
+REQUIRE_INDICATOR_NOTES = False
+
+
+def check_indicator_notes(tag, ann, errors, warnings):
+    """Why THIS word is the indicator — one sentence per indicator."""
+    inds = ann.get("indicators") or []
+    notes = ann.get("indicatorNotes")
+    if not inds:
+        if notes:
+            errors.append(f"{tag}: indicatorNotes but no indicators to explain")
+        return
+    if not notes:
+        msg = (f"{tag}: no indicatorNotes — say in one sentence per indicator why "
+               f"that word does that job (tools/annotate_prompt.md)")
+        (errors if REQUIRE_INDICATOR_NOTES else warnings).append(msg)
+        return
+    if not isinstance(notes, dict):
+        errors.append(f"{tag}: indicatorNotes must be an object keyed by the indicator")
+        return
+    for key, note in notes.items():
+        if key not in inds:
+            errors.append(f"{tag}: indicatorNotes has {key!r}, which is not one of the "
+                          f"indicators {inds!r} — the key is what gets highlighted")
+        note = str(note or "").strip()
+        if len(note) < 25:
+            errors.append(f"{tag}: indicatorNote for {key!r} is {note!r} — too thin to "
+                          f"teach; name the sense of the word that does the work")
+        # "'shuffled' tells you to shuffle" is the failure this catches: a note
+        # made only of words already in the indicator has restated it.
+        elif not (set(words_of(note)) - set(words_of(key)) - DEFINITION_STOPWORDS):
+            errors.append(f"{tag}: indicatorNote for {key!r} only says {key!r} again — "
+                          f"say WHY the word means that, in words the clue does not use")
+    for missing in [i for i in inds if i not in notes]:
+        msg = (f"{tag}: indicator {missing!r} has no note — every indicator gets one, "
+               f"or the rung is content-free for the ones that do not")
+        (errors if REQUIRE_INDICATOR_NOTES else warnings).append(msg)
+
 
 SOUND_TYPES = ("homophone", "spoonerism")
 
@@ -1259,6 +1312,7 @@ def validate_puzzle(puzzle):
 
         check_definition_fit(tag, ann, errors, warnings)
         check_sound_names_its_source(tag, ann, errors, warnings)
+        check_indicator_notes(tag, ann, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
@@ -1325,6 +1379,7 @@ def main(argv):
         paths = sorted(PUZZLE_DIR.glob("[0-9]*.js"))
     failed = False
     fit_backlog = 0
+    note_backlog = 0
     for path in paths:
         if not path.exists():
             print(f"MISSING {path}")
@@ -1353,6 +1408,7 @@ def main(argv):
         if errors:
             failed = True
         fit_backlog += sum("no definitionFit" in w for w in warnings)
+        note_backlog += sum("no indicatorNotes" in w for w in warnings)
     # Printed as one number rather than 400 warning lines' worth of noise, and
     # printed even when everything passes: this is a backlog that has to reach
     # zero before REQUIRE_DEFINITION_FIT can be flipped, and a backlog nobody
@@ -1365,6 +1421,12 @@ def main(argv):
         # counts only its own clues, and saying "empty" there once prompted a
         # premature flip that broke every backfill puzzle (2026-08-07).
         print("\ndefinitionFit backlog is EMPTY — set REQUIRE_DEFINITION_FIT = True now.")
+    if note_backlog:
+        print(f"indicatorNotes backlog: {note_backlog} clue(s) name their indicators "
+              f"without saying why those words indicate. Flip REQUIRE_INDICATOR_NOTES "
+              f"at zero.")
+    elif not REQUIRE_INDICATOR_NOTES and not argv:
+        print("indicatorNotes backlog is EMPTY — set REQUIRE_INDICATOR_NOTES = True now.")
     return 1 if failed else 0
 
 

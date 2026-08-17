@@ -1247,6 +1247,21 @@
         html = `<p>${marks} — ${inds.length > 1 ? "these tell" : "this tells"} you
           what to do with the rest of the wordplay.</p>`;
       }
+      // The sentences above are the same on every clue of a type: an anagram
+      // indicator always "tells you to shuffle". What is worth paying for is why
+      // THIS word does it — "'stable? No' means unstable, and unstable is not
+      // fixed in place" — and without that the rung is the complaint it keeps
+      // getting ("the indicator didn't explain why stable no was an indicator",
+      // Paul, 4096 20a, 2026-08-17; and "these tell you what to do with the rest
+      // is terrible to pay for a hint for", 2026-08-02). Optional while the
+      // corpus fills in, because 793 clues have indicators; the validator counts
+      // the ones still missing.
+      const notes = ann.indicatorNotes || {};
+      const written = inds.filter((i) => notes[i]);
+      if (written.length) {
+        html += `<ul class="ind-notes">${written.map((i) =>
+          `<li><mark class="ind">${esc(i)}</mark> — ${esc(notes[i])}</li>`).join("")}</ul>`;
+      }
       steps.push({
         key: "indicators",
         label: LABELS.indicators,

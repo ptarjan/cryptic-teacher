@@ -855,6 +855,38 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       extra.map(([n, where]) => `${JSON.stringify(n)} — ${where}`).join("; "));
   }
 
+  // --- the indicator rung says why THAT word indicates ---
+  // "The indicator didn't explain why stable no was an indicator" (Paul, 4096
+  // 20a RENOVATOR, 2026-08-17) — the rung named the words and then gave the
+  // sentence it gives every anagram in the corpus. `indicatorNotes` is the part
+  // that is only true of this clue, so it has to be on the screen the moment it
+  // exists in the file; a field that is written and never rendered is worse than
+  // no field, because the backlog says the work is done.
+  {
+    const noted = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const n = ((e.annotation || {}).indicatorNotes) || null;
+        if (n && Object.keys(n).length) noted.push({ id, e, n });
+      }
+    }
+    assert(noted.length, "some clue in the corpus explains its indicators");
+    for (const s of noted.slice(0, 25)) {
+      openClue(s);
+      const btn = registry["hint-next"].children.find(
+        (b) => b.onclick && /indicator/i.test(b.textContent) && !b.disabled);
+      assert(btn, `${s.id} ${s.e.id}: the indicators rung is offered`);
+      if (!btn) continue;
+      btn.onclick();
+      const html = registry["hint-body"].innerHTML;
+      for (const [ind, note] of Object.entries(s.n)) {
+        assert(html.includes(note.replace(/&/g, "&amp;").replace(/'/g, "&#39;")),
+          `${s.id} ${s.e.id}: the note for ${JSON.stringify(ind)} never reaches the ` +
+          `indicators rung: ` + html);
+      }
+    }
+  }
+
   // --- a homophone must show you the word you say aloud ---
   // "24d in 4096 doesn't explain that the original word is hoard but it is a
   // homophone and you drop the h to it. Don't just fix one clue extrapolate"
