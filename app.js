@@ -1089,10 +1089,33 @@
     const blocks = ann.blocks || [];
     const steps = [];
 
+    // Every rung is NAMED for the question it asks, never for the answer it is
+    // about to give, because the unbought rungs' names are on screen the whole
+    // time — that is how you choose which to buy. The &lit definition rung used
+    // to be called "How can the whole clue be the definition?", so the button
+    // for a hint nobody had paid for announced that the clue was an &lit, which
+    // on a semi-&lit hidden word is the entire solve ("21d gives away the whole
+    // thing just by the name of the hint before I reveal it" — Paul, 4096 21d,
+    // VSIGN, 2026-08-17). The same was true of "Where does the clue split?",
+    // "What is the clue really describing?" and "What each half means", each of
+    // which named its type, and of the singular/plural indicator label, which
+    // handed over the count.
+    //
+    // So a label is a function of the rung's key and nothing else, and the
+    // smoke test holds the corpus to exactly that: one label per key, across
+    // every annotated clue there is. Type-specific wording belongs in the body,
+    // which is what you are paying for.
+    const LABELS = {
+      type: "What kind of clue is this?",
+      definition: "Where is the definition?",
+      indicators: "Spot the indicator words",
+      blocks: "The building blocks",
+      walkthrough: "Full walkthrough"
+    };
     const fam = familyOf(ann.type);
     steps.push({
       key: "type",
-      label: "What kind of clue is this?",
+      label: LABELS.type,
       html: `<p><strong>${esc(fam.label)}</strong>. ${esc(fam.blurb)}</p>`
     });
 
@@ -1106,7 +1129,7 @@
     if (isDD && ann.definition2) {
       steps.push({
         key: "definition",
-        label: "Where does the clue split?",
+        label: LABELS.definition,
         html: `<p>It splits between <mark class="def">${esc(ann.definition)}</mark> and
           <mark class="def2">${esc(ann.definition2)}</mark> — two unrelated senses of the same
           word, which is where the surface reading misleads you.</p>`
@@ -1114,14 +1137,14 @@
     } else if (isLit) {
       steps.push({
         key: "definition",
-        label: "How can the whole clue be the definition?",
+        label: LABELS.definition,
         html: `<p>Read <mark class="def">${esc(ann.definition)}</mark> straight through as a
           description of the answer, then read the very same words again as wordplay.</p>`
       });
     } else if (isCD) {
       steps.push({
         key: "definition",
-        label: "What is the clue really describing?",
+        label: LABELS.definition,
         html: `<p>There's no separable wordplay here: <mark class="def">${esc(ann.definition)}</mark>
           is a whole-clue description that only makes sense once you see it the setter's way.</p>`
       });
@@ -1133,7 +1156,7 @@
       // solving move, and it is computable from the clue text we already have.
       steps.push({
         key: "definition",
-        label: "Where is the definition?",
+        label: LABELS.definition,
         html: `<p>The definition is <mark class="def">${esc(ann.definition)}</mark>${defPlace(clue, ann.definition)}</p>`
       });
     }
@@ -1171,8 +1194,14 @@
         // A compound type has more than one operation and usually more than one
         // indicator, and nothing in the annotation maps word to job. Saying so is
         // the honest move, and pairing them up is exactly the work of this rung.
-        html = `<p>${marks} — this clue does two things, and the indicators are
-          what tell them apart:</p><ul>${ops.map(([, op]) => `<li>${op}</li>`).join("")}</ul>
+        // Counted off the list rather than written into the sentence: it said
+        // "two things" and then printed three for `container + charade +
+        // middle letters + reversal` (Paul, 4096 16d, 2026-08-17). A number in
+        // prose beside a list it is supposed to describe will go wrong the
+        // first time a clue does something the sentence never imagined.
+        const HOWMANY = ["no", "one", "two", "three", "four", "five", "six"];
+        html = `<p>${marks} — this clue does ${HOWMANY[ops.length] || ops.length} things, and
+          the indicators are what tell them apart:</p><ul>${ops.map(([, op]) => `<li>${op}</li>`).join("")}</ul>
           <p class="muted">Which word calls for which is the step to work out here.</p>`;
       } else {
         html = `<p>${marks} — ${inds.length > 1 ? "these tell" : "this tells"} you
@@ -1180,7 +1209,7 @@
       }
       steps.push({
         key: "indicators",
-        label: inds.length > 1 ? "Spot the indicator words" : "Spot the indicator word",
+        label: LABELS.indicators,
         html
       });
     }
@@ -1213,9 +1242,7 @@
       }).join("");
       steps.push({
         key: "blocks",
-        label: isDD ? "What each half means"
-             : isCD ? "Which words are doing the work?"
-             : "The building blocks",
+        label: LABELS.blocks,
         html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>`
       });
     }
@@ -1242,7 +1269,7 @@
       ? `<p class="def-note">${esc(ann.definitionNote)}</p>` : "";
     steps.push({
       key: "walkthrough",
-      label: "Full walkthrough",
+      label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") || isDD || isCD ? "" : mechanics) +
         `<p>${esc(ann.walkthrough)}</p>${fit}${note}<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
