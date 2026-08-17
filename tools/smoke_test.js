@@ -714,6 +714,48 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     }
   }
 
+  // --- a homophone must show you the word you say aloud ---
+  // "24d in 4096 doesn't explain that the original word is hoard but it is a
+  // homophone and you drop the h to it. Don't just fix one clue extrapolate"
+  // (Paul, 2026-08-17). The blocks rung read “Cockney mob” → OARED and stopped:
+  // HORDE, the dropped aitch and the sound itself all happened off-screen, and
+  // 18 of the corpus's 48 sound clues did the same. The sounded form is now a
+  // tracked field rather than a sentence somebody might remember to write, so
+  // drive every sound clue there is and check it reaches the page.
+  {
+    const sound = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const t = ((e.annotation || {}).type || "");
+        if (/homophone|spoonerism/.test(t)) sound.push({ id, e });
+      }
+    }
+    assert(sound.length > 20, "the corpus still has sound clues to check: " + sound.length);
+    for (const s of sound) {
+      const heard = (s.e.annotation.blocks || []).filter((b) => b.soundsLike);
+      assert(heard.length,
+        `${s.id} ${s.e.id}: type ${s.e.annotation.type} but no block says what is said aloud`);
+      openClue(s);
+      // Climb until the blocks rung has been bought.
+      let html = "";
+      for (let i = 0; i < 8; i++) {
+        const btn = registry["hint-next"].children[0];
+        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        btn.onclick();
+        html = registry["hint-body"].innerHTML;
+        if (html.includes("said aloud")) break;
+      }
+      // Escaped the way app.js escapes it: "I'D A" reaches the page as I&#39;D A.
+      const esc = (t) => String(t).replace(/[&<>"']/g, (c) =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      for (const b of heard) {
+        assert(html.includes(esc(b.soundsLike)),
+          `${s.id} ${s.e.id}: the blocks rung never shows ${b.soundsLike}, ` +
+          `which is the whole mechanism — ` + html);
+      }
+    }
+  }
+
   // --- a rung highlights its own words, on its own ---
   // Feedback 2026-08-01: "if I choose just the indicator clue now it doesn't
   // highlight the parts of clue". All clue markup used to be gated on the

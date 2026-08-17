@@ -27,7 +27,8 @@ Annotation schema (see `puzzles/30066.js` for 28 worked examples):
   "indicators": ["exact substring", "..."],
   "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
   "blocks": [
-    {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"}
+    {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"},
+    {"clueFragment": "for homophones/spoonerisms", "soundsLike": "WHAT YOU SAY ALOUD", "gives": "HOW IT IS SPELT", "note": "why"}
   ],
   "walkthrough": "1-2 sentences, 45 words max: what the blocks CANNOT show. Friendly teaching tone.",
   "definitionFit": "REQUIRED. One sentence, 30 words max: why the ANSWER means the DEFINITION.",
@@ -87,6 +88,14 @@ Rules:
   order) or `anagram.fodder` for anagrams (including any extra letters joined in). Use
   `subAnagrams`/`subReversals` for embedded steps. Double definitions, homophones and
   hidden words need neither (hidden answers are checked against the clue letters).
+- A homophone or spoonerism MUST name the word you say aloud, in a `soundsLike` field
+  on the block that does the sounding. The validator errors without one, and errors if
+  `soundsLike` has the same letters as `gives` (that is a spelling, not a sound). The
+  sounded word is the entire mechanism, so a block that jumps a fragment straight to
+  the answer has taught nothing: "Cockney mob loudly" → OARED is `soundsLike: "’ORDE",
+  gives: "OARED"`, with the note carrying the step BEFORE the sound — a mob is a HORDE
+  and a Cockney drops the aitch. Where another mechanism feeds the homophone, give it
+  its own earlier block; do not smuggle two operations into one arrow.
 - For linked entries (a `group` with several ids, e.g. "1-across"/"9-across" where one
   clue reads "See 1"), put the full annotation on the FIRST entry of the group with
   `"coversGroup": true`, and give the other entries `{"linkedTo": "<first-id>"}`.

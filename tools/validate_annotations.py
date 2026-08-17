@@ -561,6 +561,51 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
                     f"before the building blocks, so it hands over the solve for "
                     f"the price of a hint. Say it in the walkthrough instead.")
 
+SOUND_TYPES = ("homophone", "spoonerism")
+
+
+def check_sound_names_its_source(tag, ann, errors, warnings):
+    """A homophone must name the word you say aloud, as a field, not as prose.
+
+    "24d in 4096 doesn't explain that the original word is hoard but it is a
+    homophone and you drop the h to it. Don't just fix one clue extrapolate"
+    (Paul, 2026-08-17). "Cockney mob loudly" → OARED, and the block read
+    “Cockney mob” → OARED. Every step of the actual clue happened off-screen:
+    a mob is a HORDE, a Cockney drops the aitch to leave ’ORDE, and ’ORDE said
+    aloud is OARED. The rung asserted the answer and taught nothing — 18 of the
+    corpus's 48 sound clues did the same, which is the whole point of the type
+    being skipped 18 times.
+
+    The source word cannot live only in a note, because a note is prose and
+    prose is unenforceable: 4096 24d DID mention a horde in passing, buried
+    mid-sentence, and it still read as a leap. So `soundsLike` is a tracked
+    field on the block that does the sounding, it is required on every clue
+    whose type declares a sound, and it must differ from what the block gives —
+    a `soundsLike` equal to the output is not a homophone, it is a spelling.
+    """
+    is_sound = any(t in (ann.get("type") or "").lower() for t in SOUND_TYPES)
+    heard = [b for b in ann.get("blocks", []) if b.get("soundsLike")]
+    for b in heard:
+        if not b.get("gives"):
+            errors.append(f"{tag}: block {b.get('clueFragment')!r} has soundsLike "
+                          f"{b['soundsLike']!r} but no `gives` — say what it comes out as")
+        elif letters(b["soundsLike"]) == letters(b["gives"]):
+            errors.append(f"{tag}: soundsLike {b['soundsLike']!r} and gives "
+                          f"{b['gives']!r} are the same letters, so nothing was heard. "
+                          f"A homophone is two spellings of one sound")
+    if not is_sound:
+        if heard:
+            errors.append(f"{tag}: a block declares soundsLike but the type is "
+                          f"{ann.get('type')!r} — add the sound to the type or drop the field")
+        return
+    if not heard:
+        errors.append(
+            f"{tag}: type {ann.get('type')!r} but no block says what is said aloud. "
+            f"Add `soundsLike` to the block that does the sounding: the word you "
+            f"HEAR is the clue's whole mechanism, and a block that jumps a "
+            f"fragment straight to the answer has taught none of it")
+
+
 # A real English wordlist, used to tell a genuine inflection from a coincidence:
 # MARAUDING is a gerund (MARAUD is a word) but VIKING is not (VIK is not), and
 # EARPHONES is a plural (EARPHONE is a word). Without it the part-of-speech
@@ -1213,6 +1258,7 @@ def validate_puzzle(puzzle):
                           f"learner why the mismatch is fair, or drop the note")
 
         check_definition_fit(tag, ann, errors, warnings)
+        check_sound_names_its_source(tag, ann, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
