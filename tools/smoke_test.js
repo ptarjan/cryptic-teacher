@@ -1088,6 +1088,43 @@ registry["reset-puzzle"].onclick();
     "#kbd stays out of #grid-wrap, or position:fixed resolves against the container");
   assert(/#kbd\s*\{[^}]*position:\s*fixed/.test(css),
     "#kbd is fixed, so iOS has nowhere to scroll it into view from");
+
+  // --- and reading a hint must not change the keyboard either way (Paul, iPad) ---
+  // A keyboard arriving is as big a viewport change as a keyboard leaving, and
+  // both of them reflow the page under the rung that has just appeared. The first
+  // half of this was fixed by focusing the hidden input on mousedown so a tap
+  // could not dismiss the keyboard ("clicking hints sometimes triggers them
+  // quickly open then closed", iPhone, 2026-08-16) — which then SUMMONED one for
+  // anyone whose keyboard was down, and produced the identical symptom from the
+  // other direction: "I just clicked a hint once on my iPad and it opened then
+  // quickly closed" (iPad, 2026-08-17).
+  //
+  // So the property is steadiness, not focus: whatever the keyboard was doing
+  // when the finger landed, it is still doing after. Asserted in both states,
+  // because a fix for either one alone is what caused the other. The controls
+  // that DO steer the cursor (the grid, the letter strip) are the opposite case
+  // and are checked to still raise it — a rule of "never focus on mousedown"
+  // would pass the first two assertions and leave you typing with no keyboard.
+  const kbd = registry["kbd"];
+  const down = (id) => (registry[id].listeners.mousedown || []).forEach((f) => f());
+  for (const id of ["hint-next", "hint-escape"]) {
+    document.activeElement = null;
+    down(id);
+    assert(document.activeElement === null,
+      `${id}: tapping a hint with the keyboard down must not summon it — the ` +
+      `viewport change is what flashes the rung shut`);
+    kbd.focus();
+    down(id);
+    assert(document.activeElement === kbd,
+      `${id}: tapping a hint mid-answer must not put the keyboard away either`);
+  }
+  for (const id of ["grid", "hint-pattern"]) {
+    document.activeElement = null;
+    down(id);
+    assert(document.activeElement === kbd,
+      `${id}: this one moves the cursor, so it must raise the keyboard to type with`);
+  }
+  document.activeElement = null;
 }
 
 // --- solving a clue opens its whole ladder, for free (Paul, 2026-08-16) ---

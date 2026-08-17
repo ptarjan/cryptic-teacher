@@ -271,6 +271,20 @@ must pass before commit.
   indicator rung said "this clue does two things" and then listed three, on
   `container + charade + middle letters + reversal` (Paul, 4096 16d, 2026-08-17).
   Number words come off `.length`, always.
+- A tap must leave the soft keyboard exactly as it found it, unless the tap is
+  going to type. On iOS the keyboard IS the viewport: it arriving and it leaving
+  are the same size of reflow, and either one lands on the page in the same
+  instant the new rung is drawn, which reads as the hint flashing open and shut.
+  Both directions have now been reported, and each was caused by the fix for the
+  other: dismissing one ("clicking hints sometimes triggers them quickly open
+  then closed", iPhone, 2026-08-16), then summoning one for a solver who had none
+  up ("I just clicked a hint once on my iPad and it opened then quickly closed",
+  iPad, 2026-08-17). So the rule is not "focus the input on mousedown" — it is
+  that controls which move the cursor (the grid, the letter strip) raise the
+  keyboard, and controls which only reveal text (the hint buttons, the escape
+  hatch) keep whatever state they were handed: `document.activeElement === $("kbd")`
+  at mousedown, before the default focus transfer. Asserted in the smoke test in
+  all three states, because a fix for one alone is what caused the other.
 - The ladder is TIERED: free choice within a tier, no choice across tiers
   (`RUNG_TIER` in app.js). Tier 0 is what the clue asks you to SPOT — the family,
   the definition, the indicators — and any of them may be taken in any order.

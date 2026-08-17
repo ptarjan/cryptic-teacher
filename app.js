@@ -1911,17 +1911,33 @@
     // this way and worked; the strip had not. Listed together so a third way to
     // steer cannot be added without it.
     //
-    // The hint buttons are here for the other half of the same problem: they do
-    // not move the cursor, but tapping anything that is not the input BLURS it,
-    // and the keyboard going away is a viewport change — the page reflows and
-    // jumps under you just as the new rung appears, so the hint you asked for
-    // reads as flashing open and shut ("clicking hints sometimes triggers them
-    // quickly open then closed", Paul, iPhone, 2026-08-16). Keeping focus keeps
-    // the keyboard, which is what you want anyway: you are still mid-answer.
+    ["grid", "hint-pattern"].forEach((id) =>
+      $(id).addEventListener("mousedown", () => focusKbd()));
+
+    // The hint buttons are the other half of the same problem, and they need the
+    // OPPOSITE rule. They do not move the cursor, so nothing about them wants a
+    // keyboard; what hurt was the keyboard GOING AWAY as the rung appeared,
+    // because a keyboard arriving or leaving is a viewport change and the page
+    // reflows under you mid-tap ("clicking hints sometimes triggers them quickly
+    // open then closed", Paul, iPhone, 2026-08-16).
+    //
+    // That was fixed by calling focusKbd() here too — which keeps a keyboard that
+    // is up, and SUMMONS one that is not. Same viewport change, same flash, now
+    // on the tap of someone who was only reading: "I just clicked a hint once on
+    // my iPad and it opened then quickly closed" (Paul, iPad, 2026-08-17).
+    //
+    // So the rule is not "focus the input", it is: A TAP THAT IS NOT GOING TO
+    // TYPE MUST NEVER SUMMON THE KEYBOARD, ONLY DECLINE TO DISMISS ONE. The
+    // mousedown listener runs before the default focus transfer, so activeElement
+    // still says whether the keyboard was up when the finger landed. Steady
+    // either way is the whole requirement — up and staying up, or down and
+    // staying down; it is the CHANGE that flashes.
     // Bound to the containers, not the buttons, because refreshAll() throws the
     // buttons away and rebuilds them on every render.
-    ["grid", "hint-pattern", "hint-next", "hint-escape"].forEach((id) =>
-      $(id).addEventListener("mousedown", () => focusKbd()));
+    ["hint-next", "hint-escape"].forEach((id) =>
+      $(id).addEventListener("mousedown", () => {
+        if (document.activeElement === $("kbd")) focusKbd();
+      }));
 
     // The letter-pattern strip is a second way to steer: click a box to put the
     // cursor on that square of the current entry.
