@@ -80,6 +80,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "audible"
     ],
+    "indicatorNotes": {
+     "audible": "something audible is heard rather than read, so the answer is spelt the way the words sound"
+    },
     "blocks": [
      {
       "clueFragment": "A cow",
@@ -202,6 +205,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "characters in"
     ],
+    "indicatorNotes": {
+     "characters in": "characters are letters as well as people, and 'in' says these ones are sitting inside the words rather than being described by them"
+    },
     "blocks": [
      {
       "clueFragment": "Poo-poos a kabuki",
@@ -239,6 +245,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "Spooner’s advice to"
     ],
+    "indicatorNotes": {
+     "Spooner’s advice to": "the Reverend Spooner swapped the opening sounds of two words, so his version of a phrase is that phrase with its first sounds traded"
+    },
     "pieces": [
      "HIP",
      "POCKET"
@@ -329,6 +338,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "you say"
     ],
+    "indicatorNotes": {
+     "you say": "'you say' asks for the sound of the words rather than their spelling"
+    },
     "pieces": [
      "EYE",
      "WASH"
@@ -372,6 +384,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "heartless"
     ],
+    "indicatorNotes": {
+     "heartless": "a heartless word is one with its middle taken out"
+    },
     "pieces": [
      "HERE",
      "DITY"
@@ -414,6 +429,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "to return"
     ],
+    "indicatorNotes": {
+     "to return": "to return is to come back the way you went, so the letters run backwards"
+    },
     "linkWords": [
      "finding"
     ],
@@ -471,6 +489,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "when cleaned up"
     ],
+    "indicatorNotes": {
+     "when cleaned up": "cleaning something up rearranges it, and here it is the letters that get tidied into a new order"
+    },
     "anagram": {
      "fodder": "TEARS UP"
     },
@@ -553,6 +574,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "Poorly"
     ],
+    "indicatorNotes": {
+     "Poorly": "poorly means unwell, and a word in poor condition is one whose letters have fallen out of order"
+    },
     "anagram": {
      "fodder": "RAISED OAF"
     },
@@ -595,6 +619,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "most of"
     ],
+    "indicatorNotes": {
+     "most of": "most of a word is all of it but the last letter"
+    },
     "pieces": [
      "ILL",
      "DR",
@@ -656,6 +683,10 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
      "playing",
      "at the end"
     ],
+    "indicatorNotes": {
+     "playing": "letters at play are letters not staying where they were put",
+     "at the end": "'at the end' points at the final letter of the word in front of it, not at the whole word"
+    },
     "linkWords": [
      "with"
     ],
@@ -679,7 +710,7 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
       "note": "the last letter of whistleR"
      }
     ],
-    "walkthrough": "Two instructions are working here and only one is loud: 'playing' shuffles, while 'at the end' quietly asks for a single letter. The impromptu band keeps both looking innocent.",
+    "walkthrough": "Two instructions are working and only one is loud: 'playing' shuffles, while 'at the end' quietly asks for one letter. A sitar and a tin whistle sound like a band, which is the last place you look for orders.",
     "definitionFit": "An irritant is anything that rubs you the wrong way — a rash, a noise, a neighbour — so the definition names them by the nuisance they cause."
    }
   },
@@ -750,6 +781,11 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
      "outstripped",
      "over"
     ],
+    "indicatorNotes": {
+     "around": "something that goes around another thing is wrapped outside it",
+     "outstripped": "to outstrip is to leave behind, so the letters named are dropped",
+     "over": "in a down clue 'over' means what is written above, which reading upwards reverses"
+    },
     "pieces": [
      "GU",
      "AR",
@@ -810,6 +846,10 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
      "endless",
      "dodgy"
     ],
+    "indicatorNotes": {
+     "endless": "an endless word has lost its last letter, so it never reaches its end",
+     "dodgy": "dodgy means not to be trusted, and letters not to be trusted are letters out of their proper order"
+    },
     "anagram": {
      "fodder": "FUR AUNT TASTED A"
     },
@@ -851,6 +891,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "pronounced"
     ],
+    "indicatorNotes": {
+     "pronounced": "pronounced asks for the sound of the word, not its spelling"
+    },
     "pieces": [
      "SUN",
      "BEAM"
@@ -894,6 +937,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "bulk of"
     ],
+    "indicatorNotes": {
+     "bulk of": "the bulk of a word is most of it — everything but the last letter"
+    },
     "pieces": [
      "ANTI",
      "GUA"
@@ -936,6 +982,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "stable? No"
     ],
+    "indicatorNotes": {
+     "stable? No": "stable means fixed in place, so answering 'No' to it makes the letters unstable and free to move"
+    },
     "anagram": {
      "fodder": "RAN OVER TO"
     },
@@ -1008,6 +1057,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "getting up"
     ],
+    "indicatorNotes": {
+     "getting up": "in a down clue the letters run downwards, so anything getting up is read the other way"
+    },
     "pieces": [
      "RIS",
      "EN"
@@ -1057,6 +1109,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "indicators": [
      "Principally"
     ],
+    "indicatorNotes": {
+     "Principally": "principally means first of all, so it asks for the first letters of the words that follow"
+    },
     "pieces": [
      "R",
      "A",
@@ -1098,6 +1153,10 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
      "Cockney",
      "loudly"
     ],
+    "indicatorNotes": {
+     "Cockney": "a Cockney accent drops the aitch off the front of a word",
+     "loudly": "loudly means said out loud, so what matters is the sound and not the spelling"
+    },
     "blocks": [
      {
       "clueFragment": "mob",
@@ -1138,6 +1197,10 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
      "almost",
      "devious"
     ],
+    "indicatorNotes": {
+     "almost": "almost a word is the word one letter short of finished",
+     "devious": "devious means not straight, and letters that are not straight are letters out of order"
+    },
     "anagram": {
      "fodder": "BRAINIE"
     },

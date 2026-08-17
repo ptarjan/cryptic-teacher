@@ -25,6 +25,7 @@ Annotation schema (see `puzzles/30066.js` for 28 worked examples):
   "definition2": "second definition, only for double definitions",
   "definitionNote": "only when the definition genuinely disagrees with the answer in number or part of speech: a sentence explaining why the setter is allowed it",
   "indicators": ["exact substring", "..."],
+  "indicatorNotes": {"exact substring from indicators": "REQUIRED, one sentence: why THIS word means that instruction"},
   "linkWords": ["exact substring joining definition to wordplay, e.g. 'to locate'"],
   "blocks": [
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"},
@@ -84,6 +85,22 @@ Rules:
   rather than retyping). Independent clues may also contain `<i>` tags around a title
   or a foreign word; that markup is part of the clue string, so a definition that
   spans it has to include it.
+- Do not point at the surface picture with a definite noun phrase you never drew.
+  "The impromptu band keeps both looking innocent" was the closing sentence of a
+  walkthrough that had never mentioned a band, and "both" was two instructions a
+  sentence and a half earlier ("this doesn't sound natural", 4096 14D IRRITANTS,
+  2026-08-17). The reader is holding the clue, not your image of it: name the
+  picture out of the clue's own words — "a sitar and a tin whistle sound like a
+  band" — and say what it does. Every "the X" in a walkthrough must be an X the
+  reader can already see.
+- Every indicator needs an `indicatorNotes` entry, keyed by the identical string.
+  The app already says what an anagram indicator DOES — that sentence is the same on
+  every anagram in the corpus and it is not worth a hint. The note is the part that
+  is only true here: which sense of the word carries the instruction. "'stable? No'
+  means unstable, and something unstable will not stay in the order it is given"
+  (4096 20A RENOVATOR), not "'stable? No' is the anagram indicator". A note made
+  only of words already in the indicator is rejected, as is one under 25 characters.
+  It renders on rung 3, before the answer, so it must not name the answer.
 - Provide `pieces` for charades/containers/deletions (the final letter chunks in answer
   order) or `anagram.fodder` for anagrams (including any extra letters joined in). Use
   `subAnagrams`/`subReversals` for embedded steps. Double definitions, homophones and
