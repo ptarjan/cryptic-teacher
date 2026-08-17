@@ -591,14 +591,40 @@
   // nothing resizes at all and the wait is one settle, which reads as instant.
   const HINT_SETTLE_MS = 90;
   const HINT_DEADLINE_MS = 600;
-  let settleTimer = null, settleBy = 0;
+  // And one more look afterwards, because the deadline can fire while the
+  // keyboard is STILL coming in — a cold keyboard, a predictive bar, a slow
+  // first tap — and then we have measured a band that is about to shrink and we
+  // never look again. That is "worked for some but not others" (Paul, iPhone,
+  // 2026-08-16): identical code, and whether it lands depends on whether the
+  // keyboard beat the deadline.
+  //
+  // The trigger is deliberately NOT "does the panel look wrong now" — the smooth
+  // scroll is very likely still in flight at this point, so the panel legitimately
+  // looks wrong and re-scrolling on that is the wiggle again. It is "did the
+  // visible band move after we committed to it", which is the miss itself and
+  // nothing else. And exactly one, never re-armed by viewport events. The target
+  // is safe to recompute mid-flight: y + r.top is the panel's position in the
+  // document, which scrolling does not change.
+  const HINT_CONFIRM_MS = 450;
+  let settleTimer = null, settleBy = 0, confirmTimer = null, placedBand = null;
   function scrollToHintPanel() {
     settleBy = Date.now() + HINT_DEADLINE_MS;
+    if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
     armHintPlacement();
   }
   function armHintPlacement() {
     if (settleTimer) clearTimeout(settleTimer);
-    settleTimer = setTimeout(placeHintPanel, Math.max(0, Math.min(HINT_SETTLE_MS, settleBy - Date.now())));
+    settleTimer = setTimeout(() => {
+      placeHintPanel();
+      confirmTimer = setTimeout(confirmHintPlacement, HINT_CONFIRM_MS);
+    }, Math.max(0, Math.min(HINT_SETTLE_MS, settleBy - Date.now())));
+  }
+  function confirmHintPlacement() {
+    confirmTimer = null;
+    if (!placedBand) return;
+    const b = visibleBand();
+    if (b.top === placedBand.top && b.bottom === placedBand.bottom) return;
+    placeHintPanel();
   }
   // Only ever called off that timer, so layout has long since flushed and there
   // is nothing to measure a frame later for.
@@ -610,6 +636,10 @@
     const band = visibleBand();
     const vh = band.bottom - band.top;
     if (vh <= 0 || !r.height) return;
+    // What we committed to, for confirmHintPlacement to compare against. Recorded
+    // even when we decide not to scroll: "already in view" measured against a band
+    // the keyboard is still eating is the same wrong answer as any other.
+    placedBand = band;
     if (r.top >= band.top && r.bottom <= band.bottom) return;   // all there already
     const y = window.pageYOffset || 0;
     // Too tall to fit, or hanging off the top: line its top up with the top of

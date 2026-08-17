@@ -894,6 +894,42 @@ registry["reset-puzzle"].onclick();
       + vv.offsetTop + ".." + (vv.offsetTop + vv.height));
   vv.offsetTop = 0;
 
+  // --- and a keyboard that turns up late still gets accounted for (Paul, iPhone) ---
+  // Waiting for the viewport to hold still only works if it moves while we are
+  // waiting. Sometimes it does not: the deadline runs out, or iOS says nothing at
+  // all until after the tap is handled, and then the keys arrive on top of a
+  // placement already made against a full screen. Same code, same clue — whether
+  // it lands depended on whether the keyboard beat us, which is exactly "worked
+  // for some but not others". So there is one late look, and its trigger is that
+  // THE BAND MOVED after we committed, not that the panel looks wrong right now:
+  // the smooth scroll is still in flight at this point and looks wrong on purpose.
+  global.flushTimers(10000);             // drain the look left over from the tap above
+  vv.height = 1000; vv.offsetTop = 0;
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[0].listeners.click[0]();
+  global.flushTimers(100);
+  assert(win.scrolls.length === 1,
+    "with nothing telling us to wait we still place promptly: " + JSON.stringify(win.scrolls));
+  vv.raiseKeyboard(400);                 // the keys, too late to have deferred anything
+  assert(win.scrolls.length === 1, "a late keyboard does not scroll on the spot either");
+  global.flushTimers(500);
+  assert(win.scrolls.length === 2 && inBand(),
+    "the one late look puts the panel back above the keys: "
+      + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
+  // One look, not a standing correction — this is the wiggle's back door.
+  global.flushTimers(10000);
+  assert(win.scrolls.length === 2, "and it is one look, not a permanent correction");
+
+  // When the placement was right first time the late look must cost nothing: it
+  // is idempotent, so a band that never moved means no second scroll at all.
+  vv.height = 700; vv.offsetTop = 0;
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[1].listeners.click[0]();
+  global.flushTimers(10000);
+  assert(win.scrolls.length === 1,
+    "a viewport that held still gets one scroll, not two: " + JSON.stringify(win.scrolls));
+  vv.height = 1000;
+
   // But only on the heels of a tap. A viewport that changes while someone is
   // reading — keyboard dismissed, rotation, a pinch, or just the URL bar sliding
   // away as they scroll — must not yank the page.
