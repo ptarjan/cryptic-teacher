@@ -91,7 +91,13 @@ function boot(opts) {
       this._qs = this._qs || {};
       return (this._qs[sel] = this._qs[sel] || new FakeEl("span"));
     }
-    focus() {}
+    // Focus is modelled, not stubbed, because on a touch device it is the soft
+    // keyboard: focusing the hidden input raises it and blurring puts it away,
+    // and either move resizes the viewport and reflows the page mid-tap. The app
+    // now decides what to do off document.activeElement, so the harness needs one
+    // (Paul, iPad, 2026-08-17: a hint that "opened then quickly closed").
+    focus() { document.activeElement = this; }
+    blur() { if (document.activeElement === this) document.activeElement = null; }
     scrollIntoView() {}
     // Scrolling is modelled rather than stubbed away, because the bug it hides
     // is a real one: a panel that took two taps to come into view on an iPad
@@ -141,6 +147,7 @@ function boot(opts) {
     .match(/<link rel="canonical" href="([^"]+)"/) || [])[1] || "";
   const document = {
     readyState: "complete",
+    activeElement: null,
     head: new FakeEl("head"),
     querySelector(sel) {
       return sel === 'link[rel="canonical"]' ? canonicalLink : null;
