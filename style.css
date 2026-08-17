@@ -214,6 +214,35 @@ button:disabled:hover { border-color: var(--line); }
 #scorebar { font-size: .85rem; color: var(--muted); }
 #scorebar strong { color: var(--fg); }
 
+/* Finishing the grid used to move one number in the scorebar from 27 to 28
+   ("there should be some celebration when you complete", Paul, 2026-08-17).
+   The sentence is the celebration; the paper is trim. Anyone who has asked
+   their browser for less motion still gets the sentence, and gets it without
+   two dozen things falling past it. */
+#celebrate {
+  position: relative; overflow: hidden; margin: 6px 0 14px; padding: 14px 16px;
+  border: 1px solid var(--ind-bg); border-radius: 10px;
+  background: var(--card); max-width: 62ch;
+}
+#celebrate .shout { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; }
+#celebrate .tally { margin: 0 0 10px; font-size: .85rem; color: var(--muted); }
+#celebrate .tally strong { color: var(--fg); }
+#celebrate button { font-size: .8rem; }
+#celebrate .paper { position: absolute; inset: 0; pointer-events: none; }
+#celebrate .bit {
+  position: absolute; top: -12px; width: 7px; height: 11px; border-radius: 1px;
+  background: var(--ind-bg); opacity: 0; animation: ct-fall 2.4s linear forwards;
+}
+#celebrate .bit:nth-child(3n) { background: var(--def-bg); }
+#celebrate .bit:nth-child(3n + 1) { background: var(--accent-soft); }
+@keyframes ct-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(180px) rotate(540deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #celebrate .paper { display: none; }
+}
+
 .layout { display: flex; gap: 26px; flex-wrap: wrap; align-items: flex-start; }
 .left-col { flex: 0 1 640px; min-width: 300px; }
 .clues-col { flex: 1 1 380px; display: flex; gap: 22px; flex-wrap: wrap; min-width: 280px; }

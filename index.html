@@ -34,7 +34,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=63612354">
+<link rel="stylesheet" href="style.css?v=3bac74f2">
 <!-- Merge rules, shared verbatim with the sync Worker so the two ends cannot
      drift apart on what "merge" means. -->
 <script src="sync/merge.js?v=05a37c0e"></script>
@@ -112,6 +112,9 @@
     <h2 id="puzzle-title"></h2>
     <div id="scorebar" title="Solve clues with as few hints as you can"></div>
   </div>
+  <!-- Shown once, in the session that earns it, when the last square goes in.
+       app.js fills it; empty and hidden otherwise. -->
+  <div id="celebrate" class="hidden" role="status" aria-live="polite"></div>
   <!-- Only ever shown for a puzzle whose answers the paper hasn't published and
        we solved ourselves. Empty and hidden otherwise; app.js fills it. -->
   <p id="unofficial-note" class="unofficial-note hidden"></p>
@@ -173,6 +176,6 @@
 
 <script src="puzzles/index.js?v=c9ca4d01"></script>
 <script src="tutorial.js?v=f82ed1bf"></script>
-<script src="app.js?v=7e571ce1"></script>
+<script src="app.js?v=abd78dfe"></script>
 </body>
 </html>

@@ -1800,6 +1800,11 @@
     store.set("ct:last", id);
     buildModel();
     hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
+    // Forget the last puzzle's completeness, so the first render of this one
+    // only records where it stands. Opening a puzzle you finished last week is
+    // not something to celebrate.
+    wasComplete = null;
+    $("celebrate").classList.add("hidden");
     restoreState();
     const first = entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
@@ -1832,11 +1837,62 @@
     refreshAll();
   }
 
+  // Finishing a puzzle used to change one number in the scorebar from 27 to 28
+  // ("there should be some celebration when you complete", Paul, 2026-08-17).
+  // Two rules keep it from becoming noise: it fires on the TRANSITION only, in
+  // the session that earned it — reopening a finished puzzle is not an
+  // achievement and must not throw paper at you — and the paper is not the
+  // point, the scoreline is. Somebody who solved 28 clues, 9 of them cold, in
+  // 41 minutes is owed those three numbers in one sentence.
+  let wasComplete = null;      // null = not measured yet on this puzzle
+  function checkComplete() {
+    const complete = entries.length > 0 && entries.every(isEntrySolved);
+    const earned = wasComplete === false && complete;
+    wasComplete = complete;
+    if (earned) celebrate();
+  }
+  function celebrate() {
+    const box = $("celebrate");
+    if (!box) return;
+    const total = entries.filter((e) => !(e.annotation && e.annotation.linkedTo)).length;
+    const counted = {};
+    let noHints = 0, levels = 0;
+    entries.forEach((e) => {
+      const key = entryKey(e);
+      if (counted[key]) return;
+      counted[key] = true;
+      const rungs = hintsCharged(e);
+      levels += rungs;
+      if (!rungs && !(revealsUsed[key] > 0)) noHints++;
+    });
+    const mins = Math.round((timing.solvedMs || timing.activeMs || 0) / 60000);
+    const bits = [`<strong>${total}</strong> clues`];
+    if (noHints) bits.push(`<strong>${noHints}</strong> of them with no hint at all`);
+    bits.push(levels ? `<strong>${levels}</strong> hint${levels === 1 ? "" : "s"} spent`
+                     : "not one hint spent");
+    if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
+    // The confetti is spans with per-piece delays; prefers-reduced-motion turns
+    // the animation off in style.css and leaves the sentence, which is the part
+    // that was actually missing.
+    const bows = Array.from({ length: 24 }, (_, i) =>
+      `<span class="bit" style="left:${((i * 4.1 + (i % 5) * 2) % 100).toFixed(1)}%;` +
+      `animation-delay:${(i % 8) * 0.12}s"></span>`).join("");
+    box.innerHTML = `<div class="paper">${bows}</div>
+      <p class="shout">Finished — the whole grid.</p>
+      <p class="tally">${bits.join(" · ")}</p>
+      <button id="celebrate-done">Thanks</button>`;
+    box.classList.remove("hidden");
+    const close = () => box.classList.add("hidden");
+    $("celebrate-done").onclick = close;
+    box.onclick = close;
+  }
+
   function refreshAll() {
     refreshGrid();
     refreshClues();
     renderHintPanel();
     renderScore();
+    checkComplete();
   }
 
   // ---------- boot ----------

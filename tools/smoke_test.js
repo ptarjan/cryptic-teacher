@@ -1600,3 +1600,74 @@ setTimeout(() => {
   console.log(failures ? `\n${failures} FAILURE(S)` : "\nSMOKE TEST PASSED");
   process.exit(failures ? 1 : 0);
 }, 400);
+
+// --- finishing the grid is an event, not a number going up (Paul, 2026-08-17) ---
+// "There should be some celebration when you complete." Two properties, and the
+// second is what keeps it from being noise: it fires on the TRANSITION, in the
+// session that earned it, so re-opening a puzzle you finished last week throws
+// no paper at you. And what it says is the scoreline — clues, unaided solves,
+// hints spent, minutes — because that is the part a solver cannot see anywhere
+// else once the grid is full.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const id = Object.keys(puzzles).sort().find((k) =>
+    (puzzles[k].entries || []).every((e) => e.solution));
+  assert(id, "some puzzle in the corpus ships every solution");
+  const open = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(id));
+    registry["picker-list"].children
+      .find((x) => x.children[0] && x.children[0].innerHTML.includes("\u2116 " + id))
+      .children[0].onclick();
+  };
+  open();
+  const box = registry["celebrate"];
+  assert(box.classList.contains("hidden"), "nothing is celebrated on opening a fresh grid");
+
+  const puz = puzzles[id];
+  const cols = puz.dimensions.cols;
+  const cellAt = (x, y) => registry["grid"].children[y * cols + x];
+  const squares = new Set();
+  const walk = (e, f) => {
+    for (let i = 0; i < e.length; i++) {
+      f(e.direction === "across" ? e.position.x + i : e.position.x,
+        e.direction === "across" ? e.position.y : e.position.y + i, i);
+    }
+  };
+  puz.entries.forEach((e) => walk(e, (x, y) => squares.add(x + "," + y)));
+
+  // Filled square by square, the way a solver does it, so the moment of
+  // completion is the moment the LAST light square gets its letter — which is
+  // somewhere in the middle of an entry, not at the end of a loop.
+  const filled = new Set();
+  let fired = 0;
+  for (const e of puz.entries) {
+    walk(e, (x, y, i) => {
+      const k = x + "," + y;
+      if (filled.has(k)) return;
+      cellAt(x, y).listeners.mousedown[0]({ preventDefault() {} });
+      kd(ev(e.solution[i]));
+      filled.add(k);
+      const done = filled.size === squares.size;
+      if (!box.classList.contains("hidden")) fired++;
+      assert(box.classList.contains("hidden") !== done,
+        done ? "the last light square in the grid is celebrated: " + box.innerHTML
+             : `the grid is ${squares.size - filled.size} squares short and it celebrated anyway`);
+    });
+  }
+  assert(fired === 1, "and celebrated once, not on every keystroke after: " + fired);
+  assert(/\d+<\/strong> clues/.test(box.innerHTML) && /hint/.test(box.innerHTML),
+    "and it says what was achieved, not just that something was: " + box.innerHTML);
+  registry["celebrate-done"].onclick();
+  assert(box.classList.contains("hidden"), "and it can be dismissed");
+  // Re-opening the finished puzzle: still solved, nothing earned. The save is
+  // debounced, so it has to be flushed first — without that the reopened grid
+  // comes back empty and this assertion passes for the wrong reason, which is
+  // exactly what it did on the first run.
+  global.flushTimers(200);
+  open();
+  assert(/Solved <strong>(\d+)\/\1<\/strong>/.test(registry["scorebar"].innerHTML),
+    "the reopened puzzle really is the finished one: " + registry["scorebar"].innerHTML);
+  assert(box.classList.contains("hidden"),
+    "re-opening a puzzle you already finished celebrates nothing: " + box.innerHTML);
+}
