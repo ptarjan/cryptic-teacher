@@ -29,7 +29,7 @@ And five checks that apply only to puzzles we WROTE (see is_authored):
 And one whole-puzzle check:
   - at most MAX_CRYPTIC_DEFINITIONS clues typed "cryptic definition"
 
-Usage: python3 tools/validate_annotations.py [--unscoped] [puzzle-number ...]
+Usage: python3 tools/validate_annotations.py [--unscoped] [--tighten] [puzzle-number ...]
 With no arguments, validates every puzzle that has at least one annotation.
 `--unscoped` runs the authored-only checks on published puzzles too — that is
 the CALIBRATION harness, not a mode to ship in: a check that flags Araucaria is
@@ -485,12 +485,9 @@ WALKTHROUGH_HARD_MAX = 60
 
 # `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
 # required on 2026-08-01 (feedback: "in the full walkthrough explain why the
-# answer matches the definition"). The 14 hand-annotated puzzles predate it, so
-# absence is a WARNING with a running backlog count printed at the end of a full
-# run. Flip this to True the moment that count reaches zero; leaving it False
-# once the backfill is done turns a rule into a suggestion, and the whole point
-# of putting checks here is that feedback stops depending on anyone remembering.
-REQUIRE_DEFINITION_FIT = False
+# answer matches the definition"). Puzzles annotated before it existed lack it;
+# see the ratchet at the bottom of this file for how they are grandfathered
+# without letting a new puzzle skip it.
 
 
 def check_definition_fit(tag, ann, errors, warnings):
@@ -506,7 +503,7 @@ def check_definition_fit(tag, ann, errors, warnings):
     if fit is None:
         msg = (f"{tag}: no definitionFit — say in one sentence why the answer means "
                f"the definition (tools/annotate_prompt.md)")
-        (errors if REQUIRE_DEFINITION_FIT else warnings).append(msg)
+        warnings.append(msg)
         return
     fit = str(fit).strip()
     if len(fit) < 25:
@@ -573,10 +570,9 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
 # indicator does is the same on every clue in the corpus; the reason THIS word
 # is one is the only part that teaches anything.
 #
-# Optional at first because 793 clues have indicators and none of them have
-# notes yet — same shape as definitionFit: a warning, a backlog counted at the
-# end of a full run, and a flag to flip the day it reaches zero.
-REQUIRE_INDICATOR_NOTES = False
+# Grandfathered the same way as definitionFit — 793 clues had indicators and no
+# notes the day it was added — but only for the puzzles that already existed:
+# see the ratchet at the bottom of this file.
 
 
 def check_indicator_notes(tag, ann, errors, warnings):
@@ -590,7 +586,7 @@ def check_indicator_notes(tag, ann, errors, warnings):
     if not notes:
         msg = (f"{tag}: no indicatorNotes — say in one sentence per indicator why "
                f"that word does that job (tools/annotate_prompt.md)")
-        (errors if REQUIRE_INDICATOR_NOTES else warnings).append(msg)
+        warnings.append(msg)
         return
     if not isinstance(notes, dict):
         errors.append(f"{tag}: indicatorNotes must be an object keyed by the indicator")
@@ -611,7 +607,7 @@ def check_indicator_notes(tag, ann, errors, warnings):
     for missing in [i for i in inds if i not in notes]:
         msg = (f"{tag}: indicator {missing!r} has no note — every indicator gets one, "
                f"or the rung is content-free for the ones that do not")
-        (errors if REQUIRE_INDICATOR_NOTES else warnings).append(msg)
+        warnings.append(msg)
 
 
 SOUND_TYPES = ("homophone", "spoonerism")
@@ -1365,6 +1361,52 @@ def validate_puzzle(puzzle):
     return annotated, errors, warnings
 
 
+# --- the ratchet -------------------------------------------------------------
+#
+# "Don't just fix the things I point out, make sure future puzzles get the fixes
+# too" (Paul, 2026-08-17). A rule added after 150 puzzles were already annotated
+# cannot fail the corpus on day one, so the old shape was a REQUIRE_X = False
+# flag to be flipped by hand once a backfill drained the backlog. That makes the
+# rule optional for exactly the puzzles it was invented for — the next ones —
+# and it stays optional for as long as anyone forgets.
+#
+# So the allowance is per puzzle and written down. A puzzle may carry as many
+# unannotated clues as annotation_backlog.json records for it and not one more;
+# a puzzle not in the file — which is every puzzle fetched from today on — is
+# allowed none. The backlog can only ever shrink: a full run rewrites the file
+# with what it observed, so draining a puzzle tightens the rule on it forever.
+# Adding a new grandfathered field means adding it to BACKLOG_MARKERS and
+# running --tighten once; nothing has to be remembered afterwards.
+BACKLOG_PATH = ROOT / "tools" / "annotation_backlog.json"
+BACKLOG_MARKERS = {
+    "definitionFit": ("no definitionFit",),
+    "indicatorNotes": ("no indicatorNotes", "has no note"),
+}
+
+
+def load_backlog():
+    if not BACKLOG_PATH.exists():
+        return {}
+    data = json.loads(BACKLOG_PATH.read_text())
+    return {f: data.get(f, {}) for f in BACKLOG_MARKERS}
+
+
+def count_backlog(warnings):
+    return {f: sum(any(m in w for m in ms) for w in warnings)
+            for f, ms in BACKLOG_MARKERS.items()}
+
+
+def write_backlog(observed):
+    """`observed` is {number: {field: count}} from a run over every puzzle."""
+    data = {"_why": "Per-puzzle allowance of clues predating a required annotation "
+                    "field. Written by tools/validate_annotations.py; may only "
+                    "shrink. A puzzle absent from a field's list must have none.",
+            **{f: {num: n for num, n in sorted(((num, c[f]) for num, c in observed.items()),
+                                               key=lambda kv: int(kv[0]))
+                   if n} for f in BACKLOG_MARKERS}}
+    BACKLOG_PATH.write_text(json.dumps(data, indent=1) + "\n")
+
+
 def main(argv):
     global FORCE_AUTHORED_CHECKS
     if "--unscoped" in argv:
@@ -1373,13 +1415,16 @@ def main(argv):
         print("--unscoped: authoring rules applied to published puzzles too. This is "
               "CALIBRATION — every hit is either a broken check or a rare setter's "
               "liberty, and the default reading is the former.")
+    tighten = "--tighten" in argv
+    argv = [a for a in argv if a != "--tighten"]
     if argv:
         paths = [PUZZLE_DIR / f"{a}.js" for a in argv]
     else:
         paths = sorted(PUZZLE_DIR.glob("[0-9]*.js"))
+    full_run = not argv
+    allowed = load_backlog()
+    observed = {}
     failed = False
-    fit_backlog = 0
-    note_backlog = 0
     for path in paths:
         if not path.exists():
             print(f"MISSING {path}")
@@ -1398,6 +1443,18 @@ def main(argv):
                 print(f"  ERROR: {err}")
             failed = failed or bool(errors)
             continue
+        # The ratchet: this puzzle may be short exactly as many notes as the
+        # file already records for it. Everything annotated from now on is
+        # absent from the file, so its allowance is zero and the rule bites.
+        counts = count_backlog(warnings)
+        observed[path.stem] = counts
+        for field, n in counts.items():
+            cap = allowed.get(field, {}).get(path.stem, 0)
+            if n > cap:
+                errors.append(
+                    f"{n} clue(s) with no {field}, and this puzzle is allowed {cap} — "
+                    f"{field} is required on everything annotated since it was added "
+                    f"(tools/annotate_prompt.md). The warnings above name them.")
         status = "OK" if not errors else "FAIL"
         print(f"{puzzle['id']} ({puzzle['setter']}): {annotated}/{total} annotated — {status}")
         for w in warnings:
@@ -1407,26 +1464,33 @@ def main(argv):
             print(f"  ERROR: {err}")
         if errors:
             failed = True
-        fit_backlog += sum("no definitionFit" in w for w in warnings)
-        note_backlog += sum("no indicatorNotes" in w for w in warnings)
     # Printed as one number rather than 400 warning lines' worth of noise, and
-    # printed even when everything passes: this is a backlog that has to reach
-    # zero before REQUIRE_DEFINITION_FIT can be flipped, and a backlog nobody
-    # sees is a backlog nobody drains.
-    if fit_backlog:
-        print(f"\ndefinitionFit backlog: {fit_backlog} clue(s) still have no explanation of "
-              f"why the answer means the definition. Flip REQUIRE_DEFINITION_FIT at zero.")
-    elif not REQUIRE_DEFINITION_FIT and not argv:
-        # Only a FULL run can prove the backlog empty — a single-puzzle run
-        # counts only its own clues, and saying "empty" there once prompted a
-        # premature flip that broke every backfill puzzle (2026-08-07).
-        print("\ndefinitionFit backlog is EMPTY — set REQUIRE_DEFINITION_FIT = True now.")
-    if note_backlog:
-        print(f"indicatorNotes backlog: {note_backlog} clue(s) name their indicators "
-              f"without saying why those words indicate. Flip REQUIRE_INDICATOR_NOTES "
-              f"at zero.")
-    elif not REQUIRE_INDICATOR_NOTES and not argv:
-        print("indicatorNotes backlog is EMPTY — set REQUIRE_INDICATOR_NOTES = True now.")
+    # printed even when everything passes: a backlog nobody sees is a backlog
+    # nobody drains. Only a FULL run can total it — a single-puzzle run counts
+    # only its own clues.
+    if full_run:
+        for field in BACKLOG_MARKERS:
+            total = sum(c[field] for c in observed.values())
+            print(f"\n{field} backlog: {total} clue(s) in {sum(1 for c in observed.values() if c[field])} "
+                  f"puzzle(s)." if total else f"\n{field} backlog is EMPTY — every puzzle now carries it.")
+        # Only a full run has visited every puzzle, so only a full run may
+        # rewrite the file — and only when asked, because widening the
+        # allowance is how a regression would get itself forgiven.
+        moved = {f: sum(allowed.get(f, {}).values()) - sum(c[f] for c in observed.values())
+                 for f in BACKLOG_MARKERS}
+        if tighten:
+            for field, delta in moved.items():
+                for num, counts in sorted(observed.items()):
+                    cap = allowed.get(field, {}).get(num, 0)
+                    if counts[field] > cap:
+                        print(f"WIDENED {field} for {num}: {cap} -> {counts[field]}")
+            write_backlog(observed)
+            print("wrote tools/annotation_backlog.json: "
+                  + ", ".join(f"{f} {'-' if n >= 0 else '+'}{abs(n)}" for f, n in moved.items()))
+        elif any(v > 0 for v in moved.values()):
+            print("backlog shrank (" + ", ".join(f"{f} -{n}" for f, n in moved.items() if n > 0)
+                  + ") — run `python3 tools/validate_annotations.py --tighten` to record it, "
+                    "or those clues can silently go missing again.")
     return 1 if failed else 0
 
 

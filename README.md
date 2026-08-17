@@ -44,6 +44,8 @@ puzzles/index.js                the same manifest as a script (so file:// works)
 puzzles/<number>.js             one puzzle per file, JSON between /*JSON-START*/ ... /*JSON-END*/
 tools/fetch_puzzle.py           fetch/convert Guardian puzzles, --latest/--backfill/--reindex
 tools/validate_annotations.py   proves every annotation actually spells its answer
+tools/annotation_backlog.json   how many clues of each OLD puzzle predate a required field;
+                                a puzzle not listed is allowed none, so new rules bind new puzzles
 tools/annotate_prompt.md        the prompt the daily Claude Code job follows to annotate
 tools/daily_update.sh           daily script: fetch latest, annotate backlog, validate, commit
 tools/com.pt.cryptic-teacher.plist  LaunchAgent that runs daily_update.sh at 06:15

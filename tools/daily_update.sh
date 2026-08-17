@@ -265,7 +265,7 @@ if [ -n "$pending" ]; then
       # on 30078 (see STYLE.md), it matched — 23/25 types, 22/25 definitions,
       # zero cryptic definitions, both hard clues solved — in the same wall time
       # for a third of the cost, because the bill is nearly all output tokens.
-      if claude -p "Annotate cryptic crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Do not commit — the calling script commits." \
+      if claude -p "Annotate cryptic crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
         --model "$ANNOTATE_MODEL" \
         --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
         --max-turns 80 2>&1 | tee "$run_log"
@@ -361,7 +361,8 @@ if [ -n "$(git status --porcelain)" ]; then
   #     in `cycling` and `substitution`; the puzzle shipped and app.js did not,
   #     so the live site had two clues whose type matched no family and no
   #     blurb. The validator passed — it validates puzzles, not the app.
-  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md og.png og/ tools/validate_annotations.py
+  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md og.png og/ \
+          tools/validate_annotations.py tools/annotation_backlog.json
   # Then put back anything that was already modified before this run started.
   # The pathspec is not enough on its own: app.js and index.html are on it
   # because an annotation run legitimately edits them, and they are also exactly

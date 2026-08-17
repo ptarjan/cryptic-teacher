@@ -7,6 +7,23 @@ it, and a rule here (plus, where possible, a mechanical check in
 `tools/annotate_prompt.md` tells the daily annotation run to follow this file, so
 rules added here apply to every future puzzle automatically.
 
+### A new rule binds the next puzzle, not just the one that prompted it
+A rule invented after 150 puzzles are annotated cannot fail the corpus on the day
+it lands, and the old answer to that was a `REQUIRE_X = False` flag to be flipped
+by hand once a backfill drained the backlog. That leaves the rule optional for
+precisely the puzzles it exists for — the ones not written yet — and it stays
+optional for as long as anyone forgets. So the allowance is per puzzle and
+written down: `tools/annotation_backlog.json` records how many clues of each
+existing puzzle predate each field, the validator ERRORs the moment a puzzle
+exceeds its own number, and a puzzle absent from the file — every puzzle fetched
+from now on — is allowed none. It only ever shrinks, so draining a puzzle
+tightens the rule on it permanently, and `tools/prereset_backfill.sh` reads its
+field list out of the same file rather than naming fields itself. Adding a
+grandfathered field means adding it to `BACKLOG_MARKERS` and running
+`python3 tools/validate_annotations.py --tighten` once (feedback 2026-08-17:
+"Don't just fix the things I point out, make sure future puzzles get the fixes
+too").
+
 ## Annotation rules
 
 ### Honest types (feedback 2026-07-26)
@@ -280,8 +297,9 @@ must pass before commit.
   indicator, keyed by the identical string, naming the sense of the word that
   carries the instruction: 'stable? No' means unstable, and unstable will not stay
   in the order it is given. It renders before the answer, so it is gated by
-  `EARLY_RUNG_FIELDS`; the validator counts what is missing and
-  `REQUIRE_INDICATOR_NOTES` flips when the backlog hits zero.
+  `EARLY_RUNG_FIELDS`; the validator requires it of every puzzle except the ones
+  `tools/annotation_backlog.json` grandfathers, so a new puzzle cannot ship
+  without it while the old ones drain.
 - Do not point at the surface picture with a definite noun phrase you never drew —
   see `tools/annotate_prompt.md`. "The impromptu band keeps both looking innocent"
   on a walkthrough that never mentioned a band ("this doesn't sound natural", 4096

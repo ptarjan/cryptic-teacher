@@ -22,10 +22,13 @@
 #      beginner crossword and the reason we started fetching it at all; an
 #      un-annotated one teaches nothing and shows no difficulty band, so it is
 #      the least useful thing on the site and the most valuable to fix.
-#   2. definitionFit — the one-sentence "why does the answer mean the
-#      definition" that every annotation is supposed to carry. Until the
-#      backlog is zero, tools/validate_annotations.py can only warn about it
-#      instead of requiring it.
+#   2. Every field in tools/annotation_backlog.json — definitionFit, the
+#      one-sentence "why does the answer mean the definition", and
+#      indicatorNotes, "why is THAT word the indicator". New puzzles are
+#      required to carry these; the file is the list of puzzles annotated
+#      before each rule existed, and draining one tightens the rule on it
+#      forever. The fields are read from the file, so this job needs no edit
+#      when the next rule lands.
 #
 # It stops on the FIRST failed claude run rather than retrying. Out here that
 # almost always means the window is finally exhausted, which is exactly the
@@ -200,7 +203,7 @@ for num in $todo; do
   echo "--- annotating $num ---"
   # Not "Guardian crossword": since 2026-08-05 some of these are the
   # Independent's. The puzzle file records its own series and publisher.
-  run_claude "Annotate crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit. Do not commit — the calling script commits." || {
+  run_claude "Annotate crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." || {
     echo "annotation run for $num failed (window exhausted?) — stopping here"
     git checkout -- "puzzles/$num.js" 2>/dev/null
     break
@@ -208,40 +211,44 @@ for num in $todo; do
   commit_puzzle "$num" "Annotate" || break
 done
 
-# --- 2. definitionFit backfill ------------------------------------------------
+# --- 2. grandfathered-field backfill ------------------------------------------
 # Additive only: these puzzles are already annotated and their hints are fine,
-# they just predate the field. Anything that rewrites an existing hint here is a
+# they just predate a field. Anything that rewrites an existing hint here is a
 # bug, not an improvement.
-fits=$(python3 - <<'EOF'
-import json, glob
-J1, J2 = "/*JSON-START*/", "/*JSON-END*/"
-out = []
-for path in sorted(glob.glob("puzzles/[0-9]*.js")):
-    t = open(path, encoding="utf-8").read()
-    puz = json.loads(t.split(J1, 1)[1].rsplit(J2, 1)[0])
-    missing = sum(1 for e in puz["entries"]
-                  if (e.get("annotation") or {}).get("type")
-                  and not (e.get("annotation") or {}).get("definitionFit"))
-    if missing:
-        out.append((missing, puz["number"]))
-# Smallest backlog first: with an unknown amount of quota left, finishing four
-# puzzles beats getting most of the way through one.
-out.sort()
-print(" ".join(str(n) for _, n in out))
-EOF
-)
-echo "definitionFit backlog: ${fits:-none}"
+#
+# The list of fields is read from tools/annotation_backlog.json, so a rule added
+# next month is drained by this job without anyone editing it. Newest field
+# first: it is the one the app has just started rendering, so it is the one a
+# solver is most likely to hit an empty rung on.
+backlog_fields=$(python3 -c 'import json;print(" ".join(k for k in json.load(open("tools/annotation_backlog.json")) if not k.startswith("_")))')
 
-for num in $fits; do
-  if past_deadline; then echo "deadline reached — stopping"; break; fi
-  echo "--- definitionFit $num ---"
-  run_claude "In this repo, add the missing \`definitionFit\` field to every annotated clue in puzzles/$num.js that lacks one. definitionFit is ONE sentence saying why the answer means the definition; it renders last in the walkthrough. Read tools/annotate_prompt.md and STYLE.md for the voice, and read the existing definitionFit sentences in puzzles/30039.js first so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/validate_annotations.py until it passes. Do not commit — the calling script commits." || {
-    echo "definitionFit run for $num failed (window exhausted?) — stopping here"
-    git checkout -- "puzzles/$num.js" 2>/dev/null
-    break
-  }
-  commit_puzzle "$num" "Backfill definitionFit for" || break
+for field in $backlog_fields; do
+  # Smallest backlog first: with an unknown amount of quota left, finishing four
+  # puzzles beats getting most of the way through one.
+  nums=$(python3 -c 'import json,sys
+d=json.load(open("tools/annotation_backlog.json")).get(sys.argv[1],{})
+print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
+  echo "$field backlog: ${nums:-none}"
+  case "$field" in
+    definitionFit) what="ONE sentence saying why the answer means the definition; it renders last in the walkthrough" ;;
+    indicatorNotes) what="an object keyed by the exact indicator string, ONE sentence each saying why THAT word carries THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
+    *) what="the field as tools/annotate_prompt.md describes it" ;;
+  esac
+  for num in $nums; do
+    if past_deadline; then echo "deadline reached — stopping"; break 2; fi
+    echo "--- $field $num ---"
+    run_claude "In this repo, add the missing \`$field\` to every annotated clue in puzzles/$num.js that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/validate_annotations.py $num until it passes. Do not commit — the calling script commits." || {
+      echo "$field run for $num failed (window exhausted?) — stopping here"
+      git checkout -- "puzzles/$num.js" 2>/dev/null
+      break 2
+    }
+    commit_puzzle "$num" "Backfill $field for" || break 2
+  done
 done
+
+# Record what got drained. The allowance may only shrink, so every puzzle
+# finished here is a puzzle that can never quietly lose the field again.
+python3 tools/validate_annotations.py --tighten >/dev/null 2>&1 || true
 
 # --- 3. republish -------------------------------------------------------------
 # Unconditionally, even if nothing was annotated: this is cheap, deterministic
@@ -261,16 +268,17 @@ if [ -n "$(git status --porcelain)" ]; then
   # Same list as daily_update.sh, and for the same reason: a backfill that needs
   # a new wordplay type edits app.js and STYLE.md as well as the puzzle, and
   # leaving those behind ships a clue the app cannot describe.
-  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md tools/validate_annotations.py
+  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md \
+          tools/validate_annotations.py tools/annotation_backlog.json
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$ANNOTATE_TRAILER")"
   git pull --rebase --autostash -q && git push -q origin HEAD ||
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi
 
-# The definitionFit rollout finishes itself: the moment the backlog is empty the
-# field stops being advisory. Left as a printed instruction rather than a sed,
-# because flipping a validator flag unattended at 4am is how a job starts
-# failing every night with nobody watching.
-python3 tools/validate_annotations.py 2>&1 | grep -i "definitionFit backlog" || true
+# Where the rollout got to. Nothing to flip by hand any more: the ratchet in
+# tools/validate_annotations.py already requires these fields of every puzzle
+# annotated since they were added, and the numbers below are only the historical
+# remainder.
+python3 tools/validate_annotations.py 2>&1 | grep -i "backlog" || true
 
 echo "=== done $(date '+%H:%M') ==="
