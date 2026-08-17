@@ -733,6 +733,87 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     // is being checked is precisely what a solver can see without paying.
     const names = new Map();   // label -> first clue that showed it
     const seenTypes = new Set();
+
+    // Riding along on the same sweep: once every rung is bought, every fragment
+    // the annotation named must be VISIBLY marked in the clue, on whole words.
+    // Both halves were broken and reported as one thing — a highlight that had
+    // been paid for not being there ("I think it might always be the indicator
+    // clue which is disappearing after click", and then on the walkthrough too,
+    // Paul, 2026-08-17). The cause was indexOf(): 'in' matched inside
+    // "Conclud(in)g", "island", "confusion" on 18 clues, and on 15 the wrong
+    // position landed under the definition, where the old overlap rule deleted
+    // whichever mark came second — always the indicator, since indicators were
+    // pushed last. So buying the definition took an earlier hint off the screen.
+    //
+    // Checked off the rendered HTML, because that is the thing the solver looks
+    // at, and over the whole corpus, because the failures were spread thin: two
+    // clues a puzzle, always the small function words a validator would never
+    // think to doubt.
+    const unesc = (s) => s.replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&");
+    // The clue as (text, class) runs, adjacent runs of one class joined, with
+    // the setter's italics dropped — they cut the string for their own reasons
+    // and a mark split by one is still a mark.
+    const runs = (html) => {
+      const out = [];
+      // The line starts with the entry's own tag ("12A"), which is not clue text.
+      html = html.replace(/^\s*<span class="entry-tag">[\s\S]*?<\/span>/, "");
+      const re = /<mark class="([a-z0-9]+)">([\s\S]*?)<\/mark>|<[^>]*>|([^<]+)/g;
+      let m;
+      while ((m = re.exec(html)) !== null) {
+        if (m[1] === undefined && m[3] === undefined) continue;      // any other tag
+        const cls = m[1] === undefined ? "" : m[1];
+        const text = unesc((m[1] === undefined ? m[3] : m[2]).replace(/<\/?i>/g, ""));
+        if (out.length && out[out.length - 1].cls === cls) out[out.length - 1].text += text;
+        else out.push({ cls, text });
+      }
+      return out;
+    };
+    const checkMarks = (id, e) => {
+      const ann = e.annotation;
+      if (ann.linkedTo) return;                     // renders its holder's text
+      const rs = runs(registry["hint-clue"].innerHTML);
+      const plain = rs.map((r) => r.text).join("");
+      assert(plain === e.clue,
+        `${id} ${e.id}: the marked-up clue is no longer the clue: ${JSON.stringify(plain)}`);
+      let at = 0;
+      const spans = rs.map((r) => { const i = at; at += r.text.length; return { ...r, i }; });
+      const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
+      const whole = (i, len) =>
+        !(isLetter(e.clue[i]) && isLetter(e.clue[i - 1])) &&
+        !(isLetter(e.clue[i + len - 1]) && isLetter(e.clue[i + len]));
+      // Every character of a mark's span, in clue coordinates.
+      const covered = {};
+      for (const s of spans) {
+        if (!s.cls) continue;
+        for (let k = 0; k < s.text.length; k++) (covered[s.cls] = covered[s.cls] || new Set()).add(s.i + k);
+      }
+      const anyMarked = new Set([].concat(...Object.values(covered).map((v) => [...v])));
+      for (const frag of ann.indicators || []) {
+        if (!frag || !e.clue.includes(frag)) continue;
+        // An indicator is short and specific, so shortest-first guarantees it
+        // wins any overlap outright: it must appear whole, in its own colour,
+        // on a whole word.
+        let ok = false;
+        for (let i = e.clue.indexOf(frag); i >= 0 && !ok; i = e.clue.indexOf(frag, i + 1)) {
+          if (!whole(i, frag.length)) continue;
+          ok = [...Array(frag.length).keys()].every((k) => (covered.ind || new Set()).has(i + k));
+        }
+        assert(ok,
+          `${id} ${e.id}: ${JSON.stringify(frag)} was bought as an indicator but is not ` +
+          `marked on a whole word of the clue — a hint that has been paid for cannot ` +
+          `leave the screen: ` + registry["hint-clue"].innerHTML);
+      }
+      // The definition may legitimately be interrupted — an &lit's indicator sits
+      // inside it — so what is required of it is that none of it goes unmarked.
+      const def = ann.definition;
+      if (def && e.clue.includes(def)) {
+        const at = e.clue.indexOf(def);
+        const gap = [...Array(def.length).keys()].filter((k) => !anyMarked.has(at + k));
+        assert(!gap.length || spans.some((s) => s.cls === "def"),
+          `${id} ${e.id}: the definition is not marked at all: ` + registry["hint-clue"].innerHTML);
+      }
+    };
     const openPuzzle = (id) => {
       registry["btn-picker"].onclick();
       typeInPicker(String(id));
@@ -759,6 +840,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
           }
           btns[0].onclick();
         }
+        checkMarks(id, e);
       }
     }
     assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);

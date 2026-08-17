@@ -454,10 +454,49 @@
     if (!ann) return plainClueHTML(e);
     const shown = (key) => isShown(e, key);
     const marks = [];
+    // Where a fragment goes is a placement, not a search. indexOf() takes the
+    // first substring that matches and two things went wrong with that, both
+    // reported as the same thing — a highlight you had paid for not being there
+    // ("I think it might always be the indicator clue which is disappearing
+    // after click", Paul, 2026-08-17).
+    //
+    //   mid-word  the indicator 'in' matched inside "Conclud(in)g", "island",
+    //             "confusion" — 18 clues in the corpus were marking a syllable
+    //             of an innocent word instead of the instruction;
+    //   dropped   and then, because the wrong position usually landed under the
+    //             definition, the overlap rule below threw the indicator away
+    //             entirely — 15 clues, and always the indicator, because
+    //             indicators are pushed last and the loser was whoever came
+    //             second. Buying the definition made an earlier hint vanish.
+    //
+    // So each fragment takes the best occurrence still going: on word
+    // boundaries, and not already spoken for. Nothing is ever dropped — a rung
+    // that has been bought stays on the screen, which is the whole contract.
+    const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
+    // Only an edge that is itself a letter can be mid-word. Fragments routinely
+    // start or end on punctuation that is welded to the neighbouring word —
+    // "’s gone out of" in "Pound’s gone…", "half-" in "half-dark" — and those
+    // are the setter's own joins, not accidents of spelling.
+    const onBoundary = (i, len) =>
+      !(isLetter(e.clue[i]) && isLetter(e.clue[i - 1])) &&
+      !(isLetter(e.clue[i + len - 1]) && isLetter(e.clue[i + len]));
+    const free = (i, len) => !marks.some((m) => i < m.i + m.len && m.i < i + len);
     const push = (text, cls) => {
       if (!text) return;
-      const i = e.clue.indexOf(text);
-      if (i >= 0) marks.push({ i, len: text.length, cls });
+      const len = text.length;
+      let boundaryFree = -1, boundaryAny = -1, anyFree = -1;
+      for (let i = e.clue.indexOf(text); i >= 0; i = e.clue.indexOf(text, i + 1)) {
+        const b = onBoundary(i, len), f = free(i, len);
+        if (b && f) { boundaryFree = i; break; }
+        if (b && boundaryAny < 0) boundaryAny = i;
+        if (f && anyFree < 0) anyFree = i;
+      }
+      // A whole word somewhere else beats a syllable of the right word: the
+      // fragment is a word of the clue, so a match that is not one is a
+      // coincidence of spelling.
+      const i = [boundaryFree, boundaryAny, anyFree, e.clue.indexOf(text)]
+        .filter((x) => x >= 0)[0];
+      if (i >= 0) marks.push({ i, len, cls });
     };
     if (shown("definition")) {
       push(ann.definition, "def");
@@ -469,12 +508,13 @@
     }
     if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
     if (!marks.length) return plainClueHTML(e);
-    marks.sort((a, b) => a.i - b.i);
-    // drop overlaps
-    const keep = [];
-    let end = -1;
-    marks.forEach((m) => { if (m.i >= end) { keep.push(m); end = m.i + m.len; } });
-    return markUp(e.clue, keep, italicsOf(e));
+    // Where two marks still overlap — an indicator genuinely sitting inside the
+    // definition — markUp gives each cut piece to the FIRST mark that covers it,
+    // so shortest-first hands the overlap to the more specific of the two and
+    // the longer one keeps everything either side. Both stay visible; neither is
+    // thrown away.
+    marks.sort((a, b) => a.len - b.len);
+    return markUp(e.clue, marks, italicsOf(e));
   }
 
   // A CHECKING letter is the crossword term for a square this entry shares with
