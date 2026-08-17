@@ -250,10 +250,27 @@ must pass before commit.
   2026-07-26: a double definition showed "double definition", then a rung
   restating the same thing, then a rung saying "no indicator words"). Rules:
   a rung only exists if it carries new information — no indicators means no
-  indicator rung; rung wording is type-specific (a double definition asks
-  "where does the clue split?", an &lit asks "how can the whole clue be the
-  definition?"); no rung may merely restate an earlier one. See `ladderSteps()`
+  indicator rung; no rung may merely restate an earlier one. See `ladderSteps()`
   in `app.js`; the ladder length is per clue and shown as "x/N" in the meter.
+- The BODY is per clue; the NAME is not. This rule used to read "rung wording is
+  type-specific (a double definition asks 'where does the clue split?', an &lit
+  asks 'how can the whole clue be the definition?')" and that was backwards: the
+  names of the rungs you have not bought are on screen the whole time, because
+  that is how you choose one. So a name that varies with the type is a free
+  hint, and on a semi-&lit hidden word it is the whole solve — 4096 21d VSIGN
+  ("What may you get from chavs, ignobly?") offered an unbought button reading
+  "How can the whole clue be the definition?", which is the entire trick, told
+  for nothing ("21d gives away the whole thing just by the name of the hint
+  before I reveal it", Paul, 2026-08-17). Same for "Where does the clue split?",
+  "What is the clue really describing?", "What each half means", and the
+  singular/plural indicator label, which handed over the count. A label is now a
+  function of the rung's key alone (`LABELS` in `app.js`), and the smoke test
+  sweeps every annotated clue in the corpus and fails if any rung is named more
+  than one way. A rung asks its question; the answer is what you are paying for.
+- Never write a count into prose beside the list it counts. The compound
+  indicator rung said "this clue does two things" and then listed three, on
+  `container + charade + middle letters + reversal` (Paul, 4096 16d, 2026-08-17).
+  Number words come off `.length`, always.
 - The ladder is TIERED: free choice within a tier, no choice across tiers
   (`RUNG_TIER` in app.js). Tier 0 is what the clue asks you to SPOT — the family,
   the definition, the indicators — and any of them may be taken in any order.

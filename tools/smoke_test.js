@@ -714,6 +714,65 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     }
   }
 
+  // --- a rung's name may ask its question, never answer it ---
+  // The names of the rungs you have NOT bought are on screen the whole time —
+  // that is how you choose one. So a name that varies with the clue type is a
+  // free hint: the &lit definition rung was called "How can the whole clue be
+  // the definition?", and on a semi-&lit hidden word that button, unbought,
+  // was the entire solve ("21d gives away the whole thing just by the name of
+  // the hint before I reveal it" — Paul, 4096 21d, VSIGN, 2026-08-17). Same
+  // for "Where does the clue split?", "What is the clue really describing?",
+  // "What each half means", and the singular/plural indicator label, which
+  // handed over how many indicators there were.
+  //
+  // Checked as an invariant rather than as five strings: across every
+  // annotated clue in the corpus, a rung key has exactly ONE name. Any future
+  // branch that phrases a label for its type fails here whatever it says.
+  {
+    // Read off the buttons themselves rather than off any internal list: what
+    // is being checked is precisely what a solver can see without paying.
+    const names = new Map();   // label -> first clue that showed it
+    const seenTypes = new Set();
+    const openPuzzle = (id) => {
+      registry["btn-picker"].onclick();
+      typeInPicker(String(id));
+      const li = registry["picker-list"].children.find(
+        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + id));
+      assert(li, `picker finds puzzle ${id}`);
+      li.children[0].onclick();
+    };
+    for (const id of Object.keys(puzzles).sort()) {
+      const withAnn = (puzzles[id].entries || []).filter((e) => e.annotation);
+      if (!withAnn.length) continue;
+      openPuzzle(id);
+      for (const e of withAnn) {
+        const row = registry["clue-" + e.id];
+        if (!row || !row.listeners.click) continue;
+        seenTypes.add(e.annotation.type);
+        row.listeners.click[0]();
+        for (let i = 0; i < 9; i++) {
+          const btns = registry["hint-next"].children.filter((b) => b.onclick);
+          if (!btns.length) break;
+          for (const b of btns) {
+            const m = /^(?:Show hint )?\d+ · (.*)$/.exec(b.textContent || "");
+            if (m && !names.has(m[1])) names.set(m[1], `${id} ${e.id} (${e.annotation.type})`);
+          }
+          btns[0].onclick();
+        }
+      }
+    }
+    assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);
+    // Six rungs exist, so six names exist. A seventh means a branch phrased a
+    // label for its clue type, whatever the wording turned out to be.
+    const LADDER = ["What kind of clue is this?", "Where is the definition?",
+      "Spot the indicator words", "The building blocks", "Full walkthrough"];
+    const extra = [...names].filter(([n]) => !LADDER.includes(n));
+    assert(!extra.length,
+      "a rung is named differently depending on the clue, so its button leaks the " +
+      "type before it is bought: " +
+      extra.map(([n, where]) => `${JSON.stringify(n)} — ${where}`).join("; "));
+  }
+
   // --- a homophone must show you the word you say aloud ---
   // "24d in 4096 doesn't explain that the original word is hoard but it is a
   // homophone and you drop the h to it. Don't just fix one clue extrapolate"
