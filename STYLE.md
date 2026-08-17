@@ -271,6 +271,19 @@ must pass before commit.
   indicator rung said "this clue does two things" and then listed three, on
   `container + charade + middle letters + reversal` (Paul, 4096 16d, 2026-08-17).
   Number words come off `.length`, always.
+- A hint that has been bought never leaves the screen. Highlighting a fragment is
+  a PLACEMENT, not a search: `indexOf` matched the indicator 'in' inside
+  "Conclud(in)g", "island" and "confusion" on 18 clues, and on 15 more the mark it
+  chose landed under the definition, where the old overlap rule deleted whichever
+  came second — always the indicator, because indicators are pushed last. So
+  buying the definition rung visibly removed a hint you had already paid for
+  ("I think it might always be the indicator clue which is disappearing after
+  click", Paul, 2026-08-17). Each fragment now takes the best occurrence still
+  free, preferring whole words (an edge that is itself punctuation may abut a
+  letter — "’s gone out of" in "Pound’s gone out of"), nothing is dropped, and
+  where two marks genuinely overlap the SHORTER one wins the overlap so both stay
+  visible. The smoke test buys every rung on every annotated clue in the corpus
+  and reads the marks back off the rendered HTML.
 - A tap must leave the soft keyboard exactly as it found it, unless the tap is
   going to type. On iOS the keyboard IS the viewport: it arriving and it leaving
   are the same size of reflow, and either one lands on the page in the same
