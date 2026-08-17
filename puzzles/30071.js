@@ -144,8 +144,9 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
      },
      {
       "clueFragment": "line, we hear",
+      "soundsLike": "QUEUES",
       "gives": "CUES",
-      "note": "sounds like 'queues' — lines of people"
+      "note": "queues are lines of people"
      }
     ],
     "walkthrough": "Autocues help speakers with the delivery of their lines — nothing to do with parcels. The homophone touches only 'line': queues become CUES."
@@ -558,8 +559,9 @@ window.CRYPTIC_PUZZLES["30071"] = /*JSON-START*/ {
      },
      {
       "clueFragment": "you heard",
+      "soundsLike": "YOU",
       "gives": "U",
-      "note": "U sounds like 'you'"
+      "note": "the letter U is said exactly like 'you'"
      },
      {
       "clueFragment": "drink",

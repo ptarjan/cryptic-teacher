@@ -559,8 +559,9 @@ window.CRYPTIC_PUZZLES["30046"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "a duck",
-      "gives": "EIDER",
-      "note": "the sea duck famous for its down"
+      "soundsLike": "EIDER",
+      "gives": "IDA",
+      "note": "the eider is the sea duck famous for its down"
      }
     ],
     "walkthrough": "Princess Ida is Gilbert and Sullivan's operetta — hence 'on stage'. Say IDA aloud and you get 'eider', the duck whose down fills your duvet."

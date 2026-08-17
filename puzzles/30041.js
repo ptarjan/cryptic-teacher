@@ -345,7 +345,8 @@ window.CRYPTIC_PUZZLES["30041"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Lark",
-      "gives": "BIRD",
+      "soundsLike": "BIRD",
+      "gives": "BYRD",
       "note": "a lark is a bird"
      }
     ],

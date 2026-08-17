@@ -1110,8 +1110,9 @@ window.CRYPTIC_PUZZLES["30044"] = /*JSON-START*/ {
      },
      {
       "clueFragment": "I",
+      "soundsLike": "I",
       "gives": "EYE",
-      "note": "'announced', EYE sounds like I"
+      "note": "the letter I is said exactly like EYE"
      }
     ],
     "walkthrough": "Three different tricks inside five letters, and the surface — a love letter naming a rendezvous — holds them together so smoothly that not one of them announces itself."

@@ -91,13 +91,15 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "arrogant",
+      "soundsLike": "BRASH",
       "gives": "CRASH",
-      "note": "arrogant = brash, which gives up its B and takes a C back"
+      "note": "arrogant = brash, and Spooner hands its B over for a C"
      },
      {
       "clueFragment": "airline",
+      "soundsLike": "CARRIER",
       "gives": "BARRIER",
-      "note": "an airline is a carrier; strip the C off the front and put the B there"
+      "note": "an airline is a carrier, and it takes the B that BRASH gave up"
      }
     ],
     "walkthrough": "A spoonerism swaps the opening sounds of two words — brash carrier is what you say before the swap. The Reverend's name is the standing signal to do it.",
@@ -348,8 +350,9 @@ window.CRYPTIC_PUZZLES["1394"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "report of cheat",
+      "soundsLike": "SCREW",
       "gives": "SCRU",
-      "note": "to screw someone is to cheat them; 'report of' asks for the sound, not the spelling"
+      "note": "to screw someone is to cheat them"
      },
      {
       "clueFragment": "board",

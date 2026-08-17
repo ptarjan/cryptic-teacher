@@ -390,8 +390,9 @@ window.CRYPTIC_PUZZLES["1392"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Church centre",
+      "soundsLike": "NAVE",
       "gives": "KNAVE",
-      "note": "sounds like NAVE, the central body of a church"
+      "note": "the nave is the central body of a church"
      }
     ],
     "walkthrough": "'Picked up' means 'as heard': say NAVE — the central body of a church — aloud and the silent K appears in the spelling.",

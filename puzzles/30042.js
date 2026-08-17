@@ -653,8 +653,9 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Big jobs",
+      "soundsLike": "POO-POO",
       "gives": "POOHPOOH",
-      "note": "nursery slang for poos — 'for a reporter', they sound like POOH, POOH"
+      "note": "nursery slang for two poos"
      },
      {
       "clueFragment": "journalist",
@@ -690,8 +691,9 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "the guillotine",
+      "soundsLike": "HEAD-CHOPPER",
       "gives": "HEDGEHOPPER",
-      "note": "the guillotine is a head-chopper; said aloud, 'head-chopper' becomes HEDGEHOPPER"
+      "note": "the guillotine is a head-chopper"
      }
     ],
     "walkthrough": "The whole clue is one long joke — a guillotine is a head-chopper, and said quickly that becomes a flier who skims the hedges rather than climbing above them."
@@ -1101,6 +1103,12 @@ window.CRYPTIC_PUZZLES["30042"] = /*JSON-START*/ {
       "clueFragment": "in which",
       "gives": "",
       "note": "link words for the drug-deal surface"
+     },
+     {
+      "clueFragment": "picked up",
+      "soundsLike": "HOE TELL",
+      "gives": "HOTEL",
+      "note": "'picked up' asks you to hear the two together rather than read them"
      }
     ],
     "walkthrough": "Weed and grass each have a straight sense and a drug sense, and the clue is built so the drug reading arrives first. 'picked up?' asks you to listen instead."

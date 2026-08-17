@@ -89,8 +89,9 @@ window.CRYPTIC_PUZZLES["30083"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "celebrity",
+      "soundsLike": "IDOL",
       "gives": "IDLE",
-      "note": "An idol is a celebrity, and IDLE is what an idol sounds like."
+      "note": "an idol is a celebrity"
      }
     ],
     "walkthrough": "'Reportedly' is the soundalike flag. The trap is that the spoken word is a noun and the written one an adjective, so nothing about the surface prepares you for it.",
@@ -170,13 +171,15 @@ window.CRYPTIC_PUZZLES["30083"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "anticipated",
+      "soundsLike": "DUE",
       "gives": "DEW",
-      "note": "'Due' means anticipated, and a commentator says it DEW."
+      "note": "'due' means anticipated"
      },
      {
       "clueFragment": "error",
+      "soundsLike": "LAPSE",
       "gives": "LAPS",
-      "note": "A 'lapse' is an error; spoken, it loses its E."
+      "note": "a lapse is an error"
      }
     ],
     "walkthrough": "The surface is a racing commentator calling a photo finish, which is why 'by a neck' sits there so innocently.",

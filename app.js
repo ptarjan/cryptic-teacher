@@ -1201,6 +1201,12 @@
       const items = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
+        // A homophone's whole mechanism is the word you say aloud, and it used
+        // to be nowhere: “Cockney mob” → OARED, with HORDE and the dropped
+        // aitch left entirely to the reader (Paul, 4096 24d, 2026-08-17). So
+        // the sounded form gets its own arrow, ahead of the letters it turns
+        // into, and the validator now refuses a sound clue that has none.
+        if (b.soundsLike) s += ` → <span class="gives">${esc(b.soundsLike)}</span> <span class="muted">said aloud</span>`;
         if (b.gives && !isCD) s += ` → <span class="gives">${esc(b.gives)}</span>`;
         if (b.note) s += ` <span class="muted">— ${esc(b.note)}</span>`;
         return s + "</li>";

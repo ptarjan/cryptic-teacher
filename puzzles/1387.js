@@ -130,8 +130,9 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "traumatised Vietnam veteran on film",
+      "soundsLike": "RAMBO",
       "gives": "RIMBAUD",
-      "note": "sounds like RAMBO, Sylvester Stallone's traumatised veteran in First Blood"
+      "note": "Rambo is Sylvester Stallone's traumatised veteran in First Blood"
      }
     ],
     "walkthrough": "Arthur Rimbaud and John Rambo are pronounced alike in English — a favourite crossword pairing of poet and action hero.",
@@ -892,8 +893,9 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "oil",
+      "soundsLike": "GREASE",
       "gives": "GREECE",
-      "note": "sounds like GREASE, an oily lubricant"
+      "note": "grease is an oily lubricant"
      }
     ],
     "walkthrough": "GREASE said aloud gives the country — the same pun the musical Grease has traded on for decades.",
@@ -1153,8 +1155,9 @@ window.CRYPTIC_PUZZLES["1387"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Where you might need to go",
+      "soundsLike": "TO A LOO",
       "gives": "TUVALU",
-      "note": "said loosely, 'to a loo' — the place a person needing 'to go' is headed"
+      "note": "a person needing 'to go' is headed to a loo"
      }
     ],
     "walkthrough": "Needing 'to go' is needing the loo; say 'to a loo' quickly and the island nation appears. 'Some might say' flags the deliberately loose pronunciation.",

@@ -1010,8 +1010,9 @@ window.CRYPTIC_PUZZLES["30039"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "exploit",
-      "gives": "USE",
-      "note": "to exploit = to use; 'recounted' means said aloud"
+      "soundsLike": "USE",
+      "gives": "EWES",
+      "note": "to exploit is to use"
      }
     ],
     "walkthrough": "'Recounted' means said out loud, not retold, and spotting that is the whole clue. The possessive apostrophe belongs to the surface only; the answer is a plain plural.",

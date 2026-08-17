@@ -1217,8 +1217,9 @@ window.CRYPTIC_PUZZLES["30047"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Worry",
-      "gives": "FAZE",
-      "note": "to faze = to worry; 'in audition' means heard aloud"
+      "soundsLike": "FAZE",
+      "gives": "PHASE",
+      "note": "to faze is to worry"
      }
     ],
     "walkthrough": "FAZE and PHASE are exact sound-twins, and 'in audition' keeps the hearing signal inside the theatre. A phase is a stage — of the moon, of a project, of a teenager.",

@@ -811,8 +811,9 @@ window.CRYPTIC_PUZZLES["1391"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "inclined to interfere",
+      "soundsLike": "MEDDLY",
       "gives": "MEDLEY",
-      "note": "sounds like 'meddly' — apt to meddle"
+      "note": "someone apt to meddle is 'meddly'"
      }
     ],
     "walkthrough": "Someone inclined to interfere might whimsically be called 'meddly', and said aloud that is the answer. Homophones of invented words are fair when the base word — meddle — is real.",

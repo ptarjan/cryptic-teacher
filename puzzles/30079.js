@@ -198,8 +198,9 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
      },
      {
       "clueFragment": "shaver",
+      "soundsLike": "RAZOR",
       "gives": "RAISER",
-      "note": "a shaver is a razor, which 'sounded' gives RAISER"
+      "note": "a shaver is a razor"
      }
     ],
     "pieces": [
@@ -282,8 +283,9 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "shark",
+      "soundsLike": "CHEATER",
       "gives": "CHEETAH",
-      "note": "a shark is a CHEATER, which 'caught' (overheard) sounds like CHEETAH"
+      "note": "a shark is a cheater"
      }
     ],
     "walkthrough": "'Caught' means caught by the ear. The shark plays cards — a cheater — and saying it aloud releases the big cat.",
@@ -987,8 +989,9 @@ window.CRYPTIC_PUZZLES["30079"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "merchant",
+      "soundsLike": "SELLER",
       "gives": "CELLAR",
-      "note": "a merchant is a SELLER; 'delivered' aloud it becomes CELLAR"
+      "note": "a merchant is a seller"
      }
     ],
     "walkthrough": "'Delivered' means spoken, as a line is delivered — so it is the wine merchant's homophone that goes in the grid, not the merchant.",

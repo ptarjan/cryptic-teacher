@@ -286,8 +286,9 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "look",
+      "soundsLike": "PEER",
       "gives": "PIER",
-      "note": "sounds like PEER — to look closely"
+      "note": "to peer is to look closely"
      }
     ],
     "walkthrough": "Say 'peer' aloud and you hear the answer — a classic seaside soundalike pair.",
@@ -1164,8 +1165,9 @@ window.CRYPTIC_PUZZLES["1390"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "unlawful",
+      "soundsLike": "ILLICIT",
       "gives": "ELICIT",
-      "note": "sounds like ILLICIT — unlawful"
+      "note": "illicit means unlawful"
      }
     ],
     "walkthrough": "ILLICIT and ELICIT are not quite identical aloud, and the setter admits it: 'roughly' licenses the loose soundalike.",

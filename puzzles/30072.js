@@ -641,7 +641,8 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "location of union meeting",
-      "gives": "ALTAR",
+      "soundsLike": "ALTAR",
+      "gives": "ALTER",
       "note": "the union is a wedding, and the altar is where it happens"
      }
     ],
@@ -1009,8 +1010,9 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "are improving",
-      "gives": "HEALS",
-      "note": "sounds like 'heals' — mends, gets better"
+      "soundsLike": "HEALS",
+      "gives": "HEELS",
+      "note": "to heal is to mend, to get better"
      },
      {
       "clueFragment": "(still in need of work)",
@@ -1185,8 +1187,9 @@ window.CRYPTIC_PUZZLES["30072"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "dweller there – fearfully symmetrical",
-      "gives": "TIGER",
-      "note": "Blake's 'Tyger Tyger, burning bright… thy fearful symmetry'; Siberian tigers really do live in the taiga"
+      "soundsLike": "TIGER",
+      "gives": "TAIGA",
+      "note": "Blake's 'Tyger Tyger, burning bright… thy fearful symmetry' — and Siberian tigers really do live in the taiga"
      }
     ],
     "walkthrough": "The taiga is the great northern forest, and its most famous dweller arrives via Blake's poem — 'fearful symmetry' is the Tyger's own phrase, delivered 'according to recital'."

@@ -673,8 +673,9 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Was she not given a choice",
-      "gives": "JA MAKE ’ER",
-      "note": "said aloud, 'ja make 'er?' asks whether she was forced to go"
+      "soundsLike": "JA MAKE ’ER",
+      "gives": "JAMAICA",
+      "note": "'ja make 'er?' asks whether she was forced to go"
      }
     ],
     "walkthrough": "The old music-hall gag: 'My wife's gone to the West Indies.' 'Jamaica?' 'No, she went of her own accord.'",
@@ -750,7 +751,8 @@ window.CRYPTIC_PUZZLES["30078"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "’s not a pretence",
-      "gives": "’S TRUTH",
+      "soundsLike": "’S TRUTH",
+      "gives": "STREWTH",
       "note": "what is no pretence is the truth — ''s truth', short for 'God's truth'"
      }
     ],

@@ -446,8 +446,9 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "orchard fruit",
+      "soundsLike": "PEAR",
       "gives": "PAIR",
-      "note": "sounds like PEAR, the orchard fruit"
+      "note": "a pear is the orchard fruit"
      }
     ],
     "walkthrough": "'Mention of' asks for the sound rather than the spelling: PEAR and PAIR are perfect homophones, and the grid wants the one meaning two.",
@@ -695,8 +696,9 @@ window.CRYPTIC_PUZZLES["1393"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "substantial",
+      "soundsLike": "GREAT",
       "gives": "GRATE",
-      "note": "sounds like GREAT = substantial"
+      "note": "great means substantial"
      }
     ],
     "walkthrough": "'Reportedly' asks for the sound: say GREAT aloud and you hear the fireplace fitting.",

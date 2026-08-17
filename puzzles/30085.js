@@ -140,8 +140,9 @@ window.CRYPTIC_PUZZLES["30085"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "inclination",
-      "gives": "LIST",
-      "note": "a ship's list is its inclination — say it aloud and you have the name"
+      "soundsLike": "LIST",
+      "gives": "LISZT",
+      "note": "a ship's list is its inclination"
      }
     ],
     "walkthrough": "Franz Liszt's surname is pronounced 'list' in English, so a foreign name is being reached through an ordinary English word. The nautical sense of list, a lean to one side, is the one to bank.",

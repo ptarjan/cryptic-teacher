@@ -83,8 +83,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "A cow",
+      "soundsLike": "A LOWER",
       "gives": "ALOHA",
-      "note": "a beast that lows is a lower, so 'a cow' spoken is 'a lower'"
+      "note": "a beast that lows is a lower"
      }
     ],
     "walkthrough": "'Lower' for a cow — a creature that lows — is one of the chestnuts worth banking; it turns up far more often than the moo the surface offers you.",
@@ -245,13 +246,15 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Great Expectations lad",
+      "soundsLike": "PIP",
       "gives": "HIP",
-      "note": "Dickens's boy is Pip; he hands his P over and takes an H back"
+      "note": "Dickens's boy is Pip; Spooner takes his P and gives him an H"
      },
      {
       "clueFragment": "considering using pawnbroker",
+      "soundsLike": "HOCK IT",
       "gives": "POCKET",
-      "note": "the advice is 'hock it' — to hock something is to pawn it — and it starts with the P Pip gave up"
+      "note": "the advice is 'hock it' — to hock something is to pawn it — and it collects the P that Pip gave up"
      }
     ],
     "walkthrough": "The Reverend Spooner's name is the standing signal to swap two opening sounds, and 'hock' is the pawnshop verb the surface is quietly teaching you.",
@@ -333,8 +336,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Everyman",
+      "soundsLike": "I",
       "gives": "EYE",
-      "note": "the setter signs himself Everyman, so he is 'I' — and spoken, I is EYE"
+      "note": "the setter signs himself Everyman, so he is I — the letter said aloud"
      },
      {
       "clueFragment": "practises hygiene",
@@ -854,8 +858,9 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "lad’s pronounced",
+      "soundsLike": "SON",
       "gives": "SUN",
-      "note": "a lad is a son, and said out loud that is SUN"
+      "note": "a lad is a son"
      },
      {
       "clueFragment": "grin",
@@ -1086,17 +1091,24 @@ window.CRYPTIC_PUZZLES["4096"] = /*JSON-START*/ {
    "separatorLocations": {},
    "solution": "OARED",
    "annotation": {
-    "type": "homophone",
+    "type": "deletion + homophone",
     "answer": "OARED",
     "definition": "rowed",
     "indicators": [
+     "Cockney",
      "loudly"
     ],
     "blocks": [
      {
-      "clueFragment": "Cockney mob",
+      "clueFragment": "mob",
+      "gives": "HORDE",
+      "note": "a mob is a horde"
+     },
+     {
+      "clueFragment": "Cockney",
+      "soundsLike": "’ORDE",
       "gives": "OARED",
-      "note": "a mob is a horde, and a Cockney drops the aitch: 'orde"
+      "note": "a Cockney drops the aitch off the front, leaving ’ORDE — which is what you say, not what you write"
      }
     ],
     "walkthrough": "The dropped aitch is the whole device, and it is worth remembering: 'Cockney' in a clue nearly always means an H has gone missing from the front of a word.",

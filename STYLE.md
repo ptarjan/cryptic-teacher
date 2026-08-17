@@ -37,6 +37,21 @@ alternate letters of bAgGiEr); 30066 5D ALLOCATE = `anagram + last letter`
 When a new type part is needed, add it to `TYPE_PARTS` in the validator, this
 list, and a level-1 blurb in `TYPE_BLURBS` in `app.js` — all three, in one commit.
 
+**A sound type must name the sound.** `homophone` and `spoonerism` carry
+`soundsLike` on the block that does the sounding: the word you say ALOUD, which
+`gives` then spells differently. The validator errors when a sound clue has
+none, and errors when the two are the same letters — that is a spelling, not a
+homophone. This exists because 18 of the corpus's 48 sound clues had a block
+reading “fragment” → ANSWER and nothing else, with the entire mechanism
+unstated: 4096 24d rendered “Cockney mob” → OARED, never showing that a mob is
+a HORDE, that a Cockney drops the aitch to leave ’ORDE, or that ’ORDE said
+aloud is what you write ("doesn't explain that the original word is hoard but
+it is a homophone and you drop the h to it", Paul, 2026-08-17). A note
+mentioning the source in passing is not enough and was not enough — that clue
+had one. It has to be a field, because prose cannot be checked. Where another
+mechanism feeds the sound (a deletion, a charade), that mechanism gets its own
+earlier block; one arrow does one operation.
+
 `cryptic definition` is capped at **two per puzzle**, a validator ERROR above
 that (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable
 mechanism, so reaching for a third means either the clue's wordplay has not been
