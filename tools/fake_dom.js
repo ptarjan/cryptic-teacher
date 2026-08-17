@@ -188,6 +188,15 @@ function boot(opts) {
       raiseKeyboard(px) {
         this.height = 1000 - px;
         (this._on.resize || []).forEach((fn) => fn());
+      },
+      // The other half of the same keyboard. When the page has no scroll left to
+      // give, iOS slides the visual viewport down inside the layout viewport
+      // instead of resizing it — offsetTop moves and only "scroll" fires, so code
+      // listening for resize alone measures a band starting at 0 that really
+      // starts px down.
+      panKeyboard(px) {
+        this.offsetTop = px;
+        (this._on.scroll || []).forEach((fn) => fn());
       }
     },
     localStorage: {

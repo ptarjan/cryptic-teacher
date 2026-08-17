@@ -623,10 +623,14 @@
   // land. A keyboard raised for something else, a dismissal, a rotation or the
   // URL bar sliding away under an ordinary scroll must not yank the page out from
   // under someone who is reading.
+  // Both events, because the keyboard does not always resize the band: when the
+  // page cannot scroll any further iOS PANS the visual viewport instead, which
+  // moves offsetTop and fires scroll only. Measuring through that gap gives a
+  // band starting at 0 when it really starts sixty pixels down.
   if (window.visualViewport && window.visualViewport.addEventListener) {
-    window.visualViewport.addEventListener("resize", () => {
-      if (settleBy) armHintPlacement();
-    });
+    const settling = () => { if (settleBy) armHintPlacement(); };
+    window.visualViewport.addEventListener("resize", settling);
+    window.visualViewport.addEventListener("scroll", settling);
   }
 
   function onCellClick(c) {
