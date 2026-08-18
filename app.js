@@ -652,9 +652,26 @@
   // is safe to recompute mid-flight: y + r.top is the panel's position in the
   // document, which scrolling does not change.
   const HINT_CONFIRM_MS = 450;
-  let settleTimer = null, settleBy = 0, confirmTimer = null, placedBand = null;
+  // The first tap of a session is the slow one: the keyboard has never been
+  // raised, so iOS builds it cold — keys, then the predictive bar — and the
+  // resize can land well past deadline + one confirm, which is "the first click
+  // which brings up the word seems to not scroll" (Paul, iPad, 2026-08-17).
+  // Every later tap finds the keyboard already up, resizes nothing, and lands on
+  // the first placement, which is why only the first one misses.
+  //
+  // So the band stays watched for the whole time a keyboard could still be
+  // arriving, not for one look. What is watched is still only the band: a
+  // viewport event inside the window schedules a CONFIRM, never a placement, so
+  // the page moves again only if the visible band really is not the one we
+  // committed to. That is the distinction that keeps this from being the old
+  // wiggle — re-placing on events means fighting our own in-flight scroll,
+  // re-placing on a changed band means the measurement was wrong.
+  const HINT_WATCH_MS = 1800;
+  let settleTimer = null, settleBy = 0, confirmTimer = null, placedBand = null, watchUntil = 0;
   function scrollToHintPanel() {
-    settleBy = Date.now() + HINT_DEADLINE_MS;
+    const now = Date.now();
+    settleBy = now + HINT_DEADLINE_MS;
+    watchUntil = now + HINT_WATCH_MS;
     if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
     armHintPlacement();
   }
@@ -662,8 +679,12 @@
     if (settleTimer) clearTimeout(settleTimer);
     settleTimer = setTimeout(() => {
       placeHintPanel();
-      confirmTimer = setTimeout(confirmHintPlacement, HINT_CONFIRM_MS);
+      armConfirm(HINT_CONFIRM_MS);
     }, Math.max(0, Math.min(HINT_SETTLE_MS, settleBy - Date.now())));
+  }
+  function armConfirm(delay) {
+    if (confirmTimer) clearTimeout(confirmTimer);
+    confirmTimer = setTimeout(confirmHintPlacement, delay);
   }
   function confirmHintPlacement() {
     confirmTimer = null;
@@ -671,6 +692,8 @@
     const b = visibleBand();
     if (b.top === placedBand.top && b.bottom === placedBand.bottom) return;
     placeHintPanel();
+    // A keyboard that arrives in two stages moves the band twice.
+    if (Date.now() < watchUntil) armConfirm(HINT_CONFIRM_MS);
   }
   // Only ever called off that timer, so layout has long since flushed and there
   // is nothing to measure a frame later for.
@@ -695,8 +718,9 @@
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
     window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   }
-  // settleBy is the whole guard: a resize matters only while a tap is waiting to
-  // land. A keyboard raised for something else, a dismissal, a rotation or the
+  // settleBy and watchUntil are the whole guard: a resize matters only while a tap
+  // is waiting to land, or while the keyboard it asked for could still be on its
+  // way in. A keyboard raised for something else, a dismissal, a rotation or the
   // URL bar sliding away under an ordinary scroll must not yank the page out from
   // under someone who is reading.
   // Both events, because the keyboard does not always resize the band: when the
@@ -704,7 +728,13 @@
   // moves offsetTop and fires scroll only. Measuring through that gap gives a
   // band starting at 0 when it really starts sixty pixels down.
   if (window.visualViewport && window.visualViewport.addEventListener) {
-    const settling = () => { if (settleBy) armHintPlacement(); };
+    const settling = () => {
+      if (settleBy) armHintPlacement();
+      // Confirm on the CONFIRM delay, not the shorter settle one: our own smooth
+      // scroll makes a phone's URL bar slide away, which fires here, and looking
+      // 90ms in means measuring mid-flight and re-scrolling on it — the wiggle.
+      else if (Date.now() < watchUntil) armConfirm(HINT_CONFIRM_MS);
+    };
     window.visualViewport.addEventListener("resize", settling);
     window.visualViewport.addEventListener("scroll", settling);
   }
