@@ -300,6 +300,20 @@ must pass before commit.
   `EARLY_RUNG_FIELDS`; the validator requires it of every puzzle except the ones
   `tools/annotation_backlog.json` grandfathers, so a new puzzle cannot ship
   without it while the old ones drain.
+- Generic wording is not a frame to put around a real answer — it is what gets
+  said when there is no real answer. So where every indicator has a note, the
+  notes are the whole of rung 3: no "this clue does two things, and the
+  indicators are what tell them apart", no list of the operations, no "which word
+  calls for which is the step to work out here" ("this is just context free,
+  never just put out text for the sake of filling space", Paul, 2026-08-17). The
+  count was the tell — the operations come off the clue TYPE, so `container +
+  charade + middle letters + reversal` promises four while only three of them
+  have an indicator to point at. That sentence never described the indicators; it
+  described the type, and the type is rung 1. The generic branch survives only
+  for the puzzles that predate `indicatorNotes`, and `tools/smoke_test.js`
+  enforces the rule structurally rather than by banned phrase: strip the notes
+  list from a fully-noted rung and what is left must be empty, so new filler
+  cannot pass by not being on a list.
 - Do not point at the surface picture with a definite noun phrase you never drew —
   see `tools/annotate_prompt.md`. "The impromptu band keeps both looking innocent"
   on a walkthrough that never mentioned a band ("this doesn't sound natural", 4096

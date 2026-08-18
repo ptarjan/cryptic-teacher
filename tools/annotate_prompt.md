@@ -101,6 +101,8 @@ Rules:
   (4096 20A RENOVATOR), not "'stable? No' is the anagram indicator". A note made
   only of words already in the indicator is rejected, as is one under 25 characters.
   It renders on rung 3, before the answer, so it must not name the answer.
+  Note every indicator or none: once all of them are noted the app drops its generic
+  wording and the notes ARE rung 3, so a clue one note short keeps the filler.
 - Provide `pieces` for charades/containers/deletions (the final letter chunks in answer
   order) or `anagram.fodder` for anagrams (including any extra letters joined in). Use
   `subAnagrams`/`subReversals` for embedded steps. Double definitions, homophones and

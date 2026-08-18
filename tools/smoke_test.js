@@ -884,6 +884,23 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
           `${s.id} ${s.e.id}: the note for ${JSON.stringify(ind)} never reaches the ` +
           `indicators rung: ` + html);
       }
+      // And when every indicator is explained, the explanations are the whole
+      // rung. Structural rather than a list of banned phrases, so a new piece of
+      // generic wording cannot slip past by not being on the list: "this is just
+      // context free, never just put out text for the sake of filling space"
+      // (Paul, 2026-08-17). Anything the clue type alone could have written is
+      // filler beside a sentence about this clue.
+      const inds = (s.e.annotation.indicators || []);
+      if (inds.length && inds.every((i) => s.n[i])) {
+        const rung = (html.split('<div class="hint-step">')
+          .find((sec) => sec.includes("Spot the indicator words")) || "")
+          .replace(/<\/div>[\s\S]*$/, "");
+        const rest = rung
+          .replace(/<span class="step-label">[^<]*<\/span>/, "")
+          .replace(/<ul class="ind-notes">[\s\S]*?<\/ul>/, "").trim();
+        assert(!rest, `${s.id} ${s.e.id}: every indicator has a note, so the rung ` +
+          `should be those notes and nothing else — also found: ` + rest);
+      }
     }
   }
 
