@@ -174,10 +174,23 @@ function boot(opts) {
     // log can tell that apart from a page that ended up in the right place after
     // shuffling there in two goes.
     scrolls: [],
+    // iOS moves the VISUAL viewport under an ordinary page scroll — a phone's URL
+    // bar collapsing, or a pan once the page has no scroll left to give — so our
+    // own smooth scroll fires the very events a keyboard fires, and no
+    // measurement can tell the two apart. Set this and the stub does it too, so a
+    // placement rule that watches the band can be shown not to feed on its own
+    // output. It alternates, so the band never settles: the worst case.
+    scrollPans: 0,
     scrollTo(opt) {
       const top = opt && typeof opt === "object" ? opt.top : opt;
       global.window.pageYOffset = Math.max(0, Number(top) || 0);
       global.window.scrolls.push(global.window.pageYOffset);
+      const px = global.window.scrollPans;
+      if (px) {
+        const vv = global.window.visualViewport;
+        vv.offsetTop = vv.offsetTop ? 0 : px;
+        (vv._on.scroll || []).forEach((fn) => fn());
+      }
     },
     // Synchronous, so the harness stays a straight line. The app only uses it to
     // get behind a reflow, and there is no reflow here to get behind.
