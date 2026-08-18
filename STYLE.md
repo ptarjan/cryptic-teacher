@@ -489,6 +489,18 @@ must pass before commit.
   one-square step, so overwriting a full entry still works. See `advanceToGap()`.
 - On touch devices, a scroll gesture must never select a cell or clue — tap
   detection uses a movement threshold (feedback 2026-07-26).
+- **A tap moves the page at most twice**, and that is a BUDGET, not a
+  measurement. Every wiggle this app has had came from the same reasoning: the
+  band moved, so the placement must be wrong, so place again. It is unfalsifiable
+  on iOS, because our own smooth scroll pans the visual viewport and fires the
+  same events a keyboard does — "scrolls down then up then down then up then
+  down" (Paul, iPad, 2026-08-17, on a rule that let the late look re-arm itself,
+  which walked `[1192, 1152, 1192, 1152, …]`). Nothing in a band measurement can
+  say what moved it, so the cap does the job the measurement cannot: one
+  placement on the best information available, one correction once the viewport
+  goes quiet, and then the page belongs to the reader. Waiting longer is free;
+  moving again is not. `tools/fake_dom.js` has `window.scrollPans`, which makes
+  every scroll pan the stub viewport, so the loop is reproducible in the harness.
 - **A row badge's colour names exactly one axis, and no two axes share a
   colour** (feedback 2026-08-06: "the colors for the pills conflate things").
   There are three axes on a puzzle row and they answer different questions:

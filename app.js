@@ -659,19 +659,28 @@
   // Every later tap finds the keyboard already up, resizes nothing, and lands on
   // the first placement, which is why only the first one misses.
   //
-  // So the band stays watched for the whole time a keyboard could still be
-  // arriving, not for one look. What is watched is still only the band: a
-  // viewport event inside the window schedules a CONFIRM, never a placement, so
-  // the page moves again only if the visible band really is not the one we
-  // committed to. That is the distinction that keeps this from being the old
-  // wiggle — re-placing on events means fighting our own in-flight scroll,
-  // re-placing on a changed band means the measurement was wrong.
+  // So the confirming look WAITS for the viewport to go quiet instead of firing
+  // at a fixed delay: a viewport event inside the watch window pushes it further
+  // out, and the window bounds how long it can be pushed.
+  //
+  // A TAP MOVES THE PAGE AT MOST TWICE, and that budget is the load-bearing part.
+  // Letting the confirm re-arm itself after it fired was "clicking 3d with all
+  // the hints open scrolls down then up then down then up then down" (Paul, iPad,
+  // 2026-08-17): our own smooth scroll moves the visual viewport, which fires the
+  // same events the keyboard does, so a confirm that can re-place and then watch
+  // again is a loop feeding on its own output, and nothing in the measurement can
+  // tell the two apart — a pan and a keyboard both just move the band. The budget
+  // can, because it does not have to know why the band moved. One placement on
+  // the best information available, one correction once everything has stopped,
+  // and then the page belongs to the reader again.
   const HINT_WATCH_MS = 1800;
-  let settleTimer = null, settleBy = 0, confirmTimer = null, placedBand = null, watchUntil = 0;
+  let settleTimer = null, settleBy = 0, confirmTimer = null, placedBand = null,
+      watchUntil = 0, confirmsLeft = 0;
   function scrollToHintPanel() {
     const now = Date.now();
     settleBy = now + HINT_DEADLINE_MS;
     watchUntil = now + HINT_WATCH_MS;
+    confirmsLeft = 1;
     if (confirmTimer) { clearTimeout(confirmTimer); confirmTimer = null; }
     armHintPlacement();
   }
@@ -682,18 +691,20 @@
       armConfirm(HINT_CONFIRM_MS);
     }, Math.max(0, Math.min(HINT_SETTLE_MS, settleBy - Date.now())));
   }
+  // Re-arming only ever postpones the one confirm this tap is allowed; it never
+  // buys another.
   function armConfirm(delay) {
+    if (!confirmsLeft) return;
     if (confirmTimer) clearTimeout(confirmTimer);
     confirmTimer = setTimeout(confirmHintPlacement, delay);
   }
   function confirmHintPlacement() {
     confirmTimer = null;
-    if (!placedBand) return;
+    if (!placedBand || !confirmsLeft) return;
+    confirmsLeft = 0;
     const b = visibleBand();
     if (b.top === placedBand.top && b.bottom === placedBand.bottom) return;
     placeHintPanel();
-    // A keyboard that arrives in two stages moves the band twice.
-    if (Date.now() < watchUntil) armConfirm(HINT_CONFIRM_MS);
   }
   // Only ever called off that timer, so layout has long since flushed and there
   // is nothing to measure a frame later for.

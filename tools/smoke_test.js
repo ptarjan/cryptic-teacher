@@ -1188,6 +1188,36 @@ registry["reset-puzzle"].onclick();
     "a viewport that held still gets one scroll, not two: " + JSON.stringify(win.scrolls));
   vv.height = 1000;
 
+  // --- and our own scroll must not be able to buy another one ---
+  // "Clicking 3d with all the hints open scrolls down then up then down then up
+  // then down" (Paul, iPad, 2026-08-17). The late look above had been allowed to
+  // re-arm after it fired, on the reasoning that a keyboard arriving in stages
+  // moves the band twice. It does — but so does our own smooth scroll, because
+  // iOS pans the visual viewport under it and fires the same event, and nothing
+  // in a band measurement says which one moved it. So the guarantee cannot be
+  // "re-place whenever the band is wrong"; it has to be a BUDGET. One placement,
+  // one correction, and then the page belongs to the reader. Here every scroll
+  // pans the viewport and the keyboard lands late on top of it, which is the loop
+  // at its most tempting.
+  global.flushTimers(10000);
+  panel.layout(1200, 4000);              // every rung bought: taller than the screen
+  vv.height = 1000; vv.offsetTop = 0;
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  win.scrollPans = 40;
+  clues[0].listeners.click[0]();
+  global.flushTimers(100);
+  vv.raiseKeyboard(400);
+  // flushTimers runs one generation: it takes a snapshot, so a timer armed by a
+  // timer it ran waits for the next call. A loop that feeds itself needs several
+  // turns of the crank to show, and it is the turns after the second that are the
+  // bug — so crank it until the page really has stopped.
+  for (let i = 0; i < 8; i++) global.flushTimers(10000);
+  win.scrollPans = 0; vv.offsetTop = 0; vv.height = 1000;
+  assert(win.scrolls.length <= 2,
+    "a tap moves the page twice at the most, even when every move moves the viewport: "
+      + JSON.stringify(win.scrolls));
+  panel.layout(1200, 400);
+
   // But only on the heels of a tap. A viewport that changes while someone is
   // reading — keyboard dismissed, rotation, a pinch, or just the URL bar sliding
   // away as they scroll — must not yank the page.
