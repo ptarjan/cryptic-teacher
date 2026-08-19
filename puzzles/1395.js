@@ -30,7 +30,35 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MORSEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MORSEL",
+    "definition": "a bit",
+    "indicators": [
+     "to follow"
+    ],
+    "indicatorNotes": {
+     "to follow": "Whatever follows comes along behind, so the political letter is parked at the end rather than the front."
+    },
+    "pieces": [
+     "MORSE",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oxford detective",
+      "gives": "MORSE",
+      "note": "Colin Dexter's inspector works out of Oxford"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the one-letter abbreviation for left, as on a pair of gloves"
+     }
+    ],
+    "walkthrough": "A capital L at the start of a clue always looks like the political party; here it is the direction. Television detectives are standing crossword vocabulary — Morse, Frost and Regan all fit short answers.",
+    "definitionFit": "a bit → MORSEL: a morsel is a small fragment of food, and 'a bit' is the everyday quantity word for the same scrap."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +75,26 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSLO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OSLO",
+    "definition": "city",
+    "indicators": [
+     "Part of"
+    ],
+    "indicatorNotes": {
+     "Part of": "Taking a part means taking a section and leaving the rest, so only some of the letters that follow are wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "no Slovenian",
+      "gives": "OSLO",
+      "note": "the letters run straight across the gap: n(O SLO)venian"
+     }
+    ],
+    "walkthrough": "Naming one country is a good way to hide the capital of another, and 'Slovenian' points your eye at Ljubljana while Norway sits under it. Hidden words that straddle a word break are the hardest to see.",
+    "definitionFit": "city → OSLO: definition by example — the Norwegian capital standing in for the general word, which is why no nationality is given."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +115,41 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "STRAWPOLL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "STRAW POLL",
+    "definition": "quick survey",
+    "indicators": [
+     "Head of",
+     "engaged in",
+     "revision of"
+    ],
+    "indicatorNotes": {
+     "Head of": "The head of anything is its front end, so League surrenders nothing but its opening letter.",
+     "engaged in": "To be engaged in something is to be taking part inside it, so that letter joins the mixture instead of standing beside it.",
+     "revision of": "A revision reworks the material it is handed, and material reworked comes back in a different order."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "L SPORT LAW"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Head of league",
+      "gives": "L",
+      "note": "the opening letter of League and nothing else"
+     },
+     {
+      "clueFragment": "sport law",
+      "gives": "SPORTLAW",
+      "note": "eight letters of fodder, nine once the L is engaged in them"
+     }
+    ],
+    "walkthrough": "The surface is a rule change in sport, which is exactly why 'revision of' reads as legislation rather than as an instruction. Counting nine letters against the (5,4) is the confirmation.",
+    "definitionFit": "quick survey → STRAW POLL: an unofficial show of hands taken to test opinion in a hurry, named for straws tossed up to find the wind."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +166,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LONELY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LONELY",
+    "definition": "having no support?",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "L",
+     "ON",
+     "ELY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is how a Liberal candidate is marked on a ballot paper"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     },
+     {
+      "clueFragment": "cathedral",
+      "gives": "ELY",
+      "note": "Ely, the Cambridgeshire cathedral city, is the short cathedral crosswords reach for"
+     }
+    ],
+    "walkthrough": "The question mark is the setter admitting a stretch: support here means company rather than a prop holding something up. 'Working' for ON is worth banking — it turns up about once a puzzle.",
+    "definitionFit": "having no support? → LONELY: someone lonely has nobody standing with them, support in its companionship sense rather than as a physical prop."
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +214,39 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAVILION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PAVILION",
+    "definition": "part of cricket ground",
+    "linkWords": [
+     "getting",
+     "in"
+    ],
+    "pieces": [
+     "PA",
+     "VI",
+     "LION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is the familiar word for a father"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "six in Roman numerals"
+     },
+     {
+      "clueFragment": "hero",
+      "gives": "LION",
+      "note": "a lion of the resistance is one of its heroes — the figurative sense"
+     }
+    ],
+    "walkthrough": "The colon lets the whole thing read as a batsman's scorecard, with six runs and a hero. Roman numerals hide best behind ordinary number words, and 'six' is one of the commonest.",
+    "definitionFit": "part of cricket ground → PAVILION: the building at the edge of the field holding the dressing rooms, the one named structure on such a ground."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +269,27 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUTTHEMOCKERSON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PUT THE MOCKERS ON",
+    "definition": "Stop",
+    "definition2": "let’s get a cynical view",
+    "definitionNote": "The second half is phrased as an invitation rather than as a bare verb, because the setter is reading the idiom literally: donning mockers is how you would get a cynical view.",
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "",
+      "note": "to put the mockers on a plan is to scupper it — the jinx that stops the thing happening"
+     },
+     {
+      "clueFragment": "let’s get a cynical view",
+      "gives": "",
+      "note": "read the words at face value: mockers are people who scoff, and you put them on the way you put on a coat"
+     }
+    ],
+    "walkthrough": "The dash is the split. On one side an idiom meaning to scupper something, on the other the same four words taken at face value — no letters change hands anywhere in this clue.",
+    "definitionFit": "Stop → PUT THE MOCKERS ON: the idiom for jinxing something so it fails; taken literally, wearing mockers is adopting the scoffers' outlook."
+   }
   },
   {
    "id": "6-down",
@@ -142,7 +306,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VARIABLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "VARIABLE",
+    "definition": "Part of equation?",
+    "indicators": [
+     "to include",
+     "excluding content"
+    ],
+    "indicatorNotes": {
+     "to include": "To include something is to take it in, so the feasible word closes around those letters rather than sitting next to them.",
+     "excluding content": "The content of a word is whatever sits inside it, so excluding that leaves only the letter at each end."
+    },
+    "pieces": [
+     "V",
+     "AR",
+     "IABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feasible",
+      "gives": "VIABLE",
+      "note": "a feasible plan is a viable one"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "AR",
+      "note": "ANSWER stripped of everything but its first and last letters"
+     }
+    ],
+    "walkthrough": "'Content' for a word's insides is a setter's staple, the same idea as 'heartless' or 'gutted'. The surface reads as a maths lesson while the clue is quietly hollowing a word out.",
+    "definitionFit": "Part of equation? → VARIABLE: the x or y an equation is solved for, one named component of it rather than the whole statement."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +354,34 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATTE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "LATTE",
+    "definition": "coffee",
+    "indicators": [
+     "Some",
+     "over"
+    ],
+    "indicatorNotes": {
+     "Some": "Asking for some of a thing asks for a portion, not the whole of the words that follow.",
+     "over": "Something turned over lies the other way up, so the run of letters is read back against the direction it was written."
+    },
+    "subReversals": [
+     {
+      "from": "ETTAL",
+      "to": "LATTE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet talk",
+      "gives": "ETTAL",
+      "note": "quiET TALk holds the run, and this down entry reads it back up the column"
+     }
+    ],
+    "walkthrough": "The surface is café chatter, which is why nobody looks at the letters. 'Over coffee' is such a natural pairing that splitting it — one word working, one word defining — is the whole difficulty.",
+    "definitionFit": "coffee → LATTE: definition by example — espresso lengthened with steamed milk, one drink standing in for the general word."
+   }
   },
   {
    "id": "8-down",
@@ -180,7 +402,36 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "OXTAILSOUP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OXTAIL SOUP",
+    "definition": "broth",
+    "indicators": [
+     "stirred",
+     "filled with"
+    ],
+    "indicatorNotes": {
+     "stirred": "Stirring turns everything in a pan round and round, and letters treated that way come out in a new order.",
+     "filled with": "Filling something puts the extra letter inside the mixture rather than at either end of it."
+    },
+    "anagram": {
+     "fodder": "POT LOUISA X"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pot Louisa",
+      "gives": "POTLOUISA",
+      "note": "nine letters of fodder, one short of the ten the enumeration asks for"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "x is the algebraist's unknown quantity, and crosswordland's too"
+     }
+    ],
+    "walkthrough": "A cook at a stove is such a complete picture that 'Pot Louisa' never reads as a bag of letters. Counting them against the (6,4) is what gives the device away.",
+    "definitionFit": "broth → OXTAIL SOUP: definition by example — the thin stock simmered from an ox's tail, one particular soup standing for soup in general."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +448,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLARINET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CLARINET",
+    "definition": "Instrument",
+    "indicators": [
+     "peculiar"
+    ],
+    "indicatorNotes": {
+     "peculiar": "Something peculiar has strayed from its usual state, and letters that have strayed will not stay in the order given."
+    },
+    "linkWords": [
+     "’s",
+     "in"
+    ],
+    "anagram": {
+     "fodder": "N RECITAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "n is the musical shorthand for a note"
+     },
+     {
+      "clueFragment": "recital",
+      "gives": "RECITAL",
+      "note": "seven letters of fodder, eight once the note joins them"
+     }
+    ],
+    "walkthrough": "'Note in recital' reads so smoothly as a concert programme that the anagram signal sitting between the two words is easy to walk straight past.",
+    "definitionFit": "Instrument → CLARINET: definition by example — a single-reed woodwind named for its clarion tone, one instance of the wider word."
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +496,44 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROTATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "ROTATE",
+    "definition": "produce revolution",
+    "indicators": [
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a word is its opening letter, so the school hands over one character and keeps the rest."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "ROT",
+     "AT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corruption",
+      "gives": "ROT",
+      "note": "moral rot is corruption — decay used figuratively"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the preposition is taken at face value, letter for letter"
+     },
+     {
+      "clueFragment": "Eton’s beginning",
+      "gives": "E",
+      "note": "the school's opening letter"
+     }
+    ],
+    "walkthrough": "Corruption, Eton and revolution build a political scandal on the surface while the answer turns out to be a piece of engineering. Watch for the little preposition doing no work beyond supplying two letters.",
+    "definitionFit": "produce revolution → ROTATE: to rotate is to turn a full circle about an axis, revolution in its mechanical sense rather than its political one."
+   }
   },
   {
    "id": "11-across",
@@ -235,7 +554,32 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "WELSHRAREBIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WELSH RAREBIT",
+    "definition": "Snack",
+    "indicators": [
+     "dished up"
+    ],
+    "indicatorNotes": {
+     "dished up": "Food dished up has been tipped out of the pan into a new arrangement, and so have these letters."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "WHITE BARRELS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "white barrels",
+      "gives": "WHITEBARRELS",
+      "note": "twelve letters of fodder, exactly what the (5,7) wants"
+     }
+    ],
+    "walkthrough": "'Dished up' does both jobs at once: it is what you do with a snack and it is the instruction. The question mark covers 'white barrels', which is a picture and nothing more.",
+    "definitionFit": "Snack → WELSH RAREBIT: seasoned melted cheese on toast, a light savoury bite eaten between meals rather than served as a course."
+   }
   },
   {
    "id": "12-down",
@@ -256,7 +600,27 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEETHROUGH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SEE-THROUGH",
+    "definition": "Fail to be deceived by",
+    "definition2": "description of audacious dress?",
+    "definitionNote": "The second definition names what the answer does rather than substituting for it: see-through is the description a daring dress attracts, not a thing the dress is.",
+    "blocks": [
+     {
+      "clueFragment": "Fail to be deceived by",
+      "gives": "",
+      "note": "to see through a lie is to look straight past it and not be taken in"
+     },
+     {
+      "clueFragment": "description of audacious dress?",
+      "gives": "",
+      "note": "fabric you can look right through is what makes such a dress daring"
+     }
+    ],
+    "walkthrough": "One phrase, two grammars: a verb you do to a trick, and an adjective you apply to a fabric. Nothing is assembled here — the whole clue is meaning, which is why the hyphen in (3-7) is the only structural clue.",
+    "definitionFit": "Fail to be deceived by → SEE THROUGH: you see through a trick by perceiving what lies behind it, and see-through cloth is literally transparent."
+   }
   },
   {
    "id": "13-across",
@@ -273,7 +637,35 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEMO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MEMO",
+    "definition": "Note",
+    "indicators": [
+     "presented by"
+    ],
+    "indicatorNotes": {
+     "presented by": "Something presented by a person has that person come first, so the writer's letters lead and the rest follows."
+    },
+    "pieces": [
+     "ME",
+     "MO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the writer",
+      "gives": "ME",
+      "note": "the setter composing the clue calls himself the writer"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment — 'hang on a mo'"
+     }
+    ],
+    "walkthrough": "'Second' looks like an ordinal and is really the informal unit of time. A setter referring to himself — as 'the writer', as I, as me — is a convention you will meet in every puzzle.",
+    "definitionFit": "Note → MEMO: short for memorandum, the brief written note circulated round an office, the paperwork sense rather than the musical one."
+   }
   },
   {
    "id": "14-across",
@@ -290,7 +682,29 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MELODIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MELODIST",
+    "definition": "Tunesmith",
+    "indicators": [
+     "revamping"
+    ],
+    "indicatorNotes": {
+     "revamping": "To revamp is to make something over into a fresh shape, and a word made over comes back with its letters resited."
+    },
+    "anagram": {
+     "fodder": "OLD TIMES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "old times",
+      "gives": "OLDTIMES",
+      "note": "eight letters of fodder, exactly the enumeration"
+     }
+    ],
+    "walkthrough": "'Old times' is a nostalgic phrase pressed into service as raw material. Tunesmith follows wordsmith and gunsmith: the pattern names a maker of whatever comes in front.",
+    "definitionFit": "Tunesmith → MELODIST: a melodist is a writer of melodies, and 'tunesmith' is the informal trade name for exactly that craft."
+   }
   },
   {
    "id": "15-down",
@@ -311,7 +725,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "DRAGGEDON",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letters",
+    "answer": "DRAGGED ON",
+    "definition": "kept going",
+    "indicators": [
+     "Last members of",
+     "beset by"
+    ],
+    "indicatorNotes": {
+     "Last members of": "The last member of any group is the one at the end, so each word here gives up only its final letter.",
+     "beset by": "To be beset is to be surrounded on every side, so the creature's letters close right around them."
+    },
+    "pieces": [
+     "DRAG",
+     "GED",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monster",
+      "gives": "DRAGON",
+      "note": "the storybook monster, and a nine-letter answer needs a long container"
+     },
+     {
+      "clueFragment": "daring little band",
+      "gives": "GED",
+      "note": "the closing letters of the three words: darinG littlE banD"
+     }
+    ],
+    "walkthrough": "Three words giving one letter each is the fiddliest kind of fodder, and 'daring little band' is written to read as a description rather than as a list. The monster is the easy half.",
+    "definitionFit": "kept going → DRAGGED ON: an event that dragged on carried tediously past its natural end, the wearying sense of continuing."
+   }
   },
   {
    "id": "16-down",
@@ -332,7 +777,41 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "STOODOUT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STOOD OUT",
+    "definition": "was prominent",
+    "indicators": [
+     "seen around"
+    ],
+    "indicatorNotes": {
+     "seen around": "To be seen around a thing is to have gone the whole way about its outside, so one word wraps completely over the others."
+    },
+    "pieces": [
+     "STO",
+     "ODO",
+     "UT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tubby",
+      "gives": "STOUT",
+      "note": "a stout figure is a tubby one"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "o is the standard abbreviation for ordinary"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party — 'a bit of a do'"
+     }
+    ],
+    "walkthrough": "The surface has someone circling a modest gathering, which is why two of crosswordland's shortest abbreviations read here as plain description. The comma after 'Tubby' is the seam.",
+    "definitionFit": "was prominent → STOOD OUT: to stand out is to be conspicuous among everything beside it, and the past tense matches the 'was'."
+   }
   },
   {
    "id": "17-across",
@@ -349,7 +828,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATHLETIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "ATHLETIC",
+    "definition": "Soccer team",
+    "indicators": [
+     "starts to",
+     "in"
+    ],
+    "indicatorNotes": {
+     "starts to": "A start is the first letter of a word, so each of the three that follow contributes only its opening character.",
+     "in": "'in' puts those initials inside the room named at the end of the clue rather than alongside it."
+    },
+    "pieces": [
+     "AT",
+     "HLE",
+     "TIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "topmost level",
+      "gives": "ATTIC",
+      "note": "the attic is the topmost level of a house"
+     },
+     {
+      "clueFragment": "have lower expectations",
+      "gives": "HLE",
+      "note": "the opening letters of the three words, in the order they come"
+     }
+    ],
+    "walkthrough": "'Starts to have lower expectations' reads as a manager's gloom, which is exactly why nobody counts its initials. The answer is a club name here, not the everyday adjective.",
+    "definitionFit": "Soccer team → ATHLETIC: definition by example — the club name carried by sides such as Wigan, Oldham and Bilbao, rather than the adjective."
+   }
   },
   {
    "id": "18-across",
@@ -366,7 +876,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABUT",
+    "definition": "Join",
+    "indicators": [
+     "led by"
+    ],
+    "indicatorNotes": {
+     "led by": "Whoever leads goes out in front, so the letter standing for the nationality takes first place."
+    },
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "A",
+     "BUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard one-letter abbreviation for American"
+     },
+     {
+      "clueFragment": "except",
+      "gives": "BUT",
+      "note": "'everyone but me' and 'everyone except me' say the same thing"
+     }
+    ],
+    "walkthrough": "The comma after 'Join' is the only mark of where the clue splits, and the surface — someone signing up under an American — depends on your not seeing it.",
+    "definitionFit": "Join → ABUT: two fields abut when their edges touch along a shared boundary, the meeting sense of join rather than fastening together."
+   }
   },
   {
    "id": "19-down",
@@ -383,7 +924,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MINING",
+    "definition": "Industrial activity",
+    "indicators": [
+     "repeatedly",
+     "in"
+    ],
+    "indicatorNotes": {
+     "repeatedly": "Doing a thing repeatedly means doing it more than once, so the short word is written out a second time.",
+     "in": "'in' has the doubled letters land inside the marque's two initials instead of after them."
+    },
+    "pieces": [
+     "M",
+     "ININ",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "classic British car firm",
+      "gives": "MG",
+      "note": "MG, short for Morris Garages, is the classic British sports-car marque"
+     },
+     {
+      "clueFragment": "repeatedly popular",
+      "gives": "ININ",
+      "note": "someone popular is 'in', and here that little word is wanted twice"
+     }
+    ],
+    "walkthrough": "Every word of this reads as a comment on the British motor trade, definition included, so there is no obvious seam. Finding it means asking which two of those words could be an abbreviation.",
+    "definitionFit": "Industrial activity → MINING: extracting coal or ore from underground, one of the heavy industries rather than industry as a whole."
+   }
   },
   {
    "id": "20-across",
@@ -404,7 +976,38 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "GRANDOPENING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GRAND OPENING",
+    "definition": "Launch",
+    "indicators": [
+     "up front"
+    ],
+    "indicatorNotes": {
+     "up front": "Up front means at the head of something, so the money goes before the other chunk rather than after it."
+    },
+    "linkWords": [
+     "having put"
+    ],
+    "pieces": [
+     "GRAND",
+     "OPENING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "$1000",
+      "gives": "GRAND",
+      "note": "a grand is a thousand, in dollars or in pounds"
+     },
+     {
+      "clueFragment": "opportunity",
+      "gives": "OPENING",
+      "note": "an opening is a chance to act"
+     }
+    ],
+    "walkthrough": "'Up front' does double duty: it is the payment idiom the surface wants, and it is the instruction saying which chunk goes first. Money paid up front is exactly how a launch gets funded.",
+    "definitionFit": "Launch → GRAND OPENING: the ceremony on a shop or venue's first day of trading, which is what launching such a place consists of."
+   }
   },
   {
    "id": "21-down",
@@ -421,7 +1024,34 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NICER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "NICER",
+    "definition": "Pleasanter",
+    "indicators": [
+     "to turn up",
+     "in"
+    ],
+    "indicatorNotes": {
+     "to turn up": "Turning a down entry up reads its letters from the bottom of the column back towards the top.",
+     "in": "'in' says the word is sitting inside the two that follow rather than being defined by them."
+    },
+    "subReversals": [
+     {
+      "from": "RECIN",
+      "to": "NICER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Empire Cinema",
+      "gives": "RECIN",
+      "note": "empi(RE CIN)ema holds the run, and turning it up the column reverses it"
+     }
+    ],
+    "walkthrough": "A cinema called the Empire is such an ordinary thing to name that the letters spanning the two words go unread. The question mark admits the picture house is invented for the occasion.",
+    "definitionFit": "Pleasanter → NICER: the comparative of nice, and the -er on both words is what keeps one substitutable for the other."
+   }
   },
   {
    "id": "22-down",
@@ -438,7 +1068,36 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HELM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HELM",
+    "definition": "Direct",
+    "indicators": [
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "cutting": "Something cutting into a thing passes through the middle of it, so the letter lands between the outer two."
+    },
+    "pieces": [
+     "HE",
+     "L",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "border",
+      "gives": "HEM",
+      "note": "a hem is the finished border of a garment"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l is the standard abbreviation for line, as in a reference to l. 12"
+     }
+    ],
+    "walkthrough": "'Direct line' reads as a single phrase, which is the trap: the definition stops after the first word. L for line is worth banking — it recurs constantly.",
+    "definitionFit": "Direct → HELM: to helm a ship or a project is to steer it, the verb English took from the wheel a steersman holds."
+   }
   },
   {
    "id": "23-across",
@@ -455,7 +1114,44 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUNCIO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "NUNCIO",
+    "definition": "papal ambassador",
+    "indicators": [
+     "leading",
+     "welcoming"
+    ],
+    "indicatorNotes": {
+     "leading": "To lead is to go at the head of a procession, so the convent's letters open the answer.",
+     "welcoming": "A firm welcoming a visitor takes them indoors, so the numeral is set between its two letters."
+    },
+    "pieces": [
+     "NUN",
+     "C",
+     "I",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Convent member",
+      "gives": "NUN",
+      "note": "the resident of a convent is a nun"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the abbreviation tacked onto a firm's name"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one in Roman numerals"
+     }
+    ],
+    "walkthrough": "The surface reads as a church committee and every word of it is doing double duty. The definition runs to two words at the very end, which is where a long clue usually leaves it.",
+    "definitionFit": "papal ambassador → NUNCIO: the Vatican's permanent diplomatic envoy to a country, the Roman Catholic church's own title for such a post."
+   }
   },
   {
    "id": "24-across",
@@ -476,7 +1172,42 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
     ]
    },
    "solution": "SKINDEEP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SKIN-DEEP",
+    "definition": "Superficial",
+    "indicators": [
+     "gripped by"
+    ],
+    "indicatorNotes": {
+     "gripped by": "To be gripped by something is to be held inside its grasp, so one word closes over the other."
+    },
+    "pieces": [
+     "S",
+     "KIND",
+     "EE",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishopric",
+      "gives": "SEE",
+      "note": "a bishop's see is the district he presides over"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "KIND",
+      "note": "'that type of thing' and 'that kind of thing' are interchangeable"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "p is the physicist's abbreviation for power"
+     }
+    ],
+    "walkthrough": "The enumeration (4-4) says hyphenated rather than two loose words, which narrows the field a long way before any letters arrive. The surface — a diocese flexing its muscle — hides a compound adjective.",
+    "definitionFit": "Superficial → SKIN-DEEP: reaching no further than the surface, as in the proverb that beauty is only skin-deep."
+   }
   },
   {
    "id": "25-across",
@@ -493,7 +1224,44 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARLTON",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "CHARLTON",
+    "definition": "footballing legend",
+    "indicators": [
+     "initially",
+     "brought in"
+    ],
+    "indicatorNotes": {
+     "initially": "'Initially' asks for the opening letter alone, so League contributes one character and no more.",
+     "brought in": "To be brought in is to be taken inside, so that letter lodges within the word beside it."
+    },
+    "pieces": [
+     "CHAR",
+     "L",
+     "T",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graph",
+      "gives": "CHART",
+      "note": "a chart is a graph"
+     },
+     {
+      "clueFragment": "League initially",
+      "gives": "L",
+      "note": "the first letter of League"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "'a paper on cricket' and 'a paper about cricket' say the same thing"
+     }
+    ],
+    "walkthrough": "The whole clue reads as sports journalism, definition included, so there is no obvious seam to pull at. Reaching the surname means trusting 'initially' over the story the words are telling.",
+    "definitionFit": "footballing legend → CHARLTON: definition by example — Bobby Charlton, Manchester United and England's 1966 World Cup winner, named by surname alone."
+   }
   },
   {
    "id": "26-across",
@@ -510,7 +1278,35 @@ window.CRYPTIC_PUZZLES["1395"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENOME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GENOME",
+    "definition": "Set of chromosomes",
+    "indicators": [
+     "at first ignored"
+    ],
+    "indicatorNotes": {
+     "at first ignored": "What comes at first is the opening letter, and passing over it leaves the remainder of the word behind."
+    },
+    "pieces": [
+     "GEN",
+     "OME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British informal for information — 'give me the gen'"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "OME",
+      "note": "SOME with its opening S taken away"
+     }
+    ],
+    "walkthrough": "The dash is the only signpost, and after it every word is doing letter work. 'Some' looks like a quantity word and is really four letters waiting to be trimmed.",
+    "definitionFit": "Set of chromosomes → GENOME: an organism's complete genetic complement, which is precisely what a full complement of chromosomes carries."
+   }
   }
  ]
 } /*JSON-END*/;
