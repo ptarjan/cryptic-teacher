@@ -30,7 +30,41 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIMP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LIMP",
+    "definition": "spent",
+    "indicators": [
+     "entertaining"
+    ],
+    "indicatorNotes": {
+     "entertaining": "To entertain a guest is to have them inside the house, so what follows is kept within rather than set beside."
+    },
+    "pieces": [
+     "L",
+     "IM",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fifty",
+      "gives": "L",
+      "note": "L is fifty in Roman numerals"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "IM",
+      "note": "Everyman is the setter, and a setter speaking of himself says I, so Everyman's is I'm"
+     },
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "p is the coin's own abbreviation, as in 50p"
+     }
+    ],
+    "walkthrough": "Everyman signs his own clues most weeks, and the trick is always the same one: his name is standing in for the word I.",
+    "definitionFit": "spent → LIMP: the sense of a runner at the finish, drained of all stiffness rather than merely tired."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +85,32 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
     ]
    },
    "solution": "IRONEDOUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IRONED OUT",
+    "definition": "cleared up",
+    "indicators": [
+     "Organised"
+    ],
+    "indicatorNotes": {
+     "Organised": "To organise is to put things into an order somebody chose, and the order chosen is never the one they arrived in."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "ROUTINE DO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "routine do",
+      "gives": "IRONEDOUT",
+      "note": "the nine letters of ROUTINE DO, set out afresh"
+     }
+    ],
+    "walkthrough": "The surface is an office party being planned, and the definition is the last two words, which read as more of the same sentence.",
+    "definitionFit": "cleared up → IRONED OUT: the laundry metaphor, where a wrinkle in a plan is pressed flat until nothing catches on it."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +127,27 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRESSES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PRESSES",
+    "definition": "Urges",
+    "definition2": "drinks",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Urges",
+      "gives": "",
+      "note": "to press somebody is to urge them, as in pressing a guest to stay for one more"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "",
+      "note": "the other sense is the pressé, the bottled drink of pressed fruit that turns up as elderflower or ginger"
+     }
+    ],
+    "walkthrough": "Two words, two dictionaries, and no wordplay to hunt for. The second sense comes from the French for pressed and reached English through a menu.",
+    "definitionFit": "Urges → PRESSES, as pressing a point is urging it; drinks → PRESSES, a pressé being a drink of pressed fruit."
+   }
   },
   {
    "id": "4-across",
@@ -85,7 +164,24 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LISP",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "LISP",
+    "definition": "Condition in which frost becomes frothed?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "frost becomes frothed",
+      "note": "read as weather it goes nowhere, since a hard freeze does not turn into foam"
+     },
+     {
+      "clueFragment": "Condition in which",
+      "note": "not a state of the air but of the mouth, and the two words are the same word said two ways"
+     }
+    ],
+    "walkthrough": "There are no letters to assemble. Say the first word with the speech fault the answer names and what comes out is the second word.",
+    "definitionFit": "The whole clue is the definition: the speech habit turns every s into a th, so frost leaves the mouth sounding like frothed."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +198,27 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOOSELY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LOOSELY",
+    "definition": "In vague sense",
+    "definition2": "how post-diet clothes fit",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "In vague sense",
+      "gives": "",
+      "note": "the figurative use, as in speaking loosely, where the words are not meant to be pinned down"
+     },
+     {
+      "clueFragment": "how post-diet clothes fit",
+      "gives": "",
+      "note": "the literal use: slack, with room to spare between the cloth and the wearer"
+     }
+    ],
+    "walkthrough": "One adverb pulling in two directions — imprecision and slackness — which are the same idea applied to words and to cloth.",
+    "definitionFit": "Both halves are one adverb: speaking in a vague sense is speaking without a tight fit to the facts, exactly as slack clothing hangs."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +235,46 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SYNOD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + reversal",
+    "answer": "SYNOD",
+    "definition": "ecclesiastical council",
+    "indicators": [
+     "Vacuous",
+     "getting promotion"
+    ],
+    "indicatorNotes": {
+     "Vacuous": "Something vacuous is hollow, empty through the middle, so the word beside it keeps only the letters at its two ends.",
+     "getting promotion": "A promotion lifts you up the ladder, and in a down clue a word lifted up is read from the bottom."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SY",
+     "NOD"
+    ],
+    "subReversals": [
+     {
+      "from": "DON",
+      "to": "NOD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silly",
+      "gives": "SY",
+      "note": "silly hollowed out keeps only its first and last letters"
+     },
+     {
+      "clueFragment": "academic",
+      "gives": "NOD",
+      "note": "an academic is a don, and raised up the column DON reads NOD"
+     }
+    ],
+    "walkthrough": "'Don' is the crossword's word for any academic, Oxbridge or not, and being three letters it nearly always arrives turned round or buried.",
+    "definitionFit": "ecclesiastical council → SYNOD: the assembly of clergy that governs a church, that body's own name for its parliament."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +291,30 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STERNA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "STERNA",
+    "definition": "breastbones",
+    "indicators": [
+     "We hear"
+    ],
+    "indicatorNotes": {
+     "We hear": "What we hear is not what is written down, so the match the clue wants is a match of sound alone."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harder",
+      "soundsLike": "STERNER",
+      "gives": "STERNA",
+      "note": "harder is sterner, and said aloud that word lands on the Latin plural of sternum"
+     }
+    ],
+    "walkthrough": "English lets the r at the end of sterner go unsounded, which is the whole reason a comparative adjective and an anatomical plural can share a noise.",
+    "definitionFit": "breastbones → STERNA: the sternum is the flat bone down the front of the chest, and anatomy keeps its Latin plural."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +331,26 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNISON",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "UNISON",
+    "definition": "Agreement",
+    "indicators": [
+     "accepted by"
+    ],
+    "indicatorNotes": {
+     "accepted by": "To accept a thing is to take it in and hold it, so the letters are already sitting inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "leprechaun is ongoing",
+      "gives": "UNISON",
+      "note": "the run starts inside the first word and stops inside the last: leprecha(UN IS ON)going"
+     }
+    ],
+    "walkthrough": "A hidden answer that spans three words is the hardest kind to spot, because the eye reads whole words before it reads letters.",
+    "definitionFit": "Agreement → UNISON: singing in unison is everybody on one note, and the word carried that sense across to people who think alike."
+   }
   },
   {
    "id": "8-across",
@@ -176,7 +373,27 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOOTONESOWNHORN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TOOT ONE'S OWN HORN",
+    "definition": "Swagger",
+    "definition2": "as sax player will do",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Swagger",
+      "gives": "",
+      "note": "the figurative sense: to boast, to talk yourself up in company"
+     },
+     {
+      "clueFragment": "as sax player will do",
+      "gives": "",
+      "note": "the literal reading, where the horn is the instrument and the tooting is simply playing it"
+     }
+    ],
+    "walkthrough": "The joke is that a saxophonist does this without boasting at all: the instrument really is his, and blowing it is the job.",
+    "definitionFit": "Swagger names the phrase's boastful sense; the other half is the literal one, a player blowing an instrument that belongs to him."
+   }
   },
   {
    "id": "9-down",
@@ -198,7 +415,48 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONCLOUDNINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ON CLOUD NINE",
+    "definition": "Happy",
+    "indicators": [
+     "to take in"
+    ],
+    "indicatorNotes": {
+     "to take in": "A household that takes somebody in puts them up within its walls, so everything named next goes inside the word before."
+    },
+    "pieces": [
+     "ONC",
+     "LOUD",
+     "N",
+     "IN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formerly",
+      "gives": "ONCE",
+      "note": "formerly is once, and it opens up after its third letter to make room"
+     },
+     {
+      "clueFragment": "brash",
+      "gives": "LOUD",
+      "note": "a brash person is a loud one"
+     },
+     {
+      "clueFragment": "nephew",
+      "gives": "N",
+      "note": "nephew is shortened to its own first letter here, the way a family tree writes it"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "somebody at home is in, which is the crossword's favourite two letters for it"
+     }
+    ],
+    "walkthrough": "Three separate pieces go into the one gap, which is why the dashes are worth noticing: they fence 'formerly' off as the word being opened.",
+    "definitionFit": "Happy → ON CLOUD NINE: the idiom for elation so complete that it lifts you off the ground, far past merely pleased."
+   }
   },
   {
    "id": "10-down",
@@ -220,7 +478,32 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
     ]
    },
    "solution": "OPENANDSHUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OPEN-AND-SHUT",
+    "definition": "easily solved",
+    "indicators": [
+     "Dancing"
+    ],
+    "indicatorNotes": {
+     "Dancing": "Dancers keep swapping places with one another, and letters set dancing do exactly that to their order."
+    },
+    "linkWords": [
+     "That's"
+    ],
+    "anagram": {
+     "fodder": "UPON THE SAND"
+    },
+    "blocks": [
+     {
+      "clueFragment": "upon the sand",
+      "gives": "OPENANDSHUT",
+      "note": "the eleven letters of UPON THE SAND, re-laid"
+     }
+    ],
+    "walkthrough": "A beach scene turns into a courtroom verdict. The enumeration's hyphens are the clue that the answer is one adjective and not three words.",
+    "definitionFit": "easily solved → OPEN-AND-SHUT: said of a case whose evidence settles it at once, leaving no argument to be had."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +520,27 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROCKERS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROCKERS",
+    "definition": "Horses for children",
+    "definition2": "who ride motorbikes",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Horses for children",
+      "gives": "",
+      "note": "a rocker is a rocking horse, the nursery toy mounted on curved runners"
+     },
+     {
+      "clueFragment": "who ride motorbikes",
+      "gives": "",
+      "note": "the leather-jacketed bikers of the sixties, the mods' opposite number"
+     }
+    ],
+    "walkthrough": "Both senses are British and both are dated, which is the setter's joke: a nursery toy and a seaside gang, and one word for the pair.",
+    "definitionFit": "Horses for children → ROCKERS as rocking horses; who ride motorbikes → ROCKERS, the sixties bikers who fought mods at seaside resorts."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +557,34 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDLESS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ENDLESS",
+    "definition": "going on forever",
+    "indicators": [
+     "gone"
+    ],
+    "indicatorNotes": {
+     "gone": "What has gone is no longer there, so the letters named beside it are simply never written down."
+    },
+    "pieces": [
+     "ENDLESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like Billy-No-Mates",
+      "gives": "ENDLESS",
+      "note": "Billy No-Mates has no friends at all, so being like him is being FRIENDLESS, and seven of those letters survive"
+     },
+     {
+      "clueFragment": "Friday's",
+      "gives": "FRI",
+      "note": "Fri is the diary's abbreviation for Friday, and those three letters come off the front"
+     }
+    ],
+    "walkthrough": "The dash is doing the work of an equals sign: everything to the left of it builds the word and everything to the right defines it.",
+    "definitionFit": "going on forever → ENDLESS: having no end to reach, in time or in patience, which is a stronger claim than merely long."
+   }
   },
   {
    "id": "13-across",
@@ -271,7 +601,29 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMOROUSLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AMOROUSLY",
+    "definition": "in licentious manner",
+    "indicators": [
+     "declined"
+    ],
+    "indicatorNotes": {
+     "declined": "A thing that has declined has slipped from the state it was in, and these letters have slipped out of the order they were given."
+    },
+    "anagram": {
+     "fodder": "MORALS YOU"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Morals you",
+      "gives": "AMOROUSLY",
+      "note": "the nine letters of MORALS YOU, rearranged"
+     }
+    ],
+    "walkthrough": "The surface says somebody turned down an offer of principles; the wordplay says the principles themselves came apart.",
+    "definitionFit": "in licentious manner → AMOROUSLY: acting out of desire rather than affection, the adverb wanted when the love is the improper kind."
+   }
   },
   {
    "id": "14-across",
@@ -288,7 +640,30 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAWN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DRAWN",
+    "definition": "Depicted",
+    "definition2": "haggard",
+    "indicators": [],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depicted",
+      "gives": "",
+      "note": "the artist's sense: set down in pencil or ink"
+     },
+     {
+      "clueFragment": "haggard",
+      "gives": "",
+      "note": "the face's sense: pulled tight and hollow by strain or illness"
+     }
+    ],
+    "walkthrough": "Both come off the same verb to pull — a line pulled across paper, a face pulled thin — which is why one word can carry them.",
+    "definitionFit": "Depicted → DRAWN in the sense of sketched; haggard → DRAWN as a face is, tightened and gaunt with strain."
+   }
   },
   {
    "id": "14-down",
@@ -305,7 +680,32 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEPRAVITY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DEPRAVITY",
+    "definition": "Sinfulness",
+    "indicators": [
+     "drunken"
+    ],
+    "indicatorNotes": {
+     "drunken": "Somebody drunken cannot walk a straight line, and letters in that state will not hold the line they were given either."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "VE DAY TRIP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "VE Day trip",
+      "gives": "DEPRAVITY",
+      "note": "the nine letters of VE DAY TRIP, reordered"
+     }
+    ],
+    "walkthrough": "VE Day is the eighth of May 1945, so the surface is a street party outing — exactly the innocent picture the definition is not describing.",
+    "definitionFit": "Sinfulness → DEPRAVITY: moral corruption of the settled kind, a character gone bad rather than one lapse."
+   }
   },
   {
    "id": "15-across",
@@ -328,7 +728,33 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CADET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CADET",
+    "definition": "Military trainee",
+    "indicators": [],
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "CAD",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dishonourable type",
+      "gives": "CAD",
+      "note": "a cad is a man who behaves dishonourably, the old word for one"
+     },
+     {
+      "clueFragment": "and French",
+      "gives": "ET",
+      "note": "et is the French for and"
+     }
+    ],
+    "walkthrough": "A clue in two halves with the join hidden inside an apostrophe. Naming a language after a word is the standard way of asking for its translation.",
+    "definitionFit": "Military trainee → CADET: a young officer under instruction, still learning the trade rather than holding a commission in it."
+   }
   },
   {
    "id": "15-down",
@@ -345,7 +771,26 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHOICE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CHOICE",
+    "definition": "Delicious",
+    "indicators": [
+     "serving of"
+    ],
+    "indicatorNotes": {
+     "serving of": "A serving is a helping taken out of something larger, so only part of what follows is wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "gazpacho I celebrated",
+      "gives": "CHOICE",
+      "note": "the letters run straight across two gaps: gazpa(CHO I CE)lebrated"
+     }
+    ],
+    "walkthrough": "A one-letter word in the middle is the best cover a hidden answer can have, because the eye treats a lone 'I' almost as punctuation.",
+    "definitionFit": "Delicious → CHOICE: the grocer's sense of picked out as the best of the crop, which is how a choice cut earns its name."
+   }
   },
   {
    "id": "16-across",
@@ -362,7 +807,48 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTIPODES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ANTIPODES",
+    "definition": "here?",
+    "definitionNote": "The Antipodes is a plural-looking name for one region, so a bare 'here' points at it as it would point at any single place.",
+    "indicators": [
+     "rudely"
+    ],
+    "indicatorNotes": {
+     "rudely": "To do a thing rudely is to do it with no respect for how it ought to be done, and letters handled that way come back out of order."
+    },
+    "pieces": [
+     "A",
+     "NTIPODE",
+     "S"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "POINTED",
+      "gives": "NTIPODE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the single-letter abbreviation for Australia"
+     },
+     {
+      "clueFragment": "pointed",
+      "gives": "NTIPODE",
+      "note": "the seven letters of POINTED, shuffled"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "walkthrough": "The dash sets the definition apart, and 'here' is asked from wherever the reader happens to be sitting — each hemisphere is the other's far side.",
+    "definitionFit": "here? → ANTIPODES: the region diametrically opposite your own, so which end of the world it names depends on who is asking."
+   }
   },
   {
    "id": "16-down",
@@ -379,7 +865,29 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AROUSED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AROUSED",
+    "definition": "titillated",
+    "indicators": [
+     "topless"
+    ],
+    "indicatorNotes": {
+     "topless": "The top of a down entry is the letter standing at its head, and topless says that letter is missing."
+    },
+    "pieces": [
+     "AROUSED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revelled",
+      "gives": "AROUSED",
+      "note": "revelled is CAROUSED, and with the C at its head gone these seven letters remain"
+     }
+    ],
+    "walkthrough": "Carouse for revel is a word crosswords keep alive almost single-handed, and here the surface leans on the racier sense of all three words at once.",
+    "definitionFit": "titillated → AROUSED: a plain synonym at the milder end, to arouse being to stir feeling, with titillate naming the kind stirred."
+   }
   },
   {
    "id": "17-down",
@@ -400,7 +908,44 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
     ]
    },
    "solution": "THROWUP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "THROW UP",
+    "definition": "Reveal",
+    "indicators": [
+     "ultimately",
+     "included in"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What comes ultimately comes at the very end, so the letter wanted is the one the word finishes on.",
+     "included in": "Whatever is included in a thing sits within its boundaries, so the letters before it go inside the word after it."
+    },
+    "pieces": [
+     "T",
+     "H",
+     "ROW",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "source of wool",
+      "gives": "TUP",
+      "note": "a tup is a ram, and the fleece comes off him"
+     },
+     {
+      "clueFragment": "stylish",
+      "gives": "H",
+      "note": "the letter stylish finishes on"
+     },
+     {
+      "clueFragment": "line of stitching",
+      "gives": "ROW",
+      "note": "stitches are worked in rows"
+     }
+    ],
+    "walkthrough": "'Tup' for a ram is worth banking: setters reach for it whenever they want a T and a P with a gap open between them.",
+    "definitionFit": "Reveal → THROW UP: the sense in 'the search threw up new evidence' — to bring something to the surface where it can be seen."
+   }
   },
   {
    "id": "18-down",
@@ -417,7 +962,47 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAGGED",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SAGGED",
+    "definition": "hung slackly",
+    "indicators": [
+     "to visit",
+     "retrospective"
+    ],
+    "indicatorNotes": {
+     "to visit": "A visitor comes inside the house, so the letter doing the visiting goes within the word it calls on.",
+     "retrospective": "A retrospective looks back over what came before, and a word looked back over is read the other way round."
+    },
+    "linkWords": [
+     "that's"
+    ],
+    "pieces": [
+     "SAG",
+     "G",
+     "ED"
+    ],
+    "subReversals": [
+     {
+      "from": "DEGAS",
+      "to": "SAGED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impressionist",
+      "gives": "SAGED",
+      "note": "the Impressionist is Degas, and his name looked back over gives these five letters"
+     },
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good, as on a school report"
+     }
+    ],
+    "walkthrough": "A painter's name is raw material as often as it is a person, and 'retrospective' is doing gallery duty on the surface and letter duty underneath.",
+    "definitionFit": "hung slackly → SAGGED: what a rope or a hemline does when nothing holds it taut, sinking in the middle under its own weight."
+   }
   },
   {
    "id": "19-across",
@@ -434,7 +1019,44 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORINOCO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ORINOCO",
+    "definition": "river to the Atlantic",
+    "indicators": [
+     "arranged"
+    ],
+    "indicatorNotes": {
+     "arranged": "To arrange is to settle things into an order of your own choosing, which is not the order they came in."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "ORINO",
+     "CO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ORION",
+      "gives": "ORINO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orion",
+      "gives": "ORINO",
+      "note": "the five letters of the hunter's name, reordered"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation on any firm's letterhead"
+     }
+    ],
+    "walkthrough": "A constellation turns into a waterway with one letter moved, and the definition is exact rather than decorative: this one does not feed the Amazon.",
+    "definitionFit": "river to the Atlantic → ORINOCO: the great Venezuelan waterway, emptying through a huge delta into the ocean's western edge."
+   }
   },
   {
    "id": "20-down",
@@ -455,7 +1077,44 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
     ]
    },
    "solution": "OWNUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "OWN UP",
+    "definition": "Confess",
+    "indicators": [
+     "backfires"
+    ],
+    "indicatorNotes": {
+     "backfires": "Something that backfires comes out of the wrong end, and a word sent that way is read from its last letter first."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "OW",
+     "NUP"
+    ],
+    "subReversals": [
+     {
+      "from": "PUN",
+      "to": "NUP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painful response",
+      "gives": "OW",
+      "note": "the noise you make when something hurts"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "NUP",
+      "note": "a joke made on words is a pun, turned round here"
+     }
+    ],
+    "walkthrough": "The surface is a gag falling flat; the wordplay has the same word doing it literally, which is about as neat as a five-letter clue gets.",
+    "definitionFit": "Confess → OWN UP: the phrasal verb for admitting a fault, where own means acknowledge as yours rather than possess."
+   }
   },
   {
    "id": "21-across",
@@ -472,7 +1131,35 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROADHOG",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "ROAD HOG",
+    "definition": "'ravenous', offensively avaricious driver hindering others gallingly?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "What is primary stands first, so what is taken from each word is the letter at its head."
+    },
+    "pieces": [
+     "R",
+     "O",
+     "A",
+     "D",
+     "H",
+     "O",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'ravenous', offensively avaricious driver hindering others gallingly",
+      "gives": "ROADHOG",
+      "note": "the initials of the seven words in order: ravenous, offensively, avaricious, driver, hindering, others, gallingly"
+     }
+    ],
+    "walkthrough": "Seven words, seven initials, and the sentence still describes the answer exactly. The quotation marks round the first word are pure surface decoration.",
+    "definitionFit": "The whole clue reads straight: a driver who takes more than his share of the road and holds up everyone stuck behind."
+   }
   },
   {
    "id": "22-across",
@@ -495,7 +1182,29 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
     ]
    },
    "solution": "CLEANASAWHISTLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CLEAN AS A WHISTLE",
+    "definition": "Spotless",
+    "indicators": [
+     "resolved"
+    ],
+    "indicatorNotes": {
+     "resolved": "To resolve something is to break it down into the parts it is made of, and parts broken out can be put back in any order."
+    },
+    "anagram": {
+     "fodder": "ALL HESITANCE WAS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "all hesitance was",
+      "gives": "CLEANASAWHISTLE",
+      "note": "the fifteen letters of ALL HESITANCE WAS, rebuilt"
+     }
+    ],
+    "walkthrough": "The colon stands in for an equals sign, so the one word before it is the meaning and everything after it is the machinery.",
+    "definitionFit": "Spotless → CLEAN AS A WHISTLE: the idiom for something with nothing whatever on it, used of a criminal record as readily as of a kitchen."
+   }
   },
   {
    "id": "23-across",
@@ -512,7 +1221,30 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPUD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPUD",
+    "definition": "potato",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "PUD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing label's abbreviation for small"
+     },
+     {
+      "clueFragment": "dish that's sweet",
+      "gives": "PUD",
+      "note": "pud is short for pudding, the sweet course at the end of a meal"
+     }
+    ],
+    "walkthrough": "Two abbreviations inside four squares. 'Sweet' as a noun is the British word for dessert, which is what makes the pudding reading fair.",
+    "definitionFit": "potato → SPUD: the everyday informal name for one, borrowed from the spade-like tool once used to dig them up."
+   }
   },
   {
    "id": "24-across",
@@ -529,7 +1261,37 @@ window.CRYPTIC_PUZZLES["4161"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAYS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PAYS",
+    "definition": "is profitable",
+    "indicators": [
+     "cut"
+    ],
+    "indicatorNotes": {
+     "cut": "To cut a thing is to take a piece off it, and what is taken off here is the single letter named just before."
+    },
+    "linkWords": [
+     "After"
+    ],
+    "pieces": [
+     "PAYS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre work",
+      "gives": "PAYS",
+      "note": "the work put on in a theatre is PLAYS, and with the L cut out these four letters remain"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l is the standard abbreviation for line, as in a poem's l.4"
+     }
+    ],
+    "walkthrough": "An actor's line and a printed line share one abbreviation, and the theatrical surface is built to make you read the wrong one.",
+    "definitionFit": "is profitable → PAYS: the intransitive sense in 'crime doesn't pay', where the activity itself returns more than it costs."
+   }
   }
  ]
 } /*JSON-END*/;
