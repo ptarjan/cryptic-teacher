@@ -34,7 +34,32 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
     ]
    },
    "solution": "NEARMISS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NEAR MISS",
+    "definition": "close to a disaster",
+    "indicators": [
+     "incoherent"
+    ],
+    "indicatorNotes": {
+     "incoherent": "Something incoherent has nothing holding it together, so its letters are free to fall anywhere."
+    },
+    "linkWords": [
+     "that's"
+    ],
+    "anagram": {
+     "fodder": "SEMINARS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Seminar's",
+      "gives": "SEMINARS",
+      "note": "the eight letters of the word, apostrophe ignored, are the whole of the mixture"
+     }
+    ],
+    "walkthrough": "The colon does the misdirecting: it makes what follows sound like a verdict on the seminar rather than the definition of the answer.",
+    "definitionFit": "close to a disaster → NEAR MISS: the phrase names the accident that almost happened, so the miss is measured by how nearly it was a hit."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +76,30 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOODLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NOODLE",
+    "definition": "Ribbon",
+    "definition2": "simpleton",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ribbon",
+      "gives": "",
+      "note": "a flat ribbon of pasta, the kind that comes dried in a nest"
+     },
+     {
+      "clueFragment": "simpleton",
+      "gives": "",
+      "note": "calling somebody a noodle is a mild old word for a fool"
+     }
+    ],
+    "walkthrough": "Nothing to take apart: 'for' is only joinery, and the trick is that a word out of the kitchen doubles as a gentle Victorian insult.",
+    "definitionFit": "Ribbon → NOODLE: a flat strip of pasta; simpleton → NOODLE: the same word used of a person with nothing much in their head."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +116,29 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMERICANO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AMERICANO",
+    "definition": "Coffee",
+    "indicators": [
+     "brewing"
+    ],
+    "indicatorNotes": {
+     "brewing": "A drink left brewing is churning about in the pot, and letters churning about do not come out in the order they went in."
+    },
+    "anagram": {
+     "fodder": "NICE AROMA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nice aroma",
+      "gives": "NICE AROMA",
+      "note": "nine letters straight off the page and into the mixture"
+     }
+    ],
+    "walkthrough": "Every word of the surface is about coffee, which is why the instruction hides so well: 'brewing' is doing kitchen duty and letter duty at once.",
+    "definitionFit": "Coffee → AMERICANO: definition by example, an espresso let down with hot water and named for the soldiers who asked for it that way."
+   }
   },
   {
    "id": "3-down",
@@ -91,7 +161,29 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAESTRI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MAESTRI",
+    "definition": "Musicians",
+    "indicators": [
+     "playing"
+    ],
+    "indicatorNotes": {
+     "playing": "To play with something is to move it about for amusement, and letters played with end up somewhere other than where they started."
+    },
+    "anagram": {
+     "fodder": "ARTEMIS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Artemis",
+      "gives": "ARTEMIS",
+      "note": "seven letters of a title, italicised because it is a work being performed"
+     }
+    ],
+    "walkthrough": "Italics in an Everyman clue usually flag a title or a foreign word, and here the title is nothing but raw material for the shuffle.",
+    "definitionFit": "Musicians → MAESTRI: the Italian plural of maestro, kept for masters of the art — conductors and virtuosi rather than anyone in the back row."
+   }
   },
   {
    "id": "4-down",
@@ -113,7 +205,39 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHORTANDSWEET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHORT AND SWEET",
+    "definition": "not outstaying welcome",
+    "indicators": [],
+    "linkWords": [
+     "but"
+    ],
+    "pieces": [
+     "SHORT",
+     "AND",
+     "SWEET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps a whisky",
+      "gives": "SHORT",
+      "note": "a short is a measure of spirits, and 'perhaps' warns that whisky is only one example of one"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "one thing with another is one thing and another"
+     },
+     {
+      "clueFragment": "some ice cream",
+      "gives": "SWEET",
+      "note": "a sweet is the pudding course, of which ice cream is one helping"
+     }
+    ],
+    "walkthrough": "Thirteen letters out of a bar order and a dessert menu. The definition sits at the far end and reads as part of the same evening, which is what buries it.",
+    "definitionFit": "not outstaying welcome → SHORT AND SWEET: the idiom for something brief enough to be enjoyed, exactly the visit that leaves before it becomes a nuisance."
+   }
   },
   {
    "id": "5-across",
@@ -136,7 +260,36 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGHAST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "AGHAST",
+    "definition": "horrified",
+    "indicators": [
+     "checks out of",
+     "dilapidated"
+    ],
+    "indicatorNotes": {
+     "checks out of": "A guest who checks out of a hotel leaves it, and these two letters leave the word in exactly that way.",
+     "dilapidated": "A dilapidated building has fallen out of its proper shape, and so have the letters left behind."
+    },
+    "anagram": {
+     "fodder": "GASTHA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the everyday shorthand for American, and it is what departs"
+     },
+     {
+      "clueFragment": "Gasthaus",
+      "gives": "GASTHA",
+      "note": "the German guest house loses its U and its S, leaving six letters to be shaken"
+     }
+    ],
+    "walkthrough": "The italicised German word is chosen because it has an American already lodged in it, so the tourist of the surface and the mechanism underneath are the same picture.",
+    "definitionFit": "horrified → AGHAST: struck speechless with shock, the adjective for a face caught in the moment rather than for a considered opinion."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +306,34 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GALAHAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GALAHAD",
+    "definition": "noble type",
+    "indicators": [],
+    "linkWords": [
+     "with",
+     "that's"
+    ],
+    "pieces": [
+     "GALA",
+     "HAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Festivity",
+      "gives": "GALA",
+      "note": "a gala is a festivity, a day of races or a grand night out"
+     },
+     {
+      "clueFragment": "bore",
+      "gives": "HAD",
+      "note": "she bore three children is she had three children — bore as the past of bear"
+     }
+    ],
+    "walkthrough": "'Bore' looks like the tedious guest at the party, which is the joke: a dull evening on the surface, the purest knight of the Round Table underneath.",
+    "definitionFit": "noble type → GALAHAD: definition by example, and the name has since become a common noun for any high-minded, chivalrous man."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +350,36 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALARM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALARM",
+    "definition": "Fear",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "L",
+     "ARM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value, one letter"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "L",
+      "note": "L is the standard shortening of long, the same L that sizes a long leg on a pair of trousers"
+     },
+     {
+      "clueFragment": "tentacle",
+      "gives": "ARM",
+      "note": "an octopus's tentacles are its arms"
+     }
+    ],
+    "walkthrough": "The surface offers one creature and the wordplay is three separate pieces laid end to end, with the definition standing alone at the front.",
+    "definitionFit": "Fear → ALARM: not terror but the sudden sense that something is wrong, which is exactly what a bell of that name is fitted to produce."
+   }
   },
   {
    "id": "8-down",
@@ -191,7 +400,26 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEANDES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "THE ANDES",
+    "definition": "somewhere in S America",
+    "indicators": [
+     "Serving of"
+    ],
+    "indicatorNotes": {
+     "Serving of": "A serving is a portion cut out of something larger, so the letters are taken from the middle of the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "absinthe and espresso",
+      "gives": "THE ANDES",
+      "note": "the run crosses three words in order: absin-THE, then AND, then ES-presso"
+     }
+    ],
+    "walkthrough": "Two drinks on a menu with a mountain range lying across them. Eight letters is a long hide, and the join at 'and' is the piece the eye skates over.",
+    "definitionFit": "somewhere in S America → THE ANDES: the mountain range running the length of the continent, so a vague 'somewhere' does the work of a map reference."
+   }
   },
   {
    "id": "9-across",
@@ -213,7 +441,27 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONESECONDPLEASE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ONE SECOND PLEASE",
+    "definition": "Dueller's request",
+    "definition2": "give me a mo",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Dueller's request",
+      "gives": "",
+      "note": "a duellist needs a second, the friend who attends him at the field, so that is the person he asks for"
+     },
+     {
+      "clueFragment": "give me a mo",
+      "gives": "",
+      "note": "a mo is a moment, and asking politely for one is the everyday sense of the phrase"
+     }
+    ],
+    "walkthrough": "The colon looks like an announcement and is really the seam between two readings of the same fifteen letters: one asks for a person, the other for a moment.",
+    "definitionFit": "A duellist's second is the attendant he must ask for, while the same words in ordinary use are simply a polite plea for a moment's delay."
+   }
   },
   {
    "id": "10-down",
@@ -234,7 +482,24 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
     ]
    },
    "solution": "DENTALSURGEON",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "DENTAL SURGEON",
+    "definition": "If I work hard, I get a little plaque",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "If I work hard",
+      "note": "the surface offers a diligent employee, the sort whose long service is eventually recognised"
+     },
+     {
+      "clueFragment": "I get a little plaque",
+      "note": "as a reward that is an engraved plate on the wall; the setter means the soft film that forms on teeth, which is a day's work to remove"
+     }
+    ],
+    "walkthrough": "No wordplay to find here, only a pun on one word. The 'I' of the clue is the person speaking, so the whole sentence has to be read in their voice.",
+    "definitionFit": "The speaker is a dentist: plaque is what the job turns up, not an award for long service, so the boast is really a description of the work."
+   }
   },
   {
    "id": "11-across",
@@ -251,7 +516,31 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEI",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "LEI",
+    "definition": "Floral wreath",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What happens ultimately happens at the very end, so each word here surrenders its final letter and nothing else."
+    },
+    "pieces": [
+     "L",
+     "E",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that'll symbolise Hawaii",
+      "gives": "LEI",
+      "note": "the closing letters of the three words in turn: that'l-L, symbolis-E, hawai-I"
+     }
+    ],
+    "walkthrough": "Three words, one letter each, and the clue is also describing itself — the garland really is the thing that ends up standing for Hawaii.",
+    "definitionFit": "Floral wreath → LEI: the Hawaiian garland of flowers hung round an arriving visitor's neck, a loan word crosswords love for its easy vowels."
+   }
   },
   {
    "id": "12-across",
@@ -268,7 +557,37 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTANKHAMUN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TUTANKHAMUN",
+    "definition": "young monarch",
+    "indicators": [
+     "Quivering"
+    ],
+    "indicatorNotes": {
+     "Quivering": "Something quivering will not hold still, and letters that will not hold still do not stay in the order they were given."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "AUTUMN THANK"
+    },
+    "blocks": [
+     {
+      "clueFragment": "autumn",
+      "gives": "AUTUMN",
+      "note": "the season goes in whole, six letters"
+     },
+     {
+      "clueFragment": "thank",
+      "gives": "THANK",
+      "note": "five more letters, taken exactly as they stand"
+     }
+    ],
+    "walkthrough": "Eleven letters is a lot to juggle, so write them out and count them against the enumeration. 'Quivering in autumn' paints leaves on a branch and is really an instruction.",
+    "definitionFit": "young monarch → TUTANKHAMUN: the boy king of Egypt, who came to the throne at about nine and was dead before he was twenty."
+   }
   },
   {
    "id": "13-across",
@@ -285,7 +604,32 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HACIENDA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HACIENDA",
+    "definition": "Spanish mansion",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Milk that has gone off is no longer as it should be, and neither are these letters once the word is applied to them."
+    },
+    "linkWords": [
+     "to find"
+    ],
+    "anagram": {
+     "fodder": "CAN I HEAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Can I head",
+      "gives": "CAN I HEAD",
+      "note": "eight letters, the stray pronoun counted in with them"
+     }
+    ],
+    "walkthrough": "The fodder is a complete spoken sentence — somebody asking to leave early — which is why it never looks like material waiting to be rearranged.",
+    "definitionFit": "Spanish mansion → HACIENDA: the main house of a Spanish or Latin American estate, the landowner's residence rather than any large building."
+   }
   },
   {
    "id": "14-across",
@@ -302,7 +646,26 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUNCE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "DUNCE",
+    "definition": "Nitwit",
+    "indicators": [
+     "implicated in"
+    ],
+    "indicatorNotes": {
+     "implicated in": "Anybody implicated in an affair is caught up inside it, which is where these letters are sitting."
+    },
+    "blocks": [
+     {
+      "clueFragment": "horrid uncertainty",
+      "gives": "DUNCE",
+      "note": "the word straddles the gap between the two: horri-D UNCE-rtainty"
+     }
+    ],
+    "walkthrough": "Hidden answers love a long adjective and noun together, because a phrase like this reads as mood rather than as material with something buried in it.",
+    "definitionFit": "Nitwit → DUNCE: the schoolroom word for a slow learner, complete with the paper cap, so both insult the brain rather than the character."
+   }
   },
   {
    "id": "15-down",
@@ -319,7 +682,29 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSEBLEED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NOSEBLEED",
+    "definition": "Boxer's injury",
+    "indicators": [
+     "to be treated"
+    ],
+    "indicatorNotes": {
+     "to be treated": "Anything sent to be treated is not in the state it ought to be in, so its letters come back in a different arrangement."
+    },
+    "anagram": {
+     "fodder": "LOBE NEEDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "lobe needs",
+      "gives": "LOBE NEEDS",
+      "note": "nine letters: the ear's lobe and the verb that follows it"
+     }
+    ],
+    "walkthrough": "The colon sets up a doctor's note, so the second half reads as medicine rather than as fodder. Nine letters is big — write them out before guessing.",
+    "definitionFit": "Boxer's injury → NOSEBLEED: definition by example, since a bleeding nose is the commonest thing a punch in the face produces."
+   }
   },
   {
    "id": "16-down",
@@ -336,7 +721,36 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FADDISTS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FADDISTS",
+    "definition": "enthusiasts",
+    "indicators": [
+     "embraced by"
+    ],
+    "indicatorNotes": {
+     "embraced by": "An embrace closes round whatever it holds, so one piece of the wordplay ends up sitting inside the other."
+    },
+    "pieces": [
+     "F",
+     "ADD",
+     "ISTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bunches of five",
+      "gives": "FISTS",
+      "note": "a bunch of fives is old slang for a fist, and the clue asks for more than one"
+     },
+     {
+      "clueFragment": "Tot",
+      "gives": "ADD",
+      "note": "to tot up a column of figures is to add it"
+     }
+    ],
+    "walkthrough": "'Tot' offers a small child and 'bunches' a handful of flowers; both are pulling in the wrong direction. The definition is the single word at the end.",
+    "definitionFit": "enthusiasts → FADDISTS: people who take up fads, so the word carries a sniff of short-lived keenness that the neutral definition leaves out."
+   }
   },
   {
    "id": "17-across",
@@ -353,7 +767,33 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIOLI",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "AIOLI",
+    "definition": "alliums in oil, lemon intertwined",
+    "indicators": [
+     "When choosing starters"
+    ],
+    "indicatorNotes": {
+     "When choosing starters": "A starter is what comes first, so what is being chosen is the opening letter of each word."
+    },
+    "pieces": [
+     "A",
+     "I",
+     "O",
+     "L",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alliums in oil, lemon intertwined",
+      "gives": "AIOLI",
+      "note": "the initials of the five words in order: Alliums In Oil Lemon Intertwined"
+     }
+    ],
+    "walkthrough": "Garlic is an allium, so the clue is a recipe for the very thing it spells. 'Starters' is the menu and the letter instruction at the same time.",
+    "definitionFit": "The whole clue reads straight: the sauce is garlic beaten into oil with lemon, so the words describing it are also the words spelling it."
+   }
   },
   {
    "id": "18-down",
@@ -370,7 +810,44 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IGNITES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "IGNITES",
+    "definition": "torches",
+    "indicators": [
+     "offered up"
+    ],
+    "indicatorNotes": {
+     "offered up": "What is offered up is raised, and in a down entry raising the letters means reading them from the bottom of the column."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "IG",
+     "NITES"
+    ],
+    "subReversals": [
+     {
+      "from": "SETINGI",
+      "to": "IGNITES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrived",
+      "gives": "SET IN",
+      "note": "when winter arrives it sets in — five letters, before anything is turned"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is the American private, from the army's 'government issue'"
+     }
+    ],
+    "walkthrough": "'Torches' looks like a noun, something carried in a hand, and is the verb 'sets alight' — spotting that is harder than the wordplay it defines.",
+    "definitionFit": "torches → IGNITES: to torch a building is to set it alight, and both verbs are third-person singular, so one swaps straight in for the other."
+   }
   },
   {
    "id": "19-across",
@@ -387,7 +864,50 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUSPENSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "SUSPENSE",
+    "definition": "Hitchcock style",
+    "indicators": [
+     "start of"
+    ],
+    "indicatorNotes": {
+     "start of": "The start of a phrase is its opening letter and nothing more, so only one letter of what follows is wanted."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "S",
+     "US",
+     "PENS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "S",
+      "gives": "S",
+      "note": "the abbreviation for South on the surface, and no more than the letter itself underneath"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US does duty for American throughout crosswords"
+     },
+     {
+      "clueFragment": "writes",
+      "gives": "PENS",
+      "note": "to pen a letter is to write it"
+     },
+     {
+      "clueFragment": "erotic film",
+      "gives": "E",
+      "note": "the opening letter of the two-word phrase"
+     }
+    ],
+    "walkthrough": "'S American' invites you to read South American in one gulp and is really two pieces. Hitchcock was billed as the Master of the thing defined, which is the other half.",
+    "definitionFit": "Hitchcock style → SUSPENSE: the quality his films are built on, and he was sold to audiences as its master, so the name stands for the thing."
+   }
   },
   {
    "id": "20-down",
@@ -404,7 +924,38 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDORSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ENDORSE",
+    "definition": "Back",
+    "indicators": [
+     "in E London"
+    ],
+    "indicatorNotes": {
+     "in E London": "An East End voice drops the aitch off the front of a word, so that letter simply is not there to write down."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "END",
+     "ORSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destroy",
+      "gives": "END",
+      "note": "to end a thing is to put a stop to it"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "ORSE",
+      "note": "heroin is horse in dealers' slang, and the East End leaves the H off"
+     }
+    ],
+    "walkthrough": "The surface is a police report and every word of it is machinery. 'Back' at the head of a down clue looks like a turning instruction and is the definition.",
+    "definitionFit": "Back → ENDORSE: to back a candidate is to endorse them, the sense of declaring public support rather than signing the reverse of a cheque."
+   }
   },
   {
    "id": "21-down",
@@ -425,7 +976,38 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
     ]
    },
    "solution": "BADEGG",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "BAD EGG",
+    "definition": "unsavoury sort",
+    "indicators": [
+     "to suppress",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "to suppress": "To suppress something is to hold it down out of sight inside, which is where the letters it points at go.",
+     "primarily": "What matters primarily comes first, so each word gives up its opening letter only."
+    },
+    "pieces": [
+     "BA",
+     "DEG",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preference",
+      "gives": "BAG",
+      "note": "your bag is the thing you favour — 'not my bag' means not to my taste"
+     },
+     {
+      "clueFragment": "dated Everyman gags",
+      "gives": "DEG",
+      "note": "the initials of the three words, in the order printed"
+     }
+    ],
+    "walkthrough": "The setter drops his own name into the middle of the clue as raw material, which is a habit worth knowing: 'Everyman' is a word to be used, not a signature.",
+    "definitionFit": "unsavoury sort → BAD EGG: the old idiom for a thoroughly disreputable person, taken from the egg that looks sound until you crack it open."
+   }
   },
   {
    "id": "22-across",
@@ -442,7 +1024,40 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISINTERRED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DISINTERRED",
+    "definition": "Dug up",
+    "indicators": [],
+    "linkWords": [
+     "given to",
+     "and"
+    ],
+    "pieces": [
+     "DIS",
+     "INTER",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abuse",
+      "gives": "DIS",
+      "note": "to dis somebody is to abuse them, the shortening of disrespect"
+     },
+     {
+      "clueFragment": "Milanese footballers",
+      "gives": "INTER",
+      "note": "Inter, the other club in Milan"
+     },
+     {
+      "clueFragment": "one from Liverpool",
+      "gives": "RED",
+      "note": "Liverpool play in red and their players are the Reds"
+     }
+    ],
+    "walkthrough": "Three football sides stacked end to end. The joke is that 'inter' is itself the verb for burying, sitting in the middle of a clue about digging things up.",
+    "definitionFit": "Dug up → DISINTERRED: to disinter is to take out of the ground what was buried, and both are past forms, so one replaces the other cleanly."
+   }
   },
   {
    "id": "23-down",
@@ -459,7 +1074,49 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKODA",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SKODA",
+    "definition": "Czech car",
+    "indicators": [
+     "entertained by",
+     "up"
+    ],
+    "indicatorNotes": {
+     "entertained by": "To be entertained by somebody is to be taken into their house, so this piece sits within the other.",
+     "up": "In a down entry what goes up is read from the bottom, so these two letters arrive the other way round."
+    },
+    "pieces": [
+     "SK",
+     "OD",
+     "A"
+    ],
+    "subReversals": [
+     {
+      "from": "DO",
+      "to": "OD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jamaican music",
+      "gives": "SKA",
+      "note": "ska is the Jamaican dance music that came before reggae"
+     },
+     {
+      "clueFragment": "do",
+      "gives": "OD",
+      "note": "the two letters of DO, taken from the bottom upwards"
+     },
+     {
+      "clueFragment": "While",
+      "gives": "",
+      "note": "surface only: it turns the clue into a scene and contributes no letters"
+     }
+    ],
+    "walkthrough": "'Do up' reads as restoring an old banger and is two letters climbing the column instead. The definition is the pair of words at the end.",
+    "definitionFit": "Czech car → SKODA: definition by example — the country's best-known marque, so one manufacturer stands in for the whole category."
+   }
   },
   {
    "id": "24-across",
@@ -476,7 +1133,30 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOA",
+    "definition": "snake",
+    "indicators": [],
+    "pieces": [
+     "BO",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smell",
+      "gives": "BO",
+      "note": "BO is body odour, the polite initials for a smell"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article joins on as a letter of its own"
+     }
+    ],
+    "walkthrough": "The clue leans on 'smell a rat', so it sounds like a warning to be suspicious rather than two pieces laid end to end.",
+    "definitionFit": "snake → BOA: definition by example, the constrictor being one snake among many — and the feathered scarf takes its name from the same shape."
+   }
   },
   {
    "id": "25-across",
@@ -504,7 +1184,33 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOOTSTHEBREEZE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHOOTS THE BREEZE",
+    "definition": "Gasses",
+    "indicators": [],
+    "linkWords": [
+     "about"
+    ],
+    "pieces": [
+     "SHOOTS",
+     "THE BREEZE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Makes film",
+      "gives": "SHOOTS",
+      "note": "a director shoots a scene, so making film is shooting"
+     },
+     {
+      "clueFragment": "movement of air",
+      "gives": "THE BREEZE",
+      "note": "a breeze is a light movement of air, and the phrase brings its article with it"
+     }
+    ],
+    "walkthrough": "Taken literally the wordplay is a documentary about wind, which is the joke. The italics flag 'Gasses' as slang: to gas is to talk on and on about nothing.",
+    "definitionFit": "Gasses → SHOOTS THE BREEZE: both are verbs for idle chatter, one a single colloquial word and the other the American idiom for aimless talk."
+   }
   },
   {
    "id": "26-across",
@@ -521,7 +1227,34 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPARSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPARSE",
+    "definition": "slight",
+    "indicators": [],
+    "linkWords": [
+     "with",
+     "that's"
+    ],
+    "pieces": [
+     "SPARS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Practises boxing",
+      "gives": "SPARS",
+      "note": "to spar is to box in practice, without the fight"
+     },
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is the peerage abbreviation for an earl"
+     }
+    ],
+    "walkthrough": "'Boxing' usually tells you to put one thing inside another, and here it means only what it says, which is the trap the clue is built on.",
+    "definitionFit": "slight → SPARSE: both mean thinly spread, so a slight covering of snow is a sparse one, though sparse insists on the gaps between."
+   }
   },
   {
    "id": "27-across",
@@ -538,7 +1271,27 @@ window.CRYPTIC_PUZZLES["4163"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERDOG",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "UNDERDOG",
+    "definition": "Where you might find blanket",
+    "definition2": "one you expect to lose",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Where you might find blanket",
+      "gives": "",
+      "note": "split into two words it is a place: the blanket a dog has settled on is under the dog"
+     },
+     {
+      "clueFragment": "one you expect to lose",
+      "gives": "",
+      "note": "the competitor the odds are against, the one nobody is backing"
+     }
+    ],
+    "walkthrough": "The first half only works once you re-split the answer into two words, which is the whole trick; the second half is the plain meaning everybody knows.",
+    "definitionFit": "Read as two words it names where a blanket lies, beneath the sleeping animal; read as one it is the contestant nobody is backing."
+   }
   }
  ]
 } /*JSON-END*/;
