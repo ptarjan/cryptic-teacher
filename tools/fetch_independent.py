@@ -6,7 +6,11 @@ Usage:
   python3 tools/fetch_independent.py 260805          # one day, YYMMDD
   python3 tools/fetch_independent.py --backfill [N]  # the last N days (default 30),
                                                      # skipping days already on disk
+  python3 tools/fetch_independent.py --sundays [N]   # the last N Sundays (default 52)
   python3 tools/fetch_independent.py --check         # is the feed still there?
+
+One feed, two series: the daily Monday–Saturday and the Independent on Sunday's
+own weekly sequence. See DAILY_MIN for how a file is told which it is.
 
 Companion to fetch_puzzle.py, which does the Guardian. Separate module rather
 than another SERIES entry there because nothing is shared but the output shape:
@@ -31,8 +35,8 @@ So the feed is keyed by DATE, not by puzzle number — there is no way to ask fo
 puzzle number is read back out of the file. It needs no auth, no cookies and no
 referer; plain curl works. Verified reachable back to 2020-01-01.
 
-Writes puzzles/<number>.js (preserving any existing per-clue annotations),
-then rebuilds the index via fetch_puzzle.reindex().
+Writes puzzles/<series>-<number>.js (preserving any existing per-clue
+annotations), then rebuilds the index via fetch_puzzle.reindex().
 """
 
 import re
@@ -62,17 +66,22 @@ NS = "{http://crossword.info/xml/rectangular-puzzle}"
 # cryptic, numbered ~12,400 and climbing by one a day. On Sundays it serves the
 # Independent on Sunday cryptic, a separate weekly sequence numbered ~1,900.
 #
-# We take only the daily, and that is a deliberate loss rather than an oversight.
-# Puzzle ids in this project are bare integers — they are the filename, the URL
-# at /puzzles/<n>/ and the key progress is saved under — which works only while
-# no two series can ever reach the same number. The Sunday sequence is at 1,901
-# and gains 52 a year; the Guardian Quiptic is at 1,393 and gains 52 a year.
-# They collide in the mid-2030s. Every other pair of series in this project is
-# centuries apart, so rather than quietly plant a bug that detonates in ten
-# years for one puzzle a week, we skip it. If it is ever wanted, the fix is to
-# namespace ids by series, and that is a migration (existing URLs and saved
-# progress), not a patch.
+# Which one a file holds is decided by its number, because the feed says nothing
+# else about it — same XML, same 15x15 grid, same setters, and the date is the
+# only other clue, which would make a bank holiday shuffle silently mislabel a
+# puzzle. The threshold is safe for a century and a half: the Sunday sequence
+# gains 52 a year from 1,903, the daily 313 a year from 12,438.
+#
+# Sundays were skipped entirely until 2026-08-19, and the reason was ids: they
+# were bare numbers, so Sunday No 1,395 would have collided with Guardian Quiptic
+# No 1,395 in the mid-2030s and one would have overwritten the other's file.
+# Ids carry their series now, so the collision cannot happen and the reason is
+# gone.
 DAILY_MIN = 10000
+
+
+def series_for(number):
+    return "independent" if number >= DAILY_MIN else "indysunday"
 
 
 def http_get(url):
@@ -164,7 +173,13 @@ def parse(xml_bytes, ymd):
             # entry they refer to is built from the clue that owns the word.
             if clue.get("is-link"):
                 continue
-            fmt = clue.get("format") or ""
+            # A period where a comma belongs — "(6.2)" for a two-word answer.
+            # Setters' software emits it now and then, and no cryptic enumeration
+            # uses a period as a real separator, so it is a typo and not a format.
+            # Normalised at the source rather than papered over downstream:
+            # int("6.2") raised, and because one bad clue aborts the whole parse,
+            # the Independent on Sunday No 1,858 was simply absent (2026-08-19).
+            fmt = (clue.get("format") or "").replace(".", ",")
             nums = [int(n) for n in clue.get("number", "").split("/") if n.strip()]
             segs = runs[clue.get("word")]
             if len(nums) != len(segs):
@@ -207,11 +222,13 @@ def parse(xml_bytes, ymd):
 
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
     when = datetime.strptime(ymd, "%y%m%d").replace(tzinfo=timezone.utc)
+    series = series_for(number)
+    paper = ("Independent on Sunday" if series == "indysunday" else "Independent")
     return {
-        "id": series_meta.puzzle_id("independent", number),
+        "id": series_meta.puzzle_id(series, number),
         "number": number,
-        "series": "independent",
-        "name": f"Independent cryptic crossword No {number:,}",
+        "series": series,
+        "name": f"{paper} cryptic crossword No {number:,}",
         "setter": setter,
         "date": int(when.timestamp() * 1000),
         "dimensions": {"cols": cols, "rows": rows},
@@ -220,15 +237,9 @@ def parse(xml_bytes, ymd):
     }
 
 
-def fetch_day(ymd, quiet=False):
-    """Fetch one date. Returns the puzzle, or None if that day is not ours
-    (the Sunday sequence) — a skip, not a failure."""
+def fetch_day(ymd):
+    """Fetch one date, whichever of the two series that day carries."""
     puzzle = parse(http_get(FEED.format(ymd=ymd)), ymd)
-    if puzzle["number"] < DAILY_MIN:
-        if not quiet:
-            print(f"skip {ymd}: No {puzzle['number']:,} is the Sunday sequence "
-                  f"(see DAILY_MIN)")
-        return None
     path = PUZZLE_DIR / f"{puzzle['id']}.js"
     is_new = not path.exists()
     if not is_new:
@@ -241,6 +252,20 @@ def fetch_day(ymd, quiet=False):
 def days_back(n, end=None):
     end = end or date.today()
     return [(end - timedelta(days=i)).strftime("%y%m%d") for i in range(n)]
+
+
+def sundays_back(n, end=None):
+    """The last N Sundays, newest first.
+
+    Its own walk rather than a filter over days_back: the Sunday puzzle is one
+    day in seven, so asking for a year of them by days would download 365 files
+    to keep 52. The feed is keyed by date and costs a request per day either
+    way, and there is no reason to spend six of every seven on days we already
+    have.
+    """
+    end = end or date.today()
+    end -= timedelta(days=(end.weekday() + 1) % 7)     # Monday is 0; back to Sunday
+    return [(end - timedelta(weeks=i)).strftime("%y%m%d") for i in range(n)]
 
 
 def latest():
@@ -260,8 +285,6 @@ def latest():
             if err.code != 404:
                 raise
             continue
-        if puzzle["number"] < DAILY_MIN:
-            continue                                    # Sunday; see DAILY_MIN
         if (PUZZLE_DIR / f"{puzzle['id']}.js").exists():
             # The newest day we can see is one we already have, so there is
             # nothing newer to find further back either.
@@ -271,11 +294,13 @@ def latest():
     return None
 
 
-def backfill(count):
+def backfill(ymds):
     fetched = skipped = missing = 0
-    have = {p["number"] for p in
-            (read_puzzle_file(f) for f in puzzle_files())}
-    for ymd in days_back(count):
+    # Keyed by id, not number: this feed alone carries two sequences, and a bare
+    # number would have made Sunday No 1,903 look like one we already had the
+    # day the Quiptic reaches 1,903.
+    have = {p["id"] for p in (read_puzzle_file(f) for f in puzzle_files())}
+    for ymd in ymds:
         try:
             # Cheap pre-skip is impossible — the feed is keyed by date and the
             # number only appears inside the file — so we always download, but
@@ -290,9 +315,7 @@ def backfill(count):
             print(f"skip {ymd}: {err}")
             missing += 1
             continue
-        if puzzle["number"] < DAILY_MIN:
-            skipped += 1
-        elif puzzle["number"] in have:
+        if puzzle["id"] in have:
             skipped += 1
         else:
             fetch_day(ymd)
@@ -312,7 +335,10 @@ def main(argv):
               f"{len(puzzle['entries'])} entries")
         return 0
     if argv[0] == "--backfill":
-        backfill(int(argv[1]) if len(argv) > 1 else 30)
+        backfill(days_back(int(argv[1]) if len(argv) > 1 else 30))
+        return 0
+    if argv[0] == "--sundays":
+        backfill(sundays_back(int(argv[1]) if len(argv) > 1 else 52))
         return 0
     if argv[0] == "--latest":
         puzzle = latest()

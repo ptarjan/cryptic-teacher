@@ -464,7 +464,8 @@ def hub_page(idx):
         # Only the non-cryptic series are badged — the cryptic is the norm here,
         # and the numbers alone ("No 1,393" among the 30,000s) don't explain
         # themselves. Mirrors seriesBadge() in app.js.
-        series = (f'<span class="badge series">{esc(p["series"])}</span>'
+        series = (f'<span class="badge series">'
+                  f'{esc(series_meta.badge(p["series"]))}</span>'
                   if p.get("series", "cryptic") != "cryptic" else "")
         rows.append(
             f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
@@ -606,15 +607,21 @@ def patch_homepage(idx):
 
 
 def legacy_redirects(solved):
-    """A page at every bare-number URL this site has published.
+    """A page at /puzzles/<bare number>/ for every puzzle, pointing at its id.
 
     Puzzle pages moved from /puzzles/30089/ to /puzzles/cryptic-30089/ on
     2026-08-19, when ids grew their series so two papers could not claim one
     directory. Those old URLs are indexed and shared, and GitHub Pages cannot
-    answer with a 301, so each becomes a page that says where its puzzle went in
+    answer with a 301, so each becomes a page that says where its puzzle is in
     the two ways that count: rel=canonical for a crawler, a meta refresh for a
     reader. Kept forever, not for a grace period — a link somebody sent a friend
     has no expiry.
+
+    Built for every puzzle, not only the ones that predate the move, and the copy
+    says "is at" rather than "has moved" for exactly that reason: a series added
+    afterwards was never published under its bare number, and the first one
+    (indysunday, 2026-08-19) got 52 pages announcing a move that never happened.
+    A number is a number — the page's job is to say which puzzle it names.
 
     A number claimed by more than one paper offers the choice rather than
     guessing, which is the same rule resolve_puzzle() applies on the command
@@ -628,8 +635,8 @@ def legacy_redirects(solved):
         pretty = f"{int(num):,}"
         if len(ps) == 1:
             target = f"{BASE}/puzzles/{ps[0]['id']}/"
-            title = f"No {pretty} — moved"
-            body = (f'<p>This puzzle now lives at '
+            title = f"No {pretty} — {publisher(ps[0])} {kind(ps[0])}"
+            body = (f'<p>This puzzle is at '
                     f'<a href="{target}">{esc(target)}</a>.</p>')
             refresh = f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n'
         else:
@@ -641,7 +648,8 @@ def legacy_redirects(solved):
                 + "</ul>")
             refresh = ""
         out[PUZZLE_DIR / num / "index.html"] = (
-            head(title, f"Cryptic crossword No {pretty} has moved.", target, extra=refresh)
+            head(title, f"Where to find cryptic crossword No {pretty}.", target,
+                 extra=refresh)
             + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                         (f"No {pretty}", "")])
             + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'

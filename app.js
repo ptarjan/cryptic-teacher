@@ -1719,22 +1719,29 @@
   //
   // This text is prose for a human choosing what to attempt next, which is why
   // it lives here and not in tools/series.py with the machine-readable facts.
+  // [what the chip says, why]. The label used to be the series key itself,
+  // which worked only while every key happened to read as a word — and then
+  // "indysunday" arrived. Keep it a label; keys are storage, not English.
   const SERIES_BADGE = {
-    quiptic: `Guardian Quiptic — their beginner crossword, published Mondays.
-      Same clue types as the daily cryptic, but gentler: plainer definitions and
-      fewer buried indicators.`,
-    everyman: `Everyman — the Observer's Sunday cryptic. The gentlest of the
-      broadsheet puzzles and scrupulously fair: definitions sit at one end, and
-      the wordplay always spells the answer out if you can hear it.`,
-    independent: `The Independent's daily cryptic, Monday to Saturday. About as
-      hard as the Guardian, with a regular cast of setters — Phi, Quince, Eccles,
-      Hippogryph — so their habits are worth learning if you like one of them.`,
+    quiptic: ["quiptic", `Guardian Quiptic — their beginner crossword, published
+      Mondays. Same clue types as the daily cryptic, but gentler: plainer
+      definitions and fewer buried indicators.`],
+    everyman: ["everyman", `Everyman — the Observer's Sunday cryptic. The gentlest
+      of the broadsheet puzzles and scrupulously fair: definitions sit at one end,
+      and the wordplay always spells the answer out if you can hear it.`],
+    independent: ["independent", `The Independent's daily cryptic, Monday to
+      Saturday. About as hard as the Guardian, with a regular cast of setters —
+      Phi, Quince, Eccles, Hippogryph — so their habits are worth learning if you
+      like one of them.`],
+    indysunday: ["indy sunday", `The Independent on Sunday's cryptic — its own
+      weekly numbering, near 1,900 while the daily is past 12,400. Same stable of
+      setters as the daily, and pitched about the same.`],
   };
 
   function seriesBadge(p) {
-    const why = SERIES_BADGE[p.series || "cryptic"];
-    if (!why) return "";
-    return `<span class="badge series" title="${why}">${p.series}</span>`;
+    const badge = SERIES_BADGE[p.series || "cryptic"];
+    if (!badge) return "";
+    return `<span class="badge series" title="${badge[1]}">${badge[0]}</span>`;
   }
 
   // What the picker lists, and why it isn't everything.

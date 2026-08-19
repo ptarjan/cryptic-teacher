@@ -864,6 +864,12 @@ all 55:
   character of the id until every id began with a letter, at which point every
   Guardian puzzle was silently held to the authoring rules. It is a `series` field
   now. **Decide off a field, never off how an id is spelled.**
+  A series key is **one lowercase word** (`indysunday`, not `independent-sunday`):
+  the last hyphen is the split, so a hyphenated key parses but stops `^[a-z]+-\d+$`
+  being true, and that shape is asserted on filenames and on progress keys.
+  `series.puzzle_id` refuses one. A key is storage, not English — anything a solver
+  reads comes from `series.badge`, because printing the key straight at people
+  worked only while every key happened to read as a word.
 - **The address bar always names the puzzle on the screen** (2026-08-19). A link is
   copied out of it, so opening a puzzle rewrites it to `?p=<n>` and moves the
   canonical with it. Left alone the URL said whatever the page booted on: the bare
