@@ -492,7 +492,8 @@ names the clues, and a human reads them. That is the whole of the defence, and i
 is deliberate: the check that would catch the remaining case does not exist,
 because every version of it is wrong more often than it is right.
 
-The flip side of that scoping is that the daily sweep globs `[0-9]*.js` and so
+The flip side of that scoping is that the daily sweep globs `*-[0-9]*.js` — the
+shape of a fetched puzzle's id, `<series>-<number>` — and so
 never sees an authored puzzle. After editing `tools/data/authored_*_clues.json`,
 rebuild and validate **by id** — this is the mandatory step, not optional:
 

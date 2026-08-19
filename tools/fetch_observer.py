@@ -73,6 +73,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, UA, flatten_clue, merge_annotations,  # noqa: E402
+                          puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span format
                                      # for a different paper's crossword
@@ -252,7 +253,7 @@ def convert(num, manifest, data):
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
     when = datetime.fromisoformat(manifest["date"].replace("Z", "+00:00"))
     puzzle = {
-        "id": str(num),
+        "id": series_meta.puzzle_id("everyman", num),
         "number": num,
         "series": "everyman",
         "name": f"Everyman crossword No {num:,}",
@@ -327,7 +328,7 @@ def latest():
     fetch_puzzle.py and fetch_independent.py both use so daily_update.sh can
     tell a quiet week from a broken feed without reading any output."""
     newest = find_latest_number()
-    if (PUZZLE_DIR / f"{newest}.js").exists():
+    if puzzle_path("everyman", newest).exists():
         print(f"up-to-date {newest}")
         return None
     return fetch_number(newest)
@@ -339,7 +340,7 @@ def backfill(count=30):
     newest = find_latest_number()
     fetched = skipped = missing = 0
     for num in range(newest, newest - count, -1):
-        path = PUZZLE_DIR / f"{num}.js"
+        path = puzzle_path("everyman", num)
         if path.exists():
             skipped += 1
             continue
@@ -371,7 +372,7 @@ def refresh_unsolved():
     page that would know, and a puzzle stays pending here only as long as
     THAT field itself stays hashed."""
     pending = []
-    for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
+    for path in puzzle_files():
         p = read_puzzle_file(path)
         if p.get("series") == "everyman" and not all(e.get("solution") for e in p["entries"]):
             pending.append(p["number"])
@@ -385,7 +386,7 @@ def refresh_unsolved():
             print(f"{num}: still within its competition window — solutions still withheld")
             time.sleep(1)
             continue
-        path = PUZZLE_DIR / f"{num}.js"
+        path = puzzle_path("everyman", num)
         puzzle = read_puzzle_file(path)
         fill_solutions(puzzle["entries"], solution,
                         puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)

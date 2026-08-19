@@ -46,8 +46,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import (PUZZLE_DIR, UA, flatten_clue,  # noqa: E402
-                          merge_annotations, read_puzzle_file, reindex,
-                          write_puzzle_file)
+                          merge_annotations, puzzle_files, read_puzzle_file,
+                          reindex, write_puzzle_file)
+import series as series_meta  # noqa: E402
 
 FEED = ("https://ams.cdn.arkadiumhosted.com/assets/gamesfeed/independent/"
         "daily-crossword/c_{ymd}.xml")
@@ -207,7 +208,7 @@ def parse(xml_bytes, ymd):
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
     when = datetime.strptime(ymd, "%y%m%d").replace(tzinfo=timezone.utc)
     return {
-        "id": str(number),
+        "id": series_meta.puzzle_id("independent", number),
         "number": number,
         "series": "independent",
         "name": f"Independent cryptic crossword No {number:,}",
@@ -273,7 +274,7 @@ def latest():
 def backfill(count):
     fetched = skipped = missing = 0
     have = {p["number"] for p in
-            (read_puzzle_file(f) for f in PUZZLE_DIR.glob("[0-9]*.js"))}
+            (read_puzzle_file(f) for f in puzzle_files())}
     for ymd in days_back(count):
         try:
             # Cheap pre-skip is impossible — the feed is keyed by date and the

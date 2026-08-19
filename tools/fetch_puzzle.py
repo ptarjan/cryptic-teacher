@@ -20,8 +20,9 @@ URLs — six a week), the Monday Quiptic (the Guardian's beginner tier) and the
 Sunday Everyman from the Observer. Each of the three runs its own number
 sequence. See GUARDIAN_SERIES below.
 
-Writes puzzles/<number>.js (preserving any existing per-clue annotations),
-then rebuilds puzzles/index.json and puzzles/index.js.
+Writes puzzles/<series>-<number>.js (preserving any existing per-clue
+annotations), then rebuilds puzzles/index.json and puzzles/index.js. Commands
+that take a puzzle still accept the bare number while it names only one.
 
 Exit status for --latest: 0 and prints the puzzle number if a NEW puzzle was
 downloaded, prints "up-to-date <n>" and exits 3 if nothing new was found.
@@ -69,15 +70,12 @@ UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 #   in print, deliberately fair, and it fills Sunday — the one day the Guardian
 #   cryptic doesn't publish, so it adds a puzzle rather than competing for a slot.
 #
-# The number ranges are ~30,000, ~1,400 and ~4,100 here, plus ~12,400 for the
-# Independent, and all count upward, so a bare number is still unambiguous and
-# puzzle ids / filenames / URLs stay plain integers. That is deliberate:
-# prefixing ids by series would have moved nothing but would have forced every
-# existing /puzzles/<n>/ page and stored progress key to grow a special case.
-# The sequences are far enough apart that the first collision (everyman reaching
-# 30,000) is ~500 years out. That invariant is load-bearing, and it is the
-# reason fetch_independent.py skips the Independent's Sunday puzzle — see
-# DAILY_MIN there for the one sequence that would have broken it.
+# Every series counts upward from its own 1, so the number alone names a puzzle
+# only by luck of the ranges — and the luck runs out. Ids are namespaced by
+# series (series.puzzle_id) for that reason, so nothing here has to reason about
+# which sequences happen to be far apart today. Numbers are still what gets
+# DISPLAYED, and a bare one is still accepted on the command line while it names
+# only one puzzle (resolve_puzzle).
 GUARDIAN_SERIES = {
     "cryptic": {
         "label": "Cryptic",
@@ -193,6 +191,44 @@ def extract_crossword_data(page_html):
     return json.loads(html.unescape(m.group(1)))["data"]
 
 
+def puzzle_path(series, number):
+    """The one place a puzzle's file name is spelled. Every other module asks
+    here, so the day the id format changes again it changes once."""
+    return PUZZLE_DIR / f"{series_meta.puzzle_id(series, number)}.js"
+
+
+def puzzle_files():
+    """Every puzzle file and nothing else in puzzles/ — not index.js, not the
+    static answer pages. Matched off the id shape, so adding a series needs no
+    change here."""
+    return sorted(PUZZLE_DIR.glob("*-[0-9]*.js"))
+
+
+def resolve_puzzle(arg):
+    """A puzzle file from either a namespaced id ("everyman-4165") or the bare
+    number a person types ("4165").
+
+    Bare numbers are what every URL, prompt and habit used before namespacing,
+    so they keep working — but only while one names exactly one puzzle. An
+    ambiguous number is an error naming both candidates, never a guess: guessing
+    would annotate one paper's grid from another paper's clues.
+    """
+    # Everything puzzle-shaped, not just what the nightly sweep walks: an
+    # authored draft (puzzles/A001.js) is deliberately outside puzzle_files(),
+    # and naming one by hand is exactly how it gets validated.
+    files = [p for p in sorted(PUZZLE_DIR.glob("*.js")) if p.stem != "index"]
+    exact = [p for p in files if p.stem == str(arg)]
+    if exact:
+        return exact[0]
+    hits = [p for p in files if p.stem.rpartition("-")[2] == str(arg)]
+    if len(hits) == 1:
+        return hits[0]
+    if not hits:
+        raise SystemExit(f"no puzzle {arg} in {PUZZLE_DIR}")
+    raise SystemExit(f"{arg} names more than one puzzle — say which: "
+                     + ", ".join(p.stem for p in hits))
+
+
 def read_puzzle_file(path):
     """Parse the JSON payload out of a puzzles/<n>.js file."""
     text = path.read_text(encoding="utf-8")
@@ -204,20 +240,13 @@ def read_puzzle_file(path):
 
 
 def write_puzzle_file(path, puzzle, generator="tools/fetch_puzzle.py"):
-    # A puzzle's id is its NUMBER and nothing else, so the file name is the whole
-    # of the namespace: two papers that ever reach the same number would share
-    # puzzles/<n>.js, and the second fetch would merge one paper's annotations
-    # into the other's grid without a word. Nothing collides today (Guardian
-    # 30,0xx, Independent 12,4xx, Everyman 4,1xx, Quiptic 1,3xx) but the guard
-    # costs one read and the failure it prevents is silent corruption.
-    if path.exists():
-        was = read_puzzle_file(path).get("series", "cryptic")
-        now = puzzle.get("series", "cryptic")
-        if was != now:
-            raise SystemExit(
-                f"{path.name} already holds a {was} puzzle and this one is {now}. "
-                "Puzzle ids are bare numbers, so these two collide — give the id a "
-                "series prefix before fetching this.")
+    # The file is named by the id, and the id carries the series, so two papers
+    # that reach the same number cannot land on the same file — the collision is
+    # impossible rather than guarded against. This assert is the one thing left
+    # that could break that: a caller writing a puzzle to a path it did not get
+    # from puzzle_path().
+    assert path.name == f"{puzzle['id']}.js", (
+        f"{path.name} does not match id {puzzle['id']} — use puzzle_path()")
     payload = json.dumps(puzzle, indent=1, ensure_ascii=False)
     text = (
         f"// Generated by {generator} — puzzle © its original publisher.\n"
@@ -266,13 +295,14 @@ def convert(data):
             "solution": e.get("solution"),
             "annotation": None,
         })
+    series = series_of(data["id"])
     return {
-        "id": str(data["number"]),
+        "id": series_meta.puzzle_id(series, data["number"]),
         "number": data["number"],
-        "series": series_of(data["id"]),
+        "series": series,
         "name": data["name"],
         "setter": ((data.get("creator") or {}).get("name")
-                   or series_meta.default_setter(series_of(data["id"]))),
+                   or series_meta.default_setter(series)),
         "date": data.get("date"),
         "dimensions": data["dimensions"],
         "sourceUrl": "https://www.theguardian.com/" + data["id"],
@@ -340,9 +370,9 @@ def reindex():
         ratings = {}
 
     puzzles = []
-    for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
+    for path in puzzle_files():
         p = read_puzzle_file(path)
-        rating = ratings.get(str(p["number"]))
+        rating = ratings.get(p["id"])
         puzzles.append({
             "id": p["id"],
             "number": p["number"],
@@ -432,7 +462,7 @@ def backfill(count, series="cryptic"):
     latest = find_latest_number(series)
     fetched, skipped, missing = 0, 0, 0
     for num in range(latest, latest - count, -1):
-        path = PUZZLE_DIR / f"{num}.js"
+        path = puzzle_path(series, num)
         if path.exists():
             skipped += 1
             continue
@@ -465,7 +495,7 @@ def refresh_unsolved():
 
     Annotations are preserved by fetch_number's merge."""
     pending = []
-    for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
+    for path in puzzle_files():
         p = read_puzzle_file(path)
         if not all(e.get("solution") for e in p["entries"]) or p.get("solutionSource"):
             pending.append(p["number"])
@@ -536,7 +566,7 @@ def main(argv):
             except SystemExit as err:
                 print(err)
                 continue
-            if (PUZZLE_DIR / f"{num}.js").exists():
+            if puzzle_path(series, num).exists():
                 up_to_date.append(f"{series} {num}")
                 continue
             try:

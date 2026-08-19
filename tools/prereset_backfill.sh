@@ -143,7 +143,7 @@ run_claude() {
 # that ran out of room mid-file leaves a half-written annotation behind, and
 # committing that would publish a broken puzzle page at 06:15.
 commit_puzzle() {
-  local num="$1" what="$2"
+  local num="$1" what="$2"   # num is a puzzle ID, e.g. cryptic-30089
   if ! python3 tools/validate_annotations.py >/tmp/ct-prereset-validate.txt 2>&1; then
     echo "VALIDATION FAILED after $what $num — discarding that puzzle's changes"
     tail -5 /tmp/ct-prereset-validate.txt
@@ -193,7 +193,10 @@ todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions"
 # four series and two publishers, "is it the Guardian daily" stopped being the
 # same question as "is it hard".
 todo.sort(key=lambda p: (series.gentleness(p.get("series")), -p["number"]))
-print(" ".join(str(p["number"]) for p in todo))
+# IDs, not numbers: the file is puzzles/<id>.js and every consumer below names
+# it directly, so nothing downstream has to resolve a number that two papers
+# could one day share.
+print(" ".join(p["id"] for p in todo))
 EOF
 )
 echo "un-annotated backlog: ${todo:-none}"
@@ -203,7 +206,7 @@ for num in $todo; do
   echo "--- annotating $num ---"
   # Not "Guardian crossword": since 2026-08-05 some of these are the
   # Independent's. The puzzle file records its own series and publisher.
-  run_claude "Annotate crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." || {
+  run_claude "Annotate the crossword in puzzles/$num.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." || {
     echo "annotation run for $num failed (window exhausted?) — stopping here"
     git checkout -- "puzzles/$num.js" 2>/dev/null
     break

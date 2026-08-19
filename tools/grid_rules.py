@@ -22,6 +22,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "tools"))
+from fetch_puzzle import resolve_puzzle  # noqa: E402 — id or bare number
 DEFAULT_PUZZLE = 30066          # Tramp, 15x15, fully annotated
 # One light in accent blue, the way the app highlights the entry you're on.
 # A middle row rather than the top one: against the border, row 1 read as a
@@ -32,7 +34,7 @@ HIGHLIGHT = "14-across"
 
 
 def load(number):
-    text = (REPO / f"puzzles/{number}.js").read_text(encoding="utf-8")
+    text = resolve_puzzle(number).read_text(encoding="utf-8")
     body = text.split("/*JSON-START*/", 1)[1].rsplit("/*JSON-END*/", 1)[0]
     return json.loads(body)
 

@@ -45,6 +45,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fetch_puzzle import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
 
@@ -99,12 +101,15 @@ FORCE_AUTHORED_CHECKS = False
 def is_authored(puzzle):
     """Did we write this puzzle, or is it a published Guardian grid?
 
-    Authored puzzles get IDs starting with a letter (A001) — the convention
-    tools/build_authored_puzzle.py already uses. The distinction matters because
+    Ours carry series "authored" (tools/series.py). This used to read the first
+    character of the id, because ours began with a letter and every published
+    one began with a digit — and then ids grew their series on 2026-08-19, every
+    id began with a letter, and every Guardian puzzle was silently held to the
+    authoring rules. A field, not a spelling. The distinction matters because
     the checks below are AUTHORING rules, not annotation rules: real setters
     pad their surfaces and write long clues, and an annotation of a published
     grid has to be able to record that faithfully."""
-    return FORCE_AUTHORED_CHECKS or not str(puzzle.get("id", ""))[:1].isdigit()
+    return FORCE_AUTHORED_CHECKS or puzzle.get("series") == "authored"
 
 
 def check_two_pieces(tag, ann, errors):
@@ -1418,9 +1423,9 @@ def main(argv):
     tighten = "--tighten" in argv
     argv = [a for a in argv if a != "--tighten"]
     if argv:
-        paths = [PUZZLE_DIR / f"{a}.js" for a in argv]
+        paths = [resolve_puzzle(a) for a in argv]
     else:
-        paths = sorted(PUZZLE_DIR.glob("[0-9]*.js"))
+        paths = puzzle_files()
     full_run = not argv
     allowed = load_backlog()
     observed = {}

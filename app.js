@@ -33,6 +33,51 @@
   const INDEX = (window.CRYPTIC_INDEX && window.CRYPTIC_INDEX.puzzles) ? window.CRYPTIC_INDEX : { latest: null, puzzles: [] };
   window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
 
+  // ---------- ids ----------
+  // A puzzle's id is its series and its number ("cryptic-30089"), because every
+  // paper numbers from its own 1 and the ranges only look far apart until a new
+  // paper arrives in one of them. Until 2026-08-19 the id WAS the number, so
+  // puzzles/<n>.js was the whole namespace and the second paper to reach a
+  // number would have shared the first one's file.
+  //
+  // Numbers stay numbers everywhere a person reads one. This is a key, and the
+  // bare form has to keep working forever: it is in every link already shared,
+  // in every browser's saved progress, and in the envelope a phone that has not
+  // reloaded is still uploading.
+  const IS_ID = {}, BY_NUMBER = {};
+  INDEX.puzzles.forEach((p) => {
+    IS_ID[p.id] = 1;
+    // First wins, and the list is newest-first, so an ambiguous number resolves
+    // to the puzzle a stale link is overwhelmingly more likely to have meant.
+    if (!(String(p.number) in BY_NUMBER)) BY_NUMBER[String(p.number)] = p.id;
+  });
+  const canonicalId = (id) => {
+    const s = String(id == null ? "" : id);
+    return IS_ID[s] ? s : (BY_NUMBER[s] || s);
+  };
+
+  // Saved progress moves with the id, once. Anyone mid-grid keeps their grid.
+  function migrateSavedIds() {
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.indexOf("ct:") === 0) keys.push(k);
+    }
+    keys.forEach((k) => {
+      const old = k.slice(3);
+      if (SYNC_RESERVED[old]) return;
+      const id = canonicalId(old);
+      if (id === old) return;
+      const v = store.get(k, null);
+      // Never clobber: if this browser has already played the namespaced one,
+      // that save is the newer of the two and the old key is just debris.
+      if (v && !store.get("ct:" + id, null)) store.set("ct:" + id, v);
+      store.del(k);
+    });
+    const last = store.get("ct:last", null);
+    if (last) store.set("ct:last", canonicalId(last));
+  }
+
   function loadPuzzleScripts(done) {
     let pending = INDEX.puzzles.length;
     if (!pending) return done();
@@ -193,15 +238,19 @@
     if (!env || !env.puzzles) return false;
     const openId = P ? String(P.id) : null;
     let openChanged = false;
-    Object.keys(env.puzzles).forEach((id) => {
-      const merged = env.puzzles[id];
+    Object.keys(env.puzzles).forEach((raw) => {
+      // A phone that has not reloaded is still uploading ct:30089. Map it on the
+      // way in rather than writing back a key we would only migrate again.
+      const id = canonicalId(raw);
+      const merged = env.puzzles[raw];
       const before = JSON.stringify(store.get("ct:" + id, null));
       const after = JSON.stringify(merged);
       if (before === after) return;
       store.set("ct:" + id, merged);
       if (id === openId) openChanged = true;
     });
-    if (env.last && env.last.id && !store.get("ct:last", null)) store.set("ct:last", env.last.id);
+    if (env.last && env.last.id && !store.get("ct:last", null))
+      store.set("ct:last", canonicalId(env.last.id));
     return openChanged;
   }
 
@@ -1878,7 +1927,7 @@
     // puzzle against that nests one inside the other.
     if (canonicalHome === null) canonicalHome = link.href;
     link.href = p && p.hasSolutions
-      ? new URL(`puzzles/${p.number}/`, canonicalHome).href : canonicalHome;
+      ? new URL(`puzzles/${p.id}/`, canonicalHome).href : canonicalHome;
   }
 
   function openPuzzle(id, chosen = true) {
@@ -2148,7 +2197,11 @@
       // ?p=30072 wins over the remembered puzzle: the static answer pages under
       // /puzzles/<n>/ link in that way, and dropping someone on last night's
       // puzzle instead of the one they clicked would be baffling.
-      const asked = new URLSearchParams(location.search).get("p");
+      // Every link shared before 2026-08-19 says ?p=30080, and they must keep
+      // opening the puzzle they named.
+      migrateSavedIds();
+      const askedRaw = new URLSearchParams(location.search).get("p");
+      const asked = askedRaw ? canonicalId(askedRaw) : null;
       const last = store.get("ct:last", null);
       const firstAnnotated = (INDEX.puzzles.find((p) => p.annotated) || INDEX.puzzles[0]).id;
       const want = (asked && window.CRYPTIC_PUZZLES[asked]) ? asked

@@ -47,12 +47,14 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
 CARD = REPO / "tools" / "og_card.html"
 APP = REPO / "app.js"
 # Quiptic 1,393 3D: "Woman found in Oregon or Maine (5)" — five short words, a
 # definition anyone can check, and NORMA sitting across the state line. This is
 # the card for the homepage and for any puzzle that has no card of its own.
-DEFAULT_PUZZLE = 1393
+DEFAULT_PUZZLE = "quiptic-1393"
 DEFAULT_ENTRY = "3-down"
 
 # app.js's FAMILIES, ported. Ported tables rot, so this one is compared against
@@ -127,8 +129,10 @@ def first_sentence(text):
     return head.replace("'", "’")
 
 
-def load(number):
-    text = (REPO / f"puzzles/{number}.js").read_text(encoding="utf-8")
+# Every "number" below is really a puzzle ID ("cryptic-30089") — the key a file
+# is named by. The number is what the CARD prints; this is what finds it.
+def load(pid):
+    text = (REPO / f"puzzles/{pid}.js").read_text(encoding="utf-8")
     body = text.split("/*JSON-START*/", 1)[1].rsplit("/*JSON-END*/", 1)[0]
     return json.loads(body)
 
@@ -565,8 +569,8 @@ def main():
         # Which puzzles can carry a card, for make_og.sh to loop over. Printed
         # rather than globbed by the shell so that "has a usable annotation" is
         # decided in exactly one place.
-        for f in sorted((REPO / "puzzles").glob("*.js")):
-            if f.stem.isdigit() and pick(int(f.stem))[0]:
+        for f in puzzle_files():
+            if pick(f.stem)[0]:
                 print(f.stem)
         return 0
     out = CARD
@@ -574,7 +578,7 @@ def main():
         i = args.index("--out")
         out = Path(args[i + 1])
         del args[i:i + 2]
-    number = int(args[0]) if args else DEFAULT_PUZZLE
+    number = args[0] if args else DEFAULT_PUZZLE
     entry_id = args[1] if len(args) > 1 else (DEFAULT_ENTRY if not args else None)
     render(number, entry_id, out)
     chosen = entry_id or pick(number)[0]

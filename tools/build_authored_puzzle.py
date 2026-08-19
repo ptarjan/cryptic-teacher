@@ -80,6 +80,7 @@ def build(fill_path, clues_path, puzzle_id, name, setter, date_ms):
     return {
         "id": puzzle_id,
         "number": puzzle_id,
+        "series": "authored",
         "name": name,
         "setter": setter,
         "date": date_ms,

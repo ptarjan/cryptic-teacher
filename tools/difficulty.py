@@ -87,6 +87,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 # What an answer scores when the lexicon has never heard of it. Deliberately the
@@ -345,11 +347,13 @@ def all_scores(base=None):
     rank = ranks()
     base = base if base is not None else load_baseline()
     out = {}
-    for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
+    for path in puzzle_files():
         puz = load(path)
         s = score(puz, rank, base)
         if s:
-            out[str(puz["number"])] = s
+            # Keyed by ID, not number: two papers can reach the same number
+            # and the caller would then get whichever was scored last.
+            out[puz["id"]] = s
     # The percentile is a live comparison and says so — it is the answer to
     # "how does this rank against what's on the site", which genuinely does
     # change as puzzles arrive. The band above it stays put; only this moves.
@@ -371,7 +375,7 @@ def rebaseline():
     rank = ranks()
     before = all_scores()
     cols = {}
-    for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
+    for path in puzzle_files():
         for k, v in raw(load(path), rank).items():
             if v is not None:
                 cols.setdefault(k, []).append(v)
@@ -411,7 +415,11 @@ def main():
         sorted(scores, key=lambda n: -scores[n]["index"])
     print(f"{'puzzle':>7}  {'index':>6}  {'band':<10} {'pct':>4}  z-scores")
     for num in wanted:
-        s = scores.get(str(num))
+        # Bare numbers still work from the command line, the way every other
+        # tool takes them, while one names a single puzzle.
+        key = str(num) if str(num) in scores else next(
+            (k for k in scores if k.rpartition("-")[2] == str(num)), None)
+        s = scores.get(key)
         if not s:
             print(f"{num:>7}  no such puzzle", file=sys.stderr)
             continue

@@ -4,7 +4,10 @@ You are annotating a broadsheet cryptic crossword for the Cryptic Teacher app in
 repository — a Guardian daily or Quiptic, the Observer's Everyman, or the Independent's
 daily. The puzzle file's `series` and the tools/series.py table say which; the house
 styles differ a little but the annotation schema below is identical for all of them.
-The target puzzle file is `puzzles/<NUMBER>.js` (the newest file whose
+The target puzzle file is `puzzles/<ID>.js`, where the ID is the series and the
+number together — `cryptic-30089`, `everyman-4165`, `quiptic-1395`,
+`independent-12438`. Every paper numbers from its own 1, so the number alone
+does not name a puzzle. (The newest file whose
 entries still have `"annotation": null` — `puzzles/index.json` lists which puzzles have
 `"annotated": false`). Work on the OLDEST un-annotated puzzle first if several are
 pending, so the backlog drains in order.
@@ -15,7 +18,7 @@ For EVERY entry in the puzzle file, replace `"annotation": null` with an annotat
 object. The published solution is already in each entry's `"solution"` field — use it as
 ground truth, and make sure your parsing actually produces those letters.
 
-Annotation schema (see `puzzles/30066.js` for 28 worked examples):
+Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
 
 ```json
 {
@@ -221,7 +224,7 @@ Rules:
 ## Verify (mandatory)
 
 ```
-python3 tools/validate_annotations.py <NUMBER>
+python3 tools/validate_annotations.py <ID>
 ```
 
 Iterate until it reports `N/N annotated — OK` with no ERROR lines (warnings about block
@@ -229,7 +232,7 @@ fragments are acceptable but worth fixing). Then refresh the index:
 
 ```
 python3 tools/fetch_puzzle.py --reindex
-node --check puzzles/<NUMBER>.js
+node --check puzzles/<ID>.js
 ```
 
 ## Commit

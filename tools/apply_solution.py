@@ -38,7 +38,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import PUZZLE_DIR, read_puzzle_file, write_puzzle_file, reindex  # noqa: E402
+from fetch_puzzle import (PUZZLE_DIR, read_puzzle_file, reindex,  # noqa: E402
+                          resolve_puzzle, write_puzzle_file)
 
 
 def normalise(answer):
@@ -108,9 +109,7 @@ def main():
                     help="report and exit without touching the puzzle file")
     args = ap.parse_args()
 
-    path = PUZZLE_DIR / f"{args.number}.js"
-    if not path.exists():
-        raise SystemExit(f"no such puzzle: {path}")
+    path = resolve_puzzle(args.number)
     puzzle = read_puzzle_file(path)
 
     fill = json.loads(Path(args.fill).read_text(encoding="utf-8"))
