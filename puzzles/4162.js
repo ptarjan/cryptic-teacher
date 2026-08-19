@@ -40,7 +40,36 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "VICTORHUGO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + &lit",
+    "answer": "VICTOR HUGO",
+    "definition": "Who wrote fantastic Gothic oeuvre, never wanting energy?",
+    "indicators": [
+     "fantastic",
+     "never wanting"
+    ],
+    "indicatorNotes": {
+     "fantastic": "A fantasy has no obligation to the shape of the real thing, and letters called fantastic keep none of their given order.",
+     "never wanting": "To want a thing here is to lack it, and 'never' pushes the lack all the way: not one of those letters may survive."
+    },
+    "anagram": {
+     "fodder": "GOTHIC OUVR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "EE",
+      "note": "E is the physicist's symbol for energy, and the French word holds two of them — both are what leave"
+     },
+     {
+      "clueFragment": "Gothic oeuvre",
+      "gives": "VICTORHUGO",
+      "note": "the ten letters left once the E's have gone — G, O, T, H, I, C, O, U, V, R — rearranged into the novelist"
+     }
+    ],
+    "walkthrough": "Notre-Dame de Paris is the Gothic novel behind the surface, and its author was famously prolific. Italics in a clue usually flag a foreign word.",
+    "definitionFit": "The whole clue reads straight: Hugo wrote Notre-Dame de Paris, a Gothic novel of huge scope, and was famously tireless at his desk."
+   }
   },
   {
    "id": "1-down",
@@ -57,7 +86,40 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "VAST",
+    "definition": "Very big",
+    "indicators": [
+     "lacking"
+    ],
+    "indicatorNotes": {
+     "lacking": "Something lacking is short of a part it ought to have, so the letter named beside it is simply never written down."
+    },
+    "pieces": [
+     "V",
+     "AST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "F",
+      "note": "f(x) — f is the mathematician's letter for a function, and it is the letter that goes"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "v is the everyday abbreviation for very, as in v. good"
+     },
+     {
+      "clueFragment": "secure",
+      "gives": "AST",
+      "note": "secure is fast, as in held fast; take the f off the front and these three letters are what remain"
+     }
+    ],
+    "walkthrough": "Two single letters standing for whole words in four squares. V for very and F for function are both worth banking — short clues are mostly built out of them.",
+    "definitionFit": "Very big → VAST: the word is kept for expanses — a vast plain, a vast fortune — so it means big in extent rather than merely large."
+   }
   },
   {
    "id": "2-down",
@@ -74,7 +136,41 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRAB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CRAB",
+    "definition": "Sour-tempered type",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "A thing upset has been tipped over, and a word tipped over in a down clue is read from the bottom up."
+    },
+    "pieces": [
+     "C",
+     "RAB"
+    ],
+    "subReversals": [
+     {
+      "from": "BAR",
+      "to": "RAB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conservative",
+      "gives": "C",
+      "note": "C is the ballot-paper abbreviation for the Conservative party"
+     },
+     {
+      "clueFragment": "drinking establishment",
+      "gives": "BAR",
+      "note": "a bar is where the drinking is done, and it is what gets tipped over"
+     }
+    ],
+    "walkthrough": "The comma after 'conservative' looks like punctuation in a list of insults and is really the join between two pieces.",
+    "definitionFit": "Sour-tempered type → CRAB: a crab is a peevish grumbler, the sense that survives in 'crabby' and in crosswords more than in speech."
+   }
   },
   {
    "id": "3-down",
@@ -95,7 +191,32 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "OVERREACTED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OVER-REACTED",
+    "definition": "got upset about nothing",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Milk that has gone off has turned into something other than itself, and so have these letters."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "ACTOR VEERED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Actor veered",
+      "gives": "OVERREACTED",
+      "note": "the eleven letters of ACTOR VEERED, taken in a new order"
+     }
+    ],
+    "walkthrough": "The surface sells you a temperamental actor, and the definition hides at the far end of the sentence still sounding like more of the anecdote.",
+    "definitionFit": "got upset about nothing → OVER-REACTED: reacting out of all proportion to the cause, so the size of the fuss is the fault rather than the anger."
+   }
   },
   {
    "id": "4-down",
@@ -118,7 +239,33 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEARTEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HEARTEN",
+    "definition": "Take courage",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "HEAR",
+     "TEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judicially try",
+      "gives": "HEAR",
+      "note": "a court hears a case, which is what trying it judicially means"
+     },
+     {
+      "clueFragment": "X",
+      "gives": "TEN",
+      "note": "X is ten in Roman numerals, which is why the setter has set it in italics"
+     }
+    ],
+    "walkthrough": "An italicised single letter is nearly always a numeral or a symbol rather than the letter itself, and X is the one you meet most.",
+    "definitionFit": "Take courage → HEARTEN: the verb's intransitive side, to grow bolder — the same idea as 'take heart', with the noun made into a verb."
+   }
   },
   {
    "id": "5-down",
@@ -139,7 +286,27 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "GIDDYUP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GIDDY-UP",
+    "definition": "Exhortation",
+    "definition2": "to make a nag depart?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Exhortation",
+      "gives": "",
+      "note": "the general sense: a cry urging somebody to get moving, used now far away from any stable"
+     },
+     {
+      "clueFragment": "to make a nag depart?",
+      "gives": "",
+      "note": "the original job of that cry — what a driver calls to a horse to set it going"
+     }
+    ],
+    "walkthrough": "A nag is a horse and also a person who goes on at you, and the clue is happy for you to hear the second one first.",
+    "definitionFit": "Both halves land on one cry: it is an exhortation in the plain sense of urging somebody on, and specifically the command that starts a horse."
+   }
   },
   {
    "id": "6-across",
@@ -156,7 +323,44 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPTS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "OPTS",
+    "definition": "Chooses",
+    "indicators": [
+     "to go back",
+     "to grasp"
+    ],
+    "indicatorNotes": {
+     "to go back": "Going back along an across answer means travelling right to left, so the word is written the other way round.",
+     "to grasp": "To grasp a thing is to close your hand round it, so what follows sits inside rather than after."
+    },
+    "pieces": [
+     "O",
+     "PT",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "SO",
+      "to": "OS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "SO",
+      "note": "therefore is so, and it is the word that gets turned round"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PT",
+      "note": "pt is the standard abbreviation for point, on a map and on a scoreboard alike"
+     }
+    ],
+    "walkthrough": "Four squares and two abbreviations. Collecting the small ones — so, pt, v, n — is most of what makes short clues quick.",
+    "definitionFit": "Chooses → OPTS: to opt for something is to choose it, the verb setters reach for whenever a decision has to fit four letters."
+   }
   },
   {
    "id": "7-down",
@@ -178,7 +382,38 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "PIEDATERRE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PIED-A-TERRE",
+    "definition": "second home",
+    "indicators": [
+     "bananas"
+    ],
+    "indicatorNotes": {
+     "bananas": "To go bananas is to lose your reason, and letters that have lost theirs will not stay in sensible order."
+    },
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "anagram": {
+     "fodder": "RED TEA RIPE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Red tea",
+      "gives": "REDTEA",
+      "note": "six letters of the mixture, hiding in a plausible drink"
+     },
+     {
+      "clueFragment": "ripe",
+      "gives": "RIPE",
+      "note": "four more, and the word that makes the fruit of the surface work"
+     }
+    ],
+    "walkthrough": "The surface is a fruit bowl and the definition is two flat words at the end. The French phrase means literally 'foot on the ground'.",
+    "definitionFit": "second home → PIED-A-TERRE: a small flat kept in town for occasional nights, so it is a base rather than a house you live in."
+   }
   },
   {
    "id": "8-down",
@@ -199,7 +434,29 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPIDERSWEB",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SPIDER'S WEB",
+    "definition": "structure containing insects",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "The sense of 'what's up' — something is amiss — and letters that are amiss have left their proper order."
+    },
+    "anagram": {
+     "fodder": "BIRD SWEEPS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bird sweeps",
+      "gives": "SPIDERSWEB",
+      "note": "the ten letters of BIRD SWEEPS, resettled"
+     }
+    ],
+    "walkthrough": "Spiders are not insects, which is what makes the definition exact rather than sloppy: the maker is one thing and the catch is another.",
+    "definitionFit": "structure containing insects → SPIDER'S WEB: the web is a trap built to catch and hold them, so the definition names it by what it collects."
+   }
   },
   {
    "id": "9-across",
@@ -220,7 +477,33 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHAKEHANDS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHAKE HANDS",
+    "definition": "Agree",
+    "indicators": [],
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "SHAKE",
+     "HANDS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unnerve",
+      "gives": "SHAKE",
+      "note": "to shake somebody is to unnerve them, to leave them rattled"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "HANDS",
+      "note": "hands are a ship's crew — all hands on deck"
+     }
+    ],
+    "walkthrough": "'Hands' for a crew is worth keeping: it is one of the sea words setters never let go of, and here it lands on a gesture instead of a boat.",
+    "definitionFit": "Agree → SHAKE HANDS: the gesture that seals a bargain, so the phrase stands for reaching agreement rather than for the movement itself."
+   }
   },
   {
    "id": "10-across",
@@ -237,7 +520,32 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DELI",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "DELI",
+    "definition": "here",
+    "indicators": [
+     "Finally"
+    ],
+    "indicatorNotes": {
+     "Finally": "What comes finally is what comes at the end, and here it is the end of each word rather than the end of the sentence."
+    },
+    "pieces": [
+     "D",
+     "E",
+     "L",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obtained some delightful salami",
+      "gives": "DELI",
+      "note": "the last letter of each word in turn: obtaineD, somE, delightfuL, salamI"
+     }
+    ],
+    "walkthrough": "One indicator can govern a whole run of words, not just the one beside it. The dash before the definition is the setter pointing at the shop.",
+    "definitionFit": "here → DELI: the counter you would be standing at while buying the salami, so the clue names the shop by pointing at itself."
+   }
   },
   {
    "id": "11-across",
@@ -258,7 +566,37 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRETTYPLEASE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PRETTY PLEASE",
+    "definition": "prithee",
+    "indicators": [
+     "rent"
+    ],
+    "indicatorNotes": {
+     "rent": "This is the past participle of rend, meaning torn — so what stands before it has been ripped out of shape."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "PREPAY SETTLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Prepay",
+      "gives": "PREPAY",
+      "note": "six letters of the mixture"
+     },
+     {
+      "clueFragment": "settle",
+      "gives": "SETTLE",
+      "note": "six more, and a second word that sounds like paying a bill"
+     }
+    ],
+    "walkthrough": "The surface is a landlord's demand and the answer is a child's wheedle, which is about as far apart as two readings of five words get.",
+    "definitionFit": "prithee → PRETTY PLEASE: the archaic 'pray thee' is a coaxing request, and the modern phrase is the same coaxing with an intensifier stuck on."
+   }
   },
   {
    "id": "12-down",
@@ -279,7 +617,37 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEEDSUNITED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LEEDS UNITED",
+    "definition": "Players",
+    "definitionNote": "A club is one thing and 'Players' is many, but British football speaks of a team in the plural — the definition names the eleven rather than the badge.",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "What is heard need not be what is written, so both halves are to be taken by sound."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "starring roles",
+      "soundsLike": "LEADS",
+      "gives": "LEEDS",
+      "note": "the starring roles in a production are the LEADS, and said aloud that spells a Yorkshire city"
+     },
+     {
+      "clueFragment": "the reader ennobled",
+      "soundsLike": "YOU KNIGHTED",
+      "gives": "UNITED",
+      "note": "the reader is YOU, and to ennoble is to knight — YOU KNIGHTED said aloud is a football suffix"
+     }
+    ],
+    "walkthrough": "Setters address the solver as 'the reader' or 'you' constantly, and spotting that is often the whole step.",
+    "definitionFit": "Players → LEEDS UNITED: definition by example, one club standing in for a set of footballers, and British usage lets the club name take a plural."
+   }
   },
   {
    "id": "13-down",
@@ -300,7 +668,37 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "TURNTURTLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "TURN TURTLE",
+    "definition": "Flip over",
+    "indicators": [
+     "unwisely"
+    ],
+    "indicatorNotes": {
+     "unwisely": "Doing a thing unwisely is doing it without judgement, and letters handled without judgement come back in no sensible arrangement."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "LUTTER RUNT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "that's not strong",
+      "gives": "F",
+      "note": "f is forte in a score, the mark for strong, so denying strength takes that letter away"
+     },
+     {
+      "clueFragment": "flutter runt",
+      "gives": "TURNTURTLE",
+      "note": "with the f gone, the ten letters left are shuffled"
+     }
+    ],
+    "walkthrough": "'Strong' at the end of a clue is very often a single letter leaving rather than an adjective doing any describing.",
+    "definitionFit": "Flip over → TURN TURTLE: sailors' idiom for a boat capsizing so completely that the hull ends up on top, like a turtle on its back."
+   }
   },
   {
    "id": "14-down",
@@ -317,7 +715,34 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLANELOADS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PLANELOADS",
+    "definition": "as can be aerially transported",
+    "definitionNote": "The setter defines an amount by what will fit in one aircraft rather than by a plural noun, which is how a measure comes to stand for countable loads.",
+    "indicators": [
+     "In announcement"
+    ],
+    "indicatorNotes": {
+     "In announcement": "An announcement is made to the ear rather than to the page, so the words are to be taken by sound."
+    },
+    "blocks": [
+     {
+      "clueFragment": "manifest",
+      "soundsLike": "PLAIN",
+      "gives": "PLANE",
+      "note": "manifest means plain, obvious; PLAIN said aloud is spelt as an aircraft"
+     },
+     {
+      "clueFragment": "seams of ore",
+      "soundsLike": "LODES",
+      "gives": "LOADS",
+      "note": "a lode is a vein of ore in rock, so seams of ore are LODES, spelt as cargo"
+     }
+    ],
+    "walkthrough": "'Manifest' is doing double duty on the surface, since a manifest is also the list of what an aircraft is carrying. 'Mother lode' is where the ore word survives.",
+    "definitionFit": "as can be aerially transported → PLANELOADS: the noun measures cargo by the aircraft carrying it, the way 'busloads' measures people."
+   }
   },
   {
    "id": "15-across",
@@ -334,7 +759,34 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNLEARN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNLEARN",
+    "definition": "Completely forget",
+    "indicators": [
+     "arranged"
+    ],
+    "indicatorNotes": {
+     "arranged": "To arrange is to put things in an order somebody chose, and the order chosen is not the one they came in."
+    },
+    "anagram": {
+     "fodder": "N LAUREN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "n is the standard abbreviation for a number, as in n items"
+     },
+     {
+      "clueFragment": "Lauren",
+      "gives": "LAUREN",
+      "note": "the name hands over all six of its letters"
+     }
+    ],
+    "walkthrough": "A first name in a clue is usually raw material rather than a person. Notice how much work 'completely' is doing in the definition.",
+    "definitionFit": "Completely forget → UNLEARN: not mere forgetting but deliberately undoing a lesson, the un- prefix cancelling something that was once known."
+   }
   },
   {
    "id": "16-across",
@@ -351,7 +803,27 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEELERS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PEELERS",
+    "definition": "Detectives",
+    "definition2": "who'll prepare potatoes",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Detectives",
+      "gives": "",
+      "note": "Victorian slang for the police, coined from the name of the man who founded them"
+     },
+     {
+      "clueFragment": "who'll prepare potatoes",
+      "gives": "",
+      "note": "the literal reading: the little blades that take the skin off before boiling"
+     }
+    ],
+    "walkthrough": "Sir Robert Peel set up the Metropolitan Police in 1829 and his men were peelers and bobbies from the start. The question mark admits the kitchen sense is the joke.",
+    "definitionFit": "Peelers was the Victorian nickname for Peel's police, covering the force and its detectives; the other sense is literal, the tools that skin potatoes."
+   }
   },
   {
    "id": "17-across",
@@ -372,7 +844,26 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONSTOP",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NON-STOP",
+    "definition": "on a loop",
+    "indicators": [
+     "Section of"
+    ],
+    "indicatorNotes": {
+     "Section of": "A section is a piece cut out of something longer, so the letters are already sitting in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "canon's to play",
+      "gives": "NONSTOP",
+      "note": "the run starts inside the first word and stops one letter into the last: ca(NON'S TO P)lay"
+     }
+    ],
+    "walkthrough": "Hidden answers love a possessive: the apostrophe in 'canon's' is invisible to the letters, so the run carries straight across it.",
+    "definitionFit": "on a loop → NON-STOP: something played on a loop restarts the instant it ends, so it runs with no break in it at all."
+   }
   },
   {
    "id": "18-down",
@@ -389,7 +880,30 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUCKISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PUCKISH",
+    "definition": "Mischievous",
+    "indicators": [],
+    "pieces": [
+     "PUCK",
+     "ISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "element of ice-hockey game",
+      "gives": "PUCK",
+      "note": "the hard rubber disc the whole game is played with"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "ISH",
+      "note": "-ish is the ending that turns a noun into 'somewhat like it'"
+     }
+    ],
+    "walkthrough": "The wordplay points at the rink and the meaning points at Shakespeare — Puck is the sprite of A Midsummer Night's Dream, and the two are unrelated.",
+    "definitionFit": "Mischievous → PUCKISH: Puck is that tricksy sprite, so the adjective means impish in his particular teasing way rather than merely naughty."
+   }
   },
   {
    "id": "19-across",
@@ -406,7 +920,34 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBSERVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OBSERVE",
+    "definition": "make remarks",
+    "indicators": [],
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "pieces": [
+     "OB",
+     "SERVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old boy",
+      "gives": "OB",
+      "note": "OB is the school register's shorthand for an old boy"
+     },
+     {
+      "clueFragment": "wait at table",
+      "gives": "SERVE",
+      "note": "to serve is what waiting at table amounts to"
+     }
+    ],
+    "walkthrough": "The definition looks like the tail of the same restaurant scene, which is why it is easy to read past it and keep hunting.",
+    "definitionFit": "make remarks → OBSERVE: the sense in 'he observed that it was late' — to say something aloud, the far end of the word from watching."
+   }
   },
   {
    "id": "19-down",
@@ -423,7 +964,29 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OILSKIN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OILSKIN",
+    "definition": "outerwear",
+    "indicators": [
+     "Partially"
+    ],
+    "indicatorNotes": {
+     "Partially": "Only part of what follows is wanted, so the letters are a stretch taken out of the middle of it."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncoils kinks",
+      "gives": "OILSKIN",
+      "note": "the run straddles the gap between the two words: unc(OILS KIN)ks"
+     }
+    ],
+    "walkthrough": "A hidden answer that crosses a word boundary is the hardest kind to see, because the eye reads whole words before it reads letters.",
+    "definitionFit": "outerwear → OILSKIN: a coat of oil-treated cloth pulled on over everything else at sea, so it is named for its waterproofing."
+   }
   },
   {
    "id": "20-across",
@@ -444,7 +1007,24 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "UGLYDUCKLING",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "UGLY DUCKLING",
+    "definition": "Subject of a swan song?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "swan song",
+      "note": "the surface offers a farewell performance, an artist's last work; the setter means a tale that finishes with a swan in it"
+     },
+     {
+      "clueFragment": "Subject of",
+      "note": "the creature the story follows, jeered at in the farmyard until it grows into what it was all along"
+     }
+    ],
+    "walkthrough": "There are no letters to assemble here, only a phrase read the other way round. Knowing the Andersen story is the whole solve.",
+    "definitionFit": "Andersen's tale ends with the derided bird finding it is a swan, so the story really is a song about one, and this is its hero."
+   }
   },
   {
    "id": "21-down",
@@ -461,7 +1041,36 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GIST",
+    "definition": "General idea",
+    "indicators": [
+     "tucking into"
+    ],
+    "indicatorNotes": {
+     "tucking into": "To tuck something in is to push it inside and close the gap over it, which is where the shorter word ends up."
+    },
+    "pieces": [
+     "G",
+     "IS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "G&T",
+      "gives": "GT",
+      "note": "a G&T is a gin and tonic, and its two initials are what sit outside"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the little verb goes in whole, letters and all"
+     }
+    ],
+    "walkthrough": "A drink written as initials is two capitals with a gap in the middle, which is exactly the shape a container clue wants.",
+    "definitionFit": "General idea → GIST: the gist is the pith of what was said, the essential drift you would give if asked to summarise it briefly."
+   }
   },
   {
    "id": "22-down",
@@ -478,7 +1087,27 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KEEN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "KEEN",
+    "definition": "Eager",
+    "definition2": "to wail",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Eager",
+      "gives": "",
+      "note": "the everyday adjective — keen on an idea, keen to start"
+     },
+     {
+      "clueFragment": "to wail",
+      "gives": "",
+      "note": "a quite separate verb, borrowed from Irish, for the lament raised over a body"
+     }
+    ],
+    "walkthrough": "Four letters and two words that share nothing but their spelling. The Irish verb comes from 'caoinim', and it is the one crosswords lean on.",
+    "definitionFit": "Eager is the plain adjective; the other sense is a verb from Irish, to raise the drawn-out wailing lament at a wake."
+   }
   },
   {
    "id": "23-across",
@@ -495,7 +1124,32 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TSAR",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "TSAR",
+    "definition": "Title socialists avidly revoked",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "What is primary comes first, so what is taken from each word is the letter standing at its head."
+    },
+    "pieces": [
+     "T",
+     "S",
+     "A",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Title socialists avidly revoked",
+      "gives": "TSAR",
+      "note": "the initials of the four words in order: Title Socialists Avidly Revoked"
+     }
+    ],
+    "walkthrough": "An initial-letter clue that also reads as plain history is the prize of the genre, and the history here is right: the last holder was deposed in 1917.",
+    "definitionFit": "The whole clue reads straight: an imperial rank that revolutionaries abolished, so the words describing it are also the words spelling it."
+   }
   },
   {
    "id": "24-across",
@@ -516,7 +1170,24 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "PICKETLINE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PICKET LINE",
+    "definition": "We come to work? Yes and no",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "We come to work?",
+      "note": "as an answer to a question it sounds shifty; said by strikers it is plain fact — they are at the gate at the usual hour"
+     },
+     {
+      "clueFragment": "Yes and no",
+      "note": "the qualification is the joke: they turn up at the place of work without doing any of it"
+     }
+    ],
+    "walkthrough": "No wordplay to find — 'we' is the strikers speaking. A clue in the first person nearly always means the answer is the speaker or the spot they stand on.",
+    "definitionFit": "Strikers gather outside the workplace they are refusing to enter, so the honest answer to 'do we come to work' is genuinely both at once."
+   }
   },
   {
    "id": "25-across",
@@ -533,7 +1204,29 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASE",
-   "annotation": null
+   "annotation": {
+    "type": "first letter + homophone",
+    "answer": "EASE",
+    "definition": "moderate",
+    "indicators": [
+     "Principally",
+     "pronouncedly"
+    ],
+    "indicatorNotes": {
+     "Principally": "The principal of anything is the one at the head of it, so what is taken is the letter at the head of the word.",
+     "pronouncedly": "On the surface it means markedly, but its root is 'pronounce' — the letters are to be said rather than read."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman, more than once",
+      "soundsLike": "E'S",
+      "gives": "EASE",
+      "note": "the letter at the head of Everyman is E, and more than one E is E's — say that aloud and you have spelt the answer"
+     }
+    ],
+    "walkthrough": "Everyman puts his own name into a clue most weeks, and it is worth only its first letter here. The commas make a pile of instructions look like a description.",
+    "definitionFit": "moderate → EASE: the verb sense, since to ease a restriction is to moderate it, rather than the noun meaning comfort or leisure."
+   }
   },
   {
    "id": "26-across",
@@ -555,7 +1248,45 @@ window.CRYPTIC_PUZZLES["4162"] = /*JSON-START*/ {
     ]
    },
    "solution": "PHONEDITIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PHONED IT IN",
+    "definition": "Made little effort",
+    "indicators": [],
+    "linkWords": [
+     "that's"
+    ],
+    "pieces": [
+     "P",
+     "HONED",
+     "I",
+     "TIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is piano in a score, the musician's mark for soft"
+     },
+     {
+      "clueFragment": "sharp",
+      "gives": "HONED",
+      "note": "a honed blade is a sharp one"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is one in Roman numerals"
+     },
+     {
+      "clueFragment": "element",
+      "gives": "TIN",
+      "note": "tin is element 50, and the bracket is what points at the periodic table"
+     }
+    ],
+    "walkthrough": "'Piano' and 'sharp' both look musical and only one of them is. P for soft is among the most-used single letters in cryptics, so it is worth banking early.",
+    "definitionFit": "Made little effort → PHONED IT IN: the performer's idiom for delivering a part down a wire instead of turning up, so the job is done without engagement."
+   }
   }
  ]
 } /*JSON-END*/;
