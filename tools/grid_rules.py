@@ -24,7 +24,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
 from fetch_puzzle import resolve_puzzle  # noqa: E402 — id or bare number
-DEFAULT_PUZZLE = 30066          # Tramp, 15x15, fully annotated
+DEFAULT_PUZZLE = "cryptic-30066"   # Tramp, 15x15, fully annotated
 # One light in accent blue, the way the app highlights the entry you're on.
 # A middle row rather than the top one: against the border, row 1 read as a
 # banner across the grid instead of as a single answer.
@@ -111,11 +111,13 @@ def main():
     written too strictly would show up as a broken icon build rather than as what
     it is: a rule that real crosswords break.
     """
-    number = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PUZZLE
-    puz = load(number)
+    # Left as text: resolve_puzzle takes an id or a bare number, and int() here
+    # rejected every id the moment ids grew their series (2026-08-19).
+    pid = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_PUZZLE
+    puz = load(pid)
     white, _ = mask(puz)
     check(white)
-    print(f"puzzle {number}: {len(white[0])}x{len(white)}, checks passed")
+    print(f"puzzle {pid}: {len(white[0])}x{len(white)}, checks passed")
 
 
 if __name__ == "__main__":

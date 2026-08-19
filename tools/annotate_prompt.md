@@ -6,7 +6,7 @@ daily. The puzzle file's `series` and the tools/series.py table say which; the h
 styles differ a little but the annotation schema below is identical for all of them.
 The target puzzle file is `puzzles/<ID>.js`, where the ID is the series and the
 number together — `cryptic-30089`, `everyman-4165`, `quiptic-1395`,
-`independent-12438`. Every paper numbers from its own 1, so the number alone
+`independent-12438`, `indysunday-1903`. Every paper numbers from its own 1, so the number alone
 does not name a puzzle. (The newest file whose
 entries still have `"annotation": null` — `puzzles/index.json` lists which puzzles have
 `"annotated": false`). Work on the OLDEST un-annotated puzzle first if several are

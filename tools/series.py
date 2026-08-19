@@ -65,6 +65,25 @@ SERIES = {
         # the cryptic rather than ahead of it.
         "gentleness": 3,
     },
+    "indysunday": {
+        # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
+        # by one a week, served from the same feed as the daily (see
+        # fetch_independent.py). A separate series because it is a separate
+        # numbering: sharing "independent" would have put No 1,903 and No 12,438
+        # in one sequence, and prev/next would have walked between them.
+        #
+        # Publisher stays "Independent" — the Sunday title folded into the daily
+        # in 2016, and splitting it would make the archive page say "Guardian,
+        # Independent, Independent on Sunday and Observer" for what a reader
+        # thinks of as three papers. The kind carries the difference instead.
+        "kind": "Sunday Cryptic",
+        "publisher": "Independent",
+        # Unmeasured. Same setters as the daily, so it queues with it until
+        # tools/difficulty.py has scored enough of them to say otherwise — a
+        # guessed teaching judgement is worse than an honest default.
+        "gentleness": 3,
+        "badge": "indy sunday",
+    },
 }
 
 # Unlisted falls back to the Guardian cryptic, which is right both for the daily
@@ -96,6 +115,17 @@ def default_setter(series):
     return meta(series).get("setter", "Unknown")
 
 
+def badge(series):
+    """What the picker chip and the archive row call this series.
+
+    The key is a storage token and was being printed straight at solvers, which
+    worked only while every key happened to read as a word. "indysunday" does
+    not, so the label is a field. Mirrors SERIES_BADGE in app.js, which carries
+    the prose that goes with it.
+    """
+    return meta(series).get("badge", series or "cryptic")
+
+
 # ---------- ids ----------
 # A puzzle's id is its series AND its number. The number alone is not unique:
 # every paper numbers from its own 1, so the Guardian's 30,089 and the Times'
@@ -106,7 +136,15 @@ def default_setter(series):
 # file — merging one paper's annotations into the other's grid.
 #
 # Numbers stay numbers everywhere they are DISPLAYED. This is the storage key.
+#
+# Series keys are one lowercase word, no hyphen — hence "indysunday" rather than
+# "independent-sunday". The id is <series>-<number> and the LAST hyphen is the
+# split, so a hyphenated key parses correctly but stops "^[a-z]+-\d+$" being
+# true, and that shape is asserted on filenames and on progress keys in
+# tools/smoke_test.js. One word keeps the id unambiguous to a reader as well as
+# to rpartition. Use "badge" for anything a solver has to read.
 def puzzle_id(series, number):
+    assert "-" not in (series or ""), f"series key {series!r} must be one word"
     return f"{series or 'cryptic'}-{number}"
 
 
