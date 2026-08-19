@@ -844,6 +844,18 @@ all 55:
   that deserves it. The app now rewrites the canonical at boot when `?p=` names a
   puzzle that has one — and only then, because an unannotated puzzle has no static
   page and the homepage is the honest answer.
+- **The address bar always names the puzzle on the screen** (2026-08-19). A link is
+  copied out of it, so opening a puzzle rewrites it to `?p=<n>` and moves the
+  canonical with it. Left alone the URL said whatever the page booted on: the bare
+  site root, which drops the reader on last night's puzzle, or a stale `?p=` from
+  the link they followed, which is worse because it looks deliberate.
+  `replaceState`, never push — switching puzzles is choosing what to look at, not
+  navigating, and a back button that walked the picker backwards would make leaving
+  the site take one press per puzzle browsed. **But only when the reader chose.**
+  Booting on the remembered puzzle is nobody's choice, and a bare
+  `/cryptic-teacher/` that rewrote itself would leave the homepage declaring a
+  puzzle as its canonical — the same de-indexing bug as above, pointed the other
+  way. That is why `openPuzzle(id, chosen)` takes the flag rather than inferring it.
 - **Copy about the whole site names every paper in it, or none of them**
   (feedback 2026-08-06: the archive page still said "Guardian cryptic crosswords,
   explained" over a list that included the Independent and Everyman). Naming one

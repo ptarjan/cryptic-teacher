@@ -25,6 +25,10 @@ const ROOT = path.join(__dirname, "..");
 function boot(opts) {
   const options = opts || {};
   const registry = {};
+  const unpublish = (el) => {
+    if (el._id && registry[el._id] === el) delete registry[el._id];
+    (el.children || []).forEach(unpublish);
+  };
 
   class FakeEl {
     constructor(tag, id) {
@@ -55,10 +59,20 @@ function boot(opts) {
     // test code silently held different objects and every assertion about a
     // dynamically-created element (clue rows, hint buttons) was vacuous.
     set id(v) { this._id = String(v || ""); if (this._id) registry[this._id] = this; }
+    // The other half of that rule: what leaves the page leaves the registry.
     get id() { return this._id; }
     set className(v) { this.classList._set = new Set(String(v).split(/\s+/).filter(Boolean)); }
     get className() { return [...this.classList._set].join(" "); }
-    set innerHTML(v) { this._innerHTML = String(v); if (v === "") this.children = []; }
+    // Clearing a container really throws away what was in it, ids and all.
+    // Without the unpublish the registry went on handing out rows that had been
+    // discarded — getElementById returning a clue row from a puzzle that is no
+    // longer open — so a test that clicked one was asserting about a dead
+    // element, and the crash only arrived when a newly annotated puzzle changed
+    // the shape of the stale row (2026-08-19).
+    set innerHTML(v) {
+      this._innerHTML = String(v);
+      if (v === "") { this.children.forEach(unpublish); this.children = []; }
+    }
     get innerHTML() { return this._innerHTML; }
     appendChild(el) {
       this.children.push(el);
@@ -217,6 +231,16 @@ function boot(opts) {
       panKeyboard(px) {
         this.offsetTop = px;
         (this._on.scroll || []).forEach((fn) => fn());
+      }
+    },
+    // Opening a puzzle rewrites the address bar so the link people copy is the
+    // puzzle they are looking at. The stub keeps every URL it was handed, so
+    // the test can assert on what a share would actually contain.
+    history: {
+      urls: [],
+      replaceState(_state, _title, url) {
+        this.urls.push(String(url));
+        global.location.search = String(url).replace(/^[^?]*/, "");
       }
     },
     localStorage: {
