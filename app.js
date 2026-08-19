@@ -1843,12 +1843,51 @@
   }
 
   // ---------- puzzle lifecycle ----------
-  function openPuzzle(id) {
+  // The address bar is what gets copied. Whichever puzzle is on the screen is
+  // the one a share has to hand over, so opening one rewrites the URL — before
+  // this, picking from the list left the address bar saying the site root,
+  // which drops the reader on last night's puzzle, or a stale ?p= from the link
+  // they arrived by, which is worse because it looks deliberate.
+  //
+  // replaceState, not push: switching puzzles is choosing what to look at, not
+  // navigating, and a back button that walked the picker backwards would make
+  // leaving the site take one press per puzzle browsed.
+  //
+  // Only when the reader CHOSE this puzzle, though. Booting on the remembered
+  // one is not a choice, and a bare `/cryptic-teacher/` that rewrites itself
+  // would leave the homepage declaring a puzzle as its canonical — which is the
+  // 2026-08-07 de-indexing bug again, pointed the other way. The front door
+  // stays the front door until somebody picks.
+  let canonicalHome = null;
+  function pointUrlAtPuzzle(id) {
+    const p = INDEX.puzzles.find((q) => q.id === id);
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, "", `?p=${encodeURIComponent(id)}`);
+    }
+    // ?p=30054 is one app URL among thousands, and it shipped declaring the
+    // homepage as its canonical — so Google folded every share and every link to
+    // a specific puzzle into the site root, and Search Console listed the puzzle
+    // as "alternate page with proper canonical tag" (2026-08-07). The page that
+    // deserves that credit is the write-up at /puzzles/30054/, which says the same
+    // things without needing JavaScript. Point at it, but only when it exists:
+    // an unannotated puzzle has no static page, and the homepage is then honest.
+    const link = document.querySelector('link[rel="canonical"]');
+    if (!link) return;
+    // Resolved against the ORIGINAL canonical, captured once: after the first
+    // switch link.href is itself a /puzzles/<n>/ URL, and resolving the next
+    // puzzle against that nests one inside the other.
+    if (canonicalHome === null) canonicalHome = link.href;
+    link.href = p && p.hasSolutions
+      ? new URL(`puzzles/${p.number}/`, canonicalHome).href : canonicalHome;
+  }
+
+  function openPuzzle(id, chosen = true) {
     const puzzle = window.CRYPTIC_PUZZLES[id];
     if (!puzzle) return;
     P = puzzle;
     meta = INDEX.puzzles.find((p) => p.id === id) || { annotated: false };
     store.set("ct:last", id);
+    if (chosen) pointUrlAtPuzzle(id);
     buildModel();
     hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
     // Forget the last puzzle's completeness, so the first render of this one
@@ -1947,21 +1986,6 @@
   }
 
   // ---------- boot ----------
-
-  // ?p=30054 is one app URL among thousands, and it shipped declaring the
-  // homepage as its canonical — so Google folded every share and every link to
-  // a specific puzzle into the site root, and Search Console listed the puzzle
-  // as "alternate page with proper canonical tag" (2026-08-07). The page that
-  // deserves that credit is the write-up at /puzzles/30054/, which says the same
-  // things without needing JavaScript. Point at it, but only when it exists:
-  // an unannotated puzzle has no static page, and the homepage is then honest.
-  function pointCanonicalAtStaticPage(asked) {
-    const link = document.querySelector('link[rel="canonical"]');
-    if (!link || !asked) return;
-    const p = INDEX.puzzles.find((q) => q.id === asked);
-    if (!p || !p.hasSolutions) return;
-    link.href = new URL(`puzzles/${p.number}/`, link.href).href;
-  }
 
   function boot() {
     $("tutorial").innerHTML = window.TUTORIAL_HTML || "<p>Tutorial unavailable.</p>";
@@ -2125,12 +2149,11 @@
       // /puzzles/<n>/ link in that way, and dropping someone on last night's
       // puzzle instead of the one they clicked would be baffling.
       const asked = new URLSearchParams(location.search).get("p");
-      pointCanonicalAtStaticPage(asked);
       const last = store.get("ct:last", null);
       const firstAnnotated = (INDEX.puzzles.find((p) => p.annotated) || INDEX.puzzles[0]).id;
       const want = (asked && window.CRYPTIC_PUZZLES[asked]) ? asked
         : (last && window.CRYPTIC_PUZZLES[last]) ? last : firstAnnotated;
-      openPuzzle(want);
+      openPuzzle(want, !!asked);
       // After the grid is up, not before: the pull is a network round trip and
       // the solver should be looking at yesterday's letters while it happens,
       // not a blank page. If it brings anything new, applyEnvelope redraws.

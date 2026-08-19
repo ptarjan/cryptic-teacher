@@ -536,6 +536,30 @@ assert(registry["hint-body"].innerHTML.includes("auto hints") || registry["hint-
 assert(registry["hint-next"].innerHTML.includes("Reveal answer"), "auto-hints puzzle offers Reveal answer");
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hints puzzle offers letter escape hatch");
 
+// --- picking a puzzle rewrites the address bar, because that is what gets shared ---
+// A link has to hand over the puzzle on the screen. Left alone, the URL still
+// says whatever the page booted on: the bare site root, which drops the reader
+// on last night's puzzle, or a stale ?p= from the link they followed, which is
+// worse because it looks deliberate. The canonical follows, so a shared ?p=
+// still credits the static write-up that says the same things without JS.
+{
+  const urls = global.window.history.urls;
+  assert(urls[urls.length - 1] === `?p=${autoPuzzle.id}`,
+    `opening No ${autoPuzzle.number} should leave ?p=${autoPuzzle.id} in the address bar, `
+      + `got ${JSON.stringify(urls)}`);
+  const want = `https://paultarjan.com/cryptic-teacher/puzzles/${autoPuzzle.number}/`;
+  assert(canonicalLink.href === want,
+    `canonical should follow the opened puzzle to ${want}, got ${canonicalLink.href}`);
+  // And the front door stays the front door. Booting on the remembered puzzle is
+  // not a choice anybody made, so a bare /cryptic-teacher/ must not rewrite
+  // itself — a homepage declaring a puzzle as its canonical is the 2026-08-07
+  // de-indexing bug pointed the other way.
+  if (!new URLSearchParams(global.location.search).get("p")) {
+    assert(urls.length && urls.every((u) => u !== ""),
+      "the boot open must not touch the URL when nothing asked for a puzzle");
+  }
+}
+
 // --- a puzzle we solved ourselves says so ---
 // Prize crosswords get solved here before the paper publishes its key
 // (tools/apply_solution.py), which means the app will happily tell a solver
