@@ -15,6 +15,12 @@ const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", 
 const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc } =
   require("./fake_dom.js").boot();
 
+// Puzzle ids carry their series ("cryptic-30089"); the picker shows the plain
+// number, which is what a person types and what the row says. One conversion,
+// used everywhere this test drives the picker.
+const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
+  .find((p) => p.id === id) || { number: id }).number;
+
 // --- cache busting: index.html must reference current asset hashes ---
 // (mobile browsers hold GitHub Pages' 4h max-age copies otherwise — STYLE.md)
 {
@@ -77,7 +83,12 @@ assert(Object.keys(global.window.CRYPTIC_PUZZLES || {}).length >= 25, "all puzzl
 // booting on No 30,067. Set CT_TEST_QUERY=?p=30067 to pin one while debugging.
 const openTitle = registry["puzzle-title"].innerHTML;
 assert(/No [\d,]+/.test(openTitle), "a Guardian cryptic opened: " + openTitle);
-const openId = (openTitle.match(/No ([\d,]+)/) || [, ""])[1].replace(/,/g, "");
+// The title shows the NUMBER — that is what a solver reads — so the id comes
+// back out of the index rather than off the screen. They stopped being the
+// same string on 2026-08-19, when ids grew their series.
+const openNumber = (openTitle.match(/No ([\d,]+)/) || [, ""])[1].replace(/,/g, "");
+const openId = ((global.CRYPTIC_INDEX.puzzles || [])
+  .find((p) => String(p.number) === openNumber) || {}).id;
 const openPuz = (global.window.CRYPTIC_PUZZLES || {})[openId];
 assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // A ?p= URL hands its indexing credit to the static write-up, not to the
@@ -89,7 +100,7 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
   const home = "https://paultarjan.com/cryptic-teacher/";
   const asked = new URLSearchParams(global.location.search).get("p");
   const meta = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === asked);
-  const want = (meta && meta.hasSolutions) ? `${home}puzzles/${meta.number}/` : home;
+  const want = (meta && meta.hasSolutions) ? `${home}puzzles/${meta.id}/` : home;
   assert(canonicalLink.href === want,
     `canonical should be ${want}, got ${canonicalLink.href}`);
 }
@@ -98,7 +109,7 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // carries no badge at all (see STYLE.md, "Badge the exception"). So the title
 // must agree with the index rather than always saying something.
 {
-  const idx = (global.CRYPTIC_INDEX.puzzles || []).find((p) => String(p.number) === openId);
+  const idx = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === openId);
   const badged = registry["puzzle-title"].innerHTML.includes("auto hints");
   assert(idx && badged === !idx.annotated,
     "title badge disagrees with the index for " + openId + ": badged=" + badged);
@@ -547,7 +558,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   assert(urls[urls.length - 1] === `?p=${autoPuzzle.id}`,
     `opening No ${autoPuzzle.number} should leave ?p=${autoPuzzle.id} in the address bar, `
       + `got ${JSON.stringify(urls)}`);
-  const want = `https://paultarjan.com/cryptic-teacher/puzzles/${autoPuzzle.number}/`;
+  const want = `https://paultarjan.com/cryptic-teacher/puzzles/${autoPuzzle.id}/`;
   assert(canonicalLink.href === want,
     `canonical should follow the opened puzzle to ${want}, got ${canonicalLink.href}`);
   // And the front door stays the front door. Booting on the remembered puzzle is
@@ -655,9 +666,13 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     // Search by number rather than scanning the default list: the default list
     // is annotated-only, and a puzzle can carry annotated clues while its index
     // flag says otherwise (mid-annotation, or a partial hand-edit).
+    // Searched by NUMBER, which is what the picker shows and what a person
+    // types; `id` carries the series and never appears on screen.
+    const num = ((global.CRYPTIC_INDEX.puzzles || [])
+      .find((p) => p.id === id) || {}).number;
     registry["btn-picker"].onclick();
-    typeInPicker(String(id));
-    const li = registry["picker-list"].children.find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + id));
+    typeInPicker(String(num));
+    const li = registry["picker-list"].children.find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + num));
     assert(li, `picker finds puzzle ${id} when searched for`);
     li.children[0].onclick();
     const row = registry["clue-" + e.id];
@@ -840,9 +855,9 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     };
     const openPuzzle = (id) => {
       registry["btn-picker"].onclick();
-      typeInPicker(String(id));
+      typeInPicker(String(numberOf(id)));
       const li = registry["picker-list"].children.find(
-        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + id));
+        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + numberOf(id)));
       assert(li, `picker finds puzzle ${id}`);
       li.children[0].onclick();
     };
@@ -991,9 +1006,9 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   })();
   assert(withInd, "at least one annotation names an indicator that occurs in its clue");
   registry["btn-picker"].onclick();
-  typeInPicker(String(withInd.id));
+  typeInPicker(String(numberOf(withInd.id)));
   registry["picker-list"].children
-    .find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + withInd.id))
+    .find((x) => x.children[0] && x.children[0].innerHTML.includes("№ " + numberOf(withInd.id)))
     .children[0].onclick();
   registry["clue-" + withInd.e.id].listeners.click[0]();
   const indBtn = registry["hint-next"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
@@ -1051,7 +1066,7 @@ registry["reset-puzzle"].onclick();
 // back on the next pull — the reset has to be a thing that happened, with a
 // time on it, for the merge to have anything to obey.
 {
-  const after = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:\d+$/.test(k))] || "{}");
+  const after = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:[a-z]+-\d+$/.test(k))] || "{}");
   assert(after.clearedAt > 0 && Object.keys(after.letters || {}).length === 0,
     "resetting records when it happened, so the reset itself can reach the other device");
 }
@@ -1512,7 +1527,7 @@ registry["reset-puzzle"].onclick();
   assert(/clueItalics/.test(src),
     "app.js reads clueItalics, so the ranges the fetchers write are actually rendered");
 
-  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^\d+\.js$/.test(f));
+  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z]+-\d+\.js$/.test(f));
   let withItalics = 0;
   files.forEach((f) => {
     const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
@@ -1562,7 +1577,7 @@ registry["reset-puzzle"].onclick();
   assert(shape("Vague (two words)", 9) === null, "prose in the brackets is not an enumeration");
   assert(String(shape("Feed typo (6.6)", 12)) === "6,6", "a period where a comma was meant");
 
-  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^\d+\.js$/.test(f)).forEach((f) => {
+  fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z]+-\d+\.js$/.test(f)).forEach((f) => {
     const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
     const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
                                       text.lastIndexOf("}") + 1));
@@ -1662,7 +1677,7 @@ setTimeout(() => {
   // passes for one range of puzzle numbers is asserting the wrong thing.
   assert(storage["ct:" + openId], `progress persisted to localStorage under ct:${openId}, got ` +
     JSON.stringify(Object.keys(storage)));
-  const saved = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:\d/.test(k))]);
+  const saved = JSON.parse(storage[Object.keys(storage).find((k) => /^ct:[a-z]+-\d/.test(k))]);
   // Without a timestamp the merge cannot tell two devices apart, so this is
   // written whether or not sync is on — turning it on later must not find a
   // pile of undated saves.
@@ -1686,9 +1701,9 @@ setTimeout(() => {
   assert(id, "some puzzle in the corpus ships every solution");
   const open = () => {
     registry["btn-picker"].onclick();
-    typeInPicker(String(id));
+    typeInPicker(String(numberOf(id)));
     registry["picker-list"].children
-      .find((x) => x.children[0] && x.children[0].innerHTML.includes("\u2116 " + id))
+      .find((x) => x.children[0] && x.children[0].innerHTML.includes("\u2116 " + numberOf(id)))
       .children[0].onclick();
   };
   open();

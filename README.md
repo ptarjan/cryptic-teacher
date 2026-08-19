@@ -112,7 +112,7 @@ python3 tools/fetch_puzzle.py --latest  # newest cryptic (no-op if already prese
 python3 tools/fetch_puzzle.py --backfill 30   # the last 30, skipping ones you have
 ```
 
-Then annotate the new `puzzles/<n>.js` by hand or with Claude Code using
+Then annotate the new `puzzles/<series>-<n>.js` by hand or with Claude Code using
 `tools/annotate_prompt.md`, and check your work:
 
 ```

@@ -114,9 +114,11 @@ ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 pending=$(python3 - "$ANNOTATE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
-todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
+# IDs, not numbers: puzzles/<id>.js is what every step below names, so no
+# consumer has to resolve a number two papers could share.
+todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
                if not p["annotated"] and p.get("hasSolutions")), reverse=True)
-print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
+print(" ".join(i for _, i in todo[:int(sys.argv[1])]))
 EOF
 )
 
@@ -142,9 +144,9 @@ SOLVE_MAX="${SOLVE_MAX:-1}"
 unsolved=$(python3 - "$SOLVE_MAX" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
-todo = sorted(((p.get("date") or 0, p["number"]) for p in idx["puzzles"]
+todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
                if not p.get("hasSolutions")), reverse=True)
-print(" ".join(str(n) for _, n in todo[:int(sys.argv[1])]))
+print(" ".join(i for _, i in todo[:int(sys.argv[1])]))
 EOF
 )
 
@@ -229,7 +231,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
     fill="${TMPDIR:-/tmp}/cryptic-fill-$num.json"
     rm -f "$fill"
     echo "solving puzzle $num cold with Claude Code... (session ${session:-unknown}%)"
-    claude -p "Solve cryptic crossword No $num in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
+    claude -p "Solve the cryptic crossword in puzzles/$num.js in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
       --model "$ANNOTATE_MODEL" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
       --max-turns 120 2>&1 | tail -40
@@ -265,7 +267,7 @@ if [ -n "$pending" ]; then
       # on 30078 (see STYLE.md), it matched — 23/25 types, 22/25 definitions,
       # zero cryptic definitions, both hard clues solved — in the same wall time
       # for a third of the cost, because the bill is nearly all output tokens.
-      if claude -p "Annotate cryptic crossword No $num in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
+      if claude -p "Annotate the cryptic crossword in puzzles/$num.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
         --model "$ANNOTATE_MODEL" \
         --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
         --max-turns 80 2>&1 | tee "$run_log"

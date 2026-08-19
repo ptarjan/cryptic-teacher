@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import PUZZLE_DIR, read_puzzle_file  # noqa: E402
+from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
 
 
 def crossing_map(entries):
@@ -66,11 +66,9 @@ def packet(puzzle):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("number", type=int)
+    ap.add_argument("number", help="puzzle id or bare number")
     args = ap.parse_args()
-    path = PUZZLE_DIR / f"{args.number}.js"
-    if not path.exists():
-        raise SystemExit(f"no such puzzle: {path}")
+    path = resolve_puzzle(args.number)
     print(packet(read_puzzle_file(path)))
 
 

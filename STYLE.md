@@ -844,6 +844,26 @@ all 55:
   that deserves it. The app now rewrites the canonical at boot when `?p=` names a
   puzzle that has one — and only then, because an unannotated puzzle has no static
   page and the homepage is the honest answer.
+- **A puzzle's id is its series and its number** (2026-08-19): `cryptic-30089`,
+  `everyman-4165`. Every paper numbers from its own 1, so the number alone names a
+  puzzle only by luck of which ranges happen to be far apart — and the luck runs
+  out. `puzzles/<n>.js` WAS the whole namespace, so the second paper to reach a
+  number would have shared the first one's file and merged one paper's annotations
+  into the other's grid, silently. Spelled in exactly one place
+  (`series.puzzle_id`), found in exactly one place (`fetch_puzzle.puzzle_files`),
+  resolved in exactly one place (`fetch_puzzle.resolve_puzzle`, which takes a bare
+  number too and refuses rather than guesses when one is ambiguous).
+  **Numbers stay numbers everywhere a person reads one** — titles, picker rows,
+  card art, prose — because "No 30,089" is what the paper calls it. The id is a
+  key, not a name.
+  Anything that has to keep working under an old id migrates rather than breaking:
+  saved progress renames itself once on boot, `?p=30080` still opens the puzzle it
+  named, incoming sync envelopes are mapped on the way in, and every retired
+  `/puzzles/<n>/` URL keeps a page that says where its puzzle went. And the same
+  spelling trick that hid a collision can hide a rule: `is_authored` read the first
+  character of the id until every id began with a letter, at which point every
+  Guardian puzzle was silently held to the authoring rules. It is a `series` field
+  now. **Decide off a field, never off how an id is spelled.**
 - **The address bar always names the puzzle on the screen** (2026-08-19). A link is
   copied out of it, so opening a puzzle rewrites it to `?p=<n>` and moves the
   canonical with it. Left alone the URL said whatever the page booted on: the bare

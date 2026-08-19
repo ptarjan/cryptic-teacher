@@ -33,11 +33,14 @@ writing time, with both examples above in front of the annotator.
 
 Usage:  python3 tools/find_renarration.py [puzzle-number ...]
 """
-import glob
 import json
 import os
 import re
 import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from fetch_puzzle import puzzle_files, resolve_puzzle  # noqa: E402
 
 CAPS = re.compile(r"\b[A-Z][A-Z’'-]{1,}\b")
 # Assembly language: the walkthrough is placing pieces relative to one another,
@@ -105,10 +108,9 @@ def scan(path):
 
 def main(argv):
     if argv:
-        paths = [f"puzzles/{n}.js" for n in argv]
+        paths = [str(resolve_puzzle(n)) for n in argv]
     else:
-        paths = [p for p in sorted(glob.glob("puzzles/*.js"))
-                 if "index" not in p]
+        paths = [str(p) for p in puzzle_files()]
     rows = [r for p in paths for r in scan(p)]
     rows.sort(key=lambda r: (r[0], r[1], r[2]))
     label = {0: "ASSEMBLY", 1: "MIXED", 2: "NAMES-ONLY"}

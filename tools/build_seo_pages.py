@@ -43,6 +43,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
+from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
@@ -102,7 +103,7 @@ def load(path):
 
 def puzzles():
     out = []
-    for path in sorted(PUZZLE_DIR.glob("[0-9]*.js")):
+    for path in puzzle_files():
         out.append(load(path))
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
     # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
@@ -320,7 +321,10 @@ def puzzle_page(puz, meta, prev_p, next_p):
     when = datestr(puz.get("date"))
     diff = (meta or {}).get("difficulty") or {}
     annotated = (meta or {}).get("annotated")
-    canonical = f"{BASE}/puzzles/{num}/"
+    # The page lives at its ID, not its number: two papers can reach the same
+    # number and would then want the same directory. The bare-number URL still
+    # works — legacy_redirect() keeps one at every number we have ever used.
+    canonical = f"{BASE}/puzzles/{puz['id']}/"
 
     # "Everyman Crossword No 4,096 by Everyman" is the setter's pseudonym said
     # twice. Where the series name IS the byline — the Observer has kept Everyman
@@ -356,9 +360,11 @@ def puzzle_page(puz, meta, prev_p, next_p):
 
     nav = []
     if prev_p:
-        nav.append(f'<a rel="prev" href="{BASE}/puzzles/{prev_p}/">&larr; No {prev_p:,}</a>')
+        nav.append(f'<a rel="prev" href="{BASE}/puzzles/{prev_p["id"]}/">'
+                   f'&larr; No {prev_p["number"]:,}</a>')
     if next_p:
-        nav.append(f'<a rel="next" href="{BASE}/puzzles/{next_p}/">No {next_p:,} &rarr;</a>')
+        nav.append(f'<a rel="next" href="{BASE}/puzzles/{next_p["id"]}/">'
+                   f'No {next_p["number"]:,} &rarr;</a>')
 
     article_ld = {
         "@context": "https://schema.org", "@type": "Article",
@@ -423,8 +429,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # advertise an image that isn't there — and asset() would fail on it anyway,
     # having nothing to hash.
     card = alt = None
-    if (ROOT / f"og/{num}.png").exists():
-        card, alt = f"og/{num}.png", card_alt(num)
+    if (ROOT / f"og/{puz['id']}.png").exists():
+        card, alt = f"og/{puz['id']}.png", card_alt(puz["id"])
 
     return (head(title, desc, canonical,
                  ld(article_ld) + ld(breadcrumb_ld(crumbs)), card, alt)
@@ -461,7 +467,7 @@ def hub_page(idx):
         series = (f'<span class="badge series">{esc(p["series"])}</span>'
                   if p.get("series", "cryptic") != "cryptic" else "")
         rows.append(
-            f'<li><a href="{BASE}/puzzles/{p["number"]}/">'
+            f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
             f'<span class="p-num">No {p["number"]:,}</span>'
             f'<span class="p-setter">{esc(p.get("setter") or "")}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
@@ -541,7 +547,7 @@ def sitemap(idx):
             (f"{BASE}/learn/", "monthly", "0.8", None)]
     for p in idx["puzzles"]:
         if p.get("hasSolutions"):
-            urls.append((f"{BASE}/puzzles/{p['number']}/", "monthly", "0.7",
+            urls.append((f"{BASE}/puzzles/{p['id']}/", "monthly", "0.7",
                          datestr(p.get("date"), "%Y-%m-%d") or None))
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -568,7 +574,7 @@ def homepage_nav(idx):
     """
     recent = [p for p in idx["puzzles"] if p.get("hasSolutions")][:12]
     items = "".join(
-        f'<li><a href="puzzles/{p["number"]}/">No {p["number"]:,}'
+        f'<li><a href="puzzles/{p["id"]}/">No {p["number"]:,}'
         + (f' &middot; {esc(p.get("setter"))}' if p.get("setter") else "")
         + "</a></li>" for p in recent)
     return f"""{NAV_START}
@@ -599,21 +605,66 @@ def patch_homepage(idx):
     return path, new
 
 
+def legacy_redirects(solved):
+    """A page at every bare-number URL this site has published.
+
+    Puzzle pages moved from /puzzles/30089/ to /puzzles/cryptic-30089/ on
+    2026-08-19, when ids grew their series so two papers could not claim one
+    directory. Those old URLs are indexed and shared, and GitHub Pages cannot
+    answer with a 301, so each becomes a page that says where its puzzle went in
+    the two ways that count: rel=canonical for a crawler, a meta refresh for a
+    reader. Kept forever, not for a grace period — a link somebody sent a friend
+    has no expiry.
+
+    A number claimed by more than one paper offers the choice rather than
+    guessing, which is the same rule resolve_puzzle() applies on the command
+    line: an ambiguous number is a question, never a coin toss.
+    """
+    by_number = {}
+    for p in solved:
+        by_number.setdefault(str(p["number"]), []).append(p)
+    out = {}
+    for num, ps in sorted(by_number.items()):
+        pretty = f"{int(num):,}"
+        if len(ps) == 1:
+            target = f"{BASE}/puzzles/{ps[0]['id']}/"
+            title = f"No {pretty} — moved"
+            body = (f'<p>This puzzle now lives at '
+                    f'<a href="{target}">{esc(target)}</a>.</p>')
+            refresh = f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n'
+        else:
+            target = f"{BASE}/puzzles/"
+            title = f"No {pretty} — which paper?"
+            body = ("<p>More than one paper has a No " + pretty + ":</p><ul>" + "".join(
+                f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
+                f'{esc(publisher(p))} {esc(kind(p))} No {pretty}</a></li>' for p in ps)
+                + "</ul>")
+            refresh = ""
+        out[PUZZLE_DIR / num / "index.html"] = (
+            head(title, f"Cryptic crossword No {pretty} has moved.", target, extra=refresh)
+            + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
+                        (f"No {pretty}", "")])
+            + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
+            + FOOTER + "</body>\n</html>\n")
+    return out
+
+
 # ------------------------------------------------------------------------ run
 
 def outputs():
     idx = index_json()
-    meta = {str(p["number"]): p for p in idx["puzzles"]}
+    meta = {p["id"]: p for p in idx["puzzles"]}
     solved = [p for p in puzzles() if any(e.get("solution") for e in p["entries"])]
-    nums = [p["number"] for p in solved]
 
     files = {}
     for i, puz in enumerate(solved):
         # The list is newest-first, so "next" is the older neighbour.
-        prev_p = nums[i - 1] if i > 0 else None
-        next_p = nums[i + 1] if i + 1 < len(nums) else None
-        files[PUZZLE_DIR / str(puz["number"]) / "index.html"] = puzzle_page(
-            puz, meta.get(str(puz["number"])), prev_p, next_p)
+        prev_p = solved[i - 1] if i > 0 else None
+        next_p = solved[i + 1] if i + 1 < len(solved) else None
+        files[PUZZLE_DIR / puz["id"] / "index.html"] = puzzle_page(
+            puz, meta.get(puz["id"]), prev_p, next_p)
+    for path, page in legacy_redirects(solved).items():
+        files[path] = page
     files[PUZZLE_DIR / "index.html"] = hub_page(idx)
     files[ROOT / "learn" / "index.html"] = learn_page()
     files[ROOT / "sitemap.xml"] = sitemap(idx)
