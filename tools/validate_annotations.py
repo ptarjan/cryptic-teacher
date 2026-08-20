@@ -720,10 +720,11 @@ def is_word(s):
 
 
 # Words that end in S with a dictionary word in front of it, yet are not
-# plurals at all: ALAS is an interjection, not more than one ALA (a wing).
+# plurals at all: ALAS is an interjection, not more than one ALA (a wing),
+# ALWAYS an adverb, not more than one ALWAY (its archaic self).
 # Without this the plural check invites a definitionNote that would lie —
 # same principle as INVARIANT_PLURALS below, on the answer side.
-NOT_PLURALS = {"ALAS"}
+NOT_PLURALS = {"ALAS", "ALWAYS"}
 
 
 def is_plural(ans):
