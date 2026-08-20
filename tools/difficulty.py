@@ -17,21 +17,38 @@ of ours (Guardian daily and prize, Independent, Everyman, Quick Cryptic) in
 prose with no scale, and the one blog that does rate 1-5 for difficulty,
 bigdave44, is Telegraph-only. Don't go looking again.
 
-What the SNITCH does buy us is the shape of the thing. Over 136 weeks scraped
-2026-08-15, the mean NITCH by publication day is Mon 72, Tue 83, Wed 92, Thu
-101, Fri 128, Sat 97 (prize), Sun 105 (Sunday Times, a different puzzle) — a
-strictly monotonic Mon-to-Fri climb, Friday 78% slower than Monday. So a
-day-of-week term is a real effect in a graded paper, and worth looking for
-here. It is NOT in this model, on purpose: the Guardian grades by setter
-rotation rather than by editorial fiat, and our 21 scored Guardian cryptics
-give 3-5 per weekday, rho = +0.18 against a +0.43 threshold. Underpowered, not
-absent. Re-run the test at ~100 scored cryptics before adding a term; do not
-fit one to the 21, and do not substitute the unannotated puzzles to pad n — see
-the Quiptic control group in score() for why grid-only scores measure the grid. It measures three things that are
-genuinely in the file, reports each one separately so a reader can disagree
-with the weighting, and bands a puzzle by where it sits *against the rest of
-the collection*: "tougher than 80% of the puzzles here" is a claim the data can
-support, "Difficulty 7/10" is not.
+So this measures three things that are genuinely in the file, reports each one
+separately so a reader can disagree with the weighting, and bands a puzzle by
+where it sits *against the rest of the collection*: "tougher than 80% of the
+puzzles here" is a claim the data can support, "Difficulty 7/10" is not.
+
+No join does not mean no evidence. `--validate` tests the index against the two
+difficulty facts we did not invent, and it is a command rather than a paragraph
+because a number pasted into prose is true on the day it is pasted:
+
+  SERIES ORDER  The Quiptic is the Guardian's beginner crossword and the
+                Everyman the Observer's gentlest, both by their own papers'
+                editorial fiat. The index puts them below the dailies by 0.4 sd,
+                p = 0.01 on 44 scored puzzles (2026-08-20). That is the strongest
+                external agreement available here, and it is the claim that
+                matters: it separates puzzles somebody ELSE graded easy.
+
+  WEEKDAY       What the SNITCH buys us is the shape of the thing — Mon 72 to
+                Fri 128, strictly monotonic, Friday 78% slower than Monday (see
+                SNITCH_BY_DAY). A day-of-week term is a real effect in a graded
+                paper. It is NOT in this model and our data does not support
+                adding one: 22 scored Guardian cryptics give rho = +0.20,
+                p = 0.38, and lining our weekday means up against the SNITCH's
+                six gives rho = +0.54 on six points, which is p = 0.24 — the
+                right sign, no significance, and our Friday is a dip where
+                theirs is the peak.
+
+The weekday null is a finding about the Guardian, not a failure of the index:
+the Guardian grades by setter rotation rather than by editorial fiat, so there
+may be no weekday effect to find. Underpowered either way — re-run at ~100
+scored cryptics. Do not fit a term to the 22, and do not substitute the
+unannotated puzzles to pad n: see the Quiptic control group in score() for why
+grid-only scores measure the grid.
 
 Everything is scored RELATIVE, and that is the whole trick. The first version
 of this file scored the raw numbers absolutely and rated all 35 puzzles
@@ -78,11 +95,14 @@ you disagree; the components are printed alongside so the change is arguable.
 Usage:
   python3 tools/difficulty.py            # table of every puzzle, hardest first
   python3 tools/difficulty.py 30072      # one puzzle, with its components
+  python3 tools/difficulty.py --validate # does it agree with anything external?
 """
 
 import json
 import math
+import random
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -101,6 +121,14 @@ JSON_END = "/*JSON-END*/"
 # How much each component moves the overall index. Checking leads because it is
 # the one component that is a fact rather than a judgement.
 WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25}
+
+# The SNITCH's mean NITCH by publication day, 136 weeks scraped 2026-08-15, and
+# the series their own papers declare gentle. Both are inputs to --validate, and
+# both live here rather than in the prose above so the test and the story it
+# tells cannot drift apart.
+SNITCH_BY_DAY = {0: 72, 1: 83, 2: 92, 3: 101, 4: 128, 5: 97}   # Mon..Sat
+DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+GENTLE_SERIES = {"quiptic", "everyman"}
 
 # Per-device hardness, 0 = gives itself away, 1 = you may never be certain.
 # Ordered by how much confirmation the solver gets back ONCE THE ANSWER IS BUILT
@@ -400,7 +428,132 @@ def rebaseline():
     return 0
 
 
+def _rank_list(xs):
+    """Ranks, ties averaged."""
+    order = sorted(range(len(xs)), key=lambda i: xs[i])
+    out, i = [0.0] * len(xs), 0
+    while i < len(order):
+        j = i
+        while j + 1 < len(order) and xs[order[j + 1]] == xs[order[i]]:
+            j += 1
+        for k in range(i, j + 1):
+            out[order[k]] = (i + j) / 2 + 1
+        i = j + 1
+    return out
+
+
+def _spearman(a, b):
+    ra, rb = _rank_list(a), _rank_list(b)
+    ma, mb = sum(ra) / len(ra), sum(rb) / len(rb)
+    num = sum((x - ma) * (y - mb) for x, y in zip(ra, rb))
+    den = math.sqrt(sum((x - ma) ** 2 for x in ra) * sum((y - mb) ** 2 for y in rb))
+    return num / den if den else float("nan")
+
+
+def _perm_p(stat, a, b, trials=20000):
+    """How often shuffling b alone beats the statistic we measured."""
+    obs, b2, hits = abs(stat(a, b)), list(b), 0
+    rng = random.Random(20260820)          # fixed: the answer must not wobble per run
+    for _ in range(trials):
+        rng.shuffle(b2)
+        if abs(stat(a, b2)) >= obs:
+            hits += 1
+    return (hits + 1) / (trials + 1)
+
+
+def validate():
+    """Test the index against the only difficulty facts we did not invent.
+
+    There is no join to the SNITCH (see the module docstring), so the question
+    "is this measuring difficulty" cannot be answered by correlation against a
+    rating of the same puzzle. It can still be answered, twice, and both tests
+    live here rather than in a comment so they re-run as the corpus grows —
+    numbers written into prose are true on the day they are pasted and quietly
+    stop being true afterwards.
+
+      SERIES ORDER  Two of our four series are declared easy by the papers that
+                    print them: the Quiptic is the Guardian's beginner crossword
+                    and the Everyman is the Observer's gentlest. If the index
+                    cannot put those below the dailies it is not measuring
+                    difficulty. This is the same argument the Quiptic control
+                    group in score() makes, run as a test.
+
+      WEEKDAY       The SNITCH's Mon-to-Fri climb is the shape of difficulty in a
+                    graded paper. Whether the Guardian has one is an open
+                    question, not a known fact — it grades by setter rotation
+                    rather than editorial fiat — so a null here is a finding
+                    about the Guardian, NOT a failure of the index.
+    """
+    scores = all_scores()
+    meta = {}
+    for path in puzzle_files():
+        puz = load(path)
+        if puz["id"] in scores:
+            meta[puz["id"]] = puz
+    print(f"{len(scores)} puzzle(s) scored (annotated) of {len(list(puzzle_files()))} fetched")
+    if len(scores) < 20:
+        print("too few to test anything; annotate more first")
+        return 1
+
+    def idx(pred):
+        return [s["index"] for p, s in scores.items() if pred(meta[p].get("series", "cryptic"))]
+
+    print("\nseries          n   mean index")
+    groups = {}
+    for p, s in scores.items():
+        groups.setdefault(meta[p].get("series", "cryptic"), []).append(s["index"])
+    for k, v in sorted(groups.items(), key=lambda kv: sum(kv[1]) / len(kv[1])):
+        print(f"  {k:<12} {len(v):>3}   {sum(v) / len(v):+.3f}")
+
+    gentle, hard = idx(lambda s: s in GENTLE_SERIES), idx(lambda s: s not in GENTLE_SERIES)
+    ok = len(gentle) >= 8 and len(hard) >= 8
+    if ok:
+        labels = [0] * len(gentle) + [1] * len(hard)
+        def gap(lab, vals):
+            g = [v for l, v in zip(lab, vals) if not l]
+            h = [v for l, v in zip(lab, vals) if l]
+            return sum(h) / len(h) - sum(g) / len(g)
+        d = gap(labels, gentle + hard)
+        p = _perm_p(gap, labels, gentle + hard)
+        print(f"\nSERIES ORDER  the papers' own beginner puzzles sit {d:+.3f} sd "
+              f"below the dailies, p = {p:.4f}")
+        print(f"              {'PASS' if d > 0 and p < 0.05 else 'FAIL'} — "
+              "the index separates puzzles graded easy by someone other than us")
+    else:
+        print(f"\nSERIES ORDER  skipped: {len(gentle)} gentle / {len(hard)} daily scored")
+
+    rows = [(datetime.fromtimestamp(meta[p]["date"] / 1000, timezone.utc).weekday(),
+             s["index"]) for p, s in scores.items()
+            if meta[p].get("series", "cryptic") == "cryptic"]
+    days = sorted({d for d, _ in rows})
+    if len(rows) >= 20 and len(days) > 1:
+        wd, ix = [r[0] for r in rows], [r[1] for r in rows]
+        rho = _spearman(wd, ix)
+        print(f"\nWEEKDAY       Guardian cryptic n={len(rows)}: rho = {rho:+.3f}, "
+              f"p = {_perm_p(_spearman, wd, ix):.3f}")
+        print("              day   n   mean index   SNITCH")
+        means = {}
+        for d in days:
+            vals = [i for w, i in rows if w == d]
+            means[d] = sum(vals) / len(vals)
+            print(f"              {DAY_NAMES[d]}  {len(vals):>3}   {means[d]:+.3f}"
+                  f"       {SNITCH_BY_DAY.get(d, '-')}")
+        paired = [d for d in days if d in SNITCH_BY_DAY]
+        if len(paired) >= 4:
+            r = _spearman([means[d] for d in paired], [SNITCH_BY_DAY[d] for d in paired])
+            print(f"              our weekday means vs the SNITCH's, over "
+                  f"{len(paired)} days: rho = {r:+.3f}")
+        print("              a weekday term stays out of the model until this is "
+              "significant on its own")
+    return 0
+
+
 def main():
+    if "--validate" in sys.argv:
+        if not BASELINE.exists():
+            print("no baseline — run --rebaseline first", file=sys.stderr)
+            return 1
+        return validate()
     if not LEXICON.exists():
         print("note: tools/data/lexicon.tsv not fetched — scoring without the "
               "obscurity component (bash tools/fetch_lexicon.sh)", file=sys.stderr)
