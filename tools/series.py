@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """The one table that says what each crossword series IS.
 
-Every series fact the tools need — who publishes it, what to call it, how gentle
-it is, what to do when the feed ships no setter name — lives here and nowhere
-else. Import it; don't re-declare it.
+Every series fact the tools need — who publishes it, what to call it, what to do
+when the feed ships no setter name — lives here and nowhere else. Import it;
+don't re-declare it.
 
 This file exists because the same knowledge had already been copied into four
 places by the third series: fetch_puzzle.py knew the Guardian URLs, the SEO
@@ -18,12 +18,10 @@ lives next to the code that renders it. An unlisted series there simply goes
 unbadged.
 """
 
-# gentleness — the order the pre-reset backfill annotates in, lowest first.
-#   It is a teaching judgement, not a measurement: an un-annotated *beginner*
-#   puzzle is the worst thing on the site, because the people it is for are
-#   exactly the people who can't get through it unaided. The measured
-#   difficulty in tools/difficulty.py is a separate thing and rates individual
-#   puzzles; this rates the series' intent.
+# No series-priority field. The backfill queues by date across every series at
+# once (tools/prereset_backfill.sh), and puzzle difficulty is measured per puzzle
+# in tools/difficulty.py — a per-series ranking here would be a third opinion
+# nothing asks for.
 # setter — used only when the source publishes no byline. Absent means the
 #   feed always names a setter and a missing one is a scraping bug worth
 #   showing as "Unknown".
@@ -31,17 +29,14 @@ SERIES = {
     "cryptic": {
         "kind": "Cryptic",
         "publisher": "Guardian",
-        "gentleness": 3,
     },
     "quiptic": {
         "kind": "Quiptic",
         "publisher": "Guardian",
-        "gentleness": 1,
     },
     "everyman": {
         "kind": "Everyman",
         "publisher": "Observer",
-        "gentleness": 2,
         # "Everyman" IS the byline — the Observer has kept the setter anonymous
         # since 1945 — so the feed ships no creator. Without this every one of
         # them reads "Unknown", which looks like a scraping failure rather than
@@ -54,16 +49,11 @@ SERIES = {
     "authored": {
         "kind": "Cryptic",
         "publisher": "Cryptic Teacher",
-        "gentleness": 0,
         "setter": "Cryptic Teacher",
     },
     "independent": {
         "kind": "Cryptic",
         "publisher": "Independent",
-        # Pitched at the same level as the Guardian daily — Phi, Quince, Lark
-        # and the rest are not writing a beginner puzzle — so it queues with
-        # the cryptic rather than ahead of it.
-        "gentleness": 3,
     },
     "indysunday": {
         # The Independent on Sunday's own weekly sequence, ~1,900 and climbing
@@ -78,10 +68,6 @@ SERIES = {
         # thinks of as three papers. The kind carries the difference instead.
         "kind": "Sunday Cryptic",
         "publisher": "Independent",
-        # Unmeasured. Same setters as the daily, so it queues with it until
-        # tools/difficulty.py has scored enough of them to say otherwise — a
-        # guessed teaching judgement is worse than an honest default.
-        "gentleness": 3,
         "badge": "indy sunday",
     },
 }
@@ -105,10 +91,6 @@ def publisher(series):
     """The paper whose puzzle it is — NOT necessarily the site we fetched it
     from. Everyman is the Observer's, only syndicated onto the Guardian's."""
     return meta(series)["publisher"]
-
-
-def gentleness(series):
-    return meta(series)["gentleness"]
 
 
 def default_setter(series):
