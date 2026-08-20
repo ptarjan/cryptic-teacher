@@ -45,3 +45,10 @@ tools/data/minutecryptic/
 # are nobody else's business, and this repo is public. Deleting it costs one
 # extra prompt on the next deploy.
 sync/.wrangler/
+
+# One-shot scratch. The annotation job reaches for a throwaway script to write a
+# puzzle's hints and then leaves it behind, so these accumulate a file per puzzle
+# and go stale the moment anything they hardcode moves — the last batch all still
+# named puzzles/<number>.js, months after ids were namespaced. A leading
+# underscore in tools/ means nothing may depend on it.
+tools/_*
