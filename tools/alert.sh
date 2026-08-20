@@ -42,15 +42,22 @@ alert() {
   local token
   token=$(grep -m1 '^DISCORD_BOT_TOKEN=' "$ALERT_ENV_FILE" | cut -d= -f2-)
   [ -n "$token" ] || return 0
-  local body
-  # The "[wake]" prefix is not decoration: the bridge drops every
-  # bot-authored message, and this one is posted with the bridge's own token,
-  # so without a marker it lands in the channel and wakes nothing (which is
-  # how these alerts sat unread on 2026-08-07). Self-authored + this exact
-  # prefix + an allowlisted channel is what makes it a turn — see cfg.is_wake
-  # in discord-claude. Change it here and there together.
+  local wake body
+  # The wake marker is not decoration: the bridge drops every bot-authored
+  # message, and this one is posted with the bridge's own token, so unmarked it
+  # lands in the channel and wakes nothing (which is how these alerts sat unread
+  # on 2026-08-07). Self-authored + that exact marker + an allowlisted channel
+  # is what makes it a turn — see cfg.is_wake in discord-claude.
+  #
+  # So it is READ from that config, never spelled here. A marker copied by hand
+  # is one edit away from a message nothing reads and nothing reports, which is
+  # the same silent failure this whole file exists to prevent. If it can't be
+  # read the alert still goes out: a human seeing it beats nobody seeing it.
+  wake=$(cd "$(dirname "$ALERT_ENV_FILE")" 2>/dev/null &&
+         python3 -c 'import config; print(config.WAKE_PREFIX)' 2>/dev/null)
+  [ -n "$wake" ] || wake="(unmarked — could not read the bridge's wake prefix)"
   body=$(python3 -c 'import json,sys; print(json.dumps({"content": sys.argv[1][:1900]}))' \
-         "[wake] ⚠️ cryptic-teacher: $*") || return 0
+         "$wake ⚠️ cryptic-teacher: $*") || return 0
   curl -s -m 15 -o /dev/null \
     -H "Authorization: Bot $token" -H "Content-Type: application/json" \
     -d "$body" \
