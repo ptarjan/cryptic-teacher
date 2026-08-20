@@ -364,7 +364,8 @@ if [ -n "$(git status --porcelain)" ]; then
   #     so the live site had two clues whose type matched no family and no
   #     blurb. The validator passed — it validates puzzles, not the app.
   git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md og.png og/ \
-          tools/validate_annotations.py tools/annotation_backlog.json
+          tools/validate_annotations.py tools/annotation_backlog.json \
+          tools/og_card.html
   # Then put back anything that was already modified before this run started.
   # The pathspec is not enough on its own: app.js and index.html are on it
   # because an annotation run legitimately edits them, and they are also exactly
