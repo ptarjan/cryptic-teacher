@@ -18,10 +18,9 @@
 # whatever is left on backfills."
 #
 # What it backfills, in priority order:
-#   1. Un-annotated puzzles, QUIPTICS FIRST. The quiptic is the Guardian's
-#      beginner crossword and the reason we started fetching it at all; an
-#      un-annotated one teaches nothing and shows no difficulty band, so it is
-#      the least useful thing on the site and the most valuable to fix.
+#   1. Un-annotated puzzles, NEWEST FIRST BY DATE, across every series at once.
+#      A solver arriving today is looking at this week's puzzles, so this week's
+#      puzzles are the ones worth spending on, whoever printed them.
 #   2. Every field in tools/annotation_backlog.json — definitionFit, the
 #      one-sentence "why does the answer mean the definition", and
 #      indicatorNotes, "why is THAT word the indicator". New puzzles are
@@ -180,26 +179,37 @@ fi
 python3 tools/fetch_puzzle.py --reindex >/dev/null
 
 # --- 1. un-annotated puzzles, quiptics first ---------------------------------
+echo "un-annotated backlog, newest first:"
 todo=$(python3 - <<'EOF'
 import json, sys
-sys.path.insert(0, "tools")
-import series
+from datetime import datetime, timezone
 idx = json.load(open("puzzles/index.json"))
 todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")]
-# Gentler series first — the beginner puzzles are the ones worth having hints on,
-# because the people they are for are exactly the people who can't get through
-# them unaided — then newest-first within a tier so today's puzzle is never last
-# in the queue. The ranking is tools/series.py's, not a test for "cryptic": with
-# four series and two publishers, "is it the Guardian daily" stopped being the
-# same question as "is it hard".
-todo.sort(key=lambda p: (series.gentleness(p.get("series")), -p["number"]))
+# Newest first, by DATE and by date alone — one queue across every series.
+#
+# Not by number: each paper numbers from its own 1, so a number sort is a series
+# sort wearing a disguise. It ran every Guardian cryptic (30,0xx), then every
+# Independent (12,4xx), then every Indy Sunday (1,9xx), in that order, purely
+# because of how big each paper's counter happens to be.
+#
+# Not by series tier either. Whichever series goes first, its whole archive goes
+# before the other series' puzzle from yesterday, and the archive is always
+# deeper than one window of quota — so the tail never runs and today is last.
+todo.sort(key=lambda p: -p["date"])
+# The order this job spends a whole window in is worth one readable line in the
+# log. It ran in the wrong order for weeks behind a single line listing 166 ids.
+# stderr, because stdout is the queue itself.
+for p in todo[:5]:
+    print(f"  {datetime.fromtimestamp(p['date'] / 1000, timezone.utc):%Y-%m-%d}  "
+          f"{p['id']}", file=sys.stderr)
+if len(todo) > 5:
+    print(f"  ... and {len(todo) - 5} older", file=sys.stderr)
 # IDs, not numbers: the file is puzzles/<id>.js and every consumer below names
 # it directly, so nothing downstream has to resolve a number that two papers
 # could one day share.
 print(" ".join(p["id"] for p in todo))
 EOF
 )
-echo "un-annotated backlog: ${todo:-none}"
 
 for num in $todo; do
   if past_deadline; then echo "deadline reached — stopping"; break; fi
