@@ -799,8 +799,19 @@
     window.visualViewport.addEventListener("scroll", settling);
   }
 
+  // Every tap on the grid brings the clue to you, including a tap on the entry
+  // already selected. This used to fire only when the SELECTED ENTRY CHANGED,
+  // which made the one tap nobody can avoid the one that did nothing: 1-across
+  // is selected before you touch anything, so starting the puzzle by tapping its
+  // first square left the clue off the bottom of the screen and the keyboard
+  // over where it would have been (Paul, 2026-08-20).
+  //
+  // The guard was never what stopped the page moving under a reader — typing and
+  // the arrow keys do not come through here, and placeHintPanel already does
+  // nothing when the panel is fully in the visible band. So it only ever
+  // suppressed the case where the panel is NOT in view, which is the case that
+  // needs it. A tap is a deliberate act; treat every one the same.
   function onCellClick(c) {
-    const before = currentEntry();
     if (cur.x === c.x && cur.y === c.y) {
       const other = cur.dir === "across" ? "down" : "across";
       if (c[other]) cur.dir = other;
@@ -810,8 +821,7 @@
     }
     focusKbd();
     refreshAll();
-    const after = currentEntry();
-    if (after && (!before || entryKey(before) !== entryKey(after))) scrollToHintPanel();
+    if (currentEntry()) scrollToHintPanel();
   }
 
   function selectEntry(e, jumpToStart) {

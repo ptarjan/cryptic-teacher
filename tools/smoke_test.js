@@ -1267,6 +1267,48 @@ registry["reset-puzzle"].onclick();
   assert(win.scrolls.length === 0 && win.pageYOffset === 3000,
     `a viewport change with no tap behind it must leave the page alone: 3000 -> ${win.pageYOffset}`);
 
+  // --- a tap on the clue you are already on is still a tap (Paul, 2026-08-20) ---
+  // 1-across is selected before the solver has touched anything, so the very first
+  // tap of a puzzle lands on the entry that is already current — and while this
+  // fired only when the SELECTED ENTRY CHANGED, that one tap did nothing at all:
+  // the clue stayed off the bottom of the screen with the keyboard drawn over
+  // where it would have been. Every test above picks a NEW clue, which is why it
+  // survived all of them. The property is about the tap, not about the change.
+  {
+    const kids = registry["grid"].children;
+    const n = Math.round(Math.sqrt(kids.length));
+    const tappable = (d) => d && d.listeners && d.listeners.mousedown;
+    let i = -1;
+    for (let k = 0; k + 1 < kids.length; k++) {
+      if (tappable(kids[k]) && tappable(kids[k + 1]) &&
+          Math.floor(k / n) === Math.floor((k + 1) / n)) { i = k; break; }
+    }
+    assert(i >= 0, "the grid has two neighbouring squares in one row");
+    const activeId = () =>
+      (clues.find((r) => r.classList.contains("active")) || {}).id;
+    const tapCell = (d) => {
+      d.listeners.mousedown[0]({ preventDefault() {} });
+      global.flushTimers(100);
+    };
+
+    panel.layout(1200, 400);
+    vv.height = 1000; vv.offsetTop = 0;
+    win.pageYOffset = 2000; win.scrolls.length = 0;
+    tapCell(kids[i]);
+    // Two squares side by side in a row are one across light, but only if the
+    // cursor is running across — tapping the same square again flips it.
+    if (!/across/.test(activeId() || "")) tapCell(kids[i]);
+    const same = activeId();
+
+    win.pageYOffset = 2000; win.scrolls.length = 0;
+    tapCell(kids[i + 1]);
+    assert(activeId() === same,
+      `the two squares are one clue between them: ${same} / ${activeId()}`);
+    assert(win.scrolls.length === 1,
+      "tapping a square of the clue already selected still brings the clue to you: "
+        + JSON.stringify(win.scrolls));
+  }
+
   vv.height = 1000; vv.offsetTop = 0;
   panel.layout(0, 0);   // back to unlaid-out, so nothing below here scrolls
   win.pageYOffset = 0; win.scrolls.length = 0;
