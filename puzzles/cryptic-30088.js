@@ -30,7 +30,35 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MADAME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MADAME",
+    "definition": "this woman",
+    "indicators": [
+     "French"
+    ],
+    "indicatorNotes": {
+     "French": "The word names the language to translate into before any letters are taken, so the noun beside it arrives from Paris rather than London."
+    },
+    "pieces": [
+     "MAD",
+     "AME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crazy",
+      "gives": "MAD",
+      "note": "mad is crazy"
+     },
+     {
+      "clueFragment": "soul",
+      "gives": "AME",
+      "note": "ame is the French for soul, its accent dropped as crosswords always drop them"
+     }
+    ],
+    "walkthrough": "One word of French is all the clue asks you to know, and the comma is the join: everything before it builds, everything after it defines.",
+    "definitionFit": "this woman -> MADAME: the French style of address for a lady, borrowed into English whenever the one in question is being pointed at politely."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +75,38 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINERAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MINERAL",
+    "definition": "Ore",
+    "linkWords": [
+     "obtained by"
+    ],
+    "pieces": [
+     "MINER",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker underground",
+      "gives": "MINER",
+      "note": "the worker underground is a miner"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own a, taken as the letter"
+     },
+     {
+      "clueFragment": "trainee",
+      "gives": "L",
+      "note": "a trainee driver carries L-plates, so L is the crossword's learner"
+     }
+    ],
+    "walkthrough": "'A trainee' looks like the tail of the surface sentence and is really two more chunks of the build, the last of them an L-plate.",
+    "definitionFit": "Ore -> MINERAL: ore is rock worth digging for the metal in it, one particular sort of the naturally occurring solids minerals are."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +123,32 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIGIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DIGIT",
+    "definition": "Green finger, perhaps",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "DIG",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what the gardener will do",
+      "gives": "DIG",
+      "note": "a gardener's work in a flowerbed is to dig"
+     },
+     {
+      "clueFragment": "in bed",
+      "gives": "IT",
+      "note": "the bed is the thing being dug, so it supplies the 'it' of 'dig it'"
+     }
+    ],
+    "walkthrough": "'Green finger' is the definition wearing gardening clothes, which is why the whole clue reads as one unbroken thought about allotments.",
+    "definitionFit": "Green finger, perhaps -> DIGIT: a finger is one of the digits, toes being the others, and 'perhaps' owns the fact that it is only an example."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +169,30 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAKESDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MAKES DO",
+    "definition": "with what’s available",
+    "definitionNote": "MAKES DO is a verb and the definition is the phrase that always follows it - you make do WITH something - so the setter defines the verb by the words it drags along.",
+    "pieces": [
+     "MAKES",
+     "DO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arranges",
+      "gives": "MAKES",
+      "note": "to make an arrangement is to arrange it"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party - an office do, a birthday do"
+     }
+    ],
+    "walkthrough": "The wordplay says 'makes a do' and the surface says 'arranges a party', which are the same sentence; the dash is where the meaning switches to coping.",
+    "definitionFit": "with what's available -> MAKES DO: to make do is to manage on the inadequate means to hand, and the idiom is almost never spoken without this tail."
+   }
   },
   {
    "id": "4-across",
@@ -102,7 +209,38 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADOPTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ADOPTS",
+    "definition": "Takes over",
+    "indicators": [
+     "-over"
+    ],
+    "indicatorNotes": {
+     "-over": "Doing a thing over is doing it again from scratch, so the letters in front are built up a second time in some new arrangement."
+    },
+    "anagram": {
+     "fodder": "AD STOP"
+    },
+    "pieces": [
+     "AD",
+     "OPTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "present-day",
+      "gives": "AD",
+      "note": "AD dates the present era - anno Domini, as against BC"
+     },
+     {
+      "clueFragment": "stop",
+      "gives": "OPTS",
+      "note": "the four letters of STOP, done over"
+     }
+    ],
+    "walkthrough": "The hyphen is the hiding place: 'stop-over' is one real word on the surface and two separate instructions underneath it.",
+    "definitionFit": "Takes over -> ADOPTS: to adopt a proposal, a name or a child is to take it on as your own."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +263,35 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DARING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "DARING",
+    "definition": "Fearless",
+    "indicators": [
+     "that’ll open"
+    ],
+    "indicatorNotes": {
+     "that’ll open": "What opens a word is the letter it starts with, so only the initial of the name that follows is wanted."
+    },
+    "pieces": [
+     "DARIN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bobby",
+      "gives": "DARIN",
+      "note": "Bobby Darin, who sang Mack the Knife"
+     },
+     {
+      "clueFragment": "the Guardian",
+      "gives": "G",
+      "note": "the opening letter of the paper's name"
+     }
+    ],
+    "walkthrough": "The italics are the tell: a newspaper title is being named, and a title is exactly the sort of thing a setter wants one letter of.",
+    "definitionFit": "Fearless -> DARING: both are adjectives for someone who will take a risk, DARING putting its weight on going ahead and doing it."
+   }
   },
   {
    "id": "6-down",
@@ -142,7 +308,44 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROCEDURE",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "PROCEDURE",
+    "definition": "Action",
+    "indicators": [
+     "adopting",
+     "inverted"
+    ],
+    "indicatorNotes": {
+     "adopting": "To adopt is to take another into your own household, so one piece is taken inside the other rather than set beside it.",
+     "inverted": "Inverted means stood on its head, so that piece is read from its last letter back to its first."
+    },
+    "pieces": [
+     "P",
+     "ROCED",
+     "URE"
+    ],
+    "subReversals": [
+     {
+      "from": "DECOR",
+      "to": "ROCED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "PURE",
+      "note": "pure as an intensifier - pure nonsense, pure luck - means utter"
+     },
+     {
+      "clueFragment": "interior design",
+      "gives": "ROCED",
+      "note": "interior design is DECOR, stood on its head"
+     }
+    ],
+    "walkthrough": "Both instructions are doing surface duty in a sentence about home makeovers, which is why neither reads as an instruction at all.",
+    "definitionFit": "Action -> PROCEDURE: a procedure is the settled way of going about something, so the word names an action by the rules that govern it."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +362,44 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUGGEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + middle letter",
+    "answer": "SUGGEST",
+    "definition": "Recommend",
+    "indicators": [
+     "get changed",
+     "around"
+    ],
+    "indicatorNotes": {
+     "get changed": "Guests who get changed come back in different clothes, and letters that change come back in a different order.",
+     "around": "Something placed around another wraps it, so the single letter ends up in the middle of the rest."
+    },
+    "pieces": [
+     "SUG",
+     "G",
+     "EST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "guests",
+      "gives": "SUGEST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guests",
+      "gives": "SUGEST",
+      "note": "the six letters of GUESTS, rearranged and parted to let the other letter in"
+     },
+     {
+      "clueFragment": "midnight",
+      "gives": "G",
+      "note": "mid-night: the middle letter of NIGHT"
+     }
+    ],
+    "walkthrough": "'Midnight' explains itself once you split it, and the party surface never lets on that it is an instruction rather than an hour.",
+    "definitionFit": "Recommend -> SUGGEST: to suggest a course of action is to put it forward for consideration, which is recommending without insisting."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +422,47 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
     ]
    },
    "solution": "XMARKSTHESPOT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "X MARKS THE SPOT",
+    "definition": "where’s it at",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "Frantically",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Frantically": "Anything done frantically is done with no care for order, so the letters land wherever they land.",
+     "about": "To wrap a coat about you is to put it round the outside, so the shuffled letters close over the other piece."
+    },
+    "pieces": [
+     "X",
+     "MARKS",
+     "THE SPOT"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "text Posh",
+      "gives": "XTHESPOT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "text Posh",
+      "gives": "XTHESPOT",
+      "note": "the eight letters of TEXT POSH, shaken up and parted to admit the other piece"
+     },
+     {
+      "clueFragment": "test result",
+      "gives": "MARKS",
+      "note": "a test result comes back as marks"
+     }
+    ],
+    "walkthrough": "Posh Spice and a frantic text make a tabloid surface out of a treasure map. Thirteen letters is a long anagram, so the enumeration is half the help.",
+    "definitionFit": "where's it at -> X MARKS THE SPOT: the phrase a treasure map uses to name the exact place, so the idiom stands in for the question of location."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +479,32 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNAG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SNAG",
+    "definition": "catch",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "SN",
+     "AG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tin",
+      "gives": "SN",
+      "note": "SN is tin in the periodic table, from the Latin stannum"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "AG is silver, from argentum"
+     }
+    ],
+    "walkthrough": "Two chemical symbols stacked, and both are worth banking: the ones that look nothing like the English word are the ones setters reach for.",
+    "definitionFit": "catch -> SNAG: a snag is the hidden drawback in an offer, the answer to 'what's the catch?' rather than anything done with the hands."
+   }
   },
   {
    "id": "10-across",
@@ -220,7 +525,32 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
     ]
    },
    "solution": "KHMERROUGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "KHMER ROUGE",
+    "definition": "Asian guerrilla movement",
+    "linkWords": [
+     "showing"
+    ],
+    "indicators": [
+     "Ill-advised"
+    ],
+    "indicatorNotes": {
+     "Ill-advised": "A plan that is ill-advised has gone wrong somewhere, and letters that have gone wrong no longer stand in their proper places."
+    },
+    "anagram": {
+     "fodder": "GREEK HUMOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Greek ‘humor’",
+      "gives": "GREEKHUMOR",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "walkthrough": "Those quotation marks are load-bearing: the British HUMOUR would leave a U spare, so the setter is flagging that he means the American spelling.",
+    "definitionFit": "Asian guerrilla movement -> KHMER ROUGE: Pol Pot's Cambodian communists, named from the Khmer people and the French word for red."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +567,41 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARETES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ARETES",
+    "definition": "rugged ridges",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Turned around is turned back to front, so the pair of words is read from the far end towards the near one."
+    },
+    "pieces": [
+     "ARE",
+     "TES"
+    ],
+    "subReversals": [
+     {
+      "from": "SETERA",
+      "to": "ARETES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fixed",
+      "gives": "SET",
+      "note": "a jelly that has set is fixed"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a stretch of time"
+     }
+    ],
+    "walkthrough": "'Around' looks like a container instruction and is not: nothing goes inside anything here, the two chunks are stacked and then spun.",
+    "definitionFit": "rugged ridges -> ARETES: an arete is the knife-edge crest left where two glaciers have gouged a mountain from either side."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +618,23 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RENDERED",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "RENDERED",
+    "definition": "Got plastered?",
+    "blocks": [
+     {
+      "clueFragment": "Got plastered?",
+      "note": "The surface is the morning after: to get plastered is to get thoroughly drunk."
+     },
+     {
+      "clueFragment": "plastered",
+      "note": "The setter means the wall. Brickwork given its coat of mortar has been plastered, and the building trade has its own word for that coat."
+     }
+    ],
+    "walkthrough": "There is nothing to take apart - one phrase, two trades. The question mark is the setter admitting that the whole clue is the joke.",
+    "definitionFit": "Got plastered? -> RENDERED: in building, to render a wall is to face it with a thin coat of mortar, the sense the drinking surface hides."
+   }
   },
   {
    "id": "13-across",
@@ -271,7 +651,32 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALMSHOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALMSHOUSE",
+    "definition": "one for the poor",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "rebuilt"
+    ],
+    "indicatorNotes": {
+     "rebuilt": "A house put up again out of the same bricks stands in a different shape, which is what has happened to these letters."
+    },
+    "anagram": {
+     "fodder": "SAULS HOME"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Saul’s home",
+      "gives": "SAULSHOME",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "'One' points back at 'home' in the surface and at nothing in the parse: the fodder's own word is being borrowed to make the definition read naturally.",
+    "definitionFit": "one for the poor -> ALMSHOUSE: alms are money given in charity, so an almshouse is a dwelling endowed for people who cannot pay rent."
+   }
   },
   {
    "id": "14-down",
@@ -288,7 +693,23 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAIRCASE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "STAIRCASE",
+    "definition": "Domestic flight",
+    "blocks": [
+     {
+      "clueFragment": "Domestic flight",
+      "note": "The surface is an airline timetable - a flight that stays inside one country instead of crossing a border."
+     },
+     {
+      "clueFragment": "flight",
+      "note": "The builder's sense is the one wanted: an unbroken run of steps from one floor to the next is a flight, and 'domestic' puts it in a house."
+     }
+    ],
+    "walkthrough": "Two words, no letters to move, and the whole clue turns on which industry owns 'flight'. The nine-letter enumeration is what rules out the aeroplane.",
+    "definitionFit": "Domestic flight -> STAIRCASE: a run of steps between two floors is a flight, and the house is what makes it domestic rather than an airline's route."
+   }
   },
   {
    "id": "15-across",
@@ -305,7 +726,34 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUET",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "DUET",
+    "definition": "song",
+    "indicators": [
+     "omitted from"
+    ],
+    "indicatorNotes": {
+     "omitted from": "What is omitted has been left out, so the letter named first goes missing from the word named second."
+    },
+    "pieces": [
+     "DUET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "DUVET",
+      "note": "the cover on a bed is a duvet"
+     },
+     {
+      "clueFragment": "Verse",
+      "gives": "V",
+      "note": "V is the standard shortening of verse, the one printed in a hymn book"
+     }
+    ],
+    "walkthrough": "'Cover song' is a real thing - a band playing somebody else's hit - and the setter needs the two words pulled apart and pointing opposite ways.",
+    "definitionFit": "song -> DUET: a duet is a piece written for two voices, so the general word names it by one of its particular forms."
+   }
   },
   {
    "id": "16-across",
@@ -326,7 +774,26 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
     ]
    },
    "solution": "ETAL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ET AL",
+    "definition": "and others",
+    "indicators": [
+     "seen amongst"
+    ],
+    "indicatorNotes": {
+     "seen amongst": "To sit amongst things is to sit in the middle of them, so the letters are written out inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "beta, lambda",
+      "gives": "ETAL",
+      "note": "the answer runs straight across the join: b-ETA, L-ambda"
+     }
+    ],
+    "walkthrough": "Two genuine Greek letters make a surface that means exactly what it says, which is the best cover a hidden word can hope for.",
+    "definitionFit": "and others -> ET AL: short for the Latin et alii, the tag a citation uses to stand for the co-authors it does not bother to list."
+   }
   },
   {
    "id": "16-down",
@@ -343,7 +810,40 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYEBALL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "EYEBALL",
+    "definition": "Closely examine",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "noisily"
+    ],
+    "indicatorNotes": {
+     "noisily": "It does double duty: it makes the weeping loud enough to count as bawling, and it tells you to trust your ear over the spelling."
+    },
+    "pieces": [
+     "EYE",
+     "BALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "soundsLike": "I",
+      "gives": "EYE",
+      "note": "the letter I, said out loud, is the organ you look with"
+     },
+     {
+      "clueFragment": "weep",
+      "soundsLike": "BAWL",
+      "gives": "BALL",
+      "note": "to bawl is to weep hard, and BAWL taken by ear is spelt the other way here"
+     }
+    ],
+    "walkthrough": "A homophone in two pieces: the letter written I, then a word for crying hard. Neither is spelt the way it is said.",
+    "definitionFit": "Closely examine -> EYEBALL: American slang turned the noun into a verb, so to eyeball something is to look it over hard at close range."
+   }
   },
   {
    "id": "17-across",
@@ -360,7 +860,36 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHUTTERED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SHUTTERED",
+    "definition": "With windows sealed",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The little word is pure placement: what was named before it drops inside the word named after it."
+    },
+    "pieces": [
+     "SH",
+     "UTTER",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hut",
+      "gives": "SHED",
+      "note": "a hut is a shed"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to utter a word is to say it"
+     }
+    ],
+    "walkthrough": "'Say' is a verb here, not the crossword's usual 'for example', and the commas around it are there to make you read it the other way.",
+    "definitionFit": "With windows sealed -> SHUTTERED: a shuttered house has its wooden shutters closed across the glass, which seals it against the weather."
+   }
   },
   {
    "id": "18-down",
@@ -377,7 +906,36 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRUDEAU",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRUDEAU",
+    "definition": "PM",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "A scarf worn about the neck goes round the outside, so this word closes over the other one."
+    },
+    "pieces": [
+     "T",
+     "RUDE",
+     "AU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letter",
+      "gives": "TAU",
+      "note": "tau is the Greek letter, the one that looks like a T"
+     },
+     {
+      "clueFragment": "impolite",
+      "gives": "RUDE",
+      "note": "rude is impolite"
+     }
+    ],
+    "walkthrough": "'Letter' in a cryptic is very often a Greek one, and there are only two dozen of them - the short ones repay learning.",
+    "definitionFit": "PM -> TRUDEAU: two Trudeaus, father and son, have led Canada as prime minister, so the office is named by one family that held it."
+   }
   },
   {
    "id": "19-down",
@@ -394,7 +952,38 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEVATE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "ELEVATE",
+    "definition": "lift",
+    "indicators": [
+     "Most of",
+     "gathering"
+    ],
+    "indicatorNotes": {
+     "Most of": "Most of a word is not all of it, so it arrives one letter short at the far end.",
+     "gathering": "A gathering draws people in together, so the short word is taken inside rather than set alongside."
+    },
+    "pieces": [
+     "ELEV",
+     "AT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "ELEVEN",
+      "note": "a football side is an eleven, and it loses its last letter here"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the little word goes in letter for letter"
+     }
+    ],
+    "walkthrough": "'Lift' is the definition, not the lift everyone is gathering by, and that swap is the whole of the misdirection in a six-word clue.",
+    "definitionFit": "lift -> ELEVATE: to elevate is to raise something to a higher position, the verb sense of lift rather than the British name for a hoist."
+   }
   },
   {
    "id": "20-down",
@@ -411,7 +1000,29 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WELLIE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "WELLIE",
+    "definition": "Great effort",
+    "definition2": "boot",
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great effort",
+      "gives": "WELLIE",
+      "note": "give it some wellie - put your back into it"
+     },
+     {
+      "clueFragment": "boot",
+      "gives": "WELLIE",
+      "note": "a wellie is a wellington, the rubber one"
+     }
+    ],
+    "walkthrough": "One word, two lives, and the second explains the first: putting your foot into something hard is where the effort sense comes from.",
+    "definitionFit": "'Give it some wellie' is the idiom for real force behind an action, and the same word is the rubber wellington you pull on in the rain."
+   }
   },
   {
    "id": "21-across",
@@ -428,7 +1039,32 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEERLESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PEERLESS",
+    "definition": "Unrivalled",
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "PEER",
+     "LESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the House of Lords",
+      "gives": "PEER",
+      "note": "the upper chamber is full of peers, and the wordplay wants one of them"
+     },
+     {
+      "clueFragment": "in recess",
+      "gives": "LESS",
+      "note": "in recess the chamber stands empty, so there are fewer of them there - less, not more"
+     }
+    ],
+    "walkthrough": "The parse and the joke are the same thing: send the Lords home and the House is short of peers. 'As' only holds the sentence together.",
+    "definitionFit": "Unrivalled -> PEERLESS: a peer is an equal, so having no peer is having no rival - the sense kept alive in 'a jury of your peers'."
+   }
   },
   {
    "id": "22-across",
@@ -445,7 +1081,32 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPKEEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UPKEEP",
+    "definition": "Cost of maintenance",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "UP",
+     "KEEP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all the way",
+      "gives": "UP",
+      "note": "up in the sense of right to the end - eat it up, use it up"
+     },
+     {
+      "clueFragment": "fortification",
+      "gives": "KEEP",
+      "note": "the keep is the strongest tower of a castle"
+     }
+    ],
+    "walkthrough": "Both halves of the wordplay wear castle clothes and the answer is a bill rather than a building; the definition is the three words at the front.",
+    "definitionFit": "Cost of maintenance -> UPKEEP: upkeep is the money a house, a horse or a car swallows simply to be kept in working order."
+   }
   },
   {
    "id": "23-down",
@@ -462,7 +1123,37 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KAZOO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "KAZOO",
+    "definition": "instrument",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "leaves"
+    ],
+    "indicatorNotes": {
+     "leaves": "Someone who leaves walks out of the place he was in, so those letters come out of the longer word."
+    },
+    "pieces": [
+     "KAZOO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US city",
+      "gives": "KALAMAZOO",
+      "note": "Kalamazoo, Michigan, of the Glenn Miller song"
+     },
+     {
+      "clueFragment": "Tibetan priest",
+      "gives": "LAMA",
+      "note": "the lama is the Tibetan priest, lodged in the middle of the city"
+     }
+    ],
+    "walkthrough": "Kalamazoo is the whole clue: a real Michigan city that happens to have a Tibetan priest sitting inside it.",
+    "definitionFit": "instrument -> KAZOO: a kazoo is a toy wind instrument, a short tube with a membrane that buzzes when you hum down it."
+   }
   },
   {
    "id": "24-across",
@@ -479,7 +1170,36 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ZABAGLIONE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ZABAGLIONE",
+    "definition": "Dessert",
+    "indicators": [
+     "rejects",
+     "served"
+    ],
+    "indicatorNotes": {
+     "rejects": "To reject something is to throw it out, and what gets thrown out here is the ED the name ends with.",
+     "served": "A dish served is a dish turned out of its mould, and letters turned out land in a fresh arrangement."
+    },
+    "anagram": {
+     "fodder": "AZ IN A GLOBE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Azed",
+      "gives": "AZ",
+      "note": "the Observer setter's name, minus the ED it ends with"
+     },
+     {
+      "clueFragment": "in a globe",
+      "gives": "INAGLOBE",
+      "note": "eight more letters of fodder, taken as they stand"
+     }
+    ],
+    "walkthrough": "Azed sets the hardest cryptic in Britain, so borrowing his name and then discarding half of it is a setter's private joke at his expense.",
+    "definitionFit": "Dessert -> ZABAGLIONE: the Italian pudding of egg yolks, sugar and Marsala whisked over heat into a warm foam and spooned into a glass."
+   }
   },
   {
    "id": "25-across",
@@ -496,7 +1216,29 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ZEAL",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "ZEAL",
+    "definition": "Enthusiasm",
+    "indicators": [
+     "at heart of"
+    ],
+    "indicatorNotes": {
+     "at heart of": "The heart of a thing is its middle, so only the letters at the centre of what follows are taken."
+    },
+    "pieces": [
+     "ZEAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maoris’ home",
+      "gives": "ZEAL",
+      "note": "the Maoris' home is NEW ZEALAND, and these four letters are its exact centre"
+     }
+    ],
+    "walkthrough": "The country is never named, so you have to supply New Zealand yourself before there is anything to take the heart of.",
+    "definitionFit": "Enthusiasm -> ZEAL: zeal is enthusiasm with conviction under it, the word English reaches for when the eagerness is moral or religious."
+   }
   },
   {
    "id": "26-across",
@@ -513,7 +1255,27 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIEDER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LIEDER",
+    "definition": "Songs by Schubert",
+    "indicators": [
+     "suggested by"
+    ],
+    "indicatorNotes": {
+     "suggested by": "A thing suggested is called to mind rather than stated, so what is wanted is the word the clue's own word calls up when you hear it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "violinist",
+      "soundsLike": "LEADER",
+      "gives": "LIEDER",
+      "note": "the leader of an orchestra is its principal violinist, and LEADER is what the answer is heard as"
+     }
+    ],
+    "walkthrough": "The German plural is what makes it work: one Lied, many Lieder, and only the plural lands on the orchestra's leader.",
+    "definitionFit": "Songs by Schubert -> LIEDER: a Lied is a German art song setting a poem for voice and piano, and Schubert wrote some six hundred."
+   }
   },
   {
    "id": "27-across",
@@ -530,7 +1292,39 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EUROPE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EUROPE",
+    "definition": "continent",
+    "indicators": [
+     "new"
+    ],
+    "indicatorNotes": {
+     "new": "Something made new is made over out of the same material, so these letters are put back together in another order."
+    },
+    "anagram": {
+     "fodder": "O E PERU"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard shortening of old, as in Old English"
+     },
+     {
+      "clueFragment": "England",
+      "gives": "E",
+      "note": "E is England on a scoreboard or a car plate"
+     },
+     {
+      "clueFragment": "Peru",
+      "gives": "PERU",
+      "note": "four more letters of fodder, taken as they stand"
+     }
+    ],
+    "walkthrough": "'Old England' reads as one patriotic phrase and is two separate abbreviations; the dash is where the wordplay stops and the definition starts.",
+    "definitionFit": "continent -> EUROPE: one of the handful of great landmasses the world divides into, so the general term is pointing at a particular one."
+   }
   }
  ]
 } /*JSON-END*/;
