@@ -147,7 +147,9 @@ Those extras do real work here:
 Licences and what is committed versus fetched: `tools/data/README.md`.
 `tools/data/abbreviations.json` is hand-built (H = hard, R = river…) and is
 *meant to grow*: add to it when a clue-writing pass wants an abbreviation it
-lacks.
+lacks. Solvers read it too — `tools/build_abbreviations.py` publishes it as
+`abbreviations.js` and the building-blocks rung names the conventions a clue
+used ("sailor = AB"), so an entry added here is a thing the site now teaches.
 
 ## What the clue-writing step gets
 
