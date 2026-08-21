@@ -517,7 +517,10 @@ button:disabled:hover { border-color: var(--line); }
    far — a word there is three things at once, and a fourth would be one too
    many. Down here it is only ever "picked" or "not". */
 .guess-clue { line-height: 2.1; }
+/* inline-block so the same rule dresses both forms: a <button> while the words
+   are tappable, a <span> once they have been graded and are only being read. */
 .gw {
+  display: inline-block;
   font: inherit; padding: 1px 6px; margin: 0 1px;
   background: transparent; border: 1px solid var(--line); border-radius: 4px;
 }
@@ -529,8 +532,7 @@ button:disabled:hover { border-color: var(--line); }
    which words is the whole lesson — so the ones that were right take the
    definition's green, the spares strike through and step back, and the ones that
    were missed arrive a beat later so the eye is free to follow them.
-   Timings are the only thing tuned here: long enough to be seen, short enough
-   that the rung opening underneath still feels like the same gesture. */
+   These are entrances, not a slot to read in: the marked clue stays put. */
 .gw.hit {
   background: var(--def-bg); border-color: var(--def-fg); color: var(--def-fg);
   animation: gw-hit .4s ease-out;
@@ -564,6 +566,8 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    definition's own colour, because being right about where the definition sat
    is the thing the colour has meant all along. A miss is not coloured at all:
    it is a step in the lesson, not an error state. */
+.guess-result { margin-top: 12px; }
+.guess-result .guess-clue { line-height: 1.9; margin: 4px 0 0; }
 .guess-verdict { margin: 10px 0 0; font-size: .9rem; }
 .guess-verdict.right { color: var(--def-fg); font-weight: 600; }
 .guess-verdict.miss { color: var(--muted); }

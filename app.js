@@ -784,7 +784,7 @@
   // all. If the keys never come — a hardware keyboard on an iPad — the placement
   // still happens here, and the confirm is still behind it.
   const HINT_KEYBOARD_MS = 1200;
-  let settleTimer = null, settleBy = 0, confirmTimer = null, placedBand = null,
+  let settleTimer = null, settleBy = 0, confirmTimer = null, placedKeys = null,
       watchUntil = 0, confirmsLeft = 0;
   function scrollToHintPanel() {
     const now = Date.now();
@@ -814,12 +814,24 @@
     if (confirmTimer) clearTimeout(confirmTimer);
     confirmTimer = setTimeout(confirmHintPlacement, delay);
   }
+  // The correction fires on the keyboard, not on the band. "Did the band move
+  // since we committed to it" sounds like the miss and isn't: OUR OWN SMOOTH
+  // SCROLL moves it, because iOS pans the visual viewport under a scroll and
+  // slides the URL bar away as well, so every well-placed panel then bought
+  // itself a second move — down, then up a little (Paul, iOS, 2026-08-21). The
+  // band cannot say who moved it.
+  //
+  // The keyboard can. It is the one thing we were unsure about when we measured,
+  // it is the only thing that can invalidate the placement, and at a hundred
+  // pixels it is out of reach of a pan or a toolbar. So: re-place only if the
+  // keyboard is not in the state it was in when we placed. A tap that measured
+  // the truth costs exactly one move; the correction is left for the tap that
+  // guessed.
   function confirmHintPlacement() {
     confirmTimer = null;
-    if (!placedBand || !confirmsLeft) return;
+    if (placedKeys === null || !confirmsLeft) return;
     confirmsLeft = 0;
-    const b = visibleBand();
-    if (b.top === placedBand.top && b.bottom === placedBand.bottom) return;
+    if (keyboardUp() === placedKeys) return;
     placeHintPanel();
   }
   // Only ever called off that timer, so layout has long since flushed and there
@@ -832,10 +844,11 @@
     const band = visibleBand();
     const vh = band.bottom - band.top;
     if (vh <= 0 || !r.height) return;
-    // What we committed to, for confirmHintPlacement to compare against. Recorded
-    // even when we decide not to scroll: "already in view" measured against a band
-    // the keyboard is still eating is the same wrong answer as any other.
-    placedBand = band;
+    // What we were unsure about when we measured, for confirmHintPlacement to
+    // compare against. Recorded even when we decide not to scroll: "already in
+    // view" measured against a band the keyboard is still eating is the same
+    // wrong answer as any other.
+    placedKeys = keyboardUp();
     if (r.top >= band.top && r.bottom <= band.bottom) return;   // all there already
     const y = window.pageYOffset || 0;
     // Too tall to fit, or hanging off the top: line its top up with the top of
@@ -1254,7 +1267,26 @@
     // hintsCharged.
     if (groupSolved(e)) return true;
     const tier = RUNG_TIER[key] || 0;
-    return steps.every((s) => (RUNG_TIER[s.key] || 0) >= tier || isShown(e, s.key));
+    return steps.every((s) => (RUNG_TIER[s.key] || 0) >= tier ||
+                              isShown(e, s.key) || spentBy(e, steps, s.key));
+  }
+
+  // A rung nobody should have to buy twice. Pointing at the definition and at
+  // the indicator IS saying what kind of clue this is — an anagram indicator
+  // sitting next to a definition is an anagram — so a solver who has EARNED the
+  // spotting rungs has already demonstrated what "what kind of clue is this?"
+  // would have told them, and making them pay for it to reach the assembly rung
+  // is a turnstile rather than a lesson (Paul, 2026-08-21).
+  //
+  // Earned, not merely shown: being told the definition demonstrates nothing, so
+  // buying the tier-0 rungs still leaves the type rung standing where it was.
+  // And read off the ladder rather than a fixed list of names, so a clue with no
+  // indicators rung cannot open the gate on the strength of a rung it never had.
+  function spentBy(e, steps, key) {
+    if (key !== "type") return false;
+    const earned = earnedRungs(e);
+    const spotting = steps.filter((s) => s.key !== "type" && !(RUNG_TIER[s.key] || 0));
+    return spotting.length > 0 && spotting.every((s) => earned.indexOf(s.key) >= 0);
   }
 
   function showHint(e, rung) {
@@ -1610,17 +1642,22 @@
   // A guess in progress, and the verdict on the one just made. Neither is
   // persisted: what survives a reload is hintsEarned, because that is the part
   // that changed the score. A half-made guess is not progress.
-  let guessing = null;   // { key, rung, picked: [], marked: <verdict> }
-  let lastGuess = null;  // { key, rung, right, said }
+  let guessing = null;   // { key, rung, picked: [] }
+  let lastGuess = null;  // { key, rung, tokens, mk: <verdict> }
 
-  function guessHTML(ask, position, label) {
-    // Once checked, the verdict is worn by the words themselves before the rung
-    // opens. "3 of 5 right" does not tell you WHICH three, and which three is the
-    // entire lesson — so the right ones light up, the spares strike through, and
-    // the ones that were missed fade in last.
-    const mk = guessing.marked;
-    const wordClass = (i) => {
-      if (!mk) return guessing.picked.indexOf(i) >= 0 ? " on" : "";
+  // The clue's words, wearing whatever is known about them. Buttons while the
+  // question is open, the identical markup as plain spans once it has been
+  // answered — because the marked-up clue IS the answer, and it stays on screen
+  // underneath the verdict for as long as the solver is on this clue.
+  //
+  // It used to be shown for a beat and then thrown away when the rung opened,
+  // which put a reading deadline on the one part of this that teaches anything:
+  // "it flashes too fast for me to read" (Paul, 2026-08-21). Nothing here is on
+  // a timer now. The animations are entrances — they say a thing has arrived,
+  // they do not say how long you have with it.
+  function guessWordsHTML(tokens, mk, picked) {
+    const cls = (i) => {
+      if (!mk) return picked.indexOf(i) >= 0 ? " on" : "";
       if (mk.hit.indexOf(i) >= 0) return " on hit";
       if (mk.spare.indexOf(i) >= 0) return " on spare";
       return mk.missed.indexOf(i) >= 0 ? " missed" : "";
@@ -1628,18 +1665,28 @@
     // Each word its own id rather than a delegated handler: it is the same
     // pattern as every other button here, and it means a word can be pointed at
     // by name from a test.
-    const words = ask.tokens.map((t, i) =>
-      `<button type="button" id="gw-${i}" class="gw${wordClass(i)}">${esc(t.text)}</button>`).join(" ");
-    const tail = mk
-      ? `<p class="guess-verdict ${mk.right ? "right" : "miss"}">${esc(mk.said)}</p>`
-      : `<p class="guess-actions"><button id="guess-check" class="primary"${
-          guessing.picked.length ? "" : " disabled"}>Check my answer</button>
-         <button id="guess-tell" class="ghost small">Just tell me</button></p>
-         <p class="muted small-note">Get it right and this hint is free.</p>`;
+    const words = tokens.map((t, i) => mk
+      ? `<span class="gw${cls(i)}">${esc(t.text)}</span>`
+      : `<button type="button" id="gw-${i}" class="gw${cls(i)}">${esc(t.text)}</button>`);
+    return `<p class="guess-clue">${words.join(" ")}</p>`;
+  }
+
+  // The verdict and the marked-up clue, standing above the rung they earned.
+  // Sentence first because it is the headline — right or not, and by how much —
+  // then the words, which are the part a count can never give you: WHICH ones.
+  function verdictHTML(g) {
+    return `<div class="guess-result"><p class="guess-verdict ${g.mk.right ? "right" : "miss"}">${
+      esc(g.mk.said)}</p>${guessWordsHTML(g.tokens, g.mk, [])}</div>`;
+  }
+
+  function guessHTML(ask, position, label) {
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       <p>${ask.prompt}</p>
-      <p class="guess-clue">${words}</p>
-      ${tail}</div>`;
+      ${guessWordsHTML(ask.tokens, null, guessing.picked)}
+      <p class="guess-actions"><button id="guess-check" class="primary"${
+        guessing.picked.length ? "" : " disabled"}>Check my answer</button>
+       <button id="guess-tell" class="ghost small">Just tell me</button></p>
+      <p class="muted small-note">Get it right and this hint is free.</p></div>`;
   }
 
   // Right is the whole set and nothing else. Anything short of that opens the
@@ -1669,24 +1716,15 @@
     return { ...v, right: false, said: "Not those. Here’s where they actually are." };
   }
 
-  // How long the marked-up words stay up before the rung opens underneath them.
-  // Long enough to read three or four words, short enough that nobody waits.
-  const GUESS_HOLD_MS = 1100;
-  let guessTimer = null;
-  const reducedMotion = () =>
-    !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-
-  // Opens the rung and ends the guess. Module-level rather than a closure inside
-  // the render, because a timer started by one render must still be answerable
-  // after the panel has been redrawn — and must do nothing at all if the solver
-  // has moved to another clue in the meantime.
-  function finishGuess(verdict) {
-    if (guessTimer) { clearTimeout(guessTimer); guessTimer = null; }
+  // Opens the rung and ends the guess, in the same tick as the tap that asked
+  // for it. Nothing waits: the answer and the explanation of it arrive together
+  // and both stay, so there is no moment the solver has to catch.
+  function finishGuess(verdict, ask) {
     if (!guessing) return;
     const e = currentEntry();
     if (!e || entryKey(e) !== guessing.key) { guessing = null; return; }
-    lastGuess = verdict && { key: guessing.key, rung: guessing.rung,
-                             right: verdict.right, said: verdict.said };
+    lastGuess = verdict &&
+      { key: guessing.key, rung: guessing.rung, tokens: ask.tokens, mk: verdict };
     if (verdict && verdict.right && earnedRungs(e).indexOf(guessing.rung) < 0) {
       earnedRungs(e).push(guessing.rung);
     }
@@ -1853,11 +1891,10 @@
       steps.forEach((s, i) => {
         if (!isShown(e, s.key)) return;
         // The verdict reads above the rung it judged: you find out whether you
-        // were right, and then you are told, in that order.
-        if (lastGuess && lastGuess.rung === s.key) {
-          body.innerHTML += `<p class="guess-verdict ${lastGuess.right ? "right" : "miss"}">${
-            esc(lastGuess.said)}</p>`;
-        }
+        // were right, and then you are told, in that order. It keeps the marked
+        // clue with it, so what you pointed at and what was actually there can
+        // be read side by side against the explanation, for as long as you like.
+        if (lastGuess && lastGuess.rung === s.key) body.innerHTML += verdictHTML(lastGuess);
         body.innerHTML += hintStepHTML(s, i + 1);
       });
       // The legend is built from what is actually highlighted, for the same
@@ -1886,27 +1923,18 @@
         body.innerHTML += guessHTML(ask, at + 1, steps[at].label);
         ask.tokens.forEach((t, i) => {
           $("gw-" + i).onclick = () => {
-            if (guessing.marked) return;   // graded; the words are the answer now
             const j = guessing.picked.indexOf(i);
             if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
             renderHintPanel();
           };
         });
-        if (!guessing.marked) {
-          $("guess-check").onclick = () => {
-            if (!guessing.picked.length || guessing.marked) return;
-            const verdict = gradeGuess(ask);
-            guessing.marked = verdict;
-            renderHintPanel();
-            // The rung follows on its own. Making it a second tap would charge a
-            // click for something nobody would ever decline.
-            guessTimer = setTimeout(() => finishGuess(verdict),
-                                    reducedMotion() ? 0 : GUESS_HOLD_MS);
-          };
-          // Never a dead end. Asking to be told is a legitimate answer to "do you
-          // know this yet?", and it costs what the rung has always cost.
-          $("guess-tell").onclick = () => finishGuess(null);
-        }
+        $("guess-check").onclick = () => {
+          if (!guessing.picked.length) return;
+          finishGuess(gradeGuess(ask), ask);
+        };
+        // Never a dead end. Asking to be told is a legitimate answer to "do you
+        // know this yet?", and it costs what the rung has always cost.
+        $("guess-tell").onclick = () => finishGuess(null, ask);
       }
 
       // Every unlocked rung is offered at once, not just the next one: wanting
