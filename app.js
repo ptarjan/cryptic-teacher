@@ -1392,6 +1392,31 @@
     // now refuses a `gives` on a cryptic definition and demands the clue be
     // split, so this suppression is belt to that braces.
     if (blocks.length && blocks.some((b) => b.gives || b.note)) {
+      // Which pieces were conventions rather than deductions.
+      //
+      // Charade is our commonest clue type, and the hard part is never spotting
+      // that it IS one — it is knowing that "sailor" is AB because the
+      // convention says so. No amount of staring derives that, so a rung that
+      // hands over the letters without saying which were knowledge leaves the
+      // solver unable to tell "think harder" from "look this up once, own it
+      // forever". abbreviations.js already held every one of them; until now
+      // only the clue-writer could see the table.
+      const seen = new Set();
+      const conventions = [];
+      blocks.forEach((b) => {
+        const letters = (b.gives || "").toUpperCase();
+        const meanings = typeof ABBREVIATIONS === "undefined" ? null : ABBREVIATIONS[letters];
+        if (!meanings || !b.clueFragment || seen.has(letters)) return;
+        // Whole words only: "one" must not fire inside "money", nor "me" inside
+        // "some". The meanings are data, so they get escaped before they are a
+        // pattern.
+        const frag = b.clueFragment.toLowerCase();
+        const word = meanings.find((m) =>
+          new RegExp(`\\b${m.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(frag));
+        if (!word) return;
+        seen.add(letters);
+        conventions.push(`<b>${esc(word)}</b> = ${esc(letters)}`);
+      });
       const items = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
@@ -1408,7 +1433,10 @@
       steps.push({
         key: "blocks",
         label: LABELS.blocks,
-        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>`
+        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>` +
+          (conventions.length
+            ? `<p class="mechanism">Standard abbreviations — these never change, so they are worth memorising: ${conventions.join(", ")}.</p>`
+            : "")
       });
     }
 
