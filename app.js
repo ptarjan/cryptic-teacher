@@ -113,6 +113,12 @@
   // the model has to be able to represent it. The old integer couldn't — it
   // could only say "the first N", so every rung dragged in the ones below it.
   let hintsShown = {};
+  // entryKey -> the rungs that were EARNED: the solver was asked to point at the
+  // words first and got them right, so the rung opened without costing a hint.
+  // Kept apart from hintsShown rather than folded into the score at the moment
+  // it happens, because the score is recomputed from state on every render and
+  // a discount that lives only in a running total cannot survive a reload.
+  let hintsEarned = {};
   let hintLevels = {};   // legacy: entryKey -> highest level, migrated on read
   let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
   let solvedWith = {};   // entryKey -> how many rungs were up when first solved
@@ -175,14 +181,15 @@
         timing.solvedAt = now;
         timing.solvedMs = timing.activeMs || 0;
       }
-      store.set(stateKey(), { letters, letterAt, hintsShown, revealsUsed, solvedWith,
-                              timing, clearedAt: prev.clearedAt || 0, updated: now });
+      store.set(stateKey(), { letters, letterAt, hintsShown, hintsEarned, revealsUsed,
+                              solvedWith, timing, clearedAt: prev.clearedAt || 0, updated: now });
       syncPushSoon();
     }, 150);
   }
   function restoreState() {
     const s = store.get(stateKey(), null);
     hintsShown = (s && s.hintsShown) || {};
+    hintsEarned = (s && s.hintsEarned) || {};
     hintLevels = (s && s.hintLevels) || {};
     revealsUsed = (s && s.revealsUsed) || {};
     solvedWith = (s && s.solvedWith) || {};
@@ -507,12 +514,7 @@
   const italicsOf = (e) => (Array.isArray(e.clueItalics) ? e.clueItalics : []);
   const plainClueHTML = (e) => markUp(e.clue, [], italicsOf(e));
 
-  function clueHTML(e) {
-    const ann = annOf(e);
-    if (!ann) return plainClueHTML(e);
-    const shown = (key) => isShown(e, key);
-    const marks = [];
-    // Where a fragment goes is a placement, not a search. indexOf() takes the
+  // Where a fragment goes is a placement, not a search. indexOf() takes the
     // first substring that matches and two things went wrong with that, both
     // reported as the same thing — a highlight you had paid for not being there
     // ("I think it might always be the indicator clue which is disappearing
@@ -527,34 +529,49 @@
     //             indicators are pushed last and the loser was whoever came
     //             second. Buying the definition made an earlier hint vanish.
     //
-    // So each fragment takes the best occurrence still going: on word
-    // boundaries, and not already spoken for. Nothing is ever dropped — a rung
-    // that has been bought stays on the screen, which is the whole contract.
-    const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
+  // So each fragment takes the best occurrence still going: on word
+  // boundaries, and not already spoken for. Nothing is ever dropped — a rung
+  // that has been bought stays on the screen, which is the whole contract.
+  //
+  // One spelling of "where does this fragment sit", because the highlighter and
+  // the grader for a solver's guess have to agree about it exactly: marking one
+  // "in" and grading a different one would tell someone they were wrong about a
+  // word the clue had just underlined for them.
+  const isLetter = (c) => !!c && /[A-Za-z]/.test(c);
+  function bestOccurrence(clue, text, taken) {
+    const len = text.length;
     // Only an edge that is itself a letter can be mid-word. Fragments routinely
     // start or end on punctuation that is welded to the neighbouring word —
     // "’s gone out of" in "Pound’s gone…", "half-" in "half-dark" — and those
     // are the setter's own joins, not accidents of spelling.
-    const onBoundary = (i, len) =>
-      !(isLetter(e.clue[i]) && isLetter(e.clue[i - 1])) &&
-      !(isLetter(e.clue[i + len - 1]) && isLetter(e.clue[i + len]));
-    const free = (i, len) => !marks.some((m) => i < m.i + m.len && m.i < i + len);
+    const onBoundary = (i) =>
+      !(isLetter(clue[i]) && isLetter(clue[i - 1])) &&
+      !(isLetter(clue[i + len - 1]) && isLetter(clue[i + len]));
+    const free = (i) => !taken.some((m) => i < m.i + m.len && m.i < i + len);
+    let boundaryFree = -1, boundaryAny = -1, anyFree = -1;
+    for (let i = clue.indexOf(text); i >= 0; i = clue.indexOf(text, i + 1)) {
+      const b = onBoundary(i), f = free(i);
+      if (b && f) { boundaryFree = i; break; }
+      if (b && boundaryAny < 0) boundaryAny = i;
+      if (f && anyFree < 0) anyFree = i;
+    }
+    // A whole word somewhere else beats a syllable of the right word: the
+    // fragment is a word of the clue, so a match that is not one is a
+    // coincidence of spelling.
+    const i = [boundaryFree, boundaryAny, anyFree, clue.indexOf(text)]
+      .filter((x) => x >= 0)[0];
+    return i === undefined ? -1 : i;
+  }
+
+  function clueHTML(e) {
+    const ann = annOf(e);
+    if (!ann) return plainClueHTML(e);
+    const shown = (key) => isShown(e, key);
+    const marks = [];
     const push = (text, cls) => {
       if (!text) return;
-      const len = text.length;
-      let boundaryFree = -1, boundaryAny = -1, anyFree = -1;
-      for (let i = e.clue.indexOf(text); i >= 0; i = e.clue.indexOf(text, i + 1)) {
-        const b = onBoundary(i, len), f = free(i, len);
-        if (b && f) { boundaryFree = i; break; }
-        if (b && boundaryAny < 0) boundaryAny = i;
-        if (f && anyFree < 0) anyFree = i;
-      }
-      // A whole word somewhere else beats a syllable of the right word: the
-      // fragment is a word of the clue, so a match that is not one is a
-      // coincidence of spelling.
-      const i = [boundaryFree, boundaryAny, anyFree, e.clue.indexOf(text)]
-        .filter((x) => x >= 0)[0];
-      if (i >= 0) marks.push({ i, len, cls });
+      const i = bestOccurrence(e.clue, text, marks);
+      if (i >= 0) marks.push({ i, len: text.length, cls });
     };
     if (shown("definition")) {
       push(ann.definition, "def");
@@ -1039,7 +1056,7 @@
   function checkSolvedEntries() {
     entries.forEach((e) => {
       if (isEntrySolved(e) && solvedWith[e.id] === undefined) {
-        solvedWith[e.id] = shownRungs(e).length;
+        solvedWith[e.id] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
       }
     });
   }
@@ -1478,6 +1495,126 @@
     return steps;
   }
 
+  // ---------- naming the words before the rung names them ----------
+  //
+  // Three rungs are questions whose answer is already written down: which words
+  // are the definition, which are the indicator, which give this piece. Handing
+  // that over is recognition — you nod, and nothing sticks. Being made to point
+  // first is recall, which is the only part that survives to the next puzzle.
+  //
+  // It costs no new screen: the same rung, in the same panel, one beat before
+  // the same text, with "Just tell me" beside it so nobody is ever stuck behind
+  // a quiz. Guess right and the rung is free, which is the score finally saying
+  // what it always meant — a hint you did not need is not a hint you took.
+  //
+  // Buildable at all only because the annotations already store these as
+  // literal spans of the clue: 1473/1473 definitions, 1471/1471 indicators,
+  // 3131/3132 fragments. Measured across the corpus, not hoped for.
+  const GUESSABLE = { definition: 1, indicators: 1, blocks: 1 };
+
+  // The clue split into things you can put a finger on. Whitespace-delimited, so
+  // the punctuation welded to a word rides along with it, and the enumeration is
+  // dropped because "(4,3)" is not a word anyone can be right or wrong about.
+  function clueTokens(clue) {
+    const body = String(clue || "").replace(/\s*\([^()]*\)\s*$/, "");
+    const out = [];
+    const re = /\S+/g;
+    let m;
+    while ((m = re.exec(body))) out.push({ i: m.index, text: m[0] });
+    return out;
+  }
+
+  // What a rung asks, and which tokens answer it. Null when this clue cannot
+  // pose the question at all — an &lit whose definition is the whole clue, a
+  // type with no indicators, a block rung with nothing that yields letters — and
+  // the rung then behaves exactly as it always did. A question is only worth
+  // asking if some of the clue is the answer and some of it isn't.
+  function guessAsk(e, rung) {
+    const ann = annOf(e);
+    if (!ann) return null;
+    const tokens = clueTokens(e.clue);
+    const taken = [];
+    const add = (t) => {
+      if (!t) return;
+      const i = bestOccurrence(e.clue, t, taken);
+      if (i >= 0) taken.push({ i, len: t.length });
+    };
+    let prompt = "";
+    if (rung === "definition") {
+      prompt = "Which words define the answer?";
+      add(ann.definition);
+      add(ann.definition2);
+    } else if (rung === "indicators") {
+      prompt = "Which words tell you what to do to the rest?";
+      (ann.indicators || []).forEach(add);
+    } else if (rung === "blocks") {
+      // One named piece, not "everything that isn't the definition". Doing the
+      // charade is the hard part, not spotting that it is one, and the union
+      // question can be answered by elimination the moment the definition rung
+      // is up — which would teach nothing.
+      const b = (ann.blocks || []).filter((x) => x.clueFragment && x.gives)[0];
+      if (!b) return null;
+      prompt = `Which words give <span class="gives">${esc(b.gives)}</span>?`;
+      add(b.clueFragment);
+    }
+    if (!taken.length) return null;
+    const target = [];
+    tokens.forEach((t, n) => {
+      if (taken.some((s) => t.i < s.i + s.len && s.i < t.i + t.text.length)) target.push(n);
+    });
+    if (!target.length || target.length === tokens.length) return null;
+    return { prompt, target, tokens };
+  }
+
+  // A guess in progress, and the verdict on the one just made. Neither is
+  // persisted: what survives a reload is hintsEarned, because that is the part
+  // that changed the score. A half-made guess is not progress.
+  let guessing = null;   // { key, rung, picked: [] }
+  let lastGuess = null;  // { key, rung, right, said }
+
+  function guessHTML(ask, position, label) {
+    // Each word its own id rather than a delegated handler: it is the same
+    // pattern as every other button here, and it means a word can be pointed at
+    // by name from a test.
+    const words = ask.tokens.map((t, i) =>
+      `<button type="button" id="gw-${i}" class="gw${
+        guessing.picked.indexOf(i) >= 0 ? " on" : ""}">${esc(t.text)}</button>`).join(" ");
+    return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
+      <p>${ask.prompt}</p>
+      <p class="guess-clue">${words}</p>
+      <p class="guess-actions"><button id="guess-check"${
+        guessing.picked.length ? "" : " disabled"}>Check my answer</button>
+      <button id="guess-tell" class="ghost small">Just tell me</button></p>
+      <p class="muted small-note">Get it right and this hint is free.</p></div>`;
+  }
+
+  // Right is the whole set and nothing else. Anything short of that opens the
+  // rung too — the point was never to withhold it — but says what was missed,
+  // because "wrong" with no account of it is the least useful thing a teacher
+  // can say.
+  function gradeGuess(ask) {
+    const picked = guessing.picked.slice().sort((a, b) => a - b);
+    const target = ask.target.slice().sort((a, b) => a - b);
+    const hit = picked.filter((x) => target.indexOf(x) >= 0).length;
+    const spare = picked.length - hit;
+    const n = target.length;
+    if (hit === n && !spare) return { right: true, said: "Yes — that’s exactly it." };
+    if (hit === n) {
+      return { right: false, said: `You had all ${n}, plus ${spare} word${
+        spare > 1 ? "s" : ""} that isn’t doing that job.` };
+    }
+    if (hit) {
+      return { right: false, said: `Close — ${hit} of ${n} right${
+        spare ? `, and ${spare} that aren’t` : ""}.` };
+    }
+    return { right: false, said: "Not those. Here’s where they actually are." };
+  }
+
+  function earnedRungs(e) {
+    const key = entryKey(e);
+    return hintsEarned[key] || (hintsEarned[key] = []);
+  }
+
   function hintStepHTML(step, position) {
     return `<div class="hint-step"><span class="step-label">${position} · ${esc(step.label)}</span>${step.html}</div>`;
   }
@@ -1624,8 +1761,19 @@
       // still met them as steps 2 and 4, and gaps in the numbers show what
       // they skipped.
       const steps = ladderSteps(ann, e.clue);
+      // A guess belongs to the clue it was asked about. Moving on abandons it —
+      // carrying it would mean checking an answer against a different question.
+      if (guessing && guessing.key !== key) guessing = null;
+      if (lastGuess && lastGuess.key !== key) lastGuess = null;
       steps.forEach((s, i) => {
-        if (isShown(e, s.key)) body.innerHTML += hintStepHTML(s, i + 1);
+        if (!isShown(e, s.key)) return;
+        // The verdict reads above the rung it judged: you find out whether you
+        // were right, and then you are told, in that order.
+        if (lastGuess && lastGuess.rung === s.key) {
+          body.innerHTML += `<p class="guess-verdict ${lastGuess.right ? "right" : "miss"}">${
+            esc(lastGuess.said)}</p>`;
+        }
+        body.innerHTML += hintStepHTML(s, i + 1);
       });
       // The legend is built from what is actually highlighted, for the same
       // reason clueHTML is: it was keyed off the definition rung, so taking the
@@ -1642,6 +1790,37 @@
         body.innerHTML += `<div class="legend">${legend.join(" · ")} highlighted in the clue above</div>`;
       }
 
+      // A rung that has been asked for but not yet handed over: the solver is
+      // being asked to point at the words first. It goes last in the body, under
+      // everything they have already bought, because that is where the next
+      // thing to do has always been.
+      const ask = guessing ? guessAsk(e, guessing.rung) : null;
+      if (guessing && !ask) guessing = null;
+      if (ask) {
+        const at = steps.map((s) => s.key).indexOf(guessing.rung);
+        body.innerHTML += guessHTML(ask, at + 1, steps[at].label);
+        ask.tokens.forEach((t, i) => {
+          $("gw-" + i).onclick = () => {
+            const j = guessing.picked.indexOf(i);
+            if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
+            renderHintPanel();
+          };
+        });
+        const reveal = (verdict) => {
+          lastGuess = verdict && { key, rung: guessing.rung, right: verdict.right, said: verdict.said };
+          if (verdict && verdict.right && earnedRungs(e).indexOf(guessing.rung) < 0) {
+            earnedRungs(e).push(guessing.rung);
+          }
+          showHint(e, guessing.rung);
+          guessing = null;
+          refreshAll();
+        };
+        $("guess-check").onclick = () => { if (guessing.picked.length) reveal(gradeGuess(ask)); };
+        // Never a dead end. Asking to be told is a legitimate answer to "do you
+        // know this yet?", and it costs what the rung has always cost.
+        $("guess-tell").onclick = () => reveal(null);
+      }
+
       // Every unlocked rung is offered at once, not just the next one: wanting
       // the indicators shouldn't mean being handed the definition on the way,
       // since working out where the definition sits is most of the skill. The
@@ -1649,7 +1828,11 @@
       // costs one obvious click and a sideways move costs one deliberate one.
       // Rungs from a later tier are shown but disabled rather than hidden — the
       // ladder has a shape and the solver should be able to see it coming.
-      const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
+      // While a guess is on the table the other rungs are not offered: the
+      // question is answerable by buying a different hint, and a quiz you can
+      // walk around is not one.
+      const togo = guessing ? []
+        : steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
       const open = togo.filter(({ s }) => rungAvailable(e, steps, s.key));
       open.forEach(({ s, n }, j) => {
         const btn = document.createElement("button");
@@ -1658,7 +1841,18 @@
         // hints to spend the moment it was solved, and a price hintsCharged no
         // longer charges shouldn't be advertised.
         btn.textContent = (j === 0 && !solved) ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}`;
-        btn.onclick = () => { showHint(e, s.key); refreshAll(); };
+        btn.onclick = () => {
+          // Ask before telling, where the clue can pose the question. Not once
+          // the clue is solved: the rungs have stopped being hints by then and
+          // quizzing someone on an answer they already have is a chore.
+          if (GUESSABLE[s.key] && !solved && guessAsk(e, s.key)) {
+            guessing = { key, rung: s.key, picked: [] };
+            lastGuess = null;
+          } else {
+            showHint(e, s.key);
+          }
+          refreshAll();
+        };
         next.appendChild(btn);
       });
       togo.filter(({ s }) => !rungAvailable(e, steps, s.key)).forEach(({ s, n }) => {
@@ -1669,7 +1863,7 @@
         btn.title = "Take the hints above first — this one gives them away";
         next.appendChild(btn);
       });
-      if (!togo.length && canCheck() && !solved) {
+      if (!guessing && !togo.length && canCheck() && !solved) {
         next.innerHTML = `<button id="hx-entry">${FILL_LABEL}</button>`;
         $("hx-entry").onclick = fillAnswer;
       }
@@ -1692,7 +1886,10 @@
   // count when its LAST leg went in, and rungs only ever accumulate, so that is
   // the largest of the legs' snapshots.
   function hintsCharged(e) {
-    if (!groupSolved(e)) return shownRungs(e).length;
+    // Rungs that were earned by naming the words don't count. They are on the
+    // screen because the solver asked to see whether they were right, not
+    // because they needed telling.
+    if (!groupSolved(e)) return Math.max(0, shownRungs(e).length - earnedRungs(e).length);
     const key = entryKey(e);
     return entries.filter((g) => entryKey(g) === key)
       .reduce((n, g) => Math.max(n, solvedWith[g.id] || 0), 0);
@@ -1992,7 +2189,7 @@
     store.set("ct:last", id);
     if (chosen) pointUrlAtPuzzle(id);
     buildModel();
-    hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
+    hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
     // Forget the last puzzle's completeness, so the first render of this one
     // only records where it stands. Opening a puzzle you finished last week is
     // not something to celebrate.
@@ -2202,10 +2399,11 @@
       // The clock goes with it. "Clear the grid and all hint history" means a
       // fresh attempt, and an attempt that starts on a grid you have already
       // solved once is not a time anything should be averaging.
-      store.set(stateKey(), { letters: {}, letterAt: {}, hintsShown: {}, revealsUsed: {},
-                              solvedWith: {}, timing: {}, clearedAt: now, updated: now });
+      store.set(stateKey(), { letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {},
+                              revealsUsed: {}, solvedWith: {}, timing: {},
+                              clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
-      hintsShown = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
+      hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
       refreshAll();
       syncPushSoon();
     };
