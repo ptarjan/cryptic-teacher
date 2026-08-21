@@ -1,5 +1,7 @@
 # Cryptic Teacher
 
+**[paultarjan.com/cryptic-teacher](https://paultarjan.com/cryptic-teacher)**
+
 A static, no-framework web app that teaches you to solve cryptic crosswords using real
 broadsheet puzzles — the Guardian's cryptic and Quiptic, the Independent's daily and
 Sunday, and the Observer's Everyman — with an escalating **hint ladder per clue** instead of a bare
