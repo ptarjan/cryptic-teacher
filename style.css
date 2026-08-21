@@ -511,6 +511,28 @@ button:disabled:hover { border-color: var(--line); }
   opacity: .45; cursor: not-allowed; background: transparent;
 }
 
+/* Pointing at the words before the rung points at them. The clue is reprinted
+   as buttons rather than the marked-up copy above being made tappable, because
+   that copy already carries the setter's italics and every highlight bought so
+   far — a word there is three things at once, and a fourth would be one too
+   many. Down here it is only ever "picked" or "not". */
+.guess-clue { line-height: 2.1; }
+.gw {
+  font: inherit; padding: 1px 6px; margin: 0 1px;
+  background: transparent; border: 1px solid var(--line); border-radius: 4px;
+}
+/* Big enough to hit with a thumb without the clue turning into a keypad. */
+@media (pointer: coarse) { .gw { padding: 5px 8px; line-height: 1.5; } }
+.gw.on { background: var(--accent-soft); border-color: var(--accent); color: var(--fg); }
+.guess-actions { margin-top: 8px; }
+/* The verdict, immediately above the rung it judged. Right is stated in the
+   definition's own colour, because being right about where the definition sat
+   is the thing the colour has meant all along. A miss is not coloured at all:
+   it is a step in the lesson, not an error state. */
+.guess-verdict { margin: 10px 0 0; font-size: .9rem; }
+.guess-verdict.right { color: var(--def-fg); font-weight: 600; }
+.guess-verdict.miss { color: var(--muted); }
+
 mark.def { background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px; }
 /* second half of a double definition — same family, distinguishable */
 mark.def2 {

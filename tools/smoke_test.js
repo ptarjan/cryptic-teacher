@@ -228,6 +228,15 @@ registry["hx-letter"].onclick();
 assert(/letters? revealed/.test(registry["scorebar"].innerHTML), "letter reveals counted in score: " + registry["scorebar"].innerHTML);
 assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter shows reveal count: " + registry["hint-meter"].innerHTML);
 
+// Taking a rung is two clicks now: three of them ask you to point at the words
+// before they name them, so the button poses the question and "Just tell me"
+// answers it. Everything below walks the ladder the lazy way on purpose — the
+// guessing itself is tested at the end, on its own.
+function takeRung(btn) {
+  btn.onclick();
+  if (registry["hint-body"].innerHTML.includes("guess-clue")) registry["guess-tell"].onclick();
+}
+
 // --- pick a rung out of order, but not out of tier ---
 // Two rules pull against each other and both have to hold. Free choice WITHIN a
 // tier: taking any offered rung reveals that rung and nothing else, so wanting
@@ -252,7 +261,7 @@ assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter sh
     "a late rung is offered from cold: " + open.map((b) => b.textContent).join(" | "));
   const last = open[open.length - 1];
   const wanted = last.textContent;                 // e.g. "3 · Spot the indicator words"
-  last.onclick();
+  takeRung(last);
   const shown = registry["hint-body"].innerHTML;
   assert(shown.includes("hint-step"), "the chosen rung is revealed");
   const stepCount = (shown.match(/class="hint-step"/g) || []).length;
@@ -270,7 +279,7 @@ registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order 
 // --- walk the hint ladder: the ladder is per-clue, so click until it runs out ---
 let rungs = 0;
 while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && rungs < 8) {
-  registry["hint-next"].children[0].onclick();
+  takeRung(registry["hint-next"].children[0]);
   rungs++;
   if (rungs === 1) {
     // rung 1 gives the FAMILY only — never the precise (often compound) type
@@ -704,8 +713,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
     row.listeners.click[0]();
     // rung 1 = family, rung 2 = definition, which is where both fields hang
-    registry["hint-next"].children[0].onclick();
-    registry["hint-next"].children[0].onclick();
+    takeRung(registry["hint-next"].children[0]);
+    takeRung(registry["hint-next"].children[0]);
   };
 
   const linked = findClue("linkWords");
@@ -731,7 +740,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   for (let i = 0; i < 8; i++) {
     const btn = registry["hint-next"].children[0];
     if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
-    btn.onclick();
+    takeRung(btn);
   }
   assert(registry["hint-body"].innerHTML.includes("def-note"),
     "the definition note is shown on the walkthrough rung: " + registry["hint-body"].innerHTML);
@@ -762,7 +771,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
         const btn = registry["hint-next"].children[0];
         if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
         if (/walkthrough/i.test(btn.textContent)) break;
-        btn.onclick();
+        takeRung(btn);
         const bare = registry["hint-body"].innerHTML.replace(/[^A-Za-z]/g, "").toUpperCase();
         assert(!bare.includes(ans),
           `${where}: a rung before the walkthrough spells the answer out — ` +
@@ -772,7 +781,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       assert(btn && /walkthrough/i.test(btn.textContent || ""),
         `${where}: the ladder still ends at the walkthrough, got ` +
         ((btn && btn.textContent) || "nothing"));
-      btn.onclick();
+      takeRung(btn);
       assert(registry["hint-body"].innerHTML.includes("Answer:"),
         `${where}: the walkthrough is where the answer finally appears`);
     }
@@ -902,7 +911,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
             const m = /^(?:Show hint )?\d+ · (.*)$/.exec(b.textContent || "");
             if (m && !names.has(m[1])) names.set(m[1], `${id} ${e.id} (${e.annotation.type})`);
           }
-          btns[0].onclick();
+          takeRung(btns[0]);
         }
         checkMarks(id, e);
       }
@@ -941,7 +950,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
         (b) => b.onclick && /indicator/i.test(b.textContent) && !b.disabled);
       assert(btn, `${s.id} ${s.e.id}: the indicators rung is offered`);
       if (!btn) continue;
-      btn.onclick();
+      takeRung(btn);
       const html = registry["hint-body"].innerHTML;
       for (const [ind, note] of Object.entries(s.n)) {
         assert(html.includes(note.replace(/&/g, "&amp;").replace(/'/g, "&#39;")),
@@ -995,7 +1004,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       for (let i = 0; i < 8; i++) {
         const btn = registry["hint-next"].children[0];
         if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
-        btn.onclick();
+        takeRung(btn);
         html = registry["hint-body"].innerHTML;
         if (html.includes("said aloud")) break;
       }
@@ -1038,7 +1047,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   registry["clue-" + withInd.e.id].listeners.click[0]();
   const indBtn = registry["hint-next"].children.find((b) => /indicator/i.test(b.textContent) && !b.disabled);
   assert(indBtn, "the indicators rung is offered from cold: " + registry["hint-next"].innerHTML);
-  indBtn.onclick();
+  takeRung(indBtn);
   const marked = registry["hint-clue"].innerHTML;
   assert(marked.includes('mark class="ind"'),
     "the indicators rung highlighted nothing in the clue: " + marked);
@@ -1061,7 +1070,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     registry["clue-" + e.id].listeners.click[0]();
     let guard = 0;
     while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && guard++ < 8) {
-      registry["hint-next"].children[0].onclick();
+      takeRung(registry["hint-next"].children[0]);
       if (registry["hint-body"].innerHTML.includes("Answer:")) break;
     }
     const walk = registry["hint-body"].innerHTML;
@@ -1436,7 +1445,7 @@ registry["reset-puzzle"].onclick();
   const before = registry["scorebar"].innerHTML;
   for (let i = 0; i < 8 && registry["hint-next"].children[0]
     && registry["hint-next"].children[0].onclick; i++) {
-    registry["hint-next"].children[0].onclick();
+    takeRung(registry["hint-next"].children[0]);
   }
   assert(/hint-step/.test(registry["hint-body"].innerHTML), "the rungs really did open");
   assert(/Solved with no hints/.test(registry["hint-meter"].innerHTML),
@@ -1823,6 +1832,96 @@ setTimeout(() => {
     "the reopened puzzle really is the finished one: " + registry["scorebar"].innerHTML);
   assert(box.classList.contains("hidden"),
     "re-opening a puzzle you already finished celebrates nothing: " + box.innerHTML);
+}
+
+// --- point at the words before the rung names them ---
+// Three rungs ask first and tell second. Two things have to hold and they pull
+// apart: the rung must still arrive whatever you answer (this is a lesson, not
+// a gate), and answering it correctly must actually cost nothing, or the
+// discount is decoration.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  // A clue whose definition is the opening words of the clue, so the test can
+  // name the right buttons without owning a second copy of the matcher.
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const def = e.annotation && e.annotation.definition;
+      if (!def || !e.clue.startsWith(def)) continue;
+      // Whole words, and one definition: a double definition asks for both
+      // halves at once and the opening words are then only part of the answer.
+      if (e.annotation.definition2 || !/\s/.test(e.clue[def.length] || "")) continue;
+      const words = def.trim().split(/\s+/).length;
+      // Not the whole clue: guessAsk refuses a question whose answer is
+      // everything, and rightly.
+      if (words >= e.clue.replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length) continue;
+      found = { id, e, words };
+      break;
+    }
+    if (found) break;
+  }
+  assert(found, "some clue defines with its opening words");
+
+  const openIt = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[found.id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+    assert(li, "picker finds the puzzle to guess on");
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + found.e.id].listeners.click[0]();
+  };
+  const defBtn = () => registry["hint-next"].children.find(
+    (b) => /definition/i.test(b.textContent || "") && !b.disabled);
+
+  openIt();
+  const btn = defBtn();
+  assert(btn, "the definition rung is offered: " + registry["hint-next"].innerHTML);
+  btn.onclick();
+  let html = registry["hint-body"].innerHTML;
+  assert(html.includes("guess-clue"), "the definition rung asks before it tells: " + html);
+  assert(!html.includes("hint-step\"><span class=\"step-label\">2 ·"),
+    "the rung is not handed over while the question is still open: " + html);
+  assert(!registry["hint-clue"].innerHTML.includes('mark class="def"'),
+    "nor is the answer given away by the highlight: " + registry["hint-clue"].innerHTML);
+  assert(registry["hint-next"].innerHTML === "",
+    "the other rungs are not offered as a way around the question: " + registry["hint-next"].innerHTML);
+
+  // Right: exactly the words, nothing else.
+  for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
+  registry["guess-check"].onclick();
+  html = registry["hint-body"].innerHTML;
+  assert(html.includes("guess-verdict right"), "a correct guess is told so: " + html);
+  assert(html.includes("hint-step"), "and the rung opens anyway: " + html);
+  assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
+    "the definition is highlighted once the rung is up");
+  assert(/\b0<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+    "a rung you earned costs nothing: " + registry["scorebar"].innerHTML);
+
+  // Wrong: every word in the clue is never the answer to any of these.
+  openIt();
+  defBtn().onclick();
+  const words = (registry["hint-body"].innerHTML.match(/id="gw-\d+"/g) || []).length;
+  assert(words > found.words, "the clue offers more words than the definition uses");
+  for (let i = 0; i < words; i++) registry["gw-" + i].onclick();
+  registry["guess-check"].onclick();
+  html = registry["hint-body"].innerHTML;
+  assert(html.includes("guess-verdict miss"), "a wrong guess is told so: " + html);
+  assert(html.includes("hint-step"), "and the rung still opens — never a gate: " + html);
+  assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+    "a rung you did not earn still costs one: " + registry["scorebar"].innerHTML);
+
+  // And the escape hatch out of the question itself.
+  openIt();
+  defBtn().onclick();
+  assert(registry["hint-body"].innerHTML.includes("guess-clue"), "asked again");
+  registry["guess-tell"].onclick();
+  assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Just tell me” tells you");
+  assert(!registry["hint-body"].innerHTML.includes("guess-verdict"),
+    "declining to guess is not graded");
+  assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+    "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
 }
 
 // --- a clue is a link ---

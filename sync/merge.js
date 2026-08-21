@@ -168,6 +168,13 @@
     const bh = liveB && isObj(b.hintsShown) ? b.hintsShown : {};
     const hintsShown = eachKey(ah, bh, (k) => unionRungs(ah[k], bh[k]));
 
+    // Rungs the solver was given for free because they named the words first.
+    // A union like hintsShown, and monotone for the same reason: having worked
+    // out where the definition sat is not undone by picking up another device.
+    const ae = liveA && isObj(a.hintsEarned) ? a.hintsEarned : {};
+    const be = liveB && isObj(b.hintsEarned) ? b.hintsEarned : {};
+    const hintsEarned = eachKey(ae, be, (k) => unionRungs(ae[k], be[k]));
+
     // Reveals are spent, not earned: if one device burned three letters on this
     // clue that happened, and the merge must not hand them back.
     const ar = liveA && isObj(a.revealsUsed) ? a.revealsUsed : {};
@@ -187,7 +194,7 @@
 
     const timing = mergeTiming(liveA ? a.timing : {}, liveB ? b.timing : {});
 
-    return { letters, letterAt, hintsShown, revealsUsed, solvedWith, timing,
+    return { letters, letterAt, hintsShown, hintsEarned, revealsUsed, solvedWith, timing,
              clearedAt, updated: Math.max(at, bt) };
   }
 
