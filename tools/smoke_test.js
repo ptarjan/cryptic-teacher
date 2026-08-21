@@ -573,9 +573,16 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
 // still credits the static write-up that says the same things without JS.
 {
   const urls = global.window.history.urls;
-  assert(urls[urls.length - 1] === `?p=${autoPuzzle.id}`,
+  // The clue ref is appended once the grid settles on a clue, so what has to
+  // hold is that the URL names this puzzle and nothing else — asserting the
+  // whole string would break every time the address bar learns to carry one
+  // more thing about what is on screen.
+  assert(new RegExp(`^\\?p=${autoPuzzle.id}(&c=\\d+[AD])?$`).test(urls[urls.length - 1]),
     `opening No ${autoPuzzle.number} should leave ?p=${autoPuzzle.id} in the address bar, `
       + `got ${JSON.stringify(urls)}`);
+  // And the clue really does get named, so "look at 3 down" is a link.
+  assert(/&c=\d+[AD]$/.test(urls[urls.length - 1]),
+    `the address bar should name the selected clue too, got ${urls[urls.length - 1]}`);
   const want = `https://paultarjan.com/cryptic-teacher/puzzles/${autoPuzzle.id}/`;
   assert(canonicalLink.href === want,
     `canonical should follow the opened puzzle to ${want}, got ${canonicalLink.href}`);
@@ -1816,4 +1823,29 @@ setTimeout(() => {
     "the reopened puzzle really is the finished one: " + registry["scorebar"].innerHTML);
   assert(box.classList.contains("hidden"),
     "re-opening a puzzle you already finished celebrates nothing: " + box.innerHTML);
+}
+
+// --- a clue is a link ---
+// ?c=3D opens on that clue, so "which one are you stuck on" is answerable with a
+// URL and a first-timer can be handed one clue instead of a whole 15x15. Booted
+// fresh, because the ref has to survive openPuzzle rewriting the address bar to
+// ?p= on its way in — which is precisely how the first cut of this silently did
+// nothing. Last in the file: boot() replaces the globals every earlier test is
+// still holding.
+{
+  const fresh = (q) => require("./fake_dom.js").boot({ query: q });
+  const clueOf = (r) => (r.registry["hint-clue"].innerHTML || "").replace(/<[^>]+>/g, "");
+
+  const dflt = clueOf(fresh("?p=cryptic-30066"));
+  const asked = fresh("?p=cryptic-30066&c=3D");
+  assert(clueOf(asked).startsWith("3D"),
+    `?c=3D should open on 3 down, got ${clueOf(asked).slice(0, 40)}`);
+  assert(clueOf(asked) !== dflt, "and that is not just where the puzzle opens anyway");
+
+  assert(clueOf(fresh("?p=cryptic-30066&c=17d")).startsWith("17D"),
+    "a lower-case ref works, because that is how people retype a link");
+
+  // A link outliving its puzzle must still open the puzzle.
+  assert(clueOf(fresh("?p=cryptic-30066&c=nope")) === dflt,
+    "an unknown clue ref falls back to the first clue rather than erroring");
 }

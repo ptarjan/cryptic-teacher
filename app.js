@@ -97,6 +97,15 @@
   let entries = [];      // puzzle entries in tab order (across by number, then down)
   let byId = {};
   let cur = { x: 0, y: 0, dir: "across" };
+  // The clue the LINK asked for, read once and spent once.
+  //
+  // Read at load because opening a puzzle rewrites the address bar before it
+  // picks a clue, so by the time the grid is built the ?c= that brought the
+  // reader here is already gone. Spent once because it belongs to the puzzle it
+  // arrived with: carrying it forward would drop you on 3 down of every puzzle
+  // you opened afterwards.
+  const linkedClue = (new URLSearchParams(location.search).get("c") || "").toUpperCase();
+  let linkedClueSpent = false;
   // entryKey -> array of rung keys revealed ("definition", "blocks", …), in the
   // order the solver asked for them. A SET, not a high-water mark: the ladder
   // has a recommended order but no required one, so wanting the indicators
@@ -1990,7 +1999,14 @@
     wasComplete = null;
     $("celebrate").classList.add("hidden");
     restoreState();
-    const first = entries[0];
+    // ?c=3D opens on that clue. A whole 15x15 is a lot to hand someone who has
+    // never solved a cryptic, and it is also just what sharing wants: the answer
+    // to "which one are you stuck on" should be a link, not a number to hunt for.
+    // Unknown or absent falls back to the first clue rather than erroring — a
+    // link that has outlived its puzzle should still open the puzzle.
+    const asked = linkedClueSpent ? "" : linkedClue;
+    linkedClueSpent = true;
+    const first = entries.find((e) => tag(e) === asked) || entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
     $("app").classList.remove("hidden");
     // The day spelled out in full here, where there is room for it, and where a
@@ -2077,6 +2093,30 @@
     renderHintPanel();
     renderScore();
     checkComplete();
+    syncClueUrl();
+  }
+
+  // The address bar follows the clue, so "look at 3 down" is a link.
+  //
+  // Driven from refreshAll rather than from selectEntry because a clue gets
+  // chosen half a dozen ways — tapping a cell, the arrow keys, tab, the clue
+  // list — and only one of them goes through selectEntry. Guarded on the ref
+  // actually changing, because refreshAll also runs on every keystroke and
+  // Safari rate-limits replaceState hard enough that a fast solver would hit
+  // the ceiling and lose the lot.
+  //
+  // Only ever a refinement of a URL that already names a puzzle: a bare
+  // /cryptic-teacher/ has to stay the front door, for the reason spelled out
+  // above pointUrlAtPuzzle.
+  let urlClue = null;
+  function syncClueUrl() {
+    const e = currentEntry();
+    const ref = e ? tag(e) : null;
+    if (ref === urlClue) return;
+    urlClue = ref;
+    const p = new URLSearchParams(location.search).get("p");
+    if (!p || !ref || !window.history || !window.history.replaceState) return;
+    window.history.replaceState(null, "", `?p=${encodeURIComponent(p)}&c=${ref}`);
   }
 
   // ---------- boot ----------
