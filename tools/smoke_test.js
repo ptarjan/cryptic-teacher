@@ -1124,10 +1124,15 @@ registry["reset-puzzle"].onclick();
   // The stacked layout: panel below the grid, clue lists below the panel, and
   // the solver reading the clue lists.
   panel.layout(1200, 400);
-  // The app now waits for the viewport to hold still before it scrolls, so a tap
-  // is a tap plus the settle it is waiting on. 100ms of fake time clears the 90ms
-  // settle and nothing else the app has running.
-  const tap = (row) => { row.listeners.click[0](); global.flushTimers(100); };
+  // The app waits for the viewport to hold still before it scrolls, so a tap is a
+  // tap plus the settle it is waiting on. On a touch device that also means
+  // waiting for the keyboard a tap has just asked for, and the harness is an iPad
+  // — so a tap that never raises one waits out the deadline before placing.
+  // Draining every timer keeps that a property of the app rather than of how long
+  // each test happens to wait, and the late look costs nothing when the band did
+  // not move, so the scroll count is still the thing being asserted.
+  const drain = () => global.flushTimers(10000);
+  const tap = (row) => { row.listeners.click[0](); drain(); };
   const settle = () => { win.pageYOffset = 2000; win.scrolls.length = 0; };
 
   settle();
@@ -1218,37 +1223,58 @@ registry["reset-puzzle"].onclick();
   vv.panKeyboard(120);
   assert(win.scrolls.length === 0, "a pan pushes the placement back as much as a resize does");
   vv.height = 700;
-  global.flushTimers(100);
+  drain();
   assert(win.scrolls.length === 1 && inBand(),
     "and the band it finally measures starts at the pan, not at zero: "
       + JSON.stringify(panel.getBoundingClientRect()) + " band "
       + vv.offsetTop + ".." + (vv.offsetTop + vv.height));
   vv.offsetTop = 0;
 
-  // --- and a keyboard that turns up late still gets accounted for (Paul, iPhone) ---
-  // Waiting for the viewport to hold still only works if it moves while we are
-  // waiting. Sometimes it does not: the deadline runs out, or iOS says nothing at
-  // all until after the tap is handled, and then the keys arrive on top of a
-  // placement already made against a full screen. Same code, same clue — whether
-  // it lands depended on whether the keyboard beat us, which is exactly "worked
-  // for some but not others". So there is one late look, and its trigger is that
-  // THE BAND MOVED after we committed, not that the panel looks wrong right now:
-  // the smooth scroll is still in flight at this point and looks wrong on purpose.
-  global.flushTimers(10000);             // drain the look left over from the tap above
+  // --- a keyboard that has not started yet is not a viewport that has settled ---
+  // "Down then up a little" (Paul, iOS, 2026-08-21). Waiting for the band to hold
+  // still can only measure silence, and at the instant of the tap the band has
+  // been silent forever — so the placement went ahead against the whole screen
+  // and the late look below had to walk it back once the keys landed. Two moves,
+  // every time, on the commonest tap there is.
+  //
+  // Tapping a clue focuses the typing input, and on a touch device that raises a
+  // keyboard, so silence there means "nothing has happened yet", not "nothing
+  // will". The wait is for the thing that is owed.
+  drain();                               // drain the look left over from the tap above
   vv.height = 1000; vv.offsetTop = 0;
   win.pageYOffset = 0; win.scrolls.length = 0;
   clues[0].listeners.click[0]();
   global.flushTimers(100);
+  assert(win.scrolls.length === 0,
+    "nothing is placed while a keyboard is still owed: " + JSON.stringify(win.scrolls));
+  vv.raiseKeyboard(400);                 // the keys, later than any settle would wait
+  global.flushTimers(100);
+  assert(win.scrolls.length === 1 && inBand(),
+    "and when they land it is ONE move, straight above them: "
+      + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
+  drain();
   assert(win.scrolls.length === 1,
-    "with nothing telling us to wait we still place promptly: " + JSON.stringify(win.scrolls));
-  vv.raiseKeyboard(400);                 // the keys, too late to have deferred anything
+    "with nothing left to correct the late look costs nothing: " + JSON.stringify(win.scrolls));
+
+  // --- and the late look is still there for the keyboard that never resizes ---
+  // A hardware keyboard, or an iOS that says nothing at all: the wait cannot be
+  // unbounded, so the deadline places anyway, and the one late look is what
+  // catches keys that arrive after it. Whether it lands must not depend on
+  // whether the keyboard beat us — that was "worked for some but not others".
+  vv.height = 1000; vv.offsetTop = 0;
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  clues[0].listeners.click[0]();
+  drain();                               // the deadline runs out; place on what we have
+  assert(win.scrolls.length === 1,
+    "a keyboard that never comes still gets a placement: " + JSON.stringify(win.scrolls));
+  vv.raiseKeyboard(400);                 // too late to have deferred anything
   assert(win.scrolls.length === 1, "a late keyboard does not scroll on the spot either");
   global.flushTimers(500);
   assert(win.scrolls.length === 2 && inBand(),
     "the one late look puts the panel back above the keys: "
       + JSON.stringify(panel.getBoundingClientRect()) + " band 0.." + vv.height);
   // One look, not a standing correction — this is the wiggle's back door.
-  global.flushTimers(10000);
+  drain();
   assert(win.scrolls.length === 2, "and it is one look, not a permanent correction");
 
   // When the placement was right first time the late look must cost nothing: it
@@ -1320,9 +1346,11 @@ registry["reset-puzzle"].onclick();
     assert(i >= 0, "the grid has two neighbouring squares in one row");
     const activeId = () =>
       (clues.find((r) => r.classList.contains("active")) || {}).id;
+    // Drained rather than timed: a tap on a touch device waits for the keyboard
+    // it just asked for, and how long that takes is not what is being asserted.
     const tapCell = (d) => {
       d.listeners.mousedown[0]({ preventDefault() {} });
-      global.flushTimers(100);
+      global.flushTimers(10000);
     };
 
     panel.layout(1200, 400);
@@ -1892,7 +1920,15 @@ setTimeout(() => {
   for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
   registry["guess-check"].onclick();
   html = registry["hint-body"].innerHTML;
+  // The verdict lands on the words before it lands in a sentence: "3 of 5" never
+  // says which three, and which three is the lesson.
   assert(html.includes("guess-verdict right"), "a correct guess is told so: " + html);
+  assert((html.match(/class="gw on hit"/g) || []).length === found.words,
+    `every word of a right answer is marked right on the clue itself: ${html}`);
+  assert(!/class="gw[^"]*(spare|missed)"/.test(html),
+    "and nothing is marked wrong: " + html);
+  global.flushTimers(5000);              // the beat the marks are held for
+  html = registry["hint-body"].innerHTML;
   assert(html.includes("hint-step"), "and the rung opens anyway: " + html);
   assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
     "the definition is highlighted once the rung is up");
@@ -1908,6 +1944,14 @@ setTimeout(() => {
   registry["guess-check"].onclick();
   html = registry["hint-body"].innerHTML;
   assert(html.includes("guess-verdict miss"), "a wrong guess is told so: " + html);
+  assert((html.match(/class="gw on hit"/g) || []).length === found.words &&
+         /class="gw on spare"/.test(html),
+    `the words that were doing the job are told apart from the ones that weren't: ${html}`);
+  // Tapping a word after the grading would rewrite the question it answered.
+  registry["gw-0"].onclick();
+  assert(registry["hint-body"].innerHTML === html, "and the marked words stop taking taps");
+  global.flushTimers(5000);
+  html = registry["hint-body"].innerHTML;
   assert(html.includes("hint-step"), "and the rung still opens — never a gate: " + html);
   assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
     "a rung you did not earn still costs one: " + registry["scorebar"].innerHTML);
