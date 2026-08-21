@@ -298,7 +298,11 @@ function boot(opts) {
   // defineProperty, not assignment: Node 22 ships its own read-only global
   // navigator, and a plain `global.navigator = …` throws.
   Object.defineProperty(global, "navigator", {
-    value: { clipboard }, writable: true, configurable: true
+    // The harness is the iPad in portrait its window sizes describe, and that is
+    // the machine every scroll bug was reported from. maxTouchPoints is how the
+    // app knows a tap on a clue is about to raise a soft keyboard, and so that
+    // silence from the viewport does not yet mean the viewport has settled.
+    value: { clipboard, maxTouchPoints: 5 }, writable: true, configurable: true
   });
   global.localStorage = global.window.localStorage;
   global.confirm = () => true;

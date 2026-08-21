@@ -524,7 +524,42 @@ button:disabled:hover { border-color: var(--line); }
 /* Big enough to hit with a thumb without the clue turning into a keypad. */
 @media (pointer: coarse) { .gw { padding: 5px 8px; line-height: 1.5; } }
 .gw.on { background: var(--accent-soft); border-color: var(--accent); color: var(--fg); }
+
+/* Grading, worn by the words. A count in a sentence cannot say WHICH words, and
+   which words is the whole lesson — so the ones that were right take the
+   definition's green, the spares strike through and step back, and the ones that
+   were missed arrive a beat later so the eye is free to follow them.
+   Timings are the only thing tuned here: long enough to be seen, short enough
+   that the rung opening underneath still feels like the same gesture. */
+.gw.hit {
+  background: var(--def-bg); border-color: var(--def-fg); color: var(--def-fg);
+  animation: gw-hit .4s ease-out;
+}
+.gw.spare { opacity: .45; text-decoration: line-through; }
+.gw.missed {
+  border-color: var(--def-fg); border-style: dashed; color: var(--def-fg);
+  animation: gw-missed .45s ease-out .18s both;
+}
+@keyframes gw-hit {
+  from { transform: scale(1); }
+  45%  { transform: scale(1.14); }
+  to   { transform: scale(1); }
+}
+@keyframes gw-missed { from { opacity: .2; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .gw.hit, .gw.missed { animation: none; }
+}
+
 .guess-actions { margin-top: 8px; }
+/* The thing to do here, and it read as one of three equal outlines next to
+   "Just tell me" and the word buttons above it. Filled, so there is exactly one
+   place the eye lands. */
+button.primary {
+  background: var(--accent); border-color: var(--accent);
+  color: var(--card); font-weight: 600; padding: 8px 16px;
+}
+button.primary:hover { border-color: var(--accent); filter: brightness(1.12); }
+button.primary:disabled { background: transparent; color: var(--muted); border-color: var(--line); }
 /* The verdict, immediately above the rung it judged. Right is stated in the
    definition's own colour, because being right about where the definition sat
    is the thing the colour has meant all along. A miss is not coloured at all:
