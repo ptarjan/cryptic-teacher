@@ -265,6 +265,12 @@ function boot(opts) {
   // ones that were due within ms. They are still scheduled for real underneath,
   // so the tests that just let things happen keep working as they did.
   const realSetTimeout = global.setTimeout, realClearTimeout = global.clearTimeout;
+  // Handed out so a caller can schedule something flushTimers must never reach.
+  // The suite's own "print the result and exit" timer is the one that matters:
+  // through the fake clock it is just another pending timer, so any test that
+  // drains generously fires it and the run ends early — reporting a pass on the
+  // tests that had happened to run so far and never mentioning the rest.
+  global.realSetTimeout = realSetTimeout;
   const pending = new Map();
   let nextTimer = 1;
   global.setTimeout = (fn, ms, ...args) => {

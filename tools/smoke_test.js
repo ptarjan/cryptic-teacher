@@ -1774,7 +1774,11 @@ registry["reset-puzzle"].onclick();
 }
 
 // --- localStorage persistence happened ---
-setTimeout(() => {
+// On the REAL clock, never the fake one: this timer ends the process, and a
+// test further down that drains the fake clock generously would otherwise fire
+// it and stop the suite mid-file — printing a pass for the tests that had run
+// and saying nothing about the ones that never did.
+global.realSetTimeout(() => {
   // Keyed on the puzzle actually open, not on "ct:3" — that prefix assumed the
   // boot puzzle would always be a 30xxx Guardian daily, and it stopped being one
   // the night the reindex made 1394 the newest (2026-08-12). A test that only
@@ -1920,16 +1924,23 @@ setTimeout(() => {
   for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
   registry["guess-check"].onclick();
   html = registry["hint-body"].innerHTML;
-  // The verdict lands on the words before it lands in a sentence: "3 of 5" never
-  // says which three, and which three is the lesson.
+  // The verdict lands on the words as well as in a sentence: "3 of 5" never says
+  // WHICH three, and which three is the lesson.
   assert(html.includes("guess-verdict right"), "a correct guess is told so: " + html);
   assert((html.match(/class="gw on hit"/g) || []).length === found.words,
     `every word of a right answer is marked right on the clue itself: ${html}`);
   assert(!/class="gw[^"]*(spare|missed)"/.test(html),
     "and nothing is marked wrong: " + html);
-  global.flushTimers(5000);              // the beat the marks are held for
-  html = registry["hint-body"].innerHTML;
-  assert(html.includes("hint-step"), "and the rung opens anyway: " + html);
+  // The marked clue is not an animation, and the rung is not on a delay. Both
+  // arrive on the tap and both are still there afterwards: "it flashes too fast
+  // for me to read" (Paul, 2026-08-21) was a reading deadline nobody asked for.
+  assert(html.includes("hint-step"), "the rung opens on the same tap: " + html);
+  assert(!/id="gw-\d+"/.test(html),
+    "and the graded words stop being buttons rather than stopping taps: " + html);
+  global.flushTimers(10000);
+  assert(registry["hint-body"].innerHTML === html,
+    "nothing is on a timer: the verdict and its marked clue stay put: "
+      + registry["hint-body"].innerHTML);
   assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
     "the definition is highlighted once the rung is up");
   assert(/\b0<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
@@ -1947,12 +1958,10 @@ setTimeout(() => {
   assert((html.match(/class="gw on hit"/g) || []).length === found.words &&
          /class="gw on spare"/.test(html),
     `the words that were doing the job are told apart from the ones that weren't: ${html}`);
-  // Tapping a word after the grading would rewrite the question it answered.
-  registry["gw-0"].onclick();
-  assert(registry["hint-body"].innerHTML === html, "and the marked words stop taking taps");
-  global.flushTimers(5000);
-  html = registry["hint-body"].innerHTML;
   assert(html.includes("hint-step"), "and the rung still opens — never a gate: " + html);
+  global.flushTimers(10000);
+  assert(registry["hint-body"].innerHTML === html,
+    "a miss is left on screen to be read too: " + registry["hint-body"].innerHTML);
   assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
     "a rung you did not earn still costs one: " + registry["scorebar"].innerHTML);
 
@@ -1966,6 +1975,93 @@ setTimeout(() => {
     "declining to guess is not graded");
   assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
     "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
+}
+
+// --- naming the words is saying what kind of clue it is (Paul, 2026-08-21) ---
+// The tier gate wanted every tier-0 rung SHOWN before the assembly rung opened,
+// which meant a solver who had pointed at the definition and the indicator
+// themselves still had to buy "what kind of clue is this?" to get any further —
+// a turnstile charging for something they had just demonstrated. Earning the
+// spotting rungs now spends it. Earned only: being told teaches nothing, so the
+// gate has to stay standing for a solver who bought those rungs instead.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const spot = ["definition", "indicators"];
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const a = e.annotation;
+      if (!a || !(a.indicators || []).length) continue;
+      if (!a.definition || !(a.blocks || []).some((b) => b.clueFragment && b.gives)) continue;
+      found = { id, e };
+      break;
+    }
+    if (found) break;
+  }
+  assert(found, "some clue has a definition, an indicator and a named block");
+
+  const open = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[found.id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+    assert(li, "picker finds the puzzle to guess on");
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + found.e.id].listeners.click[0]();
+  };
+  const rung = (re) => registry["hint-next"].children.find((b) => re.test(b.textContent || ""));
+  // Counted rather than named: the property is that earning the spotting rungs
+  // opens ONE MORE rung than being told them does, and counting says that
+  // without this test having to know what the assembly rung is called.
+  const openRungs = () => registry["hint-next"].children.filter((b) => !b.disabled).length;
+  // appendChild does not write innerHTML in the stub, so a failure message built
+  // from it says nothing at all. Read the buttons.
+  const offered = () => registry["hint-next"].children.map((b) => b.textContent).join(" | ");
+  // Which words answer this rung, asked of the app rather than worked out again
+  // here: one wrong pick, and the marks that come back name the whole target.
+  // A second copy of guessAsk's span arithmetic in the test would only ever
+  // prove the copy right.
+  const targetOf = (re) => {
+    open();
+    const b = rung(re);
+    if (!b) return null;
+    b.onclick();
+    if (!registry["hint-body"].innerHTML.includes("guess-clue")) return null;
+    registry["gw-0"].onclick();
+    registry["guess-check"].onclick();
+    const marks = registry["hint-body"].innerHTML.match(/class="gw([^"]*)"/g) || [];
+    return marks.reduce((acc, m, i) => (/hit|missed/.test(m) ? acc.concat(i) : acc), []);
+  };
+  const want = { definition: targetOf(/definition/i), indicators: targetOf(/indicator/i) };
+  assert(want.definition && want.indicators,
+    "the clue can pose both spotting questions: " + JSON.stringify(want));
+
+  // Bought, not earned: the gate stands, because being told teaches nothing.
+  open();
+  for (const k of spot) {
+    rung(new RegExp(k.slice(0, 9), "i")).onclick();
+    registry["guess-tell"].onclick();
+  }
+  const told = openRungs();
+  assert(/\b2<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+    "two rungs asked for and handed over cost two: " + registry["scorebar"].innerHTML);
+
+  // Earned: the same two rungs, pointed at rather than paid for.
+  open();
+  for (const k of spot) {
+    rung(new RegExp(k.slice(0, 9), "i")).onclick();
+    for (const i of want[k]) registry["gw-" + i].onclick();
+    registry["guess-check"].onclick();
+    assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
+      `the ${k} rung is earned, not bought: ` + registry["hint-body"].innerHTML);
+  }
+  assert(openRungs() === told + 1,
+    "earning the spotting rungs opens the rung the type rung was gating: " + offered());
+  assert(/\b1 ·/.test(offered()),
+    "and the type rung is still there to buy, it was skipped rather than given: " + offered());
+  assert(/\b0<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
+    "and none of it cost anything: " + registry["scorebar"].innerHTML);
 }
 
 // --- a clue is a link ---
