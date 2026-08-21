@@ -45,6 +45,24 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   });
 }
 
+// --- the solver's abbreviation glossary is the clue-writer's, not a copy ---
+// abbreviations.js is generated from tools/data/abbreviations.json so that the
+// table the hints teach and the table clueability.py builds words from cannot
+// disagree. Compared as data rather than as text: the generator is free to
+// change how it formats, and only a real difference in what "sailor" means
+// should fail.
+{
+  const json = JSON.parse(
+    fs.readFileSync(path.join(ROOT, "tools/data/abbreviations.json"), "utf8")).abbreviations;
+  const js = fs.readFileSync(path.join(ROOT, "abbreviations.js"), "utf8");
+  const table = new Function(js + "\n return ABBREVIATIONS;")();
+  assert(JSON.stringify(table) === JSON.stringify(Object.fromEntries(
+    Object.keys(table).sort().map((k) => [k, json[k]]))),
+    "abbreviations.js matches tools/data/abbreviations.json (run tools/build_abbreviations.py)");
+  assert(Object.keys(table).length === Object.keys(json).length,
+    "abbreviations.js has every entry the JSON does (run tools/build_abbreviations.py)");
+}
+
 // --- the grid measures its container, never the window ---
 // Sizing cells off `100vw` ignores body's max-width and the flex column, and on
 // iOS Safari resolves against a viewport that is still moving while the toolbar

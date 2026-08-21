@@ -314,8 +314,13 @@ function boot(opts) {
 
   // app.js references bare identifiers window/document/localStorage/confirm via globals above
   const appSrc = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  // abbreviations.js declares a bare `const`, which in the browser lands in the
+  // shared global lexical scope every other classic script can see. new Function
+  // gives each source its own scope instead, so the two are concatenated to put
+  // them back in one — the same arrangement the page has.
+  const abbrevSrc = fs.readFileSync(path.join(ROOT, "abbreviations.js"), "utf8");
   new Function("window", "document", "localStorage", "confirm",
-    appSrc)(global.window, document, global.window.localStorage, global.confirm);
+    abbrevSrc + "\n" + appSrc)(global.window, document, global.window.localStorage, global.confirm);
 
   // appSrc goes back out because the smoke test greps app.js's own source for the
   // FAMILIES table — an assertion about the code, not about the rendered DOM.

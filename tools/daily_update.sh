@@ -322,6 +322,10 @@ bash tools/make_og.sh --all
 # already bailed out above rather than putting it in front of a search engine.
 python3 tools/build_seo_pages.py
 
+# The solver's abbreviation glossary, republished from the clue-writer's copy.
+# Before the stamp, because a rebuild changes the bytes the stamp is of.
+python3 tools/build_abbreviations.py
+
 # Re-stamp index.html so phones don't serve yesterday's cached assets. After
 # build_seo_pages.py, because that rewrites part of index.html and the stamp has
 # to reflect the file as it finally stands.
