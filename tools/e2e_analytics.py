@@ -163,6 +163,30 @@ def solve(page):
     }""", [[y * cols + x, ch] for (x, y), ch in want.items()])
 
 
+def visit_buckets(browser, sent):
+    """The returning buckets need a browser that remembers an earlier day.
+
+    Which bucket goes is decided entirely by the browser's own tally, so seeding
+    that tally is the whole test. The solve above runs in a fresh context and so
+    proves visit-new; these two prove the other arms are reachable rather than
+    names nothing can ever send.
+    """
+    for days, expect in ((1, "visit-return"), (9, "visit-regular")):
+        page = browser.new_page()          # a new context, so a fresh store
+        page.add_init_script(TAP)
+        page.add_init_script(
+            "try { localStorage.setItem('ct:seen', JSON.stringify("
+            "{last: '2020-01-01', days: %d})); } catch (e) {}" % days)
+        page.goto(SITE + "?p=" + PUZZLE, wait_until="networkidle")
+        page.wait_for_timeout(1500)
+        got = page.evaluate("() => Promise.all(window.__ctBeacons || [])")
+        sent += got
+        page.close()
+        if expect not in {b["name"] for b in got}:
+            print(f"  a browser {days + 1} days old sent "
+                  f"{sorted({b['name'] for b in got})}, not {expect}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--keep", action="store_true", help="leave the keys behind")
@@ -192,6 +216,7 @@ def main():
             print(f"grid correct in {right}/{total} squares"
                   + (f" — wrong at grid index {wrong}" if wrong else ""))
             sent += page.evaluate("() => Promise.all(window.__ctBeacons || [])")
+            visit_buckets(browser, sent)
         finally:
             browser.close()
 

@@ -21,6 +21,11 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
+  //   visit-*   how many days this BROWSER has ever shown up, bucketed: first
+  //             day, second to fourth, fifth or more. At most one a day. The
+  //             tally lives in the browser's own localStorage and only the
+  //             bucket is sent, so the server still cannot join two visits into
+  //             a visitor — it learns that someone came back, never who.
   //   open      a puzzle was opened
   //   letter    the first letter typed into that puzzle this session
   //   hint-*    the first time that rung of a clue's ladder was revealed this
@@ -40,6 +45,7 @@
   // both ways, so a rung with no name here — or a name here with no rung —
   // fails rather than becoming a counter that reads zero forever.
   return Object.freeze([
+    "visit-new", "visit-return", "visit-regular",
     "open", "letter",
     "hint-type", "hint-definition", "hint-indicators",
     "hint-blocks", "hint-walkthrough", "hint-answer",

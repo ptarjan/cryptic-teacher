@@ -26,7 +26,7 @@
   const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   // Reserved localStorage names, so scanning for saves cannot pick up settings.
   // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
-  const SYNC_RESERVED = { last: 1, sync: 1 };
+  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
   /* ---------- counting solves, not solvers ----------
@@ -85,6 +85,41 @@
     let filled = 0, total = 0;
     forEachCell((c) => { total++; if (c.letter) filled++; });
     if (total && filled * 2 >= total) beacon("half");
+  }
+
+  /* ---------- new faces, or the same ones ----------
+     A count of openings cannot tell a hundred visitors from one visitor who came
+     a hundred times, and the two ask for opposite work: a site people return to
+     needs more puzzles, a site they see once needs a better first five minutes.
+
+     The tally is kept in this browser and only a bucket ever leaves it, once a
+     day. So the device remembers that it has been here and the server does not:
+     two visit events still cannot be put back together into a visitor, which is
+     the same line every other event holds. It counts BROWSERS, not people — a
+     second device or a cleared store starts again at new, and that is the honest
+     limit of a report that keeps no identifier. */
+  function hasAnySave() {
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.indexOf("ct:") === 0 && !SYNC_RESERVED[k.slice(3)]) return true;
+      }
+    } catch (e) { /* private mode: treated as a browser with nothing in it */ }
+    return false;
+  }
+
+  function reportVisit() {
+    // UTC, because the Worker dates the key in UTC and a visit that counted
+    // itself on one day and was filed under another would double on the seam.
+    const today = new Date().toISOString().slice(0, 10);
+    const seen = store.get("ct:seen", null);
+    if (seen && seen.last === today) return;
+    // A browser with grids already in it has plainly been here before, whatever
+    // this tally says: without that, the day this shipped reports every regular
+    // as a new arrival.
+    const days = (seen ? seen.days : (hasAnySave() ? 1 : 0)) + 1;
+    store.set("ct:seen", { last: today, days });
+    beacon(days === 1 ? "visit-new" : days < 5 ? "visit-return" : "visit-regular");
   }
 
   // ---------- load all puzzle files listed in puzzles/index.js ----------
@@ -2695,6 +2730,7 @@
     restoreState();
     sealArrivedProgress();
     beacon("open");
+    reportVisit();
     // ?c=3D opens on that clue. A whole 15x15 is a lot to hand someone who has
     // never solved a cryptic, and it is also just what sharing wants: the answer
     // to "which one are you stuck on" should be a link, not a number to hunt for.
