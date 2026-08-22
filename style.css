@@ -656,7 +656,10 @@ table.glossary td:nth-child(even) {
    the scroll has put it under your eyes. */
 table.glossary td.found, table.glossary td.found + td { background: var(--accent-soft); }
 table.glossary td.found { outline: 2px solid var(--accent); }
-a.gloss { color: inherit; text-decoration-color: var(--accent); }
+/* A block's letters, when the glossary can explain them. Dotted rather than a
+   link's solid underline: it is an offer to look something up, not the next
+   thing to do, and it sits inside a list the solver is reading. */
+a.gloss { color: inherit; text-decoration: underline dotted var(--accent); text-underline-offset: 3px; }
 
 footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; }
 
