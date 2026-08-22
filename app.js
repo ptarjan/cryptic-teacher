@@ -1601,11 +1601,22 @@
     return out;
   }
 
+  // The pieces of the charade that can be pointed at: they name a span of the
+  // clue and they yield letters. In clue order, because that is the order the
+  // solver reads them in and the order the assembly runs in.
+  function blockAsks(e) {
+    const ann = annOf(e);
+    return ((ann && ann.blocks) || []).filter((b) => b.clueFragment && b.gives);
+  }
+
   // Which words of the clue a rung names. Kept apart from guessAsk because a
   // rung can be unaskable and still have named its words — an &lit's definition
   // is the whole clue, so there is no question in it, and every word of it is
   // nonetheless settled for the rung asked next.
-  function rungTokens(e, rung) {
+  //
+  // The blocks rung names one PIECE at a time: step is which. Every other rung
+  // has one step and ignores it.
+  function rungTokens(e, rung, step) {
     const ann = annOf(e);
     if (!ann) return [];
     const tokens = clueTokens(e.clue);
@@ -1621,7 +1632,7 @@
     } else if (rung === "indicators") {
       (ann.indicators || []).forEach(add);
     } else if (rung === "blocks") {
-      const b = (ann.blocks || []).filter((x) => x.clueFragment && x.gives)[0];
+      const b = blockAsks(e)[step || 0];
       if (b) add(b.clueFragment);
     }
     const out = [];
@@ -1648,34 +1659,52 @@
   // the answer and some of it isn't. One rule, one place: it is the same guard
   // that kept the union question off the blocks rung, because the moment the
   // remainder IS the target the answer is elimination and nothing is learned.
-  function guessAsk(e, rung) {
+  // A charade has more than one piece, and "it isn't knowing it is a charade
+  // that is hard, it is DOING the charade" (Paul) — so the blocks rung asks for
+  // each piece in turn rather than one and done. step says which piece; a piece
+  // already placed is settled scaffolding for the next question, by the same
+  // rule that settles the definition when the indicators are asked for.
+  function guessAsk(e, rung, step) {
     const ann = annOf(e);
     if (!ann) return null;
+    const at = step || 0;
+    if (at && rung !== "blocks") return null;
     const tokens = clueTokens(e.clue);
-    const target = rungTokens(e, rung);
+    const target = rungTokens(e, rung, at);
     if (!target.length) return null;
-    let prompt = "";
+    let prompt = "", gives = "";
     if (rung === "definition") {
       prompt = "Which words define the answer?";
     } else if (rung === "indicators") {
       prompt = "Which words tell you what to do to the rest?";
     } else if (rung === "blocks") {
-      const b = (ann.blocks || []).filter((x) => x.clueFragment && x.gives)[0];
-      if (!b) return null;
-      prompt = `Which words give <span class="gives">${esc(b.gives)}</span>?`;
+      const asks = blockAsks(e);
+      if (!asks[at]) return null;
+      gives = asks[at].gives;
+      const of = asks.length > 1 ? ` <span class="muted">(${at + 1} of ${asks.length})</span>` : "";
+      prompt = `Which words give <span class="gives">${esc(gives)}</span>?${of}`;
     }
-    const known = SPOTTING.filter((k) => k !== rung && isShown(e, k))
-      .reduce((a, k) => a.concat(rungTokens(e, k)), [])
-      .filter((n) => target.indexOf(n) < 0);
+    // Everything already named and not part of this answer: the tier-0 rungs
+    // that are up, plus the pieces of this charade already placed.
+    const named = SPOTTING.filter((k) => k !== rung && isShown(e, k))
+      .reduce((a, k) => a.concat(rungTokens(e, k)), []);
+    for (let n = 0; n < at; n++) named.push.apply(named, rungTokens(e, rung, n));
+    const known = named.filter((n) => target.indexOf(n) < 0);
     if (target.length >= tokens.length - known.length) return null;
-    return { prompt, target, tokens, known };
+    return { prompt, target, tokens, known, gives, step: at };
+  }
+
+  // The piece after this one, where there is one. Only the blocks rung runs a
+  // sequence; every other rung is a single question and stops on its own.
+  function nextAsk(e, rung, step) {
+    return rung === "blocks" ? guessAsk(e, rung, (step || 0) + 1) : null;
   }
 
   // A guess in progress, and the verdict on the one just made. Neither is
   // persisted: what survives a reload is hintsEarned, because that is the part
   // that changed the score. A half-made guess is not progress.
-  let guessing = null;   // { key, rung, picked: [] }
-  let lastGuess = null;  // { key, rung, tokens, mk: <verdict> }
+  let guessing = null;   // { key, rung, step, picked: [], placed: [] }
+  let lastGuess = null;  // { key, rung, tokens, known, mk: <verdict> }
 
   // The clue's words, wearing whatever is known about them. Buttons while the
   // question is open, the identical markup as plain spans once it has been
@@ -1702,7 +1731,10 @@
     const words = tokens.map((t, i) => (mk || settled.indexOf(i) >= 0)
       ? `<span class="gw${settled.indexOf(i) >= 0 ? " known" : cls(i)}">${esc(t.text)}</span>`
       : `<button type="button" id="gw-${i}" class="gw${cls(i)}">${esc(t.text)}</button>`);
-    return `<p class="guess-clue">${words.join(" ")}</p>`;
+    // "ask" while it is the question, "mk" once it has been graded. The two are
+    // the same words in two places, and flipCapture/flipPlay use the pair to
+    // measure the journey between them.
+    return `<p class="guess-clue ${mk ? "mk" : "ask"}">${words.join(" ")}</p>`;
   }
 
   // ---------- dragging a run of words ----------
@@ -1782,8 +1814,21 @@
       esc(g.mk.said)}</p>${guessWordsHTML(g.tokens, g.mk, [], g.known)}</div>`;
   }
 
+  // Pieces of the charade already placed, kept on the screen while the next one
+  // is asked for. Doing a charade IS watching it assemble; a solver who has just
+  // been told "right" and handed a new question with no record of the last one
+  // has to hold the assembly in their head, which is the thing the rung exists
+  // to teach them not to have to do.
+  function placedHTML(placed) {
+    if (!(placed || []).length) return "";
+    return `<ul class="guess-placed">${placed.map((p) =>
+      `<li><em>${esc(p.words)}</em> → <span class="gives">${esc(p.gives)}</span></li>`
+    ).join("")}</ul>`;
+  }
+
   function guessHTML(ask, position, label) {
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
+      ${placedHTML(guessing.placed)}
       <p>${ask.prompt}</p>
       ${guessWordsHTML(ask.tokens, null, guessing.picked, ask.known)}
       <p class="guess-actions"><button id="guess-check" class="primary"${
@@ -1830,15 +1875,18 @@
   // change, which is the thing worth reading. Everything is guarded because this
   // is decoration — a DOM without getBoundingClientRect gets the same panel,
   // arriving in one step.
-  function flipFind() {
-    return document.querySelector ? document.querySelector(".guess-clue") : null;
+  // Measured as the question, replayed as the verdict: the same words, and by
+  // name, because a previous rung's verdict may well still be on the screen and
+  // "the first .guess-clue" would then measure the wrong one.
+  function flipFind(what) {
+    return document.querySelector ? document.querySelector(".guess-clue." + what) : null;
   }
   function flipCapture() {
-    const el = flipFind();
+    const el = flipFind("ask");
     return el && el.getBoundingClientRect ? el.getBoundingClientRect() : null;
   }
   function flipPlay(from) {
-    const el = from && flipFind();
+    const el = from && flipFind("mk");
     if (!el || !el.getBoundingClientRect || !window.requestAnimationFrame) return;
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const to = el.getBoundingClientRect();
@@ -1860,6 +1908,19 @@
     const e = currentEntry();
     if (!e || entryKey(e) !== guessing.key) { guessing = null; return; }
     const from = flipCapture();
+    // Right, and there is another piece to place: the rung is not handed over
+    // yet. It is one rung and one price — a charade is not finished until every
+    // piece of it is, and stopping after the first was Paul's report that the
+    // building blocks "made me only pick one of the three pieces". A wrong
+    // answer still ends it and still opens the rung: never a dead end.
+    const more = verdict && verdict.right && nextAsk(e, guessing.rung, guessing.step);
+    if (more) {
+      guessing = { key: guessing.key, rung: guessing.rung, step: guessing.step + 1,
+                   picked: [], placed: guessing.placed.concat([{
+                     gives: ask.gives, words: ask.target.map((i) => ask.tokens[i].text).join(" ") }]) };
+      refreshAll();
+      return;
+    }
     lastGuess = verdict && { key: guessing.key, rung: guessing.rung,
                              tokens: ask.tokens, known: ask.known, mk: verdict };
     if (verdict && verdict.right && earnedRungs(e).indexOf(guessing.rung) < 0) {
@@ -2054,7 +2115,7 @@
       // being asked to point at the words first. It goes last in the body, under
       // everything they have already bought, because that is where the next
       // thing to do has always been.
-      const ask = guessing ? guessAsk(e, guessing.rung) : null;
+      const ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && !ask) guessing = null;
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
@@ -2095,10 +2156,12 @@
       // ladder has a shape and the solver should be able to see it coming.
       // While a guess is on the table the other rungs are not offered: the
       // question is answerable by buying a different hint, and a quiz you can
-      // walk around is not one.
-      const togo = guessing ? []
-        : steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
-      const open = togo.filter(({ s }) => rungAvailable(e, steps, s.key));
+      // walk around is not one. Not offered, but still THERE — emptying the row
+      // collapsed the panel at the moment the question appeared below it, and
+      // the page slid out from under the words the solver was being asked to
+      // read (Paul). Disabled says the same thing and occupies the same room.
+      const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
+      const open = guessing ? [] : togo.filter(({ s }) => rungAvailable(e, steps, s.key));
       open.forEach(({ s, n }, j) => {
         const btn = document.createElement("button");
         if (j > 0) btn.className = "ghost small";
@@ -2110,9 +2173,13 @@
           // Ask before telling, where the clue can pose the question. Not once
           // the clue is solved: the rungs have stopped being hints by then and
           // quizzing someone on an answer they already have is a chore.
+          // The previous rung's verdict stays where it is. Clearing it deleted a
+          // block from the middle of the panel at the exact moment a new one
+          // appeared at the bottom, so the whole thing slid under the solver's
+          // eyes: "it jumps and switches to something else" (Paul). Nothing the
+          // panel has said is ever taken back; it only ever grows.
           if (GUESSABLE[s.key] && !solved && guessAsk(e, s.key)) {
-            guessing = { key, rung: s.key, picked: [] };
-            lastGuess = null;
+            guessing = { key, rung: s.key, step: 0, picked: [], placed: [] };
           } else {
             showHint(e, s.key);
           }
@@ -2120,12 +2187,14 @@
         };
         next.appendChild(btn);
       });
-      togo.filter(({ s }) => !rungAvailable(e, steps, s.key)).forEach(({ s, n }) => {
+      togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
         const btn = document.createElement("button");
         btn.className = "ghost small locked";
         btn.disabled = true;
         btn.textContent = `${n} · ${s.label}`;
-        btn.title = "Take the hints above first — this one gives them away";
+        btn.title = guessing
+          ? "Answer the question below first"
+          : "Take the hints above first — this one gives them away";
         next.appendChild(btn);
       });
       if (!guessing && !togo.length && canCheck() && !solved) {

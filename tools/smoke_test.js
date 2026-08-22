@@ -1977,6 +1977,167 @@ global.realSetTimeout(() => {
     "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
 }
 
+// --- the blocks rung walks every piece, and the panel never takes anything back ---
+// "The building blocks made me only pick one of the three pieces" (Paul,
+// 2026-08-22). Doing the charade is the hard part, so each piece is its own
+// question; a piece placed becomes settled scaffolding for the next. The
+// sequence stops of its own accord when what is left IS the last piece, which is
+// answerable by elimination and therefore not worth asking.
+//
+// And, same screen: opening a new hint used to delete the previous verdict and
+// empty the rung buttons, so the panel collapsed under the solver at the moment
+// a new question appeared below — "it jumps and switches to something else".
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const escHtml = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const tokensOf = (clue) => {
+    const body = String(clue || "").replace(/\s*\([^()]*\)\s*$/, "");
+    const out = [];
+    const re = /\S+/g;
+    let m;
+    while ((m = re.exec(body))) out.push({ i: m.index, text: m[0] });
+    return out;
+  };
+  // The test only takes on fragments it can locate WITHOUT a copy of the app's
+  // matcher: exactly one occurrence, on whole-word boundaries. Anything fuzzier
+  // is a candidate skipped, not a wrong answer submitted.
+  const spanTokens = (clue, frag) => {
+    const at = clue.indexOf(frag);
+    if (at < 0 || clue.indexOf(frag, at + 1) >= 0) return null;
+    const hit = tokensOf(clue).map((t, n) => ({ t, n }))
+      .filter(({ t }) => t.i < at + frag.length && at < t.i + t.text.length);
+    if (!hit.length) return null;
+    const first = hit[0].t, last = hit[hit.length - 1].t;
+    if (first.i !== at || last.i + last.text.length !== at + frag.length) return null;
+    return hit.map(({ n }) => n);
+  };
+
+  const openClue = (id, e) => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+    if (!li) return false;
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + e.id].listeners.click[0]();
+    return true;
+  };
+  const rungs = () => registry["hint-next"].children;
+  const rung = (re) => rungs().find((b) => re.test(b.textContent || "") && !b.disabled);
+  const asking = () => registry["hint-body"].innerHTML.includes('id="guess-check"');
+  // Climb to the named rung, taking whatever is offered and declining every
+  // question on the way, so the blocks rung is reached with the tier-0 rungs up.
+  const climbTo = (re) => {
+    for (let i = 0; i < 8; i++) {
+      const want = rung(re);
+      if (want) return want;
+      const b = rungs().find((x) => !x.disabled);
+      if (!b) return null;
+      b.onclick();
+      if (asking()) registry["guess-tell"].onclick();
+    }
+    return null;
+  };
+  const pick = (idx) => idx.forEach((n) => registry["gw-" + n].onclick());
+
+  let walked = null, tried = 0;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      if (walked || tried > 30) break;
+      const a = e.annotation;
+      const bl = ((a && a.blocks) || []).filter((b) => b.clueFragment && b.gives);
+      if (bl.length < 2) continue;
+      const spans = bl.map((b) => spanTokens(e.clue, b.clueFragment));
+      if (spans.slice(0, 2).some((s) => !s)) continue;
+      tried++;
+      if (!openClue(id, e)) continue;
+      const blocks = climbTo(/building blocks/i);
+      if (!blocks) continue;
+      // Whatever the climb cost is the baseline: the blocks rung must add
+      // nothing to it while its own question is still open, and nothing to it at
+      // all if every piece asked for is placed right.
+      const paid = registry["scorebar"].innerHTML;
+      blocks.onclick();
+      if (!asking()) continue;
+      pick(spans[0]);
+      registry["guess-check"].onclick();
+      if (!registry["hint-body"].innerHTML.includes("guess-placed")) continue;
+      walked = { id, e, bl, spans, paid };
+    }
+    if (walked) break;
+  }
+  assert(walked, "somewhere in the corpus the blocks rung asks about a second piece "
+    + `(tried ${tried} clues with two or more locatable pieces)`);
+  if (!walked) throw new Error("blocks sequencing is broken — see the FAIL above");
+
+  // Mid-sequence: the first piece is placed and named, its words are settled, and
+  // the rung has NOT been handed over.
+  let html = registry["hint-body"].innerHTML;
+  assert(html.includes(escHtml(walked.bl[0].gives)),
+    "the piece just placed is named, not just greyed: " + html);
+  assert(html.includes(escHtml(walked.bl[1].gives)),
+    "and the next piece is what is now being asked for: " + html);
+  const placed = html.slice(html.indexOf("guess-placed"));
+  walked.spans[0].forEach((n) => assert(!placed.includes(`id="gw-${n}"`),
+    `word ${n} was this solver's answer a moment ago and is not offered again: ` + placed));
+  assert((placed.match(/class="gw known"/g) || []).length >= walked.spans[0].length,
+    "the placed piece is settled scaffolding for the next question: " + placed);
+  assert(registry["scorebar"].innerHTML === walked.paid,
+    "and nothing has been bought yet — one rung, one price: " + registry["scorebar"].innerHTML);
+
+  // The rest of the sequence, answered right, ends with the rung earned rather
+  // than bought. Whether that is after two pieces or all of them is the
+  // elimination guard's call, not this test's.
+  for (let n = 1; n < walked.bl.length && asking(); n++) {
+    const span = walked.spans[n] || spanTokens(walked.e.clue, walked.bl[n].clueFragment);
+    if (!span || span.some((i) => !registry["hint-body"].innerHTML.includes(`id="gw-${i}"`))) break;
+    pick(span);
+    registry["guess-check"].onclick();
+  }
+  assert(!asking(), "the sequence ends: " + registry["hint-body"].innerHTML);
+  html = registry["hint-body"].innerHTML;
+  assert(html.includes("guess-verdict right"),
+    "placing every piece asked for is getting the rung right: " + html);
+  assert(registry["scorebar"].innerHTML === walked.paid,
+    "so the whole rung is free: " + registry["scorebar"].innerHTML);
+
+  // --- the panel only ever grows ---
+  // A graded verdict on one rung, then a different rung asked for. Both the
+  // verdict and the ladder must still be there: deleting either one moves every
+  // word on the screen at the moment the solver is being asked to read.
+  assert(openClue(walked.id, walked.e), "reopen the clue for the growth check");
+  const def = rung(/definition/i);
+  assert(def, "the definition rung is offered: " + registry["hint-next"].innerHTML);
+  def.onclick();
+  assert(asking(), "and asks before telling: " + registry["hint-body"].innerHTML);
+  // Deliberately wrong, so there is a verdict to lose. The last word of a clue is
+  // never the whole definition of one that starts with it.
+  const last = (registry["hint-body"].innerHTML.match(/id="gw-(\d+)"/g) || []).pop();
+  registry[last.slice(4, -1)].onclick();
+  registry["guess-check"].onclick();
+  assert(registry["hint-body"].innerHTML.includes("guess-verdict"), "graded");
+  // On to a rung that poses its own question, since that is the moment the old
+  // verdict used to be swept away to make room for the new one.
+  let before = "";
+  for (let i = 0; i < 5 && !asking(); i++) {
+    const another = rungs().find((b) => !b.disabled);
+    assert(another, "another rung is still on offer: " + rungs().length);
+    before = registry["hint-body"].innerHTML;
+    another.onclick();
+  }
+  assert(asking(), "a second question gets asked: " + registry["hint-body"].innerHTML);
+  const after = registry["hint-body"].innerHTML;
+  assert(after.includes("guess-verdict"),
+    "asking for a new hint does not delete the verdict you were reading: " + after);
+  assert(after.length >= before.length,
+    "the panel only ever grows: " + before.length + " -> " + after.length);
+  assert(rungs().length > 0 && rungs().every((b) => b.disabled),
+    "and the ladder keeps its shape while the question stands, disabled rather than gone: "
+      + registry["hint-next"].innerHTML);
+}
+
 // --- a run of words is one gesture, and a settled word is not a choice ---
 // Two things Paul asked for on the same screen. Dragging across the words picks
 // the run under the finger, because a definition IS a run and four taps is four
