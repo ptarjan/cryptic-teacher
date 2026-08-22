@@ -2107,6 +2107,86 @@
          + ` aria-label="${esc(note)}">${html}</span>`;
   }
 
+  // ---------- writing only what changed ----------
+  //
+  // The panel is rebuilt by refreshAll(), and refreshAll() runs on every
+  // keystroke. Assigning innerHTML makes the browser throw the subtree away,
+  // reparse it and lay the block out again, so a letter typed into the grid
+  // repainted a hint panel in which nothing had changed — the block shivers
+  // under the typing, worst on iOS.
+  //
+  // The rule for everything in this panel: never write DOM that would come out
+  // the same. Each region is built into a value first — a string, or for the
+  // button row a list the row is a pure function of — and written only when
+  // that value differs from the one it was last built from. Compared against
+  // what we wrote rather than against el.innerHTML, because a browser hands
+  // back its own re-serialisation and the two would never match.
+  //
+  // Skipping the write means skipping the handler wiring that goes with it, and
+  // that is only sound because the nodes are still there with their handlers
+  // live. The other half of the bargain: NO HANDLER IN THIS PANEL MAY CLOSE
+  // OVER STATE THAT THE COMPARED VALUE DOES NOT CONTAIN. Each one re-reads the
+  // current entry and the current guess when it fires, so a handler that
+  // outlives several renders still answers for now.
+  function setHTML(el, html) {
+    if (el._shown === html) return false;
+    el._shown = html;
+    el.innerHTML = html;
+    return true;
+  }
+
+  // The rung row is data first and DOM second, for the same reason the rest of
+  // the panel is a string first: a row that is a pure function of this list can
+  // be compared as a list and left alone. It stays real elements rather than
+  // markup because these buttons carry handlers and a label that must not be
+  // re-escaped by hand.
+  function setButtons(el, spec) {
+    const key = JSON.stringify(spec);
+    if (el._shown === key) return false;
+    el._shown = key;
+    el.innerHTML = "";
+    spec.forEach((b) => {
+      if (b.fill) {
+        el.innerHTML = `<button id="hx-entry">${b.text}</button>`;
+        $("hx-entry").onclick = fillAnswer;
+        return;
+      }
+      const btn = document.createElement("button");
+      if (b.cls) btn.className = b.cls;
+      btn.textContent = b.text;
+      if (b.title) btn.title = b.title;
+      if (b.disabled) { btn.disabled = true; el.appendChild(btn); return; }
+      btn.onclick = () => {
+        // Ask before telling, where the clue can pose the question. Not once
+        // the clue is solved: the rungs have stopped being hints by then and
+        // quizzing someone on an answer they already have is a chore.
+        // The previous rung's verdict stays where it is. Clearing it deleted a
+        // block from the middle of the panel at the exact moment a new one
+        // appeared at the bottom, so the whole thing slid under the solver's
+        // eyes: "it jumps and switches to something else" (Paul). Nothing the
+        // panel has said is ever taken back; it only ever grows.
+        const on = currentEntry();
+        if (!on) return;
+        if (GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung)) {
+          guessing = { key: entryKey(on), rung: b.rung, step: 0, picked: [], placed: [] };
+        } else {
+          showHint(on, b.rung);
+        }
+        refreshAll();
+      };
+      el.appendChild(btn);
+    });
+    return true;
+  }
+
+  // The question currently on the table, re-derived rather than captured, so a
+  // handler that survived a skipped rebuild grades what is being asked now.
+  function currentAsk() {
+    const e = currentEntry();
+    if (!e || !guessing || guessing.key !== entryKey(e)) return null;
+    return guessAsk(e, guessing.rung, guessing.step);
+  }
+
   function renderHintPanel() {
     const e = currentEntry();
     const panel = $("hint-panel");
@@ -2121,8 +2201,8 @@
     let clueLine = `<span class="entry-tag">${tag(e)}</span>`;
     if (holder !== e) clueLine += `<span class="muted">(linked with ${tag(holder)}) </span>`;
     clueLine += clueHTML(holder);
-    $("hint-clue").innerHTML = clueLine;
-    $("hint-pattern").innerHTML = patternHTML(e);
+    const clueWrote = setHTML($("hint-clue"), clueLine);
+    setHTML($("hint-pattern"), patternHTML(e));
 
     const solved = isEntrySolved(e);
     const reveals = revealsUsed[key] || 0;
@@ -2131,27 +2211,26 @@
     // once solved you can open the rest for free, and the meter has to say the
     // same thing the scorebar does or one of them is lying.
     const charged = hintsCharged(e);
-    $("hint-meter").innerHTML = solved
+    setHTML($("hint-meter"), solved
       ? ((charged || reveals)
           ? `Solved with ${charged} hint${charged === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints — bravo!")
       // "used on this clue" — you are looking at the clue. Just the count.
       : (ann ? `Hints <strong>${level}</strong>/${ladderSteps(ann, e.clue).length}${revealsNote}`
-             : revealsNote.replace(" · ", ""));
+             : revealsNote.replace(" · ", "")));
 
     const body = $("hint-body");
     const next = $("hint-next");
     const escape = $("hint-escape");
-    body.innerHTML = ""; next.innerHTML = ""; escape.innerHTML = "";
+    let bodyHTML = "";
+    const nextSpec = [];
+    let ask = null;
 
     if (!ann) {
-      body.innerHTML = `<div class="hint-step"><p class="muted">This puzzle hasn’t been hand-annotated yet
+      bodyHTML = `<div class="hint-step"><p class="muted">This puzzle hasn’t been hand-annotated yet
         (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for this clue.
         You can still check your letters${canCheck() ? " and reveal below" : ""}.</p></div>`;
-      if (canCheck() && !solved) {
-        next.innerHTML = `<button id="hx-entry">Reveal answer</button>`;
-        $("hx-entry").onclick = fillAnswer;
-      }
+      if (canCheck() && !solved) nextSpec.push({ fill: true, text: "Reveal answer" });
     } else {
       // Revealed rungs always read in ladder order and keep their ladder
       // number, whatever order they were asked for in. The numbering is the
@@ -2169,8 +2248,8 @@
         // were right, and then you are told, in that order. It keeps the marked
         // clue with it, so what you pointed at and what was actually there can
         // be read side by side against the explanation, for as long as you like.
-        if (lastGuess && lastGuess.rung === s.key) body.innerHTML += verdictHTML(lastGuess);
-        body.innerHTML += hintStepHTML(s, i + 1);
+        if (lastGuess && lastGuess.rung === s.key) bodyHTML += verdictHTML(lastGuess);
+        bodyHTML += hintStepHTML(s, i + 1);
       });
       // The legend is built from what is actually highlighted, for the same
       // reason clueHTML is: it was keyed off the definition rung, so taking the
@@ -2184,62 +2263,19 @@
         legend.push('<mark class="link">link</mark>');
       }
       if (legend.length) {
-        body.innerHTML += `<div class="legend">${legend.join(" · ")} highlighted in the clue above</div>`;
+        bodyHTML += `<div class="legend">${legend.join(" · ")} highlighted in the clue above</div>`;
       }
 
       // A rung that has been asked for but not yet handed over: the solver is
       // being asked to point at the words first. It goes last in the body, under
       // everything they have already bought, because that is where the next
       // thing to do has always been.
-      const ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
+      ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && !ask) guessing = null;
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
-        body.innerHTML += guessHTML(ask, at + 1, steps[at].label);
-        // Only the words in play have a button to bind: a settled one is a span.
-        ask.tokens.forEach((t, i) => {
-          if (ask.known.indexOf(i) >= 0) return;
-          const el = $("gw-" + i);
-          el.onclick = () => {
-            // A drag ends in a click on the word it started from. That click has
-            // already been answered by the drag.
-            if (swallowClick) { swallowClick = false; return; }
-            const j = guessing.picked.indexOf(i);
-            if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
-            renderHintPanel();
-          };
-          if (el.addEventListener) {
-            el.addEventListener("pointerdown", () => {
-              drag = { base: guessing.picked.slice(), from: i, moved: false, ask };
-            });
-          }
-        });
-        $("guess-check").onclick = () => {
-          if (!guessing.picked.length) return;
-          finishGuess(gradeGuess(ask), ask);
-        };
-        // Never a dead end. Asking to be told is a legitimate answer to "do you
-        // know this yet?", and it costs what the rung has always cost.
-        $("guess-tell").onclick = () => finishGuess(null, ask);
+        bodyHTML += guessHTML(ask, at + 1, steps[at].label);
       }
-
-      // The glossary lives in the tutorial section of this same page, so
-      // reaching it costs no navigation and loses no solve. A plain #anchor
-      // would land on a hidden section and appear to do nothing, and the row
-      // itself gets marked because one line in four hundred is easy to lose
-      // even when the scroll put it under your eyes.
-      panel.querySelectorAll("a.gloss").forEach((a) => {
-        a.onclick = (ev) => {
-          if (ev && ev.preventDefault) ev.preventDefault();
-          const t = $("tutorial");
-          t.classList.remove("hidden");
-          const row = document.getElementById(a.getAttribute("href").slice(1));
-          t.querySelectorAll("td.found").forEach((td) => td.classList.remove("found"));
-          const at = row || document.getElementById("abbreviations") || t;
-          if (row) row.classList.add("found");
-          if (at.scrollIntoView) at.scrollIntoView({ behavior: "smooth", block: "center" });
-        };
-      });
 
       // Every unlocked rung is offered at once, not just the next one: wanting
       // the indicators shouldn't mean being handed the definition on the way,
@@ -2257,54 +2293,87 @@
       const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
       const open = guessing ? [] : togo.filter(({ s }) => rungAvailable(e, steps, s.key));
       open.forEach(({ s, n }, j) => {
-        const btn = document.createElement("button");
-        if (j > 0) btn.className = "ghost small";
         // No "Show hint 5" on a clue that is already in: the rungs stopped being
         // hints to spend the moment it was solved, and a price hintsCharged no
         // longer charges shouldn't be advertised.
-        btn.textContent = (j === 0 && !solved) ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}`;
-        btn.onclick = () => {
-          // Ask before telling, where the clue can pose the question. Not once
-          // the clue is solved: the rungs have stopped being hints by then and
-          // quizzing someone on an answer they already have is a chore.
-          // The previous rung's verdict stays where it is. Clearing it deleted a
-          // block from the middle of the panel at the exact moment a new one
-          // appeared at the bottom, so the whole thing slid under the solver's
-          // eyes: "it jumps and switches to something else" (Paul). Nothing the
-          // panel has said is ever taken back; it only ever grows.
-          if (GUESSABLE[s.key] && !solved && guessAsk(e, s.key)) {
-            guessing = { key, rung: s.key, step: 0, picked: [], placed: [] };
-          } else {
-            showHint(e, s.key);
-          }
-          refreshAll();
-        };
-        next.appendChild(btn);
+        nextSpec.push({ rung: s.key, cls: j > 0 ? "ghost small" : "",
+          text: (j === 0 && !solved) ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
-        const btn = document.createElement("button");
-        btn.className = "ghost small locked";
-        btn.disabled = true;
-        btn.textContent = `${n} · ${s.label}`;
-        btn.title = guessing
-          ? "Answer the question below first"
-          : "Take the hints above first — this one gives them away";
-        next.appendChild(btn);
+        nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,
+          title: guessing
+            ? "Answer the question below first"
+            : "Take the hints above first — this one gives them away" });
       });
       if (!guessing && !togo.length && canCheck() && !solved) {
-        next.innerHTML = `<button id="hx-entry">${FILL_LABEL}</button>`;
-        $("hx-entry").onclick = fillAnswer;
+        nextSpec.push({ fill: true, text: FILL_LABEL });
       }
     }
 
+    const bodyWrote = setHTML(body, bodyHTML);
+    setButtons(next, nextSpec);
+
     // The escape hatch lives outside the ladder: available at any level.
-    if (canCheck() && !solved) {
-      // No "(counts against your score)" rider. The scorebar already reports
-      // revealed letters, so the warning was redundant, and a learner who is
-      // stuck should be nudged toward the help rather than taxed for taking it.
-      escape.innerHTML = `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>`;
-      $("hx-letter").onclick = revealLetter;
+    // No "(counts against your score)" rider. The scorebar already reports
+    // revealed letters, so the warning was redundant, and a learner who is
+    // stuck should be nudged toward the help rather than taxed for taking it.
+    const escapeHTML = (canCheck() && !solved)
+      ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>` : "";
+    if (setHTML(escape, escapeHTML) && escapeHTML) $("hx-letter").onclick = revealLetter;
+
+    if (!bodyWrote && !clueWrote) return;
+
+    if (ask) {
+      // Only the words in play have a button to bind: a settled one is a span.
+      ask.tokens.forEach((t, i) => {
+        if (ask.known.indexOf(i) >= 0) return;
+        const el = $("gw-" + i);
+        el.onclick = () => {
+          // A drag ends in a click on the word it started from. That click has
+          // already been answered by the drag.
+          if (swallowClick) { swallowClick = false; return; }
+          if (!currentAsk()) return;
+          const j = guessing.picked.indexOf(i);
+          if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
+          renderHintPanel();
+        };
+        if (el.addEventListener) {
+          el.addEventListener("pointerdown", () => {
+            const a = currentAsk();
+            if (a) drag = { base: guessing.picked.slice(), from: i, moved: false, ask: a };
+          });
+        }
+      });
+      $("guess-check").onclick = () => {
+        const a = currentAsk();
+        if (!a || !guessing.picked.length) return;
+        finishGuess(gradeGuess(a), a);
+      };
+      // Never a dead end. Asking to be told is a legitimate answer to "do you
+      // know this yet?", and it costs what the rung has always cost.
+      $("guess-tell").onclick = () => {
+        const a = currentAsk();
+        if (a) finishGuess(null, a);
+      };
     }
+
+    // The glossary lives in the tutorial section of this same page, so
+    // reaching it costs no navigation and loses no solve. A plain #anchor
+    // would land on a hidden section and appear to do nothing, and the row
+    // itself gets marked because one line in four hundred is easy to lose
+    // even when the scroll put it under your eyes.
+    panel.querySelectorAll("a.gloss").forEach((a) => {
+      a.onclick = (ev) => {
+        if (ev && ev.preventDefault) ev.preventDefault();
+        const t = $("tutorial");
+        t.classList.remove("hidden");
+        const row = document.getElementById(a.getAttribute("href").slice(1));
+        t.querySelectorAll("td.found").forEach((td) => td.classList.remove("found"));
+        const at = row || document.getElementById("abbreviations") || t;
+        if (row) row.classList.add("found");
+        if (at.scrollIntoView) at.scrollIntoView({ behavior: "smooth", block: "center" });
+      };
+    });
   }
 
   // ---------- score ----------

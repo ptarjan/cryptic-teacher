@@ -36,6 +36,7 @@ function boot(opts) {
       this.id = id || "";
       this.children = [];
       this._innerHTML = "";
+      this.writes = 0;
       this.textContent = "";
       this.value = "";
       this.style = { setProperty(k, v) { this[k] = String(v); } };
@@ -70,6 +71,12 @@ function boot(opts) {
     // element, and the crash only arrived when a newly annotated puzzle changed
     // the shape of the stale row (2026-08-19).
     set innerHTML(v) {
+      // Every write is counted, because a write IS the cost: a browser throws
+      // the subtree away, reparses it and lays the block out again, and that is
+      // what a solver sees as the panel shivering while they type. Counting
+      // here is stronger than comparing markup — a node whose innerHTML was
+      // never assigned cannot have been torn down and rebuilt.
+      this.writes++;
       this._innerHTML = String(v);
       if (v === "") { this.children.forEach(unpublish); this.children = []; }
     }
