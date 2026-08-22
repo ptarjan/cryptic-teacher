@@ -23,7 +23,8 @@
 
   //   open      a puzzle was opened
   //   letter    the first letter typed into that puzzle this session
-  //   hint1..6  the first time a clue's Nth hint rung was revealed this session
+  //   hint-*    the first time that rung of a clue's ladder was revealed this
+  //             session — one name per rung of the ladder app.js builds
   //   check     a check button was used
   //   entry     the first entry completed correctly this session
   //   half      the grid passed halfway filled
@@ -32,9 +33,16 @@
   // Written in the order a solve goes, because that is the order the report
   // reads them in: the question these answer is a funnel from "arrived" to
   // "finished", not a set of unrelated tallies (tools/usage_report.py).
+  // The hint names are the ladder's rung keys, prefixed. app.js owns the rungs
+  // (RUNG_TIER plus ANSWER_RUNG) and this list is written out rather than built
+  // from them, because tools/usage_report.py reads these names out of this file
+  // as text and cannot run the module. tools/smoke_test.js compares the two
+  // both ways, so a rung with no name here — or a name here with no rung —
+  // fails rather than becoming a counter that reads zero forever.
   return Object.freeze([
     "open", "letter",
-    "hint1", "hint2", "hint3", "hint4", "hint5", "hint6",
+    "hint-type", "hint-definition", "hint-indicators",
+    "hint-blocks", "hint-walkthrough", "hint-answer",
     "check", "entry", "half", "done"
   ]);
 });

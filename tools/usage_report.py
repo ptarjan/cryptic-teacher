@@ -28,7 +28,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 NAMESPACE = "85f9de552ea64b229c113df624fb6ca0"
-KEY = re.compile(r"^e:(\d{4}-\d{2}-\d{2}):([a-z0-9]+):")
+KEY = re.compile(r"^e:(\d{4}-\d{2}-\d{2}):([a-z0-9-]+):")
 
 
 def events():
@@ -85,20 +85,27 @@ def main():
               "Worker was deployed, or the beacons are not arriving", file=sys.stderr)
         return 1
 
+    # Names in the order sync/events.js writes them, then anything KV holds that
+    # the list has never heard of. Keys live 90 days, so a name retired today is
+    # real traffic for a quarter after it stops being sent, and dropping its
+    # column would report that stretch as nobody having done it.
     shown = [n for n in names if any(by_day[d][n] for d in days)]
+    shown += sorted({n for d in days for n in by_day[d]} - set(names))
+    width = {n: max(8, len(n) + 2) for n in shown}
     print("events per day")
-    print("  " + "day".ljust(12) + "".join(n.rjust(8) for n in shown))
+    print("  " + "day".ljust(12) + "".join(n.rjust(width[n]) for n in shown))
     for d in days:
-        print("  " + d.ljust(12) + "".join(str(by_day[d][n] or "").rjust(8) for n in shown))
+        print("  " + d.ljust(12)
+              + "".join(str(by_day[d][n] or "").rjust(width[n]) for n in shown))
 
     total = Counter()
     for d in days:
         total.update(by_day[d])
     top = max(total.values())
+    pad = max(10, max(len(n) for n in shown))
     print("\ntotals")
-    for n in names:
-        if total[n]:
-            print(f"  {n:<10} {total[n]:>6}  {bar(total[n], top)}")
+    for n in shown:
+        print(f"  {n:<{pad}} {total[n]:>6}  {bar(total[n], top)}")
 
     # The actual question, and the reason the events are the ones they are: of
     # the people who opened a puzzle, how many got any distance into it. Shares
@@ -106,9 +113,12 @@ def main():
     # not a strict sequence — plenty of solvers take a hint without ever pressing
     # check — and a chain of conditional rates would read as one when it is not.
     opens = total["open"]
-    # hint1 is the first rung of any clue's ladder and goes once a session, so it
-    # is exactly "took a hint at all". The deeper rungs are how far they went.
-    hints = total["hint1"]
+    # Each hint name goes at most once a session, so a session that took the
+    # definition and then the walkthrough is counted in two of them and the sum
+    # is not a number of people. The largest single rung is the floor on "took a
+    # hint at all", and the floor is what belongs in a funnel of openings; the
+    # totals above are where WHICH rung they reached for is read.
+    hints = max((total[n] for n in names if n.startswith("hint-")), default=0)
     print(f"\nof {opens} puzzle openings")
     if not opens:
         print("  (nothing opened in this window)")

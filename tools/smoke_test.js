@@ -317,6 +317,7 @@ function takeRung(btn) {
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
 
 // --- walk the hint ladder: the ladder is per-clue, so click until it runs out ---
+const hintMark = beacons.length;
 let rungs = 0;
 while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && rungs < 8) {
   takeRung(registry["hint-next"].children[0]);
@@ -333,6 +334,16 @@ while (registry["hint-next"].children[0] && registry["hint-next"].children[0].on
     "escape hatch still available at level " + rungs);
 }
 assert(rungs >= 3 && rungs <= 5, "ladder has a sane number of rungs, got " + rungs);
+// Each rung reports itself by name. beacon() drops anything not on the shared
+// list, so this is where a rung whose key never reaches the beacon shows up:
+// "hint-undefined" is silently discarded and nothing is counted at all.
+{
+  const climbed = reported(hintMark).filter((n) => /^hint/.test(n));
+  assert(climbed.length >= 3,
+    `climbing ${rungs} rungs reports which ones were revealed, got: ` + climbed.join(","));
+  assert(climbed.every((n) => /^hint-[a-z]+$/.test(n) && EVENTS.indexOf(n) >= 0),
+    "every rung reports its own name off the shared list: " + climbed.join(","));
+}
 assert(registry["hint-body"].innerHTML.includes("Answer:"), "last rung shows answer");
 // no rung may be a content-free filler (the old "No indicator words" step)
 assert(!registry["hint-body"].innerHTML.includes("No indicator words"),
@@ -1958,13 +1969,25 @@ global.realSetTimeout(() => {
   assert(literals.length >= 5, "app.js reports events at all: " + literals.join(","));
   literals.forEach((n) => assert(EVENTS.indexOf(n) >= 0,
     `app.js reports "${n}", which is not on the list in sync/events.js`));
-  // The rung beacons are built from a depth rather than written out, so the
-  // grep above cannot see them and the whole range has to be on the list.
-  assert(/beacon\("hint" \+ Math\.min\((\d+)/.test(app),
-    "app.js reports the hint rungs by depth");
-  const deepest = Number(app.match(/beacon\("hint" \+ Math\.min\((\d+)/)[1]);
-  for (let i = 1; i <= deepest; i++) assert(EVENTS.indexOf("hint" + i) >= 0,
-    `app.js can report "hint${i}", which is not on the list in sync/events.js`);
+  // The rung beacons are named for the rung rather than written out, so the
+  // grep above cannot see them: take the rungs from the ladder itself — every
+  // key of RUNG_TIER, plus the answer rung, which sits outside the tiers — and
+  // hold the two lists together in BOTH directions. A rung the app can reveal
+  // with no name on the list is a hint the Worker drops on the floor; a name on
+  // the list with no rung behind it is a column that reads zero forever, and
+  // neither is an error anywhere else.
+  assert(/beacon\("hint-" \+ rung\)/.test(app),
+    "app.js reports a hint rung by its name");
+  const tiers = app.match(/const RUNG_TIER = \{([^}]*)\}/);
+  assert(tiers, "app.js still declares RUNG_TIER");
+  const rungKeys = [...tiers[1].matchAll(/(\w+)\s*:/g)].map((m) => m[1])
+    .concat((app.match(/const ANSWER_RUNG = "([^"]+)"/) || [, null])[1] || []);
+  assert(rungKeys.length === 6, "the ladder still has its six rungs: " + rungKeys.join(","));
+  rungKeys.forEach((r) => assert(EVENTS.indexOf("hint-" + r) >= 0,
+    `app.js can reveal the "${r}" rung, and "hint-${r}" is not on the list in sync/events.js`));
+  EVENTS.filter((n) => n.indexOf("hint-") === 0).forEach((n) =>
+    assert(rungKeys.indexOf(n.slice(5)) >= 0,
+      `sync/events.js lists "${n}", which is not a rung app.js can reveal`));
 
   assert(/import CTEvents from "\.\/events\.js"/.test(worker) &&
          /CTEvents\.indexOf\(name\) < 0/.test(worker),

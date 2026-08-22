@@ -1357,10 +1357,13 @@
   function showHint(e, rung) {
     if (isShown(e, rung)) return;
     shownRungs(e).push(rung);
-    // How DEEP down this clue's ladder, not which rung it was: the ladder is
-    // built per clue, so the rung names are not comparable between clues but the
-    // depth is, and "how far do solvers go before they get it" is the question.
-    beacon("hint" + Math.min(6, shownRungs(e).length));
+    // WHICH kind of help was reached for, named for the rung. Each rung teaches
+    // a different thing — where the definition sits, what the indicators do, how
+    // the blocks assemble — so "which one do solvers ask for" says which lesson
+    // to write, which is the only question a teaching site can act on. A depth
+    // would answer nothing: the ladder is built per clue, and no number on that
+    // scale appears anywhere a solver can see.
+    beacon("hint-" + rung);
     saveState();
   }
 
