@@ -1518,7 +1518,11 @@
           new RegExp(`\\b${m.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(frag));
         if (!word) return;
         seen.add(letters);
-        conventions.push(`<b>${esc(word)}</b> = ${esc(letters)}`);
+        // The convention itself is the link. Kept in step with the id
+        // tools/build_abbreviations.py writes onto that word's cell.
+        const at = "abbr-" + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+        conventions.push(
+          `<a class="gloss" href="#${at}"><b>${esc(word)}</b> = ${esc(letters)}</a>`);
       });
       const items = blocks.map((b) => {
         let s = "<li>";
@@ -1538,11 +1542,11 @@
         label: LABELS.blocks,
         html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>` +
           (conventions.length
-            // Naming a convention without saying where the rest of them live
-            // teaches one letter and leaves the solver no way to go and learn
-            // the other four hundred (Paul, 2026-08-22: "I didn't see it linked
-            // when it said ch is chess for check").
-            ? `<p class="mechanism">Standard abbreviations — these never change, so they are worth memorising: ${conventions.join(", ")}. <a id="glossary-link" href="#abbreviations">See them all</a>.</p>`
+            // Each convention links to its own row of the glossary. A trailing
+            // "see them all" is a second sentence to read and lands on the top
+            // of a four-hundred-row table; the word the solver just met is the
+            // thing they want to look up, so it is the thing that is clickable.
+            ? `<p class="mechanism">Standard abbreviations — these never change, so they are worth memorising: ${conventions.join(", ")}.</p>`
             : "")
       });
     }
@@ -2153,15 +2157,21 @@
 
       // The glossary lives in the tutorial section of this same page, so
       // reaching it costs no navigation and loses no solve. A plain #anchor
-      // would land on a hidden section and appear to do nothing.
-      const gloss = document.getElementById("glossary-link");
-      if (gloss) gloss.onclick = (ev) => {
-        if (ev && ev.preventDefault) ev.preventDefault();
-        const t = $("tutorial");
-        t.classList.remove("hidden");
-        const at = document.getElementById("abbreviations") || t;
-        if (at.scrollIntoView) at.scrollIntoView({ behavior: "smooth" });
-      };
+      // would land on a hidden section and appear to do nothing, and the row
+      // itself gets marked because one line in four hundred is easy to lose
+      // even when the scroll put it under your eyes.
+      panel.querySelectorAll("a.gloss").forEach((a) => {
+        a.onclick = (ev) => {
+          if (ev && ev.preventDefault) ev.preventDefault();
+          const t = $("tutorial");
+          t.classList.remove("hidden");
+          const row = document.getElementById(a.getAttribute("href").slice(1));
+          t.querySelectorAll("td.found").forEach((td) => td.classList.remove("found"));
+          const at = row || document.getElementById("abbreviations") || t;
+          if (row) row.classList.add("found");
+          if (at.scrollIntoView) at.scrollIntoView({ behavior: "smooth", block: "center" });
+        };
+      });
 
       // Every unlocked rung is offered at once, not just the next one: wanting
       // the indicators shouldn't mean being handed the definition on the way,

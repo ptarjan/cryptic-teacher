@@ -652,6 +652,11 @@ table.glossary td { border: 1px solid var(--line); padding: 3px 8px; text-align:
 table.glossary td:nth-child(even) {
   font-weight: 700; color: var(--def-fg); white-space: nowrap;
 }
+/* Scrolled to from a hint. One row in four hundred is easy to lose even when
+   the scroll has put it under your eyes. */
+table.glossary td.found, table.glossary td.found + td { background: var(--accent-soft); }
+table.glossary td.found { outline: 2px solid var(--accent); }
+a.gloss { color: inherit; text-decoration-color: var(--accent); }
 
 footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; }
 

@@ -105,6 +105,23 @@ function boot(opts) {
       this._qs = this._qs || {};
       return (this._qs[sel] = this._qs[sel] || new FakeEl("span"));
     }
+    // Plural, and honest about it: no stand-in. querySelector hands one back
+    // because the app writes INTO the thing it looked up, but a caller asking
+    // for every match is iterating, and inventing a member would make the loop
+    // run over an element the page never had. Real children only, so a page
+    // whose matches all came from an innerHTML string yields nothing — which is
+    // the truth about this DOM.
+    querySelectorAll(sel) {
+      const [tag, cls] = sel.split(".");
+      const out = [];
+      const walk = (el) => el.children.forEach((c) => {
+        if ((!tag || c.tagName === tag.toUpperCase()) && (!cls || c.classList.contains(cls)))
+          out.push(c);
+        walk(c);
+      });
+      walk(this);
+      return out;
+    }
     // Focus is modelled, not stubbed, because on a touch device it is the soft
     // keyboard: focusing the hidden input raises it and blurring puts it away,
     // and either move resizes the viewport and reflows the page mid-tap. The app

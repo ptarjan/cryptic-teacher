@@ -72,11 +72,30 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     "the tutorial's glossary carries the anchor the hint links to");
   const senses = new Set();
   Object.values(json).forEach((words) => words.forEach((w) => senses.add(w)));
-  const listed = [...senses].filter((w) => tut.includes(`<td>${w}</td>`));
-  assert(listed.length === senses.size,
-    `every sense in the JSON is in the tutorial's glossary (run tools/build_abbreviations.py) — `
-      + `missing ${senses.size - listed.length}, e.g. `
-      + [...senses].filter((w) => !tut.includes(`<td>${w}</td>`)).slice(0, 3).join(", "));
+
+  // Each row has its own id, because a hint links to the one convention it just
+  // named rather than to the top of four hundred rows (Paul, 2026-08-22: "it
+  // should link right to that clue"). The slug is computed here the same way
+  // app.js and build_abbreviations.py compute it, so a rule that drifts in one
+  // of the three fails rather than silently producing dead links.
+  const anchor = (w) => "abbr-" + w.toLowerCase().replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  const page = fs.readFileSync(path.join(ROOT, "abbreviations/index.html"), "utf8");
+  [["the tutorial", tut], ["the /abbreviations/ page", page]].forEach(([what, src]) => {
+    const missing = [...senses].filter((w) => !src.includes(`<td id="${anchor(w)}">${w}</td>`));
+    assert(missing.length === 0,
+      `every sense in the JSON is in ${what}, anchored (run tools/build_abbreviations.py `
+        + `then tools/build_seo_pages.py) — missing ${missing.length}, e.g. `
+        + missing.slice(0, 3).join(", "));
+  });
+
+  // The glossary is on one indexable URL, not two competing for the same query:
+  // /learn/ links to it instead of repeating the table.
+  const learn = fs.readFileSync(path.join(ROOT, "learn/index.html"), "utf8");
+  assert(!learn.includes('<table class="glossary">'),
+    "/learn/ points at /abbreviations/ rather than duplicating the table");
+  assert(learn.includes("/cryptic-teacher/abbreviations/"),
+    "/learn/ links to the standalone glossary");
 }
 
 // --- the grid measures its container, never the window ---
