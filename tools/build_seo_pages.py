@@ -16,6 +16,10 @@ So this writes real HTML files alongside the app:
   puzzles/index.html       the archive hub, and the crawl path to all of them.
   learn/index.html         the tutorial, which until now existed only inside a
                            template literal in tutorial.js.
+  abbreviations/index.html the glossary, on its own URL. "cryptic crossword
+                           abbreviations" is a question people type, and a
+                           lookup table buried a third of the way down a
+                           beginner's guide cannot answer it.
   sitemap.xml              all of the above, with real lastmod dates.
 
 These pages are not doorways: each carries the annotation work for one specific
@@ -42,6 +46,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import build_abbreviations  # noqa: E402 — one glossary, rendered into every page that shows it
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
 from stamp_assets import asset_url  # noqa: E402 — content-hashed asset URLs
@@ -220,6 +225,7 @@ FOOTER = f"""<footer>
   to this project. <a href="{BASE}/">Solve with hints</a> &middot;
   <a href="{BASE}/puzzles/">All puzzles</a> &middot;
   <a href="{BASE}/learn/">How cryptic clues work</a> &middot;
+  <a href="{BASE}/abbreviations/">Abbreviations</a> &middot;
   <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
 </footer>
 </body>
@@ -515,6 +521,18 @@ def learn_page():
     inner = re.sub(r"<(/?)h4\b", r"<\1h5", inner)
     inner = re.sub(r"<(/?)h3\b", r"<\1h4", inner)
     inner = re.sub(r"<(/?)h2\b", r"<\1h3", inner)
+    # The glossary is 400 rows and has its own URL. Repeating it here would put
+    # the same table on two indexable pages competing for the same query, so
+    # this page points at it instead. The in-app tutorial keeps the table: a
+    # hint links to one of its rows and must not leave the solve to get there.
+    inner = re.sub(
+        re.escape(build_abbreviations.MARK_START) + ".*?" + re.escape(build_abbreviations.MARK_END),
+        '<h4 id="abbreviations">Common abbreviations</h4>\n'
+        "<p>Setters lean on a shared stock of tiny substitutions — <code>ch</code> for "
+        "<em>check</em>, <code>ab</code> for <em>sailor</em>. These never change, so they are "
+        f'worth looking up once and owning forever: <a href="{BASE}/abbreviations/">all '
+        f'{len(build_abbreviations.by_word())} abbreviations these puzzles use &rarr;</a></p>',
+        inner, flags=re.S)
 
     title = "How cryptic crossword clues work — a beginner's guide"
     desc = ("Every cryptic clue is a definition plus wordplay. Learn to find the seam "
@@ -540,12 +558,62 @@ def learn_page():
         + "\n".join(body) + "\n" + FOOTER
 
 
+# --------------------------------------------------------- abbreviations page
+
+def abbreviations_page():
+    """The glossary as a document of its own.
+
+    A lookup table is a destination, not a chapter: somebody who wants to know
+    what CH means in a crossword is not reading a beginner's guide, and a query
+    that specific deserves a URL that answers it in the first screen. Rendered
+    from tools/data/abbreviations.json through the same function that writes the
+    in-app table, so the page a search lands on and the row a hint jumps to
+    cannot disagree.
+    """
+    senses = build_abbreviations.by_word()
+    n = len(senses)
+    title = f"Cryptic crossword abbreviations — the full list of {n}"
+    desc = (f"The {n} standard abbreviations cryptic crossword setters use, word first: "
+            "ch for check, ab for sailor, r for right. Every one taken from real "
+            "published puzzles, each linked to the clues that use it.")
+    canonical = f"{BASE}/abbreviations/"
+    crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
+              ("Abbreviations", "")]
+    page_ld = {"@context": "https://schema.org", "@type": "DefinedTermSet",
+               "name": "Cryptic crossword abbreviations", "url": canonical,
+               "description": desc,
+               "hasDefinedTerm": [
+                   {"@type": "DefinedTerm", "name": w,
+                    "description": f"stands for {', '.join(sorted(senses[w]))}",
+                    "url": f"{canonical}#{build_abbreviations.anchor(w)}"}
+                   for w in sorted(senses)]}
+    body = [
+        masthead(crumbs),
+        '<main class="static-main tutorial-static">',
+        f"<h1>Cryptic crossword abbreviations</h1>",
+        "<p>A cryptic clue's wordplay is built out of pieces, and the smallest pieces are "
+        "conventions rather than deductions: no amount of staring turns <em>sailor</em> into "
+        "<code>AB</code> or <em>check</em> into <code>CH</code>. You either know them or you "
+        "look them up, which is why they are the fastest thing a new solver can learn.</p>",
+        f"<p>These are all {n} that appear in the puzzles annotated on this site, listed word "
+        "first — the direction you arrive from. New ones are added automatically as they turn "
+        "up in a clue.</p>",
+        build_abbreviations.table_html(senses),
+        f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">How cryptic clues work, '
+        f'from the start &rarr;</a></p>',
+        "</main>",
+    ]
+    return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
+        + "\n".join(body) + "\n" + FOOTER
+
+
 # -------------------------------------------------------------------- sitemap
 
 def sitemap(idx):
     urls = [(f"{BASE}/", "daily", "1.0", None),
             (f"{BASE}/puzzles/", "daily", "0.9", None),
-            (f"{BASE}/learn/", "monthly", "0.8", None)]
+            (f"{BASE}/learn/", "monthly", "0.8", None),
+            (f"{BASE}/abbreviations/", "weekly", "0.8", None)]
     for p in idx["puzzles"]:
         if p.get("hasSolutions"):
             urls.append((f"{BASE}/puzzles/{p['id']}/", "monthly", "0.7",
@@ -582,7 +650,8 @@ def homepage_nav(idx):
 <section class="seo-nav">
   <h2>Answers and explanations</h2>
   <p>Every clue of these puzzles is written up in full — answer, definition and wordplay.
-     Start with <a href="learn/">how cryptic clues work</a>, or browse
+     Start with <a href="learn/">how cryptic clues work</a>, learn the
+     <a href="abbreviations/">standard abbreviations</a>, or browse
      <a href="puzzles/">all {sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))} puzzles</a>.</p>
   <ul>{items}</ul>
 </section>
@@ -675,6 +744,7 @@ def outputs():
         files[path] = page
     files[PUZZLE_DIR / "index.html"] = hub_page(idx)
     files[ROOT / "learn" / "index.html"] = learn_page()
+    files[ROOT / "abbreviations" / "index.html"] = abbreviations_page()
     files[ROOT / "sitemap.xml"] = sitemap(idx)
     path, text = patch_homepage(idx)
     files[path] = text

@@ -81,144 +81,144 @@ also defines it.</div>
 <h3 id="abbreviations">Common abbreviations</h3>
 <p>Setters lean on a shared stock of tiny substitutions. These never change, so they are worth looking up once and owning forever — all 413 of the ones this site's clues use:</p>
 <table class="glossary">
-<tr><td>about</td><td>C, CA, RE</td><td>academician</td><td>RA</td><td>academy</td><td>A</td></tr>
-<tr><td>acceptable</td><td>U</td><td>account</td><td>AC</td><td>ace</td><td>A</td></tr>
-<tr><td>acidity</td><td>PH</td><td>active</td><td>A</td><td>adult</td><td>A</td></tr>
-<tr><td>advertisement</td><td>AD</td><td>afternoon</td><td>PM</td><td>afterthought</td><td>PS</td></tr>
-<tr><td>against</td><td>V, VS</td><td>album</td><td>LP</td><td>all right</td><td>OK</td></tr>
-<tr><td>alto</td><td>A</td><td>amateur</td><td>A</td><td>america</td><td>A, US</td></tr>
-<tr><td>american</td><td>A, US</td><td>american soldier</td><td>GI</td><td>anonymous</td><td>A</td></tr>
-<tr><td>answer</td><td>A</td><td>approved</td><td>OK</td><td>area</td><td>A</td></tr>
-<tr><td>army</td><td>TA</td><td>arrived</td><td>ARR</td><td>article</td><td>A</td></tr>
-<tr><td>artist</td><td>RA</td><td>arts degree</td><td>BA</td><td>at home</td><td>IN</td></tr>
-<tr><td>athletic club</td><td>AC</td><td>attending</td><td>AT</td><td>australia</td><td>A</td></tr>
-<tr><td>australian</td><td>A</td><td>avenue</td><td>AV</td><td>average</td><td>AV</td></tr>
-<tr><td>bachelor</td><td>B</td><td>barrister</td><td>QC</td><td>base</td><td>HQ</td></tr>
-<tr><td>before christ</td><td>BC</td><td>before noon</td><td>AM</td><td>bishop</td><td>B</td></tr>
-<tr><td>black</td><td>B</td><td>bone</td><td>OS</td><td>book</td><td>B</td></tr>
-<tr><td>born</td><td>B</td><td>boss</td><td>MD</td><td>bowled</td><td>B</td></tr>
-<tr><td>box</td><td>TV</td><td>britain</td><td>GB</td><td>british</td><td>B</td></tr>
-<tr><td>buried</td><td>RIP</td><td>california</td><td>CA</td><td>capital</td><td>DC</td></tr>
-<tr><td>carbon</td><td>C</td><td>career record</td><td>CV</td><td>catholic</td><td>C, RC</td></tr>
-<tr><td>caught</td><td>C</td><td>century</td><td>C</td><td>charlie</td><td>C</td></tr>
-<tr><td>check</td><td>CH</td><td>child</td><td>CH</td><td>church</td><td>CE, CH</td></tr>
-<tr><td>circa</td><td>CA</td><td>circle</td><td>O</td><td>clubs</td><td>C</td></tr>
-<tr><td>cold</td><td>C</td><td>colt</td><td>C</td><td>commanding officer</td><td>CO</td></tr>
-<tr><td>companion of honour</td><td>CH</td><td>company</td><td>CO</td><td>compere</td><td>MC</td></tr>
-<tr><td>computer</td><td>PC</td><td>computing</td><td>IT</td><td>concerning</td><td>RE</td></tr>
-<tr><td>conservative</td><td>C</td><td>constant</td><td>C</td><td>consumption</td><td>TB</td></tr>
-<tr><td>contralto</td><td>C</td><td>cricket club</td><td>CC</td><td>cross</td><td>X</td></tr>
-<tr><td>current</td><td>AC, I</td><td>dad</td><td>PA</td><td>date</td><td>D</td></tr>
-<tr><td>daughter</td><td>D</td><td>day</td><td>D</td><td>dead</td><td>D, RIP</td></tr>
-<tr><td>debtor</td><td>DR</td><td>degree</td><td>BA, MA</td><td>detective</td><td>DI</td></tr>
-<tr><td>diamonds</td><td>D</td><td>died</td><td>D, OB</td><td>direct current</td><td>DC</td></tr>
-<tr><td>director</td><td>D</td><td>disc</td><td>CD</td><td>disease</td><td>TB</td></tr>
-<tr><td>doctor</td><td>DR, GP, MD, MO</td><td>drip</td><td>IV</td><td>drive</td><td>DR</td></tr>
-<tr><td>drug</td><td>E</td><td>dry</td><td>TT</td><td>duck</td><td>O</td></tr>
-<tr><td>duke</td><td>D</td><td>dutch</td><td>D</td><td>earl</td><td>E</td></tr>
-<tr><td>east</td><td>E</td><td>eastern</td><td>E</td><td>ecstasy</td><td>E</td></tr>
-<tr><td>edited</td><td>ED</td><td>editor</td><td>ED</td><td>education</td><td>ED</td></tr>
-<tr><td>eleven</td><td>XI</td><td>empty</td><td>MT</td><td>energy</td><td>E</td></tr>
-<tr><td>engineers</td><td>RE</td><td>england</td><td>E</td><td>english</td><td>E</td></tr>
-<tr><td>european</td><td>E</td><td>exercise</td><td>PE</td><td>extra large</td><td>XL</td></tr>
-<tr><td>fashionable</td><td>IN</td><td>father</td><td>PA</td><td>feet</td><td>FT</td></tr>
-<tr><td>fellow</td><td>F</td><td>female</td><td>F</td><td>fifty</td><td>L</td></tr>
-<tr><td>fine</td><td>F, OK</td><td>firm</td><td>CO</td><td>five</td><td>V</td></tr>
-<tr><td>five hundred</td><td>D</td><td>flatten</td><td>KO</td><td>following</td><td>F</td></tr>
-<tr><td>foot</td><td>FT</td><td>for example</td><td>EG</td><td>for instance</td><td>EG</td></tr>
-<tr><td>former</td><td>EX</td><td>forte</td><td>F</td><td>forty</td><td>XL</td></tr>
-<tr><td>four</td><td>IV</td><td>franc</td><td>F</td><td>function</td><td>F</td></tr>
-<tr><td>games</td><td>PE</td><td>german</td><td>G</td><td>gold</td><td>OR</td></tr>
-<tr><td>good</td><td>G</td><td>graduate</td><td>BA, MA</td><td>gram</td><td>G, GM</td></tr>
-<tr><td>grand</td><td>G</td><td>grandmaster</td><td>GM</td><td>gravity</td><td>G</td></tr>
-<tr><td>gunners</td><td>RA</td><td>gym</td><td>PE</td><td>hard</td><td>H</td></tr>
-<tr><td>headquarters</td><td>HQ</td><td>hearts</td><td>H</td><td>height</td><td>H</td></tr>
-<tr><td>helium</td><td>HE</td><td>heroin</td><td>H</td><td>hesitation</td><td>ER</td></tr>
-<tr><td>his excellency</td><td>HE</td><td>hospital</td><td>H</td><td>host</td><td>MC</td></tr>
-<tr><td>hot</td><td>H</td><td>hotel</td><td>H</td><td>hour</td><td>H, HR</td></tr>
-<tr><td>huge</td><td>OS</td><td>hundred</td><td>C</td><td>husband</td><td>H</td></tr>
-<tr><td>in court</td><td>UP</td><td>information</td><td>I</td><td>inspector</td><td>DI</td></tr>
-<tr><td>intelligence</td><td>MI</td><td>international</td><td>I</td><td>iodine</td><td>I</td></tr>
-<tr><td>iron</td><td>FE</td><td>island</td><td>I, IS</td><td>italy</td><td>I</td></tr>
-<tr><td>kelvin</td><td>K</td><td>key</td><td>G</td><td>kilo</td><td>KG</td></tr>
-<tr><td>king</td><td>K, R</td><td>kiss</td><td>X</td><td>knight</td><td>N</td></tr>
-<tr><td>knockout</td><td>KO</td><td>lake</td><td>L</td><td>large</td><td>L</td></tr>
-<tr><td>latin</td><td>L</td><td>lawyer</td><td>QC</td><td>learner</td><td>L</td></tr>
-<tr><td>left</td><td>L</td><td>leg</td><td>ON</td><td>liberal</td><td>L</td></tr>
-<tr><td>lieutenant</td><td>LT</td><td>light</td><td>LT</td><td>line</td><td>L</td></tr>
-<tr><td>literary</td><td>LIT</td><td>litre</td><td>L</td><td>long</td><td>L</td></tr>
-<tr><td>long ago</td><td>BC</td><td>loo</td><td>PO, WC</td><td>los angeles</td><td>LA</td></tr>
-<tr><td>loud</td><td>F</td><td>love</td><td>O</td><td>maiden</td><td>M</td></tr>
-<tr><td>male</td><td>M</td><td>man</td><td>MR</td><td>managing director</td><td>MD</td></tr>
-<tr><td>manuscript</td><td>MS</td><td>mark</td><td>M</td><td>married</td><td>M</td></tr>
-<tr><td>mass</td><td>M</td><td>master</td><td>M, MA</td><td>me</td><td>I</td></tr>
-<tr><td>member</td><td>M, MP</td><td>men</td><td>OR</td><td>meter</td><td>M</td></tr>
-<tr><td>metre</td><td>M</td><td>metres</td><td>M</td><td>mile</td><td>M</td></tr>
-<tr><td>millions</td><td>M</td><td>minute</td><td>MIN</td><td>miss</td><td>MS</td></tr>
-<tr><td>mister</td><td>MR</td><td>model</td><td>T</td><td>modus operandi</td><td>MO</td></tr>
-<tr><td>moment</td><td>MO</td><td>money</td><td>M</td><td>month</td><td>M</td></tr>
-<tr><td>morning</td><td>AM</td><td>motorway</td><td>M</td><td>mount</td><td>MT</td></tr>
-<tr><td>name</td><td>N</td><td>national trust</td><td>NT</td><td>navy</td><td>RN</td></tr>
-<tr><td>nazis</td><td>SS</td><td>new</td><td>N</td><td>new testament</td><td>NT</td></tr>
-<tr><td>nine</td><td>IX</td><td>noon</td><td>N</td><td>north</td><td>N</td></tr>
-<tr><td>north american</td><td>NA</td><td>north eastern</td><td>NE</td><td>northeast</td><td>NE</td></tr>
-<tr><td>northern</td><td>N</td><td>northwest</td><td>NW</td><td>not applicable</td><td>NA</td></tr>
-<tr><td>note</td><td>E, LA, ME, MI, N, NB, RE, SO, TE</td><td>note well</td><td>NB</td><td>nothing</td><td>O</td></tr>
-<tr><td>nuclear</td><td>N</td><td>number</td><td>N, NO</td><td>obiit</td><td>OB</td></tr>
-<tr><td>ohio</td><td>O</td><td>old</td><td>O</td><td>old boy</td><td>OB</td></tr>
-<tr><td>old english</td><td>OE</td><td>old flame</td><td>EX</td><td>one</td><td>A, I, UN</td></tr>
-<tr><td>operation</td><td>OP</td><td>opus</td><td>OP</td><td>ordinary</td><td>O</td></tr>
-<tr><td>other ranks</td><td>OR</td><td>out of</td><td>EX</td><td>outsize</td><td>OS</td></tr>
-<tr><td>over</td><td>O</td><td>oxygen</td><td>O</td><td>page</td><td>P</td></tr>
-<tr><td>parking</td><td>P</td><td>peacekeepers</td><td>UN</td><td>pee</td><td>P</td></tr>
-<tr><td>pence</td><td>P</td><td>penny</td><td>D, P</td><td>per annum</td><td>PA</td></tr>
-<tr><td>physical training</td><td>PT</td><td>piano</td><td>P</td><td>pint</td><td>PT</td></tr>
-<tr><td>place</td><td>PL</td><td>playing</td><td>ON</td><td>point</td><td>PT</td></tr>
-<tr><td>police</td><td>MP</td><td>policeman</td><td>PC</td><td>politically correct</td><td>PC</td></tr>
-<tr><td>politician</td><td>MP</td><td>post office</td><td>PO</td><td>postscript</td><td>PS</td></tr>
-<tr><td>potassium</td><td>K</td><td>pound</td><td>L, LB</td><td>power</td><td>P</td></tr>
-<tr><td>president</td><td>P</td><td>pressure</td><td>P</td><td>prime minister</td><td>PM</td></tr>
-<tr><td>printer's measure</td><td>EN</td><td>professional</td><td>PRO</td><td>promotion</td><td>AD</td></tr>
-<tr><td>public address</td><td>PA</td><td>publicity</td><td>PR</td><td>queen</td><td>ER, Q, QU, R</td></tr>
-<tr><td>question</td><td>Q</td><td>quiet</td><td>P</td><td>race</td><td>TT</td></tr>
-<tr><td>raised</td><td>UP</td><td>rare</td><td>R</td><td>recipe</td><td>R</td></tr>
-<tr><td>record</td><td>CD, LP</td><td>refusal</td><td>NO</td><td>republican</td><td>R</td></tr>
-<tr><td>riding</td><td>UP</td><td>right</td><td>R</td><td>ring</td><td>O</td></tr>
-<tr><td>river</td><td>R</td><td>road</td><td>RD</td><td>rugby</td><td>RU</td></tr>
-<tr><td>run</td><td>R</td><td>runs</td><td>R</td><td>résumé</td><td>CV</td></tr>
-<tr><td>sailor</td><td>AB</td><td>sailors</td><td>RN</td><td>saint</td><td>S, ST</td></tr>
-<tr><td>saints</td><td>SS</td><td>sappers</td><td>RE</td><td>say</td><td>EG</td></tr>
-<tr><td>seaman</td><td>AB</td><td>second</td><td>S</td><td>section</td><td>S</td></tr>
-<tr><td>senior</td><td>SR</td><td>sex appeal</td><td>IT, SA</td><td>ship</td><td>SS</td></tr>
-<tr><td>side</td><td>XI</td><td>silk</td><td>QC</td><td>singular</td><td>S</td></tr>
-<tr><td>sister</td><td>SR</td><td>six</td><td>VI</td><td>sleep</td><td>Z</td></tr>
-<tr><td>small</td><td>S</td><td>society</td><td>S</td><td>soldier</td><td>GI</td></tr>
-<tr><td>soldiers</td><td>OR</td><td>son</td><td>S</td><td>soprano</td><td>S</td></tr>
-<tr><td>south</td><td>S</td><td>south africa</td><td>SA</td><td>southeast</td><td>SE</td></tr>
-<tr><td>southern</td><td>S</td><td>southwest</td><td>SW</td><td>space</td><td>EN</td></tr>
-<tr><td>special</td><td>S, SP</td><td>spin</td><td>PR</td><td>starting price</td><td>SP</td></tr>
-<tr><td>station</td><td>STA</td><td>steamer</td><td>SS</td><td>stone</td><td>ST</td></tr>
-<tr><td>street</td><td>ST</td><td>succeeded</td><td>S</td><td>sulphur</td><td>S</td></tr>
-<tr><td>suspicious</td><td>SUS</td><td>take</td><td>R</td><td>tea</td><td>T</td></tr>
-<tr><td>team</td><td>XI</td><td>teetotal</td><td>TT</td><td>telly</td><td>TV</td></tr>
-<tr><td>temperature</td><td>T</td><td>ten</td><td>X</td><td>tenor</td><td>T</td></tr>
-<tr><td>tense</td><td>T</td><td>tesla</td><td>T</td><td>thanks</td><td>TA</td></tr>
-<tr><td>that is</td><td>IE</td><td>the setter</td><td>ME</td><td>therefore</td><td>SO</td></tr>
-<tr><td>thousand</td><td>K, M</td><td>time</td><td>T</td><td>toilet</td><td>WC</td></tr>
-<tr><td>ton</td><td>T</td><td>tons</td><td>T</td><td>tourist trophy</td><td>TT</td></tr>
-<tr><td>training</td><td>PT</td><td>trendy</td><td>IN</td><td>troy</td><td>T</td></tr>
-<tr><td>turn</td><td>U</td><td>two</td><td>II</td><td>um</td><td>ER</td></tr>
-<tr><td>uniform</td><td>U</td><td>unionist</td><td>U</td><td>united</td><td>U</td></tr>
-<tr><td>universal</td><td>U</td><td>university</td><td>U</td><td>unknown</td><td>X, Y, Z</td></tr>
-<tr><td>upper class</td><td>U</td><td>uranium</td><td>U</td><td>vermouth</td><td>IT</td></tr>
-<tr><td>verse</td><td>V</td><td>versus</td><td>V</td><td>very</td><td>SO, V</td></tr>
-<tr><td>volt</td><td>V</td><td>volunteers</td><td>TA</td><td>watt</td><td>W</td></tr>
-<tr><td>we</td><td>US</td><td>weight</td><td>KG, LB</td><td>west</td><td>W</td></tr>
-<tr><td>whiskey</td><td>W</td><td>wife</td><td>W</td><td>with</td><td>W</td></tr>
-<tr><td>without</td><td>SP</td><td>woman</td><td>MS</td><td>women</td><td>W</td></tr>
-<tr><td>work</td><td>OP</td><td>working</td><td>ON</td><td>wrong</td><td>X</td></tr>
-<tr><td>yard</td><td>Y</td><td>year</td><td>Y</td><td>yen</td><td>Y</td></tr>
-<tr><td>yours truly</td><td>ME</td><td>zed</td><td>Z</td></tr>
+<tr><td id="abbr-about">about</td><td>C, CA, RE</td><td id="abbr-academician">academician</td><td>RA</td><td id="abbr-academy">academy</td><td>A</td></tr>
+<tr><td id="abbr-acceptable">acceptable</td><td>U</td><td id="abbr-account">account</td><td>AC</td><td id="abbr-ace">ace</td><td>A</td></tr>
+<tr><td id="abbr-acidity">acidity</td><td>PH</td><td id="abbr-active">active</td><td>A</td><td id="abbr-adult">adult</td><td>A</td></tr>
+<tr><td id="abbr-advertisement">advertisement</td><td>AD</td><td id="abbr-afternoon">afternoon</td><td>PM</td><td id="abbr-afterthought">afterthought</td><td>PS</td></tr>
+<tr><td id="abbr-against">against</td><td>V, VS</td><td id="abbr-album">album</td><td>LP</td><td id="abbr-all-right">all right</td><td>OK</td></tr>
+<tr><td id="abbr-alto">alto</td><td>A</td><td id="abbr-amateur">amateur</td><td>A</td><td id="abbr-america">america</td><td>A, US</td></tr>
+<tr><td id="abbr-american">american</td><td>A, US</td><td id="abbr-american-soldier">american soldier</td><td>GI</td><td id="abbr-anonymous">anonymous</td><td>A</td></tr>
+<tr><td id="abbr-answer">answer</td><td>A</td><td id="abbr-approved">approved</td><td>OK</td><td id="abbr-area">area</td><td>A</td></tr>
+<tr><td id="abbr-army">army</td><td>TA</td><td id="abbr-arrived">arrived</td><td>ARR</td><td id="abbr-article">article</td><td>A</td></tr>
+<tr><td id="abbr-artist">artist</td><td>RA</td><td id="abbr-arts-degree">arts degree</td><td>BA</td><td id="abbr-at-home">at home</td><td>IN</td></tr>
+<tr><td id="abbr-athletic-club">athletic club</td><td>AC</td><td id="abbr-attending">attending</td><td>AT</td><td id="abbr-australia">australia</td><td>A</td></tr>
+<tr><td id="abbr-australian">australian</td><td>A</td><td id="abbr-avenue">avenue</td><td>AV</td><td id="abbr-average">average</td><td>AV</td></tr>
+<tr><td id="abbr-bachelor">bachelor</td><td>B</td><td id="abbr-barrister">barrister</td><td>QC</td><td id="abbr-base">base</td><td>HQ</td></tr>
+<tr><td id="abbr-before-christ">before christ</td><td>BC</td><td id="abbr-before-noon">before noon</td><td>AM</td><td id="abbr-bishop">bishop</td><td>B</td></tr>
+<tr><td id="abbr-black">black</td><td>B</td><td id="abbr-bone">bone</td><td>OS</td><td id="abbr-book">book</td><td>B</td></tr>
+<tr><td id="abbr-born">born</td><td>B</td><td id="abbr-boss">boss</td><td>MD</td><td id="abbr-bowled">bowled</td><td>B</td></tr>
+<tr><td id="abbr-box">box</td><td>TV</td><td id="abbr-britain">britain</td><td>GB</td><td id="abbr-british">british</td><td>B</td></tr>
+<tr><td id="abbr-buried">buried</td><td>RIP</td><td id="abbr-california">california</td><td>CA</td><td id="abbr-capital">capital</td><td>DC</td></tr>
+<tr><td id="abbr-carbon">carbon</td><td>C</td><td id="abbr-career-record">career record</td><td>CV</td><td id="abbr-catholic">catholic</td><td>C, RC</td></tr>
+<tr><td id="abbr-caught">caught</td><td>C</td><td id="abbr-century">century</td><td>C</td><td id="abbr-charlie">charlie</td><td>C</td></tr>
+<tr><td id="abbr-check">check</td><td>CH</td><td id="abbr-child">child</td><td>CH</td><td id="abbr-church">church</td><td>CE, CH</td></tr>
+<tr><td id="abbr-circa">circa</td><td>CA</td><td id="abbr-circle">circle</td><td>O</td><td id="abbr-clubs">clubs</td><td>C</td></tr>
+<tr><td id="abbr-cold">cold</td><td>C</td><td id="abbr-colt">colt</td><td>C</td><td id="abbr-commanding-officer">commanding officer</td><td>CO</td></tr>
+<tr><td id="abbr-companion-of-honour">companion of honour</td><td>CH</td><td id="abbr-company">company</td><td>CO</td><td id="abbr-compere">compere</td><td>MC</td></tr>
+<tr><td id="abbr-computer">computer</td><td>PC</td><td id="abbr-computing">computing</td><td>IT</td><td id="abbr-concerning">concerning</td><td>RE</td></tr>
+<tr><td id="abbr-conservative">conservative</td><td>C</td><td id="abbr-constant">constant</td><td>C</td><td id="abbr-consumption">consumption</td><td>TB</td></tr>
+<tr><td id="abbr-contralto">contralto</td><td>C</td><td id="abbr-cricket-club">cricket club</td><td>CC</td><td id="abbr-cross">cross</td><td>X</td></tr>
+<tr><td id="abbr-current">current</td><td>AC, I</td><td id="abbr-dad">dad</td><td>PA</td><td id="abbr-date">date</td><td>D</td></tr>
+<tr><td id="abbr-daughter">daughter</td><td>D</td><td id="abbr-day">day</td><td>D</td><td id="abbr-dead">dead</td><td>D, RIP</td></tr>
+<tr><td id="abbr-debtor">debtor</td><td>DR</td><td id="abbr-degree">degree</td><td>BA, MA</td><td id="abbr-detective">detective</td><td>DI</td></tr>
+<tr><td id="abbr-diamonds">diamonds</td><td>D</td><td id="abbr-died">died</td><td>D, OB</td><td id="abbr-direct-current">direct current</td><td>DC</td></tr>
+<tr><td id="abbr-director">director</td><td>D</td><td id="abbr-disc">disc</td><td>CD</td><td id="abbr-disease">disease</td><td>TB</td></tr>
+<tr><td id="abbr-doctor">doctor</td><td>DR, GP, MD, MO</td><td id="abbr-drip">drip</td><td>IV</td><td id="abbr-drive">drive</td><td>DR</td></tr>
+<tr><td id="abbr-drug">drug</td><td>E</td><td id="abbr-dry">dry</td><td>TT</td><td id="abbr-duck">duck</td><td>O</td></tr>
+<tr><td id="abbr-duke">duke</td><td>D</td><td id="abbr-dutch">dutch</td><td>D</td><td id="abbr-earl">earl</td><td>E</td></tr>
+<tr><td id="abbr-east">east</td><td>E</td><td id="abbr-eastern">eastern</td><td>E</td><td id="abbr-ecstasy">ecstasy</td><td>E</td></tr>
+<tr><td id="abbr-edited">edited</td><td>ED</td><td id="abbr-editor">editor</td><td>ED</td><td id="abbr-education">education</td><td>ED</td></tr>
+<tr><td id="abbr-eleven">eleven</td><td>XI</td><td id="abbr-empty">empty</td><td>MT</td><td id="abbr-energy">energy</td><td>E</td></tr>
+<tr><td id="abbr-engineers">engineers</td><td>RE</td><td id="abbr-england">england</td><td>E</td><td id="abbr-english">english</td><td>E</td></tr>
+<tr><td id="abbr-european">european</td><td>E</td><td id="abbr-exercise">exercise</td><td>PE</td><td id="abbr-extra-large">extra large</td><td>XL</td></tr>
+<tr><td id="abbr-fashionable">fashionable</td><td>IN</td><td id="abbr-father">father</td><td>PA</td><td id="abbr-feet">feet</td><td>FT</td></tr>
+<tr><td id="abbr-fellow">fellow</td><td>F</td><td id="abbr-female">female</td><td>F</td><td id="abbr-fifty">fifty</td><td>L</td></tr>
+<tr><td id="abbr-fine">fine</td><td>F, OK</td><td id="abbr-firm">firm</td><td>CO</td><td id="abbr-five">five</td><td>V</td></tr>
+<tr><td id="abbr-five-hundred">five hundred</td><td>D</td><td id="abbr-flatten">flatten</td><td>KO</td><td id="abbr-following">following</td><td>F</td></tr>
+<tr><td id="abbr-foot">foot</td><td>FT</td><td id="abbr-for-example">for example</td><td>EG</td><td id="abbr-for-instance">for instance</td><td>EG</td></tr>
+<tr><td id="abbr-former">former</td><td>EX</td><td id="abbr-forte">forte</td><td>F</td><td id="abbr-forty">forty</td><td>XL</td></tr>
+<tr><td id="abbr-four">four</td><td>IV</td><td id="abbr-franc">franc</td><td>F</td><td id="abbr-function">function</td><td>F</td></tr>
+<tr><td id="abbr-games">games</td><td>PE</td><td id="abbr-german">german</td><td>G</td><td id="abbr-gold">gold</td><td>OR</td></tr>
+<tr><td id="abbr-good">good</td><td>G</td><td id="abbr-graduate">graduate</td><td>BA, MA</td><td id="abbr-gram">gram</td><td>G, GM</td></tr>
+<tr><td id="abbr-grand">grand</td><td>G</td><td id="abbr-grandmaster">grandmaster</td><td>GM</td><td id="abbr-gravity">gravity</td><td>G</td></tr>
+<tr><td id="abbr-gunners">gunners</td><td>RA</td><td id="abbr-gym">gym</td><td>PE</td><td id="abbr-hard">hard</td><td>H</td></tr>
+<tr><td id="abbr-headquarters">headquarters</td><td>HQ</td><td id="abbr-hearts">hearts</td><td>H</td><td id="abbr-height">height</td><td>H</td></tr>
+<tr><td id="abbr-helium">helium</td><td>HE</td><td id="abbr-heroin">heroin</td><td>H</td><td id="abbr-hesitation">hesitation</td><td>ER</td></tr>
+<tr><td id="abbr-his-excellency">his excellency</td><td>HE</td><td id="abbr-hospital">hospital</td><td>H</td><td id="abbr-host">host</td><td>MC</td></tr>
+<tr><td id="abbr-hot">hot</td><td>H</td><td id="abbr-hotel">hotel</td><td>H</td><td id="abbr-hour">hour</td><td>H, HR</td></tr>
+<tr><td id="abbr-huge">huge</td><td>OS</td><td id="abbr-hundred">hundred</td><td>C</td><td id="abbr-husband">husband</td><td>H</td></tr>
+<tr><td id="abbr-in-court">in court</td><td>UP</td><td id="abbr-information">information</td><td>I</td><td id="abbr-inspector">inspector</td><td>DI</td></tr>
+<tr><td id="abbr-intelligence">intelligence</td><td>MI</td><td id="abbr-international">international</td><td>I</td><td id="abbr-iodine">iodine</td><td>I</td></tr>
+<tr><td id="abbr-iron">iron</td><td>FE</td><td id="abbr-island">island</td><td>I, IS</td><td id="abbr-italy">italy</td><td>I</td></tr>
+<tr><td id="abbr-kelvin">kelvin</td><td>K</td><td id="abbr-key">key</td><td>G</td><td id="abbr-kilo">kilo</td><td>KG</td></tr>
+<tr><td id="abbr-king">king</td><td>K, R</td><td id="abbr-kiss">kiss</td><td>X</td><td id="abbr-knight">knight</td><td>N</td></tr>
+<tr><td id="abbr-knockout">knockout</td><td>KO</td><td id="abbr-lake">lake</td><td>L</td><td id="abbr-large">large</td><td>L</td></tr>
+<tr><td id="abbr-latin">latin</td><td>L</td><td id="abbr-lawyer">lawyer</td><td>QC</td><td id="abbr-learner">learner</td><td>L</td></tr>
+<tr><td id="abbr-left">left</td><td>L</td><td id="abbr-leg">leg</td><td>ON</td><td id="abbr-liberal">liberal</td><td>L</td></tr>
+<tr><td id="abbr-lieutenant">lieutenant</td><td>LT</td><td id="abbr-light">light</td><td>LT</td><td id="abbr-line">line</td><td>L</td></tr>
+<tr><td id="abbr-literary">literary</td><td>LIT</td><td id="abbr-litre">litre</td><td>L</td><td id="abbr-long">long</td><td>L</td></tr>
+<tr><td id="abbr-long-ago">long ago</td><td>BC</td><td id="abbr-loo">loo</td><td>PO, WC</td><td id="abbr-los-angeles">los angeles</td><td>LA</td></tr>
+<tr><td id="abbr-loud">loud</td><td>F</td><td id="abbr-love">love</td><td>O</td><td id="abbr-maiden">maiden</td><td>M</td></tr>
+<tr><td id="abbr-male">male</td><td>M</td><td id="abbr-man">man</td><td>MR</td><td id="abbr-managing-director">managing director</td><td>MD</td></tr>
+<tr><td id="abbr-manuscript">manuscript</td><td>MS</td><td id="abbr-mark">mark</td><td>M</td><td id="abbr-married">married</td><td>M</td></tr>
+<tr><td id="abbr-mass">mass</td><td>M</td><td id="abbr-master">master</td><td>M, MA</td><td id="abbr-me">me</td><td>I</td></tr>
+<tr><td id="abbr-member">member</td><td>M, MP</td><td id="abbr-men">men</td><td>OR</td><td id="abbr-meter">meter</td><td>M</td></tr>
+<tr><td id="abbr-metre">metre</td><td>M</td><td id="abbr-metres">metres</td><td>M</td><td id="abbr-mile">mile</td><td>M</td></tr>
+<tr><td id="abbr-millions">millions</td><td>M</td><td id="abbr-minute">minute</td><td>MIN</td><td id="abbr-miss">miss</td><td>MS</td></tr>
+<tr><td id="abbr-mister">mister</td><td>MR</td><td id="abbr-model">model</td><td>T</td><td id="abbr-modus-operandi">modus operandi</td><td>MO</td></tr>
+<tr><td id="abbr-moment">moment</td><td>MO</td><td id="abbr-money">money</td><td>M</td><td id="abbr-month">month</td><td>M</td></tr>
+<tr><td id="abbr-morning">morning</td><td>AM</td><td id="abbr-motorway">motorway</td><td>M</td><td id="abbr-mount">mount</td><td>MT</td></tr>
+<tr><td id="abbr-name">name</td><td>N</td><td id="abbr-national-trust">national trust</td><td>NT</td><td id="abbr-navy">navy</td><td>RN</td></tr>
+<tr><td id="abbr-nazis">nazis</td><td>SS</td><td id="abbr-new">new</td><td>N</td><td id="abbr-new-testament">new testament</td><td>NT</td></tr>
+<tr><td id="abbr-nine">nine</td><td>IX</td><td id="abbr-noon">noon</td><td>N</td><td id="abbr-north">north</td><td>N</td></tr>
+<tr><td id="abbr-north-american">north american</td><td>NA</td><td id="abbr-north-eastern">north eastern</td><td>NE</td><td id="abbr-northeast">northeast</td><td>NE</td></tr>
+<tr><td id="abbr-northern">northern</td><td>N</td><td id="abbr-northwest">northwest</td><td>NW</td><td id="abbr-not-applicable">not applicable</td><td>NA</td></tr>
+<tr><td id="abbr-note">note</td><td>E, LA, ME, MI, N, NB, RE, SO, TE</td><td id="abbr-note-well">note well</td><td>NB</td><td id="abbr-nothing">nothing</td><td>O</td></tr>
+<tr><td id="abbr-nuclear">nuclear</td><td>N</td><td id="abbr-number">number</td><td>N, NO</td><td id="abbr-obiit">obiit</td><td>OB</td></tr>
+<tr><td id="abbr-ohio">ohio</td><td>O</td><td id="abbr-old">old</td><td>O</td><td id="abbr-old-boy">old boy</td><td>OB</td></tr>
+<tr><td id="abbr-old-english">old english</td><td>OE</td><td id="abbr-old-flame">old flame</td><td>EX</td><td id="abbr-one">one</td><td>A, I, UN</td></tr>
+<tr><td id="abbr-operation">operation</td><td>OP</td><td id="abbr-opus">opus</td><td>OP</td><td id="abbr-ordinary">ordinary</td><td>O</td></tr>
+<tr><td id="abbr-other-ranks">other ranks</td><td>OR</td><td id="abbr-out-of">out of</td><td>EX</td><td id="abbr-outsize">outsize</td><td>OS</td></tr>
+<tr><td id="abbr-over">over</td><td>O</td><td id="abbr-oxygen">oxygen</td><td>O</td><td id="abbr-page">page</td><td>P</td></tr>
+<tr><td id="abbr-parking">parking</td><td>P</td><td id="abbr-peacekeepers">peacekeepers</td><td>UN</td><td id="abbr-pee">pee</td><td>P</td></tr>
+<tr><td id="abbr-pence">pence</td><td>P</td><td id="abbr-penny">penny</td><td>D, P</td><td id="abbr-per-annum">per annum</td><td>PA</td></tr>
+<tr><td id="abbr-physical-training">physical training</td><td>PT</td><td id="abbr-piano">piano</td><td>P</td><td id="abbr-pint">pint</td><td>PT</td></tr>
+<tr><td id="abbr-place">place</td><td>PL</td><td id="abbr-playing">playing</td><td>ON</td><td id="abbr-point">point</td><td>PT</td></tr>
+<tr><td id="abbr-police">police</td><td>MP</td><td id="abbr-policeman">policeman</td><td>PC</td><td id="abbr-politically-correct">politically correct</td><td>PC</td></tr>
+<tr><td id="abbr-politician">politician</td><td>MP</td><td id="abbr-post-office">post office</td><td>PO</td><td id="abbr-postscript">postscript</td><td>PS</td></tr>
+<tr><td id="abbr-potassium">potassium</td><td>K</td><td id="abbr-pound">pound</td><td>L, LB</td><td id="abbr-power">power</td><td>P</td></tr>
+<tr><td id="abbr-president">president</td><td>P</td><td id="abbr-pressure">pressure</td><td>P</td><td id="abbr-prime-minister">prime minister</td><td>PM</td></tr>
+<tr><td id="abbr-printer-s-measure">printer's measure</td><td>EN</td><td id="abbr-professional">professional</td><td>PRO</td><td id="abbr-promotion">promotion</td><td>AD</td></tr>
+<tr><td id="abbr-public-address">public address</td><td>PA</td><td id="abbr-publicity">publicity</td><td>PR</td><td id="abbr-queen">queen</td><td>ER, Q, QU, R</td></tr>
+<tr><td id="abbr-question">question</td><td>Q</td><td id="abbr-quiet">quiet</td><td>P</td><td id="abbr-race">race</td><td>TT</td></tr>
+<tr><td id="abbr-raised">raised</td><td>UP</td><td id="abbr-rare">rare</td><td>R</td><td id="abbr-recipe">recipe</td><td>R</td></tr>
+<tr><td id="abbr-record">record</td><td>CD, LP</td><td id="abbr-refusal">refusal</td><td>NO</td><td id="abbr-republican">republican</td><td>R</td></tr>
+<tr><td id="abbr-riding">riding</td><td>UP</td><td id="abbr-right">right</td><td>R</td><td id="abbr-ring">ring</td><td>O</td></tr>
+<tr><td id="abbr-river">river</td><td>R</td><td id="abbr-road">road</td><td>RD</td><td id="abbr-rugby">rugby</td><td>RU</td></tr>
+<tr><td id="abbr-run">run</td><td>R</td><td id="abbr-runs">runs</td><td>R</td><td id="abbr-r-sum">résumé</td><td>CV</td></tr>
+<tr><td id="abbr-sailor">sailor</td><td>AB</td><td id="abbr-sailors">sailors</td><td>RN</td><td id="abbr-saint">saint</td><td>S, ST</td></tr>
+<tr><td id="abbr-saints">saints</td><td>SS</td><td id="abbr-sappers">sappers</td><td>RE</td><td id="abbr-say">say</td><td>EG</td></tr>
+<tr><td id="abbr-seaman">seaman</td><td>AB</td><td id="abbr-second">second</td><td>S</td><td id="abbr-section">section</td><td>S</td></tr>
+<tr><td id="abbr-senior">senior</td><td>SR</td><td id="abbr-sex-appeal">sex appeal</td><td>IT, SA</td><td id="abbr-ship">ship</td><td>SS</td></tr>
+<tr><td id="abbr-side">side</td><td>XI</td><td id="abbr-silk">silk</td><td>QC</td><td id="abbr-singular">singular</td><td>S</td></tr>
+<tr><td id="abbr-sister">sister</td><td>SR</td><td id="abbr-six">six</td><td>VI</td><td id="abbr-sleep">sleep</td><td>Z</td></tr>
+<tr><td id="abbr-small">small</td><td>S</td><td id="abbr-society">society</td><td>S</td><td id="abbr-soldier">soldier</td><td>GI</td></tr>
+<tr><td id="abbr-soldiers">soldiers</td><td>OR</td><td id="abbr-son">son</td><td>S</td><td id="abbr-soprano">soprano</td><td>S</td></tr>
+<tr><td id="abbr-south">south</td><td>S</td><td id="abbr-south-africa">south africa</td><td>SA</td><td id="abbr-southeast">southeast</td><td>SE</td></tr>
+<tr><td id="abbr-southern">southern</td><td>S</td><td id="abbr-southwest">southwest</td><td>SW</td><td id="abbr-space">space</td><td>EN</td></tr>
+<tr><td id="abbr-special">special</td><td>S, SP</td><td id="abbr-spin">spin</td><td>PR</td><td id="abbr-starting-price">starting price</td><td>SP</td></tr>
+<tr><td id="abbr-station">station</td><td>STA</td><td id="abbr-steamer">steamer</td><td>SS</td><td id="abbr-stone">stone</td><td>ST</td></tr>
+<tr><td id="abbr-street">street</td><td>ST</td><td id="abbr-succeeded">succeeded</td><td>S</td><td id="abbr-sulphur">sulphur</td><td>S</td></tr>
+<tr><td id="abbr-suspicious">suspicious</td><td>SUS</td><td id="abbr-take">take</td><td>R</td><td id="abbr-tea">tea</td><td>T</td></tr>
+<tr><td id="abbr-team">team</td><td>XI</td><td id="abbr-teetotal">teetotal</td><td>TT</td><td id="abbr-telly">telly</td><td>TV</td></tr>
+<tr><td id="abbr-temperature">temperature</td><td>T</td><td id="abbr-ten">ten</td><td>X</td><td id="abbr-tenor">tenor</td><td>T</td></tr>
+<tr><td id="abbr-tense">tense</td><td>T</td><td id="abbr-tesla">tesla</td><td>T</td><td id="abbr-thanks">thanks</td><td>TA</td></tr>
+<tr><td id="abbr-that-is">that is</td><td>IE</td><td id="abbr-the-setter">the setter</td><td>ME</td><td id="abbr-therefore">therefore</td><td>SO</td></tr>
+<tr><td id="abbr-thousand">thousand</td><td>K, M</td><td id="abbr-time">time</td><td>T</td><td id="abbr-toilet">toilet</td><td>WC</td></tr>
+<tr><td id="abbr-ton">ton</td><td>T</td><td id="abbr-tons">tons</td><td>T</td><td id="abbr-tourist-trophy">tourist trophy</td><td>TT</td></tr>
+<tr><td id="abbr-training">training</td><td>PT</td><td id="abbr-trendy">trendy</td><td>IN</td><td id="abbr-troy">troy</td><td>T</td></tr>
+<tr><td id="abbr-turn">turn</td><td>U</td><td id="abbr-two">two</td><td>II</td><td id="abbr-um">um</td><td>ER</td></tr>
+<tr><td id="abbr-uniform">uniform</td><td>U</td><td id="abbr-unionist">unionist</td><td>U</td><td id="abbr-united">united</td><td>U</td></tr>
+<tr><td id="abbr-universal">universal</td><td>U</td><td id="abbr-university">university</td><td>U</td><td id="abbr-unknown">unknown</td><td>X, Y, Z</td></tr>
+<tr><td id="abbr-upper-class">upper class</td><td>U</td><td id="abbr-uranium">uranium</td><td>U</td><td id="abbr-vermouth">vermouth</td><td>IT</td></tr>
+<tr><td id="abbr-verse">verse</td><td>V</td><td id="abbr-versus">versus</td><td>V</td><td id="abbr-very">very</td><td>SO, V</td></tr>
+<tr><td id="abbr-volt">volt</td><td>V</td><td id="abbr-volunteers">volunteers</td><td>TA</td><td id="abbr-watt">watt</td><td>W</td></tr>
+<tr><td id="abbr-we">we</td><td>US</td><td id="abbr-weight">weight</td><td>KG, LB</td><td id="abbr-west">west</td><td>W</td></tr>
+<tr><td id="abbr-whiskey">whiskey</td><td>W</td><td id="abbr-wife">wife</td><td>W</td><td id="abbr-with">with</td><td>W</td></tr>
+<tr><td id="abbr-without">without</td><td>SP</td><td id="abbr-woman">woman</td><td>MS</td><td id="abbr-women">women</td><td>W</td></tr>
+<tr><td id="abbr-work">work</td><td>OP</td><td id="abbr-working">working</td><td>ON</td><td id="abbr-wrong">wrong</td><td>X</td></tr>
+<tr><td id="abbr-yard">yard</td><td>Y</td><td id="abbr-year">year</td><td>Y</td><td id="abbr-yen">yen</td><td>Y</td></tr>
+<tr><td id="abbr-yours-truly">yours truly</td><td>ME</td><td id="abbr-zed">zed</td><td>Z</td></tr>
 </table>
 <!-- ABBREVIATIONS-END -->
 
