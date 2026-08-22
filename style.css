@@ -643,6 +643,16 @@ mark.link {
 #tutorial td, #tutorial th { border: 1px solid var(--line); padding: 3px 10px; text-align: left; }
 #tutorial code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }
 
+/* The glossary is long on purpose — it is a lookup table, not a lesson, and a
+   solver arrives at it holding one word. Word plain, letters loud, so the eye
+   runs down the column it came for. Styled by class, because the same table is
+   generated into the standalone /learn/ page where there is no #tutorial. */
+table.glossary { width: 100%; border-collapse: collapse; font-size: .82rem; margin: 6px 0 12px; }
+table.glossary td { border: 1px solid var(--line); padding: 3px 8px; text-align: left; }
+table.glossary td:nth-child(even) {
+  font-weight: 700; color: var(--def-fg); white-space: nowrap;
+}
+
 footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; }
 
 /* Tablets sat in the desktop two-column layout and it never fitted. The left
