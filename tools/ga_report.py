@@ -87,6 +87,11 @@ def realtime(cl, prop):
 
     Realtime keeps only a handful of dimensions and no date, so it can say what
     is arriving and never what arrived on Tuesday.
+
+    Test the site with a headed browser or this stays empty however hard you
+    drive it: GA4 drops headless traffic as bots without saying so, which reads
+    exactly like a broken tag. tools/e2e_analytics.py is headless on purpose and
+    stops its evidence at the gtag handoff for that reason.
     """
     from google.analytics.data_v1beta.types import (Dimension, Metric,
                                                     RunRealtimeReportRequest)

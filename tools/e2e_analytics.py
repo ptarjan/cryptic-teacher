@@ -181,6 +181,13 @@ def ga_names(page):
     Nothing here waits for Google: the queue is what the page pushed, which is
     the part this site controls. Whether gtag.js then loaded is a separate
     question, and a blocked tag is a fact about the visitor, not a bug.
+
+    The evidence has to stop at the handoff, because this browser is headless
+    and GA4 discards headless traffic as bots — silently, from realtime and
+    from the batch tables alike. So a run of this test can never make a row
+    appear in GA, and an empty GA report after one says nothing about the tag.
+    Checking the GA end means a headed browser: tools/ga_report.py --realtime
+    answers within a minute of a real visit.
     """
     return page.evaluate(
         "() => (window.dataLayer || []).filter((a) => a[0] === 'event')"
