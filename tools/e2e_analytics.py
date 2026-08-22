@@ -54,14 +54,26 @@ def kv_keys():
 
 
 def kv_delete(names):
-    for n in names:
+    """Remove the keys this run wrote, and name any it could not.
+
+    Every key is attempted even after one fails — wrangler's token can expire
+    part way through a run, and stopping at the first refusal leaves the rest
+    behind with nothing but a count to find them by. A key left in KV is a solve
+    that never happened, so the names go in the message, not in a log.
+    """
+    stuck, why = [], ""
+    for n in sorted(names):
         out = subprocess.run(["npx", "wrangler", "kv", "key", "delete", n,
                              "--namespace-id", NS, "--remote"],
                              capture_output=True, text=True, stdin=subprocess.DEVNULL,
                              cwd=os.path.join(ROOT, "sync"), timeout=120)
         if out.returncode:
-            raise SystemExit(f"could not delete {n}, so this test's keys are still "
-                             f"in your numbers:\n{(out.stderr or out.stdout)[-600:]}")
+            stuck.append(n)
+            why = (out.stderr or out.stdout)[-400:]
+    if stuck:
+        raise SystemExit(f"{len(stuck)} of this test's keys are still in your numbers "
+                         f"(delete them by hand, or run `npx wrangler login` and "
+                         f"re-run):\n  " + "\n  ".join(stuck) + f"\n{why}")
 
 
 # Wrapped before app.js runs. It calls through, so the real beacon still goes
