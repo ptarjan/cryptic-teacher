@@ -593,6 +593,13 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    only here to say the element is expected to move. */
 .guess-clue { will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .guess-clue { will-change: auto; } }
+/* The charade assembling. Each piece the solver has placed stays on screen while
+   the next one is asked for, because watching it come together IS the lesson —
+   holding it in your head is the work the rung exists to take off you. */
+.guess-placed { margin: 8px 0 0; padding: 0; list-style: none; font-size: .9rem; }
+.guess-placed li { color: var(--muted); }
+.guess-placed em { font-style: italic; color: var(--fg); }
+.guess-placed .gives { font-weight: 700; color: var(--def-fg); }
 .guess-verdict { margin: 10px 0 0; font-size: .9rem; }
 .guess-verdict.right { color: var(--def-fg); font-weight: 600; }
 .guess-verdict.miss { color: var(--muted); }
