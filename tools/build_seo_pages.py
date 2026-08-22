@@ -214,6 +214,7 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <meta property="og:image" content="{card}">
 {alt}<meta name="twitter:card" content="summary_large_image">
 {extra}<link rel="stylesheet" href="{asset("style.css")}">
+<script src="{asset("analytics.js")}" defer></script>
 </head>
 <body class="static-page">
 """
