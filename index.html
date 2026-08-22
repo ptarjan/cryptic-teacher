@@ -35,7 +35,10 @@
 </script>
 
 <link rel="stylesheet" href="style.css?v=9e33d676">
-<script src="analytics.js?v=c01369aa" defer></script>
+<!-- Not deferred: app.js reports its milestones through gtag, and a deferred
+     script runs after the parser-blocking one at the end of the body, so the
+     first events of a session would find no gtag to call. -->
+<script src="analytics.js?v=1fa50008"></script>
 <!-- Merge rules, shared verbatim with the sync Worker so the two ends cannot
      drift apart on what "merge" means. -->
 <script src="sync/merge.js?v=95d48386"></script>
@@ -182,6 +185,6 @@
 <script src="puzzles/index.js?v=44918556"></script>
 <script src="tutorial.js?v=3e53ec0a"></script>
 <script src="abbreviations.js?v=4702edcb"></script>
-<script src="app.js?v=d402a734"></script>
+<script src="app.js?v=96355944"></script>
 </body>
 </html>

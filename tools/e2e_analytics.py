@@ -175,7 +175,19 @@ def solve(page):
     }""", [[y * cols + x, ch] for (x, y), ch in want.items()])
 
 
-def visit_buckets(browser, sent):
+def ga_names(page):
+    """What was handed to gtag, read off the dataLayer queue.
+
+    Nothing here waits for Google: the queue is what the page pushed, which is
+    the part this site controls. Whether gtag.js then loaded is a separate
+    question, and a blocked tag is a fact about the visitor, not a bug.
+    """
+    return page.evaluate(
+        "() => (window.dataLayer || []).filter((a) => a[0] === 'event')"
+        ".map((a) => a[1])")
+
+
+def visit_buckets(browser, sent, ga):
     """The returning buckets need a browser that remembers an earlier day.
 
     Which bucket goes is decided entirely by the browser's own tally, so seeding
@@ -193,6 +205,7 @@ def visit_buckets(browser, sent):
         page.wait_for_timeout(1500)
         got = page.evaluate("() => Promise.all(window.__ctBeacons || [])")
         sent += got
+        ga += ga_names(page)
         page.close()
         if expect not in {b["name"] for b in got}:
             print(f"  a browser {days + 1} days old sent "
@@ -210,7 +223,7 @@ def main():
     before = kv_keys()
     print(f"KV already holds {len(before)} event key(s) — those are not mine")
 
-    sent, posts = [], []
+    sent, posts, ga = [], [], []
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
         browser = p.chromium.launch()
@@ -228,7 +241,8 @@ def main():
             print(f"grid correct in {right}/{total} squares"
                   + (f" — wrong at grid index {wrong}" if wrong else ""))
             sent += page.evaluate("() => Promise.all(window.__ctBeacons || [])")
-            visit_buckets(browser, sent)
+            ga += ga_names(page)
+            visit_buckets(browser, sent, ga)
         finally:
             browser.close()
 
@@ -247,6 +261,11 @@ def main():
     for s in sorted(stored):
         print("  stored  ", s)
 
+    # Every event goes two places, and the second one has its own spelling.
+    ga_set = set(ga)
+    missing_ga = {n.replace("-", "_") for n in want} - ga_set
+    print(f"  handed to gtag ({len(ga_set)}):", ", ".join(sorted(ga_set)) or "none")
+
     missing_sent = want - sent_set
     missing_stored = sent_set - stored
     print()
@@ -254,6 +273,8 @@ def main():
         print("NOT SENT by the browser:", ", ".join(sorted(missing_sent)))
     if missing_stored:
         print("SENT BUT NOT STORED (Worker dropped it):", ", ".join(sorted(missing_stored)))
+    if missing_ga:
+        print("NOT HANDED TO GA:", ", ".join(sorted(missing_ga)))
 
     if not args.keep and mine:
         print(f"\ncleaning up {len(mine)} key(s) this test wrote")
@@ -261,9 +282,10 @@ def main():
         left = kv_keys()
         print("KV back to", len(left), "key(s)" if len(left) != 1 else "key")
 
-    if missing_sent or missing_stored:
+    if missing_sent or missing_stored or missing_ga:
         return 1
-    print("\nEND TO END OK: every event was sent by the browser and stored by the Worker")
+    print("\nEND TO END OK: every event was sent by the browser, stored by the "
+          "Worker and handed to GA")
     return 0
 
 
