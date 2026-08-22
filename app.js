@@ -1502,28 +1502,29 @@
       // convention says so. No amount of staring derives that, so a rung that
       // hands over the letters without saying which were knowledge leaves the
       // solver unable to tell "think harder" from "look this up once, own it
-      // forever". abbreviations.js already held every one of them; until now
-      // only the clue-writer could see the table.
-      const seen = new Set();
-      const conventions = [];
-      blocks.forEach((b) => {
+      // forever".
+      //
+      // The letters themselves carry that, and nothing else does: a linked AB
+      // is one the glossary can explain, an unlinked one was worked out here.
+      // It used to be a sentence underneath repeating the same pairs, which is
+      // a second reading of something already on the screen (Paul, 2026-08-22:
+      // "you still added a sentence", "just linkify the abbreviation itself").
+      const glossaryHref = (b) => {
         const letters = (b.gives || "").toUpperCase();
         const meanings = typeof ABBREVIATIONS === "undefined" ? null : ABBREVIATIONS[letters];
-        if (!meanings || !b.clueFragment || seen.has(letters)) return;
+        if (!meanings || !b.clueFragment) return null;
         // Whole words only: "one" must not fire inside "money", nor "me" inside
         // "some". The meanings are data, so they get escaped before they are a
         // pattern.
         const frag = b.clueFragment.toLowerCase();
         const word = meanings.find((m) =>
           new RegExp(`\\b${m.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(frag));
-        if (!word) return;
-        seen.add(letters);
-        // The convention itself is the link. Kept in step with the id
-        // tools/build_abbreviations.py writes onto that word's cell.
-        const at = "abbr-" + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-        conventions.push(
-          `<a class="gloss" href="#${at}"><b>${esc(word)}</b> = ${esc(letters)}</a>`);
-      });
+        // Kept in step with the id tools/build_abbreviations.py writes onto
+        // that word's cell; tools/smoke_test.js fails if the two ever disagree.
+        return word
+          ? "#abbr-" + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+          : null;
+      };
       const items = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
@@ -1533,21 +1534,20 @@
         // the sounded form gets its own arrow, ahead of the letters it turns
         // into, and the validator now refuses a sound clue that has none.
         if (b.soundsLike) s += ` → <span class="gives">${esc(b.soundsLike)}</span> <span class="muted">said aloud</span>`;
-        if (b.gives && !isCD) s += ` → <span class="gives">${esc(b.gives)}</span>`;
+        if (b.gives && !isCD) {
+          const href = glossaryHref(b);
+          const gives = `<span class="gives">${esc(b.gives)}</span>`;
+          s += " → " + (href
+            ? `<a class="gloss" href="${href}" title="Standard abbreviation — look it up once">${gives}</a>`
+            : gives);
+        }
         if (b.note) s += ` <span class="muted">— ${esc(b.note)}</span>`;
         return s + "</li>";
       }).join("");
       steps.push({
         key: "blocks",
         label: LABELS.blocks,
-        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>` +
-          (conventions.length
-            // Each convention links to its own row of the glossary. A trailing
-            // "see them all" is a second sentence to read and lands on the top
-            // of a four-hundred-row table; the word the solver just met is the
-            // thing they want to look up, so it is the thing that is clickable.
-            ? `<p class="mechanism">Standard abbreviations — these never change, so they are worth memorising: ${conventions.join(", ")}.</p>`
-            : "")
+        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>`
       });
     }
 
