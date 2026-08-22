@@ -12,8 +12,13 @@ const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", 
 // The DOM stub and the app boot live in tools/fake_dom.js, because
 // tools/make_hint_packets.js boots the same app to walk the same hint ladder.
 // One stub, so a grader can never mark a rung the app does not actually show.
-const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc } =
+const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc, beacons } =
   require("./fake_dom.js").boot();
+const EVENTS = require("../sync/events.js");
+// What the page reported since a mark, in order. Sliced rather than read whole:
+// the harness opens a great many puzzles over a run, and the rule under test is
+// "at most once per puzzle per session", not "at most once ever".
+const reported = (mark) => beacons.slice(mark).map((b) => b.body.parts);
 
 // Puzzle ids carry their series ("cryptic-30089"); the picker shows the plain
 // number, which is what a person types and what the row says. One conversion,
@@ -1777,7 +1782,14 @@ registry["reset-puzzle"].onclick();
   assert(!/type="(password|email)"/.test(page),
     "the page asks for no password and no email — the code is the whole identity");
   assert(/syncOn\(\)/.test(src) && (src.match(/fetch\(/g) || []).length === 1,
-    "there is exactly one place that talks to the network, and it is gated on sync being on");
+    "there is exactly one place that sends a crossword, and it is gated on sync being on");
+  // The counter is the only other thing that reaches the network, and what it
+  // can carry is one name from the shared list — no grid, no code, no id. Two
+  // separate things go to the same Worker and only one of them is about you.
+  assert((src.match(/sendBeacon\(/g) || []).length === 1,
+    "there is exactly one place that reports an event");
+  assert(/sendBeacon\(\s*SYNC_ENDPOINT[^;]*new Blob\(\[name\]/.test(src),
+    "and the whole of what it sends is the event name");
 
   registry["btn-sync"].onclick();
   assert(!registry["sync-panel"].classList.contains("hidden"), "the sync panel opens");
@@ -1849,6 +1861,7 @@ global.realSetTimeout(() => {
       .find((x) => x.children[0] && x.children[0].innerHTML.includes("\u2116 " + numberOf(id)))
       .children[0].onclick();
   };
+  const firstOpen = beacons.length;
   open();
   const box = registry["celebrate"];
   assert(box.classList.contains("hidden"), "nothing is celebrated on opening a fresh grid");
@@ -1889,6 +1902,24 @@ global.realSetTimeout(() => {
     "and it says what was achieved, not just that something was: " + box.innerHTML);
   registry["celebrate-done"].onclick();
   assert(box.classList.contains("hidden"), "and it can be dismissed");
+
+  // --- and the solve was counted, once per thing, not once per keystroke ---
+  // A whole grid is hundreds of keystrokes and dozens of finished entries. If
+  // the at-most-once set ever stops holding, this is where it shows: the run
+  // above would report a beacon per letter instead of a beacon per milestone.
+  {
+    const sent = reported(firstOpen);
+    assert(sent.every((n) => EVENTS.indexOf(n) >= 0),
+      "every name reported is on the shared list in sync/events.js: " + sent.join(","));
+    assert(new Set(sent).size === sent.length,
+      `a solved grid reports each name once, not once per keystroke: ${sent.length} beacons, `
+        + sent.join(","));
+    ["open", "letter", "half", "entry", "done"].forEach((n) => assert(sent.indexOf(n) >= 0,
+      `filling the whole grid reports "${n}": ` + sent.join(",")));
+    assert(beacons.every((b) => /\/e$/.test(b.url) && b.body.type === "text/plain"),
+      "and it goes to /e as text/plain, which is what keeps it free of a preflight");
+  }
+  const reopen = beacons.length;
   // Re-opening the finished puzzle: still solved, nothing earned. The save is
   // debounced, so it has to be flushed first — without that the reopened grid
   // comes back empty and this assertion passes for the wrong reason, which is
@@ -1899,6 +1930,51 @@ global.realSetTimeout(() => {
     "the reopened puzzle really is the finished one: " + registry["scorebar"].innerHTML);
   assert(box.classList.contains("hidden"),
     "re-opening a puzzle you already finished celebrates nothing: " + box.innerHTML);
+  // The same rule the celebration follows, in the counter: progress that was
+  // already in the grid when it opened belongs to the session that made it.
+  // Without this a returning solver's every visit would report a finished
+  // puzzle again, and "how many people finish" would count sessions.
+  assert(reported(reopen).join(",") === "open",
+    "re-opening a finished puzzle reports only that it was opened: "
+      + reported(reopen).join(","));
+}
+
+// --- a misspelled event name is invisible forever, so it fails here ---
+// The list in sync/events.js is the whole contract: app.js may only report a
+// name on it and the Worker only stores names on it. Both ends are checked
+// against the one file, because a name that drifts is not an error anywhere —
+// it is a counter that reads zero, which looks exactly like a thing nobody does.
+{
+  const app = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const worker = fs.readFileSync(path.join(ROOT, "sync/worker.js"), "utf8");
+  const page = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+
+  assert(Array.isArray(EVENTS) && new Set(EVENTS).size === EVENTS.length && EVENTS.length > 0,
+    "sync/events.js is a list of distinct names: " + JSON.stringify(EVENTS));
+
+  // The whole argument, so the rung beacons — whose name is built rather than
+  // written — are not mistaken for a literal called "hint".
+  const literals = [...app.matchAll(/beacon\("([^"]+)"\)/g)].map((m) => m[1]);
+  assert(literals.length >= 5, "app.js reports events at all: " + literals.join(","));
+  literals.forEach((n) => assert(EVENTS.indexOf(n) >= 0,
+    `app.js reports "${n}", which is not on the list in sync/events.js`));
+  // The rung beacons are built from a depth rather than written out, so the
+  // grep above cannot see them and the whole range has to be on the list.
+  assert(/beacon\("hint" \+ Math\.min\((\d+)/.test(app),
+    "app.js reports the hint rungs by depth");
+  const deepest = Number(app.match(/beacon\("hint" \+ Math\.min\((\d+)/)[1]);
+  for (let i = 1; i <= deepest; i++) assert(EVENTS.indexOf("hint" + i) >= 0,
+    `app.js can report "hint${i}", which is not on the list in sync/events.js`);
+
+  assert(/import CTEvents from "\.\/events\.js"/.test(worker) &&
+         /CTEvents\.indexOf\(name\) < 0/.test(worker),
+    "the Worker validates against the same file rather than a copy of the list");
+  // Structural, not a spelling check: a second list in the Worker is the drift
+  // this file exists to prevent, so no event name may appear in it as a literal.
+  assert(EVENTS.every((n) => !worker.includes(`"${n}"`)),
+    "and the Worker holds no second copy of the names");
+  assert(/<script src="sync\/events\.js\?v=/.test(page),
+    "the page loads the list, stamped like every other asset");
 }
 
 // --- point at the words before the rung names them ---
