@@ -29,6 +29,64 @@
   const SYNC_RESERVED = { last: 1, sync: 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
+  /* ---------- counting solves, not solvers ----------
+     Solving happens in localStorage, so the only thing anybody outside this
+     browser can see is that the page loaded. Whether a visitor typed a letter,
+     took a hint or finished the grid was unknowable, and every question about
+     whether the teaching works starts there.
+
+     What is sent is one name from sync/events.js and nothing else — no puzzle,
+     no clue, no identifier, no time. sync/worker.js stores it as a key name.
+
+     AT MOST ONCE PER NAME PER PUZZLE PER SESSION. A solver climbing six rungs on
+     thirty clues owes six beacons, not a hundred and eighty; the set below is
+     what makes the difference, and openPuzzle empties it.
+
+     Fire and forget. sendBeacon hands the request to the browser to send when it
+     likes, there is no reply and nothing to await, and a browser without it — or
+     with sync/events.js blocked — simply reports nothing. Nothing on this path
+     may delay a keystroke or throw into one.
+
+     Unrelated to sync. Sync moves a solver's own grids between their own
+     devices; this is a counter. Someone who has never opened the sync panel is
+     counted the same as someone who has. */
+  let eventsSent = new Set();
+  function beacon(name) {
+    if (!SYNC_ENDPOINT || eventsSent.has(name)) return;
+    eventsSent.add(name);
+    // The list is the contract with the Worker and is checked at both ends, so a
+    // name that is not on it is a bug in this file and stops here.
+    if (typeof CTEvents === "undefined" || CTEvents.indexOf(name) < 0) return;
+    try {
+      if (navigator.sendBeacon)
+        navigator.sendBeacon(SYNC_ENDPOINT.replace(/\/$/, "") + "/e",
+                             new Blob([name], { type: "text/plain" }));
+    } catch (e) { /* a counter is never worth an exception in the middle of a solve */ }
+  }
+
+  // An event says what THIS session did. A grid that opens with letters already
+  // in it was filled on some other day, so the state it arrives in counts as
+  // already reported and only movement from here is sent.
+  function sealArrivedProgress() {
+    eventsSent = new Set();
+    let filled = 0, total = 0;
+    forEachCell((c) => { total++; if (c.letter) filled++; });
+    if (filled) eventsSent.add("letter");
+    if (total && filled * 2 >= total) eventsSent.add("half");
+    if (entries.some(isEntrySolved)) eventsSent.add("entry");
+    if (entries.length && entries.every(isEntrySolved)) eventsSent.add("done");
+  }
+
+  // Halfway is where sampling has turned into solving, which is why it is the
+  // one grid-fill mark worth a beacon. Driven from refreshAll because letters
+  // arrive half a dozen ways and only some of them are typing.
+  function checkHalfFilled() {
+    if (!entries.length || eventsSent.has("half")) return;
+    let filled = 0, total = 0;
+    forEachCell((c) => { total++; if (c.letter) filled++; });
+    if (total && filled * 2 >= total) beacon("half");
+  }
+
   // ---------- load all puzzle files listed in puzzles/index.js ----------
   const INDEX = (window.CRYPTIC_INDEX && window.CRYPTIC_INDEX.puzzles) ? window.CRYPTIC_INDEX : { latest: null, puzzles: [] };
   window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
@@ -975,6 +1033,7 @@
   function typeLetter(ch) {
     const c = cells[cur.y][cur.x];
     if (!c) return;
+    beacon("letter");
     c.letter = ch; c.wrong = false; c.revealed = false;
     checkSolvedEntries();
     advanceToGap();
@@ -1021,6 +1080,7 @@
   // squares that were examined, so you can see WHICH squares the check covered.
   function checkCells(list, scope) {
     if (!canCheck()) return;
+    beacon("check");
     let wrong = 0, right = 0, blank = 0;
     list.forEach((c) => {
       if (!c.letter) { blank++; return; }
@@ -1111,6 +1171,7 @@
     entries.forEach((e) => {
       if (isEntrySolved(e) && solvedWith[e.id] === undefined) {
         solvedWith[e.id] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
+        beacon("entry");
       }
     });
   }
@@ -1296,6 +1357,10 @@
   function showHint(e, rung) {
     if (isShown(e, rung)) return;
     shownRungs(e).push(rung);
+    // How DEEP down this clue's ladder, not which rung it was: the ladder is
+    // built per clue, so the rung names are not comparable between clues but the
+    // depth is, and "how far do solvers go before they get it" is the question.
+    beacon("hint" + Math.min(6, shownRungs(e).length));
     saveState();
   }
 
@@ -2556,6 +2621,8 @@
     wasComplete = null;
     $("celebrate").classList.add("hidden");
     restoreState();
+    sealArrivedProgress();
+    beacon("open");
     // ?c=3D opens on that clue. A whole 15x15 is a lot to hand someone who has
     // never solved a cryptic, and it is also just what sharing wants: the answer
     // to "which one are you stuck on" should be a link, not a number to hunt for.
@@ -2606,7 +2673,7 @@
     const complete = entries.length > 0 && entries.every(isEntrySolved);
     const earned = wasComplete === false && complete;
     wasComplete = complete;
-    if (earned) celebrate();
+    if (earned) { beacon("done"); celebrate(); }
   }
   function celebrate() {
     const box = $("celebrate");
@@ -2650,6 +2717,7 @@
     renderHintPanel();
     renderScore();
     checkComplete();
+    checkHalfFilled();
     syncClueUrl();
   }
 

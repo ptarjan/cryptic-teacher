@@ -326,6 +326,20 @@ function boot(opts) {
     text: null,
     writeText(v) { clipboard.text = String(v); return Promise.resolve(); }
   };
+  // What the page reported about the session, kept rather than sent. The rule
+  // worth testing is that a name goes at most once per puzzle, and the only way
+  // to see that is to count what the app actually handed the browser.
+  const beacons = [];
+  // Node's own Blob only gives up its contents asynchronously, and these tests
+  // are synchronous. This one keeps the text where an assertion can reach it,
+  // which is all the beacon path asks of a Blob.
+  global.Blob = class Blob {
+    constructor(parts, options) {
+      this.parts = (parts || []).map(String).join("");
+      this.type = (options || {}).type || "";
+    }
+    text() { return Promise.resolve(this.parts); }
+  };
   // defineProperty, not assignment: Node 22 ships its own read-only global
   // navigator, and a plain `global.navigator = …` throws.
   Object.defineProperty(global, "navigator", {
@@ -333,7 +347,12 @@ function boot(opts) {
     // the machine every scroll bug was reported from. maxTouchPoints is how the
     // app knows a tap on a clue is about to raise a soft keyboard, and so that
     // silence from the viewport does not yet mean the viewport has settled.
-    value: { clipboard, maxTouchPoints: 5 }, writable: true, configurable: true
+    value: {
+      clipboard,
+      maxTouchPoints: 5,
+      sendBeacon(url, body) { beacons.push({ url, body }); return true; }
+    },
+    writable: true, configurable: true
   });
   global.localStorage = global.window.localStorage;
   global.confirm = () => true;
@@ -343,6 +362,10 @@ function boot(opts) {
   global.URLSearchParams = URLSearchParams;
 
   // load index + tutorial + app
+  // sync/events.js goes in the way the page loads it, as a plain script: app.js
+  // checks a name against that list before reporting it, so without it here the
+  // beacon path is inert and nothing about it is testable.
+  new Function("window", fs.readFileSync(path.join(ROOT, "sync/events.js"), "utf8"))(global.window);
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
   new Function("window", fs.readFileSync(path.join(ROOT, "tutorial.js"), "utf8"))(global.window);
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
@@ -359,7 +382,8 @@ function boot(opts) {
 
   // appSrc goes back out because the smoke test greps app.js's own source for the
   // FAMILIES table — an assertion about the code, not about the rendered DOM.
-  return { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc, window: global.window };
+  return { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc, beacons,
+           window: global.window };
 }
 
 module.exports = { boot, ROOT };

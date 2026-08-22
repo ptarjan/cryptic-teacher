@@ -11,16 +11,19 @@
    save over the laptop's afternoon and silently eat it. With it, a push can
    only ever add. */
 import CTMerge from "./merge.js";
+import CTEvents from "./events.js";
 
 // No 0/O/1/I/L — this gets read off one screen and typed into another, by hand.
 const CODE_RE = /^[2-9A-HJ-KMNP-TV-Z]{8}$/;
 const MAX_BODY = 512 * 1024;   // ~100 puzzles of letters is a few tens of KB
 const MAX_PUZZLES = 2000;
 const TTL = 60 * 60 * 24 * 365; // a code untouched for a year is abandoned
+const EVENT_TTL = 60 * 60 * 24 * 90; // a quarter, so this month has a month to compare against
+const MAX_EVENT = 32;           // the longest name on the list, with room to spare
 
 const cors = (origin) => ({
   "access-control-allow-origin": origin || "*",
-  "access-control-allow-methods": "GET,PUT,OPTIONS",
+  "access-control-allow-methods": "GET,POST,PUT,OPTIONS",
   "access-control-allow-headers": "content-type",
   "access-control-max-age": "86400",
 });
@@ -37,6 +40,34 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors(origin) });
 
     const url = new URL(request.url);
+
+    /* Counting solves, with no solver in the data.
+
+       THE KEY NAME IS THE RECORD. The value is empty and is never read: counting
+       is a `list` by prefix, so there is no read-modify-write and therefore no
+       increment a race can lose, and no counter that can end up wrong.
+
+       A key is a date, a name from the shared list, and randomness to keep two
+       of them apart. That is all of it — no address, no cookie, no id, no user
+       agent, no puzzle, and no clock finer than the day. So there is nothing
+       here to correlate two events into one visitor with, which is deliberate:
+       the question is whether visitors solve anything, and that is an aggregate.
+
+       Always 204, whatever was sent. A validation failure told to the caller
+       would describe the list to anyone who asked, and sendBeacon has nobody to
+       report an error to in any case — the page that sent this has a solver
+       typing into it and must never be handed a retry. */
+    if (url.pathname === "/e" && request.method === "POST") {
+      const ok = new Response(null, { status: 204, headers: cors(origin) });
+      if (Number(request.headers.get("content-length") || 0) > MAX_EVENT) return ok;
+      const name = (await request.text()).trim();
+      if (CTEvents.indexOf(name) < 0) return ok;
+      const day = new Date().toISOString().slice(0, 10);
+      await env.SAVES.put(`e:${day}:${name}:${crypto.randomUUID()}`, "",
+                          { expirationTtl: EVENT_TTL });
+      return ok;
+    }
+
     const m = url.pathname.match(/^\/s\/([^/]+)$/);
     if (!m) return json({ error: "not found" }, 404, origin);
 
