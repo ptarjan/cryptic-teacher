@@ -1271,22 +1271,21 @@
                               isShown(e, s.key) || spentBy(e, steps, s.key));
   }
 
-  // A rung nobody should have to buy twice. Pointing at the definition and at
-  // the indicator IS saying what kind of clue this is — an anagram indicator
-  // sitting next to a definition is an anagram — so a solver who has EARNED the
-  // spotting rungs has already demonstrated what "what kind of clue is this?"
-  // would have told them, and making them pay for it to reach the assembly rung
-  // is a turnstile rather than a lesson (Paul, 2026-08-21).
+  // A rung nobody should have to buy twice. Knowing where the definition is and
+  // which words are the indicator IS knowing what kind of clue this is — an
+  // anagram indicator sitting next to a definition is an anagram — so once both
+  // spotting rungs are up, "what kind of clue is this?" has nothing left to say,
+  // and charging for it to reach the assembly rung is a turnstile.
   //
-  // Earned, not merely shown: being told the definition demonstrates nothing, so
-  // buying the tier-0 rungs still leaves the type rung standing where it was.
-  // And read off the ladder rather than a fixed list of names, so a clue with no
-  // indicators rung cannot open the gate on the strength of a rung it never had.
+  // Up by any route: guessed right, guessed nearly, or asked for outright. The
+  // rung is spent because its CONTENT is already on the screen, which is a fact
+  // about the panel and not about how well the solver did. And read off the
+  // ladder rather than a fixed list of names, so a clue with no indicators rung
+  // cannot open the gate on the strength of a rung it never had.
   function spentBy(e, steps, key) {
     if (key !== "type") return false;
-    const earned = earnedRungs(e);
     const spotting = steps.filter((s) => s.key !== "type" && !(RUNG_TIER[s.key] || 0));
-    return spotting.length > 0 && spotting.every((s) => earned.indexOf(s.key) >= 0);
+    return spotting.length > 0 && spotting.every((s) => isShown(e, s.key));
   }
 
   function showHint(e, rung) {
