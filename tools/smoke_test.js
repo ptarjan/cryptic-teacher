@@ -61,6 +61,22 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     "abbreviations.js matches tools/data/abbreviations.json (run tools/build_abbreviations.py)");
   assert(Object.keys(table).length === Object.keys(json).length,
     "abbreviations.js has every entry the JSON does (run tools/build_abbreviations.py)");
+
+  // And the glossary the solver can READ is the same table again. It used to be
+  // a hand-picked "starter set" of two dozen pairs, which is how the blocks rung
+  // could say CH was check while the tutorial had never heard of it (Paul,
+  // 2026-08-22). Generated between markers now, so a new convention reaches the
+  // page the solver is sent to as well as the one the hint quotes from.
+  const tut = fs.readFileSync(path.join(ROOT, "tutorial.js"), "utf8");
+  assert(tut.includes('<h3 id="abbreviations">'),
+    "the tutorial's glossary carries the anchor the hint links to");
+  const senses = new Set();
+  Object.values(json).forEach((words) => words.forEach((w) => senses.add(w)));
+  const listed = [...senses].filter((w) => tut.includes(`<td>${w}</td>`));
+  assert(listed.length === senses.size,
+    `every sense in the JSON is in the tutorial's glossary (run tools/build_abbreviations.py) — `
+      + `missing ${senses.size - listed.length}, e.g. `
+      + [...senses].filter((w) => !tut.includes(`<td>${w}</td>`)).slice(0, 3).join(", "));
 }
 
 // --- the grid measures its container, never the window ---

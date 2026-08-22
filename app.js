@@ -1538,7 +1538,11 @@
         label: LABELS.blocks,
         html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>` +
           (conventions.length
-            ? `<p class="mechanism">Standard abbreviations — these never change, so they are worth memorising: ${conventions.join(", ")}.</p>`
+            // Naming a convention without saying where the rest of them live
+            // teaches one letter and leaves the solver no way to go and learn
+            // the other four hundred (Paul, 2026-08-22: "I didn't see it linked
+            // when it said ch is chess for check").
+            ? `<p class="mechanism">Standard abbreviations — these never change, so they are worth memorising: ${conventions.join(", ")}. <a id="glossary-link" href="#abbreviations">See them all</a>.</p>`
             : "")
       });
     }
@@ -2146,6 +2150,18 @@
         // know this yet?", and it costs what the rung has always cost.
         $("guess-tell").onclick = () => finishGuess(null, ask);
       }
+
+      // The glossary lives in the tutorial section of this same page, so
+      // reaching it costs no navigation and loses no solve. A plain #anchor
+      // would land on a hidden section and appear to do nothing.
+      const gloss = document.getElementById("glossary-link");
+      if (gloss) gloss.onclick = (ev) => {
+        if (ev && ev.preventDefault) ev.preventDefault();
+        const t = $("tutorial");
+        t.classList.remove("hidden");
+        const at = document.getElementById("abbreviations") || t;
+        if (at.scrollIntoView) at.scrollIntoView({ behavior: "smooth" });
+      };
 
       // Every unlocked rung is offered at once, not just the next one: wanting
       // the indicators shouldn't mean being handed the definition on the way,

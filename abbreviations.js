@@ -6,11 +6,21 @@
 // out.
 const ABBREVIATIONS = {
  "A": [
-  "one",
+  "academy",
   "ace",
-  "area",
+  "active",
+  "adult",
+  "alto",
+  "amateur",
+  "america",
+  "american",
+  "anonymous",
   "answer",
-  "adult"
+  "area",
+  "article",
+  "australia",
+  "australian",
+  "one"
  ],
  "AB": [
   "sailor",
@@ -18,6 +28,7 @@ const ABBREVIATIONS = {
  ],
  "AC": [
   "account",
+  "athletic club",
   "current"
  ],
  "AD": [
@@ -25,41 +36,59 @@ const ABBREVIATIONS = {
   "promotion"
  ],
  "AM": [
-  "morning",
-  "before noon"
+  "before noon",
+  "morning"
+ ],
+ "ARR": [
+  "arrived"
+ ],
+ "AT": [
+  "attending"
  ],
  "AV": [
-  "average",
-  "avenue"
+  "avenue",
+  "average"
  ],
  "B": [
-  "born",
+  "bachelor",
   "bishop",
   "black",
   "book",
-  "bowled"
+  "born",
+  "bowled",
+  "british"
  ],
  "BA": [
-  "graduate",
+  "arts degree",
   "degree",
-  "arts degree"
+  "graduate"
  ],
  "BC": [
-  "long ago",
-  "before Christ"
+  "before christ",
+  "long ago"
  ],
  "C": [
   "about",
-  "caught",
-  "cold",
-  "century",
-  "hundred",
   "carbon",
-  "conservative"
+  "catholic",
+  "caught",
+  "century",
+  "charlie",
+  "clubs",
+  "cold",
+  "colt",
+  "conservative",
+  "constant",
+  "contralto",
+  "hundred"
  ],
  "CA": [
   "about",
+  "california",
   "circa"
+ ],
+ "CC": [
+  "cricket club"
  ],
  "CD": [
   "disc",
@@ -69,25 +98,32 @@ const ABBREVIATIONS = {
   "church"
  ],
  "CH": [
+  "check",
   "child",
   "church",
   "companion of honour"
  ],
  "CO": [
+  "commanding officer",
   "company",
-  "firm",
-  "commanding officer"
+  "firm"
  ],
  "CV": [
-  "r\u00e9sum\u00e9",
-  "career record"
+  "career record",
+  "r\u00e9sum\u00e9"
  ],
  "D": [
+  "date",
   "daughter",
+  "day",
+  "dead",
+  "diamonds",
   "died",
-  "penny",
+  "director",
   "duke",
-  "five hundred"
+  "dutch",
+  "five hundred",
+  "penny"
  ],
  "DC": [
   "capital",
@@ -98,32 +134,39 @@ const ABBREVIATIONS = {
   "inspector"
  ],
  "DR": [
-  "doctor",
   "debtor",
+  "doctor",
   "drive"
  ],
  "E": [
-  "east",
-  "English",
-  "energy",
   "drug",
+  "earl",
+  "east",
+  "eastern",
+  "ecstasy",
+  "energy",
+  "england",
+  "english",
+  "european",
   "note"
  ],
  "ED": [
-  "editor"
+  "edited",
+  "editor",
+  "education"
  ],
  "EG": [
-  "say",
   "for example",
-  "for instance"
+  "for instance",
+  "say"
  ],
  "EN": [
-  "space",
-  "printer's measure"
+  "printer's measure",
+  "space"
  ],
  "ER": [
-  "queen",
   "hesitation",
+  "queen",
   "um"
  ],
  "EX": [
@@ -132,46 +175,53 @@ const ABBREVIATIONS = {
   "out of"
  ],
  "F": [
+  "fellow",
   "female",
   "fine",
-  "loud",
-  "forte",
   "following",
-  "franc"
+  "forte",
+  "franc",
+  "function",
+  "loud"
  ],
  "FE": [
   "iron"
  ],
  "FT": [
-  "foot",
-  "feet"
+  "feet",
+  "foot"
  ],
  "G": [
+  "german",
   "good",
-  "gravity",
-  "grand",
   "gram",
+  "grand",
+  "gravity",
   "key"
  ],
  "GB": [
-  "Britain"
+  "britain"
  ],
  "GI": [
-  "soldier",
-  "American soldier"
+  "american soldier",
+  "soldier"
  ],
  "GM": [
-  "grandmaster",
-  "gram"
+  "gram",
+  "grandmaster"
  ],
  "GP": [
   "doctor"
  ],
  "H": [
   "hard",
+  "hearts",
+  "height",
+  "heroin",
   "hospital",
-  "hour",
   "hot",
+  "hotel",
+  "hour",
   "husband"
  ],
  "HE": [
@@ -186,11 +236,14 @@ const ABBREVIATIONS = {
   "hour"
  ],
  "I": [
-  "one",
-  "iodine",
   "current",
+  "information",
+  "international",
+  "iodine",
   "island",
-  "me"
+  "italy",
+  "me",
+  "one"
  ],
  "IE": [
   "that is"
@@ -199,105 +252,128 @@ const ABBREVIATIONS = {
   "two"
  ],
  "IN": [
-  "fashionable",
   "at home",
+  "fashionable",
   "trendy"
  ],
+ "IS": [
+  "island"
+ ],
  "IT": [
-  "sex appeal",
   "computing",
+  "sex appeal",
   "vermouth"
  ],
  "IV": [
-  "four",
-  "drip"
+  "drip",
+  "four"
  ],
  "IX": [
   "nine"
  ],
  "K": [
+  "kelvin",
   "king",
-  "thousand",
   "potassium",
-  "kelvin"
+  "thousand"
  ],
  "KG": [
   "kilo",
   "weight"
  ],
  "KO": [
-  "knockout",
-  "flatten"
+  "flatten",
+  "knockout"
  ],
  "L": [
-  "left",
+  "fifty",
+  "lake",
+  "large",
+  "latin",
   "learner",
+  "left",
+  "liberal",
   "line",
   "litre",
-  "lake",
-  "pound",
-  "fifty"
+  "long",
+  "pound"
  ],
  "LA": [
-  "note",
-  "Los Angeles"
+  "los angeles",
+  "note"
  ],
  "LB": [
   "pound",
   "weight"
  ],
+ "LIT": [
+  "literary"
+ ],
  "LP": [
-  "record",
-  "album"
+  "album",
+  "record"
  ],
  "LT": [
   "lieutenant",
   "light"
  ],
  "M": [
+  "maiden",
   "male",
+  "mark",
   "married",
-  "motorway",
+  "mass",
+  "master",
+  "member",
+  "meter",
   "metre",
+  "metres",
   "mile",
+  "millions",
+  "money",
+  "month",
+  "motorway",
   "thousand"
  ],
  "MA": [
+  "degree",
   "graduate",
-  "master",
-  "degree"
+  "master"
  ],
  "MC": [
   "compere",
   "host"
  ],
  "MD": [
-  "doctor",
   "boss",
+  "doctor",
   "managing director"
  ],
  "ME": [
   "note",
-  "yours truly",
-  "the setter"
+  "the setter",
+  "yours truly"
  ],
  "MI": [
-  "note",
-  "intelligence"
+  "intelligence",
+  "note"
+ ],
+ "MIN": [
+  "minute"
  ],
  "MO": [
-  "moment",
   "doctor",
-  "modus operandi"
+  "modus operandi",
+  "moment"
  ],
  "MP": [
-  "politician",
   "member",
-  "police"
+  "police",
+  "politician"
  ],
  "MR": [
-  "mister",
-  "man"
+  "man",
+  "mister"
  ],
  "MS": [
   "manuscript",
@@ -305,21 +381,30 @@ const ABBREVIATIONS = {
   "woman"
  ],
  "MT": [
-  "mount",
-  "empty"
+  "empty",
+  "mount"
  ],
  "N": [
-  "north",
-  "name",
-  "note",
   "knight",
-  "new"
+  "name",
+  "new",
+  "noon",
+  "north",
+  "northern",
+  "note",
+  "nuclear",
+  "number"
+ ],
+ "NA": [
+  "north american",
+  "not applicable"
  ],
  "NB": [
   "note",
   "note well"
  ],
  "NE": [
+  "north eastern",
   "northeast"
  ],
  "NO": [
@@ -327,32 +412,36 @@ const ABBREVIATIONS = {
   "refusal"
  ],
  "NT": [
-  "new testament",
-  "national trust"
+  "national trust",
+  "new testament"
  ],
  "NW": [
   "northwest"
  ],
  "O": [
-  "old",
+  "circle",
+  "duck",
   "love",
   "nothing",
-  "ring",
-  "duck",
+  "ohio",
+  "old",
+  "ordinary",
+  "over",
   "oxygen",
-  "circle"
+  "ring"
  ],
  "OB": [
   "died",
-  "obiit"
+  "obiit",
+  "old boy"
  ],
  "OE": [
-  "old English"
+  "old english"
  ],
  "OK": [
-  "fine",
+  "all right",
   "approved",
-  "all right"
+  "fine"
  ],
  "ON": [
   "leg",
@@ -360,39 +449,42 @@ const ABBREVIATIONS = {
   "working"
  ],
  "OP": [
-  "work",
   "operation",
-  "opus"
+  "opus",
+  "work"
  ],
  "OR": [
   "gold",
+  "men",
   "other ranks",
-  "soldiers",
-  "men"
+  "soldiers"
  ],
  "OS": [
-  "outsize",
   "bone",
-  "huge"
+  "huge",
+  "outsize"
  ],
  "P": [
-  "quiet",
-  "piano",
   "page",
-  "penny",
   "parking",
+  "pee",
+  "pence",
+  "penny",
+  "piano",
+  "power",
+  "president",
   "pressure",
-  "president"
+  "quiet"
  ],
  "PA": [
-  "father",
   "dad",
-  "public address",
-  "per annum"
+  "father",
+  "per annum",
+  "public address"
  ],
  "PC": [
-  "policeman",
   "computer",
+  "policeman",
   "politically correct"
  ],
  "PE": [
@@ -403,25 +495,32 @@ const ABBREVIATIONS = {
  "PH": [
   "acidity"
  ],
+ "PL": [
+  "place"
+ ],
  "PM": [
   "afternoon",
   "prime minister"
  ],
  "PO": [
-  "post office",
-  "loo"
+  "loo",
+  "post office"
  ],
  "PR": [
   "publicity",
   "spin"
+ ],
+ "PRO": [
+  "professional"
  ],
  "PS": [
   "afterthought",
   "postscript"
  ],
  "PT": [
-  "point",
+  "physical training",
   "pint",
+  "point",
   "training"
  ],
  "Q": [
@@ -429,21 +528,28 @@ const ABBREVIATIONS = {
   "question"
  ],
  "QC": [
+  "barrister",
   "lawyer",
-  "silk",
-  "barrister"
+  "silk"
+ ],
+ "QU": [
+  "queen"
  ],
  "R": [
-  "river",
-  "right",
   "king",
   "queen",
+  "rare",
+  "recipe",
+  "republican",
+  "right",
+  "river",
   "run",
+  "runs",
   "take"
  ],
  "RA": [
-  "artist",
   "academician",
+  "artist",
   "gunners"
  ],
  "RC": [
@@ -455,13 +561,13 @@ const ABBREVIATIONS = {
  "RE": [
   "about",
   "concerning",
-  "note",
   "engineers",
+  "note",
   "sappers"
  ],
  "RIP": [
-  "dead",
-  "buried"
+  "buried",
+  "dead"
  ],
  "RN": [
   "navy",
@@ -471,18 +577,23 @@ const ABBREVIATIONS = {
   "rugby"
  ],
  "S": [
+  "saint",
   "second",
-  "son",
+  "section",
+  "singular",
   "small",
   "society",
-  "saint",
+  "son",
+  "soprano",
   "south",
-  "sulphur",
-  "singular"
+  "southern",
+  "special",
+  "succeeded",
+  "sulphur"
  ],
  "SA": [
   "sex appeal",
-  "South Africa"
+  "south africa"
  ],
  "SE": [
   "southeast"
@@ -493,6 +604,7 @@ const ABBREVIATIONS = {
   "very"
  ],
  "SP": [
+  "special",
   "starting price",
   "without"
  ],
@@ -501,74 +613,91 @@ const ABBREVIATIONS = {
   "sister"
  ],
  "SS": [
-  "ship",
-  "steamer",
+  "nazis",
   "saints",
-  "nazis"
+  "ship",
+  "steamer"
  ],
  "ST": [
-  "street",
   "saint",
-  "stone"
+  "stone",
+  "street"
+ ],
+ "STA": [
+  "station"
+ ],
+ "SUS": [
+  "suspicious"
  ],
  "SW": [
   "southwest"
  ],
  "T": [
+  "model",
+  "tea",
+  "temperature",
+  "tenor",
+  "tense",
+  "tesla",
   "time",
   "ton",
-  "tenor",
-  "tea",
-  "model"
+  "tons",
+  "troy"
  ],
  "TA": [
+  "army",
   "thanks",
-  "volunteers",
-  "army"
+  "volunteers"
  ],
  "TB": [
-  "disease",
-  "consumption"
+  "consumption",
+  "disease"
  ],
  "TE": [
   "note"
  ],
  "TT": [
-  "teetotal",
   "dry",
-  "race"
+  "race",
+  "teetotal",
+  "tourist trophy"
  ],
  "TV": [
-  "telly",
-  "box"
+  "box",
+  "telly"
  ],
  "U": [
-  "universal",
-  "upper class",
+  "acceptable",
   "turn",
-  "uranium",
-  "acceptable"
+  "uniform",
+  "unionist",
+  "united",
+  "universal",
+  "university",
+  "upper class",
+  "uranium"
  ],
  "UN": [
   "one",
   "peacekeepers"
  ],
  "UP": [
-  "riding",
   "in court",
-  "raised"
+  "raised",
+  "riding"
  ],
  "US": [
-  "America",
-  "we",
-  "American"
+  "america",
+  "american",
+  "we"
  ],
  "V": [
+  "against",
   "five",
+  "verse",
   "versus",
   "very",
-  "volt",
-  "against"
+  "volt"
  ],
  "VI": [
   "six"
@@ -577,41 +706,42 @@ const ABBREVIATIONS = {
   "against"
  ],
  "W": [
-  "west",
-  "with",
-  "women",
   "watt",
-  "wife"
+  "west",
+  "whiskey",
+  "wife",
+  "with",
+  "women"
  ],
  "WC": [
-  "toilet",
-  "loo"
+  "loo",
+  "toilet"
  ],
  "X": [
   "cross",
-  "ten",
   "kiss",
+  "ten",
   "unknown",
   "wrong"
  ],
  "XI": [
   "eleven",
-  "team",
-  "side"
+  "side",
+  "team"
  ],
  "XL": [
-  "forty",
-  "extra large"
+  "extra large",
+  "forty"
  ],
  "Y": [
   "unknown",
-  "yen",
+  "yard",
   "year",
-  "yard"
+  "yen"
  ],
  "Z": [
+  "sleep",
   "unknown",
-  "zed",
-  "sleep"
+  "zed"
  ]
 };
