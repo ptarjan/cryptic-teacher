@@ -30,7 +30,35 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TACO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "TACO",
+    "definition": "Mexican snack",
+    "indicators": [
+     "without any wrappers"
+    ],
+    "indicatorNotes": {
+     "without any wrappers": "A wrapper is what goes round the outside, so each word named here loses the letter at either end before it joins the build."
+    },
+    "pieces": [
+     "TAC",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stack",
+      "gives": "TAC",
+      "note": "peel the S and the K off stack and TAC is what is left"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "O",
+      "note": "hot loses its H and its T, leaving one middle letter"
+     }
+    ],
+    "walkthrough": "The surface is pure street food, and that is the misdirection: 'stack' and 'hot' are being treated as spellings on a page, not as things to eat.",
+    "definitionFit": "Mexican snack -> TACO: the folded tortilla is the standard example, so a general phrase is pointing at one particular item of Mexican street food."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +75,44 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBLIVION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters + container",
+    "answer": "OBLIVION",
+    "definition": "Forgetfulness",
+    "indicators": [
+     "leads to",
+     "being eaten by"
+    ],
+    "indicatorNotes": {
+     "leads to": "The lead of a word is the letter at its front, so what follows contributes only its initials.",
+     "being eaten by": "Whatever is eaten ends up inside the eater, so one chunk is swallowed whole by the creature named next."
+    },
+    "pieces": [
+     "OB",
+     "L",
+     "IV",
+     "ION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open bolts",
+      "gives": "OB",
+      "note": "the front letter of each of the two words"
+     },
+     {
+      "clueFragment": "wild cat",
+      "gives": "LION",
+      "note": "the wild cat is a lion, and it is the one doing the swallowing"
+     },
+     {
+      "clueFragment": "then four",
+      "gives": "IV",
+      "note": "four in Roman numerals is IV, and it goes in after the lion's opening L"
+     }
+    ],
+    "walkthrough": "'Forgetfulness leads to open bolts' reads as a sentence about mislaying things, which is what hides the instruction: 'leads' is asking for initials, not for consequences.",
+    "definitionFit": "Forgetfulness -> OBLIVION: the total version of it, the state of having forgotten everything, as in drinking yourself into it."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +129,29 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YETI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "YETI",
+    "definition": "imagined terrifying creature from the Himalayas",
+    "pieces": [
+     "YET",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still",
+      "gives": "YET",
+      "note": "still and yet both mean 'even now'"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one as a Roman numeral is I"
+     }
+    ],
+    "walkthrough": "Two of the smallest words in the language do all the work, and everything after them is definition — the mountains are described, never named.",
+    "definitionFit": "imagined terrifying creature from the Himalayas -> YETI: the abominable snowman of Himalayan legend, reported in footprints and photographs and never in the flesh."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +168,34 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OLEANDER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "OLEANDER",
+    "definition": "flowering plant",
+    "indicators": [
+     "heading north",
+     "carrying"
+    ],
+    "indicatorNotes": {
+     "heading north": "North is up the page and this entry is written downwards, so the run of letters is read against the way it is printed.",
+     "carrying": "A carrier holds its load inside itself, so these words are concealing a passenger rather than defining one."
+    },
+    "subReversals": [
+     {
+      "from": "REDNAELO",
+      "to": "OLEANDER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sister Edna eloped",
+      "gives": "OLEANDER",
+      "note": "sisteR EDNA ELOped holds the unbroken run REDNAELO, and read the other way it is the answer"
+     }
+    ],
+    "walkthrough": "The sister and the elopement are pure story. Nothing needs solving: the letters simply run on through three words, and a down entry read upwards is what 'heading north' asks for.",
+    "definitionFit": "flowering plant -> OLEANDER: an evergreen shrub carrying pink or white blooms, poisonous in every part, common round the Mediterranean."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +212,40 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNESCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "UNESCO",
+    "definition": "international organisation",
+    "indicators": [
+     "In France",
+     "sacking head"
+    ],
+    "indicatorNotes": {
+     "In France": "The word beside it must be translated before it is spelt out, so the little word arrives in French rather than English.",
+     "sacking head": "Sacking someone gets rid of them, and the head of a word is the letter at its front, so the first letter goes."
+    },
+    "linkWords": [
+     "to become"
+    ],
+    "pieces": [
+     "UN",
+     "ESCO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "UN",
+      "note": "a in French is un"
+     },
+     {
+      "clueFragment": "supermarket",
+      "gives": "ESCO",
+      "note": "the supermarket is Tesco, and its head T has just been sacked"
+     }
+    ],
+    "walkthrough": "Crossword French is worth banking early: UN, LE, EST and their friends turn up constantly, and 'in France' is the usual flag that one of them is wanted.",
+    "definitionFit": "international organisation -> UNESCO: the United Nations' education, science and culture agency, so the category is being defined by one body inside it."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +262,40 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSEMBLING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ASSEMBLING",
+    "definition": "piecing it all together?",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "Something upset has been knocked out of the arrangement it was sitting in, and letters knocked out of arrangement come back in another order."
+    },
+    "anagram": {
+     "fodder": "A MESS BLING"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "A MESS",
+      "gives": "ASSEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Absolute chaos",
+      "gives": "ASSEM",
+      "note": "absolute chaos is A MESS, and those five letters come back in this order"
+     },
+     {
+      "clueFragment": "jewellery",
+      "gives": "BLING",
+      "note": "bling is showy jewellery"
+     }
+    ],
+    "walkthrough": "The question mark is earning its place: the clue describes its own construction, since putting the pieces back together is exactly what it is asking you to do.",
+    "definitionFit": "piecing it all together? -> ASSEMBLING: putting parts into a working whole, the flat-pack sense of the verb, and the -ing ending agrees."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +312,38 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIMPET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "LIMPET",
+    "definition": "clingy type",
+    "indicators": [
+     "with no stuffing"
+    ],
+    "indicatorNotes": {
+     "with no stuffing": "Stuffing is what fills the middle of something, so the beast keeps its first and last letters and nothing between them."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "LIMP",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Floppy",
+      "gives": "LIMP",
+      "note": "limp is floppy"
+     },
+     {
+      "clueFragment": "elephant",
+      "gives": "ET",
+      "note": "hollow the elephant out and its outer E and T remain"
+     }
+    ],
+    "walkthrough": "Nothing in the surface is about shellfish: 'clingy type' does the defining, and the elephant is in the clue only because its two ends spell what is wanted.",
+    "definitionFit": "clingy type -> LIMPET: the shellfish grips its rock so hard you cannot prise it off, which is why a person who will not let go gets called one."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +360,37 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEVY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters + outer letters",
+    "answer": "LEVY",
+    "definition": "Tax",
+    "indicators": [
+     "at last",
+     "cleared out"
+    ],
+    "indicatorNotes": {
+     "at last": "Coming at last means coming at the end, so it is the closing letter of each word in front that is wanted.",
+     "cleared out": "A cleared-out room keeps its walls and loses its contents, so the word holds on to its first and last letters only."
+    },
+    "pieces": [
+     "LE",
+     "VY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bill came",
+      "gives": "LE",
+      "note": "the final letters of bill and of came"
+     },
+     {
+      "clueFragment": "virtually",
+      "gives": "VY",
+      "note": "clear everything out from between the V and the Y"
+     }
+    ],
+    "walkthrough": "Every word here is doing spelling work rather than meaning work — the bill, the arrival and the 'virtually' are all just letters to be trimmed.",
+    "definitionFit": "Tax -> LEVY: money raised by official demand, the same idea named for the act of collecting rather than for the sum collected."
+   }
   },
   {
    "id": "9-across",
@@ -166,7 +407,29 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMBLE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AMBLE",
+    "definition": "travel at a leisurely pace",
+    "indicators": [
+     "Not the first"
+    ],
+    "indicatorNotes": {
+     "Not the first": "Refusing the first of something means starting one along, so the opening letter of the word is left behind."
+    },
+    "pieces": [
+     "AMBLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "risk",
+      "gives": "AMBLE",
+      "note": "to risk is to GAMBLE, and that word arrives without its opening G"
+     }
+    ],
+    "walkthrough": "'Not the first to risk' sounds like caution about going early, which is the wrong reading entirely: 'first' is counting letters, not people.",
+    "definitionFit": "travel at a leisurely pace -> AMBLE: to walk without hurry, the unpressed gait a horse or a Sunday stroller falls into."
+   }
   },
   {
    "id": "10-across",
@@ -183,7 +446,42 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDSLIDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LANDSLIDE",
+    "definition": "Rocks falling",
+    "indicators": [
+     "ruinous"
+    ],
+    "indicatorNotes": {
+     "ruinous": "A ruinous event leaves what it touches in pieces on the ground, and letters left in pieces have to be picked up in some other order."
+    },
+    "linkWords": [
+     "getting into"
+    ],
+    "anagram": {
+     "fodder": "AND DELL IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "dell",
+      "gives": "DELL",
+      "note": "a dell is a small wooded hollow; four letters of the mix"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "the clue's own and, three more letters"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the last two letters of the mix come from is"
+     }
+    ],
+    "walkthrough": "Nine letters sit in plain view across three ordinary little words, and the collapsing valley the surface describes is the same picture the answer paints.",
+    "definitionFit": "Rocks falling -> LANDSLIDE: a hillside coming down all at once, the single noun for exactly the event those two words describe."
+   }
   },
   {
    "id": "11-across",
@@ -200,7 +498,55 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORIGINALS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + deletion",
+    "answer": "ORIGINALS",
+    "definition": "first shots",
+    "indicators": [
+     "nip of",
+     "without finishing"
+    ],
+    "indicatorNotes": {
+     "nip of": "A nip is the smallest measure anyone pours, so only a single letter is taken from the spirit named next.",
+     "without finishing": "Something left unfinished stops before its end, so the closing letter of the word never arrives."
+    },
+    "pieces": [
+     "O",
+     "R",
+     "I",
+     "GIN",
+     "ALS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard short form of old"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "R",
+      "note": "one letter poured out of rum"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the clue's own I, taken as the letter"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "GIN",
+      "note": "the drink is gin"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "ALS",
+      "note": "too is ALSO, stopped one letter short"
+     }
+    ],
+    "walkthrough": "Two spirits and neither of them wanted whole: the bar vocabulary is what makes this read as a night out instead of a spelling exercise.",
+    "definitionFit": "first shots -> ORIGINALS: photographers call the earliest takes the originals, the versions every later copy is made from."
+   }
   },
   {
    "id": "12-across",
@@ -217,7 +563,35 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMPTY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "EMPTY",
+    "definition": "nothing inside",
+    "indicators": [
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "oddly": "Counting oddly means keeping the first, third and fifth letters and leaving the even-numbered ones where they lie."
+    },
+    "pieces": [
+     "EM",
+     "PTY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Space",
+      "gives": "EM",
+      "note": "printers measure space in ems, an em being the width of a capital M"
+     },
+     {
+      "clueFragment": "put by",
+      "gives": "PTY",
+      "note": "the odd letters of put by: P, T and Y"
+     }
+    ],
+    "walkthrough": "'Space' is a printer's term here, which is the hard step; 'put by', meaning saved for later, is in the clue only to be counted through.",
+    "definitionFit": "nothing inside -> EMPTY: a box with nothing in it is empty, so the phrase describes the state and the answer is the adjective for it."
+   }
   },
   {
    "id": "13-across",
@@ -234,7 +608,38 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLIPPED",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letters",
+    "answer": "FLIPPED",
+    "definition": "Turned",
+    "indicators": [
+     "clutching",
+     "dropping case"
+    ],
+    "indicatorNotes": {
+     "clutching": "To clutch something is to hold it tight against you, so what follows goes inside what came before.",
+     "dropping case": "A case is the shell a thing travels in, so the letter at each end of the lighter falls away and the middle survives."
+    },
+    "pieces": [
+     "FL",
+     "IPP",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ran away",
+      "gives": "FLED",
+      "note": "ran away is fled, and it opens up to take a passenger"
+     },
+     {
+      "clueFragment": "Zippo",
+      "gives": "IPP",
+      "note": "the lighter drops its outer Z and O"
+     }
+    ],
+    "walkthrough": "'Dropping case' is a neat double sense: a Zippo really has a case, and in crosswords dropping the case means losing the letters at both ends.",
+    "definitionFit": "Turned -> FLIPPED: turned over, the way a pancake or a switch is flipped, and both words equally cover a sudden loss of temper."
+   }
   },
   {
    "id": "13-down",
@@ -251,7 +656,29 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLOOD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "FLOOD",
+    "definition": "Scourge of old?",
+    "indicators": [
+     "Scourge"
+    ],
+    "indicatorNotes": {
+     "Scourge": "To scourge is to lash and lay waste, and what has been laid waste does not stay in the order it started in."
+    },
+    "anagram": {
+     "fodder": "of old"
+    },
+    "blocks": [
+     {
+      "clueFragment": "of old",
+      "gives": "FLOOD",
+      "note": "the five letters of 'of old' are the five letters of the answer, in a new order"
+     }
+    ],
+    "walkthrough": "Three words, and every one of them is working twice — the clue defines and spells at the same time, which is what makes it an &lit.",
+    "definitionFit": "The whole clue reads straight: the biblical deluge was the great scourge of ancient times, and those same two words supply the letters."
+   }
   },
   {
    "id": "14-down",
@@ -272,7 +699,34 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUERTORICO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PUERTO RICO",
+    "definition": "territory",
+    "indicators": [
+     "flying around"
+    ],
+    "indicatorNotes": {
+     "flying around": "Things flying around come down in no particular arrangement, so the letters settle wherever they land."
+    },
+    "anagram": {
+     "fodder": "OUR COPTER I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Our copter’s",
+      "gives": "OURCOPTER",
+      "note": "nine letters of the mix; the ’s is only 'is' holding the sentence up"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the map abbreviation for island"
+     }
+    ],
+    "walkthrough": "'Island' is doing two jobs at once — one letter of the mix, and the picture the answer turns out to fit. The (6,4) tells you how big the mix has to be.",
+    "definitionFit": "territory -> PUERTO RICO: not a US state but an unincorporated territory, which is the exact legal word for what it is."
+   }
   },
   {
    "id": "15-across",
@@ -289,7 +743,36 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORBITAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ORBITAL",
+    "definition": "regarding the way planets travel",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The little word says one piece sits within another rather than beside it."
+    },
+    "pieces": [
+     "OR",
+     "BIT",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "ORAL",
+      "note": "an oral is a test you sit by speaking; it splits after two letters"
+     },
+     {
+      "clueFragment": "Part",
+      "gives": "BIT",
+      "note": "a part of something is a bit of it"
+     }
+    ],
+    "walkthrough": "The whole clue rests on one piece of vocabulary: an oral is a spoken examination, so 'test' is a noun to be swapped, not a verb.",
+    "definitionFit": "regarding the way planets travel -> ORBITAL: of an orbit, so the adjective covers anything belonging to a circling path, a motorway included."
+   }
   },
   {
    "id": "16-down",
@@ -306,7 +789,27 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LYRIC",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LYRIC",
+    "definition": "the words",
+    "definitionNote": "The words of a song are usually called the lyrics, in the plural; the singular lyric names the same body of writing taken as one thing.",
+    "indicators": [
+     "only part of"
+    ],
+    "indicatorNotes": {
+     "only part of": "Taking only part of something means reading a stretch of it exactly as it stands, without altering a letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Inadvertently Rickrolled",
+      "gives": "LYRIC",
+      "note": "the run bridges the two words: inadvertent(LY RIC)krolled"
+     }
+    ],
+    "walkthrough": "Being Rickrolled is being sent that song when you were expecting something else, so the surface jokes about quoting it accidentally — and it really is quoted here.",
+    "definitionFit": "the words -> LYRIC: the sung text of a song as against its tune, the sense in which a writer is credited with the lyric."
+   }
   },
   {
    "id": "17-across",
@@ -323,7 +826,29 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUNCE",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "OUNCE",
+    "definition": "Snow leopard",
+    "indicators": [
+     "without limits"
+    ],
+    "indicatorNotes": {
+     "without limits": "The limits of a written word are the letters at its two ends, and removing them leaves the middle standing by itself."
+    },
+    "pieces": [
+     "OUNCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jumps",
+      "gives": "OUNCE",
+      "note": "jumps is BOUNCES, and stripping the B and the S leaves these five"
+     }
+    ],
+    "walkthrough": "Nothing in the surface hints at letters: 'without limits' reads as unbounded enthusiasm, and 'jumps' has to be turned into a longer word before anything can be taken from it.",
+    "definitionFit": "Snow leopard -> OUNCE: ounce is the old name for that cat, a sense which now survives mainly in crosswords and in natural history writing."
+   }
   },
   {
    "id": "18-across",
@@ -340,7 +865,35 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAW",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "RAW",
+    "definition": "Harsh",
+    "indicators": [
+     "fightback"
+    ],
+    "indicatorNotes": {
+     "fightback": "The word ends in the direction of travel, and something coming back arrives the other way round from how it set off."
+    },
+    "pieces": [
+     "RAW"
+    ],
+    "subReversals": [
+     {
+      "from": "WAR",
+      "to": "RAW"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fightback",
+      "gives": "WAR",
+      "note": "the fight buried in the word is a war; the -back on the end is the instruction, not fodder"
+     }
+    ],
+    "walkthrough": "One word of the clue is carrying two jobs: on the surface 'fightback' is a single noun, and underneath it is a piece of fodder with its instruction stuck to the end.",
+    "definitionFit": "Harsh -> RAW: a raw wind or a raw deal is a harsh one, the sense of unsoftened rather than the uncooked one."
+   }
   },
   {
    "id": "19-down",
@@ -357,7 +910,29 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WOODLAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WOODLAND",
+    "definition": "some trees",
+    "indicators": [
+     "disturbed"
+    ],
+    "indicatorNotes": {
+     "disturbed": "Disturbing something knocks it out of the settled arrangement it was in, which is what happens to these eight letters."
+    },
+    "anagram": {
+     "fodder": "AN ODD OWL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "An odd owl",
+      "gives": "WOODLAND",
+      "note": "the eight letters of AN ODD OWL, rearranged"
+     }
+    ],
+    "walkthrough": "'Odd' looks like the standard instruction to take alternate letters and is really part of the material — a reliable Guardian trap worth learning.",
+    "definitionFit": "some trees -> WOODLAND: land under trees taken collectively, so a plural picture is defined by the mass noun that covers it."
+   }
   },
   {
    "id": "20-across",
@@ -374,7 +949,35 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INNER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "INNER",
+    "definition": "Central",
+    "indicators": [
+     "evacuated"
+    ],
+    "indicatorNotes": {
+     "evacuated": "An evacuated building has everybody out of the middle of it, so the word keeps only the letters at its two ends."
+    },
+    "pieces": [
+     "INN",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "a pub is an inn"
+     },
+     {
+      "clueFragment": "earlier",
+      "gives": "ER",
+      "note": "clear out earlier and the E and R at its ends survive"
+     }
+    ],
+    "walkthrough": "Five letters, two of them from a word contributing no meaning at all: 'earlier' is in the clue purely so that it can be hollowed.",
+    "definitionFit": "Central -> INNER: the inner ring or the inner circle is the one nearest the middle, so both words name the same position."
+   }
   },
   {
    "id": "21-down",
@@ -395,7 +998,29 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONTOXIC",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "NON-TOXIC",
+    "definition": "Safe",
+    "indicators": [
+     "every second"
+    ],
+    "indicatorNotes": {
+     "every second": "Taking every second letter means stepping through the words two at a time and writing down only the ones you land on."
+    },
+    "pieces": [
+     "NONTOXIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘n’ sound? Two extinct",
+      "gives": "NONTOXIC",
+      "note": "step through N-S-O-U-N-D-T-W-O-E-X-T-I-N-C-T taking the first, third, fifth and so on"
+     }
+    ],
+    "walkthrough": "'Safe 'n' sound' is a set phrase and that is the trap: the apostrophe-n is not standing in for 'and', it is the first letter you count from.",
+    "definitionFit": "Safe -> NON-TOXIC: safe in the narrow sense of not poisonous, which is what a paint tin or a child's toy label means by the word."
+   }
   },
   {
    "id": "22-across",
@@ -412,7 +1037,47 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEBATES",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "DEBATES",
+    "definition": "arguments",
+    "indicators": [
+     "taken the wrong way",
+     "during"
+    ],
+    "indicatorNotes": {
+     "taken the wrong way": "Taking a word the wrong way round means writing its letters from the far end back to the start.",
+     "during": "What happens during an event happens inside it, so this piece is placed within the other."
+    },
+    "linkWords": [
+     "creating"
+    ],
+    "pieces": [
+     "D",
+     "EB",
+     "ATES"
+    ],
+    "subReversals": [
+     {
+      "from": "BE",
+      "to": "EB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rendezvous",
+      "gives": "DATES",
+      "note": "rendezvous are dates, and the word opens after its D"
+     },
+     {
+      "clueFragment": "Be",
+      "gives": "EB",
+      "note": "the clue's own Be, turned round"
+     }
+    ],
+    "walkthrough": "'Be taken the wrong way' is what happens to a remark in a row, so the instruction is hiding inside a description of the very thing the answer names.",
+    "definitionFit": "arguments -> DEBATES: formal ones, run to rules with two sides and a motion, rather than the shouting the definition can also cover."
+   }
   },
   {
    "id": "23-down",
@@ -429,7 +1094,39 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BANGOR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BANGOR",
+    "definition": "Welsh city",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "gathered by"
+    ],
+    "indicatorNotes": {
+     "gathered by": "To gather something up is to take it into your arms, so the piece named next closes right around it."
+    },
+    "pieces": [
+     "BA",
+     "NGO",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "BAR",
+      "note": "the bar is taken as it stands and splits after two letters"
+     },
+     {
+      "clueFragment": "non-governmental organisation",
+      "gives": "NGO",
+      "note": "NGO is the standard abbreviation, used by every news bulletin"
+     }
+    ],
+    "walkthrough": "An abbreviation from the news does the work here; the aid-agency-and-pub scene on the surface is entirely the setter's invention.",
+    "definitionFit": "Welsh city -> BANGOR: the small cathedral city on the Menai Strait in Gwynedd, so the answer is one instance of the category."
+   }
   },
   {
    "id": "24-down",
@@ -446,7 +1143,38 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STREAM",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "STREAM",
+    "definition": "Flow",
+    "indicators": [
+     "engulfing",
+     "opening of"
+    ],
+    "indicatorNotes": {
+     "engulfing": "To engulf is to swallow up completely, so the letter that follows disappears inside the word before it.",
+     "opening of": "The opening of a word is the letter it begins with, so nothing but that initial is taken."
+    },
+    "pieces": [
+     "ST",
+     "R",
+     "EAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vapour",
+      "gives": "STEAM",
+      "note": "the vapour off a kettle is steam"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "R",
+      "note": "the first letter of railway, which is also its usual abbreviation"
+     }
+    ],
+    "walkthrough": "Steam and railways belong together on the surface, and that is what stops you noticing that one is a word to be opened up and the other only a single letter.",
+    "definitionFit": "Flow -> STREAM: a stream of water, traffic or talk is a continuous flow, the noun for anything moving steadily in one direction."
+   }
   },
   {
    "id": "25-across",
@@ -463,7 +1191,52 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORGANIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + reversal",
+    "answer": "ORGANIC",
+    "definition": "Naturally produced",
+    "indicators": [
+     "ruined",
+     "through",
+     "backtracking"
+    ],
+    "indicatorNotes": {
+     "ruined": "A ruined thing has lost the shape it was built in, so its letters come back in a different arrangement.",
+     "through": "Going through something means passing inside it, so the jumbled letters end up within the other piece.",
+     "backtracking": "To backtrack is to retrace your steps the way you came, so the abbreviation is written from its end to its start."
+    },
+    "pieces": [
+     "O",
+     "RGANI",
+     "C"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GRAIN",
+      "gives": "RGANI"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "CO",
+      "to": "OC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grain",
+      "gives": "RGANI",
+      "note": "the five letters of grain in a new order"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "OC",
+      "note": "company shortens to CO, which backtracks to OC and then opens around the rest"
+     }
+    ],
+    "walkthrough": "CO for company is a workhorse abbreviation. Here it is reversed and then split, so its two letters finish at opposite ends of the answer.",
+    "definitionFit": "Naturally produced -> ORGANIC: grown without synthetic chemicals, the supermarket-label sense rather than the chemist's meaning of carbon-based."
+   }
   },
   {
    "id": "26-across",
@@ -480,7 +1253,40 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + first letters",
+    "answer": "MINER",
+    "definition": "Pitman",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "finally",
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "finally": "What comes finally comes at the end, so it is the closing letter of the word in front that is used.",
+     "starts to": "The start of a word is its first letter, so each word in the list that follows gives up only its initial."
+    },
+    "pieces": [
+     "M",
+     "INER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "system",
+      "gives": "M",
+      "note": "the last letter of system"
+     },
+     {
+      "clueFragment": "introduce new, easy recording",
+      "gives": "INER",
+      "note": "the initials of the four words, in the order they come"
+     }
+    ],
+    "walkthrough": "Pitman's shorthand is the joke — the clue pretends to be about the system, while the definition is only the man's job.",
+    "definitionFit": "Pitman -> MINER: pitman is the old colliery word for a man who works down the pit, so this is a plain regional synonym."
+   }
   },
   {
    "id": "26-down",
@@ -497,7 +1303,32 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MUFF",
+    "definition": "furry garment",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "MU",
+     "FF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "MU",
+      "note": "mu is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "very loud",
+      "gives": "FF",
+      "note": "fortissimo is written ff on a score"
+     }
+    ],
+    "walkthrough": "The music abbreviations are worth banking: p is soft, f is loud and ff is very loud, and setters clue them by volume every time.",
+    "definitionFit": "furry garment -> MUFF: the fur tube a Victorian lady slipped both hands into, worn rather than carried, so it counts as clothing."
+   }
   },
   {
    "id": "27-across",
@@ -514,7 +1345,51 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELIGIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "RELIGIOUS",
+    "definition": "Devout",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The word puts one set of letters within another instead of alongside it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "R",
+     "ELI",
+     "G",
+     "IO",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, which splits open after its first letter"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest who raised Samuel, crosswordland's standard clergyman"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the usual abbreviation for German"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "the clue's own us, added at the end"
+     }
+    ],
+    "walkthrough": "Eli is worth remembering: three letters, a priest, and very nearly the only one setters ever use. The comma-heavy surface hides a straightforward stack.",
+    "definitionFit": "Devout -> RELIGIOUS: seriously observant of a faith, a near synonym, though the answer can also mean merely belonging to a church."
+   }
   },
   {
    "id": "28-down",
@@ -531,7 +1406,36 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOBI",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GOBI",
+    "definition": "Desert",
+    "indicators": [
+     "captured by"
+    ],
+    "indicatorNotes": {
+     "captured by": "A captive is held inside by whoever took them, so this pair of letters sits within the soldier."
+    },
+    "pieces": [
+     "G",
+     "OB",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the standard short form of old boy"
+     }
+    ],
+    "walkthrough": "'Desert old boy' reads as an instruction to abandon a friend, which is the whole trick: the first word is the definition and has nothing to do with the verb.",
+    "definitionFit": "Desert -> GOBI: the great cold desert of Mongolia and northern China, so a general word is being defined by one famous instance."
+   }
   },
   {
    "id": "29-down",
@@ -548,7 +1452,35 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SITE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SITE",
+    "definition": "Place",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "The word marks the end of the one beside it, so nothing but its closing letter is taken."
+    },
+    "pieces": [
+     "SIT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "SIT",
+      "note": "to place something is to sit it somewhere"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "E",
+      "note": "the final letter of the word place itself"
+     }
+    ],
+    "walkthrough": "One word repeated three times over, doing three different jobs — definition, synonym, single letter — and that repetition is the whole of the joke.",
+    "definitionFit": "Place -> SITE: the spot where something stands or happens, as in a building site or the site of a battle."
+   }
   },
   {
    "id": "30-across",
@@ -569,7 +1501,34 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
     ]
    },
    "solution": "FOODCHAIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FOOD CHAIN",
+    "definition": "who’s hunting whom?",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Letters sent about are turned loose to settle anywhere, so the order they arrive in is not the order they leave in."
+    },
+    "anagram": {
+     "fodder": "CO HAD INFO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Commanding Officer",
+      "gives": "CO",
+      "note": "a Commanding Officer is the CO"
+     },
+     {
+      "clueFragment": "had info",
+      "gives": "HADINFO",
+      "note": "seven more letters of the mix, taken as they stand"
+     }
+    ],
+    "walkthrough": "The military surface is a decoy: the officer is only an abbreviation, and 'about' is the shuffle rather than the subject of the intelligence.",
+    "definitionFit": "who’s hunting whom? -> FOOD CHAIN: the ranking of what eats what in an ecosystem, so the question names it by the thing it records."
+   }
   },
   {
    "id": "31-across",
@@ -586,7 +1545,29 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUILT",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "BUILT",
+    "definition": "Constructed",
+    "indicators": [
+     "crowns of"
+    ],
+    "indicatorNotes": {
+     "crowns of": "The crown is the top of a thing, and at the top of a written word sits the letter it begins with."
+    },
+    "pieces": [
+     "BUILT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bronze using intricate latticework techniques",
+      "gives": "BUILT",
+      "note": "the initials of the five words, in the order they come"
+     }
+    ],
+    "walkthrough": "Five words of craft vocabulary and only their first letters matter; the latticework is there to keep you thinking about metalwork.",
+    "definitionFit": "Constructed -> BUILT: the past participle of build, the everyday word for anything put up out of parts."
+   }
   }
  ]
 } /*JSON-END*/;
