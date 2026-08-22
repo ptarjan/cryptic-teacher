@@ -2468,6 +2468,71 @@ global.realSetTimeout(() => {
   }
 }
 
+// --- typing does not rewrite the hint panel ---
+// refreshAll() runs on every keystroke and rebuilt the whole panel with it, so
+// every letter tore down a hint body, rung row and escape hatch in which nothing
+// had changed. The browser lays the block out again each time and it reads as
+// the panel shivering under the typing, worst on iOS. Only the pattern row and
+// the meter can differ while someone is typing.
+//
+// Booted fresh, and anything added after this must boot fresh too: boot()
+// replaces the globals every earlier test is still holding.
+{
+  const d = require("./fake_dom.js").boot({ query: "?p=cryptic-30066" });
+  const reg = d.registry;
+  const el = (id) => reg[id];
+  const kd = d.docListeners["keydown"][0];
+  const key = (k) => kd({ key: k, preventDefault() {}, shiftKey: false, target: reg["kbd"] });
+  const puz = (global.window.CRYPTIC_PUZZLES || {})["cryptic-30066"];
+  const entry = (puz.entries || []).find((e) => e.solution && e.annotation && e.length >= 5);
+  assert(entry, "an annotated clue with a published answer to type into");
+  reg["clue-" + entry.id].listeners.click[0]();
+  assert(el("hint-next").children.length, "the clue opens with rungs to take");
+
+  const quiet = () => ["hint-body", "hint-next", "hint-escape"].map((id) => el(id).writes);
+  const before = quiet();
+  const patBefore = el("hint-pattern").writes;
+  const buttons = el("hint-next").children.slice();
+  const bodyBefore = el("hint-body").innerHTML;
+
+  // One letter short of the answer: the last one would solve the entry, and a
+  // solve is a change the panel SHOULD show.
+  entry.solution.slice(0, -1).split("").forEach((c) => key(c));
+  assert(el("hint-pattern").innerHTML.includes(
+    `${entry.length - 1} of ${entry.length} letters in place`),
+    "the letters really went into the grid: " + el("hint-pattern").innerHTML.slice(0, 90));
+  assert(el("hint-pattern").writes > patBefore, "the pattern row is what typing updates");
+  assert(String(quiet()) === String(before),
+    `typing rewrote the hint panel: body/next/escape ${quiet()} vs ${before}`);
+  // Node identity, not equal markup. Equal markup is what a rebuild that happens
+  // to produce the same string also gives you; the same objects can only mean no
+  // teardown happened, which is the thing that costs a repaint.
+  assert(el("hint-next").children.length === buttons.length
+    && buttons.every((b, i) => el("hint-next").children[i] === b),
+    "the rung buttons survive typing as the very same nodes");
+
+  // --- the panel still works after typing ---
+  // Skipping a rebuild also skips re-attaching handlers, which is only sound
+  // because the original nodes are still there with theirs live. Get that
+  // pairing wrong and the hint button is dead — far worse than a flicker.
+  const rung = el("hint-next").children[0];
+  const label = rung.textContent;
+  rung.onclick();
+  if (el("hint-body").innerHTML.includes("guess-clue")) reg["guess-tell"].onclick();
+  assert(el("hint-body").innerHTML.includes("hint-step"),
+    `taking "${label}" after typing showed nothing: ` + el("hint-body").innerHTML.slice(0, 140));
+  assert(el("hint-body").innerHTML !== bodyBefore, "the body says something new");
+  assert(el("hint-body").writes > before[0], "a real change is written, not skipped");
+  assert(el("hint-next").children[0] !== buttons[0],
+    "and the rung row is rebuilt once the ladder actually moves");
+
+  // --- and the meter still follows a solve ---
+  const meterBefore = el("hint-meter").innerHTML;
+  key(entry.solution[entry.length - 1]);
+  assert(el("hint-meter").innerHTML !== meterBefore && /Solved/.test(el("hint-meter").innerHTML),
+    "the last letter updates the meter: " + el("hint-meter").innerHTML);
+}
+
 // --- a clue is a link ---
 // ?c=3D opens on that clue, so "which one are you stuck on" is answerable with a
 // URL and a first-timer can be handed one clue instead of a whole 15x15. Booted
