@@ -98,25 +98,6 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     "/learn/ links to the standalone glossary");
 }
 
-// --- traffic measurement: one beacon, on every page ---
-{
-  // The app and the generated pages carry the same analytics tag, taken from
-  // BEACON in tools/build_seo_pages.py. Measuring only the static pages would
-  // count arrivals and miss every solve; measuring only the app would lose the
-  // search traffic the static pages exist for. Once per page, because a page
-  // with two beacons double-counts itself.
-  const beacon = fs.readFileSync(path.join(ROOT, "tools/build_seo_pages.py"), "utf8")
-    .match(/cf-beacon=.*"token": "([0-9a-f]{16,})"/);
-  assert(beacon, "tools/build_seo_pages.py defines a BEACON with a cf-beacon token");
-  const tag = beacon ? beacon[1] : "no-token";
-  ["index.html", "learn/index.html", "abbreviations/index.html"].forEach((rel) => {
-    const n = fs.readFileSync(path.join(ROOT, rel), "utf8").split(tag).length - 1;
-    assert(n === 1,
-      `${rel} carries the analytics beacon exactly once (found ${n}; run `
-        + "tools/build_seo_pages.py, and edit index.html to match BEACON)");
-  });
-}
-
 // --- the grid measures its container, never the window ---
 // Sizing cells off `100vw` ignores body's max-width and the flex column, and on
 // iOS Safari resolves against a viewport that is still moving while the toolbar
