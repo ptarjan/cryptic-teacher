@@ -182,6 +182,16 @@ def datestr(ms, fmt="%A %-d %B %Y"):
     return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime(fmt)
 
 
+# Cloudflare Web Analytics. Cookieless, no fingerprint, nothing stored on the
+# visitor, so it needs no banner. The token is the dashboard's site tag and is
+# public by design: it says which dashboard a hit lands in and nothing about who
+# sent it. Written here and asserted byte-identical against index.html by
+# tools/smoke_test.js — the app is where solving happens, and a beacon on the
+# static pages alone would count arrivals and miss every solve.
+BEACON = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+          'data-cf-beacon=\'{"token": "1e3693662c73488fb7482d155ff89c78"}\'></script>')
+
+
 def head(title, description, canonical, extra="", image=None, image_alt=None):
     """The shared <head>. Kept identical to index.html's, minus the app-only bits.
 
@@ -214,6 +224,7 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <meta property="og:image" content="{card}">
 {alt}<meta name="twitter:card" content="summary_large_image">
 {extra}<link rel="stylesheet" href="{asset("style.css")}">
+{BEACON}
 </head>
 <body class="static-page">
 """
