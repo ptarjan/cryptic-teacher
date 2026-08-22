@@ -5,12 +5,14 @@
    gtag snippet drifts silently: the page with the stale id keeps reporting, to
    a property nobody reads.
 
-   This measures PAGES — arrivals, where they came from, which puzzles get
-   opened. It cannot measure solving, and is not meant to: the solve happens in
-   localStorage and never leaves the browser, which is the whole reason
-   sync/events.js exists. Nothing about a clue, a hint or an answer is sent
-   here. The two are separate on purpose, and the anonymous counters are the
-   ones that answer whether the teaching works.
+   On its own this would measure arrivals and nothing after them, because the
+   solve happens in localStorage and never leaves the browser. So app.js reports
+   the same milestones it sends to sync/worker.js through gtag as well — one
+   story in one place, with the hyphens in sync/events.js turned into the
+   underscores GA4 accepts. The counters in KV stay: they are the copy that
+   survives a blocker, and the copy with nothing in it but a name.
+
+   Which clue, which puzzle and which answer are not sent to either.
 
    Fails silently from file:// and behind a blocker, like every other thing on
    this page that is not the crossword. */

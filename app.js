@@ -52,13 +52,20 @@
      counted the same as someone who has. */
   let eventsSent = new Set();
   function beacon(name) {
-    if (!SYNC_ENDPOINT || eventsSent.has(name)) return;
+    if (eventsSent.has(name)) return;
     eventsSent.add(name);
     // The list is the contract with the Worker and is checked at both ends, so a
     // name that is not on it is a bug in this file and stops here.
     if (typeof CTEvents === "undefined" || CTEvents.indexOf(name) < 0) return;
+    // The same milestone goes to GA, which otherwise sees the arrival and
+    // nothing after it — the two would be one story told in two places, and the
+    // interesting half only exists here. GA4 event names take letters and
+    // underscores, so the hyphen goes and "hint-type" reads as "hint_type".
     try {
-      if (navigator.sendBeacon)
+      if (window.gtag) window.gtag("event", name.replace(/-/g, "_"));
+    } catch (e) { /* a counter is never worth an exception in the middle of a solve */ }
+    try {
+      if (SYNC_ENDPOINT && navigator.sendBeacon)
         navigator.sendBeacon(SYNC_ENDPOINT.replace(/\/$/, "") + "/e",
                              new Blob([name], { type: "text/plain" }));
     } catch (e) { /* a counter is never worth an exception in the middle of a solve */ }
