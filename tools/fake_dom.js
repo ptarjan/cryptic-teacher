@@ -175,7 +175,15 @@ function boot(opts) {
       if (!registry[id]) registry[id] = new FakeEl("div", id); // dynamic ids (clue-*, hx-*)
       return registry[id];
     },
-    addEventListener(type, fn) { (docListeners[type] = docListeners[type] || []).push(fn); }
+    addEventListener(type, fn) { (docListeners[type] = docListeners[type] || []).push(fn); },
+    // The guess words laid out on one line, one x per word. Hit-testing is the
+    // browser's job and is the only part faked here; everything the app owns —
+    // the pointerdown, the document's pointermove, the index it works back out,
+    // the repaint without a re-render — is real and runs. Without this, dragging
+    // a run of words is code no test can reach.
+    elementFromPoint(x, y) {
+      return y === 0 && registry["gw-" + x] ? registry["gw-" + x] : null;
+    }
   };
 
   global.window = {

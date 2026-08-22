@@ -1977,6 +1977,102 @@ global.realSetTimeout(() => {
     "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
 }
 
+// --- a run of words is one gesture, and a settled word is not a choice ---
+// Two things Paul asked for on the same screen. Dragging across the words picks
+// the run under the finger, because a definition IS a run and four taps is four
+// chances to be interrupted. And a word an earlier rung already named cannot be
+// offered as an answer to the next one: it is on the screen as fact, so letting
+// it be picked means marking someone wrong for reading.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  // Definition at the front, indicators somewhere else, so the test can name the
+  // definition's buttons without a second copy of the span matcher.
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const a = e.annotation;
+      if (!a || !a.definition || a.definition2 || !(a.indicators || []).length) continue;
+      if (!e.clue.startsWith(a.definition) || !/\s/.test(e.clue[a.definition.length] || "")) continue;
+      const words = a.definition.trim().split(/\s+/).length;
+      const all = e.clue.replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/).length;
+      // Two words at least, or there is no run to drag across; and never the
+      // whole clue, which guessAsk refuses to make a question of.
+      if (words < 2 || words >= all) continue;
+      if ((a.indicators || []).some((t) => a.definition.includes(t))) continue;
+      found = { id, e, words, all };
+      break;
+    }
+    if (found) break;
+  }
+  assert(found, "some clue opens with a two-word definition and has an indicator");
+
+  const open = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[found.id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+    assert(li, "picker finds the puzzle to drag on");
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + found.e.id].listeners.click[0]();
+  };
+  const rung = (re) => registry["hint-next"].children.find(
+    (b) => re.test(b.textContent || "") && !b.disabled);
+  const fire = (type, ev) => (docListeners[type] || []).forEach((f) => f(ev));
+  // The harness lays the words out one x apart on y=0 — see elementFromPoint.
+  const dragAcross = (from, to) => {
+    registry["gw-" + from].listeners.pointerdown[0]({});
+    fire("pointermove", { clientX: to, clientY: 0 });
+    fire("pointerup", {});
+  };
+  const onNow = () => (registry["hint-body"].innerHTML.match(/class="gw on"/g) || []).length;
+
+  // Drag the definition's run in one gesture.
+  open();
+  rung(/definition/i).onclick();
+  dragAcross(0, found.words - 1);
+  assert(onNow() === found.words,
+    `a drag picks every word it crossed and no others: ${registry["hint-body"].innerHTML}`);
+  assert(!registry["guess-check"].disabled, "and arms the check button");
+  registry["guess-check"].onclick();
+  assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
+    "so the run can be the whole answer: " + registry["hint-body"].innerHTML);
+
+  // A tap is still a tap: pointerdown and pointerup on the same word must toggle
+  // rather than be swallowed as the tail of a drag.
+  open();
+  rung(/definition/i).onclick();
+  registry["gw-0"].listeners.pointerdown[0]({});
+  fire("pointermove", { clientX: 0, clientY: 0 });
+  fire("pointerup", {});
+  registry["gw-0"].onclick();
+  assert(onNow() === 1, "a tap that never left the word still toggles it: "
+    + registry["hint-body"].innerHTML);
+
+  // Settled words: take the definition, then be asked about the indicators.
+  open();
+  rung(/definition/i).onclick();
+  registry["guess-tell"].onclick();
+  const ind = rung(/indicator/i);
+  assert(ind, "the indicators rung is offered next: " + registry["hint-next"].innerHTML);
+  ind.onclick();
+  const html = registry["hint-body"].innerHTML;
+  if (html.includes("guess-clue")) {
+    const asked = html.slice(html.indexOf("guess-clue"));
+    assert((asked.match(/class="gw known"/g) || []).length === found.words,
+      "every word the definition rung named is marked as already known: " + asked);
+    for (let i = 0; i < found.words; i++) {
+      assert(!asked.includes(`id="gw-${i}"`),
+        `and word ${i} is not a button to be marked wrong for: ` + asked);
+    }
+    assert(/id="gw-\d+"/.test(asked), "while the rest of the clue is still in play: " + asked);
+  } else {
+    // Legitimate: with the definition settled, what was left may BE the answer,
+    // and a question answerable by elimination is not asked at all.
+    assert(html.includes("hint-step"), "or the question is dropped, not broken: " + html);
+  }
+}
+
 // --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---
 // Once the definition and the indicator are both on screen, "what kind of clue
 // is this?" has nothing left to tell anyone, so it must stop gating the assembly
