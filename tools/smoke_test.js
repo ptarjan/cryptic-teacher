@@ -1977,13 +1977,12 @@ global.realSetTimeout(() => {
     "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
 }
 
-// --- naming the words is saying what kind of clue it is (Paul, 2026-08-21) ---
-// The tier gate wanted every tier-0 rung SHOWN before the assembly rung opened,
-// which meant a solver who had pointed at the definition and the indicator
-// themselves still had to buy "what kind of clue is this?" to get any further —
-// a turnstile charging for something they had just demonstrated. Earning the
-// spotting rungs now spends it. Earned only: being told teaches nothing, so the
-// gate has to stay standing for a solver who bought those rungs instead.
+// --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---
+// Once the definition and the indicator are both on screen, "what kind of clue
+// is this?" has nothing left to tell anyone, so it must stop gating the assembly
+// rung. BY EITHER ROUTE: this ran on earnedRungs first, which is only written by
+// a PERFECT guess, so a near miss or a "just tell me" left the turnstile
+// standing — hence both routes are walked below and asserted identical.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const spot = ["definition", "indicators"];
@@ -2011,10 +2010,14 @@ global.realSetTimeout(() => {
     registry["clue-" + found.e.id].listeners.click[0]();
   };
   const rung = (re) => registry["hint-next"].children.find((b) => re.test(b.textContent || ""));
-  // Counted rather than named: the property is that earning the spotting rungs
-  // opens ONE MORE rung than being told them does, and counting says that
-  // without this test having to know what the assembly rung is called.
-  const openRungs = () => registry["hint-next"].children.filter((b) => !b.disabled).length;
+  // Ladder positions rather than labels: every rung button is "<n> · <label>",
+  // and n is the rung's place in this clue's ladder. It is the number Paul reads
+  // off the screen, and it means the test never has to know what the assembly
+  // rung is called.
+  const at = (pred) => registry["hint-next"].children.filter(pred)
+    .map((b) => ((b.textContent || "").match(/(\d+) ·/) || [])[1]);
+  const locked = () => at((b) => b.disabled);
+  const offeredN = () => at(() => true);
   // appendChild does not write innerHTML in the stub, so a failure message built
   // from it says nothing at all. Read the buttons.
   const offered = () => registry["hint-next"].children.map((b) => b.textContent).join(" | ");
@@ -2037,31 +2040,41 @@ global.realSetTimeout(() => {
   assert(want.definition && want.indicators,
     "the clue can pose both spotting questions: " + JSON.stringify(want));
 
-  // Bought, not earned: the gate stands, because being told teaches nothing.
+  // Cold, the ladder has two locks on it: the assembly rung and the walkthrough.
   open();
-  for (const k of spot) {
-    rung(new RegExp(k.slice(0, 9), "i")).onclick();
-    registry["guess-tell"].onclick();
-  }
-  const told = openRungs();
-  assert(/\b2<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
-    "two rungs asked for and handed over cost two: " + registry["scorebar"].innerHTML);
+  const shut = locked();
+  assert(shut.length === 2, "cold, assembly and walkthrough are both locked: " + offered());
 
-  // Earned: the same two rungs, pointed at rather than paid for.
-  open();
-  for (const k of spot) {
-    rung(new RegExp(k.slice(0, 9), "i")).onclick();
-    for (const i of want[k]) registry["gw-" + i].onclick();
-    registry["guess-check"].onclick();
-    assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
-      `the ${k} rung is earned, not bought: ` + registry["hint-body"].innerHTML);
+  // Take the two spotting rungs, either by pointing at the words or by asking to
+  // be told, and report what the ladder looks like afterwards.
+  const bothSpotted = (earn) => {
+    open();
+    for (const k of spot) {
+      rung(new RegExp(k.slice(0, 9), "i")).onclick();
+      if (!earn) { registry["guess-tell"].onclick(); continue; }
+      for (const i of want[k]) registry["gw-" + i].onclick();
+      registry["guess-check"].onclick();
+      assert(registry["hint-body"].innerHTML.includes("guess-verdict right"),
+        `the ${k} rung is earned, not bought: ` + registry["hint-body"].innerHTML);
+    }
+    return { locked: locked(), offered: offeredN(), score: registry["scorebar"].innerHTML,
+             text: offered() };
+  };
+
+  for (const earn of [false, true]) {
+    const how = earn ? "earned" : "asked for outright";
+    const r = bothSpotted(earn);
+    assert(r.offered.length === 3,
+      `${how}: two rungs taken leaves three on the ladder: ` + r.text);
+    assert(r.locked.length === 1 && shut.indexOf(r.locked[0]) >= 0,
+      `${how}: exactly one of the two locks opened — the walkthrough keeps its own: `
+        + r.text);
+    assert(r.offered.indexOf(r.locked[0]) >= 0 && r.offered.length - r.locked.length === 2,
+      `${how}: the assembly rung and the type rung are both takeable: ` + r.text);
+    assert(new RegExp(`\\b${earn ? 0 : 2}</strong> hint levels used`).test(r.score),
+      `${how}: skipping the type rung is free, and changes nothing else's price: `
+        + r.score);
   }
-  assert(openRungs() === told + 1,
-    "earning the spotting rungs opens the rung the type rung was gating: " + offered());
-  assert(/\b1 ·/.test(offered()),
-    "and the type rung is still there to buy, it was skipped rather than given: " + offered());
-  assert(/\b0<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
-    "and none of it cost anything: " + registry["scorebar"].innerHTML);
 }
 
 // --- a clue is a link ---
