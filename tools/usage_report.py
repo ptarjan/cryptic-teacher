@@ -107,6 +107,20 @@ def main():
     for n in shown:
         print(f"  {n:<{pad}} {total[n]:>6}  {bar(total[n], top)}")
 
+    # Openings count sessions, not solvers, so on their own they cannot tell one
+    # regular from a crowd. These do, as far as anything without an identifier
+    # can: one a day from each browser, bucketed by how many days it has come.
+    # A browser is not a person — a second device reads as another new arrival —
+    # so this is a floor on returning and a ceiling on new.
+    visit = {n: total[n] for n in names if n.startswith("visit-")}
+    seen = sum(visit.values())
+    if seen:
+        print(f"\nof {seen} browser-days")
+        for label, n in [("first day here", visit.get("visit-new", 0)),
+                         ("2nd to 4th day", visit.get("visit-return", 0)),
+                         ("5th day or more", visit.get("visit-regular", 0))]:
+            print(f"  {label:<22} {100 * n / seen:>5.1f}%   {n}")
+
     # The actual question, and the reason the events are the ones they are: of
     # the people who opened a puzzle, how many got any distance into it. Shares
     # of OPENS throughout rather than of the previous step, because the steps are
