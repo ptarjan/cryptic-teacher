@@ -38,6 +38,13 @@
 <!-- Merge rules, shared verbatim with the sync Worker so the two ends cannot
      drift apart on what "merge" means. -->
 <script src="sync/merge.js?v=95d48386"></script>
+
+<!-- Cloudflare Web Analytics. Cookieless, no fingerprint, nothing stored on the
+     visitor, so it needs no banner. The token is the dashboard's site tag and is
+     public by design. Kept byte-identical to BEACON in tools/build_seo_pages.py,
+     which tools/smoke_test.js enforces: measuring the static pages but not the
+     app would count arrivals and miss every solve. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "1e3693662c73488fb7482d155ff89c78"}'></script>
 </head>
 <body>
 <header>
