@@ -2679,7 +2679,19 @@
   // ---------- boot ----------
 
   function boot() {
-    $("tutorial").innerHTML = window.TUTORIAL_HTML || "<p>Tutorial unavailable.</p>";
+    // The close button belongs to the app, not to the lesson: tutorial.js is
+    // also published as the standalone /learn/ page, where there is nothing to
+    // close. Injected here so both readings stay right.
+    //
+    // It exists because the section can be opened from a hint as well as from
+    // the button at the top, and after that scroll the button that opened it is
+    // a screen and a half away — the only way back was to remember it was a
+    // toggle and go and find it (Paul, 2026-08-22).
+    $("tutorial").innerHTML =
+      '<button id="btn-tutorial-close" class="ghost small tutorial-close" '
+      + 'aria-label="Close how cryptic clues work">✕</button>'
+      + (window.TUTORIAL_HTML || "<p>Tutorial unavailable.</p>");
+    $("btn-tutorial-close").onclick = () => $("tutorial").classList.add("hidden");
     $("btn-tutorial").onclick = () => {
       const t = $("tutorial");
       t.classList.toggle("hidden");
