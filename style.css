@@ -516,17 +516,37 @@ button:disabled:hover { border-color: var(--line); }
    that copy already carries the setter's italics and every highlight bought so
    far — a word there is three things at once, and a fourth would be one too
    many. Down here it is only ever "picked" or "not". */
+/* One line-height for the clue in every state it is ever in. Grading swaps the
+   markup underneath these words, and any metric that differs between the two
+   forms re-wraps the whole clue at the moment the solver is trying to read what
+   changed. Nothing below may override it. */
 .guess-clue { line-height: 2.1; }
-/* inline-block so the same rule dresses both forms: a <button> while the words
-   are tappable, a <span> once they have been graded and are only being read. */
+/* Dragging across the words picks the run under the finger, so the browser must
+   not read the same gesture as selecting text. pan-y rather than none: a drag
+   that starts on a word still has to be able to scroll the page. */
+.guess-clue { -webkit-user-select: none; user-select: none; }
+.guess-clue .gw { touch-action: pan-y; }
+/* Every property that decides the box, set the same for both forms: a <button>
+   while the words are tappable, a <span> once they have been graded or were
+   never in play. A UA stylesheet dresses those two very differently, and the
+   difference is paid in the words shuffling on the tap that grades them. */
 .gw {
-  display: inline-block;
-  font: inherit; padding: 1px 6px; margin: 0 1px;
+  display: inline-block; box-sizing: border-box; vertical-align: baseline;
+  -webkit-appearance: none; appearance: none;
+  font: inherit; line-height: 1.35; text-align: center;
+  padding: 1px 6px; margin: 0 1px;
   background: transparent; border: 1px solid var(--line); border-radius: 4px;
 }
 /* Big enough to hit with a thumb without the clue turning into a keypad. */
-@media (pointer: coarse) { .gw { padding: 5px 8px; line-height: 1.5; } }
+@media (pointer: coarse) { .gw { padding: 5px 8px; } }
 .gw.on { background: var(--accent-soft); border-color: var(--accent); color: var(--fg); }
+/* A word an earlier rung already named. Still there — knowing where the
+   definition ends is most of knowing where the wordplay starts — but plainly not
+   one of the things being asked about: no border to read as a target, and
+   dimmed, so what is left to choose from is what stands out. */
+.gw.known {
+  border-color: transparent; color: var(--muted); opacity: .75;
+}
 
 /* Grading, worn by the words. A count in a sentence cannot say WHICH words, and
    which words is the whole lesson — so the ones that were right take the
@@ -567,7 +587,12 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    is the thing the colour has meant all along. A miss is not coloured at all:
    it is a step in the lesson, not an error state. */
 .guess-result { margin-top: 12px; }
-.guess-result .guess-clue { line-height: 1.9; margin: 4px 0 0; }
+.guess-result .guess-clue { margin: 4px 0 0; }
+/* The graded clue travels from the bottom of the panel, where the question was,
+   up to the rung it judged — see flipPlay. The transform is set inline; this is
+   only here to say the element is expected to move. */
+.guess-clue { will-change: transform; }
+@media (prefers-reduced-motion: reduce) { .guess-clue { will-change: auto; } }
 .guess-verdict { margin: 10px 0 0; font-size: .9rem; }
 .guess-verdict.right { color: var(--def-fg); font-weight: 600; }
 .guess-verdict.miss { color: var(--muted); }

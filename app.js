@@ -1254,6 +1254,11 @@
   // which isn't a ladder at all. So: pick freely among the things the clue
   // asks you to SPOT, then assemble, then be told.
   const RUNG_TIER = { type: 0, definition: 0, indicators: 0, blocks: 1, walkthrough: 2 };
+  // The rungs that answer "which words", derived rather than listed again: the
+  // tier-0 rungs apart from the one that names no words at all. Two things read
+  // it — the type-rung skip, and the greying-out of words a rung has settled —
+  // and both must mean the same thing by it.
+  const SPOTTING = Object.keys(RUNG_TIER).filter((k) => k !== "type" && !RUNG_TIER[k]);
   // A rung unlocks once every rung of an earlier tier THIS CLUE HAS is up.
   // Per-clue is the whole point: lots of clues have no indicators rung and no
   // blocks rung, and a rung that doesn't exist must never be a lock nobody can
@@ -1284,7 +1289,7 @@
   // cannot open the gate on the strength of a rung it never had.
   function spentBy(e, steps, key) {
     if (key !== "type") return false;
-    const spotting = steps.filter((s) => s.key !== "type" && !(RUNG_TIER[s.key] || 0));
+    const spotting = steps.filter((s) => SPOTTING.indexOf(s.key) >= 0);
     return spotting.length > 0 && spotting.every((s) => isShown(e, s.key));
   }
 
@@ -1596,14 +1601,13 @@
     return out;
   }
 
-  // What a rung asks, and which tokens answer it. Null when this clue cannot
-  // pose the question at all — an &lit whose definition is the whole clue, a
-  // type with no indicators, a block rung with nothing that yields letters — and
-  // the rung then behaves exactly as it always did. A question is only worth
-  // asking if some of the clue is the answer and some of it isn't.
-  function guessAsk(e, rung) {
+  // Which words of the clue a rung names. Kept apart from guessAsk because a
+  // rung can be unaskable and still have named its words — an &lit's definition
+  // is the whole clue, so there is no question in it, and every word of it is
+  // nonetheless settled for the rung asked next.
+  function rungTokens(e, rung) {
     const ann = annOf(e);
-    if (!ann) return null;
+    if (!ann) return [];
     const tokens = clueTokens(e.clue);
     const taken = [];
     const add = (t) => {
@@ -1611,31 +1615,60 @@
       const i = bestOccurrence(e.clue, t, taken);
       if (i >= 0) taken.push({ i, len: t.length });
     };
-    let prompt = "";
     if (rung === "definition") {
-      prompt = "Which words define the answer?";
       add(ann.definition);
       add(ann.definition2);
     } else if (rung === "indicators") {
-      prompt = "Which words tell you what to do to the rest?";
       (ann.indicators || []).forEach(add);
     } else if (rung === "blocks") {
-      // One named piece, not "everything that isn't the definition". Doing the
-      // charade is the hard part, not spotting that it is one, and the union
-      // question can be answered by elimination the moment the definition rung
-      // is up — which would teach nothing.
+      const b = (ann.blocks || []).filter((x) => x.clueFragment && x.gives)[0];
+      if (b) add(b.clueFragment);
+    }
+    const out = [];
+    tokens.forEach((t, n) => {
+      if (taken.some((s) => t.i < s.i + s.len && s.i < t.i + t.text.length)) out.push(n);
+    });
+    return out;
+  }
+
+  // What a rung asks, which tokens answer it, and which are no longer anybody's
+  // to pick. Null when this clue cannot pose the question at all — an &lit whose
+  // definition is the whole clue, a type with no indicators, a block rung with
+  // nothing that yields letters — and the rung then behaves exactly as it always
+  // did.
+  //
+  // A word an earlier rung already named is not a choice. Leaving it tappable
+  // invites a solver who has the definition to offer it back as the indicator,
+  // and marks them wrong for a thing the screen had already told them (Paul).
+  // They are shown, greyed and inert: the scaffolding is the point, since
+  // knowing where the definition ends is most of knowing where the wordplay
+  // starts.
+  //
+  // And a question is only worth asking if, AFTER that, some of what is left is
+  // the answer and some of it isn't. One rule, one place: it is the same guard
+  // that kept the union question off the blocks rung, because the moment the
+  // remainder IS the target the answer is elimination and nothing is learned.
+  function guessAsk(e, rung) {
+    const ann = annOf(e);
+    if (!ann) return null;
+    const tokens = clueTokens(e.clue);
+    const target = rungTokens(e, rung);
+    if (!target.length) return null;
+    let prompt = "";
+    if (rung === "definition") {
+      prompt = "Which words define the answer?";
+    } else if (rung === "indicators") {
+      prompt = "Which words tell you what to do to the rest?";
+    } else if (rung === "blocks") {
       const b = (ann.blocks || []).filter((x) => x.clueFragment && x.gives)[0];
       if (!b) return null;
       prompt = `Which words give <span class="gives">${esc(b.gives)}</span>?`;
-      add(b.clueFragment);
     }
-    if (!taken.length) return null;
-    const target = [];
-    tokens.forEach((t, n) => {
-      if (taken.some((s) => t.i < s.i + s.len && s.i < t.i + t.text.length)) target.push(n);
-    });
-    if (!target.length || target.length === tokens.length) return null;
-    return { prompt, target, tokens };
+    const known = SPOTTING.filter((k) => k !== rung && isShown(e, k))
+      .reduce((a, k) => a.concat(rungTokens(e, k)), [])
+      .filter((n) => target.indexOf(n) < 0);
+    if (target.length >= tokens.length - known.length) return null;
+    return { prompt, target, tokens, known };
   }
 
   // A guess in progress, and the verdict on the one just made. Neither is
@@ -1654,7 +1687,8 @@
   // "it flashes too fast for me to read" (Paul, 2026-08-21). Nothing here is on
   // a timer now. The animations are entrances — they say a thing has arrived,
   // they do not say how long you have with it.
-  function guessWordsHTML(tokens, mk, picked) {
+  function guessWordsHTML(tokens, mk, picked, known) {
+    const settled = known || [];
     const cls = (i) => {
       if (!mk) return picked.indexOf(i) >= 0 ? " on" : "";
       if (mk.hit.indexOf(i) >= 0) return " on hit";
@@ -1663,11 +1697,81 @@
     };
     // Each word its own id rather than a delegated handler: it is the same
     // pattern as every other button here, and it means a word can be pointed at
-    // by name from a test.
-    const words = tokens.map((t, i) => mk
-      ? `<span class="gw${cls(i)}">${esc(t.text)}</span>`
+    // by name from a test. A settled word gets no id and no button: it cannot be
+    // picked, so it must not look pickable and must not answer to a tap.
+    const words = tokens.map((t, i) => (mk || settled.indexOf(i) >= 0)
+      ? `<span class="gw${settled.indexOf(i) >= 0 ? " known" : cls(i)}">${esc(t.text)}</span>`
       : `<button type="button" id="gw-${i}" class="gw${cls(i)}">${esc(t.text)}</button>`);
     return `<p class="guess-clue">${words.join(" ")}</p>`;
+  }
+
+  // ---------- dragging a run of words ----------
+  //
+  // A definition is a RUN of words, and pointing at a run is one gesture rather
+  // than four taps (Paul). A drag ADDS its run to whatever was picked already, so
+  // the indicators rung — often two separate runs — is still answerable by
+  // dragging each of them, and so a drag can never silently throw away a pick.
+  //
+  // The panel is deliberately not re-rendered mid-drag: rebuilding the DOM under
+  // a live pointer ends the gesture. The words are repainted in place and the
+  // panel catches up when the finger lifts.
+  let drag = null;         // { base: [...picked], from, moved, ask }
+  let swallowClick = false;
+
+  function wordAt(x, y) {
+    if (!document.elementFromPoint) return -1;
+    let el = document.elementFromPoint(x, y);
+    for (let hops = 0; el && hops < 4; hops++, el = el.parentNode) {
+      const m = /^gw-(\d+)$/.exec(el.id || "");
+      if (m) return +m[1];
+    }
+    return -1;
+  }
+
+  function paintPicked(ask) {
+    ask.tokens.forEach((t, i) => {
+      if (ask.known.indexOf(i) >= 0) return;
+      const el = $("gw-" + i);
+      if (el) el.className = "gw" + (guessing.picked.indexOf(i) >= 0 ? " on" : "");
+    });
+    const check = $("guess-check");
+    if (check) check.disabled = !guessing.picked.length;
+  }
+
+  function dragOver(i) {
+    const ask = drag.ask;
+    if (i < 0 || i >= ask.tokens.length || ask.known.indexOf(i) >= 0) return;
+    // Nothing happens until the pointer reaches a DIFFERENT word. A tap is a
+    // pointerdown and a pointerup with a wobble in between, and a wobble that
+    // counted as a one-word drag would pick the word and then let the click
+    // that follows toggle it straight back off.
+    if (i === drag.from && !drag.moved) return;
+    drag.moved = true;
+    const lo = Math.min(drag.from, i), hi = Math.max(drag.from, i);
+    const run = [];
+    // Settled words inside the run are skipped rather than breaking it: a
+    // definition can sit either side of a word the indicators rung already named.
+    for (let n = lo; n <= hi; n++) {
+      if (ask.known.indexOf(n) < 0 && drag.base.indexOf(n) < 0) run.push(n);
+    }
+    guessing.picked = drag.base.concat(run);
+    paintPicked(ask);
+  }
+
+  if (document.addEventListener) {
+    document.addEventListener("pointermove", (ev) => {
+      if (drag && guessing) dragOver(wordAt(ev.clientX, ev.clientY));
+    });
+    document.addEventListener("pointerup", () => {
+      if (!drag) return;
+      const moved = drag.moved;
+      drag = null;
+      // Only a real drag swallows the click. A plain tap must still toggle, and
+      // a tap is a pointerdown and a pointerup on the same word.
+      swallowClick = moved;
+      if (moved) renderHintPanel();
+    });
+    document.addEventListener("pointercancel", () => { drag = null; });
   }
 
   // The verdict and the marked-up clue, standing above the rung they earned.
@@ -1675,13 +1779,13 @@
   // then the words, which are the part a count can never give you: WHICH ones.
   function verdictHTML(g) {
     return `<div class="guess-result"><p class="guess-verdict ${g.mk.right ? "right" : "miss"}">${
-      esc(g.mk.said)}</p>${guessWordsHTML(g.tokens, g.mk, [])}</div>`;
+      esc(g.mk.said)}</p>${guessWordsHTML(g.tokens, g.mk, [], g.known)}</div>`;
   }
 
   function guessHTML(ask, position, label) {
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       <p>${ask.prompt}</p>
-      ${guessWordsHTML(ask.tokens, null, guessing.picked)}
+      ${guessWordsHTML(ask.tokens, null, guessing.picked, ask.known)}
       <p class="guess-actions"><button id="guess-check" class="primary"${
         guessing.picked.length ? "" : " disabled"}>Check my answer</button>
        <button id="guess-tell" class="ghost small">Just tell me</button></p>
@@ -1715,6 +1819,39 @@
     return { ...v, right: false, said: "Not those. Here’s where they actually are." };
   }
 
+  // The marked clue is the same words in a different place. The question sits at
+  // the bottom of the panel, under everything already bought; the verdict belongs
+  // beside the rung it judged, which is wherever that rung falls in the ladder.
+  // Re-rendering puts it there instantly, and the whole panel reads as a lurch —
+  // "the words all move and it is jarring" (Paul).
+  //
+  // FLIP: measure where it was, let the render happen, put it back with a
+  // transform and then let it travel. The eye follows the one thing that did not
+  // change, which is the thing worth reading. Everything is guarded because this
+  // is decoration — a DOM without getBoundingClientRect gets the same panel,
+  // arriving in one step.
+  function flipFind() {
+    return document.querySelector ? document.querySelector(".guess-clue") : null;
+  }
+  function flipCapture() {
+    const el = flipFind();
+    return el && el.getBoundingClientRect ? el.getBoundingClientRect() : null;
+  }
+  function flipPlay(from) {
+    const el = from && flipFind();
+    if (!el || !el.getBoundingClientRect || !window.requestAnimationFrame) return;
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const to = el.getBoundingClientRect();
+    const dx = from.left - to.left, dy = from.top - to.top;
+    if (!dx && !dy) return;
+    el.style.transition = "none";
+    el.style.transform = `translate(${dx}px, ${dy}px)`;
+    requestAnimationFrame(() => {
+      el.style.transition = "transform .34s cubic-bezier(.2,.7,.3,1)";
+      el.style.transform = "";
+    });
+  }
+
   // Opens the rung and ends the guess, in the same tick as the tap that asked
   // for it. Nothing waits: the answer and the explanation of it arrive together
   // and both stay, so there is no moment the solver has to catch.
@@ -1722,14 +1859,16 @@
     if (!guessing) return;
     const e = currentEntry();
     if (!e || entryKey(e) !== guessing.key) { guessing = null; return; }
-    lastGuess = verdict &&
-      { key: guessing.key, rung: guessing.rung, tokens: ask.tokens, mk: verdict };
+    const from = flipCapture();
+    lastGuess = verdict && { key: guessing.key, rung: guessing.rung,
+                             tokens: ask.tokens, known: ask.known, mk: verdict };
     if (verdict && verdict.right && earnedRungs(e).indexOf(guessing.rung) < 0) {
       earnedRungs(e).push(guessing.rung);
     }
     showHint(e, guessing.rung);
     guessing = null;
     refreshAll();
+    flipPlay(from);
   }
 
   function earnedRungs(e) {
@@ -1920,12 +2059,23 @@
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
         body.innerHTML += guessHTML(ask, at + 1, steps[at].label);
+        // Only the words in play have a button to bind: a settled one is a span.
         ask.tokens.forEach((t, i) => {
-          $("gw-" + i).onclick = () => {
+          if (ask.known.indexOf(i) >= 0) return;
+          const el = $("gw-" + i);
+          el.onclick = () => {
+            // A drag ends in a click on the word it started from. That click has
+            // already been answered by the drag.
+            if (swallowClick) { swallowClick = false; return; }
             const j = guessing.picked.indexOf(i);
             if (j >= 0) guessing.picked.splice(j, 1); else guessing.picked.push(i);
             renderHintPanel();
           };
+          if (el.addEventListener) {
+            el.addEventListener("pointerdown", () => {
+              drag = { base: guessing.picked.slice(), from: i, moved: false, ask };
+            });
+          }
         });
         $("guess-check").onclick = () => {
           if (!guessing.picked.length) return;
