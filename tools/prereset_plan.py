@@ -7,24 +7,36 @@ weeks it could not — it started two hours before the reset and ran one
 annotation at a time, which is a few puzzles against a remainder measured in
 tens of percent.
 
-Both numbers come out of the same arithmetic, so they live here rather than in
-the shell, where a float is a fork and none of it can be tested without
-spending real inference:
+The thing that actually limits how fast the weekly remainder can be spent is the
+FIVE-hour window. Saturate it and everything is locked out until it turns over,
+however much weekly quota is still sitting there, so the week's remainder can
+only be spent a five-hour window at a time. That makes the plan a count rather
+than a rate:
 
-    hours needed = percent left / (rate * cap)      when to start
-    width        = (percent left / hours left) / rate    how many at once
+    windows = ceil(percent left / yield)     yield = weekly points one full
+    start   = windows * 5 hours              five-hour window is worth
 
-`rate` is the only thing that has to be measured: percent-points of the weekly
-window that ONE annotation run burns in ONE hour. The job records what it
-actually achieved after every wave (--observe), so the estimate is a fact about
-this machine and this model rather than a constant fitted once and left to rot.
+`yield` is measured, not assumed. Both meters bill the same underlying spend
+against different denominators, so the ratio between them is a constant of the
+plan and shows up in any stretch where neither meter is pinned — no saturated
+window is needed to measure what a saturated window is worth. Pooled over two
+weeks of five-minute samples it came to 79 weekly points per 629 session points:
+
+    a full five-hour window = 12.6 weekly points, or 8 such windows in a week
+
+Width is the second question, and it is about filling ONE window rather than the
+week: enough runs in flight to reach the session cap inside the five hours, so
+that the rest of the window is spent waiting out a lockout that has already
+bought everything it could.
 
     tools/prereset_plan.py --window-hours          # start when reset is this close
+    tools/prereset_plan.py --windows               # five-hour windows that implies
     tools/prereset_plan.py --width 6.5             # runs to keep in flight
     tools/prereset_plan.py --observe 4.2 1.5 3     # climb, hours, width
+    tools/prereset_plan.py --observe-yield 4.2 33  # weekly climb, session climb
     tools/prereset_plan.py --self-test
 
-Reads only, except --observe, which writes .prereset_rate.
+Reads only, except the --observe flags, which write .prereset_rate/.prereset_yield.
 """
 import math
 import os
@@ -34,37 +46,35 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import weekly_usage  # noqa: E402
 
-RATE_FILE = Path(__file__).resolve().parent.parent / ".prereset_rate"
+REPO = Path(__file__).resolve().parent.parent
+RATE_FILE = REPO / ".prereset_rate"
+YIELD_FILE = REPO / ".prereset_yield"
 
-# A FLOOR, not a measurement, and deliberately used as one. The two clean runs on
-# record (2026-08-12, 2026-08-19) both annotated at ~3.25 puzzles an hour and both
-# were pinned at a displayed 100% for most of that hour, so the true cost per
-# puzzle is censored from above: it is at least 0.33 points, and could be several
-# times that. Under-guessing the rate starts this job earlier and wider than it
-# strictly needs, which costs nothing out of a window that was going to evaporate;
-# over-guessing wastes the remainder, which is the failure this file exists for.
-#
-# One ordinary agent has been seen to sustain ~5 points an hour on this machine,
-# so CAP runs at this rate is about as hard as it has ever been driven.
+SESSION_HOURS = 5.0
+
+# Weekly percentage-points that one fully-spent five-hour window is worth.
+# Measured from ~7000 paired samples over 2026-08-08..23 (see the docstring), and
+# it is a genuine measurement rather than a floor: it comes from stretches where
+# neither meter was pinned, so nothing is censored out of it.
+SEED_YIELD = 12.6
+
+# Percent of the weekly window ONE annotation run burns per hour. A FLOOR, not a
+# measurement, and deliberately used as one. The two clean runs on record
+# (2026-08-12, 2026-08-19) both annotated at ~3.25 puzzles an hour and both were
+# pinned at a displayed 100% for most of that hour, so the true cost per puzzle is
+# censored from above. Under-guessing it only makes a wave wider than it needed to
+# be, which saturates the window sooner and naps longer — the same quota either
+# way.
 SEED_RATE = 1.1
 
-# An ungated hour of inference is defensible in the last hours of a window and
-# indefensible in the first, so the arithmetic is clamped at both ends. The
-# ceiling is the important one: without it a low rate estimate would have this
-# job start on Monday, which is the hard-coded 04:00 bug wearing a new hat.
-#
-# The ceiling is seven hours. Paul, 2026-08-23: "it should wait until maybe 7
-# hours before the weekly limit and then start using all the inference." So the
-# job stays out of the week entirely until the last seven hours, however big the
-# remainder or however slow the measured rate — and then holds nothing back.
-MIN_HOURS = 2.0
-MAX_HOURS = float(os.environ.get("PRERESET_MAX_HOURS", 7))
-
-# Waiting until seven hours out is what makes this number big. A remainder that
-# needs a day of one-at-a-time has to be spent in a seventh of that, so width is
-# the only lever left. These runs are almost entirely waiting on the API, so the
-# cost of a spare one is a process, not a core.
+# These runs sit waiting on the API almost the whole time, so a spare one costs a
+# process, not a core. The cap is here to bound the fan-out, not to ration.
 CAP = int(os.environ.get("PARALLEL_MAX", 8))
+
+# A guard against a corrupted yield, not a policy. The policy is the window count
+# itself: at the measured yield a completely unspent week asks for eight windows,
+# forty hours, and never more — so this only binds if .prereset_yield goes wrong.
+MAX_WINDOWS = int(float(os.environ.get("PRERESET_MAX_HOURS", 7 * 24)) / SESSION_HOURS)
 
 # Planning deliberately assumes we are slower than measured. Guessing high wastes
 # quota — the failure this whole file exists to fix — while guessing low costs an
@@ -72,46 +82,86 @@ CAP = int(os.environ.get("PARALLEL_MAX", 8))
 SAFETY = 0.7
 
 
+def _read(path, seed):
+    try:
+        got = float(path.read_text().split()[0])
+        return got if got > 0 else seed
+    except (OSError, ValueError, IndexError):
+        return seed
+
+
 def rate():
     """Percent of the weekly window one annotation run burns per hour."""
-    try:
-        got = float(RATE_FILE.read_text().split()[0])
-        return got if got > 0 else SEED_RATE
-    except (OSError, ValueError, IndexError):
-        return SEED_RATE
+    return _read(RATE_FILE, SEED_RATE)
 
 
-def observe(climb, hours, width):
-    """Fold one wave's achieved burn into the estimate.
+def session_yield():
+    """Weekly percentage-points one fully-spent five-hour window is worth."""
+    return _read(YIELD_FILE, SEED_YIELD)
 
-    Halved with the old value rather than replacing it: a wave that overlapped a
-    long interactive session reads as a burn this job cannot reproduce alone, and
-    one such wave should not set the plan for the next month.
 
-    Anything else on the machine inflates `climb`, so the error is toward
-    thinking we spend faster than we do — which is why planning applies SAFETY
-    on the way back out.
+def _blend(old, new, path):
+    """Halve toward the new reading rather than replacing.
+
+    A wave that overlapped a long interactive session reads as a burn this job
+    cannot reproduce alone, and one such wave should not set the plan for the
+    next month.
     """
-    if hours <= 0 or width <= 0 or climb <= 0:
-        return rate()
-    got = (rate() + climb / (hours * width)) / 2
-    RATE_FILE.write_text(f"{got:.3f}\n")
+    got = (old + new) / 2
+    path.write_text(f"{got:.3f}\n")
     return got
 
 
-def window_hours(pct_left, r=None):
-    """How close to the reset spending should begin, in hours."""
-    r = rate() if r is None else r
-    need = pct_left / max(r * SAFETY * CAP, 1e-6)
-    return max(MIN_HOURS, min(MAX_HOURS, need))
+def observe(climb, hours, width_):
+    """Fold one wave's achieved burn into the per-run hourly rate."""
+    if hours <= 0 or width_ <= 0 or climb <= 0:
+        return rate()
+    return _blend(rate(), climb / (hours * width_), RATE_FILE)
+
+
+def observe_yield(weekly_climb, session_climb):
+    """Fold one wave's two meters into the per-window yield.
+
+    Skipped unless both meters moved: a pinned session meter reads as no climb
+    while weekly keeps rising, which would report a window as worth far more
+    than it is, and a session window that reset mid-wave reads as a fall.
+    Refusing those leaves only the unpinned stretches, which is exactly where
+    the ratio is honest.
+    """
+    if session_climb <= 0 or weekly_climb <= 0:
+        return session_yield()
+    return _blend(session_yield(), 100.0 * weekly_climb / session_climb, YIELD_FILE)
+
+
+def windows(pct_left, y=None):
+    """Five-hour windows needed to spend what is left of the week."""
+    y = session_yield() if y is None else y
+    return max(0, min(MAX_WINDOWS, math.ceil(pct_left / max(y, 1e-6))))
+
+
+def window_hours(pct_left, y=None):
+    """How close to the reset spending should begin, in hours.
+
+    Zero when nothing is left, which is the right answer: the gate compares the
+    hours until reset against this, and no positive number of hours is ever
+    within zero, so a spent week never opens it.
+    """
+    return windows(pct_left, y) * SESSION_HOURS
 
 
 def width(pct_left, hours_left, r=None):
-    """How many annotation runs to keep in flight for the next wave."""
+    """How many annotation runs to keep in flight for the next wave.
+
+    Sized to fill the CURRENT five-hour window, not the whole remainder: past
+    the session cap nothing else can be bought at any width, and the runs that
+    would have bought it fail instead.
+    """
     r = rate() if r is None else r
-    if hours_left <= 0 or pct_left <= 0:
+    goal = min(session_yield(), pct_left)
+    hours = min(SESSION_HOURS, hours_left)
+    if hours <= 0 or goal <= 0:
         return 1
-    return max(1, min(CAP, math.ceil((pct_left / hours_left) / (r * SAFETY))))
+    return max(1, min(CAP, math.ceil(goal / (hours * r * SAFETY))))
 
 
 def pct_left():
@@ -125,24 +175,38 @@ def self_test():
     that matter are the big remainders: a job that spends everything when 3% is
     left and nothing when 70% is has still wasted the whole point.
     """
-    cases = [
-        # pct_left, hours_left, rate -> width, and the window it starts in
-        (70, 10, 0.5, CAP, MAX_HOURS),    # a wasted week: as wide and early as allowed
-        (3, 3, 1.5, 1, MIN_HOURS),        # nearly spent: one run, the old behaviour
-        (0, 5, 1.5, 1, MIN_HOURS),        # nothing left: never negative or zero
-        (30, 6, 1.5, 5, 3.57),            # the middle, where neither clamp is doing the work
+    Y, R = SEED_YIELD, SEED_RATE
+    starts = [
+        # pct_left, yield -> hours before the reset to start
+        (69, Y, 30.0),      # the live remainder: six windows
+        (100, Y, 40.0),     # a wholly wasted week, and the most this can ever ask
+        (3, Y, 5.0),        # a sliver still gets a whole window to spend it in
+        (0, Y, 0.0),        # nothing left: the gate never opens
+        (69, 0.01, MAX_WINDOWS * SESSION_HOURS),   # corrupt yield hits the guard
+    ]
+    widths = [
+        # pct_left, hours_left -> runs in flight
+        (69, 30, 4),        # plenty of room: fill one window, no more
+        (3, 5, 1),          # nearly spent: one run, the old behaviour
+        (12, 1, CAP),       # last hour with points left: as wide as allowed
+        (0, 5, 1),          # nothing left: never zero or negative
     ]
     bad = 0
-    for left, hours, r, want_w, want_h in cases:
-        got_w, got_h = width(left, hours, r), window_hours(left, r)
-        if got_w != want_w or abs(got_h - want_h) > 0.05:
-            print(f"FAIL {left}% in {hours}h at {r}: width {got_w} (want {want_w}), "
-                  f"start {got_h:.2f}h (want {want_h})", file=sys.stderr)
+    for left, y, want in starts:
+        got = window_hours(left, y)
+        if abs(got - want) > 0.05:
+            print(f"FAIL start {left}% at yield {y}: {got:.2f}h (want {want})", file=sys.stderr)
+            bad += 1
+    for left, hours, want in widths:
+        got = width(left, hours, R)
+        if got != want:
+            print(f"FAIL width {left}% in {hours}h: {got} (want {want})", file=sys.stderr)
             bad += 1
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
-    print(f"prereset plan self-test FAILED: {bad} of {len(cases)}" if bad
-          else f"prereset plan self-test: {len(cases)} cases pass")
+    n = len(starts) + len(widths)
+    print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
+          else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
 
 
@@ -153,18 +217,30 @@ def main():
         at = sys.argv.index("--observe")
         print(f"{observe(*(float(a) for a in sys.argv[at + 1:at + 4])):.3f}")
         return 0
+    if "--observe-yield" in sys.argv:
+        at = sys.argv.index("--observe-yield")
+        print(f"{observe_yield(*(float(a) for a in sys.argv[at + 1:at + 3])):.3f}")
+        return 0
     if "--rate" in sys.argv:
         print(f"{rate():.3f}")
+        return 0
+    if "--yield" in sys.argv:
+        print(f"{session_yield():.3f}")
         return 0
     if "--width" in sys.argv:
         hours = float(sys.argv[sys.argv.index("--width") + 1])
         print(width(pct_left(), hours))
         return 0
+    if "--windows" in sys.argv:
+        print(windows(pct_left()))
+        return 0
     if "--window-hours" in sys.argv:
         print(f"{window_hours(pct_left()):.1f}")
         return 0
-    print(f"{pct_left():.0f}% of the weekly window is unspent; at {rate():.2f}%/h "
-          f"per run it needs {window_hours(pct_left()):.1f}h at width {CAP}")
+    left = pct_left()
+    print(f"{left:.0f}% of the weekly window is unspent; at {session_yield():.1f} points "
+          f"per five-hour window that needs {windows(left)} of them, so start "
+          f"{window_hours(left):.0f}h out at width {width(left, window_hours(left))}")
     return 0
 
 

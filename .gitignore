@@ -1,6 +1,5 @@
 # Logs of the LaunchAgent runs (daily 06:15, pre-reset backfill 04:00) — local only.
 .update.log
-.prereset.log
 
 # Scheduled-job state, meaningful only on the machine that ran it: the last
 # usage/reset reading (weekly_usage.py falls back to it when the CLI's access
@@ -8,6 +7,10 @@
 # on it, see ALERT_REPEAT_HOURS).
 .usage_cache.json
 .alert-state/
+# Everything the pre-reset backfill leaves behind: its log, its run lock, and the
+# two rates it measures for itself (.prereset_rate, .prereset_yield). One glob so
+# the next thing it learns to measure cannot arrive untracked-but-committable.
+.prereset*
 puzzles/__pycache__/
 tools/__pycache__/
 __pycache__/

@@ -17,16 +17,15 @@
 # HOW MUCH IS LEFT DECIDES BOTH THE START AND THE WIDTH. Two hours of one
 # annotation at a time spends a few percent, so a week that ends with tens of
 # percent unspent ends that way however faithfully this job runs. Both numbers
-# are arithmetic on the remainder and on a burn rate this job measures for
-# itself — tools/prereset_plan.py, which is where they are explained and tested.
-# A remainder that is nearly spent still gets the old behaviour: start two hours
-# out, one run at a time. Nothing starts more than seven hours out, whatever the
-# arithmetic says — the week belongs to real work until then, and those seven
-# hours are the whole of the budget by choice.
+# are arithmetic on the remainder and on rates this job measures for itself —
+# tools/prereset_plan.py, which is where they are explained and tested.
 #
-# Seven hours is barely more than one five-hour window, so this WILL hit that
-# limit and that is the plan: a lockout is waited out rather than read as the
-# week being over, and the wave that follows picks up where it stopped.
+# The remainder can only be spent one FIVE-hour window at a time: saturate that
+# limit and nothing more can be bought at any width until it turns over. So the
+# start is a count, not a rate — how many five-hour windows the remainder needs,
+# times five hours — and this job expects to be locked out once per window it
+# asked for. A lockout is waited out rather than read as the week being over,
+# and the wave after it picks up where the last one stopped.
 #
 # Paul, 2026-08-02: "right before my weekly inference resets you should spend
 # whatever is left on backfills."
@@ -72,11 +71,11 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 . "$REPO/tools/annotate_model.sh"
 MODEL="$ANNOTATE_MODEL"
-# How close to the reset counts as "the end of the week" — computed from what is
-# left to spend, so a nearly-spent window still starts two hours out and a badly
-# under-spent one starts early enough to have a chance. tools/prereset_plan.py
-# clamps it at both ends; nothing here may start the ungated part days early.
-WINDOW_HOURS="${WINDOW_HOURS:-$(python3 tools/prereset_plan.py --window-hours 2>/dev/null || echo 2)}"
+# How close to the reset counts as "the end of the week" — five hours for every
+# five-hour window the remainder needs, so a nearly-spent week gets one and a
+# wholly unspent one gets eight. Zero when there is nothing left, which keeps the
+# gate shut: no positive number of hours until reset is ever within zero.
+WINDOW_HOURS="${WINDOW_HOURS:-$(python3 tools/prereset_plan.py --window-hours 2>/dev/null || echo 5)}"
 FORCE_HOURS="${FORCE_HOURS:-1}"
 # Above this the weekly window really is gone and a failing run means it. Below
 # it, a failure is the FIVE-hour window instead, which clears by itself.
@@ -86,9 +85,14 @@ FORCE_HOURS="${FORCE_HOURS:-1}"
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
 EXHAUSTED="${EXHAUSTED:-97}"
-# Each nap is capped at the deadline anyway, so this only bounds waves that fail
-# fast for some reason other than a lockout — it is not a budget to ration.
-MAX_NAPS="${MAX_NAPS:-6}"
+# One nap per five-hour window this job asked for is the PLAN, not a failure, so
+# the allowance is that count with slack rather than a constant. A constant that
+# is smaller than the number of windows ends the job in the middle of the run it
+# scheduled, with the remainder it was started for still sitting there. Each nap
+# is capped at the deadline regardless, so this only bounds waves failing fast
+# for some reason other than a lockout — it is not a budget to ration.
+MAX_NAPS="${MAX_NAPS:-$(python3 tools/prereset_plan.py --windows 2>/dev/null || echo 6)}"
+MAX_NAPS=$((MAX_NAPS + 2))
 # DRY_RUN=1 walks the whole job — gate, queue order, wave widths, deadline —
 # without calling claude, touching git or rebuilding anything. This job spends
 # ungated inference in parallel and cannot be rehearsed any other way; the first
@@ -227,17 +231,24 @@ run_wave() {
 
 # What a finished wave teaches, and whether to keep going.
 #   $1 percent used before the wave  $2 hours it took  $3 how wide it was
-#   $4 how many of its runs failed
+#   $4 how many of its runs failed  $5 five-hour percent before the wave
 # Returns non-zero when the caller should stop.
 after_wave() {
-  local before="$1" hours="$2" wide="$3" failed="$4" now climb
+  local before="$1" hours="$2" wide="$3" failed="$4" before_s="$5" now now_s climb climb_s
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
+  now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo "$before_s")
   # awk -v, never string interpolation: an unset or empty number splices into the
   # program text and awk dies of a syntax error, which reads as a broken script
   # rather than as the missing reading it is.
   climb=$(awk -v a="$before" -v b="$now" 'BEGIN{print b - a}')
+  climb_s=$(awk -v a="$before_s" -v b="$now_s" 'BEGIN{print b - a}')
   python3 tools/prereset_plan.py --observe "$climb" "$hours" "$wide" >/dev/null 2>&1
-  echo "  weekly window ${before}% -> ${now}% in ${hours}h at width ${wide}"
+  # Both meters bill the same spend against different denominators, so every wave
+  # where neither is pinned re-measures what a whole five-hour window is worth —
+  # the number the start time is counted out of. The plan script throws away the
+  # waves where one of them was pinned or had reset.
+  python3 tools/prereset_plan.py --observe-yield "$climb" "$climb_s" >/dev/null 2>&1
+  echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${wide}"
   [ "${failed:-1}" -eq 0 ] && return 0
   # A failed wave with room still on the weekly clock is almost always the
   # FIVE-hour limit, which this job is now wide enough to hit on purpose and
@@ -359,12 +370,13 @@ while [ "$at" -lt "${#queue[@]}" ]; do
   hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
   wide=$(python3 tools/prereset_plan.py --width "$hours_left" 2>/dev/null || echo 1)
   before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
+  before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
   started=$(date +%s)
   run_wave "Annotate" "$ANNOTATE_PROMPT" "${queue[@]:$at:$wide}"
   failed=$?
   at=$((at + wide))
   after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
-    "$wide" "$failed" || break
+    "$wide" "$failed" "$before_s" || break
 done
 
 # --- 2. grandfathered-field backfill ------------------------------------------
@@ -398,12 +410,13 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
     wide=$(python3 tools/prereset_plan.py --width "$hours_left" 2>/dev/null || echo 1)
     before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
+    before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
     started=$(date +%s)
     run_wave "Backfill $field for" "$prompt" "${queue[@]:$at:$wide}"
     failed=$?
     at=$((at + wide))
     after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
-      "$wide" "$failed" || break 2
+      "$wide" "$failed" "$before_s" || break 2
   done
 done
 
