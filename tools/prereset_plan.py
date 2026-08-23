@@ -52,9 +52,19 @@ SEED_RATE = 1.1
 # indefensible in the first, so the arithmetic is clamped at both ends. The
 # ceiling is the important one: without it a low rate estimate would have this
 # job start on Monday, which is the hard-coded 04:00 bug wearing a new hat.
+#
+# The ceiling is seven hours. Paul, 2026-08-23: "it should wait until maybe 7
+# hours before the weekly limit and then start using all the inference." So the
+# job stays out of the week entirely until the last seven hours, however big the
+# remainder or however slow the measured rate — and then holds nothing back.
 MIN_HOURS = 2.0
-MAX_HOURS = float(os.environ.get("PRERESET_MAX_HOURS", 12))
-CAP = int(os.environ.get("PARALLEL_MAX", 4))
+MAX_HOURS = float(os.environ.get("PRERESET_MAX_HOURS", 7))
+
+# Waiting until seven hours out is what makes this number big. A remainder that
+# needs a day of one-at-a-time has to be spent in a seventh of that, so width is
+# the only lever left. These runs are almost entirely waiting on the API, so the
+# cost of a spare one is a process, not a core.
+CAP = int(os.environ.get("PARALLEL_MAX", 8))
 
 # Planning deliberately assumes we are slower than measured. Guessing high wastes
 # quota — the failure this whole file exists to fix — while guessing low costs an
@@ -117,10 +127,10 @@ def self_test():
     """
     cases = [
         # pct_left, hours_left, rate -> width, and the window it starts in
-        (70, 10, 1.5, CAP, MAX_HOURS),    # a wasted week: as wide and early as allowed
+        (70, 10, 0.5, CAP, MAX_HOURS),    # a wasted week: as wide and early as allowed
         (3, 3, 1.5, 1, MIN_HOURS),        # nearly spent: one run, the old behaviour
         (0, 5, 1.5, 1, MIN_HOURS),        # nothing left: never negative or zero
-        (12, 4, 1.5, 3, 2.86),            # the middle, where neither clamp is doing the work
+        (30, 6, 1.5, 5, 3.57),            # the middle, where neither clamp is doing the work
     ]
     bad = 0
     for left, hours, r, want_w, want_h in cases:
@@ -129,15 +139,16 @@ def self_test():
             print(f"FAIL {left}% in {hours}h at {r}: width {got_w} (want {want_w}), "
                   f"start {got_h:.2f}h (want {want_h})", file=sys.stderr)
             bad += 1
+    # Counted, not typed: a hand-written total goes stale the first time a case
+    # is added and then reports a shrinking suite as a passing one.
+    print(f"prereset plan self-test FAILED: {bad} of {len(cases)}" if bad
+          else f"prereset plan self-test: {len(cases)} cases pass")
     return 1 if bad else 0
 
 
 def main():
     if "--self-test" in sys.argv:
-        rc = self_test()
-        print("prereset plan self-test: 4 cases pass" if rc == 0
-              else "prereset plan self-test FAILED")
-        return rc
+        return self_test()
     if "--observe" in sys.argv:
         at = sys.argv.index("--observe")
         print(f"{observe(*(float(a) for a in sys.argv[at + 1:at + 4])):.3f}")
