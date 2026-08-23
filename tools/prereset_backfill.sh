@@ -27,6 +27,13 @@
 # asked for. A lockout is waited out rather than read as the week being over,
 # and the wave after it picks up where the last one stopped.
 #
+# AND IT NEVER RUNS AHEAD OF THAT COUNT. The count is re-asked before every wave,
+# so the moment spending has bought back enough slack the job stands down and
+# exits, and the hourly fire restarts it when it falls behind again. That is the
+# difference between spending what the week was going to lose and simply taking
+# it early: quota spent on Monday is quota real work cannot have on Tuesday, and
+# whether Monday was needed at all is only knowable on Monday.
+#
 # Paul, 2026-08-02: "right before my weekly inference resets you should spend
 # whatever is left on backfills."
 #
@@ -167,6 +174,37 @@ past_deadline() {
   [ "$(date +%s)" -ge "$STOP_AT" ]
 }
 
+# NEVER SPEND A WINDOW EARLIER THAN THE REMAINDER REQUIRES. The startup gate asks
+# once whether we are inside the last N five-hour windows; this asks again before
+# every wave, against what is left NOW. Spending shrinks the remainder, a smaller
+# remainder needs fewer windows, and fewer windows pull the start time back toward
+# the reset — so a job that gets ahead of itself notices and stops. Real work
+# spending the same quota has the same effect, which is the point: this job takes
+# only what the week was going to lose anyway, and takes it as late as it can.
+#
+# Standing down means EXITING, not sleeping. The plist fires hourly and re-decides
+# with a fresh reading; a process asleep for five hours on a plan made before it
+# slept is the hard-coded 04:00 appointment wearing a different hat.
+#
+# Paul, 2026-08-23: "I also don't want it to pre spend. So make sure it doesn't
+# spend on Monday unless it needs to."
+still_behind() {
+  if [ "${FORCE:-0}" = 1 ]; then return 0; fi
+  # verdict is initialised, not just declared: `local verdict` leaves it UNSET,
+  # and set -u turns the unreadable-API path into an unbound-variable abort.
+  local hours verdict=""
+  hours=$(python3 tools/weekly_usage.py --resets-in 2>/dev/null)
+  [ -n "$hours" ] && verdict=$(python3 tools/prereset_plan.py --behind "$hours" 2>/dev/null)
+  # Only an explicit "no" stops the run. A reading we failed to take is not a
+  # reason to stop: the deadline still bounds us, and reading an unreachable API
+  # as "we are ahead" strands the whole remainder on the night it exists for.
+  [ "$verdict" != "no" ]
+}
+stand_down() {
+  echo "back on schedule — what is left fits in the windows that remain; standing down"
+  echo "the hourly fire will pick it up again when it falls behind"
+}
+
 # Hours between two epoch seconds. A function because both callers used to build
 # the awk program by string interpolation and both got it wrong the same way.
 hours_between() {
@@ -264,6 +302,9 @@ after_wave() {
     echo "  $naps waits already and runs still fail — stopping rather than looping"
     return 1
   fi
+  # A lockout we no longer need to wait out. Spending got us back on schedule, so
+  # the remaining windows are enough and this one need not have been used at all.
+  if ! still_behind; then stand_down; return 1; fi
   # Sleep until the five-hour window actually turns over, asked rather than
   # guessed. A nap shorter than the lockout spends a nap on a wave that was
   # always going to fail, and MAX_NAPS of those ends the job with most of the
@@ -364,6 +405,7 @@ queue=($todo)
 at=0
 while [ "$at" -lt "${#queue[@]}" ]; do
   if past_deadline; then echo "deadline reached — stopping"; break; fi
+  if ! still_behind; then stand_down; break; fi
   # Re-asked every wave, not decided once: the remainder shrinks as we spend it,
   # the hours shrink faster, and something else on this machine may be spending
   # too. A width fixed at the top would be wrong by the second wave.
@@ -407,6 +449,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do
     if past_deadline; then echo "deadline reached — stopping"; break 2; fi
+    if ! still_behind; then stand_down; break 2; fi
     hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
     wide=$(python3 tools/prereset_plan.py --width "$hours_left" 2>/dev/null || echo 1)
     before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
