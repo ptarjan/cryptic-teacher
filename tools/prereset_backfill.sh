@@ -5,14 +5,22 @@
 # over. Whatever is left when the weekly window turns over is simply gone.
 # daily_update.sh deliberately refuses to annotate above ANNOTATE_MAX_WEEKLY_PCT
 # (50%) because a crossword backlog is never worth being rate-limited for real
-# work — but that reasoning stops applying in the last hour of the window, when
-# there is no real work left to protect. So this job runs with NO usage gate at
-# all, on purpose, and ONLY in that hour.
+# work — but that reasoning stops applying at the end of the window, when there
+# is no real work left to protect. So this job runs with NO usage gate at all,
+# on purpose, and ONLY then.
 #
-# "Only in that hour" is load-bearing and was wrong for its first week: the job
-# is fired hourly and almost always exits immediately, because whether this is
-# the hour is decided by asking the usage API when the window resets, not by the
-# time on the clock. See the check below.
+# "Only then" is load-bearing and was wrong for its first week: the job is fired
+# hourly and almost always exits immediately, because whether this is the hour
+# is decided by asking the usage API when the window resets, not by the time on
+# the clock. See the check below.
+#
+# HOW MUCH IS LEFT DECIDES BOTH THE START AND THE WIDTH. Two hours of one
+# annotation at a time spends a few percent, so a week that ends with tens of
+# percent unspent ends that way however faithfully this job runs. Both numbers
+# are arithmetic on the remainder and on a burn rate this job measures for
+# itself — tools/prereset_plan.py, which is where they are explained and tested.
+# A remainder that is nearly spent still gets the old behaviour: start two hours
+# out, one run at a time.
 #
 # Paul, 2026-08-02: "right before my weekly inference resets you should spend
 # whatever is left on backfills."
@@ -58,12 +66,34 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 . "$REPO/tools/annotate_model.sh"
 MODEL="$ANNOTATE_MODEL"
-# How close to the reset counts as "the last hour of the week", and how long a
-# forced manual run is allowed to spend.
-WINDOW_HOURS="${WINDOW_HOURS:-2}"
+# How close to the reset counts as "the end of the week" — computed from what is
+# left to spend, so a nearly-spent window still starts two hours out and a badly
+# under-spent one starts early enough to have a chance. tools/prereset_plan.py
+# clamps it at both ends; nothing here may start the ungated part days early.
+WINDOW_HOURS="${WINDOW_HOURS:-$(python3 tools/prereset_plan.py --window-hours 2>/dev/null || echo 2)}"
 FORCE_HOURS="${FORCE_HOURS:-1}"
+# Above this the weekly window really is gone and a failing run means it. Below
+# it, a failure is the FIVE-hour window instead, which clears by itself.
+EXHAUSTED="${EXHAUSTED:-97}"
+MAX_NAPS="${MAX_NAPS:-6}"
+# DRY_RUN=1 walks the whole job — gate, queue order, wave widths, deadline —
+# without calling claude, touching git or rebuilding anything. This job spends
+# ungated inference in parallel and cannot be rehearsed any other way; the first
+# version of it ran seven ungated nights a week and read as healthy in the log.
+DRY_RUN="${DRY_RUN:-0}"
 
 echo "=== cryptic-teacher pre-reset backfill $(date '+%Y-%m-%d %H:%M') ==="
+
+# One at a time. launchd will not start a second copy of its own job, but this
+# now runs for hours rather than one, so an hourly fire and a hand-run FORCE=1
+# overlap easily — and two copies would double the width nobody asked for and
+# race each other's commits in the one git index. mkdir is the atomic part.
+LOCK="$REPO/.prereset.lock"
+if ! mkdir "$LOCK" 2>/dev/null; then
+  echo "another pre-reset backfill is running (started $(date -r "$LOCK" '+%H:%M')) — leaving it alone"
+  exit 0
+fi
+trap 'rmdir "$LOCK" 2>/dev/null' EXIT
 
 # THE WHOLE JOB HANGS ON THIS CHECK. Everything below runs with no usage gate
 # whatsoever, which is only defensible in the hour before quota that cannot roll
@@ -120,22 +150,102 @@ past_deadline() {
   [ "$(date +%s)" -ge "$STOP_AT" ]
 }
 
-# Run one claude task against the repo. Returns non-zero if the run failed,
-# which the callers treat as "the window is gone, stop".
+# Hours between two epoch seconds. A function because both callers used to build
+# the awk program by string interpolation and both got it wrong the same way.
+hours_between() {
+  awk -v a="$1" -v b="$2" 'BEGIN{printf "%.3f", (b - a) / 3600}'
+}
+
+# Run one claude task against the repo. Returns non-zero if the run failed.
+#
+# Its output goes to a file named after the puzzle rather than to the log, because
+# several of these run at once now and interleaved transcripts belong to nobody.
+# The caller prints the tail of each one as it reaps it, in order.
 run_claude() {
-  claude -p "$1" \
+  local tag="$1" log
+  log="/tmp/ct-prereset-$1.txt"
+  if [ "$DRY_RUN" = 1 ]; then
+    echo "would spend one $MODEL run on $tag" >"$log"
+    sleep 1
+    return 0
+  fi
+  claude -p "$2" \
     --model "$MODEL" \
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
-    --max-turns 80 2>&1 | tee /tmp/ct-prereset-claude.txt
-  local rc=${PIPESTATUS[0]}
+    --max-turns 80 >"$log" 2>&1
+  local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
   # stays quiet. A broken login is a different animal: it fails identically, at
   # the same point, every night, and it hid there for seven days (2026-07-31 to
   # 2026-08-06) precisely because it looked like the normal ending.
-  if [ $rc -ne 0 ] && grep -qi "Failed to authenticate\|Not logged in" /tmp/ct-prereset-claude.txt; then
+  if [ $rc -ne 0 ] && grep -qi "Failed to authenticate\|Not logged in" "$log"; then
     alert "pre-reset backfill cannot authenticate — the CLI needs a fresh /login. Nothing has been backfilled since this started."
   fi
   return $rc
+}
+
+# Run a wave of puzzles at once and commit the ones that survive validation.
+#   $1   commit message prefix, e.g. "Annotate"
+#   $2   the prompt, with every @ standing for the puzzle id
+#   $3+  the ids
+# Returns how many runs failed. The claude runs are the only thing that happens
+# in parallel: every git command below runs in this shell, one at a time, because
+# a second process staging its own file mid-commit swallows it into ours.
+run_wave() {
+  local what="$1" tmpl="$2"; shift 2
+  local ids=("$@") pids=() i failed=0
+  echo "--- wave of ${#ids[@]}: ${ids[*]} ---"
+  for i in "${!ids[@]}"; do
+    run_claude "${ids[$i]}" "${tmpl//@/${ids[$i]}}" &
+    pids+=($!)
+  done
+  for i in "${!ids[@]}"; do
+    if wait "${pids[$i]}"; then
+      tail -3 "/tmp/ct-prereset-${ids[$i]}.txt" | sed "s/^/  [${ids[$i]}] /"
+      commit_puzzle "${ids[$i]}" "$what"
+    else
+      echo "  [${ids[$i]}] run failed — discarding its changes"
+      git checkout -- "puzzles/${ids[$i]}.js" 2>/dev/null
+      failed=$((failed + 1))
+    fi
+  done
+  return $failed
+}
+
+# What a finished wave teaches, and whether to keep going.
+#   $1 percent used before the wave  $2 hours it took  $3 how wide it was
+#   $4 how many of its runs failed
+# Returns non-zero when the caller should stop.
+after_wave() {
+  local before="$1" hours="$2" wide="$3" failed="$4" now climb
+  now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
+  # awk -v, never string interpolation: an unset or empty number splices into the
+  # program text and awk dies of a syntax error, which reads as a broken script
+  # rather than as the missing reading it is.
+  climb=$(awk -v a="$before" -v b="$now" 'BEGIN{print b - a}')
+  python3 tools/prereset_plan.py --observe "$climb" "$hours" "$wide" >/dev/null 2>&1
+  echo "  weekly window ${before}% -> ${now}% in ${hours}h at width ${wide}"
+  [ "${failed:-1}" -eq 0 ] && return 0
+  # A failed wave with room still on the weekly clock is almost always the
+  # FIVE-hour limit, which this job is now wide enough to hit on purpose and
+  # which clears by itself. Treating that as "the week is over" is how a job
+  # built to spend the remainder leaves most of it behind. Only the seven-day
+  # number gets to end the run.
+  if awk -v n="$now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
+    echo "  weekly window is spent (${now}%) — stopping"
+    return 1
+  fi
+  naps=$((naps + 1))
+  if [ "$naps" -gt "$MAX_NAPS" ]; then
+    echo "  $naps waits already and runs still fail — stopping rather than looping"
+    return 1
+  fi
+  local nap=$(( STOP_AT - $(date +%s) - 60 ))
+  [ "$nap" -gt 1200 ] && nap=1200
+  if [ "$nap" -le 0 ]; then return 1; fi
+  echo "  runs failed at ${now}% weekly — five-hour limit; waiting ${nap}s (nap $naps)"
+  sleep "$nap"
+  return 0
 }
 
 # Commit whatever a task produced, but only if the tree still validates. A run
@@ -143,7 +253,10 @@ run_claude() {
 # committing that would publish a broken puzzle page at 06:15.
 commit_puzzle() {
   local num="$1" what="$2"   # num is a puzzle ID, e.g. cryptic-30089
-  if ! python3 tools/validate_annotations.py >/tmp/ct-prereset-validate.txt 2>&1; then
+  if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $num"; return 0; fi
+  # This puzzle only. A whole-tree run would fail for a sibling in the same wave
+  # that is still mid-write, and discard a good annotation to punish it.
+  if ! python3 tools/validate_annotations.py "$num" >/tmp/ct-prereset-validate.txt 2>&1; then
     echo "VALIDATION FAILED after $what $num — discarding that puzzle's changes"
     tail -5 /tmp/ct-prereset-validate.txt
     git checkout -- "puzzles/$num.js" 2>/dev/null
@@ -211,17 +324,27 @@ print(" ".join(p["id"] for p in todo))
 EOF
 )
 
-for num in $todo; do
+# Not "Guardian crossword": since 2026-08-05 some of these are the
+# Independent's. The puzzle file records its own series and publisher.
+ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
+
+naps=0
+queue=($todo)
+at=0
+while [ "$at" -lt "${#queue[@]}" ]; do
   if past_deadline; then echo "deadline reached — stopping"; break; fi
-  echo "--- annotating $num ---"
-  # Not "Guardian crossword": since 2026-08-05 some of these are the
-  # Independent's. The puzzle file records its own series and publisher.
-  run_claude "Annotate the crossword in puzzles/$num.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." || {
-    echo "annotation run for $num failed (window exhausted?) — stopping here"
-    git checkout -- "puzzles/$num.js" 2>/dev/null
-    break
-  }
-  commit_puzzle "$num" "Annotate" || break
+  # Re-asked every wave, not decided once: the remainder shrinks as we spend it,
+  # the hours shrink faster, and something else on this machine may be spending
+  # too. A width fixed at the top would be wrong by the second wave.
+  hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
+  wide=$(python3 tools/prereset_plan.py --width "$hours_left" 2>/dev/null || echo 1)
+  before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
+  started=$(date +%s)
+  run_wave "Annotate" "$ANNOTATE_PROMPT" "${queue[@]:$at:$wide}"
+  failed=$?
+  at=$((at + wide))
+  after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
+    "$wide" "$failed" || break
 done
 
 # --- 2. grandfathered-field backfill ------------------------------------------
@@ -247,17 +370,27 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     indicatorNotes) what="an object keyed by the exact indicator string, ONE sentence each saying why THAT word carries THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  for num in $nums; do
+  prompt="In this repo, add the missing \`$field\` to every annotated clue in puzzles/@.js that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/validate_annotations.py @ until it passes. Do not commit — the calling script commits."
+  queue=($nums)
+  at=0
+  while [ "$at" -lt "${#queue[@]}" ]; do
     if past_deadline; then echo "deadline reached — stopping"; break 2; fi
-    echo "--- $field $num ---"
-    run_claude "In this repo, add the missing \`$field\` to every annotated clue in puzzles/$num.js that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/validate_annotations.py $num until it passes. Do not commit — the calling script commits." || {
-      echo "$field run for $num failed (window exhausted?) — stopping here"
-      git checkout -- "puzzles/$num.js" 2>/dev/null
-      break 2
-    }
-    commit_puzzle "$num" "Backfill $field for" || break 2
+    hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
+    wide=$(python3 tools/prereset_plan.py --width "$hours_left" 2>/dev/null || echo 1)
+    before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
+    started=$(date +%s)
+    run_wave "Backfill $field for" "$prompt" "${queue[@]:$at:$wide}"
+    failed=$?
+    at=$((at + wide))
+    after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
+      "$wide" "$failed" || break 2
   done
 done
+
+if [ "$DRY_RUN" = 1 ]; then
+  echo "=== dry run — nothing spent, nothing built, nothing committed $(date '+%H:%M') ==="
+  exit 0
+fi
 
 # Record what got drained. The allowance may only shrink, so every puzzle
 # finished here is a puzzle that can never quietly lose the field again.
