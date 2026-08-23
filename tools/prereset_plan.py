@@ -16,6 +16,12 @@ than a rate:
     windows = ceil(percent left / yield)     yield = weekly points one full
     start   = windows * 5 hours              five-hour window is worth
 
+This is a trailing edge, not a start time. The backfill re-asks it before every
+wave, so spending shrinks the remainder, a smaller remainder needs fewer windows,
+and the edge slides back toward the reset until the job is ahead of it and stands
+down. Real work spending the same quota moves it the same way. The job therefore
+takes only what the week was going to lose, as late as it can still take it.
+
 `yield` is measured, not assumed. Both meters bill the same underlying spend
 against different denominators, so the ratio between them is a constant of the
 plan and shows up in any stretch where neither meter is pinned — no saturated
@@ -164,6 +170,16 @@ def width(pct_left, hours_left, r=None):
     return max(1, min(CAP, math.ceil(goal / (hours * r * SAFETY))))
 
 
+def behind(hours_until_reset, pct, y=None):
+    """Is the remainder too big to still fit in the windows that are left?
+
+    The whole no-pre-spend rule is this one comparison, so it lives here with the
+    rest of the arithmetic and gets self-tested, rather than being an awk line in
+    the shell that nobody can exercise without spending a night of inference.
+    """
+    return hours_until_reset <= window_hours(pct, y)
+
+
 def pct_left():
     return max(0.0, 100.0 - weekly_usage.usage_pct("weekly"))
 
@@ -191,7 +207,23 @@ def self_test():
         (12, 1, CAP),       # last hour with points left: as wide as allowed
         (0, 5, 1),          # nothing left: never zero or negative
     ]
+    schedule = [
+        # hours until reset, pct_left -> should we be spending right now?
+        (68, 69, False),    # Monday, most of the week unspent: six windows fit, wait
+        (30, 69, True),     # the trailing edge of those six windows
+        (28, 57, False),    # a wave has been spent, five windows now fit: stand down
+        (25, 57, True),     # ...and its edge arrives three hours later
+        (4, 1, True),       # the last window, whatever is left in it
+        (4, 0, False),      # nothing left: never spend, however close the reset
+    ]
     bad = 0
+    for hours, left, want in schedule:
+        got = behind(hours, left, Y)
+        if got != want:
+            print(f"FAIL schedule {left}% with {hours}h to go: "
+                  f"{'spend' if got else 'wait'} (want {'spend' if want else 'wait'})",
+                  file=sys.stderr)
+            bad += 1
     for left, y, want in starts:
         got = window_hours(left, y)
         if abs(got - want) > 0.05:
@@ -204,7 +236,7 @@ def self_test():
             bad += 1
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
-    n = len(starts) + len(widths)
+    n = len(starts) + len(widths) + len(schedule)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -230,6 +262,13 @@ def main():
     if "--width" in sys.argv:
         hours = float(sys.argv[sys.argv.index("--width") + 1])
         print(width(pct_left(), hours))
+        return 0
+    if "--behind" in sys.argv:
+        # "yes"/"no" on stdout rather than an exit status: a traceback also exits
+        # non-zero, and the caller must not read a crash as "stop spending" on the
+        # one night the remainder exists to be spent.
+        hours = float(sys.argv[sys.argv.index("--behind") + 1])
+        print("yes" if behind(hours, pct_left()) else "no")
         return 0
     if "--windows" in sys.argv:
         print(windows(pct_left()))
