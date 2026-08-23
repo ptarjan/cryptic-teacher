@@ -17,17 +17,16 @@ only test worth trusting drives the live site and then looks in KV.
 Exit 0 when every event in sync/events.js was both sent and stored.
 """
 import argparse
-import json
 import os
 import re
-import subprocess
 import sys
-import uuid
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import kv  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://paultarjan.com/cryptic-teacher/"
 PUZZLE = "quiptic-1394"
-NS = "85f9de552ea64b229c113df624fb6ca0"
 
 
 def enum_names():
@@ -44,13 +43,7 @@ def enum_names():
 
 
 def kv_keys():
-    out = subprocess.run(
-        ["npx", "wrangler", "kv", "key", "list", "--namespace-id", NS, "--remote"],
-        capture_output=True, text=True, cwd=os.path.join(ROOT, "sync"), timeout=180)
-    if "[" not in out.stdout:
-        raise SystemExit(f"wrangler gave no key list: {out.stderr[-500:]}")
-    body = out.stdout[out.stdout.index("["):out.stdout.rindex("]") + 1]
-    return {k["name"] for k in json.loads(body) if k["name"].startswith("e:")}
+    return {k["name"] for k in kv.list_keys() if k["name"].startswith("e:")}
 
 
 def kv_delete(names):
@@ -63,13 +56,10 @@ def kv_delete(names):
     """
     stuck, why = [], ""
     for n in sorted(names):
-        out = subprocess.run(["npx", "wrangler", "kv", "key", "delete", n,
-                             "--namespace-id", NS, "--remote"],
-                             capture_output=True, text=True, stdin=subprocess.DEVNULL,
-                             cwd=os.path.join(ROOT, "sync"), timeout=120)
-        if out.returncode:
+        got = kv.delete_key(n)
+        if got is not True:
             stuck.append(n)
-            why = (out.stderr or out.stdout)[-400:]
+            why = got
     if stuck:
         raise SystemExit(f"{len(stuck)} of this test's keys are still in your numbers "
                          f"(delete them by hand, or run `npx wrangler login` and "

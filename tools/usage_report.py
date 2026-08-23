@@ -21,13 +21,14 @@ Reads only. Nothing here writes to the site or to KV.
 import argparse
 import json
 import re
-import subprocess
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import kv  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
-NAMESPACE = "85f9de552ea64b229c113df624fb6ca0"
 KEY = re.compile(r"^e:(\d{4}-\d{2}-\d{2}):([a-z0-9-]+):")
 
 
@@ -38,22 +39,6 @@ def events():
     src = (ROOT / "sync" / "events.js").read_text(encoding="utf-8")
     body = src[src.index("Object.freeze(["):]
     return re.findall(r'"([^"]+)"', body[:body.index("])")])
-
-
-def list_keys():
-    """Key names from KV. wrangler prints a banner before the JSON, so the
-    output is sliced from the first bracket rather than parsed whole."""
-    out = subprocess.run(
-        ["npx", "wrangler", "kv", "key", "list", "--namespace-id", NAMESPACE, "--remote"],
-        cwd=ROOT / "sync", capture_output=True, text=True)
-    if out.returncode != 0:
-        print(out.stderr.strip() or "wrangler failed", file=sys.stderr)
-        raise SystemExit(1)
-    at = out.stdout.find("[")
-    if at < 0:
-        print(f"no JSON in wrangler's output: {out.stdout.strip()[:200]}", file=sys.stderr)
-        raise SystemExit(1)
-    return json.loads(out.stdout[at:])
 
 
 def bar(n, top, width=24):
@@ -67,7 +52,7 @@ def main():
     ap.add_argument("--file", help="a saved key listing instead of calling wrangler")
     args = ap.parse_args()
 
-    keys = json.load(open(args.file)) if args.file else list_keys()
+    keys = json.load(open(args.file)) if args.file else kv.list_keys()
     names = events()
 
     by_day = defaultdict(Counter)
