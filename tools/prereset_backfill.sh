@@ -20,7 +20,13 @@
 # are arithmetic on the remainder and on a burn rate this job measures for
 # itself — tools/prereset_plan.py, which is where they are explained and tested.
 # A remainder that is nearly spent still gets the old behaviour: start two hours
-# out, one run at a time.
+# out, one run at a time. Nothing starts more than seven hours out, whatever the
+# arithmetic says — the week belongs to real work until then, and those seven
+# hours are the whole of the budget by choice.
+#
+# Seven hours is barely more than one five-hour window, so this WILL hit that
+# limit and that is the plan: a lockout is waited out rather than read as the
+# week being over, and the wave that follows picks up where it stopped.
 #
 # Paul, 2026-08-02: "right before my weekly inference resets you should spend
 # whatever is left on backfills."
@@ -74,7 +80,14 @@ WINDOW_HOURS="${WINDOW_HOURS:-$(python3 tools/prereset_plan.py --window-hours 2>
 FORCE_HOURS="${FORCE_HOURS:-1}"
 # Above this the weekly window really is gone and a failing run means it. Below
 # it, a failure is the FIVE-hour window instead, which clears by itself.
+#
+# The CLI's own words do not distinguish them. With pay-as-you-go set to $0 it
+# says "You've hit your monthly spend limit" for BOTH — there is no dollar cap
+# involved, only a plan limit with no paid overflow to fall through to. So which
+# limit was hit is read off the seven-day number here, never off the message.
 EXHAUSTED="${EXHAUSTED:-97}"
+# Each nap is capped at the deadline anyway, so this only bounds waves that fail
+# fast for some reason other than a lockout — it is not a budget to ration.
 MAX_NAPS="${MAX_NAPS:-6}"
 # DRY_RUN=1 walks the whole job — gate, queue order, wave widths, deadline —
 # without calling claude, touching git or rebuilding anything. This job spends
@@ -240,8 +253,15 @@ after_wave() {
     echo "  $naps waits already and runs still fail — stopping rather than looping"
     return 1
   fi
-  local nap=$(( STOP_AT - $(date +%s) - 60 ))
-  [ "$nap" -gt 1200 ] && nap=1200
+  # Sleep until the five-hour window actually turns over, asked rather than
+  # guessed. A nap shorter than the lockout spends a nap on a wave that was
+  # always going to fail, and MAX_NAPS of those ends the job with most of the
+  # last day, and most of the remainder, still unspent.
+  local nap room
+  nap=$(awk -v h="$(python3 tools/weekly_usage.py --group session --resets-in 2>/dev/null || echo 1)" \
+        'BEGIN{printf "%d", h * 3600 + 120}')
+  room=$(( STOP_AT - $(date +%s) - 60 ))
+  [ "$nap" -gt "$room" ] && nap="$room"
   if [ "$nap" -le 0 ]; then return 1; fi
   echo "  runs failed at ${now}% weekly — five-hour limit; waiting ${nap}s (nap $naps)"
   sleep "$nap"
