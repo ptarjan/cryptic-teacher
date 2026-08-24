@@ -373,6 +373,14 @@ function boot(opts) {
   // checks a name against that list before reporting it, so without it here the
   // beacon path is inert and nothing about it is testable.
   new Function("window", fs.readFileSync(path.join(ROOT, "sync/events.js"), "utf8"))(global.window);
+  // sync/merge.js the same way: app.js merges every sync reply into what it
+  // already has through CTMerge, so a harness without it boots an app whose
+  // sync path throws on the first reply — and cannot test the path at all.
+  // Its UMD wrapper attaches to globalThis, which in a browser IS window; here
+  // the two are different objects, so put it on both and the app finds it under
+  // the bare name exactly as the page does.
+  new Function("window", fs.readFileSync(path.join(ROOT, "sync/merge.js"), "utf8"))(global.window);
+  global.window.CTMerge = global.CTMerge;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
   new Function("window", fs.readFileSync(path.join(ROOT, "tutorial.js"), "utf8"))(global.window);
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
