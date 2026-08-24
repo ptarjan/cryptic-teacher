@@ -23,6 +23,7 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -100,11 +101,20 @@ def main():
     visit = {n: total[n] for n in names if n.startswith("visit-")}
     seen = sum(visit.values())
     if seen:
-        print(f"\nof {seen} browser-days")
-        for label, n in [("first day here", visit.get("visit-new", 0)),
-                         ("2nd to 4th day", visit.get("visit-return", 0)),
-                         ("5th day or more", visit.get("visit-regular", 0))]:
-            print(f"  {label:<22} {100 * n / seen:>5.1f}%   {n}")
+        # A bucket nobody could have reached yet is not a measurement. Two days
+        # after the beacons went up, "5th day or more: 0.0%" is arithmetic about
+        # the calendar, not about the audience, and it reads as "nobody comes
+        # back" — so a bucket that needs more history than the window holds says
+        # so instead of printing a zero.
+        span = (date.fromisoformat(days[-1]) - date.fromisoformat(days[0])).days + 1
+        print(f"\nof {seen} browser-days, over {span} day{'s' if span != 1 else ''} of data")
+        for label, n, needs in [("first day here", visit.get("visit-new", 0), 1),
+                                ("2nd to 4th day", visit.get("visit-return", 0), 2),
+                                ("5th day or more", visit.get("visit-regular", 0), 5)]:
+            if span < needs and not n:
+                print(f"  {label:<22}     -   needs {needs} days of data")
+            else:
+                print(f"  {label:<22} {100 * n / seen:>5.1f}%   {n}")
 
     # The actual question, and the reason the events are the ones they are: of
     # the people who opened a puzzle, how many got any distance into it. Shares
