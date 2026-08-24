@@ -2533,6 +2533,75 @@ global.realSetTimeout(() => {
     "the last letter updates the meter: " + el("hint-meter").innerHTML);
 }
 
+// --- a sync reply cannot undo what the solver just did ---
+// A reply describes the moment its request left, and a request is in flight for
+// as long as a round trip takes. It used to be written into localStorage as the
+// truth, so anything done during that second — the letter typed, the rung opened
+// — was deleted in front of the solver: "I clicked full walkthrough, it appeared
+// then disappeared" (Paul, 2026-08-24). The reply is merged in now.
+//
+// The stub resolves synchronously, on purpose. A real promise lands after this
+// file has finished, and worse, an assertion thrown inside one is caught by the
+// app's own .catch() and reported as "Offline — will retry" — a test that can
+// only pass. Booted fresh, like everything after it.
+{
+  const d = require("./fake_dom.js").boot({ query: "?p=cryptic-30066" });
+  const reg = d.registry;
+  const KEY = "ct:cryptic-30066";
+  const save = () => JSON.parse(d.storage[KEY]);
+  // Resolves on the spot and chains through whatever the app hands back.
+  const now = (v) => (v && typeof v.then === "function" ? v
+    : { then(f) { return f ? now(f(v)) : now(v); }, catch() { return this; } });
+
+  d.storage["ct:sync"] = JSON.stringify("TESTCODE");
+  const puz = (global.window.CRYPTIC_PUZZLES || {})["cryptic-30066"];
+  const entry = (puz.entries || []).find((e) => e.annotation && e.annotation.walkthrough);
+  assert(entry, "a clue with a walkthrough rung to open");
+  reg["clue-" + entry.id].listeners.click[0]();
+
+  // Climb to the walkthrough, taking whatever rungs this clue happens to have
+  // and telling the quiz we do not want to guess.
+  // A rung button reads "3 · Spot the indicator words", or "Show hint 3 · …" for
+  // the next one up, and is disabled until its tier opens — so it is matched on
+  // the label the ladder gives it, and only counts once it can be pressed.
+  const rungs = () => reg["hint-next"].children;
+  const named = (t) => rungs().find((b) => !b.disabled && (b.textContent || "").includes(t));
+  let guard = 12;
+  while (!named("Full walkthrough") && guard--) {
+    rungs()[0].onclick();
+    if (reg["hint-body"].innerHTML.includes("guess-clue")) reg["guess-tell"].onclick();
+  }
+  const walk = named("Full walkthrough");
+  assert(walk, "the ladder reaches the walkthrough: " + rungs().map((b) => b.textContent));
+
+  // Everything the server could still be holding from before that last click.
+  global.flushTimers(200);
+  const stale = { v: 1, puzzles: { "cryptic-30066": save() } };
+  assert(stale.puzzles["cryptic-30066"].hintsShown[entry.id].indexOf("walkthrough") < 0,
+    "the stale copy predates the walkthrough, which is the whole point of it");
+
+  walk.onclick();
+  const shown = reg["hint-body"].innerHTML;
+  assert(shown.includes(entry.annotation.walkthrough.slice(0, 40)),
+    "the walkthrough is on screen after the click");
+
+  // The reply to a push that left before that click now lands.
+  let pushed = null;
+  global.fetch = (url, opts) => {
+    pushed = JSON.parse(opts.body);
+    return now({ ok: true, status: 200, json: () => now(stale) });
+  };
+  global.flushTimers(2500);
+  assert(pushed, "the click really did schedule a push");
+  assert(pushed.puzzles["cryptic-30066"].hintsShown[entry.id].indexOf("walkthrough") >= 0,
+    "and what we pushed includes the rung — a save still in its debounce is flushed first");
+  assert(reg["hint-body"].innerHTML.includes(entry.annotation.walkthrough.slice(0, 40)),
+    "the walkthrough survives the reply: " + reg["hint-body"].innerHTML.slice(0, 120));
+  assert(save().hintsShown[entry.id].indexOf("walkthrough") >= 0,
+    "and it survives in the saved state, not just on the screen");
+  delete global.fetch;
+}
+
 // --- a clue is a link ---
 // ?c=3D opens on that clue, so "which one are you stuck on" is answerable with a
 // URL and a first-timer can be handed one clue instead of a whole 15x15. Booted

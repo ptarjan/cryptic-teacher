@@ -248,43 +248,55 @@
   const hasSolutions = () => entries.every((e) => e.solution);
 
   // ---------- persistence ----------
+  // The 150ms debounce is a write-rate limit, and nothing is allowed to read the
+  // store back through it. A save still sitting in its timer is a save the store
+  // cannot tell you about, and what is missing is precisely the last thing the
+  // solver did — so every path that reads localStorage as if it were the truth
+  // (the sync envelope, and the merge that lands on top of it) flushes first.
   function saveState() {
     clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => {
-      const now = Date.now();
-      const prev = store.get(stateKey(), null) || {};
-      const was = prev.letters || {};
-      const letters = {};
-      forEachCell((c) => { if (c.letter) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
-      // When each square last changed, carried forward from the previous save
-      // and re-stamped only where something actually moved. Rubbing a letter
-      // out leaves no letter behind, so without this the merge cannot tell a
-      // square you cleared from one you never filled in — and it put the
-      // letters straight back (Paul, 2026-08-10). A stamp with no letter is
-      // how a deletion gets to the other device.
-      const letterAt = Object.assign({}, prev.letterAt);
-      forEachCell((c) => {
-        const k = c.x + "," + c.y;
-        if (letters[k] !== was[k]) letterAt[k] = now;
-      });
-      // `updated` is what lets two machines be merged without asking which one
-      // to believe (see sync/merge.js). It is written even with sync switched
-      // off, so turning it on later does not treat today's work as undated.
-      // saveState runs on every change a solver makes — a letter, a hint, a
-      // reveal — so the gaps between consecutive saves are the sitting.
-      timing = Object.assign({}, prev.timing);
-      const gap = now - (timing.lastAt || now);
-      if (!timing.startedAt) timing.startedAt = now;
-      if (gap > 0 && gap <= IDLE_MS) timing.activeMs = (timing.activeMs || 0) + gap;
-      timing.lastAt = now;
-      if (!timing.solvedAt && entries.length && entries.every(isEntrySolved)) {
-        timing.solvedAt = now;
-        timing.solvedMs = timing.activeMs || 0;
-      }
-      store.set(stateKey(), { letters, letterAt, hintsShown, hintsEarned, revealsUsed,
-                              solvedWith, timing, clearedAt: prev.clearedAt || 0, updated: now });
-      syncPushSoon();
-    }, 150);
+    saveTimer = setTimeout(writeState, 150);
+  }
+  function flushState() {
+    if (saveTimer === null) return;
+    clearTimeout(saveTimer);
+    writeState();
+  }
+  function writeState() {
+    saveTimer = null;
+    const now = Date.now();
+    const prev = store.get(stateKey(), null) || {};
+    const was = prev.letters || {};
+    const letters = {};
+    forEachCell((c) => { if (c.letter) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
+    // When each square last changed, carried forward from the previous save
+    // and re-stamped only where something actually moved. Rubbing a letter
+    // out leaves no letter behind, so without this the merge cannot tell a
+    // square you cleared from one you never filled in — and it put the
+    // letters straight back (Paul, 2026-08-10). A stamp with no letter is
+    // how a deletion gets to the other device.
+    const letterAt = Object.assign({}, prev.letterAt);
+    forEachCell((c) => {
+      const k = c.x + "," + c.y;
+      if (letters[k] !== was[k]) letterAt[k] = now;
+    });
+    // `updated` is what lets two machines be merged without asking which one
+    // to believe (see sync/merge.js). It is written even with sync switched
+    // off, so turning it on later does not treat today's work as undated.
+    // saveState runs on every change a solver makes — a letter, a hint, a
+    // reveal — so the gaps between consecutive saves are the sitting.
+    timing = Object.assign({}, prev.timing);
+    const gap = now - (timing.lastAt || now);
+    if (!timing.startedAt) timing.startedAt = now;
+    if (gap > 0 && gap <= IDLE_MS) timing.activeMs = (timing.activeMs || 0) + gap;
+    timing.lastAt = now;
+    if (!timing.solvedAt && entries.length && entries.every(isEntrySolved)) {
+      timing.solvedAt = now;
+      timing.solvedMs = timing.activeMs || 0;
+    }
+    store.set(stateKey(), { letters, letterAt, hintsShown, hintsEarned, revealsUsed,
+                            solvedWith, timing, clearedAt: prev.clearedAt || 0, updated: now });
+    syncPushSoon();
   }
   function restoreState() {
     const s = store.get(stateKey(), null);
@@ -333,6 +345,7 @@
 
   // Everything this browser has saved, in the wire shape merge.js expects.
   function localEnvelope() {
+    flushState();
     const puzzles = {};
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i);
@@ -350,16 +363,30 @@
 
   // Returns true if anything about the puzzle currently on screen changed, so
   // the caller knows whether it has to redraw under the solver's hands.
+  //
+  // WHAT COMES BACK IS MERGED IN, NEVER WRITTEN OVER THE TOP. A reply is a
+  // statement about the moment its request left — it cannot know about the
+  // letter typed, or the rung opened, while it was in flight, and a request is
+  // in flight for as long as a round trip takes. Writing it in as the truth
+  // therefore deletes whatever the solver did during that second, in front of
+  // them: "I clicked full walkthrough, it appeared then disappeared" (Paul,
+  // 2026-08-24). Merging is not a precaution here, it is the only correct
+  // reading of the reply, and merge.js is commutative and idempotent precisely
+  // so that this side can do it without knowing what order anything happened in.
   function applyEnvelope(env) {
     if (!env || !env.puzzles) return false;
+    // Same rule one step earlier: an unwritten save is not in the store, so the
+    // merge would not see it either.
+    flushState();
     const openId = P ? String(P.id) : null;
     let openChanged = false;
     Object.keys(env.puzzles).forEach((raw) => {
       // A phone that has not reloaded is still uploading ct:30089. Map it on the
       // way in rather than writing back a key we would only migrate again.
       const id = canonicalId(raw);
-      const merged = env.puzzles[raw];
-      const before = JSON.stringify(store.get("ct:" + id, null));
+      const mine = store.get("ct:" + id, null);
+      const merged = CTMerge.mergePuzzle(mine, env.puzzles[raw]);
+      const before = JSON.stringify(mine);
       const after = JSON.stringify(merged);
       if (before === after) return;
       store.set("ct:" + id, merged);
