@@ -36,7 +36,29 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONEATATIME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ONE AT A TIME",
+    "definition": "separately",
+    "indicators": [
+     "Nuts"
+    ],
+    "indicatorNotes": {
+     "Nuts": "someone nuts has lost all order in their head, and letters described that way will not stay in the sequence they are given"
+    },
+    "anagram": {
+     "fodder": "INAATOMEET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in AA to meet",
+      "gives": "INAATOMEET",
+      "note": "every letter of these four words goes into the mix exactly as it stands"
+     }
+    ],
+    "walkthrough": "AA is a support group on the surface and just two letters in the wordplay, and 'Nuts' has to be read as the state the letters are in rather than as the people in the room.",
+    "definitionFit": "Doing things one at a time is doing them separately rather than all at once, so the phrase works as an adverb of manner."
+   }
   },
   {
    "id": "1-down",
@@ -53,7 +75,37 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OMAN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "OMAN",
+    "definition": "Saudi neighbour",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "no"
+    ],
+    "indicatorNotes": {
+     "no": "'no wife' announces that the wife is absent, so the letter standing for her is not there to be written"
+    },
+    "pieces": [
+     "OMAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "WOMAN",
+      "note": "a female is a woman"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the crossword's standard abbreviation for wife"
+     }
+    ],
+    "walkthrough": "Crossword shorthand does all the work here, and W for wife is worth memorising: the surface reads as a description of one person, never as an instruction.",
+    "definitionFit": "Oman shares a long desert border with Saudi Arabia, so it is literally one of the kingdom's neighbours on the Arabian peninsula."
+   }
   },
   {
    "id": "2-down",
@@ -74,7 +126,36 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "ELIZABETHTAYLOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ELIZABETH TAYLOR",
+    "definition": "player?",
+    "indicators": [
+     "visiting",
+     "volatile"
+    ],
+    "indicatorNotes": {
+     "visiting": "a visitor arrives among the people already there, so this letter joins the others rather than standing apart from them",
+     "volatile": "a volatile substance will not sit still in the state you found it, and neither will this handful of letters"
+    },
+    "anagram": {
+     "fodder": "ATHERITZALLOBEY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "The Ritz all obey",
+      "gives": "THERITZALLOBEY",
+      "note": "all four words are raw material, letter for letter"
+     }
+    ],
+    "walkthrough": "The Ritz and a well-behaved crowd make a nice picture and are doing nothing but supplying letters. The question mark admits that one actress is only an example of the definition.",
+    "definitionFit": "A player is anyone who acts a part, and Elizabeth Taylor was one of Hollywood's great screen actresses — an example of the class, not a synonym."
+   }
   },
   {
    "id": "3-down",
@@ -91,7 +172,37 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRACE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TRACE",
+    "definition": "Hint",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "forsaking"
+    ],
+    "indicatorNotes": {
+     "forsaking": "to forsake something is to walk out on it for good, so those two letters quit the phrase and do not come back"
+    },
+    "pieces": [
+     "TRACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daily grind",
+      "gives": "RATRACE",
+      "note": "the rat race is the daily grind of commuting and the office"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, the crossword's standard artist"
+     }
+    ],
+    "walkthrough": "'Daily grind' has to be heard as the idiom rather than as a charwoman's work, and RA is worth banking: it is the artist in a great many clues.",
+    "definitionFit": "A trace of something is the faintest sign that it was ever there, which is what a hint amounts to when nobody says anything outright."
+   }
   },
   {
    "id": "4-down",
@@ -112,7 +223,34 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "TSHIRTS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "T-SHIRTS",
+    "definition": "Garments",
+    "indicators": [
+     "removed"
+    ],
+    "indicatorNotes": {
+     "removed": "something removed is taken out and carried off, so that block of letters is lifted clean out of the longer word"
+    },
+    "pieces": [
+     "TSHIRTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those in which to sleep",
+      "gives": "NIGHTSHIRTS",
+      "note": "nightshirts are what you sleep in"
+     },
+     {
+      "clueFragment": "almost",
+      "gives": "NIGH",
+      "note": "nigh means almost, as in 'the end is nigh'"
+     }
+    ],
+    "walkthrough": "The colon does the misdirecting: it makes 'those in which to sleep' look like a second description of the answer when it is really the word being cut down.",
+    "definitionFit": "T-shirts are the plain short-sleeved cotton tops named for their outline, so 'garments' is the general word for one particular kind."
+   }
   },
   {
    "id": "5-down",
@@ -129,7 +267,29 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASTERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MASTERS",
+    "definition": "albatross sometimes seen here?",
+    "pieces": [
+     "MASTER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overcome",
+      "gives": "MASTER",
+      "note": "to master a fear is to overcome it"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size printed on a clothing label"
+     }
+    ],
+    "walkthrough": "Two golf words do the misdirecting: an albatross is a seabird until you remember it is also three under par on a single hole.",
+    "definitionFit": "The Masters is the Augusta major, so it is one of the few places a golfing albatross is ever likely to be witnessed."
+   }
   },
   {
    "id": "6-across",
@@ -146,7 +306,37 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ZOLA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ZOLA",
+    "definition": "writer",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "leaving"
+    ],
+    "indicatorNotes": {
+     "leaving": "once someone has left a room they are no longer in it, so those letters walk out of the word that held them"
+    },
+    "pieces": [
+     "ZOLA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "GORGONZOLA",
+      "note": "gorgonzola is the blue Italian cheese"
+     },
+     {
+      "clueFragment": "Snake-haired monster",
+      "gives": "GORGON",
+      "note": "the Gorgons of myth, Medusa among them, had snakes for hair"
+     }
+    ],
+    "walkthrough": "The cheese is named after the Italian town of Gorgonzola, and the coincidence the setter has spotted is that a Greek monster sits in the front of it.",
+    "definitionFit": "Émile Zola was the French novelist of Germinal and the open letter 'J'accuse', so 'writer' names him by his trade."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +360,29 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "OLDAGEPENSIONER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OLD-AGE PENSIONER",
+    "definition": "One possibly retired",
+    "indicators": [
+     "hurt"
+    ],
+    "indicatorNotes": {
+     "hurt": "a hurt limb has been knocked out of its proper shape, and these letters are knocked out of theirs"
+    },
+    "anagram": {
+     "fodder": "ALONGSIDEOPENER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "alongside opener",
+      "gives": "ALONGSIDEOPENER",
+      "note": "the two words supply every letter, exactly as they are written"
+     }
+    ],
+    "walkthrough": "The cricket is a decoy from end to end — retired hurt, an opener, a fielder alongside — and none of it does anything but hand over letters.",
+    "definitionFit": "An old-age pensioner has reached the age of drawing a state pension, and 'possibly' allows for the retired people who are nothing of the kind."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +399,44 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABYSSINIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABYSSINIAN",
+    "definition": "old African?",
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "ABYSS",
+     "IN",
+     "I",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Significant hole",
+      "gives": "ABYSS",
+      "note": "an abyss is a chasm too deep to see the bottom of"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the little word is written in as it stands"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the indefinite article comes across unchanged"
+     }
+    ],
+    "walkthrough": "'Hole in one' is a golfer's phrase on the surface and three separate pieces underneath, which is where this clue hides its seams.",
+    "definitionFit": "Abyssinia was the name Ethiopia went by until the twentieth century, so an Abyssinian is what an Ethiopian used to be called."
+   }
   },
   {
    "id": "9-down",
@@ -204,7 +453,46 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAHAMIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BAHAMIAN",
+    "definition": "Caribbean sort",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "this is a down entry, so 'up' asks you to read those letters from the foot of the column back to the top"
+    },
+    "pieces": [
+     "BAHAMIA",
+     "N"
+    ],
+    "subReversals": [
+     {
+      "from": "AIMAHAB",
+      "to": "BAHAMIA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to sight",
+      "gives": "AIM",
+      "note": "to sight a target is to aim at it"
+     },
+     {
+      "clueFragment": "whaler",
+      "gives": "AHAB",
+      "note": "Captain Ahab is the whaler hunting Moby-Dick"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the compass abbreviation for north"
+     }
+    ],
+    "walkthrough": "Ahab is the crossword's whaler and worth remembering. The compass point stays the right way round because it is added after the turn rather than before it.",
+    "definitionFit": "A Bahamian is a native of the Bahamas, an island nation in the Caribbean, so 'sort' is asking for a person and not a place."
+   }
   },
   {
    "id": "10-across",
@@ -225,7 +513,41 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANIMALHUSBANDRY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANIMAL HUSBANDRY",
+    "definition": "raising stock",
+    "indicators": [
+     "cross",
+     "about"
+    ],
+    "indicatorNotes": {
+     "cross": "to cross two breeds is to mix them together into something new, and these letters are interbred the same way",
+     "about": "'about' scatters the extra letters in among the rest instead of leaving them in a block at one end"
+    },
+    "anagram": {
+     "fodder": "ANDYBURNHAMISAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Andy Burnham is",
+      "gives": "ANDYBURNHAMIS",
+      "note": "the mayor's name and the verb after it all go into the mix"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article counts as one more letter"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the standard abbreviation for Liberal"
+     }
+    ],
+    "walkthrough": "Andy Burnham is the mayor of Greater Manchester, and reading 'cross' as angry rather than as interbreeding is what keeps the sentence sounding like politics.",
+    "definitionFit": "Animal husbandry is the farming business of breeding and rearing livestock, and 'stock' is the farmer's own word for a herd."
+   }
   },
   {
    "id": "11-across",
@@ -246,7 +568,41 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAKEERIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAKE ERIE",
+    "definition": "American feature",
+    "pieces": [
+     "L",
+     "A",
+     "K",
+     "EERIE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is fifty in Roman numerals"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken as read"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the king on a chessboard and on a playing card"
+     },
+     {
+      "clueFragment": "unearthly",
+      "gives": "EERIE",
+      "note": "eerie is the everyday word for unearthly"
+     }
+    ],
+    "walkthrough": "Roman fifty and the chess king are two single letters worth banking, and the surface's hint of a ghost story is there only to make 'unearthly' look like scene-setting.",
+    "definitionFit": "Lake Erie is one of the five Great Lakes on the border between the United States and Canada, so 'feature' names it as geography."
+   }
   },
   {
    "id": "12-across",
@@ -263,7 +619,47 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AEGIS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "AEGIS",
+    "definition": "Protection",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "in",
+     "ebbing"
+    ],
+    "indicatorNotes": {
+     "in": "'in' puts the soldier inside the other word rather than alongside it",
+     "ebbing": "an ebbing tide is running back out the way it came in, so its letters run the other way too"
+    },
+    "pieces": [
+     "AE",
+     "GI",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "SEA",
+      "to": "AES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tide",
+      "gives": "SEA",
+      "note": "the tide is the sea, in the poets' sense of the word"
+     },
+     {
+      "clueFragment": "serviceman",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "walkthrough": "The whole picture — a serviceman, a beach, the water going out — is built to keep you thinking about a landing rather than about Greek myth.",
+    "definitionFit": "The aegis was the shield Zeus lent Athena, and to be under someone's aegis is still to be under their protection."
+   }
   },
   {
    "id": "13-down",
@@ -280,7 +676,36 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EISENHOWER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EISENHOWER",
+    "definition": "leader",
+    "indicators": [
+     "Ground",
+     "welcomes"
+    ],
+    "indicatorNotes": {
+     "Ground": "grain that has been ground comes out as loose meal with no shape left to it, and so do these letters",
+     "welcomes": "to welcome somebody is to take them in, so the short abbreviation joins the letters already gathered"
+    },
+    "anagram": {
+     "fodder": "WHEREONEIS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "where one",
+      "gives": "WHEREONE",
+      "note": "both words go into the mix exactly as they stand"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "Is. is the map-maker's abbreviation for island"
+     }
+    ],
+    "walkthrough": "'Ground' looks like a noun — a piece of land — right up to the moment you need it as the past participle of grind.",
+    "definitionFit": "Dwight D. Eisenhower commanded the Allied armies in Europe and then served two terms as US president, so 'leader' names him by his job."
+   }
   },
   {
    "id": "14-across",
@@ -297,7 +722,43 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICECAPS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ICECAPS",
+    "definition": "Pole features",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "making comeback"
+    ],
+    "indicatorNotes": {
+     "making comeback": "a comeback brings someone back the way they went, so the assembled letters return in reverse"
+    },
+    "pieces": [
+     "ICECAPS"
+    ],
+    "subReversals": [
+     {
+      "from": "SPACECI",
+      "to": "ICECAPS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Room",
+      "gives": "SPACE",
+      "note": "room in the sense of space, as in room to move"
+     },
+     {
+      "clueFragment": "101",
+      "gives": "CI",
+      "note": "CI is 101 in Roman numerals"
+     }
+    ],
+    "walkthrough": "Room 101 belongs to Orwell on the surface, where nobody reads the number as arithmetic — which is exactly what the wordplay needs you to do.",
+    "definitionFit": "The polar ice caps are the permanent sheets of ice covering the Arctic and the Antarctic, so they are the features of both poles."
+   }
   },
   {
    "id": "15-down",
@@ -314,7 +775,35 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSASSIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASSASSIN",
+    "definition": "One kills",
+    "pieces": [
+     "AS",
+     "SAS",
+     "SIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "'as' and 'when' swap freely: as I arrived, when I arrived"
+     },
+     {
+      "clueFragment": "elite troops",
+      "gives": "SAS",
+      "note": "the SAS is the British army's special forces regiment"
+     },
+     {
+      "clueFragment": "stray from path",
+      "gives": "SIN",
+      "note": "to sin is to stray from the straight and narrow"
+     }
+    ],
+    "walkthrough": "The military surface does the hiding: 'stray from path' looks like a manoeuvre going wrong when it is really a churchman's word.",
+    "definitionFit": "An assassin is one who kills by stealth, for hire or for politics, so the clue's bare 'one kills' is the whole trade."
+   }
   },
   {
    "id": "16-across",
@@ -331,7 +820,38 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKIDPAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SKIDPAN",
+    "definition": "Slippery surface",
+    "indicators": [
+     "sends",
+     "into"
+    ],
+    "indicatorNotes": {
+     "sends": "to send a thing somewhere is to put it there, and the clue names the destination immediately afterwards",
+     "into": "'into' means ending up inside something rather than merely beside it, so one word finishes in the middle of the other"
+    },
+    "pieces": [
+     "S",
+     "KID",
+     "PAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bridge",
+      "gives": "SPAN",
+      "note": "a span is the reach of a bridge, and the bridge itself"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     }
+    ],
+    "walkthrough": "Nothing here looks like an instruction, which is the trick: 'sends... into' is an ordinary piece of English doing a container's job.",
+    "definitionFit": "A skid pan is the deliberately slippery yard where drivers are taught to control a skid, so it is a surface built to lose grip."
+   }
   },
   {
    "id": "17-across",
@@ -348,7 +868,49 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EPHESUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "EPHESUS",
+    "definition": "ancient city",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Wild",
+     "accompanies"
+    ],
+    "indicatorNotes": {
+     "Wild": "wild means untamed and unordered, so the letters will not stay in the tidy line the clue lends them",
+     "accompanies": "one thing that accompanies another walks along beside it, so these two letters sit next to the rest and not inside them"
+    },
+    "anagram": {
+     "fodder": "SHEEPUS"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "SHEEP",
+      "gives": "EPHES"
+     }
+    ],
+    "pieces": [
+     "EPHES",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wild sheep",
+      "gives": "EPHES",
+      "note": "the five letters of SHEEP resettled into a new order"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "the pronoun is written in as it stands"
+     }
+    ],
+    "walkthrough": "A wild sheep is a real animal — a mouflon — which is why the phrase reads as description rather than as an instruction to shuffle.",
+    "definitionFit": "Ephesus was the great Greek and Roman city on the coast of what is now Turkey, famous for its temple of Artemis."
+   }
   },
   {
    "id": "18-down",
@@ -365,7 +927,39 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STARMER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STARMER",
+    "definition": "PM",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "installing"
+    ],
+    "indicatorNotes": {
+     "installing": "to install a part is to fit it inside the housing, so the shorter piece goes into the middle of the longer"
+    },
+    "pieces": [
+     "STAR",
+     "ME",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ringo",
+      "gives": "STARR",
+      "note": "Ringo Starr, the Beatles' drummer"
+     },
+     {
+      "clueFragment": "Ringoe",
+      "gives": "ME",
+      "note": "Ringoe sets this puzzle, and a setter referring to themselves is ME"
+     }
+    ],
+    "walkthrough": "A setter writing 'me' about themselves is a standing convention, and here the name that does it is one letter away from a Beatle's.",
+    "definitionFit": "PM is the everyday shorthand for prime minister, the office Sir Keir Starmer took for Labour in 2024."
+   }
   },
   {
    "id": "19-across",
@@ -382,7 +976,41 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BONANZA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BONANZA",
+    "definition": "godsend",
+    "indicators": [
+     "seen in"
+    ],
+    "indicatorNotes": {
+     "seen in": "what is seen in something is inside it, so these letters show through from within the words around them"
+    },
+    "pieces": [
+     "BO",
+     "NAN",
+     "ZA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dickens",
+      "gives": "BOZ",
+      "note": "Boz is the name Dickens signed his early sketches with"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article joins on as it stands"
+     },
+     {
+      "clueFragment": "Granny",
+      "gives": "NAN",
+      "note": "nan is what a great many children call their grandmother"
+     }
+    ],
+    "walkthrough": "The affectionate-sounding 'Granny seen in Dickens' is a plain instruction once you know Boz, and 'a godsend' has to give up its article to the wordplay.",
+    "definitionFit": "A bonanza is a sudden run of riches or good luck, which is what a godsend is when it turns up unasked for."
+   }
   },
   {
    "id": "19-down",
@@ -399,7 +1027,44 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BENEFIT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "BENEFIT",
+    "definition": "Assist",
+    "indicators": [
+     "outside",
+     "close to"
+    ],
+    "indicatorNotes": {
+     "outside": "standing outside something means going round it, so the insect wraps around the single letter",
+     "close to": "the close of a word is where it stops, so only its final letter is wanted"
+    },
+    "pieces": [
+     "BE",
+     "N",
+     "E",
+     "FIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "BEE",
+      "note": "the bee is the crossword's default insect"
+     },
+     {
+      "clueFragment": "close to sunken",
+      "gives": "N",
+      "note": "the letter that closes the word sunken"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "FIT",
+      "note": "someone fit and well is in good health"
+     }
+    ],
+    "walkthrough": "'Well' is the pivot: it reads as part of 'sunken well' in the surface and as a word for healthy in the wordplay.",
+    "definitionFit": "To benefit someone is to do them good, the same helping hand 'assist' names, though benefit can be a noun as well."
+   }
   },
   {
    "id": "20-across",
@@ -416,7 +1081,30 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEADS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HEADS",
+    "definition": "Captains perhaps",
+    "definition2": "privy at sea",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Captains perhaps",
+      "gives": "HEADS",
+      "note": "the head of a body or a business is its chief, and a captain is one kind of chief"
+     },
+     {
+      "clueFragment": "privy at sea",
+      "gives": "HEADS",
+      "note": "the heads is the lavatory on board a ship"
+     }
+    ],
+    "walkthrough": "The seam is hidden by 'in', which joins the two halves so smoothly that the sentence reads as one picture of officers in a ship's toilet.",
+    "definitionFit": "The head of an organisation is its chief, so captains are heads; and a ship's lavatory has been called the heads since the age of sail."
+   }
   },
   {
    "id": "21-across",
@@ -433,7 +1121,51 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGNOSTIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "AGNOSTIC",
+    "definition": "Sceptical",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "'we hear' asks for the sound of a word and not its spelling, so the letters follow the ear"
+    },
+    "pieces": [
+     "A",
+     "G",
+     "NO",
+     "STIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken as read"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "no. is the everyday abbreviation for number"
+     },
+     {
+      "clueFragment": "remain we hear",
+      "soundsLike": "STICK",
+      "gives": "STIC",
+      "note": "to stick is to remain, and STICK said aloud is what these four letters spell out"
+     }
+    ],
+    "walkthrough": "Three of the four pieces are abbreviations you can bank, and the last one only works if you say it: STIC is no word at all, but it sounds like one.",
+    "definitionFit": "An agnostic holds that nothing can be known either way about God, which is exactly the doubting position 'sceptical' describes."
+   }
   },
   {
    "id": "22-down",
@@ -450,7 +1182,35 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPROG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPROG",
+    "definition": "child",
+    "pieces": [
+     "S",
+     "PRO",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for seconds on any stopwatch"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of, which is to say for"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     }
+    ],
+    "walkthrough": "Every word before the definition stands for something shorter, and 'for' is the surprise: it is not joining the pieces, it is one of them.",
+    "definitionFit": "Sprog is British services slang for a small child, the half-affectionate word a parent might use about a new baby."
+   }
   },
   {
    "id": "23-down",
@@ -467,7 +1227,35 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEMO",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "NEMO",
+    "definition": "one found in movie?",
+    "indicators": [
+     "Revolutionary"
+    ],
+    "indicatorNotes": {
+     "Revolutionary": "a revolution turns a thing right round, so the letters come out facing the other way"
+    },
+    "pieces": [
+     "NEMO"
+    ],
+    "subReversals": [
+     {
+      "from": "OMEN",
+      "to": "NEMO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "augury",
+      "gives": "OMEN",
+      "note": "an augury is an omen, a sign of what is coming"
+     }
+    ],
+    "walkthrough": "The definition is a joke as well as a definition, since the whole plot of the film is the search that the title promises will succeed.",
+    "definitionFit": "Nemo is the lost clownfish whose recovery gives the Pixar film its title, so the definition names one example rather than a class."
+   }
   },
   {
    "id": "24-across",
@@ -489,7 +1277,53 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "WILLIAMOFORANGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container",
+    "answer": "WILLIAM OF ORANGE",
+    "definition": "Ruler",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "briefly",
+     "touring"
+    ],
+    "indicatorNotes": {
+     "briefly": "said briefly, a word is cut short, so the last letter of this one never gets written",
+     "touring": "a tour goes all the way round a place rather than past it, so these letters end up wrapped around what they visit"
+    },
+    "pieces": [
+     "WILL",
+     "IA",
+     "MO",
+     "FOR",
+     "ANGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "order",
+      "gives": "WILL",
+      "note": "a will is the order somebody leaves for what must happen"
+     },
+     {
+      "clueFragment": "two states",
+      "gives": "IAMO",
+      "note": "IA is Iowa and MO Missouri, two postal abbreviations"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "the little word is written straight in, letter for letter"
+     },
+     {
+      "clueFragment": "backer briefly",
+      "gives": "ANGE",
+      "note": "an angel is the backer who puts money into a show, docked of its last letter"
+     }
+    ],
+    "walkthrough": "The apostrophe-s is the join, and everything after it is machinery: an angel here is theatre money rather than a cherub, and the states are pure postcode.",
+    "definitionFit": "William of Orange took the English throne as William III in 1689, so 'ruler' names him by the office rather than the man."
+   }
   },
   {
    "id": "25-across",
@@ -506,7 +1340,37 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RARE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RARE",
+    "definition": "Exquisite",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "missed"
+    ],
+    "indicatorNotes": {
+     "missed": "what is missed is not there when you look for it, so those three letters are absent from the dish"
+    },
+    "pieces": [
+     "RARE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "savoury dish",
+      "gives": "RAREBIT",
+      "note": "a rarebit is the cheese-on-toast savoury"
+     },
+     {
+      "clueFragment": "morsel",
+      "gives": "BIT",
+      "note": "a bit is a small morsel of something"
+     }
+    ],
+    "walkthrough": "A Welsh rarebit is cheese on toast and nothing to do with rabbit, and the clue's 'morsel' is the very piece of it that has to go.",
+    "definitionFit": "A rare talent is an exquisite one — the sense of rare that means outstanding, not the one that means seldom found."
+   }
   },
   {
    "id": "26-across",
@@ -527,7 +1391,44 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
     ]
    },
    "solution": "GRETAGARBO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "GRETA GARBO",
+    "definition": "Star",
+    "indicators": [
+     "drunk",
+     "grabs"
+    ],
+    "indicatorNotes": {
+     "drunk": "a drunk cannot walk a straight line, and these letters will not keep to theirs either",
+     "grabs": "to grab something is to close your hand round it, so the letters shut around what they take hold of"
+    },
+    "pieces": [
+     "GRETA",
+     "GARB",
+     "O"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TORAGE",
+      "gives": "GRETAO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to rage",
+      "gives": "GRETAO",
+      "note": "the six letters of TO RAGE resettled into a new order"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "GARB",
+      "note": "garb is what you dress in — clothing"
+     }
+    ],
+    "walkthrough": "'Star' is the definition and the joke at once: the wordplay has a screen legend raging drunk and grabbing at a frock.",
+    "definitionFit": "Greta Garbo was the Swedish actress of Grand Hotel and Ninotchka, so 'star' names one of the biggest names in Hollywood."
+   }
   }
  ]
 } /*JSON-END*/;
