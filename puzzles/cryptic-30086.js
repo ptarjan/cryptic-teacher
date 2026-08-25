@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPOTLIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPOTLIT",
+    "definition": "Specially illuminated",
+    "indicators": [
+     "on the outside"
+    ],
+    "indicatorNotes": {
+     "on the outside": "The tear is placed round the edge of the other piece, so one word wraps the other instead of standing next to it."
+    },
+    "pieces": [
+     "SP",
+     "OT",
+     "LIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torn",
+      "gives": "SPLIT",
+      "note": "something torn has been split"
+     },
+     {
+      "clueFragment": "set of old books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, the older half of the Bible and so a set of old books"
+     }
+    ],
+    "walkthrough": "OT is worth banking: any 'old books', 'old writings' or 'part of scripture' in a clue is nearly always those two letters.",
+    "definitionFit": "Specially illuminated -> SPOTLIT: picked out by a spotlight, the beam that singles one figure out of a stage left otherwise dark."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +76,43 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PINTAIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PINTAIL",
+    "definition": "Bird",
+    "indicators": [
+     "on",
+     "after"
+    ],
+    "indicatorNotes": {
+     "on": "In a down entry one thing sitting on another is written above it, so the letter for the number goes in first and the water below it.",
+     "after": "Coming after something means being written behind it, so the drink is laid down first and the rest trails along at the end."
+    },
+    "pieces": [
+     "PINTA",
+     "I",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daily drink",
+      "gives": "PINTA",
+      "note": "a pinta is a pint of milk, from the doorstep advertising slogan"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "walkthrough": "'Drinka pinta milka day' put PINTA into English and it lives nowhere else, which is exactly why the clue has to say daily.",
+    "definitionFit": "Bird -> PINTAIL: a wild duck named for the drake's long pointed tail feathers, so the general word is pointing at one species."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +129,45 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOWEL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "TOWEL",
+    "definition": "it’s absorbing",
+    "definitionNote": "The setter defines the thing by what it does rather than naming it: 'it' stands for the answer, so a clause takes the place of a noun.",
+    "indicators": [
+     "upsetting",
+     "found in"
+    ],
+    "indicatorNotes": {
+     "upsetting": "Something upset is tipped over, and in a down entry that means its letters are read from the bottom upwards.",
+     "found in": "To be found in something is to sit inside it, so the two letters go between the others rather than beside them."
+    },
+    "pieces": [
+     "TO",
+     "WE",
+     "L"
+    ],
+    "subReversals": [
+     {
+      "from": "LOT",
+      "to": "TOL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fate",
+      "gives": "LOT",
+      "note": "your lot is your fate, what falls to you"
+     },
+     {
+      "clueFragment": "The royal I",
+      "gives": "WE",
+      "note": "a monarch says 'we' where the rest of us say 'I' — the royal we"
+     }
+    ],
+    "walkthrough": "The dash is the join: everything before it builds the word, and the comment after it is the definition dressed up as a remark about the story.",
+    "definitionFit": "it’s absorbing -> TOWEL: soaking up water is the whole job of one, so the clue names it by the property instead of the object."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +184,50 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCISOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "INCISOR",
+    "definition": "tooth",
+    "indicators": [
+     "bit of",
+     "stuck in"
+    ],
+    "indicatorNotes": {
+     "bit of": "Ask for a bit of something and you break a piece off the front, so only the opening letter of the word is used.",
+     "stuck in": "Anything stuck in a place is wedged within it, so those letters interrupt the word rather than following it."
+    },
+    "pieces": [
+     "I",
+     "N",
+     "C",
+     "IS",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "N",
+      "note": "the front letter of nut"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "COR",
+      "note": "'cor!' and 'my!' are the same exclamation of surprise"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own word, taken as it stands"
+     }
+    ],
+    "walkthrough": "The surface is a dental emergency and the step that unlocks it is hearing 'my' as an exclamation rather than a possessive.",
+    "definitionFit": "tooth -> INCISOR: the flat chisel-shaped cutters at the front of the mouth, so the definition names the class and the answer one kind of it."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +244,45 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAYCOCK",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "HAYCOCK",
+    "definition": "a pile for the country dweller",
+    "linkWords": [
+     "makes"
+    ],
+    "indicators": [
+     "that’s drunk"
+    ],
+    "indicatorNotes": {
+     "that’s drunk": "Wine that is drunk has been taken inside, so this wine swallows the letters that come after it instead of standing beside them."
+    },
+    "pieces": [
+     "H",
+     "AY",
+     "C",
+     "OCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "HOCK",
+      "note": "hock is the Rhine white, the crossword's usual wine"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AY",
+      "note": "ay is the poets' word for ever and always, as in 'for ay'"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is cold, the letter on a tap"
+     }
+    ],
+    "walkthrough": "Two old conventions in one short clue, and the surface hides both by talking about a chilled glass of white.",
+    "definitionFit": "a pile for the country dweller -> HAYCOCK: the cone-shaped heap a farmer forks hay into out in the field before it is carted in."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +299,58 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABBACY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ABBACY",
+    "definition": "ecclesiastical office",
+    "linkWords": [
+     "must get",
+     "in"
+    ],
+    "indicators": [
+     "having welcomed"
+    ],
+    "indicatorNotes": {
+     "having welcomed": "To welcome guests is to have them in the house, so what is welcomed lands inside the word rather than after it."
+    },
+    "pieces": [
+     "A",
+     "B",
+     "B",
+     "A",
+     "C",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own opening letter, taken as it stands"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the bishop on a chess scoresheet"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "the preposition taken whole, as two letters"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as a letter again"
+     },
+     {
+      "clueFragment": "Catholic",
+      "gives": "C",
+      "note": "C is the standard shortening of Catholic, as in RC"
+     }
+    ],
+    "walkthrough": "Everything here is an abbreviation, which is why the pious surface runs so smoothly — nothing in it has to mean anything at all.",
+    "definitionFit": "ecclesiastical office -> ABBACY: the position an abbot holds, the office itself rather than the man who holds it or the monastery he runs."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +367,41 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORRECTOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CORRECTOR",
+    "definition": "someone putting the record straight",
+    "indicators": [
+     "entertaining"
+    ],
+    "indicatorNotes": {
+     "entertaining": "Entertaining people means having them inside your house, so the guests go between the other letters rather than alongside."
+    },
+    "pieces": [
+     "C",
+     "OR",
+     "RECTOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is Conservative on a ballot paper"
+     },
+     {
+      "clueFragment": "those from the ranks",
+      "gives": "OR",
+      "note": "OR is other ranks, the army's name for everyone who is not an officer"
+     },
+     {
+      "clueFragment": "minister",
+      "gives": "RECTOR",
+      "note": "a rector is a parish minister"
+     }
+    ],
+    "walkthrough": "OR for other ranks earns its keep here: any clue mentioning soldiers, men or the ranks is usually asking for those two letters.",
+    "definitionFit": "someone putting the record straight -> CORRECTOR: the printing trade's corrector reads proofs and marks the errors, so the phrase names the job by what it does."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +418,36 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONKIER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CONKIER",
+    "definition": "Like tree worse affected by fungus",
+    "indicators": [
+     "penetrating"
+    ],
+    "indicatorNotes": {
+     "penetrating": "To penetrate something is to go right into it, so the single letter is driven inside the word rather than added on the end."
+    },
+    "pieces": [
+     "CONK",
+     "I",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse chestnut",
+      "gives": "CONKER",
+      "note": "a conker is the seed of the horse chestnut"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "walkthrough": "The clue turns on two lives of one word: the conker children play with, and 'conk', the shelf fungus a rotting trunk puts out.",
+    "definitionFit": "Like tree worse affected by fungus -> CONKIER: conk is the bracket fungus growing on a trunk, so the comparative means more of it."
+   }
   },
   {
    "id": "9-down",
@@ -170,7 +468,45 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
     ]
    },
    "solution": "WATLINGSTREET",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "WATLING STREET",
+    "definition": "The old way",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "catches"
+    ],
+    "indicatorNotes": {
+     "catches": "A catch closes around whatever it holds, so the engineer's name opens up and the rest of the wordplay is trapped inside it."
+    },
+    "pieces": [
+     "WAT",
+     "LINGS",
+     "TREE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engineer",
+      "gives": "WATT",
+      "note": "James Watt is the crossword's default engineer"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LINGS",
+      "note": "the ling is a long cod-like sea fish"
+     },
+     {
+      "clueFragment": "something wooden",
+      "gives": "TREE",
+      "note": "a tree is the wooden thing par excellence"
+     }
+    ],
+    "walkthrough": "The joke is that the road's second word is never clued as a road at all — it arrives as a tree, inside the engineer's own name.",
+    "definitionFit": "The old way -> WATLING STREET: the Roman road running from Dover through London to Wroxeter, a way in the ancient sense of a made highway."
+   }
   },
   {
    "id": "10-across",
@@ -187,7 +523,38 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SNOW",
+    "definition": "Coke",
+    "linkWords": [
+     "spells out"
+    ],
+    "indicators": [
+     "end of"
+    ],
+    "indicatorNotes": {
+     "end of": "What comes at the end of a word is its final letter, so only the closing one of the long word is taken."
+    },
+    "pieces": [
+     "S",
+     "NOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dryness",
+      "gives": "S",
+      "note": "the letter this word finishes on"
+     },
+     {
+      "clueFragment": "for the moment",
+      "gives": "NOW",
+      "note": "for the moment is for now"
+     }
+    ],
+    "walkthrough": "'For the moment' is worth banking: at present, just now and for now all buy the same three letters in this game.",
+    "definitionFit": "Coke -> SNOW: both are street names for cocaine, snow after the white powder it is sold as, so the definition is slang for slang."
+   }
   },
   {
    "id": "11-across",
@@ -204,7 +571,40 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLAMBERING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CLAMBERING",
+    "definition": "Moving awkwardly",
+    "linkWords": [
+     "using",
+     "when"
+    ],
+    "indicators": [
+     "straddling"
+    ],
+    "indicatorNotes": {
+     "straddling": "To straddle something is to stand with a leg either side of it, so the word doing it ends up wrapped round the other."
+    },
+    "pieces": [
+     "CL",
+     "AMBER",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clutch",
+      "gives": "CLING",
+      "note": "to clutch at something is to cling to it"
+     },
+     {
+      "clueFragment": "warning sign",
+      "gives": "AMBER",
+      "note": "amber is the middle traffic light, the warning that a stop is coming"
+     }
+    ],
+    "walkthrough": "'Clutch' is a verb here, not the pedal the driving surface is steering you towards, and that is the whole misdirection.",
+    "definitionFit": "Moving awkwardly -> CLAMBERING: climbing on hands and knees over something difficult, which is exactly the graceless scramble described."
+   }
   },
   {
    "id": "12-across",
@@ -221,7 +621,39 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARLOS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CARLOS",
+    "definition": "pretender Don",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "admitting"
+    ],
+    "indicatorNotes": {
+     "admitting": "A club that admits someone lets them through the door, so the letter goes inside the word rather than after it."
+    },
+    "pieces": [
+     "CARL",
+     "O",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old rustics",
+      "gives": "CARLS",
+      "note": "a carl is an old word for a countryman or churl"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nothing in tennis, and nothing is O"
+     }
+    ],
+    "walkthrough": "Love has been zero since tennis borrowed it, and a carl is Chaucer's peasant — old vocabulary standing in for a Spanish court.",
+    "definitionFit": "pretender Don -> CARLOS: the Spanish claimant whose supporters, the Carlists, fought three wars for his branch of the royal line."
+   }
   },
   {
    "id": "13-across",
@@ -238,7 +670,44 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LACHESIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LACHESIS",
+    "definition": "Fate",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "pursuing"
+    ],
+    "indicatorNotes": {
+     "pursuing": "One thing pursuing another follows along behind it, so those letters are added at the end of what has already been built."
+    },
+    "pieces": [
+     "L",
+     "ACHES",
+     "IS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "a learner driver carries L-plates"
+     },
+     {
+      "clueFragment": "pains",
+      "gives": "ACHES",
+      "note": "aches are dull pains"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own verb, taken as two letters"
+     }
+    ],
+    "walkthrough": "'Fate is pursuing' reads as one ominous phrase, which hides the fact that the 'is' has already stopped being grammar and become letters.",
+    "definitionFit": "Fate -> LACHESIS: one of the three Greek Fates, the sister who measures out the thread of a life, so the capital F names her by example."
+   }
   },
   {
    "id": "14-across",
@@ -255,7 +724,32 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLOWERING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLOWERING",
+    "definition": "Blooming",
+    "linkWords": [
+     "needs"
+    ],
+    "pieces": [
+     "F",
+     "LOWERING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is fellow, the letter in FRS after an academic's name"
+     },
+     {
+      "clueFragment": "taking down",
+      "gives": "LOWERING",
+      "note": "to take something down is to lower it"
+     }
+    ],
+    "walkthrough": "Three words, two pieces and no indicator at all: the only trick is that 'blooming' is the definition and not the mild swear word.",
+    "definitionFit": "Blooming -> FLOWERING: both mean in flower, and the surface leans on the other blooming, the one that means confounded."
+   }
   },
   {
    "id": "15-down",
@@ -272,7 +766,46 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WASHSTAND",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "WASHSTAND",
+    "definition": "item of furniture",
+    "linkWords": [
+     "and",
+     "to make"
+    ],
+    "indicators": [
+     "collects"
+    ],
+    "indicatorNotes": {
+     "collects": "To collect things is to gather them in, so the rod closes around what it picks up instead of lying next to it."
+    },
+    "pieces": [
+     "W",
+     "ASH",
+     "ST",
+     "AND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rod",
+      "gives": "WAND",
+      "note": "a wand is a slender rod"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "ASH",
+      "note": "ash is a hardwood, a wood before it is a residue"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "ST is the abbreviation for the stone, fourteen pounds"
+     }
+    ],
+    "walkthrough": "Both materials are being used in their crossword senses rather than their obvious ones, which is what makes the builder's-yard surface hold together.",
+    "definitionFit": "item of furniture -> WASHSTAND: the bedroom table that held the basin and jug before houses had plumbing, furniture named by its use."
+   }
   },
   {
    "id": "16-across",
@@ -292,7 +825,9 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "START",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "17-across"
+   }
   },
   {
    "id": "17-across",
@@ -314,7 +849,33 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
     ]
    },
    "solution": "FALSE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "FALSE START",
+    "definition": "A useless beginning",
+    "linkWords": [
+     "what’s"
+    ],
+    "indicators": [
+     "possibly"
+    ],
+    "indicatorNotes": {
+     "possibly": "'Possibly' says the words are not to be taken as they stand, which frees their letters to be set down in some other order."
+    },
+    "anagram": {
+     "fodder": "AFTER LASTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "after lasts",
+      "gives": "FALSE START",
+      "note": "the ten letters of these two words, rearranged"
+     }
+    ],
+    "walkthrough": "The dash is where the clue splits, and the (5,5) is the tell: the two words on the right have exactly ten letters between them.",
+    "definitionFit": "A useless beginning -> FALSE START: a start ruled invalid and run again, so the beginning counted for nothing — the athletics sense."
+   }
   },
   {
    "id": "18-down",
@@ -331,7 +892,48 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AEROBIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + first letter",
+    "answer": "AEROBIC",
+    "definition": "reliant on oxygen",
+    "indicators": [
+     "Beginning of",
+     "organised",
+     "to save"
+    ],
+    "indicatorNotes": {
+     "Beginning of": "The beginning of a word is the letter it starts with, so the long word beside it gives up one letter only.",
+     "organised": "Something organised has been put in an order somebody chose, so these letters are free to be set down in a different one.",
+     "to save": "To save a thing is to keep hold of it, and what is kept is kept within — the two letters are held inside the rest."
+    },
+    "anagram": {
+     "fodder": "I CARE + OB"
+    },
+    "pieces": [
+     "AER",
+     "OB",
+     "IC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intensive",
+      "gives": "I",
+      "note": "the letter this word starts with"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "CARE",
+      "note": "four more letters of fodder, taken as they stand"
+     },
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is an old boy, a former pupil of a school"
+     }
+    ],
+    "walkthrough": "'Intensive care' and 'old boy' both read as hospital furniture; only one letter of the first survives, and the second is an abbreviation.",
+    "definitionFit": "reliant on oxygen -> AEROBIC: aerobic exercise and aerobic bacteria alike need air to work, aer- being the Greek for air."
+   }
   },
   {
    "id": "19-across",
@@ -348,7 +950,29 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESOTERICA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ESOTERICA",
+    "definition": "mysteries",
+    "indicators": [
+     "unusual"
+    ],
+    "indicatorNotes": {
+     "unusual": "What is unusual is not in its usual arrangement, so these letters will not stay in the order the clue hands them over in."
+    },
+    "anagram": {
+     "fodder": "A COTERIE’S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A coterie’s",
+      "gives": "ESOTERICA",
+      "note": "the nine letters of these words in a new order"
+     }
+    ],
+    "walkthrough": "A coterie is a small circle that keeps itself to itself, so the surface and the answer describe the same clique — only the letters move.",
+    "definitionFit": "mysteries -> ESOTERICA: things kept for the initiated, arcana rather than puzzles, which is the older sense the plural noun carries."
+   }
   },
   {
    "id": "20-down",
@@ -369,7 +993,43 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
     ]
    },
    "solution": "TALLYHO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "TALLY-HO",
+    "definition": "Cry in the country",
+    "indicators": [
+     "ultimately",
+     "trapped in"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What comes ultimately comes last of all, so the closing letter of the word before it is the one taken.",
+     "trapped in": "Something trapped in a place cannot get out of it, so the letter is held between the others rather than added on."
+    },
+    "pieces": [
+     "TALL",
+     "Y",
+     "HO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "multi-storey",
+      "gives": "TALL",
+      "note": "a building of many storeys is tall"
+     },
+     {
+      "clueFragment": "gentry",
+      "gives": "Y",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house on an address"
+     }
+    ],
+    "walkthrough": "'Multi-storey' promises a car park and delivers an adjective, and the question mark is there because the house is an abbreviation, not a home.",
+    "definitionFit": "Cry in the country -> TALLY-HO: the huntsman's shout on sighting the fox, so 'the country' means the hunting field rather than a nation."
+   }
   },
   {
    "id": "21-down",
@@ -386,7 +1046,39 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COUTURE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COUTURE",
+    "definition": "Stylish dressmaking",
+    "linkWords": [
+     "needed"
+    ],
+    "indicators": [
+     "external"
+    ],
+    "indicatorNotes": {
+     "external": "An external remedy is applied on the outside, so the cure goes round the other letters instead of joining on to them."
+    },
+    "pieces": [
+     "C",
+     "OUT",
+     "URE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remedy",
+      "gives": "CURE",
+      "note": "a remedy is a cure"
+     },
+     {
+      "clueFragment": "not in fashion",
+      "gives": "OUT",
+      "note": "what is no longer in fashion is out"
+     }
+    ],
+    "walkthrough": "The medical half of the clue is doing the wrapping, and 'not in fashion' sits in a clue about fashion without being about it at all.",
+    "definitionFit": "Stylish dressmaking -> COUTURE: the French word for the high-fashion trade, clothes cut to a designer's own patterns rather than bought off the peg."
+   }
   },
   {
    "id": "22-down",
@@ -403,7 +1095,29 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INFIRM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INFIRM",
+    "definition": "not enjoying healthy state",
+    "pieces": [
+     "IN",
+     "FIRM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "what is trendy is in"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "FIRM",
+      "note": "a firm is a business"
+     }
+    ],
+    "walkthrough": "IN for trendy is the crossword's other 'in' — fashionable rather than inside — and here it doubles as the prefix that reverses the word after it.",
+    "definitionFit": "not enjoying healthy state -> INFIRM: infirm means feeble or ailing, especially through age, so the phrase spells out the negative the prefix carries."
+   }
   },
   {
    "id": "23-across",
@@ -420,7 +1134,49 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRISONER",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + first letters + anagram",
+    "answer": "PRISONER",
+    "definition": "Punished rogue primarily, one is in stir, right?",
+    "indicators": [
+     "primarily",
+     "in stir"
+    ],
+    "indicatorNotes": {
+     "primarily": "What is primary comes first, so each of the two words before it gives up its opening letter and nothing else.",
+     "in stir": "Stir is what you do to a mixture, so the words caught in it come out with their letters in a different order."
+    },
+    "pieces": [
+     "PR",
+     "ISONE",
+     "R"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ONE IS",
+      "gives": "ISONE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punished rogue",
+      "gives": "PR",
+      "note": "the first letters of the two words"
+     },
+     {
+      "clueFragment": "one is",
+      "gives": "ISONE",
+      "note": "these five letters stirred into another order"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is right, as on a map or a stage direction"
+     }
+    ],
+    "walkthrough": "Every word works twice: the sentence describes the man and builds him at the same time, with 'stir' meaning jail and mixture at once.",
+    "definitionFit": "The whole clue reads straight: a rogue caught and locked up is serving his sentence, and stir has been slang for jail since the 1850s."
+   }
   },
   {
    "id": "24-across",
@@ -441,7 +1197,29 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOGOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOG OUT",
+    "definition": "Switch off",
+    "pieces": [
+     "LO",
+     "GOUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is the old imperative meaning see or behold"
+     },
+     {
+      "clueFragment": "problem with drinking too much port",
+      "gives": "GOUT",
+      "note": "gout is the joint disease long blamed on port and rich living"
+     }
+    ],
+    "walkthrough": "Gout was the rich man's complaint, pinned for two centuries on fortified wine, which is why the port is doing all the work in the surface.",
+    "definitionFit": "Switch off -> LOG OUT: ending your session on a machine you are signed in to, the everyday way of shutting a computer down for the night."
+   }
   },
   {
    "id": "25-down",
@@ -458,7 +1236,26 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIMME",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GIMME",
+    "definition": "Let me have",
+    "indicators": [
+     "a piece of"
+    ],
+    "indicatorNotes": {
+     "a piece of": "A piece of something is part of it and not the whole, so the answer is a run of letters cut out of the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "string immediately",
+      "gives": "GIMME",
+      "note": "the last letter of the first word joins the first four of the second"
+     }
+    ],
+    "walkthrough": "Hidden answers nearly always straddle a join between words, and this one takes a single letter from the first — the least you can take and still call it a piece.",
+    "definitionFit": "Let me have -> GIMME: 'gimme' is 'give me' as it is actually said, and in golf a gimme is the short putt an opponent concedes on that request."
+   }
   },
   {
    "id": "26-across",
@@ -475,7 +1272,55 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABRASIVELY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal + first letter",
+    "answer": "ABRASIVELY",
+    "definition": "showing bluntness",
+    "linkWords": [
+     "having"
+    ],
+    "indicators": [
+     "Leader of",
+     "twisted",
+     "inside"
+    ],
+    "indicatorNotes": {
+     "Leader of": "The leader of a word is the letter at its head, so the country beside it contributes one letter only.",
+     "twisted": "Something twisted has been turned right round, so those two letters are read the other way about.",
+     "inside": "Inside says the piece belongs within the word rather than before or after it."
+    },
+    "pieces": [
+     "A",
+     "BRA",
+     "SI",
+     "VELY"
+    ],
+    "subReversals": [
+     {
+      "from": "IS",
+      "to": "SI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "the letter this word begins with"
+     },
+     {
+      "clueFragment": "courageous style",
+      "gives": "BRAVELY",
+      "note": "to act in a courageous style is to act bravely"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "SI",
+      "note": "the clue's own word, turned back to front"
+     }
+    ],
+    "walkthrough": "'Courageous style' means 'in a courageous manner', which is how a setter clues an adverb without ever using the word manner.",
+    "definitionFit": "showing bluntness -> ABRASIVELY: an abrasive scours a surface, and someone who speaks abrasively rubs people the wrong way — bluntness that grates."
+   }
   },
   {
    "id": "27-across",
@@ -492,7 +1337,36 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAUD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MAUD",
+    "definition": "woman lured into the garden",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "Something covering another thing lies over it on both sides, so the muck wraps the letter instead of coming before it."
+    },
+    "pieces": [
+     "M",
+     "A",
+     "UD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muck",
+      "gives": "MUD",
+      "note": "muck is mud"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as a single letter"
+     }
+    ],
+    "walkthrough": "Four letters, three of them muck, and the whole clue turns on remembering one Victorian song lyric.",
+    "definitionFit": "woman lured into the garden -> MAUD: Tennyson's 'Come into the garden, Maud' is the invitation, so the answer is named by the poem's most quoted line."
+   }
   },
   {
    "id": "28-across",
@@ -509,7 +1383,47 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACADEMY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "ACADEMY",
+    "definition": "school",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "grabbing",
+     "head of"
+    ],
+    "indicatorNotes": {
+     "grabbing": "To grab someone is to take hold and keep them, so whoever is grabbed ends up held inside the word.",
+     "head of": "The head of a word is the letter at the top of it, so the language beside it gives up one letter."
+    },
+    "pieces": [
+     "A",
+     "CAD",
+     "E",
+     "MY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little woman",
+      "gives": "AMY",
+      "note": "Amy March is one of Alcott's Little Women"
+     },
+     {
+      "clueFragment": "baddy",
+      "gives": "CAD",
+      "note": "a cad is the mild-mannered villain of older fiction"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard shortening of English"
+     }
+    ],
+    "walkthrough": "Both people are stock characters of the crossword rather than of the school story, which is exactly what makes them findable.",
+    "definitionFit": "school -> ACADEMY: an academy is a school, usually one teaching a specialism — riding, military, dramatic art — or in England one outside council control."
+   }
   },
   {
    "id": "29-across",
@@ -526,7 +1440,29 @@ window.CRYPTIC_PUZZLES["cryptic-30086"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COVERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COVERED",
+    "definition": "What Adam became after realisation of nudity",
+    "pieces": [
+     "COVE",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "COVE",
+      "note": "a cove is an old slang fellow, Dickens's word rather than a bay"
+     },
+     {
+      "clueFragment": "looking embarrassed",
+      "gives": "RED",
+      "note": "embarrassment shows as going red in the face"
+     }
+    ],
+    "walkthrough": "The question mark warns you the first half is a story rather than a synonym, and the second half is two pieces of plain slang.",
+    "definitionFit": "What Adam became after realisation of nudity -> COVERED: Genesis has him sew fig leaves together the moment he notices, so covered is the plain result."
+   }
   }
  ]
 } /*JSON-END*/;
