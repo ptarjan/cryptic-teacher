@@ -30,7 +30,50 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOLIDAYS",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "HOLIDAYS",
+    "definition": "Breaks",
+    "indicators": [
+     "in",
+     "being upset"
+    ],
+    "indicatorNotes": {
+     "in": "here it is the placing sense: the short word before it goes inside the word after it, not beside it",
+     "being upset": "upset a thing and it no longer sits the way it was set down, which is what happens to the three letters beside it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "possession",
+      "gives": "HOLD",
+      "note": "possession of something is a hold over it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "AYS",
+      "note": "the three letters of SAY in a new order"
+     }
+    ],
+    "pieces": [
+     "HOL",
+     "I",
+     "D",
+     "AYS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SAY",
+      "gives": "AYS"
+     }
+    ],
+    "walkthrough": "'Say' almost always means 'for example' in a cryptic, so being asked for its letters instead is the surprise here, and the quarrel in the surface is what hides the instruction.",
+    "definitionFit": "A holiday is time off, and 'breaks' is the everyday British plural for the same thing, from a long weekend to a fortnight away."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +90,53 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOFFMANN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "HOFFMANN",
+    "definition": "German writer",
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "indicators": [
+     "after",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "after": "what comes after something stands behind it, so the pieces named first end up second",
+     "ultimately": "at the very end of the word beside it there is a single letter, and that is all this asks for"
+    },
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "opera not working",
+      "gives": "OFF",
+      "note": "a show that is not running is off"
+     },
+     {
+      "clueFragment": "with husband",
+      "gives": "MAN",
+      "note": "a woman's man is her husband"
+     },
+     {
+      "clueFragment": "indiscretion, ultimately",
+      "gives": "N",
+      "note": "the last letter of indiscretion"
+     }
+    ],
+    "pieces": [
+     "H",
+     "OFF",
+     "MAN",
+     "N"
+    ],
+    "walkthrough": "E.T.A. Hoffmann wrote the tales Offenbach later set to music. The clue asks for husband twice over, once as its abbreviation and once as the plain word, which lets the marriage in the surface read so smoothly.",
+    "definitionFit": "Hoffmann is the German Romantic whose fantastical stories became a staple of the fiction shelf, so the definition simply states his nationality and his trade."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +153,33 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LORGNETTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LORGNETTE",
+    "definition": "Spectacles",
+    "definitionNote": "Spectacles is one of those nouns that stays plural though it names a single object, so it fairly defines an answer that is grammatically singular.",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "getting repair"
+    ],
+    "indicatorNotes": {
+     "getting repair": "something sent away for repair comes back with its parts put together again, and the parts here are letters"
+    },
+    "anagram": {
+     "fodder": "ROTTEN LEG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rotten leg",
+      "gives": "LORGNETTE",
+      "note": "the nine letters of ROTTEN LEG in a new order"
+     }
+    ],
+    "walkthrough": "The surface and the answer are the same object: a lorgnette is the pair of glasses on a stick, so the leg being mended is also a spectacle's arm.",
+    "definitionFit": "A lorgnette is a pair of eyeglasses held up on a handle, so 'spectacles' names it by the family it belongs to rather than by its stick."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +196,57 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEWDROP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + reversal + first letter",
+    "answer": "DEWDROP",
+    "definition": "a sight for the morning",
+    "linkWords": [
+     "that’s"
+    ],
+    "indicators": [
+     "Climbing",
+     "around",
+     "top of"
+    ],
+    "indicatorNotes": {
+     "Climbing": "a down entry is written downwards, so anything climbing in it is read the other way, from the bottom square up",
+     "around": "going around a thing means passing every side of it, so one piece closes over the letter that follows",
+     "top of": "the top of a word is the end you meet first, so only its opening letter is wanted"
+    },
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "POD",
+      "note": "a school of whales is also called a pod"
+     },
+     {
+      "clueFragment": "top of range",
+      "gives": "R",
+      "note": "the first letter of range"
+     },
+     {
+      "clueFragment": "joined up",
+      "gives": "WED",
+      "note": "a couple joined in marriage are wed"
+     }
+    ],
+    "pieces": [
+     "DEW",
+     "DROP"
+    ],
+    "subReversals": [
+     {
+      "from": "WED",
+      "to": "DEW"
+     },
+     {
+      "from": "PORD",
+      "to": "DROP"
+     }
+    ],
+    "walkthrough": "'School' is the whale sense rather than the classroom the surface offers, and the dash is the join: everything before it builds letters, everything after it defines them.",
+    "definitionFit": "Dew forms overnight and burns off by mid-morning, so the definition places the answer by the hour you can see one rather than naming it."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +263,36 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YELLS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "YELLS",
+    "definition": "Cries",
+    "indicators": [
+     "embracing"
+    ],
+    "indicatorNotes": {
+     "embracing": "an embrace closes round whoever is held, so the word before it takes the next one inside"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Absolutely",
+      "gives": "YES",
+      "note": "an emphatic 'absolutely!' is a yes"
+     },
+     {
+      "clueFragment": "Lord Lieutenant",
+      "gives": "LL",
+      "note": "the initials of the Lord Lieutenant, the monarch's representative in a county"
+     }
+    ],
+    "pieces": [
+     "YE",
+     "LL",
+     "S"
+    ],
+    "walkthrough": "A doubled letter is nearly always the initials of a two-word title, and this is the commonest of them; the exclamation mark makes the quoted word look like the point of the sentence.",
+    "definitionFit": "To yell is to cry out at volume, so 'cries' is the plain synonym in its shouting sense rather than its weeping one."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +313,41 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
     ]
    },
    "solution": "SUNGOD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SUN GOD",
+    "definition": "deity",
+    "indicators": [
+     "recalled"
+    ],
+    "indicatorNotes": {
+     "recalled": "to recall something is to call it back, and letters called back arrive in the opposite order"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dynasty",
+      "gives": "SUNG",
+      "note": "the Sung ruled China for three centuries"
+     },
+     {
+      "clueFragment": "celebration",
+      "gives": "OD",
+      "note": "a celebration is a do, turned round"
+     }
+    ],
+    "pieces": [
+     "SUNG",
+     "OD"
+    ],
+    "subReversals": [
+     {
+      "from": "DO",
+      "to": "OD"
+     }
+    ],
+    "walkthrough": "Two conventions worth banking: the Sung are the crossword's favourite Chinese dynasty because the letters behave, and a party is nearly always a 'do'.",
+    "definitionFit": "Definition by class: Ra and Helios are gods of the sun, and each of them is a deity, so the clue names the family rather than the member."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +364,37 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNEATEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "UNEATEN",
+    "definition": "not yet served?",
+    "indicators": [
+     "last item on",
+     "after"
+    ],
+    "indicatorNotes": {
+     "last item on": "the last thing on a list is the one at the bottom, so the closing letter of the word beside it is taken",
+     "after": "a piece placed after another goes behind it, leaving the single letter to lead"
+    },
+    "blocks": [
+     {
+      "clueFragment": "last item on menu",
+      "gives": "U",
+      "note": "the final letter of menu"
+     },
+     {
+      "clueFragment": "Trim",
+      "gives": "NEATEN",
+      "note": "to trim a hedge or a beard is to neaten it"
+     }
+    ],
+    "pieces": [
+     "U",
+     "NEATEN"
+    ],
+    "walkthrough": "The question mark admits the definition is a step away from the word: a dish that never reached the table cannot have been finished either.",
+    "definitionFit": "Nothing that has not been served has been eaten, so the definition arrives by consequence rather than as a straight synonym."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +411,35 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRILL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GRILL",
+    "definition": "Cook",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "it asks for how the neighbouring word ends, and a word ends in exactly one letter"
+    },
+    "blocks": [
+     {
+      "clueFragment": "finally receiving",
+      "gives": "G",
+      "note": "the last letter of receiving"
+     },
+     {
+      "clueFragment": "burn",
+      "gives": "RILL",
+      "note": "a rill is a small stream, which is what a Scot means by a burn"
+     }
+    ],
+    "pieces": [
+     "G",
+     "RILL"
+    ],
+    "walkthrough": "Two streams and no water in sight: 'burn' is the Scottish word and 'rill' the English one, while the surface keeps you in a kitchen where a burn is an injury.",
+    "definitionFit": "To grill is to cook under a fierce direct heat, so the definition is the general verb and the answer one particular way of carrying it out."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +456,44 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOLLAR",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "DOLLAR",
+    "definition": "money",
+    "indicators": [
+     "in",
+     "picked up"
+    ],
+    "indicatorNotes": {
+     "in": "the placing sense again: one word sits within another rather than joining it end to end",
+     "picked up": "a down answer is written downwards, so a piece picked up is read the other way, from below"
+    },
+    "blocks": [
+     {
+      "clueFragment": "staff",
+      "gives": "ROD",
+      "note": "a rod is a staff you can lean on"
+     },
+     {
+      "clueFragment": "Everyone",
+      "gives": "ALL",
+      "note": "everyone is all of them"
+     }
+    ],
+    "pieces": [
+     "DO",
+     "LLA",
+     "R"
+    ],
+    "subReversals": [
+     {
+      "from": "RALLOD",
+      "to": "DOLLAR"
+     }
+    ],
+    "walkthrough": "'Picked up' is the right instruction for a down clue and 'back' would not be: there is no backwards on a vertical axis, only up.",
+    "definitionFit": "A dollar is a unit of currency, so 'money' defines it by the wider class and leaves whose dollar it is entirely open."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +510,38 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAREWELL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "FAREWELL",
+    "definition": "so long",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "at the outset of a word there is one letter only, and that is what this asks for"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Females initially",
+      "gives": "F",
+      "note": "the opening letter of Females"
+     },
+     {
+      "clueFragment": "exhibit health",
+      "gives": "AREWELL",
+      "note": "people who exhibit health ARE WELL, and the two words run straight together"
+     }
+    ],
+    "pieces": [
+     "F",
+     "AREWELL"
+    ],
+    "walkthrough": "The sleight is grammatical: 'exhibit health' is not a noun to swap for letters but a verb phrase, and saying it another way spells seven of the eight.",
+    "definitionFit": "'So long' is the casual parting phrase and the answer its formal cousin, both being what you say to someone on leaving."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +558,44 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DENIAL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "DENIAL",
+    "definition": "Failure to accept",
+    "indicators": [
+     "may be reversed",
+     "injection of"
+    ],
+    "indicatorNotes": {
+     "may be reversed": "reversing a thing is reading it the other way round, and an across entry read that way runs right to left",
+     "injection of": "an injection goes into whatever it is given to, so the letter named next is pushed inside"
+    },
+    "blocks": [
+     {
+      "clueFragment": "looking old",
+      "gives": "LINED",
+      "note": "a lined face is one that looks old"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "pieces": [
+     "DENI",
+     "A",
+     "L"
+    ],
+    "subReversals": [
+     {
+      "from": "LINED",
+      "to": "DENIL"
+     }
+    ],
+    "walkthrough": "The surface is about the face and the definition about the mind, and 'failure to accept looking old' is one phrase doing both jobs until you decide where to cut it.",
+    "definitionFit": "Denial is refusing to admit a fact is true, so the definition spells out the psychological sense the word now carries."
+   }
   },
   {
    "id": "11-down",
@@ -221,7 +612,43 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIMPLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SIMPLE",
+    "definition": "Not hard",
+    "indicators": [
+     "in",
+     "deleted"
+    ],
+    "indicatorNotes": {
+     "in": "the letter named before it goes inside the word that follows rather than in front of it",
+     "deleted": "what is deleted never reaches the answer, so the letter named beside it is struck out first"
+    },
+    "blocks": [
+     {
+      "clueFragment": "comparison",
+      "gives": "SIMILE",
+      "note": "a simile is a comparison - 'like a lion'"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the I taken out of SIMILE, leaving SIMLE"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, the musician's mark for soft"
+     }
+    ],
+    "pieces": [
+     "SIM",
+     "P",
+     "LE"
+    ],
+    "walkthrough": "The colon invites you to read 'soft' as more of the definition, a gentler way of saying not hard, when it is really the single letter p.",
+    "definitionFit": "Simple is the opposite of hard in the sense of difficulty rather than texture, which is the sense a puzzle uses when it calls a clue hard."
+   }
   },
   {
    "id": "12-across",
@@ -238,7 +665,35 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "MANOR",
+    "definition": "base of operations",
+    "indicators": [
+     "cleared out"
+    ],
+    "indicatorNotes": {
+     "cleared out": "a room cleared out keeps only its walls, so the word keeps only the letters at its two ends"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "MAN",
+      "note": "to staff a desk is to man it"
+     },
+     {
+      "clueFragment": "officer cleared out",
+      "gives": "OR",
+      "note": "OfficeR emptied of everything between its ends"
+     }
+    ],
+    "pieces": [
+     "MAN",
+     "OR"
+    ],
+    "walkthrough": "'Staff' is the verb here rather than the people, which is what keeps 'staff officer' looking like one rank instead of two separate instructions.",
+    "definitionFit": "In British police slang your manor is the patch you work out of, so the definition catches that sense rather than the lord's country house."
+   }
   },
   {
    "id": "13-across",
@@ -255,7 +710,51 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCINTILLA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "SCINTILLA",
+    "definition": "hint",
+    "linkWords": [
+     "to get"
+    ],
+    "indicators": [
+     "about",
+     "start of"
+    ],
+    "indicatorNotes": {
+     "about": "writing about a subject means going round it, so the word before wraps the letter after",
+     "start of": "the start of a word is its first letter and nothing more"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "SIN",
+      "note": "a wrong done is a sin"
+     },
+     {
+      "clueFragment": "start of clue",
+      "gives": "C",
+      "note": "the first letter of clue"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "TILL",
+      "note": "to till the land is to work it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own a, taken at face value"
+     }
+    ],
+    "pieces": [
+     "SCIN",
+     "TILL",
+     "A"
+    ],
+    "walkthrough": "The dash makes 'clue' and 'work' read as the setter chatting about the puzzle, which is exactly why you skim past two words that are both raw material.",
+    "definitionFit": "A scintilla is the tiniest detectable trace of something - 'not a scintilla of evidence' - so 'hint' catches it as the smallest amount there could be."
+   }
   },
   {
    "id": "14-across",
@@ -272,7 +771,36 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTEPAD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NOTEPAD",
+    "definition": "where comments may be made",
+    "indicators": [
+     "to involve"
+    ],
+    "indicatorNotes": {
+     "to involve": "to involve somebody is to draw them in, so the piece named next is drawn inside the other"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Well-known",
+      "gives": "NOTED",
+      "note": "a noted figure is a well-known one"
+     },
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "a PA is a personal assistant, the crossword's standing secretary"
+     }
+    ],
+    "pieces": [
+     "NOTE",
+     "PA",
+     "D"
+    ],
+    "walkthrough": "The definition never names an object at all - it describes what one is for, which is why the whole clue can pass as a sentence about an office.",
+    "definitionFit": "A notepad is the block of paper kept for jotting remarks down, so the definition points at the answer by the job it does."
+   }
   },
   {
    "id": "15-down",
@@ -289,7 +817,43 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISTIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + deletion",
+    "answer": "DISTIL",
+    "definition": "Condense",
+    "indicators": [
+     "source",
+     "incomplete"
+    ],
+    "indicatorNotes": {
+     "source": "a river's source is where it begins, so the letter wanted is the one its word begins with",
+     "incomplete": "a word left incomplete stops short, giving up the letter at its end"
+    },
+    "blocks": [
+     {
+      "clueFragment": "source in dictionary",
+      "gives": "D",
+      "note": "the first letter of dictionary"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "even now",
+      "gives": "STIL",
+      "note": "even now means still, docked of its final L"
+     }
+    ],
+    "pieces": [
+     "D",
+     "I",
+     "STIL"
+    ],
+    "walkthrough": "'One' sitting between two other instructions is the easiest piece to read past, because the sentence wants it as a number rather than as the letter I.",
+    "definitionFit": "To distil is to boil something down until only its essence is left, which is what condense means in both the chemical and the figurative sense."
+   }
   },
   {
    "id": "16-across",
@@ -306,7 +870,44 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENCIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PENCIL",
+    "definition": "writer",
+    "linkWords": [
+     "applied to"
+    ],
+    "indicators": [
+     "A lot of"
+    ],
+    "indicatorNotes": {
+     "A lot of": "a lot of a thing is most of it but not all, so its last letter is left behind"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A lot of change",
+      "gives": "PENC",
+      "note": "loose change is pence, all but its final letter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "l is the dictionary's abbreviation for Latin"
+     }
+    ],
+    "pieces": [
+     "PENC",
+     "I",
+     "L"
+    ],
+    "walkthrough": "'One Latin' reads as a Roman citizen and is really two abbreviations stacked up, i then l, which is the step that keeps this one out of sight.",
+    "definitionFit": "A writer here is a thing rather than a person - the implement that does the writing - which is the crossword's favourite use of the word."
+   }
   },
   {
    "id": "17-down",
@@ -323,7 +924,45 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICELANDIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ICELANDIC",
+    "definition": "from northern country",
+    "indicators": [
+     "after cut",
+     "repeatedly",
+     "caging"
+    ],
+    "indicatorNotes": {
+     "after cut": "a cut takes something off the end, so what is left is the word without its final letter",
+     "repeatedly": "doing a thing repeatedly means doing it more than once, so that short piece is written out twice",
+     "caging": "a cage holds its occupant on every side, so the animal named next is shut in between them"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Reserve, after cut",
+      "gives": "IC",
+      "note": "reserve is ice, the coolness of manner, cut short"
+     },
+     {
+      "clueFragment": "antelope",
+      "gives": "ELAND",
+      "note": "the eland is the big African antelope crosswords keep coming back to"
+     },
+     {
+      "clueFragment": "repeatedly",
+      "gives": "IC",
+      "note": "the same two letters a second time, closing the cage"
+     }
+    ],
+    "pieces": [
+     "IC",
+     "ELAND",
+     "IC"
+    ],
+    "walkthrough": "Being asked for one short piece twice over is rare enough that the word ordering it reads as filler, and 'reserve' is icy manner rather than a booking.",
+    "definitionFit": "Icelandic means belonging to Iceland, which sits far enough north for the definition to describe the place instead of naming it."
+   }
   },
   {
    "id": "18-across",
@@ -340,7 +979,26 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ILL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ILL",
+    "definition": "Not right",
+    "indicators": [
+     "to occupy"
+    ],
+    "indicatorNotes": {
+     "to occupy": "to occupy a place is to sit inside it, and the letters wanted are sitting inside the word that follows"
+    },
+    "blocks": [
+     {
+      "clueFragment": "village",
+      "gives": "ILL",
+      "note": "the run lodged inside vILLage"
+     }
+    ],
+    "walkthrough": "Three-letter hidden answers are the hardest to see, because almost any word could be concealing one; the giveaway is an instruction dressed up as part of the story.",
+    "definitionFit": "Someone not right is ill in the health sense, and an ill deed is not right in the moral one, so the definition holds either way you take it."
+   }
   },
   {
    "id": "19-down",
@@ -357,7 +1015,26 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETHEREAL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ETHEREAL",
+    "definition": "immaterial",
+    "indicators": [
+     "Somewhat"
+    ],
+    "indicatorNotes": {
+     "Somewhat": "it means to a degree rather than wholly, and a degree of a phrase is a run of its letters"
+    },
+    "blocks": [
+     {
+      "clueFragment": "here, there, always",
+      "gives": "ETHEREAL",
+      "note": "the run spans all three words: herE THEREALways"
+     }
+    ],
+    "walkthrough": "The little words are chosen to look like a list of nowheres, and the commas fall exactly where the eye wants a break - punctuation hides a run of letters better than anything.",
+    "definitionFit": "Something ethereal seems too light to have any substance, which is what immaterial means at its root: not made of matter."
+   }
   },
   {
    "id": "20-across",
@@ -374,7 +1051,39 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEROES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HEROES",
+    "definition": "the lions",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "keeping"
+    ],
+    "indicatorNotes": {
+     "keeping": "to keep a thing is to hold on to it, so the word before holds the next one inside"
+    },
+    "blocks": [
+     {
+      "clueFragment": "This is",
+      "gives": "HERES",
+      "note": "'this is' presents something exactly as 'here's' does"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is the round zero, O"
+     }
+    ],
+    "pieces": [
+     "HER",
+     "O",
+     "ES"
+    ],
+    "walkthrough": "The surface throws somebody to the lions in a Roman arena; the definition wants the other lions, the brave ones, and that flip is the whole clue.",
+    "definitionFit": "A lion is the standard figure for a person of great courage, so the definition points at the answer through an image rather than a synonym."
+   }
   },
   {
    "id": "21-down",
@@ -391,7 +1100,47 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OLOROSO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + deletion",
+    "answer": "OLOROSO",
+    "definition": "sherry",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "swallowing",
+     "a lot of"
+    ],
+    "indicatorNotes": {
+     "swallowing": "what you swallow ends up inside you, so the word before takes the next one in",
+     "a lot of": "a lot of something is most of it, so the word turns up without its final letter"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "o is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "the john is the American name for the loo"
+     },
+     {
+      "clueFragment": "a lot of pink wine",
+      "gives": "ROS",
+      "note": "rosé is the pink wine, all but its last letter"
+     }
+    ],
+    "pieces": [
+     "O",
+     "LO",
+     "ROS",
+     "O"
+    ],
+    "walkthrough": "Three conventions in one short clue: 'Old' at the front of a clue is nearly always o, the john is the loo, and rosé loses its accent along with its final letter.",
+    "definitionFit": "Oloroso is one of the sherry styles, the dark nutty one from Jerez, so the definition names the drink of which the answer is a variety."
+   }
   },
   {
    "id": "22-across",
@@ -408,7 +1157,32 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARNEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EARNEST",
+    "definition": "Serious",
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to give someone your ear is to give them your attention"
+     },
+     {
+      "clueFragment": "collection of machine guns",
+      "gives": "NEST",
+      "note": "a nest is the military's word for a cluster of machine guns"
+     }
+    ],
+    "pieces": [
+     "EAR",
+     "NEST"
+    ],
+    "walkthrough": "No instruction word anywhere: the clue is two synonyms laid end to end, and 'given to' is joinery holding them together rather than telling you to do anything.",
+    "definitionFit": "Earnest means meaning what you say with no lightness in it, so 'serious' is the sense that describes a person rather than a situation."
+   }
   },
   {
    "id": "23-down",
@@ -425,7 +1199,46 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHENISH",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "RHENISH",
+    "definition": "wine",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "not one",
+     "consuming"
+    ],
+    "indicatorNotes": {
+     "not one": "'not' says a letter has to go and the word beside it names which: the Roman numeral for a single unit",
+     "consuming": "to consume something is to take it right in, so what follows disappears inside"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Former PM",
+      "gives": "RISHI",
+      "note": "Rishi Sunak led the government until 2024"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the I that comes out of the prime minister's first name"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is a chicken"
+     }
+    ],
+    "pieces": [
+     "R",
+     "HEN",
+     "ISH"
+    ],
+    "walkthrough": "A prime minister's first name as raw material is fresh vocabulary, and 'not one' is the setter naming a letter to remove rather than counting anything.",
+    "definitionFit": "Rhenish is the old English name for the wine of the Rhine, the word Shakespeare uses, so the definition gives the class and the answer one region's version."
+   }
   },
   {
    "id": "24-down",
@@ -442,7 +1255,48 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TARMAC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TARMAC",
+    "definition": "surface",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "rising"
+    ],
+    "indicatorNotes": {
+     "rising": "a down entry is written from the top down, so whatever rises in it is read the other way, from the bottom"
+    },
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "CAM",
+      "note": "the Cam runs through Cambridge"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "RAT",
+      "note": "to grass on someone is to rat on them"
+     }
+    ],
+    "pieces": [
+     "TAR",
+     "MAC"
+    ],
+    "subReversals": [
+     {
+      "from": "CAM",
+      "to": "MAC"
+     },
+     {
+      "from": "RAT",
+      "to": "TAR"
+     }
+    ],
+    "walkthrough": "'Grass' is the informer rather than the lawn, which is the whole misdirection: read straight, the clue is a riverbank and nothing else.",
+    "definitionFit": "Tarmac is the bound stone-and-tar layer a road or a runway is finished with, so 'surface' names the answer by what it is laid down to be."
+   }
   },
   {
    "id": "25-across",
@@ -459,7 +1313,29 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMBROSIAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AMBROSIAL",
+    "definition": "Sweet",
+    "indicators": [
+     "going around"
+    ],
+    "indicatorNotes": {
+     "going around": "things that go around end up somewhere other than where they set off, and so do these letters"
+    },
+    "anagram": {
+     "fodder": "ARAB LIMOS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Arab limos",
+      "gives": "AMBROSIAL",
+      "note": "the nine letters of ARAB LIMOS in a new order"
+     }
+    ],
+    "walkthrough": "The instruction does double duty: it pictures cars circling a block and tells the letters to do the same, and the question mark covers the second job.",
+    "definitionFit": "Ambrosia was the food of the Greek gods, so anything ambrosial tastes divine and 'sweet' is the everyday word for that praise."
+   }
   },
   {
    "id": "26-down",
@@ -476,7 +1352,46 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOLUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BOLUS",
+    "definition": "rounded mass",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "raised",
+     "above"
+    ],
+    "indicatorNotes": {
+     "raised": "a down entry runs downwards, so a piece raised inside it is read upwards instead",
+     "above": "in a down clue whatever sits above comes first, because the entry is written from the top"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lump",
+      "gives": "LOB",
+      "note": "a lob is a lump, the old word for a clumsy shapeless thing"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "US",
+      "note": "the editorial we, so a setter speaking of themselves becomes us"
+     }
+    ],
+    "pieces": [
+     "BOL",
+     "US"
+    ],
+    "subReversals": [
+     {
+      "from": "LOB",
+      "to": "BOL"
+     }
+    ],
+    "walkthrough": "Both halves are conventions rather than definitions: a setter is 'me' and also 'us', and 'lump' is an archaic noun the surface keeps hidden in plain sight.",
+    "definitionFit": "A bolus is a rounded lump: the ball of chewed food a swallow sends down, or a drug dose given all at once."
+   }
   },
   {
    "id": "27-down",
@@ -493,7 +1408,32 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEERY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LEERY",
+    "definition": "cautious",
+    "linkWords": [
+     "That’ll make you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dodgy look",
+      "gives": "LEER",
+      "note": "a leer is a sly sideways look"
+     },
+     {
+      "clueFragment": "unknown quantity",
+      "gives": "Y",
+      "note": "algebra's unknowns are x, y and z"
+     }
+    ],
+    "pieces": [
+     "LEER",
+     "Y"
+    ],
+    "walkthrough": "The clue names the answer as a state it puts you into rather than defining it outright, which is why four words of joinery stand in front of the definition.",
+    "definitionFit": "To be leery of something is to be wary of it, so 'cautious' is the plain synonym for a word that usually turns up with 'of' attached."
+   }
   },
   {
    "id": "28-across",
@@ -510,7 +1450,41 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERASE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ERASE",
+    "definition": "excise",
+    "indicators": [
+     "backing"
+    ],
+    "indicatorNotes": {
+     "backing": "a thing that is backing is travelling the other way, and an across entry read the other way runs right to left"
+    },
+    "blocks": [
+     {
+      "clueFragment": "French",
+      "gives": "ES",
+      "note": "'are' in French is es, as in tu es"
+     },
+     {
+      "clueFragment": "English are",
+      "gives": "ARE",
+      "note": "and in English it is simply are"
+     }
+    ],
+    "pieces": [
+     "ERA",
+     "SE"
+    ],
+    "subReversals": [
+     {
+      "from": "ESARE",
+      "to": "ERASE"
+     }
+    ],
+    "walkthrough": "One word asked for in two languages: that is why 'and' sits between two nationalities, and why nothing else in the clue does any work at all.",
+    "definitionFit": "To excise is to cut a passage out and to erase is to rub it out, so both leave a text with something taken away."
+   }
   },
   {
    "id": "29-across",
@@ -527,7 +1501,40 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MILTON",
+    "definition": "Poet",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "mostly",
+     "Mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "most of a word is all of it bar the last letter",
+     "Mostly": "the same instruction a second time, docking the word that comes before it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "mostly gentle",
+      "gives": "MIL",
+      "note": "gentle is mild, without its final letter"
+     },
+     {
+      "clueFragment": "expression",
+      "gives": "TON",
+      "note": "a tone of voice is an expression, docked of its e"
+     }
+    ],
+    "pieces": [
+     "MIL",
+     "TON"
+    ],
+    "walkthrough": "The same instruction twice, one in lower case and one capitalised at the end, which is what makes the second read as an afterthought rather than a second order.",
+    "definitionFit": "Definition by example: Milton wrote Paradise Lost, so one particular poet stands in for the job description."
+   }
   },
   {
    "id": "30-across",
@@ -544,7 +1551,44 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REKINDLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + deletion",
+    "answer": "REKINDLE",
+    "definition": "Start again",
+    "indicators": [
+     "in",
+     "that’s cut"
+    ],
+    "indicatorNotes": {
+     "in": "the two pieces before it go inside the word after it rather than alongside it",
+     "that’s cut": "a length of film cut is a shortened one, and the shortening costs this word its final letter"
+    },
+    "blocks": [
+     {
+      "clueFragment": "section of film that’s cut",
+      "gives": "REE",
+      "note": "a reel is a section of film, cut short by its last letter"
+     },
+     {
+      "clueFragment": "Type",
+      "gives": "KIND",
+      "note": "a type of thing is a kind of thing"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l is the standard abbreviation for line"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "KIND",
+     "L",
+     "E"
+    ],
+    "walkthrough": "'Cut' belongs to the cutting room as much as to the wordplay, so the film loses a letter at the exact moment the surface starts talking about editing.",
+    "definitionFit": "To rekindle a fire is to get it going once more, and the figurative sense - a romance, an old interest - is precisely starting again."
+   }
   },
   {
    "id": "31-across",
@@ -561,7 +1605,39 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COSMOS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COSMOS",
+    "definition": "Everything",
+    "linkWords": [
+     "to be found in"
+    ],
+    "indicators": [
+     "accepting"
+    ],
+    "indicatorNotes": {
+     "accepting": "to accept a thing is to take it in, so the word before makes room inside for the word after"
+    },
+    "blocks": [
+     {
+      "clueFragment": "quiet comments",
+      "gives": "COOS",
+      "note": "to coo is to murmur softly, so quiet comments are coos"
+     },
+     {
+      "clueFragment": "kinky sex",
+      "gives": "SM",
+      "note": "S&M is the shorthand for the kinky sort"
+     }
+    ],
+    "pieces": [
+     "CO",
+     "SM",
+     "OS"
+    ],
+    "walkthrough": "The question mark is an apology for the shorthand: S&M is one kind of kinky sex rather than the whole of it, which is fair enough in a clue this playful.",
+    "definitionFit": "The cosmos is the universe considered as one ordered whole, so 'everything' is the plainest available name for the same total."
+   }
   },
   {
    "id": "32-across",
@@ -578,7 +1654,44 @@ window.CRYPTIC_PUZZLES["independent-12428"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MYTHICAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + deletion",
+    "answer": "MYTHICAL",
+    "definition": "Imaginary",
+    "indicators": [
+     "largely",
+     "about"
+    ],
+    "indicatorNotes": {
+     "largely": "largely means for the most part, so the word beside it arrives short of its last letter",
+     "about": "one piece is written about another when it wraps all the way round it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gracious",
+      "gives": "MY",
+      "note": "'my!' and 'goodness gracious!' are the same exclamation"
+     },
+     {
+      "clueFragment": "story largely",
+      "gives": "TAL",
+      "note": "a story is a tale, most of it being TAL"
+     },
+     {
+      "clueFragment": "drunken comment",
+      "gives": "HIC",
+      "note": "hic is the hiccup a drunk is always drawn saying"
+     }
+    ],
+    "pieces": [
+     "MY",
+     "T",
+     "HIC",
+     "AL"
+    ],
+    "walkthrough": "Two comic-strip noises do the heavy lifting here, 'my!' for gracious and 'hic' for the drunk, and both are standard material once you have met them.",
+    "definitionFit": "A mythical creature never existed outside the stories told about it, so 'imaginary' is the everyday word for what myth does to a thing."
+   }
   }
  ]
 } /*JSON-END*/;
