@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONFOUNDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CONFOUNDED",
+    "definition": "Defeated",
+    "indicators": [
+     "charges"
+    ],
+    "indicatorNotes": {
+     "charges": "to charge is to rush straight at something, and a piece that rushes at a word ends up in the middle of it"
+    },
+    "pieces": [
+     "CON",
+     "F",
+     "O",
+     "UNDED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict, the crossword's standard criminal"
+     },
+     {
+      "clueFragment": "paid for",
+      "gives": "FUNDED",
+      "note": "to fund something is to pay for it"
+     },
+     {
+      "clueFragment": "2",
+      "gives": "O",
+      "note": "2 down turns out to be NOTHING, and nothing written as a figure is O"
+     }
+    ],
+    "walkthrough": "A bare number in a clue is a cross-reference: it stands for whatever 2 down turns out to be, so that entry has to be solved before this one can be.",
+    "definitionFit": "To confound someone is to thwart them completely — 'confound their politics' in the anthem is a wish to see the other side defeated."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +82,39 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CROWD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "CROWD",
+    "definition": "CRUSH",
+    "indicators": [
+     "could be"
+    ],
+    "indicatorNotes": {
+     "could be": "'could be' offers a possibility rather than a fact, and letters offered as one possible order will settle into another"
+    },
+    "anagram": {
+     "fodder": "WORDC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wordle",
+      "gives": "WORDLE",
+      "note": "the game's name is the letter stock to work from"
+     },
+     {
+      "clueFragment": "With a C",
+      "gives": "C",
+      "note": "a C joins the pile, as a Wordle guess adds a letter"
+     },
+     {
+      "clueFragment": "but no L or E",
+      "gives": "",
+      "note": "those two drop out again, which leaves exactly five letters"
+     }
+    ],
+    "walkthrough": "The capitals are the game's colour-coded tiles rather than shouting, and that disguise is what stops you reading the last word as the definition.",
+    "definitionFit": "A crush is a dense press of bodies — the crush at the bar — so it names a crowd by the squeeze rather than by the head count."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +131,41 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTHING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "NOTHING",
+    "definition": "FA",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "what happens ultimately happens at the very end, so only the closing letter of the word beside it is wanted"
+    },
+    "pieces": [
+     "NO",
+     "THIN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "never",
+      "gives": "NO",
+      "note": "'no' is the flat refusal that 'never' amounts to"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "THIN",
+      "note": "a fine thread and a thin one are the same thickness"
+     },
+     {
+      "clueFragment": "time-wasting, ultimately",
+      "gives": "G",
+      "note": "the closing letter of time-wastinG"
+     }
+    ],
+    "walkthrough": "The surface is all football — the FA, a fine, time-wasting by the corner flag — and not one of those senses is the one being used.",
+    "definitionFit": "FA is short for sweet Fanny Adams, the polite form of a ruder phrase, and both amount to none of anything at all."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +182,29 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OAKY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OAKY",
+    "definition": "wine can be like that",
+    "indicators": [
+     "Suffering upset stomach"
+    ],
+    "indicatorNotes": {
+     "Suffering upset stomach": "a stomach in that state has everything churning inside it, and letters churned about will not stay in the order they arrived"
+    },
+    "anagram": {
+     "fodder": "OKAY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "OKAY",
+      "note": "'fine' and 'okay' are the same shrug of approval"
+     }
+    ],
+    "walkthrough": "Read 'fine' as the wine's quality and the sentence makes sense; read it as 'okay' and it becomes four letters to shake up. That double duty is the trick.",
+    "definitionFit": "Oaky describes a wine that has taken vanilla and spice from the barrel it matured in — a tasting note, not a complaint."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +221,41 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NURSLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NURSLING",
+    "definition": "youngster",
+    "indicators": [
+     "Ascending"
+    ],
+    "indicatorNotes": {
+     "Ascending": "this is a down entry, so a piece that climbs the grid arrives with its letters in the opposite order"
+    },
+    "pieces": [
+     "NUR",
+     "SLING"
+    ],
+    "subReversals": [
+     {
+      "from": "RUN",
+      "to": "NUR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ascending ladder",
+      "gives": "NUR",
+      "note": "a ladder in a stocking is a run, and climbing the grid it reads NUR"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "SLING",
+      "note": "a sling is what supports a broken arm"
+     }
+    ],
+    "walkthrough": "'Ladder' is the tights kind, not the climbing kind, which is why 'ascending' can sit right beside it and still read as one picture.",
+    "definitionFit": "A nursling is an infant still at the breast, so 'youngster' names it by age — the youngest thing the word can be used of."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +272,28 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENSIGN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ENSIGN",
+    "definition": "US officer",
+    "indicators": [
+     "over",
+     "houses"
+    ],
+    "indicatorNotes": {
+     "over": "a thing turned over ends up facing the other way, so the run of letters has to be read from its far end back",
+     "houses": "to house something is to have it living inside you, and here one phrase has the answer lodged in it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "training is never",
+      "gives": "ENSIGN",
+      "note": "trai(ngisne)ver holds six consecutive letters, and they read the other way round"
+     }
+    ],
+    "walkthrough": "'Training is never over' is a sergeant's motto and a set of instructions at the same time, which is why nothing in it looks like wordplay.",
+    "definitionFit": "An ensign is the lowest commissioned rank in the US Navy, the American opposite number to a Royal Navy sub-lieutenant."
+   }
   },
   {
    "id": "6-across",
@@ -132,7 +310,36 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COLD",
+    "definition": "reserved",
+    "indicators": [
+     "nets"
+    ],
+    "indicatorNotes": {
+     "nets": "a net closes round whatever it catches, so the word doing the catching ends up wrapped about the other"
+    },
+    "pieces": [
+     "CO",
+     "L",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "COD",
+      "note": "cod is the crossword's default fish"
+     },
+     {
+      "clueFragment": "Fifty",
+      "gives": "L",
+      "note": "L is fifty in Roman numerals"
+     }
+    ],
+    "walkthrough": "'Fish nets' is one space away from fishnets, and that near-miss is the misdirection: here the fish does the catching rather than being caught.",
+    "definitionFit": "Someone cold keeps their feelings back from you, which is what a reserved manner does — a temperature word doing social work."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +356,36 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTSIZE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "OUTSIZE",
+    "definition": "Huge",
+    "indicators": [
+     "in speech"
+    ],
+    "indicatorNotes": {
+     "in speech": "said rather than written, so what is wanted is a word that sounds identical and is spelt differently"
+    },
+    "pieces": [
+     "OUT",
+     "SIZE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public",
+      "gives": "OUT",
+      "note": "news that is out is public knowledge"
+     },
+     {
+      "clueFragment": "expressions of disappointment",
+      "soundsLike": "SIGHS",
+      "gives": "SIZE",
+      "note": "a sigh is the noise disappointment makes, and SIGHS spoken comes out on paper as SIZE"
+     }
+    ],
+    "walkthrough": "Two registers glued together: 'out' from the newsroom and sighs from the sofa. The clue reads as one long grumble and is really a charade.",
+    "definitionFit": "Outsize clothing is cut beyond the standard range, so the word means larger than what normally fits — huge by the shop's measure."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +406,36 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
     ]
    },
    "solution": "DERIGUEUR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DE RIGUEUR",
+    "definition": "in line with convention",
+    "indicators": [
+     "gripped by",
+     "not behaving"
+    ],
+    "indicatorNotes": {
+     "gripped by": "to be gripped is to be held fast inside something, which is where the setter's own letter finishes up",
+     "not behaving": "letters that will not behave are letters that refuse to stay in the order they were given"
+    },
+    "anagram": {
+     "fodder": "RUDE URGE I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Coot",
+      "gives": "I",
+      "note": "Coot is the setter of this puzzle, and a setter's word for himself is I"
+     },
+     {
+      "clueFragment": "rude urge",
+      "gives": "RUDEURGE",
+      "note": "eight letters of fodder for the shake-up"
+     }
+    ],
+    "walkthrough": "Setters drop themselves into their own clues constantly, so a byline turning up mid-sentence is nearly always doing duty as the single letter I.",
+    "definitionFit": "What is de rigueur is demanded by etiquette rather than by law — French for 'of strictness', borrowed for social obligations."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +452,48 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTSKIRTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "OUTSKIRTS",
+    "definition": "suburbs",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Faceless",
+     "backing",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "Faceless": "a face is the front of a thing, so a word without one has lost its opening letter",
+     "backing": "this is an across entry, and a piece backing along the row is written right to left",
+     "mostly": "most of a word is all of it bar the final letter"
+    },
+    "pieces": [
+     "OUTS",
+     "KIRTS"
+    ],
+    "subReversals": [
+     {
+      "from": "STRIK",
+      "to": "KIRTS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faceless oafs",
+      "gives": "OUTS",
+      "note": "oafs are LOUTS, and LOUTS with its face gone is OUTS"
+     },
+     {
+      "clueFragment": "backing industrial action, mostly",
+      "gives": "KIRTS",
+      "note": "industrial action is a STRIKE, most of it is STRIK, and backed up that reads KIRTS"
+     }
+    ],
+    "walkthrough": "The picture — anonymous thugs on a picket line — is built entirely out of instructions, which is exactly why none of them reads as one.",
+    "definitionFit": "The outskirts are the outer edge of a town, where its suburbs sit: the same ring of housing named by position rather than by type."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +510,44 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SATYR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SATYR",
+    "definition": "Lecher",
+    "linkWords": [
+     "alongside"
+    ],
+    "indicators": [
+     "westbound"
+    ],
+    "indicatorNotes": {
+     "westbound": "west is leftwards on a map and on a grid alike, so an across piece heading that way is written in reverse"
+    },
+    "pieces": [
+     "SAT",
+     "YR"
+    ],
+    "subReversals": [
+     {
+      "from": "RY",
+      "to": "YR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perched",
+      "gives": "SAT",
+      "note": "a bird perched on a wire sat there"
+     },
+     {
+      "clueFragment": "westbound track",
+      "gives": "YR",
+      "note": "RY is the railway of maps and timetables, running west to give YR"
+     }
+    ],
+    "walkthrough": "Railway shrinks to RY on maps and in crosswords alike, and 'track' is one of the words setters use to ask for it.",
+    "definitionFit": "A satyr is the goat-legged follower of Bacchus whose appetite for nymphs made his name a byword for a lecherous man."
+   }
   },
   {
    "id": "10-down",
@@ -225,7 +568,38 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEANLOCK",
-   "annotation": null
+   "annotation": {
+    "type": "container + cycling",
+    "answer": "SEAN LOCK",
+    "definition": "Comedian who's missed",
+    "indicators": [
+     "cycling",
+     "cracks"
+    ],
+    "indicatorNotes": {
+     "cycling": "the letters pedal round in a circle, the one at the front dropping to the back with the rest keeping their order",
+     "cracks": "a crack is a split, and a word split open has a gap in it for something else to sit in"
+    },
+    "pieces": [
+     "S",
+     "EANL",
+     "OCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chin",
+      "gives": "SOCK",
+      "note": "to chin someone and to sock them are the same punch"
+     },
+     {
+      "clueFragment": "bend",
+      "gives": "LEAN",
+      "note": "to lean is to bend out of the upright, and this one's L pedals round to the back"
+     }
+    ],
+    "walkthrough": "The surface is a cyclist coming off at a corner; the wordplay is a punch with a lean tucked inside it. Both halves of the answer are ordinary words.",
+    "definitionFit": "Sean Lock died in 2021 and is still mourned by British comedy audiences, so 'missed' is what narrows the definition to one man."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +616,36 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAIS",
-   "annotation": null,
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "DAIS",
+    "definition": "Stage",
+    "indicators": [
+     "production of",
+     "short of"
+    ],
+    "indicatorNotes": {
+     "production of": "a production is a staging, something newly put together, so the letters are reassembled",
+     "short of": "to be short of a thing is to be without it, so that letter never joins the pile"
+    },
+    "anagram": {
+     "fodder": "AID S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Aida short of an alto",
+      "gives": "AID",
+      "note": "alto is A, and AIDA without one of them leaves AID"
+     },
+     {
+      "clueFragment": "soprano",
+      "gives": "S",
+      "note": "S is soprano on a choral score"
+     }
+    ],
+    "walkthrough": "Voices are abbreviations in a crossword: A for alto, S for soprano, T for tenor, B for bass. All four turn up constantly.",
+    "definitionFit": "A dais is the raised platform a speaker stands on, so 'stage' means the low wooden thing rather than the theatre around it."
+   },
    "clueItalics": [
     [
      20,
@@ -269,7 +672,42 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLAGWAVING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "FLAG-WAVING",
+    "definition": "being patriotic",
+    "indicators": [
+     "supping"
+    ],
+    "indicatorNotes": {
+     "supping": "to sup is to take a drink in, and a word that takes another in holds it inside"
+    },
+    "pieces": [
+     "FLAG",
+     "WA",
+     "VIN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "FLAG",
+      "note": "the jack is the flag a ship flies at the bow, the Union Jack being the famous one"
+     },
+     {
+      "clueFragment": "Grealish's girl, maybe",
+      "gives": "WAG",
+      "note": "WAG is the tabloid label for a footballer's wife or girlfriend"
+     },
+     {
+      "clueFragment": "wine in France",
+      "gives": "VIN",
+      "note": "vin is what wine is called there"
+     }
+    ],
+    "walkthrough": "Every name here is a decoy: the footballer is only present so that 'girl' can mean WAG, and 'Jack' is nautical rather than anybody's first name.",
+    "definitionFit": "Flag-waving is patriotism performed rather than felt — the bunting and cheering kind, and usually said with a hint of scorn."
+   }
   },
   {
    "id": "13-down",
@@ -286,7 +724,36 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLATELET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLATELET",
+    "definition": "Component of blood",
+    "indicators": [],
+    "pieces": [
+     "P",
+     "LATE",
+     "LET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is pressure in physics and on a weather chart"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "LATE",
+      "note": "a train running behind is running late"
+     },
+     {
+      "clueFragment": "false start in court",
+      "gives": "LET",
+      "note": "a serve that clips the net is a let, and it has to be taken again"
+     }
+    ],
+    "walkthrough": "Nothing in the surface is medical and nothing in the answer is legal: 'court' is the tennis kind, and that swap is what the clue turns on.",
+    "definitionFit": "A platelet is one of the cell fragments in blood that clump together to seal a wound, so the definition is plain biology."
+   }
   },
   {
    "id": "14-across",
@@ -303,7 +770,33 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EGGPLANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EGGPLANT",
+    "definition": "emoji?",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [],
+    "pieces": [
+     "EGG",
+     "PLANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urge",
+      "gives": "EGG",
+      "note": "to egg someone on is to urge them"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "PLANT",
+      "note": "to bed a seedling out is to plant it"
+     }
+    ],
+    "walkthrough": "The surface is a suggestive text message, which is precisely the reputation the aubergine icon has — Coot lets the surface do the winking.",
+    "definitionFit": "The aubergine icon on a phone keyboard goes by its American name, so the question mark admits this defines a picture by what it shows."
+   }
   },
   {
    "id": "14-down",
@@ -320,7 +813,39 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMBELLISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EMBELLISH",
+    "definition": "elaborate",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "pieces": [
+     "EM",
+     "BELL",
+     "ISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "EM",
+      "note": "an em is a printer's space, as wide as the type is tall"
+     },
+     {
+      "clueFragment": "Telephone call",
+      "gives": "BELL",
+      "note": "giving someone a bell is giving them a ring"
+     },
+     {
+      "clueFragment": "somewhat",
+      "gives": "ISH",
+      "note": "-ish on the end of a word is how English says somewhat"
+     }
+    ],
+    "walkthrough": "'Elaborate' has to be heard as a verb rather than an adjective, and that switch is the hard step, because the surface offers the adjective first.",
+    "definitionFit": "To embellish a story is to add decorative detail it never had, which is one of the things elaborate means when it is a verb."
+   }
   },
   {
    "id": "15-across",
@@ -337,7 +862,41 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIEGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "LIEGE",
+    "definition": "sovereign",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "turned about, a piece faces the other way, and with two letters that simply swaps them"
+    },
+    "pieces": [
+     "LIE",
+     "GE"
+    ],
+    "subReversals": [
+     {
+      "from": "EG",
+      "to": "GE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tell stories",
+      "gives": "LIE",
+      "note": "to tell stories is to lie"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "GE",
+      "note": "for example is EG, turned about to read GE"
+     }
+    ],
+    "walkthrough": "EG for 'for example' is a workhorse abbreviation, and setters spin it round about as often as they use it the right way up.",
+    "definitionFit": "A liege is the lord to whom homage is owed, so 'sovereign' names him by feudal power rather than by a crown or a coin."
+   }
   },
   {
    "id": "16-down",
@@ -358,7 +917,27 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEGBREAK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LEG BREAK",
+    "definition": "Batsman could face this",
+    "definition2": "serious injury",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Batsman could face this",
+      "gives": "LEG BREAK",
+      "note": "a leg break is the spinner's delivery that turns away from a right-hander"
+     },
+     {
+      "clueFragment": "serious injury",
+      "gives": "LEG BREAK",
+      "note": "the same two words read as plain English: a broken leg"
+     }
+    ],
+    "walkthrough": "Both halves smell of cricket, which is the trap — 'face' belongs to the batsman and 'serious injury' belongs to the hospital, not the game.",
+    "definitionFit": "One reading is cricket, the ball that spins away from the bat; the other is the hospital kind, a snapped tibia."
+   }
   },
   {
    "id": "17-across",
@@ -375,7 +954,38 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLURT",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "BLURT",
+    "definition": "Suddenly mention",
+    "indicators": [
+     "glimpse of",
+     "going into"
+    ],
+    "indicatorNotes": {
+     "glimpse of": "a glimpse is the briefest of looks, and the briefest look at a word takes in only its opening letter",
+     "going into": "one thing going into another finishes up inside it, splitting the outer word in two"
+    },
+    "pieces": [
+     "B",
+     "L",
+     "URT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lancaster",
+      "gives": "BURT",
+      "note": "Burt Lancaster is the film star the surname points at"
+     },
+     {
+      "clueFragment": "glimpse of Lune",
+      "gives": "L",
+      "note": "the opening letter of Lune, the river that runs through Lancaster"
+     }
+    ],
+    "walkthrough": "The surface is pure geography — the Lune really does run through Lancaster — and the answer needs a Hollywood leading man instead.",
+    "definitionFit": "To blurt is to say a thing before deciding to, so 'suddenly mention' catches both the speed and the missing intention."
+   }
   },
   {
    "id": "18-down",
@@ -392,7 +1002,41 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNCLEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "UNCLEAR",
+    "definition": "Obscure",
+    "indicators": [
+     "brought round"
+    ],
+    "indicatorNotes": {
+     "brought round": "brought round means turned to face the other way, so that pair of letters swaps ends"
+    },
+    "pieces": [
+     "UN",
+     "CLEAR"
+    ],
+    "subReversals": [
+     {
+      "from": "NU",
+      "to": "UN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character brought round",
+      "gives": "UN",
+      "note": "NU is the Greek letter, and brought round it reads UN"
+     },
+     {
+      "clueFragment": "type of weapon",
+      "gives": "CLEAR",
+      "note": "the weapon is NUCLEAR, and what is left once its NU is taken off the front is CLEAR"
+     }
+    ],
+    "walkthrough": "Setters love the Greek alphabet for its short letters — NU, PI, MU, ETA — and here one of them is already sitting at the front of a longer word.",
+    "definitionFit": "An obscure passage is one you cannot see through, and unclear says the same of writing or speech in a plainer register."
+   }
   },
   {
    "id": "19-across",
@@ -409,7 +1053,36 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEWCOMER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "NEWCOMER",
+    "definition": "Recent arrival",
+    "indicators": [
+     "discovered",
+     "designed"
+    ],
+    "indicatorNotes": {
+     "discovered": "read as dis-covered, stripped of its cover: the word loses the two letters wrapped round its outside",
+     "designed": "a design is a fresh arrangement of the same material, which is what the letters are put through"
+    },
+    "anagram": {
+     "fodder": "OME CWREN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "discovered domes",
+      "gives": "OME",
+      "note": "DOMES loses the D and S covering its outside, leaving OME"
+     },
+     {
+      "clueFragment": "C Wren",
+      "gives": "CWREN",
+      "note": "the architect with his initial supplies five more letters"
+     }
+    ],
+    "walkthrough": "Christopher Wren built St Paul's dome, so the surface is architectural history and every word of it is either fodder or an instruction.",
+    "definitionFit": "A newcomer is someone who has only just turned up, which is what 'recent arrival' says with the timing and the noun the other way round."
+   }
   },
   {
    "id": "20-down",
@@ -426,7 +1099,35 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANHOOD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MANHOOD",
+    "definition": "Lunchbox",
+    "indicators": [
+     "located by"
+    ],
+    "indicatorNotes": {
+     "located by": "to be located by something is to sit right beside it, which is how these two halves join up"
+    },
+    "pieces": [
+     "MAN",
+     "HOOD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staff",
+      "gives": "MAN",
+      "note": "to staff a desk is to man it"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "HOOD",
+      "note": "a hood covers an engine or a head"
+     }
+    ],
+    "walkthrough": "Definition and answer are both newspaper euphemisms, which is how the clue gets away with being this rude while reading like an office memo.",
+    "definitionFit": "Lunchbox is tabloid slang for the bulge in a sportsman's shorts, and manhood is the coy newspaper word for the same thing."
+   }
   },
   {
    "id": "21-down",
@@ -443,7 +1144,40 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MERCER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MERCER",
+    "definition": "Man of the cloth",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "endless",
+     "over"
+    ],
+    "indicatorNotes": {
+     "endless": "a word with no end to it has given up its final letter",
+     "over": "in a down entry whatever is over sits above, so that piece is written first"
+    },
+    "pieces": [
+     "MERC",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endless compassion",
+      "gives": "MERC",
+      "note": "MERCY with no end to it is MERC"
+     },
+     {
+      "clueFragment": "late queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the queen crosswords mean"
+     }
+    ],
+    "walkthrough": "'Man of the cloth' means a vicar almost everywhere else in English, and here it means a draper. That one swap is the whole clue.",
+    "definitionFit": "A mercer is a dealer in fine fabric, so the definition is meant with a straight face: the trade, not the clergy."
+   }
   },
   {
    "id": "22-across",
@@ -464,7 +1198,32 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOCALDERBY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LOCAL DERBY",
+    "definition": "encounter close to home",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "criminal"
+    ],
+    "indicatorNotes": {
+     "criminal": "a criminal has no respect for the order things are meant to be kept in, so the letters are free to move"
+    },
+    "anagram": {
+     "fodder": "BOLDLY RACE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Boldly race",
+      "gives": "BOLDLYRACE",
+      "note": "ten letters of fodder, exactly the length wanted"
+     }
+    ],
+    "walkthrough": "'Criminal' reads as an adjective describing the racer and works as the instruction — the double duty setters like best.",
+    "definitionFit": "A local derby is a match between two clubs from the same town, so both the rivalry and the short journey are in the phrase."
+   }
   },
   {
    "id": "23-across",
@@ -481,7 +1240,40 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNUB",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SNUB",
+    "definition": "Insult",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "sending",
+     "back"
+    ],
+    "indicatorNotes": {
+     "sending": "to send a thing is to set it travelling, and the direction it travels is what happens to the letters",
+     "back": "this is an across entry, so going back means being read right to left along the row"
+    },
+    "pieces": [
+     "SNUB"
+    ],
+    "subReversals": [
+     {
+      "from": "BUNS",
+      "to": "SNUB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cakes",
+      "gives": "BUNS",
+      "note": "buns are the cakes on the tea trolley, and they travel backwards"
+     }
+    ],
+    "walkthrough": "Cakes are a crossword staple — buns, tarts, eccles — and for a four-letter answer the first of those is nearly always the one wanted.",
+    "definitionFit": "To snub someone is to cut them dead in public, an insult delivered by withholding something rather than by saying anything."
+   }
   },
   {
    "id": "24-down",
@@ -498,7 +1290,41 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BASAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + substitution",
+    "answer": "BASAL",
+    "definition": "In bottom position?",
+    "indicators": [
+     "makes"
+    ],
+    "indicatorNotes": {
+     "makes": "'makes' is the verb of transformation: one thing is turned into another, and the answer spells out the recipe for doing it"
+    },
+    "pieces": [
+     "B",
+     "AS",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bert",
+      "gives": "B",
+      "note": "the opening letter of BERT is the one being replaced"
+     },
+     {
+      "clueFragment": "That makes",
+      "gives": "AS",
+      "note": "the swap is written out as an equation, and AS is its hinge"
+     },
+     {
+      "clueFragment": "alert",
+      "gives": "AL",
+      "note": "AL takes the place of that opening B, and BERT becomes ALERT"
+     }
+    ],
+    "walkthrough": "Say the answer as three words rather than one and it becomes the very instruction that produced it, which is what the question mark is apologising for.",
+    "definitionFit": "Basal means at or forming the base of a thing — a basal leaf grows from the bottom of the stem — so it is the botanist's word for lowest."
+   }
   },
   {
    "id": "25-down",
@@ -515,7 +1341,34 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAMP",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CAMP",
+    "definition": "party",
+    "indicators": [
+     "leaves"
+    ],
+    "indicatorNotes": {
+     "leaves": "someone who leaves is no longer there, so those letters walk out of the word they were in"
+    },
+    "pieces": [
+     "CAMP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home for university",
+      "gives": "CAMPUS",
+      "note": "a campus is the grounds a university calls home"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American, and it is the pair that walks out"
+     }
+    ],
+    "walkthrough": "'Party' is the trap: nothing here is a celebration, and the word wanted is the one for a side in an argument.",
+    "definitionFit": "A party in the sense of a faction — the Remain camp, the Corbyn camp — is a camp, so this is the political sense, not the birthday one."
+   }
   },
   {
    "id": "26-across",
@@ -532,7 +1385,26 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INERT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "INERT",
+    "definition": "Disinclined to move",
+    "indicators": [
+     "from"
+    ],
+    "indicatorNotes": {
+     "from": "a helping taken from something is only part of what was there, and the part wanted is a run of consecutive letters"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gewürztraminer tasting",
+      "gives": "INERT",
+      "note": "the run straddles the gap between the words: Gewürztram(iner t)asting"
+     }
+    ],
+    "walkthrough": "A long foreign word is a gift to a hidden clue, because nobody reads it letter by letter — they are too busy trying to pronounce it.",
+    "definitionFit": "Something inert stays put and will not react: a chemist's inert gas does nothing at all, and a person described that way is just as immovable."
+   }
   },
   {
    "id": "27-across",
@@ -549,7 +1421,39 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREMATORS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CREMATORS",
+    "definition": "furnaces",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "invested in"
+    ],
+    "indicatorNotes": {
+     "invested in": "to invest originally meant to clothe, so money invested in a word is wrapped up inside it"
+    },
+    "pieces": [
+     "CRE",
+     "M",
+     "ATORS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those who produce",
+      "gives": "CREATORS",
+      "note": "the people who make things are creators"
+     },
+     {
+      "clueFragment": "Money",
+      "gives": "M",
+      "note": "M is money in the economists' M0 and M1, and crosswords borrow it"
+     }
+    ],
+    "walkthrough": "It reads like a business story right up to the last word, and 'furnaces' is the giveaway: this is machinery, not investment.",
+    "definitionFit": "A cremator is the furnace itself, the oven in a crematorium, so the definition names the machines and not the people who work them."
+   }
   },
   {
    "id": "28-across",
@@ -566,7 +1470,27 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERD",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HERD",
+    "definition": "gathered mob",
+    "indicators": [
+     "Became aware of"
+    ],
+    "indicatorNotes": {
+     "Became aware of": "you become aware of a thing by ear as well as by eye, and a word met by ear can be written down more than one way"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Became aware of",
+      "soundsLike": "HEARD",
+      "gives": "HERD",
+      "note": "to become aware of something is to have HEARD it, and HEARD spoken is written HERD"
+     }
+    ],
+    "walkthrough": "There is no 'we hear' or 'aloud' anywhere, because the fodder says it itself: becoming aware of something is hearing it, and hearing is the instruction.",
+    "definitionFit": "A herd is cattle standing together, so 'mob' names it by the crowd it makes — the word Australians use of kangaroos as well."
+   }
   },
   {
    "id": "29-across",
@@ -587,7 +1511,56 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRAKEPEDAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "BRAKE PEDAL",
+    "definition": "What can stop",
+    "indicators": [
+     "insane",
+     "entering"
+    ],
+    "indicatorNotes": {
+     "insane": "a plea that is insane has come apart, and letters in that state are in no fixed order",
+     "entering": "someone entering a room finishes up inside it, and the letter does the same to the word"
+    },
+    "pieces": [
+     "B",
+     "RAKE",
+     "PE",
+     "D",
+     "AL"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "PLEA",
+      "gives": "PEAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is British on a passport and in a dictionary"
+     },
+     {
+      "clueFragment": "playboy",
+      "gives": "RAKE",
+      "note": "a rake is the eighteenth century's word for a playboy"
+     },
+     {
+      "clueFragment": "insane plea",
+      "gives": "PEAL",
+      "note": "the four letters of PLEA rearranged"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is duke in the peerage's shorthand"
+     }
+    ],
+    "walkthrough": "The surface is a tabloid court report and none of it survives: the duke is a letter, the playboy is a synonym, and the plea is only letters.",
+    "definitionFit": "Only one of a car's three pedals stops it, so 'what can stop' picks the brake out from the clutch and the accelerator by its job."
+   }
   }
  ]
 } /*JSON-END*/;
