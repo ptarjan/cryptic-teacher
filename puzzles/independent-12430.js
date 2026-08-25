@@ -30,7 +30,40 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WOMANISER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WOMANISER",
+    "definition": "Lothario",
+    "linkWords": [
+     "'s",
+     "when"
+    ],
+    "indicators": [
+     "touring"
+    ],
+    "indicatorNotes": {
+     "touring": "a tour takes you right round the place you are visiting, so one word travels all the way round the other"
+    },
+    "pieces": [
+     "W",
+     "OMAN",
+     "ISER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shrewder",
+      "gives": "WISER",
+      "note": "shrewder and wiser are the same comparative"
+     },
+     {
+      "clueFragment": "gulf state",
+      "gives": "OMAN",
+      "note": "Oman is the sultanate on the Gulf, the state crosswords reach for most"
+     }
+    ],
+    "walkthrough": "Comparatives are useful to a setter: 'shrewder' has to become a whole word rather than an abbreviation, which is a lot of letters handed over at once.",
+    "definitionFit": "A womaniser is a habitual seducer, and Lothario is the rake in Rowe's play whose name became the byword for exactly that man."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +80,26 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTICE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ENTICE",
+    "definition": "Lead astray",
+    "indicators": [
+     "some"
+    ],
+    "indicatorNotes": {
+     "some": "'some' asks for a part of what follows rather than all of it, and a part of a word is a run of its letters"
+    },
+    "blocks": [
+     {
+      "clueFragment": "apprentices",
+      "gives": "ENTICE",
+      "note": "the run sits in the middle of apprENTICEs"
+     }
+    ],
+    "walkthrough": "Letters buried inside one long word are harder to spot than letters straddling two, because there is no join for the eye to catch on.",
+    "definitionFit": "To entice is to tempt someone off the path they were on, which is what leading them astray amounts to."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +116,27 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEAN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LEAN",
+    "definition": "Unprofitable",
+    "definition2": "bank",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Unprofitable",
+      "gives": "LEAN",
+      "note": "lean years are the ones with nothing spare in them"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "LEAN",
+      "note": "an aircraft banks by tipping over to one side"
+     }
+    ],
+    "walkthrough": "Two words, no indicator and nothing to take apart: that shape is nearly always two definitions, and here the second is a pilot's verb, not a high street noun.",
+    "definitionFit": "A lean year is one with no profit in it, and an aircraft banks by tipping to one side, which is to lean."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +153,35 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHALLENGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CHALLENGER",
+    "definition": "tank",
+    "indicators": [
+     "top of"
+    ],
+    "indicatorNotes": {
+     "top of": "the top of a thing is the end you meet first, so only the opening letter of the word beneath it is taken"
+    },
+    "pieces": [
+     "CHALLENGE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test",
+      "gives": "CHALLENGE",
+      "note": "a test of your ability is a challenge"
+     },
+     {
+      "clueFragment": "top of rainwater",
+      "gives": "R",
+      "note": "the first letter of rainwater"
+     }
+    ],
+    "walkthrough": "The tank in the surface is a water butt; the tank in the definition is the Army's, and that switch is the whole clue.",
+    "definitionFit": "Challenger is the British Army's main battle tank, so the definition names the answer by the class of machine it belongs to."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +198,36 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPERATIC",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "OPERATIC",
+    "definition": "Histrionic",
+    "indicators": [
+     "describes"
+    ],
+    "indicatorNotes": {
+     "describes": "to describe a circle is to draw all the way round it, so one piece is drawn round another"
+    },
+    "pieces": [
+     "OP",
+     "ERA",
+     "TIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub server",
+      "gives": "OPTIC",
+      "note": "the optic is the measure clamped under a spirits bottle behind the bar"
+     },
+     {
+      "clueFragment": "age",
+      "gives": "ERA",
+      "note": "an era is an age"
+     }
+    ],
+    "walkthrough": "'Pub server' sounds like a person and is really a piece of bar equipment, which is where this one hides.",
+    "definitionFit": "Histrionic means overplayed in the manner of the stage, and operatic carries the same charge of theatrical excess."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +244,32 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MILAN",
+    "definition": "Italian city",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motorway",
+      "gives": "MI",
+      "note": "the M1 spelled out as two characters, motorway one"
+     },
+     {
+      "clueFragment": "network",
+      "gives": "LAN",
+      "note": "a LAN is the local area network wired into any office"
+     }
+    ],
+    "pieces": [
+     "MI",
+     "LAN"
+    ],
+    "walkthrough": "Two conventions worth banking here: a motorway becomes MI, letter beside letter, and a network in a grid is almost always the office LAN.",
+    "definitionFit": "Milan is the northern Italian city of fashion and finance, so the definition places the answer by country and size."
+   }
   },
   {
    "id": "7-across",
@@ -132,7 +286,41 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YOUNGER",
-   "annotation": null,
+   "annotation": {
+    "type": "charade",
+    "answer": "YOUNGER",
+    "definition": "More recent",
+    "indicators": [
+     "seen by"
+    ],
+    "indicatorNotes": {
+     "seen by": "to be seen by someone is to be standing next to them, so these letters simply take their place alongside"
+    },
+    "pieces": [
+     "YOUNG",
+     "E",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winner of Pop Idol",
+      "gives": "YOUNG",
+      "note": "Will Young won the first series of Pop Idol"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard short form of European"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is river on any map"
+     }
+    ],
+    "walkthrough": "This one asks you to remember a talent show result from 2002, and then only wants the surname of the singer who won it.",
+    "definitionFit": "Younger and more recent are the same comparative: a younger building is one put up more recently than the rest."
+   },
    "clueItalics": [
     [
      22,
@@ -155,7 +343,35 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAPPIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHAPPIE",
+    "definition": "Man",
+    "pieces": [
+     "CH",
+     "APP",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taps",
+      "gives": "CH",
+      "note": "the pair over a sink are labelled cold and hot"
+     },
+     {
+      "clueFragment": "phone program",
+      "gives": "APP",
+      "note": "an app is the program you run on a phone"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, that is"
+     }
+    ],
+    "walkthrough": "Taps are a setter's way of asking for the two letters on the sink, and the dots at the end only pass the sentence on to 10 across.",
+    "definitionFit": "A chappie is a chap with a friendly ending stuck on, British slang for an ordinary bloke and so simply a man."
+   }
   },
   {
    "id": "9-down",
@@ -172,7 +388,32 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "READMISSION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "READMISSION",
+    "definition": "return to hospital",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "READ",
+     "MISSION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "READ",
+      "note": "to read a subject at university is to study it"
+     },
+     {
+      "clueFragment": "purpose",
+      "gives": "MISSION",
+      "note": "a mission is the purpose someone is sent out with"
+     }
+    ],
+    "walkthrough": "The question mark is the setter admitting that his definition describes the answer rather than swapping for it word for word.",
+    "definitionFit": "A readmission is a patient being taken into hospital again, so the definition describes the event the word names."
+   }
   },
   {
    "id": "10-across",
@@ -189,7 +430,29 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATIENCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PATIENCE",
+    "definition": "game",
+    "indicators": [
+     "surprisingly"
+    ],
+    "indicatorNotes": {
+     "surprisingly": "a surprise is something arriving in an order nobody expected, and that is what happens to these letters"
+    },
+    "anagram": {
+     "fodder": "NEATEPIC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "neat epic",
+      "gives": "NEATEPIC",
+      "note": "the eight letters of both words are the raw material"
+     }
+    ],
+    "walkthrough": "The dots leading in from 8 across are surface only — each clue stands on its own — and the answer is the card game a solitary player deals out.",
+    "definitionFit": "Patience is the card game one player deals alone, the British name for solitaire, so 'game' names it by the class it sits in."
+   }
   },
   {
    "id": "11-across",
@@ -206,7 +469,26 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LARIAT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LARIAT",
+    "definition": "rope",
+    "indicators": [
+     "holding"
+    ],
+    "indicatorNotes": {
+     "holding": "to hold something is to keep it inside your grip, and these words are keeping what is wanted inside them"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Burglar I attacked",
+      "gives": "LARIAT",
+      "note": "the run starts in burgLAR and finishes in I ATtacked"
+     }
+    ],
+    "walkthrough": "The words read as a snatch of courtroom testimony, and that capital I is exactly what stops the eye seeing a run of letters.",
+    "definitionFit": "A lariat is the lasso a cowboy throws, a length of rope finished with a running noose."
+   }
   },
   {
    "id": "12-across",
@@ -223,7 +505,34 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INEXPEDIENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INEXPEDIENT",
+    "definition": "Unsuitable",
+    "indicators": [
+     "developed"
+    ],
+    "indicatorNotes": {
+     "developed": "a negative is developed until a picture nobody could see comes out of it, and these letters come out in a fresh order"
+    },
+    "anagram": {
+     "fodder": "PIXINEEDTEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "pix",
+      "gives": "PIX",
+      "note": "pix is the trade's slang for photographs"
+     },
+     {
+      "clueFragment": "I need ten",
+      "gives": "INEEDTEN",
+      "note": "the three small words go into the mix exactly as they stand"
+     }
+    ],
+    "walkthrough": "The whole surface is a darkroom, so the instruction looks like part of the picture rather than the order it is giving.",
+    "definitionFit": "Inexpedient means not advisable in the circumstances, so 'unsuitable' catches it in the everyday sense of the wrong thing to do."
+   }
   },
   {
    "id": "13-down",
@@ -240,7 +549,51 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PICCALILLI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "PICCALILLI",
+    "definition": "a pickle",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "when one thing is written about another it goes all the way round it, so the single letter drops inside"
+    },
+    "pieces": [
+     "PIC",
+     "CAL",
+     "I",
+     "L",
+     "LI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Film",
+      "gives": "PIC",
+      "note": "a pic is a film, the trade's own shortening"
+     },
+     {
+      "clueFragment": "title",
+      "gives": "CALL",
+      "note": "to call a thing is to give it its title"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "I is independent on a ballot paper"
+     },
+     {
+      "clueFragment": "group of soldiers",
+      "gives": "LI",
+      "note": "LI is the Light Infantry, as in the DLI"
+     }
+    ],
+    "walkthrough": "Being in a pickle means being in trouble, which is the trap: the pickle wanted here is the jar of yellow relish.",
+    "definitionFit": "Piccalilli is the mustard-yellow relish of chopped vegetables sold in jars, which is one particular kind of pickle."
+   }
   },
   {
    "id": "14-down",
@@ -257,7 +610,38 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GASTROPUB",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GASTROPUB",
+    "definition": "posh boozer",
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "indicators": [
+     "is tipsy"
+    ],
+    "indicatorNotes": {
+     "is tipsy": "somebody tipsy cannot walk a straight line, and these letters will not stay in the line they were given"
+    },
+    "anagram": {
+     "fodder": "PASTORBUG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pastor",
+      "gives": "PASTOR",
+      "note": "the six letters of the clergyman go into the mix"
+     },
+     {
+      "clueFragment": "bug",
+      "gives": "BUG",
+      "note": "the insect's three letters join them"
+     }
+    ],
+    "walkthrough": "A tipsy pastor is a good enough picture to stop you counting, and the count is the tell: the two words hold exactly nine letters.",
+    "definitionFit": "A gastropub is a pub that takes its kitchen seriously, so 'posh boozer' is the plain-spoken name for the same establishment."
+   }
   },
   {
    "id": "15-across",
@@ -274,7 +658,27 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEAR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PEAR",
+    "definition": "Conference maybe",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "what we take in by ear is a sound, and one sound can be written down in more than one way"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cut back",
+      "soundsLike": "PARE",
+      "gives": "PEAR",
+      "note": "to pare back is to cut, and PARE said aloud is spelled the other way"
+     }
+    ],
+    "walkthrough": "'Maybe' is the setter flagging an example rather than a synonym, since Conference is one named variety among many.",
+    "definitionFit": "Conference is a named variety of pear, so the definition points at the answer through one example, which 'maybe' politely admits."
+   }
   },
   {
    "id": "16-down",
@@ -291,7 +695,43 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPORTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "REPORTER",
+    "definition": "Writer",
+    "indicators": [
+     "raised",
+     "over"
+    ],
+    "indicatorNotes": {
+     "raised": "letters raised in a down clue are read from the bottom upwards, so the pair arrives the other way round",
+     "over": "one thing over another lies on top of it, which in a down entry means it comes first"
+    },
+    "pieces": [
+     "RE",
+     "PORTER"
+    ],
+    "subReversals": [
+     {
+      "from": "ER",
+      "to": "RE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the noise you make while you hesitate"
+     },
+     {
+      "clueFragment": "old railway worker",
+      "gives": "PORTER",
+      "note": "the porter who carried luggage on the platform, a job the railways no longer keep"
+     }
+    ],
+    "walkthrough": "'Old' is not the usual O here: it is telling you the railway job belongs to another era, when somebody carried your case to the train.",
+    "definitionFit": "A reporter writes the news for a paper, so 'writer' defines the answer by the wider trade it belongs to."
+   }
   },
   {
    "id": "17-across",
@@ -308,7 +748,32 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLING",
+    "definition": "Hold fast",
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "C",
+     "LING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is caught on a cricket scorecard"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "the ling is a long fish of the cod family"
+     }
+    ],
+    "walkthrough": "C for caught comes off a cricket scorecard, and the ling is the cod-family fish that grids keep permanently in stock.",
+    "definitionFit": "To cling is to grip something and not let go, which is holding fast in the sense of gripping rather than tying."
+   }
   },
   {
    "id": "18-across",
@@ -325,7 +790,35 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CIAO",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "CIAO",
+    "definition": "See you",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "appearing regularly"
+    ],
+    "indicatorNotes": {
+     "appearing regularly": "something that turns up regularly comes at fixed intervals, so take every second letter and skip the rest"
+    },
+    "pieces": [
+     "C",
+     "I",
+     "A",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chicago",
+      "gives": "CIAO",
+      "note": "ChIcAgO, taking the first letter and every other one after it"
+     }
+    ],
+    "walkthrough": "The word serves as both hello and goodbye in Italian; 'See you' picks the parting one, and the city is only there to carry the letters.",
+    "definitionFit": "Ciao is the Italian farewell English has borrowed, and 'see you' is the same casual sign-off to a friend."
+   }
   },
   {
    "id": "19-across",
@@ -346,7 +839,32 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLAYSTRUANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PLAYS TRUANT",
+    "definition": "what Ferris Bueller does",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "devised"
+    ],
+    "indicatorNotes": {
+     "devised": "to devise is to make something new out of the material you have, and the material here is a handful of letters"
+    },
+    "anagram": {
+     "fodder": "ATRUSTYPLAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A trusty plan",
+      "gives": "ATRUSTYPLAN",
+      "note": "all eleven letters of the phrase are the raw material"
+     }
+    ],
+    "walkthrough": "Ferris Bueller's Day Off is a whole film about a boy skiving school, so the definition is a clause pointing at one action.",
+    "definitionFit": "Ferris Bueller spends his famous Day Off skiving school, and to play truant is precisely that: staying away without leave."
+   }
   },
   {
    "id": "20-down",
@@ -363,7 +881,44 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGENCY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "AGENCY",
+    "definition": "office",
+    "indicators": [
+     "originally",
+     "enters"
+    ],
+    "indicatorNotes": {
+     "originally": "what a word is originally is how it starts, so only its opening letter is wanted",
+     "enters": "to enter a building is to go inside it, so the letter goes in among the ones already there"
+    },
+    "pieces": [
+     "AGE",
+     "N",
+     "C",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "AGE",
+      "note": "an age is a long stretch of time"
+     },
+     {
+      "clueFragment": "City",
+      "gives": "NY",
+      "note": "NY is New York City"
+     },
+     {
+      "clueFragment": "chairman originally",
+      "gives": "C",
+      "note": "the first letter of chairman, which is what goes into NY"
+     }
+    ],
+    "walkthrough": "The city wanted is New York; the boardroom surface leans on that capital C to keep you looking at the Square Mile instead.",
+    "definitionFit": "An agency is the office a business trades from — a travel agency, an ad agency — so the two words name the same premises."
+   }
   },
   {
    "id": "21-down",
@@ -380,7 +935,35 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCTAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OCTAL",
+    "definition": "base",
+    "pieces": [
+     "OC",
+     "TA",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officer commanding",
+      "gives": "OC",
+      "note": "OC is the army's officer commanding"
+     },
+     {
+      "clueFragment": "old volunteers",
+      "gives": "TA",
+      "note": "the Territorial Army, the volunteer force renamed the Army Reserve in 2014"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is left"
+     }
+    ],
+    "walkthrough": "'Base' is not a barracks: octal is the base-eight counting system computing grew up on, and the parade ground is there to hide that sense.",
+    "definitionFit": "Octal is the base-eight number system, so 'base' is the mathematician's sense of the word rather than the soldier's."
+   }
   },
   {
    "id": "22-across",
@@ -397,7 +980,35 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCTROI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OCTROI",
+    "definition": "Tax",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "a thing that comes after another is written behind it, so this piece follows the one already down"
+    },
+    "pieces": [
+     "OCT",
+     "ROI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "31 days",
+      "gives": "OCT",
+      "note": "October is a 31-day month, shortened to Oct"
+     },
+     {
+      "clueFragment": "return on investment",
+      "gives": "ROI",
+      "note": "ROI is the financier's return on investment"
+     }
+    ],
+    "walkthrough": "A month clued by its length is a standing device: seven of them have 31 days, so the crossing letters are what pick October out.",
+    "definitionFit": "An octroi is a local duty charged on goods entering a town, which makes it one particular kind of tax."
+   }
   },
   {
    "id": "23-across",
@@ -419,7 +1030,38 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTHEJOB",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ON THE JOB",
+    "definition": "At work",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "ON",
+     "THE",
+     "JOB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dealing with",
+      "gives": "ON",
+      "note": "a book on birds is a book dealing with birds"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "JOB",
+      "note": "Job is a book of the Old Testament"
+     }
+    ],
+    "walkthrough": "Two staples in one clue: an article is the grammarian's THE, and a book is very often one of the Bible's.",
+    "definitionFit": "To be on the job is to be at work, the idiom taken whole, as a workman on the job is one currently doing it."
+   }
   },
   {
    "id": "24-down",
@@ -436,7 +1078,36 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THUG",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THUG",
+    "definition": "Tough",
+    "indicators": [
+     "aboard"
+    ],
+    "indicatorNotes": {
+     "aboard": "aboard means on the vessel and therefore inside it, so the letter is stowed within the boat"
+    },
+    "pieces": [
+     "T",
+     "H",
+     "UG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "TUG",
+      "note": "a tug is the little boat that shoves ships about"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is husband in the abbreviation book"
+     }
+    ],
+    "walkthrough": "'Tough' is a noun in the definition while the surface reads it as an adjective, and that shift is the whole of the disguise.",
+    "definitionFit": "A tough, as a noun, is a violent bruiser of a man, which is exactly what a thug is."
+   }
   },
   {
    "id": "25-across",
@@ -453,7 +1124,41 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATELLA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PATELLA",
+    "definition": "bone",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "to bring a ship around is to turn it to face the other way, and the word in front of it turns the same way"
+    },
+    "pieces": [
+     "PATE",
+     "LLA"
+    ],
+    "subReversals": [
+     {
+      "from": "ALL",
+      "to": "LLA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meat spread",
+      "gives": "PATE",
+      "note": "pate is the meat spread you put on toast"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "ALL",
+      "note": "the little word taken whole, before it is turned"
+     }
+    ],
+    "walkthrough": "Meat spread all around sounds like a buffet table, which is what keeps the next word looking like description rather than instruction.",
+    "definitionFit": "The patella is the kneecap, so 'bone' defines the answer by naming the class of thing it is."
+   }
   },
   {
    "id": "26-across",
@@ -470,7 +1175,41 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUECHUA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "QUECHUA",
+    "definition": "Peruvian",
+    "indicators": [
+     "finally abandoned"
+    ],
+    "indicatorNotes": {
+     "finally abandoned": "what a word does finally is end, and giving up that end leaves it one letter shorter"
+    },
+    "pieces": [
+     "QUE",
+     "CHU",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Which Spanish",
+      "gives": "QUE",
+      "note": "que is the Spanish for which"
+     },
+     {
+      "clueFragment": "friend finally abandoned",
+      "gives": "CHU",
+      "note": "CHUM is a friend, and its closing M is abandoned"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the little word joins on at the end as it stands"
+     }
+    ],
+    "walkthrough": "Setters lean on the Spanish everybody half-knows, and the question mark admits that a Quechua speaker is only one sort of Peruvian.",
+    "definitionFit": "Quechua is the Andean language of the Inca and the people who speak it, so a Peruvian is one fair example."
+   }
   }
  ]
 } /*JSON-END*/;
