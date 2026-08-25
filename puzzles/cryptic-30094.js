@@ -30,7 +30,29 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEACEFUL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PEACEFUL",
+    "definition": "Still",
+    "indicators": [
+     "supply"
+    ],
+    "indicatorNotes": {
+     "supply": "Read it as the adverb of 'supple': what bends supply will not hold the shape it was handed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "pace fuel",
+      "gives": "PEACEFUL",
+      "note": "the eight letters of PACE FUEL rebuilt"
+     }
+    ],
+    "anagram": {
+     "fodder": "PACE FUEL"
+    },
+    "walkthrough": "The surface sells you a filling station, where 'supply' looks like a noun about fuel. It is the adverb of 'supple' instead.",
+    "definitionFit": "'Still' names PEACEFUL in its adjective sense of calm and undisturbed, as in a still evening, rather than 'motionless' or 'even now'."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +69,41 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EAR",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "EAR",
+    "definition": "organ",
+    "indicators": [
+     "Finally"
+    ],
+    "indicatorNotes": {
+     "Finally": "It points at where each word runs out, so only the closing letter of each is taken."
+    },
+    "blocks": [
+     {
+      "clueFragment": "tune",
+      "gives": "E",
+      "note": "the last letter of tune"
+     },
+     {
+      "clueFragment": "dulciana",
+      "gives": "A",
+      "note": "the last letter of dulciana"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "R",
+      "note": "the last letter of for - even the small joining word is fodder here"
+     }
+    ],
+    "pieces": [
+     "E",
+     "A",
+     "R"
+    ],
+    "walkthrough": "A dulciana is a real organ stop, so the surface never leaves the organ loft while the definition means the one on the side of your head.",
+    "definitionFit": "Definition by category: the body's organ of hearing, with the musical instrument left standing in the surface to mislead."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +120,27 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COURT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "COURT",
+    "definition": "Sovereign’s palace",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "The words before it are to be judged by sound alone, not by how they are spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "captured",
+      "soundsLike": "CAUGHT",
+      "gives": "COURT",
+      "note": "whatever has been captured has been caught, and CAUGHT spoken is what goes in the grid"
+     }
+    ],
+    "walkthrough": "In non-rhotic British speech the two spellings are one noise, which is what the question mark is apologising for.",
+    "definitionFit": "A monarch's court is the residence and household where state is held, so the word names the place itself, not just the people in it."
+   }
   },
   {
    "id": "4-down",
@@ -86,7 +162,32 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLEURDELIS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FLEUR-DE-LIS",
+    "definition": "heraldic design",
+    "indicators": [
+     "Engineer"
+    ],
+    "indicatorNotes": {
+     "Engineer": "Used as a verb it means to contrive something into a shape it did not have before."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used filler",
+      "gives": "FLEUR-DE-LIS",
+      "note": "the ten letters of USED FILLER rebuilt"
+     }
+    ],
+    "anagram": {
+     "fodder": "USED FILLER"
+    },
+    "walkthrough": "'Engineer' reads as a trade on the surface, standing next to a builder's filler. The 5-2-3 enumeration is the tell that a French phrase is coming.",
+    "definitionFit": "The stylised lily borne by French kings: a charge on a coat of arms rather than a flower, which is what makes it heraldic."
+   }
   },
   {
    "id": "5-down",
@@ -103,7 +204,29 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LICHEN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LICHEN",
+    "definition": "Crusty growth",
+    "indicators": [
+     "part of"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "part of": "Asking for only a piece of what follows means the letters sit there unbroken, waiting to be cut out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "metallic henneries",
+      "gives": "LICHEN",
+      "note": "the answer straddles the join: metalLIC HENneries"
+     }
+    ],
+    "walkthrough": "Henneries are hen-houses, and the seam between two words is exactly where the eye refuses to look.",
+    "definitionFit": "The flat crust of alga and fungus found on rocks and gravestones, so 'crusty' is meant literally and not as bad-tempered."
+   }
   },
   {
    "id": "6-across",
@@ -120,7 +243,29 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOTHIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GOTHIC",
+    "definition": "style of architecture",
+    "blocks": [
+     {
+      "clueFragment": "Understood",
+      "gives": "GOT",
+      "note": "'got it' means understood"
+     },
+     {
+      "clueFragment": "this Roman",
+      "gives": "HIC",
+      "note": "hic is 'this' in Latin, the language a Roman speaks"
+     }
+    ],
+    "pieces": [
+     "GOT",
+     "HIC"
+    ],
+    "walkthrough": "'Roman' points at the Latin word, not at architecture - which is the trap, since the answer names the manner that Rome's classical one is not.",
+    "definitionFit": "Definition by example: the pointed-arch manner of medieval cathedrals, one architectural style among many rather than the whole idea."
+   }
   },
   {
    "id": "6-down",
@@ -137,7 +282,26 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAME",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GAME",
+    "definition": "Up for",
+    "definition2": "tennis?",
+    "blocks": [
+     {
+      "clueFragment": "Up for",
+      "gives": "GAME",
+      "note": "being up for something is being willing to try it"
+     },
+     {
+      "clueFragment": "tennis?",
+      "gives": "GAME",
+      "note": "tennis is one, and one is also the scoring unit inside a set"
+     }
+    ],
+    "walkthrough": "Four words and no wordplay at all: the question mark warns that tennis is only an instance, and the clue reads as a single invitation.",
+    "definitionFit": "It means willing, as in 'up for it', and it is also what tennis is - and what you win six of to take a set."
+   }
   },
   {
    "id": "7-down",
@@ -154,7 +318,35 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOOTHACHE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "TOOTHACHE",
+    "definition": "such a pain",
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "It names where each following word begins, so nothing but the opening letter of each is used."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Part of cog",
+      "gives": "TOOTH",
+      "note": "the parts around the rim of a cog are its teeth"
+     },
+     {
+      "clueFragment": "aggravate cyclist’s healthy exercise",
+      "gives": "ACHE",
+      "note": "the opening letters of Aggravate, Cyclist's, Healthy and Exercise"
+     }
+    ],
+    "pieces": [
+     "TOOTH",
+     "ACHE"
+    ],
+    "walkthrough": "The surface grumbles about a cyclist, and the definition works twice over: a figure of speech in the sentence, a literal complaint in the grid.",
+    "definitionFit": "The everyday grumble sense, where a pain really is an ache - sited in a tooth rather than in a person who annoys you."
+   }
   },
   {
    "id": "8-down",
@@ -171,7 +363,29 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INESCAPABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INESCAPABLE",
+    "definition": "Sure!",
+    "indicators": [
+     "Cook"
+    ],
+    "indicatorNotes": {
+     "Cook": "A cook combines raw material and hands it back transformed, which is what happens to the letters that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "special bean",
+      "gives": "INESCAPABLE",
+      "note": "the eleven letters of SPECIAL BEAN reordered"
+     }
+    ],
+    "anagram": {
+     "fodder": "SPECIAL BEAN"
+    },
+    "walkthrough": "It opens like an order barked at a chef and closes like agreement, and neither exclamation is what it seems: one is the instruction, one the definition.",
+    "definitionFit": "A conclusion that is sure is one you cannot get away from, so both words claim the thing is certain to happen."
+   }
   },
   {
    "id": "9-across",
@@ -188,7 +402,32 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GROUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GROUSE",
+    "definition": "Bird",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "Gr. is the standard abbreviation for Greek"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "OUSE",
+      "note": "the Ouse, the setter's favourite English river"
+     }
+    ],
+    "pieces": [
+     "GR",
+     "OUSE"
+    ],
+    "walkthrough": "Nothing Greek about the water: the Ouse runs through Yorkshire, and 'in' is only holding the sentence upright.",
+    "definitionFit": "Definition by example: the red grouse is the moorland game bird whose shooting season opens on the twelfth of August."
+   }
   },
   {
    "id": "10-across",
@@ -205,7 +444,41 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COMPOSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "COMPOSED",
+    "definition": "Calm",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "It asks what a word looks like at the very start, which is one letter and no more."
+    },
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the everyday abbreviation for company"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "M",
+      "note": "the initial letter of man"
+     },
+     {
+      "clueFragment": "sat for artist",
+      "gives": "POSED",
+      "note": "to sit for a painter is to pose"
+     }
+    ],
+    "pieces": [
+     "CO",
+     "M",
+     "POSED"
+    ],
+    "walkthrough": "The surface is a portrait sitting, and the definition is what a sitter has to stay for an hour - hidden in plain sight at the front.",
+    "definitionFit": "Said of a person holding themselves together under pressure: the collected sense, not the musical one or 'made up of'."
+   }
   },
   {
    "id": "11-across",
@@ -222,7 +495,43 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VICTORIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "VICTORIES",
+    "definition": "wins",
+    "indicators": [
+     "Leader in",
+     "after"
+    ],
+    "indicatorNotes": {
+     "Leader in": "A leader is whoever is out in front, so what is wanted is the letter at the front of the word.",
+     "after": "It sends the pieces just described round to the back of the one named next, so the numeral leads off."
+    },
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals"
+     },
+     {
+      "clueFragment": "Cambridge",
+      "gives": "C",
+      "note": "the letter leading Cambridge"
+     },
+     {
+      "clueFragment": "blues",
+      "gives": "TORIES",
+      "note": "the Conservatives are the blue party"
+     }
+    ],
+    "pieces": [
+     "VI",
+     "C",
+     "TORIES"
+    ],
+    "walkthrough": "A Cambridge blue is a sportsperson who has played against Oxford, which is the picture on offer. The party colour is the sense that pays.",
+    "definitionFit": "A plain plural synonym: a win is a victory on the field or in the field, and both nouns count up the same events."
+   }
   },
   {
    "id": "12-down",
@@ -239,7 +548,44 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERPRETER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "INTERPRETER",
+    "definition": "Translator",
+    "indicators": [
+     "introduction",
+     "inside"
+    ],
+    "indicatorNotes": {
+     "introduction": "An introduction comes before all the rest, so the letter that opens the word is the one wanted.",
+     "inside": "It says the borrowed letter is planted within the name rather than tacked on at either end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "to bury",
+      "gives": "INTER",
+      "note": "to inter a body is to bury it"
+     },
+     {
+      "clueFragment": "Peter",
+      "gives": "PETER",
+      "note": "the name is taken whole, then opened up after its first letter"
+     },
+     {
+      "clueFragment": "Rabbit’s",
+      "gives": "R",
+      "note": "the introduction to Rabbit is its R"
+     }
+    ],
+    "pieces": [
+     "INTER",
+     "P",
+     "R",
+     "ETER"
+    ],
+    "walkthrough": "'To bury' is the one piece of ordinary vocabulary doing crossword work here - the verb inter, not the funeral. Beatrix Potter supplies the rest of the picture.",
+    "definitionFit": "Strictly a translator works on text and this one on live speech, but the two words are used for each other constantly."
+   }
   },
   {
    "id": "13-across",
@@ -256,7 +602,27 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHECK",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CHECK",
+    "definition": "vet",
+    "indicators": [
+     "Pick up"
+    ],
+    "indicatorNotes": {
+     "Pick up": "To pick something up is to catch it by ear, so what follows is wanted as a sound."
+    },
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "soundsLike": "CZECH",
+      "gives": "CHECK",
+      "note": "a Czech is a European, and the nationality said aloud is spelt this way in the grid"
+     }
+    ],
+    "walkthrough": "'Vet' sits beside a European looking like an animal doctor; it is the verb, and the two spellings share one sound exactly.",
+    "definitionFit": "To vet an applicant is to look them over before approving them, so both verbs mean examine something for faults."
+   }
   },
   {
    "id": "14-down",
@@ -273,7 +639,29 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WORDLESSLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WORDLESSLY",
+    "definition": "without a sound",
+    "indicators": [
+     "Recklessly"
+    ],
+    "indicatorNotes": {
+     "Recklessly": "Doing a thing recklessly means doing it with no care for order, so the letters land where they fall."
+    },
+    "blocks": [
+     {
+      "clueFragment": "sells dowry",
+      "gives": "WORDLESSLY",
+      "note": "the ten letters of SELLS DOWRY reordered"
+     }
+    ],
+    "anagram": {
+     "fodder": "SELLS DOWRY"
+    },
+    "walkthrough": "A dowry sold off in a hurry is a whole small story, and every word of it is either the instruction or the raw material.",
+    "definitionFit": "Both are adverbs of silence, though the answer strictly means uttering nothing rather than making no noise at all."
+   }
   },
   {
    "id": "15-across",
@@ -290,7 +678,27 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TICKET",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TICKET",
+    "definition": "card",
+    "indicators": [
+     "in report"
+    ],
+    "indicatorNotes": {
+     "in report": "A report is something delivered aloud, so the words before it are wanted as they sound."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mark it right",
+      "soundsLike": "TICKED",
+      "gives": "TICKET",
+      "note": "marking something as correct is having ticked it, and TICKED spoken lands on the answer"
+     }
+    ],
+    "walkthrough": "The surface is a school report, and the mechanism is the D at the end of a spoken 'ticked', which the ear hears as a T.",
+    "definitionFit": "The small printed card that admits you to a train, a match or a cloakroom - the object itself, not the permission it carries."
+   }
   },
   {
    "id": "16-down",
@@ -307,7 +715,32 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CALENDARS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CALENDARS",
+    "definition": "lists of appointments",
+    "indicators": [
+     "Doctor"
+    ],
+    "indicatorNotes": {
+     "Doctor": "To doctor something is to tamper with it until it is no longer as it was - here the letters, not the patient."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "send Clara",
+      "gives": "CALENDARS",
+      "note": "the nine letters of SEND CLARA rearranged"
+     }
+    ],
+    "anagram": {
+     "fodder": "SEND CLARA"
+    },
+    "walkthrough": "The colon makes it read as an instruction shouted at a receptionist, which is precisely the reading that keeps the verb 'doctor' out of sight.",
+    "definitionFit": "A calendar is the schedule of what a court or a clinic has booked, not merely a chart of the months."
+   }
   },
   {
    "id": "17-across",
@@ -324,7 +757,44 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOECAP",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "TOECAP",
+    "definition": "it’s for protection",
+    "indicators": [
+     "returning",
+     "in"
+    ],
+    "indicatorNotes": {
+     "returning": "Something returning comes back the way it went, so those letters are read the other way round.",
+     "in": "Doing real work rather than joining: it drops one piece bodily within the other instead of beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "jumper, say",
+      "gives": "TOP",
+      "note": "a jumper is one kind of top, which is what 'say' signals"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "ECA",
+      "note": "one is an ace, and ACE comes back as ECA"
+     }
+    ],
+    "pieces": [
+     "TO",
+     "ECA",
+     "P"
+    ],
+    "subReversals": [
+     {
+      "from": "ACE",
+      "to": "ECA"
+     }
+    ],
+    "walkthrough": "'Jumper' teases a kangaroo or a horse before it settles into the wardrobe, and the definition names the answer only by the job it does.",
+    "definitionFit": "The reinforced cap over the toe of a boot, defined by function - what the thing is for, rather than what it is."
+   }
   },
   {
    "id": "18-across",
@@ -341,7 +811,37 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELAID",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "RELAID",
+    "definition": "put down again",
+    "indicators": [
+     "Section of",
+     "rotated"
+    ],
+    "indicatorNotes": {
+     "Section of": "A section is a piece cut out of something bigger, so the letters wanted are a continuous run of what follows.",
+     "rotated": "Turned end for end, so the run has to be read from its far end back to its start."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sundial erroneously",
+      "gives": "RELAID",
+      "note": "DIALER runs across sundiAL ERroneously, and turned about it spells the answer"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "DIALER",
+      "to": "RELAID"
+     }
+    ],
+    "walkthrough": "'Erroneously' stands there looking like an anagram signal and is really half of the material - the letters are taken in order, only from the wrong end.",
+    "definitionFit": "Laying a carpet or a table is putting it down, and the re- prefix supplies the 'again': a past tense answering a past-tense phrase."
+   }
   },
   {
    "id": "19-across",
@@ -358,7 +858,41 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADVERB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ADVERB",
+    "definition": "Perhaps surprisingly",
+    "indicators": [
+     "short"
+    ],
+    "indicatorNotes": {
+     "short": "Calling a word short is docking its tail, so the one before it gives up its final letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad in the paper is a notice"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "VER",
+      "note": "VERY docked of its last letter"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "b. is the standard abbreviation for book"
+     }
+    ],
+    "pieces": [
+     "AD",
+     "VER",
+     "B"
+    ],
+    "walkthrough": "The opening two words read as the setter's aside about the sentence to come, which is exactly what stops you noticing they are the definition.",
+    "definitionFit": "Definition by example: each of those two words is one, so the clue exhibits the class of word instead of describing it."
+   }
   },
   {
    "id": "20-down",
@@ -375,7 +909,31 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENIGMA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ENIGMA",
+    "definition": "riddle",
+    "indicators": [
+     "Missing first letter",
+     "resolved"
+    ],
+    "indicatorNotes": {
+     "Missing first letter": "It says outright which letter goes: the one at the head of the word that follows.",
+     "resolved": "Resolving a thing breaks it into its parts, so what is left can be put back together in any order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "imagine",
+      "gives": "MAGINE",
+      "note": "IMAGINE with its opening I taken away"
+     }
+    ],
+    "anagram": {
+     "fodder": "MAGINE"
+    },
+    "walkthrough": "Two instructions stacked on one word: strip the front of 'imagine', then rebuild what is left. 'Resolved' is also what happens to a riddle.",
+    "definitionFit": "Both name a baffling thing posed to be worked out, the answer being the grander word for the same object."
+   }
   },
   {
    "id": "21-across",
@@ -392,7 +950,32 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BRAND",
+    "definition": "Stamp",
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grain product",
+      "gives": "BRAN",
+      "note": "bran is the husk milling leaves behind"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "d. is a standard abbreviation for date"
+     }
+    ],
+    "pieces": [
+     "BRAN",
+     "D"
+    ],
+    "walkthrough": "'With' joins the two halves and does nothing else, while the breakfast-cereal surface keeps the branding iron well out of sight.",
+    "definitionFit": "The mark burnt onto cattle or goods, and as a verb it is what you do with a hot iron: to stamp a mark on something."
+   }
   },
   {
    "id": "22-across",
@@ -409,7 +992,36 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERLIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNDERLIES",
+    "definition": "Is the cause of",
+    "indicators": [
+     "behind"
+    ],
+    "indicatorNotes": {
+     "behind": "It puts the piece it follows at the back of the assembly, after everything already named."
+    },
+    "blocks": [
+     {
+      "clueFragment": "two foreign articles",
+      "gives": "UNDER",
+      "note": "French UN and German DER, one article apiece"
+     },
+     {
+      "clueFragment": "stories",
+      "gives": "LIES",
+      "note": "a story can be an untruth"
+     }
+    ],
+    "pieces": [
+     "UN",
+     "DER",
+     "LIES"
+    ],
+    "walkthrough": "Two languages for the price of one phrase, and 'stories' means untruths rather than tales - the sense a newspaper never admits to.",
+    "definitionFit": "What underlies an event lies beneath it as its root, so the two verbs match in sense and in number alike."
+   }
   },
   {
    "id": "23-down",
@@ -426,7 +1038,34 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUNCH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LUNCH",
+    "definition": "meal",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "Here it means lacking rather than outside, so the letter named next is the one taken out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Send off",
+      "gives": "LAUNCH",
+      "note": "to send off a rocket is to launch it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the A that comes out of LAUNCH"
+     }
+    ],
+    "pieces": [
+     "LUNCH"
+    ],
+    "walkthrough": "'Send off' pretends to be a red card and turns out to be the rocket; the letter it loses is spelt out for you in the clue.",
+    "definitionFit": "Definition by category, narrowed by the clock: the one eaten in the middle of the day rather than any other sitting."
+   }
   },
   {
    "id": "24-down",
@@ -443,7 +1082,35 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "MISS",
+    "definition": "Overshoot",
+    "indicators": [
+     "entrances"
+    ],
+    "indicatorNotes": {
+     "entrances": "An entrance is the way in, and the way into a word is the letter it opens with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "M1",
+      "gives": "MI",
+      "note": "the motorway as written: M, then 1 read as the Roman numeral I"
+     },
+     {
+      "clueFragment": "service station’s",
+      "gives": "SS",
+      "note": "the first letters - the entrances - of service and station"
+     }
+    ],
+    "pieces": [
+     "MI",
+     "SS"
+    ],
+    "walkthrough": "Motorway signage is the whole surface, and the trick worth banking is that a 1 beside a letter is usually a Roman numeral.",
+    "definitionFit": "To overshoot a junction is to fail to stop at it, and both verbs say you did not arrive where you meant to."
+   }
   },
   {
    "id": "25-across",
@@ -460,7 +1127,26 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEAMING",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "STEAMING",
+    "definition": "getting very hot",
+    "indicators": [
+     "trousers"
+    ],
+    "indicatorNotes": {
+     "trousers": "To trouser a thing is to pocket it, so the words before have something tucked away whole inside them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Chef’s team in grey",
+      "gives": "STEAMING",
+      "note": "the answer runs unbroken across four words: Chef’S TEAM IN Grey"
+     }
+    ],
+    "walkthrough": "Nothing in the kitchen scene is fodder to be worked on - the words simply carry the answer across the gaps, and one verb says so.",
+    "definitionFit": "Hot enough to give off steam, and the same word serves for a person who has boiled over into fury."
+   }
   },
   {
    "id": "26-across",
@@ -477,7 +1163,35 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SONATA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SONATA",
+    "definition": "musical performance",
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "SON",
+      "note": "a boy of the family is a son"
+     },
+     {
+      "clueFragment": "attending",
+      "gives": "AT",
+      "note": "someone attending an event is at it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own A, taken as it stands"
+     }
+    ],
+    "pieces": [
+     "SON",
+     "AT",
+     "A"
+    ],
+    "walkthrough": "'Attending' for AT is the piece worth banking. The grammar makes the clue read as going to a show rather than as three parts laid end to end.",
+    "definitionFit": "An instrumental work in movements, named here by the recital it fills rather than by the score it is written on."
+   }
   },
   {
    "id": "27-down",
@@ -494,7 +1208,31 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOR",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "TOR",
+    "definition": "mountain",
+    "indicators": [
+     "Heads off"
+    ],
+    "indicatorNotes": {
+     "Heads off": "Heads are what come first, and taking them off the words that follow leaves exactly their opening letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "to outlying rock-strewn",
+      "gives": "TOR",
+      "note": "the heads of To, Outlying and Rock-strewn"
+     }
+    ],
+    "pieces": [
+     "T",
+     "O",
+     "R"
+    ],
+    "walkthrough": "'Heads off' sounds like a walker setting out for the hills, which is the picture wanted while the phrase quietly does the letter-picking.",
+    "definitionFit": "The bare rock crowning a Dartmoor hill: a height rather than a true peak, which is why the surface calls it outlying."
+   }
   },
   {
    "id": "28-across",
@@ -511,7 +1249,32 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRESTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CRESTS",
+    "definition": "mountain-tops",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "takes a break",
+      "gives": "RESTS",
+      "note": "to take a break is to rest"
+     }
+    ],
+    "pieces": [
+     "C",
+     "RESTS"
+    ],
+    "walkthrough": "Charlie is the radio alphabet's C rather than a person - a convention worth owning, since setters use the whole of that alphabet the same way.",
+    "definitionFit": "A crest is the ridge or summit line of a hill or a wave, so both plurals name the highest edge of something."
+   }
   },
   {
    "id": "29-across",
@@ -528,7 +1291,47 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANYWHERE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANYWHERE",
+    "definition": "in whichever location",
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the A that opens the clue, taken as itself"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "Year",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for year"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w/ is the everyday shorthand for with"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "HERE",
+      "note": "answering present at a roll-call means here"
+     }
+    ],
+    "pieces": [
+     "A",
+     "N",
+     "Y",
+     "W",
+     "HERE"
+    ],
+    "walkthrough": "The register-call sense of 'present' is the step to find: not a gift under the tree, but what you say when your name is read out.",
+    "definitionFit": "The adverb that covers every place indifferently, which is what the clue's roundabout phrase spells out at length."
+   }
   }
  ]
 } /*JSON-END*/;
