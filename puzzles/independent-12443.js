@@ -34,7 +34,48 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARCOPOLO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MARCO POLO",
+    "definition": "Merchant",
+    "indicators": [
+     "invested in"
+    ],
+    "indicatorNotes": {
+     "invested in": "money invested in a fund disappears inside it, and these letters go the same way"
+    },
+    "pieces": [
+     "MA",
+     "R",
+     "CO",
+     "P",
+     "OLO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parent",
+      "gives": "MA",
+      "note": "ma is the everyday word for a mother"
+     },
+     {
+      "clueFragment": "chocolate",
+      "gives": "ROLO",
+      "note": "a Rolo is a chocolate, and it opens up after its first letter"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation on a firm's letterhead"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano in music, the mark telling a player to be quiet"
+     }
+    ],
+    "walkthrough": "The surface sells you a corporate story of parents and investments, while the wordplay wants only a mother, a firm and a sweet.",
+    "definitionFit": "Marco Polo traded along the Silk Road for his family firm, so 'Merchant' defines by example, one trader standing for the name."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +92,30 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUSINGS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MUSINGS",
+    "definition": "thoughts",
+    "indicators": [],
+    "pieces": [
+     "MU",
+     "SINGS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "MU",
+      "note": "mu is the twelfth letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "vocalises",
+      "gives": "SINGS",
+      "note": "to vocalise a tune is to sing it"
+     }
+    ],
+    "walkthrough": "'Greek character' is a letter of the alphabet, not somebody from Athens, and that swap is the whole of the trick.",
+    "definitionFit": "Musings are the reflections you turn over idly, so the plural noun steps straight into the place of 'thoughts'."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +132,44 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REIGN",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "REIGN",
+    "definition": "Command",
+    "indicators": [
+     "check",
+     "before"
+    ],
+    "indicatorNotes": {
+     "check": "to check a thing is to hold it in, and whatever is held in ends up inside",
+     "before": "what comes before something takes the earlier place, so the built-up chunk leads"
+    },
+    "pieces": [
+     "R",
+     "E",
+     "IG",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "RIG",
+      "note": "to doctor a result is to rig it"
+     },
+     {
+      "clueFragment": "king's file",
+      "gives": "E",
+      "note": "in chess the king starts on e1, so the e-file is his"
+     },
+     {
+      "clueFragment": "operation's conclusion",
+      "gives": "N",
+      "note": "the letter operatioN concludes on"
+     }
+    ],
+    "walkthrough": "Two hospital words are doing other jobs: the doctor is a verb meaning to fiddle with, and the file is a chessboard's rather than a patient's.",
+    "definitionFit": "To reign is to hold sway over a country, which is 'Command' in its royal sense rather than its military one."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +186,34 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OWE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "OWE",
+    "definition": "must pay",
+    "indicators": [
+     "dismissing"
+    ],
+    "indicatorNotes": {
+     "dismissing": "to dismiss somebody is to send them off the premises, and the letter named leaves the same way"
+    },
+    "pieces": [
+     "OWE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Palaeontologist",
+      "gives": "OWEN",
+      "note": "Richard Owen, the Victorian who coined the word dinosaur"
+     },
+     {
+      "clueFragment": "Newton",
+      "gives": "N",
+      "note": "N is the symbol for the newton, the unit of force"
+     }
+    ],
+    "walkthrough": "One scientist gives up a letter to another: the man supplies the word and the unit of force takes its symbol back out.",
+    "definitionFit": "If you owe, a payment is due from you, so 'must pay' is the obligation the verb carries rather than the act itself."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +230,52 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTENSIBLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + anagram + container",
+    "answer": "OSTENSIBLE",
+    "definition": "Pretended",
+    "indicators": [
+     "back",
+     "managed",
+     "to claim"
+    ],
+    "indicatorNotes": {
+     "back": "the back of a word is the letter standing at its rear",
+     "managed": "a managed thing has been arranged to suit whoever ran it, letters included",
+     "to claim": "to claim something is to take hold of it, so it finishes up gripped inside"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "BILES",
+      "gives": "SIBLE"
+     }
+    ],
+    "pieces": [
+     "O",
+     "S",
+     "TENS",
+     "IBLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tokyo",
+      "gives": "O",
+      "note": "the letter at TokyO's back"
+     },
+     {
+      "clueFragment": "Biles",
+      "gives": "BILES",
+      "note": "the gymnast's five letters are the fodder, and they resettle as S ... IBLE"
+     },
+     {
+      "clueFragment": "perfect scores",
+      "gives": "TENS",
+      "note": "a perfect score in gymnastics is a ten, and more than one makes tens"
+     }
+    ],
+    "walkthrough": "Simone Biles at the Tokyo Olympics is the picture the clue paints; the wordplay wants her surname's letters and the marks she was given.",
+    "definitionFit": "Something ostensible is so only in appearance, which is what a pretended reason is - the adjective for a show put on."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +292,35 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OMIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OMIT",
+    "definition": "Pass",
+    "indicators": [
+     "third in"
+    ],
+    "indicatorNotes": {
+     "third in": "counting in from the front of a word, the third one along is the letter wanted"
+    },
+    "pieces": [
+     "O",
+     "MIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Geography",
+      "gives": "O",
+      "note": "geOgraphy, counted in three letters"
+     },
+     {
+      "clueFragment": "at Cambridge University",
+      "gives": "MIT",
+      "note": "MIT is the university in Cambridge, Massachusetts"
+     }
+    ],
+    "walkthrough": "The Cambridge the surface offers is the English one with the third-class degrees; the wordplay means the other one, across the Atlantic.",
+    "definitionFit": "To omit something is to pass over it and leave it out - 'pass' in the sense of skipping a turn, not of succeeding."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +337,35 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DALEK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "DALEK",
+    "definition": "exterminator",
+    "indicators": [
+     "back"
+    ],
+    "indicatorNotes": {
+     "back": "the back of a word is the letter at its rear, the last one you write"
+    },
+    "pieces": [
+     "DALE",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chipmunk",
+      "gives": "DALE",
+      "note": "Chip and Dale are Disney's chipmunks, and this is the second of the pair"
+     },
+     {
+      "clueFragment": "irk",
+      "gives": "K",
+      "note": "the letter standing at the back of irK"
+     }
+    ],
+    "walkthrough": "The question mark is doing real work: these creatures exterminate nobody by trade, they simply shriek the word.",
+    "definitionFit": "A Dalek's one line is 'Exterminate!', so the clue names the creature by the threat it screeches rather than by what it is."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +382,40 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DESTRUCTION",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "DESTRUCTION",
+    "definition": "Death",
+    "indicators": [
+     "going without"
+    ],
+    "indicatorNotes": {
+     "going without": "to go without a thing is to manage with it absent, so the letter named is simply not there"
+    },
+    "pieces": [
+     "DEST",
+     "RUCTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IDEST",
+      "note": "id est is Latin for 'that is', the phrase behind i.e."
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international, and it is the letter that goes"
+     },
+     {
+      "clueFragment": "uproar",
+      "gives": "RUCTION",
+      "note": "a ruction is a noisy row"
+     }
+    ],
+    "walkthrough": "Latin is the key here: read 'that is' as id est rather than as plain English, and the letter to be dropped has somewhere to come from.",
+    "definitionFit": "The destruction of a thing is its end, and death is the end of a living one - the same noun used of buildings, forests and armies."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +432,37 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAICISING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LAICISING",
+    "definition": "Removing church influence",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "new"
+    ],
+    "indicatorNotes": {
+     "new": "something made new is not the shape it used to be, and neither are these letters"
+    },
+    "anagram": {
+     "fodder": "SICILIAN G"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sicilian",
+      "gives": "SICILIAN",
+      "note": "eight letters from the island's adjective"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is government in the abbreviations, the ninth letter needed"
+     }
+    ],
+    "walkthrough": "Mafia politics is the picture, but 'new' is doing nothing more sinister than telling you the letters will not stay where they are.",
+    "definitionFit": "To laicise is to hand a school or an office from the clergy to lay people, which is exactly removing the church's influence."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +479,43 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KEYWORD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "KEYWORD",
+    "definition": "Descriptor",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "abandoned"
+    ],
+    "indicatorNotes": {
+     "abandoned": "what is abandoned has been walked away from and left behind, so that letter never arrives"
+    },
+    "pieces": [
+     "KEY",
+     "WORD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "KEY",
+      "note": "a key is a low island, as in the Florida Keys"
+     },
+     {
+      "clueFragment": "population",
+      "gives": "WORLD",
+      "note": "the world means the people in it - 'the whole world knows'"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is left, and it is the letter that is dropped"
+     }
+    ],
+    "walkthrough": "Both nouns are in disguise: an island that is never called an island, and a population read as the whole world.",
+    "definitionFit": "A keyword is the term chosen to describe or index a thing, so 'Descriptor' is the librarian's name for the job it does."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +532,33 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLIME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SLIME",
+    "definition": "Gooey substance",
+    "linkWords": [
+     "produced by"
+    ],
+    "indicators": [],
+    "pieces": [
+     "S",
+     "LIME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the label sewn into the smallest size"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "LIME",
+      "note": "the lime is a common street tree"
+     }
+    ],
+    "walkthrough": "'Produced by' is only joinery: nothing is being manufactured, the two pieces simply sit end to end.",
+    "definitionFit": "Slime is the thick sticky stuff a snail leaves behind it, which is the gooey substance wanted."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +575,36 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THIRSTILY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "THIRSTILY",
+    "definition": "intensely",
+    "indicators": [
+     "New",
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "New": "made new means made over, and letters made over do not keep the order they came in",
+     "cutting": "to cut a thing is to take it out, so those letters never reach the answer"
+    },
+    "anagram": {
+     "fodder": "HIRSTYLIT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hairstylist",
+      "gives": "HAIRSTYLIST",
+      "note": "eleven letters to start from"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "the two letters cut away, leaving the nine wanted"
+     }
+    ],
+    "walkthrough": "The salon picture holds together because cutting is what stylists do - and it is also the instruction to lose two letters.",
+    "definitionFit": "To drink or read something thirstily is to do it with a parched eagerness, so the adverb carries intensity rather than thirst."
+   }
   },
   {
    "id": "11-across",
@@ -238,7 +621,33 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NANKEEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NANKEEN",
+    "definition": "Buff",
+    "linkWords": [
+     "given"
+    ],
+    "indicators": [],
+    "pieces": [
+     "NAN",
+     "KEEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "NAN",
+      "note": "nan is what a great many people call their grandmother"
+     },
+     {
+      "clueFragment": "piercing",
+      "gives": "KEEN",
+      "note": "a keen wind is a piercing one"
+     }
+    ],
+    "walkthrough": "'Buff' is neither the enthusiast nor the bare skin here but a colour, which is the last of its senses most solvers reach for.",
+    "definitionFit": "Nankeen is a yellowish cotton cloth from Nanking, and the pale brownish-yellow it comes in is the shade called buff."
+   }
   },
   {
    "id": "12-down",
@@ -255,7 +664,33 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPECTORATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXPECTORATE",
+    "definition": "get something off your chest",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [],
+    "pieces": [
+     "EXPECT",
+     "ORATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anticipate",
+      "gives": "EXPECT",
+      "note": "to expect a thing is to anticipate it"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "ORATE",
+      "note": "to orate is to talk at length in public"
+     }
+    ],
+    "walkthrough": "The definition is the joke: the idiom means unburdening yourself of a secret, and the medical sense means clearing the chest quite literally.",
+    "definitionFit": "To expectorate is to cough phlegm up out of the chest, so the idiom for confessing is being read at its physical value."
+   }
   },
   {
    "id": "13-across",
@@ -272,7 +707,41 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORSINO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ORSINO",
+    "definition": "Play duke",
+    "indicators": [
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "wearing": "what you wear goes round you, so the piece doing the wearing sits inside its clothes"
+    },
+    "pieces": [
+     "OR",
+     "SIN",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold on a coat of arms"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a wrong done is a sin"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is a circle, written as the letter O"
+     }
+    ],
+    "walkthrough": "Two conventions worth banking for good: OR is gold in heraldry, and a ring is always the letter O.",
+    "definitionFit": "Orsino is the lovesick duke who opens Shakespeare's Twelfth Night, so the clue defines by example - one duke standing for the name."
+   }
   },
   {
    "id": "14-down",
@@ -294,7 +763,34 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHATISMORE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WHAT IS MORE",
+    "definition": "in addition",
+    "indicators": [
+     "cavorting"
+    ],
+    "indicatorNotes": {
+     "cavorting": "letters cavorting are letters skipping about, and they do not land back where they started"
+    },
+    "anagram": {
+     "fodder": "SAW HER OMIT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Saw her",
+      "gives": "SAWHER",
+      "note": "six letters to start from"
+     },
+     {
+      "clueFragment": "5",
+      "gives": "OMIT",
+      "note": "the answer at 5 down joins in, four letters more"
+     }
+    ],
+    "walkthrough": "A number in a clue points at another entry: solve 5 down first and its four letters become part of the fodder here.",
+    "definitionFit": "'What is more' is the phrase you tack on ahead of an extra point, which is the job 'in addition' does in a sentence."
+   }
   },
   {
    "id": "15-across",
@@ -315,7 +811,36 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
     ]
    },
    "solution": "SLEEPWITH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "SLEEP WITH",
+    "definition": "Make love to",
+    "indicators": [
+     "on vacation",
+     "exercise"
+    ],
+    "indicatorNotes": {
+     "on vacation": "a house whose occupants are on vacation stands empty in the middle, and so does the word",
+     "exercise": "to exercise a thing is to put it through its paces, and letters put through theirs come out in a new order"
+    },
+    "anagram": {
+     "fodder": "WE IT HELPS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "WE",
+      "note": "wife with its insides away leaves the two outer letters"
+     },
+     {
+      "clueFragment": "it helps",
+      "gives": "ITHELPS",
+      "note": "seven letters more, which with the WE make the nine wanted"
+     }
+    ],
+    "walkthrough": "The dash makes the second half look like a remark about the first; it is really the fodder and the instruction to shuffle it.",
+    "definitionFit": "To sleep with someone is the polite English idiom for going to bed with them, which is what 'make love to' says outright."
+   }
   },
   {
    "id": "16-down",
@@ -332,7 +857,54 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTHRONED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + last letter",
+    "answer": "ENTHRONED",
+    "definition": "made king",
+    "indicators": [
+     "ending",
+     "falsely"
+    ],
+    "indicatorNotes": {
+     "ending": "the ending of a word is the letter it stops on",
+     "falsely": "a false version of a thing has its parts in the wrong places, letters included"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "HEROD N",
+      "gives": "HRONED"
+     }
+    ],
+    "pieces": [
+     "E",
+     "NT",
+     "HRONED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is English in the abbreviations"
+     },
+     {
+      "clueFragment": "theatre",
+      "gives": "NT",
+      "note": "the NT is the National Theatre on the South Bank"
+     },
+     {
+      "clueFragment": "Herod",
+      "gives": "HEROD",
+      "note": "the king of the nativity story, five letters of fodder"
+     },
+     {
+      "clueFragment": "production's",
+      "gives": "N",
+      "note": "the letter productioN ends on, joining the fodder"
+     }
+    ],
+    "walkthrough": "Herod stands in the surface as a stage villain and in the wordplay as five loose letters - and the definition is what Rome did to him.",
+    "definitionFit": "To be enthroned is to be set on the throne, and setting somebody on a throne is what making them king consists of."
+   }
   },
   {
    "id": "17-across",
@@ -349,7 +921,37 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHILD",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + outer letters",
+    "answer": "CHILD",
+    "definition": "Youngster",
+    "indicators": [
+     "having lost",
+     "clothing"
+    ],
+    "indicatorNotes": {
+     "having lost": "what has been lost is not there any more, so those letters never reach the answer",
+     "clothing": "clothes go on the outside, so the clothing of a word is the letter standing at each of its ends"
+    },
+    "pieces": [
+     "CHIL",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disheartened",
+      "gives": "CHILLED",
+      "note": "to be chilled is to be dispirited, and these seven letters are the word to work on"
+     },
+     {
+      "clueFragment": "luggage",
+      "gives": "LE",
+      "note": "the letters clothing lUGGAGe are the L and the E at its two ends, and that pair is what goes"
+     }
+    ],
+    "walkthrough": "'Luggage' is not a synonym for anything here - it is the word on the page, and the answer loses the two letters standing at its ends.",
+    "definitionFit": "A youngster is a child by the plainest route there is: same sense, same stage of life, one word standing in for the other."
+   }
   },
   {
    "id": "18-across",
@@ -366,7 +968,35 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AZTEC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AZTEC",
+    "definition": "Mexican empire",
+    "indicators": [
+     "follows"
+    ],
+    "indicatorNotes": {
+     "follows": "what follows something comes along behind it, so this piece takes the later place"
+    },
+    "pieces": [
+     "AZ",
+     "TEC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street maps",
+      "gives": "AZ",
+      "note": "the A-Z is the book of street maps in every British glovebox"
+     },
+     {
+      "clueFragment": "Detective",
+      "gives": "TEC",
+      "note": "a tec is a detective in old slang"
+     }
+    ],
+    "walkthrough": "Two pieces of vocabulary worth keeping: 'tec' for a detective, and street maps for the A-Z rather than a range of letters.",
+    "definitionFit": "The Aztecs ruled central Mexico until Cortes arrived, so the people's name is standing for the empire they built."
+   }
   },
   {
    "id": "18-down",
@@ -383,7 +1013,36 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTESTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "ATTESTS",
+    "definition": "Bears witness to",
+    "indicators": [
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "cycling": "a cycled word rolls its front letter round to the back, everything else keeping its order"
+    },
+    "pieces": [
+     "AT",
+     "TEST",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taken",
+      "gives": "SAT",
+      "note": "an examination that has been taken has been sat"
+     },
+     {
+      "clueFragment": "examination",
+      "gives": "TEST",
+      "note": "an examination is a test"
+     }
+    ],
+    "walkthrough": "The two pieces are assembled first and spun afterwards: the S at the front of the pair rolls round to the far end.",
+    "definitionFit": "To attest a thing is to swear to it as a witness, which is what bearing witness to it means in a courtroom."
+   }
   },
   {
    "id": "19-across",
@@ -404,7 +1063,42 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETTINGON",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "LETTING ON",
+    "definition": "Revealing",
+    "indicators": [
+     "stocked by"
+    ],
+    "indicatorNotes": {
+     "stocked by": "a bar keeps its drink inside itself, so whatever stocks a thing has it within"
+    },
+    "pieces": [
+     "LETT",
+     "IN",
+     "GO",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latvian",
+      "gives": "LETT",
+      "note": "a Lett is a Latvian"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub, and it opens up after its second letter"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "GO",
+      "note": "go is spirit in the sense of drive - 'plenty of go'"
+     }
+    ],
+    "walkthrough": "'Spirit' looks like the drink a pub would stock and turns out to be pep, which is where the clue hides its joke.",
+    "definitionFit": "To let on is to give a secret away, so 'Revealing' matches the phrase in sense and in its -ing ending both."
+   }
   },
   {
    "id": "20-down",
@@ -421,7 +1115,41 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSEGAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NOSEGAY",
+    "definition": "flowers",
+    "definitionNote": "A nosegay is a single bunch, so the plural 'flowers' names what it is made of rather than agreeing with it in number.",
+    "indicators": [
+     "leaving"
+    ],
+    "indicatorNotes": {
+     "leaving": "whatever leaves is gone, so the letter named walks out of the word"
+    },
+    "pieces": [
+     "NO",
+     "SEGAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "the word is taken at face value, two letters"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "SEGWAY",
+      "note": "a Segway is the two-wheeled machine you ride standing up"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w is the standard short form of with, and it is the letter that leaves"
+     }
+    ],
+    "walkthrough": "'With' looks like joinery holding the sentence together and is really a letter to be taken away - the commonest trap in a deletion clue.",
+    "definitionFit": "A nosegay is a small bunch of flowers carried in the hand, from the days when a nose wanted something sweet held under it."
+   }
   },
   {
    "id": "21-across",
@@ -438,7 +1166,35 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERROR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TERROR",
+    "definition": "Fear",
+    "indicators": [
+     "latest"
+    ],
+    "indicatorNotes": {
+     "latest": "the latest thing is the one that arrived last, and in a word that is the final letter"
+    },
+    "pieces": [
+     "T",
+     "ERROR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent's",
+      "gives": "T",
+      "note": "the last letter of agenT"
+     },
+     {
+      "clueFragment": "blunder",
+      "gives": "ERROR",
+      "note": "a blunder is an error"
+     }
+    ],
+    "walkthrough": "The surface reads as spy fiction; the wordplay wants one letter of the agent and the mistake he made, nothing more.",
+    "definitionFit": "Terror is fear at its sharpest, the same emotion named at full strength rather than a different one."
+   }
   },
   {
    "id": "22-across",
@@ -455,7 +1211,27 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENSORS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SENSORS",
+    "definition": "Some detecting",
+    "indicators": [
+     "on the radio"
+    ],
+    "indicatorNotes": {
+     "on the radio": "a voice on the radio is heard and never seen, so you write down what the word sounds like"
+    },
+    "blocks": [
+     {
+      "clueFragment": "edits",
+      "soundsLike": "CENSORS",
+      "gives": "SENSORS",
+      "note": "somebody who edits the objectionable out is a censor, and censors said aloud is what you write in"
+     }
+    ],
+    "walkthrough": "Two words that sound identical and share no work at all: one keeps things out of print, the other picks up heat and movement.",
+    "definitionFit": "Sensors are the devices that detect light, heat or motion, so 'some detecting' names them by the one thing they do."
+   }
   },
   {
    "id": "23-down",
@@ -472,7 +1248,44 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OMAGH",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "OMAGH",
+    "definition": "Irish town",
+    "indicators": [
+     "outside",
+     "erected"
+    ],
+    "indicatorNotes": {
+     "outside": "what stands outside a thing wraps round it, part in front and part behind",
+     "erected": "a thing erected has been stood on end, which in a down clue turns it bottom to top"
+    },
+    "subReversals": [
+     {
+      "from": "HGAMO",
+      "to": "OMAGH"
+     }
+    ],
+    "pieces": [
+     "O",
+     "MAG",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "ho. is the estate agent's short form of house"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "GAM",
+      "note": "a gam is a school of whales"
+     }
+    ],
+    "walkthrough": "'School' is the whaling word rather than the classroom one, and spotting that is the step the whole clue turns on.",
+    "definitionFit": "Omagh is the county town of Tyrone, so the clue defines by example - one town in Ireland standing in for its name."
+   }
   },
   {
    "id": "24-down",
@@ -489,7 +1302,40 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIEU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LIEU",
+    "definition": "Place",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "to be without a thing is to lack it, so every letter named is missing from what is left"
+    },
+    "pieces": [
+     "LIE",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "similar to",
+      "gives": "LIKE",
+      "note": "one thing similar to another is like it"
+     },
+     {
+      "clueFragment": "Britain",
+      "gives": "UK",
+      "note": "UK is Britain on the back of a car"
+     },
+     {
+      "clueFragment": "any Kings",
+      "gives": "KK",
+      "note": "K is king on a playing card, and both of the ones here are dropped"
+     }
+    ],
+    "walkthrough": "The question mark flags the liberty in 'any Kings': it means every K in sight, and there happens to be one in each half.",
+    "definitionFit": "In lieu of something is in place of it, so 'Place' is the sense the French loanword still carries in that phrase."
+   }
   },
   {
    "id": "25-across",
@@ -510,7 +1356,56 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
     ]
    },
    "solution": "SANMARINO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + reversal",
+    "answer": "SAN MARINO",
+    "definition": "Country",
+    "indicators": [
+     "kidnapping",
+     "undergoing revolution"
+    ],
+    "indicatorNotes": {
+     "kidnapping": "a kidnapper carries someone off and shuts them away, so the seized letter ends up in the middle",
+     "undergoing revolution": "a revolution turns a thing right round, so the assembly is read the other way about"
+    },
+    "subReversals": [
+     {
+      "from": "ONIRAMNAS",
+      "to": "SANMARINO"
+     }
+    ],
+    "pieces": [
+     "SA",
+     "N",
+     "M",
+     "ARI",
+     "NO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerned with",
+      "gives": "ON",
+      "note": "a book on birds is a book concerned with birds"
+     },
+     {
+      "clueFragment": "Iran",
+      "gives": "IRAN",
+      "note": "the country named, which opens up before its last letter"
+     },
+     {
+      "clueFragment": "leader of military",
+      "gives": "M",
+      "note": "the leading letter of Military"
+     },
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "as means while - 'as I was walking'"
+     }
+    ],
+    "walkthrough": "The surface is Middle Eastern politics and the answer is a tiny republic inside Italy, reached only by reading the whole assembly backwards.",
+    "definitionFit": "San Marino is a sovereign republic entirely surrounded by Italy, so 'Country' is the plain category its name belongs to."
+   }
   },
   {
    "id": "26-across",
@@ -527,7 +1422,42 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRANG",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PRANG",
+    "definition": "Crash",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "what goes around a thing closes over it, leaving it stuck in the middle"
+    },
+    "pieces": [
+     "P",
+     "RA",
+     "N",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the parking sign at the roadside"
+     },
+     {
+      "clueFragment": "Duster",
+      "gives": "RAG",
+      "note": "a duster is a rag"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "November is N in the radio alphabet"
+     }
+    ],
+    "walkthrough": "The capital letter is a decoy - a Duster is a car you could well crash - but the clue only ever wanted the cloth.",
+    "definitionFit": "To prang a car is to crash it, RAF slang for a smash that has stuck in British English ever since the war."
+   }
   },
   {
    "id": "26-down",
@@ -544,7 +1474,35 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PAR",
+    "definition": "Expected shots",
+    "definitionNote": "Par is a single number, the strokes a hole should take, so the plural 'shots' names what is being counted rather than agreeing with the answer.",
+    "indicators": [
+     "away"
+    ],
+    "indicatorNotes": {
+     "away": "something away is not there, so the letter named is missing from what remains"
+    },
+    "pieces": [
+     "PAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where young footballers might play",
+      "gives": "PARK",
+      "note": "a park is where a kickabout happens"
+     },
+     {
+      "clueFragment": "kilometres",
+      "gives": "K",
+      "note": "k is the abbreviation for kilometre, and it is the letter that goes"
+     }
+    ],
+    "walkthrough": "Golf and football share one clue: the pitch is a park, and the distances on the road signs hand you the letter to remove.",
+    "definitionFit": "Par is the number of strokes a good golfer needs for a hole, so the definition is the game's technical sense of the word."
+   }
   },
   {
    "id": "27-across",
@@ -561,7 +1519,26 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEDGE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SEDGE",
+    "definition": "Perennial",
+    "indicators": [
+     "drinks"
+    ],
+    "indicatorNotes": {
+     "drinks": "whatever a thing drinks it takes right inside itself, which is where these letters are sitting"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hosed gently",
+      "gives": "SEDGE",
+      "note": "the answer runs across the join of hoSED GEntly"
+     }
+    ],
+    "walkthrough": "'Perennial' is the gardener's noun rather than the adjective - a plant that comes back each year, and this one likes wet ground.",
+    "definitionFit": "Sedge is a grassy marsh plant that returns year after year, which is what a gardener means by a perennial."
+   }
   },
   {
    "id": "28-across",
@@ -578,7 +1555,29 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNEARTHLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNEARTHLY",
+    "definition": "Alien",
+    "indicators": [
+     "camouflaged"
+    ],
+    "indicatorNotes": {
+     "camouflaged": "camouflage hides a thing by breaking up its outline, and these letters have had theirs broken up"
+    },
+    "anagram": {
+     "fodder": "HUNTER LAY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hunter lay",
+      "gives": "HUNTERLAY",
+      "note": "nine letters, exactly the length the answer asks for"
+     }
+    ],
+    "walkthrough": "'Alien' is doing adjective duty here: not a creature at all, but the quality a noise has when it belongs nowhere on earth.",
+    "definitionFit": "Something unearthly is not of this earth, which is 'alien' used as an adjective - strange and other-worldly rather than a visitor."
+   }
   }
  ]
 } /*JSON-END*/;
