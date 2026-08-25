@@ -34,7 +34,29 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "POPULARFRONT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "POPULAR FRONT",
+    "definition": "Left",
+    "pieces": [
+     "POPULAR",
+     "FRONT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "POPULAR",
+      "note": "the in thing is the one everybody likes, so in = popular"
+     },
+     {
+      "clueFragment": "van",
+      "gives": "FRONT",
+      "note": "the van is the vanguard, the front of an army or a movement"
+     }
+    ],
+    "walkthrough": "Three words, no indicator and no join: the whole trick is that both halves are dictionary synonyms while the surface reads as a position on a road.",
+    "definitionFit": "Left -> POPULAR FRONT: the standing name for a broad alliance of left-wing parties, after the French Front populaire of the 1930s."
+   }
   },
   {
    "id": "1-down",
@@ -55,7 +77,42 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLACENAME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "PLACE NAME",
+    "definition": "Could be Nepal one accepted – also separately Malta?",
+    "indicators": [
+     "Could be"
+    ],
+    "indicatorNotes": {
+     "Could be": "Saying a thing could be something else invites you to read the same letters as a different word entirely."
+    },
+    "linkWords": [
+     "also"
+    ],
+    "anagram": {
+     "fodder": "NEPAL ACE M"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Nepal",
+      "gives": "NEPAL",
+      "note": "the country's own five letters, waiting to be re-sorted"
+     },
+     {
+      "clueFragment": "one accepted",
+      "gives": "ACE",
+      "note": "the card accepted as one, high or low as the game decides, is the ace"
+     },
+     {
+      "clueFragment": "separately Malta",
+      "gives": "M",
+      "note": "taken on its own Malta is M, the letter its cars and aircraft carry"
+     }
+    ],
+    "walkthrough": "Every word works twice: the two countries are examples of the answer and, with the ace and Malta's own letter, they are the letters you re-sort.",
+    "definitionFit": "The whole clue reads straight: Nepal is one and Malta another, while 'could be' admits the answer names the class rather than either country."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +129,37 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANTILES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PANTILES",
+    "definition": "‘They’re on the house’",
+    "definitionNote": "The setter defines by a whole sentence rather than a noun: 'they' stands in for the answer, and the barman's free round is the joke laid over the roof.",
+    "indicators": [
+     "comes in"
+    ],
+    "indicatorNotes": {
+     "comes in": "Whatever comes in has come inside the place named beside it, so those letters land within the other word instead of after it."
+    },
+    "pieces": [
+     "P",
+     "ANT",
+     "ILES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot",
+      "gives": "PILES",
+      "note": "a lot of something is piles of it"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the crossword's worker is almost always the ant"
+     }
+    ],
+    "walkthrough": "The quotation marks are the tell: they mark a phrase being quoted for its everyday meaning, and the everyday meaning is the wrong one.",
+    "definitionFit": "‘They’re on the house’ -> PANTILES: curved roofing tiles, which literally sit on top of a building — the free-drinks reading is the decoy."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +176,36 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUCRE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LUCRE",
+    "definition": "money",
+    "indicators": [
+     "pocketing"
+    ],
+    "indicatorNotes": {
+     "pocketing": "To pocket a thing is to slip it inside your coat, so the letter beside it disappears into the middle of the other word."
+    },
+    "pieces": [
+     "LU",
+     "C",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decoy",
+      "gives": "LURE",
+      "note": "a decoy set out to draw something in is a lure"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO alphabet, the same trick that makes Oscar an O"
+     }
+    ],
+    "walkthrough": "The surface is a drugs bust, where Charlie is cocaine; the wordplay only ever wanted the alphabet's third letter.",
+    "definitionFit": "money -> LUCRE: the sneering word for money as gain, kept alive almost entirely by the phrase 'filthy lucre' out of the Epistle to Titus."
+   }
   },
   {
    "id": "4-down",
@@ -110,7 +226,32 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAREEARTH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RARE EARTH",
+    "definition": "Element",
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "RARE",
+     "EARTH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red",
+      "gives": "RARE",
+      "note": "a steak still red in the middle is a rare one"
+     },
+     {
+      "clueFragment": "Planet",
+      "gives": "EARTH",
+      "note": "the planet we are standing on"
+     }
+    ],
+    "walkthrough": "'Red Planet' is Mars while you read it as a phrase and two unrelated words the moment you stop, which is why nothing here is about space.",
+    "definitionFit": "Element -> RARE EARTH: the rare earths are the seventeen scandium and lanthanide metals, so the general word points at one particular family of them."
+   }
   },
   {
    "id": "5-down",
@@ -131,7 +272,44 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROLLUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ROLL UP",
+    "definition": "Arrive",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "bowled over"
+    ],
+    "indicatorNotes": {
+     "bowled over": "Anyone bowled over has been knocked flat, and letters knocked flat like that finish up reading the opposite way."
+    },
+    "pieces": [
+     "RO",
+     "LLUP"
+    ],
+    "subReversals": [
+     {
+      "from": "PULLOR",
+      "to": "ROLLUP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drag",
+      "gives": "PULL",
+      "note": "to drag something along is to pull it"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR is other ranks, the army's men who are not officers"
+     }
+    ],
+    "walkthrough": "OR for other ranks is worth banking — it turns up far more often in cryptics than in life — and here it hides behind a picture of men in frocks.",
+    "definitionFit": "Arrive -> ROLL UP: 'roll up!' is the fairground barker's call to come along, and the phrasal verb means to turn up, usually late or in numbers."
+   }
   },
   {
    "id": "6-down",
@@ -148,7 +326,44 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAMED",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "NAMED",
+    "definition": "Titled",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "Something upset has been tipped over, and in a down answer that means its letters are read from the bottom of the column upwards."
+    },
+    "pieces": [
+     "NAM",
+     "ED"
+    ],
+    "subReversals": [
+     {
+      "from": "MAN",
+      "to": "NAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gent",
+      "gives": "MAN",
+      "note": "a gent is a man"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is the editor, the journalist crosswords keep on the payroll"
+     }
+    ],
+    "walkthrough": "The aristocratic ring of 'titled' is pure decoy, and 'upset' has to be read as an instruction rather than as the gent's mood.",
+    "definitionFit": "Titled -> NAMED: to be titled is to have been given a title, and a title is a name — the past participle, not anything to do with lords."
+   }
   },
   {
    "id": "7-down",
@@ -165,7 +380,35 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAWPAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PAWPAW",
+    "definition": "fruit",
+    "indicators": [
+     "Greedily"
+    ],
+    "indicatorNotes": {
+     "Greedily": "Greed is never satisfied by one helping, so the word beside it is served up twice over."
+    },
+    "pieces": [
+     "PAW",
+     "PAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "handles",
+      "gives": "PAW",
+      "note": "to paw at something is to handle it clumsily"
+     },
+     {
+      "clueFragment": "handles",
+      "gives": "PAW",
+      "note": "and again, because one grab was not enough"
+     }
+    ],
+    "walkthrough": "A two-word clue with a doubling in it is Vlad at his most compact: the picture of grabby hands is also the instruction to take the word twice.",
+    "definitionFit": "fruit -> PAWPAW: the other name for the papaya, the orange-fleshed tropical fruit, and in North America a different custard-like one entirely."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +425,46 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HYBRID",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "HYBRID",
+    "definition": "modern car",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Turned about is turned to face the other way, so the two pieces before it are written in the opposite order to the one you read."
+    },
+    "pieces": [
+     "HYB",
+     "RID"
+    ],
+    "subReversals": [
+     {
+      "from": "BYH",
+      "to": "HYB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Through",
+      "gives": "BY",
+      "note": "to go through a place is to go by way of it"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the henry, the unit of electrical inductance"
+     },
+     {
+      "clueFragment": "to get free",
+      "gives": "RID",
+      "note": "to get free of something is to be rid of it"
+     }
+    ],
+    "walkthrough": "Henry is a man in the surface and a unit of inductance in the wordplay — one of physics' quieter gifts to the crossword, alongside amp and ohm.",
+    "definitionFit": "modern car -> HYBRID: the petrol-and-electric car, named from the general word for anything bred out of two different sources."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +481,38 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "AGAIN",
+    "definition": "a second time",
+    "linkWords": [
+     "With"
+    ],
+    "indicators": [
+     "header"
+    ],
+    "indicatorNotes": {
+     "header": "A footballer's header is played with the top of the head, and here it takes the letter sitting at the top of the name."
+    },
+    "pieces": [
+     "A",
+     "GAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adams",
+      "gives": "A",
+      "note": "the letter at the front of Adams"
+     },
+     {
+      "clueFragment": "win",
+      "gives": "GAIN",
+      "note": "to win something is to gain it"
+     }
+    ],
+    "walkthrough": "Tony Adams heading one in is the surface; the wordplay wants nothing of the man but his initial, which is what 'header' is quietly asking for.",
+    "definitionFit": "a second time -> AGAIN: doing a thing again is doing it a second time, which is why the definition has to be a phrase rather than one word."
+   }
   },
   {
    "id": "10-across",
@@ -220,7 +533,43 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "CORBLIMEY",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "COR BLIMEY",
+    "definition": "Wow!",
+    "indicators": [
+     "pointlessly",
+     "entering"
+    ],
+    "indicatorNotes": {
+     "pointlessly": "A point here is a point of the compass, N, so anything pointless has had that letter taken out of it.",
+     "entering": "To enter a building is to go inside it, so the name goes within the other word rather than alongside it."
+    },
+    "pieces": [
+     "CORB",
+     "LIME",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old political leader",
+      "gives": "CORBYN",
+      "note": "Jeremy Corbyn, who led Labour until 2020"
+     },
+     {
+      "clueFragment": "pointlessly",
+      "gives": "",
+      "note": "N is the compass point, and taking it away leaves CORBY"
+     },
+     {
+      "clueFragment": "filmed Harry",
+      "gives": "LIME",
+      "note": "Harry Lime is the man everyone is hunting in The Third Man"
+     }
+    ],
+    "walkthrough": "'Cor blimey' is 'God blind me' worn smooth by a century of use, which is why it means nothing in particular and everything as an exclamation.",
+    "definitionFit": "Wow! -> COR BLIMEY: both are noises of pure astonishment rather than words with a sense, one of them wearing a Cockney accent."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +586,44 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUERILE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "PUERILE",
+    "definition": "Trivial",
+    "linkWords": [
+     "getting"
+    ],
+    "indicators": [
+     "first two"
+    ],
+    "indicatorNotes": {
+     "first two": "Asking for the first two of a word takes the pair of letters at its start, still standing in the order they came."
+    },
+    "pieces": [
+     "PU",
+     "E",
+     "RILE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pursuit’s first two",
+      "gives": "PU",
+      "note": "the opening pair of letters of Pursuit"
+     },
+     {
+      "clueFragment": "egghead",
+      "gives": "E",
+      "note": "the head of egg is the letter at the top of it"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "RILE",
+      "note": "to upset someone is to rile them"
+     }
+    ],
+    "walkthrough": "'Upset' looks like an instruction to turn something over and is a straight synonym instead, which is the whole trap in the clue.",
+    "definitionFit": "Trivial -> PUERILE: not just unimportant but childishly so, the word carrying a sneer at whoever bothered with it that 'trivial' only implies."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +640,42 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ECUADOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ECUADOR",
+    "definition": "country",
+    "linkWords": [
+     "takes"
+    ],
+    "indicators": [
+     "round"
+    ],
+    "indicatorNotes": {
+     "round": "To carry something round is to move it about, and letters moved about like that do not stay in the order the clue set them."
+    },
+    "anagram": {
+     "fodder": "ACE ROD U"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "ACE",
+      "note": "an ace at anything is an expert at it"
+     },
+     {
+      "clueFragment": "fisherman, one might say",
+      "gives": "ROD",
+      "note": "a river beat is let to so many rods, the angler named for his tackle"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "you is U, the letter that says the whole word"
+     }
+    ],
+    "walkthrough": "'One might say' is Vlad owning how loose a rod for an angler is, and the fishing holiday it paints has nothing to do with South America.",
+    "definitionFit": "country -> ECUADOR: the South American republic named after the equator running through it, so the general word points at one particular nation."
+   }
   },
   {
    "id": "13-across",
@@ -275,7 +696,51 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "WEASELWORD",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "WEASEL WORD",
+    "definition": "a misleading term",
+    "linkWords": [
+     "it’s"
+    ],
+    "indicators": [
+     "receiving"
+    ],
+    "indicatorNotes": {
+     "receiving": "To receive a guest is to have them into the house, so what is received sits inside rather than beside."
+    },
+    "pieces": [
+     "W",
+     "EASEL",
+     "W",
+     "O",
+     "RD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wives",
+      "gives": "WW",
+      "note": "W is the standard shortening of wife, so two wives are two Ws"
+     },
+     {
+      "clueFragment": "‘support’",
+      "gives": "EASEL",
+      "note": "an easel is what supports a painter's canvas"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "O",
+      "note": "no score at all is nothing, written as O"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "RD is road, the way on a street sign"
+     }
+    ],
+    "walkthrough": "'No way' is a flat refusal in the surface and nothing-plus-road in the wordplay, and the quotation marks round support are the setter grinning.",
+    "definitionFit": "a misleading term -> WEASEL WORD: one drained of meaning to dodge a commitment, from the weasel's trick of sucking an egg and leaving the shell whole."
+   }
   },
   {
    "id": "14-down",
@@ -296,7 +761,46 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "WRISTDROP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "WRIST-DROP",
+    "definition": "medical condition",
+    "indicators": [
+     "not",
+     "treating"
+    ],
+    "indicatorNotes": {
+     "not": "Putting 'not' in front of a thing takes that thing away from the letters you have been given.",
+     "treating": "To treat a substance is to work on it until it comes out changed, which is exactly what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "POWDR ITS R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Powder",
+      "gives": "POWDER",
+      "note": "the word's own letters, before anything is done to them"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "",
+      "note": "E is the drug ecstasy, and it comes out of POWDER"
+     },
+     {
+      "clueFragment": "it’s",
+      "gives": "ITS",
+      "note": "the clue's own word, taken as its three letters"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard shortening of right"
+     }
+    ],
+    "walkthrough": "The medical surface does double work: 'treating' is the instruction and 'condition' the definition, and they sit side by side pretending to be one phrase.",
+    "definitionFit": "medical condition -> WRIST-DROP: the limp hand left by damage to the radial nerve, a named clinical sign rather than a loose description."
+   }
   },
   {
    "id": "15-across",
@@ -313,7 +817,29 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABED",
+    "definition": "lying",
+    "pieces": [
+     "ABE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "ABE",
+      "note": "Abe Lincoln, the president crosswords keep nearest to hand"
+     },
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is departs on a timetable board"
+     }
+    ],
+    "walkthrough": "A first name and a station-board letter, wrapped in a surface about a president leaving office and telling untruths — neither of which is in the parse.",
+    "definitionFit": "lying -> ABED: to be abed is to be lying in bed, the old adverb that survives in 'up and abed' and hardly anywhere else."
+   }
   },
   {
    "id": "16-down",
@@ -330,7 +856,42 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BALMINESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BALMINESS",
+    "definition": "soft and gentle nature",
+    "linkWords": [
+     "showing"
+    ],
+    "indicators": [
+     "Playful"
+    ],
+    "indicatorNotes": {
+     "Playful": "Lambs at play skip about with no order to them at all, and letters described that way behave the same."
+    },
+    "anagram": {
+     "fodder": "LAMBS IN SE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "lambs",
+      "gives": "LAMBS",
+      "note": "the word's own five letters"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the clue's own word, taken as two letters rather than as a position"
+     },
+     {
+      "clueFragment": "SE",
+      "gives": "SE",
+      "note": "the compass point exactly as written"
+     }
+    ],
+    "walkthrough": "The surface is a spring field and the only instruction in it is the first word; everything after it, small words included, is fodder.",
+    "definitionFit": "soft and gentle nature -> BALMINESS: the mildness of balmy air, the noun for weather that soothes — nothing to do with balmy meaning daft."
+   }
   },
   {
    "id": "17-down",
@@ -347,7 +908,44 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WARPAINT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "WAR PAINT",
+    "definition": "decoration in battle",
+    "indicators": [
+     "hiding",
+     "leading"
+    ],
+    "indicatorNotes": {
+     "hiding": "Something hidden is kept inside where it cannot be seen, so those letters go within the other word.",
+     "leading": "The leading letter is the one out in front of a word, and it is all that gets taken."
+    },
+    "pieces": [
+     "W",
+     "AR",
+     "PAIN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "won",
+      "gives": "W",
+      "note": "the letter at the front of won"
+     },
+     {
+      "clueFragment": "Cunning",
+      "gives": "ART",
+      "note": "art is cunning — the artful dodger's kind rather than the gallery's"
+     },
+     {
+      "clueFragment": "effect of injury",
+      "gives": "PAIN",
+      "note": "what an injury leaves behind is pain"
+     }
+    ],
+    "walkthrough": "The dash tempts you to read 'won' with the first half of the clue; it belongs to the second, and until it moves there is no letter to start from.",
+    "definitionFit": "decoration in battle -> WAR PAINT: the pattern daubed on the face before fighting, decoration in the sense of something applied rather than a medal."
+   }
   },
   {
    "id": "18-across",
@@ -364,7 +962,27 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEEK",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SEEK",
+    "definition": "Try to get",
+    "indicators": [
+     "talking"
+    ],
+    "indicatorNotes": {
+     "talking": "Talking is saying rather than writing, so what counts is the noise a word makes, not the letters it is spelt with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "religious believer",
+      "soundsLike": "SIKH",
+      "gives": "SEEK",
+      "note": "a Sikh is a believer in Sikhism, and his name is said exactly like the word wanted"
+     }
+    ],
+    "walkthrough": "Vlad is relying on you knowing how the religion is spelt: what you hear and what you write share not a single letter in the same place.",
+    "definitionFit": "Try to get -> SEEK: to seek is to try to get hold of something, the verb at its plainest — seek and ye shall find."
+   }
   },
   {
    "id": "18-down",
@@ -381,7 +999,41 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRIBE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SCRIBE",
+    "definition": "Writer",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "almost",
+     "for wrapping"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost a word is not quite all of it, so the last letter never gets written down.",
+     "for wrapping": "Wrapping paper closes round a parcel, so this piece goes round the letters it is handed."
+    },
+    "pieces": [
+     "S",
+     "CRIB",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ready",
+      "gives": "SE",
+      "note": "ready is set — ready, steady, go — with the last letter gone"
+     },
+     {
+      "clueFragment": "copy",
+      "gives": "CRIB",
+      "note": "a crib is a copy to work from, the schoolboy's cheat sheet"
+     }
+    ],
+    "walkthrough": "'Ready' for SET is worth banking, and it explains a clue that otherwise looks as though it is about a manuscript nearly finished.",
+    "definitionFit": "Writer -> SCRIBE: the copyist who wrote documents out by hand before printing, so the general word names one historical trade of writer."
+   }
   },
   {
    "id": "19-across",
@@ -402,7 +1054,38 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIGHTAILIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HIGHTAIL IT",
+    "definition": "Run",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "HIGH",
+     "TAIL",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "HIGH",
+      "note": "up in the air is high"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "TAIL",
+      "note": "the tail is the end of a thing — the tail of a queue, the tail of a plane"
+     },
+     {
+      "clueFragment": "something special",
+      "gives": "IT",
+      "note": "'it' was Clara Bow's word for the something extra a star has"
+     }
+    ],
+    "walkthrough": "The idiom is American and never lets go of its 'it' — you cannot hightail anything else — which is why the last two letters need clueing separately.",
+    "definitionFit": "Run -> HIGHTAIL IT: to hightail it is to leave at speed, from the deer that lifts its white tail as it bolts for cover."
+   }
   },
   {
    "id": "20-down",
@@ -419,7 +1102,38 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TESTIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TESTIS",
+    "definition": "ball",
+    "linkWords": [
+     "having a"
+    ],
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "An ordeal that is over is behind you, so the country only arrives once the other piece has been written in."
+    },
+    "pieces": [
+     "TEST",
+     "IS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ordeal",
+      "gives": "TEST",
+      "note": "an ordeal is a test, a trial you have to get through"
+     },
+     {
+      "clueFragment": "Iceland",
+      "gives": "IS",
+      "note": "IS is Iceland's international code, the letters on its cars and web addresses"
+     }
+    ],
+    "walkthrough": "Country codes are a small vocabulary that pays off often — E for Spain, D for Germany, IS here — and 'having a ball' sounds like a good holiday until the last word turns.",
+    "definitionFit": "ball -> TESTIS: the clinical singular of what slang calls the balls, so a coarse everyday word defines the anatomist's one."
+   }
   },
   {
    "id": "21-down",
@@ -436,7 +1150,52 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORDIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "NORDIC",
+    "definition": "blue-eyed boy",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "describing",
+     "standing"
+    ],
+    "indicatorNotes": {
+     "describing": "To describe a circle is to draw one round something, so this word goes around the letters that follow it.",
+     "standing": "Something standing has been set upright, and in a down answer upright means its letters are read from the bottom up."
+    },
+    "pieces": [
+     "NO",
+     "RDI",
+     "C"
+    ],
+    "subReversals": [
+     {
+      "from": "CIDRON",
+      "to": "NORDIC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Against",
+      "gives": "CON",
+      "note": "the pros and cons are the fors and againsts"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "DR",
+      "note": "DR is the doctor, the crossword's standard medic"
+     }
+    ],
+    "walkthrough": "Two instructions sit next to each other here, one putting a piece inside and one turning the lot upright, and they have to be done in that order.",
+    "definitionFit": "blue-eyed boy -> NORDIC: fair hair and blue eyes are the stock picture of the Scandinavian north, so the phrase describes a type rather than naming a favourite."
+   }
   },
   {
    "id": "22-across",
@@ -453,7 +1212,33 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAPPORT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RAPPORT",
+    "definition": "a good relationship",
+    "linkWords": [
+     "and",
+     "It’s"
+    ],
+    "pieces": [
+     "RAP",
+     "PORT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Music",
+      "gives": "RAP",
+      "note": "rap is a kind of music"
+     },
+     {
+      "clueFragment": "Liverpool",
+      "gives": "PORT",
+      "note": "Liverpool is a port, and one of the great ones"
+     }
+    ],
+    "walkthrough": "The question mark is covering a definition by example: any of Hull, Cork or Dover would have done the same job for those four letters.",
+    "definitionFit": "a good relationship -> RAPPORT: the easy understanding between people who get on, borrowed from French and always used of the connection itself."
+   }
   },
   {
    "id": "23-down",
@@ -470,7 +1255,33 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRADO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRADO",
+    "definition": "Where to see pictures",
+    "linkWords": [
+     "causing",
+     "with"
+    ],
+    "pieces": [
+     "PR",
+     "ADO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicists",
+      "gives": "PR",
+      "note": "PR is public relations, the publicists' trade"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "ADO",
+      "note": "much ado is much trouble, as Shakespeare has it"
+     }
+    ],
+    "walkthrough": "The wordplay describes a publicity disaster and the definition points at Madrid, and only the question mark warns that the two halves share no subject.",
+    "definitionFit": "Where to see pictures -> PRADO: Madrid's national gallery, so a general phrase about paintings points at one particular building full of Goyas and Velázquezes."
+   }
   },
   {
    "id": "24-across",
@@ -487,7 +1298,38 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMPTIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters + last letter",
+    "answer": "EMPTIES",
+    "definition": "Dead soldiers",
+    "indicators": [
+     "ultimately",
+     "regularly",
+     "awful"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What happens ultimately happens at the very end, so only the final letter of the word beside it is taken.",
+     "regularly": "Doing a thing regularly is doing it at even intervals, so you pick every other letter as you go along.",
+     "awful": "An awful state is a mess, and letters in a mess are letters not yet in their proper order."
+    },
+    "anagram": {
+     "fodder": "MPEIET S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "losers",
+      "gives": "S",
+      "note": "the final letter of losers"
+     },
+     {
+      "clueFragment": "Mr President",
+      "gives": "MPEIET",
+      "note": "every other letter of Mr President, starting at the M"
+     }
+    ],
+    "walkthrough": "Two different letter-picking tricks feed a single anagram, so the order matters: choose the letters first, jumble them afterwards.",
+    "definitionFit": "Dead soldiers -> EMPTIES: drinkers' slang for the bottles left standing when a party is over, which the drinks trade calls its empties."
+   }
   },
   {
    "id": "24-down",
@@ -504,7 +1346,35 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ELDER",
+    "definition": "church official",
+    "indicators": [
+     "bilingual"
+    ],
+    "indicatorNotes": {
+     "bilingual": "Someone bilingual has two languages, so the little word beside it is taken twice, once in each of them."
+    },
+    "pieces": [
+     "EL",
+     "DER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     },
+     {
+      "clueFragment": "The",
+      "gives": "DER",
+      "note": "der is German for the"
+     }
+    ],
+    "walkthrough": "Crosswords borrow the definite article from whichever language is handy — LE, LA, EL, DER, IL — and here one small word supplies the whole build.",
+    "definitionFit": "church official -> ELDER: in Presbyterian and other reformed churches an elder is an ordained lay officer who helps govern the congregation."
+   }
   },
   {
    "id": "25-across",
@@ -521,7 +1391,33 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLADDERED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BLADDERED",
+    "definition": "Wasted",
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "B",
+     "LADDER",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retired",
+      "gives": "BED",
+      "note": "to retire for the night is to go to bed"
+     },
+     {
+      "clueFragment": "chance to go higher",
+      "gives": "LADDER",
+      "note": "a ladder is a chance to get higher, up a wall or up a career"
+     }
+    ],
+    "walkthrough": "No word here tells you to put one piece inside the other — the single image of a ladder standing in the bedroom does that job, and its absence is the difficulty.",
+    "definitionFit": "Wasted -> BLADDERED: both are slang for very drunk, the British half of the pair naming the organ that a long evening's drinking fills."
+   }
   },
   {
    "id": "26-across",
@@ -538,7 +1434,46 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICENI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ICENI",
+    "definition": "Old people",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "rejected",
+     "originally"
+    ],
+    "indicatorNotes": {
+     "rejected": "Something rejected is thrown back at you, so those letters are written the other way round.",
+     "originally": "What comes originally comes first of all, so the jewellery is written at the start rather than where it is mentioned."
+    },
+    "pieces": [
+     "ICE",
+     "NI"
+    ],
+    "subReversals": [
+     {
+      "from": "IN",
+      "to": "NI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jewellery",
+      "gives": "ICE",
+      "note": "ice is the jeweller's slang for diamonds"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "walkthrough": "'Old people' is literal — a people, meaning a nation, rather than pensioners — and the surface's care home is there to stop you reading it that way.",
+    "definitionFit": "Old people -> ICENI: Boudicca's tribe in East Anglia, so 'people' means a nation and 'old' means long vanished rather than elderly."
+   }
   },
   {
    "id": "27-across",
@@ -559,7 +1494,41 @@ window.CRYPTIC_PUZZLES["cryptic-30080"] = /*JSON-START*/ {
     ]
    },
    "solution": "PORCHPIRATES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + container",
+    "answer": "PORCH PIRATES",
+    "definition": "Thieves",
+    "indicators": [
+     "disposed of",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "disposed of": "To dispose things is to set them out in whatever order you choose, which is licence to re-set these letters.",
+     "mostly": "Most of a word is all of it but the last letter, so one letter is left behind."
+    },
+    "anagram": {
+     "fodder": "PROPERT CASH I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "property",
+      "gives": "PROPERT",
+      "note": "property with its final letter dropped"
+     },
+     {
+      "clueFragment": "cash",
+      "gives": "CASH",
+      "note": "the word's own four letters"
+     },
+     {
+      "clueFragment": "around island",
+      "gives": "I",
+      "note": "I is island on a map, and the other letters close around it"
+     }
+    ],
+    "walkthrough": "The answer is a very new coinage and the wordplay is as old-fashioned as it comes, which is the joke: modern crime, Victorian machinery.",
+    "definitionFit": "Thieves -> PORCH PIRATES: the recent name for people who steal delivered parcels off doorsteps, 'pirate' serving as the modern word for any casual robber."
+   }
   }
  ]
 } /*JSON-END*/;
