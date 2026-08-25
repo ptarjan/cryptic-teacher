@@ -30,7 +30,26 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMAGNAC",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ARMAGNAC",
+    "definition": "Spirit",
+    "indicators": [
+     "embodied by"
+    ],
+    "indicatorNotes": {
+     "embodied by": "to be embodied by something is to be given a body that wraps right round you, so the letters sit inside the words that follow"
+    },
+    "blocks": [
+     {
+      "clueFragment": "secular Magna Carta",
+      "gives": "ARMAGNAC",
+      "note": "the tail of seculAR runs straight into MAGNA and picks up the C of Carta"
+     }
+    ],
+    "walkthrough": "The join between two words is where a hidden run is easiest to spot, and this one crosses three, which is why the constitutional surface holds together so well.",
+    "definitionFit": "Spirit -> ARMAGNAC: definition by example, since Armagnac is one particular Gascon brandy rather than a synonym for spirits."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +66,37 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + last letter",
+    "answer": "ARCH",
+    "definition": "Roguish",
+    "indicators": [
+     "undressed",
+     "finally"
+    ],
+    "indicatorNotes": {
+     "undressed": "a word with its clothes off has lost the letters at each end, the ones that were covering the rest",
+     "finally": "what happens finally happens at the end, so only the closing letter of the name is wanted"
+    },
+    "pieces": [
+     "ARC",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Austen hero",
+      "gives": "ARC",
+      "note": "the Austen hero is Darcy, and undressed he keeps only his middle"
+     },
+     {
+      "clueFragment": "Elizabeth",
+      "gives": "H",
+      "note": "Darcy's match ends in H, and that is all she contributes"
+     }
+    ],
+    "walkthrough": "Pride and Prejudice supplies both halves, so the clue reads as gossip about the novel rather than as two instructions.",
+    "definitionFit": "Roguish -> ARCH: an arch smile is a knowing, mischievous one, the sense that survives in 'arch look' rather than the doorway or the chief-villain prefix."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +117,41 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARIEANTOINETTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letters",
+    "answer": "MARIE ANTOINETTE",
+    "definition": "princess",
+    "indicators": [
+     "Trashing",
+     "contents of"
+    ],
+    "indicatorNotes": {
+     "Trashing": "trash a room and nothing is left where it stood, which is what happens to letters told to move",
+     "contents of": "the contents are what you find once the container is off, so the outside letters at each end are dropped"
+    },
+    "anagram": {
+     "fodder": "ETITTRIANOMEANE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Petit Trianon",
+      "gives": "ETITTRIANO",
+      "note": "the queen's own little chateau at Versailles, giving up its outer P and N"
+     },
+     {
+      "clueFragment": "mean",
+      "gives": "MEAN",
+      "note": "four more letters, taken as they stand"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "walkthrough": "The Petit Trianon was her private retreat in the grounds of Versailles, so surface and letters are drawn from the same place.",
+    "definitionFit": "princess -> MARIE ANTOINETTE: she was an archduchess of Austria and a princess of the house of Habsburg long before Versailles."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +168,29 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOSSAMER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GOSSAMER",
+    "definition": "light",
+    "indicators": [
+     "When spread"
+    ],
+    "indicatorNotes": {
+     "When spread": "marge is a spread, and spreading a thing pushes it out of the shape it arrived in - the letters go the same way"
+    },
+    "anagram": {
+     "fodder": "MARGESSO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "marge's so",
+      "gives": "MARGESSO",
+      "note": "eight letters including the possessive S, and nothing is added or thrown away"
+     }
+    ],
+    "walkthrough": "Marge is margarine and spreading is what you do with it, so the instruction hides inside an entirely sensible sentence about a tub.",
+    "definitionFit": "light -> GOSSAMER: both are adjectives for something almost weightless, gossamer being the cobweb-fine kind of light rather than the opposite of dark."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +207,37 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AORTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "AORTA",
+    "definition": "arterial route",
+    "indicators": [
+     "cleared",
+     "south of"
+    ],
+    "indicatorNotes": {
+     "cleared": "a cleared building keeps its walls and loses everything inside, and a cleared word keeps its first and last letters",
+     "south of": "south is downwards on a map and downwards in a down entry, so this piece is written underneath the other"
+    },
+    "pieces": [
+     "AO",
+     "RTA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aleppo",
+      "gives": "AO",
+      "note": "clear the inside out of Aleppo and the two letters at the ends survive"
+     },
+     {
+      "clueFragment": "Car crash",
+      "gives": "RTA",
+      "note": "RTA is a road traffic accident, the police shorthand for a car crash"
+     }
+    ],
+    "walkthrough": "RTA off a police report is the abbreviation worth banking here; the Syrian city keeps the sentence sounding like a news bulletin.",
+    "definitionFit": "arterial route -> AORTA: an arterial road is a town's main road, and the aorta is the body's own main artery, so the phrase works in both anatomies."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +254,35 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANUBIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "ANUBIS",
+    "definition": "figure revered along the Nile",
+    "indicators": [
+     "Uncover"
+    ],
+    "indicatorNotes": {
+     "Uncover": "taking the cover off a word means stripping the letters at each end, the ones wrapped round the rest"
+    },
+    "pieces": [
+     "ANUB",
+     "IS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue River",
+      "gives": "ANUB",
+      "note": "the Blue River is the Danube of the waltz, and uncovered it loses its D and its E"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "Is. is the map-maker's abbreviation for island"
+     }
+    ],
+    "walkthrough": "Blue and River belong to one name rather than two hints, and spotting Strauss's waltz behind them is the step that opens the clue.",
+    "definitionFit": "figure revered along the Nile -> ANUBIS: the jackal-headed god of embalming, worshipped the length of ancient Egypt, so 'figure' means deity."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +299,41 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIMROD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NIMROD",
+    "definition": "Hunter",
+    "indicators": [
+     "set up"
+    ],
+    "indicatorNotes": {
+     "set up": "this is a down entry, so a piece stood on end climbs the grid and arrives with its letters in the opposite order"
+    },
+    "pieces": [
+     "NI",
+     "MROD"
+    ],
+    "subReversals": [
+     {
+      "from": "DORMIN",
+      "to": "NIMROD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleeping accommodation",
+      "gives": "DORM",
+      "note": "a dorm is a room full of beds, sleeping accommodation in one word"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in, the crossword's hardest-working two letters"
+     }
+    ],
+    "walkthrough": "Nimrod is the mighty hunter of Genesis, which is also why Elgar called a friend's variation by his name.",
+    "definitionFit": "Hunter -> NIMROD: the great-grandson of Noah described in Genesis as a mighty hunter, and since then the word for any keen hunter."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +354,35 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
     ]
    },
    "solution": "BODLEIANLIBRARY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BODLEIAN LIBRARY",
+    "definition": "books here",
+    "definitionNote": "'books here' points at the answer as a place rather than offering a noun you could swap in: the setter defines it by what it holds and where, which is fair for a building.",
+    "indicators": [
+     "worked"
+    ],
+    "indicatorNotes": {
+     "worked": "dough is worked until nothing of its old shape is left, and the same is being asked of these letters"
+    },
+    "anagram": {
+     "fodder": "ROBINDAYBRAILLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Robin Day",
+      "gives": "ROBINDAY",
+      "note": "Sir Robin Day, the BBC's great interrogator, hands over the eight letters of his name"
+     },
+     {
+      "clueFragment": "braille",
+      "gives": "BRAILLE",
+      "note": "the raised-dot reading system joins the pile whole, seven letters more"
+     }
+    ],
+    "walkthrough": "'Day worked with braille' reads as a career and a cause rather than as fifteen letters, which is what keeps the anagram out of sight.",
+    "definitionFit": "books here -> BODLEIAN LIBRARY: Oxford's copyright library, entitled to a copy of every book published in Britain, so 'here' is where books genuinely are."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +399,48 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SACRAMENTO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SACRAMENTO",
+    "definition": "US city",
+    "indicators": [
+     "eating"
+    ],
+    "indicatorNotes": {
+     "eating": "whatever is eaten ends up inside the eater, so these letters are swallowed by the word beside them"
+    },
+    "pieces": [
+     "SA",
+     "C",
+     "RAMEN",
+     "T",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seated",
+      "gives": "SAT",
+      "note": "seated is sat, and it opens up to take the meal"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the letter on the cold tap"
+     },
+     {
+      "clueFragment": "Japanese noodles",
+      "gives": "RAMEN",
+      "note": "ramen are the Japanese noodles"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     }
+    ],
+    "walkthrough": "Cricket's O for an over is the convention to keep; the restaurant scene is doing all the misdirection on its own.",
+    "definitionFit": "US city -> SACRAMENTO: California's state capital on the river of the same name, so the phrase names one city by example."
+   }
   },
   {
    "id": "9-down",
@@ -191,7 +457,30 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWADDLED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWADDLED",
+    "definition": "Well wrapped up",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "WADDLED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the family-tree abbreviation for son"
+     },
+     {
+      "clueFragment": "walked with clumsy gait",
+      "gives": "WADDLED",
+      "note": "to waddle is to walk with the rolling, ungainly gait of a duck"
+     }
+    ],
+    "walkthrough": "'Well wrapped up' sounds like advice about cold weather, which is exactly what hides the baby in its swaddling clothes.",
+    "definitionFit": "Well wrapped up -> SWADDLED: the word for an infant bound snugly in strips of cloth, so the everyday phrase describes that binding."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +497,31 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORKSCREW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CORKSCREW",
+    "definition": "that gets stuck into the vino",
+    "definitionNote": "The answer is defined by what it does rather than by a noun you could swap in, and the joke is that what it really gets stuck into is the cork rather than the wine.",
+    "indicators": [],
+    "pieces": [
+     "CORKS",
+     "CREW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish city's",
+      "gives": "CORKS",
+      "note": "Cork is the city on the Lee, and the possessive S it owns comes along as a letter"
+     },
+     {
+      "clueFragment": "ship's company",
+      "gives": "CREW",
+      "note": "a ship's company is its crew"
+     }
+    ],
+    "walkthrough": "Cork's own name is the joke: the Irish city and the thing in the bottleneck are the same word, and only one of them is doing the wordplay.",
+    "definitionFit": "that gets stuck into the vino -> CORKSCREW: the spiral is driven into the cork of a wine bottle, so 'gets stuck in' is meant literally."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +538,36 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEDOC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MEDOC",
+    "definition": "Peninsula",
+    "indicators": [],
+    "pieces": [
+     "MED",
+     "O",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the sea, shortened the way everyone shortens it"
+     },
+     {
+      "clueFragment": "freezing",
+      "gives": "O",
+      "note": "water freezes at nought degrees, and nought is written as the letter O"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, and for Celsius on the same thermometer"
+     }
+    ],
+    "walkthrough": "Freezing cold is 0C on a thermometer, which is the joke the last two letters are built on.",
+    "definitionFit": "Peninsula -> MEDOC: the tongue of land north of Bordeaux between the Gironde estuary and the Atlantic, better known for its clarets than its shape."
+   }
   },
   {
    "id": "12-across",
@@ -242,7 +584,30 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FETA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FETA",
+    "definition": "Source of protein",
+    "indicators": [],
+    "pieces": [
+     "FE",
+     "TA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is iron's symbol on the periodic table"
+     },
+     {
+      "clueFragment": "Thanks",
+      "gives": "TA",
+      "note": "ta is the everyday British thanks"
+     }
+    ],
+    "walkthrough": "Two of the most reliable abbreviations in the game sit side by side, and the exclamation mark makes them read as chat rather than chemistry.",
+    "definitionFit": "Source of protein -> FETA: the Greek sheep's-milk cheese, an example of a protein food rather than a synonym, which is what the question mark signals."
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +624,44 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANDROMEDA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + middle letters",
+    "answer": "ANDROMEDA",
+    "definition": "Group of stars",
+    "indicators": [
+     "open",
+     "in"
+    ],
+    "indicatorNotes": {
+     "open": "a landau with its top open is a carriage you can see straight into, and a word opened this way gives up what is inside it",
+     "in": "the plainest instruction there is for putting one thing within another"
+    },
+    "pieces": [
+     "AN",
+     "D",
+     "ROME",
+     "DA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "landau",
+      "gives": "ANDA",
+      "note": "opened up, LANDAU parts with the L and U at its ends"
+     },
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the timetable's abbreviation for departs"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROME",
+      "note": "the capital wanted is Italy's"
+     }
+    ],
+    "walkthrough": "D for departs comes straight off a railway board, and 'capital' asks for a city rather than a capital letter: two habits worth keeping.",
+    "definitionFit": "Group of stars -> ANDROMEDA: the constellation named for the chained princess of Greek myth, so one named constellation answers the general phrase."
+   }
   },
   {
    "id": "14-down",
@@ -276,7 +678,47 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACCRINGTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ACCRINGTON",
+    "definition": "Where to see Stanley",
+    "indicators": [
+     "endlessly"
+    ],
+    "indicatorNotes": {
+     "endlessly": "something endless has had its end removed, so the final letter of the name goes"
+    },
+    "pieces": [
+     "AC",
+     "C",
+     "RING",
+     "TON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "a bill is an account, written a/c"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the radio alphabet"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "to call someone is to ring them"
+     },
+     {
+      "clueFragment": "Tony",
+      "gives": "TON",
+      "note": "Tony without his last letter stops at TON"
+     }
+    ],
+    "walkthrough": "Bill, Charlie and Tony read as three blokes in a pub and are really three separate conventions, which is the whole disguise.",
+    "definitionFit": "Where to see Stanley -> ACCRINGTON: Accrington Stanley are the Lancashire league club, so the town is where that Stanley plays."
+   }
   },
   {
    "id": "15-across",
@@ -293,7 +735,24 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CINDERELLA",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CINDERELLA",
+    "definition": "Sweeper coached away from the ball?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Sweeper",
+      "note": "not the defender playing behind the back four, which is how the football surface reads it: this sweeper works a broom round a hearth full of ashes"
+     },
+     {
+      "clueFragment": "coached away from the ball",
+      "note": "'coached' is transport rather than training - a pumpkin turned into a carriage - and 'the ball' is the palace dance that has to be left by midnight"
+     }
+    ],
+    "walkthrough": "Every word carries a football reading and a pantomime one at the same time, and the question mark is the setter admitting the whole sentence is the definition.",
+    "definitionFit": "Sweeper coached away from the ball? -> the fairy-tale girl who sweeps the cinders, rides to the dance by coach and must leave it at midnight."
+   }
   },
   {
    "id": "16-down",
@@ -314,7 +773,48 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
     ]
    },
    "solution": "EASTSIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EAST SIDE",
+    "definition": "part of Manhattan",
+    "indicators": [
+     "covers"
+    ],
+    "indicatorNotes": {
+     "covers": "to cover a thing is to lie over it on both sides, so the letter covered ends up in the middle"
+    },
+    "pieces": [
+     "EA",
+     "S",
+     "T",
+     "S",
+     "IDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Each",
+      "gives": "EA",
+      "note": "ea. is the price-list shorthand for each"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the clock's abbreviation for a second"
+     },
+     {
+      "clueFragment": "flood",
+      "gives": "TIDE",
+      "note": "the flood tide is the incoming one, so flood alone gives TIDE"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size on a small label"
+     }
+    ],
+    "walkthrough": "Manhattan's East Side is named by compass point, and the rising water of the surface is what keeps three abbreviations from looking like abbreviations.",
+    "definitionFit": "part of Manhattan -> EAST SIDE: the strip of the island east of Central Park, so the definition names a district rather than translating a word."
+   }
   },
   {
    "id": "17-across",
@@ -331,7 +831,34 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAVE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "FAVE",
+    "definition": "Best-loved",
+    "indicators": [
+     "bulldozing"
+    ],
+    "indicatorNotes": {
+     "bulldozing": "a bulldozer flattens what stands there and clears it off the site, so the letters it names are taken away"
+    },
+    "pieces": [
+     "FAVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shanty town",
+      "gives": "FAVELA",
+      "note": "a favela is a Brazilian shanty town"
+     },
+     {
+      "clueFragment": "large area",
+      "gives": "",
+      "note": "L for large and A for area, the two letters flattened out of the favela"
+     }
+    ],
+    "walkthrough": "Fave is the teenage clipping of favourite, and the slum clearance in the surface is the setter's joke about which letters go.",
+    "definitionFit": "Best-loved -> FAVE: the informal short form of favourite, and your favourite is by definition the one you love best."
+   }
   },
   {
    "id": "18-down",
@@ -348,7 +875,38 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAMIZDAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone + deletion",
+    "answer": "SAMIZDAT",
+    "definition": "dissident literature",
+    "indicators": [
+     "We're told",
+     "abridged"
+    ],
+    "indicatorNotes": {
+     "We're told": "being told a thing means meeting it by ear, so what matters is the sound and not the spelling",
+     "abridged": "an abridged book has had its ending cut, and so has this word"
+    },
+    "pieces": [
+     "SAMIZ",
+     "DAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Samuel's",
+      "soundsLike": "SAM'S",
+      "gives": "SAMIZ",
+      "note": "Samuel shortens to Sam, and Sam's spoken aloud ends on a Z sound, written out as you hear it"
+     },
+     {
+      "clueFragment": "girlfriend",
+      "gives": "DAT",
+      "note": "a girlfriend is a date, and abridged she is DAT"
+     }
+    ],
+    "walkthrough": "Samizdat was writing the Soviet censor never saw: typed at home, copied by carbon paper and passed from hand to hand.",
+    "definitionFit": "dissident literature -> SAMIZDAT: the Russian word for self-published banned writing circulated in secret, so it names that literature exactly."
+   }
   },
   {
    "id": "19-across",
@@ -365,7 +923,30 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROOD",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ROOD",
+    "definition": "Cross",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "on the phone"
+    ],
+    "indicatorNotes": {
+     "on the phone": "a voice down a line is all you get, so the word arrives as a sound with its spelling still to be guessed"
+    },
+    "blocks": [
+     {
+      "clueFragment": "abusive",
+      "soundsLike": "RUDE",
+      "gives": "ROOD",
+      "note": "abusive is rude, and RUDE heard down a crackly line is written ROOD"
+     }
+    ],
+    "walkthrough": "A rood is the great crucifix mounted above the chancel screen of an old church, so the definition is architectural rather than bad-tempered.",
+    "definitionFit": "Cross -> ROOD: the church word for the crucifix over the screen, which is why parish churches have a rood loft and a rood screen."
+   }
   },
   {
    "id": "20-across",
@@ -389,7 +970,24 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
     ]
    },
    "solution": "USEDCARLOT",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "USED-CAR LOT",
+    "definition": "Where one might find old Reg Ford?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "old Reg Ford",
+      "note": "reads as a bloke with a first name and a surname, which is the whole disguise: a reg is a registration plate and a Ford is the make wearing it"
+     },
+     {
+      "clueFragment": "Where one might find",
+      "note": "the question mark warns that a place is being described rather than named, and 'old' is what the motor trade politely prints as second-hand"
+     }
+    ],
+    "walkthrough": "Two ordinary trade words are wearing capital letters: Reg for the plate on the windscreen, Ford for the badge on the bonnet.",
+    "definitionFit": "Where one might find old Reg Ford? -> the dealer's forecourt of second-hand motors, exactly where an ageing Ford still carrying its plate ends up."
+   }
   },
   {
    "id": "21-down",
@@ -406,7 +1004,37 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEWELL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SEWELL",
+    "definition": "Novelist",
+    "indicators": [
+     "drained",
+     "after"
+    ],
+    "indicatorNotes": {
+     "drained": "a drained tank has had everything inside emptied out and only its walls left standing",
+     "after": "in a down entry after means further down the column, so this piece follows the one already made"
+    },
+    "pieces": [
+     "SE",
+     "WELL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spine",
+      "gives": "SE",
+      "note": "drain the middle out of SPINE and the two end letters are left"
+     },
+     {
+      "clueFragment": "comfortable",
+      "gives": "WELL",
+      "note": "someone comfortable in themselves is well"
+     }
+    ],
+    "walkthrough": "Anna Sewell wrote Black Beauty and nothing else, so a bare 'Novelist' is doing a lot of work while the surface complains about a bad back.",
+    "definitionFit": "Novelist -> SEWELL: Anna Sewell, author of Black Beauty, so the definition is answered by one novelist's name rather than by a synonym."
+   }
   },
   {
    "id": "22-across",
@@ -444,7 +1072,43 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAHUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "NAHUM",
+    "definition": "prophet",
+    "indicators": [
+     "surrounding",
+     "top"
+    ],
+    "indicatorNotes": {
+     "surrounding": "what surrounds a thing closes on it from both sides, so the letters part company and the piece named goes between them",
+     "top": "the top of a name is where it starts, so only its opening letter is wanted"
+    },
+    "pieces": [
+     "N",
+     "A",
+     "HUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "N",
+      "note": "N is a note in music, one of the seven from A to G"
+     },
+     {
+      "clueFragment": "buzz",
+      "gives": "HUM",
+      "note": "a buzz is a hum"
+     },
+     {
+      "clueFragment": "Alqosh's",
+      "gives": "A",
+      "note": "the opening letter of the Iraqi town's name"
+     }
+    ],
+    "walkthrough": "Alqosh in northern Iraq keeps the tomb traditionally said to be this prophet's, which is why that town and no other is in the clue.",
+    "definitionFit": "prophet -> NAHUM: one of the twelve minor prophets of the Hebrew Bible, so the answer is an instance of the word rather than a synonym."
+   }
   },
   {
    "id": "24-across",
@@ -461,7 +1125,38 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IGBO",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "IGBO",
+    "definition": "Foreign language",
+    "indicators": [
+     "starts to",
+     "around"
+    ],
+    "indicatorNotes": {
+     "starts to": "the start of a word is the letter it begins with, and two words are being asked for theirs",
+     "around": "a piece placed around another closes over it, so the letters part company to let it in"
+    },
+    "pieces": [
+     "I",
+     "GB",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "influence opinion",
+      "gives": "IO",
+      "note": "the opening letters of influence and of opinion"
+     },
+     {
+      "clueFragment": "part of UK",
+      "gives": "GB",
+      "note": "GB is Great Britain, the part of the UK that leaves Northern Ireland out"
+     }
+    ],
+    "walkthrough": "'Part of UK' is a precise description rather than a loose one: Great Britain really is a proper part of the United Kingdom.",
+    "definitionFit": "Foreign language -> IGBO: the language of south-eastern Nigeria and one of that country's three largest, so the phrase names one tongue by example."
+   }
   },
   {
    "id": "25-down",
@@ -495,7 +1190,41 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TITHE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TITHE",
+    "definition": "cash meant for the church",
+    "indicators": [
+     "rejected"
+    ],
+    "indicatorNotes": {
+     "rejected": "something rejected is thrown back at you, and letters thrown back are read from the far end"
+    },
+    "pieces": [
+     "TIT",
+     "HE"
+    ],
+    "subReversals": [
+     {
+      "from": "EHTIT",
+      "to": "TITHE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? is what you say when you did not catch it - 'what' out loud"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "TIT",
+      "note": "a tit is a mild British word for an idiot"
+     }
+    ],
+    "walkthrough": "A tithe was the tenth of a year's produce the parish took by law, so this is a historical levy rather than a collection plate.",
+    "definitionFit": "cash meant for the church -> TITHE: the tenth part of income that the church could once claim by right, so the phrase names the levy itself."
+   }
   },
   {
    "id": "27-across",
@@ -512,7 +1241,47 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEHYDRATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DEHYDRATE",
+    "definition": "dry out",
+    "indicators": [
+     "Heading back"
+    ],
+    "indicatorNotes": {
+     "Heading back": "heading back is retracing the way you came, and this is an across entry, so the letters are read right to left"
+    },
+    "pieces": [
+     "DEH",
+     "YDRAT",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "ETARDYHED",
+      "to": "DEHYDRATE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the compass abbreviation for east"
+     },
+     {
+      "clueFragment": "late",
+      "gives": "TARDY",
+      "note": "late is tardy"
+     },
+     {
+      "clueFragment": "he would",
+      "gives": "HED",
+      "note": "he would contracts to he'd"
+     }
+    ],
+    "walkthrough": "Nothing is shuffled here: three pieces line up in clue order and the whole line is then read from the other end.",
+    "definitionFit": "dry out -> DEHYDRATE: to dehydrate something is to drive the water out of it, which is the transitive sense 'dry out' carries."
+   }
   },
   {
    "id": "28-across",
@@ -529,7 +1298,27 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEEDLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NEEDLE",
+    "definition": "Make cross",
+    "definition2": "stitch using this?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Make cross",
+      "gives": "NEEDLE",
+      "note": "to needle someone is to keep picking at them until they are cross"
+     },
+     {
+      "clueFragment": "stitch using this",
+      "gives": "NEEDLE",
+      "note": "the implement the stitching is actually done with"
+     }
+    ],
+    "walkthrough": "The two halves are glued together by 'cross stitch', a real embroidery term that belongs to neither of them, and that join is the joke.",
+    "definitionFit": "Make cross -> NEEDLE means to provoke or irritate; stitch using this -> NEEDLE is the sewing implement itself, the two senses meeting in cross-stitch."
+   }
   },
   {
    "id": "29-across",
@@ -546,7 +1335,36 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMETHYST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "AMETHYST",
+    "definition": "violet",
+    "indicators": [
+     "lacking",
+     "turning"
+    ],
+    "indicatorNotes": {
+     "lacking": "what a thing lacks it does not have, so the letter named next never joins the pile",
+     "turning": "milk turns and comes back as something else, and letters told to turn come back in another order"
+    },
+    "anagram": {
+     "fodder": "HTSTEAMY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hot, steamy",
+      "gives": "HOTSTEAMY",
+      "note": "nine letters of sauna to work from"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "",
+      "note": "oxygen is O on the periodic table, and that O is the letter dropped before the shuffle"
+     }
+    ],
+    "walkthrough": "Amethyst is the violet quartz, so 'turning violet' describes a colour change on the surface and a gemstone underneath.",
+    "definitionFit": "violet -> AMETHYST: the stone is named for its violet colour, so a shade answers for the gem that is best known for wearing it."
+   }
   }
  ]
 } /*JSON-END*/;
