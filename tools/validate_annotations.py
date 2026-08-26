@@ -41,6 +41,7 @@ fails.
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -59,6 +60,16 @@ TYPE_PARTS = {
     # letter-selection mechanisms
     "first letter", "first letters", "last letter", "last letters",
     "middle letter", "middle letters", "outer letters", "alternate letters",
+    # a single letter picked by its position in the word (12420 14D takes the
+    # second letter of master for the A of AGO), and the plural case where a run
+    # of words each give up the same position (30065 6D takes the second letter
+    # of read advertising watchdog's email to spell EDAM). Note the comments in
+    # this block carry no double quotes: tools/smoke_test.js reads every quoted
+    # string between the braces as a type part.
+    "second letter", "second letters",
+    # "alternate letters" is the every-SECOND case; a setter may count in any
+    # step (30077 17D takes every third letter of HOPE TO GOD to spell POD)
+    "regular letters",
     # letter-movement mechanisms: a rotation that keeps letter order (30079 7D
     # TSUNAMIS = A MIST SUN cycled), and a swap of one indicated letter for
     # another (30079 15D LAUGH LINE = TAUGHT IN E with Ls covering the Ts)
@@ -677,7 +688,17 @@ WORDS = _load_words()
 
 
 def letters(s):
-    return re.sub(r"[^A-Z]", "", (s or "").upper())
+    """The A-Z letters of a string, with accents folded rather than dropped.
+
+    A hidden word is checked against the clue's own letters, so a clue that
+    spells the answer across an accented word used to fail that check outright:
+    12422 23A hides PESTO in "canapés today", and stripping the É said the
+    answer was not in the clue at all. The Independent and the Guardian both
+    print accents (canapés, café, née), and a solver reads them as the plain
+    letter — so the validator has to as well. NFD splits É into E plus a
+    combining acute; the character class then keeps the E and drops the mark."""
+    s = unicodedata.normalize("NFD", (s or "").upper())
+    return re.sub(r"[^A-Z]", "", s)
 
 
 def words_of(s):
@@ -721,10 +742,15 @@ def is_word(s):
 
 # Words that end in S with a dictionary word in front of it, yet are not
 # plurals at all: ALAS is an interjection, not more than one ALA (a wing),
-# ALWAYS an adverb, not more than one ALWAY (its archaic self).
+# ALWAYS an adverb, not more than one ALWAY (its archaic self). The -ICS
+# academic subjects are the same trap on a bigger scale — SEMANTICS is one
+# field taking a singular verb, not several SEMANTICs (30076 11A).
 # Without this the plural check invites a definitionNote that would lie —
 # same principle as INVARIANT_PLURALS below, on the answer side.
-NOT_PLURALS = {"ALAS", "ALWAYS"}
+NOT_PLURALS = {"ALAS", "ALWAYS", "SEMANTICS", "PHYSICS", "MATHEMATICS",
+               "ECONOMICS", "LINGUISTICS", "POLITICS", "ETHICS", "GENETICS",
+               "ACOUSTICS", "AEROBICS", "ATHLETICS", "GYMNASTICS", "LOGISTICS",
+               "MECHANICS", "OPTICS", "PHONETICS", "ROBOTICS", "STATISTICS"}
 
 
 def is_plural(ans):
