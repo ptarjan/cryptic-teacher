@@ -34,7 +34,32 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLUMJOB",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLUM JOB",
+    "definition": "Attractive employment opportunity",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "PLUM",
+     "JOB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "testicular",
+      "gives": "PLUM",
+      "note": "plums is the schoolboy slang for testicles"
+     },
+     {
+      "clueFragment": "enhancement surgery",
+      "gives": "JOB",
+      "note": "a nose job or a boob job is cosmetic surgery, so the surgery is a job"
+     }
+    ],
+    "walkthrough": "'Job' for cosmetic work is the piece worth banking — nose job, boob job — and the question mark is the setter admitting this particular operation is his own invention.",
+    "definitionFit": "a plum job is the pick of the posts going: 'plum' has meant the choicest item since plums were the best bit of the pudding."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +76,44 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIMPLE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "PIMPLE",
+    "definition": "spot",
+    "indicators": [
+     "retreats",
+     "in"
+    ],
+    "indicatorNotes": {
+     "retreats": "an army that retreats goes back the way it came, so those two letters are written in the opposite order",
+     "in": "the instruction to bury one piece inside the word that follows rather than set it alongside"
+    },
+    "pieces": [
+     "PI",
+     "MP",
+     "LE"
+    ],
+    "subReversals": [
+     {
+      "from": "PM",
+      "to": "MP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountain",
+      "gives": "PILE",
+      "note": "a mountain of work is a pile of it, and this pile opens after two letters"
+     },
+     {
+      "clueFragment": "Afternoon",
+      "gives": "PM",
+      "note": "afternoon is PM on a clock, and it goes in backwards"
+     }
+    ],
+    "walkthrough": "A mountain of work is a pile of it — that everyday sense is the step to find, because the clue's mountain is doing its best to look like a real one.",
+    "definitionFit": "a pimple is a spot in the skin-blemish sense, the word a teenager uses, rather than a place or a dot."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +130,32 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPPITY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UPPITY",
+    "definition": "difficult to control",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "UP",
+     "PITY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elevated",
+      "gives": "UP",
+      "note": "elevated means raised, and raised is up"
+     },
+     {
+      "clueFragment": "feeling of empathy",
+      "gives": "PITY",
+      "note": "pity is the fellow feeling you have for someone worse off"
+     }
+    ],
+    "walkthrough": "The surface reads as one description of a person, so the seam between the two halves is invisible until you notice that 'elevated' is doing a word's work and not a mood's.",
+    "definitionFit": "uppity means getting above yourself and refusing to be told, which is exactly the person a boss calls difficult to control."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +176,34 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "JOSHUATREE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "JOSHUA TREE",
+    "definition": "American national park",
+    "indicators": [
+     "Liberal"
+    ],
+    "indicatorNotes": {
+     "Liberal": "a liberal translation is a loose one, bound by no letter of the original, so nothing here has to stay in the order it is given"
+    },
+    "anagram": {
+     "fodder": "J HATES EURO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is how law reports abbreviate a judge"
+     },
+     {
+      "clueFragment": "hates Euro",
+      "gives": "HATESEURO",
+      "note": "nine letters taken at face value, thrown in with the J"
+     }
+    ],
+    "walkthrough": "The hyphen is the trap. 'Euro' is fodder and 'American' has already crossed over to the definition, where it settles which country's parks are on offer.",
+    "definitionFit": "Joshua Tree National Park is a real park in the California desert, so the definition names the class the proper noun belongs to."
+   }
   },
   {
    "id": "4-down",
@@ -106,7 +220,37 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BIDET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "BIDET",
+    "definition": "Item to assist washing behind",
+    "indicators": [
+     "initially",
+     "under"
+    ],
+    "indicatorNotes": {
+     "initially": "at the outset — so only the letter each word starts with is taken",
+     "under": "places one piece below the other, and in a down entry below means later along the answer"
+    },
+    "pieces": [
+     "BID",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offer",
+      "gives": "BID",
+      "note": "an offer at auction is a bid"
+     },
+     {
+      "clueFragment": "ears trialled",
+      "gives": "ET",
+      "note": "the letters those two words start with"
+     }
+    ],
+    "walkthrough": "Everything turns on where 'behind' belongs: the surface has you scrubbing behind your ears, and the definition means the other behind entirely.",
+    "definitionFit": "a bidet is the low bathroom basin you sit astride to wash your bottom, so the definition names it by the job it does."
+   }
   },
   {
    "id": "5-across",
@@ -127,7 +271,29 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEALEAF",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TEA LEAF",
+    "definition": "Burglar in Shoreditch",
+    "definition2": "likely to end up in hot water",
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burglar in Shoreditch",
+      "gives": "TEALEAF",
+      "note": "Cockney rhyming slang, and Shoreditch is where it is spoken: tea leaf rhymes with thief"
+     },
+     {
+      "clueFragment": "likely to end up in hot water",
+      "gives": "TEALEAF",
+      "note": "the flat literal reading — what goes into the pot once the kettle has boiled"
+     }
+    ],
+    "walkthrough": "'In hot water' works both halves at once: trouble for the burglar, and the teapot for the leaf. That single phrase doing two jobs is the whole joke.",
+    "definitionFit": "tea leaf is the Cockney rhyme for thief, and the same two words also name the literal leaf that gets brewed, so the phrase carries both senses."
+   }
   },
   {
    "id": "5-down",
@@ -148,7 +314,38 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "TALLSTORY",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "TALL STORY",
+    "definition": "report? That is probably exaggerated",
+    "indicators": [
+     "Brief",
+     "in"
+    ],
+    "indicatorNotes": {
+     "Brief": "brief means cut short, so the word it governs arrives a letter shorter than it should be",
+     "in": "says one piece is planted inside the other rather than laid beside it"
+    },
+    "pieces": [
+     "TALL",
+     "STOR",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "TALLY",
+      "note": "figures that tally are figures that match, and this one splits before its last letter"
+     },
+     {
+      "clueFragment": "violent disturbance",
+      "gives": "STOR",
+      "note": "a storm is a violent disturbance, docked of its final M"
+     }
+    ],
+    "walkthrough": "'Match' looks like the game and is really the verb, the one figures do when they agree — which is the step the scuffle-at-a-match surface exists to hide.",
+    "definitionFit": "a tall story is an account stretched well past the truth, so the definition is the whole idiom rather than a synonym for either word in it."
+   }
   },
   {
    "id": "6-down",
@@ -165,7 +362,29 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFAR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AFAR",
+    "definition": "a long way away",
+    "indicators": [
+     "Discovered"
+    ],
+    "indicatorNotes": {
+     "Discovered": "read it as dis-covered, stripped of its covering, so the letters wrapped round the outside come off"
+    },
+    "pieces": [
+     "AFAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wildlife trip",
+      "gives": "SAFARI",
+      "note": "a safari is a trip to see wildlife; lose the S at the front and the I at the back"
+     }
+    ],
+    "walkthrough": "'Discovered' is a lovely piece of misdirection — it looks like a past tense reporting a find, and it is an instruction to take the wrapping off.",
+    "definitionFit": "afar survives mainly in the phrase 'from afar', where it means at a great distance, which is what 'a long way away' says plainly."
+   }
   },
   {
    "id": "7-down",
@@ -182,7 +401,37 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EPISODIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EPISODIC",
+    "definition": "from time to time",
+    "definitionNote": "'From time to time' is an adverbial phrase where the answer is an adjective; the setter is defining the pattern of occurrence rather than matching the grammar.",
+    "indicators": [
+     "Prepared",
+     "eating"
+    ],
+    "indicatorNotes": {
+     "Prepared": "food that has been prepared has been chopped and mixed, so nothing stays in the state it arrived in",
+     "eating": "what is eaten goes inside, so that letter is swallowed into the mixture"
+    },
+    "anagram": {
+     "fodder": "COD PIES I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cod pies",
+      "gives": "CODPIES",
+      "note": "seven letters taken at face value, not as words"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman numeral I, the commonest single letter in the language of clues"
+     }
+    ],
+    "walkthrough": "The surface is a cook at work, which is exactly what an anagram indicator wants to look like — 'prepared' sounds like an account of dinner rather than an order.",
+    "definitionFit": "something episodic happens in separate bursts with gaps in between, which is occasional rather than continuous — the pattern 'from time to time' describes."
+   }
   },
   {
    "id": "8-down",
@@ -203,7 +452,42 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "FINEARTS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "FINE ARTS",
+    "definition": "painting?",
+    "definitionNote": "Painting is one of the fine arts and the answer names the whole plural family, so the question mark is the setter flagging an example rather than a synonym.",
+    "indicators": [
+     "trousers"
+    ],
+    "indicatorNotes": {
+     "trousers": "to trouser something is to pocket it, to take it inside, so the word before swallows what comes after"
+    },
+    "pieces": [
+     "F",
+     "INE",
+     "ARTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump's",
+      "gives": "FARTS",
+      "note": "to trump is to break wind, so this reads as the verb trumps"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken at face value, two letters of the filling"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "walkthrough": "The politician is a decoy: nothing about this Trump is a surname, and once the word turns into a verb the trousers stop being clothing and become a hiding place.",
+    "definitionFit": "the fine arts are those practised for beauty rather than use — painting, sculpture, music — so the clue offers one member of that group."
+   }
   },
   {
    "id": "9-across",
@@ -220,7 +504,29 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOPES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MOPES",
+    "definition": "Downs",
+    "indicators": [
+     "Roaming"
+    ],
+    "indicatorNotes": {
+     "Roaming": "something roaming keeps to no fixed route, so its letters are free to wander into another order"
+    },
+    "anagram": {
+     "fodder": "EPSOM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Epsom",
+      "gives": "EPSOM",
+      "note": "five letters taken as letters, not as a town"
+     }
+    ],
+    "walkthrough": "Epsom Downs is the racecourse, which is the entire trick: two words that name one place are really fodder and definition standing next to each other.",
+    "definitionFit": "'the mopes' is an old plural noun for a fit of low spirits, so it answers 'downs' in the ups-and-downs sense rather than the hills."
+   }
   },
   {
    "id": "10-across",
@@ -237,7 +543,37 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DALMATIAN",
-   "annotation": null,
+   "annotation": {
+    "type": "anagram",
+    "answer": "DALMATIAN",
+    "definition": "Adriatic resident",
+    "indicators": [
+     "reworked"
+    ],
+    "indicatorNotes": {
+     "reworked": "a thing reworked has been taken apart and made again in another shape, which is what happens to these letters"
+    },
+    "linkWords": [
+     "by"
+    ],
+    "anagram": {
+     "fodder": "MATILDA AN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Matilda",
+      "gives": "MATILDA",
+      "note": "the italics mark a title, and titles are fair fodder"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "two more letters joining the mix, doing no grammatical work at all"
+     }
+    ],
+    "walkthrough": "'An' looks like the article introducing the definition, which is why it is easy to leave out of the count — and the anagram is two letters short without it.",
+    "definitionFit": "Dalmatia is the Croatian coast of the Adriatic, so a Dalmatian is a person who lives there; the spotted dog is the same word's other sense."
+   },
    "clueItalics": [
     [
      0,
@@ -264,7 +600,47 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "LITMUSTEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "LITMUS TEST",
+    "definition": "Touchstone",
+    "indicators": [
+     "working",
+     "to be inspired by"
+    ],
+    "indicatorNotes": {
+     "working": "worked in the sense dough is worked, kneaded into a different shape rather than employed",
+     "to be inspired by": "to inspire is literally to breathe in, so whatever is inspired ends up inside the other piece"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "LIT",
+     "MUST",
+     "EST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TITLES",
+      "gives": "LITEST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "titles",
+      "gives": "LITEST",
+      "note": "the six letters of 'titles' kneaded into a new order, which then parts after three"
+     },
+     {
+      "clueFragment": "requirement",
+      "gives": "MUST",
+      "note": "a requirement is a must"
+     }
+    ],
+    "walkthrough": "Touchstone is also the clown in As You Like It, so the apostrophe-s reads as his possession when it is really standing in for 'is'.",
+    "definitionFit": "a touchstone was the dark stone a jeweller rubbed gold against to assay it, so both words name a single trial that settles a question outright."
+   }
   },
   {
    "id": "12-across",
@@ -281,7 +657,38 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SODA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SODA",
+    "definition": "What could follow on from club",
+    "indicators": [
+     "spinning"
+    ],
+    "indicatorNotes": {
+     "spinning": "a thing spinning comes round to face the other way, so the letters are read in the opposite direction"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "SODA"
+    ],
+    "subReversals": [
+     {
+      "from": "ADOS",
+      "to": "SODA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficulties",
+      "gives": "ADOS",
+      "note": "an ado is a fuss or a difficulty, and the plural gives four letters to turn"
+     }
+    ],
+    "walkthrough": "The surface is pure cricket — 'follow on' and 'spinning' both belong to the game — while the answer is behind the bar.",
+    "definitionFit": "club soda is the bar-trade name for fizzy water, so the definition points at the phrase the answer completes rather than at any meaning of its own."
+   }
   },
   {
    "id": "13-down",
@@ -298,7 +705,47 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESTRANGING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ESTRANGING",
+    "definition": "Separating",
+    "indicators": [
+     "The woman's away"
+    ],
+    "indicatorNotes": {
+     "The woman's away": "the woman is HER, and 'away' is the order to take those three letters out of the name in front"
+    },
+    "pieces": [
+     "EST",
+     "RANG",
+     "IN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Esther",
+      "gives": "EST",
+      "note": "drop the HER from ESTHER, minus the woman, and EST is what stays"
+     },
+     {
+      "clueFragment": "phoned up",
+      "gives": "RANG",
+      "note": "to ring someone up is to phone them"
+     },
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "during and in are the same preposition of time"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "golf is the radio alphabet's word for G, alongside alpha and bravo"
+     }
+    ],
+    "walkthrough": "The exclamation mark sells the surface as gossip on a fairway, which is why nobody looks at 'golf' and sees a single letter of the radio alphabet.",
+    "definitionFit": "to estrange is to drive people apart until they stop speaking, so the -ing form matches 'separating' in the sense of a relationship coming apart."
+   }
   },
   {
    "id": "14-across",
@@ -319,7 +766,32 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAYLORSWIFT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TAYLOR SWIFT",
+    "definition": "international chart topper",
+    "indicators": [
+     "developed"
+    ],
+    "indicatorNotes": {
+     "developed": "grown into something else, so the fodder does not keep the shape it arrives in"
+    },
+    "linkWords": [
+     "into"
+    ],
+    "anagram": {
+     "fodder": "A FLIRTY SWOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A flirty swot",
+      "gives": "AFLIRTYSWOT",
+      "note": "eleven letters taken at face value, the whole phrase and nothing else"
+     }
+    ],
+    "walkthrough": "A living person's name is fair game as an answer, and the surface — a schoolgirl who turned out well — is doing all the work of hiding a phrase that is already in plain sight.",
+    "definitionFit": "her albums go to number one in country after country, so the definition is by example: one named artist standing in for the description."
+   }
   },
   {
    "id": "15-down",
@@ -336,7 +808,47 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YUGOSLAVS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade + deletion",
+    "answer": "YUGOSLAVS",
+    "definition": "Balkans race",
+    "definitionNote": "'Race' is a singular collective while the answer is the plural that names its members, a mismatch setters allow when the word means a people.",
+    "indicators": [
+     "we're told",
+     "endlessly",
+     "ahead of"
+    ],
+    "indicatorNotes": {
+     "we're told": "reported speech: take the words as they sound rather than as they are spelt",
+     "endlessly": "without its end, so the last letter of the word never arrives",
+     "ahead of": "puts the piece in front of what follows rather than behind it"
+    },
+    "pieces": [
+     "YUGO",
+     "SLAV",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's your turn",
+      "soundsLike": "YOU GO",
+      "gives": "YUGO",
+      "note": "if it is your turn then you go, and 'you go' said aloud is written this way"
+     },
+     {
+      "clueFragment": "toil",
+      "gives": "SLAV",
+      "note": "to slave is to toil, and the final E never gets said"
+     },
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the compass abbreviation for south"
+     }
+    ],
+    "walkthrough": "A whole country is buried in the pun: the first four letters are nothing but two everyday words heard rather than read, which is why they look like a foreign spelling.",
+    "definitionFit": "the Yugoslavs were the peoples of the federation that occupied much of the Balkans, so 'race' is doing its loose sense of a nation's people."
+   }
   },
   {
    "id": "16-down",
@@ -353,7 +865,36 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLACEBOS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PLACEBOS",
+    "definition": "ineffective medication",
+    "definitionNote": "'Medication' is a mass noun covering any number of pills, so it fairly defines a plural answer without itself being one.",
+    "indicators": [
+     "detailed"
+    ],
+    "indicatorNotes": {
+     "detailed": "read as de-tailed, robbed of its tail, so the word in front loses its last letter"
+    },
+    "pieces": [
+     "PLACE",
+     "BOS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Site",
+      "gives": "PLACE",
+      "note": "the site of something is the place it happens"
+     },
+     {
+      "clueFragment": "manager",
+      "gives": "BOS",
+      "note": "a manager is a BOSS, and the tail comes off"
+     }
+    ],
+    "walkthrough": "'Detailed' is the whole clue in one word: it reads as an adjective describing thorough paperwork and works as a verb meaning docked.",
+    "definitionFit": "a placebo is the dummy pill given to a trial's control group, so 'ineffective medication' names it by the very thing it deliberately lacks."
+   }
   },
   {
    "id": "17-down",
@@ -370,7 +911,36 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPERIAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "IMPERIAL",
+    "definition": "London college",
+    "indicators": [
+     "rings"
+    ],
+    "indicatorNotes": {
+     "rings": "to ring something is to draw a circle round it, so one piece closes about the other"
+    },
+    "pieces": [
+     "IMPERI",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put in danger",
+      "gives": "IMPERIL",
+      "note": "to imperil someone is to put them in danger, and the word opens before its last letter"
+     },
+     {
+      "clueFragment": "Academician",
+      "gives": "A",
+      "note": "A is the abbreviation for an Academician"
+     }
+    ],
+    "walkthrough": "'Rings' looks like a verb about telephones sitting between two nouns, which is what keeps the sentence upright while it quietly gives an instruction.",
+    "definitionFit": "Imperial College is one of London University's science institutions, so the definition names the place by category and leaves you to supply the name."
+   }
   },
   {
    "id": "18-across",
@@ -387,7 +957,45 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMMERGEYER",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "LAMMERGEYER",
+    "definition": "vulture",
+    "indicators": [
+     "crosses"
+    ],
+    "indicatorNotes": {
+     "crosses": "what crosses something lies over it from side to side, so this word ends up on both sides of what follows"
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "LA",
+     "M",
+     "MERGE",
+     "YER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps chicken",
+      "gives": "LAYER",
+      "note": "a hen kept for eggs is a layer, and 'perhaps' owns up that not every chicken is one"
+     },
+     {
+      "clueFragment": "major road",
+      "gives": "M",
+      "note": "M is what a motorway is numbered with — the M1, the M25"
+     },
+     {
+      "clueFragment": "join",
+      "gives": "MERGE",
+      "note": "traffic joining a road merges with it"
+     }
+    ],
+    "walkthrough": "The oldest joke in the book is doing the work here: the chicken really does cross the road, and it is the wordplay rather than the punchline.",
+    "definitionFit": "the lammergeyer is the bearded vulture of Alpine and Himalayan crags, so 'vulture' names the family this particular bird belongs to."
+   }
   },
   {
    "id": "19-down",
@@ -404,7 +1012,26 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFORM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "REFORM",
+    "definition": "Party",
+    "indicators": [
+     "banks"
+    ],
+    "indicatorNotes": {
+     "banks": "to bank something is to stow it away for safe keeping, so the letters are being kept inside the words around them"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hire for merchant",
+      "gives": "REFORM",
+      "note": "the letters run unbroken across hiRE FOR Merchant, straddling three words"
+     }
+    ],
+    "walkthrough": "'Merchant banks' is the least suspicious pair of words in the clue, which is exactly why the answer is lying across them.",
+    "definitionFit": "Reform is the name of a British political party, so 'Party' identifies the word as a proper noun rather than defining what it means."
+   }
   },
   {
    "id": "20-down",
@@ -425,7 +1052,51 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "STAYON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "STAY ON",
+    "definition": "remain after all",
+    "indicators": [
+     "turning up",
+     "dropping off"
+    ],
+    "indicatorNotes": {
+     "turning up": "a down entry read from the bottom comes up the grid, so the letters are written in reverse",
+     "dropping off": "something dropping off falls away and is gone, which is what happens to the pair named next to it"
+    },
+    "linkWords": [
+     "is to"
+    ],
+    "pieces": [
+     "STAY",
+     "ON"
+    ],
+    "subReversals": [
+     {
+      "from": "NOYATS",
+      "to": "STAY ON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ban",
+      "gives": "NO",
+      "note": "a ban is a flat no"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "CH",
+      "note": "ch is the abbreviation for children, and this is the pair that falls away"
+     },
+     {
+      "clueFragment": "sailing vessels",
+      "gives": "YATS",
+      "note": "sailing vessels are YACHTS, and without that CH you are left with YATS"
+     }
+    ],
+    "walkthrough": "The surface is the school run — dropping children off — while every one of those words is really an instruction. Only 'up' tells you the assembly is read backwards.",
+    "definitionFit": "to stay on is to remain when everyone else has left, as a teacher stays on past retirement, so 'after all' means after all the rest have gone."
+   }
   },
   {
    "id": "21-across",
@@ -442,7 +1113,38 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "CHEW",
+    "definition": "Champ",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "essentially"
+    ],
+    "indicatorNotes": {
+     "essentially": "the essence of a word is at its very centre, so only the letter in the middle is wanted"
+    },
+    "pieces": [
+     "C",
+     "HEW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atrocious",
+      "gives": "C",
+      "note": "the fifth of its nine letters, with four on either side"
+     },
+     {
+      "clueFragment": "shape",
+      "gives": "HEW",
+      "note": "to hew is to shape stone or timber by cutting it"
+     }
+    ],
+    "walkthrough": "'In' reads as a preposition and is only joinery, which leaves 'essentially' looking like an adverb of emphasis rather than the instruction it is.",
+    "definitionFit": "to champ is to chew noisily — the horse's word, as in champing at the bit — which is why the plain synonym feels old-fashioned."
+   }
   },
   {
    "id": "22-across",
@@ -459,7 +1161,26 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTRINGENT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ASTRINGENT",
+    "definition": "acid",
+    "indicators": [
+     "imports"
+    ],
+    "indicatorNotes": {
+     "imports": "to import is to carry something in from outside, so the words are carrying the answer inside themselves"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Die-cast ring entrepreneur",
+      "gives": "ASTRINGENT",
+      "note": "the letters run unbroken from the middle of the first word: die-cASTRINGENTrepreneur"
+     }
+    ],
+    "walkthrough": "Ten letters is a long thing to hide, and the hyphen helps by breaking your eye exactly one letter before the answer starts.",
+    "definitionFit": "an astringent taste is sharp and puckering, which is 'acid' used of flavour rather than of chemistry."
+   }
   },
   {
    "id": "23-down",
@@ -476,7 +1197,34 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RULER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "RULER",
+    "definition": "the King?",
+    "indicators": [
+     "rounded",
+     "guarding"
+    ],
+    "indicatorNotes": {
+     "rounded": "turned about, so the buried letters are read from the far end back to the near one",
+     "guarding": "to guard something is to keep it safe within your own walls, so these words are holding a word inside them"
+    },
+    "subReversals": [
+     {
+      "from": "RELUR",
+      "to": "RULER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where lurchers",
+      "gives": "RELUR",
+      "note": "the letters sit unbroken across wheRE LURchers, waiting to be read the other way"
+     }
+    ],
+    "walkthrough": "A lurcher is a poacher's crossbred dog, which is why 'Where lurchers' reads as a place to look for one rather than as a hiding place.",
+    "definitionFit": "a king is one kind of ruler, so the question mark marks a definition by example — the class named by one of its members."
+   }
   },
   {
    "id": "24-down",
@@ -493,7 +1241,36 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKIM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "SKIM",
+    "definition": "Read superficially",
+    "indicators": [
+     "missing",
+     "rolling"
+    ],
+    "indicatorNotes": {
+     "missing": "what is missing has gone, so the letter named beside it is not in the answer",
+     "rolling": "letters set rolling come to rest in a different order, and Jagger's own band name is what makes the word look innocent here"
+    },
+    "anagram": {
+     "fodder": "MIKS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Jagger's",
+      "gives": "MICKS",
+      "note": "Jagger is Mick, so his name plus the S of 'Jagger's' gives five letters"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the physicist's constant, the speed of light, and it is the letter that goes"
+     }
+    ],
+    "walkthrough": "Quotation marks around a word are usually the setter pointing at it, and here they point at a Rolling Stone: 'rolling' is the instruction and the joke at once.",
+    "definitionFit": "to skim a page is to take in only its surface, catching the gist and none of the detail."
+   }
   },
   {
    "id": "25-across",
@@ -514,7 +1291,40 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRICKWALL",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "BRICK WALL",
+    "definition": "Barrier",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "the Reverend Spooner swapped the opening sounds of two words, so naming him is the order to trade them over"
+    },
+    "linkWords": [
+     "erected as a result of"
+    ],
+    "pieces": [
+     "BRICK",
+     "WALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern Scotland",
+      "soundsLike": "WICK",
+      "gives": "BRICK",
+      "note": "Wick is the town on the far north coast of Scotland, and it takes in the BR the other word gives up"
+     },
+     {
+      "clueFragment": "fight",
+      "soundsLike": "BRAWL",
+      "gives": "WALL",
+      "note": "a brawl is a fight, and it hands its BR over in exchange for the W"
+     }
+    ],
+    "walkthrough": "Spooner clues stand or fall on the place name, and this one is a real town rather than a region — the north of Scotland has only so many.",
+    "definitionFit": "a brick wall is the immovable barrier of the idiom, the thing you hit when progress stops dead."
+   }
   },
   {
    "id": "26-across",
@@ -531,7 +1341,43 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRONY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade + reversal",
+    "answer": "IRONY",
+    "definition": "rich in essential element",
+    "indicators": [
+     "Heard",
+     "from the East"
+    ],
+    "indicatorNotes": {
+     "Heard": "asks for the word as your ear takes it rather than as the page spells it",
+     "from the East": "what comes from the east travels westward, so in an across entry the letters run right to left"
+    },
+    "subReversals": [
+     {
+      "from": "YNORI",
+      "to": "IRONY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "why",
+      "soundsLike": "WHY",
+      "gives": "Y",
+      "note": "say the letter Y aloud and you have said 'why'"
+     },
+     {
+      "clueFragment": "seaweed",
+      "gives": "NORI",
+      "note": "nori is the seaweed sushi is wrapped in, which is why 'from the East' reads as its origin"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "walkthrough": "Everything in the clue is pointing east — the seaweed, the direction — and the direction is the only word doing cryptic work.",
+    "definitionFit": "irony is also the adjective from iron, meaning full of it, and iron is an element the body must have, so the sarcasm sense never comes into it."
+   }
   },
   {
    "id": "27-across",
@@ -548,7 +1394,46 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SALAMIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SALAMIS",
+    "definition": "sausages",
+    "indicators": [
+     "backing"
+    ],
+    "indicatorNotes": {
+     "backing": "going the other way, so everything named before it is written from right to left"
+    },
+    "pieces": [
+     "SALAMI",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "IMALAS",
+      "to": "SALAMI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter is",
+      "gives": "IM",
+      "note": "the setter is the person who wrote the clue, so 'setter is' is I'm"
+     },
+     {
+      "clueFragment": "regrettably",
+      "gives": "ALAS",
+      "note": "alas is the word you say when reporting something regrettably"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "S",
+      "note": "S abbreviates square, as in a street address"
+     }
+    ],
+    "walkthrough": "Setter means the person writing, not the dog and not the sun — one of the first conventions worth owning, since it turns up in every puzzle.",
+    "definitionFit": "salami is the cured Italian sausage, and the plural covers several of them or several varieties, which is what 'sausages' asks for."
+   }
   },
   {
    "id": "28-across",
@@ -565,7 +1450,29 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGIMEN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "REGIMEN",
+    "definition": "Government",
+    "indicators": [
+     "trimmed"
+    ],
+    "indicatorNotes": {
+     "trimmed": "trimming takes a little off the end, so the word beside it arrives one letter short"
+    },
+    "pieces": [
+     "REGIMEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of the army",
+      "gives": "REGIMENT",
+      "note": "a regiment is the army unit, and its last letter is what gets trimmed"
+     }
+    ],
+    "walkthrough": "Regime and regimen are close cousins from the same Latin root, so the definition sounds like a typo until you remember a regimen is a rule you live by.",
+    "definitionFit": "regimen carries the old sense of rule or government — the same idea as the regimen a doctor governs your diet with."
+   }
   }
  ]
 } /*JSON-END*/;
