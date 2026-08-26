@@ -29,7 +29,38 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COFFEE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "COFFEE",
+    "definition": "Drug supplier",
+    "indicators": [
+     "cut short",
+     "in"
+    ],
+    "indicatorNotes": {
+     "cut short": "Cutting a word short takes its last letter off, so it goes in one letter lighter than it came.",
+     "in": "It marks an insertion: the shortened word ends up inside the word named after it."
+    },
+    "pieces": [
+     "C",
+     "OFFE",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "the Church of England shortens to CE, and the two letters part company to let something sit between them"
+     },
+     {
+      "clueFragment": "proposal",
+      "gives": "OFFE",
+      "note": "a proposal is an offer, docked of its final letter"
+     }
+    ],
+    "walkthrough": "The surface is a dealer collared in a pew, which is why the real definition arrives so quietly: the drug in question is caffeine.",
+    "definitionFit": "Caffeine is a drug and this is the cup that delivers it, so the definition names the thing by what it hands you."
+   }
   },
   {
    "id": "1-down",
@@ -46,7 +77,38 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHATEAU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CHATEAU",
+    "definition": "castle",
+    "indicators": [
+     "beheaded"
+    ],
+    "indicatorNotes": {
+     "beheaded": "A beheading takes the top letter off a word, which in a down entry is the letter that would have gone in first."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "CH",
+     "ATEAU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member of nobility",
+      "gives": "CH",
+      "note": "CH is the Companion of Honour, the crossword's two-letter grandee — an order in the sovereign's gift, which is the loose sense of rank the clue leans on"
+     },
+     {
+      "clueFragment": "beheaded 9",
+      "gives": "ATEAU",
+      "note": "9 across is cake, and the French one — a gateau, to suit the French surface — gives up its first letter"
+     }
+    ],
+    "walkthrough": "A cross-reference usually hands over a word; this one hands over a category, and the letters only come out if you pick the French member of it.",
+    "definitionFit": "The French word taken straight into English means a castle, or the grand turreted country house that grew out of one."
+   }
   },
   {
    "id": "2-down",
@@ -63,7 +125,44 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAERY",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "FAERY",
+    "definition": "Imagined being",
+    "indicators": [
+     "in",
+     "clothing"
+    ],
+    "indicatorNotes": {
+     "in": "It marks the insertion: what is named before it is pushed inside what is named after it.",
+     "clothing": "Clothes go round the outside, so this word takes only the outer letters of the word in front of it and wraps them round the rest."
+    },
+    "pieces": [
+     "F",
+     "A",
+     "ER",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fancy",
+      "gives": "FY",
+      "note": "only the outside of the word is kept — the F at the front, the Y at the back, and the middle three dropped"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the crossword's standing queen"
+     }
+    ],
+    "walkthrough": "The joke is that nobody is wearing anything: 'clothing' is an instruction about the outside of a word, and the fancy dress is the surface's own.",
+    "definitionFit": "An imagined being is a creature that exists only in the mind — the fairy of folklore, spelled here the old Spenserian way."
+   }
   },
   {
    "id": "3-down",
@@ -80,7 +179,35 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASTERN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "EASTERN",
+    "definition": "Oriental",
+    "indicators": [
+     "ending in"
+    ],
+    "indicatorNotes": {
+     "ending in": "On the surface the party dissolves into chaos; as an instruction it asks only for the letter the next word finishes with."
+    },
+    "pieces": [
+     "EASTER",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival",
+      "gives": "EASTER",
+      "note": "the church's chief festival, the one the calendar is built around"
+     },
+     {
+      "clueFragment": "confusion",
+      "gives": "N",
+      "note": "the final letter of the word is all that is wanted"
+     }
+    ],
+    "walkthrough": "A festival collapsing into confusion is a fine picture, and the picture is all the surface is for — the setter's festival is a perfectly orderly one.",
+    "definitionFit": "'Oriental' is the older adjective for the east, from the Latin for the rising sun, so it swaps in wherever this one does."
+   }
   },
   {
    "id": "4-across",
@@ -97,7 +224,32 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCREAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCREAM",
+    "definition": "Comic",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "S",
+     "CREAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "character",
+      "gives": "S",
+      "note": "'character' asks for a single letter of type, and which one is left to the crossing letters"
+     },
+     {
+      "clueFragment": "yellow?",
+      "gives": "CREAM",
+      "note": "cream is a pale yellow, and the question mark is the setter owning up to a shade standing in for the colour"
+     }
+    ],
+    "walkthrough": "Definition and wordplay both live in informal English: a hilarious person is 'a comic', and the same person is 'a scream'.",
+    "definitionFit": "'Comic' used as a noun is a funny person, and this is the colloquial word for exactly that — someone or something hilarious."
+   }
   },
   {
    "id": "5-down",
@@ -114,7 +266,34 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARROT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "CARROT",
+    "definition": "Incentive",
+    "indicators": [
+     "rising",
+     "in"
+    ],
+    "indicatorNotes": {
+     "rising": "A down entry that rises reads bottom to top, so the letters found here go into the grid the other way round.",
+     "in": "It says the letters are already sitting inside the words that follow, waiting to be lifted out rather than built."
+    },
+    "subReversals": [
+     {
+      "from": "TORRAC",
+      "to": "CARROT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motor racing",
+      "gives": "CARROT",
+      "note": "six consecutive letters straddle the gap between these two words, and the entry climbs through them"
+     }
+    ],
+    "walkthrough": "Motor racing is a whole world of sponsorship and inducements, which is why the phrase reads as scenery instead of as the place the letters are lying.",
+    "definitionFit": "An incentive is the carrot of 'carrot and stick' — the reward dangled in front of someone to get them moving."
+   }
   },
   {
    "id": "6-down",
@@ -131,7 +310,40 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXONERATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXONERATE",
+    "definition": "pardon",
+    "indicators": [],
+    "linkWords": [
+     "by",
+     "giving"
+    ],
+    "pieces": [
+     "EX",
+     "ONE",
+     "RATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex- is the prefix meaning former, the crossword's standing 'old'"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "ONE",
+      "note": "a joke is 'a good one' — have you heard the one about..."
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to rate something is to judge it, to set a value on it"
+     }
+    ],
+    "walkthrough": "Three everyday words in a row and not one instruction: the only real difficulty is seeing that the middle piece is a noun meaning a gag.",
+    "definitionFit": "To pardon is to clear someone of blame officially, which is what this verb does — declaring a person not at fault after all."
+   }
   },
   {
    "id": "7-down",
@@ -148,7 +360,46 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MADEIRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "MADEIRA",
+    "definition": "Island",
+    "indicators": [
+     "fixed",
+     "about"
+    ],
+    "indicatorNotes": {
+     "fixed": "Something fixed has been taken apart and put back together differently, and that is what happens to the letters beside it.",
+     "about": "A piece put about another closes round it, so the re-set letters wrap the single one."
+    },
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "MA",
+     "DEIRA"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "IDEA R",
+      "gives": "DEIRA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "MA is the nursery word for mother"
+     },
+     {
+      "clueFragment": "idea about River",
+      "gives": "DEIRA",
+      "note": "the four letters of the notion are re-set around R, the map-maker's river"
+     }
+    ],
+    "walkthrough": "The surface's River Island is a high-street shop, so the capital letters mislead twice: the clue wants only R for river, and 'Island' is doing the defining.",
+    "definitionFit": "'Island' is the plain sense — the Atlantic island Portugal settled, which then lent its name to both a wine and a cake."
+   }
   },
   {
    "id": "8-down",
@@ -169,7 +420,29 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
     ]
    },
    "solution": "APPLETONLAYER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "APPLETON LAYER",
+    "definition": "a bit of atmosphere",
+    "indicators": [
+     "created"
+    ],
+    "indicatorNotes": {
+     "created": "What is created is built afresh out of the material to hand, so these letters are made into something new."
+    },
+    "anagram": {
+     "fodder": "ELO APPARENTLY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ELO apparently",
+      "gives": "ELOAPPARENTLY",
+      "note": "the band's three initials and the adverb behind them supply all thirteen letters"
+     }
+    ],
+    "walkthrough": "Edward Appleton took a Nobel for finding this region of the ionosphere, the one that bounces short-wave radio back down. 'Apparently' looks like a hedge and is really fodder.",
+    "definitionFit": "'A bit of atmosphere' is literal, not figurative: the answer names one measurable layer of the upper air, high above the weather."
+   }
   },
   {
    "id": "9-across",
@@ -186,7 +459,34 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAKE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "CAKE",
+    "definition": "Hollywood production?",
+    "indicators": [
+     "partly",
+     "redirected"
+    ],
+    "indicatorNotes": {
+     "partly": "Only part of the words beside it is wanted, the standing signal that the letters are already there to be picked out.",
+     "redirected": "Redirected traffic goes the other way, so the run of letters is read back to front."
+    },
+    "subReversals": [
+     {
+      "from": "EKAC",
+      "to": "CAKE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek actress",
+      "gives": "CAKE",
+      "note": "four letters in a row straddle the gap between the two words, and they are read from right to left"
+     }
+    ],
+    "walkthrough": "This is the clue the rest of the grid leans on, so it pays to spot the trick early: the question mark is doing a lot of work for one small joke.",
+    "definitionFit": "Paul Hollywood judges the baking on Bake Off, so what this Hollywood 'produces' is baked rather than filmed — hence the question mark."
+   }
   },
   {
    "id": "10-across",
@@ -203,7 +503,29 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUPERFOODS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUPERFOODS",
+    "definition": "Fruit & Nuts?",
+    "indicators": [
+     "demolished"
+    ],
+    "indicatorNotes": {
+     "demolished": "Demolish something and every piece is still there, just no longer in the order it was built in."
+    },
+    "anagram": {
+     "fodder": "POOR US FEDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Poor US Feds",
+      "gives": "POORUSFEDS",
+      "note": "the ten letters of the three words are the whole of the material"
+     }
+    ],
+    "walkthrough": "'Demolished' works both ways round: the agents are wrecked on the surface and the plate of food is demolished at the table, while the letters quietly change places.",
+    "definitionFit": "The question mark admits examples rather than a synonym: berries and almonds are among the foods sold as unusually nutrient-dense."
+   }
   },
   {
    "id": "11-across",
@@ -220,7 +542,36 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETYPE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "RETYPE",
+    "definition": "key characters again",
+    "indicators": [
+     "playing",
+     "at last"
+    ],
+    "indicatorNotes": {
+     "playing": "Letters at play are letters not staying put, so the name in front of it is free to be reordered.",
+     "at last": "It points at the very end of the word before it, so only that final letter joins in."
+    },
+    "anagram": {
+     "fodder": "PETER Y"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Peter",
+      "gives": "PETER",
+      "note": "the five letters of the first name are the bulk of the fodder"
+     },
+     {
+      "clueFragment": "Kay at last",
+      "gives": "Y",
+      "note": "the last letter of the surname makes up the six"
+     }
+    ],
+    "walkthrough": "Peter Kay is a comedian and 'playing' is what comedians do, so the whole first half reads as showbusiness rather than as raw letters.",
+    "definitionFit": "'Key' is a verb here — to key characters is to type them — so keying them again is precisely the instruction the answer carries."
+   }
   },
   {
    "id": "12-across",
@@ -241,7 +592,35 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOOKEDIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOOKED IN",
+    "definition": "Briefly visited",
+    "indicators": [
+     "next to"
+    ],
+    "indicatorNotes": {
+     "next to": "It puts the two pieces side by side in the order given, with neither going inside the other."
+    },
+    "pieces": [
+     "LOOK",
+     "EDIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "butcher’s",
+      "gives": "LOOK",
+      "note": "Cockney rhyming slang, and the rhyming half is never spoken: a butcher's hook"
+     },
+     {
+      "clueFragment": "Scottish city",
+      "gives": "EDIN",
+      "note": "Edinburgh in its dictionary short form"
+     }
+    ],
+    "walkthrough": "Both halves are abbreviations of a kind — one by slang, one by the dictionary — and neither is signalled, which is what makes an eight-letter answer feel like a guess.",
+    "definitionFit": "To look in on someone is to call round briefly, so the definition matches a whole-phrase idiom rather than a single word."
+   }
   },
   {
    "id": "13-across",
@@ -258,7 +637,53 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SULTANATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "SULTANATE",
+    "definition": "territory",
+    "indicators": [
+     "making a comeback",
+     "in"
+    ],
+    "indicatorNotes": {
+     "making a comeback": "Something that comes back retraces its steps, so these two letters are written in the opposite order.",
+     "in": "It marks the insertion: the piece named before it goes inside the word named after it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "SU",
+     "L",
+     "TAN",
+     "ATE"
+    ],
+    "subReversals": [
+     {
+      "from": "US",
+      "to": "SU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "SU",
+      "note": "the US, turned round"
+     },
+     {
+      "clueFragment": "former",
+      "gives": "LATE",
+      "note": "'late' is the word for former — the late chairman — and it opens after one letter"
+     },
+     {
+      "clueFragment": "bronze",
+      "gives": "TAN",
+      "note": "a tan is the bronze a fortnight in the sun leaves you with"
+     }
+    ],
+    "walkthrough": "Three separate liberties with plain words — a country as two letters, a colour as a verb's worth of skin, and 'former' as an adjective for the dead — all inside one smooth sentence.",
+    "definitionFit": "A territory named by whoever rules it: this is the state a sultan governs, as a kingdom is a king's."
+   }
   },
   {
    "id": "14-down",
@@ -279,7 +704,44 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEAKETTLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TEA KETTLE",
+    "definition": "brewing accessory",
+    "indicators": [
+     "removed"
+    ],
+    "indicatorNotes": {
+     "removed": "What is removed leaves the letters altogether, so the piece named just before it is taken out of what came earlier."
+    },
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "pieces": [
+     "TEAK",
+     "ETTLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wooden",
+      "gives": "TEAK",
+      "note": "'wooden' points at a particular timber rather than at a quality"
+     },
+     {
+      "clueFragment": "bench",
+      "gives": "ETTLE",
+      "note": "a settle is a long high-backed bench, here short of the letter named next"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "",
+      "note": "section abbreviates to S, and that is the letter that goes"
+     }
+    ],
+    "walkthrough": "The enumeration is the real disguise: (3,6) cuts through the middle of the timber, so neither half of the answer lines up with either half of the wordplay.",
+    "definitionFit": "A brewing accessory is anything the tea-making needs, and this is the vessel that boils the water for it."
+   }
   },
   {
    "id": "15-across",
@@ -296,7 +758,36 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BABA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BABA",
+    "definition": "9",
+    "indicators": [
+     "from the East"
+    ],
+    "indicatorNotes": {
+     "from the East": "In an across row the east is the right-hand end, so reading from there means reading the letters backwards."
+    },
+    "pieces": [
+     "BA",
+     "BA"
+    ],
+    "subReversals": [
+     {
+      "from": "ABAB",
+      "to": "BABA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailors",
+      "gives": "ABAB",
+      "note": "an AB is an able seaman, and the plural asks for a pair of them"
+     }
+    ],
+    "walkthrough": "'From the East' looks like scenery about foreign ports and is really a compass direction telling you which way along the row to read.",
+    "definitionFit": "9 across is cake, and this is one: the small yeast cake, usually soaked in rum, that Poland and France both claim."
+   }
   },
   {
    "id": "16-across",
@@ -313,7 +804,39 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COAT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COAT",
+    "definition": "9",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "It marks an insertion: the single letter before it is dropped inside the word after it."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "CO",
+     "A",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a bed, and it opens after two letters to take the insertion"
+     },
+     {
+      "clueFragment": "afternoon",
+      "gives": "A",
+      "note": "'afternoon' does loose work here, standing for a bare A — timetable shorthand rather than a dictionary abbreviation"
+     }
+    ],
+    "walkthrough": "The cross-reference is a verb here, not a noun: cake is what dried mud does to a boot, and that is the sense the definition wants.",
+    "definitionFit": "9 across is cake, and to cake something is to coat it — mud cakes a boot exactly as paint coats a wall."
+   }
   },
   {
    "id": "16-down",
@@ -330,7 +853,49 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COWPATS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + outer letters",
+    "answer": "COWPATS",
+    "definition": "More than one whoopsie",
+    "indicators": [
+     "empty",
+     "about"
+    ],
+    "indicatorNotes": {
+     "empty": "A word emptied out keeps only its shell, the first and last letters, and loses everything between them.",
+     "about": "Letters placed about something go round it, so the pieces already found open up to admit what follows."
+    },
+    "pieces": [
+     "CO",
+     "W",
+     "PA",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Business",
+      "gives": "CO",
+      "note": "a business is a company, CO"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the standing abbreviation for women"
+     },
+     {
+      "clueFragment": "Secretary’s",
+      "gives": "PA",
+      "note": "a secretary is a PA, a personal assistant"
+     },
+     {
+      "clueFragment": "threats",
+      "gives": "TS",
+      "note": "the shell of the word, once the middle has been emptied out"
+     }
+    ],
+    "walkthrough": "Every piece here is a political abbreviation except the last, which is the same word made hollow — and the childish definition is the only plain English in the clue.",
+    "definitionFit": "'Whoopsie' is nursery language for droppings, and these are the cow's: the flat pancakes left across a field."
+   }
   },
   {
    "id": "17-across",
@@ -347,7 +912,38 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENERGETIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + middle letter",
+    "answer": "ENERGETIC",
+    "definition": "Lively",
+    "indicators": [
+     "unfortunately",
+     "lacking",
+     "the focus of"
+    ],
+    "indicatorNotes": {
+     "unfortunately": "Things that go unfortunately do not come out in the order they were meant to, which is the licence to reorder the letters.",
+     "lacking": "What is lacking is missing from the letters, so the piece named after it never joins the mix.",
+     "the focus of": "The focus of a word is its centre, so the middle letter of the name is the one meant."
+    },
+    "anagram": {
+     "fodder": "GRET NIECE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Great-niece",
+      "gives": "GRETNIECE",
+      "note": "the fodder, once the letter named next has gone"
+     },
+     {
+      "clueFragment": "Blake",
+      "gives": "",
+      "note": "the centre of the five-letter name is A, and that is the letter left out"
+     }
+    ],
+    "walkthrough": "Blake Lively is one name doing two jobs: the surname defines the answer while the first name gives up its middle letter to the shuffle.",
+    "definitionFit": "'Lively' is the surface's actress, but as a plain adjective it means full of energy, which is what the answer means too."
+   }
   },
   {
    "id": "18-down",
@@ -364,7 +960,54 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFUGEE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram + middle letters + last letter",
+    "answer": "REFUGEE",
+    "definition": "Paddington Bear?",
+    "indicators": [
+     "Heart of",
+     "ultimately",
+     "captured by",
+     "fancy"
+    ],
+    "indicatorNotes": {
+     "Heart of": "The heart of a word is its middle, so the letters at the centre are the ones taken.",
+     "ultimately": "At the very end — so only the final letter of the name in front of it is wanted.",
+     "captured by": "Whatever captures something closes round it, so the letters found so far go inside the piece named next.",
+     "fancy": "To fancy something up is to dress it differently, and letters dressed differently come out in a new order."
+    },
+    "pieces": [
+     "REF",
+     "UG",
+     "E",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FREE",
+      "gives": "REFE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "REFE",
+      "note": "the four letters are re-set, and then they open up to take the rest"
+     },
+     {
+      "clueFragment": "Hugh",
+      "gives": "UG",
+      "note": "the middle pair of a four-letter name"
+     },
+     {
+      "clueFragment": "Bonneville",
+      "gives": "E",
+      "note": "the very last letter of the surname"
+     }
+    ],
+    "walkthrough": "Two actors' names and neither matters: only Hugh's middle and Bonneville's tail are used, and the bear from Darkest Peru does the defining.",
+    "definitionFit": "A definition by example: Paddington arrives from Peru with a label asking someone to please look after him, which is a refugee's story."
+   }
   },
   {
    "id": "19-down",
@@ -381,7 +1024,36 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDEATES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "IDEATES",
+    "definition": "Imagines",
+    "indicators": [
+     "includes"
+    ],
+    "indicatorNotes": {
+     "includes": "What includes something holds it inside, so the word before it opens to take the word after."
+    },
+    "pieces": [
+     "ID",
+     "EAT",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day in Rome",
+      "gives": "IDES",
+      "note": "the Ides is a Roman day of the month — beware the Ides of March — and it splits after two letters"
+     },
+     {
+      "clueFragment": "scoff",
+      "gives": "EAT",
+      "note": "to scoff is to eat, and greedily"
+     }
+    ],
+    "walkthrough": "Both halves need re-reading: 'day in Rome' is not a date but the Latin name for one, and 'scoff' is a meal rather than a sneer.",
+    "definitionFit": "To ideate is to form ideas — the psychologist's and the management consultant's verb for thinking something up."
+   }
   },
   {
    "id": "20-down",
@@ -398,7 +1070,27 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPONGE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SPONGE",
+    "definition": "Wipe",
+    "definition2": "bum",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Wipe",
+      "gives": "SPONGE",
+      "note": "the first verb: to wipe a surface down with something soft and absorbent"
+     },
+     {
+      "clueFragment": "bum",
+      "gives": "SPONGE",
+      "note": "the second verb: to cadge, as in bumming a cigarette off a stranger"
+     }
+    ],
+    "walkthrough": "Two words, two verbs, no wordplay at all — and the shortest clue in the grid is also the one most likely to be read as a rude joke.",
+    "definitionFit": "One sense is to wipe something down; the other is to cadge, which is what bumming a fiver off a friend amounts to."
+   }
   },
   {
    "id": "21-across",
@@ -419,7 +1111,37 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
     ]
    },
    "solution": "SWEETPEA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SWEET PEA",
+    "definition": "climber",
+    "indicators": [
+     "maybe",
+     "cut"
+    ],
+    "indicatorNotes": {
+     "maybe": "It flags an example rather than a synonym: what follows is one kind of the thing named, not the thing itself.",
+     "cut": "A cut word loses its end, so the mountain here arrives one letter shorter."
+    },
+    "pieces": [
+     "SWEET",
+     "PEA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rock",
+      "gives": "SWEET",
+      "note": "seaside rock is a stick of boiled sugar — one kind of confection, not a stone"
+     },
+     {
+      "clueFragment": "mountain",
+      "gives": "PEA",
+      "note": "a mountain is a peak, docked of its last letter"
+     }
+    ],
+    "walkthrough": "Two plain words both need re-reading: the rock is edible and the climber is rooted. Nothing in the surface is what it first appears to be.",
+    "definitionFit": "'Climber' is the gardener's sense — a plant that runs up canes or trellis — and this fragrant annual is one of the commonest."
+   }
   },
   {
    "id": "22-across",
@@ -436,7 +1158,38 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FISHER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "FISHER",
+    "definition": "Rod",
+    "indicators": [
+     "beginning",
+     "to get into",
+     "battered"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a word is its first letter, and that is all this takes from the surname.",
+     "to get into": "It puts the letter just found in among the others, so the single letter joins the material being reordered.",
+     "battered": "Something battered has lost its shape, which is exactly what happens to the order of these letters."
+    },
+    "anagram": {
+     "fodder": "FRIES H"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hull’s beginning",
+      "gives": "H",
+      "note": "the first letter of the surname"
+     },
+     {
+      "clueFragment": "fries",
+      "gives": "FRIES",
+      "note": "the five letters of the chips, which reorder around the letter joining them"
+     }
+    ],
+    "walkthrough": "Rod Hull and his emu carry the surface, and only the H of Hull is needed. 'Battered fries' is a chip-shop picture doing an anagram's job.",
+    "definitionFit": "In angling a 'rod' is the person holding one — a fishery sells so many rods a day — so the word names the angler by the tackle."
+   }
   },
   {
    "id": "23-down",
@@ -453,7 +1206,35 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SCONE",
+    "definition": "9",
+    "indicators": [
+     "Finally"
+    ],
+    "indicatorNotes": {
+     "Finally": "It asks for the very end of the word beside it, so only that last letter is written down."
+    },
+    "pieces": [
+     "S",
+     "CONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "calls",
+      "gives": "S",
+      "note": "the last letter of the word, and nothing else from it"
+     },
+     {
+      "clueFragment": "99",
+      "gives": "CONE",
+      "note": "a 99 is the ice cream served in a wafer with a flake pushed into it"
+     }
+    ],
+    "walkthrough": "Three nines do two jobs: the first two are the ice-cream 99, and the last one is the cross-reference at 9 across. The question mark covers the cheek.",
+    "definitionFit": "9 across is cake, and this counts as one: a small plain cake, baked flat and split for jam and cream."
+   }
   },
   {
    "id": "24-across",
@@ -470,7 +1251,41 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BATTENBERG",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "BATTENBERG",
+    "definition": "9",
+    "indicators": [
+     "hiding",
+     "half of"
+    ],
+    "indicatorNotes": {
+     "hiding": "What is hidden goes inside something else, so the name before it wraps around the letters that follow.",
+     "half of": "Exactly half the letters are taken, counted rather than trimmed: six of the twelve, from the front."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "B",
+     "ATTENB",
+     "ERG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Austrian barman",
+      "gives": "BERG",
+      "note": "the Austrian is Alban Berg, the Viennese composer, and his name splits after one letter; 'barman' is the surface's own man behind the bar"
+     },
+     {
+      "clueFragment": "national treasure",
+      "gives": "ATTENB",
+      "note": "the nation's treasure is David Attenborough, and his twelve letters are cut down the middle"
+     }
+    ],
+    "walkthrough": "Two famous names, one inside the other, which is how the surface gets to be about smuggling. Both are so well known that neither needs a first name.",
+    "definitionFit": "9 across is cake, and this is one by name: the pink-and-yellow chequered sponge wrapped in marzipan."
+   }
   },
   {
    "id": "25-across",
@@ -487,7 +1302,37 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OATH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "OATH",
+    "definition": "curse",
+    "indicators": [
+     "originally",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "originally": "At their origins — so each of the three words in the name gives up only its opening letter.",
+     "behind": "What stands behind something follows it, so the initials line up after the single letter."
+    },
+    "pieces": [
+     "O",
+     "ATH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the crossword's standing letter for old"
+     },
+     {
+      "clueFragment": "Attila the Hun",
+      "gives": "ATH",
+      "note": "the opening letters of all three words, the little one included"
+     }
+    ],
+    "walkthrough": "Attila is a good villain for a bad word, and the trap is 'the': every word of the name is needed, including the one you would skip.",
+    "definitionFit": "A curse is a swear word, and that is one of this word's two senses — the profanity, not the promise sworn in court."
+   }
   },
   {
    "id": "26-across",
@@ -504,7 +1349,33 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEEDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SEEDED",
+    "definition": "stoned",
+    "indicators": [],
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "SEED",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tennis player",
+      "gives": "SEED",
+      "note": "a ranked player at a tournament is a seed — the top seed, the third seed"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is the editor, the crossword's standing journalist"
+     }
+    ],
+    "walkthrough": "Both pieces are conventions worth owning for good: the ranked player and the editor turn up in a grid most weeks.",
+    "definitionFit": "'Stoned' of a fruit means the stones have been taken out, and doing the same to grapes or raisins is called seeding them."
+   }
   },
   {
    "id": "27-across",
@@ -521,7 +1392,39 @@ window.CRYPTIC_PUZZLES["cryptic-30055"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JEWELS",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "JEWELS",
+    "definition": "treasure",
+    "definitionNote": "Treasure is a mass noun, so one word covers any number of pieces — which is how a singular-looking definition fairly defines a plural answer.",
+    "indicators": [
+     "oddly",
+     "hoarding"
+    ],
+    "indicatorNotes": {
+     "oddly": "Odd here counts positions rather than describing behaviour: the first, third, fifth and seventh letters.",
+     "hoarding": "A hoard is kept inside, so the letters just found close round whatever comes next."
+    },
+    "pieces": [
+     "JEW",
+     "EL",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joe Swash",
+      "gives": "JEWS",
+      "note": "the odd-numbered letters of the two names read straight through"
+     },
+     {
+      "clueFragment": "article of Spanish",
+      "gives": "EL",
+      "note": "'el' is the Spanish for 'the', and it slips inside"
+     }
+    ],
+    "walkthrough": "Counting through 'Joe Swash' letter by letter is the whole job, and the Spanish article hides in the sentence without disturbing the surface at all.",
+    "definitionFit": "'Treasure' is the collective word for precious stones and worked metal, so it names a hoard made of exactly these."
+   }
   }
  ]
 } /*JSON-END*/;
