@@ -29,7 +29,27 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACADEMIC",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ACADEMIC",
+    "definition": "Teacher",
+    "definition2": "of no practical use",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Teacher",
+      "gives": "ACADEMIC",
+      "note": "an academic is a university teacher"
+     },
+     {
+      "clueFragment": "of no practical use",
+      "gives": "ACADEMIC",
+      "note": "an academic question is one whose answer changes nothing"
+     }
+    ],
+    "walkthrough": "One word wearing two parts of speech, run together with nothing between them. The joke is that the second reading is a quiet insult aimed at the first.",
+    "definitionFit": "An academic is a university teacher; as an adjective the word means purely theoretical, an argument with no bearing on anything real."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +66,35 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHANCEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHANCEL",
+    "definition": "part of church",
+    "indicators": [
+     "above"
+    ],
+    "indicatorNotes": {
+     "above": "In a down entry whatever stands higher is written first, so this word fixes which piece leads."
+    },
+    "pieces": [
+     "CHANCE",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opening",
+      "gives": "CHANCE",
+      "note": "an opening is a chance, an opportunity"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L = large, the clothing-size abbreviation"
+     }
+    ],
+    "walkthrough": "'Opening' looks architectural in a clue about churches and turns out to mean a stroke of luck. L for large comes off a shirt collar and is worth filing away.",
+    "definitionFit": "The chancel is the space round the altar at the east end of a church, kept for clergy and choir."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +111,29 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISTASTEFUL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DISTASTEFUL",
+    "definition": "Unpleasant",
+    "indicators": [
+     "fluid"
+    ],
+    "indicatorNotes": {
+     "fluid": "A fluid holds no shape of its own, so what it describes will not stay in the order it was given."
+    },
+    "anagram": {
+     "fodder": "DILUTES FAST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "dilutes fast",
+      "gives": "DILUTESFAST",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "walkthrough": "The surface reads like the small print on a bottle, which is exactly why 'fluid' slips past as a description of the liquid rather than an instruction.",
+    "definitionFit": "Distasteful means offensive to taste or feeling, a close everyday synonym for 'unpleasant' carrying a stronger note of moral disapproval."
+   }
   },
   {
    "id": "4-down",
@@ -80,7 +150,30 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MASSE",
+    "definition": "shot",
+    "indicators": [],
+    "pieces": [
+     "MASS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bulk",
+      "gives": "MASS",
+      "note": "bulk and mass are both sheer quantity of matter"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E = energy, the physicist's abbreviation"
+     }
+    ],
+    "walkthrough": "'Bulk energy' reads as one phrase about power supply and is two separate pieces. The billiards word is properly spelt with an accent, which the grid simply drops.",
+    "definitionFit": "A masse is a billiards stroke played with the cue held almost upright to curve the ball, so 'shot' names it by its class."
+   }
   },
   {
    "id": "5-down",
@@ -97,7 +190,44 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIMERA",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "CHIMERA",
+    "definition": "Fancy",
+    "indicators": [
+     "being put into",
+     "possibly"
+    ],
+    "indicatorNotes": {
+     "being put into": "Putting one thing into another is placing it bodily inside, so the shorter piece ends up buried in the longer.",
+     "possibly": "'Possibly' says the word before it is only one arrangement of its letters, and some other arrangement is wanted."
+    },
+    "pieces": [
+     "C",
+     "HIM",
+     "ERA"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CARE",
+      "gives": "CERA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "care",
+      "gives": "CERA",
+      "note": "the letters of CARE rearranged"
+     },
+     {
+      "clueFragment": "that guy",
+      "gives": "HIM",
+      "note": "that guy is him"
+     }
+    ],
+    "walkthrough": "'Fancy that guy' reads as a swoon and is really the definition bumping straight into the wordplay. Short ordinary words like 'care' are the ones setters most like to jumble.",
+    "definitionFit": "A chimera is an idle fancy or wild imagining, the noun sense of 'fancy' that survives mainly in books and crosswords."
+   }
   },
   {
    "id": "6-across",
@@ -114,7 +244,35 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLURBS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "BLURBS",
+    "definition": "words on book jackets",
+    "indicators": [
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "extremely": "The extremes of a word are its two far ends, so only the outermost letter at each end is taken."
+    },
+    "pieces": [
+     "BLUR",
+     "BS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obscure",
+      "gives": "BLUR",
+      "note": "to obscure something is to blur it"
+     },
+     {
+      "clueFragment": "bumptious",
+      "gives": "BS",
+      "note": "the outer letters of B-umptiou-S"
+     }
+    ],
+    "walkthrough": "'Obscure' is a verb here, not an adjective, and that switch is most of the difficulty. The surface pretends the whole clue is about a pompous author.",
+    "definitionFit": "Blurbs are the puffing descriptions printed on a dust jacket to sell a book, so the definition names them by where they appear."
+   }
   },
   {
    "id": "6-down",
@@ -131,7 +289,39 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEAVERING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BEAVERING",
+    "definition": "working very hard",
+    "indicators": [
+     "providing protection for"
+    ],
+    "indicatorNotes": {
+     "providing protection for": "To shelter something is to close round it, so one word wraps itself entirely about another."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "BE",
+     "AVER",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person",
+      "gives": "BEING",
+      "note": "a being is a person, a living creature"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver is to state something as fact"
+     }
+    ],
+    "walkthrough": "Reading 'person' as a being rather than a named someone is the step that unlocks this. Beavering away is the idiom the definition leans on, from the animal's proverbial industry.",
+    "definitionFit": "To beaver away is to toil without pause, so the participle stands in exactly for 'working very hard' in its idiomatic sense."
+   }
   },
   {
    "id": "7-down",
@@ -148,7 +338,37 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNI",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UNI",
+    "definition": "Learning institution",
+    "indicators": [
+     "reduced in size by 25%"
+    ],
+    "indicatorNotes": {
+     "reduced in size by 25%": "A quarter off a four-letter word is one letter gone, and what goes is the letter at the end."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "UNI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subdivision",
+      "gives": "UNIT",
+      "note": "a unit is a subdivision of something larger"
+     },
+     {
+      "clueFragment": "reduced in size by 25%",
+      "gives": "",
+      "note": "four letters minus a quarter leaves three: the closing T drops off"
+     }
+    ],
+    "walkthrough": "The percentage is the joke - read '25%' as arithmetic performed on the word, not as a description of a department being cut.",
+    "definitionFit": "Uni is the British colloquial shortening of university, and a university is the learning institution the phrase points at."
+   }
   },
   {
    "id": "8-down",
@@ -165,7 +385,38 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUNCHED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "BUNCHED",
+    "definition": "Gathered together",
+    "indicators": [
+     "away"
+    ],
+    "indicatorNotes": {
+     "away": "'Away' is the direction a thing goes when it is taken off, so the letter named just before it leaves."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "B",
+     "UNCHED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had late-morning meal",
+      "gives": "BRUNCHED",
+      "note": "brunch is the meal between breakfast and lunch"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R = right, the standard abbreviation"
+     }
+    ],
+    "walkthrough": "Brunch is a portmanteau of breakfast and lunch, which is why 'late-morning meal' points at it so precisely. R for right pairs with L for left all over crosswords.",
+    "definitionFit": "Things bunched are drawn into a clump, so 'gathered together' is the plain past-tense synonym - what a florist does to flowers."
+   }
   },
   {
    "id": "9-across",
@@ -182,7 +433,42 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSASSINATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "ASSASSINATION",
+    "definition": "shooting, perhaps",
+    "indicators": [
+     "initiating"
+    ],
+    "indicatorNotes": {
+     "initiating": "To initiate is to begin, so what is wanted is the opening letter of the word that follows."
+    },
+    "pieces": [
+     "ASS",
+     "ASS",
+     "I",
+     "NATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two idiots",
+      "gives": "ASSASS",
+      "note": "an ass is an idiot, and the clue asks for two of them"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the initial letter of 'one'"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "NATION",
+      "note": "a nation is a state"
+     }
+    ],
+    "walkthrough": "The surface reads as a news bulletin and every word of it is doing something else: 'state' is an ordinary country and the idiots are donkeys.",
+    "definitionFit": "The murder of a public figure is an assassination, and gunfire is one common method, so the definition works by example rather than by kind."
+   }
   },
   {
    "id": "10-across",
@@ -199,7 +485,35 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRAPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SCRAPE",
+    "definition": "pickle",
+    "indicators": [
+     "the last bit of"
+    ],
+    "indicatorNotes": {
+     "the last bit of": "The final bit of a word is its closing letter and nothing more."
+    },
+    "pieces": [
+     "SCRAP",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dispose of",
+      "gives": "SCRAP",
+      "note": "to scrap a thing is to dispose of it"
+     },
+     {
+      "clueFragment": "homemade",
+      "gives": "E",
+      "note": "the last letter of 'homemade'"
+     }
+    ],
+    "walkthrough": "'Pickle' is the definition and has nothing to do with food: a scrape is a spot of bother. The surface leans hard on the homemade-chutney reading to hide that.",
+    "definitionFit": "A scrape is an awkward fix you have got yourself into, the same informal sense in which someone is in a pickle."
+   }
   },
   {
    "id": "11-across",
@@ -216,7 +530,36 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYESIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "EYESIGHT",
+    "definition": "Perception",
+    "indicators": [
+     "possessed by"
+    ],
+    "indicatorNotes": {
+     "possessed by": "To be possessed by something is to be held within it, so one word sits inside the other."
+    },
+    "pieces": [
+     "E",
+     "YES",
+     "IGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rowing crew",
+      "gives": "EIGHT",
+      "note": "an eight is a racing crew of eight rowers"
+     },
+     {
+      "clueFragment": "absolutely",
+      "gives": "YES",
+      "note": "'absolutely' is an emphatic yes"
+     }
+    ],
+    "walkthrough": "An eight for a rowing crew is one of the most reliable pieces of crossword vocabulary, and 'absolutely' as a word of agreement is the other half worth remembering.",
+    "definitionFit": "Eyesight is the faculty of seeing, so 'perception' names it by the wider class of taking the world in through a sense."
+   }
   },
   {
    "id": "12-down",
@@ -233,7 +576,30 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCARNATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INCARNATION",
+    "definition": "avatar",
+    "indicators": [],
+    "pieces": [
+     "IN",
+     "CARNATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "what is popular is in, as in fashion"
+     },
+     {
+      "clueFragment": "pink",
+      "gives": "CARNATION",
+      "note": "a carnation is a variety of pink, the garden flower"
+     }
+    ],
+    "walkthrough": "Three words, no indicator, and the whole difficulty is that 'pink' is a flower rather than a colour. 'Avatar' is wanted in its older Hindu sense, not the film.",
+    "definitionFit": "In Hindu belief an avatar is a deity's bodily descent into the world, which is precisely an incarnation - spirit given flesh."
+   }
   },
   {
    "id": "13-across",
@@ -250,7 +616,49 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLITTERATI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "GLITTERATI",
+    "definition": "celebrities",
+    "indicators": [
+     "about",
+     "to bring on board"
+    ],
+    "indicatorNotes": {
+     "about": "'About' means turned round, so the letters just assembled are read back the other way.",
+     "to bring on board": "Bringing something on board is taking it inside, so a word is loaded into the middle of what is already there."
+    },
+    "pieces": [
+     "G",
+     "LITTER",
+     "ATI"
+    ],
+    "subReversals": [
+     {
+      "from": "ITAG",
+      "to": "GATI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "International",
+      "gives": "I",
+      "note": "I = international, the standard abbreviation"
+     },
+     {
+      "clueFragment": "clothing label",
+      "gives": "TAG",
+      "note": "the label sewn into a garment is its tag"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "LITTER",
+      "note": "litter is rubbish dropped about the place"
+     }
+    ],
+    "walkthrough": "'Clothing label' invites you to name a fashion house and means the thing sewn inside a collar. 'On board' is the setter's usual way of saying something is taken inside.",
+    "definitionFit": "The glitterati are the fashionable famous, so the definition is a plain synonym with the glamour and the faint sneer already built in."
+   }
   },
   {
    "id": "14-down",
@@ -271,7 +679,45 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
     ]
    },
    "solution": "EMMASTONE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "EMMA STONE",
+    "definition": "She acts",
+    "definitionNote": "'She acts' is a sentence rather than a noun phrase, so it describes the answer - a film actress - instead of standing in for her.",
+    "indicators": [
+     "following",
+     "in"
+    ],
+    "indicatorNotes": {
+     "following": "What follows comes afterwards, so this piece is written after everything already assembled.",
+     "in": "This little word puts a piece bodily within another rather than beside it."
+    },
+    "pieces": [
+     "E",
+     "MM",
+     "AST",
+     "ONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain direction",
+      "gives": "EAST",
+      "note": "east is one of the four points of the compass"
+     },
+     {
+      "clueFragment": "couple of males",
+      "gives": "MM",
+      "note": "M = male, and a couple of them is MM"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "a single of anything is one"
+     }
+    ],
+    "walkthrough": "The clue never says 'actress' - two words do the same job while reading as gossip about someone's love life. 'Certain direction' stays vague until the letters force the compass point.",
+    "definitionFit": "The answer is an American film actress, Oscar-winning star of La La Land and Poor Things, named here by her profession."
+   }
   },
   {
    "id": "15-across",
@@ -288,7 +734,33 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CODE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CODE",
+    "definition": "System of rules",
+    "indicators": [],
+    "linkWords": [
+     "requiring"
+    ],
+    "pieces": [
+     "C",
+     "ODE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "C = constant, the standard symbol in mathematics"
+     },
+     {
+      "clueFragment": "dedicated work",
+      "gives": "ODE",
+      "note": "an ode is a poem written in someone's honour"
+     }
+    ],
+    "walkthrough": "An ode is dedicated to its subject, which is what makes 'dedicated work' fair rather than merely flattering. The question mark flags that stretch.",
+    "definitionFit": "A code is a body of rules - the highway code, a legal code - so the civil sense is wanted, not the secret-writing one."
+   }
   },
   {
    "id": "16-across",
@@ -305,7 +777,26 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAFF",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NAFF",
+    "definition": "Trashy",
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "'Somewhat' means only part of what follows is wanted, and that part runs unbroken through the words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "lumpen affair",
+      "gives": "NAFF",
+      "note": "running across lumpe-N AFF-air"
+     }
+    ],
+    "walkthrough": "Hidden answers love a join between two words like this, because the eye reads whole words and steps straight over the seam where the letters actually are.",
+    "definitionFit": "Naff is British slang for tacky and in poor taste, which is what 'trashy' says of clothes, gifts or television."
+   }
   },
   {
    "id": "17-down",
@@ -322,7 +813,28 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADAMANT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ADAMANT",
+    "definition": "Determined",
+    "definition2": "80s pop star",
+    "definitionNote": "The second definition only works once the letters are respaced into two words, so it defines the string rather than the word.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Determined",
+      "gives": "ADAMANT",
+      "note": "someone adamant will not be shifted"
+     },
+     {
+      "clueFragment": "80s pop star",
+      "gives": "ADAM ANT",
+      "note": "Adam Ant fronted Adam and the Ants"
+     }
+    ],
+    "walkthrough": "Respacing an ordinary word into a name is one of the oldest tricks in the book, and a two-word pop star is the perfect place to hide it.",
+    "definitionFit": "Adamant means immovably determined, from an old name for the hardest of stones; split differently the same letters name the New Romantic singer."
+   }
   },
   {
    "id": "18-across",
@@ -339,7 +851,29 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANAGERIAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MANAGERIAL",
+    "definition": "coming from the top dogs",
+    "indicators": [
+     "Wild"
+    ],
+    "indicatorNotes": {
+     "Wild": "Untamed things are out of order by nature, so the letters beside this word refuse to stay where they were put."
+    },
+    "anagram": {
+     "fodder": "ANIMAL RAGE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "animal rage",
+      "gives": "ANIMALRAGE",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "walkthrough": "'Wild animal rage' is a complete picture in three words, which is what makes it so hard to see the last two as raw material rather than scenery.",
+    "definitionFit": "Managerial describes whatever issues from managers, and 'top dogs' is slang for the people in charge, so the adjective fits their orders exactly."
+   }
   },
   {
    "id": "19-down",
@@ -356,7 +890,46 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEOLITH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter + container",
+    "answer": "NEOLITH",
+    "definition": "relic",
+    "indicators": [
+     "ultimately",
+     "breaks",
+     "crumbling"
+    ],
+    "indicatorNotes": {
+     "ultimately": "Ultimately means at the very end, so only the closing letter of the word before is taken.",
+     "breaks": "To break into somewhere is to force your way inside, so this letter lands in among the rest.",
+     "crumbling": "Something crumbling is falling apart into loose pieces, which is what happens here to the order of the letters."
+    },
+    "pieces": [
+     "NEOLI",
+     "T",
+     "H"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "HOLEIN",
+      "gives": "NEOLIH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hole in",
+      "gives": "NEOLIH",
+      "note": "the six letters of HOLE IN, rearranged"
+     },
+     {
+      "clueFragment": "Frost ultimately",
+      "gives": "T",
+      "note": "the last letter of 'Frost'"
+     }
+    ],
+    "walkthrough": "Frost is capitalised so it reads as a surname, and it is only weather. The picture the surface paints - ice splitting a ruin - is the picture archaeology would give you too.",
+    "definitionFit": "A neolith is a New Stone Age implement, so 'relic' names it by the class of surviving ancient object it belongs to."
+   }
   },
   {
    "id": "20-down",
@@ -373,7 +946,33 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMOUNTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMOUNTS",
+    "definition": "Supplies",
+    "indicators": [],
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "A",
+     "MOUNTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first-class",
+      "gives": "A",
+      "note": "A1 is top grade, so first-class gives A"
+     },
+     {
+      "clueFragment": "horses",
+      "gives": "MOUNTS",
+      "note": "a mount is a horse you ride"
+     }
+    ],
+    "walkthrough": "A mount is the rider's word for a horse rather than the animal itself, and A for first-class comes from A1, the shipping register's top rating.",
+    "definitionFit": "Amounts are quantities on hand, so the definition matches in its plural noun sense - stocks of a thing available, not the verb."
+   }
   },
   {
    "id": "21-across",
@@ -390,7 +989,46 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CALLISTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "CALLISTO",
+    "definition": "Satellite",
+    "indicators": [
+     "crazily"
+    ],
+    "indicatorNotes": {
+     "crazily": "Doing anything crazily is doing it with no regard for order, so these letters land anyhow."
+    },
+    "pieces": [
+     "CALL",
+     "ISTO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ITSO",
+      "gives": "ISTO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "phone",
+      "gives": "CALL",
+      "note": "to phone someone is to call them"
+     },
+     {
+      "clueFragment": "It’s",
+      "gives": "ITS",
+      "note": "three letters, the apostrophe dropping out"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O = old, the standard abbreviation"
+     }
+    ],
+    "walkthrough": "'Satellite phone' is lovely misdirection: two words that belong together in life and to opposite halves of the clue. The answer is one of Jupiter's moons.",
+    "definitionFit": "Callisto is one of Jupiter's four Galilean moons, so the definition works by class in the astronomical sense rather than the man-made one."
+   }
   },
   {
    "id": "22-across",
@@ -407,7 +1045,35 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRAYON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CRAYON",
+    "definition": "Drawer",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily points at what comes first, so only the opening letter of the next word is used."
+    },
+    "pieces": [
+     "C",
+     "RAYON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "containing",
+      "gives": "C",
+      "note": "the first letter of 'containing'"
+     },
+     {
+      "clueFragment": "fabric",
+      "gives": "RAYON",
+      "note": "rayon is a manufactured fabric"
+     }
+    ],
+    "walkthrough": "'Containing' looks every inch like an instruction to put one thing inside another, and it is really a word being asked for its opening letter. That double bluff is the clue.",
+    "definitionFit": "A crayon is a stick of coloured wax used for drawing, so the definition names it as the thing that draws rather than a person who does."
+   }
   },
   {
    "id": "22-down",
@@ -424,7 +1090,39 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CHARD",
+    "definition": "green leaves",
+    "definitionNote": "Chard is a mass noun - you eat chard, not chards - so the plural 'leaves' describes the vegetable rather than counting it.",
+    "indicators": [
+     "Head of"
+    ],
+    "indicatorNotes": {
+     "Head of": "The head of a word is its front, so just the opening letter is taken."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "C",
+     "HARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cabbage",
+      "gives": "C",
+      "note": "the first letter of 'cabbage'"
+     },
+     {
+      "clueFragment": "tough",
+      "gives": "HARD",
+      "note": "a tough customer is a hard one"
+     }
+    ],
+    "walkthrough": "A head of cabbage is a real thing you can buy, which is what lets the instruction pass as scenery. The surface never leaves the vegetable patch.",
+    "definitionFit": "Chard is a beet grown for its broad glossy foliage rather than its root, so it reaches the table as exactly that."
+   }
   },
   {
    "id": "23-across",
@@ -441,7 +1139,35 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUTHORITARIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + substitution",
+    "answer": "AUTHORITARIAN",
+    "definition": "Domineering",
+    "indicators": [
+     "changing sides"
+    ],
+    "indicatorNotes": {
+     "changing sides": "Swapping one side for the other means left becomes right, and each of those has its own one-letter abbreviation."
+    },
+    "pieces": [
+     "AUTHOR",
+     "ITARIAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer",
+      "gives": "AUTHOR",
+      "note": "an author is a writer"
+     },
+     {
+      "clueFragment": "from Rome, maybe",
+      "gives": "ITARIAN",
+      "note": "someone from Rome might be an ITALIAN, whose L (left) becomes R (right)"
+     }
+    ],
+    "walkthrough": "L for left and R for right is a swap worth memorising, and 'changing sides' is one of several ways a setter can ask for it. Rome supplies the nationality by example.",
+    "definitionFit": "Authoritarian describes a ruler or a manner that demands obedience, so 'domineering' is a close adjectival synonym with a political edge."
+   }
   },
   {
    "id": "24-down",
@@ -458,7 +1184,34 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "TEA",
+    "definition": "Drink",
+    "indicators": [
+     "periodically"
+    ],
+    "indicatorNotes": {
+     "periodically": "Something done periodically recurs at regular intervals, so letters are picked at a steady step through the words."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "T",
+     "E",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the bar",
+      "gives": "TEA",
+      "note": "every second letter of T-h-E-b-A-r"
+     }
+    ],
+    "walkthrough": "'Bar' and 'drink' hold the surface together while the letters come from somewhere else entirely. Taking every other letter is one of the commonest extractions there is.",
+    "definitionFit": "The answer is the everyday British cuppa, so the definition works by class - the beverage, not the evening meal the word also names."
+   }
   },
   {
    "id": "25-across",
@@ -479,7 +1232,30 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATEASE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AT EASE",
+    "definition": "taking it easy",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "TEASE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own A, used as itself"
+     },
+     {
+      "clueFragment": "kid",
+      "gives": "TEASE",
+      "note": "to kid someone is to tease them"
+     }
+    ],
+    "walkthrough": "A bare 'A' at the start of a clue is nearly always itself, which is why it disappears so easily. 'Kid' is a verb here, not a child.",
+    "definitionFit": "The answer means relaxed and unhurried, matching the definition as a whole phrase; it is also the parade-ground order to stand down."
+   }
   },
   {
    "id": "26-across",
@@ -496,7 +1272,39 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEDONIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HEDONIST",
+    "definition": "Fun-loving sort",
+    "indicators": [
+     "involved in"
+    ],
+    "indicatorNotes": {
+     "involved in": "To be involved in something is to be caught up inside it, so one word goes within the other."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "HE",
+     "DON",
+     "IST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robbery",
+      "gives": "HEIST",
+      "note": "a heist is a planned robbery"
+     },
+     {
+      "clueFragment": "mafia boss",
+      "gives": "DON",
+      "note": "don is the title of a mafia chief, borrowed from Sicilian usage"
+     }
+    ],
+    "walkthrough": "'Sort' means a person here rather than a kind of thing, which is what keeps the definition from looking like one. The surface stays entirely inside the crime film.",
+    "definitionFit": "A hedonist treats pleasure as the point of life, so the definition names the person by the appetite that defines them."
+   }
   }
  ]
 } /*JSON-END*/;
