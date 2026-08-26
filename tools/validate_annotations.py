@@ -75,6 +75,12 @@ TYPE_PARTS = {
     # TSUNAMIS = A MIST SUN cycled), and a swap of one indicated letter for
     # another (30079 15D LAUGH LINE = TAUGHT IN E with Ls covering the Ts)
     "cycling", "substitution",
+    # the answer is its own reversal: 30052 23D PULL-UP, clued Stop going both
+    # ways. Not a reversal, since nothing is turned round to make something
+    # else, so no fragment hands over letters and the blocks split into
+    # readings rather than chunks, the way a cryptic definition's do. As above,
+    # no double quotes in this comment: the smoke test would read them as parts.
+    "palindrome",
 }
 
 
@@ -793,15 +799,27 @@ INVARIANT_PLURALS = {
     "youth", "kin", "poultry", "livestock", "personnel", "staff", "troops",
     "media", "data", "criteria", "phenomena", "bacteria", "children", "men",
     "women", "feet", "teeth", "geese", "mice", "lice", "oxen", "dice",
+    # Not nouns, but the plural head of a definition all the same: "Those in
+    # charge" defines RULERS and "these" and "those" carry the number on their
+    # own (30051 3D). Without them the check asks for a definitionNote about a
+    # mismatch that isn't there.
+    "those", "these",
 }
 
 
 def is_gerund(ans):
     """Is the answer really an -ING form? MARAUDING is (MARAUD is a word);
-    VIKING, STRING and SPRING are not, which is what made this check noisy."""
+    VIKING, STRING and SPRING are not, which is what made this check noisy.
+
+    A stem has to be long enough to be a verb, too: WING scored as a gerund
+    because the +E test turned its one-letter stem into WE (30052 26A), and no
+    English verb is a single letter, so a one-letter stem is always the
+    coincidence this check exists to ignore."""
     if not ans.endswith("ING"):
         return False
     stem = ans[:-3]
+    if len(stem) < 2:
+        return False
     return (is_word(stem) or is_word(stem + "E")
             or (len(stem) > 2 and stem[-1] == stem[-2] and is_word(stem[:-1])))
 
