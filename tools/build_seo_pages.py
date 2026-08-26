@@ -329,8 +329,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     diff = (meta or {}).get("difficulty") or {}
     annotated = (meta or {}).get("annotated")
     # The page lives at its ID, not its number: two papers can reach the same
-    # number and would then want the same directory. The bare-number URL still
-    # works — legacy_redirect() keeps one at every number we have ever used.
+    # number and would then want the same directory.
     canonical = f"{BASE}/puzzles/{puz['id']}/"
 
     # "Everyman Crossword No 4,096 by Everyman" is the setter's pseudonym said
@@ -676,59 +675,6 @@ def patch_homepage(idx):
     return path, new
 
 
-def legacy_redirects(solved):
-    """A page at /puzzles/<bare number>/ for every puzzle, pointing at its id.
-
-    Puzzle pages moved from /puzzles/30089/ to /puzzles/cryptic-30089/ on
-    2026-08-19, when ids grew their series so two papers could not claim one
-    directory. Those old URLs are indexed and shared, and GitHub Pages cannot
-    answer with a 301, so each becomes a page that says where its puzzle is in
-    the two ways that count: rel=canonical for a crawler, a meta refresh for a
-    reader. Kept forever, not for a grace period — a link somebody sent a friend
-    has no expiry.
-
-    Built for every puzzle, not only the ones that predate the move, and the copy
-    says "is at" rather than "has moved" for exactly that reason: a series added
-    afterwards was never published under its bare number, and the first one
-    (indysunday, 2026-08-19) got 52 pages announcing a move that never happened.
-    A number is a number — the page's job is to say which puzzle it names.
-
-    A number claimed by more than one paper offers the choice rather than
-    guessing, which is the same rule resolve_puzzle() applies on the command
-    line: an ambiguous number is a question, never a coin toss.
-    """
-    by_number = {}
-    for p in solved:
-        by_number.setdefault(str(p["number"]), []).append(p)
-    out = {}
-    for num, ps in sorted(by_number.items()):
-        pretty = f"{int(num):,}"
-        if len(ps) == 1:
-            target = f"{BASE}/puzzles/{ps[0]['id']}/"
-            title = f"No {pretty} — {publisher(ps[0])} {kind(ps[0])}"
-            body = (f'<p>This puzzle is at '
-                    f'<a href="{target}">{esc(target)}</a>.</p>')
-            refresh = f'<meta http-equiv="refresh" content="0; url={esc(target)}">\n'
-        else:
-            target = f"{BASE}/puzzles/"
-            title = f"No {pretty} — which paper?"
-            body = ("<p>More than one paper has a No " + pretty + ":</p><ul>" + "".join(
-                f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
-                f'{esc(publisher(p))} {esc(kind(p))} No {pretty}</a></li>' for p in ps)
-                + "</ul>")
-            refresh = ""
-        out[PUZZLE_DIR / num / "index.html"] = (
-            head(title, f"Where to find cryptic crossword No {pretty}.", target,
-                 extra=refresh)
-            + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
-                        (f"No {pretty}", "")])
-            + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
-            + FOOTER)   # FOOTER already closes body and html
-    return out
-
-
-# ------------------------------------------------------------------------ run
-
 def outputs():
     idx = index_json()
     meta = {p["id"]: p for p in idx["puzzles"]}
@@ -741,8 +687,6 @@ def outputs():
         next_p = solved[i + 1] if i + 1 < len(solved) else None
         files[PUZZLE_DIR / puz["id"] / "index.html"] = puzzle_page(
             puz, meta.get(puz["id"]), prev_p, next_p)
-    for path, page in legacy_redirects(solved).items():
-        files[path] = page
     files[PUZZLE_DIR / "index.html"] = hub_page(idx)
     files[ROOT / "learn" / "index.html"] = learn_page()
     files[ROOT / "abbreviations" / "index.html"] = abbreviations_page()
