@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DISH",
+    "definition": "Meal",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "skipping starter of"
+    ],
+    "indicatorNotes": {
+     "skipping starter of": "to skip a thing is to leave it out, and the starter of a word is the letter it begins on"
+    },
+    "pieces": [
+     "D",
+     "ISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is Germany's international vehicle plate letter, short for Deutschland"
+     },
+     {
+      "clueFragment": "herring perhaps",
+      "gives": "ISH",
+      "note": "a herring is one kind of fish, and FISH minus its opening letter is ISH"
+     }
+    ],
+    "walkthrough": "'Perhaps' is the setter owning up: a herring is only an example of a fish, and it is the general word the wordplay wants, never the particular one.",
+    "definitionFit": "Meal → DISH: a dish is one prepared course set on the table, and by extension the food itself, so it stands in for something to eat."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +82,38 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOLLARSIGN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DOLLAR SIGN",
+    "definition": "$",
+    "indicators": [
+     "foolishly"
+    ],
+    "indicatorNotes": {
+     "foolishly": "doing something foolishly is doing it without proper care for order, so the letters land anyhow rather than as they were handed over"
+    },
+    "anagram": {
+     "fodder": "D GIRL LOANS"
+    },
+    "pieces": [
+     "D",
+     "OLLARSIGN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for five hundred"
+     },
+     {
+      "clueFragment": "girl loans",
+      "gives": "OLLARSIGN",
+      "note": "the nine letters of GIRL LOANS reset in a new order behind the numeral"
+     }
+    ],
+    "walkthrough": "The definition is printed rather than written out — one typed character doing a word's job, which is why the eye reads it as a price and walks straight past it.",
+    "definitionFit": "$ → DOLLAR SIGN: the clue prints the symbol and the answer is its name, so the definition is the character itself rather than a synonym."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +130,29 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLUGGARDLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SLUGGARDLY",
+    "definition": "Workshy",
+    "indicators": [
+     "mended"
+    ],
+    "indicatorNotes": {
+     "mended": "mending a broken thing means fitting its pieces back together, and nothing says they have to go back where they came from"
+    },
+    "anagram": {
+     "fodder": "RUGS GLADLY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rugs – gladly",
+      "gives": "SLUGGARDLY",
+      "note": "the ten letters of RUGS GLADLY rearranged"
+     }
+    ],
+    "walkthrough": "The dash makes 'gladly?' look like an afterthought about willingness when it is simply more material — and being glad to help is the one thing the answer is not.",
+    "definitionFit": "Workshy → SLUGGARDLY: a sluggard is someone habitually idle, so the adjective describes a person dodging effort rather than merely being slow at it."
+   }
   },
   {
    "id": "3-across",
@@ -85,7 +169,37 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUMBSTRUCK",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "DUMBSTRUCK",
+    "definition": "lost for words",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "the Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over"
+    },
+    "pieces": [
+     "DUMB",
+     "STRUCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweep your hand across",
+      "soundsLike": "STRUM",
+      "gives": "DUMB",
+      "note": "to strum is to sweep your hand across the strings; it hands its STR over for a D, and the spelling picks up a silent B on the way"
+     },
+     {
+      "clueFragment": "mallard",
+      "soundsLike": "DUCK",
+      "gives": "STRUCK",
+      "note": "a mallard is a duck, and it collects the STR that strum gave up"
+     }
+    ],
+    "walkthrough": "Say the plain phrase first — a strum, a duck — and the swap does the rest. The silent B is the one thing the sound cannot tell you.",
+    "definitionFit": "lost for words → DUMBSTRUCK: struck speechless by astonishment, where 'dumb' carries its older sense of unable to speak rather than stupid."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +216,26 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UTOPIAN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "UTOPIAN",
+    "definition": "expecting impossibly good outcome",
+    "indicators": [
+     "Somewhat"
+    ],
+    "indicatorNotes": {
+     "Somewhat": "somewhat means only partly, so only part of what follows is wanted — the run of letters sitting inside those words"
+    },
+    "blocks": [
+     {
+      "clueFragment": "froufrou top I antiqued",
+      "gives": "UTOPIAN",
+      "note": "the answer runs straight through the ends of four words, from the tail of froufrou to the head of antiqued"
+     }
+    ],
+    "walkthrough": "'Froufrou' is a real word — frills and fuss — so it reads as description rather than a hiding place, and the join sits inside a word rather than at a space.",
+    "definitionFit": "expecting impossibly good outcome → UTOPIAN: a utopian believes a perfect society is coming, so the word marks hope pitched beyond what can actually happen."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +256,44 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEEFTEA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "BEEF TEA",
+    "definition": "hearty beverage",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "churning"
+    ],
+    "indicatorNotes": {
+     "churning": "churn cream and what comes out is the same stuff in an entirely different arrangement, which is what happens to these letters"
+    },
+    "pieces": [
+     "BEE",
+     "FTEA"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FETA",
+      "gives": "FTEA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Busy type",
+      "gives": "BEE",
+      "note": "busy as a bee — the insect is the byword for industry, and 'type' points at a creature rather than a person"
+     },
+     {
+      "clueFragment": "feta",
+      "gives": "FTEA",
+      "note": "the four letters of the Greek cheese reset in a new order"
+     }
+    ],
+    "walkthrough": "The surface offers a hard-working cook and a fridge; the answer keeps neither. 'Hearty' is quietly literal here, since what is in the cup came off an animal.",
+    "definitionFit": "hearty beverage → BEEF TEA: the drink of beef extract in hot water once pressed on invalids, hearty because it is meat rather than leaves."
+   }
   },
   {
    "id": "6-down",
@@ -146,7 +316,29 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOEINTHEDOOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TOE IN THE DOOR",
+    "definition": "Opportunity",
+    "indicators": [
+     "refined"
+    ],
+    "indicatorNotes": {
+     "refined": "refining ore melts it down and remakes it, so the same material comes back out in a completely different form"
+    },
+    "anagram": {
+     "fodder": "TO HIDE ORE NOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to hide ore, not",
+      "gives": "TOE IN THE DOOR",
+      "note": "the twelve letters of TO HIDE ORE NOT rearranged"
+     }
+    ],
+    "walkthrough": "The comma is the misdirection: 'not' looks like it belongs to the sentence, arguing about smuggling, when it belongs to the letters.",
+    "definitionFit": "Opportunity → TOE IN THE DOOR: the salesman's idiom for a small first foothold, the opening that lets you push for everything after it."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +355,34 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "URGE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "URGE",
+    "definition": "impulse",
+    "indicators": [
+     "suppressing"
+    ],
+    "indicatorNotes": {
+     "suppressing": "to suppress a thing is to hold it down out of sight, so the word at 15 keeps this one buried in the middle of itself"
+    },
+    "pieces": [
+     "URGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "15",
+      "gives": "SURGEON",
+      "note": "15 across is the one in theatre, and its letters are what this clue works on"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "URGE",
+      "note": "hold down the S at the front and the ON at the back, and the four letters left in the middle are the answer"
+     }
+    ],
+    "walkthrough": "A cross-reference: solve 15 first and this one is already written inside it. The surface's joke about a doctor resisting temptation is exactly what the letters are doing.",
+    "definitionFit": "impulse → URGE: both name the sudden inward push to act, an urge being the everyday word for a want you did not reason your way into."
+   }
   },
   {
    "id": "8-down",
@@ -180,7 +399,30 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KITS",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "KITS",
+    "definition": "Assemblages",
+    "indicators": [
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "cycling": "a wheel brings the same spokes round again in the same order, and letters treated that way roll off one end and rejoin at the other"
+    },
+    "pieces": [
+     "KIT",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "humorous burlesque",
+      "gives": "SKIT",
+      "note": "a skit is the short comic sketch that sends something up"
+     }
+    ],
+    "walkthrough": "Only one letter actually travels, and it travels the whole way: the front letter goes to the back while everything else keeps its place and its order.",
+    "definitionFit": "Assemblages → KITS: a kit is the set of parts or tools gathered for one job, so kits are collections put together with a purpose in mind."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +439,35 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOUT",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "LOUT",
+    "definition": "Yobbo",
+    "indicators": [
+     "changing"
+    ],
+    "indicatorNotes": {
+     "changing": "changing one thing for another puts the second exactly where the first stood, so a single letter is swapped in place"
+    },
+    "pieces": [
+     "L",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defeat",
+      "gives": "ROUT",
+      "note": "a rout is a crushing defeat, the sort that sends an army running"
+     },
+     {
+      "clueFragment": "sides",
+      "gives": "L",
+      "note": "the two sides are left and right, written L and R, so the R at the front gives way to an L"
+     }
+    ],
+    "walkthrough": "'Changing sides' reads as treachery on a battlefield and means something much smaller: one letter of the alphabet standing down for another.",
+    "definitionFit": "Yobbo → LOUT: both are British words for a loud, boorish young man, yobbo being the slangier of the two and lout the older."
+   }
   },
   {
    "id": "10-across",
@@ -218,7 +488,35 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOSEWEIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOSE WEIGHT",
+    "definition": "successfully diet",
+    "pieces": [
+     "LO",
+     "SEW",
+     "EIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is the archaic word for see, as in lo and behold"
+     },
+     {
+      "clueFragment": "darn",
+      "gives": "SEW",
+      "note": "to darn a hole in a sock is to sew it up"
+     },
+     {
+      "clueFragment": "rowers",
+      "gives": "EIGHT",
+      "note": "an eight is a racing crew, a whole boat named by the number in it"
+     }
+    ],
+    "walkthrough": "Three plain words in a row, each swapped for a synonym and run together with no indicator anywhere — 'rowers' as EIGHT is the crossword convention worth banking.",
+    "definitionFit": "successfully diet → LOSE WEIGHT: dieting counts as a success only when the scales come down, so the phrase names the result rather than the effort."
+   }
   },
   {
    "id": "11-down",
@@ -240,7 +538,29 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAKETHEFLOOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TAKE THE FLOOR",
+    "definition": "Give us an address",
+    "pieces": [
+     "TAKE",
+     "THE FLOOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "TAKE",
+      "note": "to book a table is to take it, holding it for yourself"
+     },
+     {
+      "clueFragment": "large hotel suite?",
+      "gives": "THE FLOOR",
+      "note": "a suite big enough fills a whole storey of the hotel, and the question mark admits the stretch"
+     }
+    ],
+    "walkthrough": "The surface is a reservation and a request for directions. Both halves change job in the answer: nobody is booking anything and the address is a speech.",
+    "definitionFit": "Give us an address → TAKE THE FLOOR: to take the floor is to stand and speak to a meeting, so it delivers an address, not a street."
+   }
   },
   {
    "id": "12-across",
@@ -257,7 +577,32 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFGHANISTAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AFGHANISTAN",
+    "definition": "country",
+    "linkWords": [
+     "in the"
+    ],
+    "indicators": [
+     "lost"
+    ],
+    "indicatorNotes": {
+     "lost": "something lost has strayed from where it belongs, and letters that have strayed are no longer standing in their proper places"
+    },
+    "anagram": {
+     "fodder": "HA GIANTS FAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ha! Giants fan",
+      "gives": "AFGHANISTAN",
+      "note": "the eleven letters of HA GIANTS FAN rearranged"
+     }
+    ],
+    "walkthrough": "'Giants' reads as a sports team, so the surface is a jeer across a stadium — about as far from the answer's part of the world as the setter could get.",
+    "definitionFit": "country → AFGHANISTAN: the landlocked state of south-central Asia with Kabul as its capital, so the definition names it by category alone."
+   }
   },
   {
    "id": "13-down",
@@ -278,7 +623,32 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "BENSTILLER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEN STILLER",
+    "definition": "Hollywood funnyman",
+    "linkWords": [
+     "seeing"
+    ],
+    "pieces": [
+     "BEN",
+     "STILLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish mountain",
+      "gives": "BEN",
+      "note": "ben is the Gaelic word for a peak, as in Ben Nevis"
+     },
+     {
+      "clueFragment": "increasingly serene",
+      "gives": "STILLER",
+      "note": "more still is stiller, and stillness is what serenity comes down to"
+     }
+    ],
+    "walkthrough": "Bank the first piece: a Scottish mountain in a clue is a ben, every time. The surface pretends the comedian is out walking and admiring the calm.",
+    "definitionFit": "Hollywood funnyman → BEN STILLER: the American comic actor of Zoolander and Meet the Parents, named by trade and by the industry he works in."
+   }
   },
   {
    "id": "14-down",
@@ -300,7 +670,29 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATLONGLAST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AT LONG LAST",
+    "definition": "Finally",
+    "indicators": [
+     "slaughtered"
+    ],
+    "indicatorNotes": {
+     "slaughtered": "slaughtered is British slang for blind drunk, and nobody that far gone keeps things standing in the order they were left"
+    },
+    "anagram": {
+     "fodder": "ANTS ALL GOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ants all got",
+      "gives": "AT LONG LAST",
+      "note": "the ten letters of ANTS ALL GOT rearranged"
+     }
+    ],
+    "walkthrough": "'Finally' looks like an instruction to take a last letter and is doing no such thing — it is the definition, standing exactly where a solver expects an indicator.",
+    "definitionFit": "Finally → AT LONG LAST: both mark the moment a wait ends, the phrase adding the complaint that it went on far longer than it should have."
+   }
   },
   {
    "id": "15-across",
@@ -317,7 +709,27 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SURGEON",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SURGEON",
+    "definition": "One in theatre",
+    "indicators": [
+     "to be heard"
+    ],
+    "indicatorNotes": {
+     "to be heard": "what is to be heard is what reaches the ear, so the answer is arrived at by sound and then spelt some other way"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rushin’",
+      "soundsLike": "SURGIN’",
+      "gives": "SURGEON",
+      "note": "to rush forward is to surge, and the clue's dropped g asks for the same clipped form — say SURGIN’ aloud and this is what you write"
+     }
+    ],
+    "walkthrough": "'Rushin'' is dressed as Russian and sends you hunting a nationality. The apostrophe is the real instruction: whatever you sound out has lost its g too.",
+    "definitionFit": "One in theatre → SURGEON: an operating theatre is the hospital room where surgery is done, so the one at work in it is a surgeon, not an actor."
+   }
   },
   {
    "id": "16-across",
@@ -334,7 +746,41 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACHIEST",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "ACHIEST",
+    "definition": "most painful",
+    "indicators": [
+     "becoming"
+    ],
+    "indicatorNotes": {
+     "becoming": "when one thing becomes another it takes over the other's position, so a letter steps out and its replacement stands where it stood"
+    },
+    "pieces": [
+     "A",
+     "C",
+     "HIEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most pale",
+      "gives": "ASHIEST",
+      "note": "ashen is pale, so the palest of all is the ashiest"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the family-tree abbreviation for son, and it is the letter leaving"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the letter on the cold tap, and it takes the vacant place"
+     }
+    ],
+    "walkthrough": "The whole clue turns on 'becoming'. Without it, 'Son' and 'cold' would be two pieces to add on; with it they are one letter leaving and another arriving.",
+    "definitionFit": "most painful → ACHIEST: an ache is a dull, persistent pain, so the superlative picks out whatever hurts most in that nagging, low-grade way."
+   }
   },
   {
    "id": "17-across",
@@ -351,7 +797,29 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GALAHAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GALAHAD",
+    "definition": "virtuous knight",
+    "pieces": [
+     "GALA",
+     "HAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swanky do",
+      "gives": "GALA",
+      "note": "a gala is a grand do, the sort with a dress code"
+     },
+     {
+      "clueFragment": "took in",
+      "gives": "HAD",
+      "note": "to take somebody in is to have them, in the sense of being had, deceived"
+     }
+    ],
+    "walkthrough": "The surface promises a party and delivers Arthurian romance. 'Took in' means deceived here, a sense that survives mostly in 'you were had'.",
+    "definitionFit": "virtuous knight → GALAHAD: Sir Galahad is the purest of Arthur's knights, the only one to achieve the Grail, so the name stands for spotless conduct."
+   }
   },
   {
    "id": "18-down",
@@ -368,7 +836,35 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DARLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DARLING",
+    "definition": "Dear",
+    "indicators": [
+     "will miss opening"
+    ],
+    "indicatorNotes": {
+     "will miss opening": "to miss something out is to go without it, and the opening of a name is the letter it starts on"
+    },
+    "pieces": [
+     "D",
+     "ARLING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Director",
+      "gives": "D",
+      "note": "D is the standard abbreviation, as it appears on a film's credits"
+     },
+     {
+      "clueFragment": "Rugby player Will",
+      "gives": "ARLING",
+      "note": "Will Carling captained England at rugby union, and his surname without its opening C leaves ARLING"
+     }
+    ],
+    "walkthrough": "The capitals do the misleading: 'Dear Director' reads as the top of a letter of complaint, and only one of the two people named in this clue actually exists.",
+    "definitionFit": "Dear → DARLING: both are terms of endearment addressed to a loved one, darling being the warmer of the pair and dear the more formal."
+   }
   },
   {
    "id": "19-across",
@@ -389,7 +885,35 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALDESKO",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "AL DESKO",
+    "definition": "As lunch, desultorily eaten, still keeping officebound, principally?",
+    "indicators": [
+     "principally"
+    ],
+    "indicatorNotes": {
+     "principally": "principally means chiefly, and the chief letter of any word is the one it stands on at the front"
+    },
+    "pieces": [
+     "AL",
+     "DESKO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As lunch",
+      "gives": "AL",
+      "note": "the leading letters of the first two words"
+     },
+     {
+      "clueFragment": "desultorily eaten, still keeping officebound",
+      "gives": "DESKO",
+      "note": "the leading letters of the next five words, taken in the order they stand"
+     }
+    ],
+    "walkthrough": "Every word works twice over: read straight, the sentence describes a lunch picked at while the office refuses to let you leave.",
+    "definitionFit": "The whole clue reads straight: 'al desko' is the mock-Italian coinage after 'al fresco' for a meal eaten at a work desk, which is what the sentence describes."
+   }
   },
   {
    "id": "19-down",
@@ -406,7 +930,29 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACHTUNG",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ACHTUNG",
+    "definition": "Warning from German",
+    "indicators": [
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "sadly": "sadly marks a turn for the worse, and a word that has taken one no longer holds its letters in the right order"
+    },
+    "anagram": {
+     "fodder": "CAN’T HUG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "can’t hug",
+      "gives": "ACHTUNG",
+      "note": "the seven letters of CAN'T HUG rearranged, apostrophe discarded"
+     }
+    ],
+    "walkthrough": "The surface paints a German who is bad at affection. Note where the language sits: it is the answer that is German, not the person the warning is aimed at.",
+    "definitionFit": "Warning from German → ACHTUNG: the German for attention, barked as a caution, and a word most English solvers know from war films rather than lessons."
+   }
   },
   {
    "id": "20-across",
@@ -423,7 +969,27 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORTHCOMING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FORTHCOMING",
+    "definition": "Communicative",
+    "definition2": "as expected",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Communicative",
+      "gives": "FORTHCOMING",
+      "note": "a forthcoming witness tells you what they know instead of holding back"
+     },
+     {
+      "clueFragment": "as expected",
+      "gives": "FORTHCOMING",
+      "note": "money that arrives when it should is forthcoming — produced at the point it is due"
+     }
+    ],
+    "walkthrough": "Two words, one comma, and no letters to move at all. The senses have nothing to do with each other: one is about a person talking, the other about a thing turning up.",
+    "definitionFit": "Communicative is the open, willing-to-talk sense; as expected is the other one, of something arriving or being produced at the moment it is due."
+   }
   },
   {
    "id": "21-down",
@@ -440,7 +1006,33 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + double definition",
+    "answer": "SPAR",
+    "definition": "Pole",
+    "definition2": "box",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "to turn about is to face the way you came, so the letters are read from the far end back"
+    },
+    "subReversals": [
+     {
+      "from": "RAPS",
+      "to": "SPAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performs hiphop",
+      "gives": "RAPS",
+      "note": "somebody who performs hiphop raps, and those four letters read from the back are the answer"
+     }
+    ],
+    "walkthrough": "Two definitions with the wordplay parked between them, so not one word is spare: a ship's pole, a bout of practice punches, and raps read backwards, all in four letters.",
+    "definitionFit": "Pole is the ship's mast or boom, the timber that carries a sail; box is the boxer's verb for trading practice punches rather than fighting in earnest."
+   }
   },
   {
    "id": "22-down",
@@ -457,7 +1049,52 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container + first letter",
+    "answer": "TEAM",
+    "definition": "Group working together",
+    "indicators": [
+     "rejected",
+     "hiding",
+     "hint of"
+    ],
+    "indicatorNotes": {
+     "rejected": "to reject something is to throw it back, and letters thrown back are read in the opposite direction",
+     "hiding": "a thing in hiding is tucked inside something else, so this letter goes in between the others rather than beside them",
+     "hint of": "a hint is the barest suggestion of a thing, and the barest suggestion of a word is the letter it opens with"
+    },
+    "pieces": [
+     "T",
+     "E",
+     "A",
+     "M"
+    ],
+    "subReversals": [
+     {
+      "from": "MET",
+      "to": "TEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter signs himself Everyman, so he is ME"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammar book's abbreviation for tense"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "A",
+      "note": "the letter anger opens on, dropped into the middle of the reversed pair"
+     }
+    ],
+    "walkthrough": "Bank the convention: a setter who names himself in his own clue means ME, and Everyman does it most weeks. The reversal takes both pieces together, not just the second.",
+    "definitionFit": "Group working together → TEAM: a team is precisely a set of people pulling in one direction on a shared job, at work or on a pitch."
+   }
   },
   {
    "id": "23-across",
@@ -474,7 +1111,39 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRECOCIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PRECOCIOUS",
+    "definition": "obvious early on",
+    "linkWords": [
+     "that’s"
+    ],
+    "indicators": [
+     "to protect"
+    ],
+    "indicatorNotes": {
+     "to protect": "to protect a thing is to put yourself around it, so one piece closes over the other and hides it in the middle"
+    },
+    "pieces": [
+     "PRE",
+     "CO",
+     "CIOUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Of value",
+      "gives": "PRECIOUS",
+      "note": "a precious stone is one of great value"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the standard short form of company, as in Smith & Co"
+     }
+    ],
+    "walkthrough": "The takeover story in the surface is a decoy — nothing about firms survives into the answer, which is about children who get there years before anyone else.",
+    "definitionFit": "obvious early on → PRECOCIOUS: a precocious child shows adult ability well ahead of schedule, so the talent declares itself long before anyone looks for it."
+   }
   },
   {
    "id": "24-across",
@@ -491,7 +1160,35 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLEA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FLEA",
+    "definition": "biting beastie",
+    "indicators": [
+     "Abruptly"
+    ],
+    "indicatorNotes": {
+     "Abruptly": "something done abruptly stops before it has finished, so the word is cut off before its final letter"
+    },
+    "pieces": [
+     "FLE",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run for it",
+      "gives": "FLE",
+      "note": "to run for it is to flee, and cut short that is three letters"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own A, taken at face value and joined on the end"
+     }
+    ],
+    "walkthrough": "The exclamation marks sell it as panic in a comic strip, which is the point: 'Run for it!' is a phrase to be swapped for a synonym, not an instruction to obey.",
+    "definitionFit": "biting beastie → FLEA: the tiny wingless parasite that lives on cats and dogs and feeds by biting them, so the phrase names it by what it does."
+   }
   },
   {
    "id": "25-across",
@@ -508,7 +1205,29 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REMORTGAGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "REMORTGAGE",
+    "definition": "Borrow more",
+    "indicators": [
+     "in trouble"
+    ],
+    "indicatorNotes": {
+     "in trouble": "a thing in trouble has come adrift from its proper state, and letters adrift do not stay in the order they were set down"
+    },
+    "anagram": {
+     "fodder": "GOT A MERGER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Got a merger",
+      "gives": "REMORTGAGE",
+      "note": "the ten letters of GOT A MERGER rearranged"
+     }
+    ],
+    "walkthrough": "The question mark marks the seam: everything before it is letters to be shuffled, everything after it is the definition, and the boardroom story is only a surface.",
+    "definitionFit": "Borrow more → REMORTGAGE: to remortgage is to take a new and larger loan against a house you already own, so the debt goes up on the same security."
+   }
   },
   {
    "id": "26-across",
@@ -525,7 +1244,27 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRET",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FRET",
+    "definition": "Pine",
+    "definition2": "feature of guitar",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Pine",
+      "gives": "FRET",
+      "note": "to pine for something is to fret over it, worrying at its absence"
+     },
+     {
+      "clueFragment": "feature of guitar",
+      "gives": "FRET",
+      "note": "the frets are the metal ridges across the neck that fix where each note falls"
+     }
+    ],
+    "walkthrough": "'Pine' is a verb here, not the timber a guitar might be built from, and that quiet change of part of speech is the entire clue.",
+    "definitionFit": "Pine is the verb for wanting something achingly and worrying at it; feature of guitar is the ridge on the fingerboard that stops the string at a note."
+   }
   }
  ]
 } /*JSON-END*/;
