@@ -769,12 +769,15 @@ def is_word(s):
 
 # Words that end in S with a dictionary word in front of it, yet are not
 # plurals at all: ALAS is an interjection, not more than one ALA (a wing),
-# ALWAYS an adverb, not more than one ALWAY (its archaic self). The -ICS
+# ALWAYS an adverb, not more than one ALWAY (its archaic self). LENS is one
+# piece of glass, not several LENs (12444 12A). The -ICS
 # academic subjects are the same trap on a bigger scale — SEMANTICS is one
-# field taking a singular verb, not several SEMANTICs (30076 11A).
+# field taking a singular verb, not several SEMANTICs (30076 11A). STAPES is
+# one bone in one ear, not several STAPs (30095 5D) — the Latin nominative
+# happens to end in S.
 # Without this the plural check invites a definitionNote that would lie —
 # same principle as INVARIANT_PLURALS below, on the answer side.
-NOT_PLURALS = {"ALAS", "ALWAYS", "SEMANTICS", "PHYSICS", "MATHEMATICS",
+NOT_PLURALS = {"ALAS", "ALWAYS", "LENS", "STAPES", "SEMANTICS", "PHYSICS", "MATHEMATICS",
                "ECONOMICS", "LINGUISTICS", "POLITICS", "ETHICS", "GENETICS",
                "ACOUSTICS", "AEROBICS", "ATHLETICS", "GYMNASTICS", "LOGISTICS",
                "MECHANICS", "OPTICS", "PHONETICS", "ROBOTICS", "STATISTICS"}
