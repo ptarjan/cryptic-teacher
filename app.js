@@ -306,6 +306,11 @@
     revealsUsed = (s && s.revealsUsed) || {};
     solvedWith = (s && s.solvedWith) || {};
     timing = (s && s.timing) || {};
+    // The save is the whole truth about the grid, so wipe it first. A merge can
+    // decide a letter was deleted on another device; if that square is only ever
+    // written and never cleared, the stale letter survives on screen, the next
+    // save re-stamps it as new, and the deletion is undone on both devices.
+    forEachCell((c) => { c.letter = ""; c.revealed = false; c.wrong = false; });
     if (s && s.letters) {
       forEachCell((c) => {
         const v = s.letters[c.x + "," + c.y];
@@ -2997,6 +3002,14 @@
     document.addEventListener("keydown", (ev) => {
       if (ev.target && (ev.target.tagName === "INPUT" && ev.target.id !== "kbd" || ev.target.tagName === "TEXTAREA")) return;
       if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+      // Tab, Enter and Space belong to whatever control has focus. onKey swallows
+      // all three on behalf of the grid, so forwarding them from a focused button
+      // makes the page keyboard-dead: Tab never moves on and Enter flips the
+      // grid's direction instead of pressing the button under the cursor.
+      const el = document.activeElement;
+      const onControl = el && el.id !== "kbd" &&
+        (el.tagName === "BUTTON" || el.tagName === "A" || el.tagName === "SELECT");
+      if (onControl && (ev.key === "Tab" || ev.key === "Enter" || ev.key === " ")) return;
       onKey(ev);
     });
     // mobile soft keyboards often only fire `input`

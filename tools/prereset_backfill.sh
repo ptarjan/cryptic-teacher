@@ -487,9 +487,15 @@ python3 tools/fetch_puzzle.py --reindex
 python3 tools/build_seo_pages.py
 python3 tools/stamp_assets.py
 if command -v node >/dev/null 2>&1; then
-  node tools/smoke_test.js
-  smoke_rc=$?
-  [ $smoke_rc -ne 0 ] && [ $smoke_rc -ne 2 ] && echo "WARNING: smoke test failed (rc=$smoke_rc)"
+  smoke_log="$(mktemp -t cryptic-prereset-smoke)"
+  node tools/smoke_test.js 2>&1 | tee "$smoke_log"
+  smoke_rc=${PIPESTATUS[0]}
+  # A WARNING in a log is not a warning to anyone: this printed failures for weeks
+  # while the job committed the tree that caused them. Exit 2 is "no hints yet".
+  if [ "$smoke_rc" -ne 0 ] && [ "$smoke_rc" -ne 2 ]; then
+    alert "the app's smoke test is failing on the tree the pre-reset backfill is about to commit: $(grep -m3 '^FAIL' "$smoke_log" | tr '\n' ' ')"
+  fi
+  rm -f "$smoke_log"
 fi
 if [ -n "$(git status --porcelain)" ]; then
   # Same list as daily_update.sh, and for the same reason: a backfill that needs

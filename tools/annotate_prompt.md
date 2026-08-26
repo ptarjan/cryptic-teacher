@@ -7,10 +7,8 @@ styles differ a little but the annotation schema below is identical for all of t
 The target puzzle file is `puzzles/<ID>.js`, where the ID is the series and the
 number together — `cryptic-30089`, `everyman-4165`, `quiptic-1395`,
 `independent-12438`, `indysunday-1903`. Every paper numbers from its own 1, so the number alone
-does not name a puzzle. (The newest file whose
-entries still have `"annotation": null` — `puzzles/index.json` lists which puzzles have
-`"annotated": false`). Work on the OLDEST un-annotated puzzle first if several are
-pending, so the backlog drains in order.
+does not name a puzzle. The caller names the file to annotate; that file is the
+target and picking a different one is never right.
 
 ## What to produce
 
@@ -235,12 +233,7 @@ python3 tools/fetch_puzzle.py --reindex
 node --check puzzles/<ID>.js
 ```
 
-## Commit
+## Do not commit
 
-Commit only the puzzle file + regenerated `puzzles/index.json`/`index.js` with message:
-
-```
-Annotate <NUMBER> (<Setter>): full 6-level hint data
-
-Co-Authored-By: Claude <YOUR OWN MODEL, e.g. Opus 5> <noreply@anthropic.com>
-```
+The calling script commits, and composes its own message. `git` is not in the
+tools this run is given, so trying is a wasted turn.
