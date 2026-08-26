@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GINNEL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GINNEL",
+    "definition": "narrow alleyway",
+    "indicators": [
+     "punching"
+    ],
+    "indicatorNotes": {
+     "punching": "a punch drives straight through whatever it lands on, so one piece is forced into the middle of the other"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "G",
+     "INN",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "GEL",
+      "note": "gel is what sets hair, so the setter here is the tube on the bathroom shelf"
+     },
+     {
+      "clueFragment": "Local",
+      "gives": "INN",
+      "note": "your local is the pub down the road, and a pub is an inn"
+     }
+    ],
+    "walkthrough": "'Setter' is almost always the person who wrote the clue, which is exactly why it is worth doubting here — this one sets hair.",
+    "definitionFit": "narrow alleyway -> GINNEL: the northern English word for the passage squeezed between two buildings, everyday speech in Yorkshire and Lancashire."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +79,42 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ILIAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ILIAD",
+    "definition": "Epic tale",
+    "indicators": [
+     "going round"
+    ],
+    "indicatorNotes": {
+     "going round": "what goes round something ends up wrapped on either side of it, so the letter named next is enclosed"
+    },
+    "pieces": [
+     "I",
+     "L",
+     "I",
+     "AD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "a single is one, and one is I in Roman numerals"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a boy is a lad, and it opens up after its first letter"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the phonetic alphabet"
+     }
+    ],
+    "walkthrough": "Two different I's from two different conventions, a Roman numeral and a radio call sign, which is how the clue gets away with using one twice.",
+    "definitionFit": "Epic tale -> ILIAD: Homer's poem on the siege of Troy is the founding example of the epic, so the definition names it by its genre."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +131,53 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIGELLA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + last letter",
+    "answer": "NIGELLA",
+    "definition": "a bloomer",
+    "indicators": [
+     "finally",
+     "brought up"
+    ],
+    "indicatorNotes": {
+     "finally": "it asks for the last letter of the name beside it and nothing else",
+     "brought up": "in a down entry, what is brought up is read from the bottom square towards the top, so those letters arrive in the opposite order"
+    },
+    "pieces": [
+     "N",
+     "IGELLA"
+    ],
+    "subReversals": [
+     {
+      "from": "ALLEGI",
+      "to": "IGELLA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "D'Artagnan",
+      "gives": "N",
+      "note": "the last letter of the fourth musketeer's name"
+     },
+     {
+      "clueFragment": "All",
+      "gives": "ALL",
+      "note": "three letters lifted straight out of the motto"
+     },
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "'for one' is how a clue says e.g., the abbreviation of 'for example'"
+     },
+     {
+      "clueFragment": "and one",
+      "gives": "I",
+      "note": "one is I again, and ALL, EG and I then climb back up the entry together"
+     }
+    ],
+    "walkthrough": "The musketeers' motto is quoted for the surface and then read as three unrelated scraps of crosswordese, so the quotation marks help you not at all.",
+    "definitionFit": "a bloomer -> NIGELLA: love-in-a-mist is a garden flower and so a thing that blooms; the loaf and the blunder are the senses being dangled."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +194,36 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIVES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LIVES",
+    "definition": "Survives",
+    "indicators": [
+     "boring"
+    ],
+    "indicatorNotes": {
+     "boring": "to bore is to drill a hole through the middle of something, so that letter goes inside"
+    },
+    "pieces": [
+     "LI",
+     "V",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "falsehoods",
+      "gives": "LIES",
+      "note": "falsehoods are lies, and the word splits after its second letter"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     }
+    ],
+    "walkthrough": "Three words, and the middle one is an instruction rather than an opinion — 'boring' is not describing the falsehoods at all.",
+    "definitionFit": "Survives -> LIVES: to live through a crash is to survive it, the same third-person verb, and 'he lives!' makes exactly that claim."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +240,34 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEASPOON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TEASPOON",
+    "definition": "stirrer",
+    "indicators": [
+     "terrible"
+    ],
+    "indicatorNotes": {
+     "terrible": "a terrible version of something has come out wrong, and letters that came out wrong are no longer in the order they were given"
+    },
+    "anagram": {
+     "fodder": "NOTES OAP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Notes",
+      "gives": "NOTES",
+      "note": "five letters taken as letters, not as music or as money"
+     },
+     {
+      "clueFragment": "OAP",
+      "gives": "OAP",
+      "note": "an old age pensioner joins the mix, initials and all"
+     }
+    ],
+    "walkthrough": "The surface accuses a pensioner of stirring up trouble, and the answer is what stirs your tea — a different sort of stirrer entirely.",
+    "definitionFit": "stirrer -> TEASPOON: the spoon you stir a cup with, so the definition names it by the job it does rather than by its size."
+   }
   },
   {
    "id": "5-down",
@@ -122,7 +291,34 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
     ]
    },
    "solution": "THREEPOINTTURNS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THREE-POINT TURNS",
+    "definition": "driving manoeuvres",
+    "indicators": [
+     "wild"
+    ],
+    "indicatorNotes": {
+     "wild": "wild means untamed and out of hand, so nothing it points at stays in the order it arrived in"
+    },
+    "anagram": {
+     "fodder": "O THEN INTERRUPTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "then interrupts",
+      "gives": "THENINTERRUPTS",
+      "note": "fourteen letters at face value, which with the O makes the fifteen the grid wants"
+     }
+    ],
+    "walkthrough": "'Interrupts' reads as an instruction to push one piece into another, and that is the trap: here it is fourteen letters of raw fodder.",
+    "definitionFit": "driving manoeuvres -> THREE-POINT TURNS: the turn-in-the-road every learner is tested on, named for the three moves it takes."
+   }
   },
   {
    "id": "6-down",
@@ -143,7 +339,48 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
     ]
    },
    "solution": "APARTFROM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "APART FROM",
+    "definition": "Save",
+    "indicators": [
+     "eccentric"
+    ],
+    "indicatorNotes": {
+     "eccentric": "an eccentric sits off-centre, out of the usual arrangement, and so do these letters"
+    },
+    "pieces": [
+     "A",
+     "PART",
+     "FRO",
+     "M"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FOR",
+      "gives": "FRO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a piece",
+      "gives": "APART",
+      "note": "a piece of something is a part of it, and the 'a' comes along too"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FRO",
+      "note": "the three letters of 'for' knocked out of their usual order"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     }
+    ],
+    "walkthrough": "'Save' at the front looks like a verb about rescuing or economising, and it is really the preposition of 'all save one'.",
+    "definitionFit": "Save -> APART FROM: both introduce the exception to a statement, so 'all save one' and 'all apart from one' say the same thing."
+   }
   },
   {
    "id": "7-down",
@@ -160,7 +397,38 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PELOTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PELOTON",
+    "definition": "pack",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "PE",
+     "LOT",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exercises",
+      "gives": "PE",
+      "note": "PE is physical education, the school lesson where you exercise"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a group of things taken together"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "ON",
+      "note": "a play or a film that is running is on"
+     }
+    ],
+    "walkthrough": "'Running in' looks like one phrase about a race and is really two jobs: 'running' is its own piece and 'in' only joins the halves of the clue.",
+    "definitionFit": "pack -> PELOTON: the main bunch in a road race, from the French for platoon, and commentators call that group the pack."
+   }
   },
   {
    "id": "8-down",
@@ -177,7 +445,44 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCEAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "OCEAN",
+    "definition": "large body of water",
+    "indicators": [
+     "cans",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "cans": "to can something is to seal it inside a tin, so what follows goes in the middle",
+     "ultimately": "the ultimate letter of a word is its last one, and that is all this takes"
+    },
+    "pieces": [
+     "O",
+     "C",
+     "E",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "CAN",
+      "note": "a tin is a can, and it opens after its first letter"
+     },
+     {
+      "clueFragment": "pollute",
+      "gives": "E",
+      "note": "the last letter of pollute"
+     }
+    ],
+    "walkthrough": "'Cans' is doing a verb's work in a sentence full of nouns — read it as 'puts in a tin' and the clue comes apart at once.",
+    "definitionFit": "large body of water -> OCEAN: the biggest of them all, the continuous salt water covering most of the planet, so 'large' does the sorting."
+   }
   },
   {
    "id": "9-across",
@@ -194,7 +499,34 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LING",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LING",
+    "definition": "Heather",
+    "indicators": [
+     "taking"
+    ],
+    "indicatorNotes": {
+     "taking": "taking here means taking away — the piece named is subtracted from the word rather than added to it"
+    },
+    "pieces": [
+     "LING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is untruthful",
+      "gives": "LYING",
+      "note": "somebody untruthful is lying"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the standard abbreviation for year, and it is the letter that goes"
+     }
+    ],
+    "walkthrough": "'Heather' reads as a woman's name in a sentence about honesty, and it is the plant — the heather that covers a British moor.",
+    "definitionFit": "Heather -> LING: ling is the common heather of moorland, Calluna vulgaris, so the definition is the ordinary name for the same plant."
+   }
   },
   {
    "id": "10-across",
@@ -211,7 +543,37 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERSAILLES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VERSAILLES",
+    "definition": "palace location",
+    "indicators": [
+     "unusual"
+    ],
+    "indicatorNotes": {
+     "unusual": "what is unusual departs from the normal arrangement, and these letters have departed from theirs"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "SELLER VISA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Seller",
+      "gives": "SELLER",
+      "note": "six letters taken at face value, not as a person"
+     },
+     {
+      "clueFragment": "Visa",
+      "gives": "VISA",
+      "note": "four more letters, capital V and all"
+     }
+    ],
+    "walkthrough": "A trader taking cards is a plausible little scene, which is what fodder wants to look like: two ordinary nouns and nothing to see.",
+    "definitionFit": "palace location -> VERSAILLES: the town outside Paris where Louis XIV built his palace, so the answer names the place rather than the building."
+   }
   },
   {
    "id": "11-across",
@@ -228,7 +590,46 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADOLESCENT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ADOLESCENT",
+    "definition": "youth",
+    "indicators": [
+     "housing"
+    ],
+    "indicatorNotes": {
+     "housing": "housing something is giving it a roof over its head, so it ends up inside"
+    },
+    "linkWords": [
+     "gets",
+     "for"
+    ],
+    "pieces": [
+     "A",
+     "DOLE",
+     "S",
+     "CENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as means when — 'as I left' is 'when I left' — and it opens after its first letter"
+     },
+     {
+      "clueFragment": "benefit",
+      "gives": "DOLE",
+      "note": "the dole is unemployment benefit"
+     },
+     {
+      "clueFragment": "bit of money",
+      "gives": "CENT",
+      "note": "a cent is the small change of a dollar or a euro"
+     }
+    ],
+    "walkthrough": "The benefits-office surface is built entirely out of the wordplay's own words, so nothing in it is pointing at a person of that age.",
+    "definitionFit": "youth -> ADOLESCENT: a youth is a person in their teens, which is precisely the stage the answer names; both are nouns for the same years."
+   }
   },
   {
    "id": "12-across",
@@ -245,7 +646,34 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TENT",
+    "definition": "shelter",
+    "indicators": [
+     "to leave"
+    ],
+    "indicatorNotes": {
+     "to leave": "what leaves a word has walked out of it, so those letters are not in the answer"
+    },
+    "pieces": [
+     "TENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly happy",
+      "gives": "CONTENT",
+      "note": "content is happy in a settled, undemonstrative way"
+     },
+     {
+      "clueFragment": "rip-off",
+      "gives": "CON",
+      "note": "a con is a swindle, and it is the three letters that walk"
+     }
+    ],
+    "walkthrough": "'Quietly' looks like the usual signal for P, the musician's piano, and here it is simply half of a two-word definition.",
+    "definitionFit": "shelter -> TENT: canvas over poles is the shelter you carry with you, so the definition names it by what it is for."
+   }
   },
   {
    "id": "13-across",
@@ -267,7 +695,41 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARALAGO",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "MAR-A-LAGO",
+    "definition": "opulent mansion",
+    "indicators": [
+     "cut",
+     "cakes"
+    ],
+    "indicatorNotes": {
+     "cut": "a name that has been cut comes up a letter short, and it is the tail that goes",
+     "cakes": "to cake something is to coat it all over, so the outer word closes right round the inner one"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MAR",
+     "ALA",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps Robbie",
+      "gives": "MARGOT",
+      "note": "Margot Robbie is one Robbie among many, which is what 'perhaps' is warning you about"
+     },
+     {
+      "clueFragment": "as prepared",
+      "gives": "ALA",
+      "note": "a la is the menu French for done in the style of, as in a la carte"
+     }
+    ],
+    "walkthrough": "Everything reads as a tea party: 'cut cakes' is a knife and a plate on the surface, and two separate instructions underneath it.",
+    "definitionFit": "opulent mansion -> MAR-A-LAGO: the gilded Palm Beach estate, so the definition names it by the kind of house it is rather than by its owner."
+   }
   },
   {
    "id": "14-down",
@@ -284,7 +746,35 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + second letter",
+    "answer": "AGO",
+    "definition": "Past",
+    "indicators": [
+     "second"
+    ],
+    "indicatorNotes": {
+     "second": "it counts along the word beside it and keeps only the letter standing in position two"
+    },
+    "pieces": [
+     "A",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "master's",
+      "gives": "A",
+      "note": "the second letter of master, which is also the A of an MA"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "GO",
+      "note": "an attempt at something is a go at it"
+     }
+    ],
+    "walkthrough": "'Past master' is a set phrase for an expert, and reading those two words together is what stops the clue splitting where it should.",
+    "definitionFit": "Past -> AGO: both put an event behind us, so 'two years ago' and 'the past two years' point at the same stretch of time."
+   }
   },
   {
    "id": "15-down",
@@ -301,7 +791,43 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPLICANT",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "APPLICANT",
+    "definition": "candidate",
+    "indicators": [
+     "ignored by",
+     "probing"
+    ],
+    "indicatorNotes": {
+     "ignored by": "what is ignored is left out, so that letter never makes it into the word beside it",
+     "probing": "a probe goes in to have a look round, so this piece pushes into the middle of the other"
+    },
+    "pieces": [
+     "AP",
+     "PLICAN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suitable",
+      "gives": "APT",
+      "note": "apt means suitable, and it parts after its second letter"
+     },
+     {
+      "clueFragment": "pescetarian",
+      "gives": "PELICAN",
+      "note": "a pelican lives on the fish it scoops up, so it keeps to a pescetarian's diet"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European, and it is the letter the bird loses"
+     }
+    ],
+    "walkthrough": "The bird is the joke: 'pescetarian' describes a diet, and only one creature anywhere in the clue actually keeps to it.",
+    "definitionFit": "candidate -> APPLICANT: someone who has put in for a job is a candidate for it, though the answer insists on the application itself."
+   }
   },
   {
    "id": "16-across",
@@ -318,7 +844,30 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RENNES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RENNES",
+    "definition": "French city",
+    "indicators": [
+     "picked up"
+    ],
+    "indicatorNotes": {
+     "picked up": "you pick up a sound rather than a spelling, so what counts is what the words are heard as"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shy singer",
+      "soundsLike": "WREN",
+      "gives": "RENNES",
+      "note": "a wren is the small skulking songbird of the hedgerow, its W is silent, and French drops the ending of the city's name the same way"
+     }
+    ],
+    "walkthrough": "French keeps the -nes on the page and swallows it in the mouth, which is how six letters can sound like three.",
+    "definitionFit": "French city -> RENNES: the capital of Brittany, a real city in the north-west, so the definition places it by country."
+   }
   },
   {
    "id": "17-down",
@@ -335,7 +884,34 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "END",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "END",
+    "definition": "Stop",
+    "indicators": [
+     "wasting"
+    ],
+    "indicatorNotes": {
+     "wasting": "what is wasted is thrown away, so the letter named next is gone from the word"
+    },
+    "pieces": [
+     "END"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loan",
+      "gives": "LEND",
+      "note": "to loan something is to lend it"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L is the pound's letter, from the Latin libra, as on the £ sign"
+     }
+    ],
+    "walkthrough": "Money and lending sit together so naturally that 'pound' reads as part of the loan rather than as one letter to be thrown out.",
+    "definitionFit": "Stop -> END: to end a meeting is to stop it, the same transitive verb; the finishing-point noun is the word's other half."
+   }
   },
   {
    "id": "18-across",
@@ -352,7 +928,44 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOSSIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "GOSSIP",
+    "definition": "chat",
+    "indicators": [
+     "back"
+    ],
+    "indicatorNotes": {
+     "back": "an across entry runs right to left when it comes back, so the word beside it is written in reverse"
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "GO",
+     "SSIP"
+    ],
+    "subReversals": [
+     {
+      "from": "PISS",
+      "to": "SSIP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "GO",
+      "note": "to leave is to go"
+     },
+     {
+      "clueFragment": "then go",
+      "gives": "PISS",
+      "note": "'go' the second time is the lavatory euphemism, piss, and that is the word turned round"
+     }
+    ],
+    "walkthrough": "The same little verb is clued twice in two different senses, which is why 'go' can sit in the answer and in the wordplay without repeating itself.",
+    "definitionFit": "chat -> GOSSIP: idle talk about other people's business, so 'chat' catches the informality while the answer adds who is being talked about."
+   }
   },
   {
    "id": "19-down",
@@ -369,7 +982,44 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUNTRAP",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "SUNTRAP",
+    "definition": "hot spot",
+    "indicators": [
+     "to replace"
+    ],
+    "indicatorNotes": {
+     "to replace": "the new piece does not join the word, it stands exactly where the old one was and the old one goes"
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "S",
+     "UN",
+     "TRAP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dictator",
+      "gives": "SATRAP",
+      "note": "a satrap was a Persian provincial governor, long a byword for a petty tyrant"
+     },
+     {
+      "clueFragment": "a Parisian",
+      "gives": "UN",
+      "note": "'a' in Paris is un"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American, and it is the letter that makes way"
+     }
+    ],
+    "walkthrough": "Satrap is worth banking: it turns up whenever a setter wants a dictator and the letters S, A, T, R, P.",
+    "definitionFit": "hot spot -> SUNTRAP: a sheltered corner that catches and holds the sun, so it is warm by design rather than dangerous."
+   }
   },
   {
    "id": "20-across",
@@ -386,7 +1036,49 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEMATODE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal",
+    "answer": "NEMATODE",
+    "definition": "worm",
+    "indicators": [
+     "about",
+     "repellent"
+    ],
+    "indicatorNotes": {
+     "about": "a thing placed about another goes round it, closing on both sides",
+     "repellent": "to repel is to drive back, and the word it points at is driven back the way it came"
+    },
+    "pieces": [
+     "N",
+     "EMAT",
+     "ODE"
+    ],
+    "subReversals": [
+     {
+      "from": "TAME",
+      "to": "EMAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "ODE",
+      "note": "an ode is a poem, and with the N in front it makes the shell"
+     },
+     {
+      "clueFragment": "domesticated",
+      "gives": "TAME",
+      "note": "a domesticated animal is tame, and this is the word that gets driven back"
+     }
+    ],
+    "walkthrough": "'Repellent domesticated worm' reads as one phrase about an unpleasant creature, and the two adjectives belong to quite different jobs.",
+    "definitionFit": "worm -> NEMATODE: the roundworms of soil and gut, so 'worm' is the plain-English name for the whole group of them."
+   }
   },
   {
    "id": "21-down",
@@ -403,7 +1095,26 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TALONED",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TALONED",
+    "definition": "with hooked claws",
+    "indicators": [
+     "bears"
+    ],
+    "indicatorNotes": {
+     "bears": "to bear something is to carry it, so the words in front are carrying the answer along inside them"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Left alone dangerous",
+      "gives": "TALONED",
+      "note": "the end of 'left', all of 'alone' and the start of 'dangerous' run straight into one another"
+     }
+    ],
+    "walkthrough": "Three ordinary words in a row about wildlife, and the answer is lying across the joins between them without the surface twitching once.",
+    "definitionFit": "with hooked claws -> TALONED: talons are the curved claws of a bird of prey, so the answer is the adjective for having a set."
+   }
   },
   {
    "id": "22-across",
@@ -420,7 +1131,41 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "OBAN",
+    "definition": "Scotland town",
+    "indicators": [
+     "from East"
+    ],
+    "indicatorNotes": {
+     "from East": "in an across entry anything coming from the east is travelling right to left, so it is written backwards"
+    },
+    "pieces": [
+     "O",
+     "BAN"
+    ],
+    "subReversals": [
+     {
+      "from": "NABO",
+      "to": "OBAN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steal",
+      "gives": "NAB",
+      "note": "to nab something is to steal it"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is a circle, drawn as the letter O"
+     }
+    ],
+    "walkthrough": "'East Scotland' looks like one place and is two jobs — the east belongs to the wordplay, and the town it hides is on the west coast.",
+    "definitionFit": "Scotland town -> OBAN: the ferry port in Argyll, gateway to the isles, so the definition simply places a real town in its country."
+   }
   },
   {
    "id": "23-down",
@@ -437,7 +1182,41 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRAVO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BRAVO",
+    "definition": "Excellent!",
+    "indicators": [
+     "on the up"
+    ],
+    "indicatorNotes": {
+     "on the up": "in a down entry, letters on the up are read from the bottom square towards the top"
+    },
+    "pieces": [
+     "BR",
+     "AVO"
+    ],
+    "subReversals": [
+     {
+      "from": "OVA",
+      "to": "AVO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "BR",
+      "note": "BR is the short form of British, familiar from British Rail"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "OVA",
+      "note": "ova are eggs in the biologist's Latin, and they are what climbs"
+     }
+    ],
+    "walkthrough": "'Eggs on' reads as a single phrase meaning urges on, which is exactly the wrong place to break the clue.",
+    "definitionFit": "Excellent! -> BRAVO: the Italian shout an audience gives a singer, borrowed into English as the standard cry of approval."
+   }
   },
   {
    "id": "24-across",
@@ -459,7 +1238,29 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
     ]
    },
    "solution": "INTHECLEAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN THE CLEAR",
+    "definition": "not under suspicion",
+    "indicators": [
+     "somehow"
+    ],
+    "indicatorNotes": {
+     "somehow": "it admits the letters got where they are by no particular route, which is another way of saying they moved"
+    },
+    "anagram": {
+     "fodder": "HEAR CLIENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hear client",
+      "gives": "HEARCLIENT",
+      "note": "ten letters at face value, a lawyer and a verb dissolved into fodder"
+     }
+    ],
+    "walkthrough": "A solicitor listening to a client is a scene the wordplay borrows whole, and the definition is everything left in the sentence.",
+    "definitionFit": "not under suspicion -> IN THE CLEAR: the idiom for having been cleared of blame, said of the person the police have finished with."
+   }
   },
   {
    "id": "25-down",
@@ -476,7 +1277,32 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ELDER",
+    "definition": "Church official",
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "EL",
+     "DER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European articles",
+      "gives": "EL",
+      "note": "el is the Spanish for 'the'"
+     },
+     {
+      "clueFragment": "European articles",
+      "gives": "DER",
+      "note": "der is the German for 'the', and two of Europe's articles are all the clue needs"
+     }
+    ],
+    "walkthrough": "'Articles' is plural for a reason: the clue wants two of them, from two languages, and neither one is the English 'a' or 'the'.",
+    "definitionFit": "Church official -> ELDER: in Presbyterian and other reformed churches an elder is the lay officer who helps govern the congregation."
+   }
   },
   {
    "id": "26-down",
@@ -493,7 +1319,38 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADOBO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADOBO",
+    "definition": "Filipino dish",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "in a down entry, whatever sits over something else is written above it, so this piece comes first"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "ADO",
+     "BO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fuss",
+      "gives": "ADO",
+      "note": "much ado about nothing — ado is fuss"
+     },
+     {
+      "clueFragment": "nasty smell",
+      "gives": "BO",
+      "note": "BO is body odour"
+     }
+    ],
+    "walkthrough": "Both pieces are staples worth banking: 'ado' for fuss and BO for a smell turn up several times a week between them.",
+    "definitionFit": "Filipino dish -> ADOBO: the national dish of the Philippines, meat stewed in vinegar, soy and garlic, a name English borrowed whole."
+   }
   },
   {
    "id": "27-across",
@@ -514,7 +1371,42 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
     ]
    },
    "solution": "FAIRHAIRED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "FAIR-HAIRED",
+    "definition": "Maybe blonde",
+    "indicators": [
+     "to the audience"
+    ],
+    "indicatorNotes": {
+     "to the audience": "an audience hears words and never sees them, so the spelling is free to change on the way"
+    },
+    "pieces": [
+     "F",
+     "AIR",
+     "HAIRED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     },
+     {
+      "clueFragment": "character",
+      "gives": "AIR",
+      "note": "the air of a person or a place is its character — an air of menace, an air of calm"
+     },
+     {
+      "clueFragment": "ran",
+      "soundsLike": "HARED",
+      "gives": "HAIRED",
+      "note": "to hare off somewhere is to run flat out, and 'hared' said aloud is written the other way"
+     }
+    ],
+    "walkthrough": "The joke is that the soundalike is the hair itself: a running hare and a head of hair make exactly the same noise.",
+    "definitionFit": "Maybe blonde -> FAIR-HAIRED: blonde is one shade of fair hair, so 'maybe' marks the definition as an example rather than a synonym."
+   }
   },
   {
    "id": "28-across",
@@ -531,7 +1423,32 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "NEON",
+    "definition": "gas",
+    "indicators": [
+     "losing heart"
+    ],
+    "indicatorNotes": {
+     "losing heart": "the heart of a word is its middle, and losing it takes the central letters out"
+    },
+    "linkWords": [
+     "produces"
+    ],
+    "pieces": [
+     "NEON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great English scientist",
+      "gives": "NEWTON",
+      "note": "Isaac Newton is the great English scientist, and the W and T at his centre are what go"
+     }
+    ],
+    "walkthrough": "The definition is one small word at the end of a sentence about physics, which is where a setter puts it when the surface is doing all the shouting.",
+    "definitionFit": "gas -> NEON: one of the noble gases, the one that glows orange in a discharge tube, so the definition names the class it belongs to."
+   }
   },
   {
    "id": "29-across",
@@ -548,7 +1465,45 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COMPOTES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "COMPOTES",
+    "definition": "Desserts",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "it takes letters at a regular step, every second one, instead of the whole word"
+    },
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "pieces": [
+     "COMP",
+     "OTE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "COMP",
+      "note": "a comp is a comprehensive school"
+     },
+     {
+      "clueFragment": "loathed",
+      "gives": "OTE",
+      "note": "every second letter of lOaThEd"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "walkthrough": "A miserable school dinner is the picture, and the three pieces come from three registers: slang, a letter trick and an abbreviation.",
+    "definitionFit": "Desserts -> COMPOTES: a compote is fruit stewed in syrup and served at the end of a meal, so the plural names a kind of pudding."
+   }
   },
   {
    "id": "30-across",
@@ -569,7 +1524,41 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
     ]
    },
    "solution": "REDFOX",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "RED FOX",
+    "definition": "Common UK mammal",
+    "indicators": [
+     "according to Spooner"
+    ],
+    "indicatorNotes": {
+     "according to Spooner": "the Reverend Spooner traded the opening sounds of two words, so his version of a phrase arrives with its heads swapped"
+    },
+    "pieces": [
+     "RED",
+     "FOX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given",
+      "gives": "FED",
+      "note": "to be given something to eat is to be fed"
+     },
+     {
+      "clueFragment": "baguettes possibly",
+      "gives": "ROCKS",
+      "note": "a baguette is a long rectangular cut of gemstone, and rocks is the trade's slang for stones"
+     },
+     {
+      "clueFragment": "given baguettes possibly to eat",
+      "soundsLike": "FED ROCKS",
+      "gives": "RED FOX",
+      "note": "trade the F and the R at the front of the two words and the sound that comes out is the answer"
+     }
+    ],
+    "walkthrough": "Baguettes look like lunch and are jewellery here, so the surface's whole job is to keep you standing in the bakery.",
+    "definitionFit": "Common UK mammal -> RED FOX: Britain's most widespread wild carnivore, at home in city and country, and 'red' names the species rather than a colour."
+   }
   }
  ]
 } /*JSON-END*/;
