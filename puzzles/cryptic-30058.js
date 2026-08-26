@@ -29,7 +29,26 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "MINI",
+    "definition": "dress",
+    "indicators": [
+     "hides"
+    ],
+    "indicatorNotes": {
+     "hides": "Something hidden is covered up by whatever sits on top of it, so the letters wanted are lying under the words as written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Kissogram in Ireland",
+      "gives": "MINI",
+      "note": "the run starts inside the first word and carries on across the two that follow"
+     }
+    ],
+    "walkthrough": "A kissogram delivered in Ireland is a whole little scene, and it is there to be pictured rather than read. Runs that cross a word break are the hardest to spot.",
+    "definitionFit": "dress -> MINI: the very short dress of the sixties, named for its length, and a noun in its own right."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +65,34 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETAILER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RETAILER",
+    "definition": "One who flogs",
+    "indicators": [
+     "deranged"
+    ],
+    "indicatorNotes": {
+     "deranged": "To derange something is to knock it out of its proper arrangement, and letters out of arrangement are letters in a new order."
+    },
+    "anagram": {
+     "fodder": "LIAR TREE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "15",
+      "gives": "LIAR",
+      "note": "the four letters of the answer at 15 across"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "the word is taken at face value, four more letters for the pile"
+     }
+    ],
+    "walkthrough": "A cross-reference costs you nothing once 15 is in the grid. 'Flogs' is the selling sense, not the whipping one the surface would rather you pictured.",
+    "definitionFit": "One who flogs -> RETAILER: to flog is British slang for to sell, and a retailer is the trader who sells to the public."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +109,38 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "FRANCE",
+    "definition": "Republic",
+    "indicators": [
+     "not quite",
+     "to include"
+    ],
+    "indicatorNotes": {
+     "not quite": "Not quite there means stopping just short, so the word turns up one letter shy of its full self.",
+     "to include": "To include a thing is to have it among your own parts, so one piece opens up and the other sits inside."
+    },
+    "pieces": [
+     "FR",
+     "ANC",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "FRE",
+      "note": "FREE with its last letter left off"
+     },
+     {
+      "clueFragment": "liberation movement",
+      "gives": "ANC",
+      "note": "the African National Congress, the movement that fought apartheid"
+     }
+    ],
+    "walkthrough": "The ANC is the liberation movement setters reach for, worth having ready. 'Republic' looks like part of the same political sentence, which is what stops you reading it as the definition.",
+    "definitionFit": "Republic -> FRANCE: definition by example, the general word for a head of state who is elected pointing at one particular country."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +162,50 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOANDSOS",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "SO-AND-SOS",
+    "definition": "scoundrels",
+    "indicators": [
+     "Weird",
+     "seen in"
+    ],
+    "indicatorNotes": {
+     "Weird": "Weird means off its normal shape, and three letters knocked out of their normal shape are three letters to reorder.",
+     "seen in": "If a thing is seen in another it is inside it, so this piece is buried within the one that follows."
+    },
+    "pieces": [
+     "SO",
+     "AND",
+     "SO",
+     "S"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DNA",
+      "gives": "AND"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indifferent",
+      "gives": "SOSO",
+      "note": "the shrug that means neither good nor bad, and it splits down the middle to take something in"
+     },
+     {
+      "clueFragment": "Weird DNA",
+      "gives": "AND",
+      "note": "the three letters of DNA in a different order"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "the standard abbreviation, tacked on at the end"
+     }
+    ],
+    "walkthrough": "The euphemism is the joke: you call someone a so-and-so when you are being polite about it, so 'scoundrels' is a stronger word than the answer will admit to.",
+    "definitionFit": "scoundrels -> SO-AND-SOS: a so-and-so is the polite stand-in for a name you would rather not print, and the plural gathers a few of them."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +222,37 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LINEAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LINEAL",
+    "definition": "Inherited",
+    "indicators": [
+     "nearly",
+     "after"
+    ],
+    "indicatorNotes": {
+     "nearly": "Nearly everything is not everything, so the word for the whole lot turns up one letter short.",
+     "after": "What comes after a thing is placed behind it, so this piece follows rather than leads."
+    },
+    "pieces": [
+     "LINE",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "occupation",
+      "gives": "LINE",
+      "note": "your line is your line of work, the trade you are in"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "AL",
+      "note": "everything is ALL, and its last letter is left off"
+     }
+    ],
+    "walkthrough": "'Line' does duty on both sides of the clue: the line of work in the wordplay, the line of descent in the definition. That double sense is a setter's favourite hinge.",
+    "definitionFit": "Inherited -> LINEAL: describing what passes down a direct line of descent, as a lineal heir takes a title from a parent."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +269,29 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXIT",
+    "definition": "Retirement",
+    "pieces": [
+     "EX",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no longer",
+      "gives": "EX",
+      "note": "an ex is what you call anything that no longer is what it was"
+     },
+     {
+      "clueFragment": "PC, etc",
+      "gives": "IT",
+      "note": "a PC and the kit around it are IT, information technology"
+     }
+    ],
+    "walkthrough": "Two two-letter chunks and not one indicator, which is what makes a short charade awkward: nothing in the clue tells you where the join falls.",
+    "definitionFit": "Retirement -> EXIT: retirement in its older sense of withdrawing from a place, as a player's retirement from the field is their departure."
+   }
   },
   {
    "id": "7-across",
@@ -136,7 +308,39 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIREARM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FIREARM",
+    "definition": "Part of Arsenal",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "includes"
+    ],
+    "indicatorNotes": {
+     "includes": "To include a thing is to have it among your parts, so one word opens up to take the other in."
+    },
+    "pieces": [
+     "FIR",
+     "EAR",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "business",
+      "gives": "FIRM",
+      "note": "a firm is a business, a company"
+     },
+     {
+      "clueFragment": "ability to discern pitch",
+      "gives": "EAR",
+      "note": "someone who can tell one note from another has an ear"
+     }
+    ],
+    "walkthrough": "Arsenal with a capital A is the football club, and the surface is a transfer story. Read it as a store of weapons instead and the definition steps forward.",
+    "definitionFit": "Part of Arsenal -> FIREARM: an arsenal is a stock of weapons, so any one gun in it is a part of the whole."
+   }
   },
   {
    "id": "8-across",
@@ -157,7 +361,38 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOUISXV",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOUIS XV",
+    "definition": "that once ruled 3",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "say"
+    ],
+    "indicatorNotes": {
+     "say": "Say means for instance, so the man named is one example of the name wanted rather than the thing itself."
+    },
+    "pieces": [
+     "LOUIS",
+     "XV"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rees-Zammit",
+      "gives": "LOUIS",
+      "note": "the forename of the Welsh rugby international Rees-Zammit"
+     },
+     {
+      "clueFragment": "his team",
+      "gives": "XV",
+      "note": "a rugby side is fifteen strong, written XV in Roman numerals"
+     }
+    ],
+    "walkthrough": "A rugby fifteen and a king's regnal number come out as the same Roman numeral, and the whole clue balances on that. Solve 3 first and the definition tells you which king.",
+    "definitionFit": "that once ruled 3 -> LOUIS XV: 3 is FRANCE, and this Bourbon king held its throne from 1715 until his death in 1774."
+   }
   },
   {
    "id": "9-across",
@@ -174,7 +409,36 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VISA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VISA",
+    "definition": "Residence permit",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "In is the plainest insertion instruction there is: what precedes it goes inside what comes next."
+    },
+    "pieces": [
+     "V",
+     "IS",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "VA",
+      "note": "the two-letter postal code for Virginia"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word goes in whole, letter for letter"
+     }
+    ],
+    "walkthrough": "American state abbreviations are standard crossword currency, and Virginia's is the one that opens neatly around a small word. The surface is a bureaucrat's sentence and means nothing.",
+    "definitionFit": "Residence permit -> VISA: the passport endorsement that licenses a foreigner to enter a country and stay in it."
+   }
   },
   {
    "id": "10-across",
@@ -195,7 +459,29 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOCONTEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NO CONTEST",
+    "definition": "basis for a good divorce?",
+    "indicators": [
+     "split"
+    ],
+    "indicatorNotes": {
+     "split": "A thing split has been broken into parts, and parts can be put back together in another order."
+    },
+    "anagram": {
+     "fodder": "CONSENT TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Consent to",
+      "gives": "CONSENTTO",
+      "note": "nine letters lifted straight from the clue"
+     }
+    ],
+    "walkthrough": "Consenting to split is what an amicable divorce is, so wordplay and definition tell the same story twice over. That is the setter's joke rather than a coincidence.",
+    "definitionFit": "basis for a good divorce? -> NO CONTEST: a plea of no contest concedes without a fight, and a divorce neither side fights is the painless kind."
+   }
   },
   {
    "id": "11-down",
@@ -212,7 +498,38 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLORADAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COLORADAN",
+    "definition": "one from Aspen or Boulder",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "COLOR",
+     "A",
+     "DAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US tint",
+      "gives": "COLOR",
+      "note": "tint spelled the American way, without the U"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as the single letter it is"
+     },
+     {
+      "clueFragment": "measure of rank",
+      "gives": "DAN",
+      "note": "a dan is a grade of black belt in judo and karate"
+     }
+    ],
+    "walkthrough": "'US' is not decoration: it tells you to drop the U that British spelling insists on. Aspen and Boulder read as scenery and are in fact the definition.",
+    "definitionFit": "one from Aspen or Boulder -> COLORADAN: definition by example, since both towns sit in Colorado and a native of either answers to the state's demonym."
+   }
   },
   {
    "id": "12-across",
@@ -229,7 +546,33 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MELEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MELEE",
+    "definition": "scrum",
+    "linkWords": [
+     "takes",
+     "in"
+    ],
+    "pieces": [
+     "ME",
+     "LEE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "ME",
+      "note": "the setter is the person writing the clue, so he means himself"
+     },
+     {
+      "clueFragment": "refuge",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, out of the wind"
+     }
+    ],
+    "walkthrough": "'Setter' meaning the compiler is a convention worth owning outright: it is ME or I every time, and it is the first thing to try whenever a clue mentions one.",
+    "definitionFit": "scrum -> MELEE: a confused struggling mass of people, the rugby word being used loosely for any such crush."
+   }
   },
   {
    "id": "12-down",
@@ -253,7 +596,9 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "MOILE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "16-across"
+   }
   },
   {
    "id": "13-across",
@@ -270,7 +615,29 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LISTLESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LISTLESS",
+    "definition": "Limp",
+    "pieces": [
+     "LIST",
+     "LESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heel",
+      "gives": "LIST",
+      "note": "a ship that heels over leans, and the lean it takes is called a list"
+     },
+     {
+      "clueFragment": "missing",
+      "gives": "LESS",
+      "note": "the tail -less means without something, and a tail goes on the end"
+     }
+    ],
+    "walkthrough": "The clue almost spells out its own instruction: take the heel away. 'Limp' is the adjective here, drooping and without strength, rather than the walk the surface pictures.",
+    "definitionFit": "Limp -> LISTLESS: both describe something drained of vigour, a limp handshake and a listless afternoon sharing the same want of energy."
+   }
   },
   {
    "id": "14-down",
@@ -287,7 +654,41 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "START",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "START",
+    "definition": "Surprise",
+    "linkWords": [
+     "when"
+    ],
+    "indicators": [
+     "covers",
+     "Just the reverse"
+    ],
+    "indicatorNotes": {
+     "covers": "To cover a thing is to lie over and around it, which is the wrapping instruction, before the clue takes it back.",
+     "Just the reverse": "The clue has described the wrapping the wrong way round, so the roles swap and the piece said to be covered goes outside."
+    },
+    "pieces": [
+     "S",
+     "TAR",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "the everyday abbreviation, as on any envelope"
+     },
+     {
+      "clueFragment": "viscous substance",
+      "gives": "TAR",
+      "note": "the black sticky stuff spread on roads"
+     }
+    ],
+    "walkthrough": "Setters love an instruction that undoes itself. 'Just the reverse' turns no letters round at all; it swaps which piece is doing the holding, and mistaking one for the other costs the clue.",
+    "definitionFit": "Surprise -> START: the involuntary jump a shock makes you give, as in 'you gave me quite a start'."
+   }
   },
   {
    "id": "15-across",
@@ -304,7 +705,29 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIAR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LIAR",
+    "definition": "storyteller",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "part"
+    ],
+    "indicatorNotes": {
+     "part": "A part of something is a piece of it and not the whole, so only a stretch of the letters on offer is wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mowgli – a rebel",
+      "gives": "LIAR",
+      "note": "the run begins inside the name and continues through the two words after it"
+     }
+    ],
+    "walkthrough": "Kipling's jungle boy is scenery, and the letters simply run through him. Spans that cross two word breaks are the ones the eye skates over.",
+    "definitionFit": "storyteller -> LIAR: not the bedtime sort, but the sense in which a child caught out is told to stop telling stories."
+   }
   },
   {
    "id": "16-across",
@@ -327,7 +750,51 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "APRES",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + charade",
+    "answer": "APRES MOI LE DELUGE",
+    "definition": "8’s not bothered?",
+    "indicators": [
+     "betrayed",
+     "comes after"
+    ],
+    "indicatorNotes": {
+     "betrayed": "A promise betrayed is a promise broken, and letters from a broken word no longer keep their order.",
+     "comes after": "What comes after a thing is placed behind it, so this pair lands at the tail end."
+    },
+    "pieces": [
+     "APRES",
+     "MOI",
+     "LE",
+     "DELUGE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "A PROMISE",
+      "gives": "APRESMOI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a promise",
+      "gives": "APRESMOI",
+      "note": "eight letters resettled into two short French words"
+     },
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "the French definite article, masculine singular"
+     },
+     {
+      "clueFragment": "cataclysm",
+      "gives": "DELUGE",
+      "note": "a flood on the biblical scale, the word English took straight from French"
+     }
+    ],
+    "walkthrough": "The line is attributed to the king at 8, and it has become the standard tag for anyone indifferent to what happens once they are gone.",
+    "definitionFit": "8’s not bothered? -> APRES MOI LE DELUGE: 'after me, the flood', a shrug at whatever chaos arrives once the speaker has gone."
+   }
   },
   {
    "id": "16-down",
@@ -348,7 +815,38 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "AUREVOIR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AU REVOIR",
+    "definition": "Dismissal",
+    "linkWords": [
+     "of",
+     "in"
+    ],
+    "indicators": [
+     "review"
+    ],
+    "indicatorNotes": {
+     "review": "To review is to view again, and the setter takes that literally: the letters are laid out afresh to be looked at a second time."
+    },
+    "anagram": {
+     "fodder": "EURO VAR I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is I, the Roman numeral"
+     },
+     {
+      "clueFragment": "Euro VAR",
+      "gives": "EUROVAR",
+      "note": "seven letters straight off the clue, which with the I make eight"
+     }
+    ],
+    "walkthrough": "VAR is football's video referee and the Euros the tournament, so the surface is a goal ruled out. The parting phrase is French, which the rest of the grid has been signposting.",
+    "definitionFit": "Dismissal -> AU REVOIR: the French farewell, literally 'until we meet again', used in English as the phrase that sends someone on their way."
+   }
   },
   {
    "id": "17-across",
@@ -365,7 +863,30 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WRAP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WRAP",
+    "definition": "filming is finished now",
+    "definitionNote": "The definition is a whole clause rather than a noun: on set the shout that shooting has ended became the name for the moment itself.",
+    "pieces": [
+     "W",
+     "RAP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With",
+      "gives": "W",
+      "note": "the standard one-letter abbreviation"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "RAP",
+      "note": "to rap something is to strike it a sharp blow"
+     }
+    ],
+    "walkthrough": "Two of the shortest pieces in the puzzle, and the comma is doing the misdirection: it makes the opening read as a headline about industrial action.",
+    "definitionFit": "filming is finished now -> WRAP: the call that closes a day's shooting, 'that's a wrap', turned into the noun for the end of it."
+   }
   },
   {
    "id": "17-down",
@@ -386,7 +907,35 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "WETSUITS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WET SUITS",
+    "definition": "Swimwear",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "What is named after a thing goes behind it, so the piece mentioned first in the clue ends up second."
+    },
+    "pieces": [
+     "WET",
+     "SUITS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spine removed",
+      "gives": "WET",
+      "note": "someone with no backbone is wet, feeble, spineless"
+     },
+     {
+      "clueFragment": "fits",
+      "gives": "SUITS",
+      "note": "if a coat fits you, it suits you"
+     }
+    ],
+    "walkthrough": "'Wet' for feeble is old school slang the papers still print, and 'spine removed' defines it rather than instructing you to delete any letters.",
+    "definitionFit": "Swimwear -> WET SUITS: the close rubber suits divers and surfers swim in, a category of swimwear rather than a synonym for it."
+   }
   },
   {
    "id": "18-across",
@@ -403,7 +952,39 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RENDERED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "RENDERED",
+    "definition": "Served",
+    "linkWords": [
+     "to get"
+    ],
+    "indicators": [
+     "abstaining",
+     "plastered"
+    ],
+    "indicatorNotes": {
+     "abstaining": "To abstain is to sit the round out, so the two letters named take no part in what follows.",
+     "plastered": "Plastered is drunk, and a drunk is in no state to keep anything in its proper order."
+    },
+    "anagram": {
+     "fodder": "RED RED + NE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "red, red",
+      "gives": "REDRED",
+      "note": "the colour twice over, six of the eight letters"
+     },
+     {
+      "clueFragment": "wine (WI abstaining)",
+      "gives": "NE",
+      "note": "WINE without its W and I leaves two more"
+     }
+    ],
+    "walkthrough": "'Red, red wine' is the song, and the WI in brackets is the Women's Institute declining a glass. 'Served' is the definition and does none of the shuffling.",
+    "definitionFit": "Served -> RENDERED: render in its giving sense, rendering assistance or rendering an account, rather than the plaster the surface has in mind."
+   }
   },
   {
    "id": "19-down",
@@ -424,7 +1005,9 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "DELUGE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "16-across"
+   }
   },
   {
    "id": "20-across",
@@ -446,7 +1029,37 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETAT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "L'ETAT, C'EST MOI",
+    "definition": "King’s claim on the throne",
+    "indicators": [
+     "overwhelmed by",
+     "confounded"
+    ],
+    "indicatorNotes": {
+     "overwhelmed by": "To be overwhelmed is to be swamped by something bigger, so this letter disappears among the others instead of sitting at either end.",
+     "confounded": "To confound is to throw into confusion, and letters thrown into confusion come back in a different order."
+    },
+    "anagram": {
+     "fodder": "C STEAM TOILET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "steam toilet",
+      "gives": "STEAMTOILET",
+      "note": "eleven letters lifted from the clue, twelve with the Charlie"
+     }
+    ],
+    "walkthrough": "The boast belongs to Louis XIV, one king earlier than the puzzle's other Bourbon. A steam toilet is nonsense, and nonsense in a clue is usually there for its letters.",
+    "definitionFit": "King’s claim on the throne -> L'ETAT, C'EST MOI: 'the state, it is me', the absolutist boast that monarch and country are one thing."
+   }
   },
   {
    "id": "20-down",
@@ -463,7 +1076,41 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LADDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "LADDER",
+    "definition": "food chain",
+    "indicators": [
+     "reversed"
+    ],
+    "indicatorNotes": {
+     "reversed": "Reversed means set the other way about, so the three letters just named are read back to front."
+    },
+    "pieces": [
+     "LAD",
+     "DER"
+    ],
+    "subReversals": [
+     {
+      "from": "DAL",
+      "to": "LAD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Split pea",
+      "gives": "LAD",
+      "note": "dal is the Indian dish of split pulses, turned about"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "one of the German words for 'the', the masculine nominative"
+     }
+    ],
+    "walkthrough": "Two languages in six letters, and a third reading on the surface: 'German food chain' sounds like a supermarket, which is exactly what you are meant to picture.",
+    "definitionFit": "food chain -> LADDER: both are ranked series where each level sits above the one below, which is why we talk of climbing either."
+   }
   },
   {
    "id": "21-across",
@@ -480,7 +1127,49 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENLIVENED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ENLIVENED",
+    "definition": "Brought a bit of fun to",
+    "indicators": [
+     "in",
+     "desperate"
+    ],
+    "indicatorNotes": {
+     "in": "In is the insertion instruction: what it follows is dropped inside what comes next.",
+     "desperate": "Desperate need is need at its most disordered, and a word in disorder is a word whose letters have moved."
+    },
+    "pieces": [
+     "EN",
+     "LIVE",
+     "NED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "N NEED",
+      "gives": "ENNED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "the standard abbreviation, as in 'no.'"
+     },
+     {
+      "clueFragment": "need",
+      "gives": "NEED",
+      "note": "the word itself, four letters that join the N to be sorted"
+     },
+     {
+      "clueFragment": "as it happens",
+      "gives": "LIVE",
+      "note": "a broadcast that goes out as it happens is live"
+     }
+    ],
+    "walkthrough": "The comma-heavy surface sounds like someone describing a whip-round, and every one of its little phrases is doing letter work. 'Live' for 'as it happens' is the piece to spot first.",
+    "definitionFit": "Brought a bit of fun to -> ENLIVENED: to enliven something is to put life into it, which is what a bit of fun does to a dull evening."
+   }
   },
   {
    "id": "21-down",
@@ -497,7 +1186,29 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ECHO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ECHO",
+    "definition": "Trace",
+    "indicators": [
+     "awkwardly"
+    ],
+    "indicatorNotes": {
+     "awkwardly": "Something done awkwardly comes out clumsy and out of true, so the letters land in the wrong places."
+    },
+    "anagram": {
+     "fodder": "OCHE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "oche",
+      "gives": "OCHE",
+      "note": "the darts word, four letters to be reordered"
+     }
+    ],
+    "walkthrough": "The oche is the line a darts player must stand behind, and it is in the clue purely for its letters. A small word worth knowing, because setters reuse it.",
+    "definitionFit": "Trace -> ECHO: what is left of a sound after the sound has gone, and so any faint surviving remnant of a thing."
+   }
   },
   {
    "id": "22-across",
@@ -514,7 +1225,29 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNDO",
+    "definition": "Overturn",
+    "pieces": [
+     "UN",
+     "DO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "internationally",
+      "gives": "UN",
+      "note": "the UN is the international body, and these are its initials"
+     },
+     {
+      "clueFragment": "accepted code of conduct",
+      "gives": "DO",
+      "note": "the dos and don'ts: a do is a thing one is supposed to do"
+     }
+    ],
+    "walkthrough": "Nothing in the surface signals a join, which is the difficulty of a four-letter charade. The clue reads as one political sentence and the definition is its first word alone.",
+    "definitionFit": "Overturn -> UNDO: to undo a decision is to reverse it, the sense a court has in mind when it overturns a ruling."
+   }
   },
   {
    "id": "23-down",
@@ -531,7 +1264,29 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOOR",
+    "definition": "6",
+    "pieces": [
+     "DO",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "DO",
+      "note": "a do is a party, the plainest of crossword nouns"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the word is taken at face value, both letters"
+     }
+    ],
+    "walkthrough": "Two words, both taken straight, and the definition is a cross-reference: solve 6 and these four letters follow. The question mark admits it is defining by example.",
+    "definitionFit": "6 -> DOOR: 6 is EXIT, and a door is the commonest way out of a room, so the definition names one kind of it."
+   }
   },
   {
    "id": "24-across",
@@ -548,7 +1303,41 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAGRIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHAGRIN",
+    "definition": "discontent",
+    "indicators": [
+     "follows"
+    ],
+    "indicatorNotes": {
+     "follows": "To follow is to come along behind, so the pieces named before this word are placed after the one named behind it."
+    },
+    "pieces": [
+     "CH",
+     "A",
+     "GRIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "the standard abbreviation, as on an old map"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article, taken as the single letter it is"
+     },
+     {
+      "clueFragment": "smile",
+      "gives": "GRIN",
+      "note": "a broad smile is a grin"
+     }
+    ],
+    "walkthrough": "A smile following church makes a perfectly ordinary Sunday picture, and the answer is the opposite feeling. The pieces are cheerful and the sum of them is not.",
+    "definitionFit": "discontent -> CHAGRIN: vexed disappointment, the sting of having been thwarted, a sharper and more personal thing than plain unhappiness."
+   }
   },
   {
    "id": "25-across",
@@ -570,7 +1359,9 @@ window.CRYPTIC_PUZZLES["cryptic-30058"] = /*JSON-START*/ {
     ]
    },
    "solution": "CESTMOI",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "20-across"
+   }
   }
  ]
 } /*JSON-END*/;
