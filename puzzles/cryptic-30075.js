@@ -30,7 +30,29 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASKED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MASKED",
+    "definition": "Disguised",
+    "pieces": [
+     "M",
+     "ASKED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m = male, the abbreviation every form uses"
+     },
+     {
+      "clueFragment": "questioned",
+      "gives": "ASKED",
+      "note": "to question someone is to ask them, and the past tense carries over"
+     }
+    ],
+    "walkthrough": "Nothing here announces itself as an instruction, which is what makes a bare two-part charade hard to spot: 'male' looks like part of the scene rather than a letter.",
+    "definitionFit": "Masked means wearing a covering over the face, so the wearer's identity is hidden — the everyday adjective sense."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +69,41 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISSTEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MISSTEP",
+    "definition": "trip",
+    "indicators": [
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "flipping": "To flip a thing is to turn it over, so the piece just named is written the other way round."
+    },
+    "pieces": [
+     "MISS",
+     "TEP"
+    ],
+    "subReversals": [
+     {
+      "from": "PET",
+      "to": "TEP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail to attend",
+      "gives": "MISS",
+      "note": "to miss a lecture is to fail to attend it"
+     },
+     {
+      "clueFragment": "precious",
+      "gives": "TEP",
+      "note": "a precious one is a PET — a darling — and those three letters turn over"
+     }
+    ],
+    "walkthrough": "'Precious' is working as a noun, the household darling, not as an adjective. Setters lean on that shift constantly, and it is what hides the reversal.",
+    "definitionFit": "A misstep is a stumble, which is what 'trip' names as a noun; the figurative blunder sense grows out of that literal one."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +120,37 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOCKS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SOCKS",
+    "definition": "footwear",
+    "definitionNote": "'Footwear' is a mass noun, covering a pair as readily as a single item, so it fairly defines a plural answer.",
+    "indicators": [
+     "involving"
+    ],
+    "indicatorNotes": {
+     "involving": "Anything that involves another thing has taken it inside, which is where those two initials end up."
+    },
+    "pieces": [
+     "SO",
+     "CK",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Request for help",
+      "gives": "SOS",
+      "note": "SOS is the distress call, a request for help"
+     },
+     {
+      "clueFragment": "Calvin Klein",
+      "gives": "CK",
+      "note": "the label's initials, as printed on the waistband"
+     }
+    ],
+    "walkthrough": "Calvin Klein is here for his monogram, not his clothing line, though the surface is banking on you picturing the underwear.",
+    "definitionFit": "Socks are footwear in the plain sense — the garment worn on the foot, inside the shoe rather than instead of it."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +167,38 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXUBERANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXUBERANT",
+    "definition": "vivacious",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "EX",
+     "UBER",
+     "ANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "an ex is a former partner, and EX- is the prefix meaning former"
+     },
+     {
+      "clueFragment": "ride-share company",
+      "gives": "UBER",
+      "note": "Uber is the ride-hailing firm"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "worker = ANT, the insect that works"
+     }
+    ],
+    "walkthrough": "'Worker' is almost always ANT in a cryptic, occasionally BEE. Bank that one — it comes up more often than any other creature.",
+    "definitionFit": "Exuberant describes someone bubbling over with high spirits, which is the liveliness 'vivacious' names."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +215,32 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAREBIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RAREBIT",
+    "definition": "Dish",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "RARE",
+     "BIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unusual",
+      "gives": "RARE",
+      "note": "a rare event is an unusual one"
+     },
+     {
+      "clueFragment": "grain",
+      "gives": "BIT",
+      "note": "a grain of truth is a bit of it — the tiny-amount sense, not the cereal"
+     }
+    ],
+    "walkthrough": "The surface points at cereal crops, and 'grain' is the piece doing the misleading: it has to be read as a small quantity instead.",
+    "definitionFit": "Rarebit — Welsh rarebit — is melted cheese on toast, so 'dish' defines it by category rather than by synonym."
+   }
   },
   {
    "id": "4-down",
@@ -115,7 +257,46 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETRACT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "RETRACT",
+    "definition": "Withdraw",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "after",
+     "start of"
+    ],
+    "indicatorNotes": {
+     "after": "It is positional: what was named before it goes behind the piece named next, so the single letter leads.",
+     "start of": "The start of a word is the letter it opens with, so only that one letter is taken."
+    },
+    "pieces": [
+     "R",
+     "E",
+     "TRACT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolution",
+      "gives": "R",
+      "note": "the first letter of 'revolution'"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E = English, as in the school subject"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "TRACT",
+      "note": "a tract is an area of land"
+     }
+    ],
+    "walkthrough": "The political surface is a decoy: 'revolution' is wanted for its opening letter alone, and a tract of land supplies everything else.",
+    "definitionFit": "To retract a statement is to withdraw it — the same act of taking back something already said, in the same verb form."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +313,38 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATIO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RATIO",
+    "definition": "proportion",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RAT",
+     "I",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Traitor",
+      "gives": "RAT",
+      "note": "a rat is an informer or turncoat"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as itself"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a score of nothing in tennis, written as a nought"
+     }
+    ],
+    "walkthrough": "Tennis supplies the cryptic's favourite O: love is nil, and nil is drawn as a nought. It turns up in a clue most weeks.",
+    "definitionFit": "A ratio states one quantity relative to another, which is the mathematical sense of 'proportion' rather than the 'large amount' one."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +361,44 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARBARIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BARBARIAN",
+    "definition": "savage",
+    "linkWords": [
+     "gets"
+    ],
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "Plainly positional: whatever has been named already is placed in front of what comes next."
+    },
+    "pieces": [
+     "BAR",
+     "BAR",
+     "IAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "BAR",
+      "note": "a bar is a pub"
+     },
+     {
+      "clueFragment": "ban",
+      "gives": "BAR",
+      "note": "to bar something is to ban it"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "IAN",
+      "note": "Ian is the Scottish form of John and the crossword's standard Scotsman"
+     }
+    ],
+    "walkthrough": "Two identical pieces out of two unrelated words, one a place and one a prohibition — and a Scotsman in a grid is nearly always IAN.",
+    "definitionFit": "A barbarian is an uncivilised person, so 'savage' names the same figure as a noun rather than describing ferocity."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +415,34 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEETER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TEETER",
+    "definition": "sway",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "Split it as 'W out' — the word names a letter to be dropped instead of meaning 'lacking'."
+    },
+    "pieces": [
+     "TEETER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without",
+      "gives": "W",
+      "note": "'W out' is the letter that has to go"
+     },
+     {
+      "clueFragment": "Former X contributor",
+      "gives": "TEETER",
+      "note": "X used to be Twitter, so someone posting there was a TWEETER — now minus that W"
+     }
+    ],
+    "walkthrough": "'Without' is one of the great cryptic double-crosses. The rebranding is doing the other half of the work: X only became X in 2023.",
+    "definitionFit": "To teeter is to rock unsteadily on the spot, and 'sway' is that same wobbling motion as a verb."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +459,41 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEFEND",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DEFEND",
+    "definition": "Protect",
+    "indicators": [
+     "upstanding"
+    ],
+    "indicatorNotes": {
+     "upstanding": "Something upstanding is stood on its end, and in a down entry a piece stood up reads from the bottom."
+    },
+    "pieces": [
+     "DEF",
+     "END"
+    ],
+    "subReversals": [
+     {
+      "from": "FED",
+      "to": "DEF"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US agent",
+      "gives": "DEF",
+      "note": "a FED is an American federal agent, here stood on his head"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "END",
+      "note": "the end of a field is its border or edge"
+     }
+    ],
+    "walkthrough": "The surface paints an honourable officer on patrol; 'upstanding' is really a compass direction in disguise. FED is the standard American agent.",
+    "definitionFit": "To defend is to protect, a plain synonym — though 'defend' leans towards warding off an attack while 'protect' is the wider word."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +510,29 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUCCULENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUCCULENT",
+    "definition": "plant",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "Read as mixed up rather than as a direction — in an across entry there is no upwards to point at."
+    },
+    "anagram": {
+     "fodder": "UNCLE CUTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Uncle cuts",
+      "gives": "SUCCULENT",
+      "note": "the nine letters of UNCLE CUTS rearranged"
+     }
+    ],
+    "walkthrough": "The surface asks you to picture an uncle pruning, so the fodder reads as a sentence rather than as raw material. The definition is the bare last word.",
+    "definitionFit": "A succulent is a fleshy, water-storing plant such as an aloe, so 'plant' defines it by the family it belongs to."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +549,38 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "TERSE",
+    "definition": "Short",
+    "linkWords": [
+     "getting"
+    ],
+    "indicators": [
+     "on and off"
+    ],
+    "indicatorNotes": {
+     "on and off": "Doing a thing on and off is doing it intermittently, so the letters are taken intermittently too."
+    },
+    "pieces": [
+     "T",
+     "ERSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T = tenor, the voice part as marked on a score"
+     },
+     {
+      "clueFragment": "refreshed",
+      "gives": "ERSE",
+      "note": "every second letter of rEfReShEd"
+     }
+    ],
+    "walkthrough": "'Short' is the definition, not an instruction to shorten anything — that is the trap. Count from the second letter, not the first.",
+    "definitionFit": "Terse means saying something in very few words, so 'short' applies to the manner of speech rather than to height."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +597,26 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TASTE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TASTE",
+    "definition": "Sample",
+    "indicators": [
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "bit of": "A bit of something is a piece cut from inside it, so only part of the words that follow is used."
+    },
+    "blocks": [
+     {
+      "clueFragment": "pasta stealthily",
+      "gives": "TASTE",
+      "note": "lying across the join: pasTA STEalthily"
+     }
+    ],
+    "walkthrough": "'Sample' is a verb here, and it sits beside two food words that keep pulling it towards its noun sense. That is the whole disguise.",
+    "definitionFit": "To taste a dish is to sample it: both name the act of trying a small amount in order to judge the whole."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +633,44 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELABORATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ELABORATE",
+    "definition": "involved",
+    "linkWords": [
+     "gets"
+    ],
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "Positional again: the speech-making named first is placed behind the two pieces that follow it."
+    },
+    "pieces": [
+     "E",
+     "LAB",
+     "ORATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E = European, the usual abbreviation"
+     },
+     {
+      "clueFragment": "scientist’s workplace",
+      "gives": "LAB",
+      "note": "a laboratory, shortened as it always is"
+     },
+     {
+      "clueFragment": "Make speech",
+      "gives": "ORATE",
+      "note": "to orate is to make a speech"
+     }
+    ],
+    "walkthrough": "'Involved' has to be read as the adjective meaning intricate, not as the verb it looks like at the end of that sentence.",
+    "definitionFit": "An elaborate plan is a complicated one worked out in detail, which is the sense 'involved' carries as an adjective."
+   }
   },
   {
    "id": "13-across",
@@ -268,7 +687,41 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLACARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLACARD",
+    "definition": "Bill",
+    "pieces": [
+     "P",
+     "L",
+     "A",
+     "CARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p for piano, the musical direction to play quietly"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L = left"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as itself"
+     },
+     {
+      "clueFragment": "club?",
+      "gives": "CARD",
+      "note": "clubs are one of the four suits, so a club is a card — the question mark owns up to the example"
+     }
+    ],
+    "walkthrough": "The surface is a man slipping quietly out of a nightclub. Four pieces in a row with no indicator between them is what makes a charade this long hard to see.",
+    "definitionFit": "A placard is a printed notice held up or posted, and 'bill' is the old word for exactly that — as in billboard and flyposting."
+   }
   },
   {
    "id": "14-down",
@@ -285,7 +738,47 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFTERNOON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "AFTERNOON",
+    "definition": "PM",
+    "indicators": [
+     "accepting"
+    ],
+    "indicatorNotes": {
+     "accepting": "To accept a thing is to take it in, so the refusal is admitted inside the letters already assembled."
+    },
+    "pieces": [
+     "AFT",
+     "ER",
+     "NO",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "AFT",
+      "note": "aft is the rear end of a ship, so behind"
+     },
+     {
+      "clueFragment": "expression of hesitation",
+      "gives": "ER",
+      "note": "ER is the noise made while stalling for time"
+     },
+     {
+      "clueFragment": "refusal",
+      "gives": "NO",
+      "note": "a flat refusal is NO"
+     },
+     {
+      "clueFragment": "regarding",
+      "gives": "ON",
+      "note": "a book on birds is a book regarding birds"
+     }
+    ],
+    "walkthrough": "In a clue stuffed with hesitation and refusal, 'PM' reads as a Prime Minister. It is the clock abbreviation, post meridiem — after midday.",
+    "definitionFit": "PM stands for post meridiem, the stretch of the day that follows noon, so the abbreviation names that stretch exactly."
+   }
   },
   {
    "id": "15-across",
@@ -302,7 +795,44 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TURNIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "TURNIP",
+    "definition": "Root",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "Initially means at the outset, so only the opening letter of the word in front of it is used."
+    },
+    "pieces": [
+     "TURN",
+     "I",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "change",
+      "gives": "TURN",
+      "note": "the tide turns — a turn is a change"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as itself"
+     },
+     {
+      "clueFragment": "proposed",
+      "gives": "P",
+      "note": "the first letter of 'proposed'"
+     }
+    ],
+    "walkthrough": "'Root of change' reads as an idiom about origins, which is the misdirection: 'root' is the definition all by itself, and 'of' merely joins.",
+    "definitionFit": "A turnip is a root vegetable — the swollen root is the part eaten — so 'root' defines it by the bit of the plant that matters."
+   }
   },
   {
    "id": "16-down",
@@ -319,7 +849,47 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECOGNISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + reversal",
+    "answer": "RECOGNISE",
+    "definition": "Grant",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "rising",
+     "during",
+     "broadcast"
+    ],
+    "indicatorNotes": {
+     "rising": "In a down entry a piece that rises is read upwards from below, so it comes out turned round.",
+     "during": "During means in the middle of, which puts one piece inside the other.",
+     "broadcast": "To broadcast seed is to scatter it by hand, and scattered letters land in a new order."
+    },
+    "anagram": {
+     "fodder": "SINCERE OG"
+    },
+    "subReversals": [
+     {
+      "from": "GO",
+      "to": "OG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sincere",
+      "gives": "SINCERE",
+      "note": "these seven letters are the material to be scattered"
+     },
+     {
+      "clueFragment": "Try",
+      "gives": "OG",
+      "note": "a try is a GO, rising in a down clue so it reads upwards"
+     }
+    ],
+    "walkthrough": "The capital G invites you to think of a man called Grant, and the definition hides at the end behind a link word.",
+    "definitionFit": "To grant a point is to admit it holds, the same acknowledgement a country makes when it formally accepts another's claim."
+   }
   },
   {
    "id": "17-across",
@@ -336,7 +906,41 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATUE",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "STATUE",
+    "definition": "Effigy",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "leader",
+     "embraced by"
+    ],
+    "indicatorNotes": {
+     "leader": "The leader of a word is the letter at its head, so a single letter comes out of it.",
+     "embraced by": "To be embraced is to be held within someone's arms, so that letter sits inside the longer piece."
+    },
+    "pieces": [
+     "STAT",
+     "U",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nation",
+      "gives": "STATE",
+      "note": "a state is a nation, and it opens up to take a letter in"
+     },
+     {
+      "clueFragment": "union’s",
+      "gives": "U",
+      "note": "the leading letter of 'union'"
+     }
+    ],
+    "walkthrough": "The surface is trade-union politics, and 'union' is there only to lend its first letter. 'Effigy' is doing honest work as the definition.",
+    "definitionFit": "An effigy is a sculpted likeness of a person, which is what the answer is — the word merely carries a whiff of bonfires and protest."
+   }
   },
   {
    "id": "18-down",
@@ -353,7 +957,26 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTRANT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ENTRANT",
+    "definition": "Competitor",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The smallest word in the clue is the instruction: what follows is holding the letters already, waiting to be spotted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "event ran tirelessly",
+      "gives": "ENTRANT",
+      "note": "running straight across three words: evENT RAN Tirelessly"
+     }
+    ],
+    "walkthrough": "'Tirelessly' is lovely misdirection — it sounds like an instruction to remove something, and it is there to supply a single T.",
+    "definitionFit": "An entrant is someone who has entered a race or contest, so 'competitor' names the same person, off the same list."
+   }
   },
   {
    "id": "19-across",
@@ -370,7 +993,53 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LACONIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LACONIC",
+    "definition": "Brief",
+    "indicators": [
+     "snorting"
+    ],
+    "indicatorNotes": {
+     "snorting": "Someone snorting a drug is taking it inside, so that letter goes within the string built from the rest."
+    },
+    "pieces": [
+     "LA",
+     "C",
+     "ON",
+     "I",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "LA",
+      "note": "LA is the sixth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is the standing abbreviation for cocaine — the piece that gets taken in"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "ON",
+      "note": "a talk on birds is a talk concerning birds"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C = Conservative, as printed on a ballot paper"
+     }
+    ],
+    "walkthrough": "Two different Cs, one a political party and one a drug, sit two letters apart. The definition is the very first word, meaning short of speech rather than a legal document.",
+    "definitionFit": "Laconic means saying a great deal in very few words, so 'brief' catches the manner of speaking rather than the length of a thing."
+   }
   },
   {
    "id": "19-down",
@@ -387,7 +1056,32 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIAISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LIAISE",
+    "definition": "communicate",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "tricky"
+    ],
+    "indicatorNotes": {
+     "tricky": "A tricky thing is slippery and awkward to handle, and letters like that will not stay in the order given."
+    },
+    "anagram": {
+     "fodder": "IS A LIE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Is a lie",
+      "gives": "LIAISE",
+      "note": "the six letters of IS A LIE rearranged"
+     }
+    ],
+    "walkthrough": "The question mark carries the joke: the clue asks whether a lie is hard to pass on, while quietly handing over its own letters.",
+    "definitionFit": "To liaise is to act as go-between and keep two parties in touch, so 'communicate' names it in its cooperative sense."
+   }
   },
   {
    "id": "20-down",
@@ -408,7 +1102,39 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHEATON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHEAT ON",
+    "definition": "Be unfaithful to",
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "pieces": [
+     "C",
+     "HEAT",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO alphabet"
+     },
+     {
+      "clueFragment": "passion",
+      "gives": "HEAT",
+      "note": "the heat of the moment — heat is passion"
+     },
+     {
+      "clueFragment": "touching",
+      "gives": "ON",
+      "note": "a hand on a shoulder is a hand touching it"
+     }
+    ],
+    "walkthrough": "Every piece is a straight synonym, so the difficulty is all in the surface, which sounds like an affair being confided rather than assembled.",
+    "definitionFit": "To cheat on a partner is to be unfaithful to them; the phrasal verb keeps the same preposition the definition renders as 'to'."
+   }
   },
   {
    "id": "21-down",
@@ -425,7 +1151,41 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHRIMP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHRIMP",
+    "definition": "Small person",
+    "indicators": [
+     "next to"
+    ],
+    "indicatorNotes": {
+     "next to": "It asks only for adjacency, so the letter it moves could land either side and the crossing letters settle which."
+    },
+    "pieces": [
+     "SH",
+     "RIM",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "SH is the noise you make to hush someone"
+     },
+     {
+      "clueFragment": "verge",
+      "gives": "RIM",
+      "note": "the rim of a cup is its verge or edge"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P = parking, as on the road sign"
+     }
+    ],
+    "walkthrough": "The definition is both words together, and the wordplay starts at 'parking' — a clean split that the roadside surface works hard to hide.",
+    "definitionFit": "Calling someone a shrimp calls them undersized: a familiar mild insult borrowed from the tiny crustacean."
+   }
   },
   {
    "id": "22-across",
@@ -446,7 +1206,34 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
     ]
    },
    "solution": "HERBALTEA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "HERBAL TEA",
+    "definition": "hot drink",
+    "indicators": [
+     "sorted out"
+    ],
+    "indicatorNotes": {
+     "sorted out": "Sorting something out means putting it into a different arrangement, which is what happens to those letters."
+    },
+    "anagram": {
+     "fodder": "HER TABLE A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "That woman",
+      "gives": "HER",
+      "note": "that woman = HER, untouched by the shuffling"
+     },
+     {
+      "clueFragment": "table with a",
+      "gives": "BAL TEA",
+      "note": "the letters of TABLE and A rearranged"
+     }
+    ],
+    "walkthrough": "The shuffled letters run straight across the gap between the two words, so the 6,3 in the clue tells you nothing about where the fodder ends.",
+    "definitionFit": "Herbal tea is an infusion of leaves or flowers taken hot, so 'hot drink' defines it by category rather than by synonym."
+   }
   },
   {
    "id": "23-down",
@@ -467,7 +1254,33 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATSEA",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "AT SEA",
+    "definition": "Disorganised",
+    "indicators": [
+     "leaders of"
+    ],
+    "indicatorNotes": {
+     "leaders of": "A leader is the letter a word opens with, and the plural asks for one from each word that follows."
+    },
+    "pieces": [
+     "A",
+     "T",
+     "S",
+     "E",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army training session elicit apathy",
+      "gives": "ATSEA",
+      "note": "the opening letters of all five words, in order"
+     }
+    ],
+    "walkthrough": "Five words in a row each giving one letter is a long acrostic, and the run has to begin immediately after the indicator — no gaps allowed.",
+    "definitionFit": "Someone all at sea is floundering and unable to get themselves in order, so 'disorganised' takes the idiom figuratively."
+   }
   },
   {
    "id": "24-across",
@@ -484,7 +1297,38 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLADE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GLADE",
+    "definition": "space in forest",
+    "linkWords": [
+     "finding"
+    ],
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally points at the end of the word before it, so only its closing letter is taken."
+    },
+    "pieces": [
+     "GLAD",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pleased",
+      "gives": "GLAD",
+      "note": "glad = pleased"
+     },
+     {
+      "clueFragment": "mouse",
+      "gives": "E",
+      "note": "the last letter of 'mouse'"
+     }
+    ],
+    "walkthrough": "The definition is the last three words together, and 'finding' is pure joinery — no letters hide in it.",
+    "definitionFit": "A glade is a natural clearing among trees, so the definition describes it by the gap in the woodland rather than by a synonym."
+   }
   },
   {
    "id": "25-down",
@@ -501,7 +1345,36 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWAIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "AWAIT",
+    "definition": "Anticipate",
+    "indicators": [
+     "for auditor"
+    ],
+    "indicatorNotes": {
+     "for auditor": "An auditor is a listener, so the piece is to be judged by ear and not by how it is spelt."
+    },
+    "pieces": [
+     "A",
+     "WAIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as itself"
+     },
+     {
+      "clueFragment": "pressure",
+      "soundsLike": "WEIGHT",
+      "gives": "WAIT",
+      "note": "pressure is WEIGHT, and WEIGHT said aloud is what gets written down"
+     }
+    ],
+    "walkthrough": "Only the second piece is heard rather than spelt, so the A sits there untouched. A homophone need not swallow the whole answer.",
+    "definitionFit": "To await something is to anticipate its arrival: both verbs mean expecting it and holding off until it comes."
+   }
   },
   {
    "id": "26-across",
@@ -518,7 +1391,26 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRONS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "IRONS",
+    "definition": "Smooths out",
+    "definition2": "chains",
+    "blocks": [
+     {
+      "clueFragment": "Smooths out",
+      "gives": "IRONS",
+      "note": "to iron a shirt is to press the creases out of it"
+     },
+     {
+      "clueFragment": "chains",
+      "gives": "IRONS",
+      "note": "a prisoner clapped in irons is in chains"
+     }
+    ],
+    "walkthrough": "Three words, two definitions, no link word and no wordplay at all — the shortest clue in the grid and one of the harder ones to trust.",
+    "definitionFit": "Both senses come off the metal: to iron is to press with a hot flat-iron, while a prisoner's irons are fetters."
+   }
   },
   {
    "id": "27-across",
@@ -535,7 +1427,38 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSAILANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASSAILANT",
+    "definition": "Mugger",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "ASS",
+     "AIL",
+     "ANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "AIL",
+      "note": "to ail someone is to trouble or upset them"
+     },
+     {
+      "clueFragment": "six footer",
+      "gives": "ANT",
+      "note": "an insect has six legs, and the crossword's insect of choice is the ant"
+     }
+    ],
+    "walkthrough": "'Six footer' is not a tall man but a six-legged one. Count the legs whenever a height turns up in a clue — it nearly always means an insect.",
+    "definitionFit": "An assailant is whoever launches an attack, and a mugger is one kind of attacker, so the definition works by example."
+   }
   },
   {
    "id": "28-across",
@@ -552,7 +1475,36 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENDANT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PENDANT",
+    "definition": "medallion",
+    "indicators": [
+     "holds"
+    ],
+    "indicatorNotes": {
+     "holds": "To hold a thing is to keep it inside you, so the letter goes within the longer word rather than beside it."
+    },
+    "pieces": [
+     "PE",
+     "N",
+     "DANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quibbler",
+      "gives": "PEDANT",
+      "note": "a pedant quibbles over small points"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N = new"
+     }
+    ],
+    "walkthrough": "PEDANT and the answer are a famous near-pair, one letter apart, which is why the quibbler turns up so often in clues of this shape.",
+    "definitionFit": "A pendant is an ornament hung from a chain at the neck, which is what a medallion is once it is worn that way."
+   }
   },
   {
    "id": "29-across",
@@ -569,7 +1521,29 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEATEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEATEN",
+    "definition": "Hammered",
+    "pieces": [
+     "B",
+     "EATEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B = bachelor, as in BA and BSc"
+     },
+     {
+      "clueFragment": "put away",
+      "gives": "EATEN",
+      "note": "to put away a big meal is to eat it"
+     }
+    ],
+    "walkthrough": "'Hammered' pulls towards drunkenness, and the wordplay's 'put away' pulls the same way. The definition needs the other sense: thoroughly defeated.",
+    "definitionFit": "A hammered team has been beaten heavily, so definition and answer share the past-participle sense of soundly defeated."
+   }
   }
  ]
 } /*JSON-END*/;
