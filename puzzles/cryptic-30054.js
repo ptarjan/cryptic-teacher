@@ -29,7 +29,29 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIMILES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SIMILES",
+    "definition": "they compare (not literally)",
+    "indicators": [
+     "Modified"
+    ],
+    "indicatorNotes": {
+     "Modified": "To modify a thing is to alter what it is made of, and letters altered are letters no longer standing in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "MISSILE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "missile",
+      "gives": "MISSILE",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "walkthrough": "The surface reads like a line from an arms report, and the joke is that a weapon gets turned into a figure of speech.",
+    "definitionFit": "A simile likens one thing to another with 'like' or 'as', so it compares without ever claiming the two things really are the same."
+   }
   },
   {
    "id": "1-down",
@@ -46,7 +68,40 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPINAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPINAL",
+    "definition": "personal kind of column",
+    "indicators": [],
+    "linkWords": [
+     "added to",
+     "in"
+    ],
+    "pieces": [
+     "SPIN",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bias",
+      "gives": "SPIN",
+      "note": "spin is the bias a press officer puts on a story"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word a, taken exactly as it stands"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l is the usual abbreviation for line, as on a map or in a script"
+     }
+    ],
+    "walkthrough": "Three kinds of column are in play at once: the newspaper sort the surface is hinting at, the architectural sort, and the one every person carries about inside them.",
+    "definitionFit": "The column meant is anatomical — the backbone — so 'personal' is doing real work, marking it off from a building's column or a newspaper's."
+   }
   },
   {
    "id": "2-down",
@@ -63,7 +118,26 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIDDLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MIDDLE",
+    "definition": "Waist",
+    "definition2": "hit when batting – precisely",
+    "blocks": [
+     {
+      "clueFragment": "Waist",
+      "gives": "MIDDLE",
+      "note": "the part of the body a belt goes round"
+     },
+     {
+      "clueFragment": "hit when batting – precisely",
+      "gives": "MIDDLE",
+      "note": "a cricketer who strikes the ball off the dead centre of the bat has done this to it"
+     }
+    ],
+    "walkthrough": "The surface has a batter taking a blow on the body, which lets two unrelated senses sit in one sentence: one anatomical, one straight off the bat.",
+    "definitionFit": "A person's middle is their waist, and in cricket to middle a ball is to strike it dead centre of the bat — the precise version of a hit."
+   }
   },
   {
    "id": "3-down",
@@ -80,7 +154,37 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUXURIATED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + homophone",
+    "answer": "LUXURIATED",
+    "definition": "had it very easy",
+    "indicators": [
+     "Heard",
+     "out of order"
+    ],
+    "indicatorNotes": {
+     "Heard": "It asks for the sound of the words rather than their spelling, and two pronouns spoken out are single letters when written down.",
+     "out of order": "Something out of order is not in its proper sequence, so the letters it labels have to be resequenced."
+    },
+    "anagram": {
+     "fodder": "RULED TAX U I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Heard you and I",
+      "soundsLike": "YOU AND I",
+      "gives": "UI",
+      "note": "said aloud, the letters U and I are exactly those two pronouns"
+     },
+     {
+      "clueFragment": "ruled tax",
+      "gives": "RULEDTAX",
+      "note": "anagram fodder, eight letters, joined by the two letters heard above"
+     }
+    ],
+    "walkthrough": "'Heard' is doing the work that makes the sums add up: eight letters of fodder plus the two you can only get by saying the pronouns aloud.",
+    "definitionFit": "To luxuriate is to wallow in comfort and take your time over it, which is what having it very easy looks like from the outside."
+   }
   },
   {
    "id": "4-down",
@@ -97,7 +201,23 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPADE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SPADE",
+    "definition": "Tool that’s sharp but may be said to be blunt",
+    "blocks": [
+     {
+      "clueFragment": "Tool that’s sharp",
+      "note": "the surface promises a digging implement with a keen edge, and that much is plainly true of the thing"
+     },
+     {
+      "clueFragment": "may be said to be blunt",
+      "note": "'said' is the hinge — there is a stock phrase about naming a thing by its plainest name, and using it is what counts as speaking bluntly"
+     }
+    ],
+    "walkthrough": "A card suit runs right through this puzzle, and the pointed black symbol on the cards is sharp in a second way the clue never quite admits to.",
+    "definitionFit": "The clue describes one object twice: the edged garden implement, and the word a plain speaker is proverbially told to use for what it is."
+   }
   },
   {
    "id": "5-across",
@@ -114,7 +234,29 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIAMOND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DIAMOND",
+    "definition": "For Americans, field",
+    "definition2": "extremely hard",
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For Americans, field",
+      "gives": "DIAMOND",
+      "note": "the baseball infield, named for the shape the four bases mark out"
+     },
+     {
+      "clueFragment": "extremely hard",
+      "gives": "DIAMOND",
+      "note": "the hardest natural substance there is, right at the top of the mineral scale"
+     }
+    ],
+    "walkthrough": "Both halves are straight definitions, one geographic and one material, and the only misdirection is letting 'hard' sound like a remark about the field.",
+    "definitionFit": "American baseball calls its infield the diamond, and the gem is the hardest natural substance known, so the second half names it by its defining property."
+   }
   },
   {
    "id": "5-down",
@@ -131,7 +273,26 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISMISSAL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DISMISSAL",
+    "definition": "Firing",
+    "definition2": "careless shot might result in this",
+    "blocks": [
+     {
+      "clueFragment": "Firing",
+      "gives": "DISMISSAL",
+      "note": "the formal word for being let go from a job"
+     },
+     {
+      "clueFragment": "careless shot might result in this",
+      "gives": "DISMISSAL",
+      "note": "in cricket a rash stroke gets a batter out, and this is how the scorecard records it"
+     }
+    ],
+    "walkthrough": "'Firing' and 'shot' both pull the surface towards a gun, and neither sense of the answer has anything to do with one — the second belongs to cricket.",
+    "definitionFit": "Losing a job is a firing; in cricket a batter losing their wicket to a rash stroke is recorded under the very same word."
+   }
   },
   {
    "id": "6-down",
@@ -148,7 +309,35 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ACED",
+    "definition": "Perfectly performed",
+    "indicators": [
+     "most"
+    ],
+    "indicatorNotes": {
+     "most": "It means all but one of a group, the group being the lettered scale people are graded on — though it stays vague about which one is left behind."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "A",
+     "C",
+     "E",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social classes",
+      "gives": "ACED",
+      "note": "Britain's social grades are lettered A, B, C, D and E, and four of those five letters are what get strung together"
+     }
+    ],
+    "walkthrough": "Social grade is one of the crossword's quieter conventions — A to E, straight off a market researcher's form — and here it supplies every letter of the answer.",
+    "definitionFit": "To ace something is to carry it off flawlessly, a tennis serve or an exam, so in the past tense it covers any performance done without a fault."
+   }
   },
   {
    "id": "7-down",
@@ -165,7 +354,37 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERLAID",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OVERLAID",
+    "definition": "Covered",
+    "indicators": [
+     "erratically"
+    ],
+    "indicatorNotes": {
+     "erratically": "Doing a thing erratically is doing it to no settled pattern, so the letters come out in no reliable sequence."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "anagram": {
+     "fodder": "A L I DROVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a learner",
+      "gives": "AL",
+      "note": "a stays as it is, and a learner driver shows an L plate"
+     },
+     {
+      "clueFragment": "I drove",
+      "gives": "IDROVE",
+      "note": "the remaining six letters of the fodder"
+     }
+    ],
+    "walkthrough": "The L-plate is the piece to spot: 'learner' is one of the reliable single-letter conventions, hiding here inside a sentence that is entirely about driving.",
+    "definitionFit": "To overlay is to lay one thing over another so the lower one stops showing, which is what covering does — the definition matches the past participle."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +401,50 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISABUSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "DISABUSE",
+    "definition": "Correct",
+    "indicators": [
+     "secured by",
+     "in disarray"
+    ],
+    "indicatorNotes": {
+     "secured by": "To be secured by something is to be held fast inside it, so the pieces named first finish up enclosed.",
+     "in disarray": "Disarray is the state of things knocked out of their proper places, which is what happens to these four letters."
+    },
+    "pieces": [
+     "DIS",
+     "A",
+     "BUS",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SIDE",
+      "gives": "DISE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "side",
+      "gives": "DISE",
+      "note": "the four letters of SIDE shaken up, then opened out to make room"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the first word of the clue, used as itself"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "BUS",
+      "note": "a coach is a bus — the vehicle, not the trainer the surface offers"
+     }
+    ],
+    "walkthrough": "'Correct' is a verb here, the sort you do to a person rather than to a proof, and 'coach' is the pivot the whole sporting surface turns on.",
+    "definitionFit": "To disabuse someone is to put them right about something they wrongly believe, so 'Correct' is the verb sense — to set straight, not to be accurate."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +461,26 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDEX",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "INDEX",
+    "definition": "Last part of book, perhaps",
+    "indicators": [
+     "some"
+    ],
+    "indicatorNotes": {
+     "some": "'Some' of a phrase is a portion of it, and the portion wanted is a run of consecutive letters rather than a piece of the meaning."
+    },
+    "blocks": [
+     {
+      "clueFragment": "find exciting",
+      "gives": "INDEX",
+      "note": "five letters in a row bridge the gap between these two words"
+     }
+    ],
+    "walkthrough": "Nothing in the surface suggests concealment except 'some', which is carrying a whole instruction while looking like ordinary vagueness.",
+    "definitionFit": "An index sits at the back of a reference book; 'perhaps' concedes that plenty of books finish with something else, so this is one example of a last part."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +497,47 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANSWERERS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ANSWERERS",
+    "definition": "Respondents",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "To cover a thing is to lie over it from both sides, so the word doing the covering parts and the rest settles between its halves."
+    },
+    "pieces": [
+     "A",
+     "NSWE",
+     "RER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as can be seen",
+      "gives": "AS",
+      "note": "the word AS used exactly as printed, then parted"
+     },
+     {
+      "clueFragment": "all points",
+      "gives": "NSWE",
+      "note": "the four points of the compass, N, S, W and E"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re heads a memo and means about, concerning"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "r is the usual abbreviation for right"
+     }
+    ],
+    "walkthrough": "Compass points are a standard supply of letters and 'all points' asks for the whole set; the order they come out in is fixed by what has to be spelled.",
+    "definitionFit": "A respondent is someone who answers — a survey, a question, a petition — so the definition is the formal register of the same plural noun."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +554,36 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLERGENIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALLERGENIC",
+    "definition": "producing bad reaction",
+    "indicators": [
+     "upset",
+     "about"
+    ],
+    "indicatorNotes": {
+     "upset": "Upsetting a thing tips its contents out, and they land in no particular arrangement.",
+     "about": "It puts the extra letter in among the others rather than tacking it on at either end."
+    },
+    "anagram": {
+     "fodder": "RECALLING E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Recalling",
+      "gives": "RECALLING",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is the tabloid shorthand for ecstasy, one letter joined to the fodder"
+     }
+    ],
+    "walkthrough": "The surface is a memory that provokes somebody, which is very nearly the shape of the definition — but the reaction wanted here is a medical one.",
+    "definitionFit": "Something allergenic brings on an allergic response, a bad reaction in the strict clinical sense rather than merely an unpopular one."
+   }
   },
   {
    "id": "12-across",
@@ -250,7 +600,26 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLUB",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CLUB",
+    "definition": "weapon",
+    "definition2": "Arsenal’s example of this",
+    "blocks": [
+     {
+      "clueFragment": "weapon",
+      "gives": "CLUB",
+      "note": "a heavy stick, the oldest weapon of the lot"
+     },
+     {
+      "clueFragment": "Arsenal’s example of this",
+      "gives": "CLUB",
+      "note": "the north London football side is one instance of the sporting sense"
+     }
+    ],
+    "walkthrough": "An arsenal is a weapons store, so the sentence holds together perfectly — while the name it is really pointing at belongs to a football ground in north London.",
+    "definitionFit": "A club is a heavy stick swung as a weapon, and the side named in the clue is one instance of the other sense, a sporting association."
+   }
   },
   {
    "id": "13-down",
@@ -272,7 +641,23 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
     ]
    },
    "solution": "FOURINHAND",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FOUR-IN-HAND",
+    "definition": "It takes several horses to move it inches?",
+    "blocks": [
+     {
+      "clueFragment": "It takes several horses to move it",
+      "note": "the surface offers something too heavy to shift; the setter means a carriage pulled by a team, and the enumeration counts the team"
+     },
+     {
+      "clueFragment": "inches?",
+      "note": "horses are measured in hands, and the question is how many inches make one of those units — read as a plain sentence, the answer replies"
+     }
+    ],
+    "walkthrough": "Read as an ordinary phrase the answer is arithmetic, so many inches to a hand; read as a noun it is a carriage and its team. The clue wants both at once.",
+    "definitionFit": "The phrase names a team of horses harnessed to one vehicle and, taken literally, the number of inches that make up a hand."
+   }
   },
   {
    "id": "14-across",
@@ -289,7 +674,26 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACCESSORIES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ACCESSORIES",
+    "definition": "They help thieves steal",
+    "definition2": "handbags etc.",
+    "blocks": [
+     {
+      "clueFragment": "They help thieves steal",
+      "gives": "ACCESSORIES",
+      "note": "in law, people who assist a crime without carrying it out themselves"
+     },
+     {
+      "clueFragment": "handbags etc.",
+      "gives": "ACCESSORIES",
+      "note": "the bags, belts and scarves that finish an outfit off"
+     }
+    ],
+    "walkthrough": "One word, two worlds — the criminal courts and the fashion pages — and the clue lays them end to end so that the join disappears.",
+    "definitionFit": "In law an accessory assists a crime without committing it; in a wardrobe the same word covers the bags and belts that finish an outfit."
+   }
   },
   {
    "id": "15-down",
@@ -306,7 +710,39 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLLUSION",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "COLLUSION",
+    "definition": "Complicity",
+    "indicators": [
+     "having change of heart"
+    ],
+    "indicatorNotes": {
+     "having change of heart": "A word's heart is the letter at its dead centre, and changing it means swapping that single letter for another."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "COLL",
+     "U",
+     "SION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflict",
+      "gives": "COLLISION",
+      "note": "a conflict between two things is a collision"
+     },
+     {
+      "clueFragment": "having change of heart",
+      "gives": "U",
+      "note": "the fifth of those nine letters steps aside and U takes the vacant place"
+     }
+    ],
+    "walkthrough": "The surface is a peace-talks headline, where a change of heart would be a change of mind; here it is strictly the letter sitting in the middle.",
+    "definitionFit": "Collusion is secret cooperation towards a dishonest end, and complicity is that same involvement seen from the side of blame."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +759,46 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUEENING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "QUEENING",
+    "definition": "Being promoted on board",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "Upset is turned over, and in a down entry that means the letters are read back up the column."
+    },
+    "pieces": [
+     "QUE",
+     "ENING"
+    ],
+    "subReversals": [
+     {
+      "from": "GNINE",
+      "to": "ENING"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for French, that",
+      "gives": "QUE",
+      "note": "the French word for 'that'"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the standard abbreviation for good, as on a school report"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NINE",
+      "note": "the number is left unnamed, and the count of letters still to fill settles which one it is"
+     }
+    ],
+    "walkthrough": "'On board' is the chessboard: a pawn reaching the far rank is promoted, and the piece almost everyone chooses gives the manoeuvre its name.",
+    "definitionFit": "In chess a pawn that reaches the far rank is promoted, and the standard choice of piece is what the process is named after."
+   }
   },
   {
    "id": "17-down",
@@ -340,7 +815,38 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RINGSIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RINGSIDE",
+    "definition": "area close to fighting",
+    "indicators": [
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "supporting": "What supports a thing stands underneath it, and underneath in a down entry means later in the answer."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RING",
+     "SIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gang",
+      "gives": "RING",
+      "note": "a ring is an organised gang — a drugs ring, a betting ring"
+     },
+     {
+      "clueFragment": "Faction",
+      "gives": "SIDE",
+      "note": "a side is a faction in a dispute"
+     }
+    ],
+    "walkthrough": "Boxing is nowhere in the surface, which is all street gangs, and the ring that supplies the first half is a criminal one rather than the roped kind.",
+    "definitionFit": "The seats nearest a boxing ring are the ringside ones, so the definition describes the spot literally rather than offering a synonym."
+   }
   },
   {
    "id": "18-across",
@@ -357,7 +863,32 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNICELLULAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNICELLULAR",
+    "definition": "Like life as simple as possible?",
+    "indicators": [
+     "convoluted"
+    ],
+    "indicatorNotes": {
+     "convoluted": "Something convoluted is twisted round on itself, and letters twisted round each other stop reading in the order given."
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "anagram": {
+     "fodder": "ILL RUN A CLUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I’ll run a clue",
+      "gives": "ILLRUNACLUE",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "walkthrough": "The setter's aside about writing a twisty clue is the clue's own raw material, which is the joke: the fodder describes what is being done to it.",
+    "definitionFit": "A unicellular organism is a single cell, the least complicated thing that counts as alive, so the definition points at the simplest form life takes."
+   }
   },
   {
    "id": "19-down",
@@ -374,7 +905,29 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LITTLE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LITTLE",
+    "definition": "Short",
+    "indicators": [
+     "rhyme for",
+     "when spoken quickly"
+    ],
+    "indicatorNotes": {
+     "rhyme for": "It asks only for a word that chimes with what follows, not one that matches it throughout, so just the ending is handed over.",
+     "when spoken quickly": "Said at speed the two words before it collapse into one contracted sound, and that sound is what has to be matched."
+    },
+    "blocks": [
+     {
+      "clueFragment": "it will, when spoken quickly",
+      "soundsLike": "IT'LL",
+      "gives": "LITTLE",
+      "note": "run together in speech those two words become a single contraction, and the answer is the word that chimes with it"
+     }
+    ],
+    "walkthrough": "This is a rhyme rather than a strict soundalike: the clue hands over the ending and leaves you to supply the letter that starts the word off.",
+    "definitionFit": "Short and little are everyday synonyms for small extent, though short tends to measure length and little size — that overlap is what the setter uses."
+   }
   },
   {
    "id": "20-down",
@@ -391,7 +944,30 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEARTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HEARTS",
+    "definition": "suit",
+    "definition2": "Emoji used by wooer",
+    "definitionNote": "The answer is a plural noun that names one single suit of cards, which is why the singular 'suit' defines it fairly.",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit",
+      "gives": "HEARTS",
+      "note": "one of the two red suits in a pack of cards"
+     },
+     {
+      "clueFragment": "Emoji used by wooer",
+      "gives": "HEARTS",
+      "note": "the red symbol a suitor sends by text"
+     }
+    ],
+    "walkthrough": "The suit and the emoji are the same picture, which is the whole point: a romantic text and a hand of cards get by on one symbol between them.",
+    "definitionFit": "Hearts is one of the four suits in a pack, and the red heart is the standard emoji of romantic intent — one shape doing two jobs."
+   }
   },
   {
    "id": "21-across",
@@ -408,7 +984,31 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERGO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ERGO",
+    "definition": "thus",
+    "indicators": [
+     "once in each half"
+    ],
+    "indicatorNotes": {
+     "once in each half": "It promises the letters lie buried in a run, and that the run turns up twice — one instance on either side of the sentence."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Soccer goalkeeper",
+      "gives": "ERGO",
+      "note": "four consecutive letters bridge the end of one word and the start of the next"
+     },
+     {
+      "clueFragment": "goofed",
+      "gives": "",
+      "note": "the same four letters run again across the join before this word, which is what makes the bracketed promise true"
+     }
+    ],
+    "walkthrough": "The bracketed aside reads as a match report — a goal let in during each half — and it is really telling you the letters are there twice over.",
+    "definitionFit": "Ergo is the Latin for 'therefore', kept alive in English for drawing a conclusion, which is exactly the job 'thus' does."
+   }
   },
   {
    "id": "22-across",
@@ -425,7 +1025,48 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUARANTINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "QUARANTINE",
+    "definition": "isolated regime",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Set around a thing, it tells you the measure just named opens up and the next word settles inside it."
+    },
+    "pieces": [
+     "QUAR",
+     "AN",
+     "T",
+     "IN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Volume",
+      "gives": "QUART",
+      "note": "a quart is a measure of volume, two pints of it"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the word an, lifted straight out of the clue"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word in, also used as itself"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "walkthrough": "'Volume' looks like a book, especially standing next to 'English', and it is a liquid measure instead — the swap that makes an unrelated set of pieces read smoothly.",
+    "definitionFit": "A quarantine is the enforced routine of keeping the possibly infected apart, so 'regime' here means an imposed regimen rather than a government."
+   }
   },
   {
    "id": "23-down",
@@ -442,7 +1083,36 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGAG",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REGAG",
+    "definition": "Once more restrict speech",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The little word marks an insertion: whatever comes before it drops inside whatever comes after."
+    },
+    "pieces": [
+     "R",
+     "EG",
+     "AG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "RAG",
+      "note": "a rag is a slighting word for a newspaper, and it opens between its first and second letters"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the everyday shorthand for 'for example'"
+     }
+    ],
+    "walkthrough": "The definition runs to four words before any wordplay starts, so the sentence about jokes in the press is doing nothing but hiding two short pieces.",
+    "definitionFit": "Gagging is stopping a mouth, so this is that silencing applied a second time — 'once more' is carried by the prefix in front."
+   }
   },
   {
    "id": "24-down",
@@ -459,7 +1129,26 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JACK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "JACK",
+    "definition": "Device for lifting",
+    "definition2": "injured hill-climber",
+    "blocks": [
+     {
+      "clueFragment": "Device for lifting",
+      "gives": "JACK",
+      "note": "the screw device that raises a car off the ground to change a wheel"
+     },
+     {
+      "clueFragment": "injured hill-climber",
+      "gives": "JACK",
+      "note": "the boy of the nursery rhyme who fell down and broke his crown"
+     }
+    ],
+    "walkthrough": "The second definition is a person rather than a thing: the nursery rhyme supplies the name, and the tumble down the slope supplies the injury.",
+    "definitionFit": "A jack raises a car off the road, and the boy of the rhyme who went up the hill and broke his crown carries the same name."
+   }
   },
   {
    "id": "25-across",
@@ -476,7 +1165,42 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMITATING",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "IMITATING",
+    "definition": "Following",
+    "indicators": [
+     "embracing"
+    ],
+    "indicatorNotes": {
+     "embracing": "To embrace a thing is to put your arms right round it, so the word before closes over the word after."
+    },
+    "pieces": [
+     "I",
+     "M",
+     "IT",
+     "ATING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "action of union",
+      "gives": "MATING",
+      "note": "union in the biological sense, and the act of it"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the word it, dropped in whole"
+     }
+    ],
+    "walkthrough": "'Union' reads like a trade union standing next to 'action', and that is the misdirection — the union wanted is the biological one.",
+    "definitionFit": "To imitate someone is to follow their example, so 'Following' is meant in the sense of taking after rather than walking behind."
+   }
   },
   {
    "id": "26-across",
@@ -493,7 +1217,33 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AFTER",
+    "definition": "Succeeding",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "AFT",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stern position",
+      "gives": "AFT",
+      "note": "aft is the position towards a ship's stern"
+     },
+     {
+      "clueFragment": "more",
+      "gives": "ER",
+      "note": "the ending that makes an adjective comparative, as in 'sterner'"
+     }
+    ],
+    "walkthrough": "The question mark flags a nautical joke: at sea this really is a comparative, meaning further towards the stern of the ship.",
+    "definitionFit": "Both words mean coming next in sequence — the succeeding day and the day it follows are one and the same day."
+   }
   },
   {
    "id": "27-across",
@@ -510,7 +1260,44 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GHERKIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GHERKIN",
+    "definition": "may be prepared to help in a pickle",
+    "indicators": [
+     "Last of"
+    ],
+    "indicatorNotes": {
+     "Last of": "It takes the final letter of the word behind it and nothing else, which is how a seven-letter answer can begin from a single one."
+    },
+    "linkWords": [
+     "that"
+    ],
+    "pieces": [
+     "G",
+     "HER",
+     "KIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last of aging",
+      "gives": "G",
+      "note": "the final letter of aginG"
+     },
+     {
+      "clueFragment": "female’s",
+      "gives": "HER",
+      "note": "what belongs to a female is hers, three letters of possessive"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin is family, in the collective sense"
+     }
+    ],
+    "walkthrough": "'In a pickle' is the idiom for being in trouble, and the definition takes it at face value instead — what goes into the jar.",
+    "definitionFit": "A gherkin is a small cucumber preserved in vinegar, so the definition describes it by what is done to it and where it ends up."
+   }
   },
   {
    "id": "28-across",
@@ -527,7 +1314,43 @@ window.CRYPTIC_PUZZLES["cryptic-30054"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GODDESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "GODDESS",
+    "definition": "Beautiful woman",
+    "indicators": [
+     "without",
+     "in"
+    ],
+    "indicatorNotes": {
+     "without": "Here it means lacking rather than outside, so the letter named after it is taken away from the word in front.",
+     "in": "It marks the insertion: what has just been assembled goes inside the thing named next."
+    },
+    "pieces": [
+     "GOD",
+     "DES",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performs",
+      "gives": "DOES",
+      "note": "performs in the sense of does — she does a fine job"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a score of nothing at tennis, written as a nought, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "theatre part",
+      "gives": "GODS",
+      "note": "the gods are the highest and cheapest gallery in a theatre"
+     }
+    ],
+    "walkthrough": "'Theatre part' looks like a role and turns out to be a place in the building — the gallery up under the roof that everybody calls the gods.",
+    "definitionFit": "Calling a woman a goddess is settled English hyperbole for striking beauty, a figurative sense the dictionaries record beside the literal deity."
+   }
   }
  ]
 } /*JSON-END*/;
