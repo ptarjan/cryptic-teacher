@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WOMBAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "WOMBAT",
+    "definition": "Marsupial",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "what is done initially is done at the very start, so only the opening letter of each word beside it is taken"
+    },
+    "pieces": [
+     "WOMB",
+     "A",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reproductive organ",
+      "gives": "WOMB",
+      "note": "the organ a mammal carries its unborn young in"
+     },
+     {
+      "clueFragment": "astounded taxonomists",
+      "gives": "AT",
+      "note": "the initial letters of the two words, in the order the clue prints them"
+     }
+    ],
+    "walkthrough": "A marsupial's young finish growing in the pouch rather than the womb, so the organ the wordplay borrows is the one this animal makes least use of.",
+    "definitionFit": "Marsupial -> WOMBAT: definition by example, since the wombat is one particular Australian pouched animal and the clue names only the family."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +76,28 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBESE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "OBESE",
+    "definition": "super roly-poly",
+    "indicators": [
+     "houses",
+     "served up"
+    ],
+    "indicatorNotes": {
+     "houses": "to house something is to keep it within your walls, so these words have the answer indoors",
+     "served up": "a dish comes up from the kitchen, and in a down entry coming up means reading from the bottom square towards the top"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Burmese boarding",
+      "gives": "OBESE",
+      "note": "the tail of the first word and the head of the second give five letters in a row, and they read the right way only from the far end"
+     }
+    ],
+    "walkthrough": "A roly-poly is a suet pudding as well as a shape, which is what lets a boarding-house dinner and a description of a diner share one sentence.",
+    "definitionFit": "super roly-poly -> OBESE: roly-poly is the nursery word for comfortably round, and pushing it to 'super' reaches the clinical term for dangerously overweight."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +118,37 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRAINDEAD",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "BRAIN-DEAD",
+    "definition": "Stupid",
+    "indicators": [
+     "Spoonerism"
+    ],
+    "indicatorNotes": {
+     "Spoonerism": "the Reverend Spooner traded the opening sounds of two words, so naming the trick is an instruction to swap them over"
+    },
+    "pieces": [
+     "BRAIN",
+     "DEAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scandinavian",
+      "soundsLike": "DANE",
+      "gives": "BRAIN",
+      "note": "a Dane is a Scandinavian, and Spooner takes his D away and hands him a BR instead"
+     },
+     {
+      "clueFragment": "spawned",
+      "soundsLike": "BRED",
+      "gives": "DEAD",
+      "note": "spawned means bred, and it collects the D the Dane gave up"
+     }
+    ],
+    "walkthrough": "Say the setter's two words in his order first and swap afterwards; the hyphen in the enumeration is the promise that what comes out is one compound word.",
+    "definitionFit": "Stupid -> BRAIN-DEAD: the medical term for irreversible loss of brain function, borrowed by everyday speech as an insult for someone showing no sign of thought."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +165,32 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TALKER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TALKER",
+    "definition": "gossip",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "dismissed"
+    ],
+    "indicatorNotes": {
+     "dismissed": "a servant who is dismissed is sent away and does not come back, and the letter beside it goes the same way"
+    },
+    "pieces": [
+     "TALKER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hunter S dismissed",
+      "gives": "TALKER",
+      "note": "the hunter is a STALKER, one who follows game unseen, and sacking the S it starts with leaves the six letters after it"
+     }
+    ],
+    "walkthrough": "Hunter S. Thompson is the whole misdirection: the middle initial belongs to the wordplay rather than to the journalist, and it is the letter being sacked.",
+    "definitionFit": "gossip -> TALKER: a gossip is named for the single thing they do, and the plain agent noun for someone who does a lot of it says the same."
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +207,36 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GREMLINS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "GREMLINS",
+    "definition": "Troublemakers",
+    "indicators": [
+     "playing",
+     "endlessly"
+    ],
+    "indicatorNotes": {
+     "playing": "a band plays a song, but letters played with are letters handled loosely enough to end up somewhere else",
+     "endlessly": "something endless never reaches its end, so the final letter of the word beside it is never written down"
+    },
+    "anagram": {
+     "fodder": "REM + SINGL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "REM",
+      "gives": "REM",
+      "note": "the band's three letters join the pile exactly as printed"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "SINGL",
+      "note": "a single stopped before its last letter supplies five more"
+     }
+    ],
+    "walkthrough": "Gremlins are the imaginary imps RAF crews blamed for machinery failing in the 1940s, and the name has outlived the aircraft it was invented for.",
+    "definitionFit": "Troublemakers -> GREMLINS: a gremlin is the mischief-maker held responsible when a machine misbehaves, so the word names a whole class of small deliberate trouble."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +259,50 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
     ]
    },
    "solution": "GAMESETANDMATCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "GAME SET AND MATCH",
+    "definition": "victory statement",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "Enraged",
+     "defending"
+    ],
+    "indicatorNotes": {
+     "Enraged": "rage is the loss of all self-control, and letters that have lost control of themselves will not stay in the order given",
+     "defending": "a defender stands all round the thing being protected, so the rearranged letters close over the piece named next"
+    },
+    "anagram": {
+     "fodder": "MAGA CHANTS MEET + D"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "MAGACHANTSMEET",
+      "gives": "GAMESETANMATCH"
+     }
+    ],
+    "pieces": [
+     "GAMESETAN",
+     "D",
+     "MATCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MAGA chants meet",
+      "gives": "GAMESETANMATCH",
+      "note": "fourteen letters dealt out again, and they part after nine to take something in"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "on a US ballot a Democrat's name carries a (D) after it"
+     }
+    ],
+    "walkthrough": "A rally between MAGA chanters and a Democrat is the picture; the answer is called from the umpire's chair instead, which is where a clue about a contest least wants you to look.",
+    "definitionFit": "victory statement -> GAME SET AND MATCH: the umpire's words as a tennis match ends, used far beyond the court to announce a contest is settled."
+   }
   },
   {
    "id": "6-down",
@@ -142,7 +319,43 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXCLAIMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EXCLAIMS",
+    "definition": "Cries",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "comprehended by"
+    ],
+    "indicatorNotes": {
+     "comprehended by": "in its older sense to comprehend is to take something in and hold it, so the piece beside it swallows the other"
+    },
+    "pieces": [
+     "EX",
+     "CLAIMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "an ex is a former partner, and EX- is the standing prefix for anything former"
+     },
+     {
+      "clueFragment": "reticent people",
+      "gives": "CLAMS",
+      "note": "someone who clams up refuses to say anything, so a clam is a reticent person"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "an international is a player capped for their country, and I is the abbreviation for it; it lands between the A and the M"
+     }
+    ],
+    "walkthrough": "Reticent people who make cries of any kind are a contradiction, and the clue survives it because the two halves never meet: one is the definition, the other the fodder.",
+    "definitionFit": "Cries -> EXCLAIMS: to exclaim is to cry out suddenly, so the definition is the everyday verb for the same short burst of speech."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +372,29 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOIRE",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "LOIRE",
+    "definition": "Valley",
+    "indicators": [
+     "Odd characters fleeing"
+    ],
+    "indicatorNotes": {
+     "Odd characters fleeing": "number the letters along and let the first, third and fifth run away; every second one is left standing"
+    },
+    "pieces": [
+     "LOIRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flood in Rye",
+      "gives": "LOIRE",
+      "note": "ten letters, of which the second, fourth, sixth, eighth and tenth stay behind"
+     }
+    ],
+    "walkthrough": "Rye is a Sussex town where flooding is a real worry, so the surface reads as local news while the letters are quietly being counted off in French.",
+    "definitionFit": "Valley -> LOIRE: the Loire Valley is the chateau-lined stretch of central France, known to everyone by the river's name alone."
+   }
   },
   {
    "id": "8-down",
@@ -176,7 +411,47 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUMBSKULL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "NUMBSKULL",
+    "definition": "Idiot",
+    "indicators": [
+     "Drunken",
+     "around"
+    ],
+    "indicatorNotes": {
+     "Drunken": "a drunk cannot walk a straight line, and letters in that state keep to no line either",
+     "around": "to go around a thing is to pass on every side of it, so the rearranged letters close over the one named next"
+    },
+    "anagram": {
+     "fodder": "BUM SLUNK + L"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "BUMSLUNK",
+      "gives": "NUMBSKUL"
+     }
+    ],
+    "pieces": [
+     "NUMBSKU",
+     "L",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bum slunk",
+      "gives": "NUMBSKUL",
+      "note": "eight letters dealt out again, and they part before the last of them"
+     },
+     {
+      "clueFragment": "Lima",
+      "gives": "L",
+      "note": "Lima is how a radio operator says the letter L"
+     }
+    ],
+    "walkthrough": "The question mark after the city is doing real work: it warns that Peru is not wanted at all, only the letter the word stands for on the airwaves.",
+    "definitionFit": "Idiot -> NUMBSKULL: literally a skull gone numb, so the word calls someone stupid by picturing a head that cannot feel anything."
+   }
   },
   {
    "id": "9-across",
@@ -193,7 +468,50 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEWAIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + reversal + container",
+    "answer": "BEWAIL",
+    "definition": "Lament",
+    "indicators": [
+     "extremely",
+     "about",
+     "nursing"
+    ],
+    "indicatorNotes": {
+     "extremely": "the extremes of a word are its two far ends, so this one contributes only its outermost letters",
+     "about": "something turned about is facing the other way, and these three letters are written in the opposite order",
+     "nursing": "a nurse keeps a patient in her care, so the piece beside it is being held inside"
+    },
+    "pieces": [
+     "BE",
+     "WAIL"
+    ],
+    "subReversals": [
+     {
+      "from": "LAW",
+      "to": "WAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bizarre",
+      "gives": "BE",
+      "note": "the first and last letters of the word, its two extremes"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "LAW",
+      "note": "a rule laid down for everyone is a law, and here it is written backwards"
+     },
+     {
+      "clueFragment": "institute",
+      "gives": "I",
+      "note": "I is the abbreviation for institute, as in a body's initials; it drops in between the A and the L"
+     }
+    ],
+    "walkthrough": "Four small operations in six words, and the sentence still reads as a grumble about red tape — that smoothness is the disguise, and 'nursing' is what gives it away.",
+    "definitionFit": "Lament -> BEWAIL: to bewail a thing is to weep and cry out over it, an old-fashioned verb that survives mainly in writing and in crosswords."
+   }
   },
   {
    "id": "10-across",
@@ -210,7 +528,50 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MACHISMO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + middle letter",
+    "answer": "MACHISMO",
+    "definition": "masculinity",
+    "indicators": [
+     "maintains",
+     "centre of"
+    ],
+    "indicatorNotes": {
+     "maintains": "to maintain something is to keep hold of it, so this word keeps the others inside itself",
+     "centre of": "the centre of a word is the letter with the same number standing either side of it"
+    },
+    "pieces": [
+     "MA",
+     "CH",
+     "IS",
+     "M",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chairman",
+      "gives": "MAO",
+      "note": "Chairman Mao ruled China from 1949, and the title alone is enough to name him"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is what an Ordnance Survey map prints for a church"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the verb is taken at face value, two letters as written"
+     },
+     {
+      "clueFragment": "harmful",
+      "gives": "M",
+      "note": "the middle letter of the seven, with three on each side"
+     }
+    ],
+    "walkthrough": "'Harmful masculinity' is the phrase the surface wants read whole, and prising it apart is the solve: only the second word is the definition.",
+    "definitionFit": "masculinity -> MACHISMO: the Spanish word for aggressive male pride, taken into English for masculinity of the strutting, something-to-prove kind."
+   }
   },
   {
    "id": "11-across",
@@ -227,7 +588,47 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEANDERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MEANDERS",
+    "definition": "Turns",
+    "indicators": [
+     "repulsed"
+    ],
+    "indicatorNotes": {
+     "repulsed": "an attack that is repulsed is driven straight back the way it came, and so are these three letters"
+    },
+    "pieces": [
+     "MEAN",
+     "DER",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "RED",
+      "to": "DER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nasty",
+      "gives": "MEAN",
+      "note": "a mean trick is a nasty one"
+     },
+     {
+      "clueFragment": "colour",
+      "gives": "RED",
+      "note": "the plainest colour of them all, and it arrives back to front"
+     },
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is sulphur's symbol in the periodic table"
+     }
+    ],
+    "walkthrough": "'Turns nasty' is a phrase, and separating the two words is the whole clue: one of them is the definition and the other is four letters of the answer.",
+    "definitionFit": "Turns -> MEANDERS: a river that meanders turns this way and that across flat ground, so the verb names continual wandering rather than one bend."
+   }
   },
   {
    "id": "12-across",
@@ -244,7 +645,35 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVERSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "AVERSE",
+    "definition": "Opposed",
+    "indicators": [
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "on vacation": "a house whose owners are on vacation is empty in the middle, with only its outside left standing"
+    },
+    "pieces": [
+     "AVER",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver something is to state it firmly, a word that survives mostly in court"
+     },
+     {
+      "clueFragment": "surveillance",
+      "gives": "SE",
+      "note": "everything between its first letter and its last has gone away, leaving the two ends"
+     }
+    ],
+    "walkthrough": "'State surveillance' is one idea on the surface and two separate jobs underneath, which is why a clue about spying reads so much like a headline.",
+    "definitionFit": "Opposed -> AVERSE: to be averse to a thing is to be set against it, and the word almost always arrives with 'to' in front of what is opposed."
+   }
   },
   {
    "id": "13-across",
@@ -261,7 +690,26 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ZONE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ZONE",
+    "definition": "District",
+    "indicators": [
+     "of"
+    ],
+    "indicatorNotes": {
+     "of": "a district of a place is a piece taken from inside it, and this piece is taken from inside the words that follow"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cadiz on escarpment",
+      "gives": "ZONE",
+      "note": "the four letters run across the joins, from the end of the Spanish port into the start of the slope"
+     }
+    ],
+    "walkthrough": "Cadiz and an escarpment make a plausible piece of geography, and geography is the one thing they are not doing here: they are only lending letters.",
+    "definitionFit": "District -> ZONE: a zone is an area marked off and treated as a single unit, so it is the planner's word for what everyday speech calls a district."
+   }
   },
   {
    "id": "14-down",
@@ -278,7 +726,50 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBEDIENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + outer letters",
+    "answer": "OBEDIENCE",
+    "definition": "Deference",
+    "indicators": [
+     "kept in",
+     "overlooking",
+     "empty"
+    ],
+    "indicatorNotes": {
+     "kept in": "a pupil kept in stays inside the building after everyone else has gone, and this letter stays inside the word",
+     "overlooking": "a house overlooking a field stands above it, and in a down entry standing above means coming first",
+     "empty": "an empty room has nothing between its walls, so only the first and last letters of the word remain"
+    },
+    "pieces": [
+     "OBE",
+     "DIEN",
+     "CE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award",
+      "gives": "OBE",
+      "note": "the Order of the British Empire, handed out at the palace twice a year"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is the small room at home where the work gets done, and the I goes in after its D"
+     },
+     {
+      "clueFragment": "countryside",
+      "gives": "CE",
+      "note": "its first and last letters, with everything between them cleared out"
+     }
+    ],
+    "walkthrough": "An award, a study and the countryside are the furniture of a settled English life, which is what stops the surface sounding like the list of instructions it is.",
+    "definitionFit": "Deference -> OBEDIENCE: both name yielding to another's will, obedience being the doing of what you are told where deference is the respect behind it."
+   }
   },
   {
    "id": "15-across",
@@ -295,7 +786,37 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIMOROUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "TIMOROUS",
+    "definition": "Fearful",
+    "indicators": [
+     "discovered",
+     "on"
+    ],
+    "indicatorNotes": {
+     "discovered": "read it as dis-covered: the covering comes off, and a word's covering is the letter at each end",
+     "on": "in an across entry one thing sits on another by following it, so this piece goes at the back"
+    },
+    "pieces": [
+     "TIMOR",
+     "OUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Southeast Asian island",
+      "gives": "TIMOR",
+      "note": "the island at the far end of the Indonesian chain, shared with East Timor"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "OUS",
+      "note": "the rodent is a MOUSE, and stripping a letter off each end leaves the middle three"
+     }
+    ],
+    "walkthrough": "Burns addressed a mouse as a 'wee, sleekit, cow'rin, tim'rous beastie', so the rodent and the definition have been sharing a line of verse since 1785.",
+    "definitionFit": "Fearful -> TIMOROUS: timorous is built on timor, Latin for fear, and describes the one shrinking from a fright rather than the fright itself."
+   }
   },
   {
    "id": "16-down",
@@ -312,7 +833,35 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESHUFFLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RESHUFFLE",
+    "definition": "shake-up",
+    "indicators": [
+     "following"
+    ],
+    "indicatorNotes": {
+     "following": "what follows a thing comes after it, and in a down entry after means further down the column"
+    },
+    "pieces": [
+     "RE",
+     "SHUFFLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "RE heads a memo to mean concerning, from the Latin for 'in the matter of'"
+     },
+     {
+      "clueFragment": "Drag one's feet",
+      "gives": "SHUFFLE",
+      "note": "to shuffle is to walk without lifting your feet clear of the floor"
+     }
+    ],
+    "walkthrough": "'Shake-up' sits at the end of the clue looking like an instruction to rearrange letters. It is the definition, and nothing in this one gets rearranged.",
+    "definitionFit": "shake-up -> RESHUFFLE: a cabinet reshuffle moves the same people into different jobs, which is exactly what a shake-up of an organisation amounts to."
+   }
   },
   {
    "id": "17-down",
@@ -329,7 +878,36 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMIDGEON",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SMIDGEON",
+    "definition": "Pinch",
+    "indicators": [
+     "squashing"
+    ],
+    "indicatorNotes": {
+     "squashing": "to squash a thing is to press down until it is flat under whatever is on top, so the piece named next ends up buried"
+    },
+    "pieces": [
+     "S",
+     "MIDGE",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is somebody's child, and the word opens up after its first letter"
+     },
+     {
+      "clueFragment": "tiny insect",
+      "gives": "MIDGE",
+      "note": "the biting fly of Scottish summers, small enough to fit inside"
+     }
+    ],
+    "walkthrough": "A child squashing an insect is a complete small scene, and it does the opposite of what it says: the insect ends up inside the child, entirely intact.",
+    "definitionFit": "Pinch -> SMIDGEON: a pinch of salt is as much as finger and thumb will hold, and a smidgeon is the same vague, very small helping."
+   }
   },
   {
    "id": "18-across",
@@ -346,7 +924,39 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERDSMAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HERDSMAN",
+    "definition": "bucolic character",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "entertained by"
+    ],
+    "indicatorNotes": {
+     "entertained by": "a host entertains a guest inside the house, so the letters beside it take the other piece in"
+    },
+    "pieces": [
+     "HER",
+     "DS",
+     "MAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Melville's name",
+      "gives": "HERMAN",
+      "note": "the author of Moby-Dick was Herman Melville, and his first name parts after three letters"
+     },
+     {
+      "clueFragment": "Detective",
+      "gives": "DS",
+      "note": "DS is a detective sergeant's rank as the police abbreviate it"
+     }
+    ],
+    "walkthrough": "Whale-hunting is nobody's idea of a pastoral scene, which makes Melville's own name a good place to keep a man who looks after cattle.",
+    "definitionFit": "bucolic character -> HERDSMAN: bucolic means of the countryside and its herding life, so the figure the word conjures is the one driving the cattle."
+   }
   },
   {
    "id": "19-across",
@@ -363,7 +973,27 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLO",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SOLO",
+    "definition": "Piece one played",
+    "indicators": [
+     "in auditorium"
+    ],
+    "indicatorNotes": {
+     "in auditorium": "an auditorium is a room for hearing, so whatever happens there reaches you through the ear rather than the eye"
+    },
+    "blocks": [
+     {
+      "clueFragment": "very softly",
+      "soundsLike": "SO LOW",
+      "gives": "SOLO",
+      "note": "to play very softly is to play so low, and the two words run together into one when you say them"
+     }
+    ],
+    "walkthrough": "Music sits on both sides of this clue, a dynamic marking on one and a performance on the other, so the ear is the only thing keeping them apart.",
+    "definitionFit": "Piece one played -> SOLO: a solo is written for a single performer, so the definition names it by counting the people on stage."
+   }
   },
   {
    "id": "20-down",
@@ -380,7 +1010,35 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPIRE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "ASPIRE",
+    "definition": "Seek",
+    "indicators": [
+     "lacking"
+    ],
+    "indicatorNotes": {
+     "lacking": "to lack a thing is to be without it, so whatever is named next is missing from the word"
+    },
+    "pieces": [
+     "ASPIR",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over-the-counter drug",
+      "gives": "ASPIR",
+      "note": "ASPIRIN is the painkiller sold without a prescription, and it turns up here without its IN"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physicist's symbol for energy, as in E=mc2"
+     }
+    ],
+    "walkthrough": "'Lacking in energy' reads as one weary phrase and has to be heard as two separate instructions, which is the whole of the disguise here.",
+    "definitionFit": "Seek -> ASPIRE: to aspire to something is to seek it as an ambition, the sense of seeking that is about wanting rather than searching."
+   }
   },
   {
    "id": "21-across",
@@ -397,7 +1055,44 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIBALD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RIBALD",
+    "definition": "Funny",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "RIB",
+     "A",
+     "L",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bone",
+      "gives": "RIB",
+      "note": "one of the twelve pairs curving round the chest"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken exactly as printed"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the size printed on a clothing label"
+     },
+     {
+      "clueFragment": "diameter",
+      "gives": "D",
+      "note": "d stands for diameter in a geometry formula"
+     }
+    ],
+    "walkthrough": "'Funny bone' is the phrase the surface offers and its two words belong to opposite halves of the clue, which is as neat a join as this grid has.",
+    "definitionFit": "Funny -> RIBALD: ribald humour is the coarse, rude sort, so the definition offers the mildest available word for a joke that is anything but."
+   }
   },
   {
    "id": "22-down",
@@ -414,7 +1109,43 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARENA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ARENA",
+    "definition": "entertainment venue",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "reflected"
+    ],
+    "indicatorNotes": {
+     "reflected": "a reflection shows a thing the wrong way round, and these five letters are read back out of the mirror"
+    },
+    "pieces": [
+     "ARENA"
+    ],
+    "subReversals": [
+     {
+      "from": "ANERA",
+      "to": "ARENA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "the article is taken exactly as printed, two letters"
+     },
+     {
+      "clueFragment": "epoch",
+      "gives": "ERA",
+      "note": "an era is a stretch of history, the epoch of a geologist or a historian"
+     }
+    ],
+    "walkthrough": "Five letters that read as an ordinary scrap of English forwards and a concert venue backwards; the surface is doing nothing but supplying them.",
+    "definitionFit": "entertainment venue -> ARENA: the Roman arena was the sanded floor where the spectacle took place, and the word now covers the whole building a tour plays in."
+   }
   },
   {
    "id": "23-across",
@@ -431,7 +1162,50 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISQUOTE",
-   "annotation": null,
+   "annotation": {
+    "type": "anagram + container + charade",
+    "answer": "MISQUOTE",
+    "definition": "inaccurate citation",
+    "indicators": [
+     "desperately",
+     "stifling"
+    ],
+    "indicatorNotes": {
+     "desperately": "a desperate person will try anything in any order, and letters handled that way come out in one",
+     "stifling": "to stifle someone is to smother them by closing over their face, so these letters close over the ones named next"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "TIMES",
+      "gives": "MISTE"
+     }
+    ],
+    "pieces": [
+     "MIS",
+     "QU",
+     "O",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "MISTE",
+      "note": "the paper's five letters dealt out again, then opened after three"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "qu. is the short form of question on a dictionary page or an exam paper"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is an over on a cricket scorecard"
+     }
+    ],
+    "walkthrough": "The italics mark the newspaper rather than the plural of time, so the surface is a paper getting a quotation wrong — and lending five of the eight letters to do it.",
+    "definitionFit": "inaccurate citation -> MISQUOTE: to misquote is to report someone's words wrongly, with MIS- doing its usual job of turning an action into a botched one."
+   },
    "clueItalics": [
     [
      0,
@@ -454,7 +1228,35 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TEMPT",
+    "definition": "Seduce",
+    "indicators": [
+     "close to"
+    ],
+    "indicatorNotes": {
+     "close to": "the close of anything is its end, so only the final letter of the word beside it is wanted"
+    },
+    "pieces": [
+     "TEMP",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "office worker",
+      "gives": "TEMP",
+      "note": "a temp is the agency worker brought in to cover a desk for a week"
+     },
+     {
+      "clueFragment": "retirement",
+      "gives": "T",
+      "note": "the letter the word closes on"
+     }
+    ],
+    "walkthrough": "An office worker close to retirement is a whole person in five words, and the clue needs you to stop seeing them and start counting letters.",
+    "definitionFit": "Seduce -> TEMPT: both mean drawing someone towards what they should resist, tempt being the older and milder of the two, as in tempting fate."
+   }
   },
   {
    "id": "25-across",
@@ -471,7 +1273,47 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INHERENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "INHERENT",
+    "definition": "native",
+    "indicators": [
+     "broadcast",
+     "about"
+    ],
+    "indicatorNotes": {
+     "broadcast": "to broadcast seed is to scatter it by hand, so what is broadcast lands in no particular order",
+     "about": "one thing set about another is wrapped round it, so these letters open to let the next piece in"
+    },
+    "anagram": {
+     "fodder": "ENTIRE + NH"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "ENTIRE",
+      "gives": "IERENT"
+     }
+    ],
+    "pieces": [
+     "I",
+     "NH",
+     "ERENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entire",
+      "gives": "IERENT",
+      "note": "the six letters dealt out again, and they part after the first"
+     },
+     {
+      "clueFragment": "New Hampshire",
+      "gives": "NH",
+      "note": "NH is the state's two-letter postal code"
+     }
+    ],
+    "walkthrough": "'Native' is the definition hiding in plain sight, because a native of New Hampshire is the obvious reading and the state is only there for two letters.",
+    "definitionFit": "native -> INHERENT: an inherent quality is one born in the thing itself, which is the older sense of native, belonging by birth rather than by nationality."
+   }
   },
   {
    "id": "26-across",
@@ -488,7 +1330,47 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INFAMY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "INFAMY",
+    "definition": "notoriety",
+    "indicators": [
+     "beginning to"
+    ],
+    "indicatorNotes": {
+     "beginning to": "the beginning of a word is the letter it starts with, and that is all this one contributes"
+    },
+    "pieces": [
+     "IN",
+     "F",
+     "A",
+     "MY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "whatever is in this season is what is popular"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow, as after the name of a Royal Society member"
+     },
+     {
+      "clueFragment": "appreciate",
+      "gives": "A",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "MY",
+      "note": "the setter is the voice writing the clue, so anything of the setter's is mine"
+     }
+    ],
+    "walkthrough": "'Setter's' means 'my' wherever a crossword says it — the setter speaks the clue in the first person — and it is one of the earliest conventions worth owning.",
+    "definitionFit": "notoriety -> INFAMY: infamy is fame gone bad, so the definition is the neutral-sounding noun for being widely known for the wrong reasons."
+   }
   },
   {
    "id": "27-across",
@@ -505,7 +1387,46 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELAUNCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + middle letters",
+    "answer": "RELAUNCH",
+    "definition": "promotional event",
+    "indicators": [
+     "filling",
+     "essentially",
+     "after"
+    ],
+    "indicatorNotes": {
+     "filling": "a filling goes into the hole in a tooth, so this letter drops into the word rather than sitting beside it",
+     "essentially": "the essence of a word is what sits at its heart once the outsides are taken away",
+     "after": "what comes after a thing is written behind it, so the piece named first takes the front"
+    },
+    "pieces": [
+     "RE",
+     "L",
+     "A",
+     "UNCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RE",
+      "note": "the two letters at the heart of the word, with the F and the last E taken off"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "LUNCH",
+      "note": "the midday meal, and it opens up after its first letter"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article is taken exactly as printed, and it is what goes into the gap"
+     }
+    ],
+    "walkthrough": "'A filling meal' is one idea on the surface and three instructions underneath, which is how a clue about lunch turns out to be about marketing.",
+    "definitionFit": "promotional event -> RELAUNCH: a product sent back to market with new packaging, and the party thrown to announce it takes the same name."
+   }
   },
   {
    "id": "28-across",
@@ -522,7 +1443,44 @@ window.CRYPTIC_PUZZLES["independent-12418"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EJECTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "EJECTS",
+    "definition": "Releases",
+    "indicators": [
+     "tip of",
+     "in"
+    ],
+    "indicatorNotes": {
+     "tip of": "the tip of a thing is its far end, so what is wanted is the letter the word finishes on",
+     "in": "whatever is caught in something is held inside it, so this letter sits among the others rather than beside them"
+    },
+    "pieces": [
+     "E",
+     "JE",
+     "C",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "willie",
+      "gives": "E",
+      "note": "the letter at the very end of the word"
+     },
+     {
+      "clueFragment": "flies",
+      "gives": "JETS",
+      "note": "jets are aircraft, so 'flies' is a noun here and not a verb"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is how a cricket scorecard records a batsman caught, and it drops in after the second letter"
+     }
+    ],
+    "walkthrough": "The seaside-postcard surface is the joke, and every word of it turns out respectable: a trouser zip, some aircraft and a line of a cricket score.",
+    "definitionFit": "Releases -> EJECTS: a machine ejects a cassette by pushing it out, so the definition is the gentler word for the same forcible letting-go."
+   }
   }
  ]
 } /*JSON-END*/;
