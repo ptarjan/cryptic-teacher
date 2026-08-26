@@ -273,6 +273,7 @@ if [ -n "$pending" ]; then
         --max-turns 80 2>&1 | tee "$run_log"
       then
         annotated_ok=$((annotated_ok + 1))
+        annotated_nums="$annotated_nums $num"
       else
         # The CLI says why it stopped on its last line — a spend limit, an
         # expired login, a network failure. Carrying that sentence into the
@@ -286,6 +287,14 @@ if [ -n "$pending" ]; then
   else
     stop_reason="claude CLI not on PATH ($PATH)"
   fi
+fi
+
+# A run that could not solve some of the clues still exits 0, still commits, and
+# still looks like a good night — see tools/check_annotation_loss.py. Ask.
+if [ -n "$annotated_nums" ]; then
+  loss=$(python3 tools/check_annotation_loss.py $annotated_nums) || \
+    alert "tonight's annotation came back short — $loss. Those clues ship with \"auto hints\" and no teaching ladder. If this keeps happening the model is failing to solve the puzzle, which is a quality problem, not a spend one."
+  echo "$loss"
 fi
 
 # Alert on the backlog not moving, not on a command exiting non-zero. A run that
@@ -349,9 +358,16 @@ python3 tools/stamp_assets.py --check ||
 # shouting about but isn't a reason to withhold the puzzle itself. Skipped
 # (exit 2) just means tonight's puzzle has no hints yet.
 if command -v node >/dev/null 2>&1; then
-  node tools/smoke_test.js
-  smoke_rc=$?
-  [ $smoke_rc -ne 0 ] && [ $smoke_rc -ne 2 ] && echo "WARNING: smoke test failed (rc=$smoke_rc) — the app may be broken for today's puzzle"
+  smoke_log="$(mktemp -t cryptic-smoke)"
+  node tools/smoke_test.js 2>&1 | tee "$smoke_log"
+  smoke_rc=${PIPESTATUS[0]}
+  # A WARNING in a log is not a warning to anyone. This ran for weeks printing
+  # failures nobody read, and on 2026-08-25 it printed three while committing
+  # and pushing the tree that caused them. Exit 2 is "no hints yet", not a fail.
+  if [ "$smoke_rc" -ne 0 ] && [ "$smoke_rc" -ne 2 ]; then
+    alert "the app's smoke test is failing on the tree this job just committed: $(grep -m3 '^FAIL' "$smoke_log" | tr '\n' ' ')"
+  fi
+  rm -f "$smoke_log"
 fi
 
 if [ -n "$(git status --porcelain)" ]; then
