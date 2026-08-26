@@ -29,7 +29,36 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GANGSTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GANGSTER",
+    "definition": "Tough",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "The archaic sense, as in 'without the city walls' — outside rather than lacking, so the comedian goes round what follows."
+    },
+    "pieces": [
+     "GA",
+     "N",
+     "GSTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comedian",
+      "gives": "GAGSTER",
+      "note": "a gagster is a comedian, a trader in gags"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n. is the standard abbreviation for name"
+     }
+    ],
+    "walkthrough": "Everything turns on hearing 'without' as outside rather than lacking: the comedian keeps all his letters and merely opens up to admit one more.",
+    "definitionFit": "A tough is a noun for a violent thug, and a gangster is the organised professional version — the definition names the type, the answer the trade."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +75,34 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IFFY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "IFFY",
+    "definition": "Doubtful",
+    "indicators": [
+     "to remove top"
+    ],
+    "indicatorNotes": {
+     "to remove top": "In a down entry the top is where the word begins, so this asks for the opening letter to go."
+    },
+    "pieces": [
+     "IFFY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just a second",
+      "gives": "JIFFY",
+      "note": "'just a second' is a jiffy, the moment you ask someone to wait"
+     },
+     {
+      "clueFragment": "top",
+      "gives": "J",
+      "note": "the first letter of JIFFY sits at the top of a down entry, and it is the one that goes"
+     }
+    ],
+    "walkthrough": "The question mark earns its keep: it warns that the words before it are an instruction to the solver, not more of the plea to wait a moment.",
+    "definitionFit": "Something iffy is unreliable and not to be trusted, so 'Doubtful' is the dubious-quality sense rather than a person harbouring doubts."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +119,40 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANUBIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANUBIS",
+    "definition": "god",
+    "pieces": [
+     "A",
+     "NUB",
+     "IS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken at face value, straight off the page"
+     },
+     {
+      "clueFragment": "core",
+      "gives": "NUB",
+      "note": "the nub of a matter is its core"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "Is. is the map-maker's abbreviation for island"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "",
+      "note": "surface only: it paints the island scene and hands over no letters"
+     }
+    ],
+    "walkthrough": "Anubis is the jackal-headed Egyptian god of embalming and the dead, so 'god' alone is the definition and the sun belongs to the picture the surface paints.",
+    "definitionFit": "Definition by class: the answer is one named deity and 'god' is the whole category, leaving the three small pieces to say which one."
+   }
   },
   {
    "id": "4-down",
@@ -80,7 +169,39 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BHANGRA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BHANGRA",
+    "definition": "a music genre",
+    "indicators": [
+     "getting in"
+    ],
+    "indicatorNotes": {
+     "getting in": "It is an instruction to climb inside: the piece it follows ends up lodged within the piece it precedes."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "B",
+     "HANG",
+     "RA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "BRA",
+      "note": "a bra is a support, the crossword's favourite undergarment"
+     },
+     {
+      "clueFragment": "Depend",
+      "gives": "HANG",
+      "note": "to depend on something is to hang on it"
+     }
+    ],
+    "walkthrough": "'Depend' comes from the Latin for hanging down, which is why the swap is so clean; the surface reads as leaning on somebody for a favour.",
+    "definitionFit": "Bhangra is the Punjabi dance music that crossed into British pop, so the definition places it by category rather than describing its sound."
+   }
   },
   {
    "id": "5-down",
@@ -97,7 +218,35 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "ACER",
+    "definition": "tree",
+    "indicators": [
+     "at foot of"
+    ],
+    "indicatorNotes": {
+     "at foot of": "The foot of a word is its end, so only the closing letter of the word beside it is wanted."
+    },
+    "pieces": [
+     "ACE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wizard",
+      "gives": "ACE",
+      "note": "a wizard at something is an ace at it"
+     },
+     {
+      "clueFragment": "elder",
+      "gives": "R",
+      "note": "the last letter of elder"
+     }
+    ],
+    "walkthrough": "Elder is itself a tree, which is the trap: it looks like the definition and is really just a word being asked for its final letter.",
+    "definitionFit": "Acer is the botanical genus of maples and sycamores, so 'tree' defines the answer by the class its Latin name belongs to."
+   }
   },
   {
    "id": "6-down",
@@ -114,7 +263,39 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAPEFRUIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "GRAPEFRUIT",
+    "definition": "possible basis of fad diet",
+    "indicators": [
+     "almost",
+     "out"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost a word is that word one letter short, so the final letter never makes it into the mix.",
+     "out": "Out of order is the sense here: what stands before it is not in the arrangement you need."
+    },
+    "linkWords": [
+     "to be the"
+    ],
+    "anagram": {
+     "fodder": "FIG PEAR TUR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fig, pear",
+      "gives": "FIGPEAR",
+      "note": "both fruits go into the mix whole, seven letters"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "TUR",
+      "note": "TURN with its last letter clipped off by 'almost'"
+     }
+    ],
+    "walkthrough": "Three fruits in one clue and only two of them are letters; the third is what you are looking for, which is the whole misdirection.",
+    "definitionFit": "The grapefruit diet was a real 1970s craze, so the definition reaches the answer through the fad rather than through botany."
+   }
   },
   {
    "id": "7-down",
@@ -131,7 +312,44 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLOCHE",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "CLOCHE",
+    "definition": "crop protection",
+    "indicators": [
+     "replaced with"
+    ],
+    "indicatorNotes": {
+     "replaced with": "It names a swap rather than a loss: one letter steps out and whatever comes after takes its seat."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CL",
+     "O",
+     "CHE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chestnut",
+      "gives": "CLICHE",
+      "note": "an old chestnut is a cliche, a joke told once too often"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is I in Roman numerals, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is drawn as the letter O, and it moves in"
+     }
+    ],
+    "walkthrough": "Chestnut looks horticultural in a clue about crops, and is not: the tired old joke is the sense the setter wants.",
+    "definitionFit": "A cloche is the bell-shaped glass or plastic cover a gardener sets over young plants, so 'crop protection' describes it by the job it does."
+   }
   },
   {
    "id": "8-across",
@@ -152,7 +370,29 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
     ]
    },
    "solution": "HALFINCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HALF-INCH",
+    "definition": "Nick",
+    "pieces": [
+     "HAL",
+     "FINCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Henry",
+      "gives": "HAL",
+      "note": "Hal is Shakespeare's Prince Hal, the future Henry V"
+     },
+     {
+      "clueFragment": "Bird",
+      "gives": "FINCH",
+      "note": "a finch is a bird"
+     }
+    ],
+    "walkthrough": "The (4-4) enumeration says two hyphenated halves, and the join falls inside the bird rather than between the two clue words.",
+    "definitionFit": "Half-inch is Cockney rhyming slang for pinch, and to pinch a thing is to nick it, so the definition works through the rhyme."
+   }
   },
   {
    "id": "9-across",
@@ -169,7 +409,34 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CORAL",
+    "definition": "Pink",
+    "indicators": [
+     "Not"
+    ],
+    "indicatorNotes": {
+     "Not": "A blunt cancellation: whatever it points at is struck out of the letters already assembled."
+    },
+    "pieces": [
+     "CORAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cattle pen",
+      "gives": "CORRAL",
+      "note": "a corral is the pen cowboys drive cattle into"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "r is the standard abbreviation for right, and it is the letter dropped"
+     }
+    ],
+    "walkthrough": "Two exclamatory scraps that read as a rancher's grumble are really an instruction: keep the pen, lose one of its letters.",
+    "definitionFit": "Coral names the pinkish-orange colour of the sea creature's skeleton, so 'Pink' asks for a shade rather than the reef itself."
+   }
   },
   {
    "id": "10-across",
@@ -186,7 +453,30 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UGLY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "UGLY",
+    "definition": "not fair",
+    "indicators": [
+     "Articulated"
+    ],
+    "indicatorNotes": {
+     "Articulated": "To articulate is to say something out clearly, so the word after it is wanted as a noise, not a spelling."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "soundsLike": "UGLI",
+      "gives": "UGLY",
+      "note": "the ugli is a Jamaican citrus hybrid, and its name spoken aloud is what goes in the grid"
+     }
+    ],
+    "walkthrough": "'Fair' is the old word for beautiful, so the definition has nothing to do with justice, which is exactly what the surface hopes you assume.",
+    "definitionFit": "Fair in its old sense means lovely to look at, so its negative is unlovely: the plain visual meaning, not unjust."
+   }
   },
   {
    "id": "11-across",
@@ -203,7 +493,39 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BANKRUPTCY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "BANKRUPTCY",
+    "definition": "ruin",
+    "indicators": [
+     "Left and right wings of",
+     "collapsing"
+    ],
+    "indicatorNotes": {
+     "Left and right wings of": "The wings of a word are the letters at its two edges, and a party is the one thing that has a left and a right one.",
+     "collapsing": "A collapsing thing loses its shape, so the letters no longer hold the order they were handed to you in."
+    },
+    "linkWords": [
+     "into"
+    ],
+    "anagram": {
+     "fodder": "PY TURN BACK"
+    },
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "PY",
+      "note": "the outer letters of PARTY, the wings at its left and right"
+     },
+     {
+      "clueFragment": "turn back",
+      "gives": "TURNBACK",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "The political surface does all the work: 'turn back' reads as an instruction to reverse something and is simply eight letters waiting to be jumbled.",
+    "definitionFit": "Ruin in the financial sense: the declared state of being unable to pay, which a court pronounces, rather than a general downfall."
+   }
   },
   {
    "id": "12-across",
@@ -220,7 +542,37 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "STRESS",
+    "definition": "anxiety",
+    "indicators": [
+     "ultimately",
+     "comes before"
+    ],
+    "indicatorNotes": {
+     "ultimately": "It points at the very end of the word beside it, so only that final letter is taken.",
+     "comes before": "It fixes the order of the two pieces: the letter just taken goes in front, not behind."
+    },
+    "pieces": [
+     "S",
+     "TRESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loss",
+      "gives": "S",
+      "note": "the last letter of loss"
+     },
+     {
+      "clueFragment": "Hair",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "walkthrough": "Hair loss reads as one idea and is two pieces of machinery — and the answer is also a cause of it, which is the joke underneath.",
+    "definitionFit": "Stress is the mental strain that 'anxiety' names in ordinary speech, not the engineer's load on a beam or the emphasis put on a syllable."
+   }
   },
   {
    "id": "13-down",
@@ -237,7 +589,41 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESCAPOLOGY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ESCAPOLOGY",
+    "definition": "that’s associated with Houdini",
+    "indicators": [
+     "involving"
+    ],
+    "indicatorNotes": {
+     "involving": "To involve something is to draw it in, so the letter it names joins the assembly rather than sitting outside it."
+    },
+    "pieces": [
+     "ES",
+     "C",
+     "APOLOGY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drugs",
+      "gives": "ES",
+      "note": "an E is an ecstasy tablet, so drugs in the plural are Es"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "c. is the standard abbreviation for college"
+     },
+     {
+      "clueFragment": "defence",
+      "gives": "APOLOGY",
+      "note": "an apology is a reasoned defence of a position, the sense in Newman's Apologia"
+     }
+    ],
+    "walkthrough": "The step that unlocks it is reading 'defence' as the older sense of apology, a justification rather than a regret.",
+    "definitionFit": "Escapology is the stage art of getting out of chains and locked trunks, and Houdini is its most famous practitioner, so the art is named by its exemplar."
+   }
   },
   {
    "id": "14-across",
@@ -254,7 +640,32 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAREFIED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RAREFIED",
+    "definition": "thin",
+    "indicators": [
+     "sacked"
+    ],
+    "indicatorNotes": {
+     "sacked": "Beyond the dismissal, to sack a town is to ransack it, and what has been ransacked is left in complete disorder."
+    },
+    "linkWords": [
+     "being"
+    ],
+    "anagram": {
+     "fodder": "ARE FIRED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Are fired",
+      "gives": "AREFIRED",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "The bracketed word looks like a helpful gloss on 'fired' and is really the instruction, which is why it hides so well.",
+    "definitionFit": "Rarefied air is thin air: the word describes a gas thinned out, and by extension a social circle too exclusive to breathe in."
+   }
   },
   {
    "id": "15-down",
@@ -276,7 +687,30 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
     ]
    },
    "solution": "RUN",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "RUN DRY",
+    "definition": "get through all the booze",
+    "pieces": [
+     "RUN",
+     "DRY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand for election",
+      "gives": "RUN",
+      "note": "in American usage a candidate runs for office where a Briton stands"
+     },
+     {
+      "clueFragment": "(ironic)",
+      "gives": "DRY",
+      "note": "dry humour is the ironic, deadpan sort"
+     }
+    ],
+    "walkthrough": "The answer is split between two lights, 15 and 17, which the (3,3) enumeration announces; 'stand' and 'run' are the British and American halves of one idea.",
+    "definitionFit": "To run dry is for a supply to give out, so drinking a bar's stock to the last drop is the phrase happening in front of you."
+   }
   },
   {
    "id": "16-across",
@@ -293,7 +727,32 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRECEDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRECEDE",
+    "definition": "Herald",
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "P",
+     "RECEDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physicist's symbol for power"
+     },
+     {
+      "clueFragment": "decline",
+      "gives": "RECEDE",
+      "note": "to recede is to decline, as a tide or a hairline goes back"
+     }
+    ],
+    "walkthrough": "The apostrophe-s is joinery, not possession: read it as 'herald is power plus decline' and the clue falls open.",
+    "definitionFit": "To herald a thing is to go in front of it and announce it: the answer is the plain verb of going first, without the fanfare."
+   }
   },
   {
    "id": "17-down",
@@ -313,7 +772,9 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "DRY",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "15-down"
+   }
   },
   {
    "id": "18-across",
@@ -330,7 +791,42 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INQUEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + deletion",
+    "answer": "INQUEST",
+    "definition": "Hearing",
+    "indicators": [
+     "start",
+     "off"
+    ],
+    "indicatorNotes": {
+     "start": "It asks for the head of the word beside it, the single letter that word begins with.",
+     "off": "Off means away rather than departing: the letter just named comes out of what has been built."
+    },
+    "pieces": [
+     "IN",
+     "QUEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "a pub is an inn"
+     },
+     {
+      "clueFragment": "neighbours",
+      "gives": "N",
+      "note": "the first letter of neighbours, and the one the inn gives up"
+     },
+     {
+      "clueFragment": "expedition",
+      "gives": "QUEST",
+      "note": "an expedition in search of something is a quest"
+     }
+    ],
+    "walkthrough": "The surface is village gossip about a pub outing, and the shortest word in it is the one carrying the instruction.",
+    "definitionFit": "An inquest is the coroner's formal hearing into a sudden death, so 'Hearing' names it by the kind of legal proceeding it is."
+   }
   },
   {
    "id": "19-down",
@@ -347,7 +843,44 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKITTLES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + substitution",
+    "answer": "SKITTLES",
+    "definition": "Game",
+    "indicators": [
+     "perhaps",
+     "for"
+    ],
+    "indicatorNotes": {
+     "perhaps": "It concedes that the words before it are only an approximate version of what you want, so their letters must be rearranged.",
+     "for": "'X for Y' is the swap formula: what stands in front of it takes over the place of what stands behind."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "KISS TELT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "kiss and tell",
+      "gives": "KISSTELL",
+      "note": "both words hand over their letters, eight in all"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the standard abbreviation for Latin, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the scientist's symbol for time, and it takes the L's place"
+     }
+    ],
+    "walkthrough": "A tabloid story and a Latin lesson make a plausible sentence, and neither survives the solve: the swap happens first, then the shuffle.",
+    "definitionFit": "Skittles is the pub game of bowling a ball at nine wooden pins, the ancestor of ten-pin bowling, so 'Game' defines it by category."
+   }
   },
   {
    "id": "20-down",
@@ -364,7 +897,32 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHITMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WHITMAN",
+    "definition": "Poet",
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "W",
+     "HITMAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "w. is the standard abbreviation for wife in a genealogy"
+     },
+     {
+      "clueFragment": "enforcer",
+      "gives": "HITMAN",
+      "note": "a gang's enforcer is its hitman"
+     }
+    ],
+    "walkthrough": "The surface hands the poet a wife and a heavy; the apostrophe-s is joinery again, and the answer is a surname, which is how setters clue writers.",
+    "definitionFit": "Walt Whitman wrote Leaves of Grass, so 'Poet' defines by example: the class of person, with the surname alone standing for the man."
+   }
   },
   {
    "id": "21-across",
@@ -381,7 +939,30 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIPTYCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRIPTYCH",
+    "definition": "Panels",
+    "definitionNote": "A triptych is one work made of three hinged panels, so the setter's plural names the parts while the answer names the whole thing.",
+    "indicators": [
+     "damaged"
+    ],
+    "indicatorNotes": {
+     "damaged": "Something damaged has been knocked out of shape, and letters knocked about no longer sit where they started."
+    },
+    "anagram": {
+     "fodder": "TRY PITCH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "try pitch",
+      "gives": "TRYPITCH",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "Both fodder words belong to rugby, which is what keeps 'damaged' reading as an injury report rather than an instruction.",
+    "definitionFit": "A triptych is an altarpiece or picture painted on three hinged panels, so the definition points at it through the parts it is made of."
+   }
   },
   {
    "id": "22-down",
@@ -398,7 +979,34 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RINGER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RINGER",
+    "definition": "Twin",
+    "indicators": [
+     "lidless"
+    ],
+    "indicatorNotes": {
+     "lidless": "A lid is what sits on top, and in a down entry the top is where the word starts, so its first letter has gone."
+    },
+    "pieces": [
+     "RINGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drying aid",
+      "gives": "WRINGER",
+      "note": "a wringer squeezes the water out of washing before it dries"
+     },
+     {
+      "clueFragment": "lidless",
+      "gives": "W",
+      "note": "the W at the top of WRINGER is the lid that comes off"
+     }
+    ],
+    "walkthrough": "A dead ringer is an exact double, a sense that survives almost nowhere else; the surface offers a twin tub instead.",
+    "definitionFit": "A ringer is a person or thing indistinguishable from another, the 'dead ringer' sense, so 'Twin' means look-alike rather than sibling."
+   }
   },
   {
    "id": "23-across",
@@ -415,7 +1023,38 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATOIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PATOIS",
+    "definition": "Dialect",
+    "linkWords": [
+     "reveals"
+    ],
+    "pieces": [
+     "PAT",
+     "O",
+     "IS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth",
+      "gives": "PAT",
+      "note": "a pat answer is a smooth one, delivered too readily"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nothing in tennis, written as O"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "he lives = he is, the verb in its third person"
+     }
+    ],
+    "walkthrough": "'Love lives' reads as a headline about romance and is two separate scraps of crosswordese stacked on top of each other.",
+    "definitionFit": "A patois is the local vernacular of a region, often a creole one, so 'Dialect' is the plain word for the same kind of speech."
+   }
   },
   {
    "id": "23-down",
@@ -432,7 +1071,29 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIRACY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PIRACY",
+    "definition": "buccaneering",
+    "pieces": [
+     "PI",
+     "RACY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Devout",
+      "gives": "PI",
+      "note": "pi is short for pious, the crossword's word for devout"
+     },
+     {
+      "clueFragment": "bawdy",
+      "gives": "RACY",
+      "note": "racy means risque, close to the bone"
+     }
+    ],
+    "walkthrough": "The two halves are opposites, piety and smut, which is the joke; 'and' does nothing but hold them together.",
+    "definitionFit": "Buccaneering is robbery on the high seas and piracy is the noun for that trade, so the definition names the crime, not the criminal."
+   }
   },
   {
    "id": "24-across",
@@ -453,7 +1114,32 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANKLEBITER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANKLE-BITER",
+    "definition": "Kid",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "fixed"
+    ],
+    "indicatorNotes": {
+     "fixed": "A fixed race is one arranged to somebody's liking, so these letters end up in an order somebody chose."
+    },
+    "anagram": {
+     "fodder": "RENTAL BIKE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rental bike",
+      "gives": "RENTALBIKE",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "walkthrough": "The (5-5) enumeration promises two hyphenated halves, and the surface, a child's hired bike being mended, could hardly look more innocent.",
+    "definitionFit": "Ankle-biter is Australian and British slang for a small child, low enough to bite you there, so 'Kid' is the everyday word for one."
+   }
   },
   {
    "id": "25-down",
@@ -470,7 +1156,29 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUTT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BUTT",
+    "definition": "Ram",
+    "definition2": "laughing-stock",
+    "linkWords": [
+     "’s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ram",
+      "gives": "BUTT",
+      "note": "to ram something with the head is to butt it, as a goat does"
+     },
+     {
+      "clueFragment": "laughing-stock",
+      "gives": "BUTT",
+      "note": "the butt of a joke is the one everybody laughs at"
+     }
+    ],
+    "walkthrough": "Four words and no wordplay at all: the apostrophe-s poses as a possessive so the clue reads as a sentence about a sheep.",
+    "definitionFit": "One verb for the head-first shove a ram gives, one noun for the target of mockery: the same word for the blow and the person taking it."
+   }
   },
   {
    "id": "26-across",
@@ -487,7 +1195,27 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GUTS",
+    "definition": "Bottle",
+    "definition2": "essential parts",
+    "definitionNote": "'Bottle' is British slang for nerve and behaves as a singular, while the answer keeps a plural form for that same single quality.",
+    "blocks": [
+     {
+      "clueFragment": "Bottle",
+      "gives": "GUTS",
+      "note": "bottle is British slang for nerve: losing your bottle is losing your courage"
+     },
+     {
+      "clueFragment": "essential parts",
+      "gives": "GUTS",
+      "note": "the guts of a machine are its innards, the parts that make it work"
+     }
+    ],
+    "walkthrough": "Two everyday senses side by side with nothing joining them, which is what makes a four-word clue this hard to see.",
+    "definitionFit": "Courage in slang, the nerve you either have or lose, and also the innards of a thing, the working parts without which it is a shell."
+   }
   },
   {
    "id": "26-down",
@@ -504,7 +1232,46 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLIB",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal + first letter",
+    "answer": "GLIB",
+    "definition": "Easy",
+    "indicators": [
+     "return",
+     "initially",
+     "invested"
+    ],
+    "indicatorNotes": {
+     "return": "To return is to go back the way you came, so the word before it is read in the opposite direction.",
+     "initially": "It asks only for the letter a word starts with, the initial standing in for the whole.",
+     "invested": "Money invested is money put inside something, and the letter goes the same way."
+    },
+    "pieces": [
+     "G",
+     "L",
+     "IB"
+    ],
+    "subReversals": [
+     {
+      "from": "BIG",
+      "to": "GIB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "massive",
+      "gives": "BIG",
+      "note": "massive = big, and 'return' turns those three letters round"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "L",
+      "note": "the initial letter of little"
+     }
+    ],
+    "walkthrough": "'Easy' is the trap: the answer means facile rather than effortless, the smoothness of a reply that came too readily to be thought about.",
+    "definitionFit": "A glib answer is an easy one, fluent and unthinking, so 'Easy' catches the sense of too-ready smoothness rather than lack of difficulty."
+   }
   },
   {
    "id": "27-across",
@@ -521,7 +1288,43 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "EIGHT",
+    "definition": "Crew",
+    "indicators": [
+     "leader replaced"
+    ],
+    "indicatorNotes": {
+     "leader replaced": "A word's leader is the letter at its front, and replacing it means a different letter takes that seat rather than the word simply losing one."
+    },
+    "linkWords": [
+     "to get"
+    ],
+    "pieces": [
+     "E",
+     "IGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strive",
+      "gives": "FIGHT",
+      "note": "to strive for a cause is to fight for it"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "F",
+      "note": "the F at the front of FIGHT is the letter turned out"
+     },
+     {
+      "clueFragment": "replaced",
+      "gives": "E",
+      "note": "the setter never names the incoming letter, so the definition is what fixes it as E"
+     }
+    ],
+    "walkthrough": "The surface is a leadership challenge and the cryptic reading wants one at the head of a word. Only the definition says which letter moves in.",
+    "definitionFit": "A rowing eight is the crew of eight oarsmen who row it, so the number stands for the whole boatload, a sense crosswords use constantly."
+   }
   },
   {
    "id": "28-across",
@@ -538,7 +1341,32 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARCHIVES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ARCHIVES",
+    "definition": "records",
+    "linkWords": [
+     "making"
+    ],
+    "pieces": [
+     "ARCH",
+     "IVES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shrewd",
+      "gives": "ARCH",
+      "note": "an arch look is a knowing, shrewd one"
+     },
+     {
+      "clueFragment": "US composer",
+      "gives": "IVES",
+      "note": "Charles Ives, the American composer of The Unanswered Question"
+     }
+    ],
+    "walkthrough": "'Making records' reads as a session in a studio; the composer is here for his surname alone, which is how setters use famous people.",
+    "definitionFit": "Archives are the documents an institution keeps, so 'records' is the plain plural synonym, the stored papers rather than the act of recording."
+   }
   }
  ]
 } /*JSON-END*/;
