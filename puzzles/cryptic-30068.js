@@ -29,7 +29,36 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREDAWN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PREDAWN",
+    "definition": "Early",
+    "indicators": [
+     "planting"
+    ],
+    "indicatorNotes": {
+     "planting": "To plant a thing is to set it down inside something else, so one word here is pushed into the middle of another."
+    },
+    "pieces": [
+     "P",
+     "RED",
+     "AWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "PAWN",
+      "note": "a chess man is a pawn"
+     },
+     {
+      "clueFragment": "tomato, cherry or chestnut",
+      "gives": "RED",
+      "note": "all three name shades of red"
+     }
+    ],
+    "walkthrough": "The surface is a gardener at work; the man is a chess piece and the three fruity words are only paint colours. Chestnut and cherry are reds long before they are anything edible.",
+    "definitionFit": "Predawn describes the dark stretch before sunrise, so it stands for 'early' in the narrow sense of the day's very first hours."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +75,26 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROUTINE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ROUTINE",
+    "definition": "Boring",
+    "indicators": [
+     "boring"
+    ],
+    "indicatorNotes": {
+     "boring": "A borer drills straight through whatever lies in front of it, and that is the path the letters take through the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "affair out in Europe",
+      "gives": "ROUTINE",
+      "note": "running through affai-R OUT IN E-urope"
+     }
+    ],
+    "walkthrough": "Paul writes the word twice so the second one can do a different job: the first is the definition, the second the instruction. A repeated word in a clue is nearly always two jobs.",
+    "definitionFit": "Boring and the answer are everyday synonyms in the sense of dull through repetition — work done the same way daily wearies by being predictable."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +111,36 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRUNK",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DRUNK",
+    "definition": "Lush",
+    "indicators": [
+     "crossing"
+    ],
+    "indicatorNotes": {
+     "crossing": "To cross something is to cut through the middle of it, which is where the shorter piece lands."
+    },
+    "pieces": [
+     "D",
+     "R",
+     "UNK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dip",
+      "gives": "DUNK",
+      "note": "to dip a biscuit in tea is to dunk it"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "walkthrough": "'Lush' is the trap: it reads as green and leafy and it means a soak. American slang originally, long since at home in British crosswords.",
+    "definitionFit": "A lush is slang for a habitual drinker, matching the answer's own noun sense of someone who has had far too much."
+   }
   },
   {
    "id": "4-down",
@@ -80,7 +157,39 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WAGONER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WAGONER",
+    "definition": "driver",
+    "indicators": [
+     "broken by"
+    ],
+    "indicatorNotes": {
+     "broken by": "To be broken by something is to have it forced into you, splitting what was whole into two halves."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "WAG",
+     "O",
+     "NER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romantic",
+      "gives": "WAGNER",
+      "note": "Wagner composed in the Romantic era"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a nil score at tennis, written as a zero"
+     }
+    ],
+    "walkthrough": "'Romantic' names a period in music rather than a temperament, and that shift is the clue's whole trick. Love for nothing is tennis arithmetic, and worth filing away.",
+    "definitionFit": "A wagoner drives a wagon, so 'driver' names the job one step more generally than the answer does — the class, not the instance."
+   }
   },
   {
    "id": "5-across",
@@ -97,7 +206,36 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GORILLA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GORILLA",
+    "definition": "thug",
+    "indicators": [],
+    "pieces": [
+     "GO",
+     "RILL",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "GO",
+      "note": "let something pass and you let it go — the verbs share that sense"
+     },
+     {
+      "clueFragment": "small runner",
+      "gives": "RILL",
+      "note": "a rill is a little stream, and running water is a runner"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as it stands"
+     }
+    ],
+    "walkthrough": "A runner made of water rather than legs is the step to spot; a rill is one of the small streams crosswords keep on hand for exactly this.",
+    "definitionFit": "Gorilla is slang for a hired heavy — the muscle who does the threatening — an animal's name transferred to a menacing man."
+   }
   },
   {
    "id": "6-down",
@@ -114,7 +252,37 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OXFORD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "OXFORD",
+    "definition": "Eight",
+    "definitionNote": "The answer is not an eight in general: it stands for a university whose crew races one, which is what the clue's question mark is apologising for.",
+    "indicators": [
+     "third of"
+    ],
+    "indicatorNotes": {
+     "third of": "Counting into a word and stopping is the instruction: one letter is taken by its position rather than a whole word being used."
+    },
+    "pieces": [
+     "O",
+     "X",
+     "FORD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those",
+      "gives": "O",
+      "note": "the third letter of THOSE, which is also its middle one"
+     },
+     {
+      "clueFragment": "two crosses",
+      "gives": "XFORD",
+      "note": "two words for a cross: the written X, then a ford, the shallow place where you cross a river"
+     }
+    ],
+    "walkthrough": "'Eight' means a rowing crew, and the Boat Race is why one university comes to mind ahead of any other. The name really does record a ford where oxen crossed.",
+    "definitionFit": "An eight is a rowing crew of eight, and Oxford's is the famous one — the definition points at the university through the boat it puts on the water."
+   }
   },
   {
    "id": "7-down",
@@ -135,7 +303,33 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "ILLHUMOUR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ILL-HUMOUR",
+    "definition": "Bile",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "ILL",
+     "HUMOUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funny",
+      "gives": "ILL",
+      "note": "feeling funny is feeling ill — off colour, not amusing"
+     },
+     {
+      "clueFragment": "jokes",
+      "gives": "HUMOUR",
+      "note": "jokes are humour"
+     }
+    ],
+    "walkthrough": "Both halves hide behind comedy, and 'funny' is the unwell sense rather than the amusing one. Bile is the old bodily humour that gave the word its meaning of temper.",
+    "definitionFit": "Bile means bitterness of temper, from the black bile of the four humours, which is exactly the sour mood the answer names."
+   }
   },
   {
    "id": "8-down",
@@ -156,7 +350,45 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOOROLL",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "LOO ROLL",
+    "definition": "sheets in lavatory",
+    "definitionNote": "The definition is plural and the answer singular: the sheets are what comes off the roll, so the setter names the thing by its contents.",
+    "indicators": [
+     "turned up",
+     "in"
+    ],
+    "indicatorNotes": {
+     "turned up": "In a down entry, turning a piece up stands it on its head — the letters are read from the bottom of the grid towards the top.",
+     "in": "Plain 'in' is the smallest container instruction there is: what comes before it goes inside what comes after."
+    },
+    "pieces": [
+     "L",
+     "OOR",
+     "OLL"
+    ],
+    "subReversals": [
+     {
+      "from": "ROO",
+      "to": "OOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jumper",
+      "gives": "ROO",
+      "note": "a kangaroo, the jumper, is a roo"
+     },
+     {
+      "clueFragment": "lounge",
+      "gives": "LOLL",
+      "note": "to lounge about is to loll"
+     }
+    ],
+    "walkthrough": "Jumper looks woollen and is an animal; lounge looks like a room and is a verb. Both misdirections come from the same trick of choosing the other part of speech.",
+    "definitionFit": "A loo roll is the paper kept in a lavatory, and 'sheets' names it by the perforated squares torn off it."
+   }
   },
   {
    "id": "9-down",
@@ -179,7 +411,47 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOTHEWHOLEHOG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GO THE WHOLE HOG",
+    "definition": "Fully commit",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "This one is a position and not a joining word: everything built so far is set down in front of the final piece."
+    },
+    "pieces": [
+     "GOT",
+     "HEW",
+     "HOLE",
+     "HOG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having found",
+      "gives": "GOT",
+      "note": "having found something is having got it"
+     },
+     {
+      "clueFragment": "form",
+      "gives": "HEW",
+      "note": "to hew stone is to form or shape it"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "HOLE",
+      "note": "an opening in a wall is a hole"
+     },
+     {
+      "clueFragment": "corner",
+      "gives": "HOG",
+      "note": "to corner the supply of a thing is to hog it"
+     }
+    ],
+    "walkthrough": "The surface sounds like football — form, an opening, a corner — and not one of those words keeps that meaning. Four plain synonyms in a row hide a long phrase very well.",
+    "definitionFit": "To go the whole hog is to commit fully and hold nothing back — a whole-phrase idiom whose butchery origin is long forgotten."
+   }
   },
   {
    "id": "10-across",
@@ -196,7 +468,30 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTU",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TUTU",
+    "definition": "Old archbishop",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "What is reported is what was said, so this asks for the sound of the words rather than their spelling."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tie",
+      "soundsLike": "TWO-TWO",
+      "gives": "TUTU",
+      "note": "a match finishing level at two goals each is a 2-2 tie, said aloud as 'two two'"
+     }
+    ],
+    "walkthrough": "Desmond Tutu died in 2021, which is what 'old' is doing. The ballet skirt never surfaces, and the tie is a scoreline rather than neckwear.",
+    "definitionFit": "Desmond Tutu was Archbishop of Cape Town, so the definition picks one churchman as an example of the office, with 'old' marking him as no longer living."
+   }
   },
   {
    "id": "11-across",
@@ -213,7 +508,30 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOODFELLOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GOODFELLOW",
+    "definition": "Puck",
+    "indicators": [],
+    "pieces": [
+     "GOOD",
+     "FELLOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wicked",
+      "gives": "GOOD",
+      "note": "in slang, wicked means excellent — good"
+     },
+     {
+      "clueFragment": "soul",
+      "gives": "FELLOW",
+      "note": "a poor soul is a poor fellow; both mean a person"
+     }
+    ],
+    "walkthrough": "'Wicked' meaning its own opposite is the joke, and it suits Shakespeare's mischievous sprite exactly. Slang that inverts a word — wicked, sick, bad — is a setter's standby.",
+    "definitionFit": "Puck's full name in A Midsummer Night's Dream is Robin Goodfellow, so the definition names the character by the surname the answer supplies."
+   }
   },
   {
    "id": "12-across",
@@ -235,7 +553,9 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "SINKIN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "29-across"
+   }
   },
   {
    "id": "13-across",
@@ -252,7 +572,39 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEREUPON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HEREUPON",
+    "definition": "as of now",
+    "indicators": [
+     "gathered"
+    ],
+    "indicatorNotes": {
+     "gathered": "Gathering pulls scattered things together into a fresh arrangement, which is why the letters cannot stay in the order they are given."
+    },
+    "anagram": {
+     "fodder": "H PURE ONE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hydrogen",
+      "gives": "H",
+      "note": "H is the chemical symbol for hydrogen"
+     },
+     {
+      "clueFragment": "pure, one",
+      "gives": "PUREONE",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "gathered",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Chemical symbols are worth learning as a set — H, O, N, FE — because setters reach for them constantly. Here the symbol joins the fodder instead of standing apart from it.",
+    "definitionFit": "Hereupon means at this very point, which is what 'as of now' says — a formal, faintly legal word for the same instant."
+   }
   },
   {
    "id": "14-across",
@@ -274,7 +626,41 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEAFORTWO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letters",
+    "answer": "TEA FOR TWO",
+    "definition": "their request?",
+    "indicators": [
+     "couple in",
+     "needing a brew"
+    ],
+    "indicatorNotes": {
+     "couple in": "A couple is two of something and 'in' points at the inside, so a pair of letters is taken from the middle of the word that follows.",
+     "needing a brew": "Brewing stirs ingredients together until the original order is gone, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "WROTE TO AF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wrote to",
+      "gives": "WROTETO",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "cafe",
+      "gives": "AF",
+      "note": "the middle pair of letters of c-AF-e"
+     },
+     {
+      "clueFragment": "needing a brew",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The definition is the couple themselves — what two people at a cafe table ask for. It is a song title too, which is why the whole sentence reads so smoothly.",
+    "definitionFit": "'Their request?' points at the two people in the cafe: what a pair wanting a brew asks the waiter for is tea for two."
+   }
   },
   {
    "id": "15-down",
@@ -291,7 +677,34 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FACTORISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FACTORISE",
+    "definition": "list those contributing to result",
+    "indicators": [
+     "Upset"
+    ],
+    "indicatorNotes": {
+     "Upset": "Knock a thing over and its contents end up lying in a different order, which is exactly what is wanted from these letters."
+    },
+    "anagram": {
+     "fodder": "I FORECAST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I forecast",
+      "gives": "IFORECAST",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "Upset",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Factors are the numbers that multiply together to make a product, so the definition is a mathematician's sentence dressed up as an ordinary one.",
+    "definitionFit": "To factorise is to break a number into the factors whose product it is, so the definition describes that multiplication in plain words."
+   }
   },
   {
    "id": "16-across",
@@ -308,7 +721,27 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOLLY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "JOLLY",
+    "definition": "Really",
+    "definition2": "cheerful",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Really",
+      "gives": "",
+      "note": "the intensifier: jolly hard work, jolly nearly right"
+     },
+     {
+      "clueFragment": "cheerful",
+      "gives": "",
+      "note": "the everyday adjective — in good spirits"
+     }
+    ],
+    "walkthrough": "Two words, two definitions and no wordplay at all: the shortest clue in the puzzle is the one that tells you least. The answer is also wanted at 28 across.",
+    "definitionFit": "Jolly stands in for 'very' before another adjective in British usage, and separately means merry — an intensifier and a mood, two distinct senses."
+   }
   },
   {
    "id": "17-across",
@@ -325,7 +758,37 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SPACE",
+    "definition": "Void",
+    "indicators": [
+     "beyond",
+     "limit of"
+    ],
+    "indicatorNotes": {
+     "beyond": "To go beyond a thing is to go past it, so the longer piece is written after the single letter.",
+     "limit of": "A limit is an edge, and the edge wanted here is the far end of the word — its final letter."
+    },
+    "pieces": [
+     "S",
+     "PACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consciousness",
+      "gives": "S",
+      "note": "the last letter of consciousnesS"
+     },
+     {
+      "clueFragment": "step",
+      "gives": "PACE",
+      "note": "a step measured out is a pace"
+     }
+    ],
+    "walkthrough": "Read straight the clue is about fainting; read cryptically only two ordinary words do any work. 'Limit of' for a final letter is a formula worth filing away.",
+    "definitionFit": "A void is empty space, so the two nouns are plain synonyms in the sense of nothingness rather than of anything astronomical."
+   }
   },
   {
    "id": "18-down",
@@ -342,7 +805,43 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAINTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "PAINTER",
+    "definition": "Bacon, say",
+    "indicators": [
+     "initially",
+     "based"
+    ],
+    "indicatorNotes": {
+     "initially": "At the start is what it means, so only the opening letter of the word beside it is taken.",
+     "based": "A base is the bottom, and in a down entry the bottom is the end — so this piece settles beneath the rest."
+    },
+    "pieces": [
+     "P",
+     "A",
+     "INTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protein",
+      "gives": "P",
+      "note": "the opening letter of protein"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as it stands"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "INTER",
+      "note": "to plant a body is to inter it"
+     }
+    ],
+    "walkthrough": "The surface has you thinking of rashers and vegan substitutes. 'Say' is the little word that marks a definition by example, and it is always worth hunting for.",
+    "definitionFit": "Francis Bacon painted screaming popes, so the definition offers one artist as an instance of the trade the answer names."
+   }
   },
   {
    "id": "19-across",
@@ -363,7 +862,36 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOURCREAM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SOUR CREAM",
+    "definition": "food dropped on jacket?",
+    "indicators": [
+     "piercing"
+    ],
+    "indicatorNotes": {
+     "piercing": "A piercing goes right through the middle of a thing, which is how one word ends up sitting inside another."
+    },
+    "pieces": [
+     "S",
+     "OUR",
+     "CREAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cry",
+      "gives": "SCREAM",
+      "note": "a scream is a cry"
+     },
+     {
+      "clueFragment": "Guardian readers’",
+      "gives": "OUR",
+      "note": "the paper's readers, speaking of themselves, say 'our'"
+     }
+    ],
+    "walkthrough": "'Piercing cry' is one phrase doing two jobs — the sound, and the instruction to go inside it. The jacket is a potato, and the definition is what gets spooned over it.",
+    "definitionFit": "Sour cream is the standard topping ladled onto a baked jacket potato, so the definition names it by where it ends up."
+   }
   },
   {
    "id": "20-down",
@@ -380,7 +908,44 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELIEVE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "RELIEVE",
+    "definition": "Cover for",
+    "indicators": [
+     "unfortunately",
+     "buried"
+    ],
+    "indicatorNotes": {
+     "unfortunately": "An unfortunate turn leaves things in a mess rather than in the order they arrived, and a mess is what these letters become.",
+     "buried": "What is buried lies inside and underneath, so the name goes down into the middle of the letters around it."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "anagram": {
+     "fodder": "EVER ELI"
+    },
+    "pieces": [
+     "R",
+     "ELI",
+     "EVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ever",
+      "gives": "EVER",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "high priest",
+      "gives": "ELI",
+      "note": "Eli, the high priest who raised Samuel"
+     }
+    ],
+    "walkthrough": "Two mechanisms at once: four letters are shuffled, and the priest is dropped into the middle of the result. Eli is crosswordland's standing high priest, three handy letters.",
+    "definitionFit": "To relieve a sentry is to cover for them by taking over the duty — the shift-work sense of the verb, not the easing of pain."
+   }
   },
   {
    "id": "21-down",
@@ -397,7 +962,58 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMERICA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "AMERICA",
+    "definition": "North and South, perhaps?",
+    "definitionNote": "It is not a synonym: North and South are the words the answer follows in the names of the two continents, and 'perhaps' flags that one example stands for the pair.",
+    "indicators": [
+     "in",
+     "over",
+     "‘mouth’"
+    ],
+    "indicatorNotes": {
+     "in": "Plain 'in' puts the piece before it inside the words that follow it.",
+     "over": "In a down entry whatever is over something else is written above it, so this half of the wordplay is written first.",
+     "‘mouth’": "The quotation marks warn you off the anatomy: a mouth is an opening, and a word's opening is its first letter."
+    },
+    "pieces": [
+     "A",
+     "ME",
+     "RI",
+     "C",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as a letter"
+     },
+     {
+      "clueFragment": "Setter",
+      "gives": "ME",
+      "note": "the setter calls himself me — a standing crossword convention"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "RI",
+      "note": "RI is the abbreviation for Rhode Island"
+     },
+     {
+      "clueFragment": "Cockney",
+      "gives": "C",
+      "note": "the opening letter of Cockney"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the second article, also taken as a letter"
+     }
+    ],
+    "walkthrough": "The Cockney bait is deliberate: rhyming slang really does make a mouth a north and south, so the eye goes there. The setter means the other sort of mouth, an opening.",
+    "definitionFit": "The two continents are North America and South America, so the answer is what any North and South of that pair can be — a definition by example."
+   }
   },
   {
    "id": "22-down",
@@ -414,7 +1030,35 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHEEZE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "WHEEZE",
+    "definition": "Clever scheme",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "Hearing is the test, not reading, so the letters wanted are the ones that match the noise the clue's words make."
+    },
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minute",
+      "gives": "WEE",
+      "note": "minute is the adjective here — tiny — and a tiny thing is wee"
+     },
+     {
+      "clueFragment": "more than one",
+      "soundsLike": "WEES",
+      "gives": "WHEEZE",
+      "note": "more than one wee makes WEES, and that sound is spelt out as the answer"
+     }
+    ],
+    "walkthrough": "'Minute' is the trap: the noun of sixty seconds is the wrong word, and its adjective twin, stressed on the second syllable, is the right one.",
+    "definitionFit": "A wheeze is British slang for a clever ruse or dodge — 'a good wheeze' — a sense quite separate from laboured breathing."
+   }
   },
   {
    "id": "23-across",
@@ -431,7 +1075,37 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PINOCHLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PINOCHLE",
+    "definition": "card game",
+    "indicators": [
+     "lost"
+    ],
+    "indicatorNotes": {
+     "lost": "What is lost has strayed from where it belongs, and letters that have strayed no longer spell what they did."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "HELP COIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Help! Coin",
+      "gives": "HELPCOIN",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "lost",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The exclamation mark is punctuation the surface needs and the wordplay ignores. Read past it and the eight letters are simply sitting there waiting.",
+    "definitionFit": "Pinochle is a trick-taking card game played in America with a doubled deck, so the definition is a plain category name for it."
+   }
   },
   {
    "id": "24-across",
@@ -448,7 +1122,35 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LARDER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LARDER",
+    "definition": "Cool place",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "A report is spoken aloud, so it is the sound of the words that counts and not the way they are written."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if after 23",
+      "gives": "",
+      "note": "23 across is the card game; this answer is to be said straight after it"
+     },
+     {
+      "clueFragment": "a cocktail",
+      "soundsLike": "PIÑA COLADA",
+      "gives": "LARDER",
+      "note": "run pinochle and this answer together and you hear the rum and pineapple cocktail"
+     }
+    ],
+    "walkthrough": "The cross-reference is a sound joke: two answers spoken in order become a drink neither of them mentions. The definition is the sober half of the clue.",
+    "definitionFit": "A larder is the cool room or cupboard where food was kept before refrigeration, so the definition names it by the property that mattered."
+   }
   },
   {
    "id": "25-down",
@@ -465,7 +1167,27 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RIGHT",
+    "definition": "Blue",
+    "definition2": "in the pink",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Blue",
+      "gives": "",
+      "note": "blue is the Conservative colour, and Conservatives sit on the right"
+     },
+     {
+      "clueFragment": "in the pink",
+      "gives": "",
+      "note": "in the pink means in good health — nothing wrong, all right"
+     }
+    ],
+    "walkthrough": "Two colours in five words and neither is about colour: one is party politics, the other is health. Colour words in a cryptic almost always stand for something else.",
+    "definitionFit": "Blue means Tory and the Tories are the political right; 'in the pink' means well, and someone well feels right — two idioms meeting in one word."
+   }
   },
   {
    "id": "26-across",
@@ -486,7 +1208,46 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "STRIKEZONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "STRIKE ZONE",
+    "definition": "Area for swingers",
+    "indicators": [
+     "observed after",
+     "opening of"
+    ],
+    "indicatorNotes": {
+     "observed after": "It says where to look: the number turns up behind the letter already written down, not in front of it.",
+     "opening of": "The opening of a word is where it begins, so its first letter is all that is taken."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "STRIKE",
+     "Z",
+     "ONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "STRIKE",
+      "note": "industrial action is a strike"
+     },
+     {
+      "clueFragment": "zip",
+      "gives": "Z",
+      "note": "the first letter of zip"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "ONE",
+      "note": "one is a number, spelt out"
+     }
+    ],
+    "walkthrough": "The swingers are batters rather than partygoers, and the action is the union sort. Baseball turns up far less often here than cricket, which is what makes the definition hard.",
+    "definitionFit": "The strike zone is the box above home plate that a baseball batter must swing at, so 'swingers' names the batters by what they do there."
+   }
   },
   {
    "id": "27-across",
@@ -503,7 +1264,27 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GRIT",
+    "definition": "Steel",
+    "definition2": "crushed stones",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Steel",
+      "gives": "",
+      "note": "the figurative sense: nerve, the stuff you steel yourself with"
+     },
+     {
+      "clueFragment": "crushed stones",
+      "gives": "",
+      "note": "the literal sense: the coarse material spread on icy roads"
+     }
+    ],
+    "walkthrough": "'Crushed' looks like an instruction to shuffle letters and is nothing of the kind — it belongs to the second definition, describing stone broken small.",
+    "definitionFit": "Steel means courage, as in true grit, while the same word names the crushed stone spread on roads — one word covering a virtue and a material."
+   }
   },
   {
    "id": "28-across",
@@ -520,7 +1301,35 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FREEZER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "FREEZER",
+    "definition": "Cool place",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "The clue wants what the words sound like when they are said, and lets the spelling go its own way."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if before 16 11",
+      "gives": "",
+      "note": "16 and 11 across together give 'jolly good fellow', which this answer runs into"
+     },
+     {
+      "clueFragment": "a song",
+      "soundsLike": "FOR HE'S A",
+      "gives": "FREEZER",
+      "note": "with the aitch dropped, 'for 'e's a' is how the celebration song begins"
+     }
+    ],
+    "walkthrough": "This clue and 24 across work the same way: an answer that means one thing on the page and something else entirely when you say it next to its neighbour.",
+    "definitionFit": "A freezer is the coldest place in the kitchen, so 'cool place' is a deliberate understatement of what the appliance actually does."
+   }
   },
   {
    "id": "29-across",
@@ -543,7 +1352,31 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETTHAT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "double definition",
+    "answer": "LET THAT SINK IN",
+    "definition": "Really think on it",
+    "definition2": "open the door to a new basin?",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Really think on it",
+      "gives": "",
+      "note": "the everyday idiom: give the news a moment to register"
+     },
+     {
+      "clueFragment": "open the door to a new basin?",
+      "gives": "",
+      "note": "read word by word it is an instruction to the plumber — admit the basin"
+     }
+    ],
+    "walkthrough": "The question mark is the setter owning up to the second reading: fit a new basin and you really do let that sink in. One phrase doing two jobs, with no letters to shuffle at all.",
+    "definitionFit": "Letting something sink in is letting it register in the mind, while word for word the phrase permits a sink to be brought indoors."
+   }
   }
  ]
 } /*JSON-END*/;
