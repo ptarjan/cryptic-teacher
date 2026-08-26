@@ -2296,8 +2296,8 @@
     let ask = null;
 
     if (!ann) {
-      bodyHTML = `<div class="hint-step"><p class="muted">This puzzle hasn’t been hand-annotated yet
-        (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for this clue.
+      bodyHTML = `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
+        (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for it.
         You can still check your letters${canCheck() ? " and reveal below" : ""}.</p></div>`;
       if (canCheck() && !solved) nextSpec.push({ fill: true, text: "Reveal answer" });
     } else {

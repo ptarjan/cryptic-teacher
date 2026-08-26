@@ -614,7 +614,16 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 // hasSolutions matters: the escape hatches asserted below are the reveal
 // buttons, and a puzzle whose answers the Guardian hasn't published yet has
 // nothing to reveal.
-const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && global.window.CRYPTIC_PUZZLES[p.id]);
+// Every clue, not merely `!annotated`: the index flag means "at least one clue
+// is missing an annotation", so it also covers a puzzle 28 of whose 30 clues
+// were annotated and two of which failed validation. The hint panel is per
+// clue, so such a puzzle opens on a real ladder and correctly shows no Reveal —
+// asserting the degraded panel on it tests the picker's luck, not the app.
+const noneAnnotated = (p) => {
+  const puz = global.window.CRYPTIC_PUZZLES[p.id];
+  return puz && puz.entries.every((e) => !e.annotation);
+};
+const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && noneAnnotated(p));
 typeInPicker(String(autoPuzzle.number));
 const autoRow = pickerRows().find((li) => li.children[0] && li.children[0].innerHTML.includes("auto hints"));
 assert(autoRow, `searching for ${autoPuzzle.number} surfaces the un-annotated puzzle`);
