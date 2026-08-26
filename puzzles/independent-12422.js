@@ -30,7 +30,32 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMENTABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LAMENTABLE",
+    "definition": "very unfortunate",
+    "indicators": [
+     "to be edited"
+    ],
+    "indicatorNotes": {
+     "to be edited": "an editor moves words about until they read better, so the letters are not left standing in the order the clue prints them"
+    },
+    "linkWords": [
+     "That’s"
+    ],
+    "anagram": {
+     "fodder": "LABEL MEANT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Label meant",
+      "gives": "LAMENTABLE",
+      "note": "the ten letters of LABEL MEANT, resettled into a different word"
+     }
+    ],
+    "walkthrough": "The surface sells a printing job — a label with the wrong wording on it — and the sigh at the end is the only part of the sentence meant literally.",
+    "definitionFit": "very unfortunate -> LAMENTABLE: something lamentable is bad enough to be worth lamenting, so the word measures misfortune by the grief it deserves."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +72,29 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ARMY",
+    "definition": "host",
+    "indicators": [
+     "No opening"
+    ],
+    "indicatorNotes": {
+     "No opening": "an opening is the way in at the front, so a word denied one starts a letter later than it should"
+    },
+    "pieces": [
+     "ARMY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bubbly",
+      "gives": "BARMY",
+      "note": "barm is the froth on fermenting beer, so barmy first meant frothy"
+     }
+    ],
+    "walkthrough": "Barmy has drifted a long way: it began as a brewer's word and ended up meaning daft, and the surface's lively party-giver is nothing like the multitude wanted.",
+    "definitionFit": "host -> ARMY: host is the old word for an armed multitude, kept alive in 'the Lord of hosts', so it names a great number under arms."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +115,29 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
     ]
    },
    "solution": "DRILLBIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DRILL BIT",
+    "definition": "Component of toolbox",
+    "pieces": [
+     "DRILL",
+     "BIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routine",
+      "gives": "DRILL",
+      "note": "a drill is a fixed routine gone through again and again until it sticks"
+     },
+     {
+      "clueFragment": "took effect",
+      "gives": "BIT",
+      "note": "sanctions that bite are sanctions that work, so what bit took effect"
+     }
+    ],
+    "walkthrough": "'Bit' as the past tense of bite is the step to spot: the clue never uses the word in its toolbox sense until the answer has already arrived.",
+    "definitionFit": "Component of toolbox -> DRILL BIT: the bit is the cutting piece chucked into a drill, so it names a part of the kit, not the tool."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +154,43 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OTTAWA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "OTTAWA",
+    "definition": "Canadian government?",
+    "indicators": [
+     "taken up",
+     "under"
+    ],
+    "indicatorNotes": {
+     "taken up": "in a down entry what is taken up is read from the bottom, so those letters run the other way",
+     "under": "a piece written under another sits below it on the page, so it follows in a down entry"
+    },
+    "pieces": [
+     "O",
+     "TTAWA"
+    ],
+    "subReversals": [
+     {
+      "from": "AWATT",
+      "to": "TTAWA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standing abbreviation for old"
+     },
+     {
+      "clueFragment": "A measure of power",
+      "gives": "TTAWA",
+      "note": "the watt is the measure of electrical power, and A WATT comes back the other way"
+     }
+    ],
+    "walkthrough": "Naming a capital for the government that sits in it is ordinary newspaper shorthand — Washington says, Ottawa announces — and the question mark is what licenses it.",
+    "definitionFit": "Canadian government? -> OTTAWA: the city stands in for the administration housed there, the same metonymy that lets Westminster mean Parliament."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +207,38 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NATIVE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NATIVE",
+    "definition": "Oyster?",
+    "indicators": [
+     "to swallow",
+     "half of"
+    ],
+    "indicatorNotes": {
+     "to swallow": "what you swallow goes down inside you, so the letter is taken into the middle of the other word",
+     "half of": "split a two-letter word down the middle and one letter is left, and it is the back half that is wanted"
+    },
+    "pieces": [
+     "NA",
+     "T",
+     "IVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Simple",
+      "gives": "NAIVE",
+      "note": "naive is simple in the unworldly sense, and the word opens up after its first two letters"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "T",
+      "note": "IT cut in half leaves a single T"
+     }
+    ],
+    "walkthrough": "Oysters are named for where they grew, so the home-grown ones are natives — the opening 'Oyster?' reads like an aside and is doing the whole job of the definition.",
+    "definitionFit": "Oyster? -> NATIVE: a native is the British-bred oyster of the Kent and Essex beds, so the question mark flags an example rather than a synonym."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +255,47 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAUSEATING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NAUSEATING",
+    "definition": "provoking illness",
+    "indicators": [
+     "amidst"
+    ],
+    "indicatorNotes": {
+     "amidst": "whatever stands amidst two things stands between them, so this letter drops into the gap they leave"
+    },
+    "pieces": [
+     "N",
+     "A",
+     "U",
+     "SEATING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the compass abbreviation for northern"
+     },
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "A is the standing abbreviation for area"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standing abbreviation for university"
+     },
+     {
+      "clueFragment": "accommodation",
+      "gives": "SEATING",
+      "note": "seating is what a hall accommodates its audience with"
+     }
+    ],
+    "walkthrough": "Three single-letter abbreviations in a row is what makes a ten-letter answer feel unreachable, right up until the last word of the wordplay hands over seven letters at once.",
+    "definitionFit": "provoking illness -> NAUSEATING: nausea is the sick feeling itself, so what is nauseating brings it on rather than suffers it."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +312,35 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADEN",
+    "definition": "port",
+    "indicators": [
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "supporting": "a support holds something up from beneath, so in a down entry this piece is written below the other"
+    },
+    "pieces": [
+     "A",
+     "DEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the standing abbreviation for Australian"
+     },
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is the small private room you shut yourself in to work"
+     }
+    ],
+    "walkthrough": "'Study' is one of the crossword's hardest-worked words: DEN almost always, CON now and then, and hardly ever the act of studying.",
+    "definitionFit": "port -> ADEN: Aden is the great harbour at the mouth of the Red Sea, so one named port stands in for the general word."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +357,39 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAIRER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAIRER",
+    "definition": "more dispassionate",
+    "indicators": [
+     "Suppressing"
+    ],
+    "indicatorNotes": {
+     "Suppressing": "to suppress a feeling is to hold it down out of sight, so those letters end up buried inside the word that keeps them"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "FA",
+     "IRE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "far",
+      "gives": "FAR",
+      "note": "the little word FAR is the container, and it comes apart between its A and its R"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire is anger, three letters that turn up in crosswords far more often than in speech"
+     }
+    ],
+    "walkthrough": "The word doing the swallowing is the one you would read straight past — a three-letter adverb that looks like part of the definition and is really the wrapper.",
+    "definitionFit": "more dispassionate -> FAIRER: fair here is the judge's sense, deciding without favour, so what is fairer is less swayed by feeling."
+   }
   },
   {
    "id": "9-across",
@@ -174,7 +410,32 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEACADDY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TEA-CADDY",
+    "definition": "Source of drink",
+    "linkWords": [
+     "given to"
+    ],
+    "pieces": [
+     "TEA",
+     "CADDY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marijuana",
+      "gives": "TEA",
+      "note": "tea has been slang for marijuana since the jazz age"
+     },
+     {
+      "clueFragment": "clubman?",
+      "gives": "CADDY",
+      "note": "the caddy is the man who carries a golfer's clubs round the course"
+     }
+    ],
+    "walkthrough": "Both halves point at a gentleman's afternoon and mean something else: the drug rather than the leaf, the golf course rather than the club armchair.",
+    "definitionFit": "Source of drink -> TEA-CADDY: the caddy is the box the leaves are kept in, so it is where the cup starts rather than the drink itself."
+   }
   },
   {
    "id": "10-across",
@@ -191,7 +452,29 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BERYLLIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BERYLLIA",
+    "definition": "Oxide",
+    "indicators": [
+     "breaking down"
+    ],
+    "indicatorNotes": {
+     "breaking down": "a thing that breaks down comes apart into its pieces, and pieces can be put back together in another order"
+    },
+    "anagram": {
+     "fodder": "RELIABLY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "reliably",
+      "gives": "BERYLLIA",
+      "note": "the eight letters of RELIABLY, rearranged"
+     }
+    ],
+    "walkthrough": "A chemistry answer with a one-word definition gives you nothing to guess at, so this is a clue to solve from the letters inwards rather than the meaning outwards.",
+    "definitionFit": "Oxide -> BERYLLIA: beryllia is beryllium oxide, the hard white ceramic used where heat has to pass but current must not."
+   }
   },
   {
    "id": "11-across",
@@ -208,7 +491,38 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSANE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "INSANE",
+    "definition": "Cracked",
+    "indicators": [
+     "entering",
+     "most of"
+    ],
+    "indicatorNotes": {
+     "entering": "whatever enters a place ends up inside it, so these letters are planted within the ones the clue names next",
+     "most of": "most of a word is all but a little of it, and what gets left behind is the letter on the end"
+    },
+    "pieces": [
+     "IN",
+     "SA",
+     "NE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interior",
+      "gives": "INNE",
+      "note": "what is interior is inner, and the word arrives without its final letter"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "SA",
+      "note": "'it' is 1920s slang for sex appeal, which crosswords have written as SA ever since"
+     }
+    ],
+    "walkthrough": "SA for 'it' is worth learning outright: a person who had 'it' had sex appeal, and in a clue the pronoun almost never stands for the two letters I and T.",
+    "definitionFit": "Cracked -> INSANE: cracked is the informal 'gone in the head', the same picture as a flaw running through something that ought to be sound."
+   }
   },
   {
    "id": "12-across",
@@ -225,7 +539,34 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STET",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STET",
+    "definition": "Keep in place",
+    "indicators": [
+     "to leave"
+    ],
+    "indicatorNotes": {
+     "to leave": "when something leaves it is no longer where it was, so those letters are gone from the word"
+    },
+    "pieces": [
+     "STET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "STREET",
+      "note": "a street is a road, and it is the word the wordplay works on"
+     },
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "RE is about, as in 'Re: your letter' at the head of a memo"
+     }
+    ],
+    "walkthrough": "RE for 'about' is one of the two most-used pairs of letters in the crossword, and here the road surface and the printed page it really belongs to never meet.",
+    "definitionFit": "Keep in place -> STET: stet is the proofreader's Latin for 'let it stand', the mark that cancels a correction and leaves the original wording alone."
+   }
   },
   {
    "id": "13-down",
@@ -242,7 +583,44 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWEEDLEDUM",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TWEEDLEDUM",
+    "definition": "One of a pair",
+    "indicators": [
+     "through"
+    ],
+    "indicatorNotes": {
+     "through": "something that goes through a thing passes into its middle, so these letters are driven in between the others"
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "TWEED",
+     "LED",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TWEED",
+      "note": "the Tweed runs along the Scottish border"
+     },
+     {
+      "clueFragment": "guided",
+      "gives": "LED",
+      "note": "to guide someone is to lead them"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "UM",
+      "note": "um is the noise of hesitating, and crosswords treat it as a word"
+     }
+    ],
+    "walkthrough": "Carroll's brothers are so alike that he needs both to make either one funny, which is what the definition is quietly telling you before you have a letter.",
+    "definitionFit": "One of a pair -> TWEEDLEDUM: the Looking-Glass twins are never mentioned apart, so naming either one only ever names half of a matched set."
+   }
   },
   {
    "id": "14-across",
@@ -259,7 +637,32 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLAME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLAME",
+    "definition": "criticism",
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "B",
+     "LAME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the standing abbreviation for book"
+     },
+     {
+      "clueFragment": "not generating interest",
+      "gives": "LAME",
+      "note": "something lame falls flat and holds nobody's attention"
+     }
+    ],
+    "walkthrough": "'Not generating interest' looks like a phrase off the financial pages and is a plain synonym — the money surface has nothing at all behind it.",
+    "definitionFit": "criticism -> BLAME: blame is criticism with fault attached, saying not just that a thing went badly but whose doing it was."
+   }
   },
   {
    "id": "15-down",
@@ -276,7 +679,34 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "MUM",
+    "definition": "Silent",
+    "indicators": [
+     "no"
+    ],
+    "indicatorNotes": {
+     "no": "putting 'no' in front of a thing declares it absent, so those letters are struck out of the word"
+    },
+    "pieces": [
+     "MUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disease",
+      "gives": "MUMPS",
+      "note": "mumps is the swollen-glands illness of childhood"
+     },
+     {
+      "clueFragment": "additional comment",
+      "gives": "PS",
+      "note": "a PS is the extra line added once a letter has been signed off"
+     }
+    ],
+    "walkthrough": "The trick is noticing that two of the letters on the end of a childhood illness are themselves a word, and a word this clue has a definition for.",
+    "definitionFit": "Silent -> MUM: to keep mum is to say nothing at all, the sense that survives in 'mum's the word'."
+   }
   },
   {
    "id": "16-across",
@@ -293,7 +723,37 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AVER",
+    "definition": "state",
+    "indicators": [
+     "to oust"
+    ],
+    "indicatorNotes": {
+     "to oust": "to oust someone is to turn them out of the place they held, so that letter is thrown clear of the word"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "AVER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hesitate",
+      "gives": "WAVER",
+      "note": "to waver is to hesitate, swaying between two answers"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "W",
+      "note": "the leader of WAVER is the letter at its head"
+     }
+    ],
+    "walkthrough": "AVER is a courtroom word — to assert something as fact — and it is one of that handful of short verbs that keep reappearing because their letters are so useful.",
+    "definitionFit": "state -> AVER: to aver is to state something firmly and on the record, so the definition is the everyday verb for the formal one."
+   }
   },
   {
    "id": "17-down",
@@ -310,7 +770,42 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELECTORATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ELECTORATE",
+    "definition": "Voters",
+    "definitionNote": "The definition is plural and the answer a singular collective noun: an electorate is the whole body of voters counted as one thing, which is how newspapers use both words interchangeably.",
+    "indicators": [
+     "ignoring leader",
+     "gets in"
+    ],
+    "indicatorNotes": {
+     "ignoring leader": "the leader of a word is the letter at its head, and ignoring it means starting one letter late",
+     "gets in": "whatever gets in has got inside, so these letters lodge in the middle of the others"
+    },
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "EL",
+     "ECTOR",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer",
+      "gives": "ELATE",
+      "note": "to elate someone is to cheer them, and the word splits after its first two letters"
+     },
+     {
+      "clueFragment": "Minister",
+      "gives": "ECTOR",
+      "note": "a rector is a parish minister, arriving here without the R he starts with"
+     }
+    ],
+    "walkthrough": "'Leader' means the letter at the head of a word rather than anybody in charge, and the election-night surface is there purely to stop you noticing that.",
+    "definitionFit": "Voters -> ELECTORATE: the electorate is everyone entitled to cast a ballot, so the answer is the collective name for the people the definition lists."
+   }
   },
   {
    "id": "18-across",
@@ -327,7 +822,39 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BREATH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BREATH",
+    "definition": "Suggestion",
+    "indicators": [
+     "brought in by"
+    ],
+    "indicatorNotes": {
+     "brought in by": "to be brought in by somebody is to be carried inside what they have, so these letters are set within the other word"
+    },
+    "linkWords": [
+     "should be"
+    ],
+    "pieces": [
+     "B",
+     "RE",
+     "ATH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "BATH",
+      "note": "Bath is the Somerset spa city, and it comes apart straight after its B"
+     },
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "the Royal Engineers are RE, the sappers of the British Army"
+     }
+    ],
+    "walkthrough": "'A breath of scandal' is the phrase the definition comes out of — a breath there is the faintest trace of a thing, nothing to do with lungs.",
+    "definitionFit": "Suggestion -> BREATH: a breath of something is the merest hint of it, too slight to prove, which is exactly what a suggestion amounts to."
+   }
   },
   {
    "id": "19-down",
@@ -344,7 +871,34 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "HUE",
+    "definition": "clamour",
+    "indicators": [
+     "to avoid"
+    ],
+    "indicatorNotes": {
+     "to avoid": "to avoid a thing is to keep well clear of it, so that letter is kept out of the word altogether"
+    },
+    "pieces": [
+     "HUE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excessive",
+      "gives": "HUGE",
+      "note": "huge is excessive in size"
+     },
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the standing abbreviation for good"
+     }
+    ],
+    "walkthrough": "Hue and cry was a legal duty once: the shout that obliged every neighbour to join the chase. The clue wants that shout, not the colour.",
+    "definitionFit": "clamour -> HUE: hue survives almost only in 'hue and cry', where it means the outcry itself rather than any shade of colour."
+   }
   },
   {
    "id": "20-across",
@@ -361,7 +915,36 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARINE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MARINE",
+    "definition": "touching the sea",
+    "indicators": [
+     "home to"
+    ],
+    "indicatorNotes": {
+     "home to": "to be home to something is to have it living inside you, so this letter sits within the name that houses it"
+    },
+    "pieces": [
+     "MA",
+     "R",
+     "INE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US state",
+      "gives": "MAINE",
+      "note": "Maine is the state at the north-east corner of the US, and it opens after MA"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "walkthrough": "The surface has a river reaching the coast and the wordplay has one letter inside a state, so 'home to' is doing hospitality above and plumbing below.",
+    "definitionFit": "touching the sea -> MARINE: marine is the adjective for anything belonging to the sea, from marine life to marine insurance."
+   }
   },
   {
    "id": "21-down",
@@ -378,7 +961,41 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMORETTI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "AMORETTI",
+    "definition": "Lovers",
+    "indicators": [
+     "frenetically",
+     "under covers"
+    ],
+    "indicatorNotes": {
+     "frenetically": "anything done frenetically is done without order, and letters handled that way do not stay as they were given",
+     "under covers": "to go under covers is to be tucked out of sight beneath something, so these letters are buried inside the others"
+    },
+    "anagram": {
+     "fodder": "AT IT + MORE"
+    },
+    "pieces": [
+     "A",
+     "MORE",
+     "TTI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at it",
+      "gives": "ATTI",
+      "note": "the four letters of AT IT, resettled and then opened up after the first"
+     },
+     {
+      "clueFragment": "increasingly",
+      "gives": "MORE",
+      "note": "increasingly is more and more of a thing, so the word itself is more"
+     }
+    ],
+    "walkthrough": "Amoretti are the plump winged cupids of Italian painting, and the bedroom surface is the setter approaching the same subject from the least reverent end.",
+    "definitionFit": "Lovers -> AMORETTI: the Italian plural means 'little loves', used both for cupids and, in the older English sense, for lovers themselves."
+   }
   },
   {
    "id": "22-across",
@@ -395,7 +1012,37 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SEED",
+    "definition": "a start",
+    "indicators": [
+     "escaping"
+    ],
+    "indicatorNotes": {
+     "escaping": "what escapes gets clean away, so those letters are no longer among the ones left behind"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SEED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottom of ocean",
+      "gives": "SEABED",
+      "note": "the seabed is the floor of the ocean, one word and the whole of the raw material here"
+     },
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "an AB is an able seaman, the crossword's default sailor"
+     }
+    ],
+    "walkthrough": "'Bottom of ocean' is a definition of a word, not an instruction to take a last letter — spotting which of those it is decides whether the clue opens at all.",
+    "definitionFit": "a start -> SEED: a seed is what a plant begins as, and the sense carries into 'the seeds of an idea' — a beginning still folded up."
+   }
   },
   {
    "id": "23-across",
@@ -412,7 +1059,26 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PESTO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "PESTO",
+    "definition": "Sauce",
+    "indicators": [
+     "a part of"
+    ],
+    "indicatorNotes": {
+     "a part of": "only a part of what follows is wanted, so the answer is already sitting in those words rather than being built from them"
+    },
+    "blocks": [
+     {
+      "clueFragment": "canapés today",
+      "gives": "PESTO",
+      "note": "canaPÉS TOday carries the answer straight across the gap between the two words"
+     }
+    ],
+    "walkthrough": "The join between the two words is where the eye slides past, and an accent sitting in the middle of the run makes it slide faster still.",
+    "definitionFit": "Sauce -> PESTO: pesto is the Genoese pounding of basil, pine nuts, garlic and cheese, so one named sauce answers for the general word."
+   }
   },
   {
    "id": "23-down",
@@ -429,7 +1095,36 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PASHTO",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PASHTO",
+    "definition": "Possibly Afghan",
+    "indicators": [
+     "about that"
+    ],
+    "indicatorNotes": {
+     "about that": "to go about a thing is to go round it, and 'that' points back at the remains the clue has just named"
+    },
+    "pieces": [
+     "P",
+     "ASH",
+     "TO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Read more",
+      "gives": "PTO",
+      "note": "PTO — please turn over — is the note at the foot of a page telling you to read on"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "ash is what remains once a fire has burnt out"
+     }
+    ],
+    "walkthrough": "PTO is worth banking: three letters for a whole instruction, and one of the few abbreviations a setter can clue without naming a word at all.",
+    "definitionFit": "Possibly Afghan -> PASHTO: Pashto is one of Afghanistan's two official languages, so 'Afghan' points at an example — Dari would have done as well."
+   }
   },
   {
    "id": "24-down",
@@ -446,7 +1141,34 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUPERB",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SUPERB",
+    "definition": "Excellent",
+    "indicators": [
+     "not getting"
+    ],
+    "indicatorNotes": {
+     "not getting": "what you do not get you never have, so those letters never make it into the word at all"
+    },
+    "pieces": [
+     "SUPERB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US sports event",
+      "gives": "SUPERBOWL",
+      "note": "the Super Bowl is the NFL's championship game and the biggest American broadcast of the year"
+     },
+     {
+      "clueFragment": "the bird",
+      "gives": "OWL",
+      "note": "the owl is the bird, and it happens to be the end of the event's name"
+     }
+    ],
+    "walkthrough": "Getting the bird also means being booed off, so the phrase reads two ways in the surface while doing one plain job underneath.",
+    "definitionFit": "Excellent -> SUPERB: superb sits at the top of the scale of praise, from the Latin superbus, proud — a clear step beyond good."
+   }
   },
   {
    "id": "25-across",
@@ -463,7 +1185,36 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "GATE",
+    "definition": "spectators",
+    "definitionNote": "The definition is plural and the answer singular: the gate at a match is the crowd counted as one figure, which is why a paper reports 'a gate of forty thousand'.",
+    "indicators": [
+     "Kick-off of"
+    ],
+    "indicatorNotes": {
+     "Kick-off of": "a kick-off is the very start of a match, so only the starting letter of the word behind it is taken"
+    },
+    "pieces": [
+     "G",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "G",
+      "note": "the first letter of GAME, an ordinary initial hidden in football language"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "ATE",
+      "note": "what ate at you is what upset you — 'what's eating him?' asks what is wrong"
+     }
+    ],
+    "walkthrough": "The gate of a match is both the crowd and the money they paid, named after the turnstile they came through rather than anything they did.",
+    "definitionFit": "spectators -> GATE: a match's gate is its attendance, the paying crowd named by the entrance that counted them in."
+   }
   },
   {
    "id": "26-across",
@@ -480,7 +1231,39 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THREES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THREES",
+    "definition": "Crowds, perhaps",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "what is in a thing sits inside it, so these letters go among the ones the next word supplies"
+    },
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "T",
+     "HR",
+     "EES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TEES",
+      "note": "the Tees runs out to sea past Middlesbrough, and it opens after its first letter"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "HR",
+      "note": "hr is how a timetable abbreviates hour"
+     }
+    ],
+    "walkthrough": "Two's company, three's a crowd: that proverb is the whole of the definition, and 'perhaps' is there because only the proverb makes the equation true.",
+    "definitionFit": "Crowds, perhaps -> THREES: the saying makes three a crowd, so 'perhaps' flags a definition that holds by proverb rather than by dictionary."
+   }
   },
   {
    "id": "27-down",
@@ -497,7 +1280,37 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HATE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "HATE",
+    "definition": "not to like",
+    "indicators": [
+     "leaving"
+    ],
+    "indicatorNotes": {
+     "leaving": "when a thing leaves it is gone from where it stood, so that letter drops out of the word"
+    },
+    "linkWords": [
+     "what’s"
+    ],
+    "pieces": [
+     "HATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expedition",
+      "gives": "HASTE",
+      "note": "expedition is speed — 'with all expedition' means with all haste"
+     },
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the compass abbreviation for south"
+     }
+    ],
+    "walkthrough": "The polar journey in the surface is built on the sense of 'expedition' the clue does not use; the sense it does use is the one that means despatch.",
+    "definitionFit": "not to like -> HATE: the definition arrives by negation, and hate is the strong opposite of liking rather than a mere absence of it."
+   }
   },
   {
    "id": "28-across",
@@ -514,7 +1327,36 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLEASURE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PLEASURE",
+    "definition": "contentment",
+    "indicators": [
+     "contributing to"
+    ],
+    "indicatorNotes": {
+     "contributing to": "what you contribute goes into the thing you contribute to, so these letters are dropped inside the other word"
+    },
+    "pieces": [
+     "P",
+     "LEAS",
+     "URE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unalloyed",
+      "gives": "PURE",
+      "note": "an unalloyed metal is pure, with nothing mixed into it, and the word splits after its P"
+     },
+     {
+      "clueFragment": "Meadowlands",
+      "gives": "LEAS",
+      "note": "a lea is a meadow, so leas are meadowlands"
+     }
+    ],
+    "walkthrough": "A lea is the poets' and place-namers' word for a meadow, and capitalising it turns it into somewhere in New Jersey for as long as the surface needs.",
+    "definitionFit": "contentment -> PLEASURE: pleasure is settled enjoyment rather than a burst of delight, and that steadier sense is the one contentment shares."
+   }
   },
   {
    "id": "29-down",
@@ -531,7 +1373,34 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAIL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SAIL",
+    "definition": "trip at sea",
+    "indicators": [
+     "spurning"
+    ],
+    "indicatorNotes": {
+     "spurning": "to spurn a thing is to reject it outright, so that letter is turned away from the word"
+    },
+    "pieces": [
+     "SAIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mollusc",
+      "gives": "SNAIL",
+      "note": "the snail is the shell-carrying mollusc of the garden"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standing abbreviation for new"
+     }
+    ],
+    "walkthrough": "'At sea' belongs to the definition here — a sail is an outing on the water, not a piece of canvas — so the words that look like an instruction are the plain half.",
+    "definitionFit": "trip at sea -> SAIL: 'we went for a sail' uses the noun taken straight off the verb, meaning the voyage rather than the canvas."
+   }
   },
   {
    "id": "30-across",
@@ -548,7 +1417,36 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STRUTTER",
+    "definition": "horse at dressage?",
+    "indicators": [
+     "bringing in"
+    ],
+    "indicatorNotes": {
+     "bringing in": "to bring something in is to fetch it inside, so this letter is carried into the middle of the word"
+    },
+    "pieces": [
+     "ST",
+     "R",
+     "UTTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impediment",
+      "gives": "STUTTER",
+      "note": "a stutter is a speech impediment, and it opens up after its first two letters"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standing abbreviation for right"
+     }
+    ],
+    "walkthrough": "Dressage horses are judged on an exaggerated high-stepping walk, so the definition is a description and a joke in the same three words.",
+    "definitionFit": "horse at dressage? -> STRUTTER: a strutter is anything that struts, and the showy high step of dressage is exactly that, so the question mark flags an example."
+   }
   },
   {
    "id": "31-across",
@@ -565,7 +1463,45 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWISTY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TWISTY",
+    "definition": "convoluted story?",
+    "definitionNote": "The answer is an adjective and the definition a noun phrase: read it as 'of convoluted story', with the question mark licensing the shorthand of naming the thing described.",
+    "indicators": [
+     "absorbing"
+    ],
+    "indicatorNotes": {
+     "absorbing": "what is absorbed is taken up inside, so this letter is drawn into the middle of the others"
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "TWI",
+     "S",
+     "TY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "TWIT",
+      "note": "a right Charlie is a fool, and so is a twit"
+     },
+     {
+      "clueFragment": "slowly, finally",
+      "gives": "Y",
+      "note": "slowlY ends on this letter"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "S",
+      "note": "S is the standing abbreviation for section"
+     }
+    ],
+    "walkthrough": "'Charlie' is the fool of 'a proper Charlie', not the NATO letter C the surface is hoping you reach for first.",
+    "definitionFit": "convoluted story? -> TWISTY: a twisty plot keeps doubling back on itself, which is what convoluted describes — a route with too many turns to follow straight."
+   }
   }
  ]
 } /*JSON-END*/;
