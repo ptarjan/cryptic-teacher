@@ -385,7 +385,7 @@ def reindex():
             "date": p.get("date"),
             "file": path.name,
             # content hash → app.js appends it as ?v= so browsers never serve a
-            # stale puzzle after a re-annotation (see STYLE.md, cache busting)
+            # stale puzzle after a re-annotation (see APP.md, cache busting)
             "v": hashlib.md5(path.read_bytes()).hexdigest()[:8],
             "annotated": puzzle_is_annotated(p),
             "hasSolutions": all(e.get("solution") for e in p["entries"]),

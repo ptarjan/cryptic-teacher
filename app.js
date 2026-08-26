@@ -1254,7 +1254,7 @@
   // The ladder is BUILT PER CLUE, not fixed: a rung only exists if it has
   // something to say. A double definition has no indicators, so it gets no
   // "spot the indicator" rung (which used to read "No indicator words"), and
-  // its rungs are worded for two definitions rather than one. See STYLE.md.
+  // its rungs are worded for two definitions rather than one. See APP.md.
   const FILL_LABEL = "Fill in answer";
 
   const TYPE_BLURBS = [
@@ -1284,7 +1284,7 @@
   // the job — and the precise (honest, compound) type is held back until the
   // building-blocks rung. First match wins, so the list is ordered by which
   // mechanism dominates a compound type. Every part in TYPE_PARTS (validator)
-  // must be claimed by exactly one family here. See STYLE.md.
+  // must be claimed by exactly one family here. See APP.md.
   const FAMILIES = [
     { label: "Definitions only",
       blurb: "No letter mechanics at all — the clue works by definition alone. The work is spotting which words are doing the defining.",

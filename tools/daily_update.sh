@@ -384,7 +384,7 @@ if [ -n "$(git status --porcelain)" ]; then
   #     in `cycling` and `substitution`; the puzzle shipped and app.js did not,
   #     so the live site had two clues whose type matched no family and no
   #     blurb. The validator passed — it validates puzzles, not the app.
-  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md og.png og/ \
+  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md APP.md og.png og/ \
           tools/validate_annotations.py tools/annotation_backlog.json \
           tools/og_card.html
   # Then put back anything that was already modified before this run started.
