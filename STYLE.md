@@ -39,7 +39,11 @@ the list below together):
   `reversal`, `deletion`, `double definition`, `cryptic definition`, `&lit`,
   `spoonerism`
 - Letter selection: `first letter(s)`, `last letter(s)`, `middle letter(s)`,
-  `outer letters`, `alternate letters`
+  `outer letters`, `alternate letters`, `regular letters` (letters taken at a
+  fixed step other than every second one — 30077 17D takes every THIRD letter
+  of "Hope to God" to spell POD), `second letter(s)` (a letter picked by its
+  position — 12420 14D takes the second letter of "master" for the A of AGO,
+  and 30065 6D takes the second letter of each of four words to spell EDAM)
 - Letter movement: `cycling` (letters rotate from one end of the assembly to
   the other, keeping their order), `substitution` (one indicated letter or
   chunk stands in for another)
