@@ -34,7 +34,44 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAKESURE",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "MAKE SURE",
+    "definition": "guarantee",
+    "indicators": [
+     "accepts",
+     "backing"
+    ],
+    "indicatorNotes": {
+     "accepts": "To accept something is to take it in, and a word that takes another in has to open up and hold it.",
+     "backing": "A thing that is backing is travelling rear-end first, so the letters of the word beside it arrive in reverse."
+    },
+    "pieces": [
+     "MAK",
+     "ESUR",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "RUSE",
+      "to": "ESUR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brand",
+      "gives": "MAKE",
+      "note": "a car's brand is its make"
+     },
+     {
+      "clueFragment": "plan backing",
+      "gives": "ESUR",
+      "note": "a crafty plan is a RUSE, written back to front"
+     }
+    ],
+    "walkthrough": "The surface is a company standing behind a scheme. The wordplay needs 'brand' as a noun, and that noun then splits open before its last letter to let the ruse in.",
+    "definitionFit": "guarantee → MAKE SURE: to guarantee an outcome is to make sure of it, a two-word verb phrase standing in for the single verb."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +88,38 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WISP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "WISP",
+    "definition": "strand",
+    "indicators": [
+     "Start to"
+    ],
+    "indicatorNotes": {
+     "Start to": "'Start to' points at the beginning of the action named next, so only the opening letter of that word is wanted."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "W",
+     "ISP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start to watch",
+      "gives": "W",
+      "note": "the first letter of watch"
+     },
+     {
+      "clueFragment": "broadband supplier",
+      "gives": "ISP",
+      "note": "an internet service provider is the firm that sells you broadband"
+     }
+    ],
+    "walkthrough": "ISP is worth banking: setters reach for it whenever broadband, the web or a connection turns up, and three of the four letters arrive in one go.",
+    "definitionFit": "strand → WISP: a wisp is a single thin strand of hair, smoke or straw — one trailing piece rather than a bundle."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +136,28 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUSTER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "MUSTER",
+    "definition": "rally",
+    "indicators": [
+     "Subsection of",
+     "turned around"
+    ],
+    "indicatorNotes": {
+     "Subsection of": "A subsection is a piece cut out of something longer, which is the instruction: take a run of letters from inside the words that follow.",
+     "turned around": "Turned around means facing the other way, so that run of letters has to be read from its far end back."
+    },
+    "blocks": [
+     {
+      "clueFragment": "secret summons",
+      "gives": "MUSTER",
+      "note": "secRET SUMmons carries RETSUM, which reads the other way as the answer"
+     }
+    ],
+    "walkthrough": "A hidden run almost always straddles a word boundary, because your eye reads whole words and skips the join — and here it is buried backwards as well.",
+    "definitionFit": "rally → MUSTER: to rally troops is to muster them, both verbs meaning to gather scattered people into one body ready for action."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +174,35 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLAMOUR",
-   "annotation": null,
+   "annotation": {
+    "type": "charade",
+    "answer": "CLAMOUR",
+    "definition": "outcry",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "'Before' is positional, not temporal: the piece it follows is laid down first and the next one comes after it."
+    },
+    "pieces": [
+     "CLAM",
+     "OUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who keeps quiet",
+      "gives": "CLAM",
+      "note": "someone who clams up gives nothing away"
+     },
+     {
+      "clueFragment": "the Guardian’s",
+      "gives": "OUR",
+      "note": "the paper printing this puzzle calls what belongs to it ours"
+     }
+    ],
+    "walkthrough": "A paper naming itself in its own crossword is a Guardian regular — read the italicised title as the word the paper would use for its own property.",
+    "definitionFit": "outcry → CLAMOUR: a clamour is the loud protesting din a crowd raises, which is exactly the public complaint an outcry names."
+   },
    "clueItalics": [
     [
      31,
@@ -108,7 +225,32 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASHE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASHE",
+    "definition": "male tennis icon",
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "A",
+     "SHE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article is taken as it stands"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "a female is a she"
+     }
+    ],
+    "walkthrough": "The joke is the sex change: two words for a woman spell a man. Arthur Ashe won Wimbledon in 1975 and has New York's main court named after him.",
+    "definitionFit": "male tennis icon → ASHE: definition by example, naming one particular great of the game rather than giving a synonym for a player."
+   }
   },
   {
    "id": "6-down",
@@ -125,7 +267,29 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARLIAMENT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PARLIAMENT",
+    "definition": "Chamber",
+    "definition2": "diet for those chosen",
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chamber",
+      "gives": "PARLIAMENT",
+      "note": "the debating chamber where a country's laws are argued"
+     },
+     {
+      "clueFragment": "diet for those chosen",
+      "gives": "PARLIAMENT",
+      "note": "a diet is a formal assembly — Japan still calls its own one — and its members are the elected"
+     }
+    ],
+    "walkthrough": "The trap is 'diet' as food. In politics a diet is an assembly, so both halves of the clue are describing the same institution from different angles.",
+    "definitionFit": "Both halves name the assembly: it is the chamber a nation debates in, and it is the diet — the sitting body — made up of those the voters chose."
+   }
   },
   {
    "id": "7-down",
@@ -142,7 +306,39 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SEANCE",
+    "definition": "Late meeting",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is doing spatial work rather than joining a phrase: what precedes it goes inside what follows."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "SE",
+     "ANC",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop’s office",
+      "gives": "SEE",
+      "note": "a bishop's office and district is his see"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "ANC",
+      "note": "the African National Congress, South Africa's governing party"
+     }
+    ],
+    "walkthrough": "'Late' is the obituary sense — the late Mr Jones — so this is a meeting with the dead, not one that runs past six o'clock.",
+    "definitionFit": "Late meeting → SEANCE: a sitting at which a medium tries to contact the dead, so the gathering really is with those who have died."
+   }
   },
   {
    "id": "8-across",
@@ -159,7 +355,49 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HABITUAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letters",
+    "answer": "HABITUAL",
+    "definition": "normal",
+    "indicators": [
+     "at the outset",
+     "to involve"
+    ],
+    "indicatorNotes": {
+     "at the outset": "At the outset means right at the start, so each word it looks back at surrenders only its opening letter.",
+     "to involve": "To involve something is to have it inside you, so the letters already found close around what comes next."
+    },
+    "linkWords": [
+     "It’s",
+     "for"
+    ],
+    "pieces": [
+     "H",
+     "A",
+     "BIT",
+     "U",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday at Legoland at the outset",
+      "gives": "HAL",
+      "note": "the opening letters of Holiday At Legoland"
+     },
+     {
+      "clueFragment": "a little",
+      "gives": "ABIT",
+      "note": "a little of something is a bit of it"
+     },
+     {
+      "clueFragment": "something for everyone",
+      "gives": "U",
+      "note": "a U certificate marks a film as universal, passed for everyone"
+     }
+    ],
+    "walkthrough": "The family outing is decoration — all the clue wants from Legoland is a letter. Bank the U: a U certificate film is the one anybody is allowed to watch.",
+    "definitionFit": "normal → HABITUAL: something done by habit, so regularly that it counts as the normal thing for that person to do."
+   }
   },
   {
    "id": "9-across",
@@ -179,7 +417,9 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "STATE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "10-across"
+   }
   },
   {
    "id": "10-across",
@@ -201,7 +441,41 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
     ]
    },
    "solution": "DEEP",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "spoonerism",
+    "answer": "DEEP STATE",
+    "definition": "The Blob",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "DEEP",
+     "STATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expensive",
+      "soundsLike": "STEEP",
+      "gives": "DEEP",
+      "note": "expensive is steep, and Spooner takes its ST away in exchange for a D"
+     },
+     {
+      "clueFragment": "rendezvous",
+      "soundsLike": "DATE",
+      "gives": "STATE",
+      "note": "a rendezvous is a date, and it picks up the ST that steep gave up"
+     }
+    ],
+    "walkthrough": "'The Blob' is the political jibe for the permanent officialdom ministers say frustrates them; the question mark admits it is a nickname rather than a dictionary word.",
+    "definitionFit": "The Blob → DEEP STATE: two sneering names for the same thing, the unelected machinery said to run a country whoever wins the election."
+   }
   },
   {
    "id": "11-across",
@@ -218,7 +492,29 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIMBERLINE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TIMBERLINE",
+    "definition": "place where the fuel runs out",
+    "indicators": [
+     "feverish"
+    ],
+    "indicatorNotes": {
+     "feverish": "Feverish is the shivering, restless state of a fever, and letters that cannot keep still will not stay in the order given."
+    },
+    "anagram": {
+     "fodder": "I TREMBLE IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I tremble in",
+      "gives": "TIMBERLINE",
+      "note": "ten letters of I TREMBLE IN, rearranged"
+     }
+    ],
+    "walkthrough": "The shivering and the mountain cold pull the same way, which is the misdirection. 'Fuel' here means firewood, and trees are what stop at that altitude.",
+    "definitionFit": "place where the fuel runs out → TIMBERLINE: above that altitude no trees grow, so a climber gathering wood to burn finds nothing left."
+   }
   },
   {
    "id": "12-across",
@@ -235,7 +531,26 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MURDER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MURDER",
+    "definition": "Relish",
+    "definition2": "killing",
+    "blocks": [
+     {
+      "clueFragment": "Relish",
+      "gives": "MURDER",
+      "note": "the slang of 'I could murder a curry' — to fall on something with appetite"
+     },
+     {
+      "clueFragment": "killing",
+      "gives": "MURDER",
+      "note": "the crime itself, one person unlawfully killing another"
+     }
+    ],
+    "walkthrough": "Two words, two senses, and a nastier surface than either deserves. It is also one of this grid's collective nouns — crows come in one.",
+    "definitionFit": "The plain sense is the crime, killing someone unlawfully; the slang sense is the appetite of 'I could murder a pint', devouring something with relish."
+   }
   },
   {
    "id": "13-down",
@@ -252,7 +567,44 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DERAILLEUR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DERAILLEUR",
+    "definition": "gear shift",
+    "indicators": [
+     "fickle"
+    ],
+    "indicatorNotes": {
+     "fickle": "A fickle person will not stay as they were a minute ago, and letters that will not stay put have to be rearranged."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "DERAIL",
+     "LEUR"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RULE",
+      "gives": "LEUR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thwart",
+      "gives": "DERAIL",
+      "note": "to derail a plan is to thwart it"
+     },
+     {
+      "clueFragment": "fickle rule",
+      "gives": "LEUR",
+      "note": "the four letters of RULE, shuffled"
+     }
+    ],
+    "walkthrough": "The bicycle sense is the surprise: a derailleur is the arm that lifts the chain from one sprocket to the next, borrowed whole from French.",
+    "definitionFit": "gear shift → DERAILLEUR: the technical name for the bicycle mechanism that shifts the chain across the sprockets, so the everyday phrase names the part."
+   }
   },
   {
    "id": "14-across",
@@ -269,7 +621,35 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNGLAZED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "UNGLAZED",
+    "definition": "Open to the elements",
+    "indicators": [
+     "caps missing"
+    ],
+    "indicatorNotes": {
+     "caps missing": "A cap sits on top, so a word that has lost its cap has lost the letter at its front."
+    },
+    "pieces": [
+     "UNG",
+     "LAZED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air processor",
+      "gives": "UNG",
+      "note": "a lung processes air, and the L on top of it goes"
+     },
+     {
+      "clueFragment": "burned",
+      "gives": "LAZED",
+      "note": "burned is blazed, and the B on top of it goes"
+     }
+    ],
+    "walkthrough": "'Caps' is plural, and that is the step people miss: one instruction beheads both words, which is why the second half looks nothing like the answer at first.",
+    "definitionFit": "Open to the elements → UNGLAZED: a window or frame with no glass fitted, so nothing stands between the room and the weather."
+   }
   },
   {
    "id": "15-down",
@@ -286,7 +666,29 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GAM",
+    "definition": "leg",
+    "indicators": [
+     "cut short"
+    ],
+    "indicatorNotes": {
+     "cut short": "To cut something short is to lop the end off it, so the final letter of the word never arrives."
+    },
+    "pieces": [
+     "GAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sport",
+      "gives": "GAM",
+      "note": "a sport is a game, docked of its last letter"
+     }
+    ],
+    "walkthrough": "A gam is also a school of whales, so this one is quietly part of the grid's collection as well as being music-hall slang.",
+    "definitionFit": "leg → GAM: dated slang, chiefly American, for a person's leg — a word of the music halls that survives mainly in crosswords."
+   }
   },
   {
    "id": "16-across",
@@ -303,7 +705,29 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DECRYPT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DECRYPT",
+    "definition": "Unravel",
+    "pieces": [
+     "DECRY",
+     "PT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slam",
+      "gives": "DECRY",
+      "note": "to slam a film in a review is to decry it"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PT",
+      "note": "PT is the standard abbreviation for point, as on a chart"
+     }
+    ],
+    "walkthrough": "'Slam' invites you to think of doors and dunks; the wanted sense is the reviewer's. With no indicator anywhere, the two pieces simply sit end to end.",
+    "definitionFit": "Unravel → DECRYPT: to decrypt a message is to unravel it, turning a scrambled cipher back into sense the way you unpick a knot."
+   }
   },
   {
    "id": "17-down",
@@ -320,7 +744,35 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POD",
-   "annotation": null
+   "annotation": {
+    "type": "regular letters",
+    "answer": "POD",
+    "definition": "books made to order",
+    "definitionNote": "The definition names what comes off the press rather than the process: POD is print on demand, a way of making books, and the clue defines it by its output.",
+    "indicators": [
+     "every third letter"
+    ],
+    "indicatorNotes": {
+     "every third letter": "This is a counting instruction rather than a description: walk through the preceding words in threes and keep only the one you land on."
+    },
+    "linkWords": [
+     "appears in"
+    ],
+    "pieces": [
+     "P",
+     "O",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hope to God",
+      "gives": "POD",
+      "note": "HOPETOGOD falls into HOP, ETO, GOD, and the third letter of each group is what is kept"
+     }
+    ],
+    "walkthrough": "Print on demand is the publishing trade's own abbreviation: a title is printed only once somebody has bought a copy, so no stock sits in a warehouse.",
+    "definitionFit": "books made to order → POD: print on demand, the trade's term for running off a copy only after it has been ordered."
+   }
   },
   {
    "id": "18-across",
@@ -337,7 +789,41 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMMENSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IMMENSE",
+    "definition": "Mammoth",
+    "indicators": [
+     "stripped"
+    ],
+    "indicatorNotes": {
+     "stripped": "Something stripped has had its outside removed, so the word beside it loses the letters at each end."
+    },
+    "pieces": [
+     "IM",
+     "MEN",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter’s",
+      "gives": "IM",
+      "note": "the setter speaks as I, so the setter is becomes I'M"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "MEN",
+      "note": "a ship's crew is its men"
+     },
+     {
+      "clueFragment": "user",
+      "gives": "SE",
+      "note": "uSEr with its outside letters taken off"
+     }
+    ],
+    "walkthrough": "'Setter's' is the Guardian solver's daily bread — the setter is I, so the possessive is I'M. Mammoth is the adjective here, not the animal.",
+    "definitionFit": "Mammoth → IMMENSE: used as an adjective, mammoth simply means huge, and immense is the plain synonym for something vast in scale."
+   }
   },
   {
    "id": "19-down",
@@ -354,7 +840,41 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPRUCING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPRUCING",
+    "definition": "Smartening up",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is a placement here, not a preposition of the surface: the two abbreviations go inside, not alongside."
+    },
+    "pieces": [
+     "SPR",
+     "UC",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "April and May",
+      "gives": "SPRING",
+      "note": "both months fall in the same season"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the usual abbreviation, as in a degree from U of London"
+     },
+     {
+      "clueFragment": "College",
+      "gives": "C",
+      "note": "C abbreviates college in the names of institutions"
+     }
+    ],
+    "walkthrough": "The capital letters make University College look like one place in London, which is the misdirection: the clue wants an initial from each.",
+    "definitionFit": "Smartening up → SPRUCING: to spruce something up is to tidy it into a neat, well-turned-out state, and both words are -ing forms."
+   }
   },
   {
    "id": "20-down",
@@ -371,7 +891,27 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNCIVIL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "UNCIVIL",
+    "definition": "Offensive",
+    "definition2": "in the armed forces?",
+    "definitionNote": "The second definition is a phrase where the answer is an adjective: the setter is reading 'civil' as civilian, so somebody serving in the forces is literally un-civil.",
+    "blocks": [
+     {
+      "clueFragment": "Offensive",
+      "gives": "UNCIVIL",
+      "note": "the everyday sense — rude, discourteous, giving offence"
+     },
+     {
+      "clueFragment": "in the armed forces?",
+      "gives": "UNCIVIL",
+      "note": "a soldier is not a civilian and not in the civil service, so not civil"
+     }
+    ],
+    "walkthrough": "Everything hangs on which 'civil' you hear: polite in one half, civilian in the other. The question mark is the setter owning up to the second one.",
+    "definitionFit": "Offensive → UNCIVIL means rude or discourteous; the forces half plays on the other sense of civil, the one that means civilian rather than polite."
+   }
   },
   {
    "id": "21-across",
@@ -388,7 +928,42 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRIDDEN",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "STRIDDEN",
+    "definition": "Walked",
+    "definitionNote": "'Walked' serves as both past tense and past participle, and only the participle sense matches: you have walked, you have stridden.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' says the piece before it drops inside, landing between the two short words that follow."
+    },
+    "pieces": [
+     "ST",
+     "RID",
+     "DEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "ST",
+      "note": "street shortens to ST on any address"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to be free of something is to be rid of it"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "DEN",
+      "note": "a den is a small private room in a house"
+     }
+    ],
+    "walkthrough": "The surface reads 'roadhouse' as one word, which is the trap — road and house are clued separately, and the participle is one solvers forget exists.",
+    "definitionFit": "Walked → STRIDDEN: the past participle of stride, which is walking with long purposeful steps, so it fills the same slot after 'has'."
+   }
   },
   {
    "id": "22-down",
@@ -405,7 +980,40 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THORNY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "THORNY",
+    "definition": "hard to please",
+    "indicators": [
+     "leaderless",
+     "after"
+    ],
+    "indicatorNotes": {
+     "leaderless": "A leaderless group has lost the one at its head, so the word gives up its first letter.",
+     "after": "'After' fixes the order against the surface: the piece named first ends up behind the one named second."
+    },
+    "linkWords": [
+     "proving"
+    ],
+    "pieces": [
+     "THOR",
+     "NY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "god",
+      "gives": "THOR",
+      "note": "Thor, the Norse god of thunder"
+     },
+     {
+      "clueFragment": "Some leaderless",
+      "gives": "NY",
+      "note": "some is any, which loses the A at its head"
+     }
+    ],
+    "walkthrough": "Norse gods are crossword furniture — THOR, ODIN, LOKI all fit tight spaces. Here the god's name is laid down first even though the clue mentions him second.",
+    "definitionFit": "hard to please → THORNY: a thorny character is prickly to deal with, snagging on whatever is offered, so nothing you bring them is ever right."
+   }
   },
   {
    "id": "23-across",
@@ -422,7 +1030,29 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUTURE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUTURE",
+    "definition": "Sew up",
+    "indicators": [
+     "ruptured"
+    ],
+    "indicatorNotes": {
+     "ruptured": "A ruptured thing has burst apart, and once the letters are in pieces they can be put back in any order."
+    },
+    "anagram": {
+     "fodder": "UTERUS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "uterus",
+      "gives": "SUTURE",
+      "note": "the six letters of UTERUS, rearranged"
+     }
+    ],
+    "walkthrough": "Surgical from end to end: what ruptures is the very thing you stitch, so fodder and definition belong to one scene rather than fighting each other.",
+    "definitionFit": "Sew up → SUTURE: the surgeon's verb for stitching a wound closed, the technical word sitting under the everyday phrase."
+   }
   },
   {
    "id": "23-down",
@@ -439,7 +1069,26 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKEINS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SKEINS",
+    "definition": "networks",
+    "indicators": [
+     "to include"
+    ],
+    "indicatorNotes": {
+     "to include": "To include is to contain already, so the letters are sitting inside the words as written rather than being built."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ask Einstein",
+      "gives": "SKEINS",
+      "note": "aSK EINStein runs the letters straight through the gap between the words"
+     }
+    ],
+    "walkthrough": "A famous name is where setters like to bury things: you read Einstein as a person and never as six letters carried over from the word before.",
+    "definitionFit": "networks → SKEINS: a skein is a loose coil of yarn, and the word carries over to any tangle of interwoven lines or connections."
+   }
   },
   {
    "id": "24-across",
@@ -461,7 +1110,34 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
     ]
    },
    "solution": "COLLECTIVE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "COLLECTIVE NOUNS",
+    "definition": "Ten solutions",
+    "definitionNote": "The definition points outside its own clue: ten of this puzzle's other answers belong to the class named, so the phrase defines the answer by what the grid holds.",
+    "indicators": [
+     "may provide"
+    ],
+    "indicatorNotes": {
+     "may provide": "'May provide' offers the words that follow as raw material — they can yield something else, so they are not to be read as they stand."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "TONIC NOVEL CLUES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tonic with novel clues",
+      "gives": "COLLECTIVENOUNS",
+      "note": "the fifteen letters of TONIC, NOVEL and CLUES, rearranged"
+     }
+    ],
+    "walkthrough": "Ten of the other answers here are the crowd word for some creature — owls, crows, whales, wolves and more — which is why 'Ten solutions' is meant quite literally.",
+    "definitionFit": "Ten solutions → COLLECTIVE NOUNS: the phrase names a grammatical class, and ten answers in this grid are members of it, so the definition points at the puzzle itself."
+   }
   },
   {
    "id": "25-down",
@@ -478,7 +1154,32 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COSH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COSH",
+    "definition": "Whack",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "CO",
+     "SH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the top guy",
+      "gives": "CO",
+      "note": "the commanding officer is the man in charge of a unit"
+     },
+     {
+      "clueFragment": "stay mum",
+      "gives": "SH",
+      "note": "SH is the noise you make telling someone to keep quiet"
+     }
+    ],
+    "walkthrough": "CO for commanding officer is worth banking: it turns up whenever a clue mentions a boss, an officer or whoever is in charge.",
+    "definitionFit": "Whack → COSH: to cosh somebody is to hit them with a heavy stick or bar, so it is one particular kind of whack."
+   }
   },
   {
    "id": "26-across",
@@ -495,7 +1196,27 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PACE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PACE",
+    "definition": "Begging your permission",
+    "definition2": "tread carefully",
+    "definitionNote": "'Pace' is the Latin preposition English borrowed — pace Dr Johnson — meaning 'with all respect to', which is why a whole polite phrase defines one short word.",
+    "blocks": [
+     {
+      "clueFragment": "Begging your permission",
+      "gives": "PACE",
+      "note": "the bookish word used before disagreeing with someone, by their leave"
+     },
+     {
+      "clueFragment": "tread carefully",
+      "gives": "PACE",
+      "note": "to pace is to walk in measured, deliberate steps"
+     }
+    ],
+    "walkthrough": "Two different words share one spelling — one straight out of Latin, one plain English — which is how the clue defines it twice without repeating itself.",
+    "definitionFit": "The Latin pace begs leave before contradicting someone; the English verb means to step out a distance deliberately, one measured stride at a time."
+   }
   },
   {
    "id": "26-down",
@@ -512,7 +1233,26 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PACK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PACK",
+    "definition": "Wild Bunch",
+    "definition2": "get ready to hit the road",
+    "blocks": [
+     {
+      "clueFragment": "Wild Bunch",
+      "gives": "PACK",
+      "note": "wolves and hounds run in one"
+     },
+     {
+      "clueFragment": "get ready to hit the road",
+      "gives": "PACK",
+      "note": "filling a case is what you do before a journey"
+     }
+    ],
+    "walkthrough": "The capitals point at the western film, which is the misdirection; the wolves' word is also one of the collective nouns this grid keeps turning up.",
+    "definitionFit": "A wild bunch is what a pack of wolves running loose amounts to, and to pack is to fill your bags before setting off on a trip."
+   }
   },
   {
    "id": "27-across",
@@ -532,7 +1272,9 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "NOUNS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "24-across"
+   }
   },
   {
    "id": "28-across",
@@ -549,7 +1291,38 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INNOCENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INNOCENT",
+    "definition": "in the clear",
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "INN",
+     "O",
+     "CENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local",
+      "gives": "INN",
+      "note": "your local is the pub, an inn"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "O",
+      "note": "O is the round nothing, as written on a scoresheet"
+     },
+     {
+      "clueFragment": "cash",
+      "gives": "CENT",
+      "note": "a cent is the smallest coin of American cash"
+     }
+    ],
+    "walkthrough": "Read the back half as a sum of money — nought cents, not a bean — and the penniless regular of the surface stops getting in the way.",
+    "definitionFit": "in the clear → INNOCENT: somebody cleared of a charge is innocent of it, the courtroom verdict and the everyday phrase meaning the same thing."
+   }
   }
  ]
 } /*JSON-END*/;
