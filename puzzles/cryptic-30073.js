@@ -33,7 +33,40 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIGHTEA",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "HIGH TEA",
+    "definition": "meal",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "The Reverend Spooner swapped the opening sounds of two words, so his name is the instruction to trade them over."
+    },
+    "linkWords": [
+     "makes"
+    ],
+    "pieces": [
+     "HIGH",
+     "TEA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from Bangkok",
+      "soundsLike": "THAI",
+      "gives": "HIGH",
+      "note": "somebody from Bangkok is Thai, and the swap gives its T away and takes an H in exchange"
+     },
+     {
+      "clueFragment": "man",
+      "soundsLike": "HE",
+      "gives": "TEA",
+      "note": "a man is a he, and it collects the T that Thai has just given up"
+     }
+    ],
+    "walkthrough": "Say the plain phrase — a Thai he — and Spooner does the rest. The step to spot is that 'man' and 'from Bangkok' are two words to be sounded, not one description.",
+    "definitionFit": "meal → HIGH TEA: high tea is the substantial early-evening spread of cold meat, bread and cake, a meal in its own right rather than a cuppa."
+   }
   },
   {
    "id": "2-down",
@@ -50,7 +83,44 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRONIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "IRONIST",
+    "definition": "George Bernard Shaw?",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "Ultimately means at the very end, so it points at the last letter of the word beside it rather than the word itself."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "IRON",
+     "IS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Club",
+      "gives": "IRON",
+      "note": "an iron is the golf club, the one with the metal head"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the little verb is taken at face value, two letters straight off the page"
+     },
+     {
+      "clueFragment": "perfect",
+      "gives": "T",
+      "note": "the final letter of perfecT"
+     }
+    ],
+    "walkthrough": "Golf gives crosswords three clubs worth filing away — IRON, WOOD and PUTTER — and 'Club is' reads instead like the start of a sentence about a nightclub.",
+    "definitionFit": "George Bernard Shaw? → IRONIST: Shaw wrote plays and prefaces that say the reverse of what they mean, so he is offered as one instance of the breed."
+   }
   },
   {
    "id": "3-down",
@@ -67,7 +137,44 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HORSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + middle letter",
+    "answer": "HORSE",
+    "definition": "Mount",
+    "indicators": [
+     "capturing",
+     "the heart of"
+    ],
+    "indicatorNotes": {
+     "capturing": "To capture someone is to hold them, so the word doing the capturing closes around whatever follows.",
+     "the heart of": "The heart of a word is its middle, so only the letter at the dead centre is wanted."
+    },
+    "pieces": [
+     "H",
+     "OR",
+     "S",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "ORE",
+      "note": "ore is the rock you mine metal out of"
+     },
+     {
+      "clueFragment": "Mason",
+      "gives": "S",
+      "note": "the middle letter of MaSon"
+     }
+    ],
+    "walkthrough": "Mason Mount is a footballer, which is the whole point of the surface: his surname is doing the defining and his first name is only there to be cut down to a letter.",
+    "definitionFit": "Mount → HORSE: a mount is whatever you ride, and for a jockey or a cavalryman that is a horse, so the word names the animal by its job."
+   }
   },
   {
    "id": "4-down",
@@ -84,7 +191,37 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EUGENIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EUGENIA",
+    "definition": "Plant",
+    "indicators": [
+     "New"
+    ],
+    "indicatorNotes": {
+     "New": "Something made new is made over again, and letters made over do not come back in the order they went in."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "anagram": {
+     "fodder": "E GUINEA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the compass-point abbreviation for eastern"
+     },
+     {
+      "clueFragment": "Guinea",
+      "gives": "GUINEA",
+      "note": "the six letters that get shuffled around the E"
+     }
+    ],
+    "walkthrough": "'New Guinea' is one place on the map and two pieces of wordplay, which is the whole deception — a capital letter hides an instruction inside a proper name.",
+    "definitionFit": "Plant → EUGENIA: Eugenia is a large genus of tropical evergreen trees and shrubs in the myrtle family, named for a prince rather than a person's forename."
+   }
   },
   {
    "id": "5-across",
@@ -101,7 +238,36 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIGGER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRIGGER",
+    "definition": "cause",
+    "indicators": [
+     "defending"
+    ],
+    "indicatorNotes": {
+     "defending": "A defender stands around the thing being protected, so the defending word wraps itself about what follows."
+    },
+    "pieces": [
+     "T",
+     "R",
+     "IGGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bouncer",
+      "gives": "TIGGER",
+      "note": "Tigger is the bouncing tiger of the Hundred Acre Wood, so bouncing is what he does"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "walkthrough": "'Bouncer' suggests a nightclub doorman or a short-pitched ball, and the wordplay wants A. A. Milne instead. The definition is the last word, sitting there as a plain verb.",
+    "definitionFit": "cause → TRIGGER: to trigger an event is to set it off, the same job as causing it, and the noun keeps the sense of whatever starts something."
+   }
   },
   {
    "id": "6-down",
@@ -122,7 +288,38 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "REDRUM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "RED RUM",
+    "definition": "3",
+    "indicators": [
+     "receiving a tip"
+    ],
+    "indicatorNotes": {
+     "receiving a tip": "A tip is also a tilt, so anything that receives one has been turned over and now reads the other way."
+    },
+    "linkWords": [
+     "makes"
+    ],
+    "pieces": [
+     "REDRUM"
+    ],
+    "subReversals": [
+     {
+      "from": "MURDER",
+      "to": "REDRUM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a killing",
+      "gives": "MURDER",
+      "note": "a killing is a murder, and it is the word that gets turned over"
+     }
+    ],
+    "walkthrough": "The racing surface does two jobs at once: a tip is what you get before a bet and also a shove that turns something over. The name read backwards is the joke The Shining used.",
+    "definitionFit": "3 → RED RUM: Red Rum won three Grand Nationals in the 1970s and is the most famous steeplechaser there has been, so a bare number asks for a horse."
+   }
   },
   {
    "id": "7-down",
@@ -139,7 +336,32 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GATESHEAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GATESHEAD",
+    "definition": "Northern town",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "GATES",
+     "HEAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Billionaire",
+      "gives": "GATES",
+      "note": "Bill Gates, the Microsoft founder, is the billionaire meant"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "HEAD",
+      "note": "the head of an organisation is its boss"
+     }
+    ],
+    "walkthrough": "Two names-and-jobs in a row, both reading as ordinary words. The clue never says 'Bill', so the billionaire has to be worked out from the letters that follow him.",
+    "definitionFit": "Northern town → GATESHEAD: Gateshead sits on the south bank of the Tyne facing Newcastle, well up in the north-east of England."
+   }
   },
   {
    "id": "8-down",
@@ -160,7 +382,34 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "ELNINOS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "EL NINOS",
+    "definition": "Climatic events",
+    "indicators": [
+     "during",
+     "climbing"
+    ],
+    "indicatorNotes": {
+     "during": "During something means inside its span, so the letters are already sitting in the words and only need finding.",
+     "climbing": "This entry runs down the grid, so a piece that climbs is read from the foot of the column upwards."
+    },
+    "subReversals": [
+     {
+      "from": "SONINLE",
+      "to": "ELNINOS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "season in Lesotho",
+      "gives": "SONINLE",
+      "note": "the unbroken run seaSON IN LEsotho, before it is turned round"
+     }
+    ],
+    "walkthrough": "Lesotho is landlocked and thousands of miles from the Pacific, so the sentence reads as geography and gives no hint that it is a place to look for letters.",
+    "definitionFit": "Climatic events → EL NINOS: an El Niño is the periodic warming of the eastern Pacific that shifts rainfall and storms across half the planet."
+   }
   },
   {
    "id": "9-down",
@@ -181,7 +430,29 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "PANTOMIMEDAME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PANTOMIME DAME",
+    "definition": "cross-dresser",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Here 'about' is not 'concerning' but 'all over the place', which is where the letters end up."
+    },
+    "anagram": {
+     "fodder": "EMMA MADE POINT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Emma made point",
+      "gives": "EMMAMADEPOINT",
+      "note": "the thirteen letters that get rearranged"
+     }
+    ],
+    "walkthrough": "Thirteen letters is a lot to juggle by eye, so work from the enumeration: 9,4 with a theatrical flavour narrows it fast. 'Emma made point' is a sentence, not a description of anyone.",
+    "definitionFit": "cross-dresser → PANTOMIME DAME: the dame is always played by a man in skirts and a wig, so the costume is the whole of what the role is."
+   }
   },
   {
    "id": "10-across",
@@ -198,7 +469,34 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOUR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "FOUR",
+    "definition": "Square",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Out means gone from the word, so the letter it points at is lifted away and the rest close up behind it."
+    },
+    "pieces": [
+     "FOUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "FLOUR",
+      "note": "meal is ground grain, the sense that survives in oatmeal, and flour is what that gives"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left, and it is the letter that goes"
+     }
+    ],
+    "walkthrough": "'Square meal' is a real phrase and the setter has split it down the middle, which is why the clue reads as one idea when it is two. Neither word does what the phrase suggests.",
+    "definitionFit": "Square → FOUR: four is two multiplied by itself, the first proper square number, and crosswords use 'square' for it as a plain arithmetic label."
+   }
   },
   {
    "id": "11-across",
@@ -215,7 +513,29 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRANDSTAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GRANDSTAND",
+    "definition": "Show off",
+    "pieces": [
+     "GRAND",
+     "STAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magnificent",
+      "gives": "GRAND",
+      "note": "grand = magnificent, as in a grand house"
+     },
+     {
+      "clueFragment": "stomach",
+      "gives": "STAND",
+      "note": "to stomach something is to stand it: 'I can't stomach him', 'I can't stand him'"
+     }
+    ],
+    "walkthrough": "Both halves are verbs dressed as something else. Stomach for STAND is the harder one, and it works mainly in the negative — you rarely hear that somebody can stomach a thing.",
+    "definitionFit": "Show off → GRANDSTAND: to grandstand is to play theatrically to the crowd for effect, which is showing off with an audience in mind."
+   }
   },
   {
    "id": "12-across",
@@ -232,7 +552,36 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIDEON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "GIDEON",
+    "definition": "Christian",
+    "indicators": [
+     "finally",
+     "wrong"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally means at the finish, so it takes the last letter of the word standing in front of it.",
+     "wrong": "Letters gone wrong are letters out of their proper places, which is the licence to put them back in another arrangement."
+    },
+    "anagram": {
+     "fodder": "DOING E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "doing",
+      "gives": "DOING",
+      "note": "five of the six letters, waiting to be reordered"
+     },
+     {
+      "clueFragment": "Bale finally",
+      "gives": "E",
+      "note": "the last letter of BalE"
+     }
+    ],
+    "walkthrough": "Christian Bale is an actor and neither of his names does what it appears to: the first is the definition and the second yields a single letter.",
+    "definitionFit": "Christian → GIDEON: a Gideon is a member of the association that leaves Bibles in hotel rooms, so the answer names one particular sort of Christian."
+   }
   },
   {
    "id": "13-across",
@@ -249,7 +598,41 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRUSSING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "TRUSSING",
+    "definition": "preparing joint",
+    "indicators": [
+     "front of"
+    ],
+    "indicatorNotes": {
+     "front of": "The front of a word is the letter it begins with, so only that opening letter is taken."
+    },
+    "pieces": [
+     "TRUSS",
+     "IN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM briefly",
+      "gives": "TRUSS",
+      "note": "Liz Truss held the job for seven weeks, the shortest premiership there has been"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word in is taken straight off the page, two letters as they stand"
+     },
+     {
+      "clueFragment": "No.11",
+      "gives": "G",
+      "note": "the answer to 11 across begins with a G"
+     }
+    ],
+    "walkthrough": "'In front of' looks like one phrase saying where a piece goes, and it is really the word IN followed by an instruction. The number sends you to another clue for a single letter.",
+    "definitionFit": "preparing joint → TRUSSING: trussing is tying a bird or a joint of meat into shape with string before it goes in the oven."
+   }
   },
   {
    "id": "14-across",
@@ -270,7 +653,37 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "STUDFARMS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STUD FARMS",
+    "definition": "birthplaces of 6 and 28",
+    "indicators": [
+     "confused"
+    ],
+    "indicatorNotes": {
+     "confused": "Something confused has lost track of its own order, so the letters may be put back in any arrangement."
+    },
+    "linkWords": [
+     "showing"
+    ],
+    "anagram": {
+     "fodder": "DR FAUST MS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dr Faust",
+      "gives": "DRFAUST",
+      "note": "seven of the nine letters, taken from the name as it is written"
+     },
+     {
+      "clueFragment": "manuscript",
+      "gives": "MS",
+      "note": "MS is the standard abbreviation for a manuscript"
+     }
+    ],
+    "walkthrough": "Marlowe's doctor is a red herring and his name is only letters. The definition cannot be checked until 6 and 28 are in, so this one is easier late than early.",
+    "definitionFit": "birthplaces of 6 and 28 → STUD FARMS: racehorses are bred and foaled at stud farms, so two famous names between them point at where the sport starts."
+   }
   },
   {
    "id": "15-down",
@@ -291,7 +704,39 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
     ]
    },
    "solution": "DIGDEEPER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "DIG DEEPER",
+    "definition": "investigate more thoroughly",
+    "indicators": [
+     "heading",
+     "off"
+    ],
+    "indicatorNotes": {
+     "heading": "A word's heading is the letter it starts with, the way a column of print carries one at the top.",
+     "off": "Milk goes off and so does an arrangement of letters: off means no longer in the state it ought to be."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "PEDIGREE D"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pedigree",
+      "gives": "PEDIGREE",
+      "note": "eight of the nine letters"
+     },
+     {
+      "clueFragment": "dog’s heading",
+      "gives": "D",
+      "note": "the first letter of Dog"
+     }
+    ],
+    "walkthrough": "A pedigree dog and its heading belong to the same picture, so nothing in the surface announces that one letter is being borrowed from one word and the rest from another.",
+    "definitionFit": "investigate more thoroughly → DIG DEEPER: digging deeper is the spade metaphor English uses for going further into a question than the first answer allows."
+   }
   },
   {
    "id": "16-across",
@@ -308,7 +753,30 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENSE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SENSE",
+    "definition": "Soundness of judgement",
+    "indicators": [
+     "in speech"
+    ],
+    "indicatorNotes": {
+     "in speech": "In speech you are given the sound of a word and not its spelling, so what you write down may look nothing like it."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some change for Donald Trump",
+      "soundsLike": "CENTS",
+      "gives": "SENSE",
+      "note": "an American's loose change comes in cents rather than pence, and CENTS is what you hear"
+     }
+    ],
+    "walkthrough": "Naming a president is the setter's way of saying 'American money' without saying it, and the currency is the whole reason the coins are cents and not pennies.",
+    "definitionFit": "Soundness of judgement → SENSE: sense is the practical good judgement you credit somebody with when you say they have plenty of it."
+   }
   },
   {
    "id": "17-across",
@@ -325,7 +793,38 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOGGY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BOGGY",
+    "definition": "description of Slough",
+    "indicators": [
+     "whimsically",
+     "entertained by"
+    ],
+    "indicatorNotes": {
+     "whimsically": "Whimsically asks for the playful nursery word for the thing rather than the grown-up one.",
+     "entertained by": "To entertain a guest is to have them in the house, so the host word keeps them inside it."
+    },
+    "pieces": [
+     "BO",
+     "GG",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "youth",
+      "gives": "BOY",
+      "note": "a boy is a youth, and he is the one doing the entertaining"
+     },
+     {
+      "clueFragment": "3",
+      "gives": "GG",
+      "note": "the nursery name for a horse is a gee-gee, written as two Gs"
+     }
+    ],
+    "walkthrough": "Slough is a town in Berkshire and also an ordinary word for a patch of swamp. The capital letter belongs to the town and the definition belongs to the swamp.",
+    "definitionFit": "description of Slough → BOGGY: a slough is soft waterlogged ground, so boggy describes it exactly, with the town of the same spelling as the decoy."
+   }
   },
   {
    "id": "18-down",
@@ -342,7 +841,45 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTRICH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "OSTRICH",
+    "definition": "Bird",
+    "indicators": [
+     "not",
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "not": "Not is a plain refusal: the letters it names are the ones that will not be there.",
+     "dancing": "Dancers change places constantly, so letters set dancing end up standing somewhere new."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "CORTSHI"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "CORTSHI",
+      "gives": "OSTRICH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courtship",
+      "gives": "COURTSHIP",
+      "note": "the nine letters to start from"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "'not up' takes away the U and the P, leaving CORTSHI"
+     }
+    ],
+    "walkthrough": "Ostriches really do dance at each other in the mating season, so the surface is a plain fact about birds and gives no sign that two of its letters are about to leave.",
+    "definitionFit": "Bird → OSTRICH: the ostrich is a bird by classification even though it cannot fly, which is the small joke in defining it so flatly."
+   }
   },
   {
    "id": "19-across",
@@ -359,7 +896,29 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMACKDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SMACKDOWN",
+    "definition": "wrestling match",
+    "pieces": [
+     "SMACK",
+     "DOWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "SMACK",
+      "note": "horse and smack are both street names for heroin, so one leads across to the other"
+     },
+     {
+      "clueFragment": "D",
+      "gives": "DOWN",
+      "note": "D is how a crossword abbreviates down, written out here in full"
+     }
+    ],
+    "walkthrough": "'3D' reads as a cross-reference or as a film format and is neither: it is two separate pieces, and the second is a letter asked to spell itself out.",
+    "definitionFit": "wrestling match → SMACKDOWN: a smackdown is a bruising one-sided bout, a word professional wrestling gave to English for any decisive contest."
+   }
   },
   {
    "id": "20-down",
@@ -376,7 +935,38 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLTISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COLTISH",
+    "definition": "frisky",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "COLT",
+     "IS",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "COLT",
+      "note": "a colt is a young male horse, so the cross-reference is answered by one particular kind"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the verb is lifted off the page as two letters"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the standard abbreviation for hot, as on a tap"
+     }
+    ],
+    "walkthrough": "The surface describes a horse and the wordplay uses one, which is unusually generous: most cross-references fight the picture rather than fitting into it.",
+    "definitionFit": "frisky → COLTISH: coltish means skittish and playful in the way a young horse is, so frisky is the plain word for the same behaviour."
+   }
   },
   {
    "id": "21-down",
@@ -393,7 +983,44 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WARZONE",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "WAR ZONE",
+    "definition": "front",
+    "indicators": [
+     "containing",
+     "up"
+    ],
+    "indicatorNotes": {
+     "containing": "A container holds its contents inside, so the containing word parts company to make room.",
+     "up": "This entry runs down the grid, so a piece written up it climbs the column and arrives the other way about."
+    },
+    "pieces": [
+     "WAR",
+     "ZO",
+     "NE"
+    ],
+    "subReversals": [
+     {
+      "from": "OZ",
+      "to": "ZO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spin bowler",
+      "gives": "WARNE",
+      "note": "Shane Warne, the leg-spinner, is the bowler meant"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "OZ",
+      "note": "Oz is the familiar nickname for Australia, and it goes in climbing"
+     }
+    ],
+    "walkthrough": "Warne was Australian himself, so the sentence holds together as cricket talk while its two halves pull in different directions.",
+    "definitionFit": "front → WAR ZONE: the front is the strip of ground where the fighting actually happens, so it names one particular part of a war zone."
+   }
   },
   {
    "id": "22-down",
@@ -410,7 +1037,29 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLICKA",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FLICKA",
+    "definition": "Movie",
+    "definition2": "mustang",
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Movie",
+      "gives": "",
+      "note": "the 2006 picture of that name, with My Friend Flicka in books, film and television long before it"
+     },
+     {
+      "clueFragment": "mustang",
+      "gives": "",
+      "note": "the wild-blooded filly the story is named after"
+     }
+    ],
+    "walkthrough": "Both halves point at one title, which is the joke: the film and the horse in it share a name, so 'about' is telling the truth as well as joining the two definitions.",
+    "definitionFit": "Movie → FLICKA: the 2006 picture is called Flicka; mustang → FLICKA: the horse it follows is a wild mustang mare, so one name answers both."
+   }
   },
   {
    "id": "23-across",
@@ -427,7 +1076,38 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEEPLED",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "STEEPLED",
+    "definition": "inspired",
+    "indicators": [
+     "taking",
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "taking": "Taking something in means admitting it inside, so the first word opens up to let the second sit in it.",
+     "oddly": "Odd here counts positions rather than strangeness: the first, third and fifth letters are the ones wanted."
+    },
+    "pieces": [
+     "STEE",
+     "PLE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "STEED",
+      "note": "a steed is a horse, the mounted-knight sort"
+     },
+     {
+      "clueFragment": "pulse",
+      "gives": "PLE",
+      "note": "the odd letters of PuLsE, first, third and fifth"
+     }
+    ],
+    "walkthrough": "'Taking pulse' is a doctor's action in the surface and an instruction in the wordplay, which is the neatest thing here. The definition is a pun: read it as in-spired.",
+    "definitionFit": "inspired → STEEPLED: a steepled church has a spire in it, so 'in-spired' is the definition read as two pieces rather than as the ordinary word."
+   }
   },
   {
    "id": "24-across",
@@ -444,7 +1124,38 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIVERY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "LIVERY",
+    "definition": "uniform",
+    "indicators": [
+     "finale"
+    ],
+    "indicatorNotes": {
+     "finale": "A finale is the closing number, so the letter wanted is the one the word closes with."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "LIVER",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organ",
+      "gives": "LIVER",
+      "note": "the liver is the organ, and the largest one inside you"
+     },
+     {
+      "clueFragment": "Symphony’s",
+      "gives": "Y",
+      "note": "the last letter of SymphonY"
+     }
+    ],
+    "walkthrough": "Saint-Saëns wrote an Organ Symphony, so the two words look like one title. Splitting a real phrase across the join is this setter's favourite move; 'square meal' at 10 does the same.",
+    "definitionFit": "uniform → LIVERY: a livery is the distinctive uniform of a household's servants or a company's staff, the sense that survives in the livery companies."
+   }
   },
   {
    "id": "25-down",
@@ -461,7 +1172,39 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VISOR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "VISOR",
+    "definition": "shade",
+    "indicators": [
+     "spending"
+    ],
+    "indicatorNotes": {
+     "spending": "To spend is to part with something, so whatever is spent here is paid out of the word and gone."
+    },
+    "pieces": [
+     "VISOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Counsellor",
+      "gives": "ADVISOR",
+      "note": "an advisor is a counsellor"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the first of the two letters spent"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the standard abbreviation for day, and it is the second letter to go"
+     }
+    ],
+    "walkthrough": "Spending a day in the shade is a holiday, which is why nothing in the sentence sounds like an instruction. The two letters leave together from the front of the word.",
+    "definitionFit": "shade → VISOR: a visor is the peak or tinted panel that keeps the sun off the eyes, so 'shade' names it by the job it does."
+   }
   },
   {
    "id": "26-across",
@@ -478,7 +1221,29 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIPPOCAMPI",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HIPPOCAMPI",
+    "definition": "Bits of grey matter",
+    "definition2": "fish",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bits of grey matter",
+      "gives": "",
+      "note": "the pair of curled ridges deep in the brain that lay down memory"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "",
+      "note": "Hippocampus is also the genus of the sea horse, which is a bony fish"
+     }
+    ],
+    "walkthrough": "Read as one sentence it describes fish brains, which is a real thing and a red herring. The two halves are separate: the brain's ridges, and the sea horse they were named after.",
+    "definitionFit": "Bits of grey matter → HIPPOCAMPI: the curled memory ridges of the brain; fish → HIPPOCAMPI: the sea horses of the genus Hippocampus, which are bony fish."
+   }
   },
   {
    "id": "27-across",
@@ -495,7 +1260,33 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOE",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "SHOE",
+    "definition": "Oxford",
+    "indicators": [
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "cycling": "Cycling sends the letters round a loop: one drops off the end and rejoins at the start, the rest keeping their order."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "S",
+     "HOE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weeds",
+      "gives": "HOES",
+      "note": "to weed a border is to hoe it, so the verb weeds gives HOES"
+     }
+    ],
+    "walkthrough": "This is a rotation, not a reversal: one letter travels from the back to the front and the others hold their places. 'Weeds' as a verb rather than a noun is the other half of the trick.",
+    "definitionFit": "Oxford → SHOE: an Oxford is a low lace-up with the lacing closed at the front, one style among many, which is what the question mark concedes."
+   }
   },
   {
    "id": "28-across",
@@ -512,7 +1303,47 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHERGAR",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SHERGAR",
+    "definition": "3",
+    "indicators": [
+     "in",
+     "coming round"
+    ],
+    "indicatorNotes": {
+     "in": "In puts one word inside another, so the piece it follows takes up residence between the other's letters.",
+     "coming round": "Something that comes round has turned through half a circle and now faces the other way."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "S",
+     "HER",
+     "GAR"
+    ],
+    "subReversals": [
+     {
+      "from": "RAGS",
+      "to": "SGAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tattered clothing",
+      "gives": "RAGS",
+      "note": "rags are tattered clothing, and they come round to read SGAR"
+     },
+     {
+      "clueFragment": "That woman",
+      "gives": "HER",
+      "note": "that woman is her, and she is the one going inside"
+     }
+    ],
+    "walkthrough": "The turned word is split after a single letter, which is the hardest kind of insertion to see — the eye expects the inserted piece to sit somewhere near the middle.",
+    "definitionFit": "3 → SHERGAR: Shergar won the 1981 Derby by ten lengths and was stolen two years later, which is why this horse's name outlasted his racing."
+   }
   },
   {
    "id": "29-across",
@@ -529,7 +1360,43 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CHARGER",
+    "definition": "tray",
+    "indicators": [
+     "cut"
+    ],
+    "indicatorNotes": {
+     "cut": "A cut version of a name is a shortened one, with the end lopped off it."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "CHAR",
+     "GER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHAR",
+      "note": "char is the old slang for tea, as in a cup of char"
+     },
+     {
+      "clueFragment": "Spice Girl",
+      "gives": "GERI",
+      "note": "Geri Halliwell, Ginger Spice, is the Spice Girl"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "I",
+      "note": "the letter taken off the end of Geri, leaving GER"
+     }
+    ],
+    "walkthrough": "The tea comes second in the clue and first in the answer, so the pieces have to be assembled the other way round — 'by' only says that the two of them stand together.",
+    "definitionFit": "tray → CHARGER: a charger is the big flat dish or platter a joint is carried in on, which is a tray in the serving sense."
+   }
   }
  ]
 } /*JSON-END*/;
