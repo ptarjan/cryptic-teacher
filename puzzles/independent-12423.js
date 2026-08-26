@@ -30,7 +30,43 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROCLAIMER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "PROCLAIMER",
+    "definition": "Herald",
+    "indicators": [
+     "entering"
+    ],
+    "indicatorNotes": {
+     "entering": "whatever enters a place ends up inside it, so these letters are planted within the ones the clue names next"
+    },
+    "pieces": [
+     "PRO",
+     "C",
+     "LA",
+     "I",
+     "MER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of — a pro-hunting vote is a vote for hunting"
+     },
+     {
+      "clueFragment": "the sea in France",
+      "gives": "LA MER",
+      "note": "la mer is how the French say the sea, and it opens up in two places"
+     },
+     {
+      "clueFragment": "one hundred and one",
+      "gives": "CI",
+      "note": "a hundred is C and one is I in Roman numerals, and they go in either side of LA"
+     }
+    ],
+    "walkthrough": "'In France' is the standing signal to answer in French: the clue wants the French words themselves, not an English translation of them.",
+    "definitionFit": "Herald -> PROCLAIMER: a herald's job was to proclaim news aloud in the street, so the answer names the office by the announcing it does."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +87,29 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHEDEVIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHE-DEVIL",
+    "definition": "Not this woman",
+    "pieces": [
+     "SHED",
+     "EVIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps repent",
+      "gives": "SHED",
+      "note": "one thing repenting can perhaps mean is shedding — giving up what you have been"
+     },
+     {
+      "clueFragment": "repent",
+      "gives": "EVIL",
+      "note": "and what the penitent sheds is the evil in them"
+     }
+    ],
+    "walkthrough": "The enumeration is the tell: 3-5 breaks the two shed words in a place they never break in ordinary use, which is where the second reading appears.",
+    "definitionFit": "Not this woman -> SHE-DEVIL: a she-devil is a woman of settled malice, so the clue names her by the repentance she is never going to manage."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +126,38 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABDUCTIONS",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ABDUCTIONS",
+    "definition": "Captures",
+    "indicators": [
+     "abandoning",
+     "during"
+    ],
+    "indicatorNotes": {
+     "abandoning": "to abandon something is to walk off and leave it behind, so that letter is not in the answer at all",
+     "during": "what happens during an event happens inside it, so these letters sit in among the others"
+    },
+    "pieces": [
+     "A",
+     "BD",
+     "UCTIONS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sales",
+      "gives": "AUCTIONS",
+      "note": "auctions are sales, and the word splits open after its A"
+     },
+     {
+      "clueFragment": "bid",
+      "gives": "BD",
+      "note": "a bid that has abandoned its one — I, the Roman numeral — is left as BD"
+     }
+    ],
+    "walkthrough": "The saleroom surface does all the work: 'bid' looks like part of the auction and is really a word waiting to be docked of a letter.",
+    "definitionFit": "Captures -> ABDUCTIONS: both name the seizing of a person, though an abduction is the criminal kind, carrying someone off against their will."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +174,35 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BONK",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "BONK",
+    "definition": "Hit",
+    "indicators": [
+     "counter"
+    ],
+    "indicatorNotes": {
+     "counter": "to run counter to something is to go the opposite way, and letters sent the opposite way come out in the reverse order"
+    },
+    "pieces": [
+     "BONK"
+    ],
+    "subReversals": [
+     {
+      "from": "KNOB",
+      "to": "BONK"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "button",
+      "gives": "KNOB",
+      "note": "a knob is the button you push or turn, and it comes round the other way"
+     }
+    ],
+    "walkthrough": "'Counter' is the pivot the surface hides: it looks like the shop fitting the button sits on, and it is the word telling you which way to read.",
+    "definitionFit": "Hit -> BONK: a bonk is a light knock, usually on the head, so the answer is the comic end of the general word."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +223,41 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "DENOVO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "DE NOVO",
+    "definition": "once more",
+    "indicators": [
+     "heart"
+    ],
+    "indicatorNotes": {
+     "heart": "the heart of a word is what sits at its centre, so the outer letters are left behind and the middle is taken"
+    },
+    "pieces": [
+     "DEN",
+     "OV",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is the small room you shut yourself in to study"
+     },
+     {
+      "clueFragment": "in love",
+      "gives": "OV",
+      "note": "lOVe keeps these two at its centre"
+     },
+     {
+      "clueFragment": "with love",
+      "gives": "O",
+      "note": "love is the tennis score of nothing, written as a nought"
+     }
+    ],
+    "walkthrough": "The same word does two different jobs a breath apart: first it is a written word with a middle, then it is a tennis score.",
+    "definitionFit": "once more -> DE NOVO: the Latin tag means 'from new', and English keeps it for starting again from scratch, so it is the formal way of saying afresh."
+   }
   },
   {
    "id": "6-down",
@@ -123,7 +274,47 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAZARENE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "NAZARENE",
+    "definition": "Perhaps Jesus",
+    "indicators": [
+     "losing sides"
+    ],
+    "indicatorNotes": {
+     "losing sides": "the sides of a word are its two edges, and a word that loses them is left holding only its middle"
+    },
+    "pieces": [
+     "N",
+     "AZAR",
+     "EN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "N",
+      "note": "aNd keeps only its middle letter"
+     },
+     {
+      "clueFragment": "Hazard",
+      "gives": "AZAR",
+      "note": "hAZARd gives up the H and D at its edges"
+     },
+     {
+      "clueFragment": "sent",
+      "gives": "EN",
+      "note": "sENt is what is left once the S and T have gone"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "E",
+      "note": "nEw keeps only its middle letter"
+     }
+    ],
+    "walkthrough": "Eden Hazard was a footballer, which is the transfer story the surface is selling — and even the little word 'and' is material here, not grammar.",
+    "definitionFit": "Perhaps Jesus -> NAZARENE: a Nazarene is anyone from Nazareth, and Jesus is the famous one, so 'perhaps' flags a definition by example."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +331,37 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGED",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + deletion",
+    "answer": "AGED",
+    "definition": "past his prime",
+    "indicators": [
+     "Upcoming",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "Upcoming": "a down entry runs from the top, so anything coming up it is being read from the bottom end first",
+     "mostly": "mostly means nearly all of it, so the word arrives with its final letter missing"
+    },
+    "pieces": [
+     "AGED"
+    ],
+    "subReversals": [
+     {
+      "from": "DEGA",
+      "to": "AGED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "DEGA",
+      "note": "Degas is the crossword's stock painter, and mostly he turns up without his S"
+     }
+    ],
+    "walkthrough": "'Upcoming' is doing two jobs at once: it sounds like a career on the rise and it is the instruction that sends the letters up the grid.",
+    "definitionFit": "past his prime -> AGED: someone aged is well beyond his best years, so the phrase and the word name the same decline, one by picture and one by label."
+   }
   },
   {
    "id": "8-across",
@@ -157,7 +378,34 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROUGH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ROUGH",
+    "definition": "Unpleasant",
+    "indicators": [
+     "leaves"
+    ],
+    "indicatorNotes": {
+     "leaves": "something that leaves has gone out of the door, so those letters walk off and are not in the answer"
+    },
+    "pieces": [
+     "ROUGH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area of city",
+      "gives": "BOROUGH",
+      "note": "a borough is an administrative area of a city"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "BO",
+      "note": "BO is body odour, and it is the smell that walks out of the front of the word"
+     }
+    ],
+    "walkthrough": "'Area of city' looks like the definition and is really the word being cut down; the definition is the lone adjective at the front.",
+    "definitionFit": "Unpleasant -> ROUGH: a rough night or a rough deal is a nasty one, so the answer is the everyday word for something you would rather not have had."
+   }
   },
   {
    "id": "9-down",
@@ -178,7 +426,29 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "UBOAT",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "U-BOAT",
+    "definition": "One attacks",
+    "indicators": [
+     "occasionally"
+    ],
+    "indicatorNotes": {
+     "occasionally": "what is done occasionally happens now and then rather than throughout, so you pick up every other letter and skip the rest"
+    },
+    "pieces": [
+     "UBOAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dumb loyalty",
+      "gives": "UBOAT",
+      "note": "dUmB lOyAlTy hands over its second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "walkthrough": "The 1-4 enumeration is the way in: a single letter and then a word almost always means a letter-plus-noun name, and the hyphen falls inside the harvest.",
+    "definitionFit": "One attacks -> U-BOAT: the German submarine of both wars existed to torpedo shipping, so the definition names it by the one thing it did."
+   }
   },
   {
    "id": "10-across",
@@ -195,7 +465,36 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOOMERANG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "BOOMERANG",
+    "definition": "one coming back",
+    "indicators": [
+     "said"
+    ],
+    "indicatorNotes": {
+     "said": "said points at the ear rather than the page, so what counts is how the word sounds and not how it is spelt"
+    },
+    "pieces": [
+     "BOO",
+     "MERANG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I hate this",
+      "gives": "BOO",
+      "note": "a boo is what you shout at something you hate"
+     },
+     {
+      "clueFragment": "dessert",
+      "soundsLike": "MERINGUE",
+      "gives": "MERANG",
+      "note": "the dessert is a meringue, and a meringue said aloud comes out with none of its own spelling"
+     }
+    ],
+    "walkthrough": "The quotation marks sell a diner complaining about pudding, but 'said' is not reporting the speech — it is the flag that only the sound of the sweet matters.",
+    "definitionFit": "one coming back -> BOOMERANG: the thrown stick that returns to the hand, so the definition picks it out by the single property everybody knows it for."
+   }
   },
   {
    "id": "11-across",
@@ -217,7 +516,49 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "CLOUDCUCKOOLAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "CLOUD-CUCKOO-LAND",
+    "definition": "ideal world",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Criminal",
+     "without"
+    ],
+    "indicatorNotes": {
+     "Criminal": "a criminal is someone who will not keep to the rules, and letters keeping to no rules will not stay in the order they were given",
+     "without": "in its older sense without means outside rather than lacking, so this letter stands outside the jumble instead of joining it"
+    },
+    "anagram": {
+     "fodder": "COULD UNDO A LOCK + C"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "COULD UNDO A LOCK",
+      "gives": "LOUDCUCKOOLAND"
+     }
+    ],
+    "pieces": [
+     "C",
+     "LOUDCUCKOOLAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "C",
+      "note": "a key in music is named by a letter, and C is the plainest of them"
+     },
+     {
+      "clueFragment": "could undo a lock",
+      "gives": "LOUDCUCKOOLAND",
+      "note": "those fourteen letters come out in a completely new order"
+     }
+    ],
+    "walkthrough": "'Without' is the joint the surface hides: read as lacking it makes a burglary story, and read as outside it parks a single letter in front of everything else.",
+    "definitionFit": "ideal world -> CLOUD-CUCKOO-LAND: the birds' city in Aristophanes, borrowed by English for any scheme too perfect to be real, so calling a plan this calls it fantasy."
+   }
   },
   {
    "id": "12-across",
@@ -234,7 +575,49 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACTIVATES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + outer letters",
+    "answer": "ACTIVATES",
+    "definition": "Sparks",
+    "indicators": [
+     "back",
+     "sides"
+    ],
+    "indicatorNotes": {
+     "back": "letters told to go back run the other way, and in an across entry the other way is right to left",
+     "sides": "the sides of a word are the letters at either end of it, so the middle is dropped and only the edges are kept"
+    },
+    "pieces": [
+     "ACT I",
+     "VA",
+     "TES"
+    ],
+    "subReversals": [
+     {
+      "from": "SET",
+      "to": "TES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when Romeo meets Juliet",
+      "gives": "ACT I",
+      "note": "the two of them meet in Act I of the play"
+     },
+     {
+      "clueFragment": "sides in Verona",
+      "gives": "VA",
+      "note": "Verona is left with the V and A at its two ends"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "TES",
+      "note": "the stage set, written the other way round"
+     }
+    ],
+    "walkthrough": "Romeo and Juliet are the NATO alphabet's R and J on any other day; here they are the lovers themselves, and what you need is the act they meet in.",
+    "definitionFit": "Sparks -> ACTIVATES: to spark something off is to set it going, which is exactly what activating a device does, so the two verbs swap in that sense."
+   }
   },
   {
    "id": "13-down",
@@ -251,7 +634,29 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUNBATHERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUNBATHERS",
+    "definition": "others in his position",
+    "indicators": [
+     "at sea"
+    ],
+    "indicatorNotes": {
+     "at sea": "to be at sea is to be hopelessly muddled, and muddled letters have lost track of the order they came in"
+    },
+    "anagram": {
+     "fodder": "HE'S AS BURNT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "He’s as burnt",
+      "gives": "SUNBATHERS",
+      "note": "the ten letters of HE'S AS BURNT come round again in a new order"
+     }
+    ],
+    "walkthrough": "'At sea' is not a place in this clue but a state of confusion — and the beach it conjures up is exactly where the surface wants your eye to stay.",
+    "definitionFit": "others in his position -> SUNBATHERS: everyone else stretched out on the sand doing what he is doing, so the definition names the group by the pose they share."
+   }
   },
   {
    "id": "14-across",
@@ -268,7 +673,30 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERS",
+    "definition": "spell",
+    "definitionNote": "A spell is one stretch of bowling and the answer is plural: the setter defines the units by the single passage of play they add up to.",
+    "pieces": [
+     "OVER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I've finished speaking",
+      "gives": "OVER",
+      "note": "'over' is what a radio operator says to hand the conversation back"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "walkthrough": "Over as a radio sign-off and over as a cricketing unit are the two halves of the joke, and the clue plays one against the other.",
+    "definitionFit": "spell -> OVERS: a bowler's spell at the crease is measured out in overs, so the cricketing sense ties a passage of play to its six-ball units."
+   }
   },
   {
    "id": "15-down",
@@ -290,7 +718,23 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEALAKISS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "STEAL A KISS",
+    "definition": "How to make waxing glide and move smoothly",
+    "blocks": [
+     {
+      "clueFragment": "How to make waxing glide",
+      "note": "Read straight, this is a question about polish: floors and skis are waxed precisely so that things slip along them"
+     },
+     {
+      "clueFragment": "and move smoothly",
+      "note": "The setter means smooth in the other sense — the sly move of a charmer, made while the two of you are gliding round the floor"
+     }
+    ],
+    "walkthrough": "There is no wordplay to separate out here: the whole sentence is the joke, and 'waxing' is what does the misleading, being the beauty treatment rather than the polish.",
+    "definitionFit": "The whole clue is one wry question, and its answer is the classic smooth move — a kiss taken on the quiet is what keeps a romance gliding."
+   }
   },
   {
    "id": "16-across",
@@ -312,7 +756,25 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "MIDDLEOFNOWHERE",
-   "annotation": null
+   "annotation": {
+    "type": "middle letter",
+    "answer": "MIDDLE OF NOWHERE",
+    "definition": "off the beaten track",
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the crossword's standing abbreviation for husband"
+     },
+     {
+      "clueFragment": "Where you might find",
+      "gives": "",
+      "note": "this asks a question, and the answer is the reply to it: it says whereabouts in a word that letter is sitting"
+     }
+    ],
+    "walkthrough": "NOWHERE has seven letters with the H dead centre, so the answer is its own address — it tells you where the husband is by describing itself.",
+    "definitionFit": "off the beaten track -> MIDDLE OF NOWHERE: both phrases mean far from anywhere anyone goes, one by naming the missing road and the other the emptiness around it."
+   }
   },
   {
    "id": "17-down",
@@ -333,7 +795,45 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "DUVETDAY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "DUVET DAY",
+    "definition": "not going to work",
+    "linkWords": [
+     "it’s"
+    ],
+    "indicators": [
+     "stopping"
+    ],
+    "indicatorNotes": {
+     "stopping": "to stop a gap is to fill it, so these letters are pushed into the middle of the ones already there"
+    },
+    "pieces": [
+     "D",
+     "U",
+     "VET",
+     "DAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time to attack",
+      "gives": "D-DAY",
+      "note": "D-Day was the appointed hour for the invasion, and the word splits after its D"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation United takes in a club's name"
+     },
+     {
+      "clueFragment": "go over",
+      "gives": "VET",
+      "note": "to vet a plan is to go over it carefully"
+     }
+    ],
+    "walkthrough": "D-Day is the piece to spot: 'time to attack' is a date in 1944 before it is anything else, and the football club is there to keep you on a pitch.",
+    "definitionFit": "not going to work -> DUVET DAY: the informal name for a day spent in bed rather than at the office, so the answer nicknames the absence."
+   }
   },
   {
    "id": "18-down",
@@ -354,7 +854,41 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "WELLTHEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "WELL THEN",
+    "definition": "in that case",
+    "indicators": [
+     "to stick"
+    ],
+    "indicatorNotes": {
+     "to stick": "to stick something somewhere is to shove it in, so this letter goes inside the piece it is shoved into"
+    },
+    "pieces": [
+     "WELL",
+     "T",
+     "HEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spring",
+      "gives": "WELL",
+      "note": "a spring rising in the ground is a well"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is the chicken in the yard, and she opens up to take the T"
+     }
+    ],
+    "walkthrough": "'Spring chicken' is the trap: as a phrase it means a youngster, and the clue wants its two words prised apart and read one at a time.",
+    "definitionFit": "in that case -> WELL THEN: both are what you say to move a conversation along once a condition has been granted, so they swap over in speech."
+   }
   },
   {
    "id": "19-across",
@@ -371,7 +905,36 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REVUE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REVUE",
+    "definition": "Show",
+    "indicators": [
+     "overtaking"
+    ],
+    "indicatorNotes": {
+     "overtaking": "a car overtaking passes right around the one in front, so these letters end up with the others on both sides of them"
+    },
+    "pieces": [
+     "R",
+     "EV",
+     "UE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue something is to regret it, and RUE splits after its R"
+     },
+     {
+      "clueFragment": "Tesla, say",
+      "gives": "EV",
+      "note": "a Tesla is one make of EV, the electric vehicle"
+     }
+    ],
+    "walkthrough": "The whole surface is a stretch of road — overtaking, a Tesla — and the only word not driving anywhere is the one-word definition at the front.",
+    "definitionFit": "Show -> REVUE: a revue is a stage entertainment of sketches and songs, so the general word for the evening clues one particular form of it."
+   }
   },
   {
    "id": "20-down",
@@ -388,7 +951,35 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMETIC",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "EMETIC",
+    "definition": "it makes you sick",
+    "indicators": [
+     "to retire"
+    ],
+    "indicatorNotes": {
+     "to retire": "to retire is to withdraw the way you came, so the letters are read back along the line they arrived on"
+    },
+    "pieces": [
+     "EMETIC"
+    ],
+    "subReversals": [
+     {
+      "from": "CITE ME",
+      "to": "EMETIC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attention-seeking academic's plea",
+      "gives": "CITE ME",
+      "note": "an academic hungry for attention begs to be quoted in your footnotes: cite me"
+     }
+    ],
+    "walkthrough": "The plea is a real sentence spoken by a real academic, which is the whole joke — nothing has to be done to it except read it the other way.",
+    "definitionFit": "it makes you sick -> EMETIC: an emetic is a medicine given to bring on vomiting, so the definition is its entire purpose rather than a side effect."
+   }
   },
   {
    "id": "21-across",
@@ -409,7 +1000,45 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "SNAILMAIL",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + homophone",
+    "answer": "SNAIL MAIL",
+    "definition": "Post",
+    "indicators": [
+     "entertaining",
+     "in audience"
+    ],
+    "indicatorNotes": {
+     "entertaining": "to entertain a guest is to have them inside the house, so these letters are taken in by the ones around them",
+     "in audience": "an audience gets the sound of a word and never its spelling, so you write down what you would hear"
+    },
+    "pieces": [
+     "SN",
+     "AI",
+     "L",
+     "MAIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sketch show",
+      "gives": "SNL",
+      "note": "Saturday Night Live, the sketch show known by its initials, and it opens up before its L"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "AI",
+      "note": "A1 means top quality, and its 1 is written as the Roman numeral"
+     },
+     {
+      "clueFragment": "man",
+      "soundsLike": "MALE",
+      "gives": "MAIL",
+      "note": "a man is a male, and a male said out loud is spelt the postal way"
+     }
+    ],
+    "walkthrough": "A1 for 'great' is the piece worth banking: the numeral turns into a Roman I, which is how two letters come out of a one-syllable word.",
+    "definitionFit": "Post -> SNAIL MAIL: the joking name email gave to letters carried by hand, so the answer is the post named for how slow it looks beside a screen."
+   }
   },
   {
    "id": "22-down",
@@ -426,7 +1055,49 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABACI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + first letter",
+    "answer": "ABACI",
+    "definition": "Summers",
+    "indicators": [
+     "over",
+     "heading to"
+    ],
+    "indicatorNotes": {
+     "over": "something turned over comes out the other way up, so those letters are read in the opposite order",
+     "heading to": "the heading stands at the top of a piece of writing, so only the opening letter of the word is taken"
+    },
+    "pieces": [
+     "A",
+     "BAC",
+     "I"
+    ],
+    "subReversals": [
+     {
+      "from": "CAB",
+      "to": "BAC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ann",
+      "gives": "A",
+      "note": "the first letter of Ann"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a taxi is a cab, and it turns round"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the clue's own I, taken at face value"
+     }
+    ],
+    "walkthrough": "Ann Summers is a high-street lingerie chain, and that is the whole of the misdirection: the name has to come apart into one letter and a plural noun.",
+    "definitionFit": "Summers -> ABACI: an abacus is a machine for summing, so 'summers' names the beads-and-wire adders by the job they do, in the Latin plural."
+   }
   },
   {
    "id": "23-across",
@@ -449,7 +1120,38 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTHERIGHTTRACK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ON THE RIGHT TRACK",
+    "definition": "Set for success",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "following"
+    ],
+    "indicatorNotes": {
+     "following": "to follow is to come along behind, so this piece takes its place after the one the clue goes on to name"
+    },
+    "pieces": [
+     "ON THE RIGHT",
+     "TRACK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where Trump lies",
+      "gives": "ON THE RIGHT",
+      "note": "a politician of that stripe lies on the right of the spectrum"
+     },
+     {
+      "clueFragment": "section of record",
+      "gives": "TRACK",
+      "note": "each separate song on a record is a track"
+     }
+    ],
+    "walkthrough": "'Lies' is the pivot: the surface offers a politician telling untruths, and the wordplay wants only the direction in which he is lying down.",
+    "definitionFit": "Set for success -> ON THE RIGHT TRACK: the idiom says you are headed the way that gets you there, so it promises an outcome rather than reporting one."
+   }
   },
   {
    "id": "23-down",
@@ -466,7 +1168,34 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORGY",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal + &lit",
+    "answer": "ORGY",
+    "definition": "Some sexy group needing erection",
+    "indicators": [
+     "Some",
+     "needing erection"
+    ],
+    "indicatorNotes": {
+     "Some": "some of a thing is a part of it and not the whole, so the letters are already sitting there waiting to be lifted out",
+     "needing erection": "to erect something is to stand it up, and standing letters up in a down entry means reading them from the bottom"
+    },
+    "subReversals": [
+     {
+      "from": "YGRO",
+      "to": "ORGY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sexy group",
+      "gives": "ORGY",
+      "note": "the run of letters in sexY GROup climbs the entry and hands them over the other way round"
+     }
+    ],
+    "walkthrough": "Every word is doing two jobs at once: as English the sentence describes the answer, as instructions it points at four letters lying face down in the middle of it.",
+    "definitionFit": "The whole clue reads straight as its own definition: what is described is exactly a sexy group, and the erection it needs is the joke the letters are hiding under."
+   }
   },
   {
    "id": "24-down",
@@ -483,7 +1212,38 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IOTA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters + container",
+    "answer": "IOTA",
+    "definition": "letter",
+    "indicators": [
+     "occasionally",
+     "pens"
+    ],
+    "indicatorNotes": {
+     "occasionally": "what happens occasionally happens now and then, so you take every other letter and leave the ones between",
+     "pens": "to pen an animal is to shut it in, so this letter is kept inside the others"
+    },
+    "pieces": [
+     "I",
+     "O",
+     "TA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dirtbag",
+      "gives": "ITA",
+      "note": "dIrTbAg hands over its second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is the nothing of a tennis score, written as a nought"
+     }
+    ],
+    "walkthrough": "'Love letter' is the phrase the surface builds and the clue immediately splits: one of those words is a nought and the other is the definition.",
+    "definitionFit": "letter -> IOTA: the ninth letter of the Greek alphabet, so the plain word names it by its class — and it is the iota of 'not one iota'."
+   }
   },
   {
    "id": "25-across",
@@ -500,7 +1260,44 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLADIATOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "GLADIATOR",
+    "definition": "Fighter",
+    "indicators": [
+     "erupted"
+    ],
+    "indicatorNotes": {
+     "erupted": "an eruption throws everything up in the air, and what is thrown up in the air comes down in a different arrangement"
+    },
+    "anagram": {
+     "fodder": "GLAD + A RIOT"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "A RIOT",
+      "gives": "IATOR"
+     }
+    ],
+    "pieces": [
+     "GLAD",
+     "IATOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy",
+      "gives": "GLAD",
+      "note": "glad is the plain synonym, and it goes in unshuffled"
+     },
+     {
+      "clueFragment": "a riot",
+      "gives": "IATOR",
+      "note": "the five letters of A RIOT come out in a new order"
+     }
+    ],
+    "walkthrough": "'A riot' does double duty in the surface — the scene of chaos in the story, and five letters to be rearranged in the clue — while only the first word is definition.",
+    "definitionFit": "Fighter -> GLADIATOR: the armed man who fought for the crowd in a Roman arena, so the general word is being answered with one historical kind of it."
+   }
   },
   {
    "id": "26-across",
@@ -517,7 +1314,44 @@ window.CRYPTIC_PUZZLES["independent-12423"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXITS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "EXITS",
+    "definition": "retires",
+    "indicators": [
+     "appearing in",
+     "finally"
+    ],
+    "indicatorNotes": {
+     "appearing in": "to appear in something is to turn up inside it, so these letters end up within the ones beside them",
+     "finally": "finally points at the end of the run, so only the last letter of the word is taken"
+    },
+    "pieces": [
+     "E",
+     "XI",
+     "T",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French and",
+      "gives": "ET",
+      "note": "et is the French for and, and it splits to take the team"
+     },
+     {
+      "clueFragment": "Team",
+      "gives": "XI",
+      "note": "a side of eleven is written XI in Roman numerals"
+     },
+     {
+      "clueFragment": "Saunders finally",
+      "gives": "S",
+      "note": "the last letter of Saunders"
+     }
+    ],
+    "walkthrough": "French and Saunders are a comedy double act, and the clue splits them down the middle: one name supplies a French word, the other only its final letter.",
+    "definitionFit": "retires -> EXITS: retire in its stage sense means to withdraw and leave the scene, which is what an exit is — not the pension sense the surface offers."
+   }
   }
  ]
 } /*JSON-END*/;
