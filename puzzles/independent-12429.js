@@ -1055,7 +1055,36 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONPERSON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NON-PERSON",
+    "definition": "being ostracised",
+    "indicators": [
+     "Breaking",
+     "poor"
+    ],
+    "indicatorNotes": {
+     "Breaking": "a story that breaks arrives without warning and pushes whatever was scheduled out of its place, which is what these letters are told to do",
+     "poor": "someone in a poor way is not holding together, and letters in that state will not keep the order they came in"
+    },
+    "anagram": {
+     "fodder": "NNSPOONER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "news",
+      "gives": "NN",
+      "note": "N is the abbreviation for new, and crossword shorthand doubles a letter to make it plural, so news is two of them"
+     },
+     {
+      "clueFragment": "Spooner",
+      "gives": "SPOONER",
+      "note": "the reverend hands over the seven letters of his surname, and they go straight into the pile"
+     }
+    ],
+    "walkthrough": "Spooner is wanted for his letters, not his manner of speech: nothing here asks you to swap any initial sounds, which is the trap his name always sets.",
+    "definitionFit": "being ostracised -> NON-PERSON: someone struck off the official record and treated as never having existed, the Soviet practice Orwell wrote up as the unperson."
+   }
   },
   {
    "id": "23-down",
@@ -1173,7 +1202,27 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KENT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "definition": "County",
+    "answer": "KENT",
+    "indicators": [
+     "gossiped"
+    ],
+    "indicatorNotes": {
+     "gossiped": "gossip travels by mouth and never in writing, so the word beside it reaches you as a sound with its spelling still to be settled"
+    },
+    "blocks": [
+     {
+      "clueFragment": "clerk",
+      "soundsLike": "CLARK",
+      "gives": "KENT",
+      "note": "a clerk is said 'clark' on this side of the Atlantic, and Clark is the mild-mannered reporter of the Daily Planet whose surname goes in the grid"
+     }
+    ],
+    "walkthrough": "Half a famous name is a standing invitation to supply the other half: a setter can write Sherlock for Holmes, or a spoken Clark for this one, with no further signal.",
+    "definitionFit": "County -> KENT: an English county rather than a synonym, the south-eastern one known as the Garden of England."
+   }
   },
   {
    "id": "26-across",
