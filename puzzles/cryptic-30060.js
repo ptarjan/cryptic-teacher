@@ -29,7 +29,47 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLOATED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "BLOATED",
+    "definition": "feeling full",
+    "indicators": [
+     "Shifting",
+     "into"
+    ],
+    "indicatorNotes": {
+     "Shifting": "Something shifting has left the place it was in, and letters that leave their places are letters to rearrange.",
+     "into": "Into names a direction of travel: the rearranged letters are sent inside the next word rather than parked beside it."
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "B",
+     "LOAT",
+     "ED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "A LOT",
+      "gives": "LOAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "base",
+      "gives": "BED",
+      "note": "a bed is the base a thing rests on — a road bed, a river bed — and it splits open to take the insertion"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "LOAT",
+      "note": "the four letters of A LOT, shifted into a new order"
+     }
+    ],
+    "walkthrough": "The surface sounds like chemistry — something tipped into a base. Crosswords lean on the other sense: a bed is what a road or a river is laid on.",
+    "definitionFit": "feeling full → BLOATED: bloated is the swollen, uncomfortable state after eating too much, so the definition names the sensation rather than the shape."
+   }
   },
   {
    "id": "1-down",
@@ -50,7 +90,32 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "BUCKUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BUCK UP",
+    "definition": "Become encouraged",
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "BUCK",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dollar",
+      "gives": "BUCK",
+      "note": "a buck is a dollar"
+     },
+     {
+      "clueFragment": "gaining value",
+      "gives": "UP",
+      "note": "a currency gaining value is one that is going up"
+     }
+    ],
+    "walkthrough": "The second half is the harder half: 'gaining value' describes UP instead of naming it, which is how setters clue a bare preposition without making it obvious.",
+    "definitionFit": "Become encouraged → BUCK UP: to buck up is to take heart and cheer yourself, the intransitive sense a person does rather than has done to them."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +137,33 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONABIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ON A BIT",
+    "definition": "old?",
+    "definitionNote": "The answer is a prepositional phrase and 'old' is an adjective, so they do not swap cleanly — the setter's question mark owns up to that, and the sense only arrives inside 'getting on a bit'.",
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "ON",
+     "A BIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Performing",
+      "gives": "ON",
+      "note": "a show being performed is on"
+     },
+     {
+      "clueFragment": "one piece",
+      "gives": "A BIT",
+      "note": "a bit is one piece of something"
+     }
+    ],
+    "walkthrough": "'Performing one piece' reads as a recital, and the (2,1,3) enumeration is the tell: a one-letter middle word almost always means an everyday phrase rather than a word.",
+    "definitionFit": "old? → ON A BIT: someone getting on a bit is getting on in years, the British idiom's gentle way of saying elderly."
+   }
   },
   {
    "id": "3-down",
@@ -93,7 +184,29 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIMESARROW",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TIME’S ARROW",
+    "definition": "it always goes forward",
+    "indicators": [
+     "wriggling"
+    ],
+    "indicatorNotes": {
+     "wriggling": "A creature that wriggles will not hold a straight line, so the letters it describes will not hold their order either."
+    },
+    "anagram": {
+     "fodder": "A WORM TRIES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A worm tries",
+      "gives": "TIME’S ARROW",
+      "note": "the ten letters of A WORM TRIES rearranged"
+     }
+    ],
+    "walkthrough": "The picture the clue paints — a worm inching along, never backing up — is the very property the answer is named for, which is a rare case of fodder meaning what it makes.",
+    "definitionFit": "it always goes forward → TIME’S ARROW: Eddington's term for the one-way direction of time, the physicist's name for why the past never returns."
+   }
   },
   {
    "id": "4-down",
@@ -110,7 +223,29 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUBAI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DUBAI",
+    "definition": "capital",
+    "pieces": [
+     "DUB",
+     "AI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name",
+      "gives": "DUB",
+      "note": "to dub is to name — 'I dub thee'"
+     },
+     {
+      "clueFragment": "top class",
+      "gives": "AI",
+      "note": "A1 means first-rate, and the figure 1 is written as a capital I so it can join a word"
+     }
+    ],
+    "walkthrough": "A1 for 'top class' comes off Lloyd's shipping register, where A1 was a ship in perfect condition. It is one of the most reused scraps in cryptics — worth banking.",
+    "definitionFit": "capital → DUBAI: Dubai city is the seat of the emirate of Dubai, so the definition points at it by example rather than by synonym."
+   }
   },
   {
    "id": "5-across",
@@ -131,7 +266,30 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEARSUP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TEARS UP",
+    "definition": "Causes damage to",
+    "definition2": "gets emotional",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Causes damage to",
+      "gives": "TEARS UP",
+      "note": "to tear something up is to rip it to pieces"
+     },
+     {
+      "clueFragment": "gets emotional",
+      "gives": "TEARS UP",
+      "note": "when someone tears up, the eyes fill"
+     }
+    ],
+    "walkthrough": "The two halves are spelt identically and said differently: the ripping 'tear' rhymes with air, the weeping one with ear. Only the sense tells you which you are holding.",
+    "definitionFit": "Causes damage to → ripping something up destroys it; gets emotional → the eyes filling is tearing up, so one spelling covers two unrelated words."
+   }
   },
   {
    "id": "5-down",
@@ -148,7 +306,32 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THREESOME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THREESOME",
+    "definition": "erotic adventure",
+    "indicators": [
+     "cavorting"
+    ],
+    "indicatorNotes": {
+     "cavorting": "To cavort is to caper about with no order to it, which is exactly what the letters are being told to do."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "SEE MOTHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "See mother",
+      "gives": "THREESOME",
+      "note": "the nine letters of SEE MOTHER rearranged"
+     }
+    ],
+    "walkthrough": "The surface is a dutiful family visit and the definition is anything but — that gap is the joke, and it is what stops you looking at 'See mother' as raw material.",
+    "definitionFit": "erotic adventure → THREESOME: a threesome is sex involving three people at once, so the definition names it by the kind of encounter it is."
+   }
   },
   {
    "id": "6-down",
@@ -165,7 +348,34 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AKIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AKIN",
+    "definition": "Like",
+    "indicators": [
+     "without clothing"
+    ],
+    "indicatorNotes": {
+     "without clothing": "A word's clothing is the letters wrapped round its outside, so peeling that off leaves only what was covered up."
+    },
+    "pieces": [
+     "AKIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coming around",
+      "gives": "WAKING",
+      "note": "to come around is to regain consciousness, which is waking"
+     },
+     {
+      "clueFragment": "without clothing",
+      "gives": "AKIN",
+      "note": "strip WAKING of the W and the G at its ends and that is what is left standing"
+     }
+    ],
+    "walkthrough": "Every word of the surface is about undressing, so nothing in it sounds like an instruction. 'Coming around' is the hospital sense, not a visit to the neighbours.",
+    "definitionFit": "Like → AKIN: akin means related to or of the same kind, the sense used in 'something akin to panic', where 'like' would sit just as well."
+   }
   },
   {
    "id": "7-down",
@@ -186,7 +396,41 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "SNAKEOIL",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SNAKE OIL",
+    "definition": "Dodgy treatment",
+    "indicators": [
+     "almost",
+     "outside"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost a whole word is one letter short of it, so the last letter never arrives.",
+     "outside": "Outside puts one piece round another instead of next to it, so the ground closes over what it is holding."
+    },
+    "linkWords": [
+     "leads to"
+    ],
+    "pieces": [
+     "S",
+     "NAKE",
+     "OIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground",
+      "gives": "SOIL",
+      "note": "soil is ground, and it opens up to sit outside the rest"
+     },
+     {
+      "clueFragment": "almost bare",
+      "gives": "NAKE",
+      "note": "bare is NAKED, stopped one letter short of its D"
+     }
+    ],
+    "walkthrough": "The surface is a lawn ruined by the wrong feed; the answer is the quack medicine sold off the back of a wagon, which is why 'treatment' can mean both.",
+    "definitionFit": "Dodgy treatment → SNAKE OIL: snake oil was the fraudulent cure-all of travelling salesmen, and the phrase now names any worthless remedy sold with a straight face."
+   }
   },
   {
    "id": "8-down",
@@ -203,7 +447,37 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRESENTS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PRESENTS",
+    "definition": "gifts",
+    "indicators": [
+     "left"
+    ],
+    "indicatorNotes": {
+     "left": "Left here is the past tense of leave, not a direction — whatever it names has walked out of the word."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "PRESENTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bushes, for example",
+      "gives": "PRESIDENTS",
+      "note": "George Bush father and son were both presidents, and 'for example' says they are only an instance of what is wanted"
+     },
+     {
+      "clueFragment": "I’d",
+      "gives": "ID",
+      "note": "the contraction I'd, written out as two letters — this is what departs"
+     }
+    ],
+    "walkthrough": "The definition and the surface both stay in the garden while the wordplay is in the White House. 'For example' is the standard warning that a name stands in for its class.",
+    "definitionFit": "gifts → PRESENTS: presents are the wrapped things handed over at a birthday, a plain synonym in the noun sense rather than the verb."
+   }
   },
   {
    "id": "9-across",
@@ -220,7 +494,26 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHASM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CHASM",
+    "definition": "fissure",
+    "indicators": [
+     "Partially"
+    ],
+    "indicatorNotes": {
+     "Partially": "Partially means you are getting only a portion of what is written, so the answer sits inside these words rather than being built from them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "staunch a smoking",
+      "gives": "CHASM",
+      "note": "staunCH A SMoking — the answer runs straight across the two word joins"
+     }
+    ],
+    "walkthrough": "A smoking fissure is a volcanic vent, so the definition is doing geology while the surface does first aid. Hidden answers are the one family whose letters are already in front of you.",
+    "definitionFit": "fissure → CHASM: a chasm is a deep split in rock, so 'fissure' is the plain geological synonym with the scale turned up."
+   }
   },
   {
    "id": "10-across",
@@ -237,7 +530,42 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARRICADE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BARRICADE",
+    "definition": "Block",
+    "indicators": [
+     "involvement in"
+    ],
+    "indicatorNotes": {
+     "involvement in": "To be involved in something is to be caught up inside it, so this piece goes within the next rather than after it."
+    },
+    "pieces": [
+     "BAR",
+     "RIC",
+     "AD",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local",
+      "gives": "BAR",
+      "note": "the local is the pub, and the bar is what you drink at"
+     },
+     {
+      "clueFragment": "staple food",
+      "gives": "RICE",
+      "note": "rice is the staple food of half the world; it opens up for the insertion"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     }
+    ],
+    "walkthrough": "Nothing here sounds like an instruction — a local firm's commercial involvement in food is an ordinary news sentence. 'Local' for BAR is the British pub sense.",
+    "definitionFit": "Block → BARRICADE: a barricade is the heap thrown across a street to stop anyone through, so the definition names the obstruction by the job it does."
+   }
   },
   {
    "id": "11-across",
@@ -254,7 +582,43 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNINSPIRED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "UNINSPIRED",
+    "definition": "so dull",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "Without says a thing is missing, so whatever it names next is taken out of the word before it."
+    },
+    "linkWords": [
+     "It’s"
+    ],
+    "pieces": [
+     "UNIN",
+     "SPIRED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wedding",
+      "gives": "UNION",
+      "note": "a wedding is a union of two people"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is a circle, written O — this is the letter that goes"
+     },
+     {
+      "clueFragment": "Like church’s addition",
+      "gives": "SPIRED",
+      "note": "the addition a church carries on top is a spire, and a building with one is spired"
+     }
+    ],
+    "walkthrough": "The whole surface is a wedding — a church, an addition to it, a ring — and every piece of it is doing something else. O for 'ring' is currency you will meet weekly.",
+    "definitionFit": "so dull → UNINSPIRED: uninspired describes something made with no spark in it, dullness of the flat and lifeless kind rather than the tedious kind."
+   }
   },
   {
    "id": "12-across",
@@ -271,7 +635,27 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ERE",
+    "definition": "before in poetry",
+    "indicators": [
+     "that’s spoken of"
+    ],
+    "indicatorNotes": {
+     "that’s spoken of": "Spoken of means said rather than written, so what is wanted is the sound of the word and not its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Atmosphere",
+      "soundsLike": "AIR",
+      "gives": "ERE",
+      "note": "the atmosphere is the air, and AIR said aloud is spelt this way in verse"
+     }
+    ],
+    "walkthrough": "Three letters, and the whole clue turns on hearing. Poets keep this word alive in 'ere long' and 'ere now', which is why the definition has to say where it lives.",
+    "definitionFit": "before in poetry → ERE: ere is the archaic preposition meaning before, surviving now almost only in verse and in the phrase 'ere long'."
+   }
   },
   {
    "id": "13-down",
@@ -292,7 +676,32 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOVEHEARTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOVE HEARTS",
+    "definition": "sweet messages of endearment",
+    "linkWords": [
+     "will send"
+    ],
+    "pieces": [
+     "LOVE",
+     "HEARTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancy",
+      "gives": "LOVE",
+      "note": "to fancy someone is to love them"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "HEARTS",
+      "note": "hearts is one of the four suits in a pack of cards"
+     }
+    ],
+    "walkthrough": "The surface dresses a card player in a fancy suit. The answer is the chalky sweets stamped with BE MINE and KISS ME, so the definition is being literal about both halves.",
+    "definitionFit": "sweet messages of endearment → LOVE HEARTS: the Swizzels sweets are printed with short romantic mottoes, so the definition names the confectionery and its wording at once."
+   }
   },
   {
    "id": "14-across",
@@ -309,7 +718,23 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAPHOLOGIST",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "GRAPHOLOGIST",
+    "definition": "You must write to get her to analyse you",
+    "blocks": [
+     {
+      "clueFragment": "You must write",
+      "note": "the surface reads as an order to send a letter; what is really wanted is a sample of your handwriting"
+     },
+     {
+      "clueFragment": "to get her to analyse you",
+      "note": "the analysis is not of your mind but of the way your letters lean, loop and press on the page"
+     }
+    ],
+    "walkthrough": "There is no separable wordplay here — the sentence simply describes the job. The joke is that this is one analyst whose couch you never have to lie on.",
+    "definitionFit": "The whole clue → GRAPHOLOGIST: a graphologist reads character out of handwriting, so nothing can be analysed until you have written something down."
+   }
   },
   {
    "id": "15-down",
@@ -326,7 +751,29 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERFORATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PERFORATE",
+    "definition": "Bore",
+    "indicators": [
+     "winding up"
+    ],
+    "indicatorNotes": {
+     "winding up": "Winding something up is twisting it round, as you would a spring, so the letters end up turned about instead of left in line."
+    },
+    "anagram": {
+     "fodder": "FOR REPEAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "for repeat",
+      "gives": "PERFORATE",
+      "note": "the nine letters of FOR REPEAT rearranged"
+     }
+    ],
+    "walkthrough": "'Winding up' reads as needling somebody, which is what stops it looking like an instruction, and 'Bore' looks like a tedious person until you take it as a verb.",
+    "definitionFit": "Bore → PERFORATE: to bore is to drive a hole through something, and perforating is making holes, so the two verbs meet on the hole."
+   }
   },
   {
    "id": "16-down",
@@ -343,7 +790,41 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POIGNANT",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "POIGNANT",
+    "definition": "Moving",
+    "indicators": [
+     "occasionally",
+     "hides"
+    ],
+    "indicatorNotes": {
+     "occasionally": "Occasionally is now and then rather than all the time, so only every second letter of the word is taken.",
+     "hides": "Something hiding goes inside something else, so these letters are buried within the other word rather than set alongside it."
+    },
+    "linkWords": [
+     "where"
+    ],
+    "pieces": [
+     "POI",
+     "GNA",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "location",
+      "gives": "POINT",
+      "note": "a point is a location on a map, and it opens up to take the insertion"
+     },
+     {
+      "clueFragment": "gunman",
+      "gives": "GNA",
+      "note": "gUnMaN read every other letter, starting at the front, gives GNA"
+     }
+    ],
+    "walkthrough": "'Location where gunman occasionally hides' reads as one phrase from a police briefing, which is what keeps you from splitting it into an instruction and its material.",
+    "definitionFit": "Moving → POIGNANT: poignant is what stirs a pang of sadness, so 'moving' is being used in its emotional sense and not its physical one."
+   }
   },
   {
    "id": "17-down",
@@ -364,7 +845,32 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "SETTLEUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SETTLE UP",
+    "definition": "Pay",
+    "linkWords": [
+     "to have"
+    ],
+    "pieces": [
+     "SETTLE",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "SETTLE",
+      "note": "a settle is a long wooden bench with a high back"
+     },
+     {
+      "clueFragment": "lifted",
+      "gives": "UP",
+      "note": "anything lifted has been raised up"
+     }
+    ],
+    "walkthrough": "A settle is the high-backed bench you still find in old pubs — one of the few pieces of furniture that crosswords expect you to know by name.",
+    "definitionFit": "Pay → SETTLE UP: to settle up is to square what you owe at the end of an evening, the everyday phrase for clearing a bill."
+   }
   },
   {
    "id": "18-across",
@@ -386,7 +892,23 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONEFOURSEVEN",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ONE FOUR SEVEN",
+    "definition": "Maximum break adds up to 12",
+    "blocks": [
+     {
+      "clueFragment": "Maximum break",
+      "note": "snooker's highest possible break: fifteen reds, each followed by a black, and then all the colours"
+     },
+     {
+      "clueFragment": "adds up to 12",
+      "note": "the three digits total twelve — and so, as a second wink, do the three word lengths in the enumeration"
+     }
+    ],
+    "walkthrough": "Nothing here comes apart into letters: you need the snooker number, and the arithmetic is the setter's way of confirming you have the right one.",
+    "definitionFit": "The whole clue → ONE FOUR SEVEN: 147 is snooker's maximum break, and its digits sum to twelve, so both halves of the sentence point at the same number."
+   }
   },
   {
    "id": "19-down",
@@ -403,7 +925,41 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SARNIE",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "SARNIE",
+    "definition": "Snack",
+    "indicators": [
+     "core part of"
+    ],
+    "indicatorNotes": {
+     "core part of": "A core is what sits at the centre once the outside has gone, so each word here gives up only its centre."
+    },
+    "pieces": [
+     "SA",
+     "RN",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsafe",
+      "gives": "SA",
+      "note": "unSAfe: the middle pair, once two letters go from each end"
+     },
+     {
+      "clueFragment": "carnal",
+      "gives": "RN",
+      "note": "caRNal is treated the same way, its middle pair being RN"
+     },
+     {
+      "clueFragment": "diet",
+      "gives": "IE",
+      "note": "dIEt is shorter but built alike — one letter off each end leaves the middle pair"
+     }
+    ],
+    "walkthrough": "The surface warns you off a risky diet; the answer is the most ordinary lunch there is. Reading 'core' as an instruction rather than description is the whole step.",
+    "definitionFit": "Snack → SARNIE: sarnie is British slang for a sandwich, the shortening northerners use, and a sandwich is the standard light bite."
+   }
   },
   {
    "id": "20-down",
@@ -424,7 +980,44 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "REDHOT",
-   "annotation": null
+   "annotation": {
+    "type": "outer letters",
+    "answer": "RED HOT",
+    "definition": "very popular",
+    "indicators": [
+     "Extremely"
+    ],
+    "indicatorNotes": {
+     "Extremely": "The extremes of a word are its first and last letters, so each word here hands over only the pair at its ends."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "RE",
+     "DH",
+     "OT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare",
+      "gives": "RE",
+      "note": "the outer letters of RARE, one off each end"
+     },
+     {
+      "clueFragment": "dish",
+      "gives": "DH",
+      "note": "the outer letters of DISH"
+     },
+     {
+      "clueFragment": "opulent",
+      "gives": "OT",
+      "note": "the outer letters of OPULENT"
+     }
+    ],
+    "walkthrough": "Three words in a row all treated the same way, which is easy to miss because the surface — an extremely rare and opulent dish — reads as a single idea.",
+    "definitionFit": "very popular → RED HOT: a red-hot ticket or record is one everybody wants, the metaphor putting heat in place of demand."
+   }
   },
   {
    "id": "21-across",
@@ -441,7 +1034,34 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GUT",
+    "definition": "source from which it comes",
+    "indicators": [
+     "has no"
+    ],
+    "indicatorNotes": {
+     "has no": "Has no announces an absence, so the letter named next is simply not there when the word is written out."
+    },
+    "pieces": [
+     "GUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wind",
+      "gives": "GUST",
+      "note": "a gust is a wind"
+     },
+     {
+      "clueFragment": "singular",
+      "gives": "S",
+      "note": "s = singular in the grammar books, and it is the letter that goes"
+     }
+    ],
+    "walkthrough": "Two kinds of wind in one clue: the gust the wordplay wants, and the sort the definition is being coy about. Only the second has a source worth naming.",
+    "definitionFit": "source from which it comes → GUT: wind in the digestive sense is made in the gut, so the definition points at the organ by what it produces."
+   }
   },
   {
    "id": "22-across",
@@ -462,7 +1082,29 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOUBLEDATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOUBLE DATE",
+    "definition": "it needs to feed two couples",
+    "pieces": [
+     "DOUBLE",
+     "DATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeat",
+      "gives": "DOUBLE",
+      "note": "to double something is to repeat it"
+     },
+     {
+      "clueFragment": "take out",
+      "gives": "DATE",
+      "note": "to take somebody out is to date them"
+     }
+    ],
+    "walkthrough": "The dash does the work of a full stop: everything before it builds the answer, everything after describes it. 'Take out' looks like a takeaway and is really the romantic verb.",
+    "definitionFit": "it needs to feed two couples → DOUBLE DATE: two pairs going out together as one party, so whatever is ordered has to stretch across four people."
+   }
   },
   {
    "id": "23-down",
@@ -483,7 +1125,29 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEOFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BE OFF",
+    "definition": "Get lost",
+    "pieces": [
+     "BE",
+     "OFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to live is to be, to exist"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "OFF",
+      "note": "somebody abroad is away, off somewhere else"
+     }
+    ],
+    "walkthrough": "Both ends of the clue are things you could shout: the surface asks a mild question about living overseas, and the definition tells somebody to clear off.",
+    "definitionFit": "Get lost → BE OFF: 'be off with you' is the brisk order to go away, so the two phrases are interchangeable as rebukes."
+   }
   },
   {
    "id": "24-down",
@@ -500,7 +1164,35 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIFO",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "LIFO",
+    "definition": "used to determine the order of firing",
+    "indicators": [
+     "Initially"
+    ],
+    "indicatorNotes": {
+     "Initially": "Initially points at beginnings, so what is wanted is the opening letter of each word in the rule the clue is describing."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "L",
+     "I",
+     "F",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Initially",
+      "gives": "LIFO",
+      "note": "the rule is 'last in, first out', and taken initially — one letter per word — it comes out as L, I, F, O"
+     }
+    ],
+    "walkthrough": "'Firing' reads as gunnery and means redundancy: when jobs are cut, the newest recruits go first. You have to know the four-word rule before the initials mean anything.",
+    "definitionFit": "used to determine the order of firing → LIFO: last in, first out is the redundancy rule that sends the newest recruits away before anyone senior."
+   }
   },
   {
    "id": "25-across",
@@ -517,7 +1209,29 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMERICANO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AMERICANO",
+    "definition": "coffee",
+    "indicators": [
+     "spilt"
+    ],
+    "indicatorNotes": {
+     "spilt": "Anything spilt lands in a heap with nothing where it was, which is precisely what the letters are asked to do."
+    },
+    "anagram": {
+     "fodder": "ON CAMERA I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "On camera, I",
+      "gives": "AMERICANO",
+      "note": "the nine letters of ON CAMERA I rearranged"
+     }
+    ],
+    "walkthrough": "An anagram that swallows the clue's first three words, comma and all, is fodder hiding in plain sight — the clumsy moment on film reads as pure scene-setting.",
+    "definitionFit": "coffee → AMERICANO: an americano is espresso let down with hot water, so the definition names the drink by its family rather than its recipe."
+   }
   },
   {
    "id": "26-across",
@@ -534,7 +1248,33 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RANCH",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "RANCH",
+    "definition": "Farm",
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "A start is where a word begins, so only the opening letter of each word that follows is taken."
+    },
+    "pieces": [
+     "R",
+     "A",
+     "N",
+     "C",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rear another new cattle herd",
+      "gives": "RANCH",
+      "note": "the opening letters of Rear Another New Cattle Herd"
+     }
+    ],
+    "walkthrough": "Five words in a row give up their first letter and the sentence still reads as a plausible instruction about livestock — that smoothness is the craft in an acrostic clue.",
+    "definitionFit": "Farm → RANCH: a ranch is the American cattle farm, so the definition is the general word standing over the particular kind the clue describes."
+   }
   },
   {
    "id": "27-across",
@@ -555,7 +1295,38 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOPHOLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOP HOLE",
+    "definition": "just great",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue, a thing placed on another leans against its back, so this piece follows the other rather than leading it."
+    },
+    "linkWords": [
+     "That’s"
+    ],
+    "pieces": [
+     "TOP",
+     "HOLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jumper",
+      "gives": "TOP",
+      "note": "a jumper is a top, in the garment sense"
+     },
+     {
+      "clueFragment": "Spot",
+      "gives": "HOLE",
+      "note": "a spot and a hole are both awkward situations — in a tight spot, in a hole"
+     }
+    ],
+    "walkthrough": "The question mark admits the picture is a stretch. Both halves are wearing disguises, and it is 'on' that quietly says which way round they go.",
+    "definitionFit": "just great → TOP HOLE: top-hole is dated British slang for first-rate, the register of Bertie Wooster rather than anything said today."
+   }
   },
   {
    "id": "28-across",
@@ -572,7 +1343,36 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FASTEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FASTEST",
+    "definition": "Most secure",
+    "indicators": [
+     "abandoned leaders"
+    ],
+    "indicatorNotes": {
+     "abandoned leaders": "A leader is the letter at the front, and abandoning one means the word starts a letter later than it should."
+    },
+    "pieces": [
+     "F",
+     "AST",
+     "EST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the physicist's symbol for force, as in F = ma"
+     },
+     {
+      "clueFragment": "cold war sides abandoned leaders",
+      "gives": "ASTEST",
+      "note": "the two sides in the cold war were East and West; each drops its leading letter, leaving AST and EST"
+     }
+    ],
+    "walkthrough": "The whole surface is a history lesson, and nothing in it looks like an instruction until you notice that the cold war had exactly two sides to name.",
+    "definitionFit": "Most secure → FASTEST: fast in its older sense means firmly fixed — hold fast, stuck fast — so the most firmly fixed of all is the fastest."
+   }
   }
  ]
 } /*JSON-END*/;
