@@ -1671,6 +1671,19 @@
           ? "#abbr-" + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
           : null;
       };
+      // A block whose letters ARE the whole answer hands over the solve on the
+      // rung before the walkthrough, which is the WATCHSTRAP failure again with
+      // a different type on it: 488 of 2805 annotated clues did this, almost
+      // every hidden word and homophone and most double definitions, because
+      // for those devices one block legitimately resolves to the entire word.
+      // Suppressing it here rather than in the annotation is deliberate — the
+      // annotation should keep recording what the block gives, and no wording a
+      // future run chooses can leak it. What survives is the fragment, the
+      // sounded form and the note, so the extraction is left as the solver's
+      // move; no clue in the corpus renders fragment-only as a result.
+      const whole = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
+      const answerLetters = whole(ann.answer);
+      const givesAway = (b) => answerLetters && whole(b.gives) === answerLetters;
       const items = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
@@ -1680,7 +1693,7 @@
         // the sounded form gets its own arrow, ahead of the letters it turns
         // into, and the validator now refuses a sound clue that has none.
         if (b.soundsLike) s += ` → <span class="gives">${esc(b.soundsLike)}</span> <span class="muted">said aloud</span>`;
-        if (b.gives && !isCD) {
+        if (b.gives && !isCD && !givesAway(b)) {
           const href = glossaryHref(b);
           const gives = `<span class="gives">${esc(b.gives)}</span>`;
           s += " → " + (href

@@ -231,6 +231,40 @@ because good walkthroughs scored worse than bad ones. The walkthrough may be
 short but never absent: `ladderSteps()` always emits the rung, so an empty one is
 a labelled hole in the ladder.
 
+### A block's note must not name the answer (2026-08-25)
+The building blocks are the rung before the walkthrough, so anything written
+there is read by a learner who has deliberately not bought the solve yet. That
+makes `blocks[].note` a leak the moment it says the word: "a run-in is a quarrel
+or confrontation" for RUN-IN, "pulses are the crop family beans belong to" for
+PULSE, "the letters run straight across the gap: n(O SLO)venian" for OSLO. Write
+the note about the *fragment* instead — what "Beat" means, where the letters sit,
+which convention is in play — and let the walkthrough be the first place the
+answer is spelled. `app.js` refuses to render a `gives` that equals the answer,
+so the letters can never leak; the prose is the annotator's to keep clean.
+
+For a hidden word this is the whole lesson: pointing at the span and saying the
+letters are consecutive inside it leaves the extraction as the solver's move,
+which is the skill. Bracketing the answer out of the clue text does the move for
+them.
+
+### Anagram or insertion? Check the order before you label it (2026-08-25)
+Every insertion is also a valid anagram of the same letters, so `anagram` is the
+wrong call whenever the fodder can be assembled by putting one chunk inside
+another with both chunks' letters left in their original order. GREAT APES is not
+an anagram of GRAPES + EAT; it is GR + EAT + APES, and the setter's indicator
+(bore = drill into) says so. Test the order-preserving reading first and only
+reach for `anagram` when none exists — the mechanism the solver has to perform is
+the thing being taught, and shuffling is not the mechanism here.
+
+### An indicator that does its job loosely: say so (2026-08-25)
+The mirror of the definition rule below. When an indicator is vague, stretched or
+only conventionally understood, name the imprecision in `indicatorNotes` in those
+words. A learner who cannot find a precise instruction needs to be told the
+looseness is the setter's, not a failure of their solving. Silence reads as
+significance, which is also why a signal that carries no wordplay at all —
+capitalisation for surface effect, a quoted phrase, odd punctuation — is worth
+retiring out loud rather than leaving to be hunted.
+
 ### When the definition really doesn't agree: say so (feedback 2026-07-29)
 Sometimes the setter's definition genuinely does not match the answer's number or
 part of speech — "Lousy payment" for PEANUTS, "hearing aid" for EARPHONES, "work"

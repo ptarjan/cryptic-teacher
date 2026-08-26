@@ -847,6 +847,38 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     }
   }
 
+  // --- the letters rung never prints the whole answer as letters ---
+  // For a hidden word, a homophone or a double definition one block legitimately
+  // resolves to the entire word, so the building blocks handed the solve over one
+  // rung early on 488 clues. app.js suppresses a `gives` that equals the answer;
+  // this drives the real ladder on every clue that has such a block, rather than
+  // trusting the annotation to keep choosing safe letters.
+  {
+    const bare = (s) => (s || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+    const risky = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation || {};
+        const ans = bare(a.answer);
+        if (ans && (a.blocks || []).some((b) => bare(b.gives) === ans)) risky.push({ id, e, ans });
+      }
+    }
+    assert(risky.length, "the corpus still has a block whose letters are the whole answer");
+    for (const r of risky) {
+      openClue(r);
+      for (let i = 0; i < 8; i++) {
+        const btn = registry["hint-next"].children[0];
+        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        if (/walkthrough/i.test(btn.textContent)) break;
+        takeRung(btn);
+        const spans = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
+        const spelled = spans.find((s) => bare(s.replace(/<[^>]*>/g, "")) === r.ans);
+        assert(!spelled,
+          `${r.id} ${r.e.id} (${r.ans}): the letters rung spells the answer out before the walkthrough`);
+      }
+    }
+  }
+
   // --- a rung's name may ask its question, never answer it ---
   // The names of the rungs you have NOT bought are on screen the whole time —
   // that is how you choose one. So a name that varies with the clue type is a
