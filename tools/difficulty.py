@@ -108,7 +108,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
+from fetch_puzzle import puzzle_files, puzzle_is_annotated  # noqa: E402 — one glob for every tool
 LEXICON = ROOT / "tools" / "data" / "lexicon.tsv"
 BASELINE = ROOT / "tools" / "data" / "difficulty_baseline.json"
 # What an answer scores when the lexicon has never heard of it. Deliberately the
@@ -314,8 +314,11 @@ def device(puz):
             if 0 < len([c for c in p if c.isalpha()]) <= OPAQUE_LEN)
         costs.append(min(1.0, cost))
     # A part-annotated puzzle would report whichever clues happened to be done
-    # first, which is not a fact about the puzzle. Require most of it.
-    if len(costs) < 0.8 * len(puz["entries"]):
+    # first, which is not a fact about the puzzle. Require all of it, using the
+    # same test the index uses for its `annotated` flag: two definitions of
+    # "annotated enough" that disagree ship a band on a puzzle the site calls
+    # un-annotated, which is the one thing the band must never do.
+    if not costs or not puzzle_is_annotated(puz):
         return None
     return sum(costs) / len(costs)
 
