@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VAIN",
+    "definition": "Conceited",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'in' puts one piece bodily inside another instead of alongside it"
+    },
+    "pieces": [
+     "V",
+     "A",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bordeaux?",
+      "gives": "VIN",
+      "note": "a Bordeaux is a wine, and wine in the town it comes from is vin"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the dictionary abbreviation for America or American"
+     }
+    ],
+    "walkthrough": "Bordeaux does two jobs at once: it names the drink and it sets the language you name it in. The question mark is the setter apologising for the French.",
+    "definitionFit": "Vain means full of your own looks or worth, the conceited sense rather than the 'in vain' one meaning fruitless."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +76,56 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VLADIVOSTOK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal",
+    "answer": "VLADIVOSTOK",
+    "definition": "eastern city",
+    "indicators": [
+     "returning",
+     "to visit"
+    ],
+    "indicatorNotes": {
+     "returning": "something returning comes back over ground it has already covered, so its letters arrive in the opposite order",
+     "to visit": "a visitor goes inside the place visited, so this piece is dropped into the middle of the other"
+    },
+    "pieces": [
+     "V",
+     "LA",
+     "DIVO",
+     "ST",
+     "OK"
+    ],
+    "subReversals": [
+     {
+      "from": "OVID",
+      "to": "DIVO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fifth",
+      "gives": "V",
+      "note": "V is five in Roman numerals"
+     },
+     {
+      "clueFragment": "final",
+      "gives": "LAST",
+      "note": "the final one is the last one"
+     },
+     {
+      "clueFragment": "poet returning",
+      "gives": "DIVO",
+      "note": "Ovid is the crossword's stock poet, and he arrives backwards"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "'fine' and OK are the same shrug of approval"
+     }
+    ],
+    "walkthrough": "'Fifth and final' sounds like one phrase about a last verse and is really two separate pieces. Ovid is the setter's favourite poet because three of his four letters are vowels.",
+    "definitionFit": "Vladivostok is Russia's Pacific port, about as far east as the country reaches, so 'eastern city' places it rather than describes it."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +142,35 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INDUS",
+    "definition": "Asian runner",
+    "pieces": [
+     "IN",
+     "D",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visiting",
+      "gives": "IN",
+      "note": "someone visiting is in, the way a doctor is in"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is Germany's international car plate, for Deutschland"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the everyday short form of the country"
+     }
+    ],
+    "walkthrough": "No indicator anywhere: three pieces simply run on in clue order, which is the shape to look for when every word is a country or a preposition.",
+    "definitionFit": "The Indus runs from Tibet down through Pakistan, so 'runner' names it by what a river does and 'Asian' says which one."
+   }
   },
   {
    "id": "3-across",
@@ -86,7 +192,44 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
     ]
    },
    "solution": "ISLEOFMAN",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "ISLE OF MAN",
+    "definition": "Douglas here",
+    "indicators": [
+     "eating",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "eating": "what gets eaten ends up inside the eater, so the letters that follow go within the phrase before them",
+     "primarily": "whatever comes primarily comes at the head, so only the opening letter of each word is wanted"
+    },
+    "pieces": [
+     "ISLE",
+     "O",
+     "FM",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maintains svelte physique",
+      "gives": "ISLEAN",
+      "note": "someone who maintains a svelte physique is lean, and 'is lean' is the phrase to write out"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero is written as the round O"
+     },
+     {
+      "clueFragment": "fat meals primarily",
+      "gives": "FM",
+      "note": "the opening letters of Fat Meals"
+     }
+    ],
+    "walkthrough": "The trick is hearing 'maintains svelte physique' as words a person would say — is lean — rather than as a description of them. The whole diet surface exists to stop you doing that.",
+    "definitionFit": "Douglas is the island's capital, so 'Douglas here' defines the place by naming the town you would be standing in."
+   }
   },
   {
    "id": "4-down",
@@ -107,7 +250,44 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
     ]
    },
    "solution": "SIDEISSUES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SIDE ISSUES",
+    "definition": "related matters",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "to be repurposed",
+     "decentralisation"
+    ],
+    "indicatorNotes": {
+     "to be repurposed": "letters put to a new purpose are the same letters doing a different job, which means a different order",
+     "decentralisation": "take the centre out of each word — the middle letter of an odd one, the middle pair of an even one"
+    },
+    "anagram": {
+     "fodder": "DISUSSIESE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Discuss",
+      "gives": "DISUSS",
+      "note": "DISCUSS has seven letters, so its centre is the C, and out it comes"
+     },
+     {
+      "clueFragment": "idle",
+      "gives": "IE",
+      "note": "IDLE has an even middle, DL, and both letters go"
+     },
+     {
+      "clueFragment": "site",
+      "gives": "SE",
+      "note": "SITE loses its middle pair IT the same way"
+     }
+    ],
+    "walkthrough": "Three words are hollowed out before anything is shuffled, which is why counting the clue's letters never reaches ten. The planning-committee surface hides both steps.",
+    "definitionFit": "Side issues are the questions that come up alongside the main one — connected, but off to one side of what is actually being decided."
+   }
   },
   {
    "id": "5-down",
@@ -124,7 +304,32 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ERIN",
+    "definition": "Ireland",
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "ER",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old monarch",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, and 'old' marks her as the reign before this one"
+     },
+     {
+      "clueFragment": "trending",
+      "gives": "IN",
+      "note": "what is trending is in — in fashion, in vogue"
+     }
+    ],
+    "walkthrough": "ER is a crossword workhorse, and since the accession it needs flagging as the previous monarch: that is the job 'old' is doing, not describing an ancient king.",
+    "definitionFit": "Erin is the poetic name for Ireland, from the Irish Eirinn, the word behind the toast 'Erin go bragh'."
+   }
   },
   {
    "id": "6-down",
@@ -141,7 +346,44 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FALLOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FALLOUT",
+    "definition": "Consequences",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "F",
+     "A",
+     "L",
+     "LOUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the footnote abbreviation for following"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value as its own letter"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing label for large"
+     },
+     {
+      "clueFragment": "thug",
+      "gives": "LOUT",
+      "note": "a lout is a thug in four letters"
+     }
+    ],
+    "walkthrough": "Three single letters in a row is a shape worth recognising: 'a large' adds nothing to the picture of a thug, and words that pull no weight in the surface are usually initials.",
+    "definitionFit": "Fallout is the dust that settles after an explosion, so 'Consequences' takes the word figuratively — the mess left once something has gone off."
+   }
   },
   {
    "id": "7-down",
@@ -162,7 +404,32 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANNIEHALL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANNIE HALL",
+    "definition": "Film",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "ANNIE",
+     "HALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "ANNIE",
+      "note": "Annie, the red-haired orphan, is the musical"
+     },
+     {
+      "clueFragment": "venue",
+      "gives": "HALL",
+      "note": "a hall is where a concert is put on"
+     }
+    ],
+    "walkthrough": "'Musical venue' reads as one phrase, a place gigs happen, and is really two separate clues laid end to end. There is no indicator at all to warn you.",
+    "definitionFit": "Annie Hall is Woody Allen's 1977 romantic comedy, so 'Film' defines it by category — the answer is a title, not a description."
+   }
   },
   {
    "id": "8-across",
@@ -183,7 +450,35 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADDON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ADD-ON",
+    "definition": "Bonus",
+    "indicators": [
+     "almost"
+    ],
+    "indicatorNotes": {
+     "almost": "almost means stopping just short, so the word it governs turns up without its last letter"
+    },
+    "pieces": [
+     "AD",
+     "DON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promotion",
+      "gives": "AD",
+      "note": "an ad is a promotion"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "DON",
+      "note": "over is DONE, and this stops one letter short of the E"
+     }
+    ],
+    "walkthrough": "The enumeration (3-2) is a hint in its own right: it promises a hyphenated compound, so you are looking for two pieces rather than one five-letter word.",
+    "definitionFit": "An add-on is the extra thrown in on top of what you actually bought, which is what a bonus is — the supplement, never the main thing."
+   }
   },
   {
    "id": "9-down",
@@ -200,7 +495,34 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "NIGHT",
+    "definition": "dark period",
+    "indicators": [
+     "abandons"
+    ],
+    "indicatorNotes": {
+     "abandons": "to abandon something is to walk off and leave it behind you, so that letter is simply gone"
+    },
+    "pieces": [
+     "NIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lancelot for one",
+      "gives": "KNIGHT",
+      "note": "Lancelot is one of the Round Table's knights, and 'for one' marks him as an example"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the king on a chessboard and in a pack of cards"
+     }
+    ],
+    "walkthrough": "'King' looks like part of the Arthurian scenery and is really an abbreviation. Deciding which words of a surface are letters is most of the work in a clue like this.",
+    "definitionFit": "Night is the dark stretch between sunset and sunrise, so 'dark period' defines it by the one property that separates it from day."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +539,26 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRILLING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DRILLING",
+    "definition": "Practising",
+    "definition2": "dental work",
+    "blocks": [
+     {
+      "clueFragment": "Practising",
+      "gives": "DRILLING",
+      "note": "troops and pupils drilling are practising by repetition"
+     },
+     {
+      "clueFragment": "dental work",
+      "gives": "DRILLING",
+      "note": "the drill boring into a tooth is the dentist's own verb"
+     }
+    ],
+    "walkthrough": "Both halves are -ing words, which is what makes the seam invisible: the clue reads as one activity, a dentist rehearsing, and is really two definitions side by side.",
+    "definitionFit": "Soldiers and pupils drilling are practising by repetition, while a dentist drilling is boring into a tooth: one word, two unconnected trades."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +575,38 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSIGNIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + deletion",
+    "answer": "INSIGNIA",
+    "definition": "symbol",
+    "indicators": [
+     "Endless",
+     "rubbish",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Endless": "endless means the end is missing, so the word beside it gives up its final letter",
+     "rubbish": "rubbish is what has been thrown out and jumbled together, and letters treated that way lose their order",
+     "about": "a piece placed about another wraps round it, sitting on both sides"
+    },
+    "anagram": {
+     "fodder": "ASININIG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "asinine",
+      "gives": "ASININ",
+      "note": "asinine hands over everything but its last letter"
+     },
+     {
+      "clueFragment": "Instagram",
+      "gives": "IG",
+      "note": "IG is how Instagram is written in a handle or a hashtag"
+     }
+    ],
+    "walkthrough": "The comma after 'Endless' is the disguise. It makes the word look like a second adjective describing rubbish, when its job is to dock a letter off the word that follows.",
+    "definitionFit": "An insignia is the badge or emblem that marks rank or membership, so 'symbol' names it by the job it does."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +623,29 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOLENT",
+    "definition": "body of water",
+    "pieces": [
+     "SO",
+     "LENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "'so tired' and 'very tired' are the same intensifier"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "LENT",
+      "note": "Lent is the church's forty-day fast"
+     }
+    ],
+    "walkthrough": "'Fast' is the noun here, a stretch of going without food, not the adverb. 'Very' sitting in front of it is what pushes you towards speed.",
+    "definitionFit": "The Solent is the strait between Hampshire and the Isle of Wight, so 'body of water' names it by category rather than describing it."
+   }
   },
   {
    "id": "13-down",
@@ -268,7 +662,34 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TETRAHEDRON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TETRAHEDRON",
+    "definition": "Pyramid",
+    "indicators": [
+     "crudely"
+    ],
+    "indicatorNotes": {
+     "crudely": "work done crudely is thrown together with no care for where anything lands, which is what happens to these letters"
+    },
+    "anagram": {
+     "fodder": "TDONERATHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T Ford is the crossword's standard model"
+     },
+     {
+      "clueFragment": "done rather",
+      "gives": "DONERATHER",
+      "note": "ten letters taken exactly as they stand, to be shaken up"
+     }
+    ],
+    "walkthrough": "'Rather' is fodder rather than an adverb softening 'crudely', and that is the hard part: the sentence reads as plain English right up to the point you count the letters.",
+    "definitionFit": "A tetrahedron has four triangular faces, which is what a pyramid becomes once its base is a triangle instead of a square."
+   }
   },
   {
    "id": "14-down",
@@ -285,7 +706,45 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONVALESCE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "CONVALESCE",
+    "definition": "Rally",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "to secure"
+    ],
+    "indicatorNotes": {
+     "to secure": "to secure something is to hold it fast within your grasp, which is where these letters end up"
+    },
+    "pieces": [
+     "CO",
+     "N",
+     "V",
+     "ALESCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unite",
+      "gives": "COALESCE",
+      "note": "to coalesce is to come together into one"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V is victory, as in the V-sign and VE Day"
+     }
+    ],
+    "walkthrough": "'Rally' is the medical sense, a patient rallying, which is why it can sit next to 'unite' without either word looking more like the definition than the other.",
+    "definitionFit": "To convalesce is to regain strength after illness, and a patient who rallies is doing exactly that — winning ground back."
+   }
   },
   {
    "id": "15-across",
@@ -302,7 +761,44 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBLATES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OBLATES",
+    "definition": "religious people",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "O",
+     "B",
+     "LATE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old, as in OAP"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the bishop in chess notation"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "LATE",
+      "note": "a train running behind is running late"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the standard abbreviation for society"
+     }
+    ],
+    "walkthrough": "Three of the four pieces are single letters, and the one that is not hides behind a word you would naturally read as a position. Hunt the abbreviations first.",
+    "definitionFit": "Oblates are lay people who have offered themselves to a monastery's service, so 'religious people' names them by that dedication rather than by any order."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +819,41 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEEMARVIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "LEE MARVIN",
+    "definition": "Western actor",
+    "indicators": [
+     "playing",
+     "including"
+    ],
+    "indicatorNotes": {
+     "playing": "an actor playing a part is not himself, and letters playing at being a word are not in their own order",
+     "including": "what is included sits inside, so this pair goes within the shuffled letters rather than after them"
+    },
+    "anagram": {
+     "fodder": "EVILMENAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "evil men",
+      "gives": "EVILMEN",
+      "note": "seven letters offered up to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as its own letter"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the ballot-paper abbreviation for a Republican"
+     }
+    ],
+    "walkthrough": "'Playing evil men' is a straight description of the man's career, which is exactly why it reads as biography instead of as an instruction to rearrange.",
+    "definitionFit": "Lee Marvin starred in westerns from The Man Who Shot Liberty Valance to Cat Ballou, so 'Western actor' names him by the genre he owned."
+   }
   },
   {
    "id": "17-across",
@@ -340,7 +870,36 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTLAST",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "OUTLAST",
+    "definition": "Have more staying power than",
+    "indicators": [
+     "half-hearted"
+    ],
+    "indicatorNotes": {
+     "half-hearted": "the heart of a word is the letter at its middle, and this asks for half of that letter rather than all of it"
+    },
+    "pieces": [
+     "OUT",
+     "L",
+     "AST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social reject",
+      "gives": "OUTCAST",
+      "note": "an outcast is someone society has pushed out"
+     },
+     {
+      "clueFragment": "half-hearted",
+      "gives": "L",
+      "note": "the middle letter of OUTCAST is C, a hundred in Roman numerals, and half of a hundred is L"
+     }
+    ],
+    "walkthrough": "Roman numerals are the mechanism: because C is 100 and L is 50, one letter can be halved into another. Setters work the same trick with D and M.",
+    "definitionFit": "To outlast something is to still be standing when it has gone, which is staying power measured against a rival rather than on its own."
+   }
   },
   {
    "id": "18-across",
@@ -357,7 +916,46 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEENAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "TEENAGE",
+    "definition": "In secondary education",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "before",
+     "start of"
+    ],
+    "indicatorNotes": {
+     "before": "'before' is placing rather than timing: the pieces already named sit in front of the letter that follows",
+     "start of": "the start of a word is its opening letter, and that single letter is all this asks for"
+    },
+    "pieces": [
+     "TEE",
+     "NAG",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rest",
+      "gives": "TEE",
+      "note": "a golf ball rests on a tee, so a tee is a rest"
+     },
+     {
+      "clueFragment": "eat",
+      "gives": "NAG",
+      "note": "a worry that eats at you nags at you"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "E",
+      "note": "the opening letter of Exam"
+     }
+    ],
+    "walkthrough": "'Rest and eat' sounds like advice for the night before a paper, which is the scene the surface wants. Both words are really nouns and verbs to be swapped for others.",
+    "definitionFit": "Teenage covers thirteen to nineteen, roughly the years a pupil spends at secondary school, and the question mark admits the fit is by example."
+   }
   },
   {
    "id": "19-down",
@@ -374,7 +972,41 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARAMAIC",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "ARAMAIC",
+    "definition": "Language",
+    "indicators": [
+     "superseding"
+    ],
+    "indicatorNotes": {
+     "superseding": "to supersede is to take over the place another thing held, so one piece stands exactly where the other stood"
+    },
+    "pieces": [
+     "ARA",
+     "MA",
+     "IC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "ARABIC",
+      "note": "the other tongue named here is Arabic, Semitic and written right to left"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is the standard abbreviation for bachelor"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "MA",
+      "note": "MA is the master's degree, and it moves into the B's slot"
+     }
+    ],
+    "walkthrough": "The word 'language' appears twice and means two different tongues, one the definition and one the raw material. Degrees are a setter's favourite letter store: BA, MA, BSc.",
+    "definitionFit": "Aramaic is the Semitic tongue of the ancient Near East, the everyday speech of Jesus, so 'Language' defines it by category alone."
+   }
   },
   {
    "id": "20-across",
@@ -391,7 +1023,44 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VANILLA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VANILLA",
+    "definition": "Pedestrian",
+    "linkWords": [
+     "to meet"
+    ],
+    "indicators": [
+     "coming first"
+    ],
+    "indicatorNotes": {
+     "coming first": "whatever comes first goes at the front, ahead of everything the clue has already handed you"
+    },
+    "pieces": [
+     "VAN",
+     "ILL",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle coming first",
+      "gives": "VAN",
+      "note": "a van is the vehicle, and it leads despite being named last"
+     },
+     {
+      "clueFragment": "unlucky",
+      "gives": "ILL",
+      "note": "ill luck is bad luck, so unlucky is ill"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken at face value"
+     }
+    ],
+    "walkthrough": "'Pedestrian' is the adjective meaning dull, but the road-accident surface keeps it looking like a person on foot right up until the letters are in.",
+    "definitionFit": "Vanilla has come to mean plain and unadorned — vanilla software, vanilla sex — which is the dull sense 'pedestrian' carries."
+   }
   },
   {
    "id": "21-down",
@@ -408,7 +1077,29 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NONET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NONET",
+    "definition": "Nine",
+    "pieces": [
+     "NO",
+     "NET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only?",
+      "gives": "NO",
+      "note": "'only' rules out everything else, and what it rules out here is the other figure"
+     },
+     {
+      "clueFragment": "gross",
+      "gives": "NET",
+      "note": "a sum is quoted gross or net, so naming one denies the other"
+     }
+    ],
+    "walkthrough": "Nine gross would be 1,296 if the arithmetic were meant seriously. The question mark is there because the answer is a group of nine rather than the number itself.",
+    "definitionFit": "A nonet is nine musicians, or the piece written for them, so 'Nine' names the group the way 'eleven' names a football side."
+   }
   },
   {
    "id": "22-across",
@@ -425,7 +1116,32 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KOALAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KOALAS",
+    "definition": "indigenous Australians",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "KO",
+     "ALAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End of combat",
+      "gives": "KO",
+      "note": "a knockout ends a fight, and KO is how it is written"
+     },
+     {
+      "clueFragment": "that's unfortunate",
+      "gives": "ALAS",
+      "note": "alas is what you say when something is unfortunate"
+     }
+    ],
+    "walkthrough": "'End of combat' looks like an instruction to take one last letter, and 'indigenous Australians' points hard at people. Both readings are the setter's, and neither is the one you want.",
+    "definitionFit": "Koalas live wild only in eastern Australia, so 'indigenous Australians' is literally true of them — native, and found nowhere else on earth."
+   }
   },
   {
    "id": "23-across",
@@ -442,7 +1158,41 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELONGATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ELONGATE",
+    "definition": "Make extended",
+    "indicators": [
+     "remix of",
+     "principally lacking"
+    ],
+    "indicatorNotes": {
+     "remix of": "a remix keeps every element of the original track and puts them in a new order",
+     "principally lacking": "a word's principal letter is the one at its head, and lacking it means starting a letter late"
+    },
+    "anagram": {
+     "fodder": "ETALONGE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "metal",
+      "gives": "ETAL",
+      "note": "METAL with its leading M gone"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "ONG",
+      "note": "SONG stripped of its leading S the same way"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physicist's symbol for energy"
+     }
+    ],
+    "walkthrough": "Read 'principally lacking' as the instruction and 'energy' as one more letter for the pile. The temptation is the other way round: to take an E away and leave both words whole.",
+    "definitionFit": "To elongate is to draw something out lengthways, so 'Make extended' is the plain verb sense — stretching in length, not prolonging in time."
+   }
   },
   {
    "id": "24-down",
@@ -463,7 +1213,48 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
     ]
    },
    "solution": "ACTUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ACT UP",
+    "definition": "cause problems",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "Revolving"
+    ],
+    "indicatorNotes": {
+     "Revolving": "a thing revolving turns right round, so the letters assembled here are read back the other way"
+    },
+    "pieces": [
+     "AC",
+     "TUP"
+    ],
+    "subReversals": [
+     {
+      "from": "CA",
+      "to": "AC"
+     },
+     {
+      "from": "PUT",
+      "to": "TUP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "PUT",
+      "note": "to set something down is to put it down"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca. is short for circa, the 'about' in front of a date"
+     }
+    ],
+    "walkthrough": "'Set about' reads as one phrasal verb, starting on a job, and is really two separate pieces. Splitting it is what makes the turn possible to see.",
+    "definitionFit": "To act up is to misbehave or malfunction — a child or a gearbox acting up — which is causing trouble rather than doing anything deliberate."
+   }
   },
   {
    "id": "25-down",
@@ -480,7 +1271,36 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOSE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DOSE",
+    "definition": "quantity of medication",
+    "indicators": [
+     "taking"
+    ],
+    "indicatorNotes": {
+     "taking": "to take something in is to hold it inside you, so this letter goes within the other piece"
+    },
+    "pieces": [
+     "DO",
+     "S",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anonymous person",
+      "gives": "DOE",
+      "note": "John Doe is the name given to a man nobody can name"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size label for small"
+     }
+    ],
+    "walkthrough": "The surface is one sentence about a patient with pills, and the split falls between 'small' and 'quantity' — an awkward place, which is why the definition is hard to find.",
+    "definitionFit": "A dose is the measured amount of a drug you take at one time, so 'quantity of medication' is that definition written out longhand."
+   }
   },
   {
    "id": "26-across",
@@ -497,7 +1317,42 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVIATORS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AVIATORS",
+    "definition": "Pilots",
+    "indicators": [
+     "ignoring leader",
+     "not"
+    ],
+    "indicatorNotes": {
+     "ignoring leader": "the leader of a word is the letter at its head, and ignoring it means beginning at the second",
+     "not": "'not' cancels whatever follows it, so the letter that word stands for is taken away"
+    },
+    "pieces": [
+     "AVI",
+     "ATORS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "map readers",
+      "gives": "NAVIGATORS",
+      "note": "the ones who read the maps are the navigators"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "N",
+      "note": "the letter leading NAVIGATORS is its N"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     }
+    ],
+    "walkthrough": "The dash does a lot of quiet work: it makes 'not good' read as a judgement on the map readers rather than as a second instruction to drop a letter.",
+    "definitionFit": "An aviator is one who flies an aircraft, the older and grander word for the job, so 'Pilots' is the everyday plural synonym."
+   }
   },
   {
    "id": "27-across",
@@ -514,7 +1369,35 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TUTOR",
+    "definition": "governess",
+    "pieces": [
+     "TUT",
+     "O",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express disapproval",
+      "gives": "TUT",
+      "note": "tut is the noise you make to show disapproval"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "royal",
+      "gives": "R",
+      "note": "R is Rex or Regina, the royal signature"
+     }
+    ],
+    "walkthrough": "'Over' is not doing anything directional here — it is the cricketing abbreviation, which is why the three pieces simply run on in the order the clue gives them.",
+    "definitionFit": "A governess is a private tutor living with the family, so the question mark admits the definition names one kind of tutor rather than all of them."
+   }
   },
   {
    "id": "28-across",
@@ -531,7 +1414,44 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNACKERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KNACKERED",
+    "definition": "exhausted",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "stalking"
+    ],
+    "indicatorNotes": {
+     "stalking": "to stalk someone is to follow at their back, so these pieces settle behind the piece they are stalking"
+    },
+    "pieces": [
+     "KNACK",
+     "ER",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ability",
+      "gives": "KNACK",
+      "note": "a knack is the ability to do something easily"
+     },
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "ER",
+      "note": "er is the noise of someone who is not sure"
+     },
+     {
+      "clueFragment": "journalist's",
+      "gives": "ED",
+      "note": "the journalist is the editor, ED"
+     }
+    ],
+    "walkthrough": "'Ability is exhausted' reads as one idea, a talent run dry, and that is what stops you cutting the clue at its last word, where the definition actually starts.",
+    "definitionFit": "Knackered is British slang for worn out, from the knacker's yard where spent horses ended up, so 'exhausted' is the same idea in polite register."
+   }
   },
   {
    "id": "29-across",
@@ -548,7 +1468,27 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "UPON",
+    "definition": "Familiar with",
+    "definition2": "riding",
+    "blocks": [
+     {
+      "clueFragment": "Familiar with",
+      "gives": "UPON",
+      "note": "someone up on a subject is familiar with it"
+     },
+     {
+      "clueFragment": "riding",
+      "gives": "UPON",
+      "note": "a rider sits upon the horse"
+     }
+    ],
+    "definitionNote": "'Riding' is a verb and UPON a preposition, so the two do not swap cleanly: the question mark covers the stretch, since you ride by sitting upon the animal.",
+    "walkthrough": "The enumeration says one word and the first definition wants two, up on. Those four letters reading either way is the whole of the joke.",
+    "definitionFit": "Up on the news means familiar with it, while a rider sits upon a horse: the same four letters, spaced in one sense and closed in the other."
+   }
   }
  ]
 } /*JSON-END*/;
