@@ -30,7 +30,47 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCREASINGLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "INCREASINGLY",
+    "definition": "More and more",
+    "indicators": [
+     "processed"
+    ],
+    "indicatorNotes": {
+     "processed": "Something processed has been through the machinery and comes out reordered, so these letters do not keep the arrangement they arrive in."
+    },
+    "pieces": [
+     "IN",
+     "CREA",
+     "SINGLY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RACE",
+      "gives": "CREA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entered",
+      "gives": "IN",
+      "note": "to be entered for something is to be in it"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "CREA",
+      "note": "the four letters of the contest, coming out of the machine in a different order"
+     },
+     {
+      "clueFragment": "one by one",
+      "gives": "SINGLY",
+      "note": "doing things one by one is doing them singly"
+     }
+    ],
+    "walkthrough": "'Entered for' does two jobs at once: on the surface it signs the runners up, and in the wordplay it hands over a preposition and then a contest to be jumbled.",
+    "definitionFit": "More and more → INCREASINGLY: the adverb describes something happening to a greater degree each time round, which is exactly what saying 'more and more' does."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +87,34 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INGOT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "INGOT",
+    "definition": "Cast bar",
+    "indicators": [
+     "scorning"
+    ],
+    "indicatorNotes": {
+     "scorning": "To scorn something is to reject it and want no part of it, so the letters it names are turned out."
+    },
+    "pieces": [
+     "INGOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where Batman can be found",
+      "gives": "IN GOTHAM",
+      "note": "the caped crusader patrols one particular city, and the wordplay puts him in it"
+     },
+     {
+      "clueFragment": "bad acting",
+      "gives": "HAM",
+      "note": "an actor who lays it on far too thick is a ham"
+     }
+    ],
+    "walkthrough": "'Bad acting' is the piece to spot: three letters that come out of the city and leave the metal behind. The surface sounds like a critic sneering at a superhero film.",
+    "definitionFit": "Cast bar → INGOT: metal poured molten into a mould and left to set comes out as a block or bar of exactly that shape."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +131,36 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CABARET",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CABARET",
+    "definition": "acts at club",
+    "indicators": [
+     "bored by"
+    ],
+    "indicatorNotes": {
+     "bored by": "To bore is to drill a hole into something, so the word named next is driven into the middle of the one before it."
+    },
+    "pieces": [
+     "CA",
+     "BARE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jazz fan",
+      "gives": "CAT",
+      "note": "a cat is the hip word for a jazz player or devotee"
+     },
+     {
+      "clueFragment": "plain",
+      "gives": "BARE",
+      "note": "a bare wall and a plain wall are the same undecorated thing"
+     }
+    ],
+    "walkthrough": "Beat-era slang does the work: 'cat' for a jazz enthusiast is worth banking, because setters reach for it whenever jazz turns up in a surface.",
+    "definitionFit": "acts at club → CABARET: cabaret is the floor show of songs and turns laid on in a nightclub, so it names the entertainment rather than the venue."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +181,34 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
     ]
    },
    "solution": "EDINBURGHCASTLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EDINBURGH CASTLE",
+    "definition": "Scots keep",
+    "indicators": [
+     "running"
+    ],
+    "indicatorNotes": {
+     "running": "Ink or dye that is running will not stay where it was put, and neither will these letters."
+    },
+    "anagram": {
+     "fodder": "RED SEA NIGHTCLUB"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Red Sea",
+      "gives": "RED SEA",
+      "note": "six letters taken exactly as they stand"
+     },
+     {
+      "clueFragment": "nightclub",
+      "gives": "NIGHTCLUB",
+      "note": "nine more, straight off the page and into the mix"
+     }
+    ],
+    "walkthrough": "There is no Red Sea nightclub to picture — the phrase exists to be taken apart. 'Scots keep' reads as a nation hanging on to something and means a stronghold.",
+    "definitionFit": "Scots keep → EDINBURGH CASTLE: a keep is a fortress's strongpoint, and this is by example — the one on the rock above Scotland's capital."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +225,44 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SASSENACH",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SASSENACH",
+    "definition": "Englishman there",
+    "indicators": [
+     "around",
+     "entertained by"
+    ],
+    "indicatorNotes": {
+     "around": "What is sent around comes back facing the way it came from, so this piece is read from its far end.",
+     "entertained by": "To entertain a guest is to have them inside your house, so one word takes the other in."
+    },
+    "pieces": [
+     "SAS",
+     "SENAC",
+     "H"
+    ],
+    "subReversals": [
+     {
+      "from": "CANES",
+      "to": "SENAC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "SASH",
+      "note": "a sash is the band of cloth worn across the chest"
+     },
+     {
+      "clueFragment": "sticks",
+      "gives": "SENAC",
+      "note": "sticks you walk with are canes, and they arrive written the other way round"
+     }
+    ],
+    "walkthrough": "The row of dots carries 'there' back to the previous answer, so 'there' is Scotland — and the word is what a Scot calls a visitor from south of the border.",
+    "definitionFit": "Englishman there → SASSENACH: Sassenach is the Scots word, from 'Saxon', for someone English, and the ellipsis puts 'there' north of the border."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +279,43 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAMES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "NAMES",
+    "definition": "big cheeses",
+    "indicators": [
+     "Nearly all",
+     "rolling"
+    ],
+    "indicatorNotes": {
+     "Nearly all": "Nearly all of a word is every letter but one, and the one given up here is the last.",
+     "rolling": "A rolling barrel comes over end for end, so the assembled letters finish up facing the other way."
+    },
+    "pieces": [
+     "NAM",
+     "ES"
+    ],
+    "subReversals": [
+     {
+      "from": "SEMAN",
+      "to": "NAMES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "SE",
+      "note": "to notice something is to see it, and the last of those three letters is given up"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "MAN",
+      "note": "a guy is a man, the everyday sense of the word"
+     }
+    ],
+    "walkthrough": "Two small pieces are assembled and only then turned over, which is the order to keep straight. 'Big cheeses' is the tip-off that the answer is about people.",
+    "definitionFit": "big cheeses → NAMES: a name is somebody famous — 'a big name in publishing' — so the plural does for the top brass that slang calls big cheeses."
+   }
   },
   {
    "id": "6-down",
@@ -142,7 +338,34 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
     ]
    },
    "solution": "LASTBUTNOTLEAST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LAST BUT NOT LEAST",
+    "definition": "ultimately significant?",
+    "indicators": [
+     "Mixture of"
+    ],
+    "indicatorNotes": {
+     "Mixture of": "A mixture is what you get when things are stirred together and nothing keeps the place it started in."
+    },
+    "anagram": {
+     "fodder": "TABLE SALT TO NUTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "table salt",
+      "gives": "TABLE SALT",
+      "note": "nine letters taken as they stand"
+     },
+     {
+      "clueFragment": "to nuts",
+      "gives": "TO NUTS",
+      "note": "six more, the little word swept into the mix as well"
+     }
+    ],
+    "walkthrough": "The definition splits neatly in two: 'ultimately' is the coming-last half and 'significant' the not-being-least half, so the phrase answers it word for word.",
+    "definitionFit": "ultimately significant? → LAST BUT NOT LEAST: the phrase tacked on to a final name to insist that coming last says nothing about importance."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +382,41 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SATURN",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "SATURN",
+    "definition": "Orbiting body",
+    "indicators": [
+     "spinning"
+    ],
+    "indicatorNotes": {
+     "spinning": "Something set spinning comes round to face the way it came from, so those two letters are read backwards."
+    },
+    "pieces": [
+     "SA",
+     "TURN"
+    ],
+    "subReversals": [
+     {
+      "from": "AS",
+      "to": "SA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "SA",
+      "note": "'like' is AS, and here it is written the other way about"
+     },
+     {
+      "clueFragment": "wheel",
+      "gives": "TURN",
+      "note": "to wheel round and to turn are the same movement"
+     }
+    ],
+    "walkthrough": "Two-letter words hiding in plain sight are a setter's favourite: 'like' belongs to a small set (as, so, qua) that hands over letters without ever looking like wordplay.",
+    "definitionFit": "Orbiting body → SATURN: definition by example — the ringed sixth planet is one particular body going round the sun, not a general word for one."
+   }
   },
   {
    "id": "8-down",
@@ -180,7 +437,35 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
     ]
    },
    "solution": "HARDCASH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HARD CASH",
+    "definition": "ATM ejecting it?",
+    "definitionNote": "The setter defines by what the machine hands you rather than by a synonym, with 'it' standing in for the answer — a description rather than a substitute.",
+    "indicators": [
+     "Plastic"
+    ],
+    "indicatorNotes": {
+     "Plastic": "Plastic means mouldable: a plastic material can be pushed into any shape at all, and so can these letters."
+    },
+    "anagram": {
+     "fodder": "CARD HASH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "card",
+      "gives": "CARD",
+      "note": "four letters taken as they stand"
+     },
+     {
+      "clueFragment": "mess",
+      "gives": "HASH",
+      "note": "to make a hash of something is to make a mess of it"
+     }
+    ],
+    "walkthrough": "The joke is that plastic is the opposite of what the slot spits out, and 'Plastic card' looks like one phrase when it is really an instruction followed by its material.",
+    "definitionFit": "ATM ejecting it? → HARD CASH: notes and coins as against payment by card, which is precisely what a cash machine exists to hand over."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +482,42 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUBBINS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "GUBBINS",
+    "definition": "device",
+    "definitionNote": "The answer ends in -s but is not a plural: it takes a singular verb and names one gadget or one lot of stuff, so a singular definition is right.",
+    "indicators": [
+     "Return of"
+    ],
+    "indicatorNotes": {
+     "Return of": "What returns comes back the way it went, so the letters named next arrive in the opposite order."
+    },
+    "pieces": [
+     "GUB",
+     "BINS"
+    ],
+    "subReversals": [
+     {
+      "from": "BUG",
+      "to": "GUB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad code",
+      "gives": "GUB",
+      "note": "a fault in a program is a bug, and it comes back to front"
+     },
+     {
+      "clueFragment": "trashes",
+      "gives": "BINS",
+      "note": "to bin something is to trash it"
+     }
+    ],
+    "walkthrough": "Reading 'bad code' as one idea rather than two words is the step that opens the clue; the surface is a virus wrecking the hardware.",
+    "definitionFit": "device → GUBBINS: gubbins is British slang for a gadget or bit of kit whose proper name escapes you, the thingummy end of 'device'."
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +534,41 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASCARA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "MASCARA",
+    "definition": "Hair thickener",
+    "indicators": [
+     "brought into"
+    ],
+    "indicatorNotes": {
+     "brought into": "Bringing somebody into a group puts them inside it, so this piece lands between the letters already in place."
+    },
+    "pieces": [
+     "MA",
+     "SCAR",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "support group",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous is the support group a setter means"
+     },
+     {
+      "clueFragment": "Cliff",
+      "gives": "SCAR",
+      "note": "a scar is a bare rock face on a hillside, and the capital letter is a red herring"
+     }
+    ],
+    "walkthrough": "Both halves of the surface mislead: the capital makes you think of the singer, and 'male support group' sounds like a men's club rather than a letter and a meeting.",
+    "definitionFit": "Hair thickener → MASCARA: brushed onto eyelashes it coats each one to look darker and fuller, and lashes are hair, so the definition is literal."
+   }
   },
   {
    "id": "11-across",
@@ -231,7 +585,29 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THROB",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THROB",
+    "definition": "Strong beat",
+    "pieces": [
+     "THRO",
+     "B"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "via",
+      "gives": "THRO",
+      "note": "going via a place is going through it, and 'thro'' is the old contraction of that"
+     },
+     {
+      "clueFragment": "bass",
+      "gives": "B",
+      "note": "B is the abbreviation for bass on a score or an amplifier"
+     }
+    ],
+    "walkthrough": "Nothing tells you to shorten anything: 'thro'' is simply an accepted spelling, one of the poetic contractions (o'er, e'en) that setters treat as ordinary words.",
+    "definitionFit": "Strong beat → THROB: a throb is the deep insistent pulse you feel in a wound or hear in a bass line, a beat with force behind it."
+   }
   },
   {
    "id": "12-across",
@@ -248,7 +624,42 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASTBOUND",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EASTBOUND",
+    "definition": "making move towards China?",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "A coat worn about the shoulders goes round them, so the letter named next is wrapped inside rather than added on."
+    },
+    "pieces": [
+     "E",
+     "AST",
+     "B",
+     "OUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "surprise",
+      "gives": "ASTOUND",
+      "note": "to astound somebody is to surprise them thoroughly, and this word opens up"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "walkthrough": "The question mark is the setter admitting that heading east is not specifically heading for China — it is one destination out of many in that direction.",
+    "definitionFit": "making move towards China? → EASTBOUND: an eastbound train is one heading east, and from Britain China lies that way, so the country stands as an example."
+   }
   },
   {
    "id": "13-across",
@@ -265,7 +676,47 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WATERMARK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WATERMARK",
+    "definition": "Figure on banknote",
+    "pieces": [
+     "WA",
+     "TERM",
+     "A",
+     "R",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "WA is the postal abbreviation for the American state"
+     },
+     {
+      "clueFragment": "designate",
+      "gives": "TERM",
+      "note": "to term something is to designate it by a name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as it stands"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the king on a chessboard and in a pack of cards"
+     }
+    ],
+    "walkthrough": "The surface sets up the dollar bill and its president, but Washington is only two letters here — the state, not the man — and the rest is a run of small conventions.",
+    "definitionFit": "Figure on banknote → WATERMARK: the shadowy portrait that appears when a note is held to the light is pressed into the paper itself as a security mark."
+   }
   },
   {
    "id": "13-down",
@@ -286,7 +737,35 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHATELSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WHAT ELSE",
+    "definition": "that's inevitable",
+    "pieces": [
+     "W",
+     "HATE",
+     "LSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women",
+      "gives": "W",
+      "note": "W is the abbreviation for women, as on a door"
+     },
+     {
+      "clueFragment": "can't stand",
+      "gives": "HATE",
+      "note": "if you can't stand something, you hate it"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "LSE",
+      "note": "the London School of Economics, whose initials setters lean on constantly"
+     }
+    ],
+    "walkthrough": "Said as a rhetorical question rather than a statement, the answer is a shrug: of course that happened. The surface pretends it is a complaint about student life.",
+    "definitionFit": "that's inevitable → WHAT ELSE: asked rhetorically, 'what else?' says no other outcome was ever available, which is another way of calling something inevitable."
+   }
   },
   {
    "id": "14-down",
@@ -307,7 +786,39 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
     ]
    },
    "solution": "KAMASUTRA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "KAMA SUTRA",
+    "definition": "Adult guide",
+    "indicators": [
+     "reviewed"
+    ],
+    "indicatorNotes": {
+     "reviewed": "To review something is to look at it again and rework it, and the reworking here leaves the letters in a different order."
+    },
+    "anagram": {
+     "fodder": "AMTRAK USA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Amtrak",
+      "gives": "AMTRAK",
+      "note": "the American passenger rail company, six letters taken as they stand"
+     },
+     {
+      "clueFragment": "northern America",
+      "gives": "USA",
+      "note": "the northern portion of the Americas is the States, and its three letters join the mix"
+     },
+     {
+      "clueFragment": "when crossing",
+      "gives": "",
+      "note": "surface only: what the trains do to the country, and it adds no letters"
+     }
+    ],
+    "walkthrough": "'Adult guide' is a shop-shelf euphemism rather than a description of a manual, and the railway and the country are in the clue only for the letters they carry.",
+    "definitionFit": "Adult guide → KAMA SUTRA: the ancient Sanskrit text is a manual of love and sex, so 'adult' is the bookshop euphemism and 'guide' its instruction-book form."
+   }
   },
   {
    "id": "15-across",
@@ -324,7 +835,26 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TONGA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TONGA",
+    "definition": "Indian's cart",
+    "indicators": [
+     "bridges"
+    ],
+    "indicatorNotes": {
+     "bridges": "A bridge runs from one bank to the other, so what is wanted spans the gaps between words instead of sitting inside one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "excellent on Ganges'",
+      "gives": "TONGA",
+      "note": "five letters in a row that start inside the first word and finish inside the third"
+     }
+    ],
+    "walkthrough": "Everything in the surface is scenery — a bargain, a river, a bridge — and the answer, a cart you hire outside an Indian station, sits in the middle of it untouched.",
+    "definitionFit": "Indian's cart → TONGA: a tonga is the light two-wheeled horse-drawn carriage of the Indian subcontinent, the word borrowed straight from Hindi."
+   }
   },
   {
    "id": "16-across",
@@ -341,7 +871,28 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWASH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "AWASH",
+    "definition": "barely sticking out of the water",
+    "indicators": [
+     "Receding",
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "Receding": "A receding tide runs back the way it came, so the letters wanted are read from the far end towards the near one.",
+     "somewhat": "Somewhat means a part and not the whole, so only a short run inside these words is being pointed at."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Noah saw Ararat",
+      "gives": "AWASH",
+      "note": "a run of five letters lies across the joins here, written in the opposite direction"
+     }
+    ],
+    "walkthrough": "All the Genesis furniture is what makes the letters hard to see: the flood is scenery, and the answer is lying backwards underneath it.",
+    "definitionFit": "barely sticking out of the water → AWASH: something awash is level with the surface, water washing over it rather than standing clear of it."
+   }
   },
   {
    "id": "17-down",
@@ -358,7 +909,44 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTIRE",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letter",
+    "answer": "ATTIRE",
+    "definition": "Clothes",
+    "indicators": [
+     "in",
+     "barely"
+    ],
+    "indicatorNotes": {
+     "in": "What is in something sits inside it, so these two letters go within the word that follows rather than beside it.",
+     "barely": "Bare means stripped of everything on the outside, so the word gives up its first and last letters and only the middle survives."
+    },
+    "pieces": [
+     "A",
+     "TT",
+     "IR",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breeze",
+      "gives": "AIR",
+      "note": "a breeze is moving air, and this word opens up to take something in"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TT",
+      "note": "TT is teetotal, the crossword's standard dry"
+     },
+     {
+      "clueFragment": "wet",
+      "gives": "E",
+      "note": "strip the outside off this three-letter word and a single letter is left"
+     }
+    ],
+    "walkthrough": "'Barely' is the joke: it means bare, not scarcely, and stripping a word bare is exactly what a clue about clothes ought to ask for.",
+    "definitionFit": "Clothes → ATTIRE: attire is the dressed-up word for what somebody has on, so it drops into the same noun slot without changing the sense."
+   }
   },
   {
    "id": "18-across",
@@ -375,7 +963,41 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOMEOPATH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOMEOPATH",
+    "definition": "Ineffective therapist",
+    "pieces": [
+     "HOME",
+     "OP",
+     "AT",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "HOME",
+      "note": "somebody who is in is at home — 'is she in?'"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is the abbreviation for an operation, a surgeon's piece of work"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "two letters taken as they stand"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on a road sign"
+     }
+    ],
+    "walkthrough": "'In' for HOME hides best of the four, because it looks like the smallest of link words rather than a piece of the charade.",
+    "definitionFit": "Ineffective therapist → HOMEOPATH: a homeopath treats with remedies diluted until nothing measurable remains, which is the setter's ground for calling the therapy ineffective."
+   }
   },
   {
    "id": "19-down",
@@ -392,7 +1014,41 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMOIRE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "ARMOIRE",
+    "definition": "wardrobe",
+    "indicators": [
+     "cut in odd places"
+    ],
+    "indicatorNotes": {
+     "cut in odd places": "Count the letters and cut the first, third and fifth away: what survives is the pair standing in the even positions."
+    },
+    "pieces": [
+     "ARM",
+     "OI",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleeve",
+      "gives": "ARM",
+      "note": "the sleeve of a coat is its arm"
+     },
+     {
+      "clueFragment": "Doris",
+      "gives": "OI",
+      "note": "the name gives up the letters standing first, third and fifth"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "'on' in the sense of 'concerning' is RE, the heading at the top of a memo"
+     }
+    ],
+    "walkthrough": "The surface has Doris altering a garment. 'On' for RE is worth banking — a paper on a subject is a paper re it, and setters use the pair constantly.",
+    "definitionFit": "wardrobe → ARMOIRE: an armoire is the tall free-standing French cupboard for hanging clothes in, which is a wardrobe under a borrowed name."
+   }
   },
   {
    "id": "20-across",
@@ -409,7 +1065,39 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTRANCES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "ENTRANCES",
+    "definition": "Ways in",
+    "linkWords": [
+     "which"
+    ],
+    "indicators": [
+     "empty",
+     "changes"
+    ],
+    "indicatorNotes": {
+     "empty": "An emptied box keeps its walls and loses everything between them, so only the outside letters of the word are left.",
+     "changes": "A change leaves you holding something other than what you had, so the letters do not stay in the order given."
+    },
+    "anagram": {
+     "fodder": "NR CAN'T SEE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nester",
+      "gives": "NR",
+      "note": "the first and last letters, with the middle hollowed out"
+     },
+     {
+      "clueFragment": "can't see",
+      "gives": "CAN'T SEE",
+      "note": "seven letters taken as they stand, the apostrophe ignored"
+     }
+    ],
+    "walkthrough": "Read as English the clue is a parent who cannot spot what has altered at home; read as wordplay it is a hollowed-out word and a phrase thrown together.",
+    "definitionFit": "Ways in → ENTRANCES: an entrance is the door or gate you come in by, so the plural names the openings a building offers."
+   }
   },
   {
    "id": "21-down",
@@ -426,7 +1114,34 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COMBE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "COMBE",
+    "definition": "Valley",
+    "indicators": [
+     "no"
+    ],
+    "indicatorNotes": {
+     "no": "Saying there is none of something takes it away, so the letter it stands for drops out of what has been built."
+    },
+    "pieces": [
+     "COMBE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "searched methodically",
+      "gives": "COMBED",
+      "note": "police going over a field inch by inch are doing exactly this, and the word arrives one letter too long"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card player's abbreviation for the suit"
+     }
+    ],
+    "walkthrough": "The surface is a prospector coming home empty-handed, which is the joke: the missing diamond is a single letter rather than a stone.",
+    "definitionFit": "Valley → COMBE: a combe is the short steep-sided valley cut into a chalk or limestone hillside, a word that survives in West Country place names."
+   }
   },
   {
    "id": "22-across",
@@ -443,7 +1158,32 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEMON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LEMON",
+    "definition": "yellow",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "Mostly is all bar a little, and the little given up here is the final letter."
+    },
+    "pieces": [
+     "LEMON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American Tour de France winner",
+      "gives": "LEMOND",
+      "note": "the first American to win the race, in 1986; his surname arrives with one letter to spare"
+     }
+    ],
+    "walkthrough": "The cyclist writes his surname with a capital M in the middle, which is part of why it hides so well inside an ordinary colour word.",
+    "definitionFit": "yellow → LEMON: the fruit's pale sharp yellow has become a colour word in its own right — a lemon shirt is a yellow one."
+   }
   },
   {
    "id": "23-down",
@@ -460,7 +1200,44 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEGUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "NEGUS",
+    "definition": "Hot drink",
+    "indicators": [
+     "accepted by",
+     "rising"
+    ],
+    "indicatorNotes": {
+     "accepted by": "To accept something is to take it in and keep it, so these two letters end up inside the other word.",
+     "rising": "A down entry that rises is read from the bottom of the grid upwards, so its letters come out in reverse."
+    },
+    "pieces": [
+     "N",
+     "EG",
+     "US"
+    ],
+    "subReversals": [
+     {
+      "from": "SUN",
+      "to": "NUS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star",
+      "gives": "NUS",
+      "note": "the nearest star is the sun, and here it is climbing the grid"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the Latin abbreviation for 'for example'"
+     }
+    ],
+    "walkthrough": "Port or sherry with hot water, sugar and spice was a standard Victorian party drink, which is why it turns up in Dickens and in crosswords more often than in pubs.",
+    "definitionFit": "Hot drink → NEGUS: negus is wine mixed with hot water, sugar and spice, named after the colonel who is said to have invented it."
+   }
   },
   {
    "id": "24-across",
@@ -477,7 +1254,42 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRATUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "STRATUM",
+    "definition": "level",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "A fence about a field runs round it, so the letter named next is taken inside rather than added at the end."
+    },
+    "pieces": [
+     "ST",
+     "R",
+     "AT",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fact",
+      "gives": "STAT",
+      "note": "a stat is a figure quoted as hard fact, and this word opens up"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map-maker's abbreviation for river"
+     },
+     {
+      "clueFragment": "that's doubtful",
+      "gives": "UM",
+      "note": "the noise you make when you are not sure of something"
+     }
+    ],
+    "walkthrough": "Two very different registers side by side: a clipped modern abbreviation for a fact, and the noise of hesitation written down as letters.",
+    "definitionFit": "level → STRATUM: a stratum is one horizontal layer of rock, or of society, and a layer in a pile is a level of it."
+   }
   },
   {
    "id": "25-across",
@@ -494,7 +1306,36 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THAWING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THAWING",
+    "definition": "becoming friendlier",
+    "indicators": [
+     "squeezes"
+    ],
+    "indicatorNotes": {
+     "squeezes": "To squeeze something in is to force it into a space that is already full, so this piece goes inside the other."
+    },
+    "pieces": [
+     "TH",
+     "AW",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crush",
+      "gives": "THING",
+      "note": "having a thing for somebody is having a crush on them"
+     },
+     {
+      "clueFragment": "How cute",
+      "gives": "AW",
+      "note": "the noise you make at something adorable"
+     }
+    ],
+    "walkthrough": "The surface is all teenage romance, and so is the wordplay: one piece is the crush itself, the other is the noise made about it.",
+    "definitionFit": "becoming friendlier → THAWING: relations that thaw are warming out of a frosty state, so a thawing manner is one turning friendly."
+   }
   },
   {
    "id": "26-across",
@@ -511,7 +1352,56 @@ window.CRYPTIC_PUZZLES["indysunday-1898"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BENEFACTRESS",
+    "definition": "Donor",
+    "definitionNote": "'Donor' names a giver of either sex while the answer names a woman; the setter leaves the feminine ending to the wordplay rather than flagging it in the definition.",
+    "linkWords": [
+     "putting"
+    ],
+    "indicators": [
+     "on",
+     "after",
+     "about"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue, one thing put on another follows it as you read from left to right.",
+     "after": "What comes after something is written to the right of it, so these pieces trail the one just built.",
+     "about": "Going about something means going round it, so the letter named next finishes up enclosed."
+    },
+    "pieces": [
+     "BE",
+     "N",
+     "EF",
+     "AC",
+     "TRESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complaint",
+      "gives": "BEEF",
+      "note": "to have a beef with somebody is to have a complaint"
+     },
+     {
+      "clueFragment": "Nigel's capital",
+      "gives": "N",
+      "note": "the capital letter the name begins with, not a city"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the standard abbreviation for account"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "walkthrough": "'Nigel's capital' is misdirection worth learning: it sounds like a country's chief city and means the letter the name starts with.",
+    "definitionFit": "Donor → BENEFACTRESS: a benefactress is a woman who gives money or support to a person or cause, which is what a donor does."
+   }
   }
  ]
 } /*JSON-END*/;
