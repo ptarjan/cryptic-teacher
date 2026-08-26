@@ -292,7 +292,7 @@ fi
 # A run that could not solve some of the clues still exits 0, still commits, and
 # still looks like a good night — see tools/check_annotation_loss.py. Ask.
 if [ -n "$annotated_nums" ]; then
-  loss=$(python3 tools/check_annotation_loss.py $annotated_nums) || \
+  loss=$(python3 tools/check_annotation_loss.py $annotated_nums 2>&1) || \
     alert "tonight's annotation came back short — $loss. Those clues ship with \"auto hints\" and no teaching ladder. If this keeps happening the model is failing to solve the puzzle, which is a quality problem, not a spend one."
   echo "$loss"
 fi
