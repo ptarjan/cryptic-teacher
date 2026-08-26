@@ -723,7 +723,7 @@ def legacy_redirects(solved):
             + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                         (f"No {pretty}", "")])
             + f'<main class="static-main"><h1>{esc(title)}</h1>{body}</main>\n'
-            + FOOTER + "</body>\n</html>\n")
+            + FOOTER)   # FOOTER already closes body and html
     return out
 
 

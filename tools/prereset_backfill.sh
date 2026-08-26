@@ -334,6 +334,11 @@ commit_puzzle() {
     git checkout -- "puzzles/$num.js" 2>/dev/null
     return 1
   fi
+  # Solved-but-short is not a failure anywhere else in this pipeline: the nulled
+  # clues just ship as "auto hints". Say so, once, per puzzle.
+  loss=$(python3 tools/check_annotation_loss.py "$num") || \
+    alert "pre-reset backfill left clues unsolved — $loss. They ship with no teaching ladder. Repeated across a night this means the model is not solving these puzzles."
+  echo "$loss"
   if [ -n "$(git status --porcelain -- "puzzles/$num.js")" ]; then
     # By pathspec, never `git add .`: the nightly job and any interactive
     # session share this checkout, and a bare commit swallows their staged work.
