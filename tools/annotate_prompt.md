@@ -43,12 +43,8 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
 ```
 
 Rules:
-- FIRST read the `## Annotation rules` section of `STYLE.md` at the repo root —
-  the top of the file down to `## Hint-ladder / UX rules` — and follow every rule
-  in it. It is the accumulated product feedback; it overrides habit. Stop at that
-  heading: everything below it is app internals, the reference corpus and deploy
-  notes, none of which a run holding one puzzle file can act on, and all of which
-  is paid for again on every run that reads it. In particular, `type` must
+- FIRST read `STYLE.md` at the repo root and follow every rule in it. It is the
+  accumulated product feedback; it overrides habit. In particular, `type` must
   honestly name EVERY mechanism used, joined with " + " (e.g.
   `charade + alternate letters`), using only the controlled vocabulary in
   STYLE.md / `TYPE_PARTS` in the validator. If a clue truly needs a new type

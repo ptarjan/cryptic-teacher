@@ -27,7 +27,7 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   .find((p) => p.id === id) || { number: id }).number;
 
 // --- cache busting: index.html must reference current asset hashes ---
-// (mobile browsers hold GitHub Pages' 4h max-age copies otherwise — STYLE.md)
+// (mobile browsers hold GitHub Pages' 4h max-age copies otherwise — APP.md)
 {
   const crypto = require("crypto");
   const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
@@ -164,7 +164,7 @@ assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 }
 
 // The badge marks the exception, not the norm: an annotated puzzle's title
-// carries no badge at all (see STYLE.md, "Badge the exception"). So the title
+// carries no badge at all (see APP.md, "Badge the exception"). So the title
 // must agree with the index rather than always saying something.
 {
   const idx = (global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === openId);
@@ -249,7 +249,7 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
     `the hint meter is a count, not a sentence (${meter.length} chars): ${meter}`);
 }
 
-// --- every validator type part must be claimed by a family in app.js (STYLE.md) ---
+// --- every validator type part must be claimed by a family in app.js (APP.md) ---
 {
   const famBlock = appSrc.slice(appSrc.indexOf("const FAMILIES"), appSrc.indexOf("function familyOf"));
   const keywords = [...famBlock.matchAll(/t\.includes\("([^"]+)"\)/g)].map((m) => m[1]);

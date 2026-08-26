@@ -501,7 +501,7 @@ if [ -n "$(git status --porcelain)" ]; then
   # Same list as daily_update.sh, and for the same reason: a backfill that needs
   # a new wordplay type edits app.js and STYLE.md as well as the puzzle, and
   # leaving those behind ships a clue the app cannot describe.
-  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md \
+  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md APP.md \
           tools/validate_annotations.py tools/annotation_backlog.json
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$ANNOTATE_TRAILER")"
   git pull --rebase --autostash -q && git push -q origin HEAD ||
