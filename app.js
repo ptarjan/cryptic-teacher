@@ -1640,7 +1640,23 @@
     // separable wordplay here (Paul, 1392 22-across, 2026-08-10). The validator
     // now refuses a `gives` on a cryptic definition and demands the clue be
     // split, so this suppression is belt to that braces.
-    if (blocks.length && blocks.some((b) => b.gives || b.note)) {
+    // A block whose letters ARE the whole answer hands over the solve on the
+    // rung before the walkthrough, which is the WATCHSTRAP failure again with a
+    // different type on it: 488 of 2805 annotated clues did this, almost every
+    // hidden word and homophone and most double definitions, because for those
+    // devices one block legitimately resolves to the entire word. Suppressing it
+    // here rather than in the annotation is deliberate — the annotation keeps
+    // recording what the block gives, and no wording a future run picks can leak
+    // it. What survives is the fragment, the sounded form and the note.
+    const whole = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
+    const answerLetters = whole(ann.answer);
+    const givesAway = (b) => answerLetters && whole(b.gives) === answerLetters;
+    // The rung exists when something will RENDER in it, not when the data holds
+    // a field: a clue whose every block is suppressed and carries no note would
+    // otherwise charge a hint for a list of clue fragments the solver can already
+    // see. No clue in the corpus does that, and this is what keeps it that way.
+    const shows = (b) => b.note || b.soundsLike || (b.gives && !isCD && !givesAway(b));
+    if (blocks.length && blocks.some(shows)) {
       // Which pieces were conventions rather than deductions.
       //
       // Charade is our commonest clue type, and the hard part is never spotting
@@ -1671,19 +1687,6 @@
           ? "#abbr-" + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
           : null;
       };
-      // A block whose letters ARE the whole answer hands over the solve on the
-      // rung before the walkthrough, which is the WATCHSTRAP failure again with
-      // a different type on it: 488 of 2805 annotated clues did this, almost
-      // every hidden word and homophone and most double definitions, because
-      // for those devices one block legitimately resolves to the entire word.
-      // Suppressing it here rather than in the annotation is deliberate — the
-      // annotation should keep recording what the block gives, and no wording a
-      // future run chooses can leak it. What survives is the fragment, the
-      // sounded form and the note, so the extraction is left as the solver's
-      // move; no clue in the corpus renders fragment-only as a result.
-      const whole = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
-      const answerLetters = whole(ann.answer);
-      const givesAway = (b) => answerLetters && whole(b.gives) === answerLetters;
       const items = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;

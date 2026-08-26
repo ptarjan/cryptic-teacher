@@ -48,6 +48,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PUZZLE_DIR = ROOT / "puzzles"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fetch_puzzle import puzzle_files, resolve_puzzle  # noqa: E402 — one glob, one id resolver
+from find_answer_leaks import says  # noqa: E402 — one matcher, shared with the finder
 JSON_START = "/*JSON-START*/"
 JSON_END = "/*JSON-END*/"
 
@@ -575,6 +576,26 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
                     f"{tag}: {field} {part!r} contains the answer — it is shown "
                     f"before the building blocks, so it hands over the solve for "
                     f"the price of a hint. Say it in the walkthrough instead.")
+
+def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings):
+    """The building blocks are a rung early too — the walkthrough is the reveal.
+
+    The check above stops at the fields shown BEFORE the blocks, because the
+    blocks rung was thought of as the place the answer lands. It is not: the
+    walkthrough is, and a learner buying the blocks has deliberately not bought
+    the solve. 167 notes said the word anyway — "to please is to delight" for
+    PLEASE, "hidden inside st-ARGUE-sts" for ARGUE. app.js suppresses a `gives`
+    that equals the answer, so only the prose can still leak.
+    """
+    answer = ann.get("answer")
+    for block in ann.get("blocks") or []:
+        if says(block.get("note"), answer):
+            errors.append(
+                f"{tag}: block note {block.get('note')!r} names the answer, and "
+                f"the blocks are the rung before the walkthrough. Write the note "
+                f"about the fragment — what it means, where its letters sit, "
+                f"which convention is in play — and let the walkthrough spell it.")
+
 
 # An indicator rung that names the words and not the reason is the rung solvers
 # keep saying is not worth paying for ("Spot the indicator words shouldn't be
@@ -1420,6 +1441,7 @@ def validate_puzzle(puzzle):
         check_sound_names_its_source(tag, ann, errors, warnings)
         check_indicator_notes(tag, ann, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
+        check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)
         check_cryptic_definition_blocks(tag, ann, errors, warnings)
 
         check_coverage(tag, ann, clue, warnings)
