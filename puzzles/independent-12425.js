@@ -30,7 +30,44 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENERATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GENERATION",
+    "definition": "Age",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "starting late"
+    ],
+    "indicatorNotes": {
+     "starting late": "a start that comes late begins further in, so the word gives up the letter it opens with"
+    },
+    "pieces": [
+     "GEN",
+     "E",
+     "RATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is the word for the information you need — 'give me the gen on him'"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "RATION",
+      "note": "a speech is an oration, and one starting late has lost its opening O"
+     }
+    ],
+    "walkthrough": "The dots run the sentence on into 6 across, which is what makes 'Age of Information' look like a set phrase when the definition stops at its first word.",
+    "definitionFit": "Age names a stretch of history defined by the people living through it, which is the same span a generation covers."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +84,41 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAME",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "GAME",
+    "definition": "match",
+    "indicators": [
+     "rising"
+    ],
+    "indicatorNotes": {
+     "rising": "what rises in a down entry climbs towards the top, so those letters are read the other way up"
+    },
+    "pieces": [
+     "GAM",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "MAG",
+      "to": "GAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heat possibly",
+      "gives": "MAG",
+      "note": "Heat is a celebrity weekly, so it is possibly a mag — and it climbs the entry"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain, from Espana"
+     }
+    ],
+    "walkthrough": "The capital H is the giveaway that is meant to be missed: this Heat is a title on the newsagent's shelf, not a temperature.",
+    "definitionFit": "match -> GAME: a fixture between two sides is called either word, so they swap straight over in football or in tennis."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +135,45 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAIROBI",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "NAIROBI",
+    "definition": "capital",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "putting a thing in somewhere puts it inside, so these letters sit within the ones named next"
+    },
+    "pieces": [
+     "N",
+     "AIR",
+     "OB",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the everyday abbreviation for Northern Ireland, and it splits to take the rest"
+     },
+     {
+      "clueFragment": "Show",
+      "gives": "AIR",
+      "note": "to air a programme is to show it"
+     },
+     {
+      "clueFragment": "outside broadcast",
+      "gives": "OB",
+      "note": "OB is the broadcaster's shorthand for an outside broadcast"
+     }
+    ],
+    "walkthrough": "Northern Ireland's capital is Belfast, and the clue is counting on you reaching for it — the two words are letters to be split open, not a country to look up.",
+    "definitionFit": "capital -> NAIROBI: Kenya's seat of government, so one particular city is being clued by the general word for what it is."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +190,32 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RYE",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "RYE",
+    "definition": "spirit",
+    "linkWords": [
+     "showing"
+    ],
+    "indicators": [
+     "periodically"
+    ],
+    "indicatorNotes": {
+     "periodically": "something done periodically happens at fixed intervals, so you take every second letter and skip the ones between"
+    },
+    "pieces": [
+     "RYE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argyle",
+      "gives": "RYE",
+      "note": "aRgYlE hands over its second, fourth and sixth letters"
+     }
+    ],
+    "walkthrough": "Argyle is a sock pattern and Plymouth's football club, and both are decoys: the word is here only to be counted through.",
+    "definitionFit": "spirit -> RYE: a whiskey distilled from rye grain, named after the grain, so 'spirit' is the class of drink it belongs to."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +232,51 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIPPLERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TIPPLERS",
+    "definition": "regular drinkers",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "taken in by"
+    ],
+    "indicatorNotes": {
+     "taken in by": "anything taken in has been swallowed up, so the letter disappears inside the piece that follows"
+    },
+    "pieces": [
+     "TIP",
+     "P",
+     "L",
+     "ER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dump",
+      "gives": "TIP",
+      "note": "the tip is where you dump the rubbish"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per means a — twice per day is twice a day — and it opens up to take the next letter"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L-plates mark a learner, the crossword's standing student"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     }
+    ],
+    "walkthrough": "'A' for PER is the piece worth banking — pounds a head, miles an hour — and it does the hiding here, because nobody suspects an article.",
+    "definitionFit": "regular drinkers -> TIPPLERS: to tipple is to drink habitually rather than heavily, so the word names the routine and not the quantity."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +293,43 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OGLED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "OGLED",
+    "definition": "Stared at",
+    "indicators": [
+     "upset",
+     "exposed"
+    ],
+    "indicatorNotes": {
+     "upset": "something upset has been tipped over, and letters tipped over come out in the opposite order",
+     "exposed": "what is exposed has had its covering taken off, so the letters at either end go and the middle is left bare"
+    },
+    "pieces": [
+     "OG",
+     "LED"
+    ],
+    "subReversals": [
+     {
+      "from": "DEL",
+      "to": "LED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitch error",
+      "gives": "OG",
+      "note": "an own goal, marked OG on the scoresheet, is the error you can only make on a pitch"
+     },
+     {
+      "clueFragment": "Adele",
+      "gives": "DEL",
+      "note": "strip the singer's outer A and E and DEL stands exposed, then tips over"
+     }
+    ],
+    "walkthrough": "The comma is doing the misdirection: it sets Adele up as the person being stared at, when the clue wants only the middle of the name.",
+    "definitionFit": "Stared at -> OGLED: to ogle is to stare with open desire, so the definition is the plain act and the answer supplies the leer."
+   }
   },
   {
    "id": "6-across",
@@ -132,7 +346,38 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLAY",
+    "definition": "act",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "in an across entry a piece resting on another is written after it, not above it"
+    },
+    "pieces": [
+     "P",
+     "LAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the mark in a score for piano, meaning softly"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "LAY",
+      "note": "a lay is an old word for a song or ballad"
+     }
+    ],
+    "walkthrough": "The leading dots carry over from 1 across; ignore them and what is left is a two-piece build with the definition sitting first.",
+    "definitionFit": "act -> PLAY: both are verbs for taking a part on stage, so 'act Hamlet' and 'play Hamlet' are the same instruction."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +394,34 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOITERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LOITERS",
+    "definition": "Hangs around",
+    "indicators": [
+     "going off"
+    ],
+    "indicatorNotes": {
+     "going off": "milk that is going off has turned, and letters that have turned no longer sit in the order printed"
+    },
+    "anagram": {
+     "fodder": "L TORIES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal on a ballot paper"
+     },
+     {
+      "clueFragment": "Tories",
+      "gives": "TORIES",
+      "note": "the six letters of the party name are the material to be shuffled"
+     }
+    ],
+    "walkthrough": "A political surface is the setter's favourite cover for an anagram: 'going off Tories' reads as disillusionment and means only 'rearrange'.",
+    "definitionFit": "Hangs around -> LOITERS: loitering is lingering with no errand to be on, which is what hanging around a street corner amounts to."
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +438,42 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YUMMY",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "YUMMY",
+    "definition": "Attractive",
+    "indicators": [
+     "becoming",
+     "principal"
+    ],
+    "indicatorNotes": {
+     "becoming": "one thing becoming another takes its place, so the letter named first is swapped out for the letter named second",
+     "principal": "the principal is the one at the head, so only the leading letter of the name beside it is wanted"
+    },
+    "pieces": [
+     "Y",
+     "UMMY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "DUMMY",
+      "note": "a tailor's dummy is the model that clothes are fitted on"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the family-tree abbreviation for daughter, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "Yale's principal",
+      "gives": "Y",
+      "note": "the front letter of Yale steps into the vacancy"
+     }
+    ],
+    "walkthrough": "A substitution clue always names both letters, the one leaving and the one arriving, so 'becoming' promises a word you know already with one letter changed.",
+    "definitionFit": "Attractive -> YUMMY: the informal sense that jumps from food to people, where someone yummy is good enough to eat."
+   }
   },
   {
    "id": "9-across",
@@ -183,7 +490,34 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAINE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "MAINE",
+    "definition": "One of fifty",
+    "indicators": [
+     "somewhat",
+     "falling over"
+    ],
+    "indicatorNotes": {
+     "somewhat": "somewhat means only part of the thing, so a run of letters inside these words is all that is wanted",
+     "falling over": "whatever falls over ends up the wrong way up, so the run is read from its far end back"
+    },
+    "subReversals": [
+     {
+      "from": "ENIAM",
+      "to": "MAINE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children I amused",
+      "gives": "ENIAM",
+      "note": "childrEN I AMused holds five letters in an unbroken run, waiting to be read the other way"
+     }
+    ],
+    "walkthrough": "Fifty is the American state count, and that is the whole of the definition — everything after it is a hiding place spread across three words.",
+    "definitionFit": "One of fifty -> MAINE: the states of the USA number fifty, so giving the total defines any single one of them by example."
+   }
   },
   {
    "id": "10-across",
@@ -200,7 +534,43 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PALLADIUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + first letter",
+    "answer": "PALLADIUM",
+    "definition": "element",
+    "indicators": [
+     "facing",
+     "leader",
+     "unruly"
+    ],
+    "indicatorNotes": {
+     "facing": "the piece that faces the rest stands at the front of it, with nothing ahead",
+     "leader": "a leader goes at the head of what follows, so only the first letter of that word is taken",
+     "unruly": "an unruly crowd will not stay in the order it was put in, and nor will these letters"
+    },
+    "anagram": {
+     "fodder": "PALL U AMID"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cloud",
+      "gives": "PALL",
+      "note": "a pall of smoke is a cloud hanging over something"
+     },
+     {
+      "clueFragment": "union's leader",
+      "gives": "U",
+      "note": "the letter at the head of union"
+     },
+     {
+      "clueFragment": "amid",
+      "gives": "AMID",
+      "note": "amid reads as a position and is really four letters of material"
+     }
+    ],
+    "walkthrough": "The trap is 'amid', which every solver first reads as an instruction about where something goes. Palladium is element 46, mined mostly for catalytic converters.",
+    "definitionFit": "element -> PALLADIUM: a metal with its own square in the periodic table, so the general word for such a substance defines it."
+   }
   },
   {
    "id": "11-down",
@@ -217,7 +587,41 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANDANTINO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + container",
+    "answer": "ANDANTINO",
+    "definition": "Instruction",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "losing head",
+     "badly",
+     "covering"
+    ],
+    "indicatorNotes": {
+     "losing head": "a word that loses its head loses the letter standing at the very front of it",
+     "badly": "anything done badly comes out wrong, and letters that come out wrong come out in the wrong order",
+     "covering": "a cover goes over the top of what it hides, so this piece wraps round the letters named next"
+    },
+    "anagram": {
+     "fodder": "ADONNA TIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Madonna",
+      "gives": "ADONNA",
+      "note": "take the M off the front and ADONNA is the letter stock to shuffle"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "TIN",
+      "note": "tin is the crossword's handiest metal, and it is wrapped up inside"
+     }
+    ],
+    "walkthrough": "The question mark apologises for 'metal': tin is a metal by example, not a definition of one. Andantino is a shade quicker than andante.",
+    "definitionFit": "Instruction -> ANDANTINO: the tempo words in a score are instructions to the player, and this one asks for a gently walking pace."
+   }
   },
   {
    "id": "12-across",
@@ -234,7 +638,35 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MORSEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MORSEL",
+    "definition": "piece",
+    "indicators": [
+     "short"
+    ],
+    "indicatorNotes": {
+     "short": "cut a word short and it comes up one letter shy at the end"
+    },
+    "pieces": [
+     "MOR",
+     "SEL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easy listening music?",
+      "gives": "MOR",
+      "note": "MOR is the radio trade's label for middle-of-the-road, the easy listening slot"
+     },
+     {
+      "clueFragment": "Promote",
+      "gives": "SEL",
+      "note": "to promote a product is to sell it, and SELL cut short is SEL"
+     }
+    ],
+    "walkthrough": "The question mark is the tell that easy listening music is being named by its trade abbreviation rather than defined.",
+    "definitionFit": "piece -> MORSEL: a morsel is a piece small enough to eat in one go, so the definition is the plain word for the answer's tiny scale."
+   }
   },
   {
    "id": "13-down",
@@ -255,7 +687,56 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
     ]
    },
    "solution": "SUGARBOWL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SUGAR BOWL",
+    "definition": "vessel",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "rear of"
+    ],
+    "indicatorNotes": {
+     "rear of": "the rear is the back end, so only the final letter of the word behind it is used"
+    },
+    "pieces": [
+     "S",
+     "U",
+     "GARB",
+     "OW",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-label abbreviation for small"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is uniform in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "clothing",
+      "gives": "GARB",
+      "note": "garb is what a person is clothed in"
+     },
+     {
+      "clueFragment": "that hurts",
+      "gives": "OW",
+      "note": "ow is the noise that means exactly that"
+     },
+     {
+      "clueFragment": "rear of admiral",
+      "gives": "L",
+      "note": "the letter at the back of admiral"
+     }
+    ],
+    "walkthrough": "'Clothing' looks like an instruction to wrap one piece round another and is really a plain noun — that is the whole trick in a five-piece build.",
+    "definitionFit": "vessel -> SUGAR BOWL: vessel is the general word for anything that holds something, and the bowl on the tea tray qualifies."
+   }
   },
   {
    "id": "14-across",
@@ -272,7 +753,41 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DODDERY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "DODDERY",
+    "definition": "Faltering",
+    "indicators": [
+     "ending on"
+    ],
+    "indicatorNotes": {
+     "ending on": "the ending on a word is its final letter, and that letter is all this takes from what follows"
+    },
+    "pieces": [
+     "DODD",
+     "E",
+     "RY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comedian",
+      "gives": "DODD",
+      "note": "Ken Dodd, the Liverpool comedian with the tickling stick"
+     },
+     {
+      "clueFragment": "unintelligible",
+      "gives": "E",
+      "note": "the printed word unintelligible, closing letter only"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY is the map abbreviation for a railway line"
+     }
+    ],
+    "walkthrough": "'Ending on unintelligible' asks for a letter of the word as printed, not a synonym for it — a device that reads as ordinary English until you need it.",
+    "definitionFit": "Faltering -> DODDERY: doddery describes the unsteady walk of great age, so the faltering is in the legs rather than in the speech."
+   }
   },
   {
    "id": "15-across",
@@ -289,7 +804,36 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLINGERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SLINGERS",
+    "definition": "People who shy",
+    "indicators": [
+     "almost",
+     "mad"
+    ],
+    "indicatorNotes": {
+     "almost": "almost there is not quite there, so the word stops one letter before its end",
+     "mad": "a mad scramble has no order to it, and letters called mad will not stay where they were put"
+    },
+    "anagram": {
+     "fodder": "GIRLS SEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "girls",
+      "gives": "GIRLS",
+      "note": "the five letters of girls go into the pot whole"
+     },
+     {
+      "clueFragment": "sent",
+      "gives": "SEN",
+      "note": "sent, taken almost to its end, joins them one letter short as SEN"
+     }
+    ],
+    "walkthrough": "The awkward part is the reach: 'almost' picks off 'sent' alone and leaves 'girls' untouched, which is why the letter count only works one way.",
+    "definitionFit": "People who shy -> SLINGERS: to shy something is to fling it, as at a coconut shy, so the people doing the flinging are slingers."
+   }
   },
   {
    "id": "15-down",
@@ -306,7 +850,29 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIS",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "SIS",
+    "definition": "Relative",
+    "indicators": [
+     "last of all"
+    ],
+    "indicatorNotes": {
+     "last of all": "last of all points at the very end of every word in turn, and nothing before it counts"
+    },
+    "pieces": [
+     "SIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clears Chianti bottles",
+      "gives": "SIS",
+      "note": "the closing letters of clearS chiantI bottleS"
+     }
+    ],
+    "walkthrough": "'Bottles' looks like a container instruction, and a wine word in a wine surface is exactly where you would expect one — it is really the third word being trimmed.",
+    "definitionFit": "Relative -> SIS: the clipped, affectionate form of sister, so the answer is a family member named by the household shorthand."
+   }
   },
   {
    "id": "16-across",
@@ -323,7 +889,47 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNUSED",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "UNUSED",
+    "definition": "Idle",
+    "indicators": [
+     "bores"
+    ],
+    "indicatorNotes": {
+     "bores": "to bore is to drill straight into something, and what bores into a word finishes up inside it"
+    },
+    "pieces": [
+     "U",
+     "N",
+     "US",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "classy",
+      "gives": "U",
+      "note": "U is the label from U and non-U speech, the crossword's word for classy"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ed, short for editor, is the crossword journalist, and the drilling happens just before it"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the American doing the boring"
+     }
+    ],
+    "walkthrough": "U for classy comes from Nancy Mitford's U and non-U speech, and it is the setter's standing shorthand for anything posh.",
+    "definitionFit": "Idle -> UNUSED: machinery standing idle is machinery nobody is using, so the word describes disuse rather than laziness."
+   }
   },
   {
    "id": "17-down",
@@ -340,7 +946,37 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAY",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters + reversal",
+    "answer": "DAY",
+    "definition": "Robin perhaps",
+    "indicators": [
+     "lifted",
+     "now and then"
+    ],
+    "indicatorNotes": {
+     "lifted": "a piece lifted up a down entry is carried back towards the top, so it is read upwards",
+     "now and then": "now and then means every so often rather than throughout, so occasional letters are taken and the rest left"
+    },
+    "pieces": [
+     "DAY"
+    ],
+    "subReversals": [
+     {
+      "from": "YAD",
+      "to": "DAY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by hand",
+      "gives": "YAD",
+      "note": "bY hAnD gives up its second, fourth and sixth letters, which then climb the entry"
+     }
+    ],
+    "walkthrough": "Sir Robin Day was the BBC's great political interviewer, and 'perhaps' is the flag that a surname is being clued through one of the people who bore it.",
+    "definitionFit": "Robin perhaps -> DAY: a definition by example, the broadcaster Robin Day, so the first name is pointing at the surname beside it."
+   }
   },
   {
    "id": "18-down",
@@ -361,7 +997,29 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
     ]
    },
    "solution": "STAGESET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STAGE SET",
+    "definition": "props and scenery",
+    "indicators": [
+     "Move"
+    ],
+    "indicatorNotes": {
+     "Move": "moving a thing takes it out of the place it was in, and letters moved will not stay in their printed order"
+    },
+    "anagram": {
+     "fodder": "SEATS GET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "seats and get",
+      "gives": "SEATSGET",
+      "note": "the eight letters of the two words, with 'and' just holding them together"
+     }
+    ],
+    "walkthrough": "The clue reads as instructions to the stage crew, which is the joke: 'move seats and get' is the material rather than the job.",
+    "definitionFit": "props and scenery -> STAGE SET: the set is everything dressing a stage for a scene, which is the props and the scenery taken together."
+   }
   },
   {
    "id": "19-across",
@@ -378,7 +1036,55 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUPERB",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + first letter",
+    "answer": "SUPERB",
+    "definition": "terrific",
+    "indicators": [
+     "a twirl",
+     "at the front"
+    ],
+    "indicatorNotes": {
+     "a twirl": "give something a twirl and it spins round to face the other way",
+     "at the front": "the front of a name is where its first letter stands, and that letter is all this asks for"
+    },
+    "pieces": [
+     "SU",
+     "PE",
+     "R",
+     "B"
+    ],
+    "subReversals": [
+     {
+      "from": "US",
+      "to": "SU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "the setter's own 'us', two letters ready to be spun"
+     },
+     {
+      "clueFragment": "Games",
+      "gives": "PE",
+      "note": "PE, physical education, is games on the school timetable"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is Rex, the Latin king"
+     },
+     {
+      "clueFragment": "Brucie",
+      "gives": "B",
+      "note": "the front letter of Bruce Forsyth's nickname"
+     }
+    ],
+    "walkthrough": "Bruce Forsyth's catchphrase is a whole quoted sentence doing one small job, turning two letters round, and then Brucie turns up again as an initial.",
+    "definitionFit": "terrific -> SUPERB: both sit at the top of the scale of praise, terrific having drifted from causing terror to plain excellence."
+   }
   },
   {
    "id": "20-down",
@@ -395,7 +1101,47 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLATEAU",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLATEAU",
+    "definition": "level",
+    "indicators": [
+     "Under"
+    ],
+    "indicatorNotes": {
+     "Under": "in a down entry whatever is under something hangs below it, so the thing named first is passed before the rest"
+    },
+    "pieces": [
+     "P",
+     "LATE",
+     "A",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physicist's abbreviation for pressure"
+     },
+     {
+      "clueFragment": "formerly",
+      "gives": "LATE",
+      "note": "the late king is the former one, so late does duty for formerly"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "A",
+      "note": "an are is a metric unit of area, written a, and a hundred of them make a hectare"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is how United is written on a league table"
+     }
+    ],
+    "walkthrough": "A crossword 'are' is almost always the unit of area rather than the verb, and it is worth banking, because the verb is what the eye sees every time.",
+    "definitionFit": "level -> PLATEAU: high ground that has stopped rising, so as a noun the answer names the flat stretch across the top."
+   }
   },
   {
    "id": "21-across",
@@ -412,7 +1158,36 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRICTLY",
-   "annotation": null,
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "STRICTLY",
+    "definition": "to the letter",
+    "indicators": [
+     "Case for",
+     "being translated"
+    ],
+    "indicatorNotes": {
+     "Case for": "a case encloses what is inside it, so the case for a word is the pair of letters at its two ends",
+     "being translated": "a translation says the same thing in wholly different characters, which is what happens to these"
+    },
+    "anagram": {
+     "fodder": "TT LYRICS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Turandot",
+      "gives": "TT",
+      "note": "the opera's name keeps only its two end letters, one T at each"
+     },
+     {
+      "clueFragment": "lyrics",
+      "gives": "LYRICS",
+      "note": "the six letters of lyrics join them in the pot"
+     }
+    ],
+    "walkthrough": "Turandot is italicised because it is a title, and those italics are the only hint that the word is being handled as letters rather than as an opera.",
+    "definitionFit": "to the letter -> STRICTLY: obeying an instruction to the letter is obeying it strictly, exactly as written and with no latitude allowed."
+   },
    "clueItalics": [
     [
      9,
@@ -435,7 +1210,40 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAMARIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TAMARIN",
+    "definition": "Primate",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "here it means lacking rather than outside, so the letters named next are taken away"
+    },
+    "pieces": [
+     "TA",
+     "MARIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is the informal thanks"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "MARINER",
+      "note": "a mariner is a sailor"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the noise of hesitation, and it is the pair of letters that comes out"
+     }
+    ],
+    "walkthrough": "'Primate' points at monkeys here rather than archbishops — the other sense the word carries, and the one the churchy surface would rather you tried.",
+    "definitionFit": "Primate -> TAMARIN: a small South American monkey, so one species is standing in under the name of the whole order."
+   }
   },
   {
    "id": "23-across",
@@ -452,7 +1260,52 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENAMOUR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + middle letters",
+    "answer": "ENAMOUR",
+    "definition": "Charm",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "swept back",
+     "in the centre"
+    ],
+    "indicatorNotes": {
+     "swept back": "hair swept back goes the other way, and so do the letters of the word for it",
+     "in the centre": "what sits in the centre is neither end, so the outer letters are left behind"
+    },
+    "pieces": [
+     "ENAM",
+     "O",
+     "UR"
+    ],
+    "subReversals": [
+     {
+      "from": "MANE",
+      "to": "ENAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hair",
+      "gives": "MANE",
+      "note": "a mane is a head of hair, here written from the back"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "curl",
+      "gives": "UR",
+      "note": "the middle two letters of cURl"
+     }
+    ],
+    "walkthrough": "The surface is all hairdressing and every word of it does a different job: one word to reverse, one cricket abbreviation, one word to take the middle out of.",
+    "definitionFit": "Charm -> ENAMOUR: to enamour someone is to make them fall for you, which is charm working on the heart rather than on the manners."
+   }
   },
   {
    "id": "23-down",
@@ -469,7 +1322,44 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENJOY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "ENJOY",
+    "definition": "Like",
+    "indicators": [
+     "probing",
+     "Initially"
+    ],
+    "indicatorNotes": {
+     "probing": "a probe goes into whatever it examines, so this letter is pushed inside the piece named next",
+     "Initially": "initially means at the outset, so only the opening letter of the word it points at is used"
+    },
+    "pieces": [
+     "EN",
+     "J",
+     "O",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opera company",
+      "gives": "ENO",
+      "note": "ENO is English National Opera, and the probe goes in after its first two letters"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is how a judge is abbreviated in a law report, as in Smith J"
+     },
+     {
+      "clueFragment": "yes",
+      "gives": "Y",
+      "note": "the opening letter of yes"
+     }
+    ],
+    "walkthrough": "The question mark warns that 'opera company' means one particular company rather than the general idea, and ENO is the set of initials you are expected to know.",
+    "definitionFit": "Like -> ENJOY: the sense in 'I like a good thriller' — taking pleasure in the thing rather than being fond of a person."
+   }
   },
   {
    "id": "24-down",
@@ -486,7 +1376,34 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RIGHT",
+    "definition": "Just",
+    "indicators": [
+     "getting away from"
+    ],
+    "indicatorNotes": {
+     "getting away from": "whatever gets away from a word is no longer in it, so that letter is subtracted"
+    },
+    "pieces": [
+     "RIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the creeps",
+      "gives": "FRIGHT",
+      "note": "giving somebody the creeps is giving them a fright"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female, and it is the letter that escapes"
+     }
+    ],
+    "walkthrough": "The ellipsis runs the sentence on into 26 down, so the comma and dots at the end are punctuation rather than anything to parse.",
+    "definitionFit": "Just -> RIGHT: the sense of fair and deserved, as in a just cause being a right one, not right as correct or as a direction."
+   }
   },
   {
    "id": "25-across",
@@ -503,7 +1420,44 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLOOMY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GLOOMY",
+    "definition": "dim",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "say"
+    ],
+    "indicatorNotes": {
+     "say": "say marks an example rather than a synonym: the word before it is one particular instance of what is wanted"
+    },
+    "pieces": [
+     "G",
+     "LOO",
+     "MY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "ladies",
+      "gives": "LOO",
+      "note": "the Ladies is one of the two doors on a pub loo"
+     },
+     {
+      "clueFragment": "brother",
+      "gives": "MY",
+      "note": "brother! and my! are the same mild exclamation of surprise"
+     }
+    ],
+    "walkthrough": "Two exclamations meeting is the joke — 'brother!' and 'my!' are both what people say when something is mildly too much.",
+    "definitionFit": "dim -> GLOOMY: both describe light that has gone poor, and gloomy adds the mood that the dimness puts you in."
+   }
   },
   {
    "id": "26-down",
@@ -520,7 +1474,35 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPS",
-   "annotation": null
+   "annotation": {
+    "type": "outer letters + charade",
+    "answer": "ASPS",
+    "definition": "snakes",
+    "indicators": [
+     "vacuous"
+    ],
+    "indicatorNotes": {
+     "vacuous": "a vacuous thing is empty in the middle, so each word beside it keeps only the letters at its two ends"
+    },
+    "pieces": [
+     "AS",
+     "PS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "admirers",
+      "gives": "AS",
+      "note": "hollow out admirers and its first and last letters are what remain"
+     },
+     {
+      "clueFragment": "posers",
+      "gives": "PS",
+      "note": "posers emptied the same way leaves its outer pair"
+     }
+    ],
+    "walkthrough": "One 'vacuous' serves both words at once, which is why the comma is carrying more weight than it looks: it holds two identical operations together.",
+    "definitionFit": "snakes -> ASPS: the asp is the small Egyptian viper of the Cleopatra story, so one kind of snake stands under the general word."
+   }
   },
   {
    "id": "27-across",
@@ -541,7 +1523,37 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
     ]
    },
    "solution": "JOEBLOGGS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "JOE BLOGGS",
+    "definition": "average kind of chap",
+    "indicators": [
+     "for auditor"
+    ],
+    "indicatorNotes": {
+     "for auditor": "an auditor is somebody who listens, so what counts is how the words sound and not how they are spelt"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "JOB",
+      "note": "Job is the Old Testament book of suffering and patience"
+     },
+     {
+      "clueFragment": "records",
+      "gives": "LOGS",
+      "note": "a ship's logs are its records"
+     },
+     {
+      "clueFragment": "Book records",
+      "soundsLike": "JOB LOGS",
+      "gives": "JOE BLOGGS",
+      "note": "run the two together and say them aloud: the B slides across the gap between the words"
+     }
+    ],
+    "walkthrough": "A biblical book and a shelf of logs are two flat nouns until you say them quickly, and what falls out is the name we give to nobody in particular.",
+    "definitionFit": "average kind of chap -> JOE BLOGGS: the British name of choice for the man in the street, where an American would say John Doe."
+   }
   },
   {
    "id": "28-across",
@@ -558,7 +1570,37 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARDS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CARDS",
+    "definition": "brag",
+    "definitionNote": "Brag is one particular game while the answer is plural: the pastime played with a pack has no singular in English, so a single game has to stand for all of them.",
+    "indicators": [
+     "interrupting"
+    ],
+    "indicatorNotes": {
+     "interrupting": "an interruption arrives in the middle of something already under way, so this letter lands inside the other word"
+    },
+    "pieces": [
+     "CA",
+     "R",
+     "DS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoundrel's",
+      "gives": "CADS",
+      "note": "a cad is the crossword's scoundrel, and the 's supplies the closing letter"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican in American election coverage"
+     }
+    ],
+    "walkthrough": "'Brag' reads as boasting right up to the question mark, which is the only signal that the word is a noun and the name of a game.",
+    "definitionFit": "brag -> CARDS: brag is a three-card gambling game, ancestor of poker, so naming it with a question mark points at the pack it is played with."
+   }
   },
   {
    "id": "28-down",
@@ -575,7 +1617,34 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CAM",
+    "definition": "banker",
+    "indicators": [
+     "cut off from"
+    ],
+    "indicatorNotes": {
+     "cut off from": "cutting one thing off from another removes it, so the letter named goes out of the word beside it"
+    },
+    "pieces": [
+     "CAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affected",
+      "gives": "CAMP",
+      "note": "affected manners are camp"
+     },
+     {
+      "clueFragment": "papa",
+      "gives": "P",
+      "note": "papa is P in the phonetic alphabet, and P is the letter cut off here"
+     }
+    ],
+    "walkthrough": "'Banker' is the crossword's favourite lie: not somebody who works in a bank but a thing that has banks, which is to say a river.",
+    "definitionFit": "banker -> CAM: the Cam is the river running through Cambridge, and a river earns the name banker by being the thing with banks."
+   }
   },
   {
    "id": "29-across",
@@ -592,7 +1661,47 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YOUR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "YOUR",
+    "definition": "Solver's",
+    "indicators": [
+     "in retirement"
+    ],
+    "indicatorNotes": {
+     "in retirement": "something in retirement has withdrawn from where it stood, so these letters go back the way they came"
+    },
+    "pieces": [
+     "Y",
+     "O",
+     "UR"
+    ],
+    "subReversals": [
+     {
+      "from": "RU",
+      "to": "UR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "O",
+      "note": "a ball drawn on paper is a plain round O"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union, and it is the piece that withdraws"
+     }
+    ],
+    "walkthrough": "Only the game turns round, not the ball: 'in retirement' reaches back a single word, and testing how far an indicator reaches is half of solving one.",
+    "definitionFit": "Solver's -> YOUR: the setter is addressing whoever holds the pencil, so anything belonging to the solver is yours."
+   }
   },
   {
    "id": "30-across",
@@ -609,7 +1718,47 @@ window.CRYPTIC_PUZZLES["independent-12425"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATEMENTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STATEMENTS",
+    "definition": "bulletins",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "what comes before something is written ahead of it, so of these two letters that one goes first"
+    },
+    "pieces": [
+     "STATE",
+     "MEN",
+     "T",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe 9",
+      "gives": "STATE",
+      "note": "9 across turns out to be MAINE, which is maybe a state"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are the men in the ranks"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammarian's abbreviation for tense"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "walkthrough": "A bare number is a cross-reference, so 9 across has to be solved first, and 'maybe' is then the flag that the answer there is one example of a wider word.",
+    "definitionFit": "bulletins -> STATEMENTS: an official statement issued to the press is a bulletin, so the two are the same announcement under different names."
+   }
   }
  ]
 } /*JSON-END*/;
