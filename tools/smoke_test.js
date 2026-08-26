@@ -48,6 +48,19 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     assert(html.includes(`${rel}?v=${want}`),
       `index.html has a current ?v= stamp for ${rel} (run tools/stamp_assets.py)`);
   });
+
+  // The same hazard one level down: app.js appends index.js's per-puzzle `v` to
+  // each puzzle file, so a re-annotation that does not rebuild the index serves
+  // the OLD annotation to anyone holding a cached copy. stamp_assets.py does not
+  // touch these — only tools/fetch_puzzle.py --reindex does — so nothing
+  // otherwise notices, and the symptom is a fix that looks deployed and isn't.
+  (global.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
+    if (!p.v) return;
+    const want = crypto.createHash("md5")
+      .update(fs.readFileSync(path.join(ROOT, "puzzles", p.file))).digest("hex").slice(0, 8);
+    assert(p.v === want,
+      `puzzles/index.js has a stale ?v= for ${p.file} (run tools/fetch_puzzle.py --reindex)`);
+  });
 }
 
 // --- the solver's abbreviation glossary is the clue-writer's, not a copy ---
