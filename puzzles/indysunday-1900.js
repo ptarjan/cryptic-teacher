@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUCKSHOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BUCKSHOT",
+    "definition": "lead",
+    "indicators": [],
+    "pieces": [
+     "BUCKS",
+     "HOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greens in US",
+      "gives": "BUCKS",
+      "note": "American money is green, and a greenback is a buck"
+     },
+     {
+      "clueFragment": "enjoying great popularity now",
+      "gives": "HOT",
+      "note": "a hot ticket is the one everybody wants at the moment"
+     }
+    ],
+    "walkthrough": "Both halves are slang for something other than shooting: dollars and fashionability. 'Lead' is the metal, not the verb, which is why it can sit at the end looking like a job description.",
+    "definitionFit": "lead → BUCKSHOT: buckshot is the coarse lead pellets a shotgun cartridge is loaded with, so the metal names the shot made of it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +70,37 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRAINWAVE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BRAINWAVE",
+    "definition": "What an idea!",
+    "indicators": [
+     "sandwiches"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "To sandwich a filling is to shut it between two slices, so the outer word splits and takes the rest inside."
+    },
+    "pieces": [
+     "BRA",
+     "IN",
+     "WA",
+     "VE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No chicken",
+      "gives": "BRAVE",
+      "note": "a chicken is a coward, so no chicken is brave"
+     },
+     {
+      "clueFragment": "in Washington",
+      "gives": "INWA",
+      "note": "IN taken as itself, then WA, the postal abbreviation for Washington state"
+     }
+    ],
+    "walkthrough": "Two American conventions in five words: the state abbreviation WA, and 'chicken' for a coward. The exclamation mark belongs to the definition, not to the surface's outrage.",
+    "definitionFit": "What an idea! → BRAINWAVE: a brainwave is the sudden bright idea that greets exactly that exclamation, not the electrical trace neurologists measure."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +117,27 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CASHIER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CASHIER",
+    "definition": "Dismiss",
+    "definition2": "employee always putting their hand in the till",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Dismiss",
+      "gives": "",
+      "note": "the military sense: to strip an officer of rank and turn them out"
+     },
+     {
+      "clueFragment": "employee always putting their hand in the till",
+      "gives": "",
+      "note": "the shop sense, where a hand in the till is the job rather than the crime"
+     }
+    ],
+    "walkthrough": "The joke lives in 'always': a till-dipping employee sounds like a thief, and the second definition is describing somebody entirely honest doing their work.",
+    "definitionFit": "To cashier an officer is to dismiss them from the service in disgrace; a cashier in a shop is the worker whose hands belong in the till."
+   }
   },
   {
    "id": "3-down",
@@ -86,7 +159,36 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
     ]
    },
    "solution": "SIRJOHNGIELGUD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SIR JOHN GIELGUD",
+    "definition": "Old luvvie",
+    "indicators": [
+     "plays",
+     "all but the last of"
+    ],
+    "indicatorNotes": {
+     "plays": "To play a part is to appear as somebody you are not, and these letters appear as a name that is not their own order.",
+     "all but the last of": "It keeps everything except the closing letter, so the word joins the mix one short."
+    },
+    "anagram": {
+     "fodder": "GIRL JUDGES ON HI"
+    },
+    "blocks": [
+     {
+      "clueFragment": "girl judges on",
+      "gives": "GIRLJUDGESON",
+      "note": "twelve of the fourteen letters, taken as they stand"
+     },
+     {
+      "clueFragment": "all but the last of his",
+      "gives": "HI",
+      "note": "HIS gives up its S, adding the last two letters to the pile"
+     }
+    ],
+    "walkthrough": "A fourteen-letter anagram hides best when its fodder reads as ordinary sense — a girl judging a playwright's work — and when the indicator is the theatrical word 'plays'.",
+    "definitionFit": "Old luvvie → SIR JOHN GIELGUD: 'luvvie' is British slang for a grandly theatrical actor, and he was the most celebrated of the knighted stage generation."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +205,33 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERSAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERSAW",
+    "definition": "Did boss",
+    "indicators": [],
+    "linkWords": [
+     "make"
+    ],
+    "pieces": [
+     "OVER",
+     "SAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too deep",
+      "gives": "OVER",
+      "note": "English marks excess with the prefix over-, so going too far is going over"
+     },
+     {
+      "clueFragment": "cuts",
+      "gives": "SAW",
+      "note": "a saw is what makes cuts, and the tool's name serves as the verb"
+     }
+    ],
+    "walkthrough": "The surface is a manager asked about redundancies; the wordplay is a carpenter's blunder. The answer only turns into a past tense once the two pieces are read as one word.",
+    "definitionFit": "Did boss → OVERSAW: to oversee work is to be in charge of it, and the clue's 'Did' asks for that verb in the past."
+   }
   },
   {
    "id": "5-across",
@@ -120,7 +248,27 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUST",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BUST",
+    "definition": "Piece made by sculptor",
+    "definition2": "completely out of dough",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Piece made by sculptor",
+      "gives": "",
+      "note": "the head-and-shoulders portrait in stone or bronze"
+     },
+     {
+      "clueFragment": "completely out of dough",
+      "gives": "",
+      "note": "broke — dough being money, and the slang for having none of it"
+     }
+    ],
+    "walkthrough": "'Dough' does two jobs at once: it belongs with the sculptor's modelling material on the surface, and it means cash in the definition that counts.",
+    "definitionFit": "A bust is the sculpted head and shoulders; the same word is slang for broke, so somebody entirely out of money is bust."
+   }
   },
   {
    "id": "5-down",
@@ -137,7 +285,36 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRISKET",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRISKET",
+    "definition": "Cut",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The small word does the placing: what comes before it goes inside what comes after, rather than beside it."
+    },
+    "pieces": [
+     "B",
+     "RISK",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wager",
+      "gives": "BET",
+      "note": "a wager is a bet, and it is the word that opens up"
+     },
+     {
+      "clueFragment": "chance of losing",
+      "gives": "RISK",
+      "note": "the chance of losing something is the risk you run"
+     }
+    ],
+    "walkthrough": "Every word of the surface is about gambling and none of it is about meat. The one butcher's word in the clue is sitting at the very front.",
+    "definitionFit": "Cut → BRISKET: brisket is the butcher's cut from the animal's breast, so the general word defines it as one cut among many."
+   }
   },
   {
    "id": "6-down",
@@ -154,7 +331,35 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAIR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "STAIR",
+    "definition": "Steps",
+    "definitionNote": "'Steps' is plural and the answer singular: a stair is the whole flight, so one stair is made of many steps.",
+    "indicators": [
+     "taken by",
+     "in revolution"
+    ],
+    "indicatorNotes": {
+     "taken by": "What a phrase takes is carried inside it, so the letters are lifted out of the words exactly as they stand.",
+     "in revolution": "A revolution turns a thing right round, so the run of letters has to be read the other way about."
+    },
+    "blocks": [
+     {
+      "clueFragment": "proletariat succeeded",
+      "gives": "RIATS",
+      "note": "the letters run across the join — proleta|RIAT S|ucceeded — and they arrive turned round"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "RIATS",
+      "to": "STAIR"
+     }
+    ],
+    "walkthrough": "A revolution by the proletariat is such a natural phrase that nothing in it looks like an instruction, which is exactly the cover a buried answer needs.",
+    "definitionFit": "Steps → STAIR: a stair is a flight of steps taken as one thing — 'up the stair' — rather than a single tread."
+   }
   },
   {
    "id": "7-down",
@@ -171,7 +376,42 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONGRESSPERSON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "CONGRESSPERSON",
+    "definition": "Representative",
+    "indicators": [
+     "upset",
+     "limited by"
+    ],
+    "indicatorNotes": {
+     "upset": "In a down entry, upsetting the pile sends what was written at the foot of it up to the top.",
+     "limited by": "To be limited by a thing is to have it as your edge, so the two words finish flush against each other rather than one inside the other."
+    },
+    "pieces": [
+     "CONGRESS",
+     "PERSON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being",
+      "gives": "PERSON",
+      "note": "a being is a person — 'human being' with the human left off"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "CONGRESS",
+      "note": "congress is the formal word for sexual intercourse, as in carnal congress"
+     },
+     {
+      "clueFragment": "so neutral?",
+      "gives": "",
+      "note": "no letters: the setter's nod to why this ending exists, standing in for the two gendered titles"
+     }
+    ],
+    "walkthrough": "The clue is about sex twice over — the act, and the grammatical kind the answer is designed to avoid. Only one of those meanings puts letters in the grid.",
+    "definitionFit": "Representative → CONGRESSPERSON: a member of the US House is formally styled a Representative, so the definition names the office by its holder's title."
+   }
   },
   {
    "id": "8-across",
@@ -188,7 +428,28 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MARS",
+    "definition": "Spoils",
+    "definition2": "of war",
+    "definitionNote": "'of war' does not define a word so much as point at the Roman god of it; the setter leaves 'god' unsaid so the phrase 'spoils of war' can stay whole.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Spoils",
+      "gives": "",
+      "note": "the plain verb: to mar a thing is to spoil it, and this is the third person"
+     },
+     {
+      "clueFragment": "of war",
+      "gives": "",
+      "note": "the Roman god, whose name the red planet also carries"
+     }
+    ],
+    "walkthrough": "Four letters and a famous phrase: the setter has written nothing but 'spoils of war' and split it in the one place that turns plunder into a deity.",
+    "definitionFit": "To mar is to spoil, so the verb's third person is one reading; the other is the Roman god war itself was named after."
+   }
   },
   {
    "id": "9-across",
@@ -205,7 +466,29 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHETORICAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RHETORICAL",
+    "definition": "Using persuasive language",
+    "indicators": [
+     "make"
+    ],
+    "indicatorNotes": {
+     "make": "'Make' here means turn into: the letters are being turned into something they are not yet, so they cannot stay as they are."
+    },
+    "anagram": {
+     "fodder": "A LOT RICHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a lot richer",
+      "gives": "RHETORICAL",
+      "note": "the ten letters of A LOT RICHER, dealt again"
+     }
+    ],
+    "walkthrough": "Persuasive language really might make you richer, so the surface holds together perfectly and gives you no reason to count the letters of the last three words.",
+    "definitionFit": "Using persuasive language → RHETORICAL: rhetoric is the ancient art of persuasion, so rhetorical describes speech shaped to win an audience round."
+   }
   },
   {
    "id": "10-across",
@@ -222,7 +505,42 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENVIRONS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ENVIRONS",
+    "definition": "location",
+    "definitionNote": "The answer is a plural-only noun — environs are the surrounding district — while 'location' is singular; the setter names the district by the single place it rings.",
+    "indicators": [
+     "Half"
+    ],
+    "indicatorNotes": {
+     "Half": "Only the front portion of the word is wanted, three letters out of the six that grudging admiration spells."
+    },
+    "pieces": [
+     "ENV",
+     "IRON",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Half grudgingly admired",
+      "gives": "ENV",
+      "note": "to admire grudgingly is to have ENVIED, and half of that six-letter word is its first three"
+     },
+     {
+      "clueFragment": "golf club",
+      "gives": "IRON",
+      "note": "an iron is the metal-headed golf club"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the apostrophe-s of 'club's' is taken as a plain letter"
+     }
+    ],
+    "walkthrough": "A golf club's location reads as a course address, and the clue means nothing of the kind. Watch for a possessive being cashed in as a letter — setters do it constantly.",
+    "definitionFit": "location → ENVIRONS: the environs of a town are the ground immediately round it, so the word names a place by the district it occupies."
+   }
   },
   {
    "id": "11-across",
@@ -243,7 +561,41 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOKART",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GO-KART",
+    "definition": "Racer",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "It asks for the very end of the word beside it, one letter and no more."
+    },
+    "pieces": [
+     "G",
+     "OK",
+     "ART"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demonstrating",
+      "gives": "G",
+      "note": "its final letter, which is what 'finally' asks for"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "OK",
+      "note": "OK is the everyday word for good enough"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art in the sense of a mastered craft, as in the art of conversation"
+     }
+    ],
+    "walkthrough": "The enumeration (2-4) tells you the answer is hyphenated, and the wordplay pays that hyphen no attention at all. Note too that 'finally' sits before its word rather than after it.",
+    "definitionFit": "Racer → GO-KART: a go-kart is a small open-framed racing car, so the definition names it by the only thing it is built for."
+   }
   },
   {
    "id": "12-across",
@@ -260,7 +612,36 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARREN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BARREN",
+    "definition": "Producing no crops",
+    "indicators": [
+     "limits"
+    ],
+    "indicatorNotes": {
+     "limits": "To set the limits of a thing is to stand at both ends of it, so the outer word opens and takes the other inside."
+    },
+    "pieces": [
+     "BAR",
+     "RE",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farm storage",
+      "gives": "BARN",
+      "note": "the barn is where a farm keeps its harvest, and it is the word that splits"
+     },
+     {
+      "clueFragment": "to do with",
+      "gives": "RE",
+      "note": "re means concerning, the word at the head of a memo"
+     }
+    ],
+    "walkthrough": "A barn stands for farm storage so readily that it never looks like a container, and 'limits' passes as part of the same phrase about capacity.",
+    "definitionFit": "Producing no crops → BARREN: barren land is soil too poor to yield a harvest, the farming sense of the word rather than the human one."
+   }
   },
   {
    "id": "13-across",
@@ -277,7 +658,27 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHEATEAR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "WHEATEAR",
+    "definition": "little songbird",
+    "indicators": [
+     "you hear"
+    ],
+    "indicatorNotes": {
+     "you hear": "What you hear is a sound and not a spelling, so the words are to be taken by ear and written down differently."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Small layer",
+      "soundsLike": "WEE TIER",
+      "gives": "WHEATEAR",
+      "note": "small is wee and a layer of a cake is a tier; run the two together and the sound is the bird's name"
+     }
+    ],
+    "walkthrough": "'Layer' pulls hard towards a hen, which is the wrong kind of layer entirely — the setter wants the layer of a cake. The bird has nothing to do with wheat or with ears.",
+    "definitionFit": "little songbird → WHEATEAR: the wheatear is a small chat of open moorland, and 'songbird' places it by family rather than naming it."
+   }
   },
   {
    "id": "14-down",
@@ -294,7 +695,39 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALEXANDER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ALEXANDER",
+    "definition": "Military leader",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "aboard"
+    ],
+    "indicatorNotes": {
+     "aboard": "Anything taken aboard travels inside the vessel, so these letters ride within the word around them."
+    },
+    "pieces": [
+     "AL",
+     "EX",
+     "ANDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American Eagle?",
+      "gives": "ALANDER",
+      "note": "Apollo 11's Eagle was a lunar module — a lander, and an American one; the question mark admits it is an example"
+     },
+     {
+      "clueFragment": "old mate",
+      "gives": "EX",
+      "note": "an ex is the partner you used to have"
+     }
+    ],
+    "walkthrough": "'American Eagle' reads as a bird, an airline or a coin, and the setter means a spacecraft. Once the Eagle is a lander, the indefinite article in front of it is doing real work.",
+    "definitionFit": "Military leader → ALEXANDER: it names a commander by example — Alexander the Great, and the Field Marshal Alexander of the Second World War."
+   }
   },
   {
    "id": "15-across",
@@ -311,7 +744,30 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERSPIRE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PERSPIRE",
+    "definition": "Let out water",
+    "indicators": [],
+    "pieces": [
+     "PER",
+     "SPIRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "through",
+      "gives": "PER",
+      "note": "per is Latin for through, the sense kept in 'per capita'"
+     },
+     {
+      "clueFragment": "conical structure",
+      "gives": "SPIRE",
+      "note": "a spire is the tapering cone on top of a church tower"
+     }
+    ],
+    "walkthrough": "Water running through a conical structure paints a fountain, and the answer is about skin. PER for 'through' is worth banking — it turns up in dozens of charades.",
+    "definitionFit": "Let out water → PERSPIRE: perspiring is the body letting water out through the skin, which is simply sweating said politely."
+   }
   },
   {
    "id": "16-down",
@@ -328,7 +784,41 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPARKLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SPARKLE",
+    "definition": "charming animation",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Sent around, a thing comes back the way it went, so the whole assembly is read from its far end."
+    },
+    "pieces": [
+     "SPAR",
+     "KLE"
+    ],
+    "subReversals": [
+     {
+      "from": "ELKRAPS",
+      "to": "SPARKLE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deer",
+      "gives": "ELK",
+      "note": "the elk is the crossword's standard deer"
+     },
+     {
+      "clueFragment": "charges",
+      "gives": "RAPS",
+      "note": "a rap is a criminal charge — 'take the rap' — so charges are raps"
+     }
+    ],
+    "walkthrough": "Two little words carry the whole clue: 'charges' means accusations rather than a stampede, and the deer is not running anywhere. Turned round, the pair spell the answer.",
+    "definitionFit": "charming animation → SPARKLE: sparkle is the liveliness of a person's manner, the same metaphor as calling a talker sparkling."
+   }
   },
   {
    "id": "17-down",
@@ -349,7 +839,29 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
     ]
    },
    "solution": "EATDIRT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EAT DIRT",
+    "definition": "Suffer humiliation",
+    "indicators": [
+     "turning"
+    ],
+    "indicatorNotes": {
+     "turning": "Milk that is turning is no longer what it was, and letters in the act of turning have not settled into their order yet."
+    },
+    "anagram": {
+     "fodder": "RED AT IT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "red at it",
+      "gives": "EAT DIRT",
+      "note": "the seven letters of RED AT IT, dealt again"
+     }
+    ],
+    "walkthrough": "'Turning red' is a blush, which is what humiliation looks like, so the indicator and its fodder read as a single idea. The answer is two words where the fodder is three.",
+    "definitionFit": "Suffer humiliation → EAT DIRT: to eat dirt is the idiom for swallowing an insult without answering back, a whole phrase rather than a synonym."
+   }
   },
   {
    "id": "18-across",
@@ -366,7 +878,41 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIGNED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SIGNED",
+    "definition": "communicated silently",
+    "indicators": [
+     "heading to the front"
+    ],
+    "indicatorNotes": {
+     "heading to the front": "In an across entry the front is the left-hand end, so letters that head there arrive in the opposite order."
+    },
+    "pieces": [
+     "SIG",
+     "NED"
+    ],
+    "subReversals": [
+     {
+      "from": "DENGIS",
+      "to": "SIGNED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retreat",
+      "gives": "DEN",
+      "note": "a den is a private retreat, a bolt-hole rather than a withdrawal"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "GIS",
+      "note": "GIs are American soldiers"
+     }
+    ],
+    "walkthrough": "'Retreat' in quotation marks looks exactly like the order to turn about, and it is a hiding place instead. The turning is done by the march to the front.",
+    "definitionFit": "communicated silently → SIGNED: to sign is to talk with the hands, in sign language or by gesture, which makes no sound at all."
+   }
   },
   {
    "id": "19-down",
@@ -383,7 +929,35 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOODISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GOODISH",
+    "definition": "Fair",
+    "indicators": [
+     "burdened by"
+    ],
+    "indicatorNotes": {
+     "burdened by": "A burden sits on top of whatever carries it, so in a down entry the load is written above the thing bearing it."
+    },
+    "pieces": [
+     "GOO",
+     "DISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sentiment",
+      "gives": "GOO",
+      "note": "goo is sloppy sentimentality, the stuff a gooey film is made of"
+     },
+     {
+      "clueFragment": "beauty",
+      "gives": "DISH",
+      "note": "a dish is long-standing slang for a good-looking person"
+     }
+    ],
+    "walkthrough": "Both pieces are slang, which is what lets the surface read as a straight sentence about somebody weighed down by feeling. A down entry's geometry sets the order.",
+    "definitionFit": "Fair → GOODISH: the -ish weakens good to 'reasonably good', and 'fair' is the same grudging half-praise in a school report."
+   }
   },
   {
    "id": "20-across",
@@ -404,7 +978,30 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOBALL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NO-BALL",
+    "definition": "foul at Lord's",
+    "indicators": [],
+    "pieces": [
+     "NOB",
+     "ALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toff",
+      "gives": "NOB",
+      "note": "a nob is a swell, somebody of high social rank"
+     },
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "all in the sense of wholly, as in 'all wrong'"
+     }
+    ],
+    "walkthrough": "Lord's is cricket's headquarters, so the foul in question is a bowling offence. 'Toff' and 'nob' are both Victorian words for the same well-dressed man.",
+    "definitionFit": "foul at Lord's → NO-BALL: a no-ball is the bowler's illegal delivery, and naming the ground is the setter's way of saying the foul is a cricketing one."
+   }
   },
   {
    "id": "21-down",
@@ -421,7 +1018,36 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCEAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "OCEAN",
+    "definition": "the drink",
+    "indicators": [
+     "Saving",
+     "doctored"
+    ],
+    "indicatorNotes": {
+     "Saving": "Saving here means 'except for', so the coin named next is held back rather than used.",
+     "doctored": "A doctored document has been tampered with, and tampered-with letters no longer sit where they were put."
+    },
+    "anagram": {
+     "fodder": "CAONE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "p is the abbreviation for pence, and it is the letter set aside"
+     },
+     {
+      "clueFragment": "Capone",
+      "gives": "OCEAN",
+      "note": "CAPONE without that p leaves five letters to be rearranged"
+     }
+    ],
+    "walkthrough": "Al Capone was a bootlegger, so a doctored drink is exactly the story the surface wants to tell, and none of it has anything to do with the sea.",
+    "definitionFit": "the drink → OCEAN: 'the drink' is sailors' and airmen's slang for the sea, as in a plane ditching in the drink."
+   }
   },
   {
    "id": "22-across",
@@ -438,7 +1064,24 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEETOTAL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TEETOTAL",
+    "definition": "Always taking the soft option?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Always taking",
+      "note": "the surface reading: somebody who never once risks the harder choice"
+     },
+     {
+      "clueFragment": "the soft option?",
+      "note": "at a bar the soft option is the drink with no alcohol in it, and taking it every time is a way of life"
+     }
+    ],
+    "walkthrough": "There is no wordplay to find here — the whole clue is one description, and the step is realising that 'soft' is a bar word rather than a word about courage.",
+    "definitionFit": "Always taking the soft option? → TEETOTAL: soft drinks are the ones without alcohol, so somebody who takes only those has sworn off drink altogether."
+   }
   },
   {
    "id": "23-across",
@@ -459,7 +1102,44 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
     ]
    },
    "solution": "DECKQUOITS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "DECK QUOITS",
+    "definition": "Throwing loops of rope on board",
+    "indicators": [
+     "boxes",
+     "first"
+    ],
+    "indicatorNotes": {
+     "boxes": "To box a thing is to shut it in, so the word doing the boxing opens up and takes the other inside.",
+     "first": "Only the opening letter of the word beside it is wanted, not the word itself."
+    },
+    "pieces": [
+     "DECK",
+     "QU",
+     "O",
+     "ITS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pack",
+      "gives": "DECK",
+      "note": "a pack of cards is a deck of cards"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "QUITS",
+      "note": "to be quits with somebody is to be square with them, all debts settled"
+     },
+     {
+      "clueFragment": "once",
+      "gives": "O",
+      "note": "its opening letter alone"
+     }
+    ],
+    "walkthrough": "The whole surface is a packing job aboard ship, which is also where the game is played, so definition and wordplay are describing the same deck.",
+    "definitionFit": "Throwing loops of rope on board → DECK QUOITS: quoits are rings pitched at a peg, and the shipboard version uses rope rings thrown along the deck."
+   }
   },
   {
    "id": "24-across",
@@ -476,7 +1156,30 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "INDY",
+    "definition": "Motor races",
+    "definitionNote": "The definition is plural and the answer names one meeting: 'the Indy' is used for the racing as a whole, not for a single afternoon's event.",
+    "indicators": [
+     "not starting"
+    ],
+    "indicatorNotes": {
+     "not starting": "A word that is not starting has lost its opening letter and begins one along."
+    },
+    "pieces": [
+     "INDY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affected by gales",
+      "gives": "INDY",
+      "note": "weather affected by gales is WINDY, which here never gets to start"
+     }
+    ],
+    "walkthrough": "A race that never starts is the joke. The letter goes missing from the weather rather than from the race, which is what makes the surface hold together.",
+    "definitionFit": "Motor races → INDY: the Indianapolis 500 is universally shortened to the Indy, and the name now covers the whole American open-wheel racing series."
+   }
   },
   {
    "id": "25-across",
@@ -493,7 +1196,26 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ANTE",
+    "definition": "money in pot, initially",
+    "indicators": [
+     "keeps"
+    ],
+    "indicatorNotes": {
+     "keeps": "What a phrase keeps, it holds on to inside itself, so the letters are already there in the words as written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "German teacher",
+      "gives": "ANTE",
+      "note": "the letters run across the join: germ|AN TE|acher"
+     }
+    ],
+    "walkthrough": "'Initially' looks like an instruction to take a first letter and is part of the definition instead — the stake goes in before any cards are dealt.",
+    "definitionFit": "money in pot, initially → ANTE: the ante is the stake every player must put into the pot before a hand begins, so it is the pot's opening money."
+   }
   },
   {
    "id": "26-across",
@@ -514,7 +1236,27 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATANCHOR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "AT ANCHOR",
+    "definition": "stopped in the Channel?",
+    "indicators": [
+     "Report of"
+    ],
+    "indicatorNotes": {
+     "Report of": "A report of something is the account you are given by ear, so what follows is to be heard rather than read."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a Russian ghost ship",
+      "soundsLike": "A TANKER",
+      "gives": "AT ANCHOR",
+      "note": "Russia's sanctioned 'ghost fleet' is made of tankers, so a Russian ghost ship is a tanker — and 'a tanker' is what you hear"
+     }
+    ],
+    "walkthrough": "The surface is a news bulletin about the shadow fleet. The trick is where the break falls in the sound: move it one letter along and the same syllables turn nautical.",
+    "definitionFit": "stopped in the Channel? → AT ANCHOR: a vessel at anchor is held fast to the seabed and going nowhere, which for a ship is what being stopped means."
+   }
   }
  ]
 } /*JSON-END*/;
