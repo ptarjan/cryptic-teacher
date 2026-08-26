@@ -43,12 +43,17 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
 ```
 
 Rules:
-- FIRST read `STYLE.md` at the repo root and follow every rule in it. It is the
-  accumulated product feedback; it overrides habit. In particular, `type` must
+- FIRST read the `## Annotation rules` section of `STYLE.md` at the repo root —
+  the top of the file down to `## Hint-ladder / UX rules` — and follow every rule
+  in it. It is the accumulated product feedback; it overrides habit. Stop at that
+  heading: everything below it is app internals, the reference corpus and deploy
+  notes, none of which a run holding one puzzle file can act on, and all of which
+  is paid for again on every run that reads it. In particular, `type` must
   honestly name EVERY mechanism used, joined with " + " (e.g.
   `charade + alternate letters`), using only the controlled vocabulary in
   STYLE.md / `TYPE_PARTS` in the validator. If a clue truly needs a new type
-  part, add it to `TYPE_PARTS`, STYLE.md, and `TYPE_BLURBS` in `app.js` together.
+  part, add it to `TYPE_PARTS`, STYLE.md, `TYPE_BLURBS` in `app.js`, and a family
+  in `FAMILIES` in `app.js` together — the smoke test fails a part with no family.
 - `cryptic definition` is capped at TWO per puzzle and the validator ERRORS above that
   (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable wordplay, so a third
   one almost always means you gave up on a clue: go back and find the charade, hidden word
