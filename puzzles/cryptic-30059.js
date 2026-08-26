@@ -29,7 +29,27 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHOA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "WHOA",
+    "definition": "Stop",
+    "indicators": [
+     "in the ear"
+    ],
+    "indicatorNotes": {
+     "in the ear": "Anything arriving in the ear is heard rather than read, so what you write down is a spelling that matches the sound."
+    },
+    "blocks": [
+     {
+      "clueFragment": "pain",
+      "soundsLike": "WOE",
+      "gives": "WHOA",
+      "note": "pain is woe, and woe said aloud is what a rider shouts to pull a horse up"
+     }
+    ],
+    "walkthrough": "'Pain in the ear' poses as earache. Fitting that the sound of misery turns out to be the command that halts a horse, in a puzzle this full of racing.",
+    "definitionFit": "'Stop' → WHOA: the shout that brings a horse to a standstill, so it defines stopping as an instruction rather than as a plain verb."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +66,29 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRIEDMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FRIEDMAN",
+    "definition": "Economist",
+    "pieces": [
+     "FRIED",
+     "MAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "possible dish",
+      "gives": "FRIED",
+      "note": "a dish may be described by how it was cooked, and this is the commonest way"
+     },
+     {
+      "clueFragment": "for cannibal",
+      "gives": "MAN",
+      "note": "what a cannibal eats is man"
+     }
+    ],
+    "walkthrough": "Milton Friedman, the monetarist of the Chicago school, is the economist wanted; the surface carves his surname into a menu, which is the entire joke.",
+    "definitionFit": "'Economist' → FRIEDMAN: definition by example — Milton Friedman, the Chicago monetarist whose name the solver supplies from the trade named."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +105,32 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOGGIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOGGIN",
+    "definition": "Measure of alcohol",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "NOG",
+     "GIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two alcoholic drinks",
+      "gives": "NOG",
+      "note": "the first of the two is nog, the strong ale that also flavours a Christmas eggnog"
+     },
+     {
+      "clueFragment": "two alcoholic drinks",
+      "gives": "GIN",
+      "note": "the second is gin, the spirit half of a G and T"
+     }
+    ],
+    "walkthrough": "One phrase has to yield both drinks, and 'two' is the only signal that the answer arrives in halves — no other word tells you where to cut.",
+    "definitionFit": "'Measure of alcohol' → NOGGIN: an old quarter-pint measure of spirits, and still the word for a small one poured for somebody."
+   }
   },
   {
    "id": "4-down",
@@ -80,7 +147,29 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CASHMERE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CASHMERE",
+    "definition": "fabric",
+    "pieces": [
+     "CASH",
+     "MERE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silver",
+      "gives": "CASH",
+      "note": "silver is coin, and coin in hand is cash"
+     },
+     {
+      "clueFragment": "no better than",
+      "gives": "MERE",
+      "note": "something no better than a copy is a mere copy"
+     }
+    ],
+    "walkthrough": "'Silver no better than' reads as a jeweller sneering at second-rate metal. Both halves are ordinary synonyms once the sentence is broken at the right point.",
+    "definitionFit": "'fabric' → CASHMERE: the soft wool combed from Kashmir goats and woven into cloth, the region's name spelt the English way."
+   }
   },
   {
    "id": "5-down",
@@ -97,7 +186,34 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACTUAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ACTUAL",
+    "definition": "Very",
+    "indicators": [
+     "origin forgotten"
+    ],
+    "indicatorNotes": {
+     "origin forgotten": "A word's origin is where it begins, and forgetting it means the opening letter never gets written down."
+    },
+    "pieces": [
+     "ACTUAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "true",
+      "gives": "FACTUAL",
+      "note": "a true account is a factual one"
+     },
+     {
+      "clueFragment": "origin forgotten",
+      "gives": "F",
+      "note": "the F standing at the front is the letter that goes"
+     }
+    ],
+    "walkthrough": "'Very' is the definition, not an intensifier: 'the very man' means the actual man, the identical one. The surface passes it off as praise for a story.",
+    "definitionFit": "'Very' → ACTUAL: the older adjectival sense heard in 'the very man' — this identical one, real rather than supposed."
+   }
   },
   {
    "id": "6-down",
@@ -114,7 +230,38 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SKID",
+    "definition": "lose control",
+    "indicators": [
+     "circles",
+     "ending in"
+    ],
+    "indicatorNotes": {
+     "circles": "To circle something is to go the whole way round it, so the letter named next ends up enclosed.",
+     "ending in": "The ending of a word is its final letter, so only the last one of deadlock is taken."
+    },
+    "pieces": [
+     "S",
+     "K",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicious",
+      "gives": "SID",
+      "note": "Sid Vicious of the Sex Pistols, summoned by his surname as crosswords like to do"
+     },
+     {
+      "clueFragment": "ending in deadlock",
+      "gives": "K",
+      "note": "the last letter of deadlock"
+     }
+    ],
+    "walkthrough": "The punk bassist hides behind an adjective: 'Vicious circles' reads as a stock phrase and is really a name with an instruction attached to it.",
+    "definitionFit": "'lose control' → SKID: once the tyres let go the car stops answering the wheel, which is precisely that loss of control."
+   }
   },
   {
    "id": "7-across",
@@ -131,7 +278,38 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARIOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHARIOT",
+    "definition": "9",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "passing"
+    ],
+    "indicatorNotes": {
+     "passing": "One thing that passes another finishes up right alongside it — a loose join, promising only that the two pieces touch."
+    },
+    "pieces": [
+     "CHA",
+     "RIOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steamer",
+      "gives": "CHA",
+      "note": "cha is tea, the cup that arrives steaming"
+     },
+     {
+      "clueFragment": "Hoot",
+      "gives": "RIOT",
+      "note": "a hoot and a riot both mean something hilarious"
+     }
+    ],
+    "walkthrough": "The surface is a ship sounding its horn in fog. Cha for tea reached English from the same Chinese word as chai, and it is standard crossword furniture.",
+    "definitionFit": "9 → CHARIOT: 9 across is RACE, and the chariot race was the great spectacle of the Roman circus, run with two wheels and four horses."
+   }
   },
   {
    "id": "8-across",
@@ -148,7 +326,27 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANCAKE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PANCAKE",
+    "definition": "17 across",
+    "definition2": "9",
+    "definitionNote": "17 across gives FLAT, an adjective, while the answer is a noun. The simile 'flat as a pancake' is what lets the setter use one for the other.",
+    "blocks": [
+     {
+      "clueFragment": "17 across",
+      "gives": "PANCAKE",
+      "note": "solve 17 across first: it hands you the adjective this griddle-thin thing is proverbially used to illustrate"
+     },
+     {
+      "clueFragment": "9",
+      "gives": "PANCAKE",
+      "note": "9 across is RACE, and Shrove Tuesday has a famous one run while tossing something in a frying pan"
+     }
+    ],
+    "walkthrough": "Both halves are cross-references, so this clue falls last: 17 across says what a pancake is like, 9 across says what a pancake gets carried through in February.",
+    "definitionFit": "17 across → PANCAKE: a pancake is proverbially flat, and with 9 across it names the Shrove Tuesday event run while tossing one."
+   }
   },
   {
    "id": "9-across",
@@ -165,7 +363,26 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RACE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RACE",
+    "definition": "Run",
+    "definition2": "whizz",
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "RACE",
+      "note": "horses and athletes run in the sense of competing over a distance"
+     },
+     {
+      "clueFragment": "whizz",
+      "gives": "RACE",
+      "note": "to whizz along is to travel at real speed"
+     }
+    ],
+    "walkthrough": "The keystone of the puzzle: a dozen other clues point at 9, each naming a different kind of one. Two ordinary senses here, a contest and sheer speed.",
+    "definitionFit": "'Run' → RACE: a run is a contest over a distance, and 'whizz' catches the other verb sense, to move so fast you tear past."
+   }
   },
   {
    "id": "10-across",
@@ -182,7 +399,35 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GREYHOUND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GREYHOUND",
+    "definition": "9",
+    "indicators": [
+     "associated with"
+    ],
+    "indicatorNotes": {
+     "associated with": "Things associated stand together, and that is all this join promises — it never says which piece leads, so the crossing letters settle it."
+    },
+    "pieces": [
+     "GREY",
+     "HOUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "12 down",
+      "gives": "GREY",
+      "note": "solve 12 down first: a grey is one of them, named for the colour of its coat"
+     },
+     {
+      "clueFragment": "Track",
+      "gives": "HOUND",
+      "note": "to track somebody relentlessly is to hound them"
+     }
+    ],
+    "walkthrough": "'Track' looks like the definition — a dog track — and is really a verb. Paul then makes you solve 12 down before this one will give up its first half.",
+    "definitionFit": "9 → GREYHOUND: 9 across is RACE, and greyhound racing, run on an oval behind a mechanical hare, is a sport in its own right."
+   }
   },
   {
    "id": "11-down",
@@ -199,7 +444,43 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDURANCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ENDURANCE",
+    "definition": "9",
+    "indicators": [
+     "played",
+     "after"
+    ],
+    "indicatorNotes": {
+     "played": "A tune played by ear comes out in a fresh arrangement every time, and so do these six letters.",
+     "after": "After puts the shuffled letters behind the piece named last in the clue, so the finish stands at the front."
+    },
+    "pieces": [
+     "END",
+     "URANCE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RUNACE",
+      "gives": "URANCE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finishing line",
+      "gives": "END",
+      "note": "the finishing line of anything is its end"
+     },
+     {
+      "clueFragment": "run, ace",
+      "gives": "URANCE",
+      "note": "six letters handed over to be resettled"
+     }
+    ],
+    "walkthrough": "The surface passes for a tennis report. Paul hides the join by putting the finish first, which is the last place a solver looks for the start of an answer.",
+    "definitionFit": "9 → ENDURANCE: 9 across is RACE, and an endurance race — Le Mans, the Marathon des Sables — is won by lasting rather than by pace."
+   }
   },
   {
    "id": "12-across",
@@ -216,7 +497,39 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUMAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HUMAN",
+    "definition": "9",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "to enter"
+    ],
+    "indicatorNotes": {
+     "to enter": "To enter a place is to go inside it, so the piece holding the instruction moves in among the other's letters."
+    },
+    "pieces": [
+     "H",
+     "UM",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old ruling dynasty",
+      "gives": "HAN",
+      "note": "the Han ruled China for four centuries either side of year one"
+     },
+     {
+      "clueFragment": "I’m thinking",
+      "gives": "UM",
+      "note": "the noise a person makes while thinking, written out"
+     }
+    ],
+    "walkthrough": "The dynasty is split after a single letter, which is where insertions get hard: the eye expects the inserted piece to land somewhere nearer the middle.",
+    "definitionFit": "9 → HUMAN: 9 across is RACE, and the human race is the standing phrase for our species — one of the few races nobody competes in."
+   }
   },
   {
    "id": "12-down",
@@ -233,7 +546,27 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HORSE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HORSE",
+    "definition": "9",
+    "indicators": [
+     "Reportedly"
+    ],
+    "indicatorNotes": {
+     "Reportedly": "What is reported is passed on by voice, so the word wanted is the one you hear and not the one printed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "rough",
+      "gives": "HORSE",
+      "soundsLike": "HOARSE",
+      "note": "a rough voice is a hoarse one, and that sound is spelt a second way"
+     }
+    ],
+    "walkthrough": "Two letters apart and a world apart: a ragged throat gives the animal that half this grid is quietly about, and the only instruction is 'Reportedly'.",
+    "definitionFit": "9 → HORSE: 9 across is RACE, and horse racing is what 'the races' means by default, from the Derby to the Grand National."
+   }
   },
   {
    "id": "13-across",
@@ -250,7 +583,41 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUELLIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DUELLIST",
+    "definition": "Challenger with gun",
+    "indicators": [
+     "getting shot"
+    ],
+    "indicatorNotes": {
+     "getting shot": "Something shot is wrecked — shot to pieces — and wrecked letters have to be rebuilt in a different order."
+    },
+    "pieces": [
+     "DUE",
+     "LLIST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "STILL",
+      "gives": "LLIST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anticipated",
+      "gives": "DUE",
+      "note": "a train anticipated at four is due at four"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "LLIST",
+      "note": "five letters handed over to be rearranged"
+     }
+    ],
+    "walkthrough": "'Getting shot still' sounds like a photographer at work and is two jobs at once: the shooting is the instruction, and 'still' is the word it wrecks.",
+    "definitionFit": "'Challenger with gun' → DUELLIST: the man who issues the challenge and then settles it at dawn, pistol in hand, at twenty paces."
+   }
   },
   {
    "id": "14-down",
@@ -267,7 +634,23 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPACE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit",
+    "answer": "SPACE",
+    "definition": "9",
+    "pieces": [
+     "SPACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "     ",
+      "gives": "SPACE",
+      "note": "the clue is a printed gap and nothing else — what the typesetter left in front of the 9 is itself the wordplay"
+     }
+    ],
+    "walkthrough": "Nothing is printed but the cross-reference, and the nothing is the point: the blank before 9 is a SPACE, and SPACE plus RACE is the contest to reach the moon.",
+    "definitionFit": "9 → SPACE: 9 across is RACE, and the space race was the cold-war contest between America and the Soviet Union to reach orbit and the moon."
+   }
   },
   {
    "id": "15-across",
@@ -284,7 +667,31 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "IRON",
+    "definition": "decrease?",
+    "indicators": [
+     "one third off"
+    ],
+    "indicatorNotes": {
+     "one third off": "On the surface that is a discount; on the letters it means one of the word's three characters, a third of them, is taken away."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fee",
+      "gives": "FEE",
+      "note": "the word fee itself, all three letters of it, is the raw material"
+     },
+     {
+      "clueFragment": "one third off",
+      "gives": "FE",
+      "note": "lose one of those three and FE is left, which is how chemistry writes the metal"
+     }
+    ],
+    "walkthrough": "Two jokes in four letters. FE is the chemical symbol, so a fee cut by a third names the metal — and 'decrease' is really de-crease, what the appliance does to a shirt.",
+    "definitionFit": "'decrease?' → IRON: read as de-crease, since taking the creases out of a shirt is ironing it, and the question mark flags the split."
+   }
   },
   {
    "id": "16-across",
@@ -306,7 +713,30 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
     ]
    },
    "solution": "THREE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THREE-LEGGED",
+    "coversGroup": true,
+    "definition": "9",
+    "pieces": [
+     "THREE",
+     "LEGGED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on and on and on?",
+      "gives": "THREE",
+      "note": "the same little word is named over and over, and how many times is what the first half of the answer counts"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEGGED",
+      "note": "in cricket the on side is the leg side, so every mention supplies one leg"
+     }
+    ],
+    "walkthrough": "The surface is somebody droning away. 'On' is cricket's name for the leg side of the wicket, and 9 across turns three of them into a sports-day event.",
+    "definitionFit": "9 → THREE-LEGGED: 9 across is RACE, and the three-legged race is the school sports-day event run by two children with their ankles tied."
+   }
   },
   {
    "id": "16-down",
@@ -327,7 +757,36 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAKEROOT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TAKE ROOT",
+    "definition": "to become firmly established",
+    "indicators": [
+     "on tour",
+     "working"
+    ],
+    "indicatorNotes": {
+     "on tour": "A youngster on tour is never in the same place twice, and letters that keep moving arrive in a new order.",
+     "working": "Dough that is worked gets pushed about until it holds another shape, which is what happens here to the letters."
+    },
+    "anagram": {
+     "fodder": "TOT KOREA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Youngster",
+      "gives": "TOT",
+      "note": "a small child is a tot"
+     },
+     {
+      "clueFragment": "Korea",
+      "gives": "KOREA",
+      "note": "the country contributes its own five letters, whole and unabbreviated"
+     }
+    ],
+    "walkthrough": "Eight letters out of two innocent words, with the definition running all the way to the full stop — 'working' belongs to the wordplay, not to the youngster.",
+    "definitionFit": "'to become firmly established' → TAKE ROOT: a seedling that takes root cannot be shifted afterwards, and the phrase carries over to ideas and habits."
+   }
   },
   {
    "id": "17-across",
@@ -344,7 +803,26 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FLAT",
+    "definition": "Boring",
+    "definition2": "9",
+    "blocks": [
+     {
+      "clueFragment": "Boring",
+      "gives": "FLAT",
+      "note": "a dull, lifeless performance is described this way, as is a joke nobody laughs at"
+     },
+     {
+      "clueFragment": "9",
+      "gives": "FLAT",
+      "note": "9 across is RACE: British racing splits into the jumps and the season run on the level, and this word names the second"
+     }
+    ],
+    "walkthrough": "Both halves are everyday, but the second needs 9 across first. The flat is the summer code, run without fences, as against National Hunt racing over jumps.",
+    "definitionFit": "'Boring' → FLAT: a flat joke falls dull and lifeless; with 9 across it becomes the level season of horse racing, run without fences."
+   }
   },
   {
    "id": "17-down",
@@ -361,7 +839,27 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIELDING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FIELDING",
+    "definition": "Satirist",
+    "definition2": "square or deep, perhaps?",
+    "definitionNote": "'Satirist' is a noun and the answer ends -ing, because it is a surname here rather than a participle; only the cricketing half of the clue defines the -ing word.",
+    "blocks": [
+     {
+      "clueFragment": "Satirist",
+      "gives": "FIELDING",
+      "note": "Henry ——, the Georgian novelist of Tom Jones and Shamela, who aimed his satire at his fellow writers"
+     },
+     {
+      "clueFragment": "square or deep, perhaps?",
+      "gives": "FIELDING",
+      "note": "square leg and deep midwicket are places to stand in cricket, and 'perhaps' flags them as examples of the wider job"
+     }
+    ],
+    "walkthrough": "Two worlds in one word: a Georgian novelist, and the cricket field, where square and deep describe where a player stands rather than what shape he is.",
+    "definitionFit": "'Satirist' → FIELDING: Henry Fielding, who wrote Shamela and Tom Jones; and square or deep name positions, examples of fielding flagged by 'perhaps'."
+   }
   },
   {
    "id": "18-across",
@@ -378,7 +876,47 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEALSKIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "SEALSKIN",
+    "definition": "hide",
+    "indicators": [
+     "swimming",
+     "around"
+    ],
+    "indicatorNotes": {
+     "swimming": "A snake swimming holds no fixed shape from one moment to the next, and neither do the letters it is made of.",
+     "around": "What goes around something closes over it, so the resettled letters finish up on both sides of the single one."
+    },
+    "anagram": {
+     "fodder": "SNAKE IS L"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "SNAKEIS",
+      "gives": "SEASKIN"
+     }
+    ],
+    "pieces": [
+     "SEA",
+     "L",
+     "SKIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snake is swimming",
+      "gives": "SEASKIN",
+      "note": "seven letters resettled into a new order"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map-maker's lake, as on an atlas beside Windermere"
+     }
+    ],
+    "walkthrough": "The dash is the join. 'Hide!' reads as an order to conceal yourself and means a pelt, and the exclamation mark is there to keep you reading it the wrong way.",
+    "definitionFit": "'hide' → SEALSKIN: a hide is an animal's skin taken off whole, and this is that same pelt named for the creature it came from."
+   }
   },
   {
    "id": "19-down",
@@ -398,7 +936,9 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
     "-": []
    },
    "solution": "LEGGED",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "16-across"
+   }
   },
   {
    "id": "20-across",
@@ -415,7 +955,30 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIECE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PIECE",
+    "definition": "Musical creation",
+    "linkWords": [
+     "where"
+    ],
+    "indicators": [
+     "heard"
+    ],
+    "indicatorNotes": {
+     "heard": "What is heard is taken in by ear, so you write the spelling that matches the sound rather than the word printed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "harmony",
+      "gives": "PIECE",
+      "soundsLike": "PEACE",
+      "note": "harmony between people is peace, and said aloud that word is spelt a second way"
+     }
+    ],
+    "walkthrough": "'Where harmony heard' poses as a concert hall, and it is the sound of calm that gives the composition. Musical surfaces are where this pair always hides.",
+    "definitionFit": "'Musical creation' → PIECE: a single composition is called a piece, the everyday word for one work rather than for a whole genre."
+   }
   },
   {
    "id": "20-down",
@@ -432,7 +995,26 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POTATO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "POTATO",
+    "definition": "9",
+    "definition2": "that’s eyed",
+    "blocks": [
+     {
+      "clueFragment": "9",
+      "gives": "POTATO",
+      "note": "9 across is RACE, and there is a sports-day event of that name run gathering vegetables into a bucket"
+     },
+     {
+      "clueFragment": "that’s eyed",
+      "gives": "POTATO",
+      "note": "the sprouting buds on the skin of this vegetable are called its eyes"
+     }
+    ],
+    "walkthrough": "Paul gives you a vegetable with eyes and a sports-day event nobody runs any more, in which competitors fetch potatoes one at a time into a bucket.",
+    "definitionFit": "9 → POTATO: 9 across is RACE, and a potato race is that old sports-day event; 'eyed' fits because the sprouting buds are called eyes."
+   }
   },
   {
    "id": "21-across",
@@ -453,7 +1035,29 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
     ]
    },
    "solution": "SUGARBEET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUGAR BEET",
+    "definition": "Plant",
+    "indicators": [
+     "cuckoo"
+    ],
+    "indicatorNotes": {
+     "cuckoo": "Cuckoo means mad, and letters sent mad will not stay in the order they were handed to you."
+    },
+    "anagram": {
+     "fodder": "EATER BUGS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "eater bugs",
+      "gives": "EATERBUGS",
+      "note": "nine letters to be rearranged"
+     }
+    ],
+    "walkthrough": "'Plant eater' reads as one word, herbivore, and has to be broken after the first — the standard trap when a setter starts a clue with a two-word phrase.",
+    "definitionFit": "'Plant' → SUGAR BEET: the white-rooted crop grown across East Anglia and refined into much of Britain's sugar, so the general word covers it."
+   }
   },
   {
    "id": "21-down",
@@ -470,7 +1074,26 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SACK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SACK",
+    "definition": "9",
+    "definition2": "boot",
+    "blocks": [
+     {
+      "clueFragment": "9",
+      "gives": "SACK",
+      "note": "9 across is RACE: the sports-day event run with both feet inside a bag"
+     },
+     {
+      "clueFragment": "boot",
+      "gives": "SACK",
+      "note": "to give somebody the boot is to dismiss them, and this is another word for the same shove"
+     }
+    ],
+    "walkthrough": "Four letters covering a school sports day and a dismissal, with nothing but the numeral to tell you the two halves are separate senses.",
+    "definitionFit": "9 → SACK: a sack race is the hopping event at a school sports day, while 'boot' takes the other sense — to sack is to dismiss."
+   }
   },
   {
    "id": "22-across",
@@ -487,7 +1110,26 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAG",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DRAG",
+    "definition": "Boring thing",
+    "definition2": "9",
+    "blocks": [
+     {
+      "clueFragment": "Boring thing",
+      "gives": "DRAG",
+      "note": "any tedious chore gets called this — a real one, as people say"
+     },
+     {
+      "clueFragment": "9",
+      "gives": "DRAG",
+      "note": "9 across is RACE, and two cars over a quarter-mile from a standing start make one of these"
+     }
+    ],
+    "walkthrough": "The same four letters do very different work either side of the comma: a chore you cannot get out of, and a quarter-mile sprint between two cars.",
+    "definitionFit": "'Boring thing' → DRAG: a tedious chore is 'a drag', and with 9 across it is the drag race, two cars sprinting a quarter-mile."
+   }
   },
   {
    "id": "23-down",
@@ -504,7 +1146,34 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ARMS",
+    "definition": "9",
+    "indicators": [
+     "won’t start"
+    ],
+    "indicatorNotes": {
+     "won’t start": "A word that will not start has lost its opening letter, so you begin reading it at the second one."
+    },
+    "pieces": [
+     "ARMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heats",
+      "gives": "WARMS",
+      "note": "to heat something is to warm it"
+     },
+     {
+      "clueFragment": "won’t start",
+      "gives": "W",
+      "note": "the opening W is the letter that never gets written"
+     }
+    ],
+    "walkthrough": "'Heats' does double duty on the surface, since heats are also the qualifying rounds before a final — which is the reading Paul wants you to take.",
+    "definitionFit": "9 → ARMS: 9 across is RACE, and the arms race was the cold-war competition to stockpile more weapons than the other side had."
+   }
   },
   {
    "id": "24-across",
@@ -525,7 +1194,36 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCREWON",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCREW-ON",
+    "definition": "able to be connected",
+    "indicators": [
+     "welcomed by"
+    ],
+    "indicatorNotes": {
+     "welcomed by": "To welcome somebody is to take them in, so the piece doing the welcoming closes around the other one."
+    },
+    "pieces": [
+     "S",
+     "CREW",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a child is a son"
+     },
+     {
+      "clueFragment": "Team",
+      "gives": "CREW",
+      "note": "the team that works a boat, or a film set, is the crew"
+     }
+    ],
+    "walkthrough": "'Team welcomed by child' sounds like a story from a school match. Wrapping a three-letter word around a four-letter one leaves almost nothing showing outside.",
+    "definitionFit": "'able to be connected' → SCREW-ON: a screw-on fitting is one you attach by turning it onto a thread, so it names the connectable kind."
+   }
   },
   {
    "id": "25-across",
@@ -546,7 +1244,28 @@ window.CRYPTIC_PUZZLES["cryptic-30059"] = /*JSON-START*/ {
     ]
    },
    "solution": "STONEME",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "STONE ME",
+    "definition": "by George!",
+    "indicators": [
+     "Partial",
+     "recollection"
+    ],
+    "indicatorNotes": {
+     "Partial": "Only part of the words that follow is wanted, and that part is a run of letters lying inside them.",
+     "recollection": "A recollection brings something back, and letters brought back are read the other way about."
+    },
+    "blocks": [
+     {
+      "clueFragment": "theme, not so",
+      "gives": "STONEME",
+      "note": "the letters lie consecutively across these words, running the other way"
+     }
+    ],
+    "walkthrough": "Both halves are mild oaths: 'by George' swears by the patron saint, while the answer is the Cockney exclamation Tony Hancock turned into a catchphrase.",
+    "definitionFit": "'by George!' → STONE ME: both are exclamations of astonishment, the answer a Cockney oath heard as surprise rather than as a threat."
+   }
   }
  ]
 } /*JSON-END*/;
