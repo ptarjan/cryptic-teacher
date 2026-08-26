@@ -1277,7 +1277,8 @@
     ["cryptic definition", "A cryptic definition: no separable wordplay — the whole clue is one sly description."],
     ["spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."],
     ["cycling", "Cycling: letters move from one end to the other without changing their order — the word rotates rather than shuffles."],
-    ["substitution", "A substitution: one indicated letter or chunk stands in for another — make the swap and the answer appears."]
+    ["substitution", "A substitution: one indicated letter or chunk stands in for another — make the swap and the answer appears."],
+    ["palindrome", "A palindrome: the answer reads the same forwards and backwards, and that symmetry is the wordplay — there is nothing else to take apart."]
   ];
 
   // Rung 1 must not hand the mechanism over. It names the FAMILY — the shape of
@@ -1303,7 +1304,7 @@
       match: (t) => t.includes("charade") },
     { label: "Alteration",
       blurb: "A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.",
-      match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") },
+      match: (t) => t.includes("container") || t.includes("reversal") || t.includes("deletion") || t.includes("substitution") || t.includes("palindrome") },
     { label: "Extraction",
       blurb: "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
       match: (t) => t.includes("hidden") || t.includes("letter") }
@@ -1361,7 +1362,9 @@
     ["cycling", "move letters from one end to the other, keeping their order",
       "Cycling is rarer than an anagram and looks like one until you notice the order survives: cycles, rotated, circulating."],
     ["substitution", "swap one letter or chunk for another",
-      "Substitution is clued by exchange words: for, replacing, instead of, in place of, takes over from."]
+      "Substitution is clued by exchange words: for, replacing, instead of, in place of, takes over from."],
+    ["palindrome", "check that the answer reads the same in both directions",
+      "Palindrome markers talk about symmetry rather than movement: both ways, either way, back to front, whichever end you start."]
   ];
 
   // The whole answer isn't a teaching rung — it's the end of the road — but it

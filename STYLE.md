@@ -46,7 +46,13 @@ the list below together):
   and 30065 6D takes the second letter of each of four words to spell EDAM)
 - Letter movement: `cycling` (letters rotate from one end of the assembly to
   the other, keeping their order), `substitution` (one indicated letter or
-  chunk stands in for another)
+  chunk stands in for another), `palindrome` (the answer reads the same in
+  both directions, which is the whole of the wordplay — 30052 23D PULL-UP,
+  "Stop going both ways?"). A palindrome is not a `reversal`: nothing is
+  turned round to become something else, so no fragment can hand over
+  letters. Annotate it the way a cryptic definition is annotated — blocks
+  that split the clue into the definition and the mirror instruction, with
+  `pieces` carrying the machine-checkable assembly.
 
 Worked examples: 30067 1A GARBAGE = `charade + alternate letters` (GARB +
 alternate letters of bAgGiEr); 30066 5D ALLOCATE = `anagram + last letter`
