@@ -1092,7 +1092,7 @@ window.CRYPTIC_PUZZLES["cryptic-30065"] = /*JSON-START*/ {
      {
       "clueFragment": "Show off",
       "gives": "CROW",
-      "note": "to crow is to boast about a win"
+      "note": "to boast loudly about a win, the way a rooster sounds off at dawn"
      },
      {
       "clueFragment": "contribution to murder",

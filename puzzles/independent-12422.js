@@ -335,7 +335,7 @@ window.CRYPTIC_PUZZLES["independent-12422"] = /*JSON-START*/ {
      {
       "clueFragment": "Study",
       "gives": "DEN",
-      "note": "a den is the small private room you shut yourself in to work"
+      "note": "the small private room you shut yourself in to work"
      }
     ],
     "walkthrough": "'Study' is one of the crossword's hardest-worked words: DEN almost always, CON now and then, and hardly ever the act of studying.",

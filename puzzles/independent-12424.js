@@ -283,7 +283,7 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
      {
       "clueFragment": "Burglar in Shoreditch",
       "gives": "TEALEAF",
-      "note": "Cockney rhyming slang, and Shoreditch is where it is spoken: tea leaf rhymes with thief"
+      "note": "Cockney rhyming slang, spoken in Shoreditch, supplies a two-word term for a burglar built to rhyme with thief"
      },
      {
       "clueFragment": "likely to end up in hot water",

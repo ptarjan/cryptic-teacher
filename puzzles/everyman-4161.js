@@ -208,7 +208,7 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
      {
       "clueFragment": "In vague sense",
       "gives": "",
-      "note": "the figurative use, as in speaking loosely, where the words are not meant to be pinned down"
+      "note": "the figurative use: an approximate way of speaking, where the words are not meant to be pinned down precisely"
      },
      {
       "clueFragment": "how post-diet clothes fit",
@@ -345,7 +345,7 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
      {
       "clueFragment": "leprechaun is ongoing",
       "gives": "UNISON",
-      "note": "the run starts inside the first word and stops inside the last: leprecha(UN IS ON)going"
+      "note": "the run crosses three words: the tail of 'leprechaun', the whole of 'is', and the front of 'ongoing'"
      }
     ],
     "walkthrough": "A hidden answer that spans three words is the hardest kind to spot, because the eye reads whole words before it reads letters.",
@@ -785,7 +785,7 @@ window.CRYPTIC_PUZZLES["everyman-4161"] = /*JSON-START*/ {
      {
       "clueFragment": "gazpacho I celebrated",
       "gives": "CHOICE",
-      "note": "the letters run straight across two gaps: gazpa(CHO I CE)lebrated"
+      "note": "the run crosses three words: the tail of 'gazpacho', the whole of 'I', and the front of 'celebrated'"
      }
     ],
     "walkthrough": "A one-letter word in the middle is the best cover a hidden answer can have, because the eye treats a lone 'I' almost as punctuation.",

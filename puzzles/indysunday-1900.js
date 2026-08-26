@@ -1210,7 +1210,7 @@ window.CRYPTIC_PUZZLES["indysunday-1900"] = /*JSON-START*/ {
      {
       "clueFragment": "German teacher",
       "gives": "ANTE",
-      "note": "the letters run across the join: germ|AN TE|acher"
+      "note": "the run bridges the join between the two words, ending just past the start of the second"
      }
     ],
     "walkthrough": "'Initially' looks like an instruction to take a first letter and is part of the definition instead — the stake goes in before any cards are dealt.",

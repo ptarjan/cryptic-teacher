@@ -555,7 +555,7 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
      {
       "clueFragment": "fruit",
       "gives": "PEA",
-      "note": "the fruit is a PEAR, and the chop takes its final R away"
+      "note": "the everyday name for this fruit is one letter longer, ending in an R that gets chopped off"
      }
     ],
     "walkthrough": "Pear and pea sit one letter apart, which is the whole clue. 'Chop the end off' is doing kitchen duty on the surface and letter duty underneath.",
@@ -1149,7 +1149,7 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
      {
       "clueFragment": "Burned",
       "gives": "EARED",
-      "note": "burned is SEARED, and forgetting its initial S leaves EARED"
+      "note": "burned is SEARED with an S stuck on the front — drop that first letter"
      }
     ],
     "walkthrough": "Cereals grow in ears, which is the sense wanted — nothing here to do with hearing. 'Initially forgotten' is a beheading instruction, not a memory lapse.",
@@ -1182,7 +1182,7 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
      {
       "clueFragment": "escargot",
       "gives": "SCAR",
-      "note": "e-SCAR-got: the answer sits inside the snail"
+      "note": "hidden in the middle of the French word for snail, running straight through without a break"
      }
     ],
     "walkthrough": "One word long enough to bury a four-letter answer is all a hidden clue needs, and an unusual menu item is always a good place to start looking.",
@@ -1218,7 +1218,7 @@ window.CRYPTIC_PUZZLES["independent-12431"] = /*JSON-START*/ {
      {
       "clueFragment": "Pisa - feta",
       "gives": "PITA",
-      "note": "PISAFETA with S, A, F and E struck out leaves P-I-T-A standing in order"
+      "note": "run PISA and FETA together, then strike out the letters S, A, F and E; what's left, read in order, is the answer"
      },
      {
       "clueFragment": "reliable",

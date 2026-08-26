@@ -521,7 +521,7 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
      {
       "clueFragment": "Cup from Scotland",
       "gives": "TASSIE",
-      "note": "Scots word for a small cup (Burns: 'the silver tassie')"
+      "note": "a Scots dialect word for a small drinking cup, familiar from Burns's verse"
      },
      {
       "clueFragment": "one from Hobart?",
@@ -889,7 +889,7 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
      {
       "clueFragment": "About to go off perhaps",
       "gives": "TICKING",
-      "note": "a ticking bomb is about to go off"
+      "note": "a bomb counting down toward detonation is in this state"
      },
      {
       "clueFragment": "indicating right",
@@ -1182,7 +1182,7 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
      {
       "clueFragment": "Lousy payment",
       "gives": "PEANUTS",
-      "note": "'they pay peanuts'"
+      "note": "an idiom for a wage so small it insults the person paid"
      },
      {
       "clueFragment": "cartoon",

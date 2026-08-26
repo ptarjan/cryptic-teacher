@@ -253,7 +253,7 @@ window.CRYPTIC_PUZZLES["indysunday-1903"] = /*JSON-START*/ {
      {
       "clueFragment": "vandalism",
       "gives": "SMASHING",
-      "note": "breaking windows for the sake of it is the smashing of them"
+      "note": "breaking windows or property for the sake of it — violent, wanton destruction"
      }
     ],
     "walkthrough": "Two words, no joinery, and the seam falls between them. Both halves are British to the bone, which is what makes the pair read as one phrase.",

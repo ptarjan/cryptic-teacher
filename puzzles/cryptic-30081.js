@@ -203,7 +203,7 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
      {
       "clueFragment": "is baffling",
       "gives": "STUMPS",
-      "note": "a question that defeats you stumps you"
+      "note": "a question that leaves you with nothing to say does this to you"
      }
     ],
     "walkthrough": "Cricket supplies the noun and everyday speech the verb; the join is 'is', which quietly turns the second half into a definition of what the answer does.",
@@ -659,12 +659,12 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
      {
       "clueFragment": "One submissively bent",
       "gives": "KNEE",
-      "note": "to bend the knee is to submit"
+      "note": "the joint that bends when a subject submits, as before a feudal lord"
      },
      {
       "clueFragment": "taken to offer respect",
       "gives": "KNEE",
-      "note": "to take the knee is the modern gesture"
+      "note": "the modern gesture of solidarity lowers this same joint to the ground"
      }
     ],
     "walkthrough": "English has two idioms about the same joint and they point opposite ways — one is a subject's surrender, the other a deliberate public statement. The clue splits at 'is'.",
@@ -1070,7 +1070,7 @@ window.CRYPTIC_PUZZLES["cryptic-30081"] = /*JSON-START*/ {
      {
       "clueFragment": "Fondness",
       "gives": "ATTACHMENT",
-      "note": "an attachment to somebody is a fondness for them"
+      "note": "this half asks for a noun meaning a deep emotional bond or affection toward someone"
      },
      {
       "clueFragment": "use of paperclip",

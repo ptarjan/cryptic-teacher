@@ -769,7 +769,7 @@ window.CRYPTIC_PUZZLES["independent-12420"] = /*JSON-START*/ {
      {
       "clueFragment": "attempt",
       "gives": "GO",
-      "note": "an attempt at something is a go at it"
+      "note": "an attempt at something is simply GO, the word behind 'give it your best shot'"
      }
     ],
     "walkthrough": "'Past master' is a set phrase for an expert, and reading those two words together is what stops the clue splitting where it should.",

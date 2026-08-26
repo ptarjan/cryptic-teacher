@@ -348,12 +348,12 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
      {
       "clueFragment": "Kind of crossing",
       "gives": "PEDESTRIAN",
-      "note": "a pedestrian crossing — the walkers' kind"
+      "note": "a crossing meant for people on foot, rather than vehicles"
      },
      {
       "clueFragment": "slow and boring",
       "gives": "PEDESTRIAN",
-      "note": "pedestrian prose is plodding and dull"
+      "note": "writing that's plodding, dull and unimaginative is often given this same label"
      }
     ],
     "walkthrough": "Split at 'that’s': the road-safety sense on one side, the sniffy adjective on the other.",
@@ -585,7 +585,7 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
      {
       "clueFragment": "what new TV shows look forward to",
       "gives": "SECONDSEASON",
-      "note": "a new show's hope: renewal for a second season"
+      "note": "a new show's biggest hope is getting renewed for another run after its debut year"
      }
     ],
     "walkthrough": "The exclamation mark admits the whimsy: neither half is a dictionary definition, but both point squarely at the answer.",
@@ -897,7 +897,7 @@ window.CRYPTIC_PUZZLES["quiptic-1389"] = /*JSON-START*/ {
      {
       "clueFragment": "Test",
       "gives": "TAX",
-      "note": "to tax is to test or strain — 'taxing questions'"
+      "note": "an old sense of 'to test' is to strain or burden someone heavily"
      },
      {
       "clueFragment": "current",

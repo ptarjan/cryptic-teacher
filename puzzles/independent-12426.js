@@ -548,7 +548,7 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
      {
       "clueFragment": "Practising",
       "gives": "DRILLING",
-      "note": "troops and pupils drilling are practising by repetition"
+      "note": "troops rehearsing formations, or pupils repeating exercises, are both practising through repetition"
      },
      {
       "clueFragment": "dental work",
@@ -1477,12 +1477,12 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
      {
       "clueFragment": "Familiar with",
       "gives": "UPON",
-      "note": "someone up on a subject is familiar with it"
+      "note": "someone well versed in a subject is often said to be on top of it, right up to speed"
      },
      {
       "clueFragment": "riding",
       "gives": "UPON",
-      "note": "a rider sits upon the horse"
+      "note": "a rider sits astride the horse, literally on top of it"
      }
     ],
     "definitionNote": "'Riding' is a verb and UPON a preposition, so the two do not swap cleanly: the question mark covers the stretch, since you ride by sitting upon the animal.",

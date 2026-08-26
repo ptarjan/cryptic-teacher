@@ -1168,12 +1168,12 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
      {
       "clueFragment": "Ram",
       "gives": "BUTT",
-      "note": "to ram something with the head is to butt it, as a goat does"
+      "note": "this is the verb for the head-first shove a ram delivers"
      },
      {
       "clueFragment": "laughing-stock",
       "gives": "BUTT",
-      "note": "the butt of a joke is the one everybody laughs at"
+      "note": "the target of everyone's mockery, the one a joke is aimed at, is described this way"
      }
     ],
     "walkthrough": "Four words and no wordplay at all: the apostrophe-s poses as a possessive so the clue reads as a sentence about a sheep.",
@@ -1210,7 +1210,7 @@ window.CRYPTIC_PUZZLES["cryptic-30064"] = /*JSON-START*/ {
      {
       "clueFragment": "essential parts",
       "gives": "GUTS",
-      "note": "the guts of a machine are its innards, the parts that make it work"
+      "note": "the essential inner workings of a machine, the parts that make it function, are described this way"
      }
     ],
     "walkthrough": "Two everyday senses side by side with nothing joining them, which is what makes a four-word clue this hard to see.",

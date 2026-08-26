@@ -1405,7 +1405,7 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
      {
       "clueFragment": "chains",
       "gives": "IRONS",
-      "note": "a prisoner clapped in irons is in chains"
+      "note": "restraints made of iron, worn around a prisoner's wrists or ankles"
      }
     ],
     "walkthrough": "Three words, two definitions, no link word and no wordplay at all — the shortest clue in the grid and one of the harder ones to trust.",

@@ -1051,7 +1051,7 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
      {
       "clueFragment": "Note",
       "gives": "",
-      "note": "what people call a banknote of that denomination — 'lend me a twenty'"
+      "note": "the everyday word for a banknote of that value, as heard in casual requests to borrow one"
      },
      {
       "clueFragment": "clue number",
@@ -1263,7 +1263,7 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
      {
       "clueFragment": "bean",
       "gives": "",
-      "note": "pulses are the crop family that beans, peas and lentils belong to"
+      "note": "beans, peas and lentils belong to a crop family that carries this same name"
      }
     ],
     "walkthrough": "Two words and a question mark. The mark is the setter admitting the second definition is only an example, since a bean is one kind of the answer rather than the whole class.",

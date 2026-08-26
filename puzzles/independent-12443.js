@@ -203,7 +203,7 @@ window.CRYPTIC_PUZZLES["independent-12443"] = /*JSON-START*/ {
      {
       "clueFragment": "Palaeontologist",
       "gives": "OWEN",
-      "note": "Richard Owen, the Victorian who coined the word dinosaur"
+      "note": "the Victorian naturalist who coined the word 'dinosaur' has this surname"
      },
      {
       "clueFragment": "Newton",

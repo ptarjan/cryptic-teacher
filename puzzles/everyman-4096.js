@@ -212,7 +212,7 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
      {
       "clueFragment": "Poo-poos a kabuki",
       "gives": "OSAKA",
-      "note": "the city runs from the tail of 'poos' through 'a' into 'kabuki': poo-po(OS A KA)buki"
+      "note": "the run starts near the end of 'poo-poos', crosses the stray 'a', and finishes early inside 'kabuki' — unbroken the whole way"
      }
     ],
     "walkthrough": "'Characters in' works twice over — the players in a kabuki drama, and the letters inside the words — and the city straddles two word-gaps, which is where the eye refuses to look.",
@@ -304,7 +304,7 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
      {
       "clueFragment": "Judgment",
       "gives": "TASTE",
-      "note": "discernment — a person of taste judges well"
+      "note": "discernment — refined judgment of quality, the kind praised in someone with a discerning eye or palate"
      },
      {
       "clueFragment": "hearing’s parallel",
@@ -1028,7 +1028,7 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
      {
       "clueFragment": "chavs, ignobly",
       "gives": "VSIGN",
-      "note": "the gesture sits across the comma: cha(VS IGN)obly"
+      "note": "the gesture's letters run straight across the comma, ending partway into the final word"
      }
     ],
     "walkthrough": "Every word earns twice: read straight it is an insult offered on a street corner, and read as machinery the answer is sitting in the last two words already.",

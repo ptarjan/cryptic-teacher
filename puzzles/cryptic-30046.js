@@ -762,7 +762,7 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
      {
       "clueFragment": "naked",
       "gives": "STARKER",
-      "note": "STARKERS — British slang for nude — stopped just short of its final S"
+      "note": "informal British slang for stripped bare, one letter longer than the answer with an extra S on the end — drop it"
      }
     ],
     "walkthrough": "Stark means bleak, so its comparative answers 'more grim'. STARKERS is gloriously British slang for naked — setters adore it, so file it away."
@@ -796,7 +796,7 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
      {
       "clueFragment": "Spy",
       "gives": "SLEEPER",
-      "note": "a sleeper agent lies low for years before being activated"
+      "note": "a long-term undercover agent who lies low for years before being activated"
      },
      {
       "clueFragment": "simple earring",
@@ -1184,7 +1184,7 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
      {
       "clueFragment": "French department",
       "gives": "VAR",
-      "note": "the Var, on the Mediterranean coast of Provence"
+      "note": "one of the French departments along the Mediterranean coast in Provence, named after the river running through it"
      }
     ],
     "walkthrough": "The whistleblower is not a leaker but the referee holding an actual whistle, second-guessed from the VAR booth every football weekend."
@@ -1215,12 +1215,12 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
      {
       "clueFragment": "Wendy’s",
       "gives": "",
-      "note": "a child's Wendy house — named for Wendy in Peter Pan — is a playhouse"
+      "note": "a child's toy Wendy house, named for Wendy in Peter Pan, is a miniature den for pretend games"
      },
      {
       "clueFragment": "theatre",
       "gives": "",
-      "note": "many theatres are called the Playhouse"
+      "note": "loads of real theatres use this exact word as their proper name"
      }
     ],
     "walkthrough": "The Lost Boys build a little house around Wendy in Peter Pan, which is how toy houses got the name — and since Peter Pan began as a play, the question mark is well earned."
@@ -1294,12 +1294,12 @@ window.CRYPTIC_PUZZLES["cryptic-30046"] = /*JSON-START*/ {
      {
       "clueFragment": "Under way",
       "gives": "AFOOT",
-      "note": "'the game's afoot' — in progress"
+      "note": "an old idiom for something already under way, as in a famous detective's saying"
      },
      {
       "clueFragment": "a short distance",
       "gives": "AFOOT",
-      "note": "split the answer: A FOOT, twelve inches"
+      "note": "twelve inches make a common unit of length; stick the indefinite article in front of it to build the answer"
      }
     ],
     "walkthrough": "Split the answer and 'a foot' really is a short distance. 'The game's afoot' was Shakespeare's line in Henry V long before Sherlock Holmes borrowed it."

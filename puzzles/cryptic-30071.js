@@ -375,12 +375,12 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
      {
       "clueFragment": "Newspaper article",
       "gives": "OPED",
-      "note": "an op-ed, the opinion piece opposite the editorial page"
+      "note": "the opinion piece that runs opposite a newspaper's editorial page, named for its position"
      },
      {
       "clueFragment": "began in old-fashioned way",
       "gives": "OPED",
-      "note": "'ope' is archaic for open, and what oped, opened — began"
+      "note": "the archaic verb 'ope' means to open, and its past-tense form is how something begun is put in old-fashioned language"
      }
     ],
     "walkthrough": "An op-ed sits opposite the editorial page — that's where the name comes from. 'Ope' is poetic old English for open, and a meeting that opens has begun."
@@ -955,7 +955,7 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
      {
       "clueFragment": "fashion",
       "gives": "STYLE",
-      "note": "style = fashion, left as STYE once the L has gone"
+      "note": "style means fashion, and the L drops out of the middle of that word"
      }
     ],
     "walkthrough": "'Pound' giving L, from the Latin libra behind the £ sign, is everywhere in crosswords. A stye is the eyelid swelling that genuinely does affect your view of things."
@@ -986,7 +986,7 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
      {
       "clueFragment": "Legal action",
       "gives": "CASE",
-      "note": "the case a lawyer takes on"
+      "note": "a lawyer takes on a client's dispute to argue it in court"
      },
      {
       "clueFragment": "taken on by boarder",
@@ -1163,12 +1163,12 @@ window.CRYPTIC_PUZZLES["cryptic-30071"] = /*JSON-START*/ {
      {
       "clueFragment": "Like bad deal",
       "gives": "KNOTTY",
-      "note": "deal is cheap softwood — a bad plank is knotty, full of knots"
+      "note": "deal is cheap softwood, and a poor-quality plank of it is riddled with these little woody lumps"
      },
      {
       "clueFragment": "difficult to undo",
       "gives": "KNOTTY",
-      "note": "a knotty problem is hard to untangle"
+      "note": "a problem tangled up with these is hard to work loose"
      }
     ],
     "walkthrough": "'Deal' is timber — pine or fir — not a bargain, and a poor plank is full of knots. The second sense, a knotty problem, shares the same tangled picture."

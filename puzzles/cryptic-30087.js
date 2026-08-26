@@ -804,7 +804,7 @@ window.CRYPTIC_PUZZLES["cryptic-30087"] = /*JSON-START*/ {
      {
       "clueFragment": "Inadvertently Rickrolled",
       "gives": "LYRIC",
-      "note": "the run bridges the two words: inadvertent(LY RIC)krolled"
+      "note": "the run bridges the two words, ending partway into the second"
      }
     ],
     "walkthrough": "Being Rickrolled is being sent that song when you were expecting something else, so the surface jokes about quoting it accidentally — and it really is quoted here.",

@@ -134,7 +134,7 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
      {
       "clueFragment": "Guardian? There",
       "gives": "ANTHER",
-      "note": "the run of letters straddling the question mark: Guardi(AN THER)e"
+      "note": "the answer runs unbroken across the question mark, straddling the end of the first word and the start of the second"
      }
     ],
     "walkthrough": "'Bloomer' is doing two jobs at once: a howler in the surface, at the paper's own expense, and a flower in the definition. Only one of them is true.",
@@ -962,7 +962,7 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
      {
       "clueFragment": "which I’d denigrate",
       "gives": "HIDDEN",
-      "note": "the run straddling three words: whic(H I’D DEN)igrate"
+      "note": "the answer runs unbroken across the tail of the first word and on through the next two"
      }
     ],
     "walkthrough": "The answer is doing to this clue exactly what it describes, which is Brendan's favourite kind of joke and worth watching for elsewhere in the grid.",
@@ -1178,7 +1178,7 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
      {
       "clueFragment": "Endure",
       "gives": "LAST",
-      "note": "the verb: a battery that lasts keeps going"
+      "note": "the verb for something that keeps going without giving out, like a battery"
      },
      {
       "clueFragment": "like this clue",
@@ -1251,7 +1251,7 @@ window.CRYPTIC_PUZZLES["cryptic-30090"] = /*JSON-START*/ {
      {
       "clueFragment": "Program’s producer",
       "gives": "CODER",
-      "note": "software is written in code, so the writer of it is a coder"
+      "note": "software is written in code, so this names whoever writes it"
      },
      {
       "clueFragment": "person able to handle Morse, say",

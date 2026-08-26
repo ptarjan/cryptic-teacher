@@ -839,7 +839,7 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
      {
       "clueFragment": "Dispute",
       "gives": "RUNIN",
-      "note": "a run-in is a quarrel or confrontation"
+      "note": "a slang term for a quarrel or confrontation"
      },
      {
       "clueFragment": "arrest",

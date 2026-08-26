@@ -633,7 +633,7 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
      {
       "clueFragment": "Use sleight of hand",
       "gives": "PALM",
-      "note": "to palm a card is to conceal it in the hand"
+      "note": "the verb for concealing a small object in your hand, as a magician does with a card"
      },
      {
       "clueFragment": "ace",
@@ -1123,7 +1123,7 @@ window.CRYPTIC_PUZZLES["cryptic-30076"] = /*JSON-START*/ {
      {
       "clueFragment": "paradox, famously",
       "gives": "OXFAM",
-      "note": "the letters run straight across the join: parad|OX FAM|ously"
+      "note": "the letters run consecutively across the join in 'paradox, famously', spanning the end of one word and the start of the next"
      }
     ],
     "walkthrough": "'Famously' is perfect cover — it makes the sentence sound like a remark about a well-known paradox, when its only job is to finish the buried letters.",

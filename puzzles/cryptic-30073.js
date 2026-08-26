@@ -1049,7 +1049,7 @@ window.CRYPTIC_PUZZLES["cryptic-30073"] = /*JSON-START*/ {
      {
       "clueFragment": "Movie",
       "gives": "",
-      "note": "the 2006 picture of that name, with My Friend Flicka in books, film and television long before it"
+      "note": "the 2006 picture about a wild mustang, based on a classic book and earlier film and TV adaptations of the same story"
      },
      {
       "clueFragment": "mustang",

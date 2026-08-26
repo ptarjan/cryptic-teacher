@@ -927,7 +927,7 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
      {
       "clueFragment": "Batsman could face this",
       "gives": "LEG BREAK",
-      "note": "a leg break is the spinner's delivery that turns away from a right-hander"
+      "note": "this cricket delivery, bowled by a spinner, turns away from a right-handed batsman"
      },
      {
       "clueFragment": "serious injury",
@@ -1399,7 +1399,7 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
      {
       "clueFragment": "Gewürztraminer tasting",
       "gives": "INERT",
-      "note": "the run straddles the gap between the words: Gewürztram(iner t)asting"
+      "note": "the wanted letters run consecutively across the boundary between the two words, starting partway through the wine's name and finishing with the first letter of 'tasting'"
      }
     ],
     "walkthrough": "A long foreign word is a gift to a hidden clue, because nobody reads it letter by letter — they are too busy trying to pronounce it.",
@@ -1485,7 +1485,7 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
       "clueFragment": "Became aware of",
       "soundsLike": "HEARD",
       "gives": "HERD",
-      "note": "to become aware of something is to have HEARD it, and HEARD spoken is written HERD"
+      "note": "to become aware of something is to have heard it, and that word is a homophone of the noun for a group of animals gathered together"
      }
     ],
     "walkthrough": "There is no 'we hear' or 'aloud' anywhere, because the fodder says it itself: becoming aware of something is hearing it, and hearing is the instruction.",

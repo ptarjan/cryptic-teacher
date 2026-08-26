@@ -79,7 +79,7 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
      {
       "clueFragment": "Tip",
       "gives": "",
-      "note": "a ship leaning over to one side is said to list — the tilt, not the topple"
+      "note": "a ship leaning over to one side does this verb — the tilt, not the topple"
      },
      {
       "clueFragment": "one of 13, perhaps",
@@ -895,7 +895,7 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
      {
       "clueFragment": "month; egomaniac",
       "gives": "ON THE GO",
-      "note": "the run starts inside one word and finishes inside the next: m(ONTH EGO)maniac"
+      "note": "the letters run consecutively, starting inside 'month' and finishing inside 'egomaniac'"
      }
     ],
     "walkthrough": "A hidden word straddling a semicolon is beautifully disguised, because punctuation tells the eye to stop at the very place the answer carries on.",
@@ -934,7 +934,7 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
      {
       "clueFragment": "alligator bit a lamprey",
       "gives": "ORBITAL",
-      "note": "the run spans three words: alligat(OR BIT A L)amprey"
+      "note": "the letters run consecutively, spanning the tail of 'alligator', all of 'bit' and 'a', and the front of 'lamprey'"
      }
     ],
     "walkthrough": "The eye reads whole words before it reads letters, and a word as long as 'alligator' can hide most of an answer in its own tail.",
@@ -1068,7 +1068,7 @@ window.CRYPTIC_PUZZLES["everyman-4160"] = /*JSON-START*/ {
      {
       "clueFragment": "memoirist",
       "gives": "IRIS",
-      "note": "the letters sit in the middle of the word: memo(IRIS)t"
+      "note": "the letters sit consecutively in the middle of 'memoirist'"
      }
     ],
     "walkthrough": "Iris Murdoch wrote the novels, and 'maybe' is there because a bare surname could just as easily belong to Rupert.",

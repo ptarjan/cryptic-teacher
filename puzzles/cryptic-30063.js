@@ -39,12 +39,12 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
      {
       "clueFragment": "Teacher",
       "gives": "ACADEMIC",
-      "note": "an academic is a university teacher"
+      "note": "a job title for someone who teaches at a university"
      },
      {
       "clueFragment": "of no practical use",
       "gives": "ACADEMIC",
-      "note": "an academic question is one whose answer changes nothing"
+      "note": "describes a question or argument that is purely theoretical, with no bearing on anything real"
      }
     ],
     "walkthrough": "One word wearing two parts of speech, run together with nothing between them. The joke is that the second reading is a quiet insult aimed at the first.",
@@ -791,7 +791,7 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
      {
       "clueFragment": "lumpen affair",
       "gives": "NAFF",
-      "note": "running across lumpe-N AFF-air"
+      "note": "the answer sits unbroken across the join between these two words"
      }
     ],
     "walkthrough": "Hidden answers love a join between two words like this, because the eye reads whole words and steps straight over the seam where the letters actually are.",
@@ -824,12 +824,12 @@ window.CRYPTIC_PUZZLES["cryptic-30063"] = /*JSON-START*/ {
      {
       "clueFragment": "Determined",
       "gives": "ADAMANT",
-      "note": "someone adamant will not be shifted"
+      "note": "describes someone who will not be moved from a position, whatever the pressure"
      },
      {
       "clueFragment": "80s pop star",
       "gives": "ADAM ANT",
-      "note": "Adam Ant fronted Adam and the Ants"
+      "note": "an early-80s New Romantic frontman, best known for 'Stand and Deliver' — his stage name reads as two words"
      }
     ],
     "walkthrough": "Respacing an ordinary word into a name is one of the oldest tricks in the book, and a two-word pop star is the perfect place to hide it.",

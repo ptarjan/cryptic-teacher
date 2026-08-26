@@ -472,7 +472,7 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
      {
       "clueFragment": "patch ardently",
       "gives": "CHARD",
-      "note": "the letters run across the join: pat|CH ARD|ently"
+      "note": "the run crosses the gap: the tail of 'patch' and the front of 'ardently'"
      }
     ],
     "walkthrough": "Hidden answers are hardest to see when they straddle the gap between two words, and a gardening surface gives you no reason to go looking for one.",
@@ -814,7 +814,7 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
      {
       "clueFragment": "Sufferer I treated",
       "gives": "ERITREA",
-      "note": "the letters run straight on: suffer|ER I TREA|ted"
+      "note": "the run starts near the end of 'sufferer', crosses the whole of 'I', and continues into the front of 'treated'"
      }
     ],
     "walkthrough": "The hidden run starts five letters into 'Sufferer' and crosses two gaps, and the medical surface is there to keep your eye travelling instead of looking.",
@@ -1215,12 +1215,12 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
      {
       "clueFragment": "One that displays",
       "gives": "SHOWER",
-      "note": "somebody who shows a thing is a show-er of it, built straight off the verb"
+      "note": "the agent noun for someone who exhibits or displays something, formed by adding '-er' to the base verb"
      },
      {
       "clueFragment": "useless lot",
       "gives": "SHOWER",
-      "note": "British slang for a hopeless bunch of people — 'what a shower!'"
+      "note": "British slang for a hopeless, disorganised bunch — the kind of insult barked at a chaotic team"
      }
     ],
     "walkthrough": "The two halves are not even pronounced alike: the one who shows rhymes with 'lower', the hopeless lot with 'power'. Only the spelling is shared, which is all this type needs.",

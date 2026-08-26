@@ -388,12 +388,12 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
      {
       "clueFragment": "It",
       "gives": "",
-      "note": "the bashful pronoun for sex — doing it, having relations"
+      "note": "the coy old pronoun standing in for sex, avoiding the plain plural word for it"
      },
      {
       "clueFragment": "people like your mother-in-law",
       "gives": "",
-      "note": "the family you acquire by marriage are your relations"
+      "note": "the plural noun for family you acquire by marriage rather than by blood"
      }
     ],
     "walkthrough": "The ellipsis carries the sentence on into 8 down, which is what lets a clue this short read as half a grumble about the in-laws.",
@@ -1015,7 +1015,7 @@ window.CRYPTIC_PUZZLES["independent-12441"] = /*JSON-START*/ {
      {
       "clueFragment": "a person who causes great suffering",
       "gives": "",
-      "note": "Attila was called the scourge of God — the affliction itself, not the instrument"
+      "note": "Attila earned a famous epithet meaning 'affliction sent by God' — this half names the affliction itself, not the instrument"
      }
     ],
     "walkthrough": "Two definitions with no join between them, which is why the clue reads as one smooth phrase; only the length tells you nothing else is coming.",

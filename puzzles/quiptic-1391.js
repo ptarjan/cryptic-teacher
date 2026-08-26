@@ -324,12 +324,12 @@ window.CRYPTIC_PUZZLES["quiptic-1391"] = /*JSON-START*/ {
      {
       "clueFragment": "Striker",
       "gives": "MATCH",
-      "note": "a match is a striker — the light you strike"
+      "note": "the little wooden stick you strike to produce a flame"
      },
      {
       "clueFragment": "soccer game",
       "gives": "MATCH",
-      "note": "a game of football is a match"
+      "note": "a single game of football is a contest between two sides"
      }
     ],
     "walkthrough": "The surface wants you picturing a centre-forward, but the 'striker' here lives in a matchbox — a match is what you strike.",

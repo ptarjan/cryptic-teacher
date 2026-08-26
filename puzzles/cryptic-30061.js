@@ -406,7 +406,7 @@ window.CRYPTIC_PUZZLES["cryptic-30061"] = /*JSON-START*/ {
      {
       "clueFragment": "bar",
       "gives": "RAILING",
-      "note": "a railing is the bar running along a staircase or a balcony"
+      "note": "a piece of ironmongery: the bar-work guarding a staircase or a balcony"
      }
     ],
     "walkthrough": "Three words, no wordplay and two meanings of one word: a verb of protest and a piece of ironmongery. The little 'in' is all that joins them.",

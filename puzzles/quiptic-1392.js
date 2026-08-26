@@ -353,7 +353,7 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
      {
       "clueFragment": "Sailor",
       "gives": "JACK",
-      "note": "Jack Tar, the old name for a sailor"
+      "note": "sailors were traditionally given this generic nickname, paired with 'Tar' in the old phrase for an old salt"
      },
      {
       "clueFragment": "a card",
@@ -1200,7 +1200,7 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
      {
       "clueFragment": "stud?",
       "gives": "POKER",
-      "note": "stud is a variety of poker — the question mark marks the example"
+      "note": "stud is a variety of this same card game — the question mark marks it as one example, not a full definition"
      }
     ],
     "walkthrough": "The split comes at 'into': a fire iron does the thrusting, while stud — with its farmyard surface — is really a form of the card game.",
@@ -1332,7 +1332,7 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
      {
       "clueFragment": "turnip cake",
       "gives": "TRICK",
-      "note": "slice the even letters away and TuRnIp CaKe leaves T, R, I, C, K"
+      "note": "counting positions straight across 'turnip cake' as one run, take every other letter starting from the first and drop the rest"
      }
     ],
     "walkthrough": "'Evenly sliced' means the even-placed letters are sliced away, counting across both words. A trick also completes the card theme.",

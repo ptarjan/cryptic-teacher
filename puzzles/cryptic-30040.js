@@ -706,12 +706,12 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
      {
       "clueFragment": "Declare",
       "gives": "STATE",
-      "note": "to state = to declare"
+      "note": "this half asks for a verb meaning to announce or assert something formally"
      },
      {
       "clueFragment": "condition",
       "gives": "STATE",
-      "note": "a state = a condition ('in a bad state')"
+      "note": "this half is a plain noun definition: the condition or mode something currently is in"
      }
     ],
     "walkthrough": "A two-word clue with no indicator and nothing to take apart is nearly always two definitions. The only work is finding the word that answers both.",
@@ -1079,12 +1079,12 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
      {
       "clueFragment": "Decline",
       "gives": "SINK",
-      "note": "to sink = to decline"
+      "note": "this half asks for a verb meaning to drop or fall in level, as an economy might"
      },
      {
       "clueFragment": "feature in a kitchen",
       "gives": "SINK",
-      "note": "the kitchen sink"
+      "note": "this half names the basin fixture built into every kitchen counter"
      }
     ],
     "walkthrough": "Both senses are so ordinary that the clue barely looks cryptic, which is the trap. 'Decline' is the abstract sense while the kitchen keeps you thinking literally.",
@@ -1121,7 +1121,7 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
      {
       "clueFragment": "move with little energy",
       "gives": "POTTER",
-      "note": "to potter (about) = to move without urgency"
+      "note": "this half asks for a verb meaning to move about without urgency, doing odd little tasks"
      }
     ],
     "walkthrough": "'Break' sends you to snooker, and 'perhaps' concedes that a potter is only one example of someone making one. The two senses share nothing but their letters.",

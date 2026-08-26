@@ -143,7 +143,7 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
      {
       "clueFragment": "in bed",
       "gives": "IT",
-      "note": "the bed is the thing being dug, so it supplies the 'it' of 'dig it'"
+      "note": "the gardener's task is a short verb for turning over soil; the pronoun standing for the bed tacks straight onto the end of it"
      }
     ],
     "walkthrough": "'Green finger' is the definition wearing gardening clothes, which is why the whole clue reads as one unbroken thought about allotments.",
@@ -788,7 +788,7 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
      {
       "clueFragment": "beta, lambda",
       "gives": "ETAL",
-      "note": "the answer runs straight across the join: b-ETA, L-ambda"
+      "note": "the letters run straight across the join between the two Greek letters, spanning where one word ends and the next begins"
      }
     ],
     "walkthrough": "Two genuine Greek letters make a surface that means exactly what it says, which is the best cover a hidden word can hope for.",
@@ -1012,12 +1012,12 @@ window.CRYPTIC_PUZZLES["cryptic-30088"] = /*JSON-START*/ {
      {
       "clueFragment": "Great effort",
       "gives": "WELLIE",
-      "note": "give it some wellie - put your back into it"
+      "note": "an informal British expression for really putting your back into something"
      },
      {
       "clueFragment": "boot",
       "gives": "WELLIE",
-      "note": "a wellie is a wellington, the rubber one"
+      "note": "the everyday short nickname for a rubber wellington boot"
      }
     ],
     "walkthrough": "One word, two lives, and the second explains the first: putting your foot into something hard is where the effort sense comes from.",

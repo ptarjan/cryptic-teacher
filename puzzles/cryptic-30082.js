@@ -461,17 +461,17 @@ window.CRYPTIC_PUZZLES["cryptic-30082"] = /*JSON-START*/ {
      {
       "clueFragment": "Deceive",
       "gives": "BLUFF",
-      "note": "to bluff at cards is to deceive by pretending to hold what you do not"
+      "note": "the card-table verb for deceiving by bold pretence, acting confident without the hand to back it up"
      },
      {
       "clueFragment": "friendly",
       "gives": "BLUFF",
-      "note": "a third sense the clue also uses: a bluff manner is hearty and good-natured, blunt without malice"
+      "note": "a third sense the clue also uses: describes a manner that is hearty and good-natured, blunt without malice"
      },
      {
       "clueFragment": "bank",
       "gives": "BLUFF",
-      "note": "a bluff is a steep bank or headland above water"
+      "note": "the noun for a steep bank or headland above water"
      }
     ],
     "walkthrough": "Three senses in three words, not two: a verb, an adjective and a noun, and only the last of them has anything to do with rivers. English works this word hard.",

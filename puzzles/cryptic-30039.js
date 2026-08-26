@@ -85,12 +85,12 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
      {
       "clueFragment": "Recover from shock",
       "gives": "",
-      "note": "the everyday sense: pick up the pieces after a disaster"
+      "note": "the everyday sense: recovering, practically and emotionally, after a disaster"
      },
      {
       "clueFragment": "upsetting the board?",
       "gives": "",
-      "note": "knock over a chessboard and you must literally pick up the pieces"
+      "note": "knock over a chessboard and you must literally gather up everything that fell"
      }
     ],
     "walkthrough": "'Upsetting the board' first reads as annoying the directors; the question mark is the setter admitting he means it literally, with a chessboard on the floor.",
@@ -206,7 +206,7 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
      {
       "clueFragment": "Hairy arrangement",
       "gives": "",
-      "note": "cornrows: hair braided in tight rows"
+      "note": "a style of hair braided in tight rows close to the scalp"
      },
      {
       "clueFragment": "faced by harvester?",
@@ -649,12 +649,12 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
      {
       "clueFragment": "Pass",
       "gives": "",
-      "note": "in a quiz, saying 'pass' means 'don't know'"
+      "note": "in a quiz, saying 'pass' is how you admit you have no answer to give"
      },
      {
       "clueFragment": "reply to pollster",
       "gives": "",
-      "note": "pollsters record undecided answers as 'don't know'"
+      "note": "pollsters keep a standard category for respondents with no opinion to offer"
      }
     ],
     "walkthrough": "'Pass' is quiz-show jargon and 'don't know' is polling jargon. The clue works by setting two specialist idioms side by side with nothing to mark the join.",
@@ -775,12 +775,12 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
      {
       "clueFragment": "Me",
       "gives": "",
-      "note": "oneself = me (in a rather royal register)"
+      "note": "a formal, reflexive way of referring to yourself, the kind royalty might use"
      },
      {
       "clueFragment": "my little helper?",
       "gives": "",
-      "note": "split the word as ONE'S ELF — my own little helper"
+      "note": "the wordplay treats 'my' as 'one's', then follows it with a small mythical helper, run together without a break"
      }
     ],
     "walkthrough": "The gag is the apostrophe you cannot hear: one's elf. Splitting a solid word into a possessive is a favourite trick, and the question mark is the wink.",
@@ -813,7 +813,7 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
      {
       "clueFragment": "pudding batter",
       "gives": "DINGBAT",
-      "note": "hidden inside pud-DING BAT-ter"
+      "note": "the letters run consecutively across the join in 'pudding batter', straddling the boundary between the two words"
      }
     ],
     "walkthrough": "Hidden words live or die by the surface, and 'pudding batter' is entirely innocent. A dingbat is a typographic ornament — the little flowers and pointing hands in fonts like Zapf Dingbats.",

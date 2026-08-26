@@ -979,12 +979,12 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
      {
       "clueFragment": "Communicative",
       "gives": "FORTHCOMING",
-      "note": "a forthcoming witness tells you what they know instead of holding back"
+      "note": "a witness of this kind tells you what they know instead of holding back"
      },
      {
       "clueFragment": "as expected",
       "gives": "FORTHCOMING",
-      "note": "money that arrives when it should is forthcoming — produced at the point it is due"
+      "note": "money that arrives exactly when it should is described this way — produced at the point it is due"
      }
     ],
     "walkthrough": "Two words, one comma, and no letters to move at all. The senses have nothing to do with each other: one is about a person talking, the other about a thing turning up.",
@@ -1254,12 +1254,12 @@ window.CRYPTIC_PUZZLES["everyman-4089"] = /*JSON-START*/ {
      {
       "clueFragment": "Pine",
       "gives": "FRET",
-      "note": "to pine for something is to fret over it, worrying at its absence"
+      "note": "to pine for something is to worry at its absence, turning it over anxiously"
      },
      {
       "clueFragment": "feature of guitar",
       "gives": "FRET",
-      "note": "the frets are the metal ridges across the neck that fix where each note falls"
+      "note": "the metal ridges across a guitar's neck that fix where each note falls carry this same name"
      }
     ],
     "walkthrough": "'Pine' is a verb here, not the timber a guitar might be built from, and that quiet change of part of speech is the entire clue.",

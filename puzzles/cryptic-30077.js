@@ -245,7 +245,7 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
      {
       "clueFragment": "female",
       "gives": "SHE",
-      "note": "a female is a she"
+      "note": "'female' is a common stand-in for the three-letter subject pronoun"
      }
     ],
     "walkthrough": "The joke is the sex change: two words for a woman spell a man. Arthur Ashe won Wimbledon in 1975 and has New York's main court named after him.",
@@ -540,7 +540,7 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
      {
       "clueFragment": "Relish",
       "gives": "MURDER",
-      "note": "the slang of 'I could murder a curry' — to fall on something with appetite"
+      "note": "the slang sense of falling on something with great appetite, as in a familiar phrase about craving a curry"
      },
      {
       "clueFragment": "killing",
@@ -1211,7 +1211,7 @@ window.CRYPTIC_PUZZLES["cryptic-30077"] = /*JSON-START*/ {
      {
       "clueFragment": "tread carefully",
       "gives": "PACE",
-      "note": "to pace is to walk in measured, deliberate steps"
+      "note": "the plain English verb for walking in measured, deliberate steps"
      }
     ],
     "walkthrough": "Two different words share one spelling — one straight out of Latin, one plain English — which is how the clue defines it twice without repeating itself.",

@@ -858,7 +858,7 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
      {
       "clueFragment": "canon's to play",
       "gives": "NONSTOP",
-      "note": "the run starts inside the first word and stops one letter into the last: ca(NON'S TO P)lay"
+      "note": "the run starts partway into the first word and ends one letter into the last, crossing the apostrophe as if it weren't there"
      }
     ],
     "walkthrough": "Hidden answers love a possessive: the apostrophe in 'canon's' is invisible to the letters, so the run carries straight across it.",
@@ -981,7 +981,7 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
      {
       "clueFragment": "uncoils kinks",
       "gives": "OILSKIN",
-      "note": "the run straddles the gap between the two words: unc(OILS KIN)ks"
+      "note": "the run straddles the gap between the two words, unbroken across the space"
      }
     ],
     "walkthrough": "A hidden answer that crosses a word boundary is the hardest kind to see, because the eye reads whole words before it reads letters.",
@@ -1097,7 +1097,7 @@ window.CRYPTIC_PUZZLES["everyman-4162"] = /*JSON-START*/ {
      {
       "clueFragment": "Eager",
       "gives": "",
-      "note": "the everyday adjective — keen on an idea, keen to start"
+      "note": "the everyday adjective for someone enthusiastic about an idea or itching to start"
      },
      {
       "clueFragment": "to wail",

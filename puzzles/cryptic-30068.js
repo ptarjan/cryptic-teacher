@@ -89,7 +89,7 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
      {
       "clueFragment": "affair out in Europe",
       "gives": "ROUTINE",
-      "note": "running through affai-R OUT IN E-urope"
+      "note": "the letters run consecutively across the boundary between 'affair' and 'Europe'"
      }
     ],
     "walkthrough": "Paul writes the word twice so the second one can do a different job: the first is the definition, the second the instruction. A repeated word in a clue is nearly always two jobs.",
@@ -731,7 +731,7 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
      {
       "clueFragment": "Really",
       "gives": "",
-      "note": "the intensifier: jolly hard work, jolly nearly right"
+      "note": "the intensifier: a very British way of saying 'very' before an adjective"
      },
      {
       "clueFragment": "cheerful",
@@ -1177,12 +1177,12 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
      {
       "clueFragment": "Blue",
       "gives": "",
-      "note": "blue is the Conservative colour, and Conservatives sit on the right"
+      "note": "blue is the colour tied to the Conservative party, which sits on one side of the political spectrum"
      },
      {
       "clueFragment": "in the pink",
       "gives": "",
-      "note": "in the pink means in good health — nothing wrong, all right"
+      "note": "in the pink means in good health, i.e. with nothing wrong"
      }
     ],
     "walkthrough": "Two colours in five words and neither is about colour: one is party politics, the other is health. Colour words in a cryptic almost always stand for something else.",

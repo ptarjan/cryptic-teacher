@@ -366,7 +366,7 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
      {
       "clueFragment": "deforestation's",
       "gives": "PINE",
-      "note": "the forest that was cleared was pine, so the two pieces together read as O PINE — none at all"
+      "note": "deforestation leaves nothing where the PINE trees stood; that 'nothing' is spelled with the letter O, placed directly before PINE to build the answer"
      }
     ],
     "walkthrough": "Read the answer as two words and the question mark explains itself: it is a picture of what is missing, not a description of a tree.",

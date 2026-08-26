@@ -82,12 +82,12 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
      {
       "clueFragment": "How stamps are affixed?",
       "gives": "BY GUM",
-      "note": "stamps are stuck on by gum — read literally"
+      "note": "at face value, stamps get their stick from the adhesive on the back — read the phrase word for word"
      },
      {
       "clueFragment": "Crikey!",
       "gives": "BY GUM",
-      "note": "by gum! — a dated exclamation of surprise"
+      "note": "an old-fashioned northern English exclamation of surprise"
      }
     ],
     "walkthrough": "A whimsical double definition: the literal reading (stamps really are affixed by gum) and the exclamation, a politely softened 'by God!' still heard in northern England."
@@ -389,7 +389,7 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
      {
       "clueFragment": "Fish",
       "gives": "TUNNY",
-      "note": "a tunny is the tuna"
+      "note": "an old-fashioned British name for a large tuna"
      },
      {
       "clueFragment": "like the location where fish are readily shot?",
@@ -1191,12 +1191,12 @@ window.CRYPTIC_PUZZLES["cryptic-30070"] = /*JSON-START*/ {
      {
       "clueFragment": "Unrefined",
       "gives": "GROSS",
-      "note": "gross = coarse, unrefined"
+      "note": "coarse or crude, as in unrefined manners"
      },
      {
       "clueFragment": "Imperial measure?",
       "gives": "GROSS",
-      "note": "a gross = twelve dozen, 144 — an old traders' quantity"
+      "note": "an old trading quantity equal to twelve dozen, 144 items"
      }
     ],
     "walkthrough": "A gross — twelve dozen — belongs to the old pre-metric world of counting, so 'Imperial' carries a question mark. The other sense is plain: coarse, crude, unrefined."

@@ -403,7 +403,7 @@ window.CRYPTIC_PUZZLES["independent-12440"] = /*JSON-START*/ {
      {
       "clueFragment": "dear",
       "gives": "DUCK",
-      "note": "a third definition rather than wordplay: 'duck' is a Midlands and northern term of endearment"
+      "note": "a third definition rather than wordplay: a Midlands and northern term of endearment"
      }
     ],
     "walkthrough": "Three unrelated senses in four words, and only the first is the one everybody knows; the bird never appears at all.",

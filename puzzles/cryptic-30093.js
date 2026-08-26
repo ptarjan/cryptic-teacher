@@ -502,7 +502,7 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
      {
       "clueFragment": "rest",
       "gives": "REPOSE",
-      "note": "repose is rest, as a noun and as a verb"
+      "note": "this half asks for a word meaning to rest or lie at ease, usable as noun or verb"
      }
     ],
     "walkthrough": "The split is at 'to', and the hyphen a grid cannot show is the whole clue: two different words happen to be spelt the same way.",
@@ -626,7 +626,7 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
      {
       "clueFragment": "Slippery",
       "gives": "MULE",
-      "note": "a mule is a backless slipper, the kind you step into rather than put on"
+      "note": "this half names a backless slipper, the kind you step into rather than put on"
      },
      {
       "clueFragment": "equine",
@@ -833,7 +833,7 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
      {
       "clueFragment": "Drop",
       "gives": "SHED",
-      "note": "trees shed leaves and snakes shed skin — to let something fall away"
+      "note": "trees let their leaves fall away each year, and snakes do the same with their skin"
      },
      {
       "clueFragment": "tools here",
@@ -1020,7 +1020,7 @@ window.CRYPTIC_PUZZLES["cryptic-30093"] = /*JSON-START*/ {
      {
       "clueFragment": "Commonwealth country",
       "gives": "ZEAL",
-      "note": "the country is New Zealand, and these four letters sit exactly at its centre: new-ZEAL-and"
+      "note": "the country is New Zealand, and reading its two words as one continuous string, the wanted letters sit exactly in the middle, three trimmed from each end"
      }
     ],
     "walkthrough": "The country is never named, only described, so the work is finding a Commonwealth member with a whole word parked at its middle.",

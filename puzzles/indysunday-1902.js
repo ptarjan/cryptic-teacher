@@ -818,7 +818,7 @@ window.CRYPTIC_PUZZLES["indysunday-1902"] = /*JSON-START*/{
      {
       "clueFragment": "Commission bespoke",
       "gives": "HAVEMADE",
-      "note": "to commission a bespoke thing is to have it made to your own order, and those two words open up to take whatever is being ordered"
+      "note": "commissioning a bespoke item means getting it produced exactly to your specification; that meaning opens up into two words bracketing the tech's abbreviation between them"
      },
      {
       "clueFragment": "tech",

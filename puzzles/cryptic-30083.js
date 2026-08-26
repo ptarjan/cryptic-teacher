@@ -618,7 +618,7 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
      {
       "clueFragment": "Bridge",
       "gives": "PASSOVER",
-      "note": "To bridge a gap is to pass over it."
+      "note": "To bridge a gap means crossing it entirely, skipping whatever lies between."
      },
      {
       "clueFragment": "holiday",

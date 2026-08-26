@@ -146,7 +146,7 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
      {
       "clueFragment": "match?",
       "gives": "LIGHT",
-      "note": "a match is what you offer when asked for a light"
+      "note": "a match is what someone hands over when asked for a flame"
      }
     ],
     "walkthrough": "The definition is the whole joke: to alight is to step down from a train or a coach, so 'Stop training or being coached' is about transport, not exercise, with 'say' flagging both as examples."
@@ -225,7 +225,7 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
      {
       "clueFragment": "moderate ethically",
       "gives": "TEETH",
-      "note": "hidden across the two words: modera-TE ETH-ically"
+      "note": "the five letters run straight through the join: the last two of 'moderate' plus the first three of 'ethically'"
      }
     ],
     "walkthrough": "'Effective power' is fair because of the idiom: a law with teeth is one that can actually bite. The surface, a moderate behaving ethically, reads like a leader column."
@@ -449,12 +449,12 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
      {
       "clueFragment": "Orbits",
       "gives": "ELLIPSES",
-      "note": "planetary orbits are ellipses — Kepler's discovery"
+      "note": "the closed, elongated curve a planet traces around a star, described mathematically by Kepler"
      },
      {
       "clueFragment": "… more than once",
       "gives": "ELLIPSES",
-      "note": "the '…' mark is an ellipsis; several are ellipses"
+      "note": "one '…' mark has a name ending in '-is'; the clue wants more than one, and pluralizing that name changes the ending to '-es'"
      }
     ],
     "walkthrough": "The clue's own punctuation is the wordplay: those three dots are not the setter trailing off, they are an ellipsis printed there for you to read as a thing."
@@ -486,7 +486,7 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
      {
       "clueFragment": "which I notice",
       "gives": "CHINO",
-      "note": "hidden: whi-CH I NO-tice"
+      "note": "the run crosses three words: the tail of 'which', the whole of 'I', and the front of 'notice'"
      }
     ],
     "walkthrough": "Hidden words are easiest to miss when the surface is this flat. Nothing in 'only some of which I notice' asks for attention, which is exactly how the fabric slips past you."
@@ -594,7 +594,7 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
      {
       "clueFragment": "role",
       "gives": "TRAP",
-      "note": "a role is a PART; reversed it becomes TRAP"
+      "note": "a role is a PART; the reversal indicator says to read that word backwards"
      },
      {
       "clueFragment": "reversal",
@@ -1188,7 +1188,7 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
      {
       "clueFragment": "Option for better",
       "gives": "ONTHENOSE",
-      "note": "a better (bettor) can put money on the nose — a win-only bet"
+      "note": "a bettor backing a horse purely to win, not each-way, is making exactly this kind of wager — slang drawn from a facial feature for precision"
      },
      {
       "clueFragment": "location for spectacles",
@@ -1224,12 +1224,12 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
      {
       "clueFragment": "Toast",
       "gives": "BROWN",
-      "note": "to toast bread is to brown it"
+      "note": "toasting bread darkens it under heat"
      },
      {
       "clueFragment": "former PM",
       "gives": "BROWN",
-      "note": "Gordon Brown, prime minister 2007–2010"
+      "note": "the Chancellor who succeeded Blair as prime minister in 2007, serving until 2010"
      }
     ],
     "walkthrough": "Two words, two definitions, no wordplay at all — and the surface pretends to be a toast raised at a dinner for the former prime minister."

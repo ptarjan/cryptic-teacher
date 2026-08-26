@@ -131,7 +131,7 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
      {
       "clueFragment": "to follow these characters",
       "gives": "ATOP",
-      "note": "the characters Q follows in the alphabet are A to P — which spells the answer"
+      "note": "the letters that come right after Q in the alphabet, read together, sound out the answer"
      }
     ],
     "walkthrough": "Say 'queue' aloud and you have the letter Q, which comes straight after the characters A to P. Read the answer as 'A to P' and the alphabet joke lands."
@@ -331,7 +331,7 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
      {
       "clueFragment": "Drama",
       "gives": "",
-      "note": "Chekhov's 1896 play The Seagull"
+      "note": "a specific Chekhov play from 1896 — title and definite article both count as the definition"
      },
      {
       "clueFragment": "one stealing chips",
@@ -374,7 +374,7 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
      {
       "clueFragment": "Difficult spot",
       "gives": "",
-      "note": "'come to a pretty pass' = reach a sorry state"
+      "note": "an old idiom for landing in a sorry state"
      },
      {
       "clueFragment": "picturesque route through mountains",
@@ -719,7 +719,7 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
      {
       "clueFragment": "had disagreement",
       "gives": "",
-      "note": "the everyday sense: took issue with something"
+      "note": "the everyday sense: objected to or complained about something"
      }
     ],
     "walkthrough": "'Issue' meaning children survives mainly in legal English and in crosswords — worth memorising. The everyday sense of objecting shares exactly the same two words."

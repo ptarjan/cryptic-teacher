@@ -810,12 +810,12 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
      {
       "clueFragment": "Wine",
       "gives": "RED",
-      "note": "red wine"
+      "note": "the colour term for a common style of wine, the kind carried in a hip flask"
      },
      {
       "clueFragment": "that’s often put in a pocket",
       "gives": "RED",
-      "note": "a snooker red, potted — put in a pocket"
+      "note": "in snooker this is the one-point ball, potted repeatedly through a frame rather than just once like the colours"
      }
     ],
     "walkthrough": "The surface wants you thinking of a hip flask. The second definition is snooker, where a red is put in a pocket fifteen times a frame."

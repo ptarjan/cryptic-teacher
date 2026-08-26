@@ -941,7 +941,7 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
       "clueFragment": "abusive",
       "soundsLike": "RUDE",
       "gives": "ROOD",
-      "note": "abusive is rude, and RUDE heard down a crackly line is written ROOD"
+      "note": "abusive means rude, and that word said aloud sounds identical to the differently-spelled word this clue wants"
      }
     ],
     "walkthrough": "A rood is the great crucifix mounted above the chancel screen of an old church, so the definition is architectural rather than bad-tempered.",
@@ -1357,7 +1357,7 @@ window.CRYPTIC_PUZZLES["independent-12429"] = /*JSON-START*/ {
      {
       "clueFragment": "Make cross",
       "gives": "NEEDLE",
-      "note": "to needle someone is to keep picking at them until they are cross"
+      "note": "this half asks for a verb meaning to keep picking at someone until they are cross"
      },
      {
       "clueFragment": "stitch using this",

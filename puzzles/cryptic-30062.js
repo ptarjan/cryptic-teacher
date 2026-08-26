@@ -348,7 +348,7 @@ window.CRYPTIC_PUZZLES["cryptic-30062"] = /*JSON-START*/ {
      {
       "clueFragment": "Attack",
       "gives": "GO",
-      "note": "to 'go at' something is to attack it, and GO is the first word of that phrase"
+      "note": "GO is the first word of the informal phrase for attacking someone, with the space between the two words closing up once they combine"
      },
      {
       "clueFragment": "Attack",

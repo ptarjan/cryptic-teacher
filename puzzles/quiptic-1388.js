@@ -564,12 +564,12 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
      {
       "clueFragment": "What’s left",
       "gives": "TESTAMENT",
-      "note": "a last will and testament sets out what someone has left"
+      "note": "a legal document setting out what someone leaves behind is paired with 'last will and' in the well-known phrase"
      },
      {
       "clueFragment": "religious text",
       "gives": "TESTAMENT",
-      "note": "the Bible divides into the Old and New Testaments"
+      "note": "the Bible divides into two major halves, Old and New, each known by this same name"
      }
     ],
     "walkthrough": "The split comes at 'in': a will on one side, the Bible on the other, with the question mark nodding at the wordplay-free construction.",
@@ -1049,7 +1049,7 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
      {
       "clueFragment": "End of quatrain, say",
       "gives": "LINED",
-      "note": "a quatrain's four lines can be labelled a to d, so its end is 'line d'"
+      "note": "a quatrain's four lines are labelled a to d in a rhyme scheme, and its last line takes the final letter of that scheme"
      }
     ],
     "walkthrough": "The trick is naming a quatrain's fourth line 'line d', as rhyme schemes label verses a to d — 'say' concedes it is one example of such labelling.",

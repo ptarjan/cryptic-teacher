@@ -359,12 +359,12 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
      {
       "clueFragment": "Perhaps, lead",
       "gives": "ELEMENT",
-      "note": "lead is one example of a chemical element — 'perhaps' flags the definition by example"
+      "note": "lead is one example of a basic substance from the periodic table; 'perhaps' signals this is a definition by example"
      },
      {
       "clueFragment": "factor",
       "gives": "ELEMENT",
-      "note": "an element = a factor, one part of a situation"
+      "note": "a factor is one contributing part of a bigger situation"
      }
     ],
     "walkthrough": "'Perhaps' is the courteous flag that lead is only an example of the answer, not a synonym for it — the mark of definition by example.",
@@ -664,7 +664,7 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
      {
       "clueFragment": "like an attentive lawyer?",
       "gives": "ONTHECASE",
-      "note": "a lawyer at work is literally on the case"
+      "note": "a lawyer working hard for a client is fully engaged with, and actively handling, their matter"
      }
     ],
     "walkthrough": "The split comes after 'problem'. The question mark concedes the second half is playful: a lawyer minding their brief really is on the case.",

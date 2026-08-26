@@ -1099,7 +1099,7 @@ window.CRYPTIC_PUZZLES["independent-12435"] = /*JSON-START*/ {
      {
       "clueFragment": "privy at sea",
       "gives": "HEADS",
-      "note": "the heads is the lavatory on board a ship"
+      "note": "the traditional name for a ship's lavatory, found forward near the bow in the age of sail"
      }
     ],
     "walkthrough": "The seam is hidden by 'in', which joins the two halves so smoothly that the sentence reads as one picture of officers in a ship's toilet.",

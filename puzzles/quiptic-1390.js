@@ -122,12 +122,12 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
      {
       "clueFragment": "Move clumsily",
       "gives": "BARGE",
-      "note": "to barge is to shove gracelessly, as in 'barge past'"
+      "note": "to shove gracelessly through a space, as when pushing past someone in a hurry"
      },
      {
       "clueFragment": "boat",
       "gives": "BARGE",
-      "note": "a barge is a flat-bottomed canal or river boat"
+      "note": "a flat-bottomed vessel used on canals and rivers for heavy cargo"
      }
     ],
     "walkthrough": "The surface has you rowing badly; the split comes at 'in', leaving a verb on one side and a noun on the other.",
@@ -201,12 +201,12 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
      {
       "clueFragment": "Back",
       "gives": "SECOND",
-      "note": "to second a proposal is to back it"
+      "note": "to formally support or back a proposal put to a meeting"
      },
      {
       "clueFragment": "a mo",
       "gives": "SECOND",
-      "note": "a mo — a moment — is a second"
+      "note": "a mo is short for a moment — a very brief unit of time"
      }
     ],
     "walkthrough": "The whole clue reads as 'I'll be right back', which is the misdirection: split it at 'in' and each half defines the answer on its own.",

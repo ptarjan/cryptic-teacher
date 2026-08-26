@@ -186,12 +186,12 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
      {
       "clueFragment": "Key",
       "gives": "SHIFT",
-      "note": "the shift key is on every keyboard, the one held down for capitals"
+      "note": "the key on every keyboard held down to type capitals or alternate symbols"
      },
      {
       "clueFragment": "change",
       "gives": "SHIFT",
-      "note": "a shift in the weather or in opinion is a change"
+      "note": "a change in the weather or in opinion, often gradual rather than sudden"
      }
     ],
     "walkthrough": "Two definitions with nothing between them, and the join is hidden because 'key change' is a phrase in its own right, the musical one.",
@@ -603,12 +603,12 @@ window.CRYPTIC_PUZZLES["independent-12421"] = /*JSON-START*/ {
      {
       "clueFragment": "Weak",
       "gives": "LIGHT",
-      "note": "a light drizzle or a light sentence is a weak one"
+      "note": "weak in intensity, as in a mild drizzle or a lenient sentence"
      },
      {
       "clueFragment": "understanding",
       "gives": "LIGHT",
-      "note": "when you see the light you understand, and light is what gets shed on a problem"
+      "note": "the flash of comprehension when something finally makes sense, or what a good explanation sheds on a problem"
      }
     ],
     "walkthrough": "Two words, two definitions and no wordplay at all - the pair reads as one phrase about a feeble grasp of something, and that is the whole disguise.",

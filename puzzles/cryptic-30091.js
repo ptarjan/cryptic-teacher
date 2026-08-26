@@ -598,7 +598,7 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
      {
       "clueFragment": "Tongue-in-cheek",
       "gives": "INCH",
-      "note": "the run straddling a hyphen: tongue-(in-ch)eek"
+      "note": "the run crosses a hyphen: the whole of 'in' and the front of 'cheek'"
      }
     ],
     "walkthrough": "'Tongue-in-cheek' means ironic in the surface and is a hiding place in the parse. The answer sits astride a hyphen, which is exactly why the eye skips over it.",

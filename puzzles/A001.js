@@ -222,12 +222,12 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      {
       "clueFragment": "Call them what you like",
       "gives": "NAMES",
-      "note": "what you call someone is their names"
+      "note": "this half is a plain definition: the everyday word for what you call someone by"
      },
      {
       "clueFragment": "they're still stars",
       "gives": "NAMES",
-      "note": "the famous are big names"
+      "note": "this half nods to the phrase for celebrities of real standing, the sort who draw a crowd on reputation alone"
      }
     ],
     "walkthrough": "The comma hides the seam, and the pleasure is watching 'call' quietly change job as the second half lands."
@@ -258,7 +258,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      {
       "clueFragment": "the president's",
       "gives": "SIDE",
-      "note": "hiding in pre-SIDE-nt"
+      "note": "the letters sit unbroken in the middle of 'president', neither at the start nor the end"
      }
     ],
     "walkthrough": "A mole is a thing concealed inside an organisation, so the sentence is the hiding instruction without ever sounding like one — and the mole really is buried in the longest word, doing exactly what a mole does."
@@ -516,7 +516,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      {
       "clueFragment": "the star guests",
       "gives": "ARGUE",
-      "note": "hidden inside st-ARGUE-sts"
+      "note": "the letters run unbroken across the join between 'star' and 'guests'"
      }
     ],
     "walkthrough": "'Row' here rhymes with cow, not with toe — that switch of sense is the whole misdirection. And the row really is inside the star guests, exactly where the caption says it is."
@@ -555,7 +555,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      {
       "clueFragment": "the halter",
       "gives": "HALTER",
-      "note": "take the H out of HALTER and ALTER is left"
+      "note": "drop the H from the front of 'halter'"
      }
     ],
     "walkthrough": "H = husband is shorthand worth memorising, and slipping out of a halter is a real thing to do, so nothing sounds like an instruction. The joke is that a horse wears a halter — and so, apparently, does a married man."
@@ -666,7 +666,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      {
       "clueFragment": "winter",
       "gives": "INTER",
-      "note": "the answer is buried in w-INTER"
+      "note": "the letters sit unbroken inside 'winter', tucked behind its opening letter"
      }
     ],
     "walkthrough": "'Buried in' is the back-page verb and the only instruction you get. The second gag is that to inter IS to bury, so the answer means exactly what the clue does to it."
@@ -699,7 +699,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
      {
       "clueFragment": "Delight",
       "gives": "PLEASE",
-      "note": "to please is to delight"
+      "note": "this half asks for a verb meaning to give someone pleasure"
      },
      {
       "clueFragment": "the magic word",
@@ -736,7 +736,7 @@ window.CRYPTIC_PUZZLES["A001"] = /*JSON-START*/ {
       "clueFragment": "pray",
       "soundsLike": "PRAY",
       "gives": "PREY",
-      "note": "said aloud, PRAY is PREY"
+      "note": "said aloud, 'pray' sounds identical to the differently-spelled word this clue wants"
      }
     ],
     "walkthrough": "The joke needs no unpacking once you picture it: the creature with the best reason to pray is the one about to be eaten."

@@ -578,7 +578,7 @@ window.CRYPTIC_PUZZLES["independent-12436"] = /*JSON-START*/ {
      {
       "clueFragment": "Much",
       "gives": "",
-      "note": "the quantity idiom — a good deal of trouble, a good deal older"
+      "note": "the quantity idiom meaning a large amount, as in 'a lot of trouble' or 'considerably older'"
      },
      {
       "clueFragment": "value for money",

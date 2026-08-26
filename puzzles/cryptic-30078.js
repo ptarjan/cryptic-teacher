@@ -783,7 +783,7 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
      {
       "clueFragment": "throw, cast and pitch?",
       "gives": "TRIFLING",
-      "note": "three ways of saying FLING — so, a tri-FLING"
+      "note": "throw, cast and pitch all mean FLING; the answer prefixes that verb with the three-letter word for 'three'"
      }
     ],
     "pieces": [
@@ -1092,12 +1092,12 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
      {
       "clueFragment": "Bellyache",
       "gives": "BEEF",
-      "note": "to bellyache is to gripe — to beef"
+      "note": "to bellyache is to complain or gripe about something"
      },
      {
       "clueFragment": "something in 15’s patty?",
       "gives": "BEEF",
-      "note": "the meat inside a Jamaican beef patty"
+      "note": "the type of red meat that's the classic filling for a Jamaican patty"
      }
     ],
     "walkthrough": "Two meanings split by the dash: the grumble, and the filling of Jamaica's best-loved pastry.",

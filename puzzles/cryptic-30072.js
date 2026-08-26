@@ -195,7 +195,7 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
      {
       "clueFragment": "Mostly",
       "gives": "",
-      "note": "the everyday sense: in general = mostly, on the whole"
+      "note": "the everyday adverbial sense: broadly speaking, without accounting for exceptions"
      },
      {
       "clueFragment": "where soldiers are trained to place their trust",
@@ -328,12 +328,12 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
      {
       "clueFragment": "Start",
       "gives": "",
-      "note": "an onset is a start — the straight sense"
+      "note": "the straight dictionary sense: a noun for the beginning of something"
      },
      {
       "clueFragment": "rolling the cameras here",
       "gives": "",
-      "note": "read it as ON SET — where a film crew rolls the cameras"
+      "note": "split into two words, this names the location on a film shoot where the cameras roll"
      }
     ],
     "walkthrough": "A start, or where filming starts: on set. The second reading is the whimsical one, which is why it carries the cameras."
@@ -1189,7 +1189,7 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
       "clueFragment": "dweller there – fearfully symmetrical",
       "soundsLike": "TIGER",
       "gives": "TAIGA",
-      "note": "Blake's 'Tyger Tyger, burning bright… thy fearful symmetry' — and Siberian tigers really do live in the taiga"
+      "note": "Blake's 'Tyger Tyger, burning bright… thy fearful symmetry' points at the tiger, whose homophone doubles as the word for the great northern forest it prowls"
      }
     ],
     "walkthrough": "The taiga is the great northern forest, and its most famous dweller arrives via Blake's poem — 'fearful symmetry' is the Tyger's own phrase, delivered 'according to recital'."

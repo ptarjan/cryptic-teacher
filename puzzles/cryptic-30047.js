@@ -54,7 +54,7 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
      {
       "clueFragment": "book",
       "gives": "TOME",
-      "note": "a tome; it binds the CO as TO-CO-ME"
+      "note": "a tome is a large book; the container instruction opens it around its middle to take the firm's abbreviation inside"
      }
     ],
     "walkthrough": "'Binding' is what books get, which is why it hides so well as the container instruction — the TOME simply closes around the firm.",
@@ -187,12 +187,12 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
      {
       "clueFragment": "Spill",
       "gives": "MATCH",
-      "note": "a spill is a thin strip of wood or paper for lighting fires — a match's job"
+      "note": "a spill is a thin strip of wood or paper used to carry a flame from a fire to light something else"
      },
      {
       "clueFragment": "double",
       "gives": "MATCH",
-      "note": "your double is your match, your exact counterpart"
+      "note": "your double is your exact counterpart, someone who looks just like you"
      }
     ],
     "walkthrough": "Two words, no indicator: nearly always two definitions. 'Spill' meaning a fire-lighting taper is old household vocabulary that crosswords keep alive.",
@@ -287,7 +287,7 @@ window.CRYPTIC_PUZZLES["cryptic-30047"] = /*JSON-START*/ {
      {
       "clueFragment": "girl",
       "gives": "MISS",
-      "note": "REPRESENT 'lines' her: MIS-REPRESENT-S"
+      "note": "a girl can be addressed as Miss; the 'lines' instruction opens that word around REPRESENT, which slots inside it"
      }
     ],
     "walkthrough": "'Lines' is the container word — a lining goes inside — and the theatre surface makes you hear an actor's lines instead. Note that 'about' belongs to 'feel bitter about', not to any reversal.",

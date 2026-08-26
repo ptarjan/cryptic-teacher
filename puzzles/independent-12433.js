@@ -80,12 +80,12 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
      {
       "clueFragment": "Film",
       "gives": "",
-      "note": "the verb a director uses: to film a scene is to shoot it"
+      "note": "the verb a director uses when capturing a scene on camera, filming it in the technical sense"
      },
      {
       "clueFragment": "part of Black Narcissus",
       "gives": "",
-      "note": "the title hands you a flower, and a narcissus puts out shoots"
+      "note": "the title names a flower; new growth that a plant like a narcissus sends up has a specific botanical name for it"
      }
     ],
     "walkthrough": "Black Narcissus is a 1947 film, so the italic title looks like the whole point of the clue; the plant hiding inside it is what the second definition wants.",
@@ -1152,12 +1152,12 @@ window.CRYPTIC_PUZZLES["independent-12433"] = /*JSON-START*/ {
      {
       "clueFragment": "Universal",
       "gives": "",
-      "note": "general = applying to everyone, without exception"
+      "note": "applying to everyone, without exception, rather than to one particular case"
      },
      {
       "clueFragment": "Soldier",
       "gives": "",
-      "note": "the most senior soldier in an army is a general"
+      "note": "the most senior rank a top army officer can hold"
      }
     ],
     "walkthrough": "Two words, two definitions and no wordplay whatever. The italics make the pair read as a film title, which is exactly what hides the split between them.",

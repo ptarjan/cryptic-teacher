@@ -1098,7 +1098,7 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
      {
       "clueFragment": "bouzoukist",
       "gives": "OUZO",
-      "note": "the spirit sits inside the player of the instrument: b(OUZO)ukist"
+      "note": "the drink's name is buried whole inside the word for the player of the instrument"
      }
     ],
     "walkthrough": "A bouzouki is the Greek long-necked lute, so the surface and the answer share a country — which is exactly why you read the word as scenery instead of searching it.",
@@ -1233,7 +1233,7 @@ window.CRYPTIC_PUZZLES["everyman-4164"] = /*JSON-START*/ {
      {
       "clueFragment": "Legitimate",
       "gives": "",
-      "note": "an above-board arrangement is open and honest, with nothing going on under the table"
+      "note": "describes an arrangement that is open and honest, with nothing going on out of sight"
      },
      {
       "clueFragment": "position of chess player's hand",

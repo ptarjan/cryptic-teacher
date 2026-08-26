@@ -1227,7 +1227,7 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
      {
       "clueFragment": "authoritarian",
       "gives": "STERN",
-      "note": "a stern parent is strict and unsmiling"
+      "note": "an authoritarian parent is humorless and severe, quick to lay down the law"
      }
     ],
     "walkthrough": "The strict sort and the back of a vessel are the same five letters, and the clue quietly uses one to build the other without ever pointing at the coincidence.",

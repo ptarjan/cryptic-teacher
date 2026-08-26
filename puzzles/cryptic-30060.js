@@ -284,7 +284,7 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
      {
       "clueFragment": "gets emotional",
       "gives": "TEARS UP",
-      "note": "when someone tears up, the eyes fill"
+      "note": "getting overcome with emotion is described with the same two words as ripping something apart"
      }
     ],
     "walkthrough": "The two halves are spelt identically and said differently: the ripping 'tear' rhymes with air, the weeping one with ear. Only the sense tells you which you are holding.",
@@ -1187,7 +1187,7 @@ window.CRYPTIC_PUZZLES["cryptic-30060"] = /*JSON-START*/ {
      {
       "clueFragment": "Initially",
       "gives": "LIFO",
-      "note": "the rule is 'last in, first out', and taken initially — one letter per word — it comes out as L, I, F, O"
+      "note": "the rule is 'last in, first out'; take the opening letter of each of its four words in order"
      }
     ],
     "walkthrough": "'Firing' reads as gunnery and means redundancy: when jobs are cut, the newest recruits go first. You have to know the four-word rule before the initials mean anything.",

@@ -126,7 +126,7 @@ window.CRYPTIC_PUZZLES["independent-12430"] = /*JSON-START*/ {
      {
       "clueFragment": "Unprofitable",
       "gives": "LEAN",
-      "note": "lean years are the ones with nothing spare in them"
+      "note": "a stretch of time with nothing spare in it, as in the years right after a bad harvest"
      },
      {
       "clueFragment": "bank",

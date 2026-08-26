@@ -597,12 +597,12 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
      {
       "clueFragment": "Shakespeare",
       "gives": "BARD",
-      "note": "the Bard of Avon"
+      "note": "Shakespeare's popular nickname, ending in a D, supplies the source word for the wordplay"
      },
      {
       "clueFragment": "Bottom",
       "gives": "D",
-      "note": "the bottom letter of BARD is the one forgotten"
+      "note": "the wordplay drops the last letter of that nickname"
      }
     ],
     "walkthrough": "Bottom is a Shakespeare character and a position in a word at the same time, and the clue means the second while pointing at the first.",
@@ -830,12 +830,12 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
      {
       "clueFragment": "Add more detail",
       "gives": "ELABORATE",
-      "note": "the verb: asked to elaborate, you say more"
+      "note": "the verb: when asked, you supply more detail beyond what you've already given"
      },
      {
       "clueFragment": "complex",
       "gives": "ELABORATE",
-      "note": "the adjective: an elaborate scheme has many worked-up parts"
+      "note": "the adjective: describes something with many finely worked, interlocking parts"
      }
     ],
     "walkthrough": "One spelling, two pronunciations: the verb ends like 'rate', the adjective swallows the ending. The split falls after 'detail', with 'to' as the only joinery.",
@@ -981,7 +981,7 @@ window.CRYPTIC_PUZZLES["cryptic-30084"] = /*JSON-START*/ {
      {
       "clueFragment": "submarine",
       "gives": "POLARIS",
-      "note": "the Royal Navy's Polaris boats took their name from the missile they carried"
+      "note": "these Royal Navy submarines took their name from the missile system they carried, itself named for the Pole Star"
      }
     ],
     "walkthrough": "A cross-reference: 7 down has to fall first. Both halves then point at one word from opposite worlds, celestial navigation and the cold war.",

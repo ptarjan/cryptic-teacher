@@ -93,12 +93,12 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
      {
       "clueFragment": "Score twice",
       "gives": "FORTY",
-      "note": "a score is twenty, so two of them make forty"
+      "note": "a score is twenty; this fragment doubles it"
      },
      {
       "clueFragment": "like A Castle?",
       "gives": "FORTY",
-      "note": "read the answer as FORT-Y: resembling a fort, i.e. a castle"
+      "note": "read as a word meaning resembling a fort, i.e. a castle, split into two parts that combine to spell the number"
      }
     ],
     "walkthrough": "The capitals in 'A Castle' suggest a person's name, but the clue wants FORT plus the adjective ending -Y — castle-like, as the question mark concedes.",
@@ -171,7 +171,7 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
      {
       "clueFragment": "chap",
       "gives": "GENT",
-      "note": "a chap is a gent, short for gentleman"
+      "note": "an informal word for a well-mannered man, shortened from a longer, more formal one"
      }
     ],
     "pieces": [
@@ -1277,12 +1277,12 @@ window.CRYPTIC_PUZZLES["quiptic-1387"] = /*JSON-START*/ {
      {
       "clueFragment": "Receipt",
       "gives": "SALESSLIP",
-      "note": "a sales slip is the American term for a shop receipt"
+      "note": "the American term for the piece of paper you get after a shop purchase"
      },
      {
       "clueFragment": "disappointing news for rep?",
       "gives": "SALESSLIP",
-      "note": "read as a sentence: sales slip, i.e. fall — grim news for a sales rep"
+      "note": "read as a two-word sentence about a decline in what's being sold — grim news for whoever's selling it"
      }
     ],
     "walkthrough": "One phrase, two readings: the paper in the till, or sales taking a dive — which a sales rep would rather not hear about.",

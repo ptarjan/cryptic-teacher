@@ -1172,7 +1172,7 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
      {
       "clueFragment": "Bears",
       "gives": "TOTES",
-      "note": "to tote a bag is to carry it, so one who bears things totes them"
+      "note": "to carry a load, as in 'tote a bag', is the verb meant; here it takes the third-person -s"
      },
      {
       "clueFragment": "Definitely",
@@ -1265,12 +1265,12 @@ window.CRYPTIC_PUZZLES["independent-12417"] = /*JSON-START*/ {
      {
       "clueFragment": "Head",
       "gives": "LOAF",
-      "note": "'use your loaf' — from the rhyming slang loaf of bread for head"
+      "note": "Cockney rhyming slang for head shortens a two-word phrase ending in 'bread', since bread rhymes with head"
      },
      {
       "clueFragment": "lounge",
       "gives": "LOAF",
-      "note": "to loaf about is to idle the day away"
+      "note": "to idle the day away, doing nothing much, is the verb meant here"
      }
     ],
     "walkthrough": "'Head to' reads as an instruction to go somewhere, which hides the split: the clue is two definitions with a word of joinery between them.",

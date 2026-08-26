@@ -89,7 +89,7 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
      {
       "clueFragment": "no Slovenian",
       "gives": "OSLO",
-      "note": "the letters run straight across the gap: n(O SLO)venian"
+      "note": "the run crosses the gap: the last letter of 'no' and the first three of 'Slovenian'"
      }
     ],
     "walkthrough": "Naming one country is a good way to hide the capital of another, and 'Slovenian' points your eye at Ljubljana while Norway sits under it. Hidden words that straddle a word break are the hardest to see.",
@@ -279,7 +279,7 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
      {
       "clueFragment": "Stop",
       "gives": "",
-      "note": "to put the mockers on a plan is to scupper it — the jinx that stops the thing happening"
+      "note": "this old British idiom means to jinx or scupper a plan so that it fails"
      },
      {
       "clueFragment": "let’s get a cynical view",
@@ -610,7 +610,7 @@ window.CRYPTIC_PUZZLES["quiptic-1395"] = /*JSON-START*/ {
      {
       "clueFragment": "Fail to be deceived by",
       "gives": "",
-      "note": "to see through a lie is to look straight past it and not be taken in"
+      "note": "to recognise a trick or deceit for what it really is, not being fooled by the surface"
      },
      {
       "clueFragment": "description of audacious dress?",

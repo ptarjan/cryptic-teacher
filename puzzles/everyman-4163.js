@@ -94,7 +94,7 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
      {
       "clueFragment": "simpleton",
       "gives": "",
-      "note": "calling somebody a noodle is a mild old word for a fool"
+      "note": "an old-fashioned, mild word for a fool, someone a bit slow or silly"
      }
     ],
     "walkthrough": "Nothing to take apart: 'for' is only joinery, and the trick is that a word out of the kitchen doubles as a gentle Victorian insult.",
@@ -660,7 +660,7 @@ window.CRYPTIC_PUZZLES["everyman-4163"] = /*JSON-START*/ {
      {
       "clueFragment": "horrid uncertainty",
       "gives": "DUNCE",
-      "note": "the word straddles the gap between the two: horri-D UNCE-rtainty"
+      "note": "the run crosses the gap: the last letter of 'horrid' and the first four of 'uncertainty'"
      }
     ],
     "walkthrough": "Hidden answers love a long adjective and noun together, because a phrase like this reads as mood rather than as material with something buried in it.",
