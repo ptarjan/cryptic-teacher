@@ -392,6 +392,7 @@ const ABBREVIATIONS = {
   "north",
   "northern",
   "note",
+  "november",
   "nuclear",
   "number"
  ],
