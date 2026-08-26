@@ -213,6 +213,7 @@ fi
 # quota being discovered by crashing into it rather than being budgeted.
 ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-70}"
 annotated_ok=0
+annotated_nums=""
 stop_reason=""
 
 # --- 3a. solve the unsolved, so step 3b has something to annotate ---

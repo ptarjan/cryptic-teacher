@@ -164,7 +164,7 @@ the two — and case 4 above, surface padding, is **not available**. A block wit
 
 This does not change annotation of PUBLISHED puzzles one bit. Real setters pad,
 the annotator must be able to record it faithfully, and the check is scoped by
-`is_authored()` (ids starting with a letter) for exactly that reason: unscoped it
+`is_authored()` (`series == "authored"`) for exactly that reason: unscoped it
 fires eighteen times on 30039 alone. If it ever lights up a Guardian grid, the
 scoping is broken — do not relax the rule.
 

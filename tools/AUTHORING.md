@@ -451,7 +451,7 @@ leftover-words rule tells the annotator to record. Nine of the twenty A001 clues
 carried one, which is what made this a rule instead of a note.
 
 `check_two_pieces()` in `tools/validate_annotations.py` makes it a hard ERROR,
-scoped by `is_authored()` to puzzles whose id starts with a letter. That scoping
+scoped by `is_authored()` to puzzles whose `series` is `"authored"`. That scoping
 is load-bearing, not politeness: real setters pad, and the annotator has to be
 able to say so faithfully. Unscoped, the check fires **eighteen times on 30039
 alone** — mostly on double definitions, where a block legitimately carries no
