@@ -33,7 +33,29 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOULDESTROYING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SOUL-DESTROYING",
+    "definition": "Extremely boring",
+    "indicators": [
+     "after treatment"
+    ],
+    "indicatorNotes": {
+     "after treatment": "Treatment is what is done to something being worked on, and a word worked over comes back with its letters in a fresh arrangement."
+    },
+    "anagram": {
+     "fodder": "oldster is young"
+    },
+    "blocks": [
+     {
+      "clueFragment": "oldster is young",
+      "gives": "SOULDESTROYING",
+      "note": "the fourteen letters of these three words, resettled"
+     }
+    ],
+    "walkthrough": "Fourteen letters of fodder for a fourteen-letter answer, which is a useful way to place a long anagram: the definition can only be the two words left over.",
+    "definitionFit": "Extremely boring → SOUL-DESTROYING: work called that is so dull it wears the spirit down, an idiom pitched far stronger than merely tedious."
+   }
   },
   {
    "id": "1-down",
@@ -55,7 +77,35 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHAGGYDOGSTORY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHAGGY DOG STORY",
+    "definition": "Anticlimactic account",
+    "pieces": [
+     "SHAGGY",
+     "DOG",
+     "STORY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oversexed",
+      "gives": "SHAGGY",
+      "note": "shaggy leans on the British slang sense of shag, and the question mark flags the liberty"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "DOG",
+      "note": "a dog is the household pet the surface has in mind"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "STORY",
+      "note": "an account of events is a story, and this word is doing two jobs at once"
+     }
+    ],
+    "walkthrough": "'Account' pulls double duty: it closes the definition and it hands over the last word of the answer. Setters allow themselves that when the surface is this smooth.",
+    "definitionFit": "Anticlimactic account → SHAGGY DOG STORY: the name for a long rambling joke whose punchline deliberately fizzles, so the tale is all build-up and no payoff."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +122,32 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNIFORM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNIFORM",
+    "definition": "What to wear",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "UNI",
+     "FORM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "UNI",
+      "note": "uni is the everyday short form of university"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "FORM",
+      "note": "a form is a class in a British school"
+     }
+    ],
+    "walkthrough": "Two words for places of education sit side by side and neither is the definition. FORM for a school class is the piece worth remembering; it turns up constantly.",
+    "definitionFit": "What to wear → UNIFORM: a uniform is the outfit a school or a force prescribes, so it is what you are told to wear rather than what you choose."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +164,29 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEADLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DEADLIGHT",
+    "definition": "Cabin shutter",
+    "pieces": [
+     "DEAD",
+     "LIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so",
+      "gives": "DEAD",
+      "note": "dead works as a flat intensifier the way so does — dead easy, dead right, dead certain"
+     },
+     {
+      "clueFragment": "easy to pick up",
+      "gives": "LIGHT",
+      "note": "anything light is easy to lift, so the phrase describes the word by what it feels like in the hand"
+     }
+    ],
+    "walkthrough": "Both halves lean on loose everyday English rather than abbreviation, which makes them hard to spot. The nautical sense of the definition is the thing to look up and keep.",
+    "definitionFit": "Cabin shutter → DEADLIGHT: a deadlight is the hinged steel cover a ship carries over a porthole, closed to keep heavy seas out of the cabin."
+   }
   },
   {
    "id": "4-down",
@@ -106,7 +203,43 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLVING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SOLVING",
+    "definition": "What you are doing",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "omitted"
+    ],
+    "indicatorNotes": {
+     "omitted": "To omit something is to leave it out, so whatever is named beside the word never reaches the answer."
+    },
+    "pieces": [
+     "SO",
+     "LVING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so is a plain intensifier, handed over whole"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "a nought is written O, and this is the letter that gets taken out"
+     },
+     {
+      "clueFragment": "caring",
+      "gives": "LVING",
+      "note": "LOVING is caring; lose that O and five letters remain"
+     }
+    ],
+    "walkthrough": "The definition is pointed straight at the reader, mid-puzzle, which is why it looks like part of the sentence rather than a synonym.",
+    "definitionFit": "What you are doing → SOLVING: the clue points at the reader in the act of working a crossword, and solving is the verb for exactly that activity."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +256,47 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELAPSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "RELAPSE",
+    "definition": "Sink back",
+    "linkWords": [
+     "after"
+    ],
+    "indicators": [
+     "shattered"
+    ],
+    "indicatorNotes": {
+     "shattered": "Something shattered lies in pieces, and the pieces of a word are letters that have to be picked up in a new order."
+    },
+    "anagram": {
+     "fodder": "R ASLEEP"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "ASLEEP",
+      "gives": "ELAPSE"
+     }
+    ],
+    "pieces": [
+     "R",
+     "ELAPSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scoreboard's abbreviation for run"
+     },
+     {
+      "clueFragment": "asleep",
+      "gives": "ELAPSE",
+      "note": "the six letters of asleep, resettled"
+     }
+    ],
+    "walkthrough": "'Sink back' is the definition and looks like part of the drowsy picture, which is the trap. The R hides in a single word doing service as a cricket score.",
+    "definitionFit": "Sink back → RELAPSE: to relapse is to slide back into an illness or a bad habit after a spell of improvement, so the movement is downhill again."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +313,35 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YEMEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "YEMEN",
+    "definition": "land",
+    "indicators": [
+     "old"
+    ],
+    "indicatorNotes": {
+     "old": "Old marks the word beside it as archaic, asking for the antique spelling rather than the modern one."
+    },
+    "pieces": [
+     "YE",
+     "MEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "YE",
+      "note": "YE is the antique spelling of the, as in ye olde shoppe"
+     },
+     {
+      "clueFragment": "folks",
+      "gives": "MEN",
+      "note": "folks are people, and men will stand for them here"
+     }
+    ],
+    "walkthrough": "The YE spelling comes from a misread Old English letter, the thorn, which printers set as a Y. Setters flag it with 'old', 'once' or 'formerly'.",
+    "definitionFit": "land → YEMEN: a country is a land, and this one sits at the southern corner of the Arabian peninsula, so the clue wants an instance of the class."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +358,36 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOISILY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NOISILY",
+    "definition": "while playing loud music?",
+    "indicators": [
+     "touring"
+    ],
+    "indicatorNotes": {
+     "touring": "A tour goes right round its destination, so the touring word travels around whatever it visits."
+    },
+    "pieces": [
+     "NO",
+     "I",
+     "SILY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inquisitively",
+      "gives": "NOSILY",
+      "note": "to be nosy is to be inquisitive, and the adverb follows"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the map abbreviation for island"
+     }
+    ],
+    "walkthrough": "'Nosy' and 'noisy' are one letter and one idea apart, which is the whole trick — the clue wants you to reach for the inquisitive word first.",
+    "definitionFit": "while playing loud music? → NOISILY: noisily is the adverb for doing a thing with plenty of racket, and blasting a stereo is one everyday instance."
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +408,46 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
     ]
    },
    "solution": "GREGORIANCHANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "GREGORIAN CHANT",
+    "definition": "old music",
+    "indicators": [
+     "from the start",
+     "messing up"
+    ],
+    "indicatorNotes": {
+     "from the start": "From the start points at where a word begins, so only its opening letter is wanted.",
+     "messing up": "To mess something up is to disturb its arrangement, and a disturbed word will not keep its letters in place."
+    },
+    "anagram": {
+     "fodder": "G HEARING CANTOR"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "HEARING CANTOR",
+      "gives": "REGORIANCHANT"
+     }
+    ],
+    "pieces": [
+     "G",
+     "REGORIANCHANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grim",
+      "gives": "G",
+      "note": "the first letter of Grim"
+     },
+     {
+      "clueFragment": "hearing cantor",
+      "gives": "REGORIANCHANT",
+      "note": "thirteen letters resettled behind that G"
+     }
+    ],
+    "walkthrough": "The surface has a cantor being scolded at rehearsal. 'Hearing' is only more material to shuffle, despite looking every inch like an instruction of its own.",
+    "definitionFit": "old music → GREGORIAN CHANT: the plainsong of the medieval Western church, sung in unison and named for Pope Gregory, so 'old' does real work."
+   }
   },
   {
    "id": "9-across",
@@ -195,7 +464,45 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABIGAIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "ABIGAIL",
+    "definition": "Woman",
+    "linkWords": [
+     "needs"
+    ],
+    "indicators": [
+     "delivered"
+    ],
+    "indicatorNotes": {
+     "delivered": "A speech is delivered, so the word beside it is to be spoken rather than spelt."
+    },
+    "pieces": [
+     "A",
+     "BIG",
+     "AIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken straight off the page"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "BIG",
+      "note": "big is the plain synonym for large"
+     },
+     {
+      "clueFragment": "beer",
+      "soundsLike": "ALE",
+      "gives": "AIL",
+      "note": "the beer is ALE, and said aloud it can just as well be spelt the other way"
+     }
+    ],
+    "walkthrough": "'Delivered' is the giveaway that something here is meant for the ear. Once the beer has been heard, the woman's name is ordinary vocabulary.",
+    "definitionFit": "Woman → ABIGAIL: Abigail is a given name, so the clue names a class and wants one instance — and in old comedy an abigail was a lady's maid."
+   }
   },
   {
    "id": "10-across",
@@ -212,7 +519,35 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUMPIER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LUMPIER",
+    "definition": "Less smooth",
+    "pieces": [
+     "LUMP",
+     "IE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of sugar?",
+      "gives": "LUMP",
+      "note": "a lump of sugar is the cube that goes in your tea"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, which translates as that is"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "walkthrough": "IE for 'that is' is one of the abbreviations worth owning outright — it appears in hundreds of grids. The sugar lump keeps the surface at the tea table.",
+    "definitionFit": "Less smooth → LUMPIER: gravy or a mattress with lumps in it has an uneven surface, so the comparative form is the natural opposite of smoother."
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +564,38 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GROWL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "GROWL",
+    "definition": "Warning sound",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "half"
+    ],
+    "indicatorNotes": {
+     "half": "Half of a four-letter word is two letters, and the front half is the one meant unless the clue says otherwise."
+    },
+    "pieces": [
+     "GR",
+     "OWL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grey",
+      "gives": "GR",
+      "note": "the first half of GREy"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "OWL",
+      "note": "an owl is the bird"
+     }
+    ],
+    "walkthrough": "OWL is the crossword's default bird — short, vowel-rich, endlessly useful — so it is worth trying whenever a bare 'bird' turns up.",
+    "definitionFit": "Warning sound → GROWL: a dog's low rumble is the noise it makes before it bites, so the word names a warning by the animal that gives it."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +612,32 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPENDING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IMPENDING",
+    "definition": "Threatening",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "IMP",
+     "ENDING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little devil",
+      "gives": "IMP",
+      "note": "an imp is the small mischievous devil of folklore"
+     },
+     {
+      "clueFragment": "termination",
+      "gives": "ENDING",
+      "note": "a termination is an ending"
+     }
+    ],
+    "walkthrough": "IMP is the crossword's standard little devil. The surface reads as a threat of dismissal, which is exactly the misdirection 'termination' is there to supply.",
+    "definitionFit": "Threatening → IMPENDING: something impending is looming over you and about to arrive, which is what we mean by calling a disaster threatening."
+   }
   },
   {
    "id": "13-across",
@@ -263,7 +654,41 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMAGOGUE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "DEMAGOGUE",
+    "definition": "rabble-rouser",
+    "indicators": [
+     "occasionally"
+    ],
+    "indicatorNotes": {
+     "occasionally": "Something done occasionally happens at intervals rather than every time, so letters are taken at every other position."
+    },
+    "pieces": [
+     "DEM",
+     "AGOG",
+     "UE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democrat",
+      "gives": "DEM",
+      "note": "Dem is the newspaper shorthand for a Democrat"
+     },
+     {
+      "clueFragment": "very eager",
+      "gives": "AGOG",
+      "note": "agog means eagerly expectant"
+     },
+     {
+      "clueFragment": "pure",
+      "gives": "UE",
+      "note": "the second and fourth letters of pUrE"
+     }
+    ],
+    "walkthrough": "The surface paints a party colleague being praised; the definition is the sting waiting in the last word. American politics supplies the opening three letters.",
+    "definitionFit": "rabble-rouser → DEMAGOGUE: a demagogue whips up a crowd by playing to its fears rather than arguing, which is exactly what rousing a rabble means."
+   }
   },
   {
    "id": "14-across",
@@ -280,7 +705,29 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAYOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MAYOR",
+    "definition": "less important office",
+    "pieces": [
+     "MAY",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM",
+      "gives": "MAY",
+      "note": "Theresa May was Prime Minister, and PMs' surnames are standard fodder"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the little conjunction is taken at face value, two letters straight off the page"
+     }
+    ],
+    "walkthrough": "Prime ministers' surnames are a standing resource for setters — May, Heath, Brown, Blair — and here one of them is bolted to the word that follows it.",
+    "definitionFit": "less important office → MAYOR: a mayor heads a town council, a genuine public post but well below the Prime Minister."
+   }
   },
   {
    "id": "14-down",
@@ -297,7 +744,32 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISTLETOE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MISTLETOE",
+    "definition": "Christmas decoration",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "fixing"
+    ],
+    "indicatorNotes": {
+     "fixing": "Fixing something means putting its parts back together, and parts of a word put back together need not go back where they were."
+    },
+    "anagram": {
+     "fodder": "Stole time"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stole time",
+      "gives": "MISTLETOE",
+      "note": "the nine letters of these two words, resettled"
+     }
+    ],
+    "walkthrough": "'Stole time' reads as theft and is really a bag of letters, which is the whole deception. The definition sits at the far end, plain as anything.",
+    "definitionFit": "Christmas decoration → MISTLETOE: sprigs of the parasitic plant are hung indoors in December, and the kissing custom is why it counts as decoration."
+   }
   },
   {
    "id": "15-across",
@@ -314,7 +786,35 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GRAFT",
+    "definition": "hard work",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally means at the very end, so it points at the closing letter of the word beside it rather than the word itself."
+    },
+    "pieces": [
+     "GRAF",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tennis champion",
+      "gives": "GRAF",
+      "note": "Steffi Graf won twenty-two grand slam singles titles"
+     },
+     {
+      "clueFragment": "quit",
+      "gives": "T",
+      "note": "the last letter of quiT"
+     }
+    ],
+    "walkthrough": "The surface pretends to be about a player retiring. Sporting surnames of exactly four letters — Graf, Borg, Hunt, Owen — are a setter's staple.",
+    "definitionFit": "hard work → GRAFT: graft is British slang for sustained toil — 'hard graft' — a sense quite separate from the surgical and horticultural ones."
+   }
   },
   {
    "id": "16-down",
@@ -331,7 +831,29 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVERAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AVERAGE",
+    "definition": "unexceptional",
+    "pieces": [
+     "AVER",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Declare",
+      "gives": "AVER",
+      "note": "to aver is to declare something as fact"
+     },
+     {
+      "clueFragment": "period of history",
+      "gives": "AGE",
+      "note": "an age is a stretch of history, as in the Bronze Age"
+     }
+    ],
+    "walkthrough": "AVER is a courtroom verb that earns its keep in grids because of its vowels. The surface plays as a historian being dismissive about a whole century.",
+    "definitionFit": "unexceptional → AVERAGE: average means middling, neither good nor bad, so a thing described that way stands out in no direction at all."
+   }
   },
   {
    "id": "17-across",
@@ -348,7 +870,49 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOUISIANA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "LOUISIANA",
+    "definition": "US state",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "covered in"
+    ],
+    "indicatorNotes": {
+     "covered in": "To be covered in something is to have it lying over you, so the creeper closes around what it covers."
+    },
+    "pieces": [
+     "L",
+     "OUIS",
+     "IANA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the little verb is taken at face value, two letters straight off the page"
+     },
+     {
+      "clueFragment": "creeper",
+      "gives": "LIANA",
+      "note": "a liana is the woody creeper that climbs rainforest trees"
+     }
+    ],
+    "walkthrough": "The little word 'is' is not holding the sentence together — it is two letters of the answer, and spotting that is the hardest step in the clue.",
+    "definitionFit": "US state → LOUISIANA: Louisiana is one of the fifty, the Gulf territory bought from Napoleon in 1803, so the clue names a class and wants an instance."
+   }
   },
   {
    "id": "17-down",
@@ -365,7 +929,35 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOUVRED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "LOUVRED",
+    "definition": "given openings for air",
+    "indicators": [
+     "at last"
+    ],
+    "indicatorNotes": {
+     "at last": "At last marks the end of a run, so it asks for the final letter of the word beside it."
+    },
+    "pieces": [
+     "LOUVRE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Museum",
+      "gives": "LOUVRE",
+      "note": "the Louvre in Paris is the museum meant"
+     },
+     {
+      "clueFragment": "cooled",
+      "gives": "D",
+      "note": "the last letter of cooleD"
+     }
+    ],
+    "walkthrough": "The Louvre is the museum setters reach for first, and here it is wanted as a string of letters rather than as a place in Paris.",
+    "definitionFit": "given openings for air → LOUVRED: a louvred door carries angled slats that let a draught through while keeping rain and prying eyes out."
+   }
   },
   {
    "id": "18-down",
@@ -382,7 +974,32 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNEATEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNEATEN",
+    "definition": "Left",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "U",
+     "NEATEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U is how a text message writes you, and setters adopted it long ago"
+     },
+     {
+      "clueFragment": "tidy up",
+      "gives": "NEATEN",
+      "note": "to neaten is to tidy up"
+     }
+    ],
+    "walkthrough": "'Left' looks like a direction or a departure and is neither — it is food still on the plate when everyone has finished.",
+    "definitionFit": "Left → UNEATEN: what is left after a meal is the food nobody touched, so the word means remaining on the plate rather than departed."
+   }
   },
   {
    "id": "19-down",
@@ -399,7 +1016,34 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARRANGE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ARRANGE",
+    "definition": "order",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "some"
+    ],
+    "indicatorNotes": {
+     "some": "Some asks for a portion of what follows rather than all of it, so a run of consecutive letters is what you want."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Missing",
+      "gives": "",
+      "note": "nothing is taken away here — Missing only sets up the shopping story"
+     },
+     {
+      "clueFragment": "gear, rang emporium",
+      "gives": "ARRANGE",
+      "note": "the answer runs straight through geARRANGEmporium"
+     }
+    ],
+    "walkthrough": "The emporium story is a decoy — nothing is being ordered. The answer spans the join between two words, which is why a comma is such good cover.",
+    "definitionFit": "order → ARRANGE: to arrange things is to put them into a chosen order, and the verb also covers fixing up a meeting or scoring music for players."
+   }
   },
   {
    "id": "20-across",
@@ -420,7 +1064,23 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
     ]
    },
    "solution": "TREEHOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TREE HOUSE",
+    "definition": "Branch manager may put this up for children’s play",
+    "blocks": [
+     {
+      "clueFragment": "Branch manager",
+      "note": "The surface hands you a bank official; the setter means somebody whose branches want managing, which puts you in the garden looking upwards."
+     },
+     {
+      "clueFragment": "may put this up for children’s play",
+      "note": "What gets erected among those branches is a small wooden platform with walls, built so the young have somewhere of their own."
+     }
+    ],
+    "walkthrough": "There is no separable wordplay here: the clue is one picture, and it turns on reading 'branch manager' as a job in a bank before you read it as a job in a garden.",
+    "definitionFit": "A cabin built into the limbs of a garden tree is exactly what somebody in charge of branches would raise so youngsters have somewhere to romp."
+   }
   },
   {
    "id": "21-down",
@@ -437,7 +1097,36 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HOIST",
+    "definition": "Raise",
+    "indicators": [
+     "contributed"
+    ],
+    "indicatorNotes": {
+     "contributed": "A contribution is something put into a pot, so whatever contributes goes inside the word beside it."
+    },
+    "pieces": [
+     "HO",
+     "I",
+     "ST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anchor",
+      "gives": "HOST",
+      "note": "the anchor of a news programme is its host"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter I, taken as itself"
+     }
+    ],
+    "walkthrough": "'Anchor' is a television word here rather than a nautical one, which is a neat piece of misdirection in a clue that opens with 'Raise'.",
+    "definitionFit": "Raise → HOIST: to hoist is to haul something upward with rope or tackle, the mechanical way of raising a sail, a flag or a load."
+   }
   },
   {
    "id": "22-across",
@@ -454,7 +1143,26 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LYRIC",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LYRIC",
+    "definition": "poem",
+    "indicators": [
+     "What one can get from"
+    ],
+    "indicatorNotes": {
+     "What one can get from": "Getting something out of a phrase means lifting the letters straight out of it, unaltered and in the order they already stand."
+    },
+    "blocks": [
+     {
+      "clueFragment": "really rich",
+      "gives": "LYRIC",
+      "note": "the answer sits across the join in reaLLY RICh"
+     }
+    ],
+    "walkthrough": "An adverb and an adjective sit side by side and the answer bridges them, so the trick is to stop reading words and start reading letters.",
+    "definitionFit": "poem → LYRIC: a lyric is a short poem of personal feeling, originally one sung to the lyre, so the noun stands perfectly well on its own."
+   }
   },
   {
    "id": "23-across",
@@ -471,7 +1179,36 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "READIER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "READIER",
+    "definition": "Better prepared",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Here in does its literal job: whatever comes before it is placed inside whatever comes after."
+    },
+    "pieces": [
+     "REA",
+     "DIE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the end",
+      "gives": "REAR",
+      "note": "the rear of something is its end"
+     },
+     {
+      "clueFragment": "fail",
+      "gives": "DIE",
+      "note": "a plan that fails is said to die"
+     }
+    ],
+    "walkthrough": "The surface is about giving up, and 'the end' is not an instruction about final letters — it is simply a word meaning the back of something.",
+    "definitionFit": "Better prepared → READIER: ready means set to go, so its comparative says one party is further along in its preparations than another."
+   }
   },
   {
    "id": "24-across",
@@ -488,7 +1225,35 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TITANIA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "TITANIA",
+    "definition": "drama queen",
+    "indicators": [
+     "The last to leave"
+    ],
+    "indicatorNotes": {
+     "The last to leave": "The last to leave is the one that goes, so the final letter of the word beside it departs and the rest stay."
+    },
+    "pieces": [
+     "TITANI",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doomed ship",
+      "gives": "TITANI",
+      "note": "the Titanic is the doomed ship, and its closing C is the one that leaves"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken straight off the page"
+     }
+    ],
+    "walkthrough": "'Drama queen' is an insult on the surface and a job description in the answer: a queen who lives in a play. Shakespeare's fairy monarch is the one wanted.",
+    "definitionFit": "drama queen → TITANIA: Titania is the fairy queen of A Midsummer Night's Dream, so the idiom for a histrionic person doubles as queen-in-a-play."
+   }
   },
   {
    "id": "25-across",
@@ -509,7 +1274,32 @@ window.CRYPTIC_PUZZLES["cryptic-30069"] = /*JSON-START*/ {
     ]
    },
    "solution": "VESTEDINTEREST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VESTED INTEREST",
+    "definition": "Financial claim",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "crashed"
+    ],
+    "indicatorNotes": {
+     "crashed": "A crash leaves the parts of a vehicle strewn about in no particular order, and letters come out of one the same way."
+    },
+    "anagram": {
+     "fodder": "tense test drive"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tense test drive",
+      "gives": "VESTEDINTEREST",
+      "note": "the fourteen letters of these three words, resettled"
+     }
+    ],
+    "walkthrough": "The surface is a road accident and the answer is a legal one. 'Vested' is property-law language: an interest that has already come to you rather than one you might yet acquire.",
+    "definitionFit": "Financial claim → VESTED INTEREST: a vested interest is a stake already secured in law, money or property you hold a right to rather than merely hope for."
+   }
   }
  ]
 } /*JSON-END*/;
