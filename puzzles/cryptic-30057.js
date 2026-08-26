@@ -29,7 +29,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BYPASS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BYPASS",
+    "definition": "Sort of surgery",
+    "definition2": "built outside town",
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of surgery",
+      "gives": "",
+      "note": "the heart operation that reroutes blood around a blocked artery"
+     },
+     {
+      "clueFragment": "built outside town",
+      "gives": "",
+      "note": "the road laid round the edge so traffic never has to come through the middle"
+     }
+    ],
+    "walkthrough": "One word doing the same job in two worlds, which is why the clue reads as a single sentence: traffic sent round an obstruction, blood sent round an obstruction. The surgeons borrowed the roadbuilders' term.",
+    "definitionFit": "Sort of surgery → BYPASS: the operation named for the detour it builds around a blocked artery, and equally the road built to skirt a town."
+   }
   },
   {
    "id": "1-down",
@@ -46,7 +68,32 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOROUGH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOROUGH",
+    "definition": "Town",
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "BO",
+     "ROUGH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nasty smell",
+      "gives": "BO",
+      "note": "body odour, the two initials the deodorant adverts made everybody know"
+     },
+     {
+      "clueFragment": "unhealthy",
+      "gives": "ROUGH",
+      "note": "feeling rough is feeling ill, off colour rather than coarse"
+     }
+    ],
+    "walkthrough": "The apostrophe-s looks possessive, as though the town owned the smell. It is only an equals sign, joining the definition to the two chunks that follow.",
+    "definitionFit": "Town → BOROUGH: the chartered kind of town, one with its own corporation or council, so the plain word covers it exactly."
+   }
   },
   {
    "id": "2-down",
@@ -63,7 +110,27 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEPYS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PEPYS",
+    "definition": "Diarist",
+    "indicators": [
+     "for audience"
+    ],
+    "indicatorNotes": {
+     "for audience": "Anything put on for an audience is meant to be heard rather than read, so it is the sound of the words that matters and not their spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "looks furtively",
+      "soundsLike": "PEEPS",
+      "gives": "PEPYS",
+      "note": "to peep is to look furtively, and the seventeenth-century spelling of the surname is nothing like the noise it makes"
+     }
+    ],
+    "walkthrough": "Samuel Pepys said his own name 'peeps', which is the whole joke. Old surnames keep spellings that stopped matching their sounds centuries ago, and setters live on them.",
+    "definitionFit": "Diarist → PEPYS: definition by example — the general word for a keeper of a diary pointing at the man who kept the great London one of the 1660s."
+   }
   },
   {
    "id": "3-down",
@@ -80,7 +147,32 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEPHEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STEPHEN",
+    "definition": "an old king",
+    "indicators": [
+     "wildly"
+    ],
+    "indicatorNotes": {
+     "wildly": "To do a thing wildly is to do it with no control over where anything lands, and letters landing without control land out of order."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "HE SPENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "He spent",
+      "gives": "HESPENT",
+      "note": "both words go into the pile at face value, seven letters to redeal"
+     }
+    ],
+    "walkthrough": "'He spent wildly' is a character sketch, and a sketch is where fodder hides. The definition is deliberately vague: any old king, and only the letters say which.",
+    "definitionFit": "an old king → STEPHEN: definition by example, one particular medieval monarch — the grandson of the Conqueror whose reign became the civil war called the Anarchy."
+   }
   },
   {
    "id": "4-across",
@@ -97,7 +189,39 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLANCK",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PLANCK",
+    "definition": "Physicist",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "welcomed by"
+    ],
+    "indicatorNotes": {
+     "welcomed by": "To be welcomed by somebody is to be taken inside their house, so this piece ends up within the piece doing the welcoming."
+    },
+    "pieces": [
+     "PLAN",
+     "C",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "board",
+      "gives": "PLANK",
+      "note": "a board of sawn timber, and it opens up after four letters"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "c. is the standard abbreviation for college"
+     }
+    ],
+    "walkthrough": "'Board' is the trap: a board of governors is the picture the surface paints, a length of wood is what the wordplay wants. Max Planck's constant sits at the root of quantum theory.",
+    "definitionFit": "Physicist → PLANCK: definition by example, the trade standing in for one of its named practitioners, the German who worked out the quantum of action."
+   }
   },
   {
    "id": "5-down",
@@ -114,7 +238,36 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LADDIES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LADDIES",
+    "definition": "sons maybe",
+    "indicators": [
+     "protecting"
+    ],
+    "indicatorNotes": {
+     "protecting": "You protect a thing by putting yourself all the way round it, so the outer word closes over what comes next."
+    },
+    "pieces": [
+     "LA",
+     "D",
+     "DIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women",
+      "gives": "LADIES",
+      "note": "the everyday polite word, and it parts after two letters"
+     },
+     {
+      "clueFragment": "daughters",
+      "gives": "D",
+      "note": "d is the standard abbreviation for daughter"
+     }
+    ],
+    "walkthrough": "The plural is paid for inside the word: the inserted D lands right beside the D the women already had, so a pair of daughters sits in the middle. 'Maybe' flags sons as one example of many.",
+    "definitionFit": "sons maybe → LADDIES: definition by example, signalled by 'maybe' — a laddie is any boy, and somebody's sons are boys."
+   }
   },
   {
    "id": "6-down",
@@ -131,7 +284,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NECTARINE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NECTARINE",
+    "definition": "Fruit",
+    "indicators": [
+     "demolished"
+    ],
+    "indicatorNotes": {
+     "demolished": "Demolish something and every part of it survives with none of its structure, which is exactly a set of letters waiting to be rebuilt."
+    },
+    "anagram": {
+     "fodder": "ENTIRE CAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "entire can",
+      "gives": "ENTIRECAN",
+      "note": "both words at face value, nine letters for the pile"
+     }
+    ],
+    "walkthrough": "A whole tin being crushed is a picture, and the comma after 'Fruit' is the only sign that the definition has already finished. One-word definitions at the front are easy to read straight past.",
+    "definitionFit": "Fruit → NECTARINE: the smooth-skinned variety of peach, so the general word names it as one kind among many."
+   }
   },
   {
    "id": "7-down",
@@ -148,7 +323,26 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KARACHI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "KARACHI",
+    "definition": "city",
+    "indicators": [
+     "controlled"
+    ],
+    "indicatorNotes": {
+     "controlled": "To control something is to keep it in your grip, and these words are keeping a run of letters, in their proper order, inside themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dakar, a Chinese",
+      "gives": "KARACHI",
+      "note": "the run starts halfway through the first word and finishes inside the third, straight across both gaps"
+     }
+    ],
+    "walkthrough": "The surface is geopolitics — a west African capital, a port under Chinese control — and the country it makes you think of is the wrong one on purpose. Only 'city' is doing definition duty.",
+    "definitionFit": "city → KARACHI: the plain general word for one particular place, Pakistan's largest city and its former capital."
+   }
   },
   {
    "id": "8-down",
@@ -165,7 +359,32 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BONNET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BONNET",
+    "definition": "Headgear",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "BON",
+     "NET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good French",
+      "gives": "BON",
+      "note": "bon is the French for good, and naming the language is what licenses a foreign word"
+     },
+     {
+      "clueFragment": "fabric",
+      "gives": "NET",
+      "note": "net is the open-weave cloth of curtains and veils"
+     }
+    ],
+    "walkthrough": "'French' points backwards at 'good', not forwards at 'fabric', and that hinge is the whole difficulty. A nationality in a clue is usually there to license a word from that language.",
+    "definitionFit": "Headgear → BONNET: a hat tied under the chin, so the general term for what is worn on the head covers it."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +406,33 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRIPLEWORDSCORE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRIPLE WORD SCORE",
+    "definition": "a bonus to be on Red Square",
+    "linkWords": [
+     "In",
+     "but it’s"
+    ],
+    "indicators": [
+     "badly"
+    ],
+    "indicatorNotes": {
+     "badly": "Something done badly has not come out the way it was meant to, so the letters are not left sitting the way they were given."
+    },
+    "anagram": {
+     "fodder": "CORRIDOR WE SLEPT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "corridor we slept",
+      "gives": "CORRIDORWESLEPT",
+      "note": "all three words at face value, fifteen letters to redeal"
+     }
+    ],
+    "walkthrough": "Red Square is Moscow on the surface and a premium square on a Scrabble board underneath; the capital letters are doing all the lying. Fifteen letters of fodder is a gift once you spot it.",
+    "definitionFit": "a bonus to be on Red Square → TRIPLE WORD SCORE: a Scrabble board's red squares treble the value of the whole word laid across them."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +449,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUTSCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PUTSCH",
+    "definition": "Revolutionary outbreak",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "A country in revolt is said to be up, and letters in that state are letters that have not settled into their proper places."
+    },
+    "anagram": {
+     "fodder": "SHUT PC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "shut PC",
+      "gives": "SHUTPC",
+      "note": "the word and the two initials at face value, six letters to rearrange"
+     }
+    ],
+    "walkthrough": "'Shut PC up' reads as one instruction to a noisy computer, which hides the join. German lends English this word for a sudden armed grab at power — Munich's beer-hall attempt of 1923 is the famous one.",
+    "definitionFit": "Revolutionary outbreak → PUTSCH: an attempted coup, a sudden rising that tries to seize the government by force rather than a long campaign."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +488,45 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUISANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NUISANCE",
+    "definition": "Inconvenience",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "being in"
+    ],
+    "indicatorNotes": {
+     "being in": "To be in a thing is to be surrounded by it, so these two letters go inside the word that follows instead of beside it."
+    },
+    "pieces": [
+     "NU",
+     "I",
+     "S",
+     "ANCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the shade",
+      "gives": "NUANCE",
+      "note": "a nuance is a shade of meaning, and the word parts after two letters"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "S",
+      "note": "s is the standard abbreviation for square, as in a street address"
+     }
+    ],
+    "walkthrough": "The surface puts you in a garden square on a hot afternoon. The clue means shade in the other sense entirely, a fine gradation of colour or of meaning.",
+    "definitionFit": "Inconvenience → NUISANCE: both name the mild, persistent bother that gets in your way — the everyday sense, not the lawyer's actionable one."
+   }
   },
   {
    "id": "12-across",
@@ -238,7 +543,41 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHESTNUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CHESTNUT",
+    "definition": "Horse",
+    "indicators": [
+     "back"
+    ],
+    "indicatorNotes": {
+     "back": "Written back, a word arrives from its far end first, so its letters come out in the opposite order to the one you read them in."
+    },
+    "pieces": [
+     "CHEST",
+     "NUT"
+    ],
+    "subReversals": [
+     {
+      "from": "TUN",
+      "to": "NUT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "box",
+      "gives": "CHEST",
+      "note": "a chest is a box you keep things in"
+     },
+     {
+      "clueFragment": "large cask",
+      "gives": "NUT",
+      "note": "a tun is a large cask, and here it is written from its far end"
+     }
+    ],
+    "walkthrough": "'Horse box' looks like one thing, a trailer, and is really the definition sitting next to the first chunk. The same word names the reddish-brown coat, the tree, and the joke told once too often.",
+    "definitionFit": "Horse → CHESTNUT: definition by example — a chestnut is a horse of a particular reddish-brown colour, the coat's name standing for the animal."
+   }
   },
   {
    "id": "13-down",
@@ -259,7 +598,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
     ]
    },
    "solution": "STUDPOKER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STUD POKER",
+    "definition": "A game",
+    "pieces": [
+     "STUD",
+     "POKER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the boss",
+      "gives": "STUD",
+      "note": "a boss is the raised knob on a shield or a door, which is also a stud"
+     },
+     {
+      "clueFragment": "to stir up",
+      "gives": "POKER",
+      "note": "the iron kept by the fire, the thing that does the prodding"
+     }
+    ],
+    "walkthrough": "The question mark licenses the whimsy: read as a compound, the two chunks describe an implement for prodding a knob. The definition is the card game dealt with some cards face up.",
+    "definitionFit": "A game → STUD POKER: the poker variant where some cards are dealt face up, so the general word names one particular way of playing."
+   }
   },
   {
    "id": "14-across",
@@ -276,7 +637,39 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPIRIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPIRIT",
+    "definition": "Animation",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing that is in another sits inside it, so these two letters are dropped into the middle of what follows rather than added to the end."
+    },
+    "pieces": [
+     "SP",
+     "IR",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light rain",
+      "gives": "SPIT",
+      "note": "spitting is what rain does when it is barely falling at all"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "ir. is the standard abbreviation for Irish"
+     }
+    ],
+    "walkthrough": "'Irish in light rain' paints a damp afternoon in Galway, and that picture is the whole job of the surface. Animation here means liveliness, nothing to do with cartoons.",
+    "definitionFit": "Animation → SPIRIT: the liveliness sense — a piece played with spirit is played with animation, energy in the doing rather than a drawn film."
+   }
   },
   {
    "id": "15-across",
@@ -293,7 +686,46 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YOGURT",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter + first letter",
+    "answer": "YOGURT",
+    "definition": "Dairy product",
+    "indicators": [
+     "finally",
+     "in",
+     "starter for"
+    ],
+    "indicatorNotes": {
+     "finally": "What happens finally happens at the end, so only the closing letter of the word is wanted.",
+     "in": "Something in a thing is buried within it, so this letter goes inside the word that follows rather than in front of it.",
+     "starter for": "A starter is the first course of a meal, so the letter taken is the one the word begins with."
+    },
+    "pieces": [
+     "YO",
+     "G",
+     "UR",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "your",
+      "gives": "YOUR",
+      "note": "the word taken as written, and it opens after two letters"
+     },
+     {
+      "clueFragment": "finally baffling",
+      "gives": "G",
+      "note": "the last letter of baffling"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "T",
+      "note": "the first letter of ten"
+     }
+    ],
+    "walkthrough": "'Your starter for ten' is the University Challenge catchphrase, and the clue snaps it in half: 'your' is a whole word to build into, while 'ten' lends nothing but its initial.",
+    "definitionFit": "Dairy product → YOGURT: milk deliberately soured with live cultures, one of the standard things a dairy turns its milk into."
+   }
   },
   {
    "id": "16-down",
@@ -310,7 +742,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVULATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OVULATE",
+    "definition": "Produce eggs",
+    "indicators": [
+     "specially"
+    ],
+    "indicatorNotes": {
+     "specially": "A thing done specially is not done in the usual way, so the letters are not left standing in their usual order."
+    },
+    "anagram": {
+     "fodder": "TO VALUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to value",
+      "gives": "TOVALUE",
+      "note": "both words go into the pile, seven letters in all"
+     }
+    ],
+    "walkthrough": "'To' is material here, not joinery, and that is the trap: the eye reads 'to value' as an infinitive and hands the clue two letters it needs.",
+    "definitionFit": "Produce eggs → OVULATE: the physiological verb for releasing an egg from the ovary, so the plain phrase says what the body is doing."
+   }
   },
   {
    "id": "17-down",
@@ -331,7 +785,24 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
     ]
    },
    "solution": "THINAIR",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "THIN AIR",
+    "definition": "Into which to disappear up Everest?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "up Everest",
+      "note": "the surface reading, and a true one: the higher you climb the less atmosphere there is to breathe"
+     },
+     {
+      "clueFragment": "Into which to disappear",
+      "note": "the setter's reading — the everyday phrase for vanishing without trace, where what you vanish into is no place at all"
+     }
+    ],
+    "walkthrough": "Both readings run at once, which is what a cryptic definition lives on: the idiom for vanishing, and the literal fact about altitude. The question mark is the setter admitting there is no separable wordplay to find.",
+    "definitionFit": "Into which to disappear up Everest? → THIN AIR: the idiom names nowhere at all, while on a mountain the air genuinely does thin out."
+   }
   },
   {
    "id": "18-across",
@@ -348,7 +819,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERVERSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PERVERSE",
+    "definition": "deliberately obscure",
+    "pieces": [
+     "PER",
+     "VERSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For a",
+      "gives": "PER",
+      "note": "per means for each — five pounds per head is five pounds for a head"
+     },
+     {
+      "clueFragment": "line of poetry",
+      "gives": "VERSE",
+      "note": "a verse is a line, or a run of lines, of poetry"
+     }
+    ],
+    "walkthrough": "The comma is the only thing marking the split, and the surface hides it well: 'For a line of poetry' reads as an introduction rather than as two chunks of the answer.",
+    "definitionFit": "deliberately obscure → PERVERSE: perverse means contrary on purpose, so a writer who obscures on purpose is being wilfully awkward."
+   }
   },
   {
    "id": "18-down",
@@ -365,7 +858,26 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARADE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PARADE",
+    "definition": "Show off",
+    "definition2": "row of shops",
+    "blocks": [
+     {
+      "clueFragment": "Show off",
+      "gives": "",
+      "note": "the verb sense: to march a thing up and down in front of everybody, deliberate display"
+     },
+     {
+      "clueFragment": "row of shops",
+      "gives": "",
+      "note": "the noun British estates use for their little terrace of shops, a shopping street in miniature"
+     }
+    ],
+    "walkthrough": "Both senses come off the same drill ground: soldiers marching past for show, and shops lined up in one straight row. It is the estate-agent sense that catches solvers out.",
+    "definitionFit": "Show off → PARADE: to parade a thing is to display it ostentatiously; and a parade is also the row of shops named after the ground troops march on."
+   }
   },
   {
    "id": "19-down",
@@ -382,7 +894,44 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIPOSTE",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "RIPOSTE",
+    "definition": "retort",
+    "indicators": [
+     "in",
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "in": "What is in a thing sits inside it, so this run of letters is wrapped up rather than set alongside.",
+     "extremely": "The extremes of a word are its two far ends, so the letters taken are the outermost ones and nothing between them."
+    },
+    "pieces": [
+     "R",
+     "I",
+     "POST",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely rude",
+      "gives": "RE",
+      "note": "the outer letters of rude, and they part company to let the rest sit between them"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun taken as the letter it is"
+     },
+     {
+      "clueFragment": "contribute online",
+      "gives": "POST",
+      "note": "to post is to put something up on a site for everyone to read"
+     }
+    ],
+    "walkthrough": "'I contribute online' is a whole sentence on the surface and two separate pieces underneath. The word began in fencing, as the return thrust made straight after a parry.",
+    "definitionFit": "retort → RIPOSTE: the quick counter-reply, borrowed from fencing's return thrust, so it matches retort in the answering-back sense."
+   }
   },
   {
    "id": "20-down",
@@ -399,7 +948,36 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLENDER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SLENDER",
+    "definition": "Slim",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A piece put in another is put inside it, so this letter drops into the middle of the word that follows."
+    },
+    "pieces": [
+     "S",
+     "L",
+     "ENDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transmitter",
+      "gives": "SENDER",
+      "note": "whoever transmits a message is the sender, and the word opens after one letter"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l is the standard abbreviation for line"
+     }
+    ],
+    "walkthrough": "'Transmitter' suggests a radio mast and means only the person at the other end of the message. Two very short pieces make this one hard to break at the right place.",
+    "definitionFit": "Slim → SLENDER: plain synonyms for narrow in build, both carrying the approving tone that 'thin' has lost."
+   }
   },
   {
    "id": "21-across",
@@ -416,7 +994,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUPPLIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUPPLIER",
+    "definition": "Caterer",
+    "indicators": [
+     "with rage"
+    ],
+    "indicatorNotes": {
+     "with rage": "Rage is what makes a person lose all their composure and order, and letters in that state will not stay where they were put."
+    },
+    "anagram": {
+     "fodder": "IS PURPLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "is purple",
+      "gives": "ISPURPLE",
+      "note": "both words at face value, eight letters for the pile — the little verb is material, not joinery"
+     }
+    ],
+    "walkthrough": "'Purple with rage' is a set phrase and the clue quietly splits it, taking one half as raw material and the other as the instruction. Set phrases are where setters hide the seam.",
+    "definitionFit": "Caterer → SUPPLIER: a caterer is one particular kind of supplier, the one who supplies the food, so the narrower job stands for the general one."
+   }
   },
   {
    "id": "22-across",
@@ -433,7 +1033,39 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PISCES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PISCES",
+    "definition": "a sign from heaven",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "round"
+    ],
+    "indicatorNotes": {
+     "round": "To go round a thing is to travel all the way about it, so one piece ends up encircling the other."
+    },
+    "pieces": [
+     "PIS",
+     "CE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "PISS",
+      "note": "the vulgar verb for going to the lavatory, and it splits before its last letter"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England, the standing abbreviation for church"
+     }
+    ],
+    "walkthrough": "'A sign from heaven' sounds like an omen or a thunderbolt, and means one of the twelve star signs, the fishes. The rude little verb underneath is doing all the work.",
+    "definitionFit": "a sign from heaven → PISCES: definition by example — the zodiac signs are constellations read off the sky, and this is one of the twelve."
+   }
   },
   {
    "id": "23-down",
@@ -450,7 +1082,26 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMART",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SMART",
+    "definition": "Domestic equipment now may be so",
+    "definition2": "fashionable",
+    "blocks": [
+     {
+      "clueFragment": "Domestic equipment now may be so",
+      "gives": "",
+      "note": "the new sense: a fridge or a speaker with a chip in it that talks to your phone"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "",
+      "note": "the old sense, about how a person looks — well turned out, in style"
+     }
+    ],
+    "walkthrough": "'Now' is the honest part of the clue: the computing sense arrived in about a decade, and a kettle you can start from the bus would have made no sense before it.",
+    "definitionFit": "Domestic equipment now may be so → SMART: appliances with a chip and a network connection are called smart; and smart has long meant stylishly turned out."
+   }
   },
   {
    "id": "24-across",
@@ -471,7 +1122,33 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
     ]
    },
    "solution": "FALKLANDISLANDS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FALKLAND ISLANDS",
+    "definition": "remote region",
+    "linkWords": [
+     "Make",
+     "in"
+    ],
+    "indicators": [
+     "ground"
+    ],
+    "indicatorNotes": {
+     "ground": "Ground is the past tense of grind, and anything put through a mill comes out as loose stuff with its old shape gone."
+    },
+    "anagram": {
+     "fodder": "LANDFALL AND KISS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "landfall, and kiss",
+      "gives": "LANDFALLANDKISS",
+      "note": "all three words go into the pile, fifteen letters to redeal"
+     }
+    ],
+    "walkthrough": "Sailors reaching land and kissing the earth is one clean picture, and every letter of it is material — including the little 'and', which looks like joinery and is not.",
+    "definitionFit": "remote region → FALKLAND ISLANDS: an isolated South Atlantic archipelago hundreds of miles from any mainland, which is the plain geographical description."
+   }
   },
   {
    "id": "25-across",
@@ -488,7 +1165,29 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERRORS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ERRORS",
+    "definition": "boobs",
+    "indicators": [
+     "not starting"
+    ],
+    "indicatorNotes": {
+     "not starting": "A word that is not starting never gets to sound its opening letter, so the front one is left off."
+    },
+    "pieces": [
+     "ERRORS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fears",
+      "gives": "TERRORS",
+      "note": "fears are terrors, and this is the word before its front letter comes off"
+     }
+    ],
+    "walkthrough": "'Fears not' reads as archaic reassurance, which is the whole disguise — it is really an instruction to dock a letter. 'Boobs' is the schoolboy word for blunders, not anything ruder.",
+    "definitionFit": "boobs → ERRORS: a boob is a blunder in informal British English, so the slang plural matches the plain plural for mistakes."
+   }
   },
   {
    "id": "26-across",
@@ -505,7 +1204,27 @@ window.CRYPTIC_PUZZLES["cryptic-30057"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BETTER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BETTER",
+    "definition": "Much recovered",
+    "definition2": "I’ll wager",
+    "definitionNote": "The second definition is a first-person line rather than a noun: the setter names the person by the words they would say when laying a bet.",
+    "blocks": [
+     {
+      "clueFragment": "Much recovered",
+      "gives": "",
+      "note": "the comparative of well — 'much' is the giveaway, since it only ever qualifies a comparative"
+     },
+     {
+      "clueFragment": "I’ll wager",
+      "gives": "",
+      "note": "one who lays a bet, the agent noun that goes with the verb"
+     }
+    ],
+    "walkthrough": "Two senses that share a spelling and nothing else: the health one, where you are on the mend, and the racing one, where you are the person holding the ticket.",
+    "definitionFit": "Much recovered → BETTER: the comparative of well, further along the mend; and one who wagers is a better, the agent noun formed from bet."
+   }
   }
  ]
 } /*JSON-END*/;
