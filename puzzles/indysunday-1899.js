@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIABETES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "DIABETES",
+    "definition": "two types of complaint",
+    "definitionNote": "The complaint is one illness; 'two types' points at the numbered forms it comes in, so the plural belongs to the description rather than to the answer.",
+    "indicators": [
+     "reported"
+    ],
+    "indicatorNotes": {
+     "reported": "What is reported has been passed on by mouth, so you want the sound of the words and not their spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Awful",
+      "gives": "DIRE",
+      "note": "dire straits are awful ones"
+     },
+     {
+      "clueFragment": "telephone company's",
+      "gives": "BT'S",
+      "note": "BT is Britain's best-known telephone company"
+     },
+     {
+      "clueFragment": "Awful telephone company's",
+      "soundsLike": "DIRE BT'S",
+      "gives": "DIABETES",
+      "note": "run the two pieces together and the break between them moves, leaving one medical word"
+     }
+    ],
+    "walkthrough": "The setter is counting on you hearing an advert for a phone network. Everything depends on saying the pieces quickly rather than looking at them.",
+    "definitionFit": "two types of complaint → DIABETES: the illness is classified as type 1 and type 2, so naming the pair of types names the disease itself."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +78,34 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTESTINE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INTESTINE",
+    "definition": "food processor",
+    "indicators": [
+     "blended"
+    ],
+    "indicatorNotes": {
+     "blended": "Blending stirs everything together until nothing is where it started, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "SEE TIN TIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "SEE",
+      "note": "three letters taken exactly as they stand"
+     },
+     {
+      "clueFragment": "two tins",
+      "gives": "TINTIN",
+      "note": "a tin twice over, six more letters for the mix"
+     }
+    ],
+    "walkthrough": "'Food processor' is doing double duty: on the surface it is the gadget the tins are going into, and in the definition it is a piece of you.",
+    "definitionFit": "food processor → INTESTINE: the gut is where swallowed food is broken down and absorbed, so it processes food literally rather than in a kitchen."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +122,42 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BURNHAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + &lit",
+    "answer": "BURNHAM",
+    "definition": "First in by-election ballot box, someone over-performing?",
+    "definitionNote": "A semi-&lit: read straight the sentence describes a person, and read as wordplay every one of its words also hands over letters.",
+    "indicators": [
+     "First in"
+    ],
+    "indicatorNotes": {
+     "First in": "What comes first in a word is its opening letter, and none of the rest of the word is wanted."
+    },
+    "pieces": [
+     "B",
+     "URN",
+     "HAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by-election",
+      "gives": "B",
+      "note": "the letter it starts with"
+     },
+     {
+      "clueFragment": "ballot box",
+      "gives": "URN",
+      "note": "an urn is the vessel votes are dropped into, a standing crossword equation"
+     },
+     {
+      "clueFragment": "someone over-performing?",
+      "gives": "HAM",
+      "note": "an actor who over-plays a part is a ham"
+     }
+    ],
+    "walkthrough": "There is no separate definition to find: the sentence is the description and the wordplay at the same time, which is why every word of it also pays its way in letters.",
+    "definitionFit": "Read straight the clue sketches the Greater Manchester mayor - a politician tipped to top any ballot on offer - while its own words also spell the surname."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +174,34 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TRY",
+    "definition": "tax",
+    "indicators": [
+     "forking out"
+    ],
+    "indicatorNotes": {
+     "forking out": "To fork out is to hand something over and be left without it, so whatever is named next leaves the word."
+    },
+    "pieces": [
+     "TRY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "the Conservative party has been the Tory party for two centuries"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is a zero, and a zero is written as this letter"
+     }
+    ],
+    "walkthrough": "'Nothing' for O is worth banking: nothing, love, duck and ring all hand you the same round letter, and a clue that wants one usually says one of the four.",
+    "definitionFit": "tax → TRY: to tax a person's patience is to strain it, and that strained sense is what a trying day does to you."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +218,36 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SERIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SERIOUS",
+    "definition": "grave",
+    "indicators": [
+     "consigned to"
+    ],
+    "indicatorNotes": {
+     "consigned to": "To be consigned to somewhere is to be put inside it and left there, so this letter goes into the middle of the word."
+    },
+    "pieces": [
+     "SER",
+     "I",
+     "OUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watery",
+      "gives": "SEROUS",
+      "note": "serous fluid is the thin watery kind, the doctor's adjective for it"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "walkthrough": "The surface buries somebody at sea. Both of the words that matter have to change part of speech: 'watery' becomes a medical adjective and 'grave' stops being a hole.",
+    "definitionFit": "grave → SERIOUS: a grave illness or a grave mistake is a serious one, the adjective sense the surface hides behind the burial noun."
+   }
   },
   {
    "id": "6-across",
@@ -115,7 +264,41 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHRIMP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SHRIMP",
+    "definition": "Little'un",
+    "indicators": [
+     "into"
+    ],
+    "indicatorNotes": {
+     "into": "Going into something means ending up inside it, so this piece drops between the letters already assembled instead of after them."
+    },
+    "pieces": [
+     "SH",
+     "R",
+     "IMP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "the noise you make to hush somebody"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scorer's abbreviation for runs"
+     },
+     {
+      "clueFragment": "kid causing trouble",
+      "gives": "IMP",
+      "note": "a mischievous child is an imp"
+     }
+    ],
+    "walkthrough": "Cricket supplies the single letter: on a scorecard runs are abbreviated to R, and that convention turns up in clue after clue once you know it.",
+    "definitionFit": "Little'un → SHRIMP: calling a small person a shrimp borrows the tiny crustacean's name, an affectionate put-down rather than a description."
+   }
   },
   {
    "id": "6-down",
@@ -132,7 +315,44 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAFFOLDING",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SCAFFOLDING",
+    "definition": "structure outside",
+    "definitionNote": "The answer ends -ing but is a noun rather than a verb form: it names the erected framework itself, which is why a noun defines it.",
+    "indicators": [
+     "sandwiches"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "A sandwich holds its filling between two outer layers, so one word opens up and takes another inside it."
+    },
+    "pieces": [
+     "S",
+     "CAFF",
+     "OLD",
+     "IN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sold",
+      "gives": "SOLD",
+      "note": "taken as it stands, and it is the word that opens up"
+     },
+     {
+      "clueFragment": "Cheap restaurant",
+      "gives": "CAFF",
+      "note": "a caff is the British greasy-spoon cafe"
+     },
+     {
+      "clueFragment": "in grand",
+      "gives": "ING",
+      "note": "IN as it stands, then G, the abbreviation for grand"
+     }
+    ],
+    "walkthrough": "'Sold sandwiches' carries the whole surface - a cheap place selling food - while the wordplay wants 'sold' to open up and swallow the restaurant instead.",
+    "definitionFit": "structure outside → SCAFFOLDING: the temporary lattice of poles and boards put up around the outside of a building while work goes on."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +369,35 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REJOICE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "REJOICE",
+    "definition": "celebrate",
+    "indicators": [
+     "Nearly all"
+    ],
+    "indicatorNotes": {
+     "Nearly all": "Nearly all of a word is every letter but one, and the one given up here is the last."
+    },
+    "pieces": [
+     "REJOI",
+     "CE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go back to",
+      "gives": "REJOIN",
+      "note": "to go back to a group is to rejoin it, and this arrives a letter short"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "walkthrough": "The surface is a congregation heading home. Reading 'go back to' as one verb rather than three directions is the step that opens the clue.",
+    "definitionFit": "celebrate → REJOICE: to rejoice is to show great joy openly, the celebrating that is felt and expressed rather than the kind with a cake."
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +414,43 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOSES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade + reversal",
+    "answer": "MOSES",
+    "definition": "Leader during flight",
+    "indicators": [
+     "half-hearted",
+     "overturned"
+    ],
+    "indicatorNotes": {
+     "half-hearted": "The heart of a word is its middle, and half of a doubled middle is one of the pair.",
+     "overturned": "Something overturned ends up the other way up, so the assembled letters are read from the far end."
+    },
+    "pieces": [
+     "MO",
+     "SES"
+    ],
+    "subReversals": [
+     {
+      "from": "SESOM",
+      "to": "MOSES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sees",
+      "gives": "SES",
+      "note": "SEES has a double E at its heart, and half a heart leaves one of them"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "the Order of Merit is OM after a name"
+     }
+    ],
+    "walkthrough": "'Flight' is the Exodus, not an aeroplane. OM for the Order of Merit is worth banking: a clue that says order and wants two letters usually means this one.",
+    "definitionFit": "Leader during flight → MOSES: the Israelites' escape from Egypt is a flight from slavery, and the answer names the one who led it."
+   }
   },
   {
    "id": "9-across",
@@ -183,7 +467,35 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STURDY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "STURDY",
+    "definition": "Robust",
+    "indicators": [
+     "at the front"
+    ],
+    "indicatorNotes": {
+     "at the front": "What stands at the front of a word is its opening letter, and that is all this piece contributes."
+    },
+    "pieces": [
+     "S",
+     "TURDY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "S",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "like a stool?",
+      "gives": "TURDY",
+      "note": "in the medical sense a stool is a turd, so turd-like is turdy"
+     }
+    ],
+    "walkthrough": "The question mark is warning you twice over: 'turdy' is the setter's own coinage, and 'stool' is the word a doctor uses rather than the furniture the surface offers.",
+    "definitionFit": "Robust → STURDY: a sturdy chair or a sturdy build is solidly made and hard to knock over, which is robustness in a physical thing."
+   }
   },
   {
    "id": "10-across",
@@ -200,7 +512,30 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "READJUST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "READJUST",
+    "definition": "tune another time",
+    "indicators": [],
+    "pieces": [
+     "READ",
+     "JUST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Interpret",
+      "gives": "READ",
+      "note": "to read a situation is to interpret it"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "JUST",
+      "note": "a just decision is a right one"
+     }
+    ],
+    "walkthrough": "Both pieces are ordinary words wearing their less obvious senses - reading as interpretation, just as fairness - which is what keeps the surface looking like a note about music.",
+    "definitionFit": "tune another time → READJUST: to readjust is to set something right once more, and re-tuning an instrument or a carburettor is exactly that."
+   }
   },
   {
    "id": "11-across",
@@ -223,7 +558,36 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASTHECROWFLIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "AS THE CROW FLIES",
+    "definition": "Straight",
+    "indicators": [
+     "bananas",
+     "backing"
+    ],
+    "indicatorNotes": {
+     "bananas": "To go bananas is to go completely to pieces, and letters in that state will not stay in the order they were given.",
+     "backing": "A thing's backing is what sits at its back, so the word in front of it gives up only its final letter."
+    },
+    "anagram": {
+     "fodder": "FOR SALE WITH EC S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "for sale with EC",
+      "gives": "FORSALEWITHEC",
+      "note": "thirteen letters taken exactly as they stand"
+     },
+     {
+      "clueFragment": "regulators'",
+      "gives": "S",
+      "note": "the letter at the back of the word, and the fourteenth for the mix"
+     }
+    ],
+    "walkthrough": "The surface is the old tabloid myth about Brussels banning bendy bananas, which is why 'bananas' reads as part of the story rather than as the instruction it is.",
+    "definitionFit": "Straight → AS THE CROW FLIES: the phrase measures a distance by the direct line a bird would take, ignoring the bends of any road."
+   }
   },
   {
    "id": "12-down",
@@ -240,7 +604,36 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONTEMPLATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONTEMPLATE",
+    "definition": "Study",
+    "indicators": [],
+    "pieces": [
+     "C",
+     "ON",
+     "TEMPLATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cape",
+      "gives": "C",
+      "note": "C. is the map-maker's abbreviation for Cape"
+     },
+     {
+      "clueFragment": "worn",
+      "gives": "ON",
+      "note": "clothes you are wearing are on you"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "TEMPLATE",
+      "note": "a template is the pattern everything else is modelled on"
+     }
+    ],
+    "walkthrough": "The surface dresses a model in a cape. Two conventions are worth keeping from it: C for Cape on any map, and 'worn' for ON.",
+    "definitionFit": "Study → CONTEMPLATE: to contemplate something is to look at it long and thoughtfully, the 'study' that means gaze at rather than revise for an exam."
+   }
   },
   {
    "id": "13-across",
@@ -257,7 +650,42 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HITMAN",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "HITMAN",
+    "definition": "who might take you out?",
+    "indicators": [
+     "clad"
+    ],
+    "indicatorNotes": {
+     "clad": "To be clad in a thing is to be wrapped in it, so the word before this one closes around the word after it."
+    },
+    "pieces": [
+     "HI",
+     "T",
+     "M",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greeting",
+      "gives": "HI",
+      "note": "the shortest greeting there is"
+     },
+     {
+      "clueFragment": "leather",
+      "gives": "TAN",
+      "note": "tan is leather, named for the tanning that makes it"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male, as on any form"
+     }
+    ],
+    "walkthrough": "Everything hinges on reading 'leather-clad male' as an instruction rather than a description: it is not somebody in leathers, it is one piece wrapped around another.",
+    "definitionFit": "who might take you out? → HITMAN: a hitman is a contract killer, and to take someone out is gangland's polite way of saying the same thing."
+   }
   },
   {
    "id": "14-across",
@@ -274,7 +702,35 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLVENCY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SOLVENCY",
+    "definition": "Having bucks to spare",
+    "definitionNote": "The clue describes the condition where the answer names it - a setter may swap a state for the abstract noun that labels it.",
+    "indicators": [
+     "doctor"
+    ],
+    "indicatorNotes": {
+     "doctor": "To doctor something is to tamper with it until it is not what it was, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "LOVES NYC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "loves",
+      "gives": "LOVES",
+      "note": "five letters taken exactly as they stand"
+     },
+     {
+      "clueFragment": "NYC",
+      "gives": "NYC",
+      "note": "New York City by the three initials everyone uses"
+     }
+    ],
+    "walkthrough": "'Doctor' is the only word here that is neither definition nor material, and it hides by looking like the person in the story rather than the instruction.",
+    "definitionFit": "Having bucks to spare → SOLVENCY: solvency is being able to meet every debt with money left over, and 'bucks' is the everyday word for it."
+   }
   },
   {
    "id": "15-down",
@@ -291,7 +747,34 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLIENTELE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "CLIENTELE",
+    "definition": "Following",
+    "indicators": [
+     "nurses",
+     "up"
+    ],
+    "indicatorNotes": {
+     "nurses": "To nurse a thing is to hold it close and keep it, so these words are keeping something tucked away inside them.",
+     "up": "In a down clue 'up' means read from the bottom, so the letters run against the direction of the writing."
+    },
+    "subReversals": [
+     {
+      "from": "ELETNEILC",
+      "to": "CLIENTELE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date, let Neil chat",
+      "gives": "CLIENTELE",
+      "note": "start at the C of 'chat' and read backwards to the E of 'date'"
+     }
+    ],
+    "walkthrough": "The surface is a night out with Neil. A buried word running backwards is much harder to see than a forward one, so 'up' in a down clue is the flag to trust.",
+    "definitionFit": "Following → CLIENTELE: a firm's clientele is the body of customers who keep coming back, which is what a following amounts to in business."
+   }
   },
   {
    "id": "16-across",
@@ -308,7 +791,30 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DECADENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DECADENT",
+    "definition": "self-indulgent",
+    "indicators": [],
+    "pieces": [
+     "DECA",
+     "DENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten times, perhaps",
+      "gives": "DECA",
+      "note": "deca- is the prefix that multiplies by ten, as in decathlon or decalitre"
+     },
+     {
+      "clueFragment": "Depression",
+      "gives": "DENT",
+      "note": "a depression in a car door is a dent"
+     }
+    ],
+    "walkthrough": "The pieces come in the opposite order to the clue, which is the whole difficulty here: the depression is the tail of the answer even though it opens the sentence.",
+    "definitionFit": "self-indulgent → DECADENT: the word has slid from moral decline to plain luxury, so a decadent pudding is simply an over-rich one."
+   }
   },
   {
    "id": "17-down",
@@ -325,7 +831,36 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGAINST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AGAINST",
+    "definition": "Con",
+    "indicators": [
+     "guards"
+    ],
+    "indicatorNotes": {
+     "guards": "A guard stands around whatever is being protected, so the word doing the guarding closes over the other one."
+    },
+    "pieces": [
+     "A",
+     "GAINS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "towards",
+      "gives": "AT",
+      "note": "both words point a movement in a direction"
+     },
+     {
+      "clueFragment": "advances",
+      "gives": "GAINS",
+      "note": "an advance in a market or a battle is a gain"
+     }
+    ],
+    "walkthrough": "The surface is a prisoner walking towards the warders. The wordplay wants 'advances' as a plural noun and 'guards' as an instruction rather than a job.",
+    "definitionFit": "Con → AGAINST: in 'the pros and cons' the con side is the one opposing, from the Latin contra, so the two words vote the same way."
+   }
   },
   {
    "id": "18-down",
@@ -342,7 +877,44 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANGLED",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "TANGLED",
+    "definition": "in a muddle",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Turning a thing around leaves it facing the way it came from, so those letters are read from the back."
+    },
+    "pieces": [
+     "TANG",
+     "LED"
+    ],
+    "subReversals": [
+     {
+      "from": "GNAT",
+      "to": "TANG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Annoying fly",
+      "gives": "TANG",
+      "note": "the annoying fly is a gnat, and it arrives here facing the other way"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "LED",
+      "note": "the LED is the light inside a modern bulb or torch"
+     }
+    ],
+    "walkthrough": "Both halves hide behind one picture, an insect circling a lamp: the fly has to become a word and the lamp has to become the three letters stamped on it.",
+    "definitionFit": "in a muddle → TANGLED: hair or cable that is tangled has knotted itself into confusion, and being in a muddle is that state described from inside."
+   }
   },
   {
    "id": "19-across",
@@ -363,7 +935,36 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
     ]
    },
    "solution": "INVAIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "IN VAIN",
+    "definition": "for nothing",
+    "indicators": [
+     "installing"
+    ],
+    "indicatorNotes": {
+     "installing": "To install a part is to fit it inside what is already there, so this letter drops into the middle instead of joining the end."
+    },
+    "pieces": [
+     "INVA",
+     "I",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where plumber has spare part, hopefully",
+      "gives": "IN VAN",
+      "note": "a plumber's spare parts live in the van outside"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "walkthrough": "'Hopefully' earns its place: it is the setter admitting the part may not be there after all, which is exactly what makes the whole trip pointless.",
+    "definitionFit": "for nothing → IN VAIN: work done in vain produces no result at all, and doing something for nothing is that same effort spent without reward."
+   }
   },
   {
    "id": "20-down",
@@ -380,7 +981,42 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIOLATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VIOLATE",
+    "definition": "break",
+    "indicators": [],
+    "pieces": [
+     "V",
+     "I",
+     "O",
+     "LATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "V is Victor in the radio alphabet"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter standing for itself"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a score of nothing at tennis, written as a zero"
+     },
+     {
+      "clueFragment": "last minute",
+      "gives": "LATE",
+      "note": "doing a thing at the last minute is doing it late"
+     }
+    ],
+    "walkthrough": "Three of the four pieces are single letters, which is what makes a clue like this feel harder than it is: 'Victor' and 'love' are both standing conventions.",
+    "definitionFit": "break → VIOLATE: to violate a treaty, a rule or a curfew is to break it, the legal sense of the word rather than snapping something in two."
+   }
   },
   {
    "id": "21-across",
@@ -401,7 +1037,43 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
     ]
    },
    "solution": "STAMPINGGROUND",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "STAMPING GROUND",
+    "definition": "patch",
+    "indicators": [
+     "Bit of",
+     "inside"
+    ],
+    "indicatorNotes": {
+     "Bit of": "A bit of a word is a fragment of it, and the smallest fragment on offer is the letter it opens with.",
+     "inside": "What goes inside sits within what is there already, so this letter drops into the join between the two words."
+    },
+    "pieces": [
+     "STAMPING",
+     "G",
+     "ROUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sealing",
+      "gives": "STAMPING",
+      "note": "an official seal is stamped onto the document"
+     },
+     {
+      "clueFragment": "glue",
+      "gives": "G",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "circular",
+      "gives": "ROUND",
+      "note": "circular means round"
+     }
+    ],
+    "walkthrough": "The surface is somebody gluing a patch on. 'Sealing' has to be heard as the stamping of a document before the fourteen letters will come apart.",
+    "definitionFit": "patch → STAMPING GROUND: your stamping ground is the territory you habitually haunt, and 'patch' is the same idea in police and market-trader slang."
+   }
   },
   {
    "id": "21-down",
@@ -418,7 +1090,35 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPOOL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SPOOL",
+    "definition": "Reel",
+    "indicators": [
+     "turning"
+    ],
+    "indicatorNotes": {
+     "turning": "A thing that turns ends up facing the way it came from, so its letters are read from the far end."
+    },
+    "pieces": [
+     "SPOOL"
+    ],
+    "subReversals": [
+     {
+      "from": "LOOPS",
+      "to": "SPOOL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes round",
+      "gives": "SPOOL",
+      "note": "something that goes round loops, and those five letters turned about are the entry"
+     }
+    ],
+    "walkthrough": "A five-letter reversal has nowhere to hide, so the setter leans on 'Reel' and 'goes round' looking like the same idea - which they very nearly are.",
+    "definitionFit": "Reel → SPOOL: both name the cylinder that thread, film or fishing line is wound onto, so this is a plain synonym in its equipment sense."
+   }
   },
   {
    "id": "22-across",
@@ -435,7 +1135,36 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOWNFALL",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "DOWNFALL",
+    "definition": "Ruin",
+    "indicators": [
+     "by Spooner"
+    ],
+    "indicatorNotes": {
+     "by Spooner": "The Reverend Spooner swapped the opening sounds of two words, so say the pair aloud and trade the sounds they start with."
+    },
+    "pieces": [
+     "DOWN",
+     "FALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unearthed entirely",
+      "gives": "FOUND ALL",
+      "note": "to unearth something is to find it, and entirely is all"
+     },
+     {
+      "clueFragment": "by Spooner",
+      "soundsLike": "FOUND ALL",
+      "gives": "DOWNFALL",
+      "note": "trade the opening sounds of those two words and the same run of sound re-divides into one"
+     }
+    ],
+    "walkthrough": "Say 'found all' and the answer one after the other: it is the same string of sounds cut in a different place, which is what Spooner's trick always comes down to.",
+    "definitionFit": "Ruin → DOWNFALL: a downfall is the collapse of a person's fortunes or standing, so it is ruin used of a career rather than of a building."
+   }
   },
   {
    "id": "23-across",
@@ -452,7 +1181,40 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHALET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CHALET",
+    "definition": "Wooden hut",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "Here 'without' means lacking rather than outside, so what it names is missing from the letters you have built."
+    },
+    "pieces": [
+     "CHA",
+     "LET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guy",
+      "gives": "CHAP",
+      "note": "a guy is a chap"
+     },
+     {
+      "clueFragment": "occupied for period",
+      "gives": "LET",
+      "note": "a flat let for a fortnight is occupied by whoever took it"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power, and it is the letter that goes"
+     }
+    ],
+    "walkthrough": "The trick is seeing that the two pieces make a word of their own before anything is removed - a chaplet is a wreath or a rosary - and that is where the letter hides.",
+    "definitionFit": "Wooden hut → CHALET: a chalet is the timber cabin of Swiss hillsides and English holiday camps, so 'wooden hut' plainly describes one."
+   }
   },
   {
    "id": "23-down",
@@ -469,7 +1231,41 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "COS",
+    "definition": "for speaking informally",
+    "indicators": [
+     "set up"
+    ],
+    "indicatorNotes": {
+     "set up": "In a down clue something set up stands on its end, so its letters climb back the way they came."
+    },
+    "pieces": [
+     "C",
+     "OS"
+    ],
+    "subReversals": [
+     {
+      "from": "SO",
+      "to": "OS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the card suit clubs"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "OS",
+      "note": "'then' gives SO, and this is SO stood on its end"
+     }
+    ],
+    "walkthrough": "Three letters, three jobs: a card suit, a turn-around and a conjunction almost nobody writes down. 'Speaking informally' is the setter flagging the casual spelling.",
+    "definitionFit": "for speaking informally → COS: 'cos is the casual clipping of 'because', and the conjunction 'for' carries that same because-sense in careful English."
+   }
   },
   {
    "id": "24-across",
@@ -486,7 +1282,45 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLITHE",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "BLITHE",
+    "definition": "Happy",
+    "linkWords": [
+     "using"
+    ],
+    "indicators": [
+     "for",
+     "finale"
+    ],
+    "indicatorNotes": {
+     "for": "'For' here means in place of, so the piece before it stands where the piece after it used to be.",
+     "finale": "A finale is the closing turn of a show, so it points at the last letter of the word it belongs to."
+    },
+    "pieces": [
+     "BLIT",
+     "HE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bombing campaign",
+      "gives": "BLITZ",
+      "note": "the Blitz was Germany's bombing campaign against Britain in 1940"
+     },
+     {
+      "clueFragment": "campaign's finale",
+      "gives": "Z",
+      "note": "the last letter of that word, and the one being displaced"
+     },
+     {
+      "clueFragment": "high explosive",
+      "gives": "HE",
+      "note": "HE is the services' abbreviation for high explosive"
+     }
+    ],
+    "walkthrough": "A swap like this is rarer than a charade and reads like one until you notice 'for'. The surface never leaves the war, which is what hides the substitution.",
+    "definitionFit": "Happy → BLITHE: blithe means light-heartedly cheerful, the carefree end of happy - as in a blithe spirit, untroubled by what is coming."
+   }
   },
   {
    "id": "25-across",
@@ -503,7 +1337,41 @@ window.CRYPTIC_PUZZLES["indysunday-1899"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISHEVEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DISHEVEL",
+    "definition": "Mess",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "What comes after something stands behind it, so this letter is pushed to the end of the build."
+    },
+    "pieces": [
+     "DISH",
+     "EVE",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "DISH",
+      "note": "a dish is a meal, or the plate it arrives on"
+     },
+     {
+      "clueFragment": "the day before",
+      "gives": "EVE",
+      "note": "the eve of an event is the day before it"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "walkthrough": "The clue reads back to front: the single letter the sentence puts first is the one the answer puts last, which is exactly what 'after' is telling you.",
+    "definitionFit": "Mess → DISHEVEL: to dishevel hair or clothing is to throw it into disorder, so 'mess' is the verb in its 'mess up' sense, not the noun."
+   }
   }
  ]
 } /*JSON-END*/;
