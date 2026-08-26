@@ -29,7 +29,36 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TETRAGRAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TETRAGRAM",
+    "definition": "one of those four-letter words",
+    "indicators": [],
+    "pieces": [
+     "TETRA",
+     "G",
+     "RAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘Fish’",
+      "gives": "TETRA",
+      "note": "a tetra is the small bright fish of home aquariums"
+     },
+     {
+      "clueFragment": "‘good’",
+      "gives": "G",
+      "note": "g is the standard abbreviation for good, as on a school report"
+     },
+     {
+      "clueFragment": "‘bash’",
+      "gives": "RAM",
+      "note": "to bash into something is to ram it"
+     }
+    ],
+    "walkthrough": "The quotation marks are the instruction: each of the three words is being handed over as material rather than read for sense, and each of them really is four letters long.",
+    "definitionFit": "A tetragram is any group of four letters, so every quoted example qualifies as one — Greek tetra- simply counts them."
+   }
   },
   {
    "id": "1-down",
@@ -46,7 +75,41 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIBER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TIBER",
+    "definition": "Runner in European capital",
+    "indicators": [
+     "going uphill"
+    ],
+    "indicatorNotes": {
+     "going uphill": "This is a down entry, so a piece sent uphill arrives with its letters read from the foot of the grid upwards."
+    },
+    "pieces": [
+     "TIB",
+     "ER"
+    ],
+    "subReversals": [
+     {
+      "from": "REBIT",
+      "to": "TIBER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerned with",
+      "gives": "RE",
+      "note": "re is the heading on a memo, meaning concerning"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "BIT",
+      "note": "a bit of something is a section of it"
+     }
+    ],
+    "walkthrough": "'Runner' is the crossword's standing word for a river, and the capital it runs through is Rome — neither is named, so the definition passes for an athlete abroad.",
+    "definitionFit": "Runner in European capital → TIBER: rivers run, and this is the river Rome was built on, so the phrase locates it rather than naming it."
+   }
   },
   {
    "id": "2-down",
@@ -63,7 +126,38 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWITCHY",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "TWITCHY",
+    "definition": "anxious",
+    "indicators": [
+     "in",
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "in": "'In theory' passes for an idiom while doing literal work: what stands before it drops inside what comes after.",
+     "extremely": "The extremes of a word are its two ends, so only the outermost letters are kept."
+    },
+    "pieces": [
+     "T",
+     "WITCH",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theory, extremely",
+      "gives": "TY",
+      "note": "the two ends of THEORY, its first and last letters, with the middle discarded"
+     },
+     {
+      "clueFragment": "Bad speller",
+      "gives": "WITCH",
+      "note": "not somebody who misspells words but somebody who casts them, and wickedly"
+     }
+    ],
+    "walkthrough": "The joke is 'bad speller', which reads as a hopeless orthographer and means a caster of evil spells. Everything else in the sentence is machinery dressed as small talk.",
+    "definitionFit": "anxious → TWITCHY: a twitchy person cannot keep still for nerves, so the word names the visible fidgeting instead of the feeling behind it."
+   }
   },
   {
    "id": "3-down",
@@ -80,7 +174,38 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACHE",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "ACHE",
+    "definition": "Long",
+    "indicators": [
+     "finally",
+     "wrapped up by"
+    ],
+    "indicatorNotes": {
+     "finally": "It points at the end of the word, so the letter that finishes it is the only one taken.",
+     "wrapped up by": "Anything wrapped up has a covering closed round it, so the piece named next goes outside."
+    },
+    "pieces": [
+     "AC",
+     "H",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wizard",
+      "gives": "ACE",
+      "note": "an ace is a wizard at something — the expert, not the conjuror — and the word opens after its second letter"
+     },
+     {
+      "clueFragment": "speech finally",
+      "gives": "H",
+      "note": "the closing letter of speecH"
+     }
+    ],
+    "walkthrough": "'Long' opens the clue looking like an adjective sizing up the speech, and it is really the verb — to long for something. That switch is the whole difficulty.",
+    "definitionFit": "Long → ACHE: to ache for a thing is to yearn for it, and both verbs carry the sense of a want that hurts."
+   }
   },
   {
    "id": "4-down",
@@ -97,7 +222,26 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RARE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "RARE",
+    "definition": "Red",
+    "indicators": [
+     "adopts"
+    ],
+    "indicatorNotes": {
+     "adopts": "What a phrase adopts it takes in and keeps, so the letters are already sitting inside these words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "colour a revolutionary",
+      "gives": "RARE",
+      "note": "four letters in a row bridge the end of the first word, the whole of the second and the start of the third"
+     }
+    ],
+    "walkthrough": "A colour and a revolutionary side by side look like two pieces of wordplay to solve, when the phrase is only a hiding place. 'Red' here is the steak, not the politics.",
+    "definitionFit": "Red → RARE: a steak served red in the middle is a rare one, which is the kitchen's plain term for that degree of cooking."
+   }
   },
   {
    "id": "5-down",
@@ -118,7 +262,37 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "MINORSCALE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MINOR SCALE",
+    "definition": "Noted progression",
+    "indicators": [
+     "being mentioned"
+    ],
+    "indicatorNotes": {
+     "being mentioned": "To mention a thing is to say it, so what counts is the sound of the words and not their spelling."
+    },
+    "pieces": [
+     "MINOR",
+     "SCALE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without",
+      "soundsLike": "MINUS",
+      "gives": "MINOR",
+      "note": "without means minus, and said aloud its closing S runs on into the next word instead of staying put"
+     },
+     {
+      "clueFragment": "cabbage",
+      "soundsLike": "KALE",
+      "gives": "SCALE",
+      "note": "the cabbage meant is kale, and it collects the S that the word before let go"
+     }
+    ],
+    "walkthrough": "The whole trick is where one word stops and the next starts: the sound never changes, only the gap moves. Say the two greengrocery words quickly and the music appears.",
+    "definitionFit": "Noted progression → MINOR SCALE: a scale is a ladder of notes climbing in order, and the minor pattern is the sadder-sounding of the two standard ones."
+   }
   },
   {
    "id": "6-across",
@@ -135,7 +309,44 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BIPED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BIPED",
+    "definition": "Man, say",
+    "indicators": [
+     "placing",
+     "between"
+    ],
+    "indicatorNotes": {
+     "placing": "It is an instruction about position rather than meaning — something is being put somewhere.",
+     "between": "Between fixes that position exactly: the letters go in the middle of the word, not in front of it or after it."
+    },
+    "pieces": [
+     "B",
+     "I",
+     "P",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the sheets",
+      "gives": "BED",
+      "note": "to be between the sheets is to be in bed, and the word opens after its first letter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "p is the usual abbreviation for page"
+     }
+    ],
+    "walkthrough": "'Say' is the marker that the definition is only an example: a man is one kind of two-legged creature and far from the only one. The surface suggests something else entirely.",
+    "definitionFit": "Man, say → BIPED: humans walk on two legs, so 'man' is offered as one instance of the class rather than as a synonym for it."
+   }
   },
   {
    "id": "6-down",
@@ -156,7 +367,29 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRICKINGIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BRICKING IT",
+    "definition": "Very anxious",
+    "definition2": "building house",
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very anxious",
+      "gives": "BRICKING IT",
+      "note": "the slang phrase for being frightened out of your wits"
+     },
+     {
+      "clueFragment": "building house",
+      "gives": "BRICKING IT",
+      "note": "read literally, laying the courses that make the walls"
+     }
+    ],
+    "walkthrough": "The second reading is a joke rather than a dictionary sense, which is what the question mark concedes: a builder halfway up a wall is doing this in the innocent way.",
+    "definitionFit": "Very anxious → BRICKING IT is British slang for terrified; the other reading takes the same words literally, as laying bricks."
+   }
   },
   {
    "id": "7-down",
@@ -173,7 +406,44 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POINTED",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "POINTED",
+    "definition": "Keen",
+    "indicators": [
+     "to lose",
+     "in"
+    ],
+    "indicatorNotes": {
+     "to lose": "What is lost has gone from the word, so the letter named just before it drops out.",
+     "in": "It marks the insertion: everything assembled so far goes inside the word that follows."
+    },
+    "pieces": [
+     "PO",
+     "I",
+     "NTE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "POD",
+      "note": "a school of whales is a pod, and it opens between its second and third letters"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun taken exactly as it stands, one letter"
+     },
+     {
+      "clueFragment": "observe, nothing to lose",
+      "gives": "NTE",
+      "note": "to observe is to note, and 'nothing' is the O that goes"
+     }
+    ],
+    "walkthrough": "'Nothing to lose' reads as a gambler's shrug and is really naming the letter O. The school is a gathering of whales, not a building full of children.",
+    "definitionFit": "Keen → POINTED: a keen blade and a pointed one are both sharp, and both words transfer to a remark meant to cut."
+   }
   },
   {
    "id": "8-down",
@@ -194,7 +464,39 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOTMATRIX",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "DOT MATRIX",
+    "definition": "Pattern",
+    "linkWords": [
+     "has"
+    ],
+    "indicators": [
+     "did you say"
+    ],
+    "indicatorNotes": {
+     "did you say": "It asks you to trust your ear: the words in front of it are to be heard rather than spelled."
+    },
+    "pieces": [
+     "DOT",
+     "MATRIX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dorothy",
+      "gives": "DOT",
+      "note": "Dot is the familiar short form of Dorothy"
+     },
+     {
+      "clueFragment": "frolicking in spring",
+      "soundsLike": "MAY TRICKS",
+      "gives": "MATRIX",
+      "note": "frolics are tricks and the spring month is May, and the two run together into one word when spoken"
+     }
+    ],
+    "walkthrough": "A dot matrix printer builds every character out of a grid of dots, which is the pattern meant — and Dorothy's nickname is a dot in its own right.",
+    "definitionFit": "Pattern → DOT MATRIX: the grid of dots a printer or a display uses to form characters, so it is a pattern made of dots by definition."
+   }
   },
   {
    "id": "9-across",
@@ -215,7 +517,42 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLITHERINGIDIOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BLITHERING IDIOT",
+    "definition": "Muppet",
+    "indicators": [
+     "confined to"
+    ],
+    "indicatorNotes": {
+     "confined to": "Somebody confined is shut inside somewhere, so the name goes within the words that follow rather than beside them."
+    },
+    "pieces": [
+     "BLITHER",
+     "ING",
+     "IDI",
+     "OT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more cheerful",
+      "gives": "BLITHER",
+      "note": "blithe means cheerful, and the comparative just adds an R"
+     },
+     {
+      "clueFragment": "block",
+      "gives": "INGOT",
+      "note": "an ingot is a block of cast metal, and it opens after its first three letters"
+     },
+     {
+      "clueFragment": "Amin",
+      "gives": "IDI",
+      "note": "Idi Amin, the Ugandan dictator, hands over his first name"
+     }
+    ],
+    "walkthrough": "'Muppet' is playground slang for a fool, which the question mark quietly concedes. Amin's forename is the crossword's usual way of getting three awkward letters into a grid.",
+    "definitionFit": "Muppet → BLITHERING IDIOT: British slang calls a fool a muppet, after the puppets, and this is the same insult said at full length."
+   }
   },
   {
    "id": "10-across",
@@ -232,7 +569,26 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROCK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROCK",
+    "definition": "Brilliant",
+    "definition2": "music",
+    "blocks": [
+     {
+      "clueFragment": "Brilliant",
+      "gives": "ROCK",
+      "note": "a brilliant is a diamond cut to fifty-eight facets, and the trade's slang for a big stone is this"
+     },
+     {
+      "clueFragment": "music",
+      "gives": "ROCK",
+      "note": "the loud guitar-and-drums kind, named for the way it rolls"
+     }
+    ],
+    "walkthrough": "Two words and two definitions, with nothing between them to say which is which — the question mark is the only sign that 'brilliant' is a noun here rather than praise.",
+    "definitionFit": "Brilliant → ROCK is the jeweller's slang for a big cut diamond; music → ROCK is the guitar-driven genre, two senses that share nothing but a spelling."
+   }
   },
   {
    "id": "11-across",
@@ -249,7 +605,40 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KRAKATOA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "KRAKATOA",
+    "definition": "Old banger",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "would you say"
+    ],
+    "indicatorNotes": {
+     "would you say": "It hands the clue to the ear: what matters is how the two phrases sound run together, not how they are written down."
+    },
+    "pieces": [
+     "KRAKA",
+     "TOA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking the biscuit",
+      "soundsLike": "CRACKER",
+      "gives": "KRAKA",
+      "note": "the biscuit is a cracker, and said aloud its opening is spelled quite differently"
+     },
+     {
+      "clueFragment": "breakdown truck",
+      "soundsLike": "TOWER",
+      "gives": "TOA",
+      "note": "a breakdown truck tows, so it is a tower, and the sound runs straight on from the piece before"
+     }
+    ],
+    "walkthrough": "'Old banger' is a wreck of a car on the surface and something that banged in 1883 underneath: the eruption was heard thousands of miles away across the Indian Ocean.",
+    "definitionFit": "Old banger → KRAKATOA: the volcano's 1883 eruption is the loudest bang in recorded history, so the scrapyard phrase for a clapped-out car doubles as a joke."
+   }
   },
   {
    "id": "12-down",
@@ -270,7 +659,29 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "UGLYSISTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UGLY SISTER",
+    "definition": "Plain character",
+    "indicators": [
+     "gathered"
+    ],
+    "indicatorNotes": {
+     "gathered": "Things gathered are swept together into a heap, and letters in a heap no longer lie in the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "GETS SURLY I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gets surly, I",
+      "gives": "GETSSURLYI",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "walkthrough": "The surface is a small domestic sulk, and 'I gathered' passes for 'so I understood' while doing the shuffling. Plain here is the opposite of beautiful, not of fancy.",
+    "definitionFit": "Plain character → UGLY SISTER: Cinderella's two sisters are the pantomime's stock plain ones, so 'character' points at a role in a story."
+   }
   },
   {
    "id": "13-down",
@@ -291,7 +702,53 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRIMADONNA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + deletion",
+    "answer": "PRIMA DONNA",
+    "definition": "princess",
+    "indicators": [
+     "briefly",
+     "capturing"
+    ],
+    "indicatorNotes": {
+     "briefly": "A word given briefly is given short, so its final letter never gets written down.",
+     "capturing": "A camera captures whatever it shuts inside the frame, and here the words that follow are held within the piece before them."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "PRI",
+     "MA",
+     "DON",
+     "N",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photo briefly",
+      "gives": "PRIN",
+      "note": "a photo is a print, docked of its last letter; what is left opens up before its own final N"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is the nursery word for mother"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word a, taken as it stands, landing at the very end"
+     }
+    ],
+    "walkthrough": "'Capturing' does double duty as what a camera does and as the instruction to hold something inside. The print is the darkroom kind, not the newspaper kind.",
+    "definitionFit": "princess → PRIMA DONNA: both are everyday names for somebody who expects to be indulged, the opera sense of leading lady having soured into temperament."
+   }
   },
   {
    "id": "14-across",
@@ -312,7 +769,38 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLYAGARIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "FLY AGARIC",
+    "definition": "poisonous",
+    "definitionNote": "The answer is a mushroom, a noun, while 'poisonous' is an adjective; the setter's 'that's' does the joining, so the definition reads as 'the thing that is poisonous'.",
+    "linkWords": [
+     "that’s"
+    ],
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Food that has gone off has turned, and turned letters no longer sit in the order they were served in."
+    },
+    "anagram": {
+     "fodder": "FLY A CIGAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dash",
+      "gives": "FLY",
+      "note": "to fly somewhere is to dash there"
+     },
+     {
+      "clueFragment": "a cigar",
+      "gives": "ACIGAR",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "walkthrough": "'Dash a cigar off' reads as one impatient gesture, which is exactly what hides the join between the two pieces. The toadstool meant is the storybook one: scarlet cap, white spots.",
+    "definitionFit": "poisonous → FLY AGARIC: the red-and-white toadstool is genuinely toxic, and it is named for the old practice of using it to kill flies."
+   }
   },
   {
    "id": "14-down",
@@ -334,7 +822,43 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "FAILTOSEE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAIL TO SEE",
+    "definition": "Miss",
+    "indicators": [
+     "claiming",
+     "pocketed by"
+    ],
+    "indicatorNotes": {
+     "claiming": "To claim a thing is to take it to yourself, so the singers take the letter inside them.",
+     "pocketed by": "What is pocketed goes into somebody's pocket and out of sight, so the whole group lands within the payment."
+    },
+    "pieces": [
+     "F",
+     "AILTOS",
+     "EE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "payment",
+      "gives": "FEE",
+      "note": "a fee is a payment, and it splits after its first letter"
+     },
+     {
+      "clueFragment": "singers",
+      "gives": "ALTOS",
+      "note": "altos are the singers between the sopranos and the tenors"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "walkthrough": "Two insertions nested one inside the other, and the surface never stops sounding like a dispute over an invoice. Only 'Miss' stands outside the wordplay.",
+    "definitionFit": "Miss → FAIL TO SEE: to miss a thing is to fail to notice it, and the phrase is what English says when a point has gone straight past somebody."
+   }
   },
   {
    "id": "15-across",
@@ -351,7 +875,26 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NADIR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NADIR",
+    "definition": "the lowest of the low",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part rather than the whole, and the part wanted is a run of letters lying end to end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "villain, a director",
+      "gives": "NADIR",
+      "note": "five letters in a row run from the tail of the first word, through the second and into the third"
+     }
+    ],
+    "walkthrough": "The comma after 'villain' is the disguise: it makes two separate people out of what is really one unbroken run of letters in a film-set sentence.",
+    "definitionFit": "the lowest of the low → NADIR: astronomy's nadir is the point directly beneath your feet, opposite the zenith, and English borrows it for any rock bottom."
+   }
   },
   {
    "id": "16-across",
@@ -368,7 +911,39 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITCHY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ITCHY",
+    "definition": "Irritable",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "Windy",
+     "in"
+    ],
+    "indicatorNotes": {
+     "Windy": "A windy day blows things out of place, and letters blown about do not come down in the order they went up.",
+     "in": "It puts the single letter among the ones being shuffled rather than beside them."
+    },
+    "anagram": {
+     "fodder": "H CITY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "h is the letter on the hot tap"
+     },
+     {
+      "clueFragment": "City",
+      "gives": "CITY",
+      "note": "anagram fodder, four letters"
+     }
+    ],
+    "walkthrough": "'Windy City' is Chicago and has nothing to do with the answer: the two words have to be prised apart, one as the instruction and one as the material.",
+    "definitionFit": "Irritable → ITCHY: an itch makes you fidget and snap, and the word has long carried that figurative sense of restless impatience."
+   }
   },
   {
    "id": "17-down",
@@ -385,7 +960,44 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEROOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CHEROOT",
+    "definition": "smoke",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "going up"
+    ],
+    "indicatorNotes": {
+     "going up": "This is a down entry, so a word going up the grid is read from its foot to its head."
+    },
+    "pieces": [
+     "CHER",
+     "OOT"
+    ],
+    "subReversals": [
+     {
+      "from": "TOO",
+      "to": "OOT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actress and singer",
+      "gives": "CHER",
+      "note": "Cher has an Oscar and a shelf of hit records, so she answers to both descriptions"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "also means too, and this is that word before it is turned"
+     }
+    ],
+    "walkthrough": "'Going up in smoke' is one idiom on the surface and two separate instructions underneath. The turn stops short of 'in', which is doing nothing but joining.",
+    "definitionFit": "smoke → CHEROOT: a cheroot is a cigar cut square at both ends, and 'a smoke' is the everyday noun for anything you light and draw on."
+   }
   },
   {
    "id": "18-across",
@@ -402,7 +1014,46 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MULTIPLEX",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "MULTIPLEX",
+    "definition": "pictures",
+    "definitionNote": "'Pictures' is plural and the answer is a single building; 'the pictures' has been the collective English name for the cinema since the silent era, so the plural names one place.",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "framing"
+    ],
+    "indicatorNotes": {
+     "framing": "A frame goes round whatever it holds, so the word before it closes around the piece named next."
+    },
+    "pieces": [
+     "MUL",
+     "TIP",
+     "L",
+     "EX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consider",
+      "gives": "MULL",
+      "note": "to mull a thing over is to consider it, and the word opens before its last letter"
+     },
+     {
+      "clueFragment": "suggestion",
+      "gives": "TIP",
+      "note": "a tip is a helpful suggestion"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex- is the prefix for a former anything"
+     }
+    ],
+    "walkthrough": "'Old pictures' reads as a run of classic films, and that is where the definition hides: only 'pictures' belongs to it, while 'old' is two more letters of wordplay.",
+    "definitionFit": "pictures → MULTIPLEX: going to the pictures means going to the cinema, and a multiplex is the cinema with a dozen screens under one roof."
+   }
   },
   {
    "id": "19-down",
@@ -419,7 +1070,34 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOWLIFE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "LOWLIFE",
+    "definition": "One defined by ‘scummy fellow’?",
+    "indicators": [
+     "scummy"
+    ],
+    "indicatorNotes": {
+     "scummy": "Scum is filth that has risen out of place, so whatever the word describes is not sitting the way it should."
+    },
+    "anagram": {
+     "fodder": "I FELLOW"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one, which the rest is built around"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "FELLOW",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "walkthrough": "Every word works twice: read straight the sentence says what the answer means, and read again it is the recipe for building it. The quotation marks flag the phrase as material.",
+    "definitionFit": "The whole clue is the definition: a lowlife is exactly the sort of person the quoted phrase picks out, a contemptible specimen."
+   }
   },
   {
    "id": "20-across",
@@ -440,7 +1118,37 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEBIRDS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THE BIRDS",
+    "definition": "horrifying singers?",
+    "indicators": [
+     "including"
+    ],
+    "indicatorNotes": {
+     "including": "To include a thing is to take it in, so the pieces named next sit inside the word before them."
+    },
+    "pieces": [
+     "TH",
+     "E",
+     "B",
+     "IRDS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intervals",
+      "gives": "THIRDS",
+      "note": "a third is a musical interval, and the word opens after its second letter"
+     },
+     {
+      "clueFragment": "notes a perfect fifth apart",
+      "gives": "EB",
+      "note": "count E up to B and you cover five steps of the scale, the interval called a perfect fifth"
+     }
+    ],
+    "walkthrough": "The clue is all music until the last two words, when it turns into Hitchcock. Even the definition keeps up the pretence, since birds sing and 'singers' still sounds musical.",
+    "definitionFit": "horrifying singers? → THE BIRDS: Hitchcock's film turns ordinary songbirds into a murderous flock, and the question mark admits this is a description rather than a synonym."
+   }
   },
   {
    "id": "21-across",
@@ -457,7 +1165,32 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MWAH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MWAH",
+    "definition": "Kiss",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "on tour"
+    ],
+    "indicatorNotes": {
+     "on tour": "A band on tour is never in the same place two nights running, and neither are these letters."
+    },
+    "anagram": {
+     "fodder": "WHAM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wham",
+      "gives": "WHAM",
+      "note": "anagram fodder — the eighties pop duo, four letters"
+     }
+    ],
+    "walkthrough": "Kiss and Wham are both bands, which is the joke: only one of them is being used as a band, and the other is quietly the definition.",
+    "definitionFit": "Kiss → MWAH: mwah is the written-down noise of an air kiss, so the sound stands in for the act it accompanies."
+   }
   },
   {
    "id": "22-down",
@@ -474,7 +1207,26 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUSKY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HUSKY",
+    "definition": "Growly",
+    "definition2": "dog",
+    "blocks": [
+     {
+      "clueFragment": "Growly",
+      "gives": "HUSKY",
+      "note": "of a voice that comes out low and rough, as after a night of shouting"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "HUSKY",
+      "note": "the thick-coated sled breed of the Arctic"
+     }
+    ],
+    "walkthrough": "Two words, and each of them is a complete definition — there is no wordplay to find at all, which is how the clue can afford to be this short.",
+    "definitionFit": "A husky voice is hoarse and low, while a husky is the Arctic sled breed — two senses that share a spelling and nothing else."
+   }
   },
   {
    "id": "23-down",
@@ -491,7 +1243,30 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCUT",
+    "definition": "Stumpy tail",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "CUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘s",
+      "gives": "S",
+      "note": "the letter is handed over on its own, inside quotation marks"
+     },
+     {
+      "clueFragment": "pruned",
+      "gives": "CUT",
+      "note": "a pruned branch is one that has been cut"
+     }
+    ],
+    "walkthrough": "The dash does all the disguising: it turns a definition and two scraps of wordplay into what looks like a single passing remark about an animal.",
+    "definitionFit": "Stumpy tail → SCUT: a scut is the short erect tail of a rabbit, hare or deer, the countryman's word for exactly that stub."
+   }
   },
   {
    "id": "24-down",
@@ -508,7 +1283,34 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORAL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ORAL",
+    "definition": "Test",
+    "indicators": [
+     "of",
+     "to the north"
+    ],
+    "indicatorNotes": {
+     "of": "A test OF something takes its material out of that thing, and the setter leans on the little word lightly — it is all the notice you get that the letters are already there.",
+     "to the north": "This is a down entry, so letters travelling north are read from the bottom of the grid upwards."
+    },
+    "subReversals": [
+     {
+      "from": "LARO",
+      "to": "ORAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular opinion",
+      "gives": "ORAL",
+      "note": "four letters in a row straddle the gap between these two words, and the entry climbs back up through them"
+     }
+    ],
+    "walkthrough": "A test of popular opinion is a poll, which is the answer the surface is offering and not the one wanted. Nothing has been rearranged here, only read the other way.",
+    "definitionFit": "Test → ORAL: an oral is the spoken examination — a language viva, say — so 'test' names it by what it is rather than by how it is conducted."
+   }
   },
   {
    "id": "25-across",
@@ -530,7 +1332,43 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHORTANDCURLIES",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SHORT AND CURLIES",
+    "definition": "One’s disempowered when had by those",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "The Reverend Spooner traded the opening sounds of two words, so his name alone is the instruction to swap them over."
+    },
+    "pieces": [
+     "SHORT",
+     "AND",
+     "CURLIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Margaret",
+      "soundsLike": "COURT",
+      "gives": "SHORT",
+      "note": "Margaret Court won more grand slam titles than anyone; she hands her C over and takes SH in exchange"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "the joining word between the names stays exactly where it stands"
+     },
+     {
+      "clueFragment": "Temple and MacLaine",
+      "soundsLike": "SHIRLEYS",
+      "gives": "CURLIES",
+      "note": "Shirley Temple and Shirley MacLaine make a pair of Shirleys, and they collect the C the tennis player gave up"
+     }
+    ],
+    "walkthrough": "Say the plain version first — a tennis champion and two actresses — and Spooner does the rest. What comes out is an idiom with nothing to do with any of them.",
+    "definitionFit": "Having somebody by the short and curlies means having them at your mercy; the phrase names body hair whose grip leaves no room to argue."
+   }
   },
   {
    "id": "26-across",
@@ -547,7 +1385,32 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EATER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EATER",
+    "definition": "Hog",
+    "linkWords": [
+     "when"
+    ],
+    "indicators": [
+     "first cut off"
+    ],
+    "indicatorNotes": {
+     "first cut off": "The first of anything is its opening letter, and cut off means that letter does not survive into the grid."
+    },
+    "pieces": [
+     "EATER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "radiator, say",
+      "gives": "HEATER",
+      "note": "a radiator is one kind of heater, which is what 'say' is marking, and this is the word before its front letter goes"
+     }
+    ],
+    "walkthrough": "'Say' is doing the work of a definition-by-example in the wordplay rather than the definition: the clue needs the general word first, and only then docks a letter from it.",
+    "definitionFit": "Hog → EATER: to hog food is to take it all, and a hog is a glutton, so the word names somebody by appetite rather than by species."
+   }
   },
   {
    "id": "27-across",
@@ -564,7 +1427,39 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARTILLERY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ARTILLERY",
+    "definition": "Arsenal",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "passing through"
+    ],
+    "indicatorNotes": {
+     "passing through": "Whatever passes through a channel is inside it for the length of the journey, so these letters sit within the word that follows."
+    },
+    "pieces": [
+     "ART",
+     "ILL",
+     "ERY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "channel",
+      "gives": "ARTERY",
+      "note": "an artery is the channel blood travels down, and it opens after its third letter"
+     },
+     {
+      "clueFragment": "feeble",
+      "gives": "ILL",
+      "note": "somebody feeble is ill, weak from sickness"
+     }
+    ],
+    "walkthrough": "Arsenal are the Gunners, which is the joke the capital letter is trying to sell you. The arsenal wanted is the older sense: a store of weapons.",
+    "definitionFit": "Arsenal → ARTILLERY: an arsenal is a stock of weaponry, and artillery is the heavy-gun branch of it, so both words name the hardware collectively."
+   }
   }
  ]
 } /*JSON-END*/;
