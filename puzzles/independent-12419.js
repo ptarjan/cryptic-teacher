@@ -34,7 +34,29 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
     ]
    },
    "solution": "HOUSETRAIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HOUSE-TRAIN",
+    "definition": "make Persian go elsewhere?",
+    "indicators": [
+     "Resort"
+    ],
+    "indicatorNotes": {
+     "Resort": "read it as re-sort, with the stress on the second half, and it asks for a fresh ordering rather than a holiday"
+    },
+    "anagram": {
+     "fodder": "IN THE USA OR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in the USA, or",
+      "gives": "HOUSETRAIN",
+      "note": "ten letters, and not one of them stays where the clue put it"
+     }
+    ],
+    "walkthrough": "Half the clues in this grid open with 'Resort in' somewhere abroad; here the word is not naming a town at all but telling you to sort the letters again. A Persian is a cat, and 'go' is the polite verb.",
+    "definitionFit": "make Persian go elsewhere? -> HOUSE-TRAIN: a Persian is a cat, and house-training one teaches it to relieve itself in the tray rather than the carpet."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +73,37 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OIL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "OIL",
+    "definition": "Slick",
+    "indicators": [
+     "almost",
+     "rampant"
+    ],
+    "indicatorNotes": {
+     "almost": "almost there means you stop just before the end, so the final letter never gets written",
+     "rampant": "in heraldry a beast rampant is reared up on its hind legs, and this creature stands its letters on end too"
+    },
+    "pieces": [
+     "OIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat almost",
+      "gives": "LIO",
+      "note": "the cat is a LION and 'almost' stops one short of its N"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "LIO",
+      "to": "OIL"
+     }
+    ],
+    "walkthrough": "Heraldry is where the surface and the wordplay part company: a rampant lion is a picture, and a rampant three letters is an instruction to read them the other way.",
+    "definitionFit": "Slick -> OIL: a slick on the sea is a floating film of crude, so the word names the substance by the shape it makes on water."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +120,44 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SACRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SACRA",
+    "definition": "Bones",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "erect"
+    ],
+    "indicatorNotes": {
+     "erect": "something erect has been stood upright, and in a down entry upright means reading from the bottom square towards the top"
+    },
+    "pieces": [
+     "SA",
+     "CRA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "ARC",
+      "note": "an arc is a line, the curved kind a compass draws"
+     },
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "as in 'he whistled while he worked' — while and as both mean during the time that"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ARCAS",
+      "to": "SACRA"
+     }
+    ],
+    "walkthrough": "Anatomy keeps its Latin plurals, which is how a definition with no S on it can still be asking for more than one bone.",
+    "definitionFit": "Bones -> SACRA: the sacrum is the wedge of fused vertebrae at the base of the spine, and sacra is its Latin plural."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +174,49 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANTAMOUNT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TANTAMOUNT",
+    "definition": "As good as",
+    "indicators": [
+     "ultimately",
+     "on"
+    ],
+    "indicatorNotes": {
+     "ultimately": "ultimately means in the end, so only the very end of the word beside it is wanted",
+     "on": "in a down entry one thing sits on another by standing above it, so this piece goes in first"
+    },
+    "pieces": [
+     "T",
+     "ANT",
+     "A",
+     "MOUNT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knight",
+      "gives": "T",
+      "note": "the very end of KNIGHT, which is what 'ultimately' asks for"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "ANT",
+      "note": "soldier ants are the big-jawed caste of a colony, and a bare 'soldier' is the crossword's usual way of asking for one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "MOUNT",
+      "note": "a rider's mount is the horse being ridden"
+     }
+    ],
+    "walkthrough": "Four military-looking words in a row and the definition is the quiet phrase at the front, which is where a clue this cavalry-minded least wants you to look.",
+    "definitionFit": "As good as -> TANTAMOUNT: tantamount means amounting to the same thing, so a silence tantamount to a refusal is a silence as good as one."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +233,32 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACETIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ACETIC",
+    "definition": "Sharp",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ACE",
+     "TIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pilot",
+      "gives": "ACE",
+      "note": "an ace is a pilot with a tally of kills, a usage that dates from the First World War"
+     },
+     {
+      "clueFragment": "habitual mannerism",
+      "gives": "TIC",
+      "note": "a tic is the twitch or catchphrase someone repeats without meaning to"
+     }
+    ],
+    "walkthrough": "The definition is a taste, not an edge — which is the whole misdirection, since 'Sharp' opening a clue reads as a knife or a mind.",
+    "definitionFit": "Sharp -> ACETIC: acetic acid is what makes vinegar vinegar, so acetic describes the mouth-puckering sourness we call a sharp taste."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +275,26 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NICE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NICE",
+    "definition": "Resort in France",
+    "definition2": "worth a visit?",
+    "blocks": [
+     {
+      "clueFragment": "Resort in France",
+      "gives": "NICE",
+      "note": "the Cote d'Azur town at the end of the Promenade des Anglais"
+     },
+     {
+      "clueFragment": "worth a visit?",
+      "gives": "NICE",
+      "note": "somewhere worth going to is a pleasant place, and the everyday adjective for that is the same word"
+     }
+    ],
+    "walkthrough": "Punk's running gag in this grid is 'Resort in' as a signal to shuffle letters; this is the one time it means exactly what it says, and the joke is that nothing happens to it at all.",
+    "definitionFit": "Both senses at once: the Riviera town on the Baie des Anges, and the everyday adjective for something pleasant enough to be worth going to see."
+   }
   },
   {
    "id": "7-across",
@@ -136,7 +311,30 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "GOER",
+    "definition": "Traveller",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "picked up"
+    ],
+    "indicatorNotes": {
+     "picked up": "a sound you pick up is one you catch by ear, so the state is heard rather than spelt"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Indian state",
+      "soundsLike": "GOA",
+      "gives": "GOER",
+      "note": "Goa is the small state on India's west coast, and a British speaker says it GO-uh, which is also how an unstressed -er ending comes out"
+     }
+    ],
+    "walkthrough": "Non-rhotic English is the whole trick: the r at the end is written but not sounded, so a place in India and a word for a wanderer arrive at the same noise.",
+    "definitionFit": "Traveller -> GOER: a goer is anything that goes — a horse, a car, a party guest — naming a traveller by the going rather than the journey."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +351,36 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRENADINE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GRENADINE",
+    "definition": "syrup",
+    "indicators": [
+     "sandwiches"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "to sandwich something is to press it between two layers, so one word closes around the other"
+    },
+    "pieces": [
+     "GRENAD",
+     "IN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Killer",
+      "gives": "GRENADE",
+      "note": "a grenade is thrown to kill, and it splits open one letter from the end"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the little word goes in whole, exactly as it is written"
+     }
+    ],
+    "walkthrough": "Grenade and grenadine share a root: both come from the pomegranate, the weapon for its shape and its scatter of seed-like fragments.",
+    "definitionFit": "syrup -> GRENADINE: the deep red pomegranate syrup poured into a tequila sunrise, sweet and alcohol-free despite the cocktail company it keeps."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +397,57 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ECTOTHERMIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ECTOTHERMIC",
+    "definition": "Adapted like frogs, say",
+    "indicators": [
+     "shivering",
+     "in"
+    ],
+    "indicatorNotes": {
+     "shivering": "a shiver is what a body does when it cannot hold still, and letters that cannot hold still end up somewhere else",
+     "in": "what is in something sits inside it, so this piece is planted among the letters rather than added to the end"
+    },
+    "anagram": {
+     "fodder": "C T MICE + OTHER"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "CTMICE",
+      "gives": "ECTMIC"
+     }
+    ],
+    "pieces": [
+     "ECT",
+     "OTHER",
+     "MIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the letter on the cold tap, and the standard abbreviation for it"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T for temperature, as on a weather chart or in a physics formula"
+     },
+     {
+      "clueFragment": "mice",
+      "gives": "MICE",
+      "note": "the rodents' four letters join the two abbreviations to make the six that get shuffled"
+     },
+     {
+      "clueFragment": "different",
+      "gives": "OTHER",
+      "note": "a different one is another one — the other one"
+     }
+    ],
+    "walkthrough": "'Say' is the flag that frogs are only an example: plenty of other creatures are built the same way, and the answer is the class word covering all of them.",
+    "definitionFit": "Adapted like frogs, say -> ECTOTHERMIC: an ectotherm draws its heat from outside its body, which is the technical name for what everyone else calls cold-blooded."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +464,38 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALICANTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALICANTE",
+    "definition": "City in Spain",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ALI",
+     "CANT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the greatest",
+      "gives": "ALI",
+      "note": "Muhammad Ali called himself The Greatest and the title stuck to him"
+     },
+     {
+      "clueFragment": "specialised language",
+      "gives": "CANT",
+      "note": "cant is the private jargon of a trade or a sect, thieves' cant being the best known"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the usual one-letter stand-in for English"
+     }
+    ],
+    "walkthrough": "The colon does no work at all. It only lets 'specialised language: English' read as one idea, when the two halves are separate pieces of the build.",
+    "definitionFit": "City in Spain -> ALICANTE: the port on the Costa Blanca, capital of its own province and one of the largest cities on the Spanish Mediterranean."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +512,36 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREATE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CREATE",
+    "definition": "forge",
+    "indicators": [
+     "featuring"
+    ],
+    "indicatorNotes": {
+     "featuring": "a film featuring an actor has that actor somewhere inside it, so this letter goes in among the others"
+    },
+    "pieces": [
+     "CRE",
+     "A",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Island",
+      "gives": "CRETE",
+      "note": "Crete is the big Greek island, and it opens up in the middle"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken as the single letter it is written with"
+     }
+    ],
+    "walkthrough": "A holiday island and a blacksmith make a tidy picture, and the picture is the trap: the verb at the end is the definition, not part of the scene.",
+    "definitionFit": "forge -> CREATE: forge in its smithy sense means to hammer something into being, so both words mean to make — not the counterfeiter's forge the surface offers."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +562,38 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIAMARIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TIA MARIA",
+    "definition": "drink",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "having renounced love"
+    ],
+    "indicatorNotes": {
+     "having renounced love": "in tennis love is nothing at all, written O, so giving it up takes exactly that letter out"
+    },
+    "pieces": [
+     "TIAM",
+     "ARIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I adore you",
+      "gives": "TIAM",
+      "note": "Italian for I love you is TI AMO, and the O has just been given up"
+     },
+     {
+      "clueFragment": "Italian song",
+      "gives": "ARIA",
+      "note": "an aria is the solo song in an Italian opera"
+     }
+    ],
+    "walkthrough": "One word covers both halves of the wordplay: 'Italian' licenses the phrase TI AMO and the musical term as well. The bottle itself is Jamaican.",
+    "definitionFit": "drink -> TIA MARIA: a coffee liqueur made in Jamaica from rum and espresso, so the definition is a plain category word standing for a branded bottle."
+   }
   },
   {
    "id": "11-down",
@@ -242,7 +610,29 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRINIDADIAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRINIDADIAN",
+    "definition": "West Indian!",
+    "indicators": [
+     "Resort"
+    ],
+    "indicatorNotes": {
+     "Resort": "the holiday sense is the decoy; re-sort, two syllables and a hyphen, is the instruction actually being given"
+    },
+    "anagram": {
+     "fodder": "IN INDIA DRAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in India? Drat",
+      "gives": "TRINIDADIAN",
+      "note": "eleven letters, and every one of them moves"
+     }
+    ],
+    "walkthrough": "'Drat!' is a real exclamation doing a fake job: it reads as the setter's irritation at being sent to the wrong country, and it is really four more letters to shuffle.",
+    "definitionFit": "West Indian! -> TRINIDADIAN: Trinidad sits at the southern end of the Caribbean chain, so someone from it is a West Indian by example rather than by synonym."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +649,38 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BALTI",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "BALTI",
+    "definition": "Indian style",
+    "indicators": [
+     "welcomes",
+     "first of"
+    ],
+    "indicatorNotes": {
+     "welcomes": "you welcome a guest into your house, so the island takes this letter inside it",
+     "first of": "of all the letters in the word that follows, only the one at the front is wanted"
+    },
+    "pieces": [
+     "BAL",
+     "T",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "BALI",
+      "note": "Bali is the Indonesian island, and it splits after its third letter"
+     },
+     {
+      "clueFragment": "tourists",
+      "gives": "T",
+      "note": "the front letter of TOURISTS"
+     }
+    ],
+    "walkthrough": "The geography is a decoy. The island that opens up is Indonesian, several thousand miles from the cuisine the definition is naming.",
+    "definitionFit": "Indian style -> BALTI: a balti is a style of curry cooked and served in a pressed-steel bowl, Birmingham's own contribution to Indian cooking."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +697,44 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARTHUSIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CARTHUSIAN",
+    "definition": "brother",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "south of"
+    ],
+    "indicatorNotes": {
+     "south of": "south is downwards on a map, and in a down entry downwards means further along, so these letters land underneath"
+    },
+    "pieces": [
+     "CAR",
+     "THUS",
+     "IAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capri perhaps",
+      "gives": "CAR",
+      "note": "the Capri was a Ford, and 'perhaps' marks it as one example of a car"
+     },
+     {
+      "clueFragment": "So",
+      "gives": "THUS",
+      "note": "thus and so are the same word for in this manner"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "IAN",
+      "note": "Ian is the boy the grid wants; crosswords keep a small stable of usable names"
+     }
+    ],
+    "walkthrough": "Capri is an island and a Ford at once, which is why 'perhaps' is there — it warns you the word is an example of something rather than the thing itself.",
+    "definitionFit": "brother -> CARTHUSIAN: a Carthusian is a monk of the order founded at the Grande Chartreuse, and monks of any order are addressed as Brother."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +751,29 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WINDSOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WINDSOR",
+    "definition": "house",
+    "indicators": [
+     "Weaselly"
+    ],
+    "indicatorNotes": {
+     "Weaselly": "weasel words wriggle out of meaning what they say, and letters that wriggle will not stay in the order they were given"
+    },
+    "anagram": {
+     "fodder": "WORDS IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "words in",
+      "gives": "WINDSOR",
+      "note": "seven letters, rearranged"
+     }
+    ],
+    "walkthrough": "'Weaselly words' is a real phrase for evasive language, which is exactly what makes it invisible as an instruction — and 'in' here is fodder, not a container.",
+    "definitionFit": "house -> WINDSOR: the surname the British royal family adopted in 1917, and a royal house is a dynasty rather than a building."
+   }
   },
   {
    "id": "15-down",
@@ -315,7 +795,37 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOMINICAN",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + deletion",
+    "answer": "DOMINICAN REPUBLIC",
+    "definition": "country",
+    "indicators": [
+     "Resort",
+     "shortage of"
+    ],
+    "indicatorNotes": {
+     "Resort": "a resort is also what you fall back on, but here it is re-sort: put these letters into a different arrangement",
+     "shortage of": "a shortage means there is not enough of something, so the word arrives one letter short of itself"
+    },
+    "anagram": {
+     "fodder": "IN CUBA PRICED ON + MIL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "milk",
+      "gives": "MIL",
+      "note": "milk docked of its final letter leaves MIL, and those three join the letters to be sorted"
+     },
+     {
+      "clueFragment": "in Cuba priced on",
+      "gives": "INCUBAPRICEDON",
+      "note": "fourteen letters taken straight off the clue, which with MIL makes seventeen"
+     }
+    ],
+    "walkthrough": "Cuba is the wrong island entirely and is here only for its letters, as is the milk. Seventeen letters is a long shuffle, so trust the enumeration rather than the surface.",
+    "definitionFit": "country -> DOMINICAN REPUBLIC: a plain category word for a sovereign state, this one occupying the eastern two-thirds of the island of Hispaniola."
+   }
   },
   {
    "id": "16-across",
@@ -332,7 +842,37 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANINES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CANINES",
+    "definition": "part of the set?",
+    "definitionNote": "The answer is plural and 'part' is singular: the four canines are counted together as a single named part of a full set of teeth.",
+    "indicators": [
+     "visited by"
+    ],
+    "indicatorNotes": {
+     "visited by": "a visitor ends up inside the place they visit, so this letter goes in among the town's own"
+    },
+    "pieces": [
+     "CAN",
+     "I",
+     "NES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resort in France",
+      "gives": "CANNES",
+      "note": "Cannes is the film-festival resort on the Riviera, and it opens after CAN"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is I, the Roman numeral"
+     }
+    ],
+    "walkthrough": "Every other 'Resort in' clue in this grid is a signal to shuffle letters, so the trap here is that this one really is a town. And the set is a mouthful of teeth, not the film set Cannes has just conjured.",
+    "definitionFit": "part of the set? -> CANINES: a full set of teeth divides into incisors, canines, premolars and molars, so the canines are one named part of it."
+   }
   },
   {
    "id": "17-across",
@@ -349,7 +889,44 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIAMOND",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DIAMOND",
+    "definition": "Maybe brilliant",
+    "indicators": [
+     "running about"
+    ],
+    "indicatorNotes": {
+     "running about": "letters running about are not staying where they were put, so they come to rest in a new order"
+    },
+    "anagram": {
+     "fodder": "D + NO MAID"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "NOMAID",
+      "gives": "IAMOND"
+     }
+    ],
+    "pieces": [
+     "D",
+     "IAMOND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the family-tree abbreviation for daughter"
+     },
+     {
+      "clueFragment": "without domestic staff",
+      "gives": "IAMOND",
+      "note": "a domestic is a maid, so this says NO MAID — six letters that come out rearranged"
+     }
+    ],
+    "walkthrough": "'Brilliant' is an adjective on the surface and a noun in the definition, and 'without' is not a deletion here but the plain everyday word no.",
+    "definitionFit": "Maybe brilliant -> DIAMOND: a brilliant is a particular cut of gemstone, usually but not always a diamond, so 'maybe' marks the definition as an example."
+   }
   },
   {
    "id": "18-across",
@@ -366,7 +943,35 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STREAMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STREAMS",
+    "definition": "Flowers",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "to tack one thing on to another is to add it at the end, so these letters follow the ones named next"
+    },
+    "pieces": [
+     "ST",
+     "REAMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is how street is abbreviated on an envelope"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "REAMS",
+      "note": "reams of it means loads of it; a ream is five hundred sheets of paper"
+     }
+    ],
+    "walkthrough": "The comma after the first word is doing honest work: it fences off the definition, and the definition has nothing to do with petals.",
+    "definitionFit": "Flowers -> STREAMS: read as flow-ers, things that flow — the crossword staple that turns a garden word into rivers."
+   }
   },
   {
    "id": "19-down",
@@ -383,7 +988,29 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENDON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TENDON",
+    "definition": "tissue",
+    "pieces": [
+     "TEND",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "TEND",
+      "note": "to nurse a wound is to tend it"
+     },
+     {
+      "clueFragment": "touching",
+      "gives": "ON",
+      "note": "two things touching are one on the other, so touching gives ON"
+     }
+    ],
+    "walkthrough": "Three medical-sounding words in a row and the surface never leaves the ward, so nothing in it warns you that a charade is being assembled.",
+    "definitionFit": "tissue -> TENDON: a tendon is the tough fibrous cord of connective tissue tying muscle to bone, so the definition names what it is made of."
+   }
   },
   {
    "id": "20-across",
@@ -400,7 +1027,39 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAINE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MAINE",
+    "definition": "State",
+    "linkWords": [
+     "when"
+    ],
+    "indicators": [
+     "should cut"
+    ],
+    "indicatorNotes": {
+     "should cut": "to cut into something is to make your way inside it, so this letter lands in the middle of the word that follows"
+    },
+    "pieces": [
+     "MA",
+     "I",
+     "NE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hair",
+      "gives": "MANE",
+      "note": "a mane is the hair on a horse's or a lion's neck, and it opens after two letters"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun is taken as the single letter it is written with"
+     }
+    ],
+    "walkthrough": "The surface is a barber's appointment and the answer is on a map. 'Cut' is the pivot: a haircut in one reading, an incision into a word in the other.",
+    "definitionFit": "State -> MAINE: the north-easternmost of the United States, so the definition is the general category and the answer one instance of it."
+   }
   },
   {
    "id": "21-across",
@@ -418,7 +1077,9 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPUBLIC",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "15-down"
+   }
   },
   {
    "id": "22-down",
@@ -435,7 +1096,26 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATHI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LATHI",
+    "definition": "club",
+    "indicators": [
+     "Observed in"
+    ],
+    "indicatorNotes": {
+     "Observed in": "what is observed in a place was already sitting there in plain view, waiting for somebody to notice it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Marbella, this",
+      "gives": "LATHI",
+      "note": "the last two letters of the resort run straight on into the first three of THIS"
+     }
+    ],
+    "walkthrough": "Marbella is a Spanish resort in a puzzle full of resorts, which is precisely why you read past it — and past 'this', a word that normally points at something rather than spelling it.",
+    "definitionFit": "club -> LATHI: a lathi is the long iron-bound bamboo stave carried by Indian police, so 'club' is the plain English word for the thing."
+   }
   },
   {
    "id": "23-down",
@@ -456,7 +1136,38 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASIF",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AS IF",
+    "definition": "yeh, right!",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Conclusion yet to be reached"
+    ],
+    "indicatorNotes": {
+     "Conclusion yet to be reached": "if you have not got to the end of a word, its final letter never arrives, so it is written one short"
+    },
+    "pieces": [
+     "A",
+     "SIF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as it stands"
+     },
+     {
+      "clueFragment": "riddle",
+      "gives": "SIF",
+      "note": "to riddle grain is to SIFT it through a coarse sieve, and that word's ending is the conclusion never reached"
+     }
+    ],
+    "walkthrough": "'Riddle' looks like a puzzle and is really a farmyard verb, which is the one leap the clue asks for. The definition is the sarcastic exclamation at the end.",
+    "definitionFit": "yeh, right! -> AS IF: both are sarcastic dismissals meaning that will never happen, the exclamatory use made famous by 1990s American teen slang."
+   }
   },
   {
    "id": "24-across",
@@ -473,7 +1184,38 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PISCES",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "PISCES",
+    "definition": "Fishes",
+    "indicators": [
+     "gutted",
+     "eaten by"
+    ],
+    "indicatorNotes": {
+     "gutted": "a gutted fish has had its insides taken out, and so has this word — only the two outer letters survive",
+     "eaten by": "whatever is eaten ends up inside the eater, so those letters sit within the others"
+    },
+    "pieces": [
+     "PIS",
+     "CE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jimmy?",
+      "gives": "PISS",
+      "note": "a Jimmy Riddle is rhyming slang for a piddle, shortened to Jimmy, and it opens up before its last letter"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "CE",
+      "note": "CHARLIE with its insides removed keeps only its first and last letters"
+     }
+    ],
+    "walkthrough": "'Gutted' meaning emptied of insides is one of the standard signals to keep only a word's outer letters, and a clue about fish makes it almost invisible.",
+    "definitionFit": "Fishes -> PISCES: Pisces is the twelfth sign of the zodiac, drawn as a pair of fish, and its English name is simply the Fishes."
+   }
   },
   {
    "id": "25-across",
@@ -490,7 +1232,36 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAINTILY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DAINTILY",
+    "definition": "in elegant manner",
+    "indicators": [
+     "Resort",
+     "paired with"
+    ],
+    "indicatorNotes": {
+     "Resort": "the word splits into re and sort, which is exactly what the letters are being asked to do",
+     "paired with": "to pair one thing with another is to put the two together, so this letter joins the letters being sorted"
+    },
+    "anagram": {
+     "fodder": "IN ITALY + D"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is Germany's international vehicle code, from Deutschland"
+     },
+     {
+      "clueFragment": "in Italy",
+      "gives": "INITALY",
+      "note": "seven letters straight off the clue, joining the D in the shuffle"
+     }
+    ],
+    "walkthrough": "Three countries in one sentence and only two of them are pulling their weight: Italy for its letters, Germany for its single-letter code, and the resort is not a place at all.",
+    "definitionFit": "in elegant manner -> DAINTILY: daintily means with delicate neatness, the way somebody lifts a teacup, so the phrase spells out an adverb of manner."
+   }
   },
   {
    "id": "26-down",
@@ -507,7 +1278,37 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "LAR",
+    "definition": "Deity",
+    "indicators": [
+     "briefly",
+     "up"
+    ],
+    "indicatorNotes": {
+     "briefly": "said briefly, a word is cut short, so the end of this one is not written",
+     "up": "in a down entry up means from the bottom square towards the top, so the letters are read the other way"
+    },
+    "pieces": [
+     "LAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slowing",
+      "gives": "RAL",
+      "note": "rallentando is the score marking for slowing down, written rall., and briefly that is RAL"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "RAL",
+      "to": "LAR"
+     }
+    ],
+    "walkthrough": "Both halves are borrowed vocabulary — a Latin household god and an Italian musical instruction — which is a great deal of Europe for three letters.",
+    "definitionFit": "Deity -> LAR: a lar was a Roman household god, one of the lares who guarded the hearth and the family that kept its little shrine."
+   }
   },
   {
    "id": "27-across",
@@ -524,7 +1325,38 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ONAN",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "ONAN",
+    "definition": "Seed spiller",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "to withdraw"
+    ],
+    "indicatorNotes": {
+     "to withdraw": "to withdraw is to draw back the way you came, so the letters are read in the opposite direction"
+    },
+    "pieces": [
+     "ONAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a very tiny part",
+      "gives": "NANO",
+      "note": "nano- is the prefix for a thousand-millionth, the smallest fraction most people ever name"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "NANO",
+      "to": "ONAN"
+     }
+    ],
+    "walkthrough": "Nano- reaches English from the Greek for dwarf by way of the SI prefixes, which is a lot of scientific precision to spend on a clue whose definition comes out of Genesis.",
+    "definitionFit": "Seed spiller -> ONAN: in Genesis 38 Onan spilled his seed on the ground rather than father a child for his brother, and English took a word from the story."
+   }
   },
   {
    "id": "28-across",
@@ -541,7 +1373,32 @@ window.CRYPTIC_PUZZLES["independent-12419"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINANCIERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FINANCIERS",
+    "definition": "Zurich gnomes?",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Resort"
+    ],
+    "indicatorNotes": {
+     "Resort": "sounded as re-sort it stops being a holiday town and becomes an instruction to put the letters into some other order"
+    },
+    "anagram": {
+     "fodder": "IN FRANCE IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in France is",
+      "gives": "FINANCIERS",
+      "note": "ten letters and a completely new arrangement"
+     }
+    ],
+    "walkthrough": "'Is' looks like a link word holding the sentence upright and is really two more letters of the jumble — the commonest way a setter hides fodder in plain sight.",
+    "definitionFit": "Zurich gnomes? -> FINANCIERS: the gnomes of Zurich was Harold Wilson's jibe at Swiss bankers, and the phrase has stood for money men ever since."
+   }
   }
  ]
 } /*JSON-END*/;
