@@ -85,13 +85,22 @@ def by_word():
     return senses
 
 
-def table_html(senses):
+def table_html(senses, links=None):
     """The glossary markup. Imported by tools/build_seo_pages.py, so the page
-    Google indexes and the one a hint jumps into are the same rows."""
+    Google indexes and the one a hint jumps into are the same rows.
+
+    `links` maps a word to a clue that uses it, and is passed only by the
+    standalone page: in the tutorial this table sits inside the solve, where a
+    link out to a page of answers is a spoiler and a way to lose your place.
+    """
+    links = links or {}
     rows, cells = [], sorted(senses)
     for i in range(0, len(cells), COLUMNS):
-        row = "".join(f'<td id="{anchor(w)}">{w}</td><td>{", ".join(sorted(senses[w]))}</td>'
-                      for w in cells[i:i + COLUMNS])
+        row = "".join(
+            f'<td id="{anchor(w)}">'
+            + (f'<a href="{links[w]}">{w}</a>' if w in links else w)
+            + f'</td><td>{", ".join(sorted(senses[w]))}</td>'
+            for w in cells[i:i + COLUMNS])
         rows.append(f"<tr>{row}</tr>")
     return '<table class="glossary">\n' + "\n".join(rows) + "\n</table>"
 

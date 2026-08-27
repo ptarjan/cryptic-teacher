@@ -559,7 +559,71 @@ def learn_page():
 
 # --------------------------------------------------------- abbreviations page
 
-def abbreviations_page():
+def letters_of(s):
+    """A block's `gives` and a glossary key reduced to the same comparable form."""
+    return re.sub(r"[^A-Z0-9]", "", (s or "").upper())
+
+
+def fragment_re(word):
+    """The word as it may appear in a clue fragment: whole, singular or plural.
+
+    Nothing looser. A link from the glossary is a promise that the clue at the
+    other end uses this convention, and a solver who follows "car" into a clue
+    about care has been sent somewhere worse than nowhere.
+    """
+    tail = "(?:es)?" if re.search(r"(?:s|x|z|ch|sh)$", word) else "s?"
+    return re.compile(r"\b" + re.escape(word) + tail + r"\b")
+
+
+def clue_links(senses, solved, pages):
+    """word -> the URL of one annotated clue whose wordplay uses that convention.
+
+    A word matches a block when the block's letters are one of that word's
+    senses and the block's clue fragment contains the word. Words no clue can be
+    shown to use stay plain text; the glossary lists more conventions than the
+    archive has yet demonstrated, and a link nobody can check is the thing this
+    page was already claiming falsely.
+
+    Every link is verified against the puzzle page this same run writes, anchor
+    included, so the glossary can never outlive the clue it cites.
+
+    Where several clues qualify: the one in the puzzle carrying the fewest
+    glossary links so far, so four hundred rows lead into the whole archive
+    rather than all into one puzzle; then the fullest annotation; then the
+    newest puzzle. Nothing is broken by chance — an unstable choice would make
+    the nightly rebuild commit churn.
+    """
+    blocks = {}
+    for puz in solved:
+        page = pages.get(puz["id"]) or ""
+        for e in puz["entries"]:
+            ann = e.get("annotation") or {}
+            if f'id="{esc(e["id"])}"' not in page:
+                continue
+            depth = len((ann.get("walkthrough") or "") + (ann.get("definitionFit") or ""))
+            for b in ann.get("blocks") or []:
+                frag = (b.get("clueFragment") or "").lower()
+                key = letters_of(b.get("gives"))
+                if key and frag:
+                    blocks.setdefault(key, []).append(
+                        (frag, depth + len(b.get("note") or ""),
+                         puz.get("date") or 0, puz["id"], e["id"]))
+
+    used, out = {}, {}
+    for word in sorted(senses):
+        pat = fragment_re(word)
+        found = [c for k in senses[word] for c in blocks.get(letters_of(k), [])
+                 if pat.search(c[0])]
+        if not found:
+            continue
+        _, _, _, pid, eid = min(found, key=lambda c: (used.get(c[3], 0), -c[1], -c[2],
+                                                      c[3], c[4]))
+        used[pid] = used.get(pid, 0) + 1
+        out[word] = f"{BASE}/puzzles/{pid}/#{eid}"
+    return out
+
+
+def abbreviations_page(solved, pages):
     """The glossary as a document of its own.
 
     A lookup table is a destination, not a chapter: somebody who wants to know
@@ -571,10 +635,12 @@ def abbreviations_page():
     """
     senses = build_abbreviations.by_word()
     n = len(senses)
+    links = clue_links(senses, solved, pages)
     title = f"Cryptic crossword abbreviations — the full list of {n}"
     desc = (f"The {n} standard abbreviations cryptic crossword setters use, word first: "
             "ch for check, ab for sailor, r for right. Every one taken from real "
-            "published puzzles, each linked to the clues that use it.")
+            f"published puzzles, and {len(links)} of them link to an annotated clue that "
+            "uses it.")
     canonical = f"{BASE}/abbreviations/"
     crumbs = [("Cryptic Teacher", "/"), ("How cryptic clues work", "/learn/"),
               ("Abbreviations", "")]
@@ -597,7 +663,11 @@ def abbreviations_page():
         f"<p>These are all {n} that appear in the puzzles annotated on this site, listed word "
         "first — the direction you arrive from. New ones are added automatically as they turn "
         "up in a clue.</p>",
-        build_abbreviations.table_html(senses),
+        f"<p>{len(links)} of them link to a clue that uses the convention, with the whole of "
+        "its wordplay taken apart underneath — a convention is easier to keep once you have "
+        "seen a setter use it. The rest are waiting for a clue we have annotated to need "
+        "them.</p>",
+        build_abbreviations.table_html(senses, links),
         f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">How cryptic clues work, '
         f'from the start &rarr;</a></p>',
         "</main>",
@@ -680,15 +750,19 @@ def outputs():
     solved = [p for p in puzzles() if any(e.get("solution") for e in p["entries"])]
 
     files = {}
+    # Kept by id as well as by path: the glossary links into these pages and
+    # checks each anchor against the very text this run is about to write, not
+    # against whatever is on disk from a previous one.
+    pages = {}
     for i, puz in enumerate(solved):
         # The list is newest-first, so "next" is the older neighbour.
         prev_p = solved[i - 1] if i > 0 else None
         next_p = solved[i + 1] if i + 1 < len(solved) else None
-        files[PUZZLE_DIR / puz["id"] / "index.html"] = puzzle_page(
-            puz, meta.get(puz["id"]), prev_p, next_p)
+        pages[puz["id"]] = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
+        files[PUZZLE_DIR / puz["id"] / "index.html"] = pages[puz["id"]]
     files[PUZZLE_DIR / "index.html"] = hub_page(idx)
     files[ROOT / "learn" / "index.html"] = learn_page()
-    files[ROOT / "abbreviations" / "index.html"] = abbreviations_page()
+    files[ROOT / "abbreviations" / "index.html"] = abbreviations_page(solved, pages)
     files[ROOT / "sitemap.xml"] = sitemap(idx)
     path, text = patch_homepage(idx)
     files[path] = text

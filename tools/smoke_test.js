@@ -100,12 +100,46 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     .replace(/^-|-$/g, "");
   const page = fs.readFileSync(path.join(ROOT, "abbreviations/index.html"), "utf8");
   [["the tutorial", tut], ["the /abbreviations/ page", page]].forEach(([what, src]) => {
-    const missing = [...senses].filter((w) => !src.includes(`<td id="${anchor(w)}">${w}</td>`));
+    // The word itself may be wrapped in a link out to a clue that uses the
+    // convention — the standalone page does that, the tutorial does not,
+    // because there the table sits inside a solve nobody should be sent out of.
+    const missing = [...senses].filter((w) => {
+      const cell = `<td id="${anchor(w)}">`;
+      const at = src.indexOf(cell);
+      return at < 0 || src.slice(at + cell.length, src.indexOf("</td>", at))
+        .replace(/^<a href="[^"]+">|<\/a>$/g, "") !== w;
+    });
     assert(missing.length === 0,
       `every sense in the JSON is in ${what}, anchored (run tools/build_abbreviations.py `
         + `then tools/build_seo_pages.py) — missing ${missing.length}, e.g. `
         + missing.slice(0, 3).join(", "));
   });
+
+  // A glossary word links to one real clue whose wordplay uses it. The page's
+  // description says how many words do, so the count and the table are checked
+  // against each other: a description that promises links the table does not
+  // carry is the page telling a solver about a thing that is not there.
+  const glossary = page.split('<table class="glossary">')[1].split("</table>")[0];
+  const clueLinks = [...glossary.matchAll(/href="[^"]*\/puzzles\/([^/"]+)\/#([^"]+)"/g)];
+  assert(clueLinks.length > 0,
+    "the glossary links its words into the clues that use them "
+      + "(run tools/build_seo_pages.py)");
+  const puzzleHtml = {};
+  const dead = clueLinks.filter(([, id, frag]) => {
+    if (!(id in puzzleHtml)) {
+      const f = path.join(ROOT, "puzzles", id, "index.html");
+      puzzleHtml[id] = fs.existsSync(f) ? fs.readFileSync(f, "utf8") : "";
+    }
+    return !puzzleHtml[id].includes(`id="${frag}"`);
+  });
+  assert(dead.length === 0,
+    `every glossary link lands on a clue that exists — ${dead.length} do not, e.g. `
+      + dead.slice(0, 3).map(([, id, frag]) => `puzzles/${id}/#${frag}`).join(", "));
+  const promised = (page.match(
+    /<meta name="description" content="[^"]*?(\d+) of them link/) || [])[1];
+  assert(Number(promised) === clueLinks.length,
+    `the glossary's description counts the links the table actually has `
+      + `(it claims ${promised}, the table has ${clueLinks.length})`);
 
   // The glossary is on one indexable URL, not two competing for the same query:
   // /learn/ links to it instead of repeating the table.
