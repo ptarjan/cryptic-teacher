@@ -1471,6 +1471,74 @@
     return `, sitting mid-clue, so the wordplay is “${esc(before)}” and “${esc(after)}” either side of it.`;
   }
 
+  // ---------- doing the anagram ----------
+  //
+  // Spotting that a clue IS an anagram is the easy half. Rearranging eleven
+  // letters in your head is the half people actually fail at, and they fail for
+  // a reason the page was causing: the fodder is printed as a word, so the eye
+  // keeps re-reading it in the one order that is certainly wrong.
+  //
+  // The letters go round a ring instead, which is what setters have always told
+  // solvers to do on paper — no start, no end, nothing to re-read. Shuffle deals
+  // them again, and a tile can be struck out as it is placed. There is no
+  // dictionary behind it and there will not be one: a box that hands back the
+  // word answers the clue, and answering the clue is what the last rung is for.
+  //
+  // It lives on the blocks rung and nowhere earlier, because that is the rung
+  // that already hands over the fodder. The ring adds no letter the solver
+  // hasn't bought; it only takes away the order.
+  let ring = null;  // { key, order, struck } — one clue's worth, cleared by key
+
+  // Deal an order that is neither the fodder as written nor the answer as
+  // spelled. Landing on either would make a shuffle look broken, and landing on
+  // the answer would hand over the solve by luck a rung early.
+  function dealRing(letters, forbidden) {
+    const bad = forbidden.map((w) => (w || "").toUpperCase().replace(/[^A-Z]/g, ""));
+    let order = letters.map((_, i) => i);
+    for (let attempt = 0; attempt < 20; attempt++) {
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      if (bad.indexOf(order.map((i) => letters[i]).join("")) < 0) return order;
+    }
+    return order;  // repeated letters can make every deal a forbidden one
+  }
+
+  function ringHTML(ann) {
+    const fodder = ((ann.anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
+    // Keyed off the annotation rather than the clue id: ladderSteps() is a pure
+    // function of the annotation and is called for counting as well as drawing,
+    // and threading a grid coordinate through it to remember a shuffle would
+    // put board state into the thing that describes a clue.
+    const key = (ann.answer || "") + "|" + fodder;
+    // Three letters have six arrangements and you can see all of them at once,
+    // so a ring is furniture rather than help.
+    if (fodder.length < 4) return "";
+    const letters = fodder.split("");
+    if (!ring || ring.key !== key) {
+      const forbidden = [fodder, ann.answer];
+      ring = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {} };
+    }
+    // The ring grows with the fodder so the tiles never overlap; the disc is
+    // sized off the same radius so the box is never taller than its contents.
+    const radius = Math.max(46, Math.round((letters.length * 30) / (2 * Math.PI)));
+    const tiles = ring.order.map((idx, pos) => {
+      const a = (pos / letters.length) * 2 * Math.PI - Math.PI / 2;
+      return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}"
+        data-ana="${idx}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
+        style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
+               top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${letters[idx]}</button>`;
+    }).join("");
+    const d = radius * 2 + 34;
+    return `<div class="anagram-ring">
+      <div class="ana-disc" style="width:${d}px;height:${d}px">${tiles}</div>
+      <p class="muted">The same letters with no order to fall back into. Tap one to
+        cross it off as you place it.</p>
+      <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
+    </div>`;
+  }
+
   function ladderSteps(ann, clue) {
     if (!ann) return [];
     const t = (ann.type || "").toLowerCase();
@@ -1712,7 +1780,8 @@
       steps.push({
         key: "blocks",
         label: LABELS.blocks,
-        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>`
+        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>` +
+          (t.includes("anagram") ? ringHTML(ann) : "")
       });
     }
 
@@ -2453,6 +2522,22 @@
         if (a) finishGuess(null, a);
       };
     }
+
+    // The anagram ring. Both handlers only ever touch `ring`, so a redraw is
+    // the whole update — the tiles are where the letters are, not what they are.
+    panel.querySelectorAll("button.ana-tile").forEach((b) => {
+      b.onclick = () => {
+        const i = b.getAttribute("data-ana");
+        if (ring) { ring.struck[i] = !ring.struck[i]; renderHintPanel(); }
+      };
+    });
+    const shuffle = document.getElementById("ana-shuffle");
+    // Struck letters survive a shuffle: they are the ones already on the grid,
+    // and dealing again is a fresh look at what is LEFT.
+    if (shuffle && ring) shuffle.onclick = () => {
+      ring.order = dealRing(ring.letters, ring.forbidden);
+      renderHintPanel();
+    };
 
     // The glossary lives in the tutorial section of this same page, so
     // reaching it costs no navigation and loses no solve. A plain #anchor
