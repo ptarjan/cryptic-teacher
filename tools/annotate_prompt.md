@@ -165,6 +165,29 @@ Rules:
   which piece goes inside which. `python3 tools/find_renarration.py` lists the current
   candidates, worst first; it deliberately does not gate, because no lexical rule
   separates those two sentences and every version that tried was wrong half the time.
+- Every puzzle here is from a British paper and a large share of the readers are not
+  British. When a clue turns on knowledge a British solver absorbs from the street and
+  nobody else does — a county, a motorway, a bank holiday, a soap opera, a cricket
+  position, a coin that stopped circulating, a supermarket, a public-school word, a
+  regiment, a Cockney or rhyming-slang sense — say what the thing IS in the block `note`
+  or `definitionFit` that needs it. One clause: `THE OVAL is a London cricket ground`,
+  `a BOB was a shilling`. This is not the same as a crossword convention (`ER` = Queen,
+  `worker` = ANT), which the app teaches in its own right; this is general knowledge that
+  only looks general from inside Britain. Do not gloss what a dictionary reader anywhere
+  already has — "London", "the Thames", "Shakespeare" need nothing.
+- Show the trap, not just the exit. The obvious wrong reading is the thing the solver
+  actually has in their head when they reach for a hint, and a walkthrough that goes
+  straight to the right parse never meets them there. Where a clue has one dominant false
+  path — a word that looks like an anagram indicator and isn't, a definition that looks
+  like it ends three words earlier, a surface that reads as a container when it is a
+  charade — name it and say what kills it: `"Flowers" wants to be the definition; it is
+  the river.` Two conditions. It must be the reading a competent solver would genuinely
+  take first, not a strawman. And it must be a settled sentence about the CLUE — never
+  your own working-out about your own parse. `BACKTRACKS` in the validator ERRORS on
+  "no wait", "actually:", "let me reconsider" and the rest, and that stands: the false
+  start you show is the solver's, written down once and already resolved, not a
+  transcript of yours. Only where such a path exists — most clues have none, and
+  inventing one is worse than omitting it.
 - `definitionFit` is REQUIRED on every clue: one sentence saying why the ANSWER means the
   DEFINITION. This is the half of a cryptic that isn't mechanical. The blocks spell the
   answer out of the wordplay and the definition rung points at the words, but nothing
