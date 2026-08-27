@@ -727,6 +727,12 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     "something is hidden, so the footer count means something");
   assert(/archive|search/i.test(registry["picker-more"].innerHTML),
     "the hidden ones are still signposted: " + registry["picker-more"].innerHTML);
+  // And it is a shortlist, not the catalogue. Every taught puzzle used to be
+  // listed, which at 226 of them is a scroll, not an answer to "what next"
+  // (Paul, 2026-08-27). Rows the solver has touched are exempt and don't count.
+  const untouched = others.filter((li) => !/letters in|solved ✓/.test(li.children[0].innerHTML));
+  assert(untouched.length <= 12,
+    "the default list is a shortlist, not the archive: " + untouched.length + " untouched rows");
 }
 // filtering narrows, and matches setters as well as numbers
 {
