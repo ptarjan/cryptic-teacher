@@ -34,7 +34,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=02c22bd8">
+<link rel="stylesheet" href="style.css?v=163a7c62">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -93,8 +93,11 @@
     <strong>Choose a puzzle</strong>
     <button class="ghost small" id="btn-picker-close">✕</button>
   </div>
-  <input id="picker-search" type="search" autocomplete="off" spellcheck="false"
+  <!-- The words are hard to spell and easy to forget; the numbers are neither,
+       and 226 of them in the dropdown would bury the words. app.js fills it. -->
+  <input id="picker-search" type="search" autocomplete="off" spellcheck="false" list="picker-terms"
          placeholder="Filter by number, setter or difficulty…" aria-label="Filter puzzles">
+  <datalist id="picker-terms"></datalist>
   <p class="muted small-note">Every puzzle listed here is hand-annotated: each clue has the
      6-level teaching ladder.</p>
   <ul id="picker-list"></ul>
@@ -182,8 +185,8 @@
   <a href="https://github.com/ptarjan/cryptic-teacher">Source</a>.</p>
 </footer>
 
-<script src="puzzles/index.js?v=6ef68973"></script>
+<script src="puzzles/index.js?v=52a54b5c"></script>
 <script src="abbreviations.js?v=906792de"></script>
-<script src="app.js?v=a8c45dfa"></script>
+<script src="app.js?v=63403e24"></script>
 </body>
 </html>

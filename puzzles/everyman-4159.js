@@ -30,7 +30,33 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEADBAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HEADBAND",
+    "definition": "tennis gear",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "HEAD",
+     "BAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "gives": "HEAD",
+      "note": "to head a department is to manage it"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group, of musicians or of anyone else"
+     }
+    ],
+    "walkthrough": "Both halves are office words on the surface — one runs a department, the other plays music — and only when they are read as one word does anything sporting appear.",
+    "definitionFit": "tennis gear: definition by example, since the answer is one item of a player's kit, the strip that keeps sweat and hair out of the eyes."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +73,32 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HARMONISED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HARMONISED",
+    "definition": "reconciled",
+    "indicators": [
+     "after massage"
+    ],
+    "indicatorNotes": {
+     "after massage": "Massage is kneading something into a new shape, so what comes out of it is not in the order it went in."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "ADMONISHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Admonisher",
+      "gives": "ADMONISHER",
+      "note": "ten letters of fodder — a scolder, the person who tells you off"
+     }
+    ],
+    "walkthrough": "Ten letters is a lot to shuffle blind, so the tell is the surface: a scolder having a massage is a sentence built to be taken apart, not believed.",
+    "definitionFit": "reconciled: voices harmonised are brought into agreement, and the musical picture is how English says a quarrel has been settled."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +119,26 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANGLEPOISELAMPS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ANGLEPOISE LAMPS",
+    "definition": "We're known to be bent in the workplace and when we're not charged, you're in the dark",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "We're known to be bent in the workplace",
+      "gives": "",
+      "note": "the surface accuses a pair of crooked office workers; read straight, being bent is the whole point of a jointed arm on a desk"
+     },
+     {
+      "clueFragment": "when we're not charged, you're in the dark",
+      "gives": "",
+      "note": "'charged' sits next to 'bent' so it reads as a police charge, and the darkness gives the real sense away: no power, no light"
+     }
+    ],
+    "walkthrough": "There is no wordplay to take apart. The first person plural is the objects talking, which turns 'we're bent' into a boast about design rather than a confession.",
+    "definitionFit": "The whole clue is one description: a desk lamp made to be bent into position, and useless the moment its power is cut."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +155,31 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BATTERY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BATTERY",
+    "definition": "I'll give you energy",
+    "definitionNote": "The answer is a thing, but the setter lets it speak: 'I'll give you energy' says what it does for you rather than offering a noun you could swap in.",
+    "indicators": [],
+    "pieces": [
+     "BATTER",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a pancake",
+      "gives": "BATTER",
+      "note": "a pancake is nothing but batter until it hits the pan"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "Y",
+      "note": "the -y ending English adds to mean 'resembling it': sugary, watery, chalky"
+     }
+    ],
+    "walkthrough": "The colon does the work of an equals sign, and the question mark is the setter admitting that the second half is a made-up adjective rather than a word you would find in a dictionary.",
+    "definitionFit": "I'll give you energy: the cell stores charge and hands it over on demand, so the clue names the thing purely by its one job."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +196,40 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NACHO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + deletion",
+    "answer": "NACHO",
+    "definition": "Chip",
+    "indicators": [
+     "the ultimate in",
+     "topless"
+    ],
+    "indicatorNotes": {
+     "the ultimate in": "The ultimate one is the last one, and 'in' points at the phrase that follows: take only its final letter.",
+     "topless": "This is a down clue, so the top of a word is the letter at its head, and a topless word has lost it."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "N",
+     "ACHO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he-men",
+      "gives": "N",
+      "note": "the letter at the very end of the hyphenated phrase"
+     },
+     {
+      "clueFragment": "virile",
+      "gives": "ACHO",
+      "note": "virile is macho, and that word beheaded leaves four letters"
+     }
+    ],
+    "walkthrough": "'Chip's' looks possessive and is really 'chip is', which is the join between definition and wordplay. The crisp on the plate has nothing to do with the muscle-bound surface.",
+    "definitionFit": "Chip: the clue names the class and leaves you to supply the Mexican member of it, a single triangle of fried tortilla."
+   }
   },
   {
    "id": "5-across",
@@ -123,7 +250,35 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATWAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "AT WAR",
+    "definition": "Fighting",
+    "indicators": [
+     "after cycling"
+    ],
+    "indicatorNotes": {
+     "after cycling": "Cycling sends a letter round from one end of a word to the other with the rest keeping their order; the bike ride is decoration."
+    },
+    "pieces": [
+     "A",
+     "TWAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken at face value, one letter"
+     },
+     {
+      "clueFragment": "dermal disorder",
+      "gives": "TWAR",
+      "note": "a wart is a blemish of the skin, and its last letter rides round to the front"
+     }
+    ],
+    "walkthrough": "The surface is a cyclist with a skin complaint; the answer is two words about armies. 'Dermal' is there to say which kind of blemish is wanted.",
+    "definitionFit": "Fighting: the phrase describes two sides in open conflict, so it stands in wherever you could say that nations are fighting."
+   }
   },
   {
    "id": "5-down",
@@ -140,7 +295,36 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMENIA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ARMENIA",
+    "definition": "Country",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Something placed about another thing is wrapped round the outside of it, so what follows goes inside."
+    },
+    "pieces": [
+     "AR",
+     "MEN",
+     "IA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "ARIA",
+      "note": "an aria is the song a character sings in an opera"
+     },
+     {
+      "clueFragment": "chess pieces",
+      "gives": "MEN",
+      "note": "the pieces on a board are collectively its men"
+     }
+    ],
+    "walkthrough": "The surface promises country and western; the definition means country in the atlas sense. Chess supplying MEN is a convention worth pocketing — it turns up constantly.",
+    "definitionFit": "Country: the clue names the category and the answer supplies one particular member of it, the small republic south of the Caucasus."
+   }
   },
   {
    "id": "6-down",
@@ -161,7 +345,26 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHEELCHAIRRAMPS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "WHEELCHAIR RAMPS",
+    "definition": "They're inclined to get you to leave",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "They're inclined",
+      "gives": "",
+      "note": "the surface reads this as 'disposed to'; the sense meant is the physical one, sloping rather than willing"
+     },
+     {
+      "clueFragment": "to get you to leave",
+      "gives": "",
+      "note": "not a hint to clear off — it is about being able to get out of a building at all"
+     }
+    ],
+    "walkthrough": "Nothing here is spelled out of anything. The clue turns on one word carrying two senses at once, which is the whole of what a cryptic definition asks you to spot.",
+    "definitionFit": "Read straight, the clue describes the sloped runs that let a wheeled user get out of a building — inclined meaning tilted, not willing."
+   }
   },
   {
    "id": "7-down",
@@ -178,7 +381,49 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RASP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + reversal",
+    "answer": "RASP",
+    "definition": "file",
+    "indicators": [
+     "Looking up",
+     "a glimpse of"
+    ],
+    "indicatorNotes": {
+     "Looking up": "This is a down clue, so anything looking up is read from the bottom of the grid towards the top — backwards, in other words.",
+     "a glimpse of": "You catch only the beginning of something you glimpse, so take the opening letter of the word that follows."
+    },
+    "subReversals": [
+     {
+      "from": "PSAR",
+      "to": "RASP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'll add",
+      "gives": "PS",
+      "note": "a postscript is what you add after signing off"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article standing as one letter"
+     },
+     {
+      "clueFragment": "rank",
+      "gives": "R",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "walkthrough": "'Rank and file' is one phrase on the surface and two jobs underneath: only 'rank' feeds the wordplay, and 'file' is the definition sitting at the end.",
+    "definitionFit": "file: a rasp is the coarse-toothed file a woodworker reaches for when the shaping is still rough, so the definition is a plain synonym.",
+    "pieces": [
+     "R",
+     "A",
+     "SP"
+    ]
+   }
   },
   {
    "id": "8-down",
@@ -195,7 +440,33 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCHILLER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCHILLER",
+    "definition": "Romantic German",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SCH",
+     "ILLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "the standard abbreviation, as printed on a map or a timetable"
+     },
+     {
+      "clueFragment": "increasingly unwell",
+      "gives": "ILLER",
+      "note": "'increasingly' asks for the comparative — more ill than before"
+     }
+    ],
+    "walkthrough": "The capital R is the clue's one piece of honesty: this is the literary movement, not a lovestruck tourist, and the man wanted is its poet and playwright.",
+    "definitionFit": "Romantic German: definition by example — he is one particular writer of German Romanticism, and the capital letter flags the movement rather than a mood."
+   }
   },
   {
    "id": "9-across",
@@ -212,7 +483,28 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROGET",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROGET",
+    "definition": "Booked",
+    "definition2": "man of many words",
+    "definitionNote": "'Booked' is a participle where the answer is a person's surname: the setter means his words ended up between covers, so the grammar bends for the joke.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Booked",
+      "gives": "",
+      "note": "the surface offers cautioned or reserved; the sense wanted is that the name now sits on a spine on every reference shelf"
+     },
+     {
+      "clueFragment": "man of many words",
+      "gives": "",
+      "note": "the Victorian physician who spent his retirement listing synonyms by the thousand"
+     }
+    ],
+    "walkthrough": "The thesaurus is so completely his that the surname alone has come to mean the book, and that is exactly what 'Booked' is playing on.",
+    "definitionFit": "Both halves point at Peter Mark Roget: the doctor who compiled a thesaurus of synonyms, and whose surname has since become the book itself."
+   }
   },
   {
    "id": "10-across",
@@ -229,7 +521,46 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUCUMBERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "CUCUMBERS",
+    "definition": "salad components",
+    "indicators": [
+     "Before",
+     "alternately"
+    ],
+    "indicatorNotes": {
+     "Before": "The word says where the last piece sits: everything else has to be assembled in front of it.",
+     "alternately": "Taking a word alternately means keeping every other letter and throwing away the ones in between."
+    },
+    "linkWords": [
+     "on"
+    ],
+    "pieces": [
+     "CUC",
+     "UMBER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crunch",
+      "gives": "CUC",
+      "note": "every other letter of the word, starting at the first"
+     },
+     {
+      "clueFragment": "brown",
+      "gives": "UMBER",
+      "note": "umber is a brown earth pigment, raw or burnt"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s is the abbreviation on any stopwatch"
+     }
+    ],
+    "walkthrough": "Everything on the surface is edible, and only 'brown' is doing colour work: umber is a painter's pigment rather than a food, which is the switch the clue turns on.",
+    "definitionFit": "salad components: the plural names them as one of the handful of vegetables a green salad gets sliced together from."
+   }
   },
   {
    "id": "11-across",
@@ -256,7 +587,29 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "OVEREMOTIONAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "OVER-EMOTIONAL",
+    "definition": "Into amore ('love') - badly so?",
+    "indicators": [
+     "badly"
+    ],
+    "indicatorNotes": {
+     "badly": "Doing a thing badly is doing it wrong, and letters put together wrong are letters put together in the wrong order."
+    },
+    "anagram": {
+     "fodder": "INTO AMORE LOVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Into amore ('love')",
+      "gives": "INTOAMORELOVE",
+      "note": "thirteen letters of fodder, the bracketed translation counted in"
+     }
+    ],
+    "walkthrough": "The bracket is not an aside: the glossed word is fodder too. And the sentence doubles as the definition, which is what an all-in-one clue does.",
+    "definitionFit": "Read straight the clue defines itself: being badly into romance means feelings pitched far higher than the occasion asks for."
+   }
   },
   {
    "id": "12-down",
@@ -273,7 +626,29 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCENDIARY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INCENDIARY",
+    "definition": "very hot",
+    "indicators": [
+     "resort"
+    ],
+    "indicatorNotes": {
+     "resort": "Split it as re-sort and the holiday town becomes an instruction: put these letters in order a second time."
+    },
+    "anagram": {
+     "fodder": "NICER DAY IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Nicer day in",
+      "gives": "NICERDAYIN",
+      "note": "ten letters of fodder, holiday brochure and all"
+     }
+    ],
+    "walkthrough": "'Very hot' is not about the weather the surface is selling: the answer is the word for a remark inflammatory enough to set a room alight.",
+    "definitionFit": "very hot: literally fire-raising, and used of anything — a speech, a report — heated enough to start something burning."
+   }
   },
   {
    "id": "13-across",
@@ -290,7 +665,38 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRONY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "IRONY",
+    "definition": "subtle humour",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "The word points at the end of whatever precedes it, so only that word's closing letter is wanted."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "IRON",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tough",
+      "gives": "IRON",
+      "note": "iron stands for anything hard and unyielding — an iron will, an iron constitution"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "Y",
+      "note": "the last letter of the word"
+     }
+    ],
+    "walkthrough": "'Tough guy' is one idea on the surface and two separate instructions underneath, which is the whole trick of the clue.",
+    "definitionFit": "subtle humour: saying the opposite of what you mean and trusting your listener to hear it — comedy that never announces itself."
+   }
   },
   {
    "id": "14-across",
@@ -307,7 +713,54 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WALKATHON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + charade",
+    "answer": "WALKATHON",
+    "definition": "race no-one runs",
+    "indicators": [
+     "unusual",
+     "about"
+    ],
+    "indicatorNotes": {
+     "unusual": "Something unusual is out of its ordinary state, and for a word that means out of its ordinary order.",
+     "about": "One piece placed about another goes round the outside of it, so what follows drops inside."
+    },
+    "linkWords": [
+     "is",
+     "and"
+    ],
+    "pieces": [
+     "W",
+     "ALK",
+     "ATH",
+     "ON"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WHAT",
+      "gives": "WATH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "WATH",
+      "note": "the four letters of the question word, re-ordered"
+     },
+     {
+      "clueFragment": "a 50k",
+      "gives": "ALK",
+      "note": "a, then L for the Roman fifty, then k"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "ON",
+      "note": "on means concerning, as in a book on birds"
+     }
+    ],
+    "walkthrough": "The question mark concedes that the definition is a joke, and the distance is not measuring anything: '50k' is there to hand over three letters.",
+    "definitionFit": "race no-one runs: a sponsored long-distance walk is a race by courtesy only, since the point of it is that nobody breaks into a run."
+   }
   },
   {
    "id": "14-down",
@@ -328,7 +781,29 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "WEARTHIN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "WEAR THIN",
+    "definition": "grow ragged",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part of what follows rather than the whole of it, which is where the letters are sitting."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raw earth I neglected",
+      "gives": "WEARTHIN",
+      "note": "the letters run unbroken through these words, starting partway into the first"
+     }
+    ],
+    "walkthrough": "A long hidden answer hides best behind a plausible sentence, and this one runs straight through a gardener's excuse. 'Some' is the only signpost you are given.",
+    "definitionFit": "grow ragged: cloth rubbed until it is nearly through, and by extension a joke or a patience that is close to giving out."
+   }
   },
   {
    "id": "15-across",
@@ -349,7 +824,30 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "EASYCHAIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EASY CHAIR",
+    "definition": "one comfortably supporting you",
+    "indicators": [],
+    "pieces": [
+     "EASY",
+     "CHAIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Laid-back",
+      "gives": "EASY",
+      "note": "a laid-back person is unhurried and untroubled"
+     },
+     {
+      "clueFragment": "committee head",
+      "gives": "CHAIR",
+      "note": "whoever chairs a meeting is simply the chair"
+     }
+    ],
+    "walkthrough": "The definition describes furniture but reads as a person, which is what keeps the committee surface standing up right to the last word.",
+    "definitionFit": "one comfortably supporting you: the definition names the armchair by what it does, taking your weight in padded comfort."
+   }
   },
   {
    "id": "16-down",
@@ -366,7 +864,29 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAGIEST",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CAGIEST",
+    "definition": "most sly",
+    "indicators": [
+     "In"
+    ],
+    "indicatorNotes": {
+     "In": "'In' says the letters are already sitting inside the words that follow and need no assembling."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America, GI esteemed",
+      "gives": "CAGIEST",
+      "note": "the letters run on across the end of one word and into the next two"
+     }
+    ],
+    "walkthrough": "The comma and the capital letters are all working for the surface, which is precisely where the eye stops looking for a join.",
+    "definitionFit": "most sly: cagey means wary and unwilling to give anything away, so the superlative is guardedness rather than outright cunning."
+   }
   },
   {
    "id": "17-across",
@@ -400,7 +920,49 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGIMEN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram + container",
+    "answer": "REGIMEN",
+    "definition": "diet",
+    "indicators": [
+     "Most of",
+     "sadly",
+     "eaten"
+    ],
+    "indicatorNotes": {
+     "Most of": "Taking most of a word means keeping all of it but the final letter.",
+     "sadly": "Sadly here means badly, out of sorts — and letters out of sorts are letters out of order.",
+     "eaten": "What is eaten disappears inside the eater, which is where these two letters go."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "REG",
+     "IM",
+     "EN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GREEN",
+      "gives": "REGEN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greens",
+      "gives": "REGEN",
+      "note": "drop the last letter of the vegetables and re-order the five that are left"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "IM",
+      "note": "the setter calls himself Everyman, so 'Everyman is' shortens to I'm"
+     }
+    ],
+    "walkthrough": "Everyman signs his own puzzles: whenever his name appears it means I or me, and it is worth learning because he uses it most weeks.",
+    "definitionFit": "diet: a regimen is the whole prescribed routine of food, rest and exercise, and 'diet' names the eating half of it."
+   }
   },
   {
    "id": "18-across",
@@ -421,7 +983,41 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIGHTFINGERED",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "LIGHT-FINGERED",
+    "definition": "inclined to steal",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
+    },
+    "pieces": [
+     "LIGHT",
+     "FINGERED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disorder",
+      "gives": "FIGHT",
+      "note": "a fight is disorder breaking out"
+     },
+     {
+      "clueFragment": "persisted",
+      "gives": "LINGERED",
+      "note": "what persisted has lingered on"
+     },
+     {
+      "clueFragment": "Spooner's",
+      "soundsLike": "FIGHT LINGERED",
+      "gives": "LIGHTFINGERED",
+      "note": "say those two words with their opening sounds traded, F for L"
+     }
+    ],
+    "walkthrough": "A Spooner clue is easiest attacked from the definition end: think of the phrase for a thief first, then swap the sounds back and check the clue's own words appear.",
+    "definitionFit": "inclined to steal: the idiom names a habitual petty thief by the deftness of the hands that do the taking."
+   }
   },
   {
    "id": "19-down",
@@ -438,7 +1034,35 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INGOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "INGOT",
+    "definition": "gold",
+    "indicators": [
+     "Leading characters in"
+    ],
+    "indicatorNotes": {
+     "Leading characters in": "A word's leading character is the letter it starts with, and 'in' points at which words to take them from."
+    },
+    "pieces": [
+     "IN",
+     "GOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish netball",
+      "gives": "IN",
+      "note": "the opening letter of each of the two words"
+     },
+     {
+      "clueFragment": "won",
+      "gives": "GOT",
+      "note": "you got the prize you won"
+     }
+    ],
+    "walkthrough": "The question mark is the setter admitting that the bar need not be gold — silver and steel are cast the same way — while the surface keeps you on medals.",
+    "definitionFit": "gold: definition by example, since the answer is a cast bar of any metal and the bar everyone pictures happens to be the bullion one."
+   }
   },
   {
    "id": "20-down",
@@ -455,7 +1079,32 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETNA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ETNA",
+    "definition": "volcano",
+    "indicators": [
+     "regularly ignored"
+    ],
+    "indicatorNotes": {
+     "regularly ignored": "The letters in the regular positions are the ones thrown away, leaving every other one behind."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Estonian",
+      "gives": "ETNA",
+      "note": "drop every second letter of the nationality and read what is left"
+     }
+    ],
+    "walkthrough": "An eight-letter nationality and a four-letter answer: the arithmetic tells you letters are being discarded before you have worked out which ones.",
+    "definitionFit": "volcano: definition by example — the answer is one particular Sicilian mountain, and the clue names only the class it belongs to.",
+    "pieces": [
+     "E",
+     "T",
+     "N",
+     "A"
+    ]
+   }
   },
   {
    "id": "21-across",
@@ -472,7 +1121,30 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPERING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TEMPERING",
+    "definition": "Softening",
+    "definition2": "hardening",
+    "indicators": [],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Softening",
+      "gives": "",
+      "note": "moderating something — taking the edge off a remark, a mood or a judgement"
+     },
+     {
+      "clueFragment": "hardening",
+      "gives": "",
+      "note": "the smith's heat-and-quench treatment that toughens steel"
+     }
+    ],
+    "walkthrough": "Three words, and the middle one pretends to object. The contradiction is the clue: one word is used in opposite directions by moralists and metalworkers.",
+    "definitionFit": "The same word runs both ways: moderating a mood takes the heat out of it, while the heat treatment leaves steel harder than it was."
+   }
   },
   {
    "id": "22-across",
@@ -489,7 +1161,33 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAMBA",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "MAMBA",
+    "definition": "Primarily mouthy African menace biting avians?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "Primarily means first of all, so only the opening letter of each following word counts."
+    },
+    "blocks": [
+     {
+      "clueFragment": "mouthy African menace biting avians",
+      "gives": "MAMBA",
+      "note": "the opening letter of each of the five words, read in order"
+     }
+    ],
+    "walkthrough": "Every word does two jobs: it hands over a letter and it describes the creature. The question mark covers the birds, which are a snack rather than a speciality.",
+    "definitionFit": "Read straight the clue describes the snake itself: a fast African killer that strikes with its mouth and does take birds.",
+    "pieces": [
+     "M",
+     "A",
+     "M",
+     "B",
+     "A"
+    ]
+   }
   },
   {
    "id": "23-across",
@@ -506,7 +1204,38 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSET",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ASSET",
+    "definition": "useful",
+    "definitionNote": "The answer is a noun and 'useful' an adjective; the setter's 'that's' does the joining, leaving you to supply the thing that is useful.",
+    "indicators": [
+     "having chased away"
+    ],
+    "indicatorNotes": {
+     "having chased away": "Whatever a hound drives off is gone, so the letter named after it comes out of the word in front."
+    },
+    "linkWords": [
+     "that's"
+    ],
+    "pieces": [
+     "ASSET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hound",
+      "gives": "BASSET",
+      "note": "a basset is a short-legged breed of hound"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "b is the bishop in chess notation"
+     }
+    ],
+    "walkthrough": "The surface is a dog chasing a clergyman. The wordplay wants the breed rather than the animal, and the chessboard supplies the letter that leaves.",
+    "definitionFit": "useful: an asset is anything on the credit side, a resource you are glad to have, so the accountant's sense widens into any advantage."
+   }
   },
   {
    "id": "24-across",
@@ -527,7 +1256,27 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
     ]
    },
    "solution": "STANDSBY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STANDS BY",
+    "definition": "Supports",
+    "definition2": "without doing anything",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Supports",
+      "gives": "",
+      "note": "staying loyal to someone through trouble, refusing to move away from them"
+     },
+     {
+      "clueFragment": "without doing anything",
+      "gives": "",
+      "note": "waiting in readiness, or simply looking on while something happens"
+     }
+    ],
+    "walkthrough": "The dash is doing the work of 'or', and the question mark flags the unflattering reading: the same phrase praises a friend and condemns a bystander.",
+    "definitionFit": "One phrase, two attitudes: backing a friend through trouble, and looking on while something happens without lifting a finger."
+   }
   }
  ]
 } /*JSON-END*/;

@@ -2246,7 +2246,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Everyman",
    "date": 1783206000000,
    "file": "everyman-4159.js",
-   "v": "12b6cbcb",
+   "v": "4f05d937",
    "annotated": false,
    "hasSolutions": true,
    "solutionsUnofficial": false,

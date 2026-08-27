@@ -402,13 +402,22 @@ registry["hx-letter"].onclick();
 assert(/letters? revealed/.test(registry["scorebar"].innerHTML), "letter reveals counted in score: " + registry["scorebar"].innerHTML);
 assert(registry["hint-meter"].innerHTML.includes("1 letter revealed"), "meter shows reveal count: " + registry["hint-meter"].innerHTML);
 
+// A question that is still open, in either of its two forms — words to point at
+// or families to choose between. Keyed off the block that wraps a live question
+// and nothing inside it: a graded verdict keeps the marked-up clue on the screen
+// for as long as the solver stays on the clue, so "are there words here" cannot
+// tell a question from an answer.
+function isAsking(body) {
+  return body.innerHTML.includes('class="hint-step guess"');
+}
+
 // Taking a rung is two clicks now: three of them ask you to point at the words
 // before they name them, so the button poses the question and "Just tell me"
 // answers it. Everything below walks the ladder the lazy way on purpose — the
 // guessing itself is tested at the end, on its own.
 function takeRung(btn) {
   btn.onclick();
-  if (registry["hint-body"].innerHTML.includes("guess-clue")) registry["guess-tell"].onclick();
+  if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
 }
 
 // --- pick a rung out of order, but not out of tier ---
@@ -423,7 +432,9 @@ function takeRung(btn) {
   const open = buttons.filter((b) => !b.disabled);
   const locked = buttons.filter((b) => b.disabled);
   assert(open.length >= 2, "the first tier offers a choice, not a single next step: " + open.length);
-  assert(/^Show hint \d/.test(open[0].textContent), "recommended rung leads: " + open[0].textContent);
+  assert(/^\d+ · /.test(open[0].textContent), "rungs read as their own question: " + open[0].textContent);
+  assert(!(open[0].className || "").includes("ghost"),
+    "the recommended rung leads, and says so by being the one solid button");
   assert(locked.length >= 1, "later rungs are locked from cold, not free for the taking");
   assert(/walkthrough/i.test(locked[locked.length - 1].textContent),
     "the walkthrough is never one click from cold: " + locked[locked.length - 1].textContent);
@@ -553,9 +564,21 @@ answer.split("").forEach((ch) => kd(ev(ch)));
   // as flashing open and shut ("clicking hints sometimes triggers them quickly
   // open then closed", Paul, iPhone, 2026-08-16). Listed with the cursor
   // controls so a new tappable thing in the panel cannot forget it.
-  ["grid", "hint-pattern", "hint-next", "hint-escape"].forEach((id) =>
+  ["grid", "hint-pattern", "hint-next", "hint-escape",
+   "clues-across", "clues-down"].forEach((id) =>
     assert(registry[id].listeners.mousedown,
       `${id} keeps the keyboard on mousedown, not after its own re-render`));
+
+  // But the clue lists must never RAISE one. The first move on a clue you have
+  // just picked is a question answered by tapping — which family, or which words
+  // — and a keyboard over the bottom half of the screen buries it (Paul,
+  // 2026-08-27). Only the grid and the letter strip decide to type.
+  {
+    const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+    const onPick = /li\.addEventListener\("click", \(\) => ([^;]+);/.exec(src);
+    assert(onPick && !/focusKbd/.test(onPick[1]),
+      "picking a clue from the list does not summon the keyboard: " + (onPick && onPick[1]));
+  }
 
   // A finger that moved across the grid is scrolling, not tapping — and the move
   // guard used to bail out BEFORE preventDefault. preventDefault on touchend is
@@ -939,7 +962,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     registry["hint-body"].innerHTML);
   for (let i = 0; i < 8; i++) {
     const btn = registry["hint-next"].children[0];
-    if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+    if (!btn || !btn.onclick || !/^\d+ · /.test(btn.textContent || "")) break;
     takeRung(btn);
   }
   assert(registry["hint-body"].innerHTML.includes("def-note"),
@@ -969,7 +992,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       // without committing to the last one must leave the answer unspoken.
       for (let i = 0; i < 8; i++) {
         const btn = registry["hint-next"].children[0];
-        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        if (!btn || !btn.onclick || !/^\d+ · /.test(btn.textContent || "")) break;
         if (/walkthrough/i.test(btn.textContent)) break;
         takeRung(btn);
         const bare = registry["hint-body"].innerHTML.replace(/[^A-Za-z]/g, "").toUpperCase();
@@ -1008,7 +1031,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       openClue(r);
       for (let i = 0; i < 8; i++) {
         const btn = registry["hint-next"].children[0];
-        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        if (!btn || !btn.onclick || !/^\d+ · /.test(btn.textContent || "")) break;
         if (/walkthrough/i.test(btn.textContent)) break;
         takeRung(btn);
         const spans = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
@@ -1043,7 +1066,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       let bought = false;
       for (let i = 0; i < 8; i++) {
         const btn = registry["hint-next"].children[0];
-        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        if (!btn || !btn.onclick || !/^\d+ · /.test(btn.textContent || "")) break;
         if (/building blocks/i.test(btn.textContent)) bought = true;
         takeRung(btn);
         const html = registry["hint-body"].innerHTML;
@@ -1186,7 +1209,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
           const btns = registry["hint-next"].children.filter((b) => b.onclick);
           if (!btns.length) break;
           for (const b of btns) {
-            const m = /^(?:Show hint )?\d+ · (.*)$/.exec(b.textContent || "");
+            const m = /^\d+ · (.*)$/.exec(b.textContent || "");
             if (m && !names.has(m[1])) names.set(m[1], `${id} ${e.id} (${e.annotation.type})`);
           }
           takeRung(btns[0]);
@@ -1281,7 +1304,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       let html = "";
       for (let i = 0; i < 8; i++) {
         const btn = registry["hint-next"].children[0];
-        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        if (!btn || !btn.onclick || !/^\d+ · /.test(btn.textContent || "")) break;
         takeRung(btn);
         html = registry["hint-body"].innerHTML;
         if (html.includes("said aloud")) break;
@@ -1522,12 +1545,15 @@ registry["reset-puzzle"].onclick();
   // and the late look below had to walk it back once the keys landed. Two moves,
   // every time, on the commonest tap there is.
   //
-  // Tapping a clue focuses the typing input, and on a touch device that raises a
-  // keyboard, so silence there means "nothing has happened yet", not "nothing
-  // will". The wait is for the thing that is owed.
+  // Tapping a SQUARE focuses the typing input, and on a touch device that raises
+  // a keyboard, so silence there means "nothing has happened yet", not "nothing
+  // will". The wait is for the thing that is owed. Picking a clue off the list
+  // owes nothing — it does not raise a keyboard at all — so the square's
+  // mousedown is what starts this sequence.
   drain();                               // drain the look left over from the tap above
   vv.height = 1000; vv.offsetTop = 0;
   win.pageYOffset = 0; win.scrolls.length = 0;
+  registry["grid"].listeners.mousedown[0]();
   clues[0].listeners.click[0]();
   global.flushTimers(100);
   assert(win.scrolls.length === 0,
@@ -1750,9 +1776,8 @@ registry["reset-puzzle"].onclick();
   const buttons = registry["hint-next"].children;
   assert(buttons.length && !buttons.some((b) => b.disabled),
     "solving unlocks every rung: " + buttons.map((b) => b.textContent + (b.disabled ? " [locked]" : "")).join(" | "));
-  assert(!buttons.some((b) => /^Show hint /.test(b.textContent)),
-    "a solved clue's rungs are the explanation, not hints to spend: "
-      + buttons.map((b) => b.textContent).join(" | "));
+  assert(!buttons.some((b) => /hint/i.test(b.textContent)),
+    "rungs are questions, never hints to spend: " + buttons.map((b) => b.textContent).join(" | "));
 
   // Read the lot, walkthrough included, and the score must not move.
   const before = registry["scorebar"].innerHTML;
@@ -2394,7 +2419,7 @@ global.realSetTimeout(() => {
   };
   const rungs = () => registry["hint-next"].children;
   const rung = (re) => rungs().find((b) => re.test(b.textContent || "") && !b.disabled);
-  const asking = () => registry["hint-body"].innerHTML.includes('id="guess-check"');
+  const asking = () => isAsking(registry["hint-body"]);
   // Climb to the named rung, taking whatever is offered and declining every
   // question on the way, so the blocks rung is reached with the tier-0 rungs up.
   const climbTo = (re) => {
@@ -2602,6 +2627,107 @@ global.realSetTimeout(() => {
   }
 }
 
+// --- the search suggests the words, and every one of them finds something ---
+// The numbers are easy to type and there are 226 of them; the setters are the
+// opposite on both counts, which is what the dropdown is for. A suggestion that
+// returns an empty list would be worse than none, so each one is typed in.
+{
+  registry["btn-picker"].onclick();
+  const opts = [...registry["picker-terms"].innerHTML.matchAll(/value="([^"]*)"/g)].map((m) => m[1]);
+  assert(opts.length >= 5, "the search offers something to complete: " + opts.length);
+  assert(!opts.some((t) => /^\d+$/.test(t)),
+    "and not the numbers, which would bury every word in the list: " + opts.join(" "));
+  ["solved", "unfinished"].forEach((t) => assert(opts.includes(t),
+    `"${t}" is offered, because it is a filter and not just a thing to read: ` + opts.join(" ")));
+  opts.forEach((t) => {
+    typeInPicker(t);
+    assert(registry["picker-list"].children.length > 0,
+      `the search suggests "${t}" and "${t}" finds puzzles`);
+  });
+  typeInPicker("");
+  registry["btn-picker-close"].onclick();
+}
+
+// --- the type rung asks too, and its answer is a family (Paul, 2026-08-27) ---
+// Every other part of a clue is something you can be asked to point at. This one
+// is a choice among the seven the site teaches — and a ladder that asks about
+// every part except the first is a ladder that answers its own first question.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      if (e.annotation && e.annotation.type) { found = { id, e }; break; }
+    }
+    if (found) break;
+  }
+  assert(found, "some clue is annotated with a type");
+
+  // Back to cold every time: reset clears the score, so what a wrong answer and
+  // a right one each cost can be read off the same starting point.
+  const open = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[found.id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+    assert(li, "picker finds the puzzle to be asked about");
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + found.e.id].listeners.click[0]();
+    const btn = registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || ""));
+    assert(btn, "the type rung is offered: " + registry["hint-next"].innerHTML);
+    const before = registry["scorebar"].innerHTML;
+    btn.onclick();
+    return before;
+  };
+  // The buttons are written as markup, so they are read as markup: index to
+  // label, escaped exactly as the page escaped it.
+  const choices = () => {
+    const out = new Map();
+    const re = /id="gc-(\d+)" class="gc">([^<]+)</g;
+    let m;
+    while ((m = re.exec(registry["hint-body"].innerHTML))) out.set(m[2], m[1]);
+    return out;
+  };
+
+  open();
+  let html = registry["hint-body"].innerHTML;
+  assert(html.includes("guess-choices"), "the type rung asks before it tells: " + html);
+  assert(!html.includes('id="guess-check"'),
+    "and one of seven is a tap, not a tap and then a confirm: " + html);
+  assert(choices().size === 7,
+    "all seven families are offered every time, never narrowed to the plausible "
+      + "ones — the list is the vocabulary: " + choices().size);
+
+  // What it wanted, learned the expensive way, so the two answers below can be
+  // told apart without this test knowing the app's own table of families.
+  registry["guess-tell"].onclick();
+  const named = /kind of clue is this\?<\/span><p><strong>([^<]+)</.exec(registry["hint-body"].innerHTML);
+  assert(named, "the rung names the family it was after: " + registry["hint-body"].innerHTML);
+  const right = named[1];
+
+  // Wrong is never a dead end: the rung opens all the same, and is charged for.
+  const paid = open();
+  const wrong = [...choices().keys()].find((k) => k !== right);
+  registry["gc-" + choices().get(wrong)].onclick();
+  html = registry["hint-body"].innerHTML;
+  assert(html.includes("guess-verdict miss"), "a wrong family is graded: " + html);
+  assert(html.includes(">" + right + "<"), "and the rung opens anyway, naming it: " + html);
+  assert(registry["scorebar"].innerHTML !== paid,
+    "being told costs what it has always cost: " + registry["scorebar"].innerHTML);
+
+  // Right costs nothing. That is the whole reason to have a go.
+  const free = open();
+  registry["gc-" + choices().get(right)].onclick();
+  html = registry["hint-body"].innerHTML;
+  assert(html.includes("guess-verdict right"), "the right family is graded right: " + html);
+  assert(registry["scorebar"].innerHTML === free,
+    "and a rung you worked out yourself is free: " + free + " -> " + registry["scorebar"].innerHTML);
+  assert(registry["hint-meter"].innerHTML.includes("worked out"),
+    "which the meter says, because that is the number this is all for: "
+      + registry["hint-meter"].innerHTML);
+}
+
 // --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---
 // Once the definition and the indicator are both on screen, "what kind of clue
 // is this?" has nothing left to tell anyone, so it must stop gating the assembly
@@ -2752,7 +2878,7 @@ global.realSetTimeout(() => {
   const rung = el("hint-next").children[0];
   const label = rung.textContent;
   rung.onclick();
-  if (el("hint-body").innerHTML.includes("guess-clue")) reg["guess-tell"].onclick();
+  if (isAsking(el("hint-body"))) reg["guess-tell"].onclick();
   assert(el("hint-body").innerHTML.includes("hint-step"),
     `taking "${label}" after typing showed nothing: ` + el("hint-body").innerHTML.slice(0, 140));
   assert(el("hint-body").innerHTML !== bodyBefore, "the body says something new");
@@ -2803,7 +2929,7 @@ global.realSetTimeout(() => {
   let guard = 12;
   while (!named("Full walkthrough") && guard--) {
     rungs()[0].onclick();
-    if (reg["hint-body"].innerHTML.includes("guess-clue")) reg["guess-tell"].onclick();
+    if (isAsking(reg["hint-body"])) reg["guess-tell"].onclick();
   }
   const walk = named("Full walkthrough");
   assert(walk, "the ladder reaches the walkthrough: " + rungs().map((b) => b.textContent));
