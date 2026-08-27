@@ -600,10 +600,10 @@
         li.id = "clue-" + e.id;
         li.innerHTML = `<span class="clue-num">${e.number}</span><span class="clue-text"></span>` +
           `<span class="checkers"></span>`;
-        // Focus first: selectEntry places the panel, and the placement has to
-        // know a keyboard is on its way or it measures a screen that is about to
-        // shrink. The grid does it in this order too.
-        li.addEventListener("click", () => { focusKbd(); selectEntry(e, true); });
+        // No focusKbd: picking a clue off the list is not a decision to type,
+        // so it must not raise a keyboard over half the screen. See the
+        // mousedown handler on these lists for the other half of that rule.
+        li.addEventListener("click", () => selectEntry(e, true));
         ol.appendChild(li);
       });
     });
@@ -1832,7 +1832,13 @@
   // Buildable at all only because the annotations already store these as
   // literal spans of the clue: 1473/1473 definitions, 1471/1471 indicators,
   // 3131/3132 fragments. Measured across the corpus, not hoped for.
-  const GUESSABLE = { definition: 1, indicators: 1, blocks: 1 };
+  //
+  // The type rung is the exception to "literal spans": its answer is a family,
+  // not words in the clue, so it asks by offering the seven. It belongs here all
+  // the same — it is the one thing you can be asked before reading a word of the
+  // wordplay, and a ladder that asks about every other part and hands this one
+  // over is a ladder that answers its own first question (Paul, 2026-08-27).
+  const GUESSABLE = { type: 1, definition: 1, indicators: 1, blocks: 1 };
 
   // The clue split into things you can put a finger on. Whitespace-delimited, so
   // the punctuation welded to a word rides along with it, and the enumeration is
@@ -1887,6 +1893,24 @@
     return out;
   }
 
+  // The type rung's question. Its answer is a family rather than a run of words,
+  // so what comes back has `choices` where the others have `tokens`, and every
+  // reader downstream branches on that one field.
+  //
+  // All seven are always offered, in ladder order and never shuffled: the list
+  // IS the vocabulary this site is trying to teach, and seeing the same seven
+  // under every clue is most of how it gets learned. Narrowing it to plausible
+  // ones would make the question easier and the lesson smaller.
+  function familyAsk(ann) {
+    const right = familyOf(ann.type).label;
+    // familyOf falls back to a family that is not on the list, for a type no
+    // rule claims. There would be no right answer to pick, so there is no
+    // question, and the rung behaves exactly as it always did.
+    if (!FAMILIES.some((f) => f.label === right)) return null;
+    return { prompt: "Which of these is it?", choices: FAMILIES.map((f) => f.label),
+             answer: right, step: 0 };
+  }
+
   // What a rung asks, which tokens answer it, and which are no longer anybody's
   // to pick. Null when this clue cannot pose the question at all — an &lit whose
   // definition is the whole clue, a type with no indicators, a block rung with
@@ -1914,6 +1938,7 @@
     if (!ann) return null;
     const at = step || 0;
     if (at && rung !== "blocks") return null;
+    if (rung === "type") return familyAsk(ann);
     const tokens = clueTokens(e.clue);
     const target = rungTokens(e, rung, at);
     if (!target.length) return null;
@@ -2054,9 +2079,12 @@
   // The verdict and the marked-up clue, standing above the rung they earned.
   // Sentence first because it is the headline — right or not, and by how much —
   // then the words, which are the part a count can never give you: WHICH ones.
+  //
+  // A choice question has no words to mark and nothing to keep: what you picked
+  // is in the sentence, and the rung below is the rest of it.
   function verdictHTML(g) {
     return `<div class="guess-result"><p class="guess-verdict ${g.mk.right ? "right" : "miss"}">${
-      esc(g.mk.said)}</p>${guessWordsHTML(g.tokens, g.mk, [], g.known)}</div>`;
+      esc(g.mk.said)}</p>${g.tokens ? guessWordsHTML(g.tokens, g.mk, [], g.known) : ""}</div>`;
   }
 
   // Pieces of the charade already placed, kept on the screen while the next one
@@ -2071,15 +2099,36 @@
     ).join("")}</ul>`;
   }
 
+  // One of seven, and the tap IS the answer: there is a single bit to give, so a
+  // confirm step would only ask for it twice. Pointing at words keeps its check
+  // button because a run of words is assembled before it is offered.
+  function guessChoicesHTML(ask) {
+    return `<p class="guess-choices">${ask.choices.map((c, i) =>
+      `<button type="button" id="gc-${i}" class="gc">${esc(c)}</button>`).join("")}</p>`;
+  }
+
   function guessHTML(ask, position, label) {
+    const answer = ask.choices
+      ? guessChoicesHTML(ask)
+      : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known);
+    const check = ask.choices ? "" : `<button id="guess-check" class="primary"${
+      guessing.picked.length ? "" : " disabled"}>Check my answer</button> `;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       ${placedHTML(guessing.placed)}
       <p>${ask.prompt}</p>
-      ${guessWordsHTML(ask.tokens, null, guessing.picked, ask.known)}
-      <p class="guess-actions"><button id="guess-check" class="primary"${
-        guessing.picked.length ? "" : " disabled"}>Check my answer</button>
-       <button id="guess-tell" class="ghost small">Just tell me</button></p>
-      <p class="muted small-note">Get it right and this hint is free.</p></div>`;
+      ${answer}
+      <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button></p>
+      <p class="muted small-note">Work it out and the rung costs you nothing.</p></div>`;
+  }
+
+  // Right or not, and which one you said — never what the right one was. The
+  // rung opens directly underneath and names it, with the paragraph explaining
+  // what that family means, and saying it twice in two voices two lines apart
+  // reads as the page arguing with itself.
+  function gradeChoice(ask, picked) {
+    if (picked === ask.answer) return { choice: picked, right: true, said: "Yes — that’s the one." };
+    return { choice: picked, right: false,
+             said: `Not ${picked.toLowerCase()} — here’s what it actually is.` };
   }
 
   // Right is the whole set and nothing else. Anything short of that opens the
@@ -2384,8 +2433,12 @@
       ? ((charged || reveals)
           ? `Solved with ${charged} hint${charged === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints — bravo!")
-      // "used on this clue" — you are looking at the clue. Just the count.
-      : (ann ? `Hints <strong>${level}</strong>/${ladderSteps(ann, e.clue).length}${revealsNote}`
+      // "used on this clue" — you are looking at the clue. Just the count, and
+      // no longer called hints: a rung you answered yourself was never one, and
+      // the score has never charged for it. What you worked out is reported
+      // beside it, because that is the number this is all for.
+      : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, e.clue).length} shown${
+                 earnedRungs(e).length ? ` · ${earnedRungs(e).length} worked out` : ""}${revealsNote}`
              : revealsNote.replace(" · ", "")));
 
     const body = $("hint-body");
@@ -2446,6 +2499,17 @@
         bodyHTML += guessHTML(ask, at + 1, steps[at].label);
       }
 
+      // A cold clue: nothing opened, nothing asked yet. It is the one moment
+      // with room to say what the ladder is, and the one moment somebody needs
+      // telling — it is gone the instant they tap anything. Only claimed when a
+      // rung on THIS clue really can ask; a clue with no question in it must not
+      // be sold as one.
+      if (!bodyHTML && !solved && steps.some((s) => GUESSABLE[s.key] && guessAsk(e, s.key))) {
+        bodyHTML = `<div class="hint-step"><p class="muted">Each step asks you first — pick the
+          family, or point at the words — then tells you either way. Answer it yourself and it
+          costs you nothing.</p></div>`;
+      }
+
       // Every unlocked rung is offered at once, not just the next one: wanting
       // the indicators shouldn't mean being handed the definition on the way,
       // since working out where the definition sits is most of the skill. The
@@ -2462,11 +2526,14 @@
       const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
       const open = guessing ? [] : togo.filter(({ s }) => rungAvailable(e, steps, s.key));
       open.forEach(({ s, n }, j) => {
-        // No "Show hint 5" on a clue that is already in: the rungs stopped being
-        // hints to spend the moment it was solved, and a price hintsCharged no
-        // longer charges shouldn't be advertised.
+        // Every rung reads as its own question and nothing else. The lead one
+        // used to say "Show hint 5 · …", which sold the ladder as a shelf of
+        // answers you buy — and it hasn't been that since the rungs started
+        // asking you first (Paul, 2026-08-27). What it is recommending is still
+        // visible: the lead is the plain button and the sideways moves are
+        // ghosts, which is where that has always been said.
         nextSpec.push({ rung: s.key, cls: j > 0 ? "ghost small" : "",
-          text: (j === 0 && !solved) ? `Show hint ${n} · ${s.label}` : `${n} · ${s.label}` });
+          text: `${n} · ${s.label}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
         nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,
@@ -2492,7 +2559,14 @@
 
     if (!bodyWrote && !clueWrote) return;
 
-    if (ask) {
+    if (ask && ask.choices) {
+      ask.choices.forEach((c, i) => {
+        $("gc-" + i).onclick = () => {
+          const a = currentAsk();
+          if (a && a.choices) finishGuess(gradeChoice(a, c), a);
+        };
+      });
+    } else if (ask) {
       // Only the words in play have a button to bind: a settled one is a span.
       ask.tokens.forEach((t, i) => {
         if (ask.known.indexOf(i) >= 0) return;
@@ -2518,8 +2592,11 @@
         if (!a || !guessing.picked.length) return;
         finishGuess(gradeGuess(a), a);
       };
-      // Never a dead end. Asking to be told is a legitimate answer to "do you
-      // know this yet?", and it costs what the rung has always cost.
+    }
+    // Never a dead end. Asking to be told is a legitimate answer to "do you know
+    // this yet?", and it costs what the rung has always cost. Every question has
+    // one, whether it is answered by tapping words or by picking a family.
+    if (ask) {
       $("guess-tell").onclick = () => {
         const a = currentAsk();
         if (a) finishGuess(null, a);
@@ -2741,6 +2818,27 @@
       p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
       st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
+  // What the browser offers as you type. Only the terms a solver could not be
+  // expected to have spelled right from memory — the setters above all, then
+  // series, band and day — plus the two status filters. Numbers are deliberately
+  // absent: 226 of them would bury every word in the list, and a number you can
+  // remember you can already type.
+  //
+  // Built from the index rather than listed, so a setter cannot appear in the
+  // suggestions without appearing in the rows, or the other way round.
+  let pickerTerms = null;
+  function pickerTermsHTML() {
+    if (pickerTerms !== null) return pickerTerms;
+    const seen = { solved: 1, unfinished: 1 };
+    INDEX.puzzles.forEach((p) => {
+      [p.setter, p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
+       puzzleDate(p).day].forEach((t) => { if (t) seen[t] = 1; });
+    });
+    pickerTerms = Object.keys(seen).sort((a, b) => a.localeCompare(b))
+      .map((t) => `<option value="${esc(t)}"></option>`).join("");
+    return pickerTerms;
+  }
+
   function pickerRows(q) {
     // Every term has to match somewhere, so "imogen 2026" narrows rather than
     // widens — the useful behaviour when the list is long enough to need a
@@ -2767,6 +2865,7 @@
   function renderPicker() {
     const ul = $("picker-list");
     ul.innerHTML = "";
+    setHTML($("picker-terms"), pickerTermsHTML());
     const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
     const rows = pickerRows(q);
     const hidden = INDEX.puzzles.length - rows.length;
@@ -3120,6 +3219,17 @@
     //
     ["grid", "hint-pattern"].forEach((id) =>
       $(id).addEventListener("mousedown", () => focusKbd()));
+
+    // The clue lists take the hint buttons' rule instead of the grid's: keep a
+    // keyboard that is up, never summon one. The ladder's first move on a clue
+    // you have just picked is a question you answer by TAPPING — which family,
+    // or which words — so raising a keyboard for it buries the thing being
+    // asked (Paul, 2026-08-27). Tapping a square still raises it, because that
+    // is a decision to type.
+    ["clues-across", "clues-down"].forEach((id) =>
+      $(id).addEventListener("mousedown", () => {
+        if (document.activeElement === $("kbd")) focusKbd();
+      }));
 
     // The hint buttons are the other half of the same problem, and they need the
     // OPPOSITE rule. They do not move the cursor, so nothing about them wants a
