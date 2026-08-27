@@ -61,6 +61,51 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
     assert(p.v === want,
       `puzzles/index.js has a stale ?v= for ${p.file} (run tools/fetch_puzzle.py --reindex)`);
   });
+
+  // And the same hazard sideways: the generated pages — the archive, the lesson,
+  // the glossary and one per puzzle — carry their own stamps, written by
+  // build_seo_pages.py rather than by the stamper. Editing an asset without
+  // rebuilding leaves them pointing at a hash that no longer exists, which is a
+  // 404 on the stylesheet and an unstyled page for anyone who arrives from
+  // search. Every stamp in every HTML file is checked, so a page added later is
+  // covered without being listed here.
+  const stampedPages = [];
+  const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).forEach((d) => {
+    if (d.name.startsWith(".") || d.name === "node_modules") return;
+    const full = path.join(dir, d.name);
+    if (d.isDirectory()) walk(full);
+    else if (d.name.endsWith(".html")) stampedPages.push(full);
+  });
+  walk(ROOT);
+  // The generated pages write absolute URLs and index.html writes relative ones,
+  // so a stamp is resolved back to a file on disk rather than pattern-matched:
+  // a check that quietly skips the form it cannot parse is a check that passes
+  // for the wrong reason.
+  const current = {};
+  let stampsChecked = 0;
+  stampedPages.forEach((file) => {
+    const src = fs.readFileSync(file, "utf8");
+    for (const m of src.matchAll(/(?:href|src)="([^"]+\.(?:js|css))\?v=([0-9a-f]{8})"/g)) {
+      const url = m[1];
+      const rel = /^https?:/.test(url)
+        ? url.replace(/^https?:\/\/[^/]+\/cryptic-teacher\//, "")
+        : path.relative(ROOT, path.resolve(path.dirname(file), url));
+      if (!fs.existsSync(path.join(ROOT, rel))) continue;  // someone else's asset
+      stampsChecked++;
+      if (!(rel in current)) {
+        current[rel] = crypto.createHash("md5")
+          .update(fs.readFileSync(path.join(ROOT, rel))).digest("hex").slice(0, 8);
+      }
+      assert(m[2] === current[rel],
+        `${path.relative(ROOT, file)} points at a stale ${rel}?v=${m[2]} — the file ` +
+        `hashes to ${current[rel]} now (rebuild: tools/build_seo_pages.py, then ` +
+        `tools/stamp_assets.py)`);
+    }
+  });
+  assert(stampedPages.length > 100,
+    "the generated pages were found: " + stampedPages.length);
+  assert(stampsChecked > stampedPages.length,
+    "every page carries stamps that resolved to a real file: " + stampsChecked);
 }
 
 // --- the solver's abbreviation glossary is the clue-writer's, not a copy ---
