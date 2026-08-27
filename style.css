@@ -183,6 +183,25 @@ button:disabled:hover { border-color: var(--line); }
 .badge.auto   { background: var(--badge-none-bg);   color: var(--badge-none-fg); }
 .badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg); }
 
+/* The anagram ring: fodder laid out with no first letter and no last one, so
+   there is no reading order for the eye to fall back into. Absolute placement
+   round a disc rather than a flex row — a row is the thing it exists to avoid.
+   See ringHTML() in app.js for why it is a circle and not a search box. */
+.anagram-ring { margin: 10px 0 2px; display: flex; flex-direction: column; align-items: center; }
+.anagram-ring p { margin: 2px 0 6px; text-align: center; max-width: 34em; }
+.ana-disc { position: relative; }
+.ana-tile {
+  position: absolute; transform: translate(-50%, -50%);
+  min-width: 1.9em; padding: 4px 6px; margin: 0;
+  font: inherit; font-weight: 700; line-height: 1.1; text-align: center;
+  color: var(--fg); background: var(--card);
+  border: 1px solid var(--line); border-radius: 7px; cursor: pointer;
+}
+.ana-tile:hover { border-color: var(--accent); }
+/* Struck, not removed: what you have placed is still part of the count, and a
+   tile that vanished would leave a gap the eye reads as a missing letter. */
+.ana-tile.struck { opacity: .38; text-decoration: line-through; font-weight: 400; }
+
 /* Difficulty. Outlined rather than filled so it reads as a note about the
    puzzle and doesn't compete with the hint badges next to it, which say
    something about what this site offers. Warm as it gets harder. */

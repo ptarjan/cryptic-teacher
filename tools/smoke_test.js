@@ -907,6 +907,52 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     }
   }
 
+  // --- the anagram ring carries the fodder, on the blocks rung, out of order ---
+  // The ring is the fodder rearranged, so it is exactly as revealing as the rung
+  // it sits on — and only while it sits on the rung that hands the fodder over.
+  // It also must never deal the answer itself: a shuffle that happens to land on
+  // the solve gives the clue away by luck, a rung before the walkthrough.
+  {
+    const bare = (s) => (s || "").replace(/[^A-Za-z]/g, "").toUpperCase();
+    const anas = [];
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation || {};
+        const f = bare((a.anagram || {}).fodder);
+        if ((a.type || "").toLowerCase().includes("anagram") && f.length >= 4) {
+          anas.push({ id, e, f, ans: bare(a.answer) });
+        }
+      }
+    }
+    assert(anas.length > 300, "the corpus has anagram fodder to ring: " + anas.length);
+    let drawn = 0;
+    for (const r of anas) {
+      openClue(r);
+      let bought = false;
+      for (let i = 0; i < 8; i++) {
+        const btn = registry["hint-next"].children[0];
+        if (!btn || !btn.onclick || !/^Show hint/.test(btn.textContent || "")) break;
+        if (/building blocks/i.test(btn.textContent)) bought = true;
+        takeRung(btn);
+        const html = registry["hint-body"].innerHTML;
+        if (!bought) {
+          assert(!html.includes("anagram-ring"),
+            `${r.id} ${r.e.id}: the ring is on screen before the building blocks are bought`);
+          continue;
+        }
+        if (!html.includes("anagram-ring")) break;  // no blocks rung on this clue
+        const tiles = [...html.matchAll(/data-ana="\d+"[^>]*>([A-Z])</g)].map((m) => m[1]);
+        assert(tiles.slice().sort().join("") === r.f.split("").sort().join(""),
+          `${r.id} ${r.e.id}: the ring holds the fodder (${tiles.join("")} vs ${r.f})`);
+        assert(tiles.join("") !== r.ans || new Set(r.f).size < 2,
+          `${r.id} ${r.e.id}: the ring dealt the answer itself`);
+        drawn++;
+        break;
+      }
+    }
+    assert(drawn > 300, "anagram rings drawn across the corpus: " + drawn);
+  }
+
   // --- a rung's name may ask its question, never answer it ---
   // The names of the rungs you have NOT bought are on screen the whole time —
   // that is how you choose one. So a name that varies with the clue type is a
