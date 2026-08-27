@@ -2826,17 +2826,26 @@
   //
   // Built from the index rather than listed, so a setter cannot appear in the
   // suggestions without appearing in the rows, or the other way round.
+  //
+  // Nothing is offered until two letters are in. iOS opens the whole list the
+  // instant the field is focused, so a datalist filled up front buries the
+  // panel it is there to search (Paul, iPhone, 2026-08-27). Two letters cuts
+  // seventy terms to a handful, and by then the suggestion is about a word
+  // already being spelled — which is when a completion is worth anything.
+  const PICKER_SUGGEST_MIN = 2;
   let pickerTerms = null;
-  function pickerTermsHTML() {
-    if (pickerTerms !== null) return pickerTerms;
-    const seen = { solved: 1, unfinished: 1 };
-    INDEX.puzzles.forEach((p) => {
-      [p.setter, p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
-       puzzleDate(p).day].forEach((t) => { if (t) seen[t] = 1; });
-    });
-    pickerTerms = Object.keys(seen).sort((a, b) => a.localeCompare(b))
+  function pickerTermsHTML(q) {
+    if (q.length < PICKER_SUGGEST_MIN) return "";
+    if (pickerTerms === null) {
+      const seen = { solved: 1, unfinished: 1 };
+      INDEX.puzzles.forEach((p) => {
+        [p.setter, p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
+         puzzleDate(p).day].forEach((t) => { if (t) seen[t] = 1; });
+      });
+      pickerTerms = Object.keys(seen).sort((a, b) => a.localeCompare(b));
+    }
+    return pickerTerms.filter((t) => t.toLowerCase().includes(q))
       .map((t) => `<option value="${esc(t)}"></option>`).join("");
-    return pickerTerms;
   }
 
   function pickerRows(q) {
@@ -2865,8 +2874,8 @@
   function renderPicker() {
     const ul = $("picker-list");
     ul.innerHTML = "";
-    setHTML($("picker-terms"), pickerTermsHTML());
     const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
+    setHTML($("picker-terms"), pickerTermsHTML(q));
     const rows = pickerRows(q);
     const hidden = INDEX.puzzles.length - rows.length;
     $("picker-more").innerHTML = !hidden ? "" : q
