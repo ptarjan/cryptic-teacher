@@ -29,6 +29,9 @@ SERIES = {
     "cryptic": {
         "kind": "Cryptic",
         "publisher": "Guardian",
+        # The key is the Guardian's, from back when it was the only feed. Solvers
+        # read the label, and "cryptic" names the genre rather than the paper.
+        "badge": "guardian",
     },
     "quiptic": {
         "kind": "Quiptic",

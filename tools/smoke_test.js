@@ -274,6 +274,21 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
     `type part '${p}' is claimed by a clue family in app.js`));
 }
 
+// --- every series in the index must have a badge in app.js ---
+{
+  // The badge names which paper a row is from. It used to skip the Guardian on
+  // the grounds that it was the default, which stopped being true once the
+  // other feeds outnumbered it: three quarters of the list wore a purple chip
+  // and the rest read as rows nobody had got round to labelling.
+  const badgeBlock = appSrc.slice(appSrc.indexOf("const SERIES_BADGE"),
+                                 appSrc.indexOf("function seriesBadge"));
+  const badged = [...badgeBlock.matchAll(/^\s{4}(\w+):/gm)].map((m) => m[1]);
+  assert(badged.length > 3, "SERIES_BADGE parsed from app.js: " + badged.length);
+  new Set((global.CRYPTIC_INDEX.puzzles || []).map((p) => p.series || "cryptic"))
+    .forEach((s) => assert(badged.includes(s),
+      `series '${s}' has a badge in app.js's SERIES_BADGE`));
+}
+
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "escape hatch offered at level 0");
 assert(registry["hx-letter"].onclick, "escape-hatch button wired");
