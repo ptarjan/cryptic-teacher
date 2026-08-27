@@ -34,7 +34,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=163a7c62">
+<link rel="stylesheet" href="style.css?v=b0425790">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -99,6 +99,9 @@
   <input id="picker-search" type="search" autocomplete="off" spellcheck="false" list="picker-terms"
          placeholder="Filter by number, setter or difficulty…" aria-label="Filter puzzles">
   <datalist id="picker-terms"></datalist>
+  <!-- The band names, which are the one thing in the search's vocabulary a
+       solver cannot arrive at on their own. app.js fills it. -->
+  <p id="picker-bands" class="picker-bands"></p>
   <p class="muted small-note">Every puzzle listed here is hand-annotated: each clue has the
      6-level teaching ladder.</p>
   <ul id="picker-list"></ul>
@@ -188,6 +191,6 @@
 
 <script src="puzzles/index.js?v=52a54b5c"></script>
 <script src="abbreviations.js?v=906792de"></script>
-<script src="app.js?v=74f97a9a"></script>
+<script src="app.js?v=6805a4e7"></script>
 </body>
 </html>
