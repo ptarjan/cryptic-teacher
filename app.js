@@ -1753,9 +1753,12 @@
         const word = meanings.find((m) =>
           new RegExp(`\\b${m.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(frag));
         // Kept in step with the id tools/build_abbreviations.py writes onto
-        // that word's cell; tools/smoke_test.js fails if the two ever disagree.
+        // that word's cell on /abbreviations/; tools/smoke_test.js fails if the
+        // two ever disagree. Relative, because the app is only ever served from
+        // the site root and an absolute path would break a local checkout.
         return word
-          ? "#abbr-" + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+          ? "abbreviations/#abbr-"
+            + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
           : null;
       };
       const items = blocks.map((b) => {
@@ -2538,24 +2541,6 @@
       ring.order = dealRing(ring.letters, ring.forbidden);
       renderHintPanel();
     };
-
-    // The glossary lives in the tutorial section of this same page, so
-    // reaching it costs no navigation and loses no solve. A plain #anchor
-    // would land on a hidden section and appear to do nothing, and the row
-    // itself gets marked because one line in four hundred is easy to lose
-    // even when the scroll put it under your eyes.
-    panel.querySelectorAll("a.gloss").forEach((a) => {
-      a.onclick = (ev) => {
-        if (ev && ev.preventDefault) ev.preventDefault();
-        const t = $("tutorial");
-        t.classList.remove("hidden");
-        const row = document.getElementById(a.getAttribute("href").slice(1));
-        t.querySelectorAll("td.found").forEach((td) => td.classList.remove("found"));
-        const at = row || document.getElementById("abbreviations") || t;
-        if (row) row.classList.add("found");
-        if (at.scrollIntoView) at.scrollIntoView({ behavior: "smooth", block: "center" });
-      };
-    });
   }
 
   // ---------- score ----------
@@ -3004,24 +2989,9 @@
   // ---------- boot ----------
 
   function boot() {
-    // The close button belongs to the app, not to the lesson: tutorial.js is
-    // also published as the standalone /learn/ page, where there is nothing to
-    // close. Injected here so both readings stay right.
-    //
-    // It exists because the section can be opened from a hint as well as from
-    // the button at the top, and after that scroll the button that opened it is
-    // a screen and a half away — the only way back was to remember it was a
-    // toggle and go and find it (Paul, 2026-08-22).
-    $("tutorial").innerHTML =
-      '<button id="btn-tutorial-close" class="ghost small tutorial-close" '
-      + 'aria-label="Close how cryptic clues work">✕</button>'
-      + (window.TUTORIAL_HTML || "<p>Tutorial unavailable.</p>");
-    $("btn-tutorial-close").onclick = () => $("tutorial").classList.add("hidden");
-    $("btn-tutorial").onclick = () => {
-      const t = $("tutorial");
-      t.classList.toggle("hidden");
-      if (!t.classList.contains("hidden")) t.scrollIntoView({ behavior: "smooth" });
-    };
+    // The lesson is /learn/ — a page, reached by a plain link in the header.
+    // It is a document you read end to end, and it outgrew the collapsible
+    // section it used to live in on this page (Paul, 2026-08-27).
     $("btn-picker").onclick = () => togglePicker();
     $("btn-picker-close").onclick = () => togglePicker(false);
 

@@ -34,7 +34,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=26690cc7">
+<link rel="stylesheet" href="style.css?v=02c22bd8">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -54,7 +54,7 @@
   </div>
   <div class="header-controls">
     <button id="btn-picker" class="ghost" title="Choose a puzzle">Puzzles ▾</button>
-    <button id="btn-tutorial" class="ghost">How cryptic clues work</button>
+    <a class="ghost" href="learn/">How cryptic clues work</a>
     <button id="btn-sync" class="ghost" title="Carry your progress to another device">Sync ▾</button>
   </div>
 </header>
@@ -100,8 +100,6 @@
   <ul id="picker-list"></ul>
   <p class="muted small-note" id="picker-more"></p>
 </div>
-
-<section id="tutorial" class="hidden"></section>
 
 <main id="app" class="hidden">
   <!-- The soft keyboard is raised by focusing this, and iOS scrolls whatever has
@@ -185,8 +183,7 @@
 </footer>
 
 <script src="puzzles/index.js?v=6ef68973"></script>
-<script src="tutorial.js?v=6bde45df"></script>
 <script src="abbreviations.js?v=906792de"></script>
-<script src="app.js?v=e9132f9b"></script>
+<script src="app.js?v=60b38d01"></script>
 </body>
 </html>
