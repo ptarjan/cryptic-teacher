@@ -2631,15 +2631,43 @@ global.realSetTimeout(() => {
 // The numbers are easy to type and there are 226 of them; the setters are the
 // opposite on both counts, which is what the dropdown is for. A suggestion that
 // returns an empty list would be worse than none, so each one is typed in.
+//
+// And it stays SHUT until two letters are in. iOS opens a datalist the moment
+// the field is focused and draws it over everything, so a list offered up front
+// hides the puzzles it is there to search (Paul, iPhone, 2026-08-27).
 {
+  const suggestions = () =>
+    [...registry["picker-terms"].innerHTML.matchAll(/value="([^"]*)"/g)].map((m) => m[1]);
   registry["btn-picker"].onclick();
-  const opts = [...registry["picker-terms"].innerHTML.matchAll(/value="([^"]*)"/g)].map((m) => m[1]);
-  assert(opts.length >= 5, "the search offers something to complete: " + opts.length);
-  assert(!opts.some((t) => /^\d+$/.test(t)),
-    "and not the numbers, which would bury every word in the list: " + opts.join(" "));
-  ["solved", "unfinished"].forEach((t) => assert(opts.includes(t),
-    `"${t}" is offered, because it is a filter and not just a thing to read: ` + opts.join(" ")));
-  opts.forEach((t) => {
+  assert(suggestions().length === 0,
+    "focusing the search offers nothing, so nothing is drawn over the list: "
+      + suggestions().join(" "));
+  typeInPicker("e");
+  assert(suggestions().length === 0,
+    "nor does one letter, which matches most of the vocabulary: " + suggestions().join(" "));
+
+  // Probed with the openings of the words themselves, taken from the index, so
+  // this cannot pass by suggesting a vocabulary the rows do not have.
+  const probes = new Set(["so", "un"]);
+  (window.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
+    if (p.setter && p.setter.length >= 2) probes.add(p.setter.slice(0, 2).toLowerCase());
+  });
+  const offered = new Set();
+  probes.forEach((q) => {
+    typeInPicker(q);
+    const opts = suggestions();
+    assert(opts.length > 0, `"${q}" completes to something`);
+    assert(opts.length <= 12,
+      `and to a list short enough to see past, not a wall: "${q}" gave ` + opts.length);
+    opts.forEach((t) => offered.add(t));
+  });
+  assert(offered.size >= 5, "the search offers something to complete: " + offered.size);
+  assert(![...offered].some((t) => /^\d+$/.test(t)),
+    "and not the numbers, which would bury every word in the list: " + [...offered].join(" "));
+  ["solved", "unfinished"].forEach((t) => assert(offered.has(t),
+    `"${t}" is offered, because it is a filter and not just a thing to read: `
+      + [...offered].join(" ")));
+  offered.forEach((t) => {
     typeInPicker(t);
     assert(registry["picker-list"].children.length > 0,
       `the search suggests "${t}" and "${t}" finds puzzles`);
