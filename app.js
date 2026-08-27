@@ -2848,6 +2848,28 @@
       .map((t) => `<option value="${esc(t)}"></option>`).join("");
   }
 
+  // The difficulty bands, which the search accepts and nothing else teaches.
+  // A completion cannot offer a word you have never seen, and the rows only
+  // wear the bands the visible dozen happen to have — one puzzle in the whole
+  // collection is Gentle, so scrolling would not turn it up either (Paul,
+  // 2026-08-27). So they are named outright, all of them, next to the box.
+  //
+  // Ordered easiest first off the percentiles rather than listed here, so a
+  // band that gets added or renamed in tools/difficulty.py cannot land in the
+  // wrong place or go missing.
+  let pickerBands = null;
+  function pickerBandList() {
+    if (pickerBands) return pickerBands;
+    const at = {};
+    INDEX.puzzles.forEach((p) => {
+      const d = p.difficulty;
+      if (!d || !d.band || d.percentile === null || d.percentile === undefined) return;
+      if (at[d.band] === undefined || d.percentile < at[d.band]) at[d.band] = d.percentile;
+    });
+    pickerBands = Object.keys(at).sort((a, b) => at[a] - at[b]).map((b) => b.toLowerCase());
+    return pickerBands;
+  }
+
   function pickerRows(q) {
     // Every term has to match somewhere, so "imogen 2026" narrows rather than
     // widens — the useful behaviour when the list is long enough to need a
@@ -2876,6 +2898,22 @@
     ul.innerHTML = "";
     const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
     setHTML($("picker-terms"), pickerTermsHTML(q));
+    // Tapping one searches for it; tapping the one you are already on clears,
+    // so the legend is a way back out as well as in. What is selected is shown
+    // by the search box filling with the word — which is also the lesson.
+    const bands = pickerBandList();
+    setHTML($("picker-bands"), bands.length < 2 ? "" :
+      `<span class="muted small-note">Difficulty</span>` + bands.map((b, i) =>
+        `<button type="button" id="pb-${i}" class="badge diff diff-${esc(b)}" aria-pressed="${
+          q === b}">${esc(b)}</button>`).join(""));
+    bands.forEach((b, i) => {
+      const el = $("pb-" + i);
+      if (!el) return;
+      el.onclick = () => {
+        $("picker-search").value = q === b ? "" : b;
+        renderPicker();
+      };
+    });
     const rows = pickerRows(q);
     const hidden = INDEX.puzzles.length - rows.length;
     $("picker-more").innerHTML = !hidden ? "" : q

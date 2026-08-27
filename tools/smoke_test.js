@@ -2676,6 +2676,42 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
+// --- the difficulty bands are named, not left to be guessed at ---
+// The search takes "brutal" and the rows wear the badge, but neither tells you
+// the word exists: a completion cannot complete a word you have never seen, and
+// only one puzzle in the collection is Gentle, so scrolling will not turn it up
+// either (Paul, 2026-08-27). So EVERY band is named next to the box, in order.
+{
+  registry["btn-picker"].onclick();
+  const shown = () => [...registry["picker-bands"].innerHTML.matchAll(
+    /id="pb-\d+"[^>]*>([^<]+)</g)].map((m) => m[1]);
+
+  const at = {};
+  (window.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
+    const d = p.difficulty;
+    if (!d || !d.band || d.percentile === null || d.percentile === undefined) return;
+    const b = d.band.toLowerCase();
+    if (at[b] === undefined || d.percentile < at[b]) at[b] = d.percentile;
+  });
+  const want = Object.keys(at).sort((a, b) => at[a] - at[b]);
+  assert(want.length >= 2, "the collection has bands to name: " + want.join(" "));
+  assert(shown().join(" ") === want.join(" "),
+    "every band is named, easiest first: " + shown().join(" ") + " vs " + want.join(" "));
+
+  // Each one is a filter, and the one you are on is the way back out.
+  shown().forEach((b, i) => {
+    registry["pb-" + i].onclick();
+    assert(registry["picker-search"].value === b,
+      `tapping "${b}" searches for it: ` + registry["picker-search"].value);
+    assert(registry["picker-list"].children.length > 0, `"${b}" finds puzzles`);
+    registry["pb-" + i].onclick();
+    assert(!registry["picker-search"].value,
+      `and tapping "${b}" again is the way back out: ` + registry["picker-search"].value);
+  });
+  typeInPicker("");
+  registry["btn-picker-close"].onclick();
+}
+
 // --- the type rung asks too, and its answer is a family (Paul, 2026-08-27) ---
 // Every other part of a clue is something you can be asked to point at. This one
 // is a choice among the seven the site teaches — and a ladder that asks about

@@ -223,6 +223,13 @@ button:disabled:hover { border-color: var(--line); }
   .badge.diff-brutal   { color: #e8756a; }
 }
 
+/* The band legend under the puzzle search. Deliberately the same badges the
+   rows wear, because the point is to connect the word you can type to the mark
+   you have been seeing — a separate style would read as a different thing.
+   Badge padding is a fingertip's worth of nothing, so touch gets its own. */
+.picker-bands { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin: 8px 0 0; }
+@media (pointer: coarse) { .picker-bands button.badge { padding: 5px 10px; } }
+
 /* ---------- layout ---------- */
 .puzzle-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px; margin: 14px 0 4px; }
 .puzzle-head h2 { margin: 0; font-size: 1.15rem; }
