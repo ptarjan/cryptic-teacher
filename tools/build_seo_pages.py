@@ -768,6 +768,12 @@ def outputs():
     files[ROOT / "sitemap.xml"] = sitemap(idx)
     path, text = patch_homepage(idx)
     files[path] = text
+    # The manifest is hand-written and generates nothing, so it sat outside the
+    # naming rule and went on describing a one-paper collection. It is copy
+    # about the whole site — an installed icon's description — so it is held to
+    # the same rule as the pages that are generated.
+    assert_names_all_papers("site.webmanifest",
+                            (ROOT / "site.webmanifest").read_text(encoding="utf-8"), idx)
     assert_no_root_relative(files)
     return files
 
