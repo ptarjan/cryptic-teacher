@@ -702,6 +702,18 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    would just be a longer line to squint at. */
 @media (max-width: 1079px) {
   .left-col, .clues-col { flex: 1 1 100%; }
+}
+
+/* How BIG things are is a different question from how many columns fit, and
+   bundling the two under one width query made an iPad shrink when you turned it
+   to the wider side: portrait is 820px so it stacked and got 56px cells and
+   tablet type, landscape is 1180px so it fell through to the desktop rules and
+   drew 40px cells at desktop type — the grid and the clue both got smaller on
+   the bigger screen (Paul, iPad, 2026-08-27).
+   Columns are a width question and stay above. Size is a question about the
+   hand holding the device, so it asks about the pointer instead, and a touch
+   screen keeps touch sizing at every width and in both orientations. */
+@media (max-width: 1079px), (pointer: coarse) {
   /* Once the column is the whole screen the 40px desktop cap leaves the grid
      floating in dead space — 619px of crossword in 788px of iPad. Let the cells
      grow into the width they now have; bigger squares are also better targets
@@ -737,6 +749,16 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .hint-step .mechanism { font-size: .9rem; }
   .def-note { font-size: .95rem; }
   .clue-list ol { font-size: 1.14rem; }
+}
+
+/* Two columns, but on a touch screen. .left-col does not grow on the desktop —
+   640px holds a 15x40px grid exactly and the spare width is better spent on the
+   clue list. With touch-sized cells that stops being true: an iPad in landscape
+   is 1180px, of which the grid was given 640 and the clue list 482, so the cells
+   came out at 41px against portrait's 52 no matter how high the cap went. The
+   grid is the thing being poked at, so here it takes the slack. */
+@media (pointer: coarse) and (min-width: 1080px) {
+  .left-col { flex: 1 1 640px; }
 }
 
 @media (max-width: 700px) {
