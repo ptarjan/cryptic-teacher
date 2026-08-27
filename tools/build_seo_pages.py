@@ -718,7 +718,9 @@ def homepage_nav(idx):
     return f"""{NAV_START}
 <section class="seo-nav">
   <h2>Answers and explanations</h2>
-  <p>Every clue of these puzzles is written up in full — answer, definition and wordplay.
+  <p>These are real published crosswords — {papers(idx)} — set by the named humans
+     above, not clues generated to order. Every one of their clues is written up in
+     full: answer, definition and wordplay.
      Start with <a href="learn/">how cryptic clues work</a>, learn the
      <a href="abbreviations/">standard abbreviations</a>, or browse
      <a href="puzzles/">all {sum(1 for p in idx["puzzles"] if p.get("hasSolutions"))} puzzles</a>.</p>

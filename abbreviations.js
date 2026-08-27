@@ -169,6 +169,10 @@ const ABBREVIATIONS = {
   "queen",
   "um"
  ],
+ "EU": [
+  "europe",
+  "europeans"
+ ],
  "EX": [
   "former",
   "old flame",
@@ -193,6 +197,7 @@ const ABBREVIATIONS = {
  ],
  "G": [
   "german",
+  "golf",
   "good",
   "gram",
   "grand",
@@ -419,6 +424,9 @@ const ABBREVIATIONS = {
  "NW": [
   "northwest"
  ],
+ "NY": [
+  "new york"
+ ],
  "O": [
   "circle",
   "duck",
@@ -574,6 +582,9 @@ const ABBREVIATIONS = {
   "navy",
   "sailors"
  ],
+ "RO": [
+  "run out"
+ ],
  "RU": [
   "rugby"
  ],
@@ -708,6 +719,7 @@ const ABBREVIATIONS = {
  ],
  "W": [
   "watt",
+  "week",
   "west",
   "whiskey",
   "wife",
