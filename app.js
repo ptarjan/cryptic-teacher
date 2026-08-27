@@ -2664,12 +2664,17 @@
   // teach you anything — 22 of 36 rows, and the ratio gets worse every night,
   // because fetching is daily and annotating is one puzzle per run.
   //
+  // Nor is it everything that IS annotated. The dialog answers "what should I
+  // do next", and at 226 taught puzzles the answer had become a catalogue you
+  // scroll (Paul, 2026-08-27). So the default is the newest RECENT_ROWS, plus
+  // whatever the solver has open or has left unfinished.
+  //
   // Hidden is not gone. A query searches EVERY puzzle, annotated or not, so
   // typing a number you know still finds it; the archive page lists them all;
-  // and ?p=<n> opens any of them. Two rows are also never hidden, both the same
-  // rule — don't hide the user's own work: the puzzle currently open (so the
-  // highlighted row can't vanish out from under them) and any puzzle they have
-  // letters saved against.
+  // and ?p=<n> opens any of them. A finished grid drops out of the default list
+  // rather than sitting in it forever: it is the one puzzle you have no reason
+  // to open next, and "solved" is a search term for the days you do.
+  const RECENT_ROWS = 12;
   function pickerProgress(p) {
     const prog = store.get("ct:" + p.id, null);
     return prog && prog.letters ? Object.keys(prog.letters).length : 0;
@@ -2741,12 +2746,21 @@
     // widens — the useful behaviour when the list is long enough to need a
     // filter at all.
     const terms = q.split(/\s+/).filter(Boolean);
-    return INDEX.puzzles.filter((p) => {
-      if (terms.length) {
+    if (terms.length) {
+      return INDEX.puzzles.filter((p) => {
         const hay = pickerHaystack(p);
         return terms.every((t) => hay.includes(t));
-      }
-      return p.annotated || (P && p.id === P.id) || pickerProgress(p) > 0;
+      });
+    }
+    // INDEX.puzzles is latest-first, so the cap counts down from today. The two
+    // exemptions are the solver's own place and don't count against it.
+    let recent = 0;
+    return INDEX.puzzles.filter((p) => {
+      if (P && p.id === P.id) return true;
+      if (pickerProgress(p) > 0 && !pickerStatus(p).done) return true;
+      if (!p.annotated) return false;
+      recent += 1;
+      return recent <= RECENT_ROWS;
     });
   }
 
@@ -2758,7 +2772,7 @@
     const hidden = INDEX.puzzles.length - rows.length;
     $("picker-more").innerHTML = !hidden ? "" : q
       ? `${hidden} other puzzle${hidden > 1 ? "s" : ""} don’t match.`
-      : `${hidden} more without hand-written hints — search by number, or `
+      : `${hidden} more — search by number, setter, day or “solved”, or `
         + `<a href="puzzles/">browse the whole archive</a>.`;
     if (!rows.length) {
       const li = document.createElement("li");
