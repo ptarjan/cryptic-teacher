@@ -2676,37 +2676,50 @@ global.realSetTimeout(() => {
   registry["btn-picker-close"].onclick();
 }
 
-// --- the difficulty bands are named, not left to be guessed at ---
-// The search takes "brutal" and the rows wear the badge, but neither tells you
-// the word exists: a completion cannot complete a word you have never seen, and
-// only one puzzle in the collection is Gentle, so scrolling will not turn it up
-// either (Paul, 2026-08-27). So EVERY band is named next to the box, in order.
+// --- the papers and the bands are named, not left to be guessed at ---
+// The search takes "brutal" and "everyman" and the rows wear both badges, but
+// neither tells you the words exist: a completion cannot complete a word you
+// have never seen, and the default list is the newest dozen — one puzzle in the
+// collection is Gentle, and Everyman, the biggest series of the five, starts
+// twenty-three rows down (Paul, 2026-08-27). So EVERY band and EVERY paper is
+// named next to the box, bands easiest first and papers biggest first.
 {
   registry["btn-picker"].onclick();
-  const shown = () => [...registry["picker-bands"].innerHTML.matchAll(
-    /id="pb-\d+"[^>]*>([^<]+)</g)].map((m) => m[1]);
+  const shown = () => [...registry["picker-filters"].innerHTML.matchAll(
+    /id="pf-\d+"[^>]*>([^<]+)</g)].map((m) => m[1]);
 
-  const at = {};
+  const at = {}, n = {};
   (window.CRYPTIC_INDEX.puzzles || []).forEach((p) => {
     const d = p.difficulty;
+    n[p.series || "cryptic"] = (n[p.series || "cryptic"] || 0) + 1;
     if (!d || !d.band || d.percentile === null || d.percentile === undefined) return;
     const b = d.band.toLowerCase();
     if (at[b] === undefined || d.percentile < at[b]) at[b] = d.percentile;
   });
-  const want = Object.keys(at).sort((a, b) => at[a] - at[b]);
-  assert(want.length >= 2, "the collection has bands to name: " + want.join(" "));
-  assert(shown().join(" ") === want.join(" "),
-    "every band is named, easiest first: " + shown().join(" ") + " vs " + want.join(" "));
+  const bands = Object.keys(at).sort((a, b) => at[a] - at[b]);
+  assert(bands.length >= 2, "the collection has bands to name: " + bands.join(" "));
+  const papers = Object.keys(n).sort((a, b) => n[b] - n[a] || a.localeCompare(b));
+  assert(papers.length >= 2, "and papers to name: " + papers.join(" "));
+  // As many chips as there are of both, so a paper cannot go unnamed by being
+  // rendered as something the eye reads as a band or the other way round.
+  const want = shown();
+  assert(want.length === bands.length + papers.length,
+    `every paper and every band is named: ${want.join(" ")} vs ${papers.length} papers `
+      + `and ${bands.join(" ")}`);
+  assert(want.slice(-bands.length).join(" ") === bands.join(" "),
+    "bands last, easiest first: " + want.join(" "));
 
-  // Each one is a filter, and the one you are on is the way back out.
-  shown().forEach((b, i) => {
-    registry["pb-" + i].onclick();
-    assert(registry["picker-search"].value === b,
-      `tapping "${b}" searches for it: ` + registry["picker-search"].value);
-    assert(registry["picker-list"].children.length > 0, `"${b}" finds puzzles`);
-    registry["pb-" + i].onclick();
+  // Each one is a filter — including the papers, whose chip says the name of
+  // the paper and not the series key underneath it ("cryptic" is the Guardian).
+  // A word offered as a filter that finds nothing is worse than no word.
+  want.forEach((w, i) => {
+    registry["pf-" + i].onclick();
+    assert(registry["picker-search"].value === w,
+      `tapping "${w}" searches for it: ` + registry["picker-search"].value);
+    assert(registry["picker-list"].children.length > 0, `"${w}" finds puzzles`);
+    registry["pf-" + i].onclick();
     assert(!registry["picker-search"].value,
-      `and tapping "${b}" again is the way back out: ` + registry["picker-search"].value);
+      `and tapping "${w}" again is the way back out: ` + registry["picker-search"].value);
   });
   typeInPicker("");
   registry["btn-picker-close"].onclick();

@@ -2814,8 +2814,12 @@
     const st = pickerStatus(p);
     // The weekday is searchable for that same reason — showing "Sat" in the row
     // and then not matching "saturday" would be the worse half of the feature.
+    // Both the series key and the name on its chip: "cryptic" is what the file
+    // is called, "guardian" is what the paper is, and the one the row shows has
+    // to be the one that matches.
+    const series = p.series || "cryptic";
     return [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"), p.setter, d, dd.day,
-      p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
+      series, (SERIES_BADGE[series] || [""])[0], p.difficulty ? p.difficulty.band : "",
       st.done ? "solved done" : st.filled ? "started unfinished" : ""].join(" ").toLowerCase();
   }
   // What the browser offers as you type. Only the terms a solver could not be
@@ -2839,7 +2843,8 @@
     if (pickerTerms === null) {
       const seen = { solved: 1, unfinished: 1 };
       INDEX.puzzles.forEach((p) => {
-        [p.setter, p.series || "cryptic", p.difficulty ? p.difficulty.band : "",
+        [p.setter, (SERIES_BADGE[p.series || "cryptic"] || [""])[0],
+         p.difficulty ? p.difficulty.band : "",
          puzzleDate(p).day].forEach((t) => { if (t) seen[t] = 1; });
       });
       pickerTerms = Object.keys(seen).sort((a, b) => a.localeCompare(b));
@@ -2848,15 +2853,16 @@
       .map((t) => `<option value="${esc(t)}"></option>`).join("");
   }
 
-  // The difficulty bands, which the search accepts and nothing else teaches.
-  // A completion cannot offer a word you have never seen, and the rows only
-  // wear the bands the visible dozen happen to have — one puzzle in the whole
-  // collection is Gentle, so scrolling would not turn it up either (Paul,
-  // 2026-08-27). So they are named outright, all of them, next to the box.
+  // The two vocabularies the search accepts and nothing else teaches: the bands
+  // and the papers. A completion cannot offer a word you have never seen, and
+  // the rows only wear what the visible dozen happen to be — one puzzle in the
+  // whole collection is Gentle, and Everyman, the biggest series of the five,
+  // starts twenty-three rows down. Scrolling would not turn either up (Paul,
+  // 2026-08-27). So both are named outright, in full, next to the box.
   //
-  // Ordered easiest first off the percentiles rather than listed here, so a
-  // band that gets added or renamed in tools/difficulty.py cannot land in the
-  // wrong place or go missing.
+  // Bands run easiest first off the percentiles rather than being listed here,
+  // so a band that gets added or renamed in tools/difficulty.py cannot land in
+  // the wrong place or go missing.
   let pickerBands = null;
   function pickerBandList() {
     if (pickerBands) return pickerBands;
@@ -2868,6 +2874,23 @@
     });
     pickerBands = Object.keys(at).sort((a, b) => at[a] - at[b]).map((b) => b.toLowerCase());
     return pickerBands;
+  }
+
+  // Papers, biggest first: how much there is to solve is the useful order when
+  // the question is which one to try. Read off SERIES_BADGE so the word offered
+  // is the word the row's chip says — the series KEY is storage ("cryptic" is
+  // the Guardian, "indysunday" is two words), and offering that would be
+  // teaching the database's name for the paper instead of the paper's.
+  let pickerPapers = null;
+  function pickerPaperList() {
+    if (pickerPapers) return pickerPapers;
+    const n = {};
+    INDEX.puzzles.forEach((p) => {
+      const badge = SERIES_BADGE[p.series || "cryptic"];
+      if (badge) n[badge[0]] = (n[badge[0]] || 0) + 1;
+    });
+    pickerPapers = Object.keys(n).sort((a, b) => n[b] - n[a] || a.localeCompare(b));
+    return pickerPapers;
   }
 
   function pickerRows(q) {
@@ -2901,16 +2924,25 @@
     // Tapping one searches for it; tapping the one you are already on clears,
     // so the legend is a way back out as well as in. What is selected is shown
     // by the search box filling with the word — which is also the lesson.
-    const bands = pickerBandList();
-    setHTML($("picker-bands"), bands.length < 2 ? "" :
-      `<span class="muted small-note">Difficulty</span>` + bands.map((b, i) =>
-        `<button type="button" id="pb-${i}" class="badge diff diff-${esc(b)}" aria-pressed="${
-          q === b}">${esc(b)}</button>`).join(""));
-    bands.forEach((b, i) => {
-      const el = $("pb-" + i);
+    //
+    // Both groups share one wrapping strip rather than getting a row each: the
+    // panel's first job is to show puzzles, and nine chips laid out to fit take
+    // the room they need instead of two lines whatever the width.
+    const chips = [];
+    const group = (label, words, cls) => words.length < 2 ? "" :
+      `<span class="muted small-note">${label}</span>` + words.map((w) => {
+        const i = chips.push(w) - 1;
+        return `<button type="button" id="pf-${i}" class="badge ${cls(w)}" aria-pressed="${
+          q === w}">${esc(w)}</button>`;
+      }).join("");
+    setHTML($("picker-filters"),
+      group("Papers", pickerPaperList(), () => "series")
+        + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b)));
+    chips.forEach((w, i) => {
+      const el = $("pf-" + i);
       if (!el) return;
       el.onclick = () => {
-        $("picker-search").value = q === b ? "" : b;
+        $("picker-search").value = q === w ? "" : w;
         renderPicker();
       };
     });
