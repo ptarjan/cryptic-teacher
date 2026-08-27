@@ -2676,10 +2676,13 @@ global.realSetTimeout(() => {
     registry["clue-" + found.e.id].listeners.click[0]();
     const btn = registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || ""));
     assert(btn, "the type rung is offered: " + registry["hint-next"].innerHTML);
+    cold = registry["hint-body"].innerHTML;
     const before = registry["scorebar"].innerHTML;
     btn.onclick();
     return before;
   };
+  // What a clue with nothing opened on it says, captured before anything is.
+  let cold = null;
   // The buttons are written as markup, so they are read as markup: index to
   // label, escaped exactly as the page escaped it.
   const choices = () => {
@@ -2726,6 +2729,18 @@ global.realSetTimeout(() => {
   assert(registry["hint-meter"].innerHTML.includes("worked out"),
     "which the meter says, because that is the number this is all for: "
       + registry["hint-meter"].innerHTML);
+
+  // How the ladder works is said once and then stops. It is a line about the
+  // whole ladder, so once a rung has been worked out it has been demonstrated,
+  // and a solver who has done it does not need telling again on every clue they
+  // open after (Paul, 2026-08-27).
+  assert(/asks before it tells/.test(cold), "a cold clue says what the ladder is: " + cold);
+  const other = (puzzles[found.id].entries || []).find(
+    (x) => x.id !== found.e.id && x.annotation && x.annotation.type);
+  assert(other, "the puzzle has a second annotated clue to open cold");
+  registry["clue-" + other.id].listeners.click[0]();
+  assert(!/asks before it tells/.test(registry["hint-body"].innerHTML),
+    "and stops saying it once a rung has been worked out: " + registry["hint-body"].innerHTML);
 }
 
 // --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---

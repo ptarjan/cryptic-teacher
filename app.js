@@ -2499,15 +2499,15 @@
         bodyHTML += guessHTML(ask, at + 1, steps[at].label);
       }
 
-      // A cold clue: nothing opened, nothing asked yet. It is the one moment
-      // with room to say what the ladder is, and the one moment somebody needs
-      // telling — it is gone the instant they tap anything. Only claimed when a
-      // rung on THIS clue really can ask; a clue with no question in it must not
-      // be sold as one.
-      if (!bodyHTML && !solved && steps.some((s) => GUESSABLE[s.key] && guessAsk(e, s.key))) {
-        bodyHTML = `<div class="hint-step"><p class="muted">Each step asks you first — pick the
-          family, or point at the words — then tells you either way. Answer it yourself and it
-          costs you nothing.</p></div>`;
+      // How the ladder works, said once and then never again: it stops the
+      // moment a rung is worked out anywhere in this puzzle, because at that
+      // point it has been demonstrated and repeating it is just noise on every
+      // clue you open after. Only claimed when a rung on THIS clue really can
+      // ask; a clue with no question in it must not be sold as one.
+      if (!bodyHTML && !solved && !Object.keys(hintsEarned).some((k) => hintsEarned[k].length)
+          && steps.some((s) => GUESSABLE[s.key] && guessAsk(e, s.key))) {
+        bodyHTML = `<div class="hint-step"><p class="muted">Every step asks before it tells —
+          answer it yourself and it’s free.</p></div>`;
       }
 
       // Every unlocked rung is offered at once, not just the next one: wanting
