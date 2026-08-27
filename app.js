@@ -2549,11 +2549,10 @@
   }
 
   // Same principle as the hints badge: badge the exception, not the norm. The
-  // Guardian daily is the norm here and gets no badge; everything else says what
-  // it is, either because it is gentler — the thing a struggling solver most
-  // wants to find in this list — or because it is a different paper with a
-  // different house style. A table rather than a chain of ifs, so a new series
-  // is one entry; an unlisted one simply goes unbadged, same as the cryptic.
+  // Every series says what it is. There is no default: a row with no chip reads
+  // as a row we forgot to label, not as "the usual one", and the smoke test
+  // fails on a series in the index with no entry here — that is what keeps this
+  // table complete as papers are added.
   //
   // This text is prose for a human choosing what to attempt next, which is why
   // it lives here and not in tools/series.py with the machine-readable facts.
@@ -2561,6 +2560,9 @@
   // which worked only while every key happened to read as a word — and then
   // "indysunday" arrived. Keep it a label; keys are storage, not English.
   const SERIES_BADGE = {
+    cryptic: ["guardian", `The Guardian's daily cryptic, Monday to Saturday. A
+      rotating cast of setters and no house line on difficulty, so one day is a
+      gentle Vulcan and the next is a Paul full of puns.`],
     quiptic: ["quiptic", `Guardian Quiptic — their beginner crossword, published
       Mondays. Same clue types as the daily cryptic, but gentler: plainer
       definitions and fewer buried indicators.`],
@@ -2578,7 +2580,7 @@
 
   function seriesBadge(p) {
     const badge = SERIES_BADGE[p.series || "cryptic"];
-    if (!badge) return "";
+    if (!badge) return "";  // guarded by the smoke test; never the normal path
     return `<span class="badge series" title="${badge[1]}">${badge[0]}</span>`;
   }
 

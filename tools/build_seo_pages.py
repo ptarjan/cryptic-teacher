@@ -467,12 +467,11 @@ def hub_page(idx):
         # sourceBadge() in app.js.
         ours = ('<span class="badge auto">our answers</span>'
                 if p.get("solutionsUnofficial") else "")
-        # Only the non-cryptic series are badged — the cryptic is the norm here,
-        # and the numbers alone ("No 1,393" among the 30,000s) don't explain
-        # themselves. Mirrors seriesBadge() in app.js.
+        # Every row is badged, because the numbers alone ("No 1,393" among the
+        # 30,000s) don't explain themselves and an unbadged row reads as one we
+        # forgot rather than as the default. Mirrors seriesBadge() in app.js.
         series = (f'<span class="badge series">'
-                  f'{esc(series_meta.badge(p["series"]))}</span>'
-                  if p.get("series", "cryptic") != "cryptic" else "")
+                  f'{esc(series_meta.badge(p.get("series") or "cryptic"))}</span>')
         rows.append(
             f'<li><a href="{BASE}/puzzles/{p["id"]}/">'
             f'<span class="p-num">No {p["number"]:,}</span>'
