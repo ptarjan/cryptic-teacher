@@ -140,6 +140,30 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   });
   assert(/--gridspace:\s*calc\(100cqi/.test(css),
     "the grid's space comes from a container query unit");
+
+  // --- and how big things are is asked about the pointer, not the width ---
+  // The two were one query, so an iPad shrank when you turned it to the WIDER
+  // side: 820px portrait stacked and got 56px cells and tablet type, 1180px
+  // landscape fell through to the desktop rules and got 40px cells at desktop
+  // type (Paul, 2026-08-27). Splitting them is only worth anything if they stay
+  // split, and nothing else on the page would notice if they were merged back.
+  const media = [...all.matchAll(/@media([^{]+)\{((?:[^{}]|\{[^{}]*\})*)\}/g)]
+    .map((m) => ({ q: m[1].trim(), body: m[2] }));
+  const tablet = media.filter((b) => /max-width:\s*10\d\dpx/.test(b.q));
+  assert(tablet.length, "style.css still has a tablet breakpoint to check");
+  tablet.forEach((b) => {
+    if (!/--cellcap|font-size/.test(b.body)) return;
+    assert(/pointer:\s*coarse/.test(b.q),
+      "a media query sizes cells or type off width alone, so a touch device gets " +
+      "desktop sizing whenever it is wide enough — add (pointer: coarse): " + b.q);
+  });
+  // The other half of the same rule: how many columns fit IS a width question,
+  // and a pointer test there would stack a wide desktop with a touch screen.
+  media.filter((b) => /flex:\s*1 1 100%/.test(b.body)).forEach((b) => {
+    assert(!/pointer/.test(b.q),
+      "column stacking asks about the pointer, but it is about how much room " +
+      "there is: " + b.q);
+  });
 }
 
 // --- assertions after boot ---
