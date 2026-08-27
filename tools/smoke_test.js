@@ -128,11 +128,8 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   // And the glossary the solver can READ is the same table again. It used to be
   // a hand-picked "starter set" of two dozen pairs, which is how the blocks rung
   // could say CH was check while the tutorial had never heard of it (Paul,
-  // 2026-08-22). Generated between markers now, so a new convention reaches the
-  // page the solver is sent to as well as the one the hint quotes from.
-  const tut = fs.readFileSync(path.join(ROOT, "tutorial.js"), "utf8");
-  assert(tut.includes('<h3 id="abbreviations">'),
-    "the tutorial's glossary carries the anchor the hint links to");
+  // 2026-08-22). Generated now, so a new convention reaches the page the solver
+  // is sent to as well as the one the hint quotes from.
   const senses = new Set();
   Object.values(json).forEach((words) => words.forEach((w) => senses.add(w)));
 
@@ -144,21 +141,27 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
   const anchor = (w) => "abbr-" + w.toLowerCase().replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
   const page = fs.readFileSync(path.join(ROOT, "abbreviations/index.html"), "utf8");
-  [["the tutorial", tut], ["the /abbreviations/ page", page]].forEach(([what, src]) => {
+  {
     // The word itself may be wrapped in a link out to a clue that uses the
-    // convention — the standalone page does that, the tutorial does not,
-    // because there the table sits inside a solve nobody should be sent out of.
+    // convention, so the cell is compared with that unwrapped.
     const missing = [...senses].filter((w) => {
       const cell = `<td id="${anchor(w)}">`;
-      const at = src.indexOf(cell);
-      return at < 0 || src.slice(at + cell.length, src.indexOf("</td>", at))
+      const at = page.indexOf(cell);
+      return at < 0 || page.slice(at + cell.length, page.indexOf("</td>", at))
         .replace(/^<a href="[^"]+">|<\/a>$/g, "") !== w;
     });
     assert(missing.length === 0,
-      `every sense in the JSON is in ${what}, anchored (run tools/build_abbreviations.py `
-        + `then tools/build_seo_pages.py) — missing ${missing.length}, e.g. `
-        + missing.slice(0, 3).join(", "));
-  });
+      "every sense in the JSON is on the /abbreviations/ page, anchored (run "
+        + `tools/build_abbreviations.py then tools/build_seo_pages.py) — missing `
+        + `${missing.length}, e.g. ` + missing.slice(0, 3).join(", "));
+  }
+
+  // The hint's link has to land on that page, not on an anchor in a page that
+  // no longer carries the table: the lesson moved out to /learn/ and the
+  // glossary stayed behind on its own URL (Paul, 2026-08-27).
+  const appSrcGloss = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  assert(appSrcGloss.includes('"abbreviations/#abbr-"'),
+    "a hint's glossary link points at the /abbreviations/ page");
 
   // A glossary word links to one real clue whose wordplay uses it. The page's
   // description says how many words do, so the count and the table are checked
@@ -1357,10 +1360,17 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   }
 }
 
-// --- tutorial toggle ---
-registry["btn-tutorial"].onclick();
-assert(!registry["tutorial"].classList.contains("hidden"), "tutorial opens");
-assert(registry["tutorial"].innerHTML.includes("anagram") || registry["tutorial"].innerHTML.includes("Anagram"), "tutorial content injected");
+// --- the lesson is a page, not a panel ---
+// It is a document you read end to end and it outgrew the collapsible section
+// it used to live in (Paul, 2026-08-27). So the header carries a link and the
+// app carries no copy of the lesson at all.
+{
+  const home = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  assert(/<a class="ghost" href="learn\/">/.test(home),
+    "the header links to the lesson at /learn/");
+  assert(!home.includes('id="tutorial"') && !home.includes("tutorial.js"),
+    "index.html carries no in-page copy of the lesson");
+}
 
 // --- reset ---
 registry["reset-puzzle"].onclick();

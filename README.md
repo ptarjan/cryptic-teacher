@@ -40,7 +40,7 @@ No build step, no backend. Either:
 
 ```
 index.html, style.css, app.js   the app (vanilla HTML/CSS/JS)
-tutorial.js                     the "How cryptic clues work" content
+tools/tutorial.html             the "How cryptic clues work" lesson, built into learn/
 puzzles/index.json              manifest: one row per puzzle (latest first)
 puzzles/index.js                the same manifest as a script (so file:// works)
 puzzles/<number>.js             one puzzle per file, JSON between /*JSON-START*/ ... /*JSON-END*/

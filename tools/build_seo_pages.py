@@ -14,8 +14,8 @@ So this writes real HTML files alongside the app:
                            definition, its wordplay breakdown and its
                            walkthrough, as text in the document.
   puzzles/index.html       the archive hub, and the crawl path to all of them.
-  learn/index.html         the tutorial, which until now existed only inside a
-                           template literal in tutorial.js.
+  learn/index.html         the lesson, from tools/tutorial.html — the only place
+                           it is published.
   abbreviations/index.html the glossary, on its own URL. "cryptic crossword
                            abbreviations" is a question people type, and a
                            lookup table buried a third of the way down a
@@ -504,29 +504,22 @@ def hub_page(idx):
 # ----------------------------------------------------------------- learn page
 
 def learn_page():
-    """Lift the tutorial out of tutorial.js so it exists as a document.
+    """Render tools/tutorial.html as the lesson, at /learn/.
 
-    Single source of truth stays tutorial.js — the app still injects it at
-    runtime and this only ever reads it. Two hand-maintained copies of the same
-    lesson would drift within a week.
+    That fragment is the whole lesson and this is its only home — it outgrew the
+    collapsible section it used to live in on the app page (Paul, 2026-08-27).
     """
-    src = (ROOT / "tutorial.js").read_text(encoding="utf-8")
-    m = re.search(r"window\.TUTORIAL_HTML\s*=\s*`(.*)`\s*;", src, re.S)
-    if not m:
-        raise SystemExit("tutorial.js: could not find the TUTORIAL_HTML template literal")
-    inner = m.group(1).replace("\\`", "`").replace("\\$", "$")
-    # The app renders this under an <h2>; standalone it needs to lead with h1,
-    # and everything below shifts a level so the outline is still legal.
-    inner = re.sub(r"<(/?)h4\b", r"<\1h5", inner)
-    inner = re.sub(r"<(/?)h3\b", r"<\1h4", inner)
-    inner = re.sub(r"<(/?)h2\b", r"<\1h3", inner)
+    inner = (ROOT / "tools" / "tutorial.html").read_text(encoding="utf-8")
+    # The page leads with its own h1, so every heading in the fragment moves up
+    # one: sections become h2, subsections h3. One pass, because two would run
+    # the headings it had just rewritten through the next rule.
+    inner = re.sub(r"<(/?)h([234])\b", lambda m: f"<{m.group(1)}h{int(m.group(2)) - 1}", inner)
     # The glossary is 400 rows and has its own URL. Repeating it here would put
-    # the same table on two indexable pages competing for the same query, so
-    # this page points at it instead. The in-app tutorial keeps the table: a
-    # hint links to one of its rows and must not leave the solve to get there.
+    # the same table on two indexable pages competing for the same query, so the
+    # lesson points at it instead.
     inner = re.sub(
         re.escape(build_abbreviations.MARK_START) + ".*?" + re.escape(build_abbreviations.MARK_END),
-        '<h4 id="abbreviations">Common abbreviations</h4>\n'
+        '<h2 id="abbreviations">Common abbreviations</h2>\n'
         "<p>Setters lean on a shared stock of tiny substitutions — <code>ch</code> for "
         "<em>check</em>, <code>ab</code> for <em>sailor</em>. These never change, so they are "
         f'worth looking up once and owning forever: <a href="{BASE}/abbreviations/">all '

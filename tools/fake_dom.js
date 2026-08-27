@@ -382,7 +382,6 @@ function boot(opts) {
   new Function("window", fs.readFileSync(path.join(ROOT, "sync/merge.js"), "utf8"))(global.window);
   global.window.CTMerge = global.CTMerge;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
-  new Function("window", fs.readFileSync(path.join(ROOT, "tutorial.js"), "utf8"))(global.window);
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;
 
   // app.js references bare identifiers window/document/localStorage/confirm via globals above
