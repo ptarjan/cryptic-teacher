@@ -50,7 +50,9 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_tree="${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/$_ct_job"
 
   if [ ! -d "$_ct_tree/.git" ] && [ ! -f "$_ct_tree/.git" ]; then
-    git -C "$_ct_main" worktree add --detach "$_ct_tree" origin/master || {
+    # Quiet: the first run checks out 600 files and the progress meter writes a
+    # line per percent into a log somebody has to read a failure out of.
+    git -C "$_ct_main" worktree add -q --detach "$_ct_tree" origin/master || {
       echo "WORKTREE: cannot create $_ct_tree — running in place instead" >&2
       _ct_tree=""
     }
