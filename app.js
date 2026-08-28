@@ -1288,7 +1288,12 @@
   // must be claimed by exactly one family here. See APP.md.
   const FAMILIES = [
     { label: "Definitions only",
-      blurb: "No letter mechanics at all — the clue works by definition alone. The work is spotting which words are doing the defining.",
+      // Says what the family IS and stops. It used to add that the work is
+      // spotting which words define, which on a two-word double definition is a
+      // claim the page then disproves: both words define, so the definition
+      // rung has nothing to ask and there are no blocks either. A blurb that
+      // promises work the clue does not contain reads as a lie (Paul).
+      blurb: "No letter mechanics at all — nothing is anagrammed, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.",
       match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
     { label: "&lit",
       blurb: "The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
@@ -1924,10 +1929,11 @@
   // knowing where the definition ends is most of knowing where the wordplay
   // starts.
   //
-  // And a question is only worth asking if, AFTER that, some of what is left is
-  // the answer and some of it isn't. One rule, one place: it is the same guard
-  // that kept the union question off the blocks rung, because the moment the
-  // remainder IS the target the answer is elimination and nothing is learned.
+  // Nothing is charged for without being offered first: if a rung has anything
+  // to point at, it asks, even when what is left to point at IS the whole answer
+  // (Paul, 2026-08-28). An easy question is a free rung; a rung handed over
+  // unasked is a rung the solver paid for and was never given the chance to
+  // win. The only rung that cannot ask is one with nothing to point at at all.
   // A charade has more than one piece, and "it isn't knowing it is a charade
   // that is hard, it is DOING the charade" (Paul) — so the blocks rung asks for
   // each piece in turn rather than one and done. step says which piece; a piece
@@ -1960,7 +1966,6 @@
       .reduce((a, k) => a.concat(rungTokens(e, k)), []);
     for (let n = 0; n < at; n++) named.push.apply(named, rungTokens(e, rung, n));
     const known = named.filter((n) => target.indexOf(n) < 0);
-    if (target.length >= tokens.length - known.length) return null;
     return { prompt, target, tokens, known, gives, step: at };
   }
 
@@ -2117,8 +2122,7 @@
       ${placedHTML(guessing.placed)}
       <p>${ask.prompt}</p>
       ${answer}
-      <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button></p>
-      <p class="muted small-note">Work it out and the rung costs you nothing.</p></div>`;
+      <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button></p></div>`;
   }
 
   // Right or not, and which one you said — never what the right one was. The
