@@ -2820,6 +2820,51 @@ global.realSetTimeout(() => {
     "and stops saying it once a rung has been worked out: " + registry["hint-body"].innerHTML);
 }
 
+// --- nothing is charged for without being offered first (Paul, 2026-08-28) ---
+// A rung used to skip its question whenever what was left to point at WAS the
+// answer, on the grounds that the answer would then be elimination. On a
+// two-word double definition — "County flags (5)" — that is every rung the clue
+// has: the ladder took its price and never asked. An easy question is a free
+// rung, and a rung handed over unasked is one the solver paid for and was never
+// given the chance to win.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const words = (s) => (s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(/\s+/)
+    .filter(Boolean);
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const a = e.annotation;
+      if (!a || !a.definition || !a.definition2) continue;
+      // The two definitions together are the whole clue, so once the question is
+      // asked there is nothing left over to eliminate against.
+      const clue = words(String(e.clue).replace(/\([^)]*\)\s*$/, ""));
+      if (clue.length && clue.length === words(a.definition).length + words(a.definition2).length) {
+        found = { id, e };
+        break;
+      }
+    }
+    if (found) break;
+  }
+  assert(found, "some clue is defined end to end by its two definitions");
+
+  registry["btn-picker"].onclick();
+  typeInPicker(String(puzzles[found.id].number));
+  const li = registry["picker-list"].children.find(
+    (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+  assert(li, "picker finds the whole-clue definition puzzle");
+  li.children[0].onclick();
+  registry["reset-puzzle"].onclick();
+  registry["clue-" + found.e.id].listeners.click[0]();
+  const btn = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
+  assert(btn, "the definition rung is offered on " + found.e.clue + ": "
+    + registry["hint-next"].innerHTML);
+  btn.onclick();
+  assert(registry["hint-body"].innerHTML.includes("hint-step guess"),
+    "and it asks before it tells, even when the answer is the whole clue ("
+      + found.e.clue + "): " + registry["hint-body"].innerHTML);
+}
+
 // --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---
 // Once the definition and the indicator are both on screen, "what kind of clue
 // is this?" has nothing left to tell anyone, so it must stop gating the assembly

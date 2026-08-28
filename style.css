@@ -526,6 +526,12 @@ button:disabled:hover { border-color: var(--line); }
    indicators have already been given away. Quieter than the prose above it. */
 .hint-step .mechanism { font-size: .8rem; color: var(--muted); }
 #hint-next { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+/* A flex item is squeezed before the strip wraps, so the longest label breaks
+   across two lines inside its own box while the box beside it keeps its room —
+   "What kind of clue is this?" read as two lines on an iPad. A button is the
+   width of its words: the strip wraps instead. Same rule for the family chips,
+   whose labels are the same kind of length. */
+#hint-next button, .guess-choices .gc { flex: 0 0 auto; }
 #hint-escape { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: .8rem; }
 #hint-escape:empty { display: none; }
 #hint-escape button { color: var(--muted); }
@@ -641,9 +647,32 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
 .guess-placed li { color: var(--muted); }
 .guess-placed em { font-style: italic; color: var(--fg); }
 .guess-placed .gives { font-weight: 700; color: var(--def-fg); }
+/* Which way it went has to land before the sentence is read: a colour change on
+   one line of small text is easy to miss, and on the type rung the sentence is
+   the whole verdict — there are no words to mark up underneath it. So right
+   arrives, and a miss shakes its head. A miss still isn't coloured; the motion
+   says it instead. */
 .guess-verdict { margin: 10px 0 0; font-size: .9rem; }
-.guess-verdict.right { color: var(--def-fg); font-weight: 600; }
-.guess-verdict.miss { color: var(--muted); }
+.guess-verdict.right { color: var(--def-fg); font-weight: 600; animation: gv-right .45s ease-out; }
+.guess-verdict.miss { color: var(--muted); animation: gv-miss .4s ease-out; }
+@keyframes gv-right {
+  from { opacity: 0; transform: translateY(6px) scale(.96); }
+  60%  { opacity: 1; transform: translateY(0) scale(1.05); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes gv-miss {
+  0%, 100% { transform: none; }
+  20% { transform: translateX(-5px); }
+  45% { transform: translateX(4px); }
+  70% { transform: translateX(-2px); }
+}
+/* The words you picked that weren't in it: they step back rather than being
+   found already stepped back, so the eye can see which ones went. */
+.gw.spare { animation: gw-spare .35s ease-out both; }
+@keyframes gw-spare { from { opacity: 1; } to { opacity: .45; } }
+@media (prefers-reduced-motion: reduce) {
+  .guess-verdict.right, .guess-verdict.miss, .gw.spare { animation: none; }
+}
 
 mark.def { background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px; }
 /* second half of a double definition — same family, distinguishable */
