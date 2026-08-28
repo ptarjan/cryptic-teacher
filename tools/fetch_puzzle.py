@@ -94,14 +94,26 @@ GUARDIAN_SERIES = {
         "link_re": r"/crosswords/everyman/(\d+)",
         # The Guardian ships no creator for these; the fallback byline is in
         # tools/series.py, along with the reason there isn't one.
+        #
+        # It no longer ships the puzzles either. The Observer went to Tortoise
+        # Media in April 2025 and every everyman article page here 404s now,
+        # including the ones the series index still links to — the index page
+        # survived, which is why this looked alive. tools/fetch_observer.py
+        # fetches them from observer.co.uk instead.
+        #
+        # The entry STAYS, because series_of() reads a puzzle's series off this
+        # table and 4,096 puzzles on disk say "everyman". What it carries is the
+        # fact that it cannot be fetched here, so every route that fetches reads
+        # it in one place instead of each one learning about the 404s separately.
+        "moved_to": "tools/fetch_observer.py (observer.co.uk, from no. 4097 on)",
     },
 }
+FETCHABLE = [s for s, spec in GUARDIAN_SERIES.items() if not spec.get("moved_to")]
 # Tried in order for a bare number; the first that isn't a 404 wins.
 PUZZLE_URLS = [
     "https://www.theguardian.com/crosswords/cryptic/{num}",
     "https://www.theguardian.com/crosswords/prize/{num}",
     "https://www.theguardian.com/crosswords/quiptic/{num}",
-    "https://www.theguardian.com/crosswords/everyman/{num}",
 ]
 
 JSON_START = "/*JSON-START*/"
@@ -497,6 +509,14 @@ def refresh_unsolved():
     pending = []
     for path in puzzle_files():
         p = read_puzzle_file(path)
+        # Only what this fetcher can actually fetch. It used to scan every file
+        # in puzzles/, which after the Independent and the Observer arrived meant
+        # asking theguardian.com for their numbers every night and printing
+        # "refresh 4166 failed: HTTP 404" forever. Each of those papers has its
+        # own fetcher with its own --refresh-unsolved; daily_update.sh runs all
+        # three.
+        if p.get("series") not in FETCHABLE:
+            continue
         if not all(e.get("solution") for e in p["entries"]) or p.get("solutionSource"):
             pending.append(p["number"])
     filled = 0
@@ -551,7 +571,10 @@ def main(argv):
         count = int(argv[1]) if len(argv) > 1 else 30
         series = argv[2] if len(argv) > 2 else "cryptic"
         if series not in GUARDIAN_SERIES:
-            raise SystemExit(f"Unknown series {series!r}; try {'/'.join(GUARDIAN_SERIES)}")
+            raise SystemExit(f"Unknown series {series!r}; try {'/'.join(FETCHABLE)}")
+        if GUARDIAN_SERIES[series].get("moved_to"):
+            raise SystemExit(f"{series} is no longer published here — use "
+                             f"{GUARDIAN_SERIES[series]['moved_to']}")
         backfill(count, series)
         return 0
     if argv[0] == "--latest":
@@ -560,7 +583,7 @@ def main(argv):
         # 1,393, and taking the larger would mean the quiptic never downloads.
         # One series being down doesn't stop the others.
         got, up_to_date = [], []
-        for series in GUARDIAN_SERIES:
+        for series in FETCHABLE:
             try:
                 num = find_latest_number(series)
             except SystemExit as err:

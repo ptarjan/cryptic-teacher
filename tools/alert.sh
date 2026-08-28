@@ -26,6 +26,32 @@ ALERT_STATE_DIR="${ALERT_STATE_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." \
   && pwd)/.alert-state}"
 ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
 
+# Everything in a run's output that means something broke, sent here as the
+# lines themselves.
+#
+# The alerts below are hand-placed: each one guards a failure somebody already
+# thought of. This one guards the rest. A scheduled job's real failure mode is
+# not the branch with an alert on it — it is the traceback, the "usage:" from a
+# tool called with the wrong argument, the CLI that isn't on PATH. Those printed
+# and the run carried on, and on 2026-08-28 the log had been carrying
+# `apply_solution.py: error: argument number: invalid int value: 'everyman-4166'`
+# for days: a whole model solve, paid for and thrown away, every single night.
+#
+# Matched on a short allowlist rather than the word "error", because a hint
+# warning that happens to contain the word must not cry wolf — this channel has
+# one reader and an alert they learn to scroll past is worse than none.
+#
+# The lines travel IN the message. "See the log" is not a report: the reader is
+# on a phone and the log is on the mini.
+alert_run_failures() {
+  local log="$1" hits
+  [ -r "$log" ] || return 0
+  hits=$(grep -nE '^Traceback \(most recent call last\)|^[a-zA-Z_./]+\.py: error:|^usage: [a-zA-Z_]+\.py|: command not found|^VALIDATION FAILED|rejected — nothing written|^refresh .* failed:|^ERROR: |^[a-zA-Z_./]+: line [0-9]+: ' "$log" |
+    cut -c1-200 | head -8)
+  [ -n "$hits" ] || return 0
+  alert "the run printed $(printf '%s\n' "$hits" | wc -l | tr -d ' ') failure line(s) nobody had written an alert for:"$'\n'"\`\`\`"$'\n'"$hits"$'\n'"\`\`\`"
+}
+
 alert() {
   echo "ALERT: $*"
   [ -r "$ALERT_ENV_FILE" ] || return 0

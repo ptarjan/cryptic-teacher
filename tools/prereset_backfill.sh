@@ -61,6 +61,9 @@
 #   launchctl kickstart -k gui/$(id -u)/com.pt.cryptic-teacher-prereset   # run it now
 
 set -uo pipefail
+# A checkout of its own, so an hour of unmetered annotation cannot collide with
+# the 06:15 job or with somebody editing the repo. See tools/nightly_worktree.sh.
+. "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
 export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/bin:$PATH"
@@ -70,6 +73,11 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/b
 # note in daily_update.sh.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 . "$REPO/tools/alert.sh"
+
+# This run's own output, so the exit trap can report any failure line nobody
+# wrote an alert for. See alert_run_failures in alert.sh.
+RUN_LOG="$(mktemp -t cryptic-prereset)"
+exec > >(tee -a "$RUN_LOG") 2>&1
 
 # Kept in step with daily_update.sh — Opus since 2026-08-09, benchmarked against
 # Fable on 30078 (STYLE.md). Matching quality at a third the cost matters more
@@ -117,7 +125,7 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   echo "another pre-reset backfill is running (started $(date -r "$LOCK" '+%H:%M')) — leaving it alone"
   exit 0
 fi
-trap 'rmdir "$LOCK" 2>/dev/null' EXIT
+trap 'rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 
 # THE WHOLE JOB HANGS ON THIS CHECK. Everything below runs with no usage gate
 # whatsoever, which is only defensible in the hour before quota that cannot roll
@@ -346,12 +354,19 @@ commit_puzzle() {
     git commit -q -m "$what $num" -m "$ANNOTATE_TRAILER"
     # --autostash, because the tree is never clean here: the reindex above and
     # the rebuilt pages are sitting unstaged while we commit one puzzle file,
-    # and a plain `pull --rebase` refuses outright ("cannot pull with rebase:
-    # You have unstaged changes"). Every push in this job failed that way on the
-    # nights of 2026-08-05 and 08-06, so the work stayed on the mini and the
-    # site went on serving un-annotated puzzles that were annotated locally.
-    git pull --rebase --autostash -q && git push -q origin HEAD || {
-      git pull --rebase --autostash -q && git push -q origin HEAD ||
+    # and a plain rebase refuses outright ("cannot pull with rebase: You have
+    # unstaged changes"). Every push in this job failed that way on the nights
+    # of 2026-08-05 and 08-06, so the work stayed on the mini and the site went
+    # on serving un-annotated puzzles that were annotated locally.
+    #
+    # What it stashes is now only ever our own: this runs in a private worktree,
+    # where it used to autostash whatever a person or the 06:31 job happened to
+    # have in flight in the shared one. HEAD is detached there, so master is
+    # named on both sides of the push.
+    git fetch -q origin master && git rebase -q --autostash origin/master &&
+      git push -q origin HEAD:master || {
+      git fetch -q origin master && git rebase -q --autostash origin/master &&
+        git push -q origin HEAD:master ||
         alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until someone pushes. See .prereset.log."
     }
     echo "committed $what $num"
@@ -473,9 +488,16 @@ if [ "$DRY_RUN" = 1 ]; then
   exit 0
 fi
 
-# Record what got drained. The allowance may only shrink, so every puzzle
-# finished here is a puzzle that can never quietly lose the field again.
-python3 tools/validate_annotations.py --tighten >/dev/null 2>&1 || true
+# Record what got drained. The allowance may only shrink — enforced in
+# write_backlog, not merely intended — so every puzzle finished here is a puzzle
+# that can never quietly lose the field again.
+#
+# NOT suppressed. This was `>/dev/null 2>&1 || true`, and under it the command
+# had been raising TypeError on every run since puzzle ids stopped being bare
+# numbers: the sort key was int(id). Months of drained puzzles were never
+# recorded, and the one place that would have said so was pointed at /dev/null.
+python3 tools/validate_annotations.py --tighten ||
+  alert "the pre-reset backfill could not record what it drained (validate_annotations.py --tighten failed), so tonight's finished puzzles can still silently lose their notes. See .prereset.log."
 
 # --- 3. republish -------------------------------------------------------------
 # Unconditionally, even if nothing was annotated: this is cheap, deterministic

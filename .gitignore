@@ -55,3 +55,9 @@ sync/.wrangler/
 # named puzzles/<number>.js, months after ids were namespaced. A leading
 # underscore in tools/ means nothing may depend on it.
 tools/_*
+
+# The CLI's per-checkout settings and permissions. Local, machine-specific,
+# and reached from the scheduled jobs' worktrees by symlink — which is the
+# reason it is named here: those jobs `git add -A`, and an untracked symlink
+# pointing at somebody's home directory is not a thing to publish.
+.claude/
