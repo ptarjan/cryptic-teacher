@@ -43,11 +43,16 @@ tools/data/grading/
 # never committed, republished, or copied into a puzzle file.
 tools/data/minutecryptic/
 
-# Wrangler's local cache, written next to sync/wrangler.toml on every deploy.
-# It holds the Cloudflare account id and account name, which are not secrets but
-# are nobody else's business, and this repo is public. Deleting it costs one
-# extra prompt on the next deploy.
-sync/.wrangler/
+# Wrangler's local cache. It holds the Cloudflare account id and account name,
+# which are not secrets but are nobody else's business, and this repo is public.
+# Deleting it costs one extra prompt on the next deploy.
+#
+# Pathless, so it matches at any depth: wrangler writes this beside whatever
+# directory it was invoked from, not beside wrangler.toml, and `sync/.wrangler/`
+# missed the copy tools/reports.py made at the repo root. The scheduled jobs
+# `git add -A`, so an ignore rule that only covers the place we happened to look
+# is one `cd` away from publishing the account id.
+.wrangler/
 
 # One-shot scratch. The annotation job reaches for a throwaway script to write a
 # puzzle's hints and then leaves it behind, so these accumulate a file per puzzle

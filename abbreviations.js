@@ -35,6 +35,9 @@ const ABBREVIATIONS = {
   "advertisement",
   "promotion"
  ],
+ "AL": [
+  "aluminium"
+ ],
  "AM": [
   "before noon",
   "morning"
@@ -171,7 +174,8 @@ const ABBREVIATIONS = {
  ],
  "EU": [
   "europe",
-  "europeans"
+  "europeans",
+  "europium"
  ],
  "EX": [
   "former",
@@ -591,6 +595,7 @@ const ABBREVIATIONS = {
  "S": [
   "saint",
   "second",
+  "seconds",
   "section",
   "singular",
   "small",
@@ -606,6 +611,9 @@ const ABBREVIATIONS = {
  "SA": [
   "sex appeal",
   "south africa"
+ ],
+ "SCH": [
+  "school"
  ],
  "SE": [
   "southeast"
@@ -706,6 +714,7 @@ const ABBREVIATIONS = {
  "V": [
   "against",
   "five",
+  "vanadium",
   "verse",
   "versus",
   "very",

@@ -800,7 +800,8 @@ INVARIANT_PLURALS = {
     "grouse", "headquarters", "means", "offspring", "people", "police",
     "salmon", "series", "sheep", "species", "swine", "trout", "vermin",
     "youth", "kin", "poultry", "livestock", "personnel", "staff", "troops",
-    "media", "data", "criteria", "phenomena", "bacteria", "children", "men",
+    "media", "data", "criteria", "phenomena", "bacteria", "amoebae",
+    "children", "men",
     "women", "feet", "teeth", "geese", "mice", "lice", "oxen", "dice",
     # Not nouns, but the plural head of a definition all the same: "Those in
     # charge" defines RULERS and "these" and "those" carry the number on their

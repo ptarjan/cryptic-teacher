@@ -26,15 +26,23 @@ import datetime
 import json
 import subprocess
 import sys
+from pathlib import Path
 
 NAMESPACE = "85f9de552ea64b229c113df624fb6ca0"   # SAVES, see sync/wrangler.toml
 PREFIX = "r:"
 
 
+SYNC_DIR = Path(__file__).resolve().parent.parent / "sync"
+
+
 def wrangler(*args):
-    """Wrangler, with its chatter on stderr where it cannot corrupt the JSON."""
+    """Wrangler, with its chatter on stderr where it cannot corrupt the JSON.
+
+    Run from sync/, because wrangler caches the Cloudflare account id beside
+    whatever directory it was invoked from and that is the one place set up to
+    keep it out of a public repo."""
     out = subprocess.run(("npx", "wrangler") + args + ("--remote", "--namespace-id", NAMESPACE),
-                         capture_output=True, text=True)
+                         capture_output=True, text=True, cwd=SYNC_DIR)
     if out.returncode != 0:
         # The reason, in the message. A tool that says "failed" and points at a
         # log it did not name has told you nothing you can act on.
