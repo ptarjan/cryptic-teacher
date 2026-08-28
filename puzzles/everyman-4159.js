@@ -903,7 +903,27 @@ window.CRYPTIC_PUZZLES["everyman-4159"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAISE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RAISE",
+    "definition": "Pull up",
+    "indicators": [
+     "escaping from trap"
+    ],
+    "indicatorNotes": {
+     "escaping from trap": "A trap is British slang for the mouth, so whatever escapes from one is spoken rather than written down."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "soundsLike": "RAYS",
+      "gives": "RAISE",
+      "note": "rays are the flat cartilaginous sea fish, and 'fish' serves as its own plural"
+     }
+    ],
+    "walkthrough": "The surface sells a fish wriggling out of a fish trap, which sets you hunting for a deletion. Nothing is taken away here: the clue only asks you to say the word aloud.",
+    "definitionFit": "Pull up: a plain synonym in the lifting sense — you pull up a blind, or pull up a bucket from a well, and that is the movement wanted."
+   }
   },
   {
    "id": "17-down",
