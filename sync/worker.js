@@ -20,6 +20,9 @@ const MAX_PUZZLES = 2000;
 const TTL = 60 * 60 * 24 * 365; // a code untouched for a year is abandoned
 const EVENT_TTL = 60 * 60 * 24 * 90; // a quarter, so this month has a month to compare against
 const MAX_EVENT = 32;           // the longest name on the list, with room to spare
+const MAX_REPORT = 2 * 1024;    // a sentence about a hint, with room for a long clue id
+const MAX_NOTE = 400;           // what fits in the one-line box on the page
+const REPORT_TTL = 60 * 60 * 24 * 365;
 
 const cors = (origin) => ({
   "access-control-allow-origin": origin || "*",
@@ -66,6 +69,40 @@ export default {
       await env.SAVES.put(`e:${day}:${name}:${crypto.randomUUID()}`, "",
                           { expirationTtl: EVENT_TTL });
       return ok;
+    }
+
+    /* A hint that is wrong, reported from the clue it is wrong on.
+
+       Unlike /e this one ANSWERS: a reader who took the trouble to type a
+       sentence is owed either a thank-you or an error, and a page that says
+       "logged" over a request that failed has taught them the report goes
+       nowhere. So it validates, and it says which part it did not like.
+
+       The record is what the reporter chose to send plus the day. No address, no
+       code, no clock finer than the date — the same posture as the counting
+       above, for the same reason: there is nothing here to join two of these
+       into one person with. */
+    if (url.pathname === "/r" && request.method === "POST") {
+      if (Number(request.headers.get("content-length") || 0) > MAX_REPORT)
+        return json({ error: "too big" }, 413, origin);
+      let r;
+      try {
+        const text = await request.text();
+        if (text.length > MAX_REPORT) return json({ error: "too big" }, 413, origin);
+        r = JSON.parse(text);
+      } catch (e) {
+        return json({ error: "bad json" }, 400, origin);
+      }
+      const str = (v, n) => (typeof v === "string" ? v.trim().slice(0, n) : "");
+      const note = str(r && r.note, MAX_NOTE);
+      if (!note) return json({ error: "empty report" }, 400, origin);
+      const record = {
+        puzzle: str(r.puzzle, 40), clue: str(r.clue, 24), rung: str(r.rung, 24),
+        day: new Date().toISOString().slice(0, 10), note,
+      };
+      await env.SAVES.put(`r:${record.day}:${crypto.randomUUID()}`, JSON.stringify(record),
+                          { expirationTtl: REPORT_TTL });
+      return json({ ok: true }, 200, origin);
     }
 
     const m = url.pathname.match(/^\/s\/([^/]+)$/);

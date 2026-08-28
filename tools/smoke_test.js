@@ -7,7 +7,9 @@ const path = require("path");
 const ROOT = require("path").join(__dirname, "..");
 
 let failures = 0;
-const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", msg); } };
+// Returns the condition, so a check whose failure would crash the checks after it
+// can guard them: a stack trace stops the suite dead and hides every other result.
+const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", msg); } return !!cond; };
 
 // The DOM stub and the app boot live in tools/fake_dom.js, because
 // tools/make_hint_packets.js boots the same app to walk the same hint ladder.
@@ -499,7 +501,11 @@ assert(registry["hint-next"].innerHTML.includes("Fill in answer"), "final rung i
 const hx = registry["hx-entry"];
 assert(hx.onclick, "fill-in-answer button wired");
 hx.onclick();
-assert(registry["hint-escape"].innerHTML === "", "escape hatch hidden once solved");
+// Nothing that gives letters away survives the answer going in. The strip itself
+// stays, because reporting a bad hint is most useful from a clue you have just
+// finished and can see was explained wrong.
+assert(!registry["hint-escape"].innerHTML.includes("hx-letter"),
+  "escape hatch hidden once solved: " + registry["hint-escape"].innerHTML);
 const kd = docListeners["keydown"][0];
 assert(kd, "document keydown listener registered");
 
@@ -1567,6 +1573,25 @@ registry["reset-puzzle"].onclick();
   assert(win.scrolls.length === 1,
     "with nothing left to correct the late look costs nothing: " + JSON.stringify(win.scrolls));
 
+  // --- but a keyboard that is GONE is not a keyboard that is coming ---
+  // "Owed" used to be read off the input: focused, with no keys showing. That is
+  // also exactly what an iPad looks like the moment you dismiss the keyboard with
+  // the chevron, or dock it to a hardware one — the input keeps focus and nothing
+  // is on its way in. Every clue tap after that waited out the whole cold-keyboard
+  // deadline for keys that were never coming, and the page sat still for over a
+  // second before it set off (Paul, iPad, 2026-08-28). Only a focus that MOVES
+  // focus can raise a keyboard, so only that is worth waiting for.
+  assert(document.activeElement === registry["kbd"],
+    "the typing input is still focused, as it is after typing or dismissing the keys");
+  vv.height = 1000; vv.offsetTop = 0;      // ...and no keyboard is up
+  win.pageYOffset = 0; win.scrolls.length = 0;
+  registry["clues-down"].listeners.mousedown[0]();   // keeps the focus, summons nothing
+  clues[1].listeners.click[0]();
+  global.flushTimers(100);
+  assert(win.scrolls.length === 1,
+    "a tap with the keyboard already dismissed sets off at once: " + JSON.stringify(win.scrolls));
+  drain();
+
   // --- and the late look is still there for the keyboard that never resizes ---
   // A hardware keyboard, or an iOS that says nothing at all: the wait cannot be
   // unbounded, so the deadline places anyway, and the one late look is what
@@ -2051,8 +2076,13 @@ registry["reset-puzzle"].onclick();
   // directions.
   assert(!/type="(password|email)"/.test(page),
     "the page asks for no password and no email — the code is the whole identity");
-  assert(/syncOn\(\)/.test(src) && (src.match(/fetch\(/g) || []).length === 1,
+  const fetches = src.match(/fetch\(.*/g) || [];
+  assert(/syncOn\(\)/.test(src) && fetches.filter((f) => f.includes('"/s/"')).length === 1,
     "there is exactly one place that sends a crossword, and it is gated on sync being on");
+  // And the page as a whole leaves nothing else: the only other thing it ever
+  // sends is a sentence the reader typed on purpose about a bad hint.
+  assert(fetches.every((f) => f.includes('"/s/"') || f.includes('"/r"')),
+    "nothing else leaves the page: " + fetches.join(" | "));
   // The counter is the only other thing that reaches the network, and what it
   // can carry is one name from the shared list — no grid, no code, no id. Two
   // separate things go to the same Worker and only one of them is about you.
@@ -2721,6 +2751,29 @@ global.realSetTimeout(() => {
     assert(!registry["picker-search"].value,
       `and tapping "${w}" again is the way back out: ` + registry["picker-search"].value);
   });
+
+  // --- and they combine (Paul, 2026-08-28) ---
+  // "I can choose Everyman brutal". A tap used to REPLACE the box, so the paper
+  // and the difficulty were mutually exclusive by accident — while the TYPED
+  // search had been intersecting its terms all along. The chips are how you spell
+  // a query without knowing the words; they must not be able to say less than the
+  // box they fill in.
+  const empty = () => registry["picker-list"].children.length === 1 &&
+    registry["picker-list"].children[0].className === "picker-empty";
+  let band = null;
+  for (let i = papers.length; i < want.length && !band; i++) {
+    typeInPicker("");                    // through the box, so the chips re-read it
+    registry["pf-0"].onclick();
+    registry["pf-" + i].onclick();
+    if (!empty()) band = { w: want[i], i };
+  }
+  if (assert(band, "some paper and some band go together: " + want.join(" "))) {
+    assert(registry["picker-search"].value === want[0] + " " + band.w,
+      "two chips make two terms, not the second one: " + registry["picker-search"].value);
+    registry["pf-" + band.i].onclick();
+    assert(registry["picker-search"].value === want[0],
+      "and taking one back out leaves the other standing: " + registry["picker-search"].value);
+  }
   typeInPicker("");
   registry["btn-picker-close"].onclick();
 }
@@ -2826,6 +2879,73 @@ global.realSetTimeout(() => {
   registry["clue-" + other.id].listeners.click[0]();
   assert(!/asks before it tells/.test(registry["hint-body"].innerHTML),
     "and stops saying it once a rung has been worked out: " + registry["hint-body"].innerHTML);
+}
+
+// --- a clue that is two things at once has two right answers (Paul, 2026-08-28) ---
+// "There was a regularly indicator but I said it was a charade." Both were true:
+// the type was compound and the rung graded against whichever family its table
+// happened to reach first. Two of every five annotated clues in the collection
+// are compound, so this was not an edge — it was marking the truth wrong at
+// scale, and teaching that a clue has exactly one mechanism, which is the
+// opposite of what the rung is for.
+//
+// The clue is found by a type naming mechanisms that CANNOT be the same family
+// under any sane grouping — a charade is words laid end to end, letters picked
+// out of a word are not — so this does not restate the app's own table and
+// cannot pass by agreeing with a copy of it.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const t = ((e.annotation || {}).type || "").toLowerCase();
+      if (t.includes("charade") && (t.includes("letter") || t.includes("hidden"))) {
+        found = { id, e };
+        break;
+      }
+    }
+    if (found) break;
+  }
+  if (assert(found, "some clue in the corpus is a charade AND an extraction")) {
+    const open = () => {
+      registry["btn-picker"].onclick();
+      typeInPicker(String(puzzles[found.id].number));
+      const li = registry["picker-list"].children.find(
+        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+      li.children[0].onclick();
+      registry["reset-puzzle"].onclick();
+      registry["clue-" + found.e.id].listeners.click[0]();
+      registry["hint-next"].children.find((b) => /kind of clue/i.test(b.textContent || "")).onclick();
+    };
+    const choices = () => {
+      const out = new Map();
+      const re = /id="gc-(\d+)" class="gc">([^<]+)</g;
+      let m;
+      while ((m = re.exec(registry["hint-body"].innerHTML))) out.set(m[2], m[1]);
+      return out;
+    };
+    open();
+    const labels = [...choices().keys()];   // while the question is still on screen
+    registry["guess-tell"].onclick();
+    const named = /kind of clue is this\?<\/span><p><strong>([^<]+)</
+      .exec(registry["hint-body"].innerHTML);
+    assert(named, "the rung names one family as the headline: " + registry["hint-body"].innerHTML);
+
+    let also = 0, free = null;
+    for (const label of labels) {
+      if (named && label === named[1]) continue;
+      const before = (open(), registry["scorebar"].innerHTML);
+      registry["gc-" + choices().get(label)].onclick();
+      if (!/guess-verdict right/.test(registry["hint-body"].innerHTML)) continue;
+      also += 1;
+      if (registry["scorebar"].innerHTML === before) free = label;
+    }
+    assert(also >= 1, "the other family in it is graded right too, not marked wrong: "
+      + found.e.clue + " — " + found.e.annotation.type);
+    // And right is right: a true answer that still costs a rung is a wrong answer
+    // wearing a compliment.
+    assert(free, "and costs nothing, the same as naming the headline one does");
+  }
 }
 
 // --- nothing is charged for without being offered first (Paul, 2026-08-28) ---
@@ -2935,6 +3055,33 @@ global.realSetTimeout(() => {
   const want = { definition: targetOf(/definition/i), indicators: targetOf(/indicator/i) };
   assert(want.definition && want.indicators,
     "the clue can pose both spotting questions: " + JSON.stringify(want));
+
+  // --- and each rung's words are picked in that part's own colour ---
+  // "Use the same colour for my selection as we use for indicator" (Paul,
+  // 2026-08-28). The page has exactly two highlight colours — green for a
+  // definition, pink for an indicator and the fragments it works on — and
+  // picking used to have a third, neutral one of its own. That taught one colour
+  // for "I chose this" and a different one for the thing just correctly chosen.
+  const pickClass = (re) => {
+    open();
+    rung(re).onclick();
+    return (registry["hint-body"].innerHTML.match(/class="guess-clue[^"]*"/) || [""])[0];
+  };
+  const defPick = pickClass(/definition/i), indPick = pickClass(/indicator/i);
+  assert(/pick-definition/.test(defPick),
+    "the definition rung picks in the definition's colour: " + defPick);
+  assert(/pick-indicators/.test(indPick),
+    "the indicator rung picks in the indicator's colour: " + indPick);
+  // And those classes are wired to the site's two colours rather than to a third:
+  // a class name nothing paints is the same bug wearing a better name.
+  const pickCss = fs.readFileSync(ROOT + "/style.css", "utf8");
+  assert(/\.guess-clue\s*\{[^}]*--pick-bg:\s*var\(--ind-bg\)/.test(pickCss),
+    "picking is the indicator's colour by default");
+  assert(/\.pick-definition\s*\{[^}]*--pick-bg:\s*var\(--def-bg\)/.test(pickCss),
+    "and the definition's on the definition rung");
+  assert(/\.gw\.on\s*\{[^}]*var\(--pick-bg\)/.test(pickCss) &&
+         /\.gw\.hit\s*\{[^}]*var\(--pick-bg\)/.test(pickCss),
+    "and both the picking and the marking read it");
 
   // Cold, the ladder has two locks on it: the assembly rung and the walkthrough.
   open();
@@ -3130,4 +3277,50 @@ global.realSetTimeout(() => {
   // A link outliving its puzzle must still open the puzzle.
   assert(clueOf(fresh("?p=cryptic-30066&c=nope")) === dflt,
     "an unknown clue ref falls back to the first clue rather than erroring");
+}
+
+// --- a bad hint can be reported from the clue it is bad on (Paul, 2026-08-28) ---
+// Two taps and a sentence, in the strip the reveal button already lives in. No
+// page, no form, no address to find: a reader who has just been taught something
+// false will say so if it costs them nothing, and will not if it costs them a
+// search for a contact link.
+{
+  const first = Object.keys(global.window.CRYPTIC_PUZZLES).sort()[0];
+  const e = (global.window.CRYPTIC_PUZZLES[first].entries || [])[0];
+  registry["btn-picker"].onclick();
+  typeInPicker(String(global.window.CRYPTIC_PUZZLES[first].number));
+  const li = registry["picker-list"].children.find(
+    (x) => x.children[0] && x.children[0].innerHTML.includes(
+      "№ " + global.window.CRYPTIC_PUZZLES[first].number));
+  if (assert(li, "picker finds a puzzle to report on")) {
+    li.children[0].onclick();
+    registry["clue-" + e.id].listeners.click[0]();
+    assert(/id="rp-open"/.test(registry["hint-escape"].innerHTML),
+      "every clue offers it: " + registry["hint-escape"].innerHTML);
+    registry["rp-open"].onclick();
+    assert(/id="rp-note"/.test(registry["hint-escape"].innerHTML),
+      "and opening it gives you the line to write on: " + registry["hint-escape"].innerHTML);
+
+    // Typing into the page re-renders the panel on every keystroke. A strip that
+    // is rewritten while you are writing in it throws the sentence away.
+    registry["rp-note"].value = "the definition is the wrong way round";
+    registry["clue-" + e.id].listeners.click[0]();
+    assert(registry["rp-note"].value === "the definition is the wrong way round",
+      "a redraw does not eat what you were typing: " + registry["rp-note"].value);
+
+    let sent = null;
+    const realFetch = global.fetch;
+    global.fetch = (url, opt) => { sent = { url, opt }; return new Promise(() => {}); };
+    registry["rp-send"].onclick();
+    global.fetch = realFetch;
+    if (assert(sent, "Send sends it")) {
+      assert(/\/r$/.test(sent.url) && sent.opt.method === "POST",
+        "to the report endpoint: " + sent.url + " " + sent.opt.method);
+      const body = JSON.parse(sent.opt.body);
+      assert(body.note === "the definition is the wrong way round", "with what was written");
+      assert(body.clue === e.id && body.puzzle,
+        "and which clue it was about, which is the half the reporter should not have to type: "
+          + JSON.stringify(body));
+    }
+  }
 }
