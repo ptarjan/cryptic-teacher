@@ -2801,6 +2801,14 @@ global.realSetTimeout(() => {
   registry["gc-" + choices().get(right)].onclick();
   html = registry["hint-body"].innerHTML;
   assert(html.includes("guess-verdict right"), "the right family is graded right: " + html);
+  // The entrance is spent on the draw that first shows the verdict. The panel is
+  // rewritten on every keystroke and every selection, so an animation left on it
+  // replays while the solver is doing something else entirely — "the old 'yes
+  // that's the one' is animating as I'm picking a new clue" (Paul, 2026-08-28).
+  assert(html.includes("guess-result fresh"), "the verdict arrives with an entrance: " + html);
+  registry["clue-" + found.e.id].listeners.click[0]();
+  assert(!/guess-result fresh/.test(registry["hint-body"].innerHTML),
+    "and does not replay it on the next draw: " + registry["hint-body"].innerHTML);
   assert(registry["scorebar"].innerHTML === free,
     "and a rung you worked out yourself is free: " + free + " -> " + registry["scorebar"].innerHTML);
   assert(registry["hint-meter"].innerHTML.includes("worked out"),

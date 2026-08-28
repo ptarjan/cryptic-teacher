@@ -599,24 +599,25 @@ button:disabled:hover { border-color: var(--line); }
    which words is the whole lesson — so the ones that were right take the
    definition's green, the spares strike through and step back, and the ones that
    were missed arrive a beat later so the eye is free to follow them.
-   These are entrances, not a slot to read in: the marked clue stays put. */
-.gw.hit {
-  background: var(--def-bg); border-color: var(--def-fg); color: var(--def-fg);
-  animation: gw-hit .4s ease-out;
-}
+   These are entrances, not a slot to read in: the marked clue stays put.
+   Every animation here is scoped to .fresh, which the verdict wears only on the
+   draw that first shows it: the panel is rewritten on every keystroke and every
+   selection, and an entrance that replays on each one is a fidget, not an
+   entrance. */
+.gw.hit { background: var(--def-bg); border-color: var(--def-fg); color: var(--def-fg); }
+.guess-result.fresh .gw.hit { animation: gw-hit .4s ease-out; }
 .gw.spare { opacity: .45; text-decoration: line-through; }
-.gw.missed {
-  border-color: var(--def-fg); border-style: dashed; color: var(--def-fg);
-  animation: gw-missed .45s ease-out .18s both;
-}
+.gw.missed { border-color: var(--def-fg); border-style: dashed; color: var(--def-fg); }
+.guess-result.fresh .gw.missed { animation: gw-missed .45s ease-out .18s both; }
 @keyframes gw-hit {
   from { transform: scale(1); }
   45%  { transform: scale(1.14); }
   to   { transform: scale(1); }
 }
 @keyframes gw-missed { from { opacity: .2; } to { opacity: 1; } }
+/* Scoped to match the rules above, or it loses to them on specificity. */
 @media (prefers-reduced-motion: reduce) {
-  .gw.hit, .gw.missed { animation: none; }
+  .guess-result.fresh .gw.hit, .guess-result.fresh .gw.missed { animation: none; }
 }
 
 .guess-actions { margin-top: 8px; }
@@ -653,8 +654,10 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    arrives, and a miss shakes its head. A miss still isn't coloured; the motion
    says it instead. */
 .guess-verdict { margin: 10px 0 0; font-size: .9rem; }
-.guess-verdict.right { color: var(--def-fg); font-weight: 600; animation: gv-right .45s ease-out; }
-.guess-verdict.miss { color: var(--muted); animation: gv-miss .4s ease-out; }
+.guess-verdict.right { color: var(--def-fg); font-weight: 600; }
+.guess-verdict.miss { color: var(--muted); }
+.guess-result.fresh .guess-verdict.right { animation: gv-right .45s ease-out; }
+.guess-result.fresh .guess-verdict.miss { animation: gv-miss .4s ease-out; }
 @keyframes gv-right {
   from { opacity: 0; transform: translateY(6px) scale(.96); }
   60%  { opacity: 1; transform: translateY(0) scale(1.05); }
@@ -668,10 +671,11 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
 }
 /* The words you picked that weren't in it: they step back rather than being
    found already stepped back, so the eye can see which ones went. */
-.gw.spare { animation: gw-spare .35s ease-out both; }
+.guess-result.fresh .gw.spare { animation: gw-spare .35s ease-out both; }
 @keyframes gw-spare { from { opacity: 1; } to { opacity: .45; } }
 @media (prefers-reduced-motion: reduce) {
-  .guess-verdict.right, .guess-verdict.miss, .gw.spare { animation: none; }
+  .guess-result.fresh .guess-verdict.right, .guess-result.fresh .guess-verdict.miss,
+  .guess-result.fresh .gw.spare { animation: none; }
 }
 
 mark.def { background: var(--def-bg); color: var(--def-fg); padding: 0 2px; border-radius: 3px; }

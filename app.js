@@ -988,7 +988,12 @@
     const top = (r.height > vh - HINT_SCROLL_GAP || r.top < band.top)
       ? y + r.top - band.top - HINT_SCROLL_GAP
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    // Instant, not smooth. Safari's smooth runs longer the further it has to go,
+    // and from a clue low in the list up to the panel is most of a page — "takes
+    // a while" (Paul, iPad, 2026-08-28). It also spent that whole flight moving
+    // the visual viewport and firing the same events a keyboard fires, which is
+    // what every guard above this is written to survive. One tap, one move, over.
+    window.scrollTo({ top: Math.max(0, top) });
   }
   // settleBy and watchUntil are the whole guard: a resize matters only while a tap
   // is waiting to land, or while the keyboard it asked for could still be on its
@@ -1538,8 +1543,9 @@
     const d = radius * 2 + 34;
     return `<div class="anagram-ring">
       <div class="ana-disc" style="width:${d}px;height:${d}px">${tiles}</div>
-      <p class="muted">The same letters with no order to fall back into. Tap one to
-        cross it off as you place it.</p>
+      <p class="muted">The same letters with no order to fall back into. Tap a letter to
+        cross it off once you have placed it, and shuffle when the arrangement
+        stops suggesting anything.</p>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
   }
@@ -2087,9 +2093,18 @@
   //
   // A choice question has no words to mark and nothing to keep: what you picked
   // is in the sentence, and the rung below is the rest of it.
+  //
+  // Everything in here animates on the way in, and the panel is redrawn on every
+  // keystroke and every selection — so the entrance is spent the first time it is
+  // drawn and never again. Without that, "yes that's the one" pops afresh while
+  // you are picking your next clue (Paul, 2026-08-28): an entrance that replays
+  // is not an entrance, it is a fidget.
   function verdictHTML(g) {
-    return `<div class="guess-result"><p class="guess-verdict ${g.mk.right ? "right" : "miss"}">${
-      esc(g.mk.said)}</p>${g.tokens ? guessWordsHTML(g.tokens, g.mk, [], g.known) : ""}</div>`;
+    const fresh = g.fresh ? " fresh" : "";
+    g.fresh = false;
+    return `<div class="guess-result${fresh}"><p class="guess-verdict ${
+      g.mk.right ? "right" : "miss"}">${esc(g.mk.said)}</p>${
+      g.tokens ? guessWordsHTML(g.tokens, g.mk, [], g.known) : ""}</div>`;
   }
 
   // Pieces of the charade already placed, kept on the screen while the next one
@@ -2219,7 +2234,7 @@
       refreshAll();
       return;
     }
-    lastGuess = verdict && { key: guessing.key, rung: guessing.rung,
+    lastGuess = verdict && { key: guessing.key, rung: guessing.rung, fresh: true,
                              tokens: ask.tokens, known: ask.known, mk: verdict };
     if (verdict && verdict.right && earnedRungs(e).indexOf(guessing.rung) < 0) {
       earnedRungs(e).push(guessing.rung);
