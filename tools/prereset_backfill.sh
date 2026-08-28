@@ -348,8 +348,10 @@ commit_puzzle() {
     alert "pre-reset backfill left clues unsolved — $loss. They ship with no teaching ladder. Repeated across a night this means the model is not solving these puzzles."
   echo "$loss"
   if [ -n "$(git status --porcelain -- "puzzles/$num.js")" ]; then
-    # By pathspec, never `git add .`: the nightly job and any interactive
-    # session share this checkout, and a bare commit swallows their staged work.
+    # One puzzle, on purpose: this job runs for hours and publishes as it goes,
+    # so each finished puzzle reaches the site without waiting for the rest.
+    # Named because it was just written, not as an allow-list — the sweep at the
+    # end takes everything.
     git add "puzzles/$num.js"
     git commit -q -m "$what $num" -m "$ANNOTATE_TRAILER"
     # --autostash, because the tree is never clean here: the reindex above and
@@ -520,13 +522,17 @@ if command -v node >/dev/null 2>&1; then
   rm -f "$smoke_log"
 fi
 if [ -n "$(git status --porcelain)" ]; then
-  # Same list as daily_update.sh, and for the same reason: a backfill that needs
-  # a new wordplay type edits app.js and STYLE.md as well as the puzzle, and
-  # leaving those behind ships a clue the app cannot describe.
-  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md APP.md \
-          tools/validate_annotations.py tools/annotation_backlog.json
+  # Everything, for the reason daily_update.sh gives at its own `add -A`: this
+  # is a worktree of the job's own, and a named list is both incomplete and
+  # fatal — git add aborts on a path that matches nothing, staging none of it.
+  git add -A
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$ANNOTATE_TRAILER")"
-  git pull --rebase --autostash -q && git push -q origin HEAD ||
+  left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
+  [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"
+  # HEAD is detached here, so master is named on both sides — `pull --rebase`
+  # has no upstream to read and `push origin HEAD` has no branch to write.
+  git fetch -q origin master && git rebase -q --autostash origin/master &&
+    git push -q origin HEAD:master ||
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi
 
