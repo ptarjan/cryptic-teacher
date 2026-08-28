@@ -907,9 +907,17 @@
     const ih = window.innerHeight || 0;
     return !!(vv && vv.height && ih && ih - vv.height >= KEYBOARD_MIN_PX);
   }
+  // A keyboard is OWED only when a tap actually asked for one, which is focusKbd
+  // moving focus into the input on a touch device. This used to read "the input
+  // is focused and no keyboard is showing" — which is also exactly what an iPad
+  // looks like once you dismiss the keyboard with the chevron, or hinge on a
+  // hardware one. Every clue tap after that waited out the full cold-keyboard
+  // deadline for keys that were never coming, and the page sat still for over a
+  // second before it moved (Paul, iPad, 2026-08-28).
+  let kbdOwed = false;
   function keyboardExpected() {
-    return !!(typeof navigator !== "undefined" && navigator.maxTouchPoints) &&
-      document.activeElement === $("kbd") && !keyboardUp();
+    if (keyboardUp()) kbdOwed = false;
+    return kbdOwed;
   }
   // Longer than the ordinary deadline because a cold first keyboard is slow to
   // build, and the wait only ever costs anything on a device that raises one at
@@ -969,7 +977,7 @@
   // Only ever called off that timer, so layout has long since flushed and there
   // is nothing to measure a frame later for.
   function placeHintPanel() {
-    settleTimer = null; settleBy = 0;
+    settleTimer = null; settleBy = 0; kbdOwed = false;
     const p = $("hint-panel");
     if (!p || p.classList.contains("hidden") || !p.getBoundingClientRect) return;
     const r = p.getBoundingClientRect();
@@ -988,12 +996,15 @@
     const top = (r.height > vh - HINT_SCROLL_GAP || r.top < band.top)
       ? y + r.top - band.top - HINT_SCROLL_GAP
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
-    // Instant, not smooth. Safari's smooth runs longer the further it has to go,
-    // and from a clue low in the list up to the panel is most of a page — "takes
-    // a while" (Paul, iPad, 2026-08-28). It also spent that whole flight moving
-    // the visual viewport and firing the same events a keyboard fires, which is
-    // what every guard above this is written to survive. One tap, one move, over.
-    window.scrollTo({ top: Math.max(0, top) });
+    // Smooth: the travel is how the reader keeps their place, and "the smooth
+    // scroll was nice" (Paul, iPad, 2026-08-28). What read as slow was never the
+    // animation, it was the wait in front of it — keyboardExpected above used to
+    // claim a keyboard was coming on taps that had asked for nothing, and the
+    // page held still for a second before setting off. Fix the wait, keep the
+    // travel. Reduced motion gets the jump instead, as it does everywhere else.
+    const still = window.matchMedia &&
+      matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: Math.max(0, top), behavior: still ? "auto" : "smooth" });
   }
   // settleBy and watchUntil are the whole guard: a resize matters only while a tap
   // is waiting to land, or while the keyboard it asked for could still be on its
@@ -1146,6 +1157,13 @@
 
   function focusKbd() {
     const kbd = $("kbd");
+    // Only a focus that MOVES focus can raise a keyboard, and only a keyboard on
+    // its way in is worth waiting for. Re-focusing the input that is already
+    // focused — what the clue lists and the hint buttons do to keep a keyboard
+    // from leaving — changes nothing about the viewport, so it must not make the
+    // next tap wait for a change that is not coming.
+    if (document.activeElement !== kbd && !keyboardUp() &&
+        typeof navigator !== "undefined" && navigator.maxTouchPoints) kbdOwed = true;
     kbd.value = "";
     kbd.focus({ preventScroll: true });
   }
@@ -1320,9 +1338,19 @@
       match: (t) => t.includes("hidden") || t.includes("letter") }
   ];
 
-  function familyOf(type) {
+  // Every family a compound type actually uses, dominant one first. A clue can be
+  // more than one thing at once — "there was a regularly indicator but I said it
+  // was a charade" (Paul, 2026-08-28) — and on a type like "charade with
+  // alternate letters" both answers are the truth. The ladder still NAMES one,
+  // because a headline has to pick, but marking the others wrong teaches the
+  // solver that a clue has exactly one mechanism, which is the opposite of what
+  // this rung is for.
+  function familiesOf(type) {
     const t = (type || "").toLowerCase();
-    return FAMILIES.find((f) => f.match(t)) ||
+    return FAMILIES.filter((f) => f.match(t));
+  }
+  function familyOf(type) {
+    return familiesOf(type)[0] ||
       { label: "Wordplay", blurb: "The clue has a definition at one end and wordplay at the other." };
   }
 
@@ -1913,13 +1941,12 @@
   // under every clue is most of how it gets learned. Narrowing it to plausible
   // ones would make the question easier and the lesson smaller.
   function familyAsk(ann) {
-    const right = familyOf(ann.type).label;
-    // familyOf falls back to a family that is not on the list, for a type no
-    // rule claims. There would be no right answer to pick, so there is no
-    // question, and the rung behaves exactly as it always did.
-    if (!FAMILIES.some((f) => f.label === right)) return null;
+    // Empty for a type no rule claims: there would be no right answer to pick, so
+    // there is no question, and the rung behaves exactly as it always did.
+    const right = familiesOf(ann.type).map((f) => f.label);
+    if (!right.length) return null;
     return { prompt: "Which of these is it?", choices: FAMILIES.map((f) => f.label),
-             answer: right, step: 0 };
+             answer: right[0], answers: right, step: 0 };
   }
 
   // What a rung asks, which tokens answer it, and which are no longer anybody's
@@ -1997,7 +2024,7 @@
   // "it flashes too fast for me to read" (Paul, 2026-08-21). Nothing here is on
   // a timer now. The animations are entrances — they say a thing has arrived,
   // they do not say how long you have with it.
-  function guessWordsHTML(tokens, mk, picked, known) {
+  function guessWordsHTML(tokens, mk, picked, known, rung) {
     const settled = known || [];
     const cls = (i) => {
       if (!mk) return picked.indexOf(i) >= 0 ? " on" : "";
@@ -2015,7 +2042,14 @@
     // "ask" while it is the question, "mk" once it has been graded. The two are
     // the same words in two places, and flipCapture/flipPlay use the pair to
     // measure the journey between them.
-    return `<p class="guess-clue ${mk ? "mk" : "ask"}">${words.join(" ")}</p>`;
+    //
+    // The rung rides along because the colour of a picked word is the colour that
+    // KIND of word wears everywhere else on the site: green for a definition,
+    // pink for an indicator (Paul, 2026-08-28). Picking used to be its own
+    // neutral accent, which made the solver learn one colour for "I chose this"
+    // and a different one for the thing they had just correctly chosen.
+    return `<p class="guess-clue ${mk ? "mk" : "ask"} pick-${rung || "indicators"}">${
+      words.join(" ")}</p>`;
   }
 
   // ---------- dragging a run of words ----------
@@ -2104,7 +2138,7 @@
     g.fresh = false;
     return `<div class="guess-result${fresh}"><p class="guess-verdict ${
       g.mk.right ? "right" : "miss"}">${esc(g.mk.said)}</p>${
-      g.tokens ? guessWordsHTML(g.tokens, g.mk, [], g.known) : ""}</div>`;
+      g.tokens ? guessWordsHTML(g.tokens, g.mk, [], g.known, g.rung) : ""}</div>`;
   }
 
   // Pieces of the charade already placed, kept on the screen while the next one
@@ -2130,7 +2164,7 @@
   function guessHTML(ask, position, label) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
-      : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known);
+      : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung);
     const check = ask.choices ? "" : `<button id="guess-check" class="primary"${
       guessing.picked.length ? "" : " disabled"}>Check my answer</button> `;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
@@ -2144,8 +2178,17 @@
   // rung opens directly underneath and names it, with the paragraph explaining
   // what that family means, and saying it twice in two voices two lines apart
   // reads as the page arguing with itself.
+  // A compound clue has every family it is made of, and each of them is a right
+  // answer. The one the rung goes on to name is the dominant one, so a solver who
+  // named a different true one is told that theirs is in there too — otherwise
+  // the paragraph underneath reads as a correction of an answer that was correct.
   function gradeChoice(ask, picked) {
-    if (picked === ask.answer) return { choice: picked, right: true, said: "Yes — that’s the one." };
+    const right = ask.answers || [ask.answer];
+    if (picked === right[0]) return { choice: picked, right: true, said: "Yes — that’s the one." };
+    if (right.indexOf(picked) >= 0) {
+      return { choice: picked, right: true,
+               said: `Yes — ${picked.toLowerCase()} is part of it. This clue is more than one thing at once.` };
+    }
     return { choice: picked, right: false,
              said: `Not ${picked.toLowerCase()} — here’s what it actually is.` };
   }
@@ -2424,6 +2467,54 @@
     return guessAsk(e, guessing.rung, guessing.step);
   }
 
+  // Reporting a hint that is wrong, from the clue it is wrong on. It lives in the
+  // strip the reveal button is already in rather than getting a page or a form:
+  // a reader who has just been taught something false is two taps from saying so,
+  // and there is no address to find and nothing to sign up for. What goes with it
+  // is only what the site already knows — which clue, and which rung was open.
+  let report = null;   // { key, phase: "open" | "sent" | "failed", msg }
+  function reportHTML() {
+    if (!report) return `<button id="rp-open" class="ghost small">Report a bad hint</button>`;
+    if (report.phase === "sent") return `<span class="muted">Thanks — noted.</span>`;
+    // The reason, not "try again later": a reader told only that it failed cannot
+    // tell an outage from something they did.
+    if (report.phase === "failed") {
+      return `<span class="muted">Didn’t send (${esc(report.msg)}).</span> `
+        + `<button id="rp-open" class="ghost small">Try again</button>`;
+    }
+    return `<input id="rp-note" class="rp-note" maxlength="400" `
+      + `placeholder="What’s wrong with this hint?">`
+      + `<button id="rp-send" class="ghost small">Send</button>`;
+  }
+  function sendReport(e) {
+    const el = $("rp-note");
+    const note = ((el && el.value) || "").trim();
+    if (!note) return;
+    const key = entryKey(e);
+    fetch(SYNC_ENDPOINT.replace(/\/$/, "") + "/r", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ puzzle: P && P.id, clue: e.id,
+                             rung: shownRungs(e).slice(-1)[0] || "", note }),
+    }).then((r) => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      report = { key, phase: "sent" };
+      refreshAll();
+    }).catch((err) => {
+      report = { key, phase: "failed", msg: (err && err.message) || String(err) };
+      refreshAll();
+    });
+  }
+  function bindReport(e) {
+    const open = $("rp-open");
+    if (open) open.onclick = () => { report = { key: entryKey(e), phase: "open" }; refreshAll(); };
+    const send = $("rp-send");
+    if (send) send.onclick = () => sendReport(e);
+    const note = $("rp-note");
+    if (note && note.addEventListener) {
+      note.addEventListener("keydown", (ev) => { if (ev.key === "Enter") sendReport(e); });
+    }
+  }
+
   function renderHintPanel() {
     const e = currentEntry();
     const panel = $("hint-panel");
@@ -2442,13 +2533,16 @@
     setHTML($("hint-pattern"), patternHTML(e));
 
     const solved = isEntrySolved(e);
+    // A report is about the clue it was started on, and moving on abandons it —
+    // the same rule the guess follows, for the same reason.
+    if (report && report.key !== key) report = null;
     const reveals = revealsUsed[key] || 0;
     const revealsNote = reveals ? ` · ${reveals} letter${reveals > 1 ? "s" : ""} revealed` : "";
     // The count the score charges, not the number of rungs currently on screen:
     // once solved you can open the rest for free, and the meter has to say the
     // same thing the scorebar does or one of them is lying.
     const charged = hintsCharged(e);
-    setHTML($("hint-meter"), solved
+    const meterHTML = solved
       ? ((charged || reveals)
           ? `Solved with ${charged} hint${charged === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints — bravo!")
@@ -2458,7 +2552,15 @@
       // beside it, because that is the number this is all for.
       : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, e.clue).length} shown${
                  earnedRungs(e).length ? ` · ${earnedRungs(e).length} worked out` : ""}${revealsNote}`
-             : revealsNote.replace(" · ", "")));
+             : revealsNote.replace(" · ", ""));
+    // Whether there is anything left on the ladder, filled in below once the
+    // steps are known: a solved clue's score is settled, so the rest of the
+    // ladder costs nothing — and the only place that had ever been said was a
+    // comment in this file. "It's not clear when a hint is free after I
+    // finished" (Paul, 2026-08-28). The explanation of a clue you have already
+    // got is the one thing this site is for; the reader has to be told they can
+    // have it.
+    let freeRest = false;
 
     const body = $("hint-body");
     const next = $("hint-next");
@@ -2560,10 +2662,17 @@
             ? "Answer the question below first"
             : "Take the hints above first — this one gives them away" });
       });
-      if (!guessing && !togo.length && canCheck() && !solved) {
+      freeRest = solved && togo.length > 0;
+      // Offered once the building blocks are up, not only once the whole ladder
+      // is: the blocks spell the answer out piece by piece, so a solver who has
+      // just assembled it is being made to copy their own work into the grid
+      // square by square (Paul, 2026-08-28). Still offered last, under the rungs,
+      // because it is the way out of the clue rather than a step in it.
+      if (!guessing && canCheck() && !solved && (!togo.length || isShown(e, "blocks"))) {
         nextSpec.push({ fill: true, text: FILL_LABEL });
       }
     }
+    setHTML($("hint-meter"), meterHTML + (freeRest ? " · the rest are free now" : ""));
 
     const bodyWrote = setHTML(body, bodyHTML);
     setButtons(next, nextSpec);
@@ -2572,9 +2681,14 @@
     // No "(counts against your score)" rider. The scorebar already reports
     // revealed letters, so the warning was redundant, and a learner who is
     // stuck should be nudged toward the help rather than taxed for taking it.
-    const escapeHTML = (canCheck() && !solved)
-      ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button>` : "";
-    if (setHTML(escape, escapeHTML) && escapeHTML) $("hx-letter").onclick = revealLetter;
+    const canReveal = canCheck() && !solved;
+    const escapeHTML = (canReveal
+      ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button> ` : "")
+      + reportHTML();
+    if (setHTML(escape, escapeHTML)) {
+      if (canReveal) $("hx-letter").onclick = revealLetter;
+      bindReport(e);
+    }
 
     if (!bodyWrote && !clueWrote) return;
 
@@ -2940,19 +3054,33 @@
     ul.innerHTML = "";
     const q = (($("picker-search") || {}).value || "").trim().toLowerCase();
     setHTML($("picker-terms"), pickerTermsHTML(q));
-    // Tapping one searches for it; tapping the one you are already on clears,
-    // so the legend is a way back out as well as in. What is selected is shown
-    // by the search box filling with the word — which is also the lesson.
+    // Tapping one ADDS its word to the search; tapping it again takes it out, so
+    // the legend is a way back out as well as in. What is selected is shown by
+    // the search box filling with the words — which is also the lesson, because
+    // typing them yourself does exactly the same thing.
+    //
+    // They combine, because the question is nearly always two things at once:
+    // "I can choose Everyman brutal" (Paul, 2026-08-28). A tap used to REPLACE
+    // whatever was in the box, so the paper and the difficulty were mutually
+    // exclusive by accident — while the typed search had combined terms all
+    // along. The chips are a way to spell the query without knowing the words;
+    // they must not be able to express less than the box they fill in.
     //
     // Both groups share one wrapping strip rather than getting a row each: the
     // panel's first job is to show puzzles, and nine chips laid out to fit take
     // the room they need instead of two lines whatever the width.
     const chips = [];
+    // A chip's label can be more than one word ("indy sunday"), and the box is a
+    // list of terms that all have to match, so a chip is ON when every word of it
+    // is in the box and toggling it puts in or takes out exactly those words.
+    const picked = q.split(/\s+/).filter(Boolean);
+    const wordsOf = (w) => w.split(/\s+/).filter(Boolean);
+    const isOn = (w) => wordsOf(w).every((x) => picked.indexOf(x) >= 0);
     const group = (label, words, cls) => words.length < 2 ? "" :
       `<span class="muted small-note">${label}</span>` + words.map((w) => {
         const i = chips.push(w) - 1;
         return `<button type="button" id="pf-${i}" class="badge ${cls(w)}" aria-pressed="${
-          q === w}">${esc(w)}</button>`;
+          isOn(w)}">${esc(w)}</button>`;
       }).join("");
     setHTML($("picker-filters"),
       group("Papers", pickerPaperList(), () => "series")
@@ -2961,7 +3089,11 @@
       const el = $("pf-" + i);
       if (!el) return;
       el.onclick = () => {
-        $("picker-search").value = q === w ? "" : w;
+        const mine = wordsOf(w);
+        const next = isOn(w)
+          ? picked.filter((x) => mine.indexOf(x) < 0)
+          : picked.concat(mine.filter((x) => picked.indexOf(x) < 0));
+        $("picker-search").value = next.join(" ");
         renderPicker();
       };
     });

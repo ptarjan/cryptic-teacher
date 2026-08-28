@@ -536,6 +536,13 @@ button:disabled:hover { border-color: var(--line); }
 #hint-escape:empty { display: none; }
 #hint-escape button { color: var(--muted); }
 #hint-escape button:hover { color: var(--fg); }
+/* One line, in the strip, in place of the button that opened it — reporting a
+   bad hint must not cost a panel, a page or an address to write to. */
+.rp-note {
+  font: inherit; font-size: .8rem; padding: 5px 7px; margin-right: 6px;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); color: var(--fg); width: min(62%, 280px);
+}
 #hint-next button { border-color: var(--accent); color: var(--accent); background: transparent; }
 #hint-next button:hover { background: var(--accent-soft); }
 /* The rungs you can skip ahead to. Deliberately quieter than the next one: the
@@ -561,6 +568,15 @@ button:disabled:hover { border-color: var(--line); }
    forms re-wraps the whole clue at the moment the solver is trying to read what
    changed. Nothing below may override it. */
 .guess-clue { line-height: 2.1; }
+/* A word you point at wears the colour of the thing you are pointing it out AS:
+   green on the definition rung because a definition is green everywhere else on
+   the page, pink on the others because that is what an indicator and a wordplay
+   fragment wear (Paul, 2026-08-28). Picking used to have its own neutral accent,
+   which taught one colour for "I chose this" and a different one for the thing
+   just correctly chosen. The site has exactly these two highlight colours; the
+   picker must not invent a third. */
+.guess-clue { --pick-bg: var(--ind-bg); --pick-fg: var(--ind-fg); }
+.guess-clue.pick-definition { --pick-bg: var(--def-bg); --pick-fg: var(--def-fg); }
 /* Dragging across the words picks the run under the finger, so the browser must
    not read the same gesture as selecting text. pan-y rather than none: a drag
    that starts on a word still has to be able to scroll the page. */
@@ -579,7 +595,7 @@ button:disabled:hover { border-color: var(--line); }
 }
 /* Big enough to hit with a thumb without the clue turning into a keypad. */
 @media (pointer: coarse) { .gw { padding: 5px 8px; } }
-.gw.on { background: var(--accent-soft); border-color: var(--accent); color: var(--fg); }
+.gw.on { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
 /* A word an earlier rung already named. Still there — knowing where the
    definition ends is most of knowing where the wordplay starts — but plainly not
    one of the things being asked about: no border to read as a target, and
@@ -593,21 +609,26 @@ button:disabled:hover { border-color: var(--line); }
    every time and never narrowed to the plausible ones. The tap is the answer,
    so they are targets before they are anything else. */
 .guess-choices { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+/* The name of a family is a name: it wraps between chips, never inside one.
+   flex: 0 0 auto above stops a chip being SQUEEZED narrower than its words, but
+   a chip that is genuinely wider than the strip would still break its own label
+   in half, which is what reads as two lines (Paul, iPad). */
+.gc { white-space: nowrap; }
 @media (pointer: coarse) { .gc { padding: 9px 14px; } }
 
 /* Grading, worn by the words. A count in a sentence cannot say WHICH words, and
-   which words is the whole lesson — so the ones that were right take the
-   definition's green, the spares strike through and step back, and the ones that
-   were missed arrive a beat later so the eye is free to follow them.
+   which words is the whole lesson — so the ones that were right keep the colour
+   they were picked in, the spares strike through and step back, and the ones
+   that were missed arrive a beat later so the eye is free to follow them.
    These are entrances, not a slot to read in: the marked clue stays put.
    Every animation here is scoped to .fresh, which the verdict wears only on the
    draw that first shows it: the panel is rewritten on every keystroke and every
    selection, and an entrance that replays on each one is a fidget, not an
    entrance. */
-.gw.hit { background: var(--def-bg); border-color: var(--def-fg); color: var(--def-fg); }
+.gw.hit { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
 .guess-result.fresh .gw.hit { animation: gw-hit .4s ease-out; }
 .gw.spare { opacity: .45; text-decoration: line-through; }
-.gw.missed { border-color: var(--def-fg); border-style: dashed; color: var(--def-fg); }
+.gw.missed { border-color: var(--pick-fg); border-style: dashed; color: var(--pick-fg); }
 .guess-result.fresh .gw.missed { animation: gw-missed .45s ease-out .18s both; }
 @keyframes gw-hit {
   from { transform: scale(1); }
