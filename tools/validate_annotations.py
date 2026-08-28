@@ -1550,13 +1550,29 @@ def count_backlog(warnings):
             for f, ms in BACKLOG_MARKERS.items()}
 
 
-def write_backlog(observed):
-    """`observed` is {number: {field: count}} from a run over every puzzle."""
+def _sort_key(kv):
+    """Series, then number. The key is a namespaced id ("cryptic-30041"), and
+    this used to be int(id) — which raised the moment ids stopped being bare
+    numbers. Nobody saw it, because the one caller ran with output suppressed
+    and `|| true`; see the note on that call in prereset_backfill.sh."""
+    series, _, num = kv[0].rpartition("-")
+    return (series, int(num) if num.isdigit() else 0, kv[0])
+
+
+def write_backlog(observed, allowed):
+    """`observed` is {number: {field: count}} from a run over every puzzle.
+
+    Writes the SMALLER of what was observed and what was already allowed, per
+    puzzle per field. "May only shrink" was a sentence in a comment and a line
+    in the file's own _why, and neither of them is a mechanism: --tighten wrote
+    whatever it saw, so a run that lost annotations would raise the ceiling to
+    fit them and every run after it would agree the puzzle was fine."""
+    ratchet = {f: {num: min(c[f], allowed.get(f, {}).get(num, c[f]))
+                   for num, c in observed.items()} for f in BACKLOG_MARKERS}
     data = {"_why": "Per-puzzle allowance of clues predating a required annotation "
                     "field. Written by tools/validate_annotations.py; may only "
                     "shrink. A puzzle absent from a field's list must have none.",
-            **{f: {num: n for num, n in sorted(((num, c[f]) for num, c in observed.items()),
-                                               key=lambda kv: int(kv[0]))
+            **{f: {num: n for num, n in sorted(ratchet[f].items(), key=_sort_key)
                    if n} for f in BACKLOG_MARKERS}}
     BACKLOG_PATH.write_text(json.dumps(data, indent=1) + "\n")
 
@@ -1632,15 +1648,17 @@ def main(argv):
         # allowance is how a regression would get itself forgiven.
         moved = {f: sum(allowed.get(f, {}).values()) - sum(c[f] for c in observed.values())
                  for f in BACKLOG_MARKERS}
-        if tighten:
-            for field, delta in moved.items():
-                for num, counts in sorted(observed.items()):
-                    cap = allowed.get(field, {}).get(num, 0)
-                    if counts[field] > cap:
-                        print(f"WIDENED {field} for {num}: {cap} -> {counts[field]}")
-            write_backlog(observed)
+        if tighten and failed:
+            # A failing run is the one run that must never record its own state:
+            # what it saw includes whatever it is failing about, and recording
+            # that is how a regression gets itself forgiven forever.
+            print("NOT tightening: this run failed, so what it observed is not a "
+                  "ceiling worth keeping. Fix the errors above and re-run.")
+        elif tighten:
+            write_backlog(observed, allowed)
             print("wrote tools/annotation_backlog.json: "
-                  + ", ".join(f"{f} {'-' if n >= 0 else '+'}{abs(n)}" for f, n in moved.items()))
+                  + ", ".join(f"{f} -{n}" if n >= 0 else f"{f} unchanged (observed {abs(n)} more, "
+                              f"kept the tighter cap)" for f, n in moved.items()))
         elif any(v > 0 for v in moved.values()):
             print("backlog shrank (" + ", ".join(f"{f} -{n}" for f, n in moved.items() if n > 0)
                   + ") — run `python3 tools/validate_annotations.py --tighten` to record it, "

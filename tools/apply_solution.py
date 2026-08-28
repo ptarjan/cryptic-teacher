@@ -101,7 +101,14 @@ def render_grid(puzzle, cells):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("number", type=int)
+    # A puzzle id ("everyman-4166") or the bare number ("4166"), the same pair
+    # resolve_puzzle takes and every other tool here accepts. It was type=int,
+    # which is what ids looked like before they were namespaced: from then until
+    # 2026-08-28 the nightly job solved every unsolved non-Guardian puzzle with a
+    # model, passed the id it had, and this exited on `invalid int value` before
+    # reading the fill. The solve was paid for and thrown away, nightly.
+    ap.add_argument("number", metavar="puzzle",
+                    help="puzzle id (everyman-4166) or bare number (4166)")
     ap.add_argument("--fill", required=True,
                     help='JSON file mapping entry id -> answer, e.g. {"1-across": "POPULAR FRONT"}')
     ap.add_argument("--model", default="unknown", help="which model produced the fill")

@@ -31,13 +31,14 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
-# What was already dirty before this run touched anything. The leftover check at
-# the end subtracts it: this checkout is shared with interactive sessions, and
-# without the snapshot a half-written feature sitting in the working tree gets
-# reported every night as "the daily update changed these files" — an alert that
-# names innocent files, cannot be acted on, and trains you to ignore the one
-# that matters (2026-08-10, mid-edit on the sync panel).
-DIRTY_BEFORE="$(git status --porcelain --untracked-files=no | awk '{print $2}' | sort)"
+# Re-exec in a checkout of nobody else's — see tools/nightly_worktree.sh for the
+# whole argument. Everything below can then assume one writer: what is modified
+# here was modified by this run. There used to be a DIRTY_BEFORE snapshot
+# subtracted from the final status to guess that instead, and guessing it is
+# what let this job swallow a half-written feature on 2026-08-10.
+. "$(dirname "$0")/nightly_worktree.sh"
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$REPO" || exit 1
 # cron runs with a bare PATH (/usr/bin:/bin), so the `claude` CLI in ~/.local/bin
 # was invisible and every run silently skipped annotation. Keep this list in sync
 # with wherever the CLI actually installs.
@@ -58,19 +59,35 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 # for why: the seven silent days above are what a log-only failure looks like.
 . "$REPO/tools/alert.sh"
 
+# Keep this run's output where the exit trap can read it back, and report any
+# failure line nobody wrote an alert for. launchd's .update.log holds every run
+# ever, so "grep the log" would re-report last week; this is tonight only.
+RUN_LOG="$(mktemp -t cryptic-daily)"
+exec > >(tee -a "$RUN_LOG") 2>&1
+trap 'sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
 # Three fetchers, run independently on purpose: one source going down should
 # not cost us the other two. Neither failing stops the run — there is usually
 # a backlog worth annotating regardless.
+fetch_broken=""
 for fetcher in fetch_puzzle fetch_independent fetch_observer; do
   python3 "tools/$fetcher.py" --latest
   fetch_rc=$?
   if [ $fetch_rc -ne 0 ] && [ $fetch_rc -ne 3 ]; then
     echo "$fetcher fetch failed (rc=$fetch_rc); continuing"
+    fetch_broken="$fetch_broken $fetcher"
   fi
 done
+# One paper down is weather. All three down at once is us: a changed user agent,
+# no network, a python that no longer starts. Nothing new would arrive for as
+# long as that lasted, and a site that quietly stops updating looks exactly like
+# a site with nothing to update.
+if [ "$(printf %s "$fetch_broken" | wc -w)" -ge 3 ]; then
+  alert "every fetcher failed tonight ($fetch_broken) — no new puzzle can arrive from any paper until this is fixed. The rc lines are in .update.log."
+fi
 
 # --- 2. pick up solutions that have since been published (prize puzzles, and
 #     every Everyman — its competition window withholds answers for about a
@@ -316,6 +333,10 @@ python3 tools/fetch_puzzle.py --reindex
 if ! python3 tools/validate_annotations.py; then
   echo "VALIDATION FAILED — reverting today's puzzle-file changes"
   git checkout -- puzzles/
+  # Tonight's annotation is gone and the inference that produced it is spent.
+  # This branch used to exit 1 in silence, which is the same shape of failure as
+  # the seven authentication days: the log knew, and nobody did.
+  alert "annotation validation failed, so tonight's puzzle hints were thrown away and nothing published. The ERROR lines are in .update.log; re-run \`python3 tools/validate_annotations.py\` to see them."
   exit 1
 fi
 
@@ -372,9 +393,13 @@ if command -v node >/dev/null 2>&1; then
 fi
 
 if [ -n "$(git status --porcelain)" ]; then
-  # By pathspec, never `git add -A`: an interactive session shares this checkout
-  # and a bare commit swallows its half-finished work. But the list has to cover
-  # everything an annotation run is ALLOWED to change, and twice it hasn't:
+  # Everything, because this tree contains nothing else: the run started at
+  # origin/master in a worktree of its own, so whatever is modified or new here
+  # was made by this run.
+  #
+  # It used to be a pathspec, and a pathspec is a list of what a run is ALLOWED
+  # to change, which cannot be completed by thinking harder about it. It was
+  # wrong twice:
   #   - tools/validate_annotations.py, which a run may loosen when a published
   #     clue turns out to be legal in a way it didn't know about (30045 26A
   #     hides its answer backwards). Committed the puzzle, left the loosening,
@@ -389,37 +414,38 @@ if [ -n "$(git status --porcelain)" ]; then
   #     build_seo_pages.py then rewrite abbreviations.js, tutorial.js and
   #     abbreviations/index.html from it. Four files, one edit, and the
   #     generated three are exactly the ones the site reads.
-  git add puzzles/ index.html learn/ sitemap.xml app.js STYLE.md APP.md og.png og/ \
-          tools/validate_annotations.py tools/annotation_backlog.json \
-          tools/og_card.html tools/data/abbreviations.json abbreviations.js \
-          abbreviations/ tutorial.js
-  # Then put back anything that was already modified before this run started.
-  # The pathspec is not enough on its own: app.js and index.html are on it
-  # because an annotation run legitimately edits them, and they are also exactly
-  # what an interactive session has open. On 2026-08-10 this job swallowed a
-  # half-written sync feature into "Daily update: fetch latest cryptic" — the
-  # work survived, but it landed in the wrong commit with the wrong message,
-  # and it could as easily have been committed broken.
-  printf '%s\n' "$DIRTY_BEFORE" | while read -r f; do
-    [ -n "$f" ] && git restore --staged -- "$f" 2>/dev/null
-  done
+  git add -A
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$ANNOTATE_TRAILER")"
-  # And name whatever is STILL modified. Both misses above were a file nobody
-  # had thought of, and no amount of thinking harder about the list fixes the
-  # third one; only noticing that something was left behind does. Untracked
-  # files are excluded — scratch files are normal here — but a tracked file the
-  # job modified and did not commit is work that will never reach the site.
-  left=$(comm -23 <(git status --porcelain --untracked-files=no | awk '{print $2}' | sort) \
-                  <(printf '%s\n' "$DIRTY_BEFORE") | tr '\n' ' ')
-  [ -n "$left" ] && alert "the daily update changed these files and committed none of them: $left. Add them to the git add pathspec in daily_update.sh, or revert them."
+  # Nothing may be left behind. With one writer this is no longer a judgement
+  # call about whose file it was: anything still showing here after `add -A` and
+  # a commit is a bug, and it is work that will never reach the site. Read with
+  # cut, not awk $2 — a rename prints two paths and a filename may contain a
+  # space, and both of those used to come out as the wrong filename.
+  left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
+  [ -n "$left" ] && alert "the daily update committed, and left these behind in its own worktree: $left"
   # Push only if a remote exists (GitHub Pages picks it up from master).
   # --autostash and a rebase first: the remote is routinely ahead of the mini
   # (interactive sessions push to it all day), and this used to be a bare push
   # swallowed by `|| true`, so a rejected push looked exactly like a successful
   # one and the day's puzzle quietly never reached the site.
   if git remote get-url origin >/dev/null 2>&1; then
-    git pull --rebase --autostash -q && git push -q origin HEAD ||
+    # HEAD is detached in this worktree, so master is named explicitly on both
+    # sides. --autostash still earns its place: a rebase refuses outright with
+    # anything unstaged, and the leftover check above reports that case rather
+    # than preventing it.
+    if git fetch -q origin master &&
+       git rebase -q --autostash origin/master &&
+       git push -q origin HEAD:master
+    then
+      # Pushed is not published. GitHub Pages builds afterwards, and a build that
+      # fails leaves the site serving yesterday with a green git log in front of
+      # it — "can you always hold off on telling me to reload until it is
+      # deployed" applies to the machine saying it too.
+      python3 tools/wait_for_deploy.py ||
+        alert "tonight's update pushed, but the site never came back with it — GitHub Pages has not published the new build. Check https://github.com/ptarjan/cryptic-teacher/actions."
+    else
       alert "the daily update committed today's puzzle but could not push it, so the site is still showing yesterday's. See the tail of .update.log."
+    fi
   fi
 else
   echo "nothing to commit"
