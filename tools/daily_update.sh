@@ -397,23 +397,12 @@ if [ -n "$(git status --porcelain)" ]; then
   # origin/master in a worktree of its own, so whatever is modified or new here
   # was made by this run.
   #
-  # It used to be a pathspec, and a pathspec is a list of what a run is ALLOWED
-  # to change, which cannot be completed by thinking harder about it. It was
-  # wrong twice:
-  #   - tools/validate_annotations.py, which a run may loosen when a published
-  #     clue turns out to be legal in a way it didn't know about (30045 26A
-  #     hides its answer backwards). Committed the puzzle, left the loosening,
-  #     and the committed tree then failed its own validator.
-  #   - app.js and STYLE.md, which a run must edit when a clue needs a wordplay
-  #     type the vocabulary doesn't have yet. On 2026-08-07 puzzle 30079 brought
-  #     in `cycling` and `substitution`; the puzzle shipped and app.js did not,
-  #     so the live site had two clues whose type matched no family and no
-  #     blurb. The validator passed — it validates puzzles, not the app.
-  #   - the glossary: a run that meets `november` = N adds it to
-  #     tools/data/abbreviations.json, and build_abbreviations.py plus
-  #     build_seo_pages.py then rewrite abbreviations.js, tutorial.js and
-  #     abbreviations/index.html from it. Four files, one edit, and the
-  #     generated three are exactly the ones the site reads.
+  # Never name files here. A pathspec is a list of what a run is ALLOWED to
+  # change, and no such list can be right: an annotation run may loosen the
+  # validator, extend the app's vocabulary, or add a glossary entry that
+  # regenerates three more files. Worse, git add aborts on a pathspec that
+  # matches nothing, so deleting any file on the list stages NOTHING and the
+  # whole day is silently lost.
   git add -A
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$ANNOTATE_TRAILER")"
   # Nothing may be left behind. With one writer this is no longer a judgement
