@@ -268,6 +268,11 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
 fi
 
 if [ -n "$pending" ]; then
+  # Restate the controlled vocabulary and the validator's limits in the prompt
+  # from the code that enforces them, BEFORE the run reads it. A rule the run has
+  # to go and grep for is a rule the prompt did not state, and it was opening
+  # app.js and the validator several times a puzzle to find these.
+  python3 tools/build_annotate_prompt.py
   if command -v claude >/dev/null 2>&1; then
     run_log="$(mktemp -t cryptic-annotate)"
     for num in $pending; do
