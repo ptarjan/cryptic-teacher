@@ -1080,7 +1080,13 @@
       cur.x = c.x; cur.y = c.y;
       if (!c[cur.dir]) cur.dir = c.across ? "across" : "down";
     }
-    focusKbd();
+    // Picking a square picks a CLUE. It used to raise the keyboard as well, on
+    // the reading that tapping a square is a decision to type — but the first
+    // thing the ladder does with a clue you have just picked is ask you a
+    // question you answer by tapping, and a keyboard over the bottom half of
+    // the screen buries it (Paul, 2026-08-29). The letter strip under the clue
+    // is where typing starts now, and it is the only thing that summons one.
+    keepKbd();
     refreshAll();
     if (currentEntry()) scrollToHintPanel();
   }
@@ -1199,6 +1205,19 @@
         typeof navigator !== "undefined" && navigator.maxTouchPoints) kbdOwed = true;
     kbd.value = "";
     kbd.focus({ preventScroll: true });
+  }
+
+  // Decline to dismiss a keyboard that is already up, and never summon one.
+  // Tapping anything that is not the input blurs it, and a keyboard leaving is a
+  // viewport change that reflows the page under the finger that caused it — so
+  // steady either way is the requirement, up and staying up or down and staying
+  // down. It is the CHANGE that flashes.
+  //
+  // This is the rule for every tap on the page except one. Only the letter strip
+  // summons a keyboard, because tapping the boxes you are about to fill in is
+  // the only tap that says "I am going to type".
+  function keepKbd() {
+    if (document.activeElement === $("kbd")) focusKbd();
   }
 
   // ---------- checking / revealing ----------
@@ -2190,8 +2209,14 @@
   // confirm step would only ask for it twice. Pointing at words keeps its check
   // button because a run of words is assembled before it is offered.
   function guessChoicesHTML(ask) {
-    return `<p class="guess-choices">${ask.choices.map((c, i) =>
-      `<button type="button" id="gc-${i}" class="gc">${esc(c)}</button>`).join("")}</p>`;
+    // How many chips and how many characters they add up to, handed to the CSS
+    // so the strip can size its own type to hold one row. Measured off the
+    // labels rather than written down, because a written-down 65 is a number
+    // that goes stale the first time a family is renamed.
+    const chars = ask.choices.reduce((n, c) => n + c.length, 0);
+    return `<p class="guess-choices" style="--n:${ask.choices.length};--c:${chars}">${
+      ask.choices.map((c, i) =>
+        `<button type="button" id="gc-${i}" class="gc">${esc(c)}</button>`).join("")}</p>`;
   }
 
   function guessHTML(ask, position, label) {
@@ -3487,57 +3512,35 @@
       if (v) typeLetter(v[v.length - 1]);
       ev.target.value = "";
     });
-    // Every control that moves the cursor must also raise the soft keyboard, and
-    // it has to do it on mousedown. iOS only opens the keyboard for a focus()
-    // that happens inside the gesture, and the pattern strip re-renders itself on
-    // the way through — by the time focus() ran, the button that was tapped had
-    // been thrown away with the rest of the strip's innerHTML, and the tap had
-    // nothing left to belong to, so tapping a box moved the cursor and then left
-    // you with no keyboard (Paul, iPad, 2026-08-09). The grid had always done it
-    // this way and worked; the strip had not. Listed together so a third way to
-    // steer cannot be added without it.
+    // THE ONE PLACE THAT SUMMONS A KEYBOARD: the letter strip, the row of boxes
+    // for the answer. Tapping the squares you are about to fill in is the only
+    // tap on the page that says "I am going to type" — everything else on the
+    // way to an answer is reading and choosing.
     //
-    ["grid", "hint-pattern"].forEach((id) =>
-      $(id).addEventListener("mousedown", () => focusKbd()));
+    // On mousedown, because iOS only opens the keyboard for a focus() inside the
+    // gesture and this strip re-renders itself on the way through: by the time a
+    // click handler's focus() ran, the box that was tapped had been thrown away
+    // with the rest of the strip's innerHTML, the tap had nothing left to belong
+    // to, and you got a moved cursor and no keyboard (Paul, iPad, 2026-08-09).
+    $("hint-pattern").addEventListener("mousedown", () => focusKbd());
 
-    // The clue lists take the hint buttons' rule instead of the grid's: keep a
-    // keyboard that is up, never summon one. The ladder's first move on a clue
-    // you have just picked is a question you answer by TAPPING — which family,
-    // or which words — so raising a keyboard for it buries the thing being
-    // asked (Paul, 2026-08-27). Tapping a square still raises it, because that
-    // is a decision to type.
-    ["clues-across", "clues-down"].forEach((id) =>
-      $(id).addEventListener("mousedown", () => {
-        if (document.activeElement === $("kbd")) focusKbd();
-      }));
-
-    // The hint buttons are the other half of the same problem, and they need the
-    // OPPOSITE rule. They do not move the cursor, so nothing about them wants a
-    // keyboard; what hurt was the keyboard GOING AWAY as the rung appeared,
-    // because a keyboard arriving or leaving is a viewport change and the page
-    // reflows under you mid-tap ("clicking hints sometimes triggers them quickly
-    // open then closed", Paul, iPhone, 2026-08-16).
+    // Everything else keeps a keyboard and never raises one. The grid used to
+    // raise it — tapping a square was read as a decision to type — but picking a
+    // square is how you pick a CLUE, and the ladder answers a new clue with a
+    // question you answer by tapping (Paul, 2026-08-27, again 2026-08-29). The
+    // hint buttons and the clue lists were already on this rule; the grid joins
+    // them, so the strip is the only exception and the strip is where typing
+    // starts.
     //
-    // That was fixed by calling focusKbd() here too — which keeps a keyboard that
-    // is up, and SUMMONS one that is not. Same viewport change, same flash, now
-    // on the tap of someone who was only reading: "I just clicked a hint once on
-    // my iPad and it opened then quickly closed" (Paul, iPad, 2026-08-17).
-    //
-    // So the rule is not "focus the input", it is: A TAP THAT IS NOT GOING TO
-    // TYPE MUST NEVER SUMMON THE KEYBOARD, ONLY DECLINE TO DISMISS ONE. The
-    // mousedown listener runs before the default focus transfer, so activeElement
-    // still says whether the keyboard was up when the finger landed. Steady
-    // either way is the whole requirement — up and staying up, or down and
-    // staying down; it is the CHANGE that flashes.
     // Bound to the containers, not the buttons, because refreshAll() throws the
-    // buttons away and rebuilds them on every render.
-    ["hint-next", "hint-escape"].forEach((id) =>
-      $(id).addEventListener("mousedown", () => {
-        if (document.activeElement === $("kbd")) focusKbd();
-      }));
+    // buttons away and rebuilds them on every render. The mousedown listener
+    // runs before the default focus transfer, so activeElement still says
+    // whether the keyboard was up when the finger landed.
+    ["grid", "clues-across", "clues-down", "hint-next", "hint-escape"].forEach((id) =>
+      $(id).addEventListener("mousedown", keepKbd));
 
-    // The letter-pattern strip is a second way to steer: click a box to put the
-    // cursor on that square of the current entry.
+    // The letter strip is also how you steer: tap a box to put the cursor on
+    // that square of the current entry.
     $("hint-pattern").addEventListener("click", (ev) => {
       const box = ev.target && ev.target.dataset ? ev.target : null;
       const idx = box ? Number(box.dataset.i) : NaN;

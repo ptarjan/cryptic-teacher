@@ -609,13 +609,39 @@ button:disabled:hover { border-color: var(--line); }
    asks: the list IS the vocabulary the site teaches, so it is the same list
    every time and never narrowed to the plausible ones. The tap is the answer,
    so they are targets before they are anything else. */
-.guess-choices { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+.guess-choices {
+  display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0 0;
+  container-type: inline-size;
+}
 /* The name of a family is a name: it wraps between chips, never inside one.
    flex: 0 0 auto above stops a chip being SQUEEZED narrower than its words, but
    a chip that is genuinely wider than the strip would still break its own label
    in half, which is what reads as two lines (Paul, iPad). */
-.gc { white-space: nowrap; }
-@media (pointer: coarse) { .gc { padding: 9px 14px; } }
+.gc { white-space: nowrap; padding: 7px 9px; }
+/* Seven chips at a fixed size do not fit one row, and they never did — the strip
+   wrapped, and a wrapped strip reads as two lines however tidy the wrap is
+   (Paul, three times: iPad 2026-08-27, again 2026-08-29). Holding them to one
+   row means the type has to come from the width, so it does: the same
+   container-query clamp .pat-box already uses for the letter strip, which has
+   the same problem of a fixed count that has to fit whatever it is given.
+
+   --n is the chip count and --c the total characters across all seven labels;
+   app.js sets both from FAMILIES, so adding a family or renaming one re-sizes
+   the strip instead of quietly wrapping it. 0.56em is a conservative average
+   advance for the system sans — conservative on purpose, since guessing high
+   costs a point of type and guessing low costs the row. The floor is what
+   stops a phone shrinking these into nothing: 7 word-chips cannot fit 330px,
+   so there the strip wraps as before and the clamp does not pretend otherwise.
+   flex-wrap stays for exactly that case — no width may push a chip off the
+   edge. */
+.gc {
+  font-size: clamp(.7rem,
+    calc((100cqw - var(--n, 7) * 20px - (var(--n, 7) - 1) * 4px) / var(--c, 65) / 0.56),
+    .9rem);
+}
+/* Vertical only. The touch target has to stay ~38px tall, but every pixel of
+   side padding is seven pixels off the row. */
+@media (pointer: coarse) { .gc { padding: 10px 9px; } }
 
 /* Grading, worn by the words. A count in a sentence cannot say WHICH words, and
    which words is the whole lesson — so the ones that were right keep the colour
