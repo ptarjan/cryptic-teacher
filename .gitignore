@@ -5,8 +5,14 @@
 # usage/reset reading (weekly_usage.py falls back to it when the CLI's access
 # token has lapsed) and one empty file per already-sent alert (alert.sh dedupes
 # on it, see ALERT_REPEAT_HOURS).
+#
+# No trailing slashes: tools/nightly_worktree.sh gives the worktree a SYMLINK to
+# each of these so there is one copy in the main checkout, and a pattern ending
+# in / does not match a symlink. Whatever that loop shares belongs here, spelled
+# the same way it is spelled there.
 .usage_cache.json
-.alert-state/
+.alert-state
+.claude
 # Everything the pre-reset backfill leaves behind: its log, its run lock, and the
 # two rates it measures for itself (.prereset_rate, .prereset_yield). One glob so
 # the next thing it learns to measure cannot arrive untracked-but-committable.
