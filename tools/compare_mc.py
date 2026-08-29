@@ -13,12 +13,14 @@ file reads them to count words and match patterns, and must never print or
 write a full hint/clue string anywhere. Only short fixed labels (types, marker
 words) get printed.
 
-Our side is a Python port of the rung-building logic in app.js (`ladderSteps`,
-`familyOf`, `typeBlurb`, `TYPE_BLURBS`, `INDICATOR_OPS`) — our own text, so
-copying it here is fine. Kept close enough to match word counts; not a
-byte-exact re-render (HTML escaping, the abbreviation-glossary link, and the
-definition-place footnote are simplified away because none of them move the
-word count more than a word or two).
+Our side is a Python port of the rung-building LOGIC in app.js (`ladderSteps`,
+`familyOf`, `typeBlurb`, `def_place`). The rung TEXT is not ported — `FAMILIES`
+and `TYPE_BLURBS` come from tools/app_tables.py, which reads them out of app.js,
+because a word count taken over a stale transcription measures words the app
+never shows. Kept close enough to match word counts; not a byte-exact re-render
+(HTML escaping, the abbreviation-glossary link, and the definition-place
+footnote are simplified away because none of them move the word count more than
+a word or two).
 """
 
 import glob
@@ -36,55 +38,16 @@ COURSE_PATH = MC_DIR / "course.json"
 sys.path.insert(0, str(ROOT / "tools"))
 
 
-# ---------- our own rung text, ported from app.js so word counts are real ----------
+# ---------- our own rung text, read from app.js so word counts are real ----------
 
-FAMILIES = [
-    ("Definitions only",
-     "No letter mechanics at all — the clue works by definition alone. The work is spotting which words are doing the defining.",
-     lambda t: "double definition" in t or "cryptic definition" in t),
-    ("&lit",
-     "The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",
-     lambda t: "&lit" in t),
-    ("Rearrangement",
-     "Letters handed to you in the clue get shuffled into the answer. Find the fodder and count it against the enumeration.",
-     lambda t: "anagram" in t or "cycling" in t),
-    ("Sound",
-     "The wordplay describes how the answer sounds rather than how it is spelled.",
-     lambda t: "homophone" in t or "spoonerism" in t),
-    ("Charade",
-     "The answer is built from pieces laid end to end, each clued separately — read the wordplay left to right.",
-     lambda t: "charade" in t),
-    ("Alteration",
-     "A piece of the wordplay is changed rather than just joined on: put inside something, turned around, or trimmed.",
-     lambda t: "container" in t or "reversal" in t or "deletion" in t or "substitution" in t),
-    ("Extraction",
-     "The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.",
-     lambda t: "hidden" in t or "letter" in t),
-]
-DEFAULT_FAMILY = ("Wordplay", "The clue has a definition at one end and wordplay at the other.", None)
+# app.js's own tables. This file measures OUR rung text
+# against Minute Cryptic's, so a transcription that had drifted would be
+# measuring words the app never shows. See tools/app_tables.py.
+import app_tables  # noqa: E402 — needs the sys.path line above
 
-TYPE_BLURBS = [
-    ("anagram", "An anagram: some words in the clue are raw letter fodder to be rearranged. Find the indicator, then count letters against the enumeration."),
-    ("charade", "A charade: the answer is built from parts placed one after another, each clued separately."),
-    ("container", "A container: one part is placed inside another. Look for words like holding, in, covering, swallowing."),
-    ("hidden", "A hidden word: the answer is spelled out consecutively inside the clue itself."),
-    ("homophone", "A homophone: the wordplay describes something that sounds like the answer."),
-    ("reversal", "A reversal: something is spelled backwards (in a down clue, 'up'-words signal this)."),
-    ("deletion", "A deletion: letters are removed from a longer word — heads, tails or insides."),
-    ("double definition", "A double definition: two definitions sit side by side; there is no other wordplay."),
-    ("&lit", "An &lit: the whole clue is both the definition and the wordplay at once."),
-    ("alternate letters", "Alternate letters: take every other letter of an indicated word."),
-    ("regular letters", "Regular letters: count through an indicated phrase at a fixed step — every third letter, say — and keep the ones you land on."),
-    ("first letter", "First letters: take the initial letter(s) of indicated word(s)."),
-    ("last letter", "Last letters: take the final letter(s) of indicated word(s)."),
-    ("middle letter", "Middle letters: take just the centre of an indicated word."),
-    ("second letter", "Second letters: count into the indicated word(s) and keep only the letter in position two."),
-    ("outer letters", "Outer letters: keep only the outside letters of an indicated word."),
-    ("cryptic definition", "A cryptic definition: no separable wordplay — the whole clue is one sly description."),
-    ("spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."),
-    ("cycling", "Cycling: letters move from one end to the other without changing their order — the word rotates rather than shuffles."),
-    ("substitution", "A substitution: one indicated letter or chunk stands in for another — make the swap and the answer appears."),
-]
+FAMILIES = app_tables.families()
+DEFAULT_FAMILY = app_tables.FALLBACK_FAMILY
+TYPE_BLURBS = app_tables.type_blurbs()
 
 INDICATOR_OPS = [
     ("anagram", "rearrange the letters it points at"),
@@ -108,11 +71,8 @@ HOWMANY = ["no", "one", "two", "three", "four", "five", "six"]
 
 
 def family_of(ann_type):
-    t = (ann_type or "").lower()
-    for label, blurb, match in FAMILIES:
-        if match(t):
-            return label, blurb
-    return DEFAULT_FAMILY[0], DEFAULT_FAMILY[1]
+    label, blurb, _ = app_tables.family_of(ann_type, FAMILIES)
+    return label, blurb
 
 
 def type_blurb(ann_type):

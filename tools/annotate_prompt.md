@@ -12,9 +12,32 @@ target and picking a different one is never right.
 
 ## What to produce
 
-For EVERY entry in the puzzle file, replace `"annotation": null` with an annotation
-object. The published solution is already in each entry's `"solution"` field — use it as
-ground truth, and make sure your parsing actually produces those letters.
+One JSON file, `tools/_ann_<ID>.json`, holding a single object keyed by entry id:
+
+```json
+{"1-across": { ...annotation... }, "5-across": { ...annotation... }, "12-across": null}
+```
+
+Then apply it:
+
+```
+python3 tools/apply_annotations.py <ID>
+```
+
+That reads the file, checks the ids against the puzzle, writes the annotations into
+`puzzles/<ID>.js` and runs the validator. Every entry needs a key. A key set to `null`
+says you could not solve that clue, which the rules below allow; leaving a key out is an
+error, because forgetting a clue and giving up on one are not the same thing and the
+file cannot tell them apart on its own.
+
+Do not write a script to do this. Annotation runs used to hand-roll a throwaway Python
+file per puzzle — five hundred lines of dict wrapped in forty of scaffolding, re-typed
+every night, and the scaffolding is where the mistakes were: hand-copied JSON markers,
+hardcoded paths, a provenance stamp naming a module the script never imported. The
+annotations are the work. Write only those.
+
+The published solution is already in each entry's `"solution"` field — use it as ground
+truth, and make sure your parsing actually produces those letters.
 
 Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
 
@@ -245,12 +268,16 @@ Rules:
 
 ## Verify (mandatory)
 
+`apply_annotations.py` already ran this; run it again after any fix:
+
 ```
 python3 tools/validate_annotations.py <ID>
 ```
 
 Iterate until it reports `N/N annotated — OK` with no ERROR lines (warnings about block
-fragments are acceptable but worth fixing). Then refresh the index:
+fragments are acceptable but worth fixing). Fix by editing `tools/_ann_<ID>.json` and
+re-running `apply_annotations.py` — that file stays put for exactly this. Then refresh
+the index:
 
 ```
 python3 tools/fetch_puzzle.py --reindex

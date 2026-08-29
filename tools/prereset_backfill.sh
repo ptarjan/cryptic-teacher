@@ -521,6 +521,10 @@ if command -v node >/dev/null 2>&1; then
   fi
   rm -f "$smoke_log"
 fi
+# The annotation payloads apply_annotations.py consumed, swept for the same
+# reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
+rm -f "$REPO/tools/_ann_"*.json
+
 if [ -n "$(git status --porcelain)" ]; then
   # Everything, for the reason daily_update.sh gives at its own `add -A`: this
   # is a worktree of the job's own, and a named list is both incomplete and
