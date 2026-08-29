@@ -252,7 +252,30 @@ const numberOf = (id) => (((global.CRYPTIC_INDEX || {}).puzzles || [])
 
 // --- assertions after boot ---
 assert(!registry["app"].classList.contains("hidden"), "app visible after boot");
-assert(Object.keys(global.window.CRYPTIC_PUZZLES || {}).length >= 25, "all puzzle scripts loaded");
+
+// --- boot fetches the puzzle it opens, and not the other 229 ---
+// It used to fetch every puzzle in the index and wait for the last of them
+// before painting anything: 230 requests and about 1.4 MB to put one crossword
+// on screen, which was most of what a cold open cost on a phone (Paul,
+// 2026-08-28). A puzzle file may only be fetched because something needs its
+// contents — the puzzle being opened, or one with letters saved, which the
+// picker holds against the solutions. This run starts with an empty store, so
+// the count is exactly one, and any number above it is the regression.
+{
+  const loaded = Object.keys(global.window.CRYPTIC_PUZZLES || {});
+  assert(loaded.length === 1,
+    `boot loaded ${loaded.length} puzzle files of ${global.CRYPTIC_INDEX.puzzles.length}; `
+    + "it must load only the one it opens, and fetch the rest on demand");
+}
+
+// The checks below are about the corpus, not about booting, so they need all of
+// it. Loaded here, deliberately after the assertion above — that ordering is the
+// only thing keeping the two apart.
+global.CRYPTIC_INDEX.puzzles.forEach((p) => {
+  if (global.window.CRYPTIC_PUZZLES[p.id]) return;
+  new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
+});
+assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= 25, "the corpus is loaded for the checks below");
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore

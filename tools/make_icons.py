@@ -19,10 +19,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 PAPER = (255, 255, 255)
-LINE = (145, 153, 163)      # --gridline
-BLOCK = (20, 23, 26)        # --blockfill
+BLOCK = (20, 23, 26)        # --blockfill, and the field the motif sits on
 ACCENT = (15, 92, 134)      # --accent, the "revealed letter" blue
-BG = (250, 248, 244)        # page paper
 
 # The motif: a 5x5 mini-grid, blocks symmetric about the centre, one accent
 # square in the middle. Reads as a crossword even at 16px.
@@ -49,23 +47,15 @@ def rect(px, x0, y0, x1, y1, colour):
             row[x] = colour
 
 
-def draw_grid(px, ox, oy, cell, gap, border):
-    """Draw the 5x5 motif with its top-left at (ox, oy)."""
-    span = 5 * cell + 4 * gap
-    rect(px, ox - border, oy - border, ox + span + border, oy + span + border, BLOCK)
-    rect(px, ox, oy, ox + span, oy + span, LINE)
-    for r in range(5):
-        for c in range(5):
-            x = ox + c * (cell + gap)
-            y = oy + r * (cell + gap)
-            if (r, c) in BLOCKS:
-                fill = BLOCK
-            elif (r, c) in ACCENTS:
-                fill = ACCENT
-            else:
-                fill = PAPER
-            rect(px, x, y, x + cell, y + cell, fill)
-    return span
+def fill_of(r, c):
+    return BLOCK if (r, c) in BLOCKS else ACCENT if (r, c) in ACCENTS else PAPER
+
+
+def hexc(rgb):
+    """The PNGs and the SVG take their colours from the same three constants.
+    The SVG used to spell its own hexes out, which is the drift this module
+    already learned about once."""
+    return "#%02x%02x%02x" % rgb
 
 
 def write_png(path, px):
@@ -85,16 +75,41 @@ def write_png(path, px):
     return png
 
 
-def icon(size):
-    """Square app icon at `size`px: paper background, motif inset ~8%."""
-    px = canvas(size, size, BG)
-    border = max(1, round(size * 0.016))
-    gap = max(1, round(size * 0.008))
-    inset = round(size * 0.09)
+GAP_PCT = 0.013     # gridline
+MASK_INSET = 0.10   # app icons: clear of the corner iOS and Android round off
+TAB_INSET = 0.03    # favicons: nothing masks these, so give the cells the room
+
+
+def icon(size, inset_pct=MASK_INSET):
+    """Square icon at `size`px: the motif full-bleed on ink.
+
+    Full bleed, and dark, because of where this is actually seen. It used to be
+    the motif inset in a page-coloured square with hairline gridlines, which is a
+    near-white tile on a Home Screen — no silhouette against a light wallpaper,
+    and the mark itself only four fifths of an already small icon. iOS and Android
+    both mask the corners into a shape of their own choosing, so the field has to
+    run to the edge or the result looks like a sticker with a margin.
+
+    The gridlines stay hairline and the frame does the work. Fat gutters were
+    tried and are worse: at 5% of the icon the cells stop touching and read as
+    five rows of loose tiles, and a block becomes indistinguishable from the gap
+    beside it. A crossword is a solid white field cut by thin lines, so that is
+    what this draws — the ink frame is what gives it an edge.
+
+    The frame is also the mask allowance. Both platforms round the corners off an
+    app icon, and at 10% the grid's own corner clears the arc with room to spare;
+    at the 8% tried first it sat about two pixels inside it, which is the kind of
+    margin that survives one phone and clips on the next.
+    """
+    px = canvas(size, size, BLOCK)
+    gap = max(1, round(size * GAP_PCT))
+    inset = round(size * inset_pct)
     cell = (size - 2 * inset - 4 * gap) // 5
-    span = 5 * cell + 4 * gap
-    off = (size - span) // 2
-    draw_grid(px, off, off, cell, gap, border)
+    off = (size - (5 * cell + 4 * gap)) // 2
+    for r in range(5):
+        for c in range(5):
+            x, y = off + c * (cell + gap), off + r * (cell + gap)
+            rect(px, x, y, x + cell, y + cell, fill_of(r, c))
     return px
 
 
@@ -103,7 +118,7 @@ def write_ico(path, sizes):
     images = []
     for s in sizes:
         tmp = ROOT / f".ico-{s}.png"
-        data = write_png(tmp, icon(s))
+        data = write_png(tmp, icon(s, TAB_INSET))
         tmp.unlink()
         images.append((s, data))
     header = struct.pack("<HHH", 0, 1, len(images))
@@ -124,27 +139,25 @@ def write_svg(path):
     the two in sync by hand. Generated instead: the drift it was warning about is
     exactly the sort nobody notices, and the SVG is the icon most browsers show.
     """
-    cell, gap, span = 10, 0.5, 52
+    side = 64
+    gap = round(side * GAP_PCT, 2)
+    inset = round(side * TAB_INSET, 2)
+    cell = round((side - 2 * inset - 4 * gap) / 5, 2)
+
     def xy(i):
-        return round(i * (cell + gap), 1)
+        return round(inset + i * (cell + gap), 2)
     squares = []
     for r in range(5):
         for c in range(5):
-            fill = ("#14171a" if (r, c) in BLOCKS
-                    else "#0f5c86" if (r, c) in ACCENTS else "#ffffff")
             squares.append(f'<rect x="{xy(c)}" y="{xy(r)}" width="{cell}" '
-                           f'height="{cell}" fill="{fill}"/>')
-    rows = "\n      ".join("".join(squares[i:i + 5]) for i in range(0, 25, 5))
+                           f'height="{cell}" fill="{hexc(fill_of(r, c))}"/>')
+    rows = "\n  ".join("".join(squares[i:i + 5]) for i in range(0, 25, 5))
     path.write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img"\n'
         '     aria-label="Cryptic Teacher">\n'
         '  <!-- GENERATED by tools/make_icons.py from BLOCKS/ACCENTS. Don\'t edit. -->\n'
-        '  <rect width="64" height="64" fill="#faf8f4"/>\n'
-        '  <g transform="translate(6 6)">\n'
-        '    <rect x="-2" y="-2" width="56" height="56" fill="#14171a"/>\n'
-        f'    <rect width="{span}" height="{span}" fill="#9199a3"/>\n'
-        f'    <g>\n      {rows}\n    </g>\n'
-        '  </g>\n</svg>\n', encoding="utf-8")
+        f'  <rect width="{side}" height="{side}" fill="{hexc(BLOCK)}"/>\n'
+        f'  {rows}\n</svg>\n', encoding="utf-8")
 
 
 def check_motif():
@@ -157,10 +170,12 @@ def check_motif():
 
 if __name__ == "__main__":
     check_motif()
-    for name, size in (("favicon-16.png", 16), ("favicon-32.png", 32),
-                       ("icon-192.png", 192), ("apple-touch-icon.png", 180),
-                       ("icon-512.png", 512)):
-        write_png(ROOT / name, icon(size))
+    for name, size, inset in (("favicon-16.png", 16, TAB_INSET),
+                              ("favicon-32.png", 32, TAB_INSET),
+                              ("icon-192.png", 192, MASK_INSET),
+                              ("apple-touch-icon.png", 180, MASK_INSET),
+                              ("icon-512.png", 512, MASK_INSET)):
+        write_png(ROOT / name, icon(size, inset))
         print("wrote", name)
     write_ico(ROOT / "favicon.ico", (16, 32, 48))
     print("wrote favicon.ico")

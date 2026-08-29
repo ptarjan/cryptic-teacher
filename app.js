@@ -129,7 +129,7 @@
     beacon(days === 1 ? "visit-new" : days < 5 ? "visit-return" : "visit-regular");
   }
 
-  // ---------- load all puzzle files listed in puzzles/index.js ----------
+  // ---------- puzzles/index.js: the catalogue, not the puzzles ----------
   const INDEX = (window.CRYPTIC_INDEX && window.CRYPTIC_INDEX.puzzles) ? window.CRYPTIC_INDEX : { latest: null, puzzles: [] };
   window.CRYPTIC_PUZZLES = window.CRYPTIC_PUZZLES || {};
 
@@ -144,9 +144,10 @@
   // bare form has to keep working forever: it is in every link already shared,
   // in every browser's saved progress, and in the envelope a phone that has not
   // reloaded is still uploading.
-  const IS_ID = {}, BY_NUMBER = {};
+  const IS_ID = {}, BY_NUMBER = {}, BY_ID = {};
   INDEX.puzzles.forEach((p) => {
     IS_ID[p.id] = 1;
+    BY_ID[p.id] = p;
     // First wins, and the list is newest-first, so an ambiguous number resolves
     // to the puzzle a stale link is overwhelmingly more likely to have meant.
     if (!(String(p.number) in BY_NUMBER)) BY_NUMBER[String(p.number)] = p.id;
@@ -178,15 +179,47 @@
     if (last) store.set("ct:last", canonicalId(last));
   }
 
-  function loadPuzzleScripts(done) {
-    let pending = INDEX.puzzles.length;
-    if (!pending) return done();
+  // A puzzle file is fetched when something needs it, and not before.
+  //
+  // Booting used to inject a <script> for EVERY puzzle in the index and wait for
+  // the last of them to land before painting anything: 230 requests and about
+  // 1.4 MB to put one crossword on the screen, which is most of the "little
+  // while" a phone spends on a cold open (Paul, 2026-08-28). Two things need a
+  // puzzle's contents — openPuzzle, and pickerStatus for a puzzle you have
+  // already put letters in — and both of them now ask for it.
+  //
+  // puzzleLoad[id] is the queue of callbacks while the file is in flight, and 1
+  // once it has settled. Settled, not loaded: a file that 404s answers everyone
+  // waiting and is never asked for again, because a loader that retries on
+  // missing is a loader that spins.
+  const puzzleLoad = {};
+  function loadPuzzle(id, done) {
+    const q = puzzleLoad[id];
+    if (q === 1 || window.CRYPTIC_PUZZLES[id]) return done();
+    if (q) { q.push(done); return; }
+    const p = BY_ID[id];
+    if (!p) return done();
+    puzzleLoad[id] = [done];
+    const s = document.createElement("script");
+    // ?v=<content hash> so an updated puzzle is never served from cache
+    s.src = "puzzles/" + p.file + (p.v ? "?v=" + p.v : "");
+    s.onload = s.onerror = () => {
+      const waiting = puzzleLoad[id];
+      puzzleLoad[id] = 1;
+      waiting.forEach((f) => f());
+    };
+    document.head.appendChild(s);
+  }
+
+  // The puzzles the picker needs the answers for: the ones with letters saved.
+  // pickerStatus stops at the saved progress for anything else, so fetching the
+  // rest would buy nothing. Idempotent, and called again when the picker opens,
+  // because a sync pull can hand this browser progress on a puzzle it has never
+  // held.
+  function loadStartedPuzzles(then) {
     INDEX.puzzles.forEach((p) => {
-      const s = document.createElement("script");
-      // ?v=<content hash> so an updated puzzle is never served from cache
-      s.src = "puzzles/" + p.file + (p.v ? "?v=" + p.v : "");
-      s.onload = s.onerror = () => { if (--pending === 0) done(); };
-      document.head.appendChild(s);
+      const prog = store.get("ct:" + p.id, null);
+      if (prog && prog.letters && Object.keys(prog.letters).length) loadPuzzle(p.id, then);
     });
   }
 
@@ -2891,11 +2924,14 @@
   }
   // "Have I finished this one?" — the question a list of 78 puzzles has to
   // answer before it can answer anything else. It is computed here rather than
-  // stored: every puzzle file is already in memory (loadPuzzleScripts pulls the
-  // lot at startup), so the saved letters can simply be held against the
-  // solutions. A stored `done` flag would be a second copy of a fact the data
-  // already knows, and sync/merge.js would then have to have an opinion about
-  // merging it — see make-the-wrong-version-unwritable.
+  // stored: the saved letters are simply held against the solutions. A stored
+  // `done` flag would be a second copy of a fact the data already knows, and
+  // sync/merge.js would then have to have an opinion about merging it — see
+  // make-the-wrong-version-unwritable.
+  //
+  // The solutions are only fetched for puzzles with letters saved, which is why
+  // the `!filled` test comes first: it is also what makes loadStartedPuzzles a
+  // short list rather than the whole catalogue.
   //
   // Filled-but-wrong deliberately reads as unfinished rather than as "12 wrong":
   // the check buttons are for that, and a row in the picker is not the place to
@@ -3066,9 +3102,12 @@
     // along. The chips are a way to spell the query without knowing the words;
     // they must not be able to express less than the box they fill in.
     //
-    // Both groups share one wrapping strip rather than getting a row each: the
-    // panel's first job is to show puzzles, and nine chips laid out to fit take
-    // the room they need instead of two lines whatever the width.
+    // A row each, papers then difficulty (Paul, 2026-08-28: "the difficulty
+    // could be on its own line"). They shared one wrapping strip to save a line,
+    // and the saving was imaginary — nine chips wrap to two rows on a phone
+    // anyway, and where the wrap falls is up to the width, so "Difficulty" and
+    // half its bands would trail off the end of the papers. Two named rows read
+    // as two questions, which is what they are.
     const chips = [];
     // A chip's label can be more than one word ("indy sunday"), and the box is a
     // list of terms that all have to match, so a chip is ON when every word of it
@@ -3077,11 +3116,12 @@
     const wordsOf = (w) => w.split(/\s+/).filter(Boolean);
     const isOn = (w) => wordsOf(w).every((x) => picked.indexOf(x) >= 0);
     const group = (label, words, cls) => words.length < 2 ? "" :
-      `<span class="muted small-note">${label}</span>` + words.map((w) => {
+      `<span class="picker-group"><span class="muted small-note">${label}</span>`
+      + words.map((w) => {
         const i = chips.push(w) - 1;
         return `<button type="button" id="pf-${i}" class="badge ${cls(w)}" aria-pressed="${
           isOn(w)}">${esc(w)}</button>`;
-      }).join("");
+      }).join("") + "</span>";
     setHTML($("picker-filters"),
       group("Papers", pickerPaperList(), () => "series")
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b)));
@@ -3147,6 +3187,11 @@
     if (want) {
       if (box) { box.value = ""; }
       renderPicker();
+      // The progress numbers need the answers, and a sync pull may have handed
+      // this browser progress on a puzzle whose file it has never fetched.
+      loadStartedPuzzles(() => {
+        if (!el.classList.contains("hidden")) renderPicker();
+      });
       if (box && box.focus) box.focus();
     }
   }
@@ -3192,7 +3237,12 @@
 
   function openPuzzle(id, chosen = true) {
     const puzzle = window.CRYPTIC_PUZZLES[id];
-    if (!puzzle) return;
+    // Not fetched yet: fetch it and come back. Once. If it still isn't here the
+    // file is gone, and every caller can go on treating this as "open it".
+    if (!puzzle) {
+      if (puzzleLoad[id] !== 1) loadPuzzle(id, () => openPuzzle(id, chosen));
+      return;
+    }
     P = puzzle;
     meta = INDEX.puzzles.find((p) => p.id === id) || { annotated: false };
     store.set("ct:last", id);
@@ -3505,24 +3555,38 @@
       $("app").classList.remove("hidden");
       return;
     }
-    loadPuzzleScripts(() => {
-      // ?p=30072 wins over the remembered puzzle: the static answer pages under
-      // /puzzles/<n>/ link in that way, and dropping someone on last night's
-      // puzzle instead of the one they clicked would be baffling.
-      // Every link shared before 2026-08-19 says ?p=30080, and they must keep
-      // opening the puzzle they named.
-      migrateSavedIds();
-      const askedRaw = new URLSearchParams(location.search).get("p");
-      const asked = askedRaw ? canonicalId(askedRaw) : null;
-      const last = store.get("ct:last", null);
-      const firstAnnotated = (INDEX.puzzles.find((p) => p.annotated) || INDEX.puzzles[0]).id;
-      const want = (asked && window.CRYPTIC_PUZZLES[asked]) ? asked
-        : (last && window.CRYPTIC_PUZZLES[last]) ? last : firstAnnotated;
+    // ?p=30072 wins over the remembered puzzle: the static answer pages under
+    // /puzzles/<n>/ link in that way, and dropping someone on last night's
+    // puzzle instead of the one they clicked would be baffling.
+    // Every link shared before 2026-08-19 says ?p=30080, and they must keep
+    // opening the puzzle they named.
+    migrateSavedIds();
+    const askedRaw = new URLSearchParams(location.search).get("p");
+    const asked = askedRaw ? canonicalId(askedRaw) : null;
+    const last = store.get("ct:last", null);
+    const firstAnnotated = (INDEX.puzzles.find((p) => p.annotated) || INDEX.puzzles[0]).id;
+    // Decided off the INDEX, which is already here, rather than off the loaded
+    // files, which are not: this is the id whose file we are about to go and get.
+    const want = (asked && BY_ID[asked]) ? asked : (last && BY_ID[last]) ? last : firstAnnotated;
+    loadPuzzle(want, () => {
+      if (!window.CRYPTIC_PUZZLES[want]) {
+        // Say which one and why. The alternative — falling back to some other
+        // puzzle — hides a broken deploy behind a crossword nobody asked for.
+        $("puzzle-title").textContent =
+          `Could not load puzzle ${want}. Check your connection and reload.`;
+        $("app").classList.remove("hidden");
+        return;
+      }
       openPuzzle(want, !!asked);
-      // After the grid is up, not before: the pull is a network round trip and
-      // the solver should be looking at yesterday's letters while it happens,
-      // not a blank page. If it brings anything new, applyEnvelope redraws.
+      // Everything below is after the first paint on purpose. The pull is a
+      // network round trip and the solver should be looking at yesterday's
+      // letters while it happens, not a blank page; if it brings anything new,
+      // applyEnvelope redraws. The started puzzles are only needed by the
+      // picker, which is shut.
       if (syncOn()) syncPull();
+      loadStartedPuzzles(() => {
+        if (!$("picker-panel").classList.contains("hidden")) renderPicker();
+      });
     });
   }
 

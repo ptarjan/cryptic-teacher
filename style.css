@@ -229,10 +229,11 @@ button:disabled:hover { border-color: var(--line); }
    would read as a different thing. The row badges are padded out to a common
    width so a column of them lines up; here they sit in a sentence, where that
    padding is just length, and there are nine of them. Touch gets its own. */
-.picker-filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; margin: 8px 0 0; }
+/* One row per question — papers, then difficulty. Column of rows rather than one
+   strip that wraps, so where the line breaks is not left to the viewport. */
+.picker-filters { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 0; }
+.picker-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
 .picker-filters .badge.diff { min-width: 0; }
-.picker-filters .small-note + .badge { margin-left: 2px; }
-.picker-filters .badge + .small-note { margin-left: 8px; }
 @media (pointer: coarse) { .picker-filters button.badge { padding: 5px 10px; } }
 
 /* ---------- layout ---------- */
