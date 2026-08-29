@@ -34,6 +34,7 @@ import json
 import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -129,6 +130,24 @@ TAG_RE = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)[^>]*>")
 ITALIC_TAGS = {"i", "em"}
 
 
+def visible(s):
+    """Drop Unicode format characters (U+200B zero-width space, U+200E
+    left-to-right mark and friends).
+
+    They are not clue text. They render as nothing, they survive a paste out of
+    a word processor into a paper's CMS, and a clue made only of them looks
+    like a clue to everything downstream and is unsolvable by anyone. They also
+    take up offsets that every annotation fragment then has to step over.
+    """
+    return "".join(c for c in s if unicodedata.category(c) != "Cf")
+
+
+def has_words(clue):
+    """A clue is text plus an enumeration. Strip the enumeration and there has
+    to be a letter left, or the paper published nothing to solve."""
+    return any(c.isalpha() for c in re.sub(r"\([\d,\-. ]*\)", "", clue))
+
+
 def flatten_clue(s):
     """HTML clue text -> (plain text, italic ranges into that text).
 
@@ -158,7 +177,7 @@ def flatten_clue(s):
     # and worse, silently move every annotation offset in a file that had no
     # problem to fix.
     if "<" not in s and "&" not in s:
-        return s, []
+        return visible(s), []
 
     chars, depth, pos = [], 0, 0
     for m in TAG_RE.finditer(s):
@@ -170,6 +189,8 @@ def flatten_clue(s):
 
     out = []
     for c, italic in chars:
+        if unicodedata.category(c) == "Cf":
+            continue
         if not c.isspace():
             out.append((c, italic))
         elif out and not out[-1][0].isspace():
@@ -307,6 +328,14 @@ def convert(data):
             "solution": e.get("solution"),
             "annotation": None,
         })
+    # Say it here, where the paper's own data is still in front of us.
+    # Downstream a wordless clue is indistinguishable from a hard one: a cold
+    # solve burns inference guessing it off the crossings, and the annotator
+    # takes the blame for failing to solve nothing.
+    wordless = [e["id"] for e in entries if not has_words(e["clue"])]
+    if wordless:
+        print("WARNING: published with no clue text: " + ", ".join(wordless),
+              file=sys.stderr)
     series = series_of(data["id"])
     return {
         "id": series_meta.puzzle_id(series, data["number"]),
