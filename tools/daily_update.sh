@@ -404,6 +404,16 @@ if [ -n "$(git status --porcelain)" ]; then
   # matches nothing, so deleting any file on the list stages NOTHING and the
   # whole day is silently lost.
   git add -A
+  # A symlink resolves only on the machine that made it, and this tree is full
+  # of them: nightly_worktree.sh links the shared state in from the main
+  # checkout. Committed, they reach the Pages runner as dangling links, tar
+  # refuses to archive the site, and the day is pushed but never published.
+  # add -A cannot be narrowed (above), so the narrowing is here.
+  symlinks=$(git ls-files -s | sed -n 's/^120000 [0-9a-f]* 0	//p')
+  if [ -n "$symlinks" ]; then
+    printf '%s\n' "$symlinks" | while IFS= read -r link; do git rm -q --cached "$link"; done
+    alert "the daily update tried to commit machine-local symlink(s): $(printf '%s ' $symlinks)- unstaged, because committed they break the Pages build for everyone. Add them to .gitignore, spelled without a trailing slash."
+  fi
   git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$ANNOTATE_TRAILER")"
   # Nothing may be left behind. With one writer this is no longer a judgement
   # call about whose file it was: anything still showing here after `add -A` and
