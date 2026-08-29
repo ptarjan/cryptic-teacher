@@ -48,6 +48,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import app_tables  # noqa: E402 — app.js's tables, read from app.js
 from fetch_puzzle import puzzle_files  # noqa: E402 — one glob for every tool
 CARD = REPO / "tools" / "og_card.html"
 APP = REPO / "app.js"
@@ -57,67 +58,15 @@ APP = REPO / "app.js"
 DEFAULT_PUZZLE = "quiptic-1393"
 DEFAULT_ENTRY = "3-down"
 
-# app.js's FAMILIES, ported. Ported tables rot, so this one is compared against
-# app.js on every build (check_families_match_app) — label, blurb and match keys
-# all three, since a card that names a family the app doesn't use, or describes
-# it differently, is the exact drift the comparison exists to catch.
-FAMILIES = [
-    ("Definitions only",
-     "No letter mechanics at all — the clue works by definition alone. The work "
-     "is spotting which words are doing the defining.",
-     ("double definition", "cryptic definition")),
-    ("&lit",
-     "The whole clue does double duty: read it once as a definition, then read "
-     "the very same words again as wordplay.",
-     ("&lit",)),
-    ("Rearrangement",
-     "Letters handed to you in the clue get shuffled into the answer. Find the "
-     "fodder and count it against the enumeration.",
-     ("anagram", "cycling")),
-    ("Sound",
-     "The wordplay describes how the answer sounds rather than how it is spelled.",
-     ("homophone", "spoonerism")),
-    ("Charade",
-     "The answer is built from pieces laid end to end, each clued separately — "
-     "read the wordplay left to right.",
-     ("charade",)),
-    ("Alteration",
-     "A piece of the wordplay is changed rather than just joined on: put inside "
-     "something, turned around, or trimmed.",
-     ("container", "reversal", "deletion", "substitution")),
-    ("Extraction",
-     "The answer's letters are already sitting in the clue in order — the job is "
-     "working out which ones to pick out.",
-     ("hidden", "letter")),
-]
-FALLBACK_FAMILY = ("Wordplay",
-                   "The clue has a definition at one end and wordplay at the other.",
-                   ())
-
-
-def check_families_match_app():
-    """Fail the build if app.js's FAMILIES and the port above have drifted."""
-    src = APP.read_text(encoding="utf-8")
-    block = src.split("const FAMILIES = [", 1)[1].split("\n  ];", 1)[0]
-    theirs = []
-    for chunk in block.split("{ label:")[1:]:
-        label = re.search(r'^\s*"([^"]*)"', chunk).group(1)
-        blurb = re.search(r'blurb:\s*"((?:[^"\\]|\\.)*)"', chunk).group(1)
-        keys = tuple(re.findall(r't\.includes\("([^"]+)"\)', chunk))
-        theirs.append((label, blurb.replace('\\"', '"'), keys))
-    if theirs != FAMILIES:
-        raise SystemExit("og card: FAMILIES in make_og_card.py no longer matches "
-                         "app.js. The card would describe a clue differently from "
-                         "the app that teaches it — re-port the table.\n"
-                         f"  app.js: {theirs}\n  here:   {FAMILIES}")
+# The card has to describe a clue in the same words as the app that teaches it,
+# so it renders from the app's own table rather than a port of it. See
+# tools/app_tables.py for why there is no copy here to keep in step.
+FAMILIES = app_tables.families()
+FALLBACK_FAMILY = app_tables.FALLBACK_FAMILY
 
 
 def family_of(type_):
-    t = (type_ or "").lower()
-    for fam in FAMILIES:
-        if any(k in t for k in fam[2]):
-            return fam
-    return FALLBACK_FAMILY
+    return app_tables.family_of(type_, FAMILIES)
 
 
 def first_sentence(text):
@@ -520,7 +469,6 @@ def compose(entry, p, number=0):
 
 def build(number, entry_id=None):
     """One puzzle's card: the clue you named, or the best clue it has."""
-    check_families_match_app()
     entries = load(number)["entries"]
     if entry_id is None:
         entry_id, p = pick(number)

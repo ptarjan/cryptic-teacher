@@ -60,11 +60,11 @@ tools/data/minutecryptic/
 # is one `cd` away from publishing the account id.
 .wrangler/
 
-# One-shot scratch. The annotation job reaches for a throwaway script to write a
-# puzzle's hints and then leaves it behind, so these accumulate a file per puzzle
-# and go stale the moment anything they hardcode moves — the last batch all still
-# named puzzles/<number>.js, months after ids were namespaced. A leading
-# underscore in tools/ means nothing may depend on it.
+# One-shot scratch. A leading underscore in tools/ means nothing may depend on it.
+# Covers the annotation payloads (tools/_ann_<id>.json) that apply_annotations.py
+# consumes, which daily_update.sh deletes at the end of a run — the throwaway
+# annotator scripts they replaced were ignored too, and nothing swept them, so
+# they accumulated one per puzzle.
 tools/_*
 
 # The CLI's per-checkout settings and permissions. Local, machine-specific,

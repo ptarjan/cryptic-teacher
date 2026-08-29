@@ -392,6 +392,11 @@ if command -v node >/dev/null 2>&1; then
   rm -f "$smoke_log"
 fi
 
+# The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
+# so this is housekeeping rather than safety — but the throwaway scripts these
+# replaced were gitignored too, and they piled up one per puzzle for months.
+rm -f "$REPO/tools/_ann_"*.json
+
 if [ -n "$(git status --porcelain)" ]; then
   # Everything, because this tree contains nothing else: the run started at
   # origin/master in a worktree of its own, so whatever is modified or new here
