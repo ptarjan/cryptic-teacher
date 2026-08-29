@@ -29,8 +29,39 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "1-across"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "FIRST",
+   "annotation": {
+    "type": "container",
+    "answer": "FIRST",
+    "definition": "Maiden",
+    "indicators": [
+     "initially",
+     "denting"
+    ],
+    "indicatorNotes": {
+     "initially": "Taken at the very start, so only the letter that opens the neighbouring word is wanted.",
+     "denting": "A dent is a push into a surface, so one letter is driven inside the other piece."
+    },
+    "pieces": [
+     "FI",
+     "R",
+     "ST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reverse",
+      "gives": "R",
+      "note": "the initial letter of the word, and nothing else of it"
+     },
+     {
+      "clueFragment": "bumper?",
+      "gives": "FIST",
+      "note": "a bumper is something that bumps, and the hand you bump is a fist — the question mark owns the stretch"
+     }
+    ],
+    "walkthrough": "The surface is a car-park prang: reversing, denting, bumpers. Underneath, every one of those words has been given a different job.",
+    "definitionFit": "Maiden → FIRST: a maiden voyage, a maiden century, a maiden speech — 'maiden' is the adjective English keeps for the earliest of its kind."
+   }
   },
   {
    "id": "1-down",
@@ -50,8 +81,24 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      6
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "FIRINGBLANKS",
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FIRING BLANKS",
+    "definition": "not going to multiply",
+    "blocks": [
+     {
+      "clueFragment": "Doing this, not going to multiply",
+      "note": "The surface offers arithmetic, a sum you are declining to do. The setter means the other multiplying, the biblical be-fruitful kind, and a cartridge with no bullet in it."
+     },
+     {
+      "clueFragment": "24?",
+      "note": "A number this far from any arithmetic is a cross-reference: solve 24 across and you have the second joke, because a cartridge like that makes a report that is doing none of a shot's work."
+     }
+    ],
+    "walkthrough": "The cross-reference earns its keep twice. As a figure it belongs to the sum the surface pretends to set; as a signpost it sends you off to another entry for the punchline.",
+    "definitionFit": "not going to multiply → FIRING BLANKS: 'multiply' is the be-fruitful sense, and a blank round carries no bullet, so nothing is conceived."
+   }
   },
   {
    "id": "2-down",
@@ -71,8 +118,33 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "ROBINHOOD",
+   "annotation": {
+    "type": "charade",
+    "answer": "ROBIN HOOD",
+    "definition": "Archer",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "ROBIN",
+     "HOOD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "ROBIN",
+      "note": "the red-breasted garden bird of every British Christmas card"
+     },
+     {
+      "clueFragment": "tough",
+      "gives": "HOOD",
+      "note": "a hood is a hoodlum, a street heavy"
+     }
+    ],
+    "walkthrough": "'Archer' is the misdirection and the definition at the same time: the surface offers Jeffrey Archer the novelist, and the clue wants a man with a bow.",
+    "definitionFit": "Archer → ROBIN HOOD: definition by example — the Sherwood outlaw is the bowman everyone names, so one famous figure stands in for the whole class."
+   }
   },
   {
    "id": "3-down",
@@ -88,8 +160,44 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "3-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "TREVI",
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TREVI",
+    "definition": "district of Rome",
+    "indicators": [
+     "flipping",
+     "south of"
+    ],
+    "indicatorNotes": {
+     "flipping": "Flip something and it lands the other way up, so the letters that follow are read from their far end.",
+     "south of": "This entry runs down the grid, so whatever is south of another piece is written underneath it."
+    },
+    "pieces": [
+     "TREV",
+     "I"
+    ],
+    "subReversals": [
+     {
+      "from": "VERT",
+      "to": "TREV"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "VERT",
+      "note": "vert is the heraldic name for green, the colour as a coat of arms gives it"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral, which is where the surface has been standing all along"
+     }
+    ],
+    "walkthrough": "Heraldry is worth learning as a source of colours: vert, gules, azure and sable turn up constantly and almost never mean anything else.",
+    "definitionFit": "district of Rome → TREVI: one of the city's rioni, the historic administrative districts, and the one that gives the famous fountain its name."
+   }
   },
   {
    "id": "4-across",
@@ -109,8 +217,38 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      3
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "BELPAESE",
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "BEL PAESE",
+    "definition": "Italian food",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "taste of",
+     "thrown about"
+    ],
+    "indicatorNotes": {
+     "taste of": "A taste is a small helping out of a larger portion, so only part of what follows is being served.",
+     "thrown about": "Thrown about, a run of letters ends up facing the opposite way and is read from its far end."
+    },
+    "subReversals": [
+     {
+      "from": "ESEAPLEB",
+      "to": "BELPAESE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese a plebeian’s",
+      "gives": "ESEAPLEB",
+      "note": "eight letters sit consecutively here, starting three into the first word and stopping short of the last two — then they are read the other way"
+     }
+    ],
+    "walkthrough": "The trap is that this looks like an anagram, with 'thrown about' begging you to shuffle. Nothing is shuffled: the letters are already in the clue, in order, running backwards.",
+    "definitionFit": "Italian food → BEL PAESE: a mild cow's-milk cheese from Lombardy sold under exactly that name, which in Italian means 'beautiful country'."
+   }
   },
   {
    "id": "4-down",
@@ -130,8 +268,48 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      3
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "BUSTICKET",
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "BUS TICKET",
+    "definition": "pass",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "rolled over",
+     "in"
+    ],
+    "indicatorNotes": {
+     "rolled over": "Roll something over and it comes to rest the opposite way up, so those letters go down backwards.",
+     "in": "Plain as it looks, this little word is the instruction: one group of letters is dropped inside another."
+    },
+    "pieces": [
+     "BU",
+     "STI",
+     "CKET"
+    ],
+    "subReversals": [
+     {
+      "from": "ITS",
+      "to": "STI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something to kick",
+      "gives": "BUCKET",
+      "note": "kick the bucket — the thing kicked is the one in the idiom, not the one on a football pitch"
+     },
+     {
+      "clueFragment": "It’s",
+      "gives": "STI",
+      "note": "the two words shrink to three letters, then turn round"
+     }
+    ],
+    "walkthrough": "'Something to kick' pulls hard towards a ball, and the answer needs the dying idiom instead. That single swap is the whole difficulty of the clue.",
+    "definitionFit": "pass → BUS TICKET: a pass is any slip that buys you entry or travel, and the fare paid to ride is one everyday instance."
+   }
   },
   {
    "id": "5-down",
@@ -147,8 +325,35 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "5-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "LULU",
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "LULU",
+    "definition": "Opera",
+    "indicators": [
+     "not entirely",
+     "uplifting"
+    ],
+    "indicatorNotes": {
+     "not entirely": "Only a portion of what follows is wanted — a run taken out of the middle, never the whole words.",
+     "uplifting": "This entry runs down the grid, so anything lifted up is read from the bottom of the run back to the top."
+    },
+    "subReversals": [
+     {
+      "from": "ULUL",
+      "to": "LULU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mirthful, ultimately",
+      "gives": "ULUL",
+      "note": "four letters run straight across the gap between these two words, comma and all"
+     }
+    ],
+    "walkthrough": "'Ultimately' reads as an order to take a last letter, and that is the trap. It is fodder: the answer is buried across it and the word in front of it.",
+    "definitionFit": "Opera → LULU: Alban Berg's unfinished twelve-tone opera, four letters long and therefore a fixture of crossword grids everywhere."
+   }
   },
   {
    "id": "6-down",
@@ -169,8 +374,30 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "ATTHEDOOR",
+   "annotation": {
+    "type": "anagram",
+    "answer": "AT THE DOOR",
+    "definition": "here",
+    "indicators": [
+     "in soup"
+    ],
+    "indicatorNotes": {
+     "in soup": "To be in the soup is to be in a mess, and letters in a mess have lost the order they were given in."
+    },
+    "anagram": {
+     "fodder": "OTHER TOAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Other toad",
+      "gives": "OTHERTOAD",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "The whole surface is a witch's cauldron and not one word of it suggests a house, which is why the small definition at the end looks like an afterthought.",
+    "definitionFit": "here → AT THE DOOR: a caller announced as 'here' is standing on the step outside, so the vague word names one particular spot."
+   }
   },
   {
    "id": "7-down",
@@ -186,8 +413,47 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "7-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "SWORD",
+   "annotation": {
+    "type": "container + reversal + outer letters",
+    "answer": "SWORD",
+    "definition": "this?",
+    "indicators": [
+     "to draw up",
+     "through",
+     "case"
+    ],
+    "indicatorNotes": {
+     "to draw up": "Drawn up, a piece travels towards the top of the column, so its letters are read upwards.",
+     "through": "Going through something means passing inside it, so one piece is threaded into the middle of another.",
+     "case": "A case is the shell round a thing, so only the two letters at the outside of the word are kept."
+    },
+    "pieces": [
+     "S",
+     "WOR",
+     "D"
+    ],
+    "subReversals": [
+     {
+      "from": "ROW",
+      "to": "WOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scabbard",
+      "gives": "SD",
+      "note": "the outermost letters of the word, the casing with the middle thrown away"
+     },
+     {
+      "clueFragment": "Fight",
+      "gives": "ROW",
+      "note": "a row is a fight, a shouting quarrel"
+     }
+    ],
+    "walkthrough": "'Draw' belongs to the fight on the surface and to the sheath underneath, since drawing is what you do to a blade. That double life is what hides the turnaround.",
+    "definitionFit": "this? → SWORD: the definition points back at the clue's own picture — what a scabbard holds is the blade, and 'this' asks you to name it."
+   }
   },
   {
    "id": "8-across",
@@ -207,8 +473,36 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      6
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "RUBBERSOLUTION",
+   "annotation": {
+    "type": "charade",
+    "answer": "RUBBER SOLUTION",
+    "definition": "Sticky stuff",
+    "indicators": [
+     "alongside"
+    ],
+    "indicatorNotes": {
+     "alongside": "It says only that the two halves sit next to each other; which of them comes first is left to the enumeration."
+    },
+    "pieces": [
+     "RUBBER",
+     "SOLUTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something to remove it?",
+      "gives": "RUBBER",
+      "note": "in British English the thing that takes pencil off paper is a rubber, what Americans call an eraser"
+     },
+     {
+      "clueFragment": "something to fill squares",
+      "gives": "SOLUTION",
+      "note": "the completed answers to a crossword are its solution"
+     }
+    ],
+    "walkthrough": "The clue describes the object in your hands: pencil in the grid, rub it out again. Only 'Sticky stuff' is looking anywhere else.",
+    "definitionFit": "Sticky stuff → RUBBER SOLUTION: the rubber cement in a bicycle puncture-repair kit is sold under that exact name, and it is glue."
+   }
   },
   {
    "id": "9-down",
@@ -229,8 +523,40 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      7
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "FEARTHEWORST",
+   "annotation": {
+    "type": "anagram",
+    "answer": "FEAR THE WORST",
+    "definition": "don’t expect it to get better!",
+    "indicators": [
+     "troubled"
+    ],
+    "indicatorNotes": {
+     "troubled": "Troubled water is churned up and unsettled, and letters in that state have lost their order."
+    },
+    "anagram": {
+     "fodder": "EARTH STEW FOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Planet",
+      "gives": "EARTH",
+      "note": "the planet we are standing on, spelled out in full"
+     },
+     {
+      "clueFragment": "stew",
+      "gives": "STEW",
+      "note": "the word goes into the mix at face value, all four letters"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "three more letters lifted straight off the page"
+     }
+    ],
+    "walkthrough": "'Planet in stew' reads as an insertion, something dropped into the pot, and it is nothing of the kind: the planet's five letters are shuffled along with the rest.",
+    "definitionFit": "don’t expect it to get better! → FEAR THE WORST: the idiom is an instruction to brace for the bad outcome instead of hoping for a good one."
+   }
   },
   {
    "id": "10-across",
@@ -250,8 +576,51 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      3
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "NONRIGID",
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "NON-RIGID",
+    "definition": "Elastic",
+    "indicators": [
+     "in",
+     "pulled back"
+    ],
+    "indicatorNotes": {
+     "in": "The smallest word in the clue is the instruction: what comes before it goes inside what comes after.",
+     "pulled back": "An across answer reversed reads right to left, and pulling a thing back is exactly that about-turn."
+    },
+    "pieces": [
+     "N",
+     "ON",
+     "RIG",
+     "ID"
+    ],
+    "subReversals": [
+     {
+      "from": "DIN",
+      "to": "NID"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket",
+      "gives": "NID",
+      "note": "a racket is a din, and the din is turned round to make the shell"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "two letters taken straight off the page"
+     },
+     {
+      "clueFragment": "equipment",
+      "gives": "RIG",
+      "note": "a rig is equipment: a drilling rig, a lighting rig"
+     }
+    ],
+    "walkthrough": "Every noun here belongs to a tennis club — elastic, equipment, racket — and 'racket' is the one that changes sense, from the thing you swing to the noise you make.",
+    "definitionFit": "Elastic → NON-RIGID: elastic in its adjectival sense means yielding and able to bend, which is precisely what a thing that will not stay stiff does."
+   }
   },
   {
    "id": "11-across",
@@ -267,8 +636,25 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "11-across"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": "double definition",
+    "answer": "NEEDLE",
+    "definition": "Bait",
+    "definition2": "in hand?",
+    "blocks": [
+     {
+      "clueFragment": "Bait",
+      "note": "the verb, not the worm: to bait somebody is to keep poking at them until they rise to it"
+     },
+     {
+      "clueFragment": "in hand?",
+      "note": "the second half is a picture rather than a synonym — the thin sharp thing a knitter, a tailor or a nurse is holding — and the question mark admits as much"
+     }
+    ],
+    "walkthrough": "Three words, no wordplay, two runs at the same answer. Short clues like this are often the last ones in, because there is nothing to take apart.",
+    "definitionFit": "Bait → NEEDLE is to goad or provoke; 'in hand?' asks for the object itself, the slim steel spike you hold to sew, knit or inject."
+   }
   },
   {
    "id": "12-across",
@@ -284,8 +670,39 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "12-across"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "BOOKMAKER",
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "BOOKMAKER",
+    "definition": "one taking bets",
+    "indicators": [
+     "to catch",
+     "detailed"
+    ],
+    "indicatorNotes": {
+     "to catch": "To catch a thing is to close your hand round it, so one piece shuts around the other.",
+     "detailed": "Read it as de-tailed rather than itemised: the tail comes off the word it follows."
+    },
+    "pieces": [
+     "BOOK",
+     "MAK",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prize",
+      "gives": "BOOKER",
+      "note": "the Booker is Britain's best-known literary prize, awarded each year to a novel"
+     },
+     {
+      "clueFragment": "shark detailed",
+      "gives": "MAK",
+      "note": "a mako is a fast open-sea shark, and de-tailed it loses its closing O"
+     }
+    ],
+    "walkthrough": "'Prize to catch' reads as the start of a definition, something worth landing, and 'Prize' is really a proper noun with a hole cut in it.",
+    "definitionFit": "one taking bets → BOOKMAKER: the trade name for someone who makes a book on a race, holding the stakes and paying out the winners."
+   }
   },
   {
    "id": "13-down",
@@ -301,8 +718,36 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "13-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "MOONLIGHT",
+   "annotation": {
+    "type": "charade",
+    "answer": "MOONLIGHT",
+    "definition": "shiner",
+    "pieces": [
+     "MO",
+     "ON",
+     "LIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flash",
+      "gives": "MO",
+      "note": "in a flash and in a mo both mean in a moment"
+     },
+     {
+      "clueFragment": "activated",
+      "gives": "ON",
+      "note": "a switch that has been activated is on"
+     },
+     {
+      "clueFragment": "faint",
+      "gives": "LIGHT",
+      "note": "light rain, a light breeze: light does duty for faint"
+     }
+    ],
+    "walkthrough": "'Faint shiner' looks like the definition and is one word too long. 'Faint' has already been spent on the last chunk of the build.",
+    "definitionFit": "shiner → MOONLIGHT: the setter names the thing by what it does, and what shines down on a clear night is the pale borrowed glow of the moon."
+   }
   },
   {
    "id": "14-down",
@@ -318,8 +763,46 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "14-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "RIGMAROLE",
+   "annotation": {
+    "type": "container + charade",
+    "answer": "RIGMAROLE",
+    "definition": "bureaucracy",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "investing"
+    ],
+    "indicatorNotes": {
+     "investing": "To invest is to put money into a thing, and the letters go the same way: one piece placed inside another."
+    },
+    "pieces": [
+     "RIG",
+     "M",
+     "A",
+     "ROLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baltic capital",
+      "gives": "RIGA",
+      "note": "the capital of Latvia, one of the three Baltic states"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "m is the standard shortening for millions on any balance sheet"
+     },
+     {
+      "clueFragment": "Part played",
+      "gives": "ROLE",
+      "note": "the part an actor plays is their role"
+     }
+    ],
+    "walkthrough": "The surface has a government pouring millions into red tape, and the answer is the red tape. A definition that agrees with the picture is the hardest kind to notice.",
+    "definitionFit": "bureaucracy → RIGMAROLE: a long-winded procedure full of pointless steps, which is what people are complaining about when they use the drier word."
+   }
   },
   {
    "id": "15-across",
@@ -335,8 +818,30 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "15-across"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "OSCAR",
+   "annotation": {
+    "type": "charade",
+    "answer": "OSCAR",
+    "definition": "Award",
+    "pieces": [
+     "O",
+     "SCAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unblemished?",
+      "gives": "O",
+      "note": "unblemished means there is not one on you, and that 'no' is written as the O that stands for nothing"
+     },
+     {
+      "clueFragment": "unblemished?",
+      "gives": "SCAR",
+      "note": "the blemish being denied is the mark a healed wound leaves behind"
+     }
+    ],
+    "walkthrough": "One word of wordplay, and it has to be heard rather than dissected: 'unblemished' is being read as a two-word phrase meaning the same thing.",
+    "definitionFit": "Award → OSCAR: definition by example — the Academy's gold statuette is one particular prize standing here for the whole category."
+   }
   },
   {
    "id": "16-down",
@@ -356,8 +861,37 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      7
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "CHOPPEDUP",
+   "annotation": {
+    "type": "container",
+    "answer": "CHOPPED UP",
+    "definition": "in little pieces?",
+    "indicators": [
+     "breaking"
+    ],
+    "indicatorNotes": {
+     "breaking": "Breaking into a house means getting inside it, so one word is prised open and the other put in."
+    },
+    "pieces": [
+     "C",
+     "HOPPED",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item of crockery",
+      "gives": "CUP",
+      "note": "the everyday item of crockery, and here it gets split open"
+     },
+     {
+      "clueFragment": "Tripped",
+      "gives": "HOPPED",
+      "note": "to trip along is to move in light quick steps, which is to hop"
+     }
+    ],
+    "walkthrough": "'Breaking ... crockery' is a picture and an instruction at once: the crockery really is broken in two, and the other word is put in the gap.",
+    "definitionFit": "in little pieces? → CHOPPED UP: a cook reduces an onion to small bits by chopping, and the phrase names that end state rather than the act."
+   }
   },
   {
    "id": "17-across",
@@ -373,8 +907,30 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "17-across"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "AUDIO",
+   "annotation": {
+    "type": "charade",
+    "answer": "AUDIO",
+    "definition": "Sound",
+    "pieces": [
+     "AUDI",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German wheels",
+      "gives": "AUDI",
+      "note": "the car marque from Ingolstadt, four letters of German engineering"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round drawn on the page is the letter O"
+     }
+    ],
+    "walkthrough": "'Sound' at the front of a clue almost always asks you to listen. Here it is simply the definition, and nothing in this one is being said aloud.",
+    "definitionFit": "Sound → AUDIO: the noun for recorded or transmitted sound, the audio of a broadcast as against its video."
+   }
   },
   {
    "id": "18-across",
@@ -394,8 +950,30 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "TIGERMOTH",
+   "annotation": {
+    "type": "anagram",
+    "answer": "TIGER MOTH",
+    "definition": "Old plane",
+    "indicators": [
+     "flying"
+    ],
+    "indicatorNotes": {
+     "flying": "Letters in flight are letters off the ground and out of place, and the word doubles as what the thing defined actually does."
+    },
+    "anagram": {
+     "fodder": "RIGHT TO ME"
+    },
+    "blocks": [
+     {
+      "clueFragment": "right to me",
+      "gives": "RIGHTTOME",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "walkthrough": "The indicator is also the scenery. A plane flying is what the surface describes, so 'flying' reads as description rather than as the order it is.",
+    "definitionFit": "Old plane → TIGER MOTH: the de Havilland biplane that trained RAF pilots in the 1930s, so one particular aircraft answers a general description."
+   }
   },
   {
    "id": "19-across",
@@ -411,8 +989,38 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "19-across"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "KINDLE",
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "KINDLE",
+    "definition": "fire",
+    "indicators": [
+     "Empty",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "Empty": "Emptied out, a word keeps only the letters at its two ends and loses everything between them.",
+     "behind": "Whatever is behind something follows it, so this piece is written after the other, not before."
+    },
+    "pieces": [
+     "KIND",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warm",
+      "gives": "KIND",
+      "note": "the human sense of warm, said of a person rather than a temperature"
+     },
+     {
+      "clueFragment": "lounge",
+      "gives": "LE",
+      "note": "the two outside letters of the word, with OUNG gone from the middle"
+     }
+    ],
+    "walkthrough": "Read straight it describes a room — an empty lounge, a warm fire — and every word of that picture is quietly carrying an instruction instead.",
+    "definitionFit": "fire → KINDLE: both are verbs for getting a blaze going, and English fires and kindles enthusiasm in exactly the same figurative way."
+   }
   },
   {
    "id": "20-down",
@@ -428,8 +1036,30 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "20-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "NEATH",
+   "annotation": {
+    "type": "charade",
+    "answer": "NEATH",
+    "definition": "Under",
+    "pieces": [
+     "NEAT",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orderly",
+      "gives": "NEAT",
+      "note": "an orderly desk is a tidy one: the adjective, not the hospital porter the surface offers"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the standard abbreviation on maps and road signs"
+     }
+    ],
+    "walkthrough": "'Orderly, hospital' reads as one idea, the man wheeling the trolleys, and is two pieces underneath. The answer is a poetic clipping that drops the be- from beneath.",
+    "definitionFit": "Under → NEATH: the poetic contraction of beneath, doing in a line of verse the job that 'under' does in prose."
+   }
   },
   {
    "id": "21-across",
@@ -450,8 +1080,48 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "TAKEAPEW",
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "TAKE A PEW",
+    "definition": "get a perch",
+    "linkWords": [
+     "So"
+    ],
+    "indicators": [
+     "about",
+     "having caged"
+    ],
+    "indicatorNotes": {
+     "about": "Turned about, a word faces the other way, so those four letters are entered from the back.",
+     "having caged": "A cage holds its occupant inside, so one group of letters shuts around the other."
+    },
+    "pieces": [
+     "T",
+     "AKEA",
+     "PEW"
+    ],
+    "subReversals": [
+     {
+      "from": "WEPT",
+      "to": "TPEW"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was sad",
+      "gives": "TPEW",
+      "note": "someone sad wept, and the word goes down back to front"
+     },
+     {
+      "clueFragment": "a parrot?",
+      "gives": "AKEA",
+      "note": "the kea is a large green parrot from the New Zealand mountains, and the 'a' comes along with it"
+     }
+    ],
+    "walkthrough": "Parrot, caged, perch: the birds run right through to the last word, and the answer has nothing to do with birds at all.",
+    "definitionFit": "get a perch → TAKE A PEW: a pew is the long bench in a church, so an invitation to take one is the English way of saying sit down."
+   }
   },
   {
    "id": "22-down",
@@ -467,8 +1137,38 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "22-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "EMOTE",
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "EMOTE",
+    "definition": "lay it on thick",
+    "indicators": [
+     "topped with",
+     "last of"
+    ],
+    "indicatorNotes": {
+     "topped with": "This entry runs down the grid, so whatever tops it is written first, above everything else.",
+     "last of": "Only the closing letter of the word that follows is wanted, not the word itself."
+    },
+    "pieces": [
+     "E",
+     "MOTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chocolate",
+      "gives": "E",
+      "note": "the closing letter of the word, sitting on top of the column"
+     },
+     {
+      "clueFragment": "Little bit",
+      "gives": "MOTE",
+      "note": "a mote is a speck of dust, as in the mote in your eye"
+     }
+    ],
+    "walkthrough": "The surface is a pudding being decorated. The definition is a four-word idiom because English has no tidy single verb for overdoing a display of feeling.",
+    "definitionFit": "lay it on thick → EMOTE: both describe overplaying an emotional display, and the verb is what critics reach for when an actor overdoes a scene."
+   }
   },
   {
    "id": "23-down",
@@ -484,8 +1184,28 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "23-down"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "BULL",
+   "annotation": {
+    "type": "double definition",
+    "answer": "BULL",
+    "definition": "Elephant",
+    "definition2": "bunk?",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elephant",
+      "note": "the male of the species — the same word covers a male whale, seal or moose, so this is one example of a class"
+     },
+     {
+      "clueFragment": "bunk?",
+      "note": "bunk is nonsense, talk not worth listening to, and that is the sense the second definition wants"
+     }
+    ],
+    "walkthrough": "Two definitions dressed as one picture, joined by an 'in' that asserts nothing and only holds the sentence up.",
+    "definitionFit": "Elephant → BULL is the male of the species, a definition by example; bunk? → BULL in its slang sense, nonsense not worth hearing."
+   }
   },
   {
    "id": "24-across",
@@ -507,8 +1227,30 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      9
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "BANGOUTOFORDER",
+   "annotation": {
+    "type": "charade",
+    "answer": "BANG OUT OF ORDER",
+    "definition": "completely unacceptable",
+    "pieces": [
+     "BANG",
+     "OUTOFORDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shot",
+      "gives": "BANG",
+      "note": "the noise a gun makes, and a word for the shot itself"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "OUTOFORDER",
+      "note": "a lift or a machine that is down has stopped working"
+     }
+    ],
+    "walkthrough": "'Shot down' reads as one phrase, an argument demolished, and the two words belong to different halves of the build.",
+    "definitionFit": "completely unacceptable → BANG OUT OF ORDER: British slang in which 'bang' is an intensifier meaning utterly, and behaviour out of order has crossed a line."
+   }
   },
   {
    "id": "25-across",
@@ -528,8 +1270,50 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
-   "annotation": null
+   "solution": "WHITELIE",
+   "annotation": {
+    "type": "charade + anagram + last letter",
+    "answer": "WHITE LIE",
+    "definition": "slight stretch?",
+    "indicators": [
+     "flexible",
+     "back"
+    ],
+    "indicatorNotes": {
+     "flexible": "Something flexible bends into whatever shape is asked of it, and so do the four letters beside it.",
+     "back": "The back of a word is its final letter, the one bringing up the rear."
+    },
+    "pieces": [
+     "WHIT",
+     "E",
+     "LIE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "With",
+      "gives": "WHIT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With",
+      "gives": "WHIT",
+      "note": "the clue's own opening word, its four letters put in a new order"
+     },
+     {
+      "clueFragment": "in exercise",
+      "gives": "E",
+      "note": "the rear letter of the word 'exercise'"
+     },
+     {
+      "clueFragment": "stretch out",
+      "gives": "LIE",
+      "note": "to stretch out on a sofa is to lie on it"
+     }
+    ],
+    "walkthrough": "'Stretch' appears twice and means something different each time: once the wordplay for the last chunk, once the definition. That is a setter's liberty, deliberately taken.",
+    "definitionFit": "slight stretch? → WHITE LIE: stretching the truth is the idiom for lying, and the answer is the small harmless kind told to spare someone's feelings."
+   }
   },
   {
    "id": "26-across",
@@ -545,8 +1329,45 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
     "26-across"
    ],
    "separatorLocations": {},
-   "solution": null,
-   "annotation": null
+   "solution": "EXPAT",
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "EXPAT",
+    "definition": "emigrant",
+    "indicators": [
+     "After returning",
+     "filled in by"
+    ],
+    "indicatorNotes": {
+     "After returning": "Coming back means retracing your steps, so the letters that follow are read from their far end.",
+     "filled in by": "A gap that is filled in has something dropped into it, so a letter goes inside the other piece."
+    },
+    "pieces": [
+     "E",
+     "X",
+     "PAT"
+    ],
+    "subReversals": [
+     {
+      "from": "TAPE",
+      "to": "EPAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "EPAT",
+      "note": "a tape is a recording, and it is laid down the other way round"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "x is the unknown quantity in algebra"
+     }
+    ],
+    "walkthrough": "The surface is a traveller home again and filling in a form, which lets the definition sit at the very end looking like the last word of a sentence.",
+    "definitionFit": "emigrant → EXPAT: an expatriate is someone settled outside their own country, which is what emigrating makes of a person; the clipped form is everyday English."
+   }
   }
  ]
 } /*JSON-END*/;

@@ -578,6 +578,9 @@ const ABBREVIATIONS = {
   "note",
   "sappers"
  ],
+ "RES": [
+  "reserve"
+ ],
  "RIP": [
   "buried",
   "dead"
