@@ -422,6 +422,10 @@ EOF
 # Independent's. The puzzle file records its own series and publisher.
 ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
 
+# The prompt's Reference section, restated from the code that enforces it. Same
+# reason daily_update.sh does it: the run should not have to grep for a rule.
+python3 "$REPO/tools/build_annotate_prompt.py"
+
 naps=0
 queue=($todo)
 at=0
