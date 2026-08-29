@@ -598,16 +598,9 @@ answer.split("").forEach((ch) => kd(ev(ch)));
     assert(registry[id].listeners.mousedown,
       `${id} keeps the keyboard on mousedown, not after its own re-render`));
 
-  // But the clue lists must never RAISE one. The first move on a clue you have
-  // just picked is a question answered by tapping — which family, or which words
-  // — and a keyboard over the bottom half of the screen buries it (Paul,
-  // 2026-08-27). Only the grid and the letter strip decide to type.
-  {
-    const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
-    const onPick = /li\.addEventListener\("click", \(\) => ([^;]+);/.exec(src);
-    assert(onPick && !/focusKbd/.test(onPick[1]),
-      "picking a clue from the list does not summon the keyboard: " + (onPick && onPick[1]));
-  }
+  // Which of them may RAISE one is asserted in one place, further down — search
+  // for "the letter strip is the only thing that summons". Listing it twice is
+  // how the two lists come to disagree.
 
   // A finger that moved across the grid is scrolling, not tapping — and the move
   // guard used to bail out BEFORE preventDefault. preventDefault on touchend is
@@ -1574,15 +1567,15 @@ registry["reset-puzzle"].onclick();
   // and the late look below had to walk it back once the keys landed. Two moves,
   // every time, on the commonest tap there is.
   //
-  // Tapping a SQUARE focuses the typing input, and on a touch device that raises
-  // a keyboard, so silence there means "nothing has happened yet", not "nothing
-  // will". The wait is for the thing that is owed. Picking a clue off the list
-  // owes nothing — it does not raise a keyboard at all — so the square's
-  // mousedown is what starts this sequence.
+  // Tapping the LETTER STRIP focuses the typing input, and on a touch device
+  // that raises a keyboard, so silence there means "nothing has happened yet",
+  // not "nothing will". The wait is for the thing that is owed. Picking a clue —
+  // off the list or out of the grid — owes nothing, because neither raises a
+  // keyboard, so the strip's mousedown is what starts this sequence.
   drain();                               // drain the look left over from the tap above
   vv.height = 1000; vv.offsetTop = 0;
   win.pageYOffset = 0; win.scrolls.length = 0;
-  registry["grid"].listeners.mousedown[0]();
+  registry["hint-pattern"].listeners.mousedown[0]();
   clues[0].listeners.click[0]();
   global.flushTimers(100);
   assert(win.scrolls.length === 0,
@@ -1764,29 +1757,35 @@ registry["reset-puzzle"].onclick();
   //
   // So the property is steadiness, not focus: whatever the keyboard was doing
   // when the finger landed, it is still doing after. Asserted in both states,
-  // because a fix for either one alone is what caused the other. The controls
-  // that DO steer the cursor (the grid, the letter strip) are the opposite case
-  // and are checked to still raise it — a rule of "never focus on mousedown"
-  // would pass the first two assertions and leave you typing with no keyboard.
+  // because a fix for either one alone is what caused the other.
+  //
+  // THE LETTER STRIP IS THE ONLY THING THAT SUMMONS a keyboard. The grid used to
+  // as well, on the reading that tapping a square is a decision to type — but a
+  // square is how you pick a CLUE, and the ladder's first move on a new clue is
+  // a question you answer by tapping, which a keyboard over the bottom half of
+  // the screen buries (Paul, 2026-08-27, and of the grid itself 2026-08-29).
+  // Tapping the boxes you are about to fill in is the one tap that means typing.
+  //
+  // Every tappable thing in the app is listed, and asserted by tapping rather
+  // than by reading app.js for a focusKbd — a source test for the clue lists
+  // passed happily while the grid, two feet away, still raised one. A new
+  // control that is not in this list is a control with no rule.
   const kbd = registry["kbd"];
   const down = (id) => (registry[id].listeners.mousedown || []).forEach((f) => f());
-  for (const id of ["hint-next", "hint-escape"]) {
+  for (const id of ["grid", "clues-across", "clues-down", "hint-next", "hint-escape"]) {
     document.activeElement = null;
     down(id);
     assert(document.activeElement === null,
-      `${id}: tapping a hint with the keyboard down must not summon it — the ` +
-      `viewport change is what flashes the rung shut`);
+      `${id}: this is not a decision to type, so it must not summon the keyboard`);
     kbd.focus();
     down(id);
     assert(document.activeElement === kbd,
-      `${id}: tapping a hint mid-answer must not put the keyboard away either`);
+      `${id}: nor put away one that is up — the viewport change is what flashes`);
   }
-  for (const id of ["grid", "hint-pattern"]) {
-    document.activeElement = null;
-    down(id);
-    assert(document.activeElement === kbd,
-      `${id}: this one moves the cursor, so it must raise the keyboard to type with`);
-  }
+  document.activeElement = null;
+  down("hint-pattern");
+  assert(document.activeElement === kbd,
+    "the letter strip must raise the keyboard: it is the only way left to type");
   document.activeElement = null;
 }
 
@@ -2849,6 +2848,24 @@ global.realSetTimeout(() => {
   open();
   let html = registry["hint-body"].innerHTML;
   assert(html.includes("guess-choices"), "the type rung asks before it tells: " + html);
+  // The strip holds one row by sizing its type off its own width, and the clamp
+  // that does it needs to know how many chips and how many characters. Both are
+  // measured from the labels here, so a renamed or added family re-sizes the
+  // strip; a missing or stale pair is the strip silently wrapping to two lines
+  // again, which is the thing Paul has now reported three times.
+  {
+    const labels = [...choices().keys()];
+    const vars = /class="guess-choices" style="--n:(\d+);--c:(\d+)"/.exec(html);
+    assert(vars, "the family strip carries --n and --c for the fit clamp: " + html);
+    assert(Number(vars[1]) === labels.length,
+      `--n is ${vars[1]} but there are ${labels.length} chips`);
+    // Unescaped first: --c counts the characters a reader sees, and "&lit" is
+    // four of them however many bytes the entity takes.
+    const chars = labels.reduce((n, l) =>
+      n + l.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+           .replace(/&quot;/g, '"').replace(/&#39;/g, "'").length, 0);
+    assert(Number(vars[2]) === chars, `--c is ${vars[2]} but the labels are ${chars} characters`);
+  }
   assert(!html.includes('id="guess-check"'),
     "and one of seven is a tap, not a tap and then a confirm: " + html);
   assert(choices().size === 7,
