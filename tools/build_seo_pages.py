@@ -182,6 +182,19 @@ def datestr(ms, fmt="%A %-d %B %Y"):
     return datetime.fromtimestamp(ms / 1000, timezone.utc).strftime(fmt)
 
 
+def app_name():
+    """What an installed icon is called, from the one place that says so.
+
+    iOS labels a Home Screen icon with apple-mobile-web-app-title if the page has
+    one, then the manifest's short_name, then <title>. Only the last of those was
+    on a generated page, and a title here is a sentence — "Cryptic crossword
+    answers and explanations — Independent, Observer and Guardian" under an icon.
+    So every page states it, and states it from site.webmanifest so the two
+    cannot answer the question differently.
+    """
+    return json.loads((ROOT / "site.webmanifest").read_text(encoding="utf-8"))["short_name"]
+
+
 def head(title, description, canonical, extra="", image=None, image_alt=None):
     """The shared <head>. Kept identical to index.html's, minus the app-only bits.
 
@@ -206,6 +219,7 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <link rel="icon" href="{asset("favicon.ico")}" sizes="32x32">
 <link rel="icon" href="{asset("favicon.svg")}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{asset("apple-touch-icon.png")}">
+<meta name="apple-mobile-web-app-title" content="{esc(app_name())}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Cryptic Teacher">
 <meta property="og:title" content="{esc(title)}">
@@ -730,6 +744,12 @@ def patch_homepage(idx):
     # one paper is simply what that puzzle is.
     assert_names_all_papers("index.html <head>",
                             text.split("</head>", 1)[0], idx)
+    want = f'<meta name="apple-mobile-web-app-title" content="{esc(app_name())}">'
+    if want not in text:
+        raise SystemExit(f'index.html must carry {want}. That string is the label '
+                         'under the Home Screen icon; the generated pages take it '
+                         "from site.webmanifest's short_name and this one is "
+                         'hand-written, so it is checked rather than trusted.')
     nav = homepage_nav(idx)
     if NAV_START in text and NAV_END in text:
         new = re.sub(re.escape(NAV_START) + r".*?" + re.escape(NAV_END), lambda _: nav,
