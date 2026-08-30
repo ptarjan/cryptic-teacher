@@ -37,9 +37,9 @@
 # thing across all three trees — otherwise the same alert fires from each job
 # and the quota reading is measured three times.
 #
-# Logs are unaffected: launchd owns the redirect, and it names the main
-# checkout's .update.log / .prereset.log. Where the script ran from does not
-# change where its output lands.
+# Logs do not move: launchd owns the redirect, and it names the main checkout's
+# .update.log / .prereset.log. Where the script ran from does not change where
+# its output lands — which is why they are also trimmed from here.
 #
 # Set CT_NO_WORKTREE=1 to run in place — for testing a change to one of these
 # scripts before it is pushed, since the worktree only ever runs committed code.
@@ -48,6 +48,24 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
   _ct_job="$(basename "$0" .sh)"
   _ct_tree="${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/$_ct_job"
+
+  # Trim the launchd logs before the run writes to them. Both live in the main
+  # checkout whichever tree the job runs from, so they are trimmed together
+  # here, at the one point every scheduled job passes through.
+  #
+  # Truncating in place is the rotation that works: launchd holds the log open
+  # in append mode for the whole run, so renaming it sends tonight's output to
+  # the renamed file, while an append write after a truncate lands at the new
+  # end. A log is read when something failed, and what failed is recent.
+  for _ct_log in "$_ct_main"/.*.log; do
+    [ -f "$_ct_log" ] || continue
+    [ "$(wc -c <"$_ct_log")" -gt "${CT_LOG_MAX_BYTES:-2000000}" ] || continue
+    if tail -c "${CT_LOG_KEEP_BYTES:-1000000}" "$_ct_log" >"$_ct_log.trim"; then
+      cat "$_ct_log.trim" >"$_ct_log"
+      echo "=== trimmed $(basename "$_ct_log") to its last $(wc -c <"$_ct_log" | tr -d ' ') bytes ==="
+    fi
+    rm -f "$_ct_log.trim"
+  done
 
   if [ ! -d "$_ct_tree/.git" ] && [ ! -f "$_ct_tree/.git" ]; then
     # Quiet: the first run checks out 600 files and the progress meter writes a
