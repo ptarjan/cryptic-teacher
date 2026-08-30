@@ -1958,15 +1958,26 @@
   //
   // The blocks rung names one PIECE at a time: step is which. Every other rung
   // has one step and ignores it.
-  function rungTokens(e, rung, step) {
+  // One entry per span the rung names, each a list of token indices, in the
+  // order the rung names them. Kept apart because where one span ends and the
+  // next begins is what decides which of its words are optional, and a flat
+  // list of the union cannot say.
+  function rungSpans(e, rung, step) {
     const ann = annOf(e);
     if (!ann) return [];
     const tokens = clueTokens(e.clue);
     const taken = [];
+    const spans = [];
     const add = (t) => {
       if (!t) return;
       const i = bestOccurrence(e.clue, t, taken);
-      if (i >= 0) taken.push({ i, len: t.length });
+      if (i < 0) return;
+      taken.push({ i, len: t.length });
+      const span = [];
+      tokens.forEach((tok, n) => {
+        if (tok.i < i + t.length && i < tok.i + tok.text.length) span.push(n);
+      });
+      if (span.length) spans.push({ text: t, tokens: span });
     };
     if (rung === "definition") {
       add(ann.definition);
@@ -1977,11 +1988,51 @@
       const b = blockAsks(e)[step || 0];
       if (b) add(b.clueFragment);
     }
+    return spans;
+  }
+
+  function rungTokens(e, rung, step) {
+    return rungSpans(e, rung, step).reduce((a, s) => a.concat(s.tokens), []);
+  }
+
+  // Where a definition ends is a judgement call, not a fact. "Communication made
+  // meaningless by this" and "Communication made meaningless" are the same claim
+  // about the same answer; one leaves in the pointer back at it. A solver who
+  // draws that line one word short of where the annotation drew it has named the
+  // definition, and telling them they are wrong teaches them nothing except that
+  // the app is fussy (Paul, 2026-08-30).
+  //
+  // Only at the ENDS of a span, and only for a DEFINITION. In wordplay every
+  // word is either letters or an instruction — "a" is a letter of the fodder —
+  // so there dropping one is a real mistake and stays one.
+  const EDGE_WORDS = ("a an the this these those it its one such by of for from " +
+                      "with in on at to and that as so s").split(" ");
+
+  function edgeTokens(span, tokens) {
+    const bare = (n) => tokens[n].text.toLowerCase().replace(/[^a-z']/g, "");
     const out = [];
-    tokens.forEach((t, n) => {
-      if (taken.some((s) => t.i < s.i + s.len && s.i < t.i + t.text.length)) out.push(n);
-    });
+    const run = (order) => {
+      for (let k = 0; k < order.length; k++) {
+        if (EDGE_WORDS.indexOf(bare(order[k])) < 0) return;
+        out.push(order[k]);
+      }
+    };
+    run(span);
+    run(span.slice().reverse());
     return out;
+  }
+
+  // The optional words of this rung's question: the ends of every span of it
+  // that is a definition. A double definition's pieces are its two definitions,
+  // so the blocks rung inherits the same latitude when it asks for one of them.
+  function rungEdges(e, rung, step) {
+    const ann = annOf(e);
+    if (!ann || rung === "indicators") return [];
+    const defs = [ann.definition, ann.definition2].filter(Boolean);
+    const tokens = clueTokens(e.clue);
+    return rungSpans(e, rung, step)
+      .filter((s) => rung === "definition" || defs.indexOf(s.text) >= 0)
+      .reduce((a, s) => a.concat(edgeTokens(s.tokens, tokens)), []);
   }
 
   // The type rung's question. Its answer is a family rather than a run of words,
@@ -2051,7 +2102,8 @@
       .reduce((a, k) => a.concat(rungTokens(e, k)), []);
     for (let n = 0; n < at; n++) named.push.apply(named, rungTokens(e, rung, n));
     const known = named.filter((n) => target.indexOf(n) < 0);
-    return { prompt, target, tokens, known, gives, step: at };
+    return { prompt, target, tokens, known, gives, step: at,
+             edge: rungEdges(e, rung, at) };
   }
 
   // The piece after this one, where there is one. Only the blocks rung runs a
@@ -2266,6 +2318,14 @@
     const v = { hit, spare, missed };
     if (hit.length === n && !spare.length) {
       return { ...v, right: true, said: "Yes — that’s exactly it." };
+    }
+    // Short by nothing but the optional ends of a definition: right, and the
+    // whole span is painted so the line the annotation drew is still shown.
+    const edge = ask.edge || [];
+    if (!spare.length && hit.length && missed.every((x) => edge.indexOf(x) >= 0)) {
+      const words = missed.map((x) => ask.tokens[x].text).join(" ");
+      return { hit: target, spare, missed: [], right: true,
+               said: `Yes — whether “${words}” belongs to the definition is a matter of taste.` };
     }
     if (hit.length === n) {
       return { ...v, right: false, said: `You had all ${n}, plus ${spare.length} word${
