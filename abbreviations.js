@@ -10,6 +10,7 @@ const ABBREVIATIONS = {
   "ace",
   "active",
   "adult",
+  "alpha",
   "alto",
   "amateur",
   "america",
@@ -83,6 +84,7 @@ const ABBREVIATIONS = {
   "conservative",
   "constant",
   "contralto",
+  "cuba",
   "hundred"
  ],
  "CA": [
@@ -226,6 +228,7 @@ const ABBREVIATIONS = {
   "hard",
   "hearts",
   "height",
+  "henry",
   "heroin",
   "hospital",
   "hot",
@@ -595,6 +598,9 @@ const ABBREVIATIONS = {
  "RU": [
   "rugby"
  ],
+ "RV": [
+  "recreational vehicle"
+ ],
  "S": [
   "saint",
   "second",
@@ -614,6 +620,9 @@ const ABBREVIATIONS = {
  "SA": [
   "sex appeal",
   "south africa"
+ ],
+ "SC": [
+  "self catering"
  ],
  "SCH": [
   "school"
