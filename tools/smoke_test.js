@@ -3097,6 +3097,104 @@ global.realSetTimeout(() => {
     "but dropping a word that carries the meaning is still wrong on " + found.e.clue);
 }
 
+// --- a double definition never asks which half comes first (Paul, 2026-08-30) ---
+// Both halves of a DD are asked for in the same words — "which words give
+// SCRAMBLER?", twice — so if both were pickable at once, which one the annotation
+// happens to list first would be a thing the solver has to guess. They are not:
+// the definition rung is always up before the pieces rung opens, and on a DD it
+// names BOTH halves, so the half not being asked for is already settled and inert.
+// One answer is available, and it is the right one.
+//
+// If this ever fails because both halves are pickable, the ordering stops being
+// moot and gradeGuess has to accept either half of a DD, in either order.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const tokensOf = (clue) => {
+    const body = String(clue || "").replace(/\s*\([^()]*\)\s*$/, "");
+    const out = [];
+    const re = /\S+/g;
+    let m;
+    while ((m = re.exec(body))) out.push({ i: m.index, text: m[0] });
+    return out;
+  };
+  // Locatable without a copy of the app's matcher: one occurrence, whole words.
+  const spanTokens = (clue, frag) => {
+    const at = clue.indexOf(frag);
+    if (at < 0 || clue.indexOf(frag, at + 1) >= 0) return null;
+    const hit = tokensOf(clue).map((t, n) => ({ t, n }))
+      .filter(({ t }) => t.i < at + frag.length && at < t.i + t.text.length);
+    if (!hit.length) return null;
+    const first = hit[0].t, last = hit[hit.length - 1].t;
+    if (first.i !== at || last.i + last.text.length !== at + frag.length) return null;
+    return hit.map(({ n }) => n);
+  };
+  const asking = () => isAsking(registry["hint-body"]);
+  const rungs = () => registry["hint-next"].children;
+  // A settled word gets no button, so the ids in the question ARE what is
+  // pickable. Read off the panel rather than worked out here.
+  const pickable = () => {
+    const seen = (registry["hint-body"].innerHTML.match(/id="gw-(\d+)"/g) || [])
+      .map((m) => Number(m.slice(7, -1)));
+    return seen.sort((a, b) => a - b);
+  };
+
+  let dd = null, tried = 0;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      if (dd || tried > 40) break;
+      const a = e.annotation;
+      const bl = ((a && a.blocks) || []).filter((b) => b.clueFragment && b.gives);
+      if (bl.length !== 2 || bl[0].gives !== bl[1].gives) continue;
+      const spans = bl.map((b) => spanTokens(e.clue, b.clueFragment));
+      if (spans.some((s) => !s) || spans[0].some((n) => spans[1].indexOf(n) >= 0)) continue;
+      tried++;
+      registry["btn-picker"].onclick();
+      typeInPicker(String(puzzles[id].number));
+      const li = registry["picker-list"].children.find(
+        (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+      if (!li) continue;
+      li.children[0].onclick();
+      registry["reset-puzzle"].onclick();
+      registry["clue-" + e.id].listeners.click[0]();
+      // Climb, declining every question on the way, until the pieces rung is up.
+      let pieces = null;
+      for (let i = 0; i < 8 && !pieces; i++) {
+        const open = rungs().filter((b) => !b.disabled);
+        const want = open.find((b) => /building blocks|each half/i.test(b.textContent || ""));
+        const b = want || open[0];
+        if (!b) break;
+        b.onclick();
+        if (want) { pieces = true; break; }
+        if (asking()) registry["guess-tell"].onclick();
+      }
+      if (!pieces || !asking()) continue;
+      dd = { id, e, bl, spans };
+    }
+    if (dd) break;
+  }
+  assert(dd, `the corpus has a two-piece clue whose pieces give the same thing (tried ${tried})`);
+
+  if (dd) {
+    const first = pickable();
+    assert(JSON.stringify(first) === JSON.stringify(dd.spans[0]),
+      `${dd.id} ${dd.e.id}: "${dd.e.clue}" offers only the half it is asking for — `
+        + `pickable ${JSON.stringify(first)}, asked for ${JSON.stringify(dd.spans[0])}`);
+    first.forEach((n) => registry["gw-" + n].onclick());
+    registry["guess-check"].onclick();
+    // Right, so the rung moves on rather than being handed over: the piece is
+    // shown placed and the next question is up.
+    assert(registry["hint-body"].innerHTML.includes("guess-placed"),
+      `${dd.id} ${dd.e.id}: the only answer available is graded right`);
+    // And then the other half, by elimination, which is the whole of question 2.
+    assert(asking() && JSON.stringify(pickable()) === JSON.stringify(dd.spans[1]),
+      `${dd.id} ${dd.e.id}: the second question offers exactly the other half`);
+    pickable().forEach((n) => registry["gw-" + n].onclick());
+    registry["guess-check"].onclick();
+    assert(/guess-verdict right/.test(registry["hint-body"].innerHTML) && !asking(),
+      `${dd.id} ${dd.e.id}: naming the other half finishes the rung`);
+  }
+}
+
 // --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---
 // Once the definition and the indicator are both on screen, "what kind of clue
 // is this?" has nothing left to tell anyone, so it must stop gating the assembly
