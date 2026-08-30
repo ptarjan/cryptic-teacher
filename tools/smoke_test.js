@@ -3033,6 +3033,70 @@ global.realSetTimeout(() => {
       + found.e.clue + "): " + registry["hint-body"].innerHTML);
 }
 
+// --- where a definition ENDS is a judgement call (Paul, 2026-08-30) ---
+// "Communication made meaningless by this" (SCRAMBLER): Paul picked
+// "Communication made meaningless" and was marked wrong for leaving off the two
+// words that point back at the answer instead of defining it. 46 definitions in
+// the corpus end in a word like that, and a solver who stops one short of the
+// line the annotation drew has still named the definition. Leaving off a word
+// that carries meaning is a different thing and is still wrong — both are
+// asserted, because leniency that cannot fail anybody teaches nothing.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  // app.js's list, restated: the test drives the app rather than reimplementing
+  // it, so this picks the CASE and the app alone decides the verdict.
+  const EDGE = ("a an the this these those it its one such by of for from with " +
+                "in on at to and that as so s").split(" ");
+  const bare = (s) => String(s).toLowerCase().replace(/[^a-z']/g, "");
+  let found = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const a = e.annotation;
+      if (!a || !a.definition || a.definition2) continue;
+      const w = a.definition.split(/\s+/);
+      if (w.length < 3 || String(e.clue).indexOf(a.definition) < 0) continue;
+      if (EDGE.indexOf(bare(w[w.length - 1])) < 0) continue;
+      if (EDGE.indexOf(bare(w[0])) >= 0) continue;   // the near-miss must be a real one
+      found = { id, e };
+      break;
+    }
+    if (found) break;
+  }
+  assert(found, "some clue's definition ends in a word a solver could fairly leave off");
+
+  const askDef = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[found.id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+    assert(li, "picker finds the edge-word puzzle");
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + found.e.id].listeners.click[0]();
+    const b = registry["hint-next"].children.find((x) => /definition/i.test(x.textContent || ""));
+    assert(b, "the definition rung is offered on " + found.e.clue);
+    b.onclick();
+  };
+  const verdict = (pick) => {
+    askDef();
+    for (const i of pick) registry["gw-" + i].onclick();
+    registry["guess-check"].onclick();
+    return registry["hint-body"].innerHTML;
+  };
+  // Which words the annotation calls the definition, read back off one wrong
+  // pick rather than worked out here a second time.
+  const marks = (verdict([0]).match(/class="gw([^"]*)"/g) || [])
+    .reduce((a, m, i) => (/hit|missed/.test(m) ? a.concat(i) : a), []);
+  assert(marks.length >= 3, "the definition of " + found.e.clue + " is three words or more: "
+    + JSON.stringify(marks));
+
+  assert(/guess-verdict right/.test(verdict(marks.slice(0, -1))),
+    "stopping one word short of the definition's optional end is right on "
+      + found.e.clue + " (" + found.e.annotation.definition + ")");
+  assert(!/guess-verdict right/.test(verdict(marks.slice(1))),
+    "but dropping a word that carries the meaning is still wrong on " + found.e.clue);
+}
+
 // --- the spotting rungs spend the type rung (Paul, 2026-08-21) ---
 // Once the definition and the indicator are both on screen, "what kind of clue
 // is this?" has nothing left to tell anyone, so it must stop gating the assembly
