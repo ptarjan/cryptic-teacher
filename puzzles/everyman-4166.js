@@ -29,7 +29,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "1-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "MERSEYSIDE",
    "annotation": null
   },
   {
@@ -46,7 +46,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "1-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "MESH",
    "annotation": null
   },
   {
@@ -63,7 +63,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "2-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "ROUX",
    "annotation": null
   },
   {
@@ -84,7 +84,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
+   "solution": "EAGERBEAVER",
    "annotation": null
   },
   {
@@ -101,7 +101,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "4-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "STATUTE",
    "annotation": null
   },
   {
@@ -118,7 +118,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "5-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "DRESDEN",
    "annotation": null
   },
   {
@@ -135,7 +135,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "6-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "OGRE",
    "annotation": null
   },
   {
@@ -162,7 +162,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
+   "solution": "GRANDTOTAL",
    "annotation": null
   },
   {
@@ -183,7 +183,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
+   "solution": "EARLYBIRDS",
    "annotation": null
   },
   {
@@ -204,7 +204,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      4
     ]
    },
-   "solution": null,
+   "solution": "SOURGRAPES",
    "annotation": null
   },
   {
@@ -221,7 +221,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "10-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "PAIR",
    "annotation": null
   },
   {
@@ -242,7 +242,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      9
     ]
    },
-   "solution": null,
+   "solution": "GROUNDHOGDAY",
    "annotation": null
   },
   {
@@ -269,7 +269,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      8
     ]
    },
-   "solution": null,
+   "solution": "ORIGINALSIN",
    "annotation": null
   },
   {
@@ -286,7 +286,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "13-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "DESCRIPTOR",
    "annotation": null
   },
   {
@@ -307,7 +307,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      6
     ]
    },
-   "solution": null,
+   "solution": "STRESSTEST",
    "annotation": null
   },
   {
@@ -324,7 +324,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "15-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "EXTREME",
    "annotation": null
   },
   {
@@ -341,7 +341,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "16-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "NAIROBI",
    "annotation": null
   },
   {
@@ -358,7 +358,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "17-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "CHERVIL",
    "annotation": null
   },
   {
@@ -375,7 +375,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "18-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "LOYALTY",
    "annotation": null
   },
   {
@@ -392,7 +392,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "19-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "BRIGAND",
    "annotation": null
   },
   {
@@ -409,7 +409,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "19-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "BROWNIE",
    "annotation": null
   },
   {
@@ -432,7 +432,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      9
     ]
    },
-   "solution": null,
+   "solution": "IMSORRYTOSAY",
    "annotation": null
   },
   {
@@ -449,7 +449,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "21-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "DAFT",
    "annotation": null
   },
   {
@@ -466,7 +466,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "22-down"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "MERC",
    "annotation": null
   },
   {
@@ -483,7 +483,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "23-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "TIED",
    "annotation": null
   },
   {
@@ -504,7 +504,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
      5
     ]
    },
-   "solution": null,
+   "solution": "BLANKSLATE",
    "annotation": null
   },
   {
@@ -521,7 +521,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "25-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "ROTA",
    "annotation": null
   },
   {
@@ -538,7 +538,7 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     "26-across"
    ],
    "separatorLocations": {},
-   "solution": null,
+   "solution": "CYBERNETIC",
    "annotation": null
   }
  ]
