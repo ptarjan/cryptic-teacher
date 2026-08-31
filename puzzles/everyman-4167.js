@@ -699,7 +699,7 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
       "note": "taken exactly as printed, three letters straight off the page"
      }
     ],
-    "walkthrough": "Hyphens and quotation marks dress the surface up as a sentence about fashion, and the plainest word in it, 'not', is the one quietly handing over three letters.",
+    "walkthrough": "The king is wearing more than the t-shirt: his letter goes inside the pair of words, not inside either one. Hyphens and quote marks dress the rest up as fashion talk, so the plainest word on the page reads as grammar rather than letters.",
     "definitionFit": "The answer is hair gathered and tied on the crown of the head, which is precisely the arrangement a man-bun is."
    }
   },
