@@ -107,6 +107,12 @@ EXHAUSTED="${EXHAUSTED:-97}"
 SESSION_RESERVE_PCT="${SESSION_RESERVE_PCT:-25}"
 BRIDGE_DIR="${BRIDGE_DIR:-$HOME/.claude/projects/-Users-pt}"
 BRIDGE_IDLE_MIN="${BRIDGE_IDLE_MIN:-60}"
+# The reserve is DEFERRED, never forfeited. A five-hour window that turns over
+# with room left on it has thrown that room away for good, so in the last of its
+# minutes the reserve gets spent whether or not anyone is on the bridge: the
+# worst that costs is a lockout that ends when the window does, and this many
+# minutes is how long that lockout can last.
+SESSION_ENDGAME_MIN="${SESSION_ENDGAME_MIN:-40}"
 # One nap per five-hour window this job asked for is the PLAN, not a failure, so
 # the allowance is that count with slack rather than a constant. A constant that
 # is smaller than the number of windows ends the job in the middle of the run it
@@ -244,6 +250,19 @@ bridge_busy() {
   [ -n "$(find "$BRIDGE_DIR" -maxdepth 1 -name '*.jsonl' -mmin "-$BRIDGE_IDLE_MIN" 2>/dev/null | head -1)" ]
 }
 
+# Minutes until the five-hour window turns over. Empty when it cannot be read,
+# which every caller treats as "not the endgame" — an unreadable clock must not
+# be the thing that decides to take the window off somebody.
+session_left_min() {
+  python3 tools/weekly_usage.py --group session --resets-in 2>/dev/null \
+    | awk 'NF{printf "%d", $1 * 60}'
+}
+
+# Is this window nearly over? $1 is a session_left_min reading.
+in_endgame() {
+  [ -n "$1" ] && [ "$1" -le "$SESSION_ENDGAME_MIN" ]
+}
+
 # How many puzzles the next wave should run at once.
 #   $1 hours left   $2 the five-hour meter right now
 # Inside the reserve a wave is a blunt instrument: four of them move the meter
@@ -253,8 +272,36 @@ bridge_busy() {
 wave_width() {
   local w
   w=$(python3 tools/prereset_plan.py --width "$1" 2>/dev/null || echo 1)
-  if awk -v s="$2" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}'; then w=1; fi
+  # The exception is the end of the window, where one at a time is the wasteful
+  # choice: a single run moves the meter about two points, so a reserve drained
+  # that slowly is a reserve that expires half-full.
+  if awk -v s="$2" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
+     && ! in_endgame "$(session_left_min)"; then w=1; fi
   echo "$w"
+}
+
+# Put the puzzles a lockout cut off back at the front of what is left to do.
+# Without this the queue index walks straight past them: the job served the whole
+# nap, came back to a window that would have run them, and spent it on the NEXT
+# puzzles instead while the ones it had already half-paid for sat out the night.
+#
+# Once each. A puzzle failing for its own reasons — a clue the model cannot solve
+# — must not be able to hold the queue open, and MAX_NAPS bounds the rest.
+WAVE_FAILED_IDS=()
+NAPPED=0
+requeued=" "
+requeue_failed() {
+  local id back=()
+  [ "$NAPPED" = 1 ] || return 0
+  for id in ${WAVE_FAILED_IDS[@]+"${WAVE_FAILED_IDS[@]}"}; do
+    case "$requeued" in *" $id "*) continue ;; esac
+    requeued="$requeued$id "
+    back+=("$id")
+  done
+  [ ${#back[@]} -eq 0 ] && return 0
+  echo "  requeuing ${back[*]} — the window that refused them has turned over"
+  queue=("${back[@]}" "${queue[@]:$at}")
+  at=0
 }
 
 # Run one claude task against the repo. Returns non-zero if the run failed.
@@ -294,12 +341,15 @@ run_claude() {
 #   $1   commit message prefix, e.g. "Annotate"
 #   $2   the prompt, with every @ standing for the puzzle id
 #   $3+  the ids
-# Returns how many runs failed. The claude runs are the only thing that happens
+# Returns how many runs failed, and names them in WAVE_FAILED_IDS so the caller
+# can put them back in the queue instead of losing them to a lockout that has
+# since cleared. The claude runs are the only thing that happens
 # in parallel: every git command below runs in this shell, one at a time, because
 # a second process staging its own file mid-commit swallows it into ours.
 run_wave() {
   local what="$1" tmpl="$2"; shift 2
   local ids=("$@") pids=() i failed=0
+  WAVE_FAILED_IDS=()
   echo "--- wave of ${#ids[@]}: ${ids[*]} ---"
   for i in "${!ids[@]}"; do
     run_claude "${ids[$i]}" "${tmpl//@/${ids[$i]}}" &
@@ -310,8 +360,18 @@ run_wave() {
       tail -3 "/tmp/ct-prereset-${ids[$i]}.txt" | sed "s/^/  [${ids[$i]}] /"
       commit_puzzle "${ids[$i]}" "$what"
     else
-      echo "  [${ids[$i]}] run failed — discarding its changes"
-      git checkout -- "puzzles/${ids[$i]}.js" 2>/dev/null
+      # A run cut off by a lockout usually leaves real work behind: some clues
+      # annotated, the rest untouched, and that file still validates. Throwing
+      # it away means paying for those clues again. Only a half-written one —
+      # the run died mid-edit — is worth nothing and goes back.
+      if [ -n "$(git status --porcelain -- "puzzles/${ids[$i]}.js")" ] &&
+         python3 tools/validate_annotations.py "${ids[$i]}" >/dev/null 2>&1; then
+        echo "  [${ids[$i]}] run failed — keeping what it finished, the file still validates"
+      else
+        echo "  [${ids[$i]}] run failed — discarding its changes"
+        git checkout -- "puzzles/${ids[$i]}.js" 2>/dev/null
+      fi
+      WAVE_FAILED_IDS+=("${ids[$i]}")
       failed=$((failed + 1))
     fi
   done
@@ -324,6 +384,8 @@ run_wave() {
 # Returns non-zero when the caller should stop.
 after_wave() {
   local before="$1" hours="$2" wide="$3" failed="$4" before_s="$5" now now_s climb climb_s
+  local reserve_hold=0
+  NAPPED=0
   now=$(python3 tools/weekly_usage.py 2>/dev/null || echo "$before")
   now_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo "$before_s")
   # awk -v, never string interpolation: an unset or empty number splices into the
@@ -348,10 +410,26 @@ after_wave() {
   # gets eaten to 100%; a conversation gets the window handed back and the job
   # naps until it turns over. The reserve is wide because the meter is only read
   # after a wave lands — see wave_width for the other half of that.
-  if awk -v s="$now_s" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
+  #
+  # Handing it back is a LOAN, not a gift. Quota left on a window when it turns
+  # over is gone for nothing, so the nap below wakes for the window's last
+  # SESSION_ENDGAME_MIN minutes and spends the reserve then regardless of who is
+  # about — a lockout that late cannot outlast the window it is in.
+  local left_min
+  left_min=$(session_left_min)
+  # Only when the wave came back clean: if the API already refused it, the window
+  # is locked rather than lent, and calling that a reserve would size the nap to
+  # a loan that is not going to be repaid until the window resets anyway.
+  if [ "$failed" -eq 0 ] \
+     && awk -v s="$now_s" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
      && bridge_busy; then
-    echo "  five-hour window at ${now_s}% and the bridge is in use — handing the last ${SESSION_RESERVE_PCT}% back"
-    failed=1
+    if in_endgame "$left_min"; then
+      echo "  five-hour window at ${now_s}% with ${left_min}m left on it — spending the reserve anyway rather than letting it expire"
+    else
+      echo "  five-hour window at ${now_s}% and the bridge is in use — holding the last ${SESSION_RESERVE_PCT}% until this window's final ${SESSION_ENDGAME_MIN}m"
+      reserve_hold=1
+      failed=1
+    fi
   fi
   [ "${failed:-1}" -eq 0 ] && return 0
   # A failed wave with room still on the weekly clock is almost always the
@@ -374,13 +452,24 @@ after_wave() {
   # guessed. A nap shorter than the lockout spends a nap on a wave that was
   # always going to fail, and MAX_NAPS of those ends the job with most of the
   # last day, and most of the remainder, still unspent.
-  local nap room
-  nap=$(awk -v h="$(python3 tools/weekly_usage.py --group session --resets-in 2>/dev/null || echo 1)" \
-        'BEGIN{printf "%d", h * 3600 + 120}')
+  #
+  # Except when it was this job that stood down rather than the API that refused:
+  # then the window is not locked, it is being lent out, and the wake-up belongs
+  # at the start of the endgame so the loan comes back.
+  local nap room why
+  if [ "$reserve_hold" = 1 ] && [ -n "$left_min" ]; then
+    nap=$(( (left_min - SESSION_ENDGAME_MIN) * 60 ))
+    [ "$nap" -lt 60 ] && nap=60
+    why="reserve handed back at ${now_s}% five-hour"
+  else
+    nap=$(awk -v h="$left_min" 'BEGIN{printf "%d", (h == "" ? 1 : h / 60) * 3600 + 120}')
+    why="runs failed at ${now}% weekly — five-hour limit"
+  fi
   room=$(( STOP_AT - $(date +%s) - 60 ))
   [ "$nap" -gt "$room" ] && nap="$room"
   if [ "$nap" -le 0 ]; then return 1; fi
-  echo "  runs failed at ${now}% weekly — five-hour limit; waiting ${nap}s (nap $naps)"
+  echo "  $why; waiting ${nap}s (nap $naps)"
+  NAPPED=1
   sleep "$nap"
   return 0
 }
@@ -521,6 +610,7 @@ while [ "$at" -lt "${#queue[@]}" ]; do
   at=$((at + wide))
   after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
     "$wide" "$failed" "$before_s" || break
+  requeue_failed
 done
 
 # --- 2. grandfathered-field backfill ------------------------------------------
@@ -562,6 +652,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     at=$((at + wide))
     after_wave "$before" "$(hours_between "$started" "$(date +%s)")" \
       "$wide" "$failed" "$before_s" || break 2
+    requeue_failed
   done
 done
 
@@ -578,6 +669,15 @@ fi
 # had been raising TypeError on every run since puzzle ids stopped being bare
 # numbers: the sort key was int(id). Months of drained puzzles were never
 # recorded, and the one place that would have said so was pointed at /dev/null.
+# A puzzle still uncommitted here is one a lockout cut off and the run never got
+# back to. Keeping it was worth a retry; publishing it is not — the republish
+# below stages the whole tree, and it would go out as a puzzle whose teaching
+# ladder stops halfway down. Tomorrow's queue picks it up whole.
+if [ -n "$(git status --porcelain -- puzzles/)" ]; then
+  echo "dropping unfinished puzzles: $(git status --porcelain -- puzzles/ | awk '{print $2}' | tr '\n' ' ')"
+  git checkout -- puzzles/
+fi
+
 python3 tools/validate_annotations.py --tighten ||
   alert "the pre-reset backfill could not record what it drained (validate_annotations.py --tighten failed), so tonight's finished puzzles can still silently lose their notes. See .prereset.log."
 
