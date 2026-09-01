@@ -30,7 +30,41 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRACKPOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CRACKPOT",
+    "definition": "Foolish",
+    "indicators": [
+     "on reflection"
+    ],
+    "indicatorNotes": {
+     "on reflection": "A reflection shows a thing the wrong way round, so the word beside it is written back to front."
+    },
+    "pieces": [
+     "CRACK",
+     "POT"
+    ],
+    "subReversals": [
+     {
+      "from": "TOP",
+      "to": "POT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "CRACK",
+      "note": "a crack is a wisecrack or a gag"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "POT",
+      "note": "to top an offer is to better it, and TOP is turned round here"
+     }
+    ],
+    "walkthrough": "'Better' looks like a comparison and is a verb: to top somebody's bid is to better it. The comma is where the definition stops and the building starts.",
+    "definitionFit": "Foolish -> CRACKPOT: used as an adjective it labels a scheme as crazy, the daft-idea sense rather than the noun for a crank."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +81,34 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETRIAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RETRIAL",
+    "definition": "Hearing, once again",
+    "indicators": [
+     "broadcast"
+    ],
+    "indicatorNotes": {
+     "broadcast": "Seed is broadcast by being flung wide across a field, and letters thrown about like that land in a new order."
+    },
+    "anagram": {
+     "fodder": "TRAILER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "trailer",
+      "gives": "TRAILER",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The surface is television, a trailer going out on the channels, and the word doing the work is 'broadcast' in its older farming sense of scattering.",
+    "definitionFit": "Hearing, once again -> RETRIAL: a hearing is a court's session of a case, and one heard a second time is exactly that."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +125,42 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CASKET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CASKET",
+    "definition": "Chest",
+    "indicators": [
+     "passing on",
+     "originally"
+    ],
+    "indicatorNotes": {
+     "passing on": "Someone who passes something on hands it over and keeps none of it, so the letter named next leaves the word.",
+     "originally": "What is taken originally is taken at the start, so only the opening character of the word counts."
+    },
+    "pieces": [
+     "C",
+     "ASKET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the standard abbreviation for cold, the letter on a tap"
+     },
+     {
+      "clueFragment": "carrier",
+      "gives": "ASKET",
+      "note": "a basket is a carrier, shown here without the letter it hands over"
+     },
+     {
+      "clueFragment": "bug originally",
+      "gives": "",
+      "note": "bug starts with B, and B is what the carrier passes on"
+     }
+    ],
+    "walkthrough": "The surface is an infection doing the rounds of an office. Underneath, the carrier is a container of wickerwork and the bug is only an initial.",
+    "definitionFit": "Chest -> CASKET: a casket is a small ornamented box for jewels or letters, a chest in the storage sense rather than the ribcage."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +177,41 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PONG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PONG",
+    "definition": "Hum",
+    "indicators": [
+     "half-forgotten"
+    ],
+    "indicatorNotes": {
+     "half-forgotten": "What is forgotten is gone, and here only half goes, so the name keeps its opening pair and drops the rest."
+    },
+    "pieces": [
+     "PO",
+     "N",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pooh's half-forgotten",
+      "gives": "PO",
+      "note": "POOH cut down the middle keeps its first two letters"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "N",
+      "note": "N is the usual short form of no, as on a tick-box form"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     }
+    ],
+    "walkthrough": "Winnie-the-Pooh composes little songs he calls Hums, which is why the word is capitalised. The definition is the other hum, British slang for a stink.",
+    "definitionFit": "Hum -> PONG: in British usage both mean a strong unpleasant smell, and both work as noun or verb."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +232,37 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
     ]
    },
    "solution": "TREADWATER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TREAD WATER",
+    "definition": "stay afloat",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "abroad"
+    ],
+    "indicatorNotes": {
+     "abroad": "Something abroad is away from where it belongs, so these letters turn up anywhere except home."
+    },
+    "anagram": {
+     "fodder": "WE TRADE ART"
+    },
+    "blocks": [
+     {
+      "clueFragment": "We trade art",
+      "gives": "WETRADEART",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The surface is a gallery keeping itself solvent, and the definition does carry that figurative sense too. The answer is the swimmer's literal version of the same idea.",
+    "definitionFit": "stay afloat -> TREAD WATER: the upright paddling that keeps a swimmer's head above the surface, and by extension holding steady without progress."
+   }
   },
   {
    "id": "6-across",
@@ -119,7 +279,37 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMALL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SMALL",
+    "definition": "Modest",
+    "indicators": [
+     "heading",
+     "Quite the reverse"
+    ],
+    "indicatorNotes": {
+     "heading": "To head somewhere is to travel towards it, which would leave the compass point at the far end as the destination.",
+     "Quite the reverse": "It cancels the arrangement just described: whatever was said to come last comes first instead."
+    },
+    "pieces": [
+     "S",
+     "MALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the compass abbreviation for south"
+     },
+     {
+      "clueFragment": "shaded avenue",
+      "gives": "MALL",
+      "note": "a mall was originally a tree-lined walk, as with the one running to Buckingham Palace"
+     }
+    ],
+    "walkthrough": "Read the wordplay as written and you build MALLS, which fits the enumeration and is wrong. 'Quite the reverse' is the setter telling you to swap the two pieces over.",
+    "definitionFit": "Modest -> SMALL: of a sum or a house, modest means not large, so the two words are plain synonyms in the size sense rather than the humility one."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +326,36 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCREAMER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SCREAMER",
+    "definition": "!",
+    "definitionNote": "The definition is the exclamation mark that closes the clue: printers and journalists have a slang name for that piece of punctuation, and that name is what the grid wants.",
+    "indicators": [
+     "at last"
+    ],
+    "indicatorNotes": {
+     "at last": "What comes at last comes at the end, so only the closing letter of the word before it is taken."
+    },
+    "pieces": [
+     "S",
+     "CREAMER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Progress at last",
+      "gives": "S",
+      "note": "the final letter of Progress"
+     },
+     {
+      "clueFragment": "a substitute for milk",
+      "gives": "CREAMER",
+      "note": "a creamer is the powdered whitener people stir into coffee instead of milk"
+     }
+    ],
+    "walkthrough": "The clue looks as though it has no definition at all, and the punctuation is it: a screamer is what printers and sub-editors call an exclamation mark.",
+    "definitionFit": "! -> SCREAMER: the trade nickname for the exclamation mark, from the way it makes a line of type shout."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +372,26 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLEGRI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ALLEGRI",
+    "definition": "Italian football manager",
+    "indicators": [
+     "during"
+    ],
+    "indicatorNotes": {
+     "during": "Whatever happens during a stretch of time sits inside it, so the letters lie unbroken within the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "final leg, riled",
+      "gives": "ALLEGRI",
+      "note": "seven consecutive letters, starting on the fourth letter of the first word and running through the comma into the last"
+     }
+    ],
+    "walkthrough": "Massimiliano Allegri has managed Juventus and Milan, so the definition points at a particular man rather than at a job. A comma is no barrier to a hidden run.",
+    "definitionFit": "Italian football manager -> ALLEGRI: definition by example, since Allegri is one named Serie A coach rather than a word meaning manager."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +408,34 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LIGHT",
+    "definition": "Fine",
+    "indicators": [
+     "shot"
+    ],
+    "indicatorNotes": {
+     "shot": "Something shot is killed off, so the letter it lands on is taken out of the word for good."
+    },
+    "pieces": [
+     "LIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "volley",
+      "gives": "FLIGHT",
+      "note": "a flight of arrows is a volley loosed all at once"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "",
+      "note": "f. is the standard abbreviation for following, as in a page reference, and that F is the letter shot away"
+     }
+    ],
+    "walkthrough": "The surface is a footballer's fine volley and the parse is much drier: 'following' is a scholar's abbreviation, and 'shot' does the killing rather than the scoring.",
+    "definitionFit": "Fine -> LIGHT: of rain or of a touch, fine means slight and delicate, so fine drizzle is light drizzle."
+   }
   },
   {
    "id": "9-down",
@@ -187,7 +452,35 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DARK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DARK",
+    "definition": "Grim",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In a down clue one thing sitting on another is directly above it, so the piece named first is written at the top."
+    },
+    "pieces": [
+     "D",
+     "ARK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the standard abbreviation for day"
+     },
+     {
+      "clueFragment": "lifeboat",
+      "gives": "ARK",
+      "note": "Noah's ark carried its passengers safely through the flood"
+     }
+    ],
+    "walkthrough": "The question mark is the setter's apology for 'lifeboat': an ark rescued everyone aboard, but no lifeboat station would recognise the description.",
+    "definitionFit": "Grim -> DARK: of a mood, a joke or a prospect, dark means bleak and forbidding, which is what grim describes."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +497,34 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARTISAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARTISAN",
+    "definition": "a master of his craft",
+    "indicators": [
+     "performing"
+    ],
+    "indicatorNotes": {
+     "performing": "To perform a piece is to give one arrangement of it, and an arrangement of these letters is exactly what the clue asks for."
+    },
+    "anagram": {
+     "fodder": "SINATRA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sinatra",
+      "gives": "SINATRA",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'A master of his craft' is exactly what people said about Sinatra, and that is the trap: the phrase is the definition, and the singer is only raw material.",
+    "definitionFit": "a master of his craft -> ARTISAN: a skilled hand worker who has learned a trade, so the definition names the man by that mastery."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +541,47 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARPLUG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "EARPLUG",
+    "definition": "noise-reduction system",
+    "indicators": [
+     "backing"
+    ],
+    "indicatorNotes": {
+     "backing": "A vehicle backing travels in reverse, so the two letters beside it are written the other way round."
+    },
+    "pieces": [
+     "E",
+     "AR",
+     "PLUG"
+    ],
+    "subReversals": [
+     {
+      "from": "RA",
+      "to": "AR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "AR",
+      "note": "RA is the Royal Academician, the crossword's stock artist, and it is reversed here"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "PLUG",
+      "note": "to plug a product is to give it a free advertisement"
+     }
+    ],
+    "walkthrough": "Calling a twist of foam a system is the joke the question mark flags. RA for artist is worth banking: setters reach for it constantly.",
+    "definitionFit": "noise-reduction system -> EARPLUG: the grandeur is the joke, but a plug of wax or foam does reduce noise, with no technology involved."
+   }
   },
   {
    "id": "12-across",
@@ -238,7 +598,43 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KAISER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "KAISER",
+    "definition": "Imperial title",
+    "indicators": [
+     "periodically",
+     "between"
+    ],
+    "indicatorNotes": {
+     "periodically": "What is done periodically happens at fixed intervals, so the letters are picked up every second step instead of all of them.",
+     "between": "It fixes the position of what has just been picked out: those letters sit in the middle, with a royal abbreviation on either side."
+    },
+    "pieces": [
+     "K",
+     "AISE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two kings",
+      "gives": "K",
+      "note": "K is the king of chess and of cards, the first of the pair"
+     },
+     {
+      "clueFragment": "at issue",
+      "gives": "AISE",
+      "note": "the first, third, fifth and seventh letters of the phrase"
+     },
+     {
+      "clueFragment": "two kings",
+      "gives": "R",
+      "note": "R is Rex, Latin for king, the other of the pair"
+     }
+    ],
+    "walkthrough": "Two kings, two different conventions: chess and cards supply K, while Latin supplies R for Rex, the same R that sits in ER on a British postbox.",
+    "definitionFit": "Imperial title -> KAISER: the German emperor's own title, a descendant of Caesar, so it names a rank an empire really used."
+   }
   },
   {
    "id": "13-across",
@@ -255,7 +651,43 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAUGHT",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "DRAUGHT",
+    "definition": "drink",
+    "indicators": [
+     "During",
+     "going for"
+    ],
+    "indicatorNotes": {
+     "During": "It puts the swap inside the word rather than at either end, so the change happens in the middle of what follows.",
+     "going for": "One thing going for another steps aside and lets it have the same place, which is an exchange rather than a straight removal."
+    },
+    "pieces": [
+     "DR",
+     "A",
+     "UGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry spell",
+      "gives": "DROUGHT",
+      "note": "a drought is a long spell without rain"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nothing in tennis, written as O, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that moves into the vacated place"
+     }
+    ],
+    "walkthrough": "The surface has love going out for a drink during a dry spell, and it is all decoy: the drink is the definition and the dry spell is a word to be tampered with.",
+    "definitionFit": "drink -> DRAUGHT: a draught is one long pull at a glass, as in a draught of ale, so it is a drink in the countable sense."
+   }
   },
   {
    "id": "14-down",
@@ -272,7 +704,44 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LADIESWEAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "LADIESWEAR",
+    "definition": "In which salaried English women might be dressed",
+    "indicators": [
+     "dressed"
+    ],
+    "indicatorNotes": {
+     "dressed": "A dressed salad or a dressed shop window has been arranged into a new shape, so the letters are set out afresh."
+    },
+    "anagram": {
+     "fodder": "SALARIED E W"
+    },
+    "blocks": [
+     {
+      "clueFragment": "salaried",
+      "gives": "SALARIED",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the abbreviation for women, as on a changing-room door"
+     },
+     {
+      "clueFragment": "dressed",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Every word does two jobs at once: read straight the sentence describes the clothes, and read again it hands over the letters. That is what an all-in-one clue is.",
+    "definitionFit": "Read straight, the whole clue describes the shop department selling clothes for women, which is precisely what such women might be dressed in."
+   }
   },
   {
    "id": "15-across",
@@ -289,7 +758,36 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MILD",
+    "definition": "bland",
+    "indicators": [
+     "stops"
+    ],
+    "indicatorNotes": {
+     "stops": "To stop a hole or a pipe is to fill it up, so the letter named is pushed into the gap in the other piece."
+    },
+    "pieces": [
+     "MI",
+     "L",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Central",
+      "gives": "MID",
+      "note": "mid means central, as in mid-morning"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     }
+    ],
+    "walkthrough": "The Central Line is a London Underground route, so the capital letter and the surface both push you towards stations. The printer supplies that red herring free.",
+    "definitionFit": "bland -> MILD: of food or flavour, mild means gentle and unassertive, which is what calling a curry bland says about it."
+   }
   },
   {
    "id": "15-down",
@@ -306,7 +804,35 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUG",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "MUG",
+    "definition": "Mush",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Turning something over flips it end for end, so the word it applies to is written the other way round."
+    },
+    "pieces": [
+     "MUG"
+    ],
+    "subReversals": [
+     {
+      "from": "GUM",
+      "to": "MUG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something to chew",
+      "gives": "GUM",
+      "note": "gum is the stuff people chew for hours and never swallow"
+     }
+    ],
+    "walkthrough": "'Mush' is British slang for the face, as in 'shut your mush'. That is the sense wanted, not anything sloppy in a bowl.",
+    "definitionFit": "Mush -> MUG: both are slang for a person's face, the one you are told to shut and the one that ends up in a police photograph."
+   }
   },
   {
    "id": "16-across",
@@ -323,7 +849,44 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWAKENING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letter",
+    "answer": "AWAKENING",
+    "definition": "Stirring",
+    "linkWords": [
+     "into"
+    ],
+    "indicators": [
+     "essentially",
+     "cocktail"
+    ],
+    "indicatorNotes": {
+     "essentially": "The essence of a word is its core, so what is wanted is the single character standing at its centre.",
+     "cocktail": "A cocktail is several things shaken together until none of them can be told apart, which is what becomes of these letters."
+    },
+    "anagram": {
+     "fodder": "N A WEAK GIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tonic essentially",
+      "gives": "N",
+      "note": "the middle letter of tonic"
+     },
+     {
+      "clueFragment": "a weak gin",
+      "gives": "AWEAKGIN",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "cocktail",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Stirring' is the definition and looks exactly like the instruction; the word that actually mixes is 'cocktail', sitting innocently at the end of a drinks order.",
+    "definitionFit": "Stirring -> AWAKENING: as nouns both name the moment something comes to life, so a first stir of interest is a first awakening of it."
+   }
   },
   {
    "id": "17-down",
@@ -340,7 +903,34 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUT",
-   "annotation": null
+   "annotation": {
+    "type": "regular letters",
+    "answer": "GUT",
+    "definition": "plunder",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "Taking regular breaks"
+    ],
+    "indicatorNotes": {
+     "Taking regular breaks": "The breaks are the letters skipped and they are all the same size, so walk the words in threes and keep the one you land on."
+    },
+    "pieces": [
+     "G",
+     "U",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group stop",
+      "gives": "GUT",
+      "note": "GROUPSTOP falls into GRO, UPS and TOP, and the letter kept is the one each trio starts with"
+     }
+    ],
+    "walkthrough": "Nine letters, three kept. The phrase is chosen because it divides exactly into three threes, which is the tell that a counting instruction is in play.",
+    "definitionFit": "plunder -> GUT: to gut a shop or a house is to strip everything out of it, which is what a plundering army does."
+   }
   },
   {
    "id": "18-down",
@@ -361,7 +951,30 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAKEROOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TAKE ROOT",
+    "definition": "become established",
+    "indicators": [],
+    "pieces": [
+     "TAKE",
+     "ROOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lead",
+      "gives": "TAKE",
+      "note": "to take somebody somewhere is to lead them there"
+     },
+     {
+      "clueFragment": "batsman",
+      "gives": "ROOT",
+      "note": "Joe Root, the England batsman and former Test captain"
+     }
+    ],
+    "walkthrough": "Joe Root is an England cricketer, which lets 'Lead batsman' read as a job description on the surface while it is really two separate pieces of wordplay.",
+    "definitionFit": "become established -> TAKE ROOT: a seedling that takes root is fixed in the soil for good, and ideas and rumours borrow the phrase."
+   }
   },
   {
    "id": "19-across",
@@ -378,7 +991,44 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOTHAMITE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GOTHAMITE",
+    "definition": "New Yorker",
+    "linkWords": [
+     "when"
+    ],
+    "indicators": [
+     "reduced"
+    ],
+    "indicatorNotes": {
+     "reduced": "Something reduced has been cut shorter, so the word gives up the letter standing at its end."
+    },
+    "pieces": [
+     "GOT",
+     "HAM",
+     "ITE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bought",
+      "gives": "GOT",
+      "note": "got is what you did if you bought something"
+     },
+     {
+      "clueFragment": "cured meat",
+      "gives": "HAM",
+      "note": "ham is the salted and cured leg of pork"
+     },
+     {
+      "clueFragment": "item when reduced",
+      "gives": "ITE",
+      "note": "item cut short loses its closing M"
+     }
+    ],
+    "walkthrough": "Gotham has been a nickname for New York since Washington Irving used it in 1807, a long time before Batman borrowed the name for a darker city.",
+    "definitionFit": "New Yorker -> GOTHAMITE: Gotham is the city's old nickname, and the -ite ending turns any place name into a word for its inhabitant."
+   }
   },
   {
    "id": "20-down",
@@ -395,7 +1045,51 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORPEDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + middle letters + container",
+    "answer": "TORPEDO",
+    "definition": "Scotch",
+    "indicators": [
+     "barely",
+     "flipping",
+     "folds"
+    ],
+    "indicatorNotes": {
+     "barely": "To bare something is to strip its covering off, so the outer letters go and only the middle pair is left standing.",
+     "flipping": "To flip a thing is to turn it over end for end, so the word beside it is written backwards.",
+     "folds": "To fold an ingredient in is to tuck it into the middle of the mixture, so this piece lands between the other two."
+    },
+    "pieces": [
+     "TOR",
+     "PE",
+     "DO"
+    ],
+    "subReversals": [
+     {
+      "from": "ROT",
+      "to": "TOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubbish",
+      "gives": "TOR",
+      "note": "rot is rubbish in the sense of nonsense, and it is turned round here"
+     },
+     {
+      "clueFragment": "open",
+      "gives": "PE",
+      "note": "stripped of its outside letters, OPEN keeps only the two in the middle"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party in British usage, as in the office Christmas do"
+     }
+    ],
+    "walkthrough": "'Scotch' reads as the whisky the rest of the clue seems to be drinking, and it is the verb: to scotch a plan is to put an end to it.",
+    "definitionFit": "Scotch -> TORPEDO: both are verbs for killing off a plan or a deal before it can get anywhere, the same violent figure of speech."
+   }
   },
   {
    "id": "21-across",
@@ -412,7 +1106,32 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MALT",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "MALT",
+    "definition": "Whisky",
+    "indicators": [
+     "for starters"
+    ],
+    "indicatorNotes": {
+     "for starters": "For starters means to begin with, so each name in the list gives up only the character it begins with."
+    },
+    "pieces": [
+     "M",
+     "A",
+     "L",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "makers: Ardbeg, Laphroaig and Talisker",
+      "gives": "MALT",
+      "note": "the opening letter of the four names, with the linking 'and' passed over"
+     }
+    ],
+    "walkthrough": "Ardbeg, Laphroaig and Talisker are Scottish distilleries, two on Islay and one on Skye, so the list is genuine and the initials are the wordplay.",
+    "definitionFit": "Whisky -> MALT: a malt is whisky made from malted barley alone, so the general word defines this particular kind of it."
+   }
   },
   {
    "id": "22-down",
@@ -429,7 +1148,48 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACTUATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + homophone",
+    "answer": "ACTUATE",
+    "definition": "Switch on",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "About is the crossword's word for around: what it introduces is wrapped inside the pieces standing on either side."
+    },
+    "pieces": [
+     "AC",
+     "T",
+     "U",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air-conditioning",
+      "gives": "AC",
+      "note": "AC is the everyday short form of air-conditioning"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the standard abbreviation for temperature"
+     },
+     {
+      "clueFragment": "you said",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the pronoun spoken aloud is a single letter of the alphabet"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "what's eating you means what is worrying you, so the past tense of that verb fits"
+     }
+    ],
+    "walkthrough": "The surface is somebody fiddling with the air-conditioning on a hot day. The step most solvers miss is 'worried' as the verb from 'what's eating you'.",
+    "definitionFit": "Switch on -> ACTUATE: to actuate a mechanism is to set it working, which is the engineer's word for what a switch does."
+   }
   },
   {
    "id": "23-down",
@@ -446,7 +1206,49 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GINGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + first letter",
+    "answer": "GINGER",
+    "definition": "Red",
+    "indicators": [
+     "turning up",
+     "at first"
+    ],
+    "indicatorNotes": {
+     "turning up": "In a down entry, turning something up writes it from the bottom of the grid towards the top, so its two letters change places.",
+     "at first": "At first means at the start, so only the opening character of the word beside it is taken."
+    },
+    "pieces": [
+     "GIN",
+     "GE",
+     "R"
+    ],
+    "subReversals": [
+     {
+      "from": "EG",
+      "to": "GE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is the distilled spirit, not the ghostly kind"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "GE",
+      "note": "'say' is eg, meaning for example, written upwards here"
+     },
+     {
+      "clueFragment": "rarely at first",
+      "gives": "R",
+      "note": "the first letter of rarely"
+     }
+    ],
+    "walkthrough": "Watch 'say': here it is the two-letter eg rather than an instruction to the solver, and it has to be read up the column before it fits.",
+    "definitionFit": "Red -> GINGER: ginger is the word English keeps for red hair and for a red-haired cat, so it names that shade exactly."
+   }
   },
   {
    "id": "24-across",
@@ -463,7 +1265,40 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GARDENS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GARDENS",
+    "definition": "which could produce vegetables",
+    "definitionNote": "The definition describes the answer rather than replacing it: what is wanted is a plural noun for places which could produce vegetables, and the question mark marks that looseness.",
+    "indicators": [
+     "ground"
+    ],
+    "indicatorNotes": {
+     "ground": "Ground is the past tense of grind, and anything ground has been crushed to bits and comes out in a quite different order."
+    },
+    "anagram": {
+     "fodder": "S GRANDE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sierra",
+      "gives": "S",
+      "note": "Sierra is S in the radio alphabet"
+     },
+     {
+      "clueFragment": "Grande",
+      "gives": "GRANDE",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Ground' wants to belong to the definition, as earth that grows vegetables, and it is the signal to crush the letters instead. Sierra Grande is a real Argentine town.",
+    "definitionFit": "which could produce vegetables -> GARDENS: a garden is cultivated ground, and the vegetable plot is one of the main things one is for."
+   }
   },
   {
    "id": "24-down",
@@ -480,7 +1315,42 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLASS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GLASS",
+    "definition": "crystal",
+    "indicators": [
+     "Under",
+     "striking"
+    ],
+    "indicatorNotes": {
+     "Under": "In a down entry what goes under something is written below it, so the single letter sits on top of the rest.",
+     "striking": "To strike something out is to score it through and lose it, so the letter named is the one that disappears."
+    },
+    "pieces": [
+     "G",
+     "LASS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gravity",
+      "gives": "G",
+      "note": "G is the physicist's symbol for gravity"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "",
+      "note": "carbon is C, and that is the letter struck out"
+     },
+     {
+      "clueFragment": "form",
+      "gives": "LASS",
+      "note": "a form is a class in a British school, here with its first letter struck away"
+     }
+    ],
+    "walkthrough": "'Form' is the school word, as in the fourth form, and 'striking' is the setter deleting a letter rather than praising the sparkle of the material.",
+    "definitionFit": "crystal -> GLASS: crystal is the fine lead glass of decanters and chandeliers, so the general material names the grand version of itself."
+   }
   },
   {
    "id": "25-across",
@@ -497,7 +1367,38 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BITTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BITTER",
+    "definition": "Resentful",
+    "indicators": [
+     "perhaps",
+     "will break"
+    ],
+    "indicatorNotes": {
+     "perhaps": "Perhaps flags an example: the word next to it is only one instance of the wider thing the letters actually spell.",
+     "will break": "To break in is to force a way inside, so the letter arrives in the middle of the other piece rather than at either end."
+    },
+    "pieces": [
+     "BIT",
+     "T",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canine perhaps",
+      "gives": "BITER",
+      "note": "a canine is the tooth that does the biting, one example of the general word"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "walkthrough": "The surface is a dog nursing a grudge. 'Canine perhaps' is the example marker doing its job: you want the general word for what a canine is.",
+    "definitionFit": "Resentful -> BITTER: of a person, bitter means soured by a wrong and still nursing it, which is the feeling resentment names."
+   }
   },
   {
    "id": "26-down",
@@ -514,7 +1415,27 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RYES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RYES",
+    "definition": "Some grasses",
+    "indicators": [
+     "if caught"
+    ],
+    "indicatorNotes": {
+     "if caught": "To catch what somebody says is to hear it, so what the grid wants is the sound of the phrase and not its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "become hostile",
+      "soundsLike": "RISE",
+      "gives": "RYES",
+      "note": "a people who rise turn on those set over them, which is becoming hostile"
+     }
+    ],
+    "walkthrough": "'Some' is the usual signal for a word buried inside the clue, and here it belongs to the definition instead; the mechanism is a sound.",
+    "definitionFit": "Some grasses -> RYES: rye is a cereal grass grown for grain and for pasture, and the plural covers its several varieties."
+   }
   },
   {
    "id": "27-down",
@@ -531,7 +1452,26 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUMP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PUMP",
+    "definition": "Question",
+    "definition2": "dancer's choice of footwear",
+    "blocks": [
+     {
+      "clueFragment": "Question",
+      "gives": "",
+      "note": "the verb for working information out of somebody by asking and asking"
+     },
+     {
+      "clueFragment": "dancer's choice of footwear",
+      "gives": "",
+      "note": "the flat, thin-soled shoe worn for dancing and for school gym"
+     }
+    ],
+    "walkthrough": "Two senses of one short word stand side by side with nothing joining them, which is why the clue reads as a single odd remark about a dancer.",
+    "definitionFit": "Question is the verb for drawing information out of somebody, while a dancer's shoe is the light flat kind: one word, two senses that never meet."
+   }
   },
   {
    "id": "28-across",
@@ -548,7 +1488,28 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANEMONE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ANEMONE",
+    "definition": "Plant",
+    "indicators": [
+     "around",
+     "stores"
+    ],
+    "indicatorNotes": {
+     "around": "Letters written the other way around are read from right to left, so this run doubles back through the clue.",
+     "stores": "To store something is to keep it whole and hidden somewhere, so the answer sits complete inside the clue's own letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "notice: \"No men allowed",
+      "gives": "ANEMONE",
+      "note": "seven letters running backwards from the start of the last word to the end of the first, straight over the colon and the quotation mark"
+     }
+    ],
+    "walkthrough": "The colon and the quotation marks look as though they seal the phrase off from the rest. They are only punctuation, and a hidden run walks through them.",
+    "definitionFit": "Plant -> ANEMONE: the windflower of the buttercup family is one straightforward example of the category the definition names."
+   }
   },
   {
    "id": "29-across",
@@ -565,7 +1526,41 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPGRADE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "UPGRADE",
+    "definition": "raise",
+    "indicators": [
+     "completing",
+     "about"
+    ],
+    "indicatorNotes": {
+     "completing": "The character that completes a word is the one it finishes on, so that final letter alone is taken.",
+     "about": "Here about carries its roundabout sense of turned this way and that, so the letters end up somewhere other than where they started."
+    },
+    "anagram": {
+     "fodder": "P ARGUED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Character completing apprenticeship",
+      "gives": "P",
+      "note": "the last letter of apprenticeship"
+     },
+     {
+      "clueFragment": "argued",
+      "gives": "ARGUED",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Character' means a letter rather than a person, and 'about' shuffles rather than surrounds: two words pulling the solver the wrong way in one short clue.",
+    "definitionFit": "raise -> UPGRADE: to upgrade a ticket or a post is to lift it to a higher grade, which is raising it in the promotion sense."
+   }
   },
   {
    "id": "30-across",
@@ -582,7 +1577,35 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STOUT",
+    "definition": "Resolute",
+    "indicators": [
+     "going after"
+    ],
+    "indicatorNotes": {
+     "going after": "What goes after something is written behind it, so this piece follows rather than leads."
+    },
+    "pieces": [
+     "S",
+     "TOUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the standard abbreviation for seconds"
+     },
+     {
+      "clueFragment": "hawk",
+      "gives": "TOUT",
+      "note": "to hawk goods is to tout them round the streets"
+     }
+    ],
+    "walkthrough": "'Hawk' is the verb, not the bird: to hawk is to peddle wares door to door. 'Seconds' is the clock's, not a second helping.",
+    "definitionFit": "Resolute -> STOUT: a stout defence or stout resistance is firm and unyielding, the courage sense rather than the build or the beer."
+   }
   },
   {
    "id": "31-across",
@@ -599,7 +1622,49 @@ window.CRYPTIC_PUZZLES["independent-12449"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPORTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "REPORTER",
+    "definition": "Hack",
+    "indicators": [
+     "winning",
+     "at last"
+    ],
+    "indicatorNotes": {
+     "winning": "To win something is to take it, so the letter named beside it is taken into the answer.",
+     "at last": "At last points to the end of the word next to it, so its closing letter is the one wanted."
+    },
+    "pieces": [
+     "RE",
+     "PORT",
+     "E",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning, as at the head of a memo"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left-hand side of a ship"
+     },
+     {
+      "clueFragment": "hole at last",
+      "gives": "E",
+      "note": "the final letter of hole"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "walkthrough": "The surface is a round of golf and the wordplay is nautical. 'Hack' is Fleet Street's own word for a jobbing journalist, rude and worn with pride.",
+    "definitionFit": "Hack -> REPORTER: a hack is a journalist turning out copy to order, so the word names the trade with a shrug of disparagement."
+   }
   }
  ]
 } /*JSON-END*/;
