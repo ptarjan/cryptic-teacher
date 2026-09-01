@@ -354,23 +354,42 @@ commit_puzzle() {
     # end takes everything.
     git add "puzzles/$num.js"
     git commit -q -m "$what $num" -m "$ANNOTATE_TRAILER"
-    # --autostash, because the tree is never clean here: the reindex above and
-    # the rebuilt pages are sitting unstaged while we commit one puzzle file,
-    # and a plain rebase refuses outright ("cannot pull with rebase: You have
-    # unstaged changes"). Every push in this job failed that way on the nights
-    # of 2026-08-05 and 08-06, so the work stayed on the mini and the site went
-    # on serving un-annotated puzzles that were annotated locally.
+    # Nothing generated survives the rebase, because nothing generated is worth
+    # carrying: the republish step rewrites every one of these files wholesale
+    # from the puzzle sources, so the copy sitting in the tree right now is
+    # already garbage. It used to ride across as part of the --autostash, and the
+    # first time origin rebuilt the same pages the pop conflicted — 47 generated
+    # files left unmerged, and an unmerged index fails every later `git commit`
+    # AND every later autostash in the run ("Cannot save the current index
+    # state"). Each wave after that spent a full four-puzzle annotation, could
+    # commit none of it, and alerted; two nights' worth of that is what this
+    # line prevents (2026-09-01).
     #
-    # What it stashes is now only ever our own: this runs in a private worktree,
-    # where it used to autostash whatever a person or the 06:31 job happened to
-    # have in flight in the shared one. HEAD is detached there, so master is
-    # named on both sides of the push.
+    # Exclusions, not a list of what to drop, for the reason the republish `add
+    # -A` gives: a named list of generated paths is incomplete the day someone
+    # adds a generated path. What is excluded is what a run actually authors —
+    # a sibling wave's puzzle, still mid-write, and glossary edits under tools/.
+    git checkout -q -- . ':(exclude)puzzles/*.js' ':(exclude)tools/'
+    # --autostash still, for what is left: a plain rebase refuses outright with a
+    # sibling's half-written puzzle unstaged ("cannot pull with rebase: You have
+    # unstaged changes"). Every push in this job failed that way on the nights of
+    # 2026-08-05 and 08-06, so the work stayed on the mini and the site went on
+    # serving un-annotated puzzles that were annotated locally. HEAD is detached
+    # in this worktree, so master is named on both sides of the push.
     git fetch -q origin master && git rebase -q --autostash origin/master &&
       git push -q origin HEAD:master || {
       git fetch -q origin master && git rebase -q --autostash origin/master &&
         git push -q origin HEAD:master ||
         alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until someone pushes. See .prereset.log."
     }
+    # An unmerged index is not this puzzle's problem, it is the rest of the
+    # night's: every commit and every autostash from here on fails, so the job
+    # would keep buying Opus annotations it cannot save and alert once per wave.
+    # Stop while the alert still names one cause instead of five symptoms.
+    if [ -n "$(git ls-files -u)" ]; then
+      alert "pre-reset backfill wedged its worktree — a rebase left these unmerged: $(git diff --name-only --diff-filter=U | tr '\n' ' '). Nothing more can commit, so the run stopped rather than spend on work it cannot save. Resolve in $PWD, then push."
+      exit 1
+    fi
     echo "committed $what $num"
   else
     echo "$what $num produced no change"
