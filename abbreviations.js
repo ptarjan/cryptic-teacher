@@ -9,6 +9,7 @@ const ABBREVIATIONS = {
   "academy",
   "ace",
   "active",
+  "advanced",
   "adult",
   "alpha",
   "alto",
@@ -29,6 +30,7 @@ const ABBREVIATIONS = {
  ],
  "AC": [
   "account",
+  "air conditioning",
   "athletic club",
   "current"
  ],
@@ -60,6 +62,7 @@ const ABBREVIATIONS = {
   "book",
   "born",
   "bowled",
+  "britain",
   "british"
  ],
  "BA": [
@@ -224,6 +227,9 @@ const ABBREVIATIONS = {
  "GP": [
   "doctor"
  ],
+ "GR": [
+  "gross"
+ ],
  "H": [
   "hard",
   "hearts",
@@ -303,6 +309,7 @@ const ABBREVIATIONS = {
   "large",
   "latin",
   "learner",
+  "lecturer",
   "left",
   "liberal",
   "line",
@@ -403,6 +410,7 @@ const ABBREVIATIONS = {
   "noon",
   "north",
   "northern",
+  "norway",
   "note",
   "november",
   "nuclear",
@@ -442,6 +450,7 @@ const ABBREVIATIONS = {
   "ohio",
   "old",
   "ordinary",
+  "oscar",
   "over",
   "oxygen",
   "ring"
@@ -450,6 +459,9 @@ const ABBREVIATIONS = {
   "died",
   "obiit",
   "old boy"
+ ],
+ "OC": [
+  "officer commanding"
  ],
  "OE": [
   "old english"
@@ -559,6 +571,7 @@ const ABBREVIATIONS = {
   "republican",
   "right",
   "river",
+  "romeo",
   "run",
   "runs",
   "take"
@@ -606,6 +619,7 @@ const ABBREVIATIONS = {
   "second",
   "seconds",
   "section",
+  "sierra",
   "singular",
   "small",
   "society",
@@ -666,6 +680,7 @@ const ABBREVIATIONS = {
  ],
  "T": [
   "model",
+  "tango",
   "tea",
   "temperature",
   "tenor",
