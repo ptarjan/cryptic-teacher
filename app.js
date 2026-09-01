@@ -2702,7 +2702,17 @@
     let ask = null;
 
     if (!ann) {
-      bodyHTML = `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
+      // Two different silences, and telling them apart is the whole point.
+      // "Not annotated yet" promises a ladder that is coming; a clue the paper
+      // printed blank has no ladder ever, because there is no clue. Say which,
+      // or the reader hunts the grid for wordplay that was never printed.
+      // clueMissing is written by the fetchers off has_words — see fetch_puzzle.
+      bodyHTML = e.clueMissing
+        ? `<div class="hint-step"><p class="muted">The paper published this clue with no text in it —
+        the space beside the number was blank in the print edition too, so there’s nothing here
+        to solve and no wordplay to explain. Not your eyes.
+        ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
+        : `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
         (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for it.
         You can still check your letters${canCheck() ? " and reveal below" : ""}.</p></div>`;
       if (canCheck() && !solved) nextSpec.push({ fill: true, text: "Reveal answer" });
