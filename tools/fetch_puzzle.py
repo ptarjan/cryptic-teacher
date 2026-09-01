@@ -409,11 +409,9 @@ def puzzle_is_annotated(puzzle):
 
     A clue the paper published with no words in it is not a gap in this site's
     work and never will be: there is nothing to explain, and no annotator,
-    model or human, can write a ladder for it. Counting it against the puzzle
-    left cryptic-30098 (12-across, blank in the Guardian's own print PDF)
-    permanently un-annotated, so the nightly backfill bought a full annotation
-    run on it every night to solve the same 28 clues again and alert about the
-    29th (2026-09-01).
+    model or human, can write a ladder for it. Counting one against its puzzle
+    marks that puzzle permanently un-annotated, which buys a full annotation
+    run on it every night, for ever, to solve the clues that were already done.
     """
     return all(e.get("annotation") is not None or not has_words(e["clue"])
                for e in puzzle["entries"])

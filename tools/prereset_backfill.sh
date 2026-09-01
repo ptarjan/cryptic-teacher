@@ -100,6 +100,10 @@ FORCE_HOURS="${FORCE_HOURS:-1}"
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
 EXHAUSTED="${EXHAUSTED:-97}"
+# How much of each FIVE-hour window is never this job's to take, so that whoever
+# else is on this account can still get a turn out of it while the backfill runs.
+# See the note in after_wave for why it has to be this wide.
+SESSION_RESERVE_PCT="${SESSION_RESERVE_PCT:-25}"
 # One nap per five-hour window this job asked for is the PLAN, not a failure, so
 # the allowance is that count with slack rather than a constant. A constant that
 # is smaller than the number of windows ends the job in the middle of the run it
@@ -300,12 +304,22 @@ after_wave() {
   # waves where one of them was pinned or had reset.
   python3 tools/prereset_plan.py --observe-yield "$climb" "$climb_s" >/dev/null 2>&1
   echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${wide}"
+  # THE FIVE-HOUR METER IS SHARED WITH A PERSON. The weekly remainder is this
+  # job's to spend, but the window it has to spend it through is the same one
+  # Paul talks to the bridge on, and a window run to 100% locks him out of his
+  # own account until it turns over. So the job stops short and naps out the
+  # rest of the window instead of filling it. A wave is billed as a block and
+  # the meter is only read after it lands, so the reserve has to be wider than
+  # one wave's climb — about ten points at width 4 — or an overshoot eats it.
+  if awk -v s="$now_s" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}'; then
+    echo "  five-hour window at ${now_s}% — holding the last ${SESSION_RESERVE_PCT}% back for real use"
+    failed=1
+  fi
   [ "${failed:-1}" -eq 0 ] && return 0
   # A failed wave with room still on the weekly clock is almost always the
-  # FIVE-hour limit, which this job is now wide enough to hit on purpose and
-  # which clears by itself. Treating that as "the week is over" is how a job
-  # built to spend the remainder leaves most of it behind. Only the seven-day
-  # number gets to end the run.
+  # FIVE-hour limit, which clears by itself. Treating that as "the week is
+  # over" is how a job built to spend the remainder leaves most of it behind.
+  # Only the seven-day number gets to end the run.
   if awk -v n="$now" -v e="$EXHAUSTED" 'BEGIN{exit !(n >= e)}'; then
     echo "  weekly window is spent (${now}%) — stopping"
     return 1
