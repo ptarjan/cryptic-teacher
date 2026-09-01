@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRAIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "STRAIGHT",
+    "definition": "Frank",
+    "indicators": [
+     "retired"
+    ],
+    "indicatorNotes": {
+     "retired": "To retire is to withdraw, going back the way you came, so the letters beside it are written the other way round."
+    },
+    "pieces": [
+     "S",
+     "TRA",
+     "IGHT"
+    ],
+    "subReversals": [
+     {
+      "from": "ART",
+      "to": "TRA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a sense",
+      "gives": "SIGHT",
+      "note": "one of the five senses, and this word parts after its first letter to take another piece in"
+     },
+     {
+      "clueFragment": "works in a gallery",
+      "gives": "TRA",
+      "note": "the works hanging in a gallery are art, arriving back to front"
+     }
+    ],
+    "walkthrough": "'Frank' looks like the name of the man who works in the gallery, and it is the definition standing at the front of the clue all along.",
+    "definitionFit": "Frank -> STRAIGHT: a straight answer is an honest and direct one, the plain-dealing sense of the word rather than anything about lines."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +86,42 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
     ]
    },
    "solution": "TWINTOWNS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TWIN TOWNS",
+    "definition": "places sharing culture",
+    "indicators": [
+     "going round"
+    ],
+    "indicatorNotes": {
+     "going round": "What goes round another thing closes about it, so the fool's letters wrap themselves about the single letter named next."
+    },
+    "pieces": [
+     "TWI",
+     "N",
+     "T",
+     "OWNS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "TWIT",
+      "note": "a twit is a fool, and these four letters open after the third"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n is the standard abbreviation for new, as on a product label"
+     },
+     {
+      "clueFragment": "admits",
+      "gives": "OWNS",
+      "note": "to admit to a thing is to own up to it"
+     }
+    ],
+    "walkthrough": "'Admits' is placed to look like the instruction to put something inside, and it is a piece of the answer in its own right; a different phrase does the enclosing.",
+    "definitionFit": "places sharing culture -> TWIN TOWNS: a town formally paired with one abroad, swapping school visits and festivals with it, is its twin town."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +138,44 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGEL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "ANGEL",
+    "definition": "Nurse",
+    "indicators": [
+     "twisted"
+    ],
+    "indicatorNotes": {
+     "twisted": "Something twisted has been wrenched round to face the other way, so the letters it points at are read in reverse."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ANG",
+     "EL"
+    ],
+    "subReversals": [
+     {
+      "from": "LE",
+      "to": "EL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "ANG",
+      "note": "to fish is to angle, and the first three letters of that verb stay as they are"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "EL",
+      "note": "the tail of that same verb is its last two letters, which arrive the other way round"
+     }
+    ],
+    "walkthrough": "'Fish' is a verb here, the sport of angling, not a creature — and the setter is enjoying the fact that the answer names a fish too.",
+    "definitionFit": "Nurse -> ANGEL: nurses have been called angels since Florence Nightingale, the affectionate name for anyone who tends the sick."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +192,35 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "GUT",
+    "definition": "Get everything out of",
+    "indicators": [
+     "going up"
+    ],
+    "indicatorNotes": {
+     "going up": "This entry runs down the grid, so letters going up are read from the bottom square towards the top."
+    },
+    "pieces": [
+     "GUT"
+    ],
+    "subReversals": [
+     {
+      "from": "TUG",
+      "to": "GUT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tower",
+      "gives": "TUG",
+      "note": "a tug tows barges and liners, so it is a tower — nothing to do with buildings"
+     }
+    ],
+    "walkthrough": "'Tower' wants to be something tall with a spire on it. The small boat that does the towing is the reading that fits, and it is one of the oldest dodges in the crossword.",
+    "definitionFit": "Get everything out of -> GUT: to gut a fish or a building is to strip out everything inside and leave only the shell."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +237,36 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THROUGH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THROUGH",
+    "definition": "from start to finish",
+    "indicators": [
+     "taking"
+    ],
+    "indicatorNotes": {
+     "taking": "To take something in is to receive it inside yourself, so the piece named next is planted within the word before it."
+    },
+    "pieces": [
+     "T",
+     "HR",
+     "OUGH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "TOUGH",
+      "note": "a hard problem is a tough one, and this word splits after its first letter"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "HR",
+      "note": "hr is the abbreviation printed on a timetable"
+     }
+    ],
+    "walkthrough": "The comma after 'Hard' makes it look like a remark aimed at the solver, so the definition seems to have started already. It is the wordplay, and the definition is the phrase at the end.",
+    "definitionFit": "from start to finish -> THROUGH: reading a book through means going the whole way from the first page to the last without stopping."
+   }
   },
   {
    "id": "6-across",
@@ -119,7 +283,42 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIMPLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SIMPLY",
+    "definition": "Only",
+    "indicators": [
+     "wanting",
+     "wiped"
+    ],
+    "indicatorNotes": {
+     "wanting": "A word described as wanting is short of something it ought to have, so a piece of it is missing.",
+     "wiped": "Wiped means rubbed clean off the slate, which is what happens to the letter this acts on."
+    },
+    "pieces": [
+     "S",
+     "IMPLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "s is the genealogist's abbreviation for son"
+     },
+     {
+      "clueFragment": "with acne",
+      "gives": "IMPLY",
+      "note": "someone with acne is pimply, and that word turns up here with its front letter gone"
+     },
+     {
+      "clueFragment": "face",
+      "gives": "P",
+      "note": "the face of a word is the letter at its front, and this is the one that goes"
+     }
+    ],
+    "walkthrough": "'Only son' reads as one phrase about a family, and its two words belong to opposite halves of the clue: one is the definition, the other a single letter.",
+    "definitionFit": "Only -> SIMPLY: in the sense of merely — 'I simply asked' and 'I only asked' play down what was done in exactly the same way."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +335,35 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEMISKILLED",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + charade",
+    "answer": "SEMISKILLED",
+    "definition": "Somewhat inexpert",
+    "indicators": [
+     "heads of"
+    ],
+    "indicatorNotes": {
+     "heads of": "The head of a word is the letter standing at its front, so each name after this gives up its opening letter."
+    },
+    "pieces": [
+     "SE",
+     "MISKILLED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spectre each",
+      "gives": "SE",
+      "note": "the opening letter of each of these two words, taken in the order they stand"
+     },
+     {
+      "clueFragment": "botched assassinations",
+      "gives": "MISKILLED",
+      "note": "killings carried out badly, using the prefix MIS- that English puts in front of anything done wrongly"
+     }
+    ],
+    "walkthrough": "Two traps in one clue: 'Somewhat' usually announces a hidden word and here belongs to the definition, and 'botched' shuffles nothing — it builds a MIS- word.",
+    "definitionFit": "Somewhat inexpert -> SEMISKILLED: a semi-skilled worker has had some training but no full trade, so their competence stops short of expert."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +380,29 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MALEMUTES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MALEMUTES",
+    "definition": "husky relatives",
+    "pieces": [
+     "MALE",
+     "MUTES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "MALE",
+      "note": "a guy is a male, the man rather than the rope holding a tent up"
+     },
+     {
+      "clueFragment": "silences",
+      "gives": "MUTES",
+      "note": "to silence a sound is to mute it"
+     }
+    ],
+    "walkthrough": "'Husky' sits there as an adjective describing a hoarse guy, and it is the dog. The breed is more often spelt malamute; both spellings are in the dictionaries.",
+    "definitionFit": "husky relatives -> MALEMUTES: these Alaskan sled dogs come of the same northern spitz stock as huskies, so the definition names them as kin."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +419,36 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LANDS",
+    "definition": "Estate",
+    "definitionNote": "An estate is one holding while the answer is plural: English has long spoken of a family's lands as the single property they own.",
+    "pieces": [
+     "L",
+     "AND",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Volvo's unique character",
+      "gives": "L",
+      "note": "the only letter appearing once in VOLVO, since the V and the O each turn up twice"
+     },
+     {
+      "clueFragment": "alongside",
+      "gives": "AND",
+      "note": "putting one thing alongside another is putting this and that together"
+     },
+     {
+      "clueFragment": "Sierra",
+      "gives": "S",
+      "note": "S in the NATO alphabet, where each letter has a name that carries over a radio"
+     }
+    ],
+    "walkthrough": "Volvo and Sierra are both cars and an estate is a body style, so the whole surface is a forecourt. Not one of those three words is doing what it appears to.",
+    "definitionFit": "Estate -> LANDS: a country estate is the ground a family owns, and lands is the collective word for precisely that holding."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +465,35 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIDGET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MIDGET",
+    "definition": "Wee",
+    "pieces": [
+     "MID",
+     "G",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half-way through",
+      "gives": "MID",
+      "note": "the point half-way through anything is its mid-point"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the standard abbreviation for good, as on a school report"
+     },
+     {
+      "clueFragment": "Spielberg film",
+      "gives": "ET",
+      "note": "E.T. is the Spielberg film of 1982 about the stranded alien"
+     }
+    ],
+    "walkthrough": "'Wee' is Scots for tiny, the sense wanted rather than the nursery one. E.T. is worth remembering: the crossword's favourite two-letter film.",
+    "definitionFit": "Wee -> MIDGET: wee means very small, and midget carries the same sense as an adjective — a midget submarine, a midget car."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +510,29 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAMBLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RAMBLING",
+    "definition": "making little sense",
+    "pieces": [
+     "R",
+     "AMBLING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is rex, Latin for king, the letter a monarch signs after their name"
+     },
+     {
+      "clueFragment": "on walkabout",
+      "gives": "AMBLING",
+      "note": "somebody on a walkabout is ambling about at an easy pace"
+     }
+    ],
+    "walkthrough": "A royal walkabout is a real fixture of British life, which is what makes 'King' look like part of the picture rather than a single letter of wordplay.",
+    "definitionFit": "making little sense -> RAMBLING: speech that wanders off in all directions and arrives nowhere is described as rambling."
+   }
   },
   {
    "id": "11-across",
@@ -226,7 +554,42 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATALLHOURS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AT ALL HOURS",
+    "definition": "annoyingly late",
+    "indicators": [
+     "opens"
+    ],
+    "indicatorNotes": {
+     "opens": "Something that opens comes apart to let another thing in, so the phrase beside it splits and takes the pieces named inside."
+    },
+    "pieces": [
+     "AT",
+     "ALL",
+     "H",
+     "OURS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where we live",
+      "gives": "ATOURS",
+      "note": "'at ours' is the everyday British way of saying at our place — come back to ours — and it parts in the middle"
+     },
+     {
+      "clueFragment": "every",
+      "gives": "ALL",
+      "note": "every one of them is all of them"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO alphabet"
+     }
+    ],
+    "walkthrough": "'Where we live' wants to be a country or a street name. It is the colloquial phrase instead, and 'hotel' is a letter rather than a building.",
+    "definitionFit": "annoyingly late -> AT ALL HOURS: somebody who comes home at all hours turns up at any hour of the night, the phrase always carrying a complaint."
+   }
   },
   {
    "id": "12-down",
@@ -243,7 +606,29 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAEMORRHOID",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HAEMORRHOID",
+    "definition": "a pain in the arse",
+    "indicators": [
+     "Sorting out"
+    ],
+    "indicatorNotes": {
+     "Sorting out": "Sorting a heap out means putting it into a fresh arrangement, which is exactly what becomes of these letters."
+    },
+    "anagram": {
+     "fodder": "HER HAIR MOOD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "her hair and mood",
+      "gives": "HERHAIRMOOD",
+      "note": "eleven letters handed over whole, in an order that will not survive"
+     }
+    ],
+    "walkthrough": "The surface is a hairdresser soothing a difficult client, and the definition is that idiom taken absolutely literally — which is what the question mark owns up to.",
+    "definitionFit": "a pain in the arse -> HAEMORRHOID: the idiom for a maddening nuisance, read at its word, since this swollen vein really does hurt there."
+   }
   },
   {
    "id": "13-across",
@@ -260,7 +645,29 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MISS",
+    "definition": "Wish you were",
+    "definition2": "younger woman",
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wish you were",
+      "gives": "",
+      "note": "the verb: to feel somebody's absence and want them back"
+     },
+     {
+      "clueFragment": "younger woman",
+      "gives": "",
+      "note": "the courtesy title put before an unmarried woman's name, and the noun for a girl"
+     }
+    ],
+    "walkthrough": "The first half is quoting the postcard — wish you were here — and the two halves run on as one sentence, with nothing at all marking the seam between them.",
+    "definitionFit": "Wish you were -> MISS is to feel the absence of somebody; younger woman -> MISS is the title an unmarried woman is addressed by."
+   }
   },
   {
    "id": "14-across",
@@ -281,7 +688,42 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHITECHRISTMAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "WHITE CHRISTMAS",
+    "definition": "Noel made pretty",
+    "indicators": [
+     "during"
+    ],
+    "indicatorNotes": {
+     "during": "What happens during something happens inside it, so the piece named before this goes within the word that follows."
+    },
+    "pieces": [
+     "W",
+     "HITECH",
+     "RIST",
+     "MAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joint",
+      "gives": "WRIST",
+      "note": "the joint at the base of your hand, and it opens after its first letter"
+     },
+     {
+      "clueFragment": "clever electronics",
+      "gives": "HITECH",
+      "note": "clever electronics are hi-tech, the two halves run together"
+     },
+     {
+      "clueFragment": "postgrad courses",
+      "gives": "MAS",
+      "note": "MAs are Master of Arts degrees, courses taken after a first degree"
+     }
+    ],
+    "walkthrough": "The surface has electronics students on a joint degree. The joint wanted is the one in your arm, and what makes a Noel pretty is snow.",
+    "definitionFit": "Noel made pretty -> WHITE CHRISTMAS: a Christmas under snow is the prettified version everybody sings about, so the phrase names Noel dressed up."
+   }
   },
   {
    "id": "15-down",
@@ -298,7 +740,40 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCORRECT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + cycling",
+    "answer": "INCORRECT",
+    "definition": "Wrong",
+    "indicators": [
+     "exposed",
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "exposed": "To expose a thing is to strip off what covers it, so the word beside this loses the letter at each end and shows its middle.",
+     "cycling": "Cycling letters roll them round from one end to the other without disturbing their order, the way a wheel carries its valve round."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "INC",
+     "ORRECT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "INC",
+      "note": "the three letters in the middle of the word, once the S and the E at its ends have come off"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "ORRECT",
+      "note": "a rector is the priest in charge of a parish, and his six letters roll round until the last two lead"
+     }
+    ],
+    "walkthrough": "Two unusual instructions in one clue and neither is an anagram: nothing here is jumbled at all, the letters simply start from a different place.",
+    "definitionFit": "Wrong -> INCORRECT: the flat synonym for something that does not match the facts, the neutral word a marker writes beside a bad answer."
+   }
   },
   {
    "id": "16-down",
@@ -315,7 +790,39 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSAULTED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASSAULTED",
+    "definition": "Attacked",
+    "indicators": [
+     "ordered"
+    ],
+    "indicatorNotes": {
+     "ordered": "To order a set of things is to arrange them, and letters put into a fresh arrangement come out spelling something else."
+    },
+    "anagram": {
+     "fodder": "AS S AT DUEL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as means when — 'as I arrived' is 'when I arrived'"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s stands for second in any timing, and setters use it for the plural as readily as the singular"
+     },
+     {
+      "clueFragment": "at duel",
+      "gives": "ATDUEL",
+      "note": "six more letters, the clue's own words taken exactly as they stand"
+     }
+    ],
+    "walkthrough": "A duel's seconds are the friends who attend the duellists and check the pistols, which is why the surface reads as a scene rather than a heap of letters.",
+    "definitionFit": "Attacked -> ASSAULTED: the legal and everyday word for a physical attack on a person, matching the clue's past tense exactly."
+   }
   },
   {
    "id": "17-across",
@@ -332,7 +839,29 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PSYCHOANALYSIS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PSYCHOANALYSIS",
+    "definition": "treatment for problems",
+    "indicators": [
+     "Doctor"
+    ],
+    "indicatorNotes": {
+     "Doctor": "To doctor something is to tamper with it, and letters tampered with come out in a different order."
+    },
+    "anagram": {
+     "fodder": "SAYS NO PHYSICAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "says no physical",
+      "gives": "SAYSNOPHYSICAL",
+      "note": "fourteen letters handed over, the full length of the entry"
+     }
+    ],
+    "walkthrough": "'Doctor' at the head of a medical surface is doing the shuffling rather than attending anybody, and the treatment defined is the talking kind, with nothing physical about it.",
+    "definitionFit": "treatment for problems -> PSYCHOANALYSIS: Freud's method of treating mental trouble by talking through what the patient has buried, so the problems are those of the mind."
+   }
   },
   {
    "id": "18-down",
@@ -349,7 +878,36 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEUTRAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NEUTRAL",
+    "definition": "gearbox position breaking transmission",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "A thing set about another is wrapped round it, so the word beside this closes over the letter that follows."
+    },
+    "pieces": [
+     "NEU",
+     "T",
+     "RAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nervous",
+      "gives": "NEURAL",
+      "note": "nervous in the anatomical sense, of the nerves, and this word opens after its third letter"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic field strength"
+     }
+    ],
+    "walkthrough": "Everything in the surface is a car — Tesla, gearbox, transmission — and the one word doing wordplay is 'nervous', in its medical rather than its anxious sense.",
+    "definitionFit": "gearbox position breaking transmission -> NEUTRAL: with the box in neutral no gear is engaged, so the drive from engine to wheels is disconnected."
+   }
   },
   {
    "id": "19-across",
@@ -366,7 +924,35 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PAIR",
+    "definition": "duet",
+    "indicators": [
+     "beginning with"
+    ],
+    "indicatorNotes": {
+     "beginning with": "What a thing begins with stands at its front, so the letter named here is written before the rest."
+    },
+    "pieces": [
+     "P",
+     "AIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the mark in a score telling the player to play softly, from the Italian"
+     },
+     {
+      "clueFragment": "Broadcast",
+      "gives": "AIR",
+      "note": "to broadcast a programme is to air it"
+     }
+    ],
+    "walkthrough": "'Broadcast' is exactly the sort of word that announces a homophone, and here it is a plain synonym. The piano is a marking on sheet music, not the instrument.",
+    "definitionFit": "duet -> PAIR: two performing together are a pair, the definition naming the answer by one particular kind of twosome."
+   }
   },
   {
    "id": "20-down",
@@ -383,7 +969,41 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APACE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "APACE",
+    "definition": "with dispatch",
+    "indicators": [
+     "brought over"
+    ],
+    "indicatorNotes": {
+     "brought over": "Bringing something over turns it round to face the other way, so those letters are read in reverse."
+    },
+    "pieces": [
+     "AP",
+     "ACE"
+    ],
+    "subReversals": [
+     {
+      "from": "PA",
+      "to": "AP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secretary",
+      "gives": "AP",
+      "note": "a PA is a personal assistant, the office secretary, and the pair arrives the other way round"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "ACE",
+      "note": "the ace is the highest card in the pack"
+     }
+    ],
+    "walkthrough": "'With dispatch' looks like a link phrase — sent off with something — and it is the definition. Dispatch here means promptness, a sense that survives mainly in this phrase.",
+    "definitionFit": "with dispatch -> APACE: to do a thing apace is to do it quickly, and dispatch in its older sense means exactly that promptness."
+   }
   },
   {
    "id": "21-across",
@@ -400,7 +1020,29 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROUNDABOUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROUNDABOUT",
+    "definition": "one-way system",
+    "indicators": [
+     "With diversions"
+    ],
+    "indicatorNotes": {
+     "With diversions": "A diversion sends traffic off its proper route, and letters sent off their route arrive in a different order."
+    },
+    "anagram": {
+     "fodder": "OUTDO URBAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "outdo urban",
+      "gives": "OUTDOURBAN",
+      "note": "ten letters handed over, exactly the length of the entry"
+     }
+    ],
+    "walkthrough": "The whole surface is traffic management, which hides the fact that two ordinary words are simply being taken to pieces. 'Outdo' is the last word you would think to shuffle.",
+    "definitionFit": "one-way system -> ROUNDABOUT: traffic on a roundabout circulates one way round the island, so the junction is a one-way system in miniature."
+   }
   },
   {
    "id": "22-down",
@@ -417,7 +1059,29 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRAIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BRAIN",
+    "definition": "mental ability",
+    "indicators": [
+     "showing AI lowered"
+    ],
+    "indicatorNotes": {
+     "showing AI lowered": "Lowered means further down the column in a down entry, so the pair of letters named slides down the word and the rest closes up above it."
+    },
+    "anagram": {
+     "fodder": "BAIRN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Child in Scotland",
+      "gives": "BAIRN",
+      "note": "a bairn is a child in Scots, the everyday word north of the border"
+     }
+    ],
+    "walkthrough": "Nothing is jumbled at random: the two letters named move down two places in the column and everything above them shuffles up to fill the gap.",
+    "definitionFit": "mental ability -> BRAIN: having brain, or brains, is the informal way of saying you have the intelligence a job needs."
+   }
   },
   {
    "id": "23-across",
@@ -434,7 +1098,47 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RACEGOER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "RACEGOER",
+    "definition": "Attendee at meeting",
+    "indicators": [
+     "developing",
+     "full of"
+    ],
+    "indicatorNotes": {
+     "developing": "A developing thing changes shape as it goes, so these letters do not keep the arrangement they were handed in.",
+     "full of": "Something full of a thing has it inside, so the short piece goes into the middle of the letters just rearranged."
+    },
+    "anagram": {
+     "fodder": "CAREER GO"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "CAREER",
+      "gives": "RACEER"
+     }
+    ],
+    "pieces": [
+     "RACE",
+     "GO",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "career",
+      "gives": "CAREER",
+      "note": "six letters handed over to be reordered"
+     },
+     {
+      "clueFragment": "pep",
+      "gives": "GO",
+      "note": "go is pep or energy — there is plenty of go in him"
+     }
+    ],
+    "walkthrough": "'Meeting' is the racing sense, a day's card of races at one course, and 'developing career' is an appraisal-form phrase quietly doing letter work.",
+    "definitionFit": "Attendee at meeting -> RACEGOER: a race meeting is a fixture at a course, and the people who turn up for it are racegoers."
+   }
   },
   {
    "id": "24-across",
@@ -451,7 +1155,35 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHASTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHASTE",
+    "definition": "Modest",
+    "indicators": [
+     "led by"
+    ],
+    "indicatorNotes": {
+     "led by": "Whatever leads goes in front, so the letter named after this is written before the rest."
+    },
+    "pieces": [
+     "C",
+     "HASTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for the Conservative party on a ballot paper"
+     },
+     {
+      "clueFragment": "expedition",
+      "gives": "HASTE",
+      "note": "expedition in its old sense of speed — doing a thing with expedition is doing it fast"
+     }
+    ],
+    "walkthrough": "'Expedition' looks like a journey and means promptness, the sense that survives in 'expedite'. The surface is a Tory-led trek and neither half of it is true.",
+    "definitionFit": "Modest -> CHASTE: chaste means pure and restrained, and by extension plain and unadorned — the modest sense of dress or taste."
+   }
   },
   {
    "id": "24-down",
@@ -468,7 +1200,31 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAM",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + anagram",
+    "answer": "CAM",
+    "definition": "Turning and pushing piece",
+    "indicators": [
+     "starts to",
+     "terribly"
+    ],
+    "indicatorNotes": {
+     "starts to": "The start of a word is the letter it begins with, so each name after this gives up its first letter only.",
+     "terribly": "Something done terribly is done badly, and letters handled badly end up out of their proper order."
+    },
+    "anagram": {
+     "fodder": "AMC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "annoy Magnus Carlsen",
+      "gives": "AMC",
+      "note": "the letter that begins each of these three words, taken in the order they stand"
+     }
+    ],
+    "walkthrough": "Magnus Carlsen is the world chess champion, which is what makes 'piece' read as a chessman. The piece defined is a piece of machinery.",
+    "definitionFit": "Turning and pushing piece -> CAM: a cam is the lobed wheel on a spinning shaft whose bulge shoves a follower, turning rotation into a shove."
+   }
   },
   {
    "id": "25-across",
@@ -485,7 +1241,40 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HEATED",
+    "definition": "Angry",
+    "indicators": [
+     "vanishes"
+    ],
+    "indicatorNotes": {
+     "vanishes": "Something that vanishes is simply not there any more, so the letter named beside it never joins the word."
+    },
+    "pieces": [
+     "H",
+     "EATED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband, as on a form"
+     },
+     {
+      "clueFragment": "very happy",
+      "gives": "EATED",
+      "note": "very happy is elated, and that word arrives with its L missing"
+     },
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "the L-plate a learner driver carries, and this is the letter that goes"
+     }
+    ],
+    "walkthrough": "The surface is a husband delighted to see the back of a learner on the road, which keeps the deletion out of sight; the definition is a single word at the front.",
+    "definitionFit": "Angry -> HEATED: a heated exchange is a furious one, the metaphor of temper as temperature that English uses everywhere."
+   }
   },
   {
    "id": "26-across",
@@ -502,7 +1291,37 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEMONADE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LEMONADE",
+    "definition": "that's refreshingly sharp",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing said to be in another sits within it, so the letter named first is planted inside the name that follows."
+    },
+    "pieces": [
+     "LE",
+     "MON",
+     "A",
+     "DE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French newspaper",
+      "gives": "LEMONDE",
+      "note": "Le Monde is the Paris daily, its title the French for 'the world'"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "the indefinite article, which in wordplay is simply the letter"
+     }
+    ],
+    "walkthrough": "'Article in French' wants to be LE, the French for 'the'. The article here is the English one, and it goes inside the newspaper's title.",
+    "definitionFit": "that's refreshingly sharp -> LEMONADE: the drink is sharp with lemon and served cold to cool you down, so the phrase describes it by taste."
+   }
   }
  ]
 } /*JSON-END*/;
