@@ -1216,7 +1216,50 @@ window.CRYPTIC_PUZZLES["indysunday-1892"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INNOCENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + deletion",
+    "answer": "INNOCENT",
+    "definition": "Old pope",
+    "indicators": [
+     "outside",
+     "disrobed"
+    ],
+    "indicatorNotes": {
+     "outside": "What is outside goes round what is inside, so the piece named here wraps itself about the letters that follow.",
+     "disrobed": "Robes come off the outside, so a disrobed word loses its first and last letters and keeps what was covered up."
+    },
+    "pieces": [
+     "IN",
+     "NO",
+     "CE",
+     "N",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inside",
+      "gives": "IN",
+      "note": "inside is simply in — the word itself, not an abbreviation"
+     },
+     {
+      "clueFragment": "rather than",
+      "gives": "NOT",
+      "note": "'walk rather than drive' is 'walk and not drive', so the phrase hands over not; this word splits open after two letters"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE = Church of England, the church in a crossword unless another is named"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "N",
+      "note": "the word 'and' with its outer letters taken off leaves N"
+     }
+    ],
+    "walkthrough": "Read as English it is a scene: a pope indoors rather than out at church, and stripped of his robes. Every one of those words is an instruction instead. 'Rather than' is the hardest — it is standing in for NOT — and 'and' is a word to be worked on here, not a joiner.",
+    "definitionFit": "Old pope → INNOCENT: thirteen popes took the name Innocent, the last of them in 1721, so the definition names the answer by example."
+   }
   },
   {
    "id": "25-across",
