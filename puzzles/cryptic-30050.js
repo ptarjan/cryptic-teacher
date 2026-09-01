@@ -29,7 +29,38 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRITERIA",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "CRITERIA",
+    "definition": "tests",
+    "indicators": [
+     "admitting",
+     "missing the first"
+    ],
+    "indicatorNotes": {
+     "admitting": "To admit somebody is to let them in through the door, so the word in front opens up and takes the next piece inside.",
+     "missing the first": "It reports a letter absent from a word, and 'the first' says which one has gone — the one at the head."
+    },
+    "pieces": [
+     "C",
+     "RITER",
+     "IA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spies",
+      "gives": "CIA",
+      "note": "the American intelligence agency, the crossword's standard shorthand for spies"
+     },
+     {
+      "clueFragment": "author’s",
+      "gives": "RITER",
+      "note": "an author is a WRITER, and the word turns up here without its opening W"
+     }
+    ],
+    "walkthrough": "'Tests' looks like a verb closing a sentence about spies. It is a plural noun — the standards a thing is judged against — and the answer has to be plural to match it.",
+    "definitionFit": "tests → CRITERIA: not exams you sit but the standards a thing is measured against, the sense in 'meets the criteria'."
+   }
   },
   {
    "id": "1-down",
@@ -48,7 +79,9 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CENTENNIAL",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "22-down"
+   }
   },
   {
    "id": "2-down",
@@ -65,7 +98,53 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INACTIVATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "INACTIVATE",
+    "definition": "To stop from working",
+    "indicators": [
+     "brew"
+    ],
+    "indicatorNotes": {
+     "brew": "Brewing swirls leaves round in hot water, and letters given that treatment come out in a different arrangement."
+    },
+    "pieces": [
+     "IN",
+     "ACTI",
+     "V",
+     "ATE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TEA",
+      "gives": "ATE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "during something is in it — the two words swap freely"
+     },
+     {
+      "clueFragment": "start of play",
+      "gives": "ACTI",
+      "note": "a play opens with Act I, the number written as a Roman numeral"
+     },
+     {
+      "clueFragment": "5",
+      "gives": "V",
+      "note": "five in Roman numerals"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "ATE",
+      "note": "three letters of fodder"
+     }
+    ],
+    "walkthrough": "The whole surface is one stage picture — someone making tea in the wings during the first act — and every phrase in it is a separate piece. The '5' is the Roman numeral, not a pointer to another clue.",
+    "definitionFit": "To stop from working → INACTIVATE: to render something inactive, the switch-it-off sense used of machines, chemicals and viruses alike."
+   }
   },
   {
    "id": "3-down",
@@ -82,7 +161,30 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESSEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ESSEN",
+    "definition": "European city",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "E",
+     "S",
+     "S",
+     "E",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Directions",
+      "gives": "ESSEN",
+      "note": "five compass points in a row, each shrunk to its single letter: east, south, south, east, north"
+     }
+    ],
+    "walkthrough": "One plural noun supplies every letter, which is why there is so little clue to work with. Compass points are the commonest way a setter buys single letters wholesale.",
+    "definitionFit": "European city → ESSEN: definition by category — Essen is a big industrial city in the Ruhr, so the clue names the class it belongs to."
+   }
   },
   {
    "id": "4-down",
@@ -99,7 +201,52 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDEPENDENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "INDEPENDENCE",
+    "definition": "home rule",
+    "linkWords": [
+     "with",
+     "is"
+    ],
+    "indicators": [
+     "accepting"
+    ],
+    "indicatorNotes": {
+     "accepting": "To accept a thing is to take it in and keep it there, so the name in front closes around the piece that follows."
+    },
+    "pieces": [
+     "IN",
+     "DE",
+     "P",
+     "END",
+     "ENCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "whatever is fashionable is in"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "DE",
+      "note": "the postal abbreviation for Delaware"
+     },
+     {
+      "clueFragment": "former vice-president",
+      "gives": "PENCE",
+      "note": "Mike Pence held the office under Donald Trump"
+     },
+     {
+      "clueFragment": "objective",
+      "gives": "END",
+      "note": "the end you have in view is your aim, not your finish"
+     }
+    ],
+    "walkthrough": "'State' is not a condition here but a two-letter US abbreviation, and the surname doubles as British small change — the politics of the surface is hiding two American pieces.",
+    "definitionFit": "home rule → INDEPENDENCE: the Irish and Scottish political phrase for a nation running its own affairs instead of taking orders from another capital."
+   }
   },
   {
    "id": "5-across",
@@ -121,7 +268,54 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
     ]
    },
    "solution": "UNITED",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + homophone + first letters + container",
+    "answer": "UNITED STATES",
+    "definition": "Country",
+    "indicators": [
+     "dictator’s",
+     "principally",
+     "opening"
+    ],
+    "indicatorNotes": {
+     "dictator’s": "A dictator speaks and you write down what you hear, so the next word arrives spelled the way it sounds.",
+     "principally": "In the first place — it asks for the letter each of the following names begins with, nothing more.",
+     "opening": "Making an opening in a thing is prising it apart, and the gallery is pushed into the gap that leaves."
+    },
+    "pieces": [
+     "U",
+     "NITED",
+     "S",
+     "TATE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posh",
+      "gives": "U",
+      "note": "U is the old British class marker for upper-class speech and manners, as in U and non-U"
+     },
+     {
+      "clueFragment": "honoured",
+      "gives": "NITED",
+      "soundsLike": "KNIGHTED",
+      "note": "an honoured man has been knighted, and said aloud that word carries neither its K nor its GH"
+     },
+     {
+      "clueFragment": "Scary Spice’s",
+      "gives": "SS",
+      "note": "the letters those two names start with"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is Britain's national gallery of British and modern art"
+     }
+    ],
+    "walkthrough": "The pop group is the trap: only 'Scary Spice' is treated as a name, and then only for its initials. 'Posh' is the class marker, and the honour is heard rather than spelled.",
+    "definitionFit": "Country → UNITED STATES: a federation of fifty states is still one nation, so the singular 'Country' is fair for a plural-looking name."
+   }
   },
   {
    "id": "6-down",
@@ -138,7 +332,38 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NATTERING",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "NATTERING",
+    "definition": "having a chat",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "as bachelor"
+    ],
+    "indicatorNotes": {
+     "as bachelor": "A bachelor is B in the shorthand of degrees, and 'as' means the new letter steps into that one's place."
+    },
+    "pieces": [
+     "N",
+     "ATTERING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smashing",
+      "gives": "BATTERING",
+      "note": "a battering ram smashes doors in, so this hands you a nine-letter word to tamper with"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the knight in chess notation, K being taken by the king"
+     }
+    ],
+    "walkthrough": "The surface makes 'Smashing' an adjective of praise for the knight. It is the verb a ram does to a door, and one letter of it changes hands.",
+    "definitionFit": "having a chat → NATTERING: to natter is to talk on comfortably about nothing much, the informal British word for idle conversation."
+   }
   },
   {
    "id": "7-down",
@@ -155,7 +380,26 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TOTS",
+    "definition": "Babies",
+    "definition2": "fingers",
+    "blocks": [
+     {
+      "clueFragment": "Babies",
+      "gives": "",
+      "note": "the affectionate word for very small children, the ones still in a highchair"
+     },
+     {
+      "clueFragment": "fingers",
+      "gives": "",
+      "note": "a finger of whisky is a small measure poured into a glass"
+     }
+    ],
+    "walkthrough": "Two definitions with nothing between them, and the apostrophe glues them into one phrase so they read as a single picture of a baby's hand.",
+    "definitionFit": "Babies → the everyday word for toddlers; fingers → the same word for small measures of spirits, a finger of rum in the glass."
+   }
   },
   {
    "id": "8-down",
@@ -172,7 +416,43 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DASH",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + second letter",
+    "answer": "DASH",
+    "definition": "ruin",
+    "indicators": [
+     "about",
+     "the Second"
+    ],
+    "indicatorNotes": {
+     "about": "Turned about — what stands in front of it is written out the other way round.",
+     "the Second": "It counts along the name to position two and keeps only the letter it lands on."
+    },
+    "pieces": [
+     "DAS",
+     "H"
+    ],
+    "subReversals": [
+     {
+      "from": "SAD",
+      "to": "DAS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depressed",
+      "gives": "DAS",
+      "note": "depressed is SAD, and here it is written the other way round"
+     },
+     {
+      "clueFragment": "Charles",
+      "gives": "H",
+      "note": "the second letter along in the name"
+     }
+    ],
+    "walkthrough": "'Charles the Second' wants to be the king, and it is a counting instruction. The definition is a verb: to dash someone's hopes is to ruin them.",
+    "definitionFit": "ruin → DASH: to dash someone's hopes is to destroy them at a stroke, a sense of the verb that survives mainly in that phrase."
+   }
   },
   {
    "id": "9-across",
@@ -189,7 +469,29 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEARSIDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NEARSIDE",
+    "definition": "facing the kerb",
+    "indicators": [
+     "broken"
+    ],
+    "indicatorNotes": {
+     "broken": "Something broken has come apart into pieces, and pieces can be put back together in any order at all."
+    },
+    "anagram": {
+     "fodder": "SEE DRAIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "See drain",
+      "gives": "SEEDRAIN",
+      "note": "eight letters of fodder, exactly the length wanted"
+     }
+    ],
+    "walkthrough": "'See drain' reads as an instruction to look at the gutter, which is where a kerb is too, so surface and definition point at the same bit of street while the letters do something else entirely.",
+    "definitionFit": "facing the kerb → NEARSIDE: in Britain cars drive on the left, so a vehicle's nearside is the side nearer the pavement."
+   }
   },
   {
    "id": "10-across",
@@ -209,7 +511,9 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "STATES",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "5-across"
+   }
   },
   {
    "id": "11-down",
@@ -226,7 +530,44 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BALLYMEANOCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BALLYMEANOCH",
+    "definition": "ancient Scottish settlement",
+    "linkWords": [
+     "seen in"
+    ],
+    "pieces": [
+     "BALLY",
+     "MEAN",
+     "OC",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloody",
+      "gives": "BALLY",
+      "note": "bally is the polite old British stand-in for 'bloody', the way 'blooming' is"
+     },
+     {
+      "clueFragment": "selfish",
+      "gives": "MEAN",
+      "note": "a mean person keeps everything for themselves"
+     },
+     {
+      "clueFragment": "Officer Commanding",
+      "gives": "OC",
+      "note": "the army's rank abbreviation for the officer in charge of a unit"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is hospital on British road signs and maps"
+     }
+    ],
+    "walkthrough": "Every piece is a common British word or abbreviation, which is the only fair way to clue a name this obscure: the bloody-minded officer of the surface does all the concealing.",
+    "definitionFit": "ancient Scottish settlement → BALLYMEANOCH: a prehistoric henge and standing-stone site in Kilmartin Glen, Argyll, named by the clue for what the archaeologists found."
+   }
   },
   {
    "id": "12-across",
@@ -247,7 +588,29 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
     ]
    },
    "solution": "EATINGPLACE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EATING PLACE",
+    "definition": "restaurant perhaps",
+    "indicators": [
+     "Bats"
+    ],
+    "indicatorNotes": {
+     "Bats": "Bats means barmy, and a barmy set of letters has no reason to stay in the order handed to you."
+    },
+    "anagram": {
+     "fodder": "GET IN PALACE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "get in palace",
+      "gives": "GETINPALACE",
+      "note": "eleven letters of fodder, both words of the answer together"
+     }
+    ],
+    "walkthrough": "'Get in' looks like an insertion instruction and 'palace' like the thing to insert into. Both are simply fodder, and the first word is the only instruction in the clue.",
+    "definitionFit": "restaurant perhaps → EATING PLACE: 'perhaps' flags a definition by example, a restaurant being one kind of place people go to eat."
+   }
   },
   {
    "id": "13-down",
@@ -264,7 +627,56 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FANATICISE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FANATICISE",
+    "definition": "become obsessive",
+    "linkWords": [
+     "gets to"
+    ],
+    "indicators": [
+     "almost"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost reaching the end of a word means stopping one letter short of it."
+    },
+    "pieces": [
+     "FAN",
+     "A",
+     "TIC",
+     "I",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool",
+      "gives": "FAN",
+      "note": "the thing you switch on to cool a room"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter is lifted straight out of the clue"
+     },
+     {
+      "clueFragment": "jerk",
+      "gives": "TIC",
+      "note": "an involuntary jerk of the face is a tic"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter is lifted straight out of the clue"
+     },
+     {
+      "clueFragment": "recognise",
+      "gives": "SE",
+      "note": "to recognise somebody is to SEE them, and the word stops a letter short"
+     }
+    ],
+    "walkthrough": "The comma after the first word is doing a lot of work: it stops you reading 'cool a jerk' as one phrase, and five separate little pieces are clued one after another.",
+    "definitionFit": "become obsessive → FANATICISE: to turn fanatical about something, the verb built from 'fanatic' — obsession being what a fanatic has."
+   }
   },
   {
    "id": "14-down",
@@ -286,7 +698,29 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAYHANDSON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LAY HANDS ON",
+    "definition": "Seize",
+    "definition2": "confirm",
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seize",
+      "gives": "",
+      "note": "grabbing hold of something bodily, or managing to find it at last"
+     },
+     {
+      "clueFragment": "confirm",
+      "gives": "",
+      "note": "in church a bishop places both hands on the head of each candidate being confirmed"
+     }
+    ],
+    "walkthrough": "Three words and no wordplay at all. The two senses sit either side of 'and', and the churchy one is the half a solver is least likely to reach for.",
+    "definitionFit": "Seize → getting hold of something bodily; confirm → the bishop's laying on of hands at the rite of confirmation, the same phrase read literally."
+   }
   },
   {
    "id": "15-across",
@@ -303,7 +737,38 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOVEL",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "NOVEL",
+    "definition": "Book",
+    "indicators": [
+     "drinks",
+     "at the start"
+    ],
+    "indicatorNotes": {
+     "drinks": "To drink is to take something in, so the word in front swallows what comes after it.",
+     "at the start": "It points at the opening letter of the word beside it and takes nothing else."
+    },
+    "pieces": [
+     "NO",
+     "V",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas",
+      "gives": "NOEL",
+      "note": "Noel is Christmas, the word the carols use"
+     },
+     {
+      "clueFragment": "vodka",
+      "gives": "V",
+      "note": "the leading letter of the spirit"
+     }
+    ],
+    "walkthrough": "'Book Christmas drinks' reads as an instruction to reserve a table for the office party, which is the wrong way round: the first word is the definition and the drinking is the wordplay.",
+    "definitionFit": "Book → NOVEL: a novel is a book-length work of fiction, so the general word stands here for one particular kind of it."
+   }
   },
   {
    "id": "16-down",
@@ -320,7 +785,39 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAUNDRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "LAUNDRESS",
+    "definition": "cleaner",
+    "linkWords": [
+     "with",
+     "’s"
+    ],
+    "indicators": [
+     "discontented"
+    ],
+    "indicatorNotes": {
+     "discontented": "Read it as de-contented: the contents come out and only the letters on the outside are left standing."
+    },
+    "pieces": [
+     "LA",
+     "UNDRESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lamela",
+      "gives": "LA",
+      "note": "the outer letters of the name, with everything between them gone"
+     },
+     {
+      "clueFragment": "strip",
+      "gives": "UNDRESS",
+      "note": "to strip is to undress"
+     }
+    ],
+    "walkthrough": "'Discontented' looks like the mood of the person named at the front of the clue. It is an instruction to hollow that name out, and the two halves then meet with nothing added.",
+    "definitionFit": "cleaner → LAUNDRESS: the old job title for a woman paid to wash and iron other people's clothes, which is one kind of cleaner."
+   }
   },
   {
    "id": "17-across",
@@ -337,7 +834,46 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NULLIPARA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NULLIPARA",
+    "definition": "One with no issue",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "sitting next to",
+     "short"
+    ],
+    "indicatorNotes": {
+     "sitting next to": "It says the pieces simply stand side by side, none of them tucked inside another.",
+     "short": "Cut short — what is wanted is the clipped everyday form of a longer word."
+    },
+    "pieces": [
+     "NULL",
+     "I",
+     "PARA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "invalid",
+      "gives": "NULL",
+      "note": "a null contract is one that is not valid, void in law"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one in Roman numerals"
+     },
+     {
+      "clueFragment": "diver",
+      "gives": "PARA",
+      "note": "para is the clipped form of parachutist, who dives out of an aeroplane"
+     }
+    ],
+    "walkthrough": "The definition is a medical term dressed as ordinary English: 'no issue' means no children, not no problem. Reading it the other way costs you the first four words of the clue.",
+    "definitionFit": "One with no issue → NULLIPARA: 'issue' is the legal word for offspring, and the medical term names a woman who has never borne a child."
+   }
   },
   {
    "id": "18-across",
@@ -358,7 +894,45 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
     ]
    },
    "solution": "ARTMUSEUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ART MUSEUM",
+    "definition": "where hangings occur",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "describing"
+    ],
+    "indicatorNotes": {
+     "describing": "To describe a circle is to draw one round something, so the word in front goes round the outside."
+    },
+    "pieces": [
+     "ART",
+     "M",
+     "USE",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old are",
+      "gives": "ART",
+      "note": "the archaic second-person form of the verb: thou art"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MUM",
+      "note": "the everyday British word for mother"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "USE",
+      "note": "a machine in operation is in use"
+     }
+    ],
+    "walkthrough": "'Where hangings occur' wants to be a gallows or a prison yard, and the things hung here are pictures. 'Old are' is the archaic verb, not an elderly person.",
+    "definitionFit": "where hangings occur → ART MUSEUM: paintings are said to be hung, so the place is defined by what happens to the pictures on its walls."
+   }
   },
   {
    "id": "19-across",
@@ -375,7 +949,26 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAPH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GRAPH",
+    "definition": "Chart",
+    "indicators": [
+     "supplies"
+    ],
+    "indicatorNotes": {
+     "supplies": "It means furnishes: the two drug names hand over a run of letters, though nothing in the word admits they are concealed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Viagra Pharmaceuticals",
+      "gives": "GRAPH",
+      "note": "the letters run on without a break from inside the first word, across the space, into the second"
+     }
+    ],
+    "walkthrough": "Two long invented brand names next to each other are worth reading letter by letter. A run that crosses the space between words is the hardest kind to spot.",
+    "definitionFit": "Chart → GRAPH: a graph is the drawn line or set of bars that charts how one quantity changes against another."
+   }
   },
   {
    "id": "20-across",
@@ -392,7 +985,39 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DECLARATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DECLARATION",
+    "definition": "announcement",
+    "linkWords": [
+     "with",
+     "to make"
+    ],
+    "pieces": [
+     "DEC",
+     "LA",
+     "RATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Month",
+      "gives": "DEC",
+      "note": "the calendar's abbreviation for December"
+     },
+     {
+      "clueFragment": "City",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a ration is the portion you are allowed"
+     }
+    ],
+    "walkthrough": "'Helping' is the noun, not the verb — a helping is a portion — and 'City' wants a particular abbreviated one rather than cities in general.",
+    "definitionFit": "announcement → DECLARATION: a declaration is a formal public statement, the weightier of the two words, as in a declaration of war."
+   }
   },
   {
    "id": "21-down",
@@ -409,7 +1034,36 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMOUR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + first letter",
+    "answer": "AMOUR",
+    "definition": "Fling",
+    "indicators": [
+     "not",
+     "on the front"
+    ],
+    "indicatorNotes": {
+     "not": "It marks a letter as absent: what the following words name is missing from the word being built.",
+     "on the front": "It says where that letter comes from and where it was sitting — first in line, and now gone."
+    },
+    "pieces": [
+     "AMOUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mail",
+      "gives": "ARMOUR",
+      "note": "mail is the linked metal sort of body protection a knight wore"
+     },
+     {
+      "clueFragment": "readable",
+      "gives": "R",
+      "note": "the opening letter of the word, and the one that goes"
+     }
+    ],
+    "walkthrough": "'Fling' is not a throw here but a brief romance, and 'mail' is the chain sort rather than the post — two everyday words in disguise before a letter has even moved.",
+    "definitionFit": "Fling → AMOUR: an amour is a love affair, and a fling is the short casual version of one — both nouns for a romance."
+   }
   },
   {
    "id": "22-down",
@@ -428,7 +1082,40 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEMI",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + first letter",
+    "answer": "SEMIQUINCENTENNIAL",
+    "definition": "significant anniversary",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "initially",
+     "getting excited"
+    ],
+    "indicatorNotes": {
+     "initially": "At the outset — it asks for nothing but the letter the following word begins with.",
+     "getting excited": "Excitement is agitation, and agitated letters jostle out of the order they were given in."
+    },
+    "anagram": {
+     "fodder": "QUIET MEN IN LINE CAN S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Quiet men in line can",
+      "gives": "QUIETMENINLINECAN",
+      "note": "seventeen letters of fodder, taken just as they stand"
+     },
+     {
+      "clueFragment": "initially start",
+      "gives": "S",
+      "note": "the first letter of the word that follows"
+     }
+    ],
+    "walkthrough": "Eighteen letters is the giveaway: nothing that long is built piece by piece, and the clue hands you seventeen of them in plain sight before asking for one more.",
+    "definitionFit": "significant anniversary → SEMIQUINCENTENNIAL: it names one anniversary in particular, the 250th — half of the five hundred years a quincentennial marks."
+   }
   },
   {
    "id": "23-down",
@@ -447,7 +1134,9 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUIN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "22-down"
+   }
   },
   {
    "id": "24-across",
@@ -464,7 +1153,44 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELUDED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ELUDED",
+    "definition": "Avoided",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "crazy"
+    ],
+    "indicatorNotes": {
+     "crazy": "Crazy is out of one's right mind, and letters in that state keep to no order at all."
+    },
+    "pieces": [
+     "ELUD",
+     "ED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DUEL",
+      "gives": "ELUD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duel",
+      "gives": "ELUD",
+      "note": "four letters of fodder"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is the editor, the journalist crosswords always reach for"
+     }
+    ],
+    "walkthrough": "A four-letter anagram is easy to miss because there is so little to shuffle. The giveaway is that 'crazy' has nothing else in the clue it could be working on.",
+    "definitionFit": "Avoided → ELUDED: to elude a pursuer is to slip out of their reach, the same act as avoiding them, and both words are past tense."
+   }
   },
   {
    "id": "25-across",
@@ -481,7 +1207,43 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLONIES",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "COLONIES",
+    "definition": "Possessions",
+    "indicators": [
+     "last of",
+     "including"
+    ],
+    "indicatorNotes": {
+     "last of": "It keeps only the final letter of the word it points at and throws the rest away.",
+     "including": "What includes a thing has it inside its own boundaries, so the piece named next goes within."
+    },
+    "pieces": [
+     "COLON",
+     "IE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": ":",
+      "gives": "COLON",
+      "note": "the punctuation mark printed in the clue is itself a piece of the wordplay — name it"
+     },
+     {
+      "clueFragment": "batteries",
+      "gives": "S",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is Latin id est, which is what 'that is' translates"
+     }
+    ],
+    "walkthrough": "The colon after the first word looks like ordinary punctuation introducing a list. It is a piece of the wordplay, and you are meant to name the mark itself.",
+    "definitionFit": "Possessions → COLONIES: an empire's colonies are the overseas territories it owns and governs, which is what possession means in that political sense."
+   }
   },
   {
    "id": "26-across",
@@ -498,7 +1260,34 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IONISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IONISE",
+    "definition": "to charge",
+    "indicators": [
+     "easy"
+    ],
+    "indicatorNotes": {
+     "easy": "Easy in the sense of loose or lax, and letters held that loosely will not stay where they were put."
+    },
+    "anagram": {
+     "fodder": "II ONES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "11",
+      "gives": "II",
+      "note": "the figure is two ones side by side, and one is I in Roman numerals"
+     },
+     {
+      "clueFragment": "ones",
+      "gives": "ONES",
+      "note": "the word joins the fodder whole, all four letters of it"
+     }
+    ],
+    "walkthrough": "The clue runs on from the one before, so the batteries are still in view and charging here is electrical. The '11' is a shape on the page rather than a number to count with.",
+    "definitionFit": "to charge → IONISE: ionising an atom means adding or stripping an electron so that it carries an electrical charge."
+   }
   },
   {
    "id": "27-across",
@@ -515,7 +1304,32 @@ window.CRYPTIC_PUZZLES["cryptic-30050"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THIRTEEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THIRTEEN",
+    "definition": "bakers’ 12",
+    "linkWords": [
+     "or"
+    ],
+    "indicators": [
+     "bananas"
+    ],
+    "indicatorNotes": {
+     "bananas": "To go bananas is to go wild, and letters sent wild land in some new arrangement."
+    },
+    "anagram": {
+     "fodder": "THEIR TEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Their ten",
+      "gives": "THEIRTEN",
+      "note": "eight letters of fodder"
+     }
+    ],
+    "walkthrough": "The definition is the joke. A dozen from a baker has always been one more than a dozen, so the number at the end of the clue is not the number it says.",
+    "definitionFit": "bakers’ 12 → THIRTEEN: a baker's dozen is thirteen, from the old habit of adding a loaf so a short-weight batch could not be penalised."
+   }
   }
  ]
 } /*JSON-END*/;
