@@ -30,7 +30,29 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MERSEYSIDE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "MERSEYSIDE",
+    "definition": "Where I see my Reds playing?",
+    "indicators": [
+     "playing"
+    ],
+    "indicatorNotes": {
+     "playing": "Letters at play are larking about rather than standing still, so the ten in front of the word will not keep the order they were given."
+    },
+    "anagram": {
+     "fodder": "I SEE MY REDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I see my Reds",
+      "gives": "MERSEYSIDE",
+      "note": "the supporter's boast supplies exactly ten letters, and they are the ten needed"
+     }
+    ],
+    "walkthrough": "The Reds are Liverpool FC. The whole sentence works twice over: ask it as a question and it is also the material that answers it, which is why nothing is left over.",
+    "definitionFit": "Liverpool play in red, and their metropolitan county is the stretch of north-west England around the river Mersey the question is asking about."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +69,32 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MESH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MESH",
+    "definition": "Work together well",
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "ME",
+     "SH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter's own name in this paper, so it stands for the first person"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the noise you make when asking for quiet"
+     }
+    ],
+    "walkthrough": "A setter writing themselves into their own clue is a standing Everyman trick, and 'as' is doing nothing but holding the sentence upright.",
+    "definitionFit": "Gear teeth that mesh engage and turn each other smoothly, and the same verb is used of people who cooperate without friction."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +111,30 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROUX",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ROUX",
+    "definition": "basis for various sauces",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "What is heard rather than read points at the noise a name makes, not the way it is spelt."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piglet's friend",
+      "soundsLike": "ROO",
+      "gives": "ROUX",
+      "note": "Roo is the small kangaroo of the Hundred Acre Wood, and his name is said exactly like the French cookery term"
+     }
+    ],
+    "walkthrough": "A A Milne supplies the friend; the kitchen supplies a French spelling that the sound gives no hint of. Everything turns on hearing the name rather than reading it.",
+    "definitionFit": "It is the cooked paste of flour and fat that thickens bechamel, veloute and the rest, so it really is the base those sauces are started from."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +155,30 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "EAGERBEAVER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EAGER BEAVER",
+    "definition": "I'm keen",
+    "definitionNote": "The answer is a noun for a person, while the definition is a whole clause — it is what such a person would say about themselves, not a word that swaps in for the phrase.",
+    "indicators": [
+     "free"
+    ],
+    "indicatorNotes": {
+     "free": "Letters set free are no longer held in the position they were handed to you in, so they may settle anywhere."
+    },
+    "anagram": {
+     "fodder": "BEER AVERAGE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Beer, average",
+      "gives": "BEERAVERAGE",
+      "note": "eleven letters of material; the comma is the setter's punctuation and counts for nothing"
+     }
+    ],
+    "walkthrough": "The bracket makes 'but free' read as a note on the bar prices, when it is the instruction that unsettles the eleven letters standing just before it.",
+    "definitionFit": "The phrase names somebody enthusiastic to the point of comedy, first into work and last out, so a first-person claim of keenness identifies them."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +195,39 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATUTE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STATUTE",
+    "definition": "Output of lawmaker",
+    "indicators": [
+     "investing"
+    ],
+    "indicatorNotes": {
+     "investing": "To invest in something is to put money into it, and the same verb here puts one letter inside the word that follows."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "STATU",
+     "T",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public art",
+      "gives": "STATUE",
+      "note": "a statue is the commonest piece of art standing in a public square"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the standard abbreviation for time, as on a stopwatch"
+     }
+    ],
+    "walkthrough": "The surface has a politician spending time on the arts budget, which is a good disguise. 'Output of lawmaker' means the law itself, not the person who drafts it.",
+    "definitionFit": "A statute is a written law passed by a legislature, so it is precisely the product a lawmaker exists to turn out."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +244,26 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRESDEN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "DRESDEN",
+    "definition": "somewhere on the Elbe",
+    "indicators": [
+     "bottles"
+    ],
+    "indicatorNotes": {
+     "bottles": "To bottle something is to seal it up inside glass, so what is wanted sits whole and unbroken within the words either side of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Compadres denied",
+      "gives": "DRESDEN",
+      "note": "seven consecutive letters start in the middle of the first word and finish inside the second"
+     }
+    ],
+    "walkthrough": "'Compadres' pulls hard towards Spanish and the answer is German, which is the whole disguise: a run of perfectly ordinary letters hides behind a word from the wrong country.",
+    "definitionFit": "The city is the Saxon capital standing on the Elbe, so naming its river places it as surely as naming the country would."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +280,35 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OGRE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "OGRE",
+    "definition": "Man-eater",
+    "indicators": [
+     "retires"
+    ],
+    "indicatorNotes": {
+     "retires": "Somebody who retires withdraws, going back the way they came, and these four letters travel in the same direction."
+    },
+    "pieces": [
+     "OGRE"
+    ],
+    "subReversals": [
+     {
+      "from": "ERGO",
+      "to": "OGRE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "correspondingly",
+      "gives": "OGRE",
+      "note": "'correspondingly' is ergo, the logician's therefore, and those four letters are then read the other way round"
+     }
+    ],
+    "walkthrough": "Latin ergo is worth stocking up on: crosswords use it for 'therefore', 'so' and 'accordingly'. The surface, meanwhile, is a monster quietly taking his pension.",
+    "definitionFit": "An ogre is the child-eating giant of folk tales, so the definition names him by the habit that makes him one."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +335,23 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "GRANDTOTAL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "GRAND TOTAL",
+    "definition": "Sum that gives you a G?",
+    "blocks": [
+     {
+      "clueFragment": "Sum",
+      "note": "the surface offers plain arithmetic, a column of figures waiting to be added up"
+     },
+     {
+      "clueFragment": "gives you a G",
+      "note": "the italic letter is slang for a thousand, so the figure at the bottom of the column is money and comes to exactly that"
+     }
+    ],
+    "walkthrough": "No letters move anywhere; the clue is one pun held together by the italics. Read the G as a musical note or a school grade and the whole thing stays shut.",
+    "definitionFit": "The phrase names the final figure once every subtotal is added in, and here that figure is a thousand — which is what the slang letter buys you."
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +372,26 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "EARLYBIRDS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "EARLY BIRDS",
+    "definition": "Archaeopteryx etc",
+    "definition2": "their diet includes worms",
+    "blocks": [
+     {
+      "clueFragment": "Archaeopteryx etc",
+      "gives": "",
+      "note": "the Jurassic fossil usually called the first of the birds, with 'etc' widening it to the whole dawn group"
+     },
+     {
+      "clueFragment": "their diet includes worms",
+      "gives": "",
+      "note": "the proverb hands the worm to whoever is up first, so the menu identifies the riser"
+     }
+    ],
+    "walkthrough": "One half is palaeontology and the other is a proverb about getting out of bed, with a colon the only thing between them. Not a single letter shifts.",
+    "definitionFit": "Read of the first creatures to evolve into birds it is literal; read of the proverb's worm-catchers it is the everyday sense, people who rise before everyone else."
+   }
   },
   {
    "id": "9-across",
@@ -205,7 +412,51 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOURGRAPES",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SOUR GRAPES",
+    "definition": "Unedified attitude",
+    "indicators": [
+     "on board"
+    ],
+    "indicatorNotes": {
+     "on board": "Anything carried on board is inside the vessel, so the ship's two letters close around everything else."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "S",
+     "OUR",
+     "GR",
+     "APE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on board",
+      "gives": "SS",
+      "note": "SS is the crossword's steamship, and being aboard puts the rest between its two letters"
+     },
+     {
+      "clueFragment": "our",
+      "gives": "OUR",
+      "note": "the clue's own word, taken exactly as it stands"
+     },
+     {
+      "clueFragment": "gross",
+      "gives": "GR",
+      "note": "gr. is the standard abbreviation for a gross, the twelve dozen of the wholesale trade"
+     },
+     {
+      "clueFragment": "primate",
+      "gives": "APE",
+      "note": "an ape is the primate a crossword reaches for first"
+     }
+    ],
+    "walkthrough": "The surface paints a coarse monkey aboard a ship, which is the wrong picture entirely. The attitude is Aesop's: the fox decides the fruit he cannot reach was never worth having.",
+    "definitionFit": "The phrase names the pretence that what you failed to get was not worth wanting — an ungracious stance rather than an elevating one."
+   }
   },
   {
    "id": "10-across",
@@ -222,7 +473,33 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAIR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PAIR",
+    "definition": "Item",
+    "indicators": [
+     "sounds like"
+    ],
+    "indicatorNotes": {
+     "sounds like": "The phrase asks for the noise a word makes rather than its letters, and here two different words make the very same noise."
+    },
+    "blocks": [
+     {
+      "clueFragment": "prune",
+      "soundsLike": "PARE",
+      "gives": "PAIR",
+      "note": "to prune a shrub is to pare it back, and pare is said this way"
+     },
+     {
+      "clueFragment": "another fruit",
+      "soundsLike": "PEAR",
+      "gives": "PAIR",
+      "note": "the pear is the second fruit, and it hides in the same single sound"
+     }
+    ],
+    "walkthrough": "One sound, three spellings: the clue hands you two of them and you write in the third. 'Item' is the couple sense, two people spoken of as one.",
+    "definitionFit": "An item is a twosome, the couple everybody talks about as a unit, so the definition works on that sense and not on a thing in a list."
+   }
   },
   {
    "id": "11-across",
@@ -243,7 +520,41 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "GROUNDHOGDAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GROUNDHOG DAY",
+    "definition": "yet again",
+    "definitionNote": "The answer is the name of a day, a noun, while the definition is adverbial — the film turned the name into a byword for an experience repeated without end.",
+    "pieces": [
+     "GROUND",
+     "HOG",
+     "DAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mince",
+      "gives": "GROUND",
+      "note": "minced meat is ground meat, the same operation under two names"
+     },
+     {
+      "clueFragment": "pork",
+      "gives": "HOG",
+      "note": "pork comes off a hog, so the animal stands in for its meat"
+     },
+     {
+      "clueFragment": "Occasion",
+      "gives": "DAY",
+      "note": "a big day is an occasion, as in 'the big day'"
+     },
+     {
+      "clueFragment": "celebrating",
+      "gives": "",
+      "note": "surface only: it makes the clue read as a food festival and carries no letters"
+     }
+    ],
+    "walkthrough": "A pork festival is a fine disguise for a February morning in Pennsylvania, where a rodent forecasts the spring and a film sent the same twenty-four hours round for ever.",
+    "definitionFit": "The film left the phrase meaning a day that comes round unchanged, so the idiom is exactly a weary 'yet again' rather than a sense of the separate words."
+   }
   },
   {
    "id": "12-down",
@@ -270,7 +581,29 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "ORIGINALSIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ORIGINAL SIN",
+    "definition": "First mistake",
+    "indicators": [
+     "milling"
+    ],
+    "indicatorNotes": {
+     "milling": "Grain sent through a mill comes out with no trace of the shape it went in with, and letters treated the same way land somewhere new."
+    },
+    "anagram": {
+     "fodder": "GRAIN IN SILO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "grain in silo",
+      "gives": "GRAININSILO",
+      "note": "eleven letters, the whole phrase going into the mill"
+     }
+    ],
+    "walkthrough": "Farm machinery on the surface, theology underneath. 'Milling' sits so comfortably beside grain that it barely reads as an instruction at all, which is the trap.",
+    "definitionFit": "In Christian doctrine it is the first transgression, Adam and Eve's, that every later generation inherits — literally the earliest mistake there was."
+   }
   },
   {
    "id": "13-down",
@@ -287,7 +620,29 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DESCRIPTOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DESCRIPTOR",
+    "definition": "that tells you something",
+    "indicators": [
+     "remiss"
+    ],
+    "indicatorNotes": {
+     "remiss": "To be remiss is to be careless in your duty, and careless handling leaves the parts of a word out of their proper places."
+    },
+    "anagram": {
+     "fodder": "PREDICTORS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Predictor's",
+      "gives": "PREDICTORS",
+      "note": "ten letters, and the possessive S at the end is part of the material rather than grammar"
+     }
+    ],
+    "walkthrough": "'Predictor's remiss' reads as a grumble about a forecaster who got it wrong, and that grumble is where every letter comes from.",
+    "definitionFit": "A descriptor is a word or tag attached to a thing to convey what it is like, so it is a label whose only job is to inform you."
+   }
   },
   {
    "id": "14-down",
@@ -308,7 +663,32 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "STRESSTEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STRESS TEST",
+    "definition": "trial demanding endurance",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "STRESS",
+     "TEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emphasise",
+      "gives": "STRESS",
+      "note": "to stress a word is to emphasise it"
+     },
+     {
+      "clueFragment": "cricket match",
+      "gives": "TEST",
+      "note": "a Test is an international cricket match between two countries, played over five days"
+     }
+    ],
+    "walkthrough": "Banks and hearts get put through these; the surface offers five days in the sun instead. Test cricket is worth knowing, because setters use it for any kind of trial.",
+    "definitionFit": "A stress test loads something until it shows where it gives way, so both the engineering and the medical kind are trials of how much can be borne."
+   }
   },
   {
    "id": "15-across",
@@ -325,7 +705,39 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXTREME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letters",
+    "answer": "EXTREME",
+    "definition": "a bit much",
+    "indicators": [
+     "naked",
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "naked": "A word stripped naked loses what it wears on the outside, so the first and last letters come off and the middle is left standing.",
+     "dancing": "Dancers keep swapping places about the floor, and letters told to dance do exactly the same."
+    },
+    "linkWords": [
+     "it's"
+    ],
+    "anagram": {
+     "fodder": "X EMETER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cemetery, naked",
+      "gives": "EMETER",
+      "note": "CEMETERY with its outer C and Y taken off leaves six letters"
+     },
+     {
+      "clueFragment": "Kiss",
+      "gives": "X",
+      "note": "X is the kiss written at the foot of a letter"
+     }
+    ],
+    "walkthrough": "The graveyard and the dancing belong to the surface's ghost story. The definition is the small phrase at the end, which reads like part of that story and is not.",
+    "definitionFit": "Calling something a bit much is British understatement for excessive, and the answer is the plain word for going that far past the middle."
+   }
   },
   {
    "id": "16-across",
@@ -342,7 +754,49 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAIROBI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "NAIROBI",
+    "definition": "somewhere in Kenya",
+    "indicators": [
+     "Flipping",
+     "interminable"
+    ],
+    "indicatorNotes": {
+     "Flipping": "To flip something is to turn it over end for end, so the assembled letters are read the opposite way round.",
+     "interminable": "Something interminable has no end, so the word it governs is written without its final letter."
+    },
+    "pieces": [
+     "NAI",
+     "ROB",
+     "I"
+    ],
+    "subReversals": [
+     {
+      "from": "IBORIAN",
+      "to": "NAIROBI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the writer",
+      "gives": "I",
+      "note": "the person writing the clue refers to themselves as I"
+     },
+     {
+      "clueFragment": "wearies",
+      "gives": "BOR",
+      "note": "to weary somebody is to bore them, and the last letter of that verb is dropped"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "IAN",
+      "note": "Ian is the Scottish forename crosswords keep permanently on hand"
+     }
+    ],
+    "walkthrough": "Built in clue order the wordplay spells out a tedious Scot, and only turning the whole assembly round produces an African capital. 'Flipping' is doing duty as mild swearing too.",
+    "definitionFit": "The city is Kenya's capital and by far its largest, so the definition locates it by country and leaves you to supply the name."
+   }
   },
   {
    "id": "17-across",
@@ -359,7 +813,26 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHERVIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CHERVIL",
+    "definition": "leaves",
+    "indicators": [
+     "hides"
+    ],
+    "indicatorNotes": {
+     "hides": "Something hidden is present but not shown, so what is wanted is already there in the clue, untouched and in order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Butcher, vilified",
+      "gives": "CHERVIL",
+      "note": "seven consecutive letters begin at the fourth letter of the first word and run on into the second"
+     }
+    ],
+    "walkthrough": "A butcher being vilified is a strong enough picture to hide a herb behind. The herb is the salad kind, fine feathery fronds used much as parsley is.",
+    "definitionFit": "Chervil is a delicate herb grown for its foliage, so naming the part that reaches the kitchen names the plant itself."
+   }
   },
   {
    "id": "18-down",
@@ -376,7 +849,38 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOYALTY",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "LOYALTY",
+    "definition": "allegiance",
+    "indicators": [
+     "switching sides"
+    ],
+    "indicatorNotes": {
+     "switching sides": "Left and right are the two sides on offer, and switching them takes out the letter that stands for one and puts in the letter for the other."
+    },
+    "linkWords": [
+     "to gain"
+    ],
+    "pieces": [
+     "L",
+     "OYALTY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarch and family",
+      "gives": "ROYALTY",
+      "note": "royalty is the reigning house, the monarch together with their relatives"
+     },
+     {
+      "clueFragment": "switching sides",
+      "gives": "L",
+      "note": "the R that opens that word is right, and left puts an L in its place"
+     }
+    ],
+    "walkthrough": "Switching sides normally means the opposite of what is being defined, which is the joke: change one letter of the royal household and out comes the very virtue a turncoat lacks.",
+    "definitionFit": "Allegiance is the faithfulness owed to a person or cause, so the two are near-exact synonyms, one out of feudal French and one plainer."
+   }
   },
   {
    "id": "19-across",
@@ -393,7 +897,42 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRIGAND",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BRIGAND",
+    "definition": "Highway robber",
+    "indicators": [
+     "round"
+    ],
+    "indicatorNotes": {
+     "round": "To go round something is to enclose it, so the word just clued closes over the letter that comes next."
+    },
+    "pieces": [
+     "B",
+     "R",
+     "IG",
+     "AND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sturdy",
+      "gives": "BIG",
+      "note": "a big man is a sturdy one, the same solid build"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "r is the standard abbreviation for right, as in stage directions"
+     },
+     {
+      "clueFragment": "as well as",
+      "gives": "AND",
+      "note": "'as well as' joins two things exactly as the conjunction does"
+     }
+    ],
+    "walkthrough": "The exclamation mark makes 'right!' sound like a cry of agreement, which is why it reads as surface rather than as the single letter it is.",
+    "definitionFit": "A brigand is one of a band of robbers who prey on travellers, so a robber working the highway is the plain historical sense."
+   }
   },
   {
    "id": "19-down",
@@ -410,7 +949,26 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROWNIE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BROWNIE",
+    "definition": "Helpful youngster",
+    "definition2": "baked something that's chewy",
+    "blocks": [
+     {
+      "clueFragment": "Helpful youngster",
+      "gives": "",
+      "note": "the junior branch of the Guides, girls of about seven to ten, known for doing a good turn daily"
+     },
+     {
+      "clueFragment": "baked something that's chewy",
+      "gives": "",
+      "note": "the dense chocolate square cut from a tray, deliberately underdone so it stays soft"
+     }
+    ],
+    "walkthrough": "A British uniformed movement and an American tray-bake, sharing one spelling and nothing else. No letters move; you simply have to hear the word twice.",
+    "definitionFit": "One sense is the small girl in uniform doing her good deed, the other the chocolate square from the tin — the same word in two unrelated traditions."
+   }
   },
   {
    "id": "20-across",
@@ -433,7 +991,29 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "IMSORRYTOSAY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "I'M SORRY TO SAY",
+    "definition": "sadly",
+    "indicators": [
+     "shambles"
+    ],
+    "indicatorNotes": {
+     "shambles": "A shambles is a scene of total disorder, where nothing at all is standing where it ought to be."
+    },
+    "anagram": {
+     "fodder": "OR IS MY STORY A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Or is my story a",
+      "gives": "ORISMYSTORYA",
+      "note": "twelve letters, the whole opening of the clue including its small 'a'"
+     }
+    ],
+    "walkthrough": "The clue is a writer's anxious question about their own manuscript, and every word of it except the last is material. Only 'sadly' is doing the defining.",
+    "definitionFit": "Both are ways of flagging a regrettable fact as you report it, so the adverb stands in for the polite formula that softens the same bad news."
+   }
   },
   {
    "id": "21-down",
@@ -450,7 +1030,32 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DAFT",
+    "definition": "ridiculous",
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "DA",
+     "FT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yes, Russian",
+      "gives": "DA",
+      "note": "da is the Russian for yes"
+     },
+     {
+      "clueFragment": "UK newspaper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times, the pink-papered London business daily"
+     }
+    ],
+    "walkthrough": "Two abbreviations from very different worlds laid end to end, with a Russian buying a British paper as the cover story that keeps the join out of sight.",
+    "definitionFit": "Daft is the everyday British word for silly or absurd, so 'ridiculous' is the same idea pitched a little more formally."
+   }
   },
   {
    "id": "22-down",
@@ -467,7 +1072,32 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MERC",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "MERC",
+    "definition": "Moneyed European's resplendent carrier, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "What comes primarily comes first, so each word in front of it gives up only the letter it begins with."
+    },
+    "pieces": [
+     "M",
+     "E",
+     "R",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moneyed European's resplendent carrier",
+      "gives": "MERC",
+      "note": "four words standing in a row, each handing over its first letter"
+     }
+    ],
+    "walkthrough": "Read once, the sentence is an instruction about initials; read again, it describes the car those initials spell — a German marque, expensive and gleaming.",
+    "definitionFit": "The answer is the familiar British short form of Mercedes, and the whole clue describes one: a costly, shining vehicle from a European maker."
+   }
   },
   {
    "id": "23-across",
@@ -484,7 +1114,26 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TIED",
+    "definition": "Like shoelaces",
+    "definition2": "needing extra time",
+    "blocks": [
+     {
+      "clueFragment": "Like shoelaces",
+      "gives": "",
+      "note": "laces are knotted in a bow at the top of the shoe, which is the everyday sense"
+     },
+     {
+      "clueFragment": "needing extra time",
+      "gives": "",
+      "note": "a cup match still level after ninety minutes goes to extra time, which is the sporting sense"
+     }
+    ],
+    "walkthrough": "One definition is a bow on a shoe and the other a scoreline at the final whistle. Four letters cover both, and not one of them moves.",
+    "definitionFit": "The shoelace sense is fastened with a knot; the football sense is level on goals with the match undecided — one word for a knot and for a draw."
+   }
   },
   {
    "id": "24-across",
@@ -505,7 +1154,29 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLANKSLATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLANK SLATE",
+    "definition": "Fresh start",
+    "pieces": [
+     "BLANKS",
+     "LATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military dummies",
+      "gives": "BLANKS",
+      "note": "blanks are the cartridges fired on exercise, charged but with no bullet in them"
+     },
+     {
+      "clueFragment": "behind schedule",
+      "gives": "LATE",
+      "note": "running behind schedule is simply being late"
+     }
+    ],
+    "walkthrough": "The surface is an army exercise that has overrun. The answer reaches back to the schoolroom: a writing slate wiped clean, with nothing yet chalked on it.",
+    "definitionFit": "A blank slate is a state with nothing recorded on it yet, which is exactly what anyone beginning over again is handed."
+   }
   },
   {
    "id": "25-across",
@@ -522,7 +1193,29 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ROTA",
+    "definition": "list of duties",
+    "pieces": [
+     "ROT",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoil",
+      "gives": "ROT",
+      "note": "food left out will spoil, which is to rot"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own word, carried straight across"
+     }
+    ],
+    "walkthrough": "In British workplaces this is the sheet pinned to the wall saying whose turn it is next: the washing-up, the school run, the night shift.",
+    "definitionFit": "A rota is the roster setting out who performs which duty and when, so the definition names it by precisely what it lists."
+   }
   },
   {
    "id": "26-across",
@@ -539,7 +1232,36 @@ window.CRYPTIC_PUZZLES["everyman-4166"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CYBERNETIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CYBERNETIC",
+    "definition": "regarding futuristic tech",
+    "indicators": [
+     "unwise",
+     "restrained by"
+    ],
+    "indicatorNotes": {
+     "unwise": "An unwise arrangement is one nobody would have chosen deliberately, and these letters end up in exactly such an order.",
+     "restrained by": "To be restrained by something is to be held inside it, so the single letter goes within the material rather than alongside it."
+    },
+    "anagram": {
+     "fodder": "B RETICENCY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Britain",
+      "gives": "B",
+      "note": "B is the standard abbreviation for Britain, as on the old oval car plates"
+     },
+     {
+      "clueFragment": "reticency",
+      "gives": "RETICENCY",
+      "note": "nine letters from a rare form of reticence, holding your tongue"
+     }
+    ],
+    "walkthrough": "'Reticency' is a real if unusual word, and its oddity is the tell: a word that sits awkwardly in the surface is generally there for its letters alone.",
+    "definitionFit": "The adjective belongs to the study of automatic control and communication in machines, the vocabulary of robots and feedback loops."
+   }
   }
  ]
 } /*JSON-END*/;
