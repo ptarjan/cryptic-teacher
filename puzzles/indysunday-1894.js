@@ -34,7 +34,47 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
     ]
    },
    "solution": "EVENINGDRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "EVENING DRESS",
+    "definition": "wear for parties",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken at a steady beat means every second one, so only the even-numbered characters of the word before are picked up."
+    },
+    "pieces": [
+     "EVEN",
+     "IN",
+     "GDR",
+     "ESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uniform",
+      "gives": "EVEN",
+      "note": "a uniform surface is an even one, level and unvarying"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the little word joins the assembly whole, exactly as printed"
+     },
+     {
+      "clueFragment": "East Germany",
+      "gives": "GDR",
+      "note": "the German Democratic Republic, the communist state that lasted until 1990, is GDR in English"
+     },
+     {
+      "clueFragment": "Wessis regularly",
+      "gives": "ESS",
+      "note": "Wessis is German slang for West Germans; its second, fourth and sixth letters are wanted"
+     }
+    ],
+    "walkthrough": "'Uniform' opens the clue looking like army kit for a parade, and it is an adjective meaning even. The two Germanies are there only to hand over letters.",
+    "definitionFit": "wear for parties -> EVENING DRESS: wear is the noun for clothing, and evening dress is the formal outfit a party invitation asks for."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +91,47 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VALUE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "VALUE",
+    "definition": "prize",
+    "indicators": [
+     "Hearts in"
+    ],
+    "indicatorNotes": {
+     "Hearts in": "The heart of a word is the letter or two at its centre, so what is wanted from each word listed after this is its middle."
+    },
+    "pieces": [
+     "V",
+     "A",
+     "LU",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Playing against",
+      "gives": "V",
+      "note": "v is the abbreviation for versus, as printed in a fixture list"
+     },
+     {
+      "clueFragment": "tears",
+      "gives": "A",
+      "note": "the centre of a five-letter word is its third letter"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "LU",
+      "note": "an even-length word has two letters at its middle, here the second and third"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "E",
+      "note": "the middle letter of the three"
+     }
+    ],
+    "walkthrough": "Hearts and club look like a hand of cards, and Hearts even looks like a Scottish football fixture. No suit is wanted: 'hearts' means middles.",
+    "definitionFit": "prize -> VALUE: to prize something is to set worth on it, the verb sense of both words rather than the trophy the surface suggests."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +148,57 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIGGARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NIGGARD",
+    "definition": "miser",
+    "indicators": [
+     "on",
+     "upset"
+    ],
+    "indicatorNotes": {
+     "on": "In a down entry whatever sits on something is written above it, so the pieces clued first end up higher in the grid.",
+     "upset": "Something upset has been tipped over, so each piece is written out the other way up."
+    },
+    "pieces": [
+     "NIG",
+     "GA",
+     "RD"
+    ],
+    "subReversals": [
+     {
+      "from": "GIN",
+      "to": "NIG"
+     },
+     {
+      "from": "AG",
+      "to": "GA"
+     },
+     {
+      "from": "DR",
+      "to": "RD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spirit",
+      "gives": "NIG",
+      "note": "the spirit poured as a measure is gin, tipped over here"
+     },
+     {
+      "clueFragment": "Silver",
+      "gives": "GA",
+      "note": "AG is the chemical symbol for silver, and it arrives the other way round"
+     },
+     {
+      "clueFragment": "drive",
+      "gives": "RD",
+      "note": "Dr is the street-sign short form of Drive, again turned"
+     }
+    ],
+    "walkthrough": "Silver Spirit is a Rolls-Royce, so the surface is all motoring and the two words are a metal and a drink. Every piece lands back to front.",
+    "definitionFit": "miser -> NIGGARD: an old word, now rare outside crosswords, for someone grudging with money, which is exactly what a miser is."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +215,36 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NONDESCRIPT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "NONDESCRIPT",
+    "definition": "Anonymous",
+    "indicators": [
+     "appended to",
+     "edition"
+    ],
+    "indicatorNotes": {
+     "appended to": "To append is to tack on at the end, so the piece named before it is written after everything else.",
+     "edition": "A fresh edition is the same material set out again in a new arrangement, so the letters that follow will not keep their order."
+    },
+    "anagram": {
+     "fodder": "DONNE SCRIPT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "edition of Donne",
+      "gives": "NONDE",
+      "note": "the five letters of the poet's name, re-set in a different order"
+     },
+     {
+      "clueFragment": "text",
+      "gives": "SCRIPT",
+      "note": "a script is the written text of a play or a speech"
+     }
+    ],
+    "walkthrough": "John Donne is here only as five letters to rearrange, and 'edition of' passes as bibliography rather than as an instruction. Nothing in the clue is about poetry.",
+    "definitionFit": "Anonymous -> NONDESCRIPT: not the unnamed-author sense but the other one, a face or a building so lacking in features that nothing marks it out."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +265,54 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOGSTAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DOG STAR",
+    "definition": "shining example",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "after revolution"
+    ],
+    "indicatorNotes": {
+     "after revolution": "A revolution turns a thing full circle, so the words before it are written out from their last letter to their first."
+    },
+    "pieces": [
+     "D",
+     "OG",
+     "STAR"
+    ],
+    "subReversals": [
+     {
+      "from": "GO",
+      "to": "OG"
+     },
+     {
+      "from": "RATS",
+      "to": "STAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is 500 in Roman numerals"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "OG",
+      "note": "a shot at something is a go, turned round"
+     },
+     {
+      "clueFragment": "traitors",
+      "gives": "STAR",
+      "note": "traitors are rats, and the word is written backwards"
+     }
+    ],
+    "walkthrough": "Sirius is the brightest thing in the night sky, so the definition works as a straight description and as the idiom at the same time.",
+    "definitionFit": "shining example -> DOG STAR: Sirius outshines every other star, so it is both literally the shining one and idiomatically the model to follow."
+   }
   },
   {
    "id": "6-down",
@@ -123,7 +329,27 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "EYE",
+    "definition": "Detective",
+    "indicators": [
+     "on the record"
+    ],
+    "indicatorNotes": {
+     "on the record": "What goes on the record is spoken first and written down afterwards, so it is how the word is heard that matters, not how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "agreed",
+      "soundsLike": "AYE",
+      "gives": "EYE",
+      "note": "a voter who agrees says aye, the parliamentary yes"
+     }
+    ],
+    "walkthrough": "A private eye is the detective of American fiction, and 'on the record' does double duty in the surface as a politician's phrase.",
+    "definitionFit": "Detective -> EYE: short for private eye, the American term for a hired investigator, which crosswords treat as a standing sense."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +366,41 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SANDBAG",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SANDBAG",
+    "definition": "help with water coming in",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner famously tripped over his own speech, so the opening sounds of the two words named change places."
+    },
+    "pieces": [
+     "SAND",
+     "BAG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crew",
+      "gives": "BAND",
+      "note": "a band is a crew, a group working together"
+     },
+     {
+      "clueFragment": "decline",
+      "gives": "SAG",
+      "note": "sales or spirits that decline sag"
+     },
+     {
+      "clueFragment": "Spooner's",
+      "soundsLike": "BAND SAG",
+      "gives": "SANDBAG",
+      "note": "trade the opening sounds of those two words, B for S, and read the result"
+     }
+    ],
+    "walkthrough": "Spooner clues run backwards: you look for two words whose front sounds, once traded, describe the thing being defined. Here the definition is a flood defence.",
+    "definitionFit": "help with water coming in -> SANDBAG: the thing stacked in a doorway when a river rises, so the definition names its single job."
+   }
   },
   {
    "id": "8-down",
@@ -157,7 +417,28 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FEELGOOD",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "FEELGOOD",
+    "definition": "Giving cheer",
+    "indicators": [
+     "lifted",
+     "masks"
+    ],
+    "indicatorNotes": {
+     "lifted": "A down entry read upwards climbs the grid, so this run of letters is picked up from the bottom end first.",
+     "masks": "A mask keeps the face behind it out of sight, so these words are holding a longer run of letters hidden."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Scooby-Doo gleefully",
+      "gives": "FEELGOOD",
+      "note": "eight letters in a row read the wrong way, starting inside the second word and running back across the gap"
+     }
+    ],
+    "walkthrough": "The cartoon dog is decoration: his name is in the clue because the letters wanted happen to run through it backwards, and a hyphen is no barrier.",
+    "definitionFit": "Giving cheer -> FEELGOOD: the adjective for a film or a song that leaves its audience happy, which is what cheering somebody up does."
+   }
   },
   {
    "id": "9-across",
@@ -174,7 +455,29 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAGON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLAGON",
+    "definition": "jug of wine",
+    "pieces": [
+     "FLAG",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weary",
+      "gives": "FLAG",
+      "note": "to flag is to grow weary, as runners do late in a race"
+     },
+     {
+      "clueFragment": "having consumed",
+      "gives": "ON",
+      "note": "somebody on drink or on drugs has consumed them"
+     }
+    ],
+    "walkthrough": "'Weary' reads as an adjective describing whoever has been drinking, and it is the verb — the one that means to droop.",
+    "definitionFit": "jug of wine -> FLAGON: a flagon is the big-bellied vessel wine or cider is served from, so the definition names container and contents together."
+   }
   },
   {
    "id": "10-across",
@@ -191,7 +494,63 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUERNSEY",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + last letter + reversal",
+    "answer": "GUERNSEY",
+    "definition": "What's certainly near EU and close to Cherbourg, going west?",
+    "indicators": [
+     "close to",
+     "going west"
+    ],
+    "indicatorNotes": {
+     "close to": "The close of a word is where it stops, so only the final letter of the name beside it is taken.",
+     "going west": "West is leftwards on a map, and an across entry read leftwards runs from its last letter to its first."
+    },
+    "pieces": [
+     "G",
+     "UE",
+     "RN",
+     "SEY"
+    ],
+    "subReversals": [
+     {
+      "from": "EU",
+      "to": "UE"
+     },
+     {
+      "from": "NR",
+      "to": "RN"
+     },
+     {
+      "from": "YES",
+      "to": "SEY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close to Cherbourg",
+      "gives": "G",
+      "note": "the last letter of the French port"
+     },
+     {
+      "clueFragment": "EU",
+      "gives": "UE",
+      "note": "the union's own two letters, written the other way"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "RN",
+      "note": "nr is the short form of near used in addresses, turned round"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "SEY",
+      "note": "the plainest three-letter word of agreement, reversed"
+     }
+    ],
+    "walkthrough": "An all-in-one: read straight, the question describes the island, and those very same words spell it out backwards. Cherbourg is the French port opposite.",
+    "definitionFit": "Read straight, the whole clue asks what lies outside the EU and just west of Cherbourg, and the Channel Island is its own description."
+   }
   },
   {
    "id": "11-across",
@@ -208,7 +567,36 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEDATEST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SEDATEST",
+    "definition": "Most sober",
+    "indicators": [
+     "limits"
+    ],
+    "indicatorNotes": {
+     "limits": "To limit a thing is to fence it at both ends, so the word doing the limiting opens up and takes the other one inside."
+    },
+    "pieces": [
+     "SE",
+     "DATES",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "a set is a circle of people, and these three letters part after the second"
+     },
+     {
+      "clueFragment": "people you see",
+      "gives": "DATES",
+      "note": "the people you see socially are your dates"
+     }
+    ],
+    "walkthrough": "The whole clue reads as advice about the company you keep, and 'set limits' looks like one phrase. The two words are doing different jobs.",
+    "definitionFit": "Most sober -> SEDATEST: sedate means calm and unhurried rather than merely off the drink, and the superlative ending matches 'most'."
+   }
   },
   {
    "id": "12-across",
@@ -225,7 +613,44 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COBALT",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "COBALT",
+    "definition": "kind of blue",
+    "indicators": [
+     "rolled over",
+     "in"
+    ],
+    "indicatorNotes": {
+     "rolled over": "A dog rolling over ends up the other way round, and so do the three letters it stands for.",
+     "in": "What is in a thing sits inside it, so the letters just turned go between those of the word that follows."
+    },
+    "pieces": [
+     "CO",
+     "BAL",
+     "T"
+    ],
+    "subReversals": [
+     {
+      "from": "LAB",
+      "to": "BAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed, and its three letters open up after the second"
+     },
+     {
+      "clueFragment": "Dog rolled over",
+      "gives": "BAL",
+      "note": "a lab is a retriever, and the breed's short name is turned"
+     }
+    ],
+    "walkthrough": "Lab is the crossword's usual dog, short for Labrador. 'Kind of blue' is the definition: the metal gives its name to one particular shade.",
+    "definitionFit": "kind of blue -> COBALT: cobalt blue is the deep shade the metal's compounds give to paint and glass, so the answer names one blue among many."
+   }
   },
   {
    "id": "12-down",
@@ -242,7 +667,46 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COUNTERFEIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "COUNTERFEIT",
+    "definition": "Pirate",
+    "indicators": [
+     "behind",
+     "collecting",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "behind": "What stands behind something comes after it, so the trained one's letters follow those of the place named next.",
+     "collecting": "A bar collecting glasses takes them in, so the letter named afterwards is gathered inside the letters already assembled.",
+     "primarily": "A word's primary letter is the one it starts with, so only the initial of the word before is wanted."
+    },
+    "pieces": [
+     "COUNTER",
+     "F",
+     "E",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "COUNTER",
+      "note": "the bar you are served across is a counter"
+     },
+     {
+      "clueFragment": "well-trained",
+      "gives": "FIT",
+      "note": "someone well-trained is fit, and the word splits after its first letter"
+     },
+     {
+      "clueFragment": "empties primarily",
+      "gives": "E",
+      "note": "the word for drained glasses starts with E"
+     }
+    ],
+    "walkthrough": "'Pirate' looks like a swashbuckler propping up the bar, and it is a verb. The whole pub scene is built out of wordplay pieces.",
+    "definitionFit": "Pirate -> COUNTERFEIT: to pirate a film or a handbag is to make and sell an unauthorised copy, which is counterfeiting it."
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +723,29 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAD",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SPAD",
+    "definition": "Political aide",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "Most of a word is all of it bar the final letter, so the last character is dropped before anything else happens."
+    },
+    "pieces": [
+     "SPAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one in black suit",
+      "gives": "SPADE",
+      "note": "a card belonging to the black suit that is not clubs"
+     }
+    ],
+    "walkthrough": "A SpAd is a special adviser, the politically appointed staffer who works for a minister rather than for the civil service.",
+    "definitionFit": "Political aide -> SPAD: British shorthand for a special adviser, the party appointee who works to a minister outside the civil service."
+   }
   },
   {
    "id": "14-down",
@@ -276,7 +762,42 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENDULUM",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PENDULUM",
+    "definition": "swinger",
+    "indicators": [
+     "robes"
+    ],
+    "indicatorNotes": {
+     "robes": "To robe someone is to wrap cloth right round them, so the word before goes round the letters clued after it."
+    },
+    "pieces": [
+     "P",
+     "END",
+     "U",
+     "LUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Purple",
+      "gives": "PLUM",
+      "note": "a plum is a deep purple, and the four letters open up after the first"
+     },
+     {
+      "clueFragment": "do for",
+      "gives": "END",
+      "note": "to do for someone is to finish them off"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the old label for upper-class speech and manners, as in U and non-U"
+     }
+    ],
+    "walkthrough": "'Purple robes' reads as a bishop's vestments. The colour is a fruit and 'robes' is the instruction to wrap it round what follows.",
+    "definitionFit": "swinger -> PENDULUM: a plain description of the object by what it does, since a pendulum's whole business is swinging on its pivot."
+   }
   },
   {
    "id": "15-across",
@@ -293,7 +814,37 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CURMUDGEON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CURMUDGEON",
+    "definition": "grump",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "Dancing"
+    ],
+    "indicatorNotes": {
+     "Dancing": "Dancers keep changing places on the floor, so the letters that follow will not stay in the order they are given."
+    },
+    "anagram": {
+     "fodder": "CURED MUNGO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cured Mungo",
+      "gives": "CUREDMUNGO",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "Dancing",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The surface promises that a cure worked, which is the opposite of what the answer describes. That pull in the wrong direction is what hides ten easy letters.",
+    "definitionFit": "grump -> CURMUDGEON: both words name the person rather than the mood, a bad-tempered old soul who complains on principle."
+   }
   },
   {
    "id": "16-across",
@@ -310,7 +861,38 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTOXICANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INTOXICANT",
+    "definition": "drink, perhaps",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "INTO",
+     "XI",
+     "CANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A fan of",
+      "gives": "INTO",
+      "note": "somebody into jazz is a fan of it"
+     },
+     {
+      "clueFragment": "11",
+      "gives": "XI",
+      "note": "eleven in Roman numerals, not a pointer to another clue"
+     },
+     {
+      "clueFragment": "is unable",
+      "gives": "CANT",
+      "note": "can't, with the apostrophe dropped as crosswords allow"
+     }
+    ],
+    "walkthrough": "Every crossword trains you to look up at clue 11 when a number appears, and this grid has one. Here the digits are only a Roman numeral.",
+    "definitionFit": "drink, perhaps -> INTOXICANT: definition by example, since an alcoholic drink is one instance of the wider class of things that intoxicate."
+   }
   },
   {
    "id": "17-down",
@@ -327,7 +909,29 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBLASTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OBLASTS",
+    "definition": "Former Soviet regions",
+    "pieces": [
+     "O",
+     "BLASTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nothing in tennis, and nothing is written as a nought"
+     },
+     {
+      "clueFragment": "sound of bombing",
+      "gives": "BLASTS",
+      "note": "the noise bombing makes, the word itself rather than a word resembling it"
+     }
+    ],
+    "walkthrough": "'Sound of' is the standard signal for a word said aloud, and here it means the actual noise instead. That is the whole trap.",
+    "definitionFit": "Former Soviet regions -> OBLASTS: an oblast is an administrative province of Russia and its neighbours, the tier the USSR was governed through."
+   }
   },
   {
    "id": "18-down",
@@ -344,7 +948,40 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUDITOR",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "AUDITOR",
+    "definition": "Money expert",
+    "indicators": [
+     "swaps"
+    ],
+    "indicatorNotes": {
+     "swaps": "A swap puts one thing where another was, so the letters named last stand in the place vacated by the letter named first."
+    },
+    "pieces": [
+     "AU",
+     "DITOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ed",
+      "gives": "EDITOR",
+      "note": "Ed is the newsroom's short form for the editor, and the full job title is what the letters spell"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "E",
+      "note": "his capital is the letter he begins with, the only upper-case one in the name"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "AU is the chemical symbol for gold, from the Latin aurum"
+     }
+    ],
+    "walkthrough": "Read the surface and Ed is a colleague; read it again and he is the job. 'Capital' is the letter he starts with, not a city.",
+    "definitionFit": "Money expert -> AUDITOR: the accountant who inspects a company's books and signs them off, so the definition names the job by what it handles."
+   }
   },
   {
    "id": "19-across",
@@ -361,7 +998,27 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CEDE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CEDE",
+    "definition": "yield",
+    "indicators": [
+     "Report of"
+    ],
+    "indicatorNotes": {
+     "Report of": "A report is what somebody heard and then passed on, so what counts is how the word sounds and not how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "grain",
+      "soundsLike": "SEED",
+      "gives": "CEDE",
+      "note": "a grain of wheat is a seed, and that word spoken has another spelling"
+     }
+    ],
+    "walkthrough": "'Yield' pulls two ways — a crop's yield and giving ground — and the farming reading is the false one, planted by the grain beside it.",
+    "definitionFit": "yield -> CEDE: to cede territory is to give it up under pressure, which is the surrender sense of yield rather than the harvest one."
+   }
   },
   {
    "id": "19-down",
@@ -378,7 +1035,38 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAMPHOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CAMPHOR",
+    "definition": "insect repellent",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "CAMP",
+     "HO",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleep outside",
+      "gives": "CAMP",
+      "note": "to sleep outside under canvas is to camp"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "ho is the standard abbreviation for house on a nameplate"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "walkthrough": "'Outside' begs to be read as an instruction to put one word round another, and it belongs to the sleeping instead.",
+    "definitionFit": "insect repellent -> CAMPHOR: the white waxy stuff in mothballs, whose smell keeps moths and other insects out of stored clothes."
+   }
   },
   {
    "id": "20-across",
@@ -395,7 +1083,45 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MULLET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MULLET",
+    "definition": "Currently popular hairstyle",
+    "indicators": [
+     "from behind"
+    ],
+    "indicatorNotes": {
+     "from behind": "Seen from behind, an across answer is read right to left, so both pieces are written out back to front."
+    },
+    "pieces": [
+     "MU",
+     "LLET"
+    ],
+    "subReversals": [
+     {
+      "from": "UM",
+      "to": "MU"
+     },
+     {
+      "from": "TELL",
+      "to": "LLET"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that's iffy",
+      "gives": "MU",
+      "note": "um is the noise a speaker makes when unsure, turned round"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "LLET",
+      "note": "to tell somebody something is to say it, and the word is written backwards"
+     }
+    ],
+    "walkthrough": "The cut is short at the front and long at the back, so 'from behind' plays as description as much as instruction.",
+    "definitionFit": "Currently popular hairstyle -> MULLET: business at the front and party at the back, a 1980s cut that came back into fashion in the 2020s."
+   }
   },
   {
    "id": "21-across",
@@ -416,7 +1142,48 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
     ]
    },
    "solution": "DARKMEAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + reversal",
+    "answer": "DARK MEAT",
+    "definition": "cheaper poultry",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Withdrawn",
+     "affected"
+    ],
+    "indicatorNotes": {
+     "Withdrawn": "Something withdrawn is drawn back the way it came, so the two letters beside it are written in the other order.",
+     "affected": "An affected manner is one altered from its natural state, so the word after it is rearranged rather than left as printed."
+    },
+    "anagram": {
+     "fodder": "MARKET DA"
+    },
+    "pieces": [
+     "DA",
+     "RKMEAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Withdrawn advert",
+      "gives": "DA",
+      "note": "an advert is an ad, and those two letters come back the other way"
+     },
+     {
+      "clueFragment": "market",
+      "gives": "MARKET",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "affected",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Withdrawn advert' looks like a phrase to shuffle whole. Only the ad's two letters move, and they simply turn round before the market is jumbled.",
+    "definitionFit": "cheaper poultry -> DARK MEAT: the butcher's term for the legs and thighs, richer in colour than the breast and sold at a lower price."
+   }
   },
   {
    "id": "22-down",
@@ -433,7 +1200,33 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMIGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMIGO",
+    "definition": "Friend",
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "AM",
+     "I",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "am marks the hours before noon on a clock"
+     },
+     {
+      "clueFragment": "promise to leave",
+      "gives": "IGO",
+      "note": "the two words somebody undertaking to depart would use"
+     }
+    ],
+    "walkthrough": "The question mark apologises for the whimsy: 'I go' is no stock phrase, just what a person promising to leave might say.",
+    "definitionFit": "Friend -> AMIGO: the Spanish word, borrowed into English as a breezy way of addressing a mate."
+   }
   },
   {
    "id": "23-across",
@@ -450,7 +1243,32 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTSMART",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OUTSMART",
+    "definition": "best",
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "OUT",
+     "SMART"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At a social event",
+      "gives": "OUT",
+      "note": "somebody out for the evening is at a party or a dinner"
+     },
+     {
+      "clueFragment": "maybe wearing a suit",
+      "gives": "SMART",
+      "note": "smart means well turned out, and a suit is one way of being it"
+     }
+    ],
+    "walkthrough": "'Best' closes the clue looking like the top of a range, and it is a verb: to best somebody is to beat them.",
+    "definitionFit": "best -> OUTSMART: as a verb, to best a rival is to get the better of them, here specifically by cleverness rather than force."
+   }
   },
   {
    "id": "24-down",
@@ -467,7 +1285,26 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALP",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ALP",
+    "definition": "Height",
+    "indicators": [
+     "bagged by"
+    ],
+    "indicatorNotes": {
+     "bagged by": "Whatever is bagged is carried unseen inside the bag, so the letters lie unbroken within the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "phenomenal pole-vaulter",
+      "gives": "ALP",
+      "note": "three letters in a row, the last two of the first word and the first of the second"
+     }
+    ],
+    "walkthrough": "An athlete clearing a height is such a tidy picture that nothing in it looks like an instruction, which is exactly how a short hidden word survives.",
+    "definitionFit": "Height -> ALP: one peak of the range that crosses Europe, a named mountain standing in for high ground in general."
+   }
   },
   {
    "id": "25-across",
@@ -484,7 +1321,37 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETHNIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters + cycling",
+    "answer": "ETHNIC",
+    "definition": "of race",
+    "indicators": [
+     "Cycling",
+     "finishes in"
+    ],
+    "indicatorNotes": {
+     "Cycling": "Letters that cycle travel round from one end of the assembly to the other without changing their order.",
+     "finishes in": "A word's finish is its last letter, so the ends of the two words named next are what is taken."
+    },
+    "pieces": [
+     "E",
+     "THNIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finishes in sprint, French",
+      "gives": "TH",
+      "note": "the final letters of those two words, in the order given"
+     },
+     {
+      "clueFragment": "kind",
+      "gives": "NICE",
+      "note": "a kind person is a nice one"
+     }
+    ],
+    "walkthrough": "The surface is a bike race, which lets 'Cycling' sit in plain sight as the instruction: one letter rolls off the back of the assembly to the front.",
+    "definitionFit": "of race -> ETHNIC: ethnic describes belonging to a people defined by shared descent and culture, so the phrase is the adjective's plain sense."
+   }
   },
   {
    "id": "26-across",
@@ -501,7 +1368,34 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUPERSTARDOM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUPERSTARDOM",
+    "definition": "Celebrity",
+    "indicators": [
+     "in different places"
+    ],
+    "indicatorNotes": {
+     "in different places": "Put the same letters in different places and you have the word rearranged, an instruction disguised here as geography."
+    },
+    "anagram": {
+     "fodder": "SPROUTED ARMS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "sprouted arms",
+      "gives": "SPROUTEDARMS",
+      "note": "anagram fodder, twelve letters"
+     },
+     {
+      "clueFragment": "in different places",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The picture is a statue growing extra limbs, and the instruction hides inside it. Twelve letters is long enough for a surface to swallow them whole.",
+    "definitionFit": "Celebrity -> SUPERSTARDOM: celebrity in the abstract sense, the state of being famous rather than a famous person, which is what the -dom ending names."
+   }
   }
  ]
 } /*JSON-END*/;
