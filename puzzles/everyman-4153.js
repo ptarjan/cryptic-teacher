@@ -30,7 +30,33 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAPHOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TAPHOUSE",
+    "definition": "tavern",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "TAP",
+     "HOUSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance",
+      "gives": "TAP",
+      "note": "tap is the dance done in metal-tipped shoes"
+     },
+     {
+      "clueFragment": "music",
+      "gives": "HOUSE",
+      "note": "house is the four-to-the-floor club genre, and the word sits in front of 'music' just as naturally"
+     }
+    ],
+    "walkthrough": "The trap is reading 'Dance music' as one thing. Each of those two words is really half of a different compound, and the drinking is all in the definition.",
+    "definitionFit": "A taphouse is a place serving beer straight from the tap, an older word for the pub, so 'tavern' is a plain synonym."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +73,29 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOSH",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "TOSH",
+    "definition": "rubbish",
+    "indicators": [
+     "At heart"
+    ],
+    "indicatorNotes": {
+     "At heart": "What a thing is at heart is what sits at its very centre, so everything but the middle of the word falls away."
+    },
+    "pieces": [
+     "TOSH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photoshop's",
+      "gives": "TOSH",
+      "note": "ten characters counting the s, so three off each end leave four standing in the centre"
+     }
+    ],
+    "walkthrough": "The surface is a grumble about the software. That apostrophe-s reads as 'is' and is also counted as a letter, which is what puts the centre of the word where it needs to be.",
+    "definitionFit": "'Rubbish' here means nonsense rather than refuse: tosh is the dismissive British word for talk not worth listening to."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +112,42 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROPANE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letter",
+    "answer": "PROPANE",
+    "definition": "gas",
+    "indicators": [
+     "having no",
+     "trace of"
+    ],
+    "indicatorNotes": {
+     "having no": "A word having no something is short of exactly that, so what follows is struck out rather than joined on.",
+     "trace of": "A trace is the smallest amount you could detect, and the smallest detectable amount of a written word is the letter it opens with."
+    },
+    "pieces": [
+     "PRO",
+     "PANE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "PRO",
+      "note": "pro- is the prefix of support, as in pro-democracy"
+     },
+     {
+      "clueFragment": "flat",
+      "gives": "PLANE",
+      "note": "a plane is a flat surface, the geometer's word for one"
+     },
+     {
+      "clueFragment": "laughing",
+      "gives": "L",
+      "note": "the first letter of the word, and the one that goes"
+     }
+    ],
+    "walkthrough": "The surface offers you laughing gas, which is nitrous oxide and not the answer. 'Gas' is the definition standing on its own, and 'laughing' is there only to be reduced to a single letter.",
+    "definitionFit": "Propane is the bottled hydrocarbon burnt in camping stoves and patio heaters, so 'gas' defines it by naming its class."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +168,37 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
     ]
    },
    "solution": "OFFCENTRE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OFF-CENTRE",
+    "definition": "not in the middle",
+    "indicators": [
+     "constructed"
+    ],
+    "indicatorNotes": {
+     "constructed": "Something constructed has been built up out of its materials, and letters treated as materials can be set down in any order at all."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "FORT FENCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fort",
+      "gives": "FORT",
+      "note": "four letters of the material, taken as they stand"
+     },
+     {
+      "clueFragment": "fence",
+      "gives": "FENCE",
+      "note": "five more, and the two words together are exactly the nine the enumeration asks for"
+     }
+    ],
+    "walkthrough": "A fort with a fence round it is a picture, not an instruction: nothing here goes inside anything. The (3-6) is the only sign that the answer arrives in two hyphenated parts.",
+    "definitionFit": "Something off-centre sits away from the middle point of whatever holds it, which is the definition read literally."
+   }
   },
   {
    "id": "4-down",
@@ -106,7 +219,27 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
     ]
    },
    "solution": "SLIPPERYSLOPE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SLIPPERY SLOPE",
+    "definition": "Here skeletons may descend from on high",
+    "definition2": "situation likely to worsen",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Here skeletons may descend from on high",
+      "gives": "",
+      "note": "skeleton is the Winter Olympic sport whose riders go head-first down an iced chute, so these skeletons are athletes and what they come down is a steep sheet of ice"
+     },
+     {
+      "clueFragment": "situation likely to worsen",
+      "gives": "",
+      "note": "the figurative sense, where one small concession is taken to lead inevitably to a worse one"
+     }
+    ],
+    "walkthrough": "The surface wants a haunted house with bones tumbling out of the attic. Swap that for the sliding sport and both halves of the clue are describing the same steep, icy thing.",
+    "definitionFit": "One half is the literal iced chute a skeleton rider descends; the other is the figurative version, where one concession leads on to worse."
+   }
   },
   {
    "id": "5-across",
@@ -123,7 +256,27 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRACES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BRACES",
+    "definition": "Supports",
+    "definition2": "couples",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Supports",
+      "gives": "",
+      "note": "the verb: to prop up, or to steady yourself against a shock you can see coming"
+     },
+     {
+      "clueFragment": "couples",
+      "gives": "",
+      "note": "the noun: a brace is a pair, two birds shot or two of anything, so the plural is pairs"
+     }
+    ],
+    "walkthrough": "Two words, two definitions and nothing in between. Read as a sentence it sounds like relationship counselling, and that is all the misdirection a clue this short has room for.",
+    "definitionFit": "'Supports' is the verb, to prop or steady; 'couples' is the noun, since a brace has meant a pair of things since the falconers used it."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +293,53 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RULER",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "RULER",
+    "definition": "Person in charge",
+    "indicators": [
+     "appearing in the end"
+    ],
+    "indicatorNotes": {
+     "appearing in the end": "What appears at the end of a written word is its final letter, and the phrase asks for that one letter from each word that follows."
+    },
+    "pieces": [
+     "R",
+     "U",
+     "L",
+     "E",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "R",
+      "note": "the closing letter of a word that looks like joinery and is really material"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "the closing letter of the pronoun"
+     },
+     {
+      "clueFragment": "yell",
+      "gives": "L",
+      "note": "the closing letter of the shout"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "E",
+      "note": "the closing letter of the colour"
+     },
+     {
+      "clueFragment": "murder",
+      "gives": "R",
+      "note": "the closing letter of the crime, fifth in an unbroken run"
+     }
+    ],
+    "walkthrough": "'Yell blue murder' is a real idiom for kicking up a fuss, which is why the eye slides straight over it, and why 'after' reads as a link word rather than the first piece of the wordplay.",
+    "definitionFit": "A plain synonym in the governing sense: a ruler is whoever holds power over a country, not the drawing instrument the word more often names."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +362,48 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CENTIME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letter",
+    "answer": "CENTIME",
+    "definition": "Swiss bread",
+    "indicators": [
+     "absent at first",
+     "hint of"
+    ],
+    "indicatorNotes": {
+     "absent at first": "Something absent at first is missing from the start, so the word named gives up the letter it opens with.",
+     "hint of": "A hint is the barest suggestion of a thing, and the barest suggestion of a written word is its opening letter."
+    },
+    "linkWords": [
+     "'s",
+     "then",
+     "getting"
+    ],
+    "pieces": [
+     "CENT",
+     "IM",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aroma",
+      "gives": "CENT",
+      "note": "an aroma is a scent, and the S it begins with is the one that goes missing"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "the contraction hands over both its letters as they stand"
+     },
+     {
+      "clueFragment": "edelweiss",
+      "gives": "E",
+      "note": "the first letter of the alpine flower"
+     }
+    ],
+    "walkthrough": "'Swiss bread' is not a loaf: bread is slang for money, so the definition is a currency. The edelweiss and the mountain air are surface dressing, and the flower gives up one letter only.",
+    "definitionFit": "Bread is slang for money and the centime is the hundredth part of a Swiss franc, so the definition names money by its country."
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +424,44 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPEEDSKATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "SPEED SKATE",
+    "definition": "Sportingly compete",
+    "indicators": [
+     "finally",
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "finally": "The last thing a written word does is finish, so 'finally' asks for the letter it finishes on.",
+     "sadly": "A thing done sadly is done badly, and letters set down badly do not keep the order they arrived in."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "SEE K PASTED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "see",
+      "gives": "SEE",
+      "note": "three letters of the mix, taken whole"
+     },
+     {
+      "clueFragment": "Kaepernick",
+      "gives": "K",
+      "note": "the final letter of the American footballer's surname"
+     },
+     {
+      "clueFragment": "pasted",
+      "gives": "PASTED",
+      "note": "six more letters, which with the other four make exactly ten"
+     }
+    ],
+    "walkthrough": "'Pasted' means thrashed in sport, so the surface stays on a beaten quarterback throughout. Nothing points to ice until you put the definition and the enumeration together.",
+    "definitionFit": "To speed skate is to race others on blades over ice, so 'compete' names the activity and 'sportingly' places it in sport."
+   }
   },
   {
    "id": "9-across",
@@ -201,7 +478,27 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOFF",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SCOFF",
+    "definition": "Gobble up",
+    "definition2": "mockery",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Gobble up",
+      "gives": "",
+      "note": "the eating sense: to put food away fast and greedily"
+     },
+     {
+      "clueFragment": "mockery",
+      "gives": "",
+      "note": "the derision sense, a jeer thrown at somebody"
+     }
+    ],
+    "walkthrough": "Two unrelated senses of one small word in a clue only three words long. 'Up' belongs to the first definition and not to the second, which is the whole of the difficulty.",
+    "definitionFit": "One sense is eating fast and greedily, the other is jeering derision: the same spelling doing two entirely unconnected jobs."
+   }
   },
   {
    "id": "10-across",
@@ -218,7 +515,45 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSOLENCE",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "INSOLENCE",
+    "definition": "rudeness",
+    "indicators": [
+     "succeeding"
+    ],
+    "indicatorNotes": {
+     "succeeding": "To succeed somebody is to take over their place, so one letter comes to stand exactly where the other stood."
+    },
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "pieces": [
+     "IN",
+     "S",
+     "OLENCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laziness",
+      "gives": "INDOLENCE",
+      "note": "indolence is settled laziness, the habit of never stirring"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "the standard abbreviation, and the letter that vacates the word"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "the standard abbreviation, moving into the place just vacated"
+     }
+    ],
+    "walkthrough": "Two nine-letter nouns a single letter apart is the whole joke. The surface reads as a family inheritance, and 'in laziness' looks like an insertion instruction rather than the word being altered.",
+    "definitionFit": "Insolence is rudeness of a particular flavour: open disrespect aimed at somebody entitled to expect better."
+   }
   },
   {
    "id": "11-down",
@@ -239,7 +574,34 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOULDERBLADE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHOULDER BLADE",
+    "definition": "it's wedged in your body",
+    "definitionNote": "The definition describes rather than names: it says what the answer does and where it sits, so it reads as a whole clause where a noun would normally stand.",
+    "indicators": [],
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "SHOULDER",
+     "BLADE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bear",
+      "gives": "SHOULDER",
+      "note": "to shoulder a burden is to bear it"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "BLADE",
+      "note": "a blade is a knife or a sword, the weapon named for its cutting part"
+     }
+    ],
+    "walkthrough": "'Bear' looks like the animal and 'wedged in' looks like an instruction to push something inside. Neither is true: the second half of the clue is all definition.",
+    "definitionFit": "The shoulder blade is the flat triangular bone set into the muscle of the upper back, so the clause defines it by position."
+   }
   },
   {
    "id": "12-across",
@@ -262,7 +624,51 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAKEUPYOURMIND",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "MAKE UP YOUR MIND",
+    "definition": "Decide",
+    "indicators": [
+     "contains"
+    ],
+    "indicatorNotes": {
+     "contains": "A thing that contains something holds it inside, so the letter named is dropped into the middle of the piece before it."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "MAKEUP",
+     "YOU",
+     "R",
+     "M",
+     "IND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put cosmetics on",
+      "gives": "MAKEUP",
+      "note": "cosmetics are the noun and applying them is the verb, spelt the same either way"
+     },
+     {
+      "clueFragment": "solver",
+      "gives": "YOU",
+      "note": "the setter addressing whoever is holding the paper"
+     },
+     {
+      "clueFragment": "skin",
+      "gives": "RIND",
+      "note": "a rind is the skin of a fruit or a cheese"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "note": "the German currency abbreviated, one letter to drop in"
+     }
+    ],
+    "walkthrough": "'Skin contains mark' reads as an instruction to hunt for buried letters and is an insertion instead. 'Solver' meaning you is a device Everyman uses most weeks.",
+    "definitionFit": "To make up your mind is to settle on a choice, which is exactly what deciding is: an everyday phrase standing in for one verb."
+   }
   },
   {
    "id": "13-down",
@@ -279,7 +685,38 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REDISCOVER",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "REDISCOVER",
+    "definition": "Once more find",
+    "indicators": [
+     "mostly",
+     "overwhelming"
+    ],
+    "indicatorNotes": {
+     "mostly": "Most of a word is all of it bar one letter, and the letter left out is the one at the end.",
+     "overwhelming": "To overwhelm a thing is to come down over it on every side, so this piece closes round the other."
+    },
+    "pieces": [
+     "RE",
+     "DISCO",
+     "VER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "echoey effect",
+      "gives": "REVER",
+      "note": "reverb is the studio effect that makes a room sound live, and its final B is dropped"
+     },
+     {
+      "clueFragment": "dance music",
+      "gives": "DISCO",
+      "note": "disco is a genre as much as it is a place to dance"
+     }
+    ],
+    "walkthrough": "Dance music turns up twice in this puzzle and the two clues want different genres out of it. 'Overwhelming' is doing a container's work here, not describing an emotion.",
+    "definitionFit": "Rediscovering is finding a second time, bringing something forgotten or overlooked back into view, which is the definition spelled out in plain words."
+   }
   },
   {
    "id": "14-across",
@@ -296,7 +733,42 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELECTORAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letter",
+    "answer": "ELECTORAL",
+    "definition": "Concerning political process",
+    "indicators": [
+     "wanting",
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "wanting": "A word wanting something is short of it, so the letter named never appears in the answer.",
+     "bit of": "A bit of a word is the smallest slice you can take from it, which by convention is the letter it starts with."
+    },
+    "pieces": [
+     "EL",
+     "ECTORAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for 'the', the masculine form of the definite article"
+     },
+     {
+      "clueFragment": "muscle",
+      "gives": "PECTORAL",
+      "note": "the pectoral is the chest muscle, the pec of the gym"
+     },
+     {
+      "clueFragment": "protection",
+      "gives": "P",
+      "note": "the first letter of the word, the bit taken off it"
+     }
+    ],
+    "walkthrough": "'The Spanish' is the standard crossword way of asking for EL, the definite article of that language rather than anything about Spain; French and Italian articles are clued the same way.",
+    "definitionFit": "Electoral means having to do with elections, and an election is the political process by which representatives get chosen."
+   }
   },
   {
    "id": "15-across",
@@ -313,7 +785,53 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLEAK",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "BLEAK",
+    "definition": "Primarily baleful, like Eeyore and knelling?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "Something primarily true is true first of all, and the first of all a word's letters is the one it begins with."
+    },
+    "pieces": [
+     "B",
+     "L",
+     "E",
+     "A",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baleful",
+      "gives": "B",
+      "note": "first letter of a word meaning menacing or full of gloom"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "L",
+      "note": "first letter, and the little comparison word is material like the rest"
+     },
+     {
+      "clueFragment": "Eeyore",
+      "gives": "E",
+      "note": "first letter of the permanently downcast donkey in Winnie-the-Pooh"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "A",
+      "note": "first letter, taken from a conjunction that looks like pure grammar"
+     },
+     {
+      "clueFragment": "knelling",
+      "gives": "K",
+      "note": "first letter of the slow tolling a bell does at a funeral"
+     }
+    ],
+    "walkthrough": "Every word after the instruction hands over its opening letter, and the sentence they spell is itself a fair description of the answer. The clue defines itself, which is what the question mark is signalling.",
+    "definitionFit": "Read straight, the whole clue is a mood: chiefly gloomy, donkey-glum, bell-tolling, so definition and wordplay are the very same words."
+   }
   },
   {
    "id": "15-down",
@@ -330,7 +848,36 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUDDHISTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "BUDDHISTS",
+    "definition": "believers",
+    "indicators": [
+     "Curt",
+     "out"
+    ],
+    "indicatorNotes": {
+     "Curt": "A curt reply is one cut short, and a word cut short surrenders the letter standing at its end.",
+     "out": "Something out is out of true or out of order, and letters out of order are letters waiting to be rearranged."
+    },
+    "anagram": {
+     "fodder": "BIDD SHUTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "biddy",
+      "gives": "BIDD",
+      "note": "a biddy is an old woman, mildly rude, and the Y at the end is cut away"
+     },
+     {
+      "clueFragment": "shuts",
+      "gives": "SHUTS",
+      "note": "five letters taken whole into the mix"
+     }
+    ],
+    "walkthrough": "'Shuts out' reads as one phrasal verb and splits in two: the verb is material and the small word after it is the instruction. Nobody is being excluded from anything.",
+    "definitionFit": "Definition by example: they are one particular body of believers, the followers of the Buddha's teaching, and both words are plural."
+   }
   },
   {
    "id": "16-across",
@@ -347,7 +894,30 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDIE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "INDIE",
+    "definition": "not mainstream",
+    "indicators": [
+     "Cockney's"
+    ],
+    "indicatorNotes": {
+     "Cockney's": "A Cockney speaker drops the aitch at the front of a word, so what is written with one is heard without it."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "soundsLike": "'INDI",
+      "gives": "INDIE",
+      "note": "the language is Hindi, and in that accent it loses the aitch it starts with"
+     }
+    ],
+    "walkthrough": "The aitch is the whole clue. Hindi written down gets you nowhere; Hindi as a Cockney says it does, once you let the spelling change at the other end too.",
+    "definitionFit": "Indie music and film are made outside the big labels and studios: independent, and so by definition not mainstream."
+   }
   },
   {
    "id": "17-down",
@@ -364,7 +934,44 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOMINOS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DOMINOS",
+    "definition": "What may be played in pub",
+    "definitionNote": "The game's name is plural in form though it names a single pastime, so nothing in the definition signals that final S and the enumeration has to do it instead.",
+    "indicators": [
+     "no good"
+    ],
+    "indicatorNotes": {
+     "no good": "Good is the standard single-letter abbreviation, and putting 'no' in front of it strikes that letter out of the word."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "DOMINO",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of the Three Tenors",
+      "gives": "DOMINGO",
+      "note": "Placido Domingo sang alongside Pavarotti and Carreras as the Three Tenors"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "S",
+      "note": "the contracted 's that English writes for the verb, tacked on the end"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "the abbreviation that 'no' takes away again"
+     }
+    ],
+    "walkthrough": "The game has been played in British pubs for two centuries, on a table under the darts board, and that is the world 'played in pub' is pointing at rather than anything operatic.",
+    "definitionFit": "It is a traditional British pub game played with small oblong tiles, so the definition points at it by where you would find it being played."
+   }
   },
   {
    "id": "18-across",
@@ -381,7 +988,29 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEADIEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STEADIEST",
+    "definition": "Extremely stable",
+    "indicators": [
+     "freak"
+    ],
+    "indicatorNotes": {
+     "freak": "A freak result is an abnormal one, knocked out of its usual shape, and letters out of their usual shape have been rearranged."
+    },
+    "anagram": {
+     "fodder": "STATESIDE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stateside",
+      "gives": "STATESIDE",
+      "note": "nine letters meaning 'over in America', handed over whole"
+     }
+    ],
+    "walkthrough": "The quotation marks flag a famous American boast and carry no instruction at all, while 'Stateside' keeps that surface running and is quietly the only material in the clue.",
+    "definitionFit": "'Extremely' is doing the work of 'most' here, so the definition is a superlative: the most steady of the lot."
+   }
   },
   {
    "id": "19-down",
@@ -398,7 +1027,38 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENNOBLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + alternate letters",
+    "answer": "ENNOBLE",
+    "definition": "Elevate",
+    "indicators": [
+     "somehow",
+     "but not",
+     "every now and then"
+    ],
+    "indicatorNotes": {
+     "somehow": "Doing a thing one way or another is doing it in no fixed way, and letters set down in no fixed way lose the order they came in.",
+     "but not": "'Not' marks what is missing rather than what is there, so the letters it introduces come back out of the mix.",
+     "every now and then": "What happens every now and then happens at intervals, and letters picked at intervals means every second one."
+    },
+    "anagram": {
+     "fodder": "NLEBONE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ankle bone",
+      "gives": "ANKLEBONE",
+      "note": "nine letters, the material the rest of the clue then trims"
+     },
+     {
+      "clueFragment": "back",
+      "gives": "AK",
+      "note": "the second and fourth letters of that word, which are the two taken away"
+     }
+    ],
+    "walkthrough": "The dashes invite you to lift 'but not back' out as an aside, when it is an instruction operating on its own last word. 'Elevate' is the peerage sense, raising somebody to the Lords.",
+    "definitionFit": "To ennoble is to raise a person into the nobility, and more loosely to lift anything in dignity, which is what elevating means."
+   }
   },
   {
    "id": "20-across",
@@ -420,7 +1080,46 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
     ]
    },
    "solution": "COMEFROMBEHIND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "COME FROM BEHIND",
+    "definition": "unexpectedly win",
+    "indicators": [
+     "without",
+     "struggle"
+    ],
+    "indicatorNotes": {
+     "without": "To be without a thing is to lack it, so the letter named never joins the letters being shuffled.",
+     "struggle": "A struggle is a scramble in which nothing keeps its place, which is precisely what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "OH FIND MORECMBE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Oh!",
+      "gives": "OH",
+      "note": "the exclamation gives up both of its letters"
+     },
+     {
+      "clueFragment": "Find",
+      "gives": "FIND",
+      "note": "four more letters, taken as they stand"
+     },
+     {
+      "clueFragment": "Morecambe",
+      "gives": "MORECAMBE",
+      "note": "a seaside resort on the Lancashire coast, and the stage surname of the comedian Eric"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the single letter that 'without' takes straight back out again"
+     }
+    ],
+    "walkthrough": "Fifteen letters go in and fourteen come out. 'Without a struggle' reads as one phrase about an easy victory, and the setter has hidden both a deletion and the shuffling instruction inside it.",
+    "definitionFit": "To come from behind is to win after trailing, so the victory is unexpected precisely because the winner was losing until late on."
+   }
   },
   {
    "id": "21-down",
@@ -437,7 +1136,39 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAZED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAZED",
+    "definition": "Startled",
+    "indicators": [
+     "taken in by"
+    ],
+    "indicatorNotes": {
+     "taken in by": "Something taken in by a thing is swallowed up inside it, so these letters go within the other piece rather than beside it."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "F",
+     "AZ",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policeman",
+      "gives": "FED",
+      "note": "a fed is an American federal agent, and so a policeman of a sort"
+     },
+     {
+      "clueFragment": "first and last characters",
+      "gives": "AZ",
+      "note": "the characters are the letters of the alphabet, which runs from A to Z"
+     }
+    ],
+    "walkthrough": "'Characters' wants to be people, the sort a policeman deals with. Read the word as letters instead and the two ends of the alphabet are the piece you need.",
+    "definitionFit": "To be fazed is to be thrown off balance by something unexpected, the same disconcerted state that 'startled' describes."
+   }
   },
   {
    "id": "22-down",
@@ -454,7 +1185,38 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "LEER",
+    "definition": "Act the lech",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "In a down clue whatever goes up is read from the foot of the entry towards the top, so the letters arrive in the opposite order."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "LEER"
+    ],
+    "subReversals": [
+     {
+      "from": "REEL",
+      "to": "LEER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stagger",
+      "gives": "REEL",
+      "note": "to reel is to stagger about, the way a drunk does"
+     }
+    ],
+    "walkthrough": "Four letters turned round, with 'up' doing its proper job for a down entry. 'Lech' is British slang for a lecher, so acting the lech is ogling somebody.",
+    "definitionFit": "To leer is to look at somebody with a sly, lecherous stare, which is exactly what playing the lech consists of."
+   }
   },
   {
    "id": "23-across",
@@ -471,7 +1233,27 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VENEZUELA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "VENEZUELA",
+    "definition": "somewhere in S America",
+    "indicators": [
+     "heard"
+    ],
+    "indicatorNotes": {
+     "heard": "What is heard is said out loud rather than written, so the letters wanted are a spelling of the sound and not of the words themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Singing gondolier",
+      "soundsLike": "VENICE WAILER",
+      "gives": "VENEZUELA",
+      "note": "a gondolier poles his boat along the canals of Venice, and one who sings is a wailer: say the two words quickly together"
+     }
+    ],
+    "walkthrough": "The country's name means 'little Venice', which is why the joke lands so neatly: the explorers who named it thought the stilt houses out on the water looked Venetian.",
+    "definitionFit": "It is a country on the northern coast of South America, so the definition places it by continent instead of naming it."
+   }
   },
   {
    "id": "24-across",
@@ -488,7 +1270,28 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SABRE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "SABRE",
+    "definition": "Weapon",
+    "indicators": [
+     "hidden in",
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "hidden in": "Nothing is disguised here: the letters sit unbroken inside the words that follow, waiting to be picked out.",
+     "flipping": "To flip a thing is to turn it over, so the run of letters has to be read the other way round."
+    },
+    "blocks": [
+     {
+      "clueFragment": "wastepaper basket",
+      "gives": "SABRE",
+      "note": "five letters in a row straddle the space between the two words, and they run right to left"
+     }
+    ],
+    "walkthrough": "Everyman tells you outright that something is buried, which is generous. 'Flipping' is the word that costs you, because it reads as mild annoyance about the bin.",
+    "definitionFit": "A sabre is a cavalry sword with a curved blade, and the fencing weapon named after it, so 'weapon' defines it by class."
+   }
   },
   {
    "id": "25-across",
@@ -505,7 +1308,34 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESIDE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RESIDE",
+    "definition": "Abide",
+    "indicators": [
+     "not having"
+    ],
+    "indicatorNotes": {
+     "not having": "A word not having a letter is a word that letter has left, so what is named goes out rather than in."
+    },
+    "pieces": [
+     "RESIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the dregs",
+      "gives": "RESIDUE",
+      "note": "what settles at the bottom and is left over when the rest has gone"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "uniform is U in the phonetic alphabet used over the radio"
+     }
+    ],
+    "walkthrough": "'Uniform' is the radio alphabet's U, from the same list that gives Romeo, Tango and Whisky. 'The dregs' is a noun here, not a complaint about the company.",
+    "definitionFit": "To reside somewhere is to live there, and 'abide' carries that older sense of dwelling rather than the modern one of putting up with."
+   }
   },
   {
    "id": "26-across",
@@ -522,7 +1352,43 @@ window.CRYPTIC_PUZZLES["everyman-4153"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MENSWEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "MENSWEAR",
+    "definition": "ties etc",
+    "indicators": [
+     "to put away",
+     "for a start"
+    ],
+    "indicatorNotes": {
+     "to put away": "To put something away is to stow it inside somewhere, which is where this letter goes rather than on the end.",
+     "for a start": "For a start means to begin with, and the beginning of a written word is its first letter."
+    },
+    "pieces": [
+     "ME",
+     "N",
+     "SWEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter signing himself, as he does most weeks"
+     },
+     {
+      "clueFragment": "nasty",
+      "gives": "N",
+      "note": "the first letter of the word and nothing else"
+     },
+     {
+      "clueFragment": "promise",
+      "gives": "SWEAR",
+      "note": "to swear is to promise on oath"
+     }
+    ],
+    "walkthrough": "'Nasty ties etc' sounds like a verdict on somebody's wardrobe, but only 'nasty' is wordplay and the rest is the definition. Everyman means himself whenever his own name turns up.",
+    "definitionFit": "It is the shop department covering men's clothing, and 'etc' shows the definition works by example, with ties standing for the whole range."
+   }
   }
  ]
 } /*JSON-END*/;
