@@ -30,7 +30,44 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUBJECT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SUBJECT",
+    "definition": "issue",
+    "indicators": [
+     "carrying",
+     "following"
+    ],
+    "indicatorNotes": {
+     "carrying": "What you carry you hold inside you, so the flight word closes around the letter handed to it rather than sitting beside it.",
+     "following": "To follow is to come along behind, so the flight half is written after the vessel instead of in front of it."
+    },
+    "pieces": [
+     "SUB",
+     "JE",
+     "C",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea transportation",
+      "gives": "SUB",
+      "note": "a sub is a submarine, the usual short form"
+     },
+     {
+      "clueFragment": "Take flight",
+      "gives": "JET",
+      "note": "to jet off somewhere is to take a flight"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     }
+    ],
+    "walkthrough": "'Take flight' wants to be fleeing and 'issue' wants to be a magazine or a problem. Neither reading survives, and the letter goes inside the verb rather than after it.",
+    "definitionFit": "'Issue' in the sense of the matter under discussion: the issue before a meeting is the topic on the table, not a problem or a magazine."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +84,37 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCHOOL",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "SCHOOL",
+    "definition": "divided by class",
+    "indicators": [
+     "Principally"
+    ],
+    "indicatorNotes": {
+     "Principally": "The principal part of a word is where it starts, so this asks for the opening letter of each word that follows."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "S",
+     "C",
+     "H",
+     "O",
+     "O",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social categorisation has one overwhelming limitation",
+      "gives": "SCHOOL",
+      "note": "six words standing in a row, each giving up the letter it begins with"
+     }
+    ],
+    "walkthrough": "The surface is sociology, where class means social rank; the definition means the classroom sort. A principal runs one of these, which is the setter winking at his own indicator.",
+    "definitionFit": "Pupils are split into classes, so the phrase describes the institution by how it organises its day rather than by naming it outright."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +131,52 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOARDS",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion + reversal",
+    "answer": "BOARDS",
+    "definition": "tables",
+    "indicators": [
+     "briefly",
+     "interrupted by",
+     "turning"
+    ],
+    "indicatorNotes": {
+     "briefly": "Said briefly, a word is cut short, and here that means losing the last of its four letters.",
+     "interrupted by": "An interruption arrives in the middle of what is being said, so the new letters land inside the word rather than after it.",
+     "turning": "Something turning ends up facing the other way, so the abbreviation is written from its last letter to its first."
+    },
+    "pieces": [
+     "BO",
+     "A",
+     "RD",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "DR",
+      "to": "RD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief",
+      "gives": "BOS",
+      "note": "the chief of a firm is the boss, docked here to three letters"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value, as a single letter"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "RD",
+      "note": "a doctor is DR in the standard abbreviation, and it arrives the other way round"
+     }
+    ],
+    "walkthrough": "'Turning tables' reads as one phrase and does two separate jobs: the doctor is what turns, and the tables are the definition sitting quietly at the end.",
+    "definitionFit": "A board is a plank and so the table made from one — 'board and lodging' still means the meals taken at somebody's table."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +193,50 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESSENTIALS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "ESSENTIALS",
+    "definition": "just what we need",
+    "definitionNote": "The answer is plural while the definition carries no -s; a phrase like 'what we need' stands for a whole set of things at once, so it substitutes fairly.",
+    "indicators": [
+     "served up",
+     "in"
+    ],
+    "indicatorNotes": {
+     "served up": "Serving something up presents it the other way about, and 'up' is the direction a down entry reverses in.",
+     "in": "'in' is the plainest containment instruction there is: the reversed word goes inside the city, not next to it."
+    },
+    "pieces": [
+     "ESSEN",
+     "TIAL",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "LAIT",
+      "to": "TIAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German city",
+      "gives": "ESSEN",
+      "note": "Essen is a city in the Ruhr, a setter's favourite for its vowels"
+     },
+     {
+      "clueFragment": "French milk",
+      "gives": "TIAL",
+      "note": "milk in French is lait, and this entry runs down the grid, so it is set out from the bottom"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the possessive tacks its own letter onto the city"
+     }
+    ],
+    "walkthrough": "The apostrophe-s does two jobs at once: it is the final letter of the assembly and the 'is' joining wordplay to definition. Setters allow themselves that double duty.",
+    "definitionFit": "Essentials are the things you cannot do without, so 'just what we need' names them by the test they have to pass."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +253,33 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TUTOR",
+    "definition": "Instructor",
+    "linkWords": [
+     "’s",
+     "with"
+    ],
+    "pieces": [
+     "TUT",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "express disapproval",
+      "gives": "TUT",
+      "note": "the noise you make to show you disapprove is written tut"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR is 'other ranks', the British Army's term for soldiers who are not officers"
+     }
+    ],
+    "walkthrough": "Two of the plainest conventions there are, laid end to end. The soldiers one is worth owning: OR turns up whenever a clue mentions men or ranks.",
+    "definitionFit": "A tutor instructs one pupil or a small group — the private or university teacher, rather than anyone standing in front of a class."
+   }
   },
   {
    "id": "5-across",
@@ -115,7 +296,29 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HONOURS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HONOURS",
+    "definition": "Recognises",
+    "pieces": [
+     "HON",
+     "OURS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "HON",
+      "note": "hon is the affectionate address, short for honey"
+     },
+     {
+      "clueFragment": "shared by you and me",
+      "gives": "OURS",
+      "note": "what belongs to the two of us together is ours"
+     }
+    ],
+    "walkthrough": "'Love' is the term of endearment, not the tennis nought a solver reaches for first, and the question mark is the setter admitting the short form.",
+    "definitionFit": "To honour somebody is to recognise them formally — the verb behind an honours list, where public recognition is the whole point."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +335,46 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUMILIATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HUMILIATE",
+    "definition": "cause to feel bad",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "'before' fixes the order of the pieces: what is named first is written first, and the eating comes last."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "HUM",
+     "I",
+     "L",
+     "I",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smell",
+      "gives": "HUM",
+      "note": "in British usage something that hums smells, and not pleasantly"
+     },
+     {
+      "clueFragment": "I left",
+      "gives": "IL",
+      "note": "the setter's I taken at face value, then L, the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "I ate",
+      "gives": "IATE",
+      "note": "the I comes round a second time and 'ate' contributes its own three letters"
+     }
+    ],
+    "walkthrough": "Five short pieces in a row, and the same letter I is clued twice — setters count each appearance separately, so spotting one does not mean you have both.",
+    "definitionFit": "To humiliate is to make somebody feel small in front of others: 'cause to feel bad' with the particular sting of wounded pride."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +391,23 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "NOTE",
+    "definition": "N American, African, Asian, Oceanian or even from the Antarctic!",
+    "blocks": [
+     {
+      "clueFragment": "N American, African, Asian, Oceanian",
+      "note": "read as nationalities this is a list of people, which is the reading the surface is pushing"
+     },
+     {
+      "clueFragment": "or even from the Antarctic!",
+      "note": "the continent with no nation of its own still has collectors' paper money, and the exclamation mark is the setter enjoying that"
+     }
+    ],
+    "walkthrough": "There is no separable wordplay here — the whole sentence is the definition. Read the adjectives as currencies rather than as peoples and the answer is paper money.",
+    "definitionFit": "The clue lists where paper money is issued, and the last item is the joke: the one continent without a country of its own."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +424,44 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNBIASED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNBIASED",
+    "definition": "Open-minded",
+    "indicators": [
+     "sacked"
+    ],
+    "indicatorNotes": {
+     "sacked": "A sacked city has been ransacked and left in disarray, and letters in disarray are letters to be put in a new order."
+    },
+    "anagram": {
+     "fodder": "NUDE A B IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nude",
+      "gives": "NUDE",
+      "note": "the word is here for its four letters"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the bishop in chess notation"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the little verb is fodder too, contributing two more letters"
+     }
+    ],
+    "walkthrough": "The word 'is' looks like joinery and is really material. Setters count every letter offered, and a two-letter word is the easiest one to leave out of the count.",
+    "definitionFit": "Somebody unbiased leans neither way, which is what open-minded describes: willing to weigh a case without arriving with the verdict."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +478,37 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPECTATE",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SPECTATE",
+    "definition": "Watch",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "The Reverend Spooner traded the opening sounds of two words, so naming him is the instruction to swap them over."
+    },
+    "pieces": [
+     "SPEC",
+     "TATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronics",
+      "soundsLike": "TEC",
+      "gives": "SPEC",
+      "note": "electronics is tech, and it gives its opening sound away in exchange for an SP"
+     },
+     {
+      "clueFragment": "series",
+      "soundsLike": "SPATE",
+      "gives": "TATE",
+      "note": "a spate of things is a run of them one after another, and it collects the T that tech gave up"
+     }
+    ],
+    "walkthrough": "The question mark admits the looseness: tech for electronics and a spate for a series are both everyday shorthand rather than dictionary equivalents.",
+    "definitionFit": "To spectate is to watch from the side rather than take part — the verb built backwards out of 'spectator'."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +525,32 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEADS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HEADS",
+    "definition": "Oversees",
+    "indicators": [
+     "advancement of ecstasy"
+    ],
+    "indicatorNotes": {
+     "advancement of ecstasy": "Ecstasy is E by the usual drug convention, and advancing it moves that letter one place forward through the others."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "HADES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hell",
+      "gives": "HADES",
+      "note": "hell in Greek myth is Hades, the underworld itself"
+     }
+    ],
+    "walkthrough": "Nothing is scrambled at random here. One letter steps forward and everything else keeps its place, which is why the indicator names the letter it is moving.",
+    "definitionFit": "To head a department is to be in charge of it, so the -s form answers 'oversees' as a verb rather than naming any body part."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +567,44 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIMETABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TIMETABLE",
+    "definition": "Schedule",
+    "indicators": [
+     "to pursue",
+     "embroiled in"
+    ],
+    "indicatorNotes": {
+     "to pursue": "To pursue is to chase along behind, so the furniture word is written after everything the clue has already built.",
+     "embroiled in": "Someone embroiled in an affair is caught up inside it, so the abbreviation sits within the bond rather than beside it."
+    },
+    "pieces": [
+     "TI",
+     "M",
+     "E",
+     "TABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relationship",
+      "gives": "TIE",
+      "note": "a tie is a bond between two people"
+     },
+     {
+      "clueFragment": "Master",
+      "gives": "M",
+      "note": "M is the standard abbreviation for Master"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "board and table are the same piece of furniture, as in 'board and lodging'"
+     }
+    ],
+    "walkthrough": "The surface hints at gossip about a schoolmaster; the M is only an abbreviation. Note that 2 down makes the same board-for-table swap in the opposite direction.",
+    "definitionFit": "A schedule set out by the clock is a timetable — the British word for the printed plan of a school day or a train service."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +621,43 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORDINARILY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ORDINARILY",
+    "definition": "Normally",
+    "indicators": [
+     "start off",
+     "after"
+    ],
+    "indicatorNotes": {
+     "start off": "To start something off is to begin it, and beginning this adverb means taking its opening letter away.",
+     "after": "'after' says where the trimmed adverb goes: behind the noise rather than in front of it."
+    },
+    "pieces": [
+     "OR",
+     "DIN",
+     "ARILY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the other hand",
+      "gives": "OR",
+      "note": "the word that offers the alternative is or"
+     },
+     {
+      "clueFragment": "loud noise",
+      "gives": "DIN",
+      "note": "a din is a continuous loud noise"
+     },
+     {
+      "clueFragment": "cautiously",
+      "gives": "ARILY",
+      "note": "the adverb wanted is warily, and its first letter has been started off"
+     }
+    ],
+    "walkthrough": "'Start off cautiously' reads as advice about how to begin something, which is the trap: it is an instruction to take the first letter off an adverb.",
+    "definitionFit": "Ordinarily means in the ordinary run of things, so it does the job 'normally' does — a statement of habit rather than of what is normal."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +674,35 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FACT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FACT",
+    "definition": "Reality",
+    "indicators": [
+     "tailing"
+    ],
+    "indicatorNotes": {
+     "tailing": "To tail somebody is to follow along behind them, so the performance is written after the letter it trails."
+    },
+    "pieces": [
+     "F",
+     "ACT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "ACT",
+      "note": "an act is a turn shown on stage"
+     }
+    ],
+    "walkthrough": "'Reality show' is the trap — it reads as the television genre. The definition stops after the first word, and the show belongs to the wordplay.",
+    "definitionFit": "A fact is what is genuinely the case, and 'reality' names the same thing as a noun: the truth of things, not a TV format."
+   }
   },
   {
    "id": "13-down",
@@ -272,7 +723,29 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
     ]
    },
    "solution": "PENCILCASE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PENCIL-CASE",
+    "definition": "somewhere to accommodate writers",
+    "indicators": [
+     "being arranged"
+    ],
+    "indicatorNotes": {
+     "being arranged": "Things being arranged are being put into a new order, which is exactly what happens to these ten letters."
+    },
+    "anagram": {
+     "fodder": "NICE PLACES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Nice places",
+      "gives": "NICEPLACES",
+      "note": "the two words are here for their ten letters"
+     }
+    ],
+    "walkthrough": "'Nice places' wants to be the French Riviera, and the capital letter is fair because the phrase opens the clue. The writers are implements, not people.",
+    "definitionFit": "The thing accommodates pens and pencils, and 'writers' is the setter's word for the implements that do the writing."
+   }
   },
   {
    "id": "14-across",
@@ -289,7 +762,47 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISPLACEMENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DISPLACEMENT",
+    "definition": "Being out of order",
+    "indicators": [
+     "heartless"
+    ],
+    "indicatorNotes": {
+     "heartless": "The heart of a three-letter word is its middle letter, and a heartless word has had that letter taken out."
+    },
+    "pieces": [
+     "DIS",
+     "PLACE",
+     "ME",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criticise",
+      "gives": "DIS",
+      "note": "to dis someone is to criticise them, in the slang spelling"
+     },
+     {
+      "clueFragment": "put down",
+      "gives": "PLACE",
+      "note": "to put something down is to place it"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter is the person writing the clue, so 'setter' is ME"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "NT",
+      "note": "the U at its centre is the heart that goes"
+     }
+    ],
+    "walkthrough": "'Out of order' means out of its proper place here, not broken or badly behaved. The setter-is-ME convention is worth owning: it turns up in every grid.",
+    "definitionFit": "Displacement is the state of having been shifted out of position, which is what 'out of order' means when order is arrangement rather than repair."
+   }
   },
   {
    "id": "15-down",
@@ -306,7 +819,29 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRIMARIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRIMARIES",
+    "definition": "1Ds for young",
+    "pieces": [
+     "PRIM",
+     "ARIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strait-laced",
+      "gives": "PRIM",
+      "note": "prim means stiffly proper and easily shocked"
+     },
+     {
+      "clueFragment": "group of stars",
+      "gives": "ARIES",
+      "note": "Aries the ram is a constellation, the first sign of the zodiac"
+     }
+    ],
+    "walkthrough": "The definition points at another clue: read '1Ds' as the answer to 1 down, in the plural. Cross-references like this are always to the solved word, never to the clue.",
+    "definitionFit": "1 down's answer is SCHOOL, and in Britain primaries are the schools that take children up to about eleven."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +858,29 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DINGIEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DINGIEST",
+    "definition": "most dull",
+    "indicators": [
+     "crazy"
+    ],
+    "indicatorNotes": {
+     "crazy": "What is crazy has gone out of its right order, which is the instruction to put these letters into a different one."
+    },
+    "anagram": {
+     "fodder": "GIN DIET’S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gin diet’s",
+      "gives": "GINDIETS",
+      "note": "the letters of both words, apostrophe and all, are the material"
+     }
+    ],
+    "walkthrough": "The dash marks the join: 'crazy' finishes the wordplay and 'most dull' begins the definition. Guardian setters use it where a link word would otherwise go.",
+    "definitionFit": "Dingy means grimy and gloomy, so the dingiest room is the drabbest — dull in the sense of dim and colourless, not boring."
+   }
   },
   {
    "id": "17-down",
@@ -340,7 +897,43 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTITUDE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ATTITUDE",
+    "definition": "Mood",
+    "indicators": [
+     "when drinking",
+     "putting away"
+    ],
+    "indicatorNotes": {
+     "when drinking": "To drink something is to take it inside you, so the letter goes within the word that swallows it.",
+     "putting away": "Putting something away is stowing it out of sight, so the letter it names leaves the word altogether."
+    },
+    "pieces": [
+     "A",
+     "T",
+     "TITUDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elevation",
+      "gives": "ALTITUDE",
+      "note": "elevation is height above sea level"
+     },
+     {
+      "clueFragment": "Tango",
+      "gives": "T",
+      "note": "Tango is T in the NATO alphabet"
+     },
+     {
+      "clueFragment": "litres",
+      "gives": "L",
+      "note": "l is the symbol for litre, and this is the letter taken off"
+     }
+    ],
+    "walkthrough": "Tango is a British fizzy orange drink as well as the NATO alphabet's T, which is what lets the surface read as a night out rather than a spelling lesson.",
+    "definitionFit": "An attitude is the stance somebody takes towards things, so 'mood' fits as the settled frame of mind rather than a passing feeling."
+   }
   },
   {
    "id": "18-across",
@@ -357,7 +950,39 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTELLIGENCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "INTELLIGENCE",
+    "definition": "information",
+    "indicators": [
+     "Another order",
+     "excluding"
+    ],
+    "indicatorNotes": {
+     "Another order": "Order here means arrangement rather than command, and another arrangement of the same letters is what the clue wants.",
+     "excluding": "What is excluded is kept out, so the letter named next never joins the letters being shuffled."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "GILT NILE CENE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gilt Nile scene",
+      "gives": "GILTNILESCENE",
+      "note": "the three words are here for their thirteen letters, not their picture"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the standard abbreviation for special, and it is the letter left out"
+     }
+    ],
+    "walkthrough": "The deletion happens before the shuffle, so count the fodder first: thirteen letters offered, one taken away, twelve to be rearranged into the enumeration.",
+    "definitionFit": "Information gathered about an enemy or a rival is intelligence — the spy's sense of the word, which is why the surface talks about scenes and exclusions."
+   }
   },
   {
    "id": "19-down",
@@ -374,7 +999,38 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DONGLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DONGLE",
+    "definition": "It may be carrying files",
+    "indicators": [
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "supporting": "A support sits underneath what it holds up, and underneath in a down entry means later, so this piece goes at the bottom."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "DONG",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern currency",
+      "gives": "DONG",
+      "note": "the dong is the currency of Vietnam"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "'le' is one of the French words for 'the'"
+     }
+    ],
+    "walkthrough": "Foreign-word clues like this one lean on schoolroom French, and the direction word is doing real work: in a down entry, 'supporting' means below and so later.",
+    "definitionFit": "A dongle is the small stick that plugs into a computer to carry files or unlock software, so the whole phrase describes one by what it does."
+   }
   },
   {
    "id": "20-down",
@@ -391,7 +1047,30 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASCENT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ASCENT",
+    "definition": "rise",
+    "indicators": [
+     "State"
+    ],
+    "indicatorNotes": {
+     "State": "To state something is to say it out loud, so what gets written down is whatever the spoken word sounds like."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "soundsLike": "ASSENT",
+      "gives": "ASCENT",
+      "note": "agreement given is assent, spelt with a double S and sounding identical to the climb"
+     }
+    ],
+    "walkthrough": "Two spellings, one sound. Only the crossing letters tell you which one the grid wants, which is why homophone clues are worth leaving until a few crossers are in.",
+    "definitionFit": "An ascent is a climb upwards and 'rise' names that same movement as a noun: the going up, rather than the thing that goes up."
+   }
   },
   {
    "id": "21-across",
@@ -408,7 +1087,35 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRID",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "GRID",
+    "definition": "network",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "'first' asks only for the opening letter of the invented company standing in front of it."
+    },
+    "pieces": [
+     "G",
+     "RID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giganet’s first",
+      "gives": "G",
+      "note": "the opening letter of that made-up company's name"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to be rid of something is to be free of it"
+     }
+    ],
+    "walkthrough": "Giganet is invented for the surface and only its initial matters. The definition is electrical, which is what makes the technology surface sound plausible.",
+    "definitionFit": "The grid is the network of cables distributing electricity around a country — Britain calls its own the National Grid."
+   }
   },
   {
    "id": "22-across",
@@ -425,7 +1132,42 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BATTALIONS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BATTALIONS",
+    "definition": "groups of soldiers",
+    "indicators": [
+     "circling"
+    ],
+    "indicatorNotes": {
+     "circling": "Something circling goes right round the thing it circles, so the claws close on both sides of the letter between them."
+    },
+    "pieces": [
+     "BAT",
+     "TAL",
+     "I",
+     "ONS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flying creature",
+      "gives": "BAT",
+      "note": "the flying creature wanted is the only mammal that does it properly"
+     },
+     {
+      "clueFragment": "claws",
+      "gives": "TALONS",
+      "note": "the claws of a bird of prey are its talons"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the standard abbreviation for international"
+     }
+    ],
+    "walkthrough": "The surface shows one bird — flying, clawed and circling — while the parse needs three separate pieces out of it, and the circling belongs to the letters, not the bird.",
+    "definitionFit": "A battalion is an army unit of several hundred troops, so the plural names groups of soldiers by their formal size."
+   }
   },
   {
    "id": "23-down",
@@ -442,7 +1184,29 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TENSE",
+    "definition": "stressed",
+    "indicators": [
+     "Disorganised"
+    ],
+    "indicatorNotes": {
+     "Disorganised": "What is disorganised has lost the arrangement it came in, so the word beside it is to be put into another."
+    },
+    "anagram": {
+     "fodder": "TEENS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "teens",
+      "gives": "TEENS",
+      "note": "the five letters offered are the whole of the material"
+     }
+    ],
+    "walkthrough": "Three words, and the only work is deciding which two belong together. 'Disorganised teens' is the wordplay; the last word alone is the definition.",
+    "definitionFit": "Somebody tense is strung tight and on edge, which is what 'stressed' describes — the adjective for the person, not the verb for emphasis."
+   }
   },
   {
    "id": "24-down",
@@ -459,7 +1223,26 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "FAIL",
+    "definition": "collapse",
+    "indicators": [
+     "concealing"
+    ],
+    "indicatorNotes": {
+     "concealing": "To conceal something is to hide it inside something else, so the letters are already there in order, not waiting to be shuffled."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Antifa illegally",
+      "gives": "FAIL",
+      "note": "the letters run consecutively across the join between the two words"
+     }
+    ],
+    "walkthrough": "Hidden words hide because the surface is doing all the shouting: two political words in a row, with the answer lying flat across the gap between them.",
+    "definitionFit": "Collapse here means coming to nothing — a scheme that collapses has not fallen over, it has simply not worked."
+   }
   },
   {
    "id": "25-across",
@@ -476,7 +1259,29 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDUCATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EDUCATION",
+    "definition": "Teaching",
+    "indicators": [
+     "disordered"
+    ],
+    "indicatorNotes": {
+     "disordered": "Something disordered has been shaken out of its order, which is the instruction to find a new one for these nine letters."
+    },
+    "anagram": {
+     "fodder": "CAN DIE OUT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "can die out",
+      "gives": "CANDIEOUT",
+      "note": "three ordinary words in a row, offered for their letters"
+     }
+    ],
+    "walkthrough": "The fodder hides by being a sentence with an opinion in it. Reading 'can die out' as a gloomy prediction is exactly what stops you counting its letters.",
+    "definitionFit": "'Teaching' as a noun names the activity, and education is that activity taken as a whole — schooling rather than a single lesson."
+   }
   },
   {
    "id": "26-across",
@@ -493,7 +1298,34 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGLE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ANGLE",
+    "definition": "fish",
+    "indicators": [
+     "headless"
+    ],
+    "indicatorNotes": {
+     "headless": "The head of a word is the letter it begins with, so a headless word has lost its first letter."
+    },
+    "pieces": [
+     "ANGLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swing",
+      "gives": "DANGLE",
+      "note": "something swinging loosely from a hook dangles"
+     },
+     {
+      "clueFragment": "headless",
+      "gives": "D",
+      "note": "the head of that swinging word is its D, and that is what goes"
+     }
+    ],
+    "walkthrough": "Three words and none of them does the job you expect. 'Fish' is the definition, in the sense of what an angler does, and 'Swing' is the word to behead.",
+    "definitionFit": "To angle is to fish with rod and line — the verb behind 'angler', and the sense that keeps the word alive outside geometry."
+   }
   },
   {
    "id": "27-across",
@@ -510,7 +1342,38 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREBLES",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "TREBLES",
+    "definition": "gets three times bigger",
+    "indicators": [
+     "surrounding",
+     "outskirts of"
+    ],
+    "indicatorNotes": {
+     "surrounding": "What surrounds something wraps all the way round it, so the woodland word opens up and closes again on both sides.",
+     "outskirts of": "The outskirts of a town are its outer edges, so the edges of the word are the two letters wanted."
+    },
+    "pieces": [
+     "TRE",
+     "BL",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wood",
+      "gives": "TREES",
+      "note": "a wood is a stand of trees"
+     },
+     {
+      "clueFragment": "Blackpool",
+      "gives": "BL",
+      "note": "the outer letters of the resort's name, its first and its last"
+     }
+    ],
+    "walkthrough": "Blackpool is an English seaside resort with a tower and a pier, but the clue wants only the letters at its two ends — everything in the middle is scenery.",
+    "definitionFit": "To treble is to multiply by three, so a sum that trebles has grown to three times what it was before."
+   }
   },
   {
    "id": "28-across",
@@ -527,7 +1390,44 @@ window.CRYPTIC_PUZZLES["cryptic-30100"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ELEMENT",
+    "definition": "Part",
+    "indicators": [
+     "in",
+     "half-cut"
+    ],
+    "indicatorNotes": {
+     "in": "'in' is the plainest way of saying something goes inside, and the company is what goes in.",
+     "half-cut": "Cut in half, the village word keeps only one of its halves, and it is the back one that survives."
+    },
+    "pieces": [
+     "E",
+     "LE",
+     "MEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the usual abbreviation for English"
+     },
+     {
+      "clueFragment": "hamlet",
+      "gives": "LET",
+      "note": "a hamlet is a village too small for a church, and only its back half is used"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "MEN",
+      "note": "a company is a body of men, in the army sense of the word"
+     }
+    ],
+    "walkthrough": "'Part company' is the phrase the surface wants and the parse cuts in two: 'Part' is the definition, 'company' the wordplay. Half-cut is British slang for tipsy.",
+    "definitionFit": "An element is one part of a whole: the elements of a plan are its components, which is the sense the definition uses."
+   }
   }
  ]
 } /*JSON-END*/;
