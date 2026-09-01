@@ -11,9 +11,14 @@ night, and the first person to notice is a learner who opened a clue with no
 teaching ladder in it.
 
 So the ratio gets checked by something that can shout. Give it the puzzles a run
-tried to annotate; it exits non-zero and names the clues if any came back short,
-and says which of the two reasons it is: a clue the model could not solve, or a
-clue the paper published with no words in it, which is nobody's model failing.
+tried to annotate; it exits non-zero and names the clues if any came back short.
+
+Only ONE of the two ways to come up short is a failure. A clue the model could
+not solve is a quality problem and gets shouted about. A clue the paper
+published with no words in it is owed nothing by anybody — it is printed, so a
+scrape that started blanking clues is still visible in the log, but it does not
+fail the check, because a gap that can never be filled would otherwise alert
+every single night for the life of the puzzle.
 
     python3 tools/check_annotation_loss.py 30094 12429
     python3 tools/check_annotation_loss.py            # whatever the tree changed
@@ -42,7 +47,7 @@ def unannotated(puzzle):
 
 def main(argv):
     paths = [resolve_puzzle(a) for a in argv] if argv else changed_puzzles()
-    short = []
+    short, wordless_only = [], []
     for path in paths:
         if not path.exists():
             continue
@@ -52,23 +57,28 @@ def main(argv):
         # A file with nothing in it was never attempted — that is the backlog,
         # not a loss. A file with SOME annotations is a run that tried and came
         # up short, and that is the case worth waking someone for.
-        if missing and len(missing) < total:
-            short.append((puzzle["id"], total - len(missing), total, missing))
-    for pid, done, total, missing in short:
+        if not missing or len(missing) == total:
+            continue
         # Two very different failures land in the same gap, and treating them
         # alike sent someone to grade a model that had been handed a clue with
-        # no words in it. Name which one this is.
+        # no words in it. Only the solvable one is a loss.
         unsolved = [e["id"] for e in missing if has_words(e["clue"])]
         wordless = [e["id"] for e in missing if not has_words(e["clue"])]
-        why = []
         if unsolved:
-            why.append(f"could not solve {', '.join(unsolved)} — if that keeps "
-                       f"happening the model is failing to solve the puzzle, "
-                       f"which is a quality problem, not a spend one")
+            short.append((puzzle["id"], total - len(missing), total,
+                          unsolved, wordless))
+        else:
+            wordless_only.append((puzzle["id"], wordless))
+    for pid, wordless in wordless_only:
+        print(f"{pid}: {', '.join(wordless)} published with no clue text — "
+              f"nothing to solve, so nothing is owed")
+    for pid, done, total, unsolved, wordless in short:
+        why = [f"could not solve {', '.join(unsolved)} — if that keeps "
+               f"happening the model is failing to solve the puzzle, "
+               f"which is a quality problem, not a spend one"]
         if wordless:
             why.append(f"{', '.join(wordless)} published with no clue text, so "
-                       f"there is nothing to solve — re-fetch, or get the clue "
-                       f"from the paper by hand")
+                       f"there is nothing to solve there")
         print(f"{pid}: {done}/{total} annotated — {'; '.join(why)}")
     if not short:
         print(f"annotation loss check: {len(paths)} puzzle(s), none left short")
