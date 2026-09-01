@@ -30,7 +30,40 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TSETSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TSETSE",
+    "definition": "Fly",
+    "linkWords": [
+     "or"
+    ],
+    "indicators": [
+     "endlessly",
+     "repeatedly"
+    ],
+    "indicatorNotes": {
+     "endlessly": "Endlessly asks for a word with its final character lopped off, and here each of the two short words that follow is docked the same way.",
+     "repeatedly": "What has just been assembled is wanted again straight after it, so one small chunk does the work of two."
+    },
+    "pieces": [
+     "TSE",
+     "TSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to sea",
+      "gives": "TSE",
+      "note": "TO docked of its last character leaves T, and SEA docked of its last leaves SE"
+     },
+     {
+      "clueFragment": "to sea",
+      "gives": "TSE",
+      "note": "the same trimmed pair a second time, since one copy is only half the length wanted"
+     }
+    ],
+    "walkthrough": "The surface is a grumble about a long voyage, and the trap is reading 'or' as the start of the wordplay: it is only the word joining the definition to it.",
+    "definitionFit": "'Fly' names the insect by its family: the tsetse is the biting African insect that carries sleeping sickness, so the general word covers the particular one."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +84,24 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCARBOROUGHFAIR",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SCARBOROUGH FAIR",
+    "definition": "Traditional number of herbs?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Traditional number",
+      "note": "a 'number' in the music trade is a song, and a traditional one is a folk tune with no known author"
+     },
+     {
+      "clueFragment": "of herbs?",
+      "note": "not a count of them: the herbs are the four the refrain lists, parsley, sage, rosemary and thyme"
+     }
+    ],
+    "walkthrough": "The question mark carries the whole clue. Scarborough Fair is an English folk ballad, and its herb-listing refrain is probably the best-known line in the tradition.",
+    "definitionFit": "The ballad's refrain runs 'parsley, sage, rosemary and thyme', so a folk song that lists herbs describes this title and no other."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +118,26 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORONTO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TORONTO",
+    "definition": "somewhere in Ontario",
+    "indicators": [
+     "What may be taken from"
+    ],
+    "indicatorNotes": {
+     "What may be taken from": "Taking something from a phrase means lifting letters that are already sitting in it, in the order they were written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Raptor on tour",
+      "gives": "TORONTO",
+      "note": "seven consecutive letters straddle all three words, beginning inside the first"
+     }
+    ],
+    "walkthrough": "The Raptors are Toronto's basketball team, so the city is sitting inside a phrase about its own side travelling — the surface names the answer twice over.",
+    "definitionFit": "Ontario is a Canadian province and Toronto its largest city, so the definition points at the answer as one place among several it could mean."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +154,34 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENCLOSING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENCLOSING",
+    "definition": "Penning",
+    "indicators": [
+     "rubbish"
+    ],
+    "indicatorNotes": {
+     "rubbish": "To rubbish a thing is to trash it, and letters that have been trashed do not stay in the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "LONG SINCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "long since",
+      "gives": "LONGSINCE",
+      "note": "nine letters of fodder, taken exactly as they stand"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Read 'rubbish' as a noun and the clue is a complaint about old junk; read it as a verb and it is the instruction. That switch of part of speech is the whole difficulty.",
+    "definitionFit": "To pen animals is to shut them in a fenced space, which is the sense the answer carries; the writing sense of 'pen' is the decoy."
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +198,27 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABBOTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ABBOTS",
+    "definition": "Brothers",
+    "definition2": "who may give prior approval",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Brothers",
+      "gives": "ABBOTS",
+      "note": "the men who head a monastery are members of its brotherhood, monks like the rest of them"
+     },
+     {
+      "clueFragment": "who may give prior approval",
+      "gives": "ABBOTS",
+      "note": "a prior is the deputy who runs a monastery under its head, so approving one is a job for the rank above"
+     }
+    ],
+    "walkthrough": "'Prior approval' is the sort of phrase a form asks for, which is the misdirection: the prior here is a person, a monastery's second in command, and the approval is his superior's.",
+    "definitionFit": "An abbot is the elected head of an abbey, a monk among monks and the rank immediately above a prior, so both halves name the same office."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +235,41 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ADDED",
+    "definition": "On social media, befriended",
+    "indicators": [
+     "bored by"
+    ],
+    "indicatorNotes": {
+     "bored by": "To bore into a thing is to drill a hole through the middle of it, so whatever does the boring ends up inside."
+    },
+    "pieces": [
+     "A",
+     "DD",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken as the single letter it is written with"
+     },
+     {
+      "clueFragment": "Double Dutch",
+      "gives": "DD",
+      "note": "Dutch is taken as D, and the word in front of it calls for a second copy"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "the editor is the journalist crosswords reach for, shortened as it is on a masthead"
+     }
+    ],
+    "walkthrough": "'Double Dutch' means gibberish and 'bored' means fed up, and neither reading is the working one: the first is a pair of letters, the second a drill.",
+    "definitionFit": "To add someone on a social network is to accept them as a friend, so the past-tense verb matches 'befriended' in both sense and inflection."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +286,35 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BABYLON",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BABYLON",
+    "definition": "city of sin",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "overheard"
+    ],
+    "indicatorNotes": {
+     "overheard": "What is overheard reaches you by ear alone, so the clue is describing a sound and not a spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Continue to divulge secrets",
+      "gives": "BABBLE ON",
+      "note": "to babble is to let secrets out in a rush, and 'continue' supplies the ON that keeps it going"
+     },
+     {
+      "clueFragment": "overheard",
+      "soundsLike": "BABBLE ON",
+      "gives": "BABYLON",
+      "note": "said aloud, those two words run together and come out spelt as one"
+     }
+    ],
+    "walkthrough": "The definition is scriptural: the ancient city became the Bible's byword for corruption and luxury, and later for any place thought to be both.",
+    "definitionFit": "Babylon is the Mesopotamian capital the Bible turned into a byword for decadence, so 'city of sin' names it by reputation rather than by map."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +335,37 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRAFALGARSQUARE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRAFALGAR SQUARE",
+    "definition": "London location",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Milk goes off when it will no longer hold together, and letters that have gone off will not hold their order either."
+    },
+    "anagram": {
+     "fodder": "A LARGER SQUAT FAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A larger squat, far",
+      "gives": "ALARGERSQUATFAR",
+      "note": "fifteen letters of fodder, taken exactly as they stand"
+     },
+     {
+      "clueFragment": "off",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'A larger squat, far off' reads as a description of an illegal occupation somewhere distant, and only the last word of it is an instruction; the other five are raw material.",
+    "definitionFit": "It is the plaza at the centre of the capital, with Nelson's Column in the middle, so the definition names it by category and city."
+   }
   },
   {
    "id": "8-across",
@@ -174,7 +382,51 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABRACADABRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ABRACADABRA",
+    "definition": "a spell",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "twice",
+     "defending"
+    ],
+    "indicatorNotes": {
+     "twice": "The chunk just built is wanted two times over, once on each side of what comes next.",
+     "defending": "A defender stands round the thing being protected, so the pieces named go outside and the word after sits within them."
+    },
+    "pieces": [
+     "ABRA",
+     "CAD",
+     "ABRA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A supporter",
+      "gives": "ABRA",
+      "note": "the letter A followed by the undergarment that does the supporting"
+     },
+     {
+      "clueFragment": "scoundrel",
+      "gives": "CAD",
+      "note": "a cad is an ungentlemanly rotter, three letters long"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "ABRA",
+      "note": "the same four letters again, this time on the far side"
+     },
+     {
+      "clueFragment": "it might be said",
+      "gives": "",
+      "note": "surface only: it points at a magic word being uttered, and hands over no letters"
+     }
+    ],
+    "walkthrough": "'For a spell' means 'for a while' in the surface and 'as a magic word' in the answer, and the supporter is underwear rather than a fan in the stands.",
+    "definitionFit": "Abracadabra is the incantation a stage magician pronounces to make the trick work, so the answer is a spell in the conjuring sense."
+   }
   },
   {
    "id": "9-down",
@@ -191,7 +443,38 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRIM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "GRIM",
+    "definition": "stony-faced",
+    "linkWords": [
+     "leaving you"
+    ],
+    "indicators": [
+     "Vacuous"
+    ],
+    "indicatorNotes": {
+     "Vacuous": "Something vacuous is empty in the middle, so the word beside it keeps only the letters at its two ends."
+    },
+    "pieces": [
+     "GR",
+     "IM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'gagster'",
+      "gives": "GR",
+      "note": "hollow out the joker's word and its first and last letters are what is left"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "IM",
+      "note": "this paper's setter signs himself Everyman, so his own 'I am' contracts to two letters"
+     }
+    ],
+    "walkthrough": "Everyman is the name this crossword's setter writes under, and 'Everyman's' is him saying I'm — a signature trick worth knowing, because he uses himself as fodder most weeks.",
+    "definitionFit": "Grim describes a face set hard and unsmiling, the look of someone braced for bad news, which is what a stony expression is."
+   }
   },
   {
    "id": "10-down",
@@ -208,7 +491,36 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HYMN",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + outer letters",
+    "answer": "HYMN",
+    "definition": "What has holy musician turned out?",
+    "definitionNote": "An &lit: the whole question defines the answer, and two of its words hand over their outer letters at the same time.",
+    "indicators": [
+     "turned out"
+    ],
+    "indicatorNotes": {
+     "turned out": "You turn out a pocket or a drawer by emptying it, so each word named keeps only the letters at its edges."
+    },
+    "pieces": [
+     "HY",
+     "MN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holy",
+      "gives": "HY",
+      "note": "empty the middle of the word and its first and last letters stay put"
+     },
+     {
+      "clueFragment": "musician",
+      "gives": "MN",
+      "note": "the same treatment for the player: outside letters kept, the six inside dropped"
+     }
+    ],
+    "walkthrough": "'Turned out' does double duty: in the surface it means produced, in the wordplay it means emptied, which is why the clue is true read either way.",
+    "definitionFit": "A hymn is a song of praise written for worship, precisely what a religious musician produces, so the question reads as a straight definition."
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +541,27 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROBINHOOD",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROBIN HOOD",
+    "definition": "One in the green",
+    "definition2": "helping those in the red?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "One in the green",
+      "gives": "ROBINHOOD",
+      "note": "the outlaw of the ballads wore Lincoln green and lived in the greenwood of Sherwood Forest"
+     },
+     {
+      "clueFragment": "helping those in the red?",
+      "gives": "ROBINHOOD",
+      "note": "to be in the red is to be in debt, and this man took from the rich and handed it to the poor"
+     }
+    ],
+    "walkthrough": "Two colours and two idioms: Lincoln green is what the legend wore, being in the red is owing money, and the modern banking phrase is put to medieval work.",
+    "definitionFit": "He is the greenwood outlaw of English legend who robbed the rich to pay the poor, so both halves point at the same figure."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +578,34 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEARY",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "LEARY",
+    "definition": "LSD enthusiast allegedly revolutionising youth in their heads?",
+    "definitionNote": "An &lit: every word of the sentence describes the man, and the same words hand over their opening letters.",
+    "indicators": [
+     "in their heads"
+    ],
+    "indicatorNotes": {
+     "in their heads": "The head of a word is its opening letter, so this asks for the first letter of each word that has gone before."
+    },
+    "pieces": [
+     "L",
+     "E",
+     "A",
+     "R",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "LSD enthusiast allegedly revolutionising youth",
+      "gives": "LEARY",
+      "note": "the opening letter of each of the five words, read in the order given"
+     }
+    ],
+    "walkthrough": "Timothy Leary was the Harvard psychologist sacked over his LSD experiments, who told the sixties to turn on and drop out — so the sentence is a fair description as well as a recipe.",
+    "definitionFit": "Leary preached LSD to the young in the sixties, so the sentence describes the man and doubles as the instruction that spells his name."
+   }
   },
   {
    "id": "13-across",
@@ -263,7 +622,49 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARCONI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + first letter",
+    "answer": "MARCONI",
+    "definition": "Italian engineer",
+    "indicators": [
+     "about",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "about": "To go about is to turn and face the other way, so the letters just built are read back to front.",
+     "primarily": "Primarily means first of all, so only the opening letter of the word beside it is taken."
+    },
+    "pieces": [
+     "MARC",
+     "ON",
+     "I"
+    ],
+    "subReversals": [
+     {
+      "from": "CRAM",
+      "to": "MARC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study hard",
+      "gives": "MARC",
+      "note": "to cram is to study hard, and turned round those four letters read the other way"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "a book about a subject is a book on it, so the one preposition stands in for the other"
+     },
+     {
+      "clueFragment": "primarily Italian",
+      "gives": "I",
+      "note": "the opening letter of the nationality"
+     }
+    ],
+    "walkthrough": "The ellipses are stage business, making the surface stumble like somebody groping for a name; they carry no letters and nothing hangs on them.",
+    "definitionFit": "Guglielmo Marconi was the Bologna-born inventor who sent the first radio signals across the Atlantic, so the definition names him by trade and nationality."
+   }
   },
   {
    "id": "14-across",
@@ -284,7 +685,34 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
     ]
    },
    "solution": "PINKGIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PINK GIN",
+    "definition": "drink",
+    "indicators": [
+     "mixed"
+    ],
+    "indicatorNotes": {
+     "mixed": "A mixed drink is stirred together out of separate parts, and letters treated that way lose the order they came in."
+    },
+    "anagram": {
+     "fodder": "KINGPIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Kingpin",
+      "gives": "KINGPIN",
+      "note": "seven letters of fodder: the boss of the outfit, taken as one word"
+     },
+     {
+      "clueFragment": "mixed",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "'Mixed drink' is a phrase you read as a unit, which is what hides the seam: 'mixed' belongs to the word in front of it, and 'drink' stands alone.",
+    "definitionFit": "It is gin with a dash of Angostura bitters, a naval officers' tipple, so the definition is the plain category the answer belongs to."
+   }
   },
   {
    "id": "14-down",
@@ -301,7 +729,24 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PINOCCHIO",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PINOCCHIO",
+    "definition": "His dishonesty increases the bill",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "His dishonesty",
+      "note": "not a restaurant scam: the lying itself sets the change off, and the change happens to the liar"
+     },
+     {
+      "clueFragment": "increases the bill",
+      "note": "a bill is a beak, and by extension a nose, so what grows is a face rather than a total"
+     }
+    ],
+    "walkthrough": "Pinocchio's nose lengthens every time he lies, which is the picture behind the pun, and 'bill' is the pivot: a restaurant total in the surface, a beak in the answer.",
+    "definitionFit": "He is the puppet whose nose grows with each lie, so a lengthening 'bill' — a beak — is exactly what his lying produces."
+   }
   },
   {
    "id": "15-across",
@@ -318,7 +763,44 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOUSING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HOUSING",
+    "definition": "Accommodation",
+    "definitionNote": "The answer ends -ing but is not a verb here: it is a mass noun for dwellings in general, which is why a plain noun defines it.",
+    "linkWords": [
+     "finding"
+    ],
+    "indicators": [
+     "away"
+    ],
+    "indicatorNotes": {
+     "away": "What is away has gone, so the letter named beside it is taken out rather than joined on."
+    },
+    "pieces": [
+     "H",
+     "OUSING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "the standard abbreviation on a form, and a crossword staple"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "a run is entered as R on a cricket scorecard, so the single letter is what goes"
+     },
+     {
+      "clueFragment": "stimulating",
+      "gives": "OUSING",
+      "note": "something stimulating is rousing, and that word minus its R is what remains"
+     }
+    ],
+    "walkthrough": "'Run away' looks like flight in the surface; in the wordplay it is a cricketer's single letter and the order to lose it.",
+    "definitionFit": "Housing is the general word for the places people live in, the stock of homes a council or a market provides, which is accommodation in bulk."
+   }
   },
   {
    "id": "15-down",
@@ -335,7 +817,35 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEAL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HEAL",
+    "definition": "to improve",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "In hearing"
+    ],
+    "indicatorNotes": {
+     "In hearing": "A thing taken in hearing is judged by ear, so the clue offers the sound of a word rather than its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ne'er-do-well",
+      "gives": "HEEL",
+      "note": "a heel is a shabby, untrustworthy man, the word a P G Wodehouse character would use"
+     },
+     {
+      "clueFragment": "In hearing",
+      "soundsLike": "HEEL",
+      "gives": "HEAL",
+      "note": "spoken, there is nothing to choose between the two spellings, so the ear reaches for the wrong one"
+     }
+    ],
+    "walkthrough": "Two words that sound identical and share nothing else: one is a scoundrel, the other is what a wound does. The instruction is the only bridge between them.",
+    "definitionFit": "To heal is to get better after injury, and 'improve' is the general verb for that same movement from bad to good."
+   }
   },
   {
    "id": "16-down",
@@ -356,7 +866,27 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
     ]
    },
    "solution": "INSIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "IN SIGHT",
+    "definition": "Imminent",
+    "definition2": "aperçu",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Imminent",
+      "gives": "INSIGHT",
+      "note": "split after two letters, the phrase says a thing is near enough to be seen coming"
+     },
+     {
+      "clueFragment": "aperçu",
+      "gives": "INSIGHT",
+      "note": "a French loanword for a brief flash of understanding, a glimpse into how something works"
+     }
+    ],
+    "walkthrough": "The enumeration is the giveaway: (2,5) says two words, and only one of the two meanings needs the gap. Seven letters do both jobs.",
+    "definitionFit": "Read as two words it means close at hand; read as one it is a sudden grasp of how a thing works, which is what an aperçu is."
+   }
   },
   {
    "id": "17-across",
@@ -373,7 +903,36 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIGERIA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "NIGERIA",
+    "definition": "somewhere in W Africa",
+    "indicators": [
+     "With head cleared",
+     "treated"
+    ],
+    "indicatorNotes": {
+     "With head cleared": "Clearing the head takes the opening letter off the front of the word named next.",
+     "treated": "A patient under treatment comes out changed, and letters treated the same way come out in a different order."
+    },
+    "anagram": {
+     "fodder": "IGRAINE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "M",
+      "note": "the head of the ailment's name is its opening letter, and that is what gets cleared"
+     },
+     {
+      "clueFragment": "migraine",
+      "gives": "IGRAINE",
+      "note": "the headache word minus that opening letter, seven letters left to shuffle"
+     }
+    ],
+    "walkthrough": "The joke is medical: the headache loses its head and is then treated. Both instructions are dressed as symptoms, which is why neither looks like an instruction.",
+    "definitionFit": "Nigeria is the most populous country of West Africa, so the definition points at it by region rather than naming it outright."
+   }
   },
   {
    "id": "18-down",
@@ -390,7 +949,44 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GANGLIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GANGLIA",
+    "definition": "some nerve!",
+    "definitionNote": "The answer is a plural noun for clusters of nerve cells, while 'some nerve' is a mass phrase naming the tissue itself; the setter lets the material stand for the bundles of it.",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "throwing off"
+    ],
+    "indicatorNotes": {
+     "throwing off": "To throw a thing off is to shed it, so the piece named next is discarded rather than added."
+    },
+    "pieces": [
+     "GANG",
+     "LIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminals",
+      "gives": "GANG",
+      "note": "a band of criminals working together goes by this four-letter word"
+     },
+     {
+      "clueFragment": "perjurer",
+      "gives": "LIA",
+      "note": "someone who lies on oath is a liar, and that word arrives four letters long and leaves three"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "R",
+      "note": "the tail of a word is its final letter, and it is the one thrown off"
+     }
+    ],
+    "walkthrough": "'Some nerve!' is an exclamation about cheek in the surface and a piece of anatomy in the answer, and that pivot is what the clue turns on.",
+    "definitionFit": "Ganglia are clusters of nerve cells bundled together in the body, so 'some nerve' names the tissue they are made of."
+   }
   },
   {
    "id": "19-down",
@@ -407,7 +1003,27 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AXES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "AXES",
+    "definition": "Fires",
+    "definition2": "X and Y?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Fires",
+      "gives": "AXES",
+      "note": "to axe a job or the person doing it is to cut them, the verb every headline uses for redundancies"
+     },
+     {
+      "clueFragment": "X and Y?",
+      "gives": "AXES",
+      "note": "the two reference lines of a graph are labelled with exactly those letters"
+     }
+    ],
+    "walkthrough": "Two plurals with nothing in common: one is a verb for sacking people, the other the pair of lines you plot a graph against. The question mark flags definition by example.",
+    "definitionFit": "To axe staff is to fire them, and the X and Y lines of a graph carry the same name — two unrelated senses of one short word."
+   }
   },
   {
    "id": "20-across",
@@ -424,7 +1040,26 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACHES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ACHES",
+    "definition": "Causes of discomfort",
+    "indicators": [
+     "hidden in"
+    ],
+    "indicatorNotes": {
+     "hidden in": "Something hidden in a phrase is already there in plain letters, waiting to be read straight out of the middle of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "tea chest",
+      "gives": "ACHES",
+      "note": "five consecutive letters bridge the gap between the two words"
+     }
+    ],
+    "walkthrough": "A tea chest is the plywood box tea was shipped in, a real thing rather than a random pairing, and that is what makes the surface sit still enough to hide letters.",
+    "definitionFit": "An ache is a dull, lingering pain, and a pain is precisely a cause of discomfort, so the plural phrase suits the plural answer."
+   }
   },
   {
    "id": "21-across",
@@ -441,7 +1076,37 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TECHNIQUE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TECHNIQUE",
+    "definition": "Method",
+    "linkWords": [
+     "with which you"
+    ],
+    "indicators": [
+     "prepare"
+    ],
+    "indicatorNotes": {
+     "prepare": "Preparing a fruit means cutting it up before it goes in the pan, and letters prepared that way do not stay whole."
+    },
+    "anagram": {
+     "fodder": "THE QUINCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "the quince",
+      "gives": "THEQUINCE",
+      "note": "nine letters of fodder, the article included"
+     },
+     {
+      "clueFragment": "prepare",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "A quince is a hard, sour fruit that has to be cooked before it is edible, so 'prepare the quince' reads as a recipe line and hides the instruction in plain sight.",
+    "definitionFit": "A technique is a settled way of doing something, which is what a method is: a plain synonym, noun for noun, with no stretch in it."
+   }
   },
   {
    "id": "21-down",
@@ -458,7 +1123,33 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOOLS",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "TOOLS",
+    "definition": "Mechanically produces",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "cycling": "Letters go round a loop: the one at the front is carried to the back and every other letter keeps its place in the queue."
+    },
+    "pieces": [
+     "TOOL",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "STOOL",
+      "note": "a stool is a backless seat, five letters ready to be rotated"
+     }
+    ],
+    "walkthrough": "'Seat for cycling' pictures a bicycle saddle, and that is the trap: the last word is not describing the seat, it is telling you what to do with its letters.",
+    "definitionFit": "To tool a part is to shape it with machinery, so the definition is the verb sense of a word everybody knows as a noun."
+   }
   },
   {
    "id": "22-across",
@@ -475,7 +1166,43 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGLOPHILIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter + deletion",
+    "answer": "ANGLOPHILIA",
+    "definition": "emotion of England fans",
+    "indicators": [
+     "At first",
+     "without No 1",
+     "to animate"
+    ],
+    "indicatorNotes": {
+     "At first": "At first means at the beginning, so only the opening letter of the name that follows is taken.",
+     "without No 1": "The club's second word is counted letter by letter and the one standing first in it is dropped.",
+     "to animate": "To animate something is to set it moving, and letters set moving are not found where they started."
+    },
+    "anagram": {
+     "fodder": "A ILLA HOPING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Aston",
+      "gives": "A",
+      "note": "the opening letter of the first half of the club's name"
+     },
+     {
+      "clueFragment": "Villa (without No 1)",
+      "gives": "ILLA",
+      "note": "the second half gives up the letter standing first in it, leaving four for the mix"
+     },
+     {
+      "clueFragment": "hoping",
+      "gives": "HOPING",
+      "note": "six more letters of fodder, taken as they stand"
+     }
+    ],
+    "walkthrough": "Aston Villa are a Birmingham football club, so the surface is a supporter's daydream; England fans are a different crowd, and that switch of allegiance is where the definition hides.",
+    "definitionFit": "Anglophilia is a fondness for England and English things, the feeling that makes somebody follow the national side, so the definition names it by its holders."
+   }
   },
   {
    "id": "23-across",
@@ -492,7 +1219,41 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRATIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "GRATIS",
+    "definition": "free",
+    "indicators": [
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "flipping": "To flip a thing is to turn it over end for end, so the letters just named are read the other way round."
+    },
+    "pieces": [
+     "G",
+     "RATIS"
+    ],
+    "subReversals": [
+     {
+      "from": "SITAR",
+      "to": "RATIS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "the standard one-letter abbreviation, as on a school report"
+     },
+     {
+      "clueFragment": "musical instrument's",
+      "gives": "RATIS",
+      "note": "the Indian long-necked lute is a sitar, and turned over it reads backwards"
+     }
+    ],
+    "walkthrough": "'Flipping' is also the mild expletive an exasperated speaker reaches for, which is what keeps the surface sounding like a sentence about a bargain.",
+    "definitionFit": "Gratis means at no charge, the Latin-derived word a notice uses when it wants the sense of costing nothing rather than of being unconfined."
+   }
   },
   {
    "id": "24-across",
@@ -509,7 +1270,33 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ORATED",
+    "definition": "Speechified",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [],
+    "pieces": [
+     "O",
+     "RATED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "none",
+      "gives": "O",
+      "note": "nothing is written as a nought, and a nought on the page is the letter O"
+     },
+     {
+      "clueFragment": "valued",
+      "gives": "RATED",
+      "note": "to rate a thing is to put a value on it"
+     }
+    ],
+    "walkthrough": "The surface reads as a slight — a speech nobody thought much of — and the two halves are simply laid end to end, with 'by' doing nothing but joining them.",
+    "definitionFit": "To orate is to make a formal speech, usually a pompous one, so the past tense answers 'speechified' in both tone and inflection."
+   }
   }
  ]
 } /*JSON-END*/;
