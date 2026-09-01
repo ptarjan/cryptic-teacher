@@ -29,7 +29,29 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SCOT",
+    "definition": "Old payment",
+    "indicators": [
+     "skimmed off"
+    ],
+    "indicatorNotes": {
+     "skimmed off": "Skimming lifts whatever is floating on top, and the top of a down entry is the letter it starts on."
+    },
+    "pieces": [
+     "SCOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "course",
+      "gives": "ASCOT",
+      "note": "Ascot is the Berkshire racecourse of the royal meeting, offered here as one course among many"
+     }
+    ],
+    "walkthrough": "Read 'of course' as the throwaway aside and there is nothing to work on; read it as 'of a course' and a famous racecourse is standing there waiting to be trimmed.",
+    "definitionFit": "Old payment → SCOT: scot was a medieval household tax, a word that survives now only in 'scot-free', meaning let off without paying."
+   }
   },
   {
    "id": "2-down",
@@ -46,7 +68,31 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGERS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ANGERS",
+    "definition": "French city",
+    "definitionNote": "The final S belongs to a proper name, not to a plural: the city is one place, and the S the wordplay supplies is a verb ending instead.",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "What is reported is passed on by mouth, so the first word is to be heard rather than read letter by letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gauls",
+      "soundsLike": "GALLS",
+      "gives": "ANGERS",
+      "note": "the ancient French people said aloud are galls, and to gall somebody is to make them cross"
+     }
+    ],
+    "walkthrough": "The surface asks you to picture Gauls wandering round a French town, which is exactly the wrong place to look: the Frenchness is in the definition, and the Gauls are only a sound.",
+    "definitionFit": "French city → ANGERS: the old capital of Anjou, on the Maine in western France, is one of the country's cathedral cities."
+   }
   },
   {
    "id": "3-down",
@@ -63,7 +109,41 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STENTORIAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "STENTORIAN",
+    "definition": "Booming",
+    "indicators": [
+     "shot",
+     "first"
+    ],
+    "indicatorNotes": {
+     "shot": "A thing described as shot has been wrecked beyond its old shape, and letters wrecked that way come back in another order.",
+     "first": "It picks out where a word begins, asking for one letter off the front rather than the whole name."
+    },
+    "anagram": {
+     "fodder": "A TENNIS OR T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "the ace of a suit is written A at the card table, a standard single-letter sense"
+     },
+     {
+      "clueFragment": "tennis, or",
+      "gives": "TENNISOR",
+      "note": "anagram fodder, eight letters, comma and all"
+     },
+     {
+      "clueFragment": "tennis’s first",
+      "gives": "T",
+      "note": "the letter the word tennis opens with"
+     }
+    ],
+    "walkthrough": "'Ace in tennis' wants to be a service winner and 'first shot' wants to be the serve. Both are material and instruction instead, which is why the clue reads so smoothly.",
+    "definitionFit": "Booming → STENTORIAN: both describe a voice of enormous carrying power, the adjective coming from Stentor, the herald in Homer who shouted like fifty men."
+   }
   },
   {
    "id": "4-down",
@@ -83,7 +163,9 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "CALLER",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "26-across"
+   }
   },
   {
    "id": "5-down",
@@ -104,7 +186,53 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ]
    },
    "solution": "ENOLAGAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + last letter",
+    "answer": "ENOLA GAY",
+    "definition": "Bomber",
+    "indicators": [
+     "sent up",
+     "ending in"
+    ],
+    "indicatorNotes": {
+     "sent up": "Sending something up a down entry pushes it back towards the top, so those letters are read the other way about.",
+     "ending in": "It points at the finish of the word that follows and asks for the single letter sitting there."
+    },
+    "pieces": [
+     "ENOLAGA",
+     "Y"
+    ],
+    "subReversals": [
+     {
+      "from": "AGALONE",
+      "to": "ENOLAGA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as it stands"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GAL",
+      "note": "gal is the informal spelling of a girl"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "ONE",
+      "note": "the Roman numeral I is one, written out as a word here"
+     },
+     {
+      "clueFragment": "ending in atrocity",
+      "gives": "Y",
+      "note": "the last letter of atrocitY"
+     }
+    ],
+    "walkthrough": "The surface is a man teasing a girl, and 'atrocity' is the one word that does not fit it — the giveaway that something much darker is being named.",
+    "definitionFit": "Bomber → ENOLA GAY: the B-29 that dropped the atomic bomb on Hiroshima, named by its pilot after his mother, so one particular bomber stands for the class."
+   }
   },
   {
    "id": "6-down",
@@ -121,7 +249,35 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAW",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "DRAW",
+    "definition": "No-win situation",
+    "indicators": [
+     "to turn around"
+    ],
+    "indicatorNotes": {
+     "to turn around": "Turning a thing around presents its far end first, so the letters are taken in the opposite order."
+    },
+    "pieces": [
+     "DRAW"
+    ],
+    "subReversals": [
+     {
+      "from": "WARD",
+      "to": "DRAW"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Guardian’s responsibility",
+      "gives": "WARD",
+      "note": "a guardian is the person legally responsible for a ward"
+     }
+    ],
+    "walkthrough": "'No-win situation' is normally an idiom for a hopeless predicament; here it is meant literally, as a result in which nobody wins. The newspaper is a joke on the setter's own paper.",
+    "definitionFit": "No-win situation → DRAW: a drawn match ends level, with neither side taking the win, which is the sporting result the phrase describes literally."
+   }
   },
   {
    "id": "7-down",
@@ -138,7 +294,36 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINISHER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FINISHER",
+    "definition": "One crossing the line",
+    "indicators": [
+     "entering"
+    ],
+    "indicatorNotes": {
+     "entering": "To enter something is to go inside it, so the little word before it lands within the longer one rather than beside it."
+    },
+    "pieces": [
+     "F",
+     "IN",
+     "ISHER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shipping forecast area",
+      "gives": "FISHER",
+      "note": "Fisher is one of the sea areas read out on the BBC's Shipping Forecast, off the Danish coast"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word itself, used as two letters"
+     }
+    ],
+    "walkthrough": "'In' looks like grammar holding the sentence up and is the piece being inserted, which is the whole disguise. Every other word points at athletics or the sea.",
+    "definitionFit": "One crossing the line → FINISHER: in a race the line is the finish, so whoever reaches it has completed the course rather than dropped out."
+   }
   },
   {
    "id": "8-down",
@@ -160,7 +345,37 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAKE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "container",
+    "answer": "MAKE GOOD",
+    "definition": "Rectify",
+    "indicators": [
+     "guzzling"
+    ],
+    "indicatorNotes": {
+     "guzzling": "A guzzler takes drink down inside, so the state of mind swallows the other piece whole."
+    },
+    "pieces": [
+     "M",
+     "AKEG",
+     "OOD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state of mind",
+      "gives": "MOOD",
+      "note": "your mood is the state of mind you happen to be in"
+     },
+     {
+      "clueFragment": "a barrel of beer",
+      "gives": "A KEG",
+      "note": "beer comes in a keg, and the A in front is taken as it stands"
+     }
+    ],
+    "walkthrough": "The answer runs on into 25 down. Everything in the clue after the first word is a drinker's evening, and none of it is the definition.",
+    "definitionFit": "Rectify → MAKE GOOD: to make good a loss, a promise or a damaged wall is to put right what went wrong, the phrase builders and lawyers both use."
+   }
   },
   {
    "id": "9-across",
@@ -177,7 +392,29 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONSTRAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONSTRAIN",
+    "definition": "pressure",
+    "pieces": [
+     "CON",
+     "STRAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "CON",
+      "note": "to con a text is to study it closely, an old sense crosswords keep alive"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "STRAIN",
+      "note": "an air is a tune, and so is a strain — both mean a melody"
+     }
+    ],
+    "walkthrough": "Three words, three separate jobs, and the surface makes them one phrase from a weather forecast. Short clues like this hide the joins by having no joins at all.",
+    "definitionFit": "pressure → CONSTRAIN: to pressure someone into acting is to constrain them; the definition is the verb, not the noun the meteorological surface suggests."
+   }
   },
   {
    "id": "10-across",
@@ -194,7 +431,36 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAITA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RAITA",
+    "definition": "refreshing side dish",
+    "indicators": [
+     "fed"
+    ],
+    "indicatorNotes": {
+     "fed": "Something fed to a person goes inside them, so the letter that follows is put within the name."
+    },
+    "pieces": [
+     "R",
+     "A",
+     "ITA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Educated character",
+      "gives": "RITA",
+      "note": "Rita is the hairdresser taking an Open University course in Willy Russell's play Educating Rita"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as it stands"
+     }
+    ],
+    "walkthrough": "'Character' is the pointer: it says a name is wanted, and the title of the play supplies one that has been educated.",
+    "definitionFit": "refreshing side dish → RAITA: the cool yoghurt-and-cucumber dip served beside a curry precisely to take the heat out of it."
+   }
   },
   {
    "id": "11-across",
@@ -215,7 +481,36 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIEIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TIE-IN",
+    "definition": "Link",
+    "indicators": [
+     "apparently"
+    ],
+    "indicatorNotes": {
+     "apparently": "It means as far as appearances go, so only the outside is being described and something else is sitting within it."
+    },
+    "pieces": [
+     "T",
+     "IE",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like spam",
+      "gives": "TIN",
+      "note": "Spam is the tinned meat, so what resembles it comes in a tin"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the everyday short form of the Latin id est, that is"
+     }
+    ],
+    "walkthrough": "Spam pulls you straight to junk email, which is where the meat's name ended up. The clue wants the tin the meat came in.",
+    "definitionFit": "Link → TIE-IN: a tie-in is the commercial connection between, say, a film and the toys sold alongside it, and by extension any link between two things."
+   }
   },
   {
    "id": "12-across",
@@ -236,7 +531,48 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ]
    },
    "solution": "LILYWHITE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + last letter",
+    "answer": "LILY-WHITE",
+    "definition": "Pure",
+    "indicators": [
+     "foul",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "foul": "Something foul has gone rotten, and rotten letters no longer hold the shape they were handed to you in.",
+     "ultimately": "At the very end — it asks for the letter the word finishes on and nothing before it."
+    },
+    "pieces": [
+     "LILY",
+     "WHITE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WITHE",
+      "gives": "WHITE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "LILY",
+      "note": "the flower named is a lily, handed over whole"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "WITH",
+      "note": "four letters of raw material, not the joinery the word pretends to be"
+     },
+     {
+      "clueFragment": "fragrance, ultimately",
+      "gives": "E",
+      "note": "the last letter of fragrancE"
+     }
+    ],
+    "walkthrough": "'With' reads as grammar and is fodder; 'foul' reads as part of the smell and is the instruction. That double disguise is what makes a short anagram hard.",
+    "definitionFit": "Pure → LILY-WHITE: spotless by comparison with the flower, and used of a reputation with nothing whatever to reproach in it."
+   }
   },
   {
    "id": "13-across",
@@ -253,7 +589,42 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PISSOIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "PISSOIR",
+    "definition": "go there?",
+    "definitionNote": "The setter names the place by the errand that takes you to it rather than by a synonym, so the words could not be swapped for the answer in a sentence.",
+    "indicators": [
+     "Capital"
+    ],
+    "indicatorNotes": {
+     "Capital": "Here it means the upper-case letter a proper name is written with, not a seat of government."
+    },
+    "pieces": [
+     "P",
+     "IS",
+     "SOIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris",
+      "gives": "P",
+      "note": "Paris starts with a capital letter, and that single letter is all the wordplay wants"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word taken as it stands"
+     },
+     {
+      "clueFragment": "at the end of the day in France",
+      "gives": "SOIR",
+      "note": "soir is the French for evening, the end of the day over there"
+     }
+    ],
+    "walkthrough": "'Capital in Paris' invites you to think of France's capital city and asks only for the letter P. The euphemism in the definition is doing the same trick in English.",
+    "definitionFit": "go there? → PISSOIR: a pissoir is the French street urinal, so the place is defined by what people go there to do."
+   }
   },
   {
    "id": "13-down",
@@ -270,7 +641,38 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLAR",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "POLAR",
+    "definition": "freezing",
+    "indicators": [
+     "outside",
+     "coat off"
+    ],
+    "indicatorNotes": {
+     "outside": "The average is placed outside the other piece, so its letters open and close the answer with the rest between them.",
+     "coat off": "A coat is the layer worn on the outside, so taking it off strips the letters at each end of the word."
+    },
+    "pieces": [
+     "P",
+     "OL",
+     "AR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Average",
+      "gives": "PAR",
+      "note": "par is the normal or average standard, as in up to par"
+     },
+     {
+      "clueFragment": "cold, with coat off",
+      "gives": "OL",
+      "note": "COLD wearing nothing on the outside loses the letter at each end"
+     }
+    ],
+    "walkthrough": "The dash makes the last word look like an exclamation about the weather in the story, and it is the definition standing on its own.",
+    "definitionFit": "freezing → POLAR: the poles are the coldest ground on earth, so anything polar is bitterly cold — the word carries the temperature, not just the geography."
+   }
   },
   {
    "id": "14-across",
@@ -287,7 +689,36 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GNASHER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GNASHER",
+    "definition": "Tooth",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The insertion word: what precedes it goes inside the thing named next, rather than in front of it."
+    },
+    "pieces": [
+     "G",
+     "N",
+     "ASHER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cutter",
+      "gives": "GASHER",
+      "note": "something that gashes is a cutter, the -er turning the verb into the thing that does it"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n = new, the standard abbreviation"
+     }
+    ],
+    "walkthrough": "'Cutter' looks like a boat or a trade and is an invented agent noun. Gnasher is also the Beano dog, which is why the clue can afford the question mark.",
+    "definitionFit": "Tooth → GNASHER: gnashers is the familiar British word for teeth, from gnashing them, so a single one of them is a gnasher."
+   }
   },
   {
    "id": "15-down",
@@ -309,7 +740,41 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALLTHEBEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ALL THE BEST",
+    "definition": "take care!",
+    "indicators": [
+     "whipped"
+    ],
+    "indicatorNotes": {
+     "whipped": "Cream is whipped until it no longer holds the shape it had, and the letters in front are treated the same way."
+    },
+    "pieces": [
+     "ALLTHE",
+     "BEST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "LETHAL",
+      "gives": "ALLTHE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lethal",
+      "gives": "ALLTHE",
+      "note": "six letters of fodder, rearranged into the two short words at the front"
+     },
+     {
+      "clueFragment": "cream",
+      "gives": "BEST",
+      "note": "the cream of anything is the best of it"
+     }
+    ],
+    "walkthrough": "'Whipped cream' is one thing on the surface and two jobs underneath: only the first word is shuffled, and the cream is the pick of the crop.",
+    "definitionFit": "take care! → ALL THE BEST: both are said on parting, wishing somebody well, so the whole phrase answers a whole phrase rather than a word."
+   }
   },
   {
    "id": "16-down",
@@ -326,7 +791,23 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHYME",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "RHYME",
+    "definition": "Mode of ode, say?",
+    "blocks": [
+     {
+      "clueFragment": "Mode of ode",
+      "note": "the surface reading: a manner or fashion belonging to an ode, the way the poem is put together"
+     },
+     {
+      "clueFragment": "say?",
+      "note": "the for-example marker — the first word is being offered as an instance, and what it is an instance of is its relation to the second"
+     }
+    ],
+    "walkthrough": "Nothing here to take apart. The two words are doing it to each other: say 'mode' and 'ode' aloud and the answer is what one is to the other.",
+    "definitionFit": "Mode of ode, say? → RHYME: 'mode' chimes with 'ode', so the clue holds up one word as an example of what it is to another."
+   }
   },
   {
    "id": "17-across",
@@ -346,7 +827,9 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "LASSI",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "28-across"
+   }
   },
   {
    "id": "18-down",
@@ -363,7 +846,29 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAMBAING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SAMBAING",
+    "definition": "doing just that?",
+    "indicators": [
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "dancing": "A dancer never stands still, so the letters in front of the word will not stay in the places they were given."
+    },
+    "anagram": {
+     "fodder": "BIG MAN AS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Big man, as",
+      "gives": "BIGMANAS",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "The definition is a pointer rather than a word: 'just that' means whatever was said a moment earlier, and what was said a moment earlier is the shuffling instruction.",
+    "definitionFit": "doing just that? → SAMBAING: the definition points back at 'dancing', and the answer is performing one particular Brazilian dance."
+   }
   },
   {
    "id": "19-across",
@@ -380,7 +885,32 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JAY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "JAY",
+    "definition": "Bird",
+    "indicators": [
+     "mentioning"
+    ],
+    "indicatorNotes": {
+     "mentioning": "To mention a thing is to say it out loud, so what follows is heard rather than spelled."
+    },
+    "blocks": [
+     {
+      "clueFragment": "14",
+      "gives": "",
+      "note": "the answer to 14 across is borrowed for its sound, and the G it opens with is silent"
+     },
+     {
+      "clueFragment": "celebrated baker?",
+      "soundsLike": "JANE ASHER",
+      "gives": "JAY",
+      "note": "Jane Asher is the British actress whose celebration-cake business made her a household name for baking; say this entry and then 14 across and you have said her name"
+     }
+    ],
+    "walkthrough": "Two of the puzzle's own answers spoken one after the other make a real person's name, so 14 is borrowed for its sound and never for its letters.",
+    "definitionFit": "Bird → JAY: the jay is the pinkish woodland crow with a flash of blue on the wing, one bird standing in for the general word."
+   }
   },
   {
    "id": "19-down",
@@ -397,7 +927,36 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOVIALLY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "JOVIALLY",
+    "definition": "in cheerful manner",
+    "indicators": [
+     "carried"
+    ],
+    "indicatorNotes": {
+     "carried": "Whatever carries a thing has it aboard, inside itself, so one piece here holds the other within it."
+    },
+    "pieces": [
+     "JO",
+     "VIA",
+     "LLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marine’s",
+      "gives": "JOLLY",
+      "note": "a jolly is Royal Navy slang for a Royal Marine"
+     },
+     {
+      "clueFragment": "through",
+      "gives": "VIA",
+      "note": "going through a place is going via it"
+     }
+    ],
+    "walkthrough": "Jove is Jupiter, and astrologers held that anyone born under his planet turned out merry — which is where the cheerfulness in the answer comes from.",
+    "definitionFit": "in cheerful manner → JOVIALLY: to do something jovially is to do it heartily and in good humour, the adverb formed from jovial."
+   }
   },
   {
    "id": "20-across",
@@ -414,7 +973,27 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LORRY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LORRY",
+    "definition": "something like that?",
+    "indicators": [
+     "articulated"
+    ],
+    "indicatorNotes": {
+     "articulated": "To articulate is to pronounce clearly, so the name is to be heard — and the same word is what British roads call a hinged truck."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Author Lee",
+      "soundsLike": "LAURIE",
+      "gives": "LORRY",
+      "note": "Laurie Lee wrote Cider with Rosie, and his first name said aloud is spelled quite differently"
+     }
+    ],
+    "walkthrough": "One word does both jobs: it tells you to hear the author's first name, and it is the adjective the vague definition is quietly pointing at.",
+    "definitionFit": "something like that? → LORRY: the definition points back at 'articulated', and an articulated lorry is the British name for a hinged truck."
+   }
   },
   {
    "id": "21-across",
@@ -431,7 +1010,41 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROMANOV",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ROMANOV",
+    "definition": "House",
+    "linkWords": [
+     "where"
+    ],
+    "indicators": [
+     "clothing",
+     "undressed"
+    ],
+    "indicatorNotes": {
+     "clothing": "Clothes go round whatever is inside them, so this word wraps one piece about the other.",
+     "undressed": "Undressed means stripped of what is worn outside, so the word loses the letter at its front and the letter at its back."
+    },
+    "pieces": [
+     "RO",
+     "MAN",
+     "OV"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groovy",
+      "gives": "ROOV",
+      "note": "GROOVY with the letter at each end taken off"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     }
+    ],
+    "walkthrough": "'House where fellow' reads like a place with a lodger in it. The house wanted is a dynasty, the sense in which we speak of the House of Windsor.",
+    "definitionFit": "House → ROMANOV: a royal house is a dynasty, and the Romanovs ruled Russia for three centuries until 1917, so one dynasty defines the word by example."
+   }
   },
   {
    "id": "22-across",
@@ -448,7 +1061,51 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEHISCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DEHISCE",
+    "definition": "Pop",
+    "indicators": [
+     "attending",
+     "relapsed",
+     "earlier"
+    ],
+    "indicatorNotes": {
+     "attending": "To attend somebody is to go along beside them, so these two letters stand next to the church rather than inside it.",
+     "relapsed": "A relapse is a slipping back, so those letters arrive in the reverse of the order the clue gives them.",
+     "earlier": "It fixes the order: that piece belongs at the front of the answer, not where its words sit in the sentence."
+    },
+    "pieces": [
+     "DEH",
+     "IS",
+     "CE"
+    ],
+    "subReversals": [
+     {
+      "from": "HED",
+      "to": "DEH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he had relapsed",
+      "gives": "DEH",
+      "note": "HE'D is 'he had' shortened, and it has slipped back the other way round"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word taken as it stands"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England, the church a crossword usually means"
+     }
+    ],
+    "walkthrough": "The colon makes the second half sound like gossip about a man at the service. Dehiscence is the botanist's word for a seed pod splitting along its seam.",
+    "definitionFit": "Pop → DEHISCE: a ripe pod dehisces when it bursts open along a line of weakness, which is exactly what popping open means in botany."
+   }
   },
   {
    "id": "22-down",
@@ -465,7 +1122,36 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISOWN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DISOWN",
+    "definition": "Reject",
+    "indicators": [
+     "blocking"
+    ],
+    "indicatorNotes": {
+     "blocking": "Something blocking sits in the way of what it blocks, and this small word sits in the middle of the longer one, splitting it."
+    },
+    "pieces": [
+     "D",
+     "IS",
+     "OWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sink",
+      "gives": "DOWN",
+      "note": "to sink is to go down"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word itself, dropped in whole"
+     }
+    ],
+    "walkthrough": "Three short words reading like a note left for the plumber, with a separate job hidden in each of them. Short clues rarely mean short work.",
+    "definitionFit": "Reject → DISOWN: to disown a person is to refuse to acknowledge them as your own, the flattest and strongest form of rejecting one."
+   }
   },
   {
    "id": "23-down",
@@ -482,7 +1168,34 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENIOR",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "SENIOR",
+    "definition": "One is doddery, right?",
+    "indicators": [
+     "doddery"
+    ],
+    "indicatorNotes": {
+     "doddery": "Doddery means shaky on the feet, and letters that cannot stand steady will not stay in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "ONE IS R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One is",
+      "gives": "ONEIS",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "r = right, as in a stage direction or a map reference"
+     }
+    ],
+    "walkthrough": "An all-in-one: read straight, the sentence describes the person; read again, the same words are the recipe. 'Right?' is both the question tag and a single letter.",
+    "definitionFit": "The whole clue defines: a senior is an elderly person, exactly the one the sentence is describing, with the tag question doing duty as wordplay."
+   }
   },
   {
    "id": "24-across",
@@ -516,7 +1229,35 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FAME",
+    "definition": "Musical",
+    "indicators": [
+     "combination of"
+    ],
+    "indicatorNotes": {
+     "combination of": "A combination is what you get by putting things together, so the two pieces are simply laid end to end."
+    },
+    "pieces": [
+     "FA",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two notes",
+      "gives": "FA",
+      "note": "fah is the fourth degree of the sol-fa scale, written as two letters"
+     },
+     {
+      "clueFragment": "two notes",
+      "gives": "ME",
+      "note": "me is the third degree of that scale in the British spelling of it"
+     }
+    ],
+    "walkthrough": "'Musical' looks like an adjective and is a noun — the name of a show. The sol-fa scale is where setters go whenever they want short notes: doh, ray, me, fah, soh.",
+    "definitionFit": "Musical → FAME: the 1980 film about a New York performing-arts school was turned into a long-running stage musical of the same name."
+   }
   },
   {
    "id": "25-down",
@@ -536,7 +1277,9 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "GOOD",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "8-down"
+   }
   },
   {
    "id": "26-across",
@@ -558,7 +1301,30 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ]
    },
    "solution": "BINGO",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "BINGO CALLER",
+    "definition": "for whom knock at the door comes after 4?",
+    "pieces": [
+     "BINGO",
+     "CALLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "BINGO",
+      "note": "'House!' is the shout that claims a win in a British bingo hall"
+     },
+     {
+      "clueFragment": "visitor",
+      "gives": "CALLER",
+      "note": "somebody who calls at your door is a visitor"
+     }
+    ],
+    "walkthrough": "Two words of wordplay and the rest of the sentence is the definition, describing the person at the microphone by one line of patter.",
+    "definitionFit": "In British bingo every number has its rhyme, and 'knock at the door' is the one for four, so the phrase follows the number when it is called."
+   }
   },
   {
    "id": "27-down",
@@ -575,7 +1341,26 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OATH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OATH",
+    "definition": "Curse",
+    "indicators": [
+     "of"
+    ],
+    "indicatorNotes": {
+     "of": "All the concealment signal there is: a part taken out of what comes next, which is about as quiet as a hiding place gets."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Portillo, a Thatcherite",
+      "gives": "OATH",
+      "note": "four letters running straight on from the end of the surname into the words that follow it"
+     }
+    ],
+    "walkthrough": "Michael Portillo was a Conservative cabinet minister under Margaret Thatcher, so the sentence reads as ordinary political comment — and the letters sit inside it in order.",
+    "definitionFit": "Curse → OATH: an oath is a profanity as well as a solemn promise, and it is the swearing sense the definition asks for."
+   }
   },
   {
    "id": "28-across",
@@ -597,7 +1382,27 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
     ]
    },
    "solution": "MANGO",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "hidden word",
+    "answer": "MANGO LASSI",
+    "definition": "fruit drink",
+    "indicators": [
+     "Imported into"
+    ],
+    "indicatorNotes": {
+     "Imported into": "Something imported has been brought in from outside and is now sitting inside, which is where the letters wanted are."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Vietnam, Angola’s simple",
+      "gives": "MANGOLASSI",
+      "note": "ten consecutive letters, beginning inside the first country and ending inside the last word"
+     }
+    ],
+    "walkthrough": "Two countries side by side make a good hiding place, and the run crosses a comma, an apostrophe and two word breaks without a single letter moving.",
+    "definitionFit": "fruit drink → MANGO LASSI: a lassi is the Indian yoghurt drink, and the mango version blends the fruit into it, drunk cold alongside a curry."
+   }
   },
   {
    "id": "29-across",
@@ -614,7 +1419,36 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOWESTOFT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LOWESTOFT",
+    "definition": "English port",
+    "indicators": [
+     "circling"
+    ],
+    "indicatorNotes": {
+     "circling": "A thing circling goes right round what it circles, so the airline's letters close about the rest."
+    },
+    "pieces": [
+     "LO",
+     "WESTOF",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Central European fliers",
+      "gives": "LOT",
+      "note": "LOT is the national airline of Poland, a country in central Europe"
+     },
+     {
+      "clueFragment": "on the occidental side of",
+      "gives": "WESTOF",
+      "note": "the occident is the west, so this is the plain phrase 'west of' spelled out"
+     }
+    ],
+    "walkthrough": "'On the occidental side of English' looks like an instruction to take the western half of a word, and it is six letters written out longhand.",
+    "definitionFit": "English port → LOWESTOFT: the Suffolk fishing town on the North Sea, the most easterly point in Britain, has been a working harbour for centuries."
+   }
   }
  ]
 } /*JSON-END*/;
