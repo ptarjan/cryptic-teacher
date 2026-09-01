@@ -35,7 +35,45 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHEDSATEAR",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SHEDS A TEAR",
+    "definition": "is visibly moved",
+    "indicators": [
+     "Spooner tells us"
+    ],
+    "indicatorNotes": {
+     "Spooner tells us": "The Reverend Spooner was famous for swapping the opening sounds of two words as he talked, so naming him is the whole instruction."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "SHEDS",
+     "A",
+     "TEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edward's",
+      "gives": "TEDS",
+      "note": "Ted is the everyday short form of Edward"
+     },
+     {
+      "clueFragment": "of Islamic faith",
+      "gives": "SHIA",
+      "note": "the Shia are one of the two great branches of Islam"
+     },
+     {
+      "clueFragment": "Spooner tells us",
+      "soundsLike": "TED'S A SHIA",
+      "gives": "SHEDS A TEAR",
+      "note": "say those three words with the opening sounds of the first and last traded, T for SH"
+     }
+    ],
+    "walkthrough": "A spoonerism is easiest solved from the definition end: think of the phrase for weeping, trade its opening sounds back, and the clue's picture of Edward appears. Everyman always names the reverend so you know to try it.",
+    "definitionFit": "To shed a tear is to weep just enough for it to show, so the phrase covers being moved in a way onlookers can see."
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +90,30 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SODS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SODS",
+    "definition": "Lays the ground",
+    "definition2": "irritating types",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lays the ground",
+      "gives": "",
+      "note": "turf arrives as cut squares of earth and grass, and laying them over bare soil is a groundsman's job"
+     },
+     {
+      "clueFragment": "irritating types",
+      "gives": "",
+      "note": "mild British abuse for an annoying person, printable enough for a Sunday paper"
+     }
+    ],
+    "walkthrough": "Two plain senses laid side by side with 'for' as the only join. The gardening one is the one that hides: a lawn is laid in squares, and the verb comes straight off the noun for a square.",
+    "definitionFit": "A sod is a cut square of turf, so laying them is turfing a lawn; the same word is mild British abuse for an annoying person."
+   }
   },
   {
    "id": "2-down",
@@ -75,7 +136,41 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMMA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "EMMA",
+    "definition": "Bovary?",
+    "indicators": [
+     "written about"
+    ],
+    "indicatorNotes": {
+     "written about": "About means round, and a thing set down the other way round arrives back to front, so the pieces are read from the far end."
+    },
+    "pieces": [
+     "EMM",
+     "A"
+    ],
+    "subReversals": [
+     {
+      "from": "AMME",
+      "to": "EMMA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the indefinite article, taken at face value as a single letter"
+     },
+     {
+      "clueFragment": "Madame",
+      "gives": "MME",
+      "note": "Mme is the standard French abbreviation for Madame, as printed on an envelope"
+     }
+    ],
+    "walkthrough": "The italics sell you a novel title, and the definition really is its heroine, named by her surname alone. The wordplay treats the same word as a scrap of everyday French correspondence.",
+    "definitionFit": "Flaubert's Madame Bovary is Emma Bovary, so the surname defines the answer only as an example of the woman who bears it."
+   }
   },
   {
    "id": "3-down",
@@ -96,7 +191,37 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "SECONDSIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SECOND SIGHT",
+    "definition": "Prediction",
+    "indicators": [
+     "will lead to",
+     "not starting"
+    ],
+    "indicatorNotes": {
+     "will lead to": "Whatever leads goes in front, so the first chunk is written down and the second falls in behind it.",
+     "not starting": "A word that is not starting has given up the letter it begins with, and only the remainder is used."
+    },
+    "pieces": [
+     "SECONDS",
+     "IGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more food",
+      "gives": "SECONDS",
+      "note": "a second helping at the table is called seconds"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "IGHT",
+      "note": "the word for a scrap, without the F it begins with"
+     }
+    ],
+    "walkthrough": "The colon is doing the work of an equals sign. On the surface a canteen queue turns nasty; the definition is the fairground gift of knowing what happens next.",
+    "definitionFit": "Second sight is the claimed power of foreseeing events, so it stands for prediction as the faculty rather than a single forecast."
+   }
   },
   {
    "id": "4-down",
@@ -117,7 +242,27 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRADEIN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TRADE-IN",
+    "definition": "Traffic",
+    "definition2": "perhaps old vehicle",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Traffic",
+      "gives": "",
+      "note": "to traffic in something is to deal in it, buying and selling"
+     },
+     {
+      "clueFragment": "perhaps old vehicle",
+      "gives": "",
+      "note": "the car you hand the garage counts against the price of the new one"
+     }
+    ],
+    "walkthrough": "The semicolon is the join. One half is a verb about dealing, the other the noun a dealer uses, and 'perhaps' concedes that a car is only one of the things you can hand over.",
+    "definitionFit": "To traffic in goods is to trade in them, and what you trade in at a garage is the old car itself, which is why 'perhaps' is there."
+   }
   },
   {
    "id": "5-down",
@@ -134,7 +279,42 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVIGNON",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "AVIGNON",
+    "definition": "somewhere in Provence",
+    "indicators": [
+     "Mixed"
+    ],
+    "indicatorNotes": {
+     "Mixed": "A mixed drink has had its contents stirred together, so the letters beside the word will not stay in the order they were given."
+    },
+    "pieces": [
+     "AV",
+     "IGN",
+     "ON"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GIN",
+      "gives": "IGN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English ceremonial county",
+      "gives": "AVON",
+      "note": "Avon, centred on Bristol and Bath, was an English county until 1996 and still names the area's police and fire services"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "IGN",
+      "note": "the three letters of the drink, stirred and then dropped into the middle of the county"
+     }
+    ],
+    "walkthrough": "Everyman keeps the surface thoroughly English, a measure of gin and a shire, and lands the definition in the south of France. 'Ceremonial county' is the signal that a place name is wanted as letters rather than as a place.",
+    "definitionFit": "Avignon is a walled city on the Rhone in Provence, famous for its papal palace and its half-finished bridge."
+   }
   },
   {
    "id": "6-across",
@@ -151,7 +331,30 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAR",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SCAR",
+    "definition": "Mark",
+    "definition2": "Cliff",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "",
+      "note": "the line a healed wound leaves behind on skin"
+     },
+     {
+      "clueFragment": "Cliff",
+      "gives": "",
+      "note": "a bare rock face on a northern English fell, a word that turns up all over Yorkshire place names"
+     }
+    ],
+    "walkthrough": "Two capital letters do all the misleading: Mark and Cliff read as a pair of blokes, and neither is a name here. The second sense is landscape English rather than dictionary English.",
+    "definitionFit": "A scar is both the mark a wound leaves on skin and, in northern hill country, a cliff of bare exposed rock."
+   }
   },
   {
    "id": "7-down",
@@ -168,7 +371,39 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAPRICIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters",
+    "answer": "CAPRICIOUS",
+    "definition": "somewhat whimsical",
+    "indicators": [
+     "every so often",
+     "removed"
+    ],
+    "indicatorNotes": {
+     "every so often": "Every so often means at intervals rather than continuously, so letters are taken from every other place in the word and not from all of them.",
+     "removed": "This does two jobs at once: the letters at the skipped places are taken away, and what survives is removed from its old order too, which is the loosest link in the clue."
+    },
+    "linkWords": [
+     "that's"
+    ],
+    "anagram": {
+     "fodder": "PROSAIC CIU"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Prosaic",
+      "gives": "PROSAIC",
+      "note": "seven letters of fodder, handed over whole"
+     },
+     {
+      "clueFragment": "echinus",
+      "gives": "CIU",
+      "note": "the second, fourth and sixth letters of the zoologist's name for a sea urchin, the other four dropped"
+     }
+    ],
+    "walkthrough": "'Somewhat' reads like a marker for something buried in the clue's letters, and that is the false trail; it only softens the definition. The whole misdirection sits in an unfamiliar name for a common seaside creature.",
+    "definitionFit": "Capricious means governed by sudden whims, so 'whimsical' is the plain synonym and 'somewhat' only softens it a little."
+   }
   },
   {
    "id": "8-down",
@@ -189,7 +424,34 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAREEARTHS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RARE EARTHS",
+    "definition": "certain elements",
+    "indicators": [
+     "Wrongfully"
+    ],
+    "indicatorNotes": {
+     "Wrongfully": "Something done wrongfully has not been done properly, and letters handled improperly come out in an order nobody intended."
+    },
+    "anagram": {
+     "fodder": "ARREST HEAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "ARREST",
+      "note": "six letters of fodder"
+     },
+     {
+      "clueFragment": "hear",
+      "gives": "HEAR",
+      "note": "four more, joined on by the clue's own 'and'"
+     }
+    ],
+    "walkthrough": "'Wrongfully arrest' is a complete news headline, which is why the fodder hides so well. The elements themselves are neither particularly rare nor earths, but the chemists' name stuck.",
+    "definitionFit": "The rare earths are the seventeen metallic elements, the lanthanides plus scandium and yttrium, used in magnets and phone screens."
+   }
   },
   {
    "id": "9-across",
@@ -206,7 +468,29 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMOCRATIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DEMOCRATIC",
+    "definition": "as the public chooses",
+    "indicators": [
+     "'poor'"
+    ],
+    "indicatorNotes": {
+     "'poor'": "A verdict of poor says the thing was badly put together, and badly put together is what happens to these ten letters."
+    },
+    "anagram": {
+     "fodder": "COMIC RATED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Comic rated",
+      "gives": "COMICRATED",
+      "note": "ten letters of fodder, the two words run together"
+     }
+    ],
+    "walkthrough": "The quotation marks are the giveaway. The reviewer's verdict is the instruction, while the word immediately before it is material, and 'a comic rated poor' is a perfectly ordinary sentence meaning none of that.",
+    "definitionFit": "A decision made democratically is settled by the vote of everyone, which is precisely the whole public doing the choosing."
+   }
   },
   {
    "id": "10-across",
@@ -223,7 +507,30 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAR",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SPAR",
+    "definition": "Pole",
+    "definition2": "box",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pole",
+      "gives": "",
+      "note": "a length of timber or metal holding up a ship's sails"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "",
+      "note": "to trade practice punches in the ring rather than fight in earnest"
+     }
+    ],
+    "walkthrough": "The capital P offers a nationality and 'box' offers a container; neither reading survives. One noun and one verb, sharing a spelling and nothing else.",
+    "definitionFit": "A spar is a ship's mast or boom, and to spar is to box for practice: one noun and one verb with no connection between them."
+   }
   },
   {
    "id": "11-across",
@@ -246,7 +553,34 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONCEINAWHILE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ONCE IN A WHILE",
+    "definition": "now and again",
+    "indicators": [
+     "disposing of"
+    ],
+    "indicatorNotes": {
+     "disposing of": "To dispose things is to arrange them, so this asks for a fresh arrangement rather than, as it looks, for something to be thrown away."
+    },
+    "anagram": {
+     "fodder": "O CHILEAN WINE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is a score of nothing at tennis, written as a zero"
+     },
+     {
+      "clueFragment": "Chilean wine",
+      "gives": "CHILEANWINE",
+      "note": "eleven letters of fodder, which with the tennis score make the twelve wanted"
+     }
+    ],
+    "walkthrough": "'Love disposing of' reads as getting rid of the O, and that is the trap. Dispose here is the tidy-minded sense, arrange, so the O joins the shuffle instead of leaving it.",
+    "definitionFit": "Both phrases are idioms for something that happens at irregular intervals, neither often nor never, and they swap in for each other exactly."
+   }
   },
   {
    "id": "12-down",
@@ -267,7 +601,29 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "WATERCLOSET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WATER CLOSET",
+    "definition": "Where to go",
+    "indicators": [
+     "undergoing restoration"
+    ],
+    "indicatorNotes": {
+     "undergoing restoration": "A building under restoration is taken apart and put back together, which is what happens to the eleven letters in front of the phrase."
+    },
+    "anagram": {
+     "fodder": "CASTLE TOWER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "castle tower",
+      "gives": "CASTLETOWER",
+      "note": "eleven letters of fodder, no letter wasted"
+     }
+    ],
+    "walkthrough": "The surface stays with the builders while the definition slips into the euphemism a parent uses to a child. WC on a British door or floor plan is short for exactly this phrase.",
+    "definitionFit": "A water closet is the formal name for a lavatory, so 'where to go' is the polite English way of asking for one."
+   }
   },
   {
    "id": "13-down",
@@ -284,7 +640,29 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROCEDURES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PROCEDURES",
+    "definition": "M.O.s",
+    "indicators": [
+     "involving"
+    ],
+    "indicatorNotes": {
+     "involving": "Something involved is tangled up rather than straight, so the letters beside the word are wound into a new order."
+    },
+    "anagram": {
+     "fodder": "SECURE DROP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "secure drop",
+      "gives": "SECUREDROP",
+      "note": "ten letters of fodder"
+     }
+    ],
+    "walkthrough": "M.O. is police-drama shorthand for modus operandi, Latin for way of operating. 'Secure drop' sounds like spy tradecraft, which is why the letters sit there unexamined.",
+    "definitionFit": "An M.O. is a modus operandi, the settled way somebody goes about a job, which is what one of these is."
+   }
   },
   {
    "id": "14-down",
@@ -305,7 +683,30 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIDALWAVES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TIDAL WAVES",
+    "definition": "Current events",
+    "definition2": "the public's responses",
+    "indicators": [],
+    "linkWords": [
+     "figuratively"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current events",
+      "gives": "",
+      "note": "movements of the sea driven by the pull of the tide, arriving all at once"
+     },
+     {
+      "clueFragment": "the public's responses",
+      "gives": "",
+      "note": "when a whole country reacts together, the reaction is pictured as water sweeping everything before it"
+     }
+    ],
+    "walkthrough": "'Current events' is deliberately the newsreader's phrase and is nothing of the sort: the currents are in the sea. The second half admits with 'figuratively' that it is only a metaphor.",
+    "definitionFit": "Waves driven by tides are events made of currents, and a sudden mass of public feeling is described with the same picture of oncoming water."
+   }
   },
   {
    "id": "15-across",
@@ -326,7 +727,26 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "REINSIN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "REINS IN",
+    "definition": "Checks",
+    "indicators": [
+     "when some are ignored"
+    ],
+    "indicatorNotes": {
+     "when some are ignored": "The letters at each end of the phrase are the ones being passed over, and what nobody ignores is the unbroken run left in the middle."
+    },
+    "blocks": [
+     {
+      "clueFragment": "score in Singapore",
+      "gives": "REINSIN",
+      "note": "seven letters running consecutively across the three words, beginning part-way into the first"
+     }
+    ],
+    "walkthrough": "'Checks score' reads as one phrase about a scoreboard, which is the misdirection: the split falls after the very first word, and the rest of the clue is the hiding place.",
+    "definitionFit": "To rein in a horse is to pull it up short, so the phrase means holding something back, which is what checking an impulse does."
+   }
   },
   {
    "id": "16-across",
@@ -343,7 +763,30 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUTTIER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NUTTIER",
+    "definition": "Increasingly deranged",
+    "indicators": [],
+    "pieces": [
+     "NUT",
+     "TIER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old teachers",
+      "gives": "NUT",
+      "note": "the National Union of Teachers, a British union that existed until it merged into a larger one in 2017, hence 'old'"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a row of seats set one above another, as in a theatre"
+     }
+    ],
+    "walkthrough": "The surface promises a staffroom argument, and 'row' is the pivot: read as a quarrel it goes nowhere, read as a line of seats it pays.",
+    "definitionFit": "Nutty is slang for mad, so its comparative says somebody is madder than before rather than simply mad."
+   }
   },
   {
    "id": "17-across",
@@ -360,7 +803,35 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHATGPT",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "CHATGPT",
+    "definition": "Chirpy haphazard assistant that'll give plausibleish text, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "In the first place is what primarily means, so each word ahead of it surrenders only the character it opens with."
+    },
+    "pieces": [
+     "C",
+     "H",
+     "A",
+     "T",
+     "G",
+     "P",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chirpy haphazard assistant that'll give plausibleish text",
+      "gives": "CHATGPT",
+      "note": "seven words standing in a row, each handing over the letter it begins with"
+     }
+    ],
+    "walkthrough": "An all-in-one: the sentence is both the description and the recipe, so nothing is left over. 'Plausibleish' is the joke — confident, fluent and not necessarily right.",
+    "definitionFit": "Read straight, the clue describes the chatbot itself: an eager, unpredictable helper that turns out text reading plausibly whether or not it is true."
+   }
   },
   {
    "id": "18-down",
@@ -381,7 +852,30 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEPITS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "THE PITS",
+    "definition": "Rubbish",
+    "definition2": "uneaten peach parts",
+    "indicators": [],
+    "linkWords": [
+     "comprising"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "gives": "",
+      "note": "in British English, calling something rubbish means it is dreadful, the worst of its kind"
+     },
+     {
+      "clueFragment": "uneaten peach parts",
+      "gives": "",
+      "note": "the hard stone at the centre of the fruit is the bit that goes in the bin"
+     }
+    ],
+    "walkthrough": "The definite article belongs to the idiom rather than to the fruit: peaches supply pits, and only 'the pits' means dreadful. The question mark admits that treating the stones this way is playful.",
+    "definitionFit": "The stone of a peach is its pit, and 'the pits' is the idiom, American-born and now everyday British slang, for the very worst of anything."
+   }
   },
   {
    "id": "19-across",
@@ -398,7 +892,27 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THROUGH",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "THROUGH",
+    "definition": "from beginning to end",
+    "indicators": [
+     "can be heard"
+    ],
+    "indicatorNotes": {
+     "can be heard": "What can only be heard reaches you as a sound and not a spelling, so what gets written down is the other word that sounds the same."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cast",
+      "soundsLike": "THREW",
+      "gives": "THROUGH",
+      "note": "to cast a stone is to throw it, and cast is already a past tense, so the word said aloud is the past tense too"
+     }
+    ],
+    "walkthrough": "'Cast' looks like the theatrical noun and is a verb, and specifically a past tense — that is what makes the sound land. Everyman's 'can be heard' is a homophone marker in plain clothes.",
+    "definitionFit": "Reading a book through means covering it from first page to last, so the word carries the whole of something end to end."
+   }
   },
   {
    "id": "19-down",
@@ -415,7 +929,37 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIPOLI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "TRIPOLI",
+    "definition": "somewhere in Libya",
+    "indicators": [
+     "arriving at",
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "arriving at": "What a journey arrives at comes after the journey, so the second chunk is written in behind the first.",
+     "regularly": "Something done regularly happens at fixed intervals, so letters are picked at every other place instead of one after another."
+    },
+    "pieces": [
+     "TRIP",
+     "OLI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journey",
+      "gives": "TRIP",
+      "note": "a short journey is a trip"
+     },
+     {
+      "clueFragment": "oil rig",
+      "gives": "OLI",
+      "note": "the first, third and fifth letters of the two words run together"
+     }
+    ],
+    "walkthrough": "The surface sends you offshore to an oil worker's commute and the answer is in North Africa. 'Regularly' is easy to read as scenery — a rig visited regularly — when it is the instruction.",
+    "definitionFit": "Tripoli is Libya's capital and chief port on the Mediterranean, so the country named points at the city inside it."
+   }
   },
   {
    "id": "20-across",
@@ -437,7 +981,24 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOWNTHEAISLE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "DOWN THE AISLE",
+    "definition": "As trolleys and some trains proceed?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "As trolleys",
+      "note": "the surface offers a supermarket, where a trolley is pushed along the gangway between the shelves"
+     },
+     {
+      "clueFragment": "some trains proceed",
+      "note": "the trains the setter means are not railway ones but the trailing part of a bride's dress, which proceeds at walking pace"
+     }
+    ],
+    "walkthrough": "No wordplay to find, only two senses of 'train' — the railway sort with a gangway down the middle, and the sort a wedding dress has. Both go the same way to get where they are going.",
+    "definitionFit": "The phrase names the walk a bride makes to the altar, and a shop trolley runs along the same kind of gangway between rows."
+   }
   },
   {
    "id": "21-down",
@@ -454,7 +1015,42 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEAN",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + deletion",
+    "answer": "DEAN",
+    "definition": "College official",
+    "indicators": [
+     "on retirement",
+     "denied"
+    ],
+    "indicatorNotes": {
+     "on retirement": "Something that retires goes back the way it came, so the letters are read from the far end instead of the near one.",
+     "denied": "What is denied you never arrives, so the letter it points at is left out of the assembly altogether."
+    },
+    "pieces": [
+     "DEAN"
+    ],
+    "subReversals": [
+     {
+      "from": "NAKED",
+      "to": "DEKAN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having stripped off",
+      "gives": "NAKED",
+      "note": "somebody who has stripped off is naked, and the word is written out before anything is done to it"
+     },
+     {
+      "clueFragment": "knighthood",
+      "gives": "K",
+      "note": "a knighthood shows as K in the honours list, as in KBE and KCMG, and that K is the letter dropped here"
+     }
+    ],
+    "walkthrough": "The surface is a scandal in the senior common room. 'Denied knighthood' sounds like a career ruined and is one letter refused, which is Everyman's joke.",
+    "definitionFit": "A dean heads a faculty, or at Oxford and Cambridge keeps discipline in a college, so the office is an official one exactly as described."
+   }
   },
   {
    "id": "22-down",
@@ -471,7 +1067,26 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKYE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SKYE",
+    "definition": "Spot of land",
+    "indicators": [
+     "grabbed from"
+    ],
+    "indicatorNotes": {
+     "grabbed from": "What is grabbed from something is lifted out of it as it stands, unaltered, so the letters come away in the order they were sitting in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Murmansk yesterday",
+      "gives": "SKYE",
+      "note": "four consecutive letters bridging the gap between the two words, two coming from each"
+     }
+    ],
+    "walkthrough": "A Russian port and a plain adverb, put together because the join between them is where the island sits. 'Spot of land' is vague on purpose: it could be a field, a farm or a stain on a map.",
+    "definitionFit": "Skye is the largest of the Inner Hebrides, off the west coast of Scotland, and an island is a spot of land in a sea."
+   }
   },
   {
    "id": "23-across",
@@ -488,7 +1103,54 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "ROVE",
+    "definition": "ramble",
+    "indicators": [
+     "After",
+     "drop of",
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "After": "It puts everything that follows behind the piece it names, so the wine supplies the letter at the front.",
+     "drop of": "A drop of a drink is the smallest measure of it, and the smallest measure of a written word is the first letter of the name.",
+     "beginning": "A word's beginning is the character it starts with, and none of the rest of the name is wanted."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "R",
+     "O",
+     "V",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Riesling",
+      "gives": "R",
+      "note": "the first letter of the German white wine's name"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape drawn on the page is the letter O"
+     },
+     {
+      "clueFragment": "#5",
+      "gives": "V",
+      "note": "the hash sign means number, and five as a Roman numeral is V"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "E",
+      "note": "the setter signs his own puzzle and only his initial is wanted"
+     }
+    ],
+    "walkthrough": "Everyman writes himself into his clues most weeks, so his name in a clue is nearly always one letter. The bracket is the tricky part: a hash makes 5 a number, and a number wants Roman numerals.",
+    "definitionFit": "To rove is to wander about with no fixed route, which is what rambling over the hills amounts to."
+   }
   },
   {
    "id": "24-across",
@@ -509,7 +1171,44 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
     ]
    },
    "solution": "WIDOWSPEAK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "WIDOW'S PEAK",
+    "definition": "what may resemble recession",
+    "indicators": [
+     "including"
+    ],
+    "indicatorNotes": {
+     "including": "To include something is to have it inside you, so the letters named next go into the gap in the middle rather than on the end."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "WI",
+     "DOW",
+     "SPEAK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women's group",
+      "gives": "WI",
+      "note": "the Women's Institute, the long-established British organisation of countrywomen"
+     },
+     {
+      "clueFragment": "stock index",
+      "gives": "DOW",
+      "note": "the Dow Jones average, the New York market's headline index"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "SPEAK",
+      "note": "a plain synonym, five letters"
+     }
+    ],
+    "walkthrough": "Every money word is misdirection: the recession here is a hairline in retreat, not an economy shrinking. The name comes from an old superstition that the shape foretold early widowhood.",
+    "definitionFit": "A widow's peak is the V of hair pointing down the forehead, and its shape mimics a hairline receding, which is recession as hair rather than economics."
+   }
   },
   {
    "id": "25-across",
@@ -526,7 +1225,30 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SASH",
+    "definition": "Frame",
+    "indicators": [],
+    "pieces": [
+     "S",
+     "ASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothes-label abbreviation for small"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "a common British hardwood, three letters"
+     }
+    ],
+    "walkthrough": "Three words, no indicator, no joinery: the shortest kind of charade there is. 'Frame' is the window sense, not a picture's or a boxer's.",
+    "definitionFit": "A sash is the wooden frame holding the panes in a sash window, the part that slides up and down in its box."
+   }
   },
   {
    "id": "26-across",
@@ -543,7 +1265,39 @@ window.CRYPTIC_PUZZLES["everyman-4156"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSISTANCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASSISTANCE",
+    "definition": "some help",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ASS",
+     "I",
+     "STANCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nitwit",
+      "gives": "ASS",
+      "note": "an ass is a fool, the donkey pressed into service as an insult"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "point of view",
+      "gives": "STANCE",
+      "note": "the position you take on a question is your stance"
+     }
+    ],
+    "walkthrough": "The exclamation mark sells 'some help!' as sarcasm aimed at the nitwit, and that is the misdirection — it is the straight definition. I for one is the commonest single letter in the game.",
+    "definitionFit": "Assistance is help as an uncountable noun, the aid given rather than one act of it, which is why 'some' sits comfortably in front."
+   }
   }
  ]
 } /*JSON-END*/;
