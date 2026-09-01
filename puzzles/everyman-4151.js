@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABOARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABOARD",
+    "definition": "on a ship",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "BOARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ace",
+      "gives": "A",
+      "note": "the card's own letter, the one printed in its corner"
+     },
+     {
+      "clueFragment": "meals",
+      "gives": "BOARD",
+      "note": "board is the food half of room and board — what a landlady provides at table"
+     }
+    ],
+    "walkthrough": "Nothing in the surface points to the sea: 'Ace meals' reads as a compliment about the catering, which is exactly where the two pieces are standing.",
+    "definitionFit": "on a ship → ABOARD: the everyday word for being carried by a vessel once you have stepped off the quay."
+   }
   },
   {
    "id": "2-down",
@@ -58,7 +81,32 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRICKSANDMORTAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BRICKS-AND-MORTAR",
+    "definition": "not online",
+    "indicators": [
+     "perversely"
+    ],
+    "indicatorNotes": {
+     "perversely": "To do a thing perversely is to do it contrarily, against the way it was meant to go, so the letters refuse the order they were handed in."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "STANDBACKMIRROR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stand back! Mirror",
+      "gives": "BRICKSANDMORTAR",
+      "note": "an exclamation and a newspaper title, fifteen letters between them — exactly the fifteen the entry needs"
+     }
+    ],
+    "walkthrough": "The italics make Mirror a newspaper, and both it and 'Stand back!' promise a reversal. Neither delivers: they are fodder, and 'perversely' is the clue's only instruction.",
+    "definitionFit": "not online → BRICKS-AND-MORTAR: the trade's adjective for a shop or bank with a physical building, as against one that exists only on the web."
+   }
   },
   {
    "id": "3-down",
@@ -75,7 +123,43 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWKWARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AWKWARD",
+    "definition": "Graceless",
+    "indicators": [
+     "not starting",
+     "to usher in"
+    ],
+    "indicatorNotes": {
+     "not starting": "A word that does not start has lost the letter it begins with, so the bird named beside this arrives without its H.",
+     "to usher in": "An usher walks ahead of the people he brings through the door, so the trimmed piece leads and everything else is written behind it."
+    },
+    "pieces": [
+     "AWK",
+     "WAR",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sabre-rattler not starting",
+      "gives": "AWK",
+      "note": "a hawk is the warmonger of the political aviary, and the bird is taken minus the letter it opens with"
+     },
+     {
+      "clueFragment": "war",
+      "gives": "WAR",
+      "note": "the clue's own word, lifted whole and unaltered"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "d is the standard short form of dead, as printed on a family tree"
+     }
+    ],
+    "walkthrough": "Sabre-rattling is threatening war rather than making it, and the hawk is the bird that kind of talk belongs to. The definition hides at the front, looking like scene-setting.",
+    "definitionFit": "Graceless → AWKWARD: clumsy in movement or manner, the sense of someone who cannot cross a room without knocking something over."
+   }
   },
   {
    "id": "4-down",
@@ -96,7 +180,44 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
     ]
    },
    "solution": "DALAILAMA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DALAI LAMA",
+    "definition": "Spiritual leader",
+    "indicators": [
+     "written up"
+    ],
+    "indicatorNotes": {
+     "written up": "In a down entry, writing something up means setting it down from the bottom square, so the assembled letters are read back towards the first."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "DALAI",
+     "LAMA"
+    ],
+    "subReversals": [
+     {
+      "from": "AMALIALAD",
+      "to": "DALAILAMA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a state",
+      "gives": "AMALI",
+      "note": "the article, then Mali, the landlocked West African republic"
+     },
+     {
+      "clueFragment": "a chap",
+      "gives": "ALAD",
+      "note": "the article again, then the informal word for a young man"
+     }
+    ],
+    "walkthrough": "Read from the bottom, the four small pieces regroup entirely: the joins in the wordplay fall nowhere near the join between the answer's two words.",
+    "definitionFit": "Spiritual leader → DALAI LAMA: the title of Tibetan Buddhism's foremost teacher, an office rather than a name, so it defines a leader by religious rank."
+   }
   },
   {
    "id": "5-across",
@@ -113,7 +234,46 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOTAGE",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "DOTAGE",
+    "definition": "feebleness",
+    "indicators": [
+     "got into",
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "got into": "Something that gets into a thing ends up within it rather than beside it, so the polite two letters are planted inside the piece already assembled.",
+     "beginning": "The beginning of a word is the letter it opens with, and only that one letter is taken from the byline this puzzle carries."
+    },
+    "linkWords": [
+     "to show"
+    ],
+    "pieces": [
+     "DO",
+     "TA",
+     "GE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter, perhaps",
+      "gives": "DOG",
+      "note": "a setter is one breed among many, so the general animal is wanted — 'perhaps' marks the example"
+     },
+     {
+      "clueFragment": "Everyman's beginning",
+      "gives": "E",
+      "note": "the opening letter of the name this puzzle is signed with"
+     },
+     {
+      "clueFragment": "You shouldn't have",
+      "gives": "TA",
+      "note": "what you say on being handed an unexpected present is thanks, and this is the two-letter British version of it"
+     }
+    ],
+    "walkthrough": "Everyman signs his own puzzles, so his name in a clue usually means him; here it is only its first letter, and the setter that matters is the animal.",
+    "definitionFit": "feebleness → DOTAGE: the doddering weakness of extreme old age, a noun for the state itself rather than for the years that brought it on."
+   }
   },
   {
    "id": "5-down",
@@ -130,7 +290,30 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DITCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DITCH",
+    "definition": "Drop",
+    "definition2": "moat",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "gives": "",
+      "note": "the verb: to drop a plan, a habit or a passenger is to abandon it and move on"
+     },
+     {
+      "clueFragment": "moat",
+      "gives": "",
+      "note": "the noun: the trench dug round a castle wall, water in it or not, is one sort of this"
+     }
+    ],
+    "walkthrough": "Three words, and the surface is one continuous picture — a drop of water in a moat — so nothing at all marks the place where the first meaning stops.",
+    "definitionFit": "Drop → DITCH as a verb, to abandon something; moat → DITCH by example, a moat being one kind of trench dug for defence."
+   }
   },
   {
    "id": "6-down",
@@ -151,7 +334,36 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEMAGI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THE MAGI",
+    "definition": "three kings",
+    "indicators": [],
+    "pieces": [
+     "THEM",
+     "A",
+     "GI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those people",
+      "gives": "THEM",
+      "note": "the pronoun you would use for those people if you were pointing at them"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one soldier is a soldier — the article does the counting"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is the American enlisted man of every war film"
+     }
+    ],
+    "walkthrough": "'Those people' and 'one soldier' read as a sentence about troops, and the semicolon does a comma's work: three separate pieces, laid end to end.",
+    "definitionFit": "three kings → THE MAGI: the visitors who brought gifts at the nativity, called kings by carol and tradition though scripture gives them neither rank nor number."
+   }
   },
   {
    "id": "7-down",
@@ -174,7 +386,33 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
     ]
    },
    "solution": "GETINTOHOTWATER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GET INTO HOT WATER",
+    "definition": "Experience mishap",
+    "indicators": [],
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "GETINTO",
+     "HOTWATER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visiting",
+      "gives": "GETINTO",
+      "note": "to visit a place is to enter it, the phrase you would use of a house you finally managed to reach"
+     },
+     {
+      "clueFragment": "geyser?",
+      "gives": "HOTWATER",
+      "note": "an Icelandic geyser is a jet of exactly that, thrown boiling out of the ground — one example standing for the general thing"
+     }
+    ],
+    "walkthrough": "The trouble idiom and the tourist attraction are the same four words, which is the whole joke: a literal visit to one would land you in the figurative other.",
+    "definitionFit": "Experience mishap → GET INTO HOT WATER: the idiom for landing yourself in trouble, where the trouble is usually somebody else's anger."
+   }
   },
   {
    "id": "8-across",
@@ -198,7 +436,32 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
     ]
    },
    "solution": "INKBLOTTEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INK-BLOT TEST",
+    "definition": "psych procedure",
+    "indicators": [
+     "Startled"
+    ],
+    "indicatorNotes": {
+     "Startled": "A startled animal runs in whatever direction it happens to be facing, and letters given that fright land in an order nobody chose."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "KITTENSBOLT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "kittens bolt",
+      "gives": "INKBLOTTEST",
+      "note": "eleven letters of frightened cat, which is exactly the eleven the entry needs"
+     }
+    ],
+    "walkthrough": "The surface is a vet's waiting room and the answer is a psychologist's couch. Note where the anagram indicator sits: first word, passing for scene-setting.",
+    "definitionFit": "psych procedure → INK-BLOT TEST: the Rorschach method, where what a patient sees in a symmetrical smudge is read back as personality."
+   }
   },
   {
    "id": "9-down",
@@ -215,7 +478,33 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMOG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SMOG",
+    "definition": "Foul air",
+    "indicators": [],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "S",
+     "MOG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size on a clothing label"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "MOG",
+      "note": "a mog, or moggy, is British household slang for a cat of no particular breed"
+     }
+    ],
+    "walkthrough": "Two ordinary words with nothing odd about either, which is the difficulty: nothing in 'small cat' announces that it is spelling rather than describing.",
+    "definitionFit": "Foul air → SMOG: the choking blend of smoke and fog that settles over a city, so the definition names it by what it does to the lungs."
+   }
   },
   {
    "id": "10-down",
@@ -232,7 +521,26 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADEN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ADEN",
+    "definition": "Major port",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The small word is doing real work rather than joining: what the definition wants is sitting inside the word that follows, not near it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pasadena",
+      "gives": "ADEN",
+      "note": "four consecutive letters inside the Californian city's name, beginning at its third"
+     }
+    ],
+    "walkthrough": "A Californian suburb with a Yemeni harbour buried in it, and no comma or hyphen to mark the seam — long place names are a hidden word's favourite cover.",
+    "definitionFit": "Major port → ADEN: the great harbour at the mouth of the Red Sea, for centuries the coaling stop on the route between Europe and India."
+   }
   },
   {
    "id": "11-across",
@@ -254,7 +562,35 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAKEAWISH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MAKE A WISH",
+    "definition": "Birthday announcement",
+    "definitionNote": "The answer is an instruction called out at the party rather than a noun; the setter defines it by naming the moment at which those words get announced.",
+    "indicators": [
+     "pathetic"
+    ],
+    "indicatorNotes": {
+     "pathetic": "Something pathetic is in a sorry, fallen-apart state, and letters in that condition cannot be relied on to stay where they were put."
+    },
+    "anagram": {
+     "fodder": "AMAWKISHE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a mawkish",
+      "gives": "AMAWKISH",
+      "note": "eight of the nine letters, taken from the article and the adjective as they stand"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "E",
+      "note": "e is the mathematician's constant, 2.718..., joining the shuffle as a single letter"
+     }
+    ],
+    "walkthrough": "'Pathetic' looks like a verdict on the birthday card and is the instruction instead. Everyman enjoys an anagram whose fodder reads as an insult.",
+    "definitionFit": "Birthday announcement → MAKE A WISH: the words called out over the candles, the standard invitation at the moment the cake is carried in."
+   }
   },
   {
    "id": "12-across",
@@ -271,7 +607,32 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACNED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + deletion",
+    "answer": "ACNED",
+    "definition": "Spotty",
+    "indicators": [
+     "for a Cockney"
+    ],
+    "indicatorNotes": {
+     "for a Cockney": "London's East End accent drops the aitch from the front of a word, and what is left has to be judged by ear rather than by spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "old hat",
+      "gives": "HACKNEYED",
+      "note": "anything old hat has been worn out by overuse, which is what this longer word means"
+     },
+     {
+      "clueFragment": "for a Cockney",
+      "soundsLike": "'ACKNEYED",
+      "gives": "ACNED",
+      "note": "with the aitch gone, what is left is said exactly as the much shorter spelling is, though the two share barely half their letters"
+     }
+    ],
+    "walkthrough": "Say 'hackneyed' without its aitch and you have said the answer. The joke is that a Cockney's 'old hat' turns out to describe a teenager's complexion.",
+    "definitionFit": "Spotty → ACNED: covered in the pimples of acne, the doctor's adjective for the skin the playground calls spotty."
+   }
   },
   {
    "id": "13-across",
@@ -288,7 +649,49 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRANDPA",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "GRANDPA",
+    "definition": "He's related",
+    "indicators": [
+     "finale",
+     "including"
+    ],
+    "indicatorNotes": {
+     "finale": "A finale is the last thing to happen, so only the letter the word ends on is taken from it.",
+     "including": "To include a thing is to hold it within, so the two pieces named afterwards drop into the middle of what came before."
+    },
+    "pieces": [
+     "GR",
+     "AND",
+     "P",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek",
+      "gives": "GR",
+      "note": "Gr is the standard short form for Greek, and Greece's international car plate"
+     },
+     {
+      "clueFragment": "additionally",
+      "gives": "AND",
+      "note": "one thing additionally to another is one and another"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "P",
+      "note": "P is the abbreviation for prince, as on a royal monogram"
+     },
+     {
+      "clueFragment": "saga's finale",
+      "gives": "A",
+      "note": "the last letter of sagA"
+     }
+    ],
+    "walkthrough": "Everything after the definition reads like literary criticism — a Greek epic, its ending, a prince — and every word of it is an abbreviation or a single letter.",
+    "definitionFit": "He's related → GRANDPA: the familiar name for a parent's father, so the definition points at a particular male relative rather than at kinship in general."
+   }
   },
   {
    "id": "14-across",
@@ -305,7 +708,35 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNICORN",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "UNICORN",
+    "definition": "Unlisted (not indexed) company offering riches nowadays, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means before anything else, so each word in front of it gives up the letter it opens with and nothing more."
+    },
+    "pieces": [
+     "U",
+     "N",
+     "I",
+     "C",
+     "O",
+     "R",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unlisted (not indexed) company offering riches nowadays",
+      "gives": "UNICORN",
+      "note": "the opening letter of each of these seven words in turn, the bracketed pair counting exactly like the rest"
+     }
+    ],
+    "walkthrough": "An all-in-one: the sentence describes a private company worth a fortune and spells it at the same time. The brackets are the only thing making the count awkward.",
+    "definitionFit": "The clue reads straight: a start-up valued past a billion but never floated on any exchange is precisely an unlisted, unindexed firm promising sudden riches."
+   }
   },
   {
    "id": "14-down",
@@ -322,7 +753,32 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNTUTORED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNTUTORED",
+    "definition": "ignorant",
+    "indicators": [
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "sadly": "To say a thing happened sadly is to say it went wrong, and letters that have gone wrong end up somewhere other than their proper places."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "anagram": {
+     "fodder": "TURNEDOUT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Turned out",
+      "gives": "UNTUTORED",
+      "note": "the nine letters of the opening phrase, re-sorted"
+     }
+    ],
+    "walkthrough": "'Turned out' wants to be the instruction — turning is exactly what setters ask for — but here it is the material, and the meek adverb beside it does the ordering.",
+    "definitionFit": "ignorant → UNTUTORED: never taught, and so lacking what schooling would have supplied — ignorance by absence of instruction rather than by stupidity."
+   }
   },
   {
    "id": "15-across",
@@ -339,7 +795,26 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANDORRA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ANDORRA",
+    "definition": "another country",
+    "indicators": [
+     "Part of"
+    ],
+    "indicatorNotes": {
+     "Part of": "Only a piece of what follows is wanted, so a run of letters inside those words is being pointed at, not their meaning."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Finland - or, rather",
+      "gives": "ANDORRA",
+      "note": "seven consecutive letters running from inside the first country's name through the aside that follows it"
+     }
+    ],
+    "walkthrough": "A dash and two commas fall inside the run and not one of them interrupts it: punctuation is invisible to a hidden word, which is what makes this one hard to see.",
+    "definitionFit": "another country → ANDORRA: the tiny Pyrenean principality between France and Spain, 'another' because the clue's own letters have already named one."
+   }
   },
   {
    "id": "15-down",
@@ -356,7 +831,40 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "AIDE",
+    "definition": "Help",
+    "indicators": [
+     "opens"
+    ],
+    "indicatorNotes": {
+     "opens": "What opens a word is the letter it starts with, so the building named beside this hands over one letter and keeps the rest."
+    },
+    "linkWords": [
+     "with",
+     "as"
+    ],
+    "pieces": [
+     "A",
+     "ID",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a passport, perhaps",
+      "gives": "AID",
+      "note": "the article, then the two letters any document proving who you are is called — a passport being one example"
+     },
+     {
+      "clueFragment": "embassy",
+      "gives": "E",
+      "note": "the first letter of the building named here"
+     }
+    ],
+    "walkthrough": "Passport and embassy are both there for the travel picture, and only one of them survives as a whole piece of wordplay; the other is cut to a single letter.",
+    "definitionFit": "Help → AIDE: a person employed to assist somebody important, and 'help' names a person too when it means the staff rather than the act."
+   }
   },
   {
    "id": "16-down",
@@ -373,7 +881,39 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELAXED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RELAXED",
+    "definition": "restful",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "To go around a thing is to enclose it, so the piece named first opens up and the letters that follow are set inside it."
+    },
+    "linkWords": [
+     "that's"
+    ],
+    "pieces": [
+     "RE",
+     "LAX",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rush",
+      "gives": "REED",
+      "note": "a rush is a marsh plant, and the setter wants the other tall stem that grows in the same wet ground"
+     },
+     {
+      "clueFragment": "California airport",
+      "gives": "LAX",
+      "note": "LAX is the three-letter code for Los Angeles International, printed on every bag tag"
+     }
+    ],
+    "walkthrough": "'Rush' is the trap: it reads as speed and it is a plant. Airport codes are worth collecting — three letters, used the way setters use chemical symbols.",
+    "definitionFit": "restful → RELAXED: at ease, with nothing tensed; both words describe an absence of strain rather than any actual sleep."
+   }
   },
   {
    "id": "17-across",
@@ -390,7 +930,40 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEDIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TEDIOUS",
+    "definition": "Wearisome",
+    "indicators": [],
+    "linkWords": [
+     "after",
+     "with"
+    ],
+    "pieces": [
+     "T",
+     "ED",
+     "IOUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard short form of time, as on a stopwatch"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "Ed is the newspaper's editor, the form used on a masthead"
+     },
+     {
+      "clueFragment": "promises of payment",
+      "gives": "IOUS",
+      "note": "an IOU is a scribbled promise to pay, and more than one of them takes the plural"
+     }
+    ],
+    "walkthrough": "Three abbreviations in a row, dressed as a complaint about the office. IOU is worth knowing — 'I owe you' spelled by its sound — because setters use it constantly.",
+    "definitionFit": "Wearisome → TEDIOUS: long, dull and repetitive, so wearying by sheer monotony rather than by effort — the meeting that will not end."
+   }
   },
   {
    "id": "18-down",
@@ -407,7 +980,38 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DORMICE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "DORMICE",
+    "definition": "Rodents",
+    "indicators": [
+     "headless",
+     "inside"
+    ],
+    "indicatorNotes": {
+     "headless": "A headless word has lost the letter at its front, so the crawler named beside this arrives without its W.",
+     "inside": "What is inside sits within rather than alongside, so the trimmed piece is planted in the middle of the other."
+    },
+    "pieces": [
+     "D",
+     "ORM",
+     "ICE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut up",
+      "gives": "DICE",
+      "note": "to cut something up into small cubes is to dice it"
+     },
+     {
+      "clueFragment": "headless worm",
+      "gives": "ORM",
+      "note": "the wriggler minus the letter it starts with"
+     }
+    ],
+    "walkthrough": "In a down entry 'cut up' promises a reversal and delivers a kitchen verb instead. The dash is Everyman separating the halves without saying anything.",
+    "definitionFit": "Rodents → DORMICE: the plural of the small hibernating mouse with the furry tail, rodents by family and famously asleep at Alice's tea party."
+   }
   },
   {
    "id": "19-down",
@@ -424,7 +1028,40 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOHO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SOHO",
+    "definition": "part of London",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "To upset a thing is to turn it over, and in a down entry the letters turned over are read from the bottom square upwards."
+    },
+    "pieces": [
+     "SOHO"
+    ],
+    "subReversals": [
+     {
+      "from": "OHOS",
+      "to": "SOHO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm surprised",
+      "gives": "OH",
+      "note": "the noise you make when something takes you unawares"
+     },
+     {
+      "clueFragment": "map-maker's",
+      "gives": "OS",
+      "note": "the Ordnance Survey is Britain's national mapping agency, known everywhere by its two initials"
+     }
+    ],
+    "walkthrough": "'Upset' reads as annoyed, describing the poor cartographer, and is really the instruction: read the two pieces from the bottom of the entry upwards.",
+    "definitionFit": "part of London → SOHO: the square of streets north of Shaftesbury Avenue, long the capital's district for clubs, restaurants and the film trade."
+   }
   },
   {
    "id": "20-across",
@@ -441,7 +1078,43 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DROLL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DROLL",
+    "definition": "amusing",
+    "indicators": [
+     "On reflection"
+    ],
+    "indicatorNotes": {
+     "On reflection": "A reflection shows a thing the other way round, so what follows is taken from its far end back to its start."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "DROLL"
+    ],
+    "subReversals": [
+     {
+      "from": "LLORD",
+      "to": "DROLL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the ballot paper's abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "parliamentarian",
+      "gives": "LORD",
+      "note": "a member of Britain's upper house sits in Parliament without ever having been elected to it"
+     }
+    ],
+    "walkthrough": "'On reflection' opens the clue as a phrase about second thoughts, which is how a reversal indicator likes to arrive: sounding like a comment on the surface.",
+    "definitionFit": "amusing → DROLL: funny in a dry, understated way, the adjective for wit that raises an eyebrow rather than a laugh."
+   }
   },
   {
    "id": "21-across",
@@ -458,7 +1131,29 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTGROWTH",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "OUTGROWTH",
+    "definition": "How gut-rot's provoked?",
+    "indicators": [
+     "provoked"
+    ],
+    "indicatorNotes": {
+     "provoked": "To provoke is to stir something up, and letters stirred up settle in an arrangement nobody planned."
+    },
+    "anagram": {
+     "fodder": "HOWGUTROT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "How gut-rot",
+      "gives": "OUTGROWTH",
+      "note": "the nine letters of the question's opening, re-sorted"
+     }
+    ],
+    "walkthrough": "An all-in-one: the same words ask the question and spell the answer. Gut-rot is British slang for cheap spirits, the sort that burn on the way down.",
+    "definitionFit": "The whole clue reads straight: what grows out of something else as its consequence is what a rough drink's after-effects amount to."
+   }
   },
   {
    "id": "21-down",
@@ -475,7 +1170,27 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODDLY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ODDLY",
+    "definition": "In a weird way",
+    "definition2": "how number's found in the end",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "In a weird way",
+      "gives": "",
+      "note": "the plain adverb: strangely, in a manner that does not fit what was expected"
+     },
+     {
+      "clueFragment": "how number's found in the end",
+      "gives": "",
+      "note": "count through the letters of 'the end' and take the first, third and fifth: T, E, N, a number sitting at the positions the answer is named for"
+     }
+    ],
+    "walkthrough": "The second half is a puzzle in miniature: 'the end' holds TEN if you take alternate letters from the start, and the answer names the way you had to read.",
+    "definitionFit": "In a weird way → ODDLY, the plain adverb for strangely; and a number picked out of 'the end' at alternate letters is found in exactly that manner."
+   }
   },
   {
    "id": "22-across",
@@ -492,7 +1207,24 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAXIDERMIST",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TAXIDERMIST",
+    "definition": "Stuffy type occupied with relics of the past?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Stuffy type",
+      "note": "the reading the surface pushes: a pompous bore in an airless room, the sort who lectures you about antiques"
+     },
+     {
+      "clueFragment": "occupied with relics of the past",
+      "note": "the setter means it literally — the work is done on creatures that stopped being alive some time ago"
+     }
+    ],
+    "walkthrough": "'Stuffy' does two jobs at once: the adjective for a boring man, and the verb for what this trade actually does to a dead fox before it goes on the wall.",
+    "definitionFit": "The clue describes the answer the long way round: this is the one profession where being called a stuffy sort surrounded by dead animals is simply accurate."
+   }
   },
   {
    "id": "23-across",
@@ -509,7 +1241,24 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRIDAY",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FRIDAY",
+    "definition": "Good is the one that comes yearly",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "note": "the reading the surface pushes: an adjective praising whichever one is meant, as though several were being compared"
+     },
+     {
+      "clueFragment": "the one that comes yearly",
+      "note": "a weekday comes round every seven days; fix the right word in front of it and the name belongs to a single date in the church calendar"
+     }
+    ],
+    "walkthrough": "The joke is the capital G: as a label rather than praise, it turns an ordinary weekday into the solemn day before Easter, which comes once a year.",
+    "definitionFit": "The clue defines the answer sideways: only with 'Good' fixed in front of it does this day name an annual observance instead of a weekly one."
+   }
   },
   {
    "id": "24-across",
@@ -526,7 +1275,39 @@ window.CRYPTIC_PUZZLES["everyman-4151"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DREARY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DREARY",
+    "definition": "Gloomy",
+    "indicators": [
+     "capturing"
+    ],
+    "indicatorNotes": {
+     "capturing": "To capture a thing is to take it prisoner and hold on to it, so the shorter piece ends up trapped inside the longer one."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "DR",
+     "EAR",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arid",
+      "gives": "DRY",
+      "note": "arid ground has no moisture left in it at all"
+     },
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to lend an ear, or to have someone's ear, is to give or be given attention"
+     }
+    ],
+    "walkthrough": "'Capturing' is the only instruction and it arrives late: the first three words read as two adjectives sharing a comma, which is how the container stays hidden.",
+    "definitionFit": "Gloomy → DREARY: dull, grey and spirit-lowering, the word for a wet November afternoon rather than for anything actively sad."
+   }
   }
  ]
 } /*JSON-END*/;
