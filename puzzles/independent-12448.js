@@ -30,7 +30,40 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCORCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SCORCH",
+    "definition": "char",
+    "definitionFit": "To char is to burn a surface brown or black, which is what a hot iron does to a shirt or the sun does to grass.",
+    "indicators": [
+     "snubbing"
+    ],
+    "indicatorNotes": {
+     "snubbing": "To snub is to cut someone dead, and here the cutting is literal: the letter named next is dropped out of the word in front."
+    },
+    "pieces": [
+     "SCOR",
+     "CH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show contempt for",
+      "gives": "SCORN",
+      "note": "To scorn something is to show contempt for it."
+     },
+     {
+      "clueFragment": "cardinal",
+      "gives": "N",
+      "note": "North is a cardinal point of the compass, and this is the letter that gets cut."
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church, the one printed on maps."
+     }
+    ],
+    "walkthrough": "The cardinal is a compass point, not a churchman in red — the surface stands him next to the church precisely so you read him the other way."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +80,47 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KINGSTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "KINGSTON",
+    "definition": "capital",
+    "definitionFit": "Kingston is the seat of government of Jamaica, so the plain noun names the answer by the category it belongs to.",
+    "indicators": [
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A word sent on vacation has its insides emptied and its house left standing, so only the letters at each end stay behind."
+    },
+    "pieces": [
+     "KIN",
+     "GS",
+     "TO",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "KIN",
+      "note": "Your kin are your family, your blood relations."
+     },
+     {
+      "clueFragment": "goes",
+      "gives": "GS",
+      "note": "First and last letters of the word, all that survives the emptying."
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "The little word is taken at face value and joined on as it stands."
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the map abbreviation for northern."
+     }
+    ],
+    "walkthrough": "'Goes on vacation' reads as one phrase about a holiday, and that is the join: the verb is fodder and the holiday is the instruction to hollow it out."
+   }
   },
   {
    "id": "3-down",
@@ -69,7 +142,45 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
     ]
    },
    "solution": "PORTOFCALL",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "PORT OF CALL",
+    "definition": "scheduled stop",
+    "definitionFit": "A ship's port of call is a harbour written into its itinerary, a place the voyage is timetabled to break at.",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the instruction to trade them back."
+    },
+    "linkWords": [
+     "makes"
+    ],
+    "pieces": [
+     "PORT",
+     "OF",
+     "CALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "train",
+      "gives": "COURT",
+      "note": "A grandee's train is the retinue trailing after them — their court."
+     },
+     {
+      "clueFragment": "apostle's",
+      "gives": "PAUL",
+      "note": "The apostle who wrote most of the letters in the New Testament."
+     },
+     {
+      "clueFragment": "Spooner's",
+      "soundsLike": "COURT OF PAUL",
+      "gives": "PORT OF CALL",
+      "note": "Say the apostle's retinue aloud, swap the opening C and P, and the possessive turns into an 'of' along the way."
+     }
+    ],
+    "walkthrough": "'Train' is the retinue that follows a great man, not the thing at a platform — and the surface keeps a railway in view right up to the last word."
+   }
   },
   {
    "id": "4-down",
@@ -86,7 +197,30 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAID",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MAID",
+    "definition": "Abigail",
+    "definitionFit": "An abigail is a lady's personal maid, named after a servant in a Jacobean play and now surviving mostly in crosswords.",
+    "indicators": [
+     "for eavesdroppers"
+    ],
+    "indicatorNotes": {
+     "for eavesdroppers": "An eavesdropper only ever hears a word, never sees it written, so the sound is what has to match."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prepared",
+      "soundsLike": "MADE",
+      "gives": "MAID",
+      "note": "Something prepared has been made ready, and that word spoken is spelt a second way."
+     }
+    ],
+    "walkthrough": "Abigail arrives with a capital letter and reads as somebody's name; it is a job, and the whole clue turns on demoting it."
+   }
   },
   {
    "id": "5-down",
@@ -103,7 +237,43 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BACKSLIDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "BACKSLIDER",
+    "definition": "Recidivist",
+    "definitionFit": "A recidivist keeps relapsing into crime, and a backslider is anyone who slips back into old bad habits — the same relapse in plainer words.",
+    "indicators": [
+     "regularly concealed",
+     "under"
+    ],
+    "indicatorNotes": {
+     "regularly concealed": "Letters tucked away at even intervals — every second one — inside the word that follows.",
+     "under": "A down entry is read top to bottom, so whatever is under something else lands later in the answer."
+    },
+    "pieces": [
+     "BACKS",
+     "LID",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby player's",
+      "gives": "BACKS",
+      "note": "A back is one of the players behind the scrum, and the possessive 's' comes along for the ride."
+     },
+     {
+      "clueFragment": "top",
+      "gives": "LID",
+      "note": "The top of a jar or a saucepan is its lid."
+     },
+     {
+      "clueFragment": "gear",
+      "gives": "ER",
+      "note": "Every other letter of the word, starting from the second."
+     }
+    ],
+    "walkthrough": "'Rugby player's top' sounds like a shirt, which is exactly the picture wanted: it is two separate pieces, a position on the pitch and a cover for a pot."
+   }
   },
   {
    "id": "6-down",
@@ -120,7 +290,26 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WIMP",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "WIMP",
+    "definition": "Weed",
+    "definitionFit": "A weed, in the playground sense, is a feeble specimen of a person rather than a garden plant, and that insult is what the answer means.",
+    "indicators": [
+     "provided by"
+    ],
+    "indicatorNotes": {
+     "provided by": "The two words after it supply the letters themselves, handing them over in order with nothing done to them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fellow impresario",
+      "gives": "WIMP",
+      "note": "Four consecutive letters straddle the join, the end of one word running into the start of the next."
+     }
+    ],
+    "walkthrough": "Nothing is rearranged, removed or sounded here: the surface offers a showbiz backer and a chum, and the letters simply lie across the gap between them."
+   }
   },
   {
    "id": "7-down",
@@ -137,7 +326,38 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LINEAR",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letter",
+    "answer": "LINEAR",
+    "definition": "Straight",
+    "definitionFit": "Something linear runs in a straight line rather than curving — the adjective a mathematician uses of a graph that never bends.",
+    "indicators": [
+     "discovered",
+     "aboard"
+    ],
+    "indicatorNotes": {
+     "discovered": "Read it as dis-covered: the covering letters at either end come off, leaving what was underneath.",
+     "aboard": "Whatever is aboard a vessel is inside it, so the uncovered letter is placed within the ship."
+    },
+    "pieces": [
+     "LINE",
+     "A",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship",
+      "gives": "LINER",
+      "note": "A liner is a large passenger ship."
+     },
+     {
+      "clueFragment": "man",
+      "gives": "A",
+      "note": "Take the cover off each end of the word and this middle letter is left standing."
+     }
+    ],
+    "walkthrough": "'Straight man' looks like one phrase, the comedian's partner, and prising the two words apart is the whole battle — only the second is fodder."
+   }
   },
   {
    "id": "8-down",
@@ -154,7 +374,44 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CROSSBOW",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "CROSSBOW",
+    "definition": "shooter",
+    "definitionFit": "A crossbow shoots bolts down a grooved stock, so the loose noun names the weapon by the job it does.",
+    "indicators": [
+     "admits",
+     "shot"
+    ],
+    "indicatorNotes": {
+     "admits": "To admit someone is to let them in, so the bird's letters open up and take the other piece inside.",
+     "shot": "Shot silk has its colours thrown through one another, and the same scattering happens to these four letters."
+    },
+    "pieces": [
+     "CRO",
+     "SSBO",
+     "W"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BOSS",
+      "gives": "SSBO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flapper",
+      "gives": "CROW",
+      "note": "A bird that flaps — the black, cawing sort."
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "SSBO",
+      "note": "The letters of the word, thrown into a new order."
+     }
+    ],
+    "walkthrough": "'Flapper' wants to be a 1920s dancer in a fringed dress. Hear the bird instead and the rest of the clue opens up."
+   }
   },
   {
    "id": "9-across",
@@ -171,7 +428,38 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIPOLATA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "CHIPOLATA",
+    "definition": "Sausage",
+    "definitionFit": "A chipolata is a small thin sausage, the kind wrapped in bacon at Christmas, so the definition names the class it belongs to.",
+    "indicators": [
+     "occasionally"
+    ],
+    "indicatorNotes": {
+     "occasionally": "What happens occasionally happens every so often, and here that means picking up every second letter as you read along."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "CHIP",
+     "OLATA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French fry",
+      "gives": "CHIP",
+      "note": "What Americans call a French fry is a chip in Britain."
+     },
+     {
+      "clueFragment": "oil, salt and bay",
+      "gives": "OLATA",
+      "note": "Read the three seasonings as one run and take every second letter, starting with the very first."
+     }
+    ],
+    "walkthrough": "The whole clue reads as a recipe, and that is the disguise: the seasonings are there to be spelled out, not cooked."
+   }
   },
   {
    "id": "10-across",
@@ -188,7 +476,40 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICIER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ICIER",
+    "definition": "Cooler",
+    "definitionFit": "Both are comparatives for a lower temperature, and both carry the same second sense of a frostier manner towards someone.",
+    "indicators": [
+     "renounced"
+    ],
+    "indicatorNotes": {
+     "renounced": "To renounce is to give something up, so the letter singled out as the essential one is surrendered."
+    },
+    "pieces": [
+     "I",
+     "CIER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "The setter speaks as 'I' — the person who wrote the clue is in it."
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "CIDER",
+      "note": "The pressed-apple drink, five letters long."
+     },
+     {
+      "clueFragment": "essentially",
+      "gives": "D",
+      "note": "A word's essential letter is the one at its very centre, and this sits at the centre of that drink."
+     }
+    ],
+    "walkthrough": "'Cooler' first reads as a noun — an icebox, or a prison cell — when it is the comparative adjective, which is what makes the ending of the answer fair."
+   }
   },
   {
    "id": "11-across",
@@ -205,7 +526,38 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIGHTED",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "RIGHTED",
+    "definition": "Set straight",
+    "definitionFit": "To right a capsized boat, or an old injustice, is to set it straight again, and the past tense matches the definition's.",
+    "indicators": [
+     "about",
+     "without borders"
+    ],
+    "indicatorNotes": {
+     "about": "To go about something is to go round it, so one piece wraps itself outside the other.",
+     "without borders": "A word's borders are the letters at its two edges, and without them only the middle survives."
+    },
+    "pieces": [
+     "R",
+     "IGHT",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "communist",
+      "gives": "RED",
+      "note": "Red is the standing crossword word for a communist, after the colour of the flag."
+     },
+     {
+      "clueFragment": "conflicts",
+      "gives": "IGHT",
+      "note": "Conflicts are FIGHTS, and losing the letters at either edge leaves this."
+     }
+    ],
+    "walkthrough": "The politics is the misdirection: 'communist about conflicts' reads like a news headline while both words are quietly doing letter work."
+   }
   },
   {
    "id": "12-across",
@@ -222,7 +574,37 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KIPPERS",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "KIPPERS",
+    "definition": "Fish",
+    "definitionFit": "Kippers are herrings that have been split, salted and smoked, so the definition names them by the creature they started as.",
+    "indicators": [
+     "primarily",
+     "shipped to East End"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means first of all, so it points at whichever letter stands at the front.",
+     "shipped to East End": "East is the right-hand side of a grid, so the letter is carried from the front of the word round to the back."
+    },
+    "pieces": [
+     "KIPPER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "captain",
+      "gives": "KIPPER",
+      "note": "The captain of a boat or a team is a skipper; this is what remains once its leading letter sets sail."
+     },
+     {
+      "clueFragment": "primarily",
+      "gives": "S",
+      "note": "The letter at the head of that word for a captain, the one sent travelling."
+     }
+    ],
+    "walkthrough": "'Fish captain' reads as a single job, and the definition really stops after the first word. No letter is shuffled — only the starting point moves."
+   }
   },
   {
    "id": "13-across",
@@ -245,7 +627,38 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "HIT AND RUN",
+    "definition": "cowardly crime",
+    "definitionFit": "Knocking someone down and driving off without stopping is the offence the phrase names, and the cowardice is in the fleeing.",
+    "indicators": [
+     "wrongly"
+    ],
+    "indicatorNotes": {
+     "wrongly": "Something done wrongly has not been done in the proper order, which is the licence to put these letters in another one."
+    },
+    "linkWords": [
+     "charged with"
+    ],
+    "anagram": {
+     "fodder": "THIRD NUN A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Third nun",
+      "gives": "THIRDNUN",
+      "note": "Eight letters of fodder, taken exactly as the clue prints them."
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "A ninth letter joins the pile before anything is rearranged."
+     }
+    ],
+    "walkthrough": "The surface has a nun wrongly accused, so 'charged with' reads as an indictment; in the parse it is only the join between the letters and their definition."
+   }
   },
   {
    "id": "14-across",
@@ -266,7 +679,44 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
     ]
    },
    "solution": "FIDDLERCRAB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "FIDDLER CRAB",
+    "definition": "Animal",
+    "definitionFit": "A fiddler crab is the small shore crab whose one huge claw looks like a fiddle being bowed, so the definition names its class.",
+    "indicators": [
+     "tip",
+     "in"
+    ],
+    "indicatorNotes": {
+     "tip": "The tip of a word is the letter at its far end, the point it finishes on.",
+     "in": "Here 'in' is a placing instruction rather than scene-setting: the letter goes inside the word that follows."
+    },
+    "pieces": [
+     "FIDDLER",
+     "C",
+     "R",
+     "AB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who wangles",
+      "gives": "FIDDLER",
+      "note": "To fiddle something is to wangle it by a little quiet cheating."
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "A taxi is a cab."
+     },
+     {
+      "clueFragment": "passenger",
+      "gives": "R",
+      "note": "The letter this word finishes on."
+     }
+    ],
+    "walkthrough": "'Tip from passenger' reads as coins handed over at the end of a ride, which is the picture the setter is selling; in the parse a tip is one letter."
+   }
   },
   {
    "id": "15-down",
@@ -283,7 +733,50 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAMATURGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "DRAMATURGE",
+    "definition": "script consultant",
+    "definitionFit": "A dramaturge is a theatre's in-house adviser on texts, working with writers on the shape and staging of a play.",
+    "indicators": [
+     "initially",
+     "dissecting"
+    ],
+    "indicatorNotes": {
+     "initially": "Initially means at the start, so only the opening letter of the word beside it is taken.",
+     "dissecting": "To dissect is to cut something open down the middle, and whatever does the cutting lodges inside."
+    },
+    "pieces": [
+     "DR",
+     "A",
+     "MATUR",
+     "G",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "The everyday abbreviation, as on a brass plate."
+     },
+     {
+      "clueFragment": "assists",
+      "gives": "A",
+      "note": "The letter this word begins with."
+     },
+     {
+      "clueFragment": "aged",
+      "gives": "MATURE",
+      "note": "Aged cheese or aged wine is mature."
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard dictionary abbreviation for German."
+     }
+    ],
+    "walkthrough": "'Doctor' is a favourite anagram signal and here it is nothing of the kind — it stands for its own two letters, and the German is a letter too, not a person."
+   }
   },
   {
    "id": "16-down",
@@ -304,7 +797,26 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROSEWINDOW",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ROSE WINDOW",
+    "definition": "One might provide over-optimistic worldview?",
+    "definitionFit": "The answer is the great circular panel of stained glass in a cathedral's west front, and tinted glass is the literal way to see life too cheerfully.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "over-optimistic",
+      "gives": "",
+      "note": "The surface sense: someone looking through rose-tinted spectacles, which is an attitude and not an object."
+     },
+     {
+      "clueFragment": "worldview",
+      "gives": "",
+      "note": "The setter's sense: not a philosophy but a literal view out, through coloured glass set in a cathedral wall."
+     }
+    ],
+    "walkthrough": "There is no separable wordplay here, just one joke told twice: a rose window is the wheel of stained glass above a cathedral door, and a rose tint is what makes any view too sunny."
+   }
   },
   {
    "id": "17-across",
@@ -321,7 +833,40 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DONNA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "DONNA",
+    "definition": "Italian lady",
+    "definitionFit": "Donna is the Italian courtesy title placed before a woman's first name, the feminine counterpart of don.",
+    "indicators": [
+     "returning"
+    ],
+    "indicatorNotes": {
+     "returning": "Something returning comes back the way it went, so the letters are read from the far end towards the near one — right to left in an across entry."
+    },
+    "pieces": [
+     "DONNA"
+    ],
+    "subReversals": [
+     {
+      "from": "ANNOD",
+      "to": "DONNA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "The article is taken at face value, both letters of it."
+     },
+     {
+      "clueFragment": "unspoken acknowledgement",
+      "gives": "NOD",
+      "note": "A nod is how you agree without saying anything."
+     }
+    ],
+    "walkthrough": "'Returning' looks like part of the picture — a lady coming home — and it is the instruction instead. The acknowledgement is unspoken because it is a gesture."
+   }
   },
   {
    "id": "17-down",
@@ -338,7 +883,47 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOWNCAST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "DOWNCAST",
+    "definition": "Subdued",
+    "definitionFit": "Someone downcast has low spirits and lowered eyes, which is the quiet, flattened mood the definition asks for.",
+    "indicators": [
+     "top"
+    ],
+    "indicatorNotes": {
+     "top": "The top of a written word is where it begins, so only its opening letter is wanted."
+    },
+    "pieces": [
+     "DO",
+     "W",
+     "N",
+     "CAST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "A do is a party — an office do, a birthday do."
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the standard shorthand for with, as in 'w/ milk'."
+     },
+     {
+      "clueFragment": "Nollywood's",
+      "gives": "N",
+      "note": "The opening letter of the name given here."
+     },
+     {
+      "clueFragment": "actors",
+      "gives": "CAST",
+      "note": "The cast of a film is its actors."
+     }
+    ],
+    "walkthrough": "Nollywood is Nigeria's film industry, the third of the -ollywoods after Hollywood and Bollywood; the clue wants nothing from it but the letter it starts with."
+   }
   },
   {
    "id": "18-across",
@@ -361,7 +946,9 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
     ]
    },
    "solution": "AND",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "13-across"
+   }
   },
   {
    "id": "19-across",
@@ -378,7 +965,36 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINEW",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SINEW",
+    "definition": "tendon",
+    "definitionFit": "A sinew is the tough cord tying muscle to bone, which is what a tendon is — the same fibre under an everyday name.",
+    "indicators": [
+     "holds"
+    ],
+    "indicatorNotes": {
+     "holds": "To hold something is to keep it within you, so the first word closes around what comes next."
+    },
+    "pieces": [
+     "S",
+     "IN",
+     "EW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suture",
+      "gives": "SEW",
+      "note": "To suture a wound is to sew it up."
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "The little word is taken exactly as it stands and slotted into the gap."
+     }
+    ],
+    "walkthrough": "The surface is entirely surgical, so no word sticks out as an instruction; the whole battle is hearing 'suture' as a verb."
+   }
   },
   {
    "id": "20-down",
@@ -395,7 +1011,44 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORMANDY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "NORMANDY",
+    "definition": "where many disembarked",
+    "definitionFit": "This stretch of French coast is where the Allied armies came ashore on D-Day in 1944, the largest seaborne landing ever mounted.",
+    "indicators": [
+     "drunk",
+     "entering"
+    ],
+    "indicatorNotes": {
+     "drunk": "A drunk cannot walk a straight line, and these letters lose their line too.",
+     "entering": "To enter a place is to go inside it, so the staggered letters are planted between the two the city gives."
+    },
+    "pieces": [
+     "N",
+     "ORMAND",
+     "Y"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RANDOM",
+      "gives": "ORMAND"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "NY",
+      "note": "New York, shortened the way it is on a baseball cap."
+     },
+     {
+      "clueFragment": "Random",
+      "gives": "ORMAND",
+      "note": "The six letters of the word, staggered into a new order."
+     }
+    ],
+    "walkthrough": "'Random drunk' is one person on the surface, and that is where the join hides: the first word is the letters, the second is the instruction."
+   }
   },
   {
    "id": "21-across",
@@ -412,7 +1065,49 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHEELBARROW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "WHEELBARROW",
+    "definition": "cart",
+    "definitionFit": "A wheelbarrow is the hand-pushed garden cart with a single wheel at the front, so the definition names the class it sits in.",
+    "indicators": [
+     "after",
+     "emptied"
+    ],
+    "indicatorNotes": {
+     "after": "In an across entry whatever comes after something sits to its right, so these two pieces land at the end.",
+     "emptied": "Empty a word and its middle is gone, leaving only the letters standing at the two ends."
+    },
+    "pieces": [
+     "WH",
+     "EEL",
+     "BAR",
+     "ROW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh",
+      "gives": "WH",
+      "note": "First and last letters of the word, all that is left once it is emptied."
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "The long snake-like fish, a crossword regular."
+     },
+     {
+      "clueFragment": "Pub",
+      "gives": "BAR",
+      "note": "A bar is a pub, or the counter you order at inside one."
+     },
+     {
+      "clueFragment": "brawl",
+      "gives": "ROW",
+      "note": "A row, rhyming with cow, is a noisy quarrel."
+     }
+    ],
+    "walkthrough": "'Welsh emptied fish cart' is nonsense as English, which is the tell that the clue runs its pieces out of order: 'after' sends the pub and the brawl to the back."
+   }
   },
   {
    "id": "22-down",
@@ -429,7 +1124,34 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENAMEL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ENAMEL",
+    "definition": "dental cover",
+    "definitionFit": "Enamel is the hard glassy layer capping a tooth, so the two words name it by where it lies and the job it does.",
+    "indicators": [
+     "Partially",
+     "retired"
+    ],
+    "indicatorNotes": {
+     "Partially": "Only part of what follows is wanted — a run of letters sitting inside the words, not the words themselves.",
+     "retired": "Someone retired has withdrawn and gone back, and the letters go back too, read from their end towards their start."
+    },
+    "subReversals": [
+     {
+      "from": "LEMANE",
+      "to": "ENAMEL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "middleman enjoys",
+      "gives": "LEMANE",
+      "note": "Six consecutive letters straddle the join between these two words, sitting there the wrong way round."
+     }
+    ],
+    "walkthrough": "'Partially retired middleman' is a plausible little biography and every word of it is an instruction — part of it only, and read backwards."
+   }
   },
   {
    "id": "23-across",
@@ -448,7 +1170,9 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "13-across"
+   }
   },
   {
    "id": "24-down",
@@ -465,7 +1189,39 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NATURE",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "NATURE",
+    "definition": "Character",
+    "definitionFit": "A person's nature is their character, the settled disposition you mean when you call someone good-natured.",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What is ultimate comes last, so from each word you take the letter it finishes on."
+    },
+    "pieces": [
+     "N",
+     "A",
+     "T",
+     "U",
+     "R",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in novella that",
+      "gives": "NAT",
+      "note": "Three words in a row, each handing over the letter it ends on."
+     },
+     {
+      "clueFragment": "you consider memorable",
+      "gives": "URE",
+      "note": "Three more final letters, still read left to right."
+     }
+    ],
+    "walkthrough": "'Character in novella' is the trap: it reads as somebody in a book, and the instruction sits right at the far end of the sentence, after a comma."
+   }
   },
   {
    "id": "25-across",
@@ -482,7 +1238,42 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHATEAU",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "CHATEAU",
+    "definition": "stately home",
+    "definitionFit": "A château is a French country house or castle, the grand seat of a landed family — their equivalent of an English stately home.",
+    "indicators": [
+     "consumes"
+    ],
+    "indicatorNotes": {
+     "consumes": "What is consumed is swallowed whole, so the letter after it disappears inside the animal named before."
+    },
+    "pieces": [
+     "C",
+     "H",
+     "AT",
+     "EAU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom",
+      "gives": "CAT",
+      "note": "A tom is a male cat; the capital letter is the disguise."
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the letter on the hot tap, and the standard abbreviation."
+     },
+     {
+      "clueFragment": "water in French",
+      "gives": "EAU",
+      "note": "Eau is French for water, as in eau de cologne."
+     }
+    ],
+    "walkthrough": "The definition is only the last two words: 'French' has been borrowed by the wordplay for its water, which is what makes the clue feel a word short."
+   }
   },
   {
    "id": "26-down",
@@ -499,7 +1290,34 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EARL",
+    "definition": "Nobleman",
+    "definitionFit": "An earl is the British peer ranking between a viscount and a marquess, so the definition names his rank by its class.",
+    "indicators": [
+     "loses"
+    ],
+    "indicatorNotes": {
+     "loses": "What is lost is gone for good, so the letters named next simply drop away."
+    },
+    "pieces": [
+     "EARL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "almost",
+      "gives": "NEARLY",
+      "note": "Almost and nearly are the same word in different clothes."
+     },
+     {
+      "clueFragment": "case",
+      "gives": "NY",
+      "note": "A word's case is the shell at either end of it — here its first letter and its last."
+     }
+    ],
+    "walkthrough": "The clue reads as a lord losing a court case, and that is the whole disguise: 'case' is a shell rather than a lawsuit, and 'almost' is fodder rather than a hedge."
+   }
   },
   {
    "id": "27-across",
@@ -516,7 +1334,39 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENDANT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PENDANT",
+    "definition": "Ornament",
+    "definitionFit": "A pendant is the ornament that hangs from a chain round the neck; the name comes from the French for hanging.",
+    "indicators": [
+     "acquired by"
+    ],
+    "indicatorNotes": {
+     "acquired by": "Whatever acquires something takes it in and keeps it, so the longer word closes around the single letter."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "PE",
+     "N",
+     "DANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "purist",
+      "gives": "PEDANT",
+      "note": "A pedant is a purist about small rules."
+     },
+     {
+      "clueFragment": "Norway",
+      "gives": "N",
+      "note": "N is Norway's international vehicle code, the letter on the back of its cars."
+     }
+    ],
+    "walkthrough": "A pedant would be the first to tell you the two words are spelled differently, which is the joke the setter is leaning on."
+   }
   },
   {
    "id": "27-down",
@@ -533,7 +1383,27 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PINE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PINE",
+    "definition": "Long",
+    "definition2": "needle supplier",
+    "definitionFit": "To pine is to long for somebody, and a pine is the evergreen whose leaves are needles — two senses sharing only a spelling.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Long",
+      "gives": "",
+      "note": "The verb, not the adjective: to long for someone is to ache for them."
+     },
+     {
+      "clueFragment": "needle supplier",
+      "gives": "",
+      "note": "The needles are the stiff evergreen leaves of a conifer, nothing to do with sewing."
+     }
+    ],
+    "walkthrough": "'Long needle' reads as one object, a big darning needle, and the split falls straight through the middle of it — one word to each definition."
+   }
   },
   {
    "id": "28-across",
@@ -550,7 +1420,40 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHEER",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "SHEER",
+    "definition": "Thin",
+    "definitionFit": "Sheer fabric is so thin you can see through it — the sense used of stockings and curtains, not the one meaning utter.",
+    "indicators": [
+     "brought in for"
+    ],
+    "indicatorNotes": {
+     "brought in for": "Bringing one thing in for another is a swap: the second letter leaves and the first stands where it stood."
+    },
+    "pieces": [
+     "SHEE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bedcover",
+      "gives": "SHEET",
+      "note": "The plain cotton sheet on a bed."
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "R in the NATO alphabet, where every letter is given a name."
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "Ford's Model T, the first mass-produced car — the letter that steps aside."
+     }
+    ],
+    "walkthrough": "'Model' looks like a definition, or an anagram signal, and is neither: it names one letter, and Romeo takes that letter's place."
+   }
   },
   {
    "id": "29-across",
@@ -567,7 +1470,46 @@ window.CRYPTIC_PUZZLES["independent-12448"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUNPOWDER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "GUNPOWDER",
+    "definition": "explosive",
+    "definitionFit": "Gunpowder is the black mixture of saltpetre, charcoal and sulphur that fired cannon and muskets for six centuries.",
+    "indicators": [
+     "desperate",
+     "to secure",
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "desperate": "A desperate person is past keeping order, and the letters lose theirs too.",
+     "to secure": "To secure something is to have it held safely inside your grip, so the pair ends up enclosed.",
+     "extremely": "Extremes are the far ends of a thing, so the letters taken are the ones at each edge of the word."
+    },
+    "pieces": [
+     "GUNPOW",
+     "DE",
+     "R"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GROWNUP",
+      "gives": "GUNPOWR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grown-up",
+      "gives": "GUNPOWR",
+      "note": "The seven letters of the hyphenated word, thrown into a different order."
+     },
+     {
+      "clueFragment": "extremely destructive",
+      "gives": "DE",
+      "note": "First and last letters of the second word."
+     }
+    ],
+    "walkthrough": "The hyphen makes 'Grown-up' look like scene-setting rather than fodder, and 'desperate' like the mood of the sentence rather than an instruction."
+   }
   }
  ]
 } /*JSON-END*/;
