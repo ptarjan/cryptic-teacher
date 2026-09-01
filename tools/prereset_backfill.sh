@@ -232,9 +232,14 @@ run_claude() {
     sleep 1
     return 0
   fi
+  # WebSearch/WebFetch are here for the last rung only: when a clue will not come
+  # apart, a solvers' blog is the difference between an annotation and a `null`,
+  # and a `null` ships a clue with no teaching ladder. tools/annotate_prompt.md
+  # bounds the use — stuck first, and the explanation written from scratch rather
+  # than lifted, because the blog's prose teaches nobody in rungs.
   claude -p "$2" \
     --model "$MODEL" \
-    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
+    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
     --max-turns 80 >"$log" 2>&1
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
