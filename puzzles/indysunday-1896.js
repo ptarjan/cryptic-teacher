@@ -30,7 +30,35 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COSSET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COSSET",
+    "definition": "Baby",
+    "indicators": [
+     "starts with"
+    ],
+    "indicatorNotes": {
+     "starts with": "A word that starts with something has that piece at its front, so the maths abbreviation leads and the rest is written behind it."
+    },
+    "pieces": [
+     "COS",
+     "SET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some trigonometry",
+      "gives": "COS",
+      "note": "cos is the short form of cosine, one of the three standard trig functions"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group of things, the mathematician's word for a collection"
+     }
+    ],
+    "walkthrough": "The surface is a toddler class. Both halves of the wordplay are maths words, which is the only reason 'group' is sitting next to 'trigonometry' at all.",
+    "definitionFit": "Baby -> COSSET: as a verb, to baby someone is to pamper and fuss over them, which is what cosset means."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +75,35 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLIMBER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLIMBER",
+    "definition": "Sportsperson",
+    "indicators": [
+     "at the top"
+    ],
+    "indicatorNotes": {
+     "at the top": "In a down entry the top is the first square, so the letter named beside these words opens the answer rather than closing it."
+    },
+    "pieces": [
+     "C",
+     "LIMBER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the standard abbreviation for cold, the letter on a tap"
+     },
+     {
+      "clueFragment": "physically flexible",
+      "gives": "LIMBER",
+      "note": "limber describes a body that bends and stretches easily"
+     }
+    ],
+    "walkthrough": "The clue names the supple half first and only then says where the cold letter goes, which is a habit of down clues worth getting used to.",
+    "definitionFit": "Sportsperson -> CLIMBER: definition by example, since climbing is one sport among many and anyone competing in it answers to the word."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +120,41 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCHMO",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SCHMO",
+    "definition": "a fool",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "mostly",
+     "takes"
+    ],
+    "indicatorNotes": {
+     "mostly": "Most of a word is all of it bar the final letter, so the last character goes before anything else happens.",
+     "takes": "Someone who takes a visitor in keeps them indoors, so the letters named next are lodged within the word beside them."
+    },
+    "pieces": [
+     "SC",
+     "HM",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scot mostly",
+      "gives": "SCO",
+      "note": "SCOT drops its last letter, and what remains opens up after its first two"
+     },
+     {
+      "clueFragment": "His Majesty",
+      "gives": "HM",
+      "note": "HM is the formal abbreviation for His Majesty, as in HM Government"
+     }
+    ],
+    "walkthrough": "Nothing here is Scottish once the clue is parsed. The word itself is American slang out of Yiddish, which is why an insult this blunt can be clued so briskly.",
+    "definitionFit": "a fool -> SCHMO: American slang, from Yiddish, for a dull and gullible nobody — the sort of person things get done to."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +171,41 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARTHWORM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "EARTHWORM",
+    "definition": "soil improver",
+    "indicators": [
+     "Ground",
+     "back"
+    ],
+    "indicatorNotes": {
+     "Ground": "Ground is what a mill does to grain, and anything reduced to loose grains can be poured out in any order at all.",
+     "back": "The back of a word is its final letter, so only the last character of the word in front of this is taken."
+    },
+    "anagram": {
+     "fodder": "WHAT MORE R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "elder's back",
+      "gives": "R",
+      "note": "the closing letter of ELDER joins the letters waiting to be jumbled"
+     },
+     {
+      "clueFragment": "what, more",
+      "gives": "WHATMORE",
+      "note": "eight letters of fodder, which with the one above makes the nine wanted"
+     },
+     {
+      "clueFragment": "Ground",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Ground elder is a real garden weed, and that is the picture the setter is selling. The two words are doing entirely separate jobs here.",
+    "definitionFit": "soil improver -> EARTHWORM: worms aerate and fertilise every bed they burrow through, so gardeners count them as living soil improvers."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +222,41 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DECAMP",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "DECAMP",
+    "definition": "scarper",
+    "indicators": [
+     "from behind"
+    ],
+    "indicatorNotes": {
+     "from behind": "A thing seen from behind shows its back end first, so the word just built is written out in reverse."
+    },
+    "pieces": [
+     "DECAM",
+     "P"
+    ],
+    "subReversals": [
+     {
+      "from": "MACED",
+      "to": "DECAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit with tear gas",
+      "gives": "DECAM",
+      "note": "someone hit with tear gas has been MACED, and that word is turned round here"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano in music, the mark telling a player to be quiet"
+     }
+    ],
+    "walkthrough": "Mace is a brand of tear-gas spray that became a verb for using it, so five of the six letters arrive in one word before it is spun round.",
+    "definitionFit": "scarper -> DECAMP: scarper is British slang for making off in a hurry, and to decamp is to leave camp, then to leave anywhere abruptly."
+   }
   },
   {
    "id": "4-down",
@@ -115,7 +273,35 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOYEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOYEN",
+    "definition": "Senior member",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "What comes after a thing is written behind it, so the longing follows the celebration rather than leading it."
+    },
+    "pieces": [
+     "DO",
+     "YEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or function in British usage"
+     },
+     {
+      "clueFragment": "aching",
+      "gives": "YEN",
+      "note": "a yen is an aching longing for something"
+     }
+    ],
+    "walkthrough": "Both halves are short words hiding in plain sight: the party is the British do rather than a political one, and 'aching' has to be read as a noun.",
+    "definitionFit": "Senior member -> DOYEN: the doyen of a group is its longest-serving and most respected figure, from the French for dean."
+   }
   },
   {
    "id": "5-down",
@@ -136,7 +322,41 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
     ]
    },
    "solution": "COMECLEAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "COME CLEAN",
+    "definition": "admit criminal activity",
+    "indicators": [
+     "half of",
+     "stupidly"
+    ],
+    "indicatorNotes": {
+     "half of": "Half of a twelve-letter place name is six of its letters, and the six taken here are the opening ones.",
+     "stupidly": "Doing a thing stupidly makes a mess of the order it should be in, and letters handled that way come out shuffled."
+    },
+    "anagram": {
+     "fodder": "ONE MACCLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "the word itself goes into the mix whole, all three letters"
+     },
+     {
+      "clueFragment": "half of Macclesfield",
+      "gives": "MACCLE",
+      "note": "Macclesfield is a Cheshire town of twelve letters, and its first six join the fodder"
+     },
+     {
+      "clueFragment": "stupidly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Half of a word means half of its letters, and nothing in the surface says which half — the count is what settles it.",
+    "definitionFit": "admit criminal activity -> COME CLEAN: to come clean is to confess wrongdoing, washing yourself of it by finally telling the truth."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +373,32 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAILLOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MAILLOT",
+    "definition": "Jersey",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "MAIL",
+     "LOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put in the post",
+      "gives": "MAIL",
+      "note": "to mail something is to put it in the post"
+     },
+     {
+      "clueFragment": "sale item",
+      "gives": "LOT",
+      "note": "a lot is the numbered item an auctioneer puts up for sale"
+     }
+    ],
+    "walkthrough": "'Jersey' pulls hard towards the Channel Island, and the sale and the post keep that shipping picture going. It is the garment.",
+    "definitionFit": "Jersey -> MAILLOT: a maillot is a close-fitting knitted top or leotard, and in cycling it is the coloured jersey a leader wears."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +415,36 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONTRACEPTION",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "CONTRACEPTION",
+    "definition": "mechanism to limit that",
+    "indicators": [
+     "having squeezed out four"
+    ],
+    "indicatorNotes": {
+     "having squeezed out four": "Press four letters out of a six-letter name and only the outer pair is left standing, ready to be pressed into something else."
+    },
+    "pieces": [
+     "CONTRA",
+     "CE",
+     "PTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mechanism",
+      "gives": "CONTRAPTION",
+      "note": "a contraption is a mechanism or gadget, and it opens up after six letters"
+     },
+     {
+      "clueFragment": "Carrie having squeezed out four",
+      "gives": "CE",
+      "note": "the four letters inside the name go, leaving her first and her last"
+     }
+    ],
+    "walkthrough": "The definition's own noun is doing double duty: 'mechanism' names what the answer is and also supplies the gadget word the leftover pair squeezes into.",
+    "definitionFit": "mechanism to limit that -> CONTRACEPTION: the whole business of preventing conception, so 'that' is the childbearing the surface has just described."
+   }
   },
   {
    "id": "8-across",
@@ -187,7 +461,42 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISHARMONY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "DISHARMONY",
+    "definition": "Clashing",
+    "indicators": [
+     "eats"
+    ],
+    "indicatorNotes": {
+     "eats": "What a host eats ends up inside the host, so the little word after this one is swallowed by the word before it."
+    },
+    "pieces": [
+     "DISH",
+     "ARM",
+     "ON",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plate",
+      "gives": "DISH",
+      "note": "a dish is a plate, or the food served on one"
+     },
+     {
+      "clueFragment": "host",
+      "gives": "ARMY",
+      "note": "a host is a great multitude, the biblical sense that also means an army"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the two letters go in whole, between the multitude's third and fourth"
+     }
+    ],
+    "walkthrough": "'Host' is the multitude, not the man handing round the plates, and that single word is where the whole surface picture comes from.",
+    "definitionFit": "Clashing -> DISHARMONY: colours or opinions that clash are ones which fail to harmonise, and disharmony is the noun for that lack of accord."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +513,36 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MAID",
+    "definition": "Help",
+    "indicators": [
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "cutting": "A knife cutting into something ends up within it, so the letter named before this word sits inside the word after it."
+    },
+    "pieces": [
+     "MA",
+     "I",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bananas",
+      "gives": "MAD",
+      "note": "bananas is slang for crazy, and the three letters open up after two"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the standard map abbreviation for island"
+     }
+    ],
+    "walkthrough": "The clue reads as a shopping trip and none of it is about fruit or holidays. 'Help' is the noun for a servant, not the verb it looks like.",
+    "definitionFit": "Help -> MAID: domestic help is the polite collective word for a servant, and a maid is one, so the definition is a plain synonym in that household sense."
+   }
   },
   {
    "id": "10-across",
@@ -227,7 +565,31 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLOWHOTANDCOLD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLOW HOT AND COLD",
+    "definition": "show indecision",
+    "pieces": [
+     "BLOW",
+     "HOT",
+     "AND",
+     "COLD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three types of buffet",
+      "gives": "BLOW",
+      "note": "to buffet is to strike, so a buffet is a blow — the sense with no food in it"
+     },
+     {
+      "clueFragment": "types of buffet",
+      "gives": "HOTANDCOLD",
+      "note": "the other two are the ways a spread is served, and the pair comes with its own linking word"
+     }
+    ],
+    "walkthrough": "Counting a punch among the buffets is the joke: one word carries a strike and a laid table at once, and supplies every part of the answer.",
+    "definitionFit": "show indecision -> BLOW HOT AND COLD: to blow hot and cold is to keep changing your mind, veering between enthusiasm and reluctance."
+   }
   },
   {
    "id": "11-across",
@@ -244,7 +606,36 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GROTTO",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GROTTO",
+    "definition": "Underground shelter",
+    "indicators": [
+     "input from"
+    ],
+    "indicatorNotes": {
+     "input from": "An input is something fed in, so the letter this introduces is planted inside the phrase already spelled out."
+    },
+    "pieces": [
+     "G",
+     "R",
+     "OTTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrived at",
+      "gives": "GOTTO",
+      "note": "to have got to a place is to have arrived at it; the word splits after its first letter"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the letter American usage prints beside a Republican politician's name"
+     }
+    ],
+    "walkthrough": "The politics is a decoy — no party is involved past the single letter — and the shelter is as likely to be a garden folly as a real cave.",
+    "definitionFit": "Underground shelter -> GROTTO: a grotto is a small cave, natural or built to look it, which is shelter in the plainest sense of a roof of rock."
+   }
   },
   {
    "id": "12-down",
@@ -261,7 +652,44 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TASTELESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "TASTELESS",
+    "definition": "Naff",
+    "indicators": [
+     "primarily",
+     "in"
+    ],
+    "indicatorNotes": {
+     "primarily": "What is taken primarily is taken first, so only the opening letter of the word before this counts.",
+     "in": "A thing put in another sits within it, so the letter just named goes inside the gallery's name rather than beside it."
+    },
+    "pieces": [
+     "TA",
+     "S",
+     "TE",
+     "LESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff primarily",
+      "gives": "S",
+      "note": "stuff gives up its opening letter and nothing else"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is Britain's national collection of modern and British art, four letters that open after two"
+     },
+     {
+      "clueFragment": "Not so",
+      "gives": "LESS",
+      "note": "less is what you have when there is not so much of something"
+     }
+    ],
+    "walkthrough": "The question mark is doing real work: 'Not so' has to be read as a comparison, meaning not so much, rather than as a flat contradiction.",
+    "definitionFit": "Naff -> TASTELESS: naff is British slang for shoddy and vulgar, which is exactly the want of taste the answer names."
+   }
   },
   {
    "id": "13-across",
@@ -278,7 +706,50 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMARETTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMARETTO",
+    "definition": "liqueur",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "Whatever comes after a thing is written behind it, so the abstinence follows the bad time rather than opening the answer."
+    },
+    "pieces": [
+     "A",
+     "MARE",
+     "TT",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken as the letter it is"
+     },
+     {
+      "clueFragment": "dreadful experience",
+      "gives": "MARE",
+      "note": "a mare is British slang for a nightmare, a thoroughly bad time of it"
+     },
+     {
+      "clueFragment": "Not drinking",
+      "gives": "TT",
+      "note": "TT is short for teetotal, said of someone who never touches alcohol"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "walkthrough": "Reading it as one sentence about a hangover is the trap. It is four separate pieces, and 'old' is here only to hand over its usual letter.",
+    "definitionFit": "liqueur -> AMARETTO: definition by example, since amaretto is one particular sweet Italian almond liqueur among the many the word could name."
+   }
   },
   {
    "id": "14-down",
@@ -295,7 +766,35 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUTHORISE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AUTHORISE",
+    "definition": "Agree to",
+    "pieces": [
+     "AU",
+     "THO",
+     "RISE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "AU is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "even if",
+      "gives": "THO",
+      "note": "even if means though, and tho' is its clipped poetic spelling"
+     },
+     {
+      "clueFragment": "more money",
+      "gives": "RISE",
+      "note": "a rise is the British word for an increase in pay"
+     }
+    ],
+    "walkthrough": "Nothing in the clue admits that the middle piece is shortened; the letter count is what tells you. The surface pretends to be a haggle over wages.",
+    "definitionFit": "Agree to -> AUTHORISE: to authorise something is to give it official consent, the formal end of agreeing to it rather than merely liking it."
+   }
   },
   {
    "id": "15-across",
@@ -312,7 +811,42 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONSOMME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "CONSOMME",
+    "definition": "that's clear for Spooner",
+    "definitionNote": "The definition is a description, not a synonym: a clause naming a thing that is clear and taken with a spoon, which is why it cannot be swapped in as a noun.",
+    "indicators": [
+     "muddled"
+    ],
+    "indicatorNotes": {
+     "muddled": "Something muddled has been stirred out of its proper arrangement, and letters treated that way come out in a new order."
+    },
+    "pieces": [
+     "CONS",
+     "OMME"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MEMO",
+      "gives": "OMME"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner's",
+      "gives": "CONS",
+      "note": "a con is a convict, and the possessive apostrophe-s hands over a letter too"
+     },
+     {
+      "clueFragment": "memo",
+      "gives": "OMME",
+      "note": "the four letters of MEMO, stirred into a different order"
+     }
+    ],
+    "walkthrough": "The capital S promises the Reverend and his swapped syllables, and delivers none. Read him as a spooner, someone wielding a spoon, and the clear soup is the answer.",
+    "definitionFit": "that's clear for Spooner -> CONSOMME: consomme is clear soup, and a spooner is simply someone eating with a spoon rather than the syllable-swapping cleric."
+   }
   },
   {
    "id": "16-down",
@@ -329,7 +863,36 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORBITAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ORBITAL",
+    "definition": "M25 maybe",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "One thing set about another goes round it, so the longer word here closes over the shorter one."
+    },
+    "pieces": [
+     "OR",
+     "BIT",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoken",
+      "gives": "ORAL",
+      "note": "an oral exam is a spoken one, and the word opens after two letters"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "BIT",
+      "note": "a bit of something is a little of it"
+     }
+    ],
+    "walkthrough": "'Spoken' looks like a homophone marker and is not — it is just the adjective oral, opened up. The M25 is the motorway ringing London.",
+    "definitionFit": "M25 maybe -> ORBITAL: an orbital is any road that encircles a city, so the motorway named is one instance, which 'maybe' flags."
+   }
   },
   {
    "id": "17-across",
@@ -346,7 +909,28 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANACH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "TANACH",
+    "definition": "Hebrew bible",
+    "indicators": [
+     "in part",
+     "reading backwards"
+    ],
+    "indicatorNotes": {
+     "in part": "Only part of the words is wanted, and the part meant is a run of letters sitting untouched inside them.",
+     "reading backwards": "Follow the row the other way, right to left, and the letters of that run spell something quite different."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ruth can attempt",
+      "gives": "TANACH",
+      "note": "six consecutive letters, read the wrong way, spanning the end of one word and the start of the next"
+     }
+    ],
+    "walkthrough": "'Ruth' is a book of the Hebrew bible, so it reads as more of the definition rather than as the letters doing the work. That is the whole trap.",
+    "definitionFit": "Hebrew bible -> TANACH: the Tanach is the Jewish scriptures, its name an acronym of the three parts — Torah, Nevi'im and Ketuvim."
+   }
   },
   {
    "id": "18-down",
@@ -363,7 +947,38 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORACLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CORACLE",
+    "definition": "Hide boat",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "start of"
+    ],
+    "indicatorNotes": {
+     "start of": "The start of a word is the letter it opens with, so one character of the storm's name is all that is taken."
+    },
+    "pieces": [
+     "C",
+     "ORACLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start of cyclone",
+      "gives": "C",
+      "note": "cyclone hands over its opening letter and nothing more"
+     },
+     {
+      "clueFragment": "forecast",
+      "gives": "ORACLE",
+      "note": "an oracle is a source of prophecy, one who forecasts what is coming"
+     }
+    ],
+    "walkthrough": "'Hide' looks like a verb telling you something is concealed, and nothing is: it is the animal skin the little Welsh river boat is covered with.",
+    "definitionFit": "Hide boat -> CORACLE: a coracle is a one-person basketwork bowl waterproofed with skin, so the two words name its material and its kind."
+   }
   },
   {
    "id": "19-across",
@@ -384,7 +999,34 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
     ]
    },
    "solution": "OBSERVATIONCAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OBSERVATION CAR",
+    "definition": "where there are track-side views",
+    "indicators": [
+     "Jockey"
+    ],
+    "indicatorNotes": {
+     "Jockey": "To jockey for position is to shove and jostle until things sit differently, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "IN BAR OVER ASCOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in bar over Ascot",
+      "gives": "INBAROVERASCOT",
+      "note": "fourteen letters of fodder, exactly the length the enumeration asks for"
+     },
+     {
+      "clueFragment": "Jockey",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Ascot is a racecourse, so 'track-side' sounds like horses. The track is a railway one, and the answer is a carriage built for watching it go by.",
+    "definitionFit": "where there are track-side views -> OBSERVATION CAR: a railway carriage glazed for sightseeing, so the views are of the line the train is running along."
+   }
   },
   {
    "id": "20-down",
@@ -401,7 +1043,35 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAPID",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "VAPID",
+    "definition": "12's",
+    "indicators": [
+     "making the top"
+    ],
+    "indicatorNotes": {
+     "making the top": "The top of a down entry is its first square, so the letter named next moves into that opening place and evicts what was there."
+    },
+    "pieces": [
+     "V",
+     "APID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is five in Roman numerals, a single letter that fills one square"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "APID",
+      "note": "rapid means fast, and it surrenders its first letter to the newcomer"
+     }
+    ],
+    "walkthrough": "A number on its own points at another clue for the definition, so solve 12 down first; the wordplay here is one letter swapped at the head.",
+    "definitionFit": "12's -> VAPID: 12 down means lacking flavour or savour, and vapid is that same emptiness said of talk, films or wine."
+   }
   },
   {
    "id": "21-down",
@@ -418,7 +1088,36 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEAT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CHEAT",
+    "definition": "rat, perhaps",
+    "indicators": [
+     "has caught"
+    ],
+    "indicatorNotes": {
+     "has caught": "What the cat has caught is held in its jaws, so the animal's letters close around the other piece."
+    },
+    "pieces": [
+     "C",
+     "HE",
+     "AT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat",
+      "gives": "CAT",
+      "note": "the animal goes in whole and splits open after its first letter"
+     },
+     {
+      "clueFragment": "Male",
+      "gives": "HE",
+      "note": "he is the pronoun standing in for any male"
+     }
+    ],
+    "walkthrough": "The trap is reading 'Male cat' as one thing, a tom. Split the two words and the sentence still works: the male is what the cat has caught.",
+    "definitionFit": "rat, perhaps -> CHEAT: a rat is one sort of double-crosser, and 'perhaps' flags it as an example rather than a straight synonym."
+   }
   },
   {
    "id": "22-across",
@@ -435,7 +1134,39 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STYE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STYE",
+    "definition": "Infection",
+    "indicators": [
+     "spreading"
+    ],
+    "indicatorNotes": {
+     "spreading": "Something spreading goes wherever it likes and keeps no shape, and letters loose in that way settle in any order."
+    },
+    "anagram": {
+     "fodder": "S YET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-label abbreviation for small"
+     },
+     {
+      "clueFragment": "yet",
+      "gives": "YET",
+      "note": "three more letters of fodder, taken exactly as they stand"
+     },
+     {
+      "clueFragment": "spreading",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Four letters and every word working: 'small' is the size on a label rather than an adjective describing how bad the infection is.",
+    "definitionFit": "Infection -> STYE: a stye is the small infected swelling on an eyelid, caused by bacteria in a blocked follicle."
+   }
   },
   {
    "id": "23-across",
@@ -452,7 +1183,42 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROVIDENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "PROVIDENCE",
+    "definition": "God's will",
+    "indicators": [
+     "into"
+    ],
+    "indicatorNotes": {
+     "into": "One thing driven into another finishes up inside it, so the room named before this word is buried within the failing named after."
+    },
+    "pieces": [
+     "PRO",
+     "VI",
+     "DEN",
+     "CE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporting",
+      "gives": "PRO",
+      "note": "to be pro something is to be in favour of it, supporting it"
+     },
+     {
+      "clueFragment": "sin",
+      "gives": "VICE",
+      "note": "a vice is a sin or moral failing, and it splits after two letters"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is the small room at home you shut yourself away to work in"
+     }
+    ],
+    "walkthrough": "It reads as a sermon and is built from three flat synonyms. 'Study' is the room rather than the activity, which is the piece most solvers reach for last.",
+    "definitionFit": "God's will -> PROVIDENCE: providence is the divine care that orders events, so what happens by providence happens as God intends it to."
+   }
   },
   {
    "id": "24-across",
@@ -469,7 +1235,41 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLOSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CLOSED",
+    "definition": "Exclusive",
+    "indicators": [
+     "head of"
+    ],
+    "indicatorNotes": {
+     "head of": "The head of a word is the letter at its front, so only the first character of the noun following is used."
+    },
+    "pieces": [
+     "C",
+     "LOSE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card player's abbreviation for the suit of clubs"
+     },
+     {
+      "clueFragment": "get rid of",
+      "gives": "LOSE",
+      "note": "to lose something is to get rid of it"
+     },
+     {
+      "clueFragment": "head of diversity",
+      "gives": "D",
+      "note": "diversity supplies its opening letter only"
+     }
+    ],
+    "walkthrough": "'Head of diversity' is a job title in the surface and a single letter in the wordplay, and the sentence about a members' club depends on you reading the first.",
+    "definitionFit": "Exclusive -> CLOSED: a closed shop or a closed circle keeps outsiders out, which is what calling a club exclusive amounts to."
+   }
   },
   {
    "id": "25-across",
@@ -486,7 +1286,35 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEFTIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "LEFTIE",
+    "definition": "Sinister type",
+    "indicators": [
+     "filling in"
+    ],
+    "indicatorNotes": {
+     "filling in": "The filling is what sits in the middle, so the outer letters of the word after this one are the crust and stay behind."
+    },
+    "pieces": [
+     "LEFT",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "didn't eat",
+      "gives": "LEFT",
+      "note": "the food you did not eat is what you have gone and left"
+     },
+     {
+      "clueFragment": "pies",
+      "gives": "IE",
+      "note": "the two letters in the middle of the word, with the crust taken off"
+     }
+    ],
+    "walkthrough": "The surface promises a villain and there is none: sinister is Latin for left, a sense heraldry still uses, so the type meant is a political one.",
+    "definitionFit": "Sinister type -> LEFTIE: sinister means on the left in heraldry and Latin, so someone of the political left answers to it."
+   }
   }
  ]
 } /*JSON-END*/;
