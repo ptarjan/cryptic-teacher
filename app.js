@@ -2709,7 +2709,7 @@
       // clueMissing is written by the fetchers off has_words — see fetch_puzzle.
       bodyHTML = e.clueMissing
         ? `<div class="hint-step"><p class="muted">The paper published this clue with no text in it —
-        the space beside the number was blank in the print edition too, so there’s nothing here
+        the space beside the number came through empty, so there’s nothing here
         to solve and no wordplay to explain. Not your eyes.
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
         : `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
