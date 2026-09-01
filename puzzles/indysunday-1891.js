@@ -30,7 +30,32 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COGENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COGENT",
+    "definition": "Convincing",
+    "linkWords": [
+     "suggestion for"
+    ],
+    "pieces": [
+     "CO",
+     "GENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "businessman",
+      "gives": "CO",
+      "note": "the business half of the word is a company, and CO is how a company signs itself"
+     },
+     {
+      "clueFragment": "businessman",
+      "gives": "GENT",
+      "note": "the man half is a gent, the everyday clipping of gentleman"
+     }
+    ],
+    "walkthrough": "The clue never splits the long word for you, and spotting that one word is really two is the whole solve. Six letters, two pieces, no indicator anywhere.",
+    "definitionFit": "Convincing → COGENT: an argument called cogent is one that compels agreement, which is what a convincing argument does."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +72,42 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANDIDATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "CANDIDATE",
+    "definition": "Examinee",
+    "indicators": [
+     "taking"
+    ],
+    "indicatorNotes": {
+     "taking": "A word taking something in is holding it, so the letters named next are lodged inside rather than added on the end."
+    },
+    "pieces": [
+     "CAN",
+     "D",
+     "ID",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "may",
+      "gives": "CAN",
+      "note": "may and can grant the same permission, one word swapped for the other"
+     },
+     {
+      "clueFragment": "go out",
+      "gives": "DATE",
+      "note": "to go out with somebody is to date them"
+     },
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "your papers are your ID, the documents that say who you are"
+     }
+    ],
+    "walkthrough": "The exam-hall surface is a decoy. 'Go out' is dating rather than leaving, and the papers are the ones in a wallet, not the ones on the desk.",
+    "definitionFit": "Examinee → CANDIDATE: anyone sitting an exam is entered as a candidate for it, which is the word printed on the paper itself."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +124,29 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GORED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GORED",
+    "definition": "stuck",
+    "pieces": [
+     "GO",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flush",
+      "gives": "GO",
+      "note": "a face that flushes goes a colour, and the verb comes first"
+     },
+     {
+      "clueFragment": "Flush",
+      "gives": "RED",
+      "note": "and red is the colour it goes"
+     }
+    ],
+    "walkthrough": "'Flush' wants to be the definition — level, or well off — but it is the whole of the wordplay, and it has to be heard as two little words rather than one.",
+    "definitionFit": "stuck → GORED: a bull that gores has stuck its horn into somebody, so the past tense of that piercing is what 'stuck' names."
+   }
   },
   {
    "id": "3-down",
@@ -87,7 +169,36 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAIVETE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "NAIVETE",
+    "definition": "quality of Forrest Gump",
+    "indicators": [
+     "jerks",
+     "disregarding"
+    ],
+    "indicatorNotes": {
+     "jerks": "A jerk is a sudden yank, and letters yanked about land somewhere other than where they started.",
+     "disregarding": "To disregard something is to leave it out, so the letter named next never joins the shuffle."
+    },
+    "anagram": {
+     "fodder": "NEATIVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Negative",
+      "gives": "NEGATIVE",
+      "note": "the first word is itself the raw material, and it arrives one letter too long for the light"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the crossword's letter for good, as on an old school report"
+     }
+    ],
+    "walkthrough": "'Negative jerks' reads as an insult aimed at people, and that is the misdirection: the first word is not describing the jerks, it is the letters themselves.",
+    "definitionFit": "quality of Forrest Gump → NAIVETE: the film's hero trusts everyone and suspects nothing, so the word is defined by an example of it."
+   }
   },
   {
    "id": "4-across",
@@ -104,7 +215,36 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHADOW",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SHADOW",
+    "definition": "Tail",
+    "indicators": [
+     "is splitting"
+    ],
+    "indicatorNotes": {
+     "is splitting": "Something splitting comes apart in the middle, so the three letters beside it open up and let another word sit in the gap."
+    },
+    "pieces": [
+     "S",
+     "HAD",
+     "OW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miss Piggy",
+      "gives": "SOW",
+      "note": "Miss Piggy is a pig, and the word for a female pig is a sow"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "HAD",
+      "note": "the clue's own word, dropped in whole at face value"
+     }
+    ],
+    "walkthrough": "The surface pretends the Muppet owns a tail. 'Tail' is really the verb here — to follow somebody about — and the pig is only there for her three letters.",
+    "definitionFit": "Tail → SHADOW: to tail somebody is to follow them everywhere they go, and the verb borrows the name of the thing that already does."
+   }
   },
   {
    "id": "5-down",
@@ -121,7 +261,29 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOEDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOEDOWN",
+    "definition": "an energetic dance",
+    "pieces": [
+     "HOED",
+     "OWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Did weed",
+      "gives": "HOED",
+      "note": "to hoe a bed is to weed it, and 'did' asks for the past tense"
+     },
+     {
+      "clueFragment": "have",
+      "gives": "OWN",
+      "note": "to have something is to own it"
+     }
+    ],
+    "walkthrough": "Read as English the clue asks whether a plant went dancing; read as wordplay both halves are plain verbs, laid end to end with nothing joining them.",
+    "definitionFit": "an energetic dance → HOEDOWN: a hoedown is a fast American square dance, so the definition names the kind of party rather than the steps."
+   }
   },
   {
    "id": "6-down",
@@ -142,7 +304,48 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
     ]
    },
    "solution": "DIMESTORE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + reversal",
+    "answer": "DIME STORE",
+    "definition": "cheap place in NYC",
+    "indicators": [
+     "beginning to",
+     "up"
+    ],
+    "indicatorNotes": {
+     "beginning to": "The beginning of a word is its opening letter, so only one character of what follows is taken.",
+     "up": "A down entry reads bottom to top, so what has just been spelled out is read back the other way."
+    },
+    "pieces": [
+     "DIMES",
+     "TORE"
+    ],
+    "subReversals": [
+     {
+      "from": "SEMID",
+      "to": "DIMES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suburban property",
+      "gives": "SEMI",
+      "note": "a semi is a semi-detached house, the standard British suburban home"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "D",
+      "note": "the opening letter of the word, and nothing more of it"
+     },
+     {
+      "clueFragment": "rent",
+      "gives": "TORE",
+      "note": "rent is what a rip did: the past of rend, which matches the past of tear"
+     }
+    ],
+    "walkthrough": "'Beginning to dry up' begs to be read as one phrase about a drought, and the clue cuts straight through it. A dime is the American ten-cent coin the shop is priced by.",
+    "definitionFit": "cheap place in NYC → DIME STORE: the American five-and-dime, the cut-price variety shop an American rather than a Briton would name."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +362,47 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WAFER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "WAFER",
+    "definition": "Slice",
+    "indicators": [
+     "rolling",
+     "through"
+    ],
+    "indicatorNotes": {
+     "rolling": "Something rolling tumbles over and over, so the letters it touches come to rest in a different order.",
+     "through": "A thing driven through another ends up inside it, so these two letters land in the middle rather than at either end."
+    },
+    "anagram": {
+     "fodder": "RAW FE"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "RAW",
+      "gives": "WAR"
+     }
+    ],
+    "pieces": [
+     "WA",
+     "FE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "RAW",
+      "note": "green means raw or unripe, and those three letters are the ones tumbled about"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     }
+    ],
+    "walkthrough": "'Rolling green' paints a golf course, which is also where a sliced iron shot goes. The whole surface is golf and not one word of the wordplay is.",
+    "definitionFit": "Slice → WAFER: a wafer is a thin slice cut off something, the word used for communion bread and for a sliver of silicon alike."
+   }
   },
   {
    "id": "8-down",
@@ -180,7 +423,39 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAUGHINGSTOCK",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "LAUGHING STOCK",
+    "definition": "ridiculous figure",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Oxford don's name marks his trademark accident: the opening sounds of two words trade places and both come out as other words."
+    },
+    "pieces": [
+     "LAUGHING",
+     "STOCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "providing canal-side labour",
+      "gives": "STAFFING LOCK",
+      "note": "the labour on offer is staffing a lock, the gated chamber that lifts boats from one canal level to the next"
+     },
+     {
+      "clueFragment": "Spooner's",
+      "soundsLike": "STAFFING LOCK",
+      "gives": "LAUGHING STOCK",
+      "note": "trade the sounds at the front of those two words, ST for L, and say what comes out"
+     }
+    ],
+    "walkthrough": "The joke only works out loud, so say the canal job first and then trade its opening sounds. What comes back is a person nobody takes seriously.",
+    "definitionFit": "ridiculous figure → LAUGHING STOCK: somebody everyone laughs at is held up as an object of ridicule, which is what the phrase names."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +472,42 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INORDINATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "INORDINATE",
+    "definition": "Extravagant",
+    "indicators": [
+     "clothes"
+    ],
+    "indicatorNotes": {
+     "clothes": "Clothes wrap the wearer, so used as a verb the word puts one set of letters round another instead of beside it."
+    },
+    "pieces": [
+     "IN",
+     "OR",
+     "DI",
+     "NATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "somebody in a hat is wearing it, so this is the two letters of that little word"
+     },
+     {
+      "clueFragment": "fancy",
+      "gives": "ORNATE",
+      "note": "fancy as an adjective: heavily decorated"
+     },
+     {
+      "clueFragment": "old princess",
+      "gives": "DI",
+      "note": "the princess crosswords mean is Diana, and 'old' says the former holder of the title rather than the present one"
+     }
+    ],
+    "walkthrough": "Two garment words doing different jobs: one is a two-letter word meaning 'wearing', the other is the instruction to wrap. Only one of them contributes letters of its own.",
+    "definitionFit": "Extravagant → INORDINATE: an inordinate amount is one past all proper limits, the same excess that 'extravagant' names of spending."
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +524,26 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUFF",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MUFF",
+    "definition": "Warmer",
+    "definition2": "boob",
+    "blocks": [
+     {
+      "clueFragment": "Warmer",
+      "gives": "",
+      "note": "a tube of fur you push both hands into on a cold day"
+     },
+     {
+      "clueFragment": "boob",
+      "gives": "",
+      "note": "British slang for a silly blunder, and for making one"
+     }
+    ],
+    "walkthrough": "Four letters and two everyday senses with no join between them: one is a piece of old-fashioned outerwear, the other is what a fielder does to an easy catch.",
+    "definitionFit": "Warmer → MUFF is the fur tube that keeps the hands warm; boob → MUFF is the verb for fluffing something, as in muffing a catch."
+   }
   },
   {
    "id": "11-across",
@@ -231,7 +560,35 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KINDLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "KINDLE",
+    "definition": "Reader",
+    "indicators": [
+     "superficially"
+    ],
+    "indicatorNotes": {
+     "superficially": "What is superficial sits on the surface, and a word's surface is the pair of letters you see at each end of it."
+    },
+    "pieces": [
+     "KIND",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loving",
+      "gives": "KIND",
+      "note": "kind and loving name the same warmth of character"
+     },
+     {
+      "clueFragment": "literature",
+      "gives": "LE",
+      "note": "the outside of the word, its opening and closing letters only"
+     }
+    ],
+    "walkthrough": "Amazon's e-reader is the definition, so a brand name is standing in for a common noun — and the ordinary verb, to set alight, has nothing to do with the clue.",
+    "definitionFit": "Reader → KINDLE: definition by example, since the Kindle is one brand of e-reader among several rather than the word for the class."
+   }
   },
   {
    "id": "12-across",
@@ -248,7 +605,44 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLOSSARY",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "GLOSSARY",
+    "definition": "Specialised dictionary",
+    "indicators": [
+     "brought over",
+     "in"
+    ],
+    "indicatorNotes": {
+     "brought over": "Something brought over is turned face about, so the letters beside it are written from the back end forwards.",
+     "in": "A piece that goes in something sits inside it, buried in the middle rather than added to either end."
+    },
+    "pieces": [
+     "GLO",
+     "SSA",
+     "RY"
+    ],
+    "subReversals": [
+     {
+      "from": "ASS",
+      "to": "SSA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "triumph",
+      "gives": "GLORY",
+      "note": "a triumph is a glory, the noun rather than the verb the surface offers"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "SSA",
+      "note": "an idiot is an ass, and those three letters arrive back to front"
+     }
+    ],
+    "walkthrough": "The surface is a bad-tempered scholar. The wordplay is kinder: 'triumph' is a thing you have, not a thing you do, and the insult is only there to be turned round.",
+    "definitionFit": "Specialised dictionary → GLOSSARY: a glossary lists just the terms of one subject with their meanings, which is a dictionary narrowed to a single field."
+   }
   },
   {
    "id": "13-across",
@@ -265,7 +659,45 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARCHESI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters + last letter",
+    "answer": "MARCHESI",
+    "definition": "Italian peers",
+    "indicators": [
+     "regularly",
+     "on",
+     "back from"
+    ],
+    "indicatorNotes": {
+     "regularly": "Taking letters at regular intervals means every other one, so only half the word beside it reaches the grid.",
+     "on": "In an across clue a piece that sits on another is written after it, the way one word leans against the next.",
+     "back from": "The back of a word is its final letter, so one character is taken off the end of the name that follows."
+    },
+    "pieces": [
+     "MARCH",
+     "ES",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "walk",
+      "gives": "MARCH",
+      "note": "to march is to walk in step"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "ES",
+      "note": "the first and third letters, picked out at every other step"
+     },
+     {
+      "clueFragment": "Aldi",
+      "gives": "I",
+      "note": "Aldi is a discount supermarket chain, and only the letter it ends on is wanted"
+     }
+    ],
+    "walkthrough": "The surface is a walk home from the shops, and every word of it is doing a separate job. 'Peers' means noblemen here, not people of your own age.",
+    "definitionFit": "Italian peers → MARCHESI: marchesi is the Italian plural of marchese, the rank that matches an English marquess, so both words are noblemen."
+   }
   },
   {
    "id": "14-down",
@@ -282,7 +714,36 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COALMINER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "COALMINER",
+    "definition": "smutty labourer",
+    "indicators": [
+     "squirms",
+     "letting"
+    ],
+    "indicatorNotes": {
+     "squirms": "Somebody squirming will not hold still, and letters that will not hold still come out in an order of their own.",
+     "letting": "Letting a person into a room admits them inside it, so the letter named next joins the pile before it is shaken up."
+    },
+    "anagram": {
+     "fodder": "CAROLINE M"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Caroline",
+      "gives": "CAROLINE",
+      "note": "the name's eight letters are the bulk of the fodder"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the NATO alphabet that pilots and police spell with"
+     }
+    ],
+    "walkthrough": "'Smutty' is literal here — smut is soot and coal dust — which is the opposite of what the surface wants you to hear. Caroline is fodder rather than a character.",
+    "definitionFit": "smutty labourer → COALMINER: a worker who comes up black with dust at the end of a shift is the one who has been digging coal."
+   }
   },
   {
    "id": "15-across",
@@ -299,7 +760,23 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOODLE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "NOODLE",
+    "definition": "Strip to plunge into boiling water?",
+    "blocks": [
+     {
+      "clueFragment": "Strip",
+      "note": "the surface asks you to picture somebody undressing for a hot bath; read it as a noun and it is a long flat ribbon instead"
+     },
+     {
+      "clueFragment": "to plunge into boiling water",
+      "note": "which is what a cook does with that ribbon — a few minutes in a rolling pan and supper is ready"
+     }
+    ],
+    "walkthrough": "No letters are hidden here: the whole sentence is one description read two ways. The same word also means a head, or the fool attached to it.",
+    "definitionFit": "The whole clue → NOODLE: a noodle is a strip of pasta dough and cooking one means dropping it into boiling water, so clue and answer describe one thing."
+   }
   },
   {
    "id": "16-down",
@@ -316,7 +793,37 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LARCENOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "LARCENOUS",
+    "definition": "Thieving",
+    "linkWords": [
+     "needs"
+    ],
+    "indicators": [
+     "criminal"
+    ],
+    "indicatorNotes": {
+     "criminal": "Here the word means lawless rather than a person, and letters with no law over them settle in any order at all."
+    },
+    "anagram": {
+     "fodder": "CLEAR NOUS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "clear",
+      "gives": "CLEAR",
+      "note": "five letters of fodder; the word contributes nothing but them"
+     },
+     {
+      "clueFragment": "intelligence",
+      "gives": "NOUS",
+      "note": "nous is common sense or brains, a Greek word English helped itself to"
+     }
+    ],
+    "walkthrough": "'Criminal intelligence' is a phrase the surface hands you whole, and the clue cuts it in half: one word is the instruction and the other is a piece of the answer.",
+    "definitionFit": "Thieving → LARCENOUS: larceny is the lawyer's word for theft, so its adjective describes exactly the habit that 'thieving' names."
+   }
   },
   {
    "id": "17-across",
@@ -333,7 +840,34 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BECALM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "BECALM",
+    "definition": "Still",
+    "indicators": [
+     "covered with",
+     "twirled"
+    ],
+    "indicatorNotes": {
+     "covered with": "What is covered is out of sight, and these letters are out of sight underneath the words that carry them.",
+     "twirled": "A twirl spins a thing right round, so the run of letters reads the opposite way from how the clue prints it."
+    },
+    "subReversals": [
+     {
+      "from": "MLACEB",
+      "to": "BECALM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "random lace, bride",
+      "gives": "BECALM",
+      "note": "six letters run without a break from the end of the first word to the start of the last, and they arrive facing the wrong way"
+     }
+    ],
+    "walkthrough": "The wedding surface does all the work: 'random' looks like a shuffle instruction and 'lace' like its fodder, when in fact the answer is lying right across them.",
+    "definitionFit": "Still → BECALM: to becalm is to make calm, and a ship becalmed sits dead still, so the verb answers 'still' in its calming sense."
+   }
   },
   {
    "id": "18-down",
@@ -350,7 +884,39 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUSTARD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MUSTARD",
+    "definition": "yellow and hot",
+    "linkWords": [
+     "which is"
+    ],
+    "indicators": [
+     "going round"
+    ],
+    "indicatorNotes": {
+     "going round": "Something going round travels about the outside of what it circles, so those letters are written around the ones beside them."
+    },
+    "pieces": [
+     "MU",
+     "STAR",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Earth",
+      "gives": "MUD",
+      "note": "earth in the gardener's sense is mud"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "STAR",
+      "note": "the sun is a star, the one nearest us"
+     }
+    ],
+    "walkthrough": "The surface draws the solar system and the wordplay draws a flowerbed. 'Yellow and hot' belongs to the condiment shelf rather than to any planet's weather.",
+    "definitionFit": "yellow and hot → MUSTARD: English mustard is bright yellow in the pot and fiercely hot on the tongue, so the pair of adjectives names it exactly."
+   }
   },
   {
    "id": "19-across",
@@ -367,7 +933,45 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GADGETRY",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "GADGETRY",
+    "definition": "devices",
+    "definitionNote": "'Devices' is plural and the answer is a mass noun covering all of them at once, the same way 'machinery' answers to 'machines'.",
+    "indicators": [
+     "starts to",
+     "stored by"
+    ],
+    "indicatorNotes": {
+     "starts to": "The start of a word is its first letter, and this instruction is plural, so one letter comes off each of the two words that follow.",
+     "stored by": "Whatever stores a thing keeps it inside, so the letters just named are shut up in the middle of the name beside them."
+    },
+    "pieces": [
+     "GA",
+     "DG",
+     "ET",
+     "RY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lineker",
+      "gives": "GARY",
+      "note": "Gary Lineker, the England striker turned Match of the Day presenter, is on first-name terms with British viewers"
+     },
+     {
+      "clueFragment": "BBC boss",
+      "gives": "DG",
+      "note": "the BBC's boss is its Director-General, DG for short"
+     },
+     {
+      "clueFragment": "examine tweets",
+      "gives": "ET",
+      "note": "one letter from the front of each word"
+     }
+    ],
+    "walkthrough": "A BBC boss and Lineker's tweets really did make headlines together, which is why the surface reads like news; the pieces of the clue have nothing to do with each other.",
+    "definitionFit": "devices → GADGETRY: gadgetry is the collective word for clever little contrivances, so it stands in where a plural naming several of them would."
+   }
   },
   {
    "id": "20-down",
@@ -384,7 +988,49 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIVIDER",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "DIVIDER",
+    "definition": "partition",
+    "indicators": [
+     "Upsetting",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Upsetting": "To upset a thing is to tip it over, and a word tipped over in a down entry is read from the bottom square upwards.",
+     "about": "One thing about another is wrapped round it, so the single letter goes inside the pair of words rather than after them."
+    },
+    "pieces": [
+     "DIV",
+     "I",
+     "DER"
+    ],
+    "subReversals": [
+     {
+      "from": "REDIVID",
+      "to": "DIVIDER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloody",
+      "gives": "RED",
+      "note": "blood is red, so the adjective hands over the colour"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO alphabet"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "VID",
+      "note": "a vid is a video, the everyday clipping"
+     }
+    ],
+    "walkthrough": "India's partition is a real event and the whole surface leans on it. In the wordplay the country is only its signal letter, and a partition is a screen in a room.",
+    "definitionFit": "partition → DIVIDER: a partition is the screen or panel put up to split one room into two, which is the job a divider does."
+   }
   },
   {
    "id": "21-across",
@@ -401,7 +1047,42 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARMOSET",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MARMOSET",
+    "definition": "creature with tufty ears",
+    "indicators": [
+     "invaded by"
+    ],
+    "indicatorNotes": {
+     "invaded by": "An invader gets inside the place it invades, so what follows is pushed into the middle of the word before it."
+    },
+    "pieces": [
+     "MAR",
+     "MO",
+     "S",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Planet",
+      "gives": "MARS",
+      "note": "the planet named after the Roman god of war"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment — 'hang on half a mo' — so it does duty for a second"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the crossword's standard alien, borrowed from the film"
+     }
+    ],
+    "walkthrough": "The surface is science fiction and every piece of it is ordinary: a planet, a moment and a film alien, with the tufted ears belonging to a monkey.",
+    "definitionFit": "creature with tufty ears → MARMOSET: the common marmoset is a small South American monkey with white tufts sprouting from each ear."
+   }
   },
   {
    "id": "22-down",
@@ -418,7 +1099,38 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABORT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "ABORT",
+    "definition": "Interrupt",
+    "linkWords": [
+     "giving"
+    ],
+    "indicators": [
+     "up front"
+    ],
+    "indicatorNotes": {
+     "up front": "In a down entry the front is the top square, so the letter named beside these words is lifted out of the name and re-laid at the start."
+    },
+    "pieces": [
+     "A",
+     "BORT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard short form of answer, as in a Q and A"
+     },
+     {
+      "clueFragment": "Kazakh journalist",
+      "gives": "BORT",
+      "note": "the fictional Kazakh reporter of the Sacha Baron Cohen film, left without the A that has moved"
+     }
+    ],
+    "walkthrough": "Borat is the Kazakh television reporter Sacha Baron Cohen played, and the clue takes his name apart by moving one letter rather than by shuffling the lot.",
+    "definitionFit": "Interrupt → ABORT: to abort something is to stop it part-way through, which is what interrupting a launch or a program amounts to."
+   }
   },
   {
    "id": "23-across",
@@ -435,7 +1147,32 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VOLLEY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VOLLEY",
+    "definition": "Fire",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "after a ramble"
+    ],
+    "indicatorNotes": {
+     "after a ramble": "A ramble is a wander with no route in mind, and letters home from one turn up in no particular order."
+    },
+    "anagram": {
+     "fodder": "LOVELY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "lovely",
+      "gives": "LOVELY",
+      "note": "six letters taken straight from the clue and rearranged"
+     }
+    ],
+    "walkthrough": "'Fire's lovely' is a sentence about a hearth, and that is the trick: the first word is the definition, the second is raw material, and neither is about warmth.",
+    "definitionFit": "Fire → VOLLEY: a volley is a burst of shots let off at once, so the noun in its gunnery sense names the same thing."
+   }
   },
   {
    "id": "24-down",
@@ -452,7 +1189,30 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOADS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOADS",
+    "definition": "much",
+    "definitionNote": "'Much' is a mass quantifier while the answer is plural in shape; both fill the same slot — 'not much to do', 'loads to do' — so the swap is fair.",
+    "pieces": [
+     "LO",
+     "ADS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is the old imperative for look, as in 'lo and behold'"
+     },
+     {
+      "clueFragment": "interruptions on YouTube",
+      "gives": "ADS",
+      "note": "what breaks into a video you are watching for free"
+     }
+    ],
+    "walkthrough": "Reading the clue as one exasperated question is the trap. It splits after the first word, and the rest is simply what free video keeps handing you.",
+    "definitionFit": "much → LOADS: in casual speech loads means a large amount — 'thanks loads' — so it stands where the quantifier would."
+   }
   },
   {
    "id": "25-across",
@@ -473,7 +1233,27 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GO ON",
+    "definition": "Last",
+    "definition2": "member of 1950s radio comedy",
+    "definitionNote": "The second definition works on the four letters run together, not on the two words the grid splits them into — same letters, different spacing.",
+    "blocks": [
+     {
+      "clueFragment": "Last",
+      "gives": "",
+      "note": "the verb: to endure, to carry on, the way a supply lasts a week"
+     },
+     {
+      "clueFragment": "member of 1950s radio comedy",
+      "gives": "",
+      "note": "one of the cast of the anarchic BBC radio show that ran through the fifties — Milligan, Sellers, Secombe and Bentine"
+     }
+    ],
+    "walkthrough": "The enumeration is the whole game: two words in the grid, one word on the wireless. The Goon Show's name gave English a word for a thug and a fool alike.",
+    "definitionFit": "Last → GO ON: a meeting that goes on lasts; the radio sense needs the same letters closed up into one word, the name of a Goon."
+   }
   },
   {
    "id": "26-across",
@@ -490,7 +1270,34 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARCHDEACON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ARCHDEACON",
+    "definition": "senior minister",
+    "indicators": [
+     "Vagrant"
+    ],
+    "indicatorNotes": {
+     "Vagrant": "A vagrant has no fixed address, and letters with no fixed address are free to settle anywhere in the light."
+    },
+    "anagram": {
+     "fodder": "HAD RACE CON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "had race",
+      "gives": "HADRACE",
+      "note": "seven letters of fodder, taken from the two words as they stand"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "CON",
+      "note": "the con of 'pros and cons' is the case against"
+     }
+    ],
+    "walkthrough": "'Vagrant had race' sounds like a story about a tramp, and only the first word of it is an instruction. The rest is letters, plus the crossword's usual word for opposition.",
+    "definitionFit": "senior minister → ARCHDEACON: an archdeacon ranks above the parish clergy in the Church of England, so 'minister' is meant in its churchy sense."
+   }
   },
   {
    "id": "27-across",
@@ -507,7 +1314,27 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIRADE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TIRADE",
+    "definition": "Harangue",
+    "indicators": [
+     "on the phone"
+    ],
+    "indicatorNotes": {
+     "on the phone": "Words down a telephone reach you as sound only, so what counts is how they are heard rather than how they are spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "weary assistant",
+      "soundsLike": "TIRED AIDE",
+      "gives": "TIRADE",
+      "note": "a weary helper is a tired aide, and said at speed the two words run into one"
+     }
+    ],
+    "walkthrough": "Say the two words quickly and the join disappears. The surface, an exhausted office junior taking a call, exists only to hide where one word stops and the next starts.",
+    "definitionFit": "Harangue → TIRADE: a harangue is a long angry speech aimed at somebody, and a tirade is that same outburst under another name."
+   }
   },
   {
    "id": "28-across",
@@ -524,7 +1351,32 @@ window.CRYPTIC_PUZZLES["indysunday-1891"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRISES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CRISES",
+    "definition": "difficult moments",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "C",
+     "RISES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the ballot-paper abbreviation for a Conservative candidate"
+     },
+     {
+      "clueFragment": "is revolting",
+      "gives": "RISES",
+      "note": "a population that is revolting rises against its rulers"
+     }
+    ],
+    "walkthrough": "'Revolting' is the political verb here rather than the adjective the surface offers, and 'Conservative' is a party letter rather than a temperament.",
+    "definitionFit": "difficult moments → CRISES: a crisis is the moment when a situation comes to a head, and the plural covers several such turning points."
+   }
   }
  ]
 } /*JSON-END*/;
