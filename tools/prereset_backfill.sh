@@ -139,6 +139,11 @@ if ! mkdir "$LOCK" 2>/dev/null; then
   exit 0
 fi
 trap 'rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
+# Session ids and resume notes belong to the run that wrote them. Left behind by
+# a run that stopped before its retry, they would have tonight's first attempt
+# resume a conversation about a worktree that has since been reset out from
+# under it — and be told to carry on from edits that are no longer there.
+rm -f /tmp/ct-prereset-*.sid /tmp/ct-prereset-*.resume
 
 # THE WHOLE JOB HANGS ON THIS CHECK. Everything below runs with no usage gate
 # whatsoever, which is only defensible in the hour before quota that cannot roll
@@ -304,14 +309,30 @@ requeue_failed() {
   at=0
 }
 
+# Does the CLI still hold that conversation? A --resume naming a transcript that
+# was never written fails on the spot, which would spend the puzzle's one retry
+# on nothing.
+session_exists() {
+  [ -n "$(find "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects" -maxdepth 2 \
+            -name "$1.jsonl" 2>/dev/null | head -1)" ]
+}
+
 # Run one claude task against the repo. Returns non-zero if the run failed.
 #
 # Its output goes to a file named after the puzzle rather than to the log, because
 # several of these run at once now and interleaved transcripts belong to nobody.
 # The caller prints the tail of each one as it reaps it, in order.
+#
+# Every run is given a session id up front so that a retry can RESUME it rather
+# than start over. A run the limit cut off had already read the puzzle, worked
+# out the wordplay and written half the answers down; a fresh -p throws that
+# thinking away and buys it a second time. Resuming replays the transcript and
+# carries on from the reasoning already paid for.
 run_claude() {
-  local tag="$1" log
+  local tag="$1" prompt="$2" log sid sidfile resume_at sess=()
   log="/tmp/ct-prereset-$1.txt"
+  sidfile="/tmp/ct-prereset-$1.sid"
+  resume_at="/tmp/ct-prereset-$1.resume"
   if [ "$DRY_RUN" = 1 ]; then
     echo "would spend one $MODEL run on $tag" >"$log"
     sleep 1
@@ -322,7 +343,16 @@ run_claude() {
   # and a `null` ships a clue with no teaching ladder. tools/annotate_prompt.md
   # bounds the use — stuck first, and the explanation written from scratch rather
   # than lifted, because the blog's prose teaches nobody in rungs.
-  claude -p "$2" \
+  if [ -s "$resume_at" ] && [ -s "$sidfile" ] && session_exists "$(cat "$sidfile")"; then
+    sess=(--resume "$(cat "$sidfile")")
+    prompt=$(cat "$resume_at")
+  else
+    sid=$(uuidgen | tr '[:upper:]' '[:lower:]')
+    echo "$sid" >"$sidfile"
+    sess=(--session-id "$sid")
+  fi
+  rm -f "$resume_at"
+  claude -p "$prompt" "${sess[@]}" \
     --model "$MODEL" \
     --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
     --max-turns 80 >"$log" 2>&1
@@ -351,6 +381,11 @@ run_wave() {
   local ids=("$@") pids=() i failed=0
   WAVE_FAILED_IDS=()
   echo "--- wave of ${#ids[@]}: ${ids[*]} ---"
+  local again=()
+  for i in "${!ids[@]}"; do
+    [ -s "/tmp/ct-prereset-${ids[$i]}.resume" ] && again+=("${ids[$i]}")
+  done
+  [ ${#again[@]} -gt 0 ] && echo "  picking up the cut-off conversations for: ${again[*]}"
   for i in "${!ids[@]}"; do
     run_claude "${ids[$i]}" "${tmpl//@/${ids[$i]}}" &
     pids+=($!)
@@ -364,12 +399,18 @@ run_wave() {
       # annotated, the rest untouched, and that file still validates. Throwing
       # it away means paying for those clues again. Only a half-written one —
       # the run died mid-edit — is worth nothing and goes back.
+      #
+      # Either way it leaves a note for the retry, which resumes this same
+      # conversation (see run_claude) — so the note only has to say what changed
+      # under it while it was stopped, not restate the job.
       if [ -n "$(git status --porcelain -- "puzzles/${ids[$i]}.js")" ] &&
          python3 tools/validate_annotations.py "${ids[$i]}" >/dev/null 2>&1; then
         echo "  [${ids[$i]}] run failed — keeping what it finished, the file still validates"
+        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to puzzles/${ids[$i]}.js are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/validate_annotations.py ${ids[$i]} until it passes. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       else
         echo "  [${ids[$i]}] run failed — discarding its changes"
         git checkout -- "puzzles/${ids[$i]}.js" 2>/dev/null
+        printf '%s\n' "You were cut off by a usage limit, mid-edit, so puzzles/${ids[$i]}.js was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/validate_annotations.py ${ids[$i]} until it passes. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       fi
       WAVE_FAILED_IDS+=("${ids[$i]}")
       failed=$((failed + 1))
