@@ -100,10 +100,13 @@ FORCE_HOURS="${FORCE_HOURS:-1}"
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
 EXHAUSTED="${EXHAUSTED:-97}"
-# How much of each FIVE-hour window is never this job's to take, so that whoever
-# else is on this account can still get a turn out of it while the backfill runs.
-# See the note in after_wave for why it has to be this wide.
+# How much of each FIVE-hour window is kept back for whoever else is on this
+# account — but only while they are actually using it. The whole weekly
+# remainder is still meant to be spent, so an empty room gets the reserve too.
+# See bridge_busy and the note in after_wave.
 SESSION_RESERVE_PCT="${SESSION_RESERVE_PCT:-25}"
+BRIDGE_DIR="${BRIDGE_DIR:-$HOME/.claude/projects/-Users-pt}"
+BRIDGE_IDLE_MIN="${BRIDGE_IDLE_MIN:-60}"
 # One nap per five-hour window this job asked for is the PLAN, not a failure, so
 # the allowance is that count with slack rather than a constant. A constant that
 # is smaller than the number of windows ends the job in the middle of the run it
@@ -223,6 +226,37 @@ hours_between() {
   awk -v a="$1" -v b="$2" 'BEGIN{printf "%.3f", (b - a) / 3600}'
 }
 
+# Is anyone on the bridge right now? Their conversations are the transcripts in
+# BRIDGE_DIR, touched on every turn. This job's own claude runs cannot be
+# mistaken for company: they run from the worktree, so the CLI files them under
+# a project directory named after it instead.
+_bridge_warned=0
+bridge_busy() {
+  if [ ! -d "$BRIDGE_DIR" ]; then
+    # Unreadable means BUSY. Under-spending the remainder is a line in this log;
+    # taking the window out from under a conversation is a surprise lockout.
+    if [ "$_bridge_warned" = 0 ]; then
+      _bridge_warned=1
+      alert "pre-reset backfill cannot see the bridge transcripts at $BRIDGE_DIR, so it cannot tell whether anyone is using the account. It is holding ${SESSION_RESERVE_PCT}% of every five-hour window back rather than risk a lockout, which means the weekly remainder will be under-spent until that path is right."
+    fi
+    return 0
+  fi
+  [ -n "$(find "$BRIDGE_DIR" -maxdepth 1 -name '*.jsonl' -mmin "-$BRIDGE_IDLE_MIN" 2>/dev/null | head -1)" ]
+}
+
+# How many puzzles the next wave should run at once.
+#   $1 hours left   $2 the five-hour meter right now
+# Inside the reserve a wave is a blunt instrument: four of them move the meter
+# about ten points in one block that cannot be observed until it lands. So down
+# there it goes one at a time, which keeps the most a returning person can lose
+# to a wave already in flight at a couple of points.
+wave_width() {
+  local w
+  w=$(python3 tools/prereset_plan.py --width "$1" 2>/dev/null || echo 1)
+  if awk -v s="$2" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}'; then w=1; fi
+  echo "$w"
+}
+
 # Run one claude task against the repo. Returns non-zero if the run failed.
 #
 # Its output goes to a file named after the puzzle rather than to the log, because
@@ -305,14 +339,18 @@ after_wave() {
   python3 tools/prereset_plan.py --observe-yield "$climb" "$climb_s" >/dev/null 2>&1
   echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${wide}"
   # THE FIVE-HOUR METER IS SHARED WITH A PERSON. The weekly remainder is this
-  # job's to spend, but the window it has to spend it through is the same one
-  # Paul talks to the bridge on, and a window run to 100% locks him out of his
-  # own account until it turns over. So the job stops short and naps out the
-  # rest of the window instead of filling it. A wave is billed as a block and
-  # the meter is only read after it lands, so the reserve has to be wider than
-  # one wave's climb — about ten points at width 4 — or an overshoot eats it.
-  if awk -v s="$now_s" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}'; then
-    echo "  five-hour window at ${now_s}% — holding the last ${SESSION_RESERVE_PCT}% back for real use"
+  # job's to spend and all of it is meant to go, but the windows it spends
+  # through are the same ones Paul talks to the bridge on, and a window run to
+  # 100% locks him out of his own account until it turns over.
+  #
+  # So the last SESSION_RESERVE_PCT of each window is his while he is there and
+  # the job's while he is not, asked again after every wave. An empty room still
+  # gets eaten to 100%; a conversation gets the window handed back and the job
+  # naps until it turns over. The reserve is wide because the meter is only read
+  # after a wave lands — see wave_width for the other half of that.
+  if awk -v s="$now_s" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
+     && bridge_busy; then
+    echo "  five-hour window at ${now_s}% and the bridge is in use — handing the last ${SESSION_RESERVE_PCT}% back"
     failed=1
   fi
   [ "${failed:-1}" -eq 0 ] && return 0
@@ -474,9 +512,9 @@ while [ "$at" -lt "${#queue[@]}" ]; do
   # the hours shrink faster, and something else on this machine may be spending
   # too. A width fixed at the top would be wrong by the second wave.
   hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
-  wide=$(python3 tools/prereset_plan.py --width "$hours_left" 2>/dev/null || echo 1)
   before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
   before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
+  wide=$(wave_width "$hours_left" "$before_s")
   started=$(date +%s)
   run_wave "Annotate" "$ANNOTATE_PROMPT" "${queue[@]:$at:$wide}"
   failed=$?
@@ -515,9 +553,9 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     if past_deadline; then echo "deadline reached — stopping"; break 2; fi
     if ! still_behind; then stand_down; break 2; fi
     hours_left=$(hours_between "$(date +%s)" "$STOP_AT")
-    wide=$(python3 tools/prereset_plan.py --width "$hours_left" 2>/dev/null || echo 1)
     before=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
     before_s=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
+    wide=$(wave_width "$hours_left" "$before_s")
     started=$(date +%s)
     run_wave "Backfill $field for" "$prompt" "${queue[@]:$at:$wide}"
     failed=$?
