@@ -569,6 +569,7 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    },
    "length": 7,
    "clue": "  (7)",
+   "clueMissing": true,
    "group": [
     "12-across"
    ],

@@ -143,9 +143,15 @@ def visible(s):
 
 
 def has_words(clue):
-    """A clue is text plus an enumeration. Strip the enumeration and there has
-    to be a letter left, or the paper published nothing to solve."""
-    return any(c.isalpha() for c in re.sub(r"\([\d,\-. ]*\)", "", clue))
+    """A clue is content plus an enumeration. Strip the enumeration and there
+    has to be something left, or the paper published nothing to solve.
+
+    Something, not a letter. A bare cross-reference is a whole clue — "␣␣␣␣␣ 9
+    (5)" is cryptic-30059 14-down, where the printed gap IS the wordplay and the
+    9 points at the rest of it, and it annotates fine. Requiring a letter called
+    that unsolvable and would have thrown away a clue the setter meant.
+    """
+    return any(c.isalnum() for c in re.sub(r"\([\d,\-. ]*\)", "", clue))
 
 
 def flatten_clue(s):
@@ -323,6 +329,11 @@ def convert(data):
             # Omitted rather than written empty: most clues have no italics and
             # a [] on every entry is 84 files of noise.
             **({"clueItalics": italics} if italics else {}),
+            # Recorded, not re-derived. has_words is the one definition of "the
+            # paper printed nothing here", and the app cannot import it, so the
+            # answer travels in the file instead of a second rule in app.js
+            # that could drift from this one.
+            **({} if has_words(clue) else {"clueMissing": True}),
             "group": e["group"],
             "separatorLocations": e.get("separatorLocations") or {},
             "solution": e.get("solution"),
@@ -394,7 +405,18 @@ def merge_annotations(new_puzzle, old_puzzle):
 
 
 def puzzle_is_annotated(puzzle):
-    return all(e.get("annotation") is not None for e in puzzle["entries"])
+    """Every clue that CAN be annotated has been.
+
+    A clue the paper published with no words in it is not a gap in this site's
+    work and never will be: there is nothing to explain, and no annotator,
+    model or human, can write a ladder for it. Counting it against the puzzle
+    left cryptic-30098 (12-across, blank in the Guardian's own print PDF)
+    permanently un-annotated, so the nightly backfill bought a full annotation
+    run on it every night to solve the same 28 clues again and alert about the
+    29th (2026-09-01).
+    """
+    return all(e.get("annotation") is not None or not has_words(e["clue"])
+               for e in puzzle["entries"])
 
 
 def reindex():

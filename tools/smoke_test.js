@@ -2017,6 +2017,45 @@ registry["reset-puzzle"].onclick();
     "the italics survived the flatten — a run that finds none has thrown them away");
 }
 
+// --- a clue the paper printed blank is not a clue anyone failed to solve ---
+// The Guardian shipped Prize 30,098's 12-across as an en-space and "(7)" — blank
+// in the JSON, blank on the accessible page, blank in its own print PDF. Nothing
+// downstream could tell that from a hard clue, so the puzzle stayed
+// `annotated: false`, the nightly backfill bought a whole annotation run on it
+// every night to re-solve the same 28 clues, and alerted about the 29th
+// (2026-09-01). The flag is written by the fetchers off ONE definition of
+// wordless (fetch_puzzle.has_words) so the app never re-derives it.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  assert(/clueMissing/.test(src),
+    "app.js reads clueMissing — otherwise a blank clue reads as 'not annotated yet', "
+    + "which promises a ladder that can never be written");
+
+  const hasWords = (clue) => /[a-zA-Z0-9]/.test(clue.replace(/\([\d,\-. ]*\)/g, ""));
+  const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
+  const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
+  const files = fs.readdirSync(path.join(ROOT, "puzzles")).filter((f) => /^[a-z]+-\d+\.js$/.test(f));
+  files.forEach((f) => {
+    const text = fs.readFileSync(path.join(ROOT, "puzzles", f), "utf8");
+    const puz = JSON.parse(text.slice(text.indexOf("{", text.indexOf("CRYPTIC_PUZZLES[")),
+                                      text.lastIndexOf("}") + 1));
+    puz.entries.forEach((e) => {
+      assert(hasWords(e.clue) === !e.clueMissing,
+        `${puz.id} ${e.id}: clueMissing disagrees with the clue text — ${JSON.stringify(e.clue)}`);
+      assert(!(e.clueMissing && e.annotation),
+        `${puz.id} ${e.id}: annotated a clue with no words in it — that explanation was invented`);
+    });
+    // The re-spend is the bug, and this is where it would come back: a puzzle
+    // whose only gaps are blank clues has to count as done, or it sits in the
+    // backlog forever.
+    if (annotatedInIndex.has(puz.id)) {
+      const answerable = puz.entries.filter((e) => hasWords(e.clue));
+      assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation),
+        `${puz.id}: index 'annotated' should count only the clues that have words`);
+    }
+  });
+}
+
 // --- the letter strip shows where the words break ---
 // The enumeration is the solver's best structural clue and the grid cannot show
 // it, so the strip does (Paul, 2026-08-16). A gap in the wrong place is worse
