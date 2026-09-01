@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLEMATIS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "CLEMATIS",
+    "definition": "Climber",
+    "indicators": [
+     "melted",
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "melted": "Ice that has melted keeps everything it was made of and none of the shape, which is what happens to these letters.",
+     "bit of": "A bit chipped off a word is the letter at its front, the only piece you can take without being told where to cut."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "LAST ICE M"
+    },
+    "blocks": [
+     {
+      "clueFragment": "last ice",
+      "gives": "LASTICE",
+      "note": "seven letters handed over whole, in an order the solver has to abandon"
+     },
+     {
+      "clueFragment": "muesli",
+      "gives": "M",
+      "note": "the opening letter of the cereal supplies the eighth"
+     }
+    ],
+    "walkthrough": "Everything in the surface is a mountain: a climber, melting ice, breakfast before the ascent. The climber wanted is a plant on a garden wall.",
+    "definitionFit": "Climber -> CLEMATIS: the general word for the particular plant, since clematis is one of the flowering climbers that haul themselves up walls and trellises."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +83,35 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIKEBLAZES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LIKE BLAZES",
+    "definition": "with much passion",
+    "pieces": [
+     "LIKE",
+     "B",
+     "LAZES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancy",
+      "gives": "LIKE",
+      "note": "to fancy something is to like it, the mild sense of the word"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the bishop on a chess scoresheet, the one place the piece is routinely a letter"
+     },
+     {
+      "clueFragment": "does nothing",
+      "gives": "LAZES",
+      "note": "someone doing nothing lazes about"
+     }
+    ],
+    "walkthrough": "Three separate pieces sit end to end while the surface reads as one idle churchman, and the phrase they build is nothing to do with the church.",
+    "definitionFit": "with much passion -> LIKE BLAZES: to work or run like blazes is to do it fiercely, at the pace of a fire, so the phrase means flat out."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +128,40 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MADRASA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "MADRASA",
+    "definition": "seminary",
+    "indicators": [
+     "regularly",
+     "beneath"
+    ],
+    "indicatorNotes": {
+     "regularly": "Something done regularly happens at a steady interval, and letters picked at a steady interval means every second one.",
+     "beneath": "This is a down entry, where beneath means lower in the grid, so the letters picked here are written after the ones clued next."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MAD",
+     "RASA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cross",
+      "gives": "MAD",
+      "note": "cross in the sense of angry, not the Christian symbol the surface wants"
+     },
+     {
+      "clueFragment": "Friar spat",
+      "gives": "RASA",
+      "note": "the even-numbered letters of the two words, counting from the second"
+     }
+    ],
+    "walkthrough": "Friar, cross and seminary all point at a Christian house of study, and the school being defined is an Islamic one, where the Koran and religious law are taught.",
+    "definitionFit": "seminary -> MADRASA: a madrasa is the Muslim school of religious instruction, so it is a seminary in the plain sense of a college training clergy."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +178,39 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOYED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "TOYED",
+    "definition": "Did flirt",
+    "indicators": [
+     "ruffle",
+     "skirts"
+    ],
+    "indicatorNotes": {
+     "ruffle": "Ruffled cloth no longer lies flat, and letters that have been ruffled no longer lie in the order they were given.",
+     "skirts": "To skirt something is to go round its edge, so what is kept of the name is the letter at each end and nothing between."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "DY TOE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Daisy's",
+      "gives": "DY",
+      "note": "the first and last letters of the name, the pair that edge it"
+     },
+     {
+      "clueFragment": "toe",
+      "gives": "TOE",
+      "note": "three letters handed over intact, to be jumbled with the other two"
+     }
+    ],
+    "walkthrough": "The surface is a saucy scene at a garden party, complete with a ruffled skirt. Daisy is a name to be dismantled rather than a woman being bothered.",
+    "definitionFit": "Did flirt -> TOYED: to toy with someone is to flirt without meaning any of it, and the past tense matches the clue's word for word."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +227,29 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEPSON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STEPSON",
+    "definition": "Relative",
+    "pieces": [
+     "STEPS",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "walking",
+      "gives": "STEPS",
+      "note": "walking is a business of steps, one to a pace"
+     },
+     {
+      "clueFragment": "keeps",
+      "gives": "ON",
+      "note": "to keep doing a thing is to go on doing it, and this little word carries that continuing"
+     }
+    ],
+    "walkthrough": "Two words that describe someone still trudging along the road, run together, name a member of the family instead. The whole trick is where you put the gap.",
+    "definitionFit": "Relative -> STEPSON: he is family through a parent's remarriage rather than by blood, which is exactly the loose reach the word relative has."
+   }
   },
   {
    "id": "6-across",
@@ -119,7 +266,34 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHICHI",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CHICHI",
+    "definition": "pretentious",
+    "indicators": [
+     "sounded",
+     "doubly"
+    ],
+    "indicatorNotes": {
+     "sounded": "What is described here is heard, not spelt, so you write down a word that merely matches the noise.",
+     "doubly": "The little word you hear is not used once but twice over, back to back, which is where the length comes from."
+    },
+    "blocks": [
+     {
+      "clueFragment": "That woman",
+      "gives": "SHE",
+      "note": "the pronoun that stands in for a female person"
+     },
+     {
+      "clueFragment": "sounded doubly",
+      "soundsLike": "SHE SHE",
+      "gives": "CHICHI",
+      "note": "say that pronoun twice and the sound is spelt this way in the word English took from French"
+     }
+    ],
+    "walkthrough": "The pronoun does not contribute a single letter of its own spelling; only the noise it makes survives, and French spelling supplies the rest.",
+    "definitionFit": "pretentious -> CHICHI: borrowed from French for the fussily stylish, the showy smartness of someone trying visibly too hard."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +310,42 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARMLESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CHARMLESS",
+    "definition": "Cold",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing said to be in another is written inside it, so the single letter named just before drops between the letters of the word that follows."
+    },
+    "pieces": [
+     "CHAR",
+     "M",
+     "L",
+     "ESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHAR",
+      "note": "char is the British word for a cup of tea"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "canteen",
+      "gives": "MESS",
+      "note": "the mess is the canteen soldiers eat in, and it splits to take the letter above"
+     }
+    ],
+    "walkthrough": "Cold tea left in a canteen is one miserable picture and none of it is the definition: cold here is said of a person, and the tea is a separate piece of the build.",
+    "definitionFit": "Cold -> CHARMLESS: of a manner rather than a temperature, cold means unwelcoming, and a charmless person offers exactly that much warmth."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +362,30 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTENSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INTENSE",
+    "definition": "Profound",
+    "pieces": [
+     "IN",
+     "TENS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "how decimal system counts",
+      "gives": "INTENS",
+      "note": "a decimal system counts in tens, and the phrase is taken at its word"
+     },
+     {
+      "clueFragment": "irrational number",
+      "gives": "E",
+      "note": "e is the mathematician's constant, 2.718..., irrational like pi and written as one letter"
+     }
+    ],
+    "walkthrough": "The irrational number a solver reaches for first is pi. The one that fits is its neighbour from the same maths, and it is only ever one letter long.",
+    "definitionFit": "Profound -> INTENSE: of feeling rather than thought, where profound grief and intense grief name the same depth of emotion."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +402,36 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HAND",
+    "definition": "Worker",
+    "indicators": [
+     "parts"
+    ],
+    "indicatorNotes": {
+     "parts": "When something parts it opens down the middle, and the letter named just before it steps into the gap."
+    },
+    "pieces": [
+     "HA",
+     "N",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delivered",
+      "gives": "HAD",
+      "note": "a mother who delivered a baby had it, the everyday way of saying she gave birth"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "walkthrough": "Read straight, this is a mechanic's invoice. Each of the last three words is doing a different job: one is a word to be split, one a letter, one an instruction.",
+    "definitionFit": "Worker -> HAND: the crossword's standing sense of a hired labourer on a farm or a ship, the one counted in all hands on deck."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +448,29 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKIDDY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SKIDDY",
+    "definition": "having very weak grip",
+    "pieces": [
+     "S",
+     "KIDDY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is small on any clothing label"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KIDDY",
+      "note": "kiddy is the nursery word for a young child"
+     }
+    ],
+    "walkthrough": "The surface is a toddler with a feeble grasp. The definition belongs to roads and tyres, where grip is the friction that keeps a car pointing straight.",
+    "definitionFit": "having very weak grip -> SKIDDY: said of a road surface or a tyre that lets a vehicle slide, grip being the motoring word for the hold it should have."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +487,35 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXACTING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXACTING",
+    "definition": "Difficult",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry a piece laid on another comes after it, so the letters named before this word finish up at the back."
+    },
+    "pieces": [
+     "EX",
+     "ACTING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "X",
+      "gives": "EX",
+      "note": "the letter written out the way it is said"
+     },
+     {
+      "clueFragment": "pretending to be someone else",
+      "gives": "ACTING",
+      "note": "playing a part you are not is acting"
+     }
+    ],
+    "walkthrough": "X is the social network, and the impostor on it is what holds the sentence together. The wordplay only wants the letter's name, said aloud as two.",
+    "definitionFit": "Difficult -> EXACTING: an exacting job demands a great deal of whoever does it, which is the demanding sort of difficult rather than the puzzling sort."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +532,41 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLANDISHMENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "BLANDISHMENT",
+    "definition": "flattery",
+    "indicators": [
+     "last"
+    ],
+    "indicatorNotes": {
+     "last": "Only the letter at the end of the following word is wanted, the one that comes last when you spell it out."
+    },
+    "pieces": [
+     "BLANDISH",
+     "MEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that are fairly dull",
+      "gives": "BLANDISH",
+      "note": "bland is dull, and the -ish on the end is what makes it only fairly so"
+     },
+     {
+      "clueFragment": "Guys",
+      "gives": "MEN",
+      "note": "guys are men in everyday speech"
+     },
+     {
+      "clueFragment": "expect",
+      "gives": "T",
+      "note": "the final letter of the verb"
+     }
+    ],
+    "walkthrough": "The -ish suffix is the piece worth keeping: setters attach it to an adjective to mean 'roughly', and it buys them eight letters that look like a description.",
+    "definitionFit": "flattery -> BLANDISHMENT: the noun for coaxing praise laid on to win somebody round, which is flattery with a purpose behind it."
+   }
   },
   {
    "id": "12-down",
@@ -238,7 +583,34 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PETROLHEAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "PETROLHEAD",
+    "definition": "Driving fan",
+    "indicators": [
+     "ground"
+    ],
+    "indicatorNotes": {
+     "ground": "This is the past tense of grind, and whatever has been through a mill comes out in pieces that no longer sit where they did."
+    },
+    "anagram": {
+     "fodder": "P HERE AT OLD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the letter on every parking sign"
+     },
+     {
+      "clueFragment": "here at old",
+      "gives": "HEREATOLD",
+      "note": "nine letters, which with the one above them is the full count"
+     }
+    ],
+    "walkthrough": "'Ground' wants to be the field the old cars are parked on, and it is the past tense of grind instead. Nothing in the clue is a place.",
+    "definitionFit": "Driving fan -> PETROLHEAD: British slang for someone besotted with cars and the driving of them, named after the fuel rather than the wheel."
+   }
   },
   {
    "id": "13-across",
@@ -255,7 +627,45 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARAFFIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PARAFFIN",
+    "definition": "Fuel",
+    "indicators": [
+     "brought round"
+    ],
+    "indicatorNotes": {
+     "brought round": "Bringing a thing round turns it to face the other way, so that piece is read from its last letter back to its first."
+    },
+    "linkWords": [
+     "with",
+     "by"
+    ],
+    "pieces": [
+     "PARA",
+     "FFIN"
+    ],
+    "subReversals": [
+     {
+      "from": "NIFF",
+      "to": "FFIN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper, the soldier who arrives by parachute"
+     },
+     {
+      "clueFragment": "nasty smell",
+      "gives": "FFIN",
+      "note": "a niff is British slang for a bad smell, and it arrives back to front"
+     }
+    ],
+    "walkthrough": "The fuel really does smell, so the opening words read as one complaint and nothing marks where the definition stops. Only the first word is defining anything.",
+    "definitionFit": "Fuel -> PARAFFIN: the oil burnt in lamps, stoves and heaters, and the British name for what is sold elsewhere as kerosene."
+   }
   },
   {
    "id": "14-down",
@@ -272,7 +682,40 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FISTFIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FISTFIGHT",
+    "definition": "punch-up",
+    "indicators": [
+     "Throwing"
+    ],
+    "indicatorNotes": {
+     "Throwing": "Throwing a thing away is getting rid of it, so the letters named next are discarded rather than used."
+    },
+    "pieces": [
+     "FIST",
+     "FIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "initially",
+      "gives": "FIST",
+      "note": "initially is FIRST, and that word minus its R leaves these four letters"
+     },
+     {
+      "clueFragment": "fear",
+      "gives": "FIGHT",
+      "note": "fear is FRIGHT, and that word minus its R leaves these five"
+     },
+     {
+      "clueFragment": "couple of rights",
+      "gives": "RR",
+      "note": "right is R in the usual abbreviation, and two of them are what gets thrown out"
+     }
+    ],
+    "walkthrough": "The boxing surface earns its keep: rights are punches thrown in the ring, and here they are two letter Rs thrown out of two perfectly ordinary words.",
+    "definitionFit": "punch-up -> FISTFIGHT: British for a brawl, and a fight conducted with bare hands rather than weapons is precisely that."
+   }
   },
   {
    "id": "15-across",
@@ -289,7 +732,38 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELEVEN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "ELEVEN",
+    "definition": "Team",
+    "indicators": [
+     "but no wingers"
+    ],
+    "indicatorNotes": {
+     "but no wingers": "A winger plays out at the edge of the pitch, so losing them takes the outermost letter off each end of the name."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "EL",
+     "EVEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pele",
+      "gives": "EL",
+      "note": "strip a letter off each end of the footballer's name and this pair is what is left standing"
+     },
+     {
+      "clueFragment": "well-balanced",
+      "gives": "EVEN",
+      "note": "an even spread is a well-balanced one"
+     }
+    ],
+    "walkthrough": "Pele supplies both halves of the joke: the greatest of footballers hands over two letters, and his own game is where wingers stand on the edges.",
+    "definitionFit": "Team -> ELEVEN: a football or cricket side puts eleven players out, so the number is used as the name of the side itself."
+   }
   },
   {
    "id": "16-across",
@@ -310,7 +784,39 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEMANS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LE MANS",
+    "definition": "endurance race",
+    "indicators": [
+     "wears"
+    ],
+    "indicatorNotes": {
+     "wears": "You are inside whatever you wear, so the letter doing the wearing goes into the middle of the word that follows."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "LE",
+     "M",
+     "ANS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heels",
+      "gives": "LEANS",
+      "note": "a boat heels over, which is to say it leans"
+     },
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the radio alphabet, alongside Alpha and Bravo"
+     }
+    ],
+    "walkthrough": "The surface is a man in high heels, and the heels wanted are a yacht's. Mike is nobody: it is the radio operator's way of saying a single letter.",
+    "definitionFit": "endurance race -> LE MANS: the French town whose twenty-four-hour motor race is the classic test of stamina, so its name stands for the event."
+   }
   },
   {
    "id": "17-down",
@@ -327,7 +833,29 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADORING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ADORING",
+    "definition": "Very keen on",
+    "indicators": [
+     "knots"
+    ],
+    "indicatorNotes": {
+     "knots": "Knotted rope loops back through itself and comes out in no sensible order, which is what these letters do."
+    },
+    "anagram": {
+     "fodder": "GORDIAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gordian",
+      "gives": "GORDIAN",
+      "note": "seven letters, exactly the count the clue asks for"
+     }
+    ],
+    "walkthrough": "The Gordian knot is the one Alexander the Great gave up untying and cut through instead, which is fair warning that these letters will not come apart tidily.",
+    "definitionFit": "Very keen on -> ADORING: to adore someone is to be devoted to them, so an adoring look is the face of being extremely keen."
+   }
   },
   {
    "id": "18-across",
@@ -344,7 +872,42 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPSTAIRS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "UPSTAIRS",
+    "definition": "on flight",
+    "indicators": [
+     "entertained by"
+    ],
+    "indicatorNotes": {
+     "entertained by": "To entertain a guest is to have them in the house, so whoever is entertained goes inside the word that follows."
+    },
+    "pieces": [
+     "UP",
+     "STA",
+     "I",
+     "RS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolting",
+      "gives": "UP",
+      "note": "a population in revolt is said to be up, as in up in arms"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one, the crossword's usual single-letter one"
+     },
+     {
+      "clueFragment": "celebrities",
+      "gives": "STARS",
+      "note": "celebrities are stars, the film-and-television sense, and they open up to take the guest"
+     }
+    ],
+    "walkthrough": "'Revolting' looks like the setter calling the celebrities disgusting, which is the wrong sense: a people in revolt are up, and that gives the first two letters.",
+    "definitionFit": "on flight -> UPSTAIRS: on a flight you are up in the air, which flyers call upstairs, and the same word covers being up a flight of stairs."
+   }
   },
   {
    "id": "18-down",
@@ -361,7 +924,29 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNDERGO",
+    "definition": "Bear",
+    "pieces": [
+     "UNDER",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short of",
+      "gives": "UNDER",
+      "note": "under ten is short of ten, the plain arithmetic sense"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GO",
+      "note": "go means energy or drive, as in someone full of go"
+     }
+    ],
+    "walkthrough": "Go meaning energy is the piece worth pocketing: it turns up constantly, and here it hides behind a phrase that reads as one idea, running out of steam.",
+    "definitionFit": "Bear -> UNDERGO: bear in the sense of endure, since you bear an operation exactly as you undergo one, putting up with what is done to you."
+   }
   },
   {
    "id": "19-down",
@@ -378,7 +963,41 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVIATOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "AVIATOR",
+    "definition": "Traveller",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "Only the opening letter of the following word is wanted, the one you come to before any other."
+    },
+    "pieces": [
+     "A",
+     "VIA",
+     "TOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrive",
+      "gives": "A",
+      "note": "the letter the verb starts with"
+     },
+     {
+      "clueFragment": "by way of",
+      "gives": "VIA",
+      "note": "via is the Latin for by way of, and English uses it unchanged"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "TOR",
+      "note": "a tor is a rocky hilltop, the word used for the granite outcrops on Dartmoor"
+     }
+    ],
+    "walkthrough": "The question mark covers two loose joints at once: a tor is only one kind of height, and a flier only one kind of traveller.",
+    "definitionFit": "Traveller -> AVIATOR: the general word standing for a particular case, since an aviator travels by air, and the question mark owns up to the looseness."
+   }
   },
   {
    "id": "20-across",
@@ -395,7 +1014,37 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONFIDENTIAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CONFIDENTIAL",
+    "definition": "that mustn't be passed on",
+    "indicators": [
+     "Move"
+    ],
+    "indicatorNotes": {
+     "Move": "To move a thing is to change where it sits, and what changes places here are the letters of the two words after it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "LAD INFECTION"
+    },
+    "blocks": [
+     {
+      "clueFragment": "lad",
+      "gives": "LAD",
+      "note": "three letters, handed over as they stand"
+     },
+     {
+      "clueFragment": "infection",
+      "gives": "INFECTION",
+      "note": "the other nine, and twelve is the count the clue wants"
+     }
+    ],
+    "walkthrough": "The surface and the definition tell the same story from different ends: a boy is shifted because he is catching, and the answer is the thing that must not be caught by anyone else.",
+    "definitionFit": "that mustn't be passed on -> CONFIDENTIAL: information given in confidence is to be kept to yourself, so repeating it is the single thing forbidden."
+   }
   },
   {
    "id": "21-down",
@@ -412,7 +1061,36 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NICHE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NICHE",
+    "definition": "attracting particular clientele",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing said to be in another is written inside it, so the letter named first is planted in the middle of the town."
+    },
+    "pieces": [
+     "NIC",
+     "H",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospital",
+      "gives": "H",
+      "note": "H is hospital on a road sign or a map"
+     },
+     {
+      "clueFragment": "south coast resort",
+      "gives": "NICE",
+      "note": "Nice sits on the Mediterranean coast of France, the resort town of the Riviera"
+     }
+    ],
+    "walkthrough": "A south coast resort sounds like Brighton or Bognor, and the coast in question is French. The word for it is spelt like an English adjective and said nothing like one.",
+    "definitionFit": "attracting particular clientele -> NICHE: a niche business aims at one small, specific set of customers instead of the general public."
+   }
   },
   {
    "id": "22-down",
@@ -429,7 +1107,41 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GALE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "GALE",
+    "definition": "Heavy blow",
+    "indicators": [
+     "toppled"
+    ],
+    "indicatorNotes": {
+     "toppled": "Something toppled has gone over on its head, which is this setter's loose way of saying the pieces are read the other way round."
+    },
+    "pieces": [
+     "GAL",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "LAG",
+      "to": "GAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "GAL",
+      "note": "an old lag is British slang for a convict, and it arrives here reversed"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "walkthrough": "A heavy blow sounds like a punch, and the blow here is the weather's: sailors call a spell of hard wind a blow.",
+    "definitionFit": "Heavy blow -> GALE: a gale is a wind strong enough to be named on the Beaufort scale, heavy being a measure of its force."
+   }
   },
   {
    "id": "23-across",
@@ -452,7 +1164,31 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MALINGER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "MALINGER",
+    "definition": "act poorly",
+    "indicators": [
+     "Most of",
+     "cast"
+    ],
+    "indicatorNotes": {
+     "Most of": "Most is nearly all, so what you take is everything except the very last letter.",
+     "cast": "To cast is to throw, and letters thrown down land in a heap rather than in the order they left your hand."
+    },
+    "anagram": {
+     "fodder": "MEANGIRL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mean Girls",
+      "gives": "MEANGIRL",
+      "note": "the film's title less its final letter leaves eight, the length wanted"
+     }
+    ],
+    "walkthrough": "'Act poorly' reads as a review of the cast, and poorly is British for unwell: the definition is putting on an illness, not putting on a bad performance.",
+    "definitionFit": "act poorly -> MALINGER: to malinger is to feign sickness to dodge work, and since poorly means ill in British usage the phrase means act ill."
+   }
   },
   {
    "id": "24-across",
@@ -469,7 +1205,29 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CUTTER",
+    "definition": "one reducing spending",
+    "pieces": [
+     "C",
+     "UTTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is how the Conservative party is printed on a British ballot paper"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to say something is to utter it"
+     }
+    ],
+    "walkthrough": "The comma after the party invites you to read 'say' as 'for example'. It is a verb here, the plain word for speak, and the commas are surface punctuation.",
+    "definitionFit": "one reducing spending -> CUTTER: somebody who cuts is a cutter, and the cuts meant are the ones a chancellor makes to a budget."
+   }
   },
   {
    "id": "25-across",
@@ -486,7 +1244,27 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "WEIGHT",
+    "definition": "Force directed towards Earth",
+    "indicators": [
+     "when told"
+    ],
+    "indicatorNotes": {
+     "when told": "Told means spoken, so what gets written down is only what the word beside it sounds like, never how that word is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "pause",
+      "soundsLike": "WAIT",
+      "gives": "WEIGHT",
+      "note": "a pause is a wait, and said aloud that word is spelt the heavier way"
+     }
+    ],
+    "walkthrough": "The physics is exact rather than decorative: what a scale reads is the pull of gravity on a mass, which is why the same body records less on the Moon.",
+    "definitionFit": "Force directed towards Earth -> WEIGHT: in physics weight is precisely the gravitational force pulling a body downwards, as distinct from the mass being pulled."
+   }
   },
   {
    "id": "26-across",
@@ -503,7 +1281,29 @@ window.CRYPTIC_PUZZLES["indysunday-1887"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERRIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERRIDE",
+    "definition": "Emergency control",
+    "pieces": [
+     "OVER",
+     "RIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the other side of",
+      "gives": "OVER",
+      "note": "over the road means on the far side of it"
+     },
+     {
+      "clueFragment": "bike",
+      "gives": "RIDE",
+      "note": "a bike is a thing you ride, and a ride is a machine you get on"
+     }
+    ],
+    "walkthrough": "The question mark is doing real work: a bike is one ride among many, so the setter is offering an example where a synonym would not quite hold.",
+    "definitionFit": "Emergency control -> OVERRIDE: the manual override is the switch that snatches control back from an automatic system when something goes wrong."
+   }
   }
  ]
 } /*JSON-END*/;
