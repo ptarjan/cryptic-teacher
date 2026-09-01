@@ -1601,7 +1601,16 @@ registry["reset-puzzle"].onclick();
     "the typing input is still focused, as it is after typing or dismissing the keys");
   vv.height = 1000; vv.offsetTop = 0;      // ...and no keyboard is up
   win.pageYOffset = 0; win.scrolls.length = 0;
+  // ...so there is nothing to keep, and the tap must not ask for anything either.
+  // Focused-with-no-keys is the chevron-dismissed iPad, and re-focusing a focused
+  // input inside a touch gesture is how iOS is asked to put the keyboard BACK —
+  // which it did, on every clue tap after a dismissal, in the home-screen app
+  // (Paul, 2026-09-01). activeElement cannot see this: it reads the same before
+  // and after, which is why the harness counts the calls.
+  registry["kbd"].focusCalls = 0;
   registry["clues-down"].listeners.mousedown[0]();   // keeps the focus, summons nothing
+  assert(registry["kbd"].focusCalls === 0,
+    "a tap with the keyboard dismissed does not re-focus the input and summon it back");
   clues[1].listeners.click[0]();
   global.flushTimers(100);
   assert(win.scrolls.length === 1,

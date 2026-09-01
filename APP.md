@@ -89,6 +89,20 @@ is why the two are separate files rather than two halves of one.
   hatch) keep whatever state they were handed: `document.activeElement === $("kbd")`
   at mousedown, before the default focus transfer. Asserted in the smoke test in
   all three states, because a fix for one alone is what caused the other.
+  "Handed" is TWO questions, not one, and on an iPad they come apart: the chevron
+  puts the keys away and leaves the input focused. Focus alone said keep, so the
+  tap re-focused a focused input — which inside a touch gesture is how iOS is
+  asked to bring the keyboard BACK, and it did, on every clue tap after a
+  dismissal ("the keyboard is still coming up when I click a clue", iPad
+  home-screen app, 2026-09-01). So keeping is gated on `keyboardUp()` too: there
+  is nothing to keep when nothing is up. It also cost the scroll — the keys
+  arriving are a resize storm that re-arms the settle to its 600ms deadline and
+  then trips the confirm into a second scroll, which is what "takes a while to
+  scroll" was. Losing the focus costs no typing: the document-level `keydown`
+  handler feeds `onKey` whatever a hardware keyboard sends, focused or not, and
+  `#kbd` is only the intake for a soft one. `activeElement` cannot see this bug —
+  it reads identically before and after the re-focus — so `fake_dom` counts
+  `focus()` calls and the test asserts zero.
 - The ladder is TIERED: free choice within a tier, no choice across tiers
   (`RUNG_TIER` in app.js). Tier 0 is what the clue asks you to SPOT — the family,
   the definition, the indicators — and any of them may be taken in any order.
