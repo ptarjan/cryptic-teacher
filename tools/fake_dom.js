@@ -134,7 +134,10 @@ function boot(opts) {
     // and either move resizes the viewport and reflows the page mid-tap. The app
     // now decides what to do off document.activeElement, so the harness needs one
     // (Paul, iPad, 2026-08-17: a hint that "opened then quickly closed").
-    focus() { document.activeElement = this; }
+    // Counted as well as modelled: on iOS a focus() lands on an already-focused
+    // input as a fresh request for the keys, so "did anything call focus" is a
+    // question activeElement cannot answer — it reads the same either way.
+    focus() { this.focusCalls = (this.focusCalls | 0) + 1; document.activeElement = this; }
     blur() { if (document.activeElement === this) document.activeElement = null; }
     scrollIntoView() {}
     // Scrolling is modelled rather than stubbed away, because the bug it hides

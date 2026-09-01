@@ -1216,8 +1216,22 @@
   // This is the rule for every tap on the page except one. Only the letter strip
   // summons a keyboard, because tapping the boxes you are about to fill in is
   // the only tap that says "I am going to type".
+  // "Focused" is not the same question as "keyboard up", and on an iPad they come
+  // apart: dismiss the keys with the chevron and the input stays focused with no
+  // keyboard on screen. Re-focusing a focused input is a no-op on a desktop, but
+  // inside a touch gesture iOS reads it as a fresh request and puts the keyboard
+  // BACK — so on that one state this function summoned the very thing it exists
+  // to avoid summoning (Paul, iPad home-screen app, 2026-09-01). There is nothing
+  // to keep when nothing is up, so keep nothing.
+  //
+  // Losing the focus costs no typing: the document-level keydown handler feeds
+  // onKey whatever a hardware keyboard sends, focused input or not. #kbd is only
+  // the intake for a SOFT keyboard, and a soft keyboard that is down is not
+  // typing into anything.
   function keepKbd() {
-    if (document.activeElement === $("kbd")) focusKbd();
+    if (document.activeElement !== $("kbd")) return;
+    if (typeof navigator !== "undefined" && navigator.maxTouchPoints && !keyboardUp()) return;
+    focusKbd();
   }
 
   // ---------- checking / revealing ----------
