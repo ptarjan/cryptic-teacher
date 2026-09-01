@@ -36,7 +36,42 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
     ]
    },
    "solution": "INABADMOOD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "IN A BAD MOOD",
+    "definition": "being this?",
+    "definitionNote": "The definition is a pointer rather than a synonym: 'this' sends you back to the state the rest of the clue describes.",
+    "indicators": [
+     "having lost tail",
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "having lost tail": "A word's tail is its last letter, and a creature that has lost it hands over everything except that letter.",
+     "sadly": "Something done sadly is done badly, and letters set down badly will not keep the order they were given in."
+    },
+    "anagram": {
+     "fodder": "DID BOA MOAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Did",
+      "gives": "DID",
+      "note": "the auxiliary verb taken at face value, three letters of fodder"
+     },
+     {
+      "clueFragment": "boar",
+      "gives": "BOA",
+      "note": "the wild pig loses the R at its tail end, leaving three letters of fodder"
+     },
+     {
+      "clueFragment": "moan",
+      "gives": "MOAN",
+      "note": "four more letters of fodder, handed over whole"
+     }
+    ],
+    "walkthrough": "The clue defines itself: 'being this' points back at the picture the other words draw, a boar minus its tail, moaning. Everyman hides the deletion inside that picture by giving the animal a tail to lose.",
+    "definitionFit": "A creature grumbling and short of its tail is out of sorts, and the phrase names exactly that temper, so the clue's own scene is the definition."
+   }
   },
   {
    "id": "1-down",
@@ -57,7 +92,41 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
     ]
    },
    "solution": "IFSO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + deletion",
+    "answer": "IF SO",
+    "definition": "In that case",
+    "indicators": [
+     "reject outsiders",
+     "briefly"
+    ],
+    "indicatorNotes": {
+     "reject outsiders": "Outsiders are the letters standing at each end, and rejecting them leaves only what was in the middle.",
+     "briefly": "A word said briefly is cut short, so the last letter of the one named is never written down."
+    },
+    "linkWords": [
+     "for",
+     "with"
+    ],
+    "pieces": [
+     "IF",
+     "SO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "life",
+      "gives": "IF",
+      "note": "the two letters left when the L and the E at either end go"
+     },
+     {
+      "clueFragment": "offspring",
+      "gives": "SO",
+      "note": "a son is offspring, docked of its final letter"
+     }
+    ],
+    "walkthrough": "Two small words, two separate trims, which is why a (2,2) can cost more thought than a long entry. 'Outsiders' means the outer letters, not people, and that reading is the whole of the first half.",
+    "definitionFit": "'If so' makes whatever follows conditional on what was just said, which is the job 'in that case' does in a sentence."
+   }
   },
   {
    "id": "2-down",
@@ -74,7 +143,35 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ALAS",
+    "definition": "Oh dear",
+    "indicators": [
+     "scratching bottom"
+    ],
+    "indicatorNotes": {
+     "scratching bottom": "To scratch an entry is to strike it out, and in a down clue the bottom is the letter at the foot of the word."
+    },
+    "pieces": [
+     "A",
+     "LAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the indefinite article, taken as the single letter it is"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "LASS",
+      "note": "lass is the northern word for a young unmarried woman, and her final letter is then struck out"
+     }
+    ],
+    "walkthrough": "'Scratching' does a nice double-take, rude on the surface and 'delete' underneath. Note also that 'maiden' is not the cricketing M here, which is the abbreviation the word usually signals.",
+    "definitionFit": "It is the old written exclamation of regret, still printed where speech would say 'oh dear' — the same sigh in literary dress."
+   }
   },
   {
    "id": "3-down",
@@ -91,7 +188,30 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPROPRIATE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "APPROPRIATE",
+    "definition": "Right",
+    "definition2": "steal",
+    "indicators": [],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "",
+      "note": "fitting, suitable, the proper thing for the occasion"
+     },
+     {
+      "clueFragment": "steal",
+      "gives": "",
+      "note": "to take something over for your own use without asking, the sense in which land or funds get taken"
+     }
+    ],
+    "walkthrough": "Three words in all, and the trap is reading them as one phrase about entitlement. The stress moves between the two senses: the adjective is APP-ro-pri-'t, the verb app-ro-pri-ATE.",
+    "definitionFit": "It is both the adjective meaning fitting for the occasion and the verb meaning to take something over for yourself, which is a polite word for stealing."
+   }
   },
   {
    "id": "4-down",
@@ -108,7 +228,37 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINIBUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MINIBUS",
+    "definition": "little roadster",
+    "indicators": [
+     "going off"
+    ],
+    "indicatorNotes": {
+     "going off": "Food that has gone off has turned, and letters that have turned will not stay in the order they were handed over."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "MII BUNS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "1,002",
+      "gives": "MII",
+      "note": "Roman numerals: M is a thousand and II is two"
+     },
+     {
+      "clueFragment": "buns",
+      "gives": "BUNS",
+      "note": "four more letters of fodder, taken as they stand"
+     }
+    ],
+    "walkthrough": "'Little roadster' reads as a sports car and is the definition, not a piece of wordplay. The number is the way in: a comma in the middle of it is the setter making it look like an amount rather than four letters.",
+    "definitionFit": "A roadster in the older, wider sense is anything made to travel roads, so a small road vehicle answers it — not just an open two-seater."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +275,40 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBSCENE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "OBSCENE",
+    "definition": "Primarily outrageous - beyond saucy - causing extremely nauseous emotions?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "In the first place is what the word means, so it asks for each following word's opening letter and not the word itself."
+    },
+    "pieces": [
+     "O",
+     "B",
+     "S",
+     "C",
+     "E",
+     "N",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outrageous - beyond saucy",
+      "gives": "OBS",
+      "note": "the opening letters of those three words, taken in order"
+     },
+     {
+      "clueFragment": "causing extremely nauseous emotions",
+      "gives": "CENE",
+      "note": "four more openings, one from each of the remaining words"
+     }
+    ],
+    "walkthrough": "An &lit: the sentence is the wordplay and the definition at once. 'Primarily' works twice over, meaning 'chiefly' as you read it and 'take the first letters' as you solve it.",
+    "definitionFit": "Read straight through, the whole sentence describes something outrageous, past merely saucy and sickening to meet, which is what the word means."
+   }
   },
   {
    "id": "6-across",
@@ -142,7 +325,26 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APED",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "APED",
+    "definition": "Copied",
+    "indicators": [
+     "sample from"
+    ],
+    "indicatorNotes": {
+     "sample from": "A sample is a small piece cut out of something bigger, so the letters wanted run unbroken inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "tape deck",
+      "gives": "APED",
+      "note": "the run starts one letter into the first word and stops one letter into the second"
+     }
+    ],
+    "walkthrough": "Hidden answers like to straddle a join between words, because that is where the eye stops looking. The surface's recording gear has nothing to do with the definition.",
+    "definitionFit": "To ape someone is to imitate them move for move, named after the animal, so the past tense matches 'copied' exactly."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +361,29 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERFIDIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PERFIDIOUS",
+    "definition": "faithless",
+    "indicators": [
+     "Tormented"
+    ],
+    "indicatorNotes": {
+     "Tormented": "Something tormented has been twisted about and pulled out of shape, which is what happens here to the letters beside the word."
+    },
+    "anagram": {
+     "fodder": "SO PURIFIED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "so purified",
+      "gives": "SOPURIFIED",
+      "note": "ten letters of fodder, exactly the length of the entry"
+     }
+    ],
+    "walkthrough": "The surface builds one religious picture — suffering that cleanses — out of an instruction and its letters. The definition then swings the sense round to treachery.",
+    "definitionFit": "Perfidious means treacherous, breaking faith with someone who trusted you, so 'faithless' is the exact sense rather than the irreligious one."
+   }
   },
   {
    "id": "8-down",
@@ -176,7 +400,36 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMAGOGUES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters",
+    "answer": "DEMAGOGUES",
+    "definition": "firebrands",
+    "indicators": [
+     "regularly",
+     "off"
+    ],
+    "indicatorNotes": {
+     "regularly": "Something done regularly happens at fixed intervals, so letters are taken at every second place in the word rather than from all of them.",
+     "off": "Milk that has gone off has turned, and turned letters no longer sit in the order the clue printed them."
+    },
+    "anagram": {
+     "fodder": "MUGGED EAOS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Senators",
+      "gives": "EAOS",
+      "note": "the second, fourth, sixth and eighth letters of the word, the odd ones left behind"
+     },
+     {
+      "clueFragment": "mugged",
+      "gives": "MUGGED",
+      "note": "six more letters of fodder, handed over whole"
+     }
+    ],
+    "walkthrough": "'Mugged off' reads as one piece of modern slang, being made a fool of, and is two instructions underneath — the letters, then what to do with them.",
+    "definitionFit": "A demagogue works a crowd up with fear and flattery, so 'firebrands' names them as rabble-rousers rather than as anything to do with fire."
+   }
   },
   {
    "id": "9-across",
@@ -193,7 +446,24 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNAPPINESS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SNAPPINESS",
+    "definition": "Quality in which you're quick - to anger?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Quality in which you're quick",
+      "note": "read this far and it sounds like praise: briskness, a lively turn of speed"
+     },
+     {
+      "clueFragment": "to anger?",
+      "note": "the dash makes you go back and re-read, and the quickness turns out to be a short temper"
+     }
+    ],
+    "walkthrough": "The dash is the hinge of the clue. No letters are on offer anywhere, so the solve is spotting that one word carries both a compliment and an insult, and that the second one is meant.",
+    "definitionFit": "Snappiness is the quality of being snappy, and snappy covers both brisk and short-tempered; the question mark asks for the biting sense."
+   }
   },
   {
    "id": "10-across",
@@ -210,7 +480,38 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRAM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "CRAM",
+    "definition": "get stuffed",
+    "indicators": [
+     "Flipping"
+    ],
+    "indicatorNotes": {
+     "Flipping": "To flip a thing is to turn it over, so the letters named next are read the other way about — and across the grid that means right to left."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "CRAM"
+    ],
+    "subReversals": [
+     {
+      "from": "MARC",
+      "to": "CRAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "MARC",
+      "note": "Marc is an everyday French first name, the French spelling of Mark"
+     }
+    ],
+    "walkthrough": "'Flipping' passes as a mild oath in the surface, which is how the instruction hides in plain sight. Everyman clues Frenchmen by first name often enough to be worth expecting.",
+    "definitionFit": "To pack something full — food into a mouth, people into a carriage — is what the answer means, and 'get stuffed' is the everyday way of saying it."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +538,27 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOUBLEDATING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DOUBLE-DATING",
+    "definition": "Activity for four",
+    "definition2": "using Gregorian and Julian calendars?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Activity for four",
+      "gives": "",
+      "note": "two couples out together on the same evening, each pair keeping the other company"
+     },
+     {
+      "clueFragment": "using Gregorian and Julian calendars?",
+      "gives": "",
+      "note": "Britain swapped calendars in 1752, and for years afterwards a document carried both the Old Style and the New Style year"
+     }
+    ],
+    "walkthrough": "The 'four' is the giveaway that a social sense is wanted first, and the italics on 'and' insist both calendars are in play at once rather than one replacing the other.",
+    "definitionFit": "The social sense is two couples on one outing; the historical sense is marking a document with both the old and the new year at once."
+   }
   },
   {
    "id": "12-down",
@@ -254,7 +575,24 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUCTIONEERS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "AUCTIONEERS",
+    "definition": "Hands up - then they may give you the lot",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Hands up",
+      "note": "on the surface a stick-up; in a saleroom a raised hand is a bid"
+     },
+     {
+      "clueFragment": "then they may give you the lot",
+      "note": "'the lot' shifts from everything you own to the numbered item under the hammer"
+     }
+    ],
+    "walkthrough": "Both halves of the sentence swap meaning together, which is why nothing can be split off as wordplay: the robbery reading and the saleroom reading use exactly the same words.",
+    "definitionFit": "An auctioneer takes bids from raised hands and knocks each lot down to whoever bids highest, so the whole sentence is a description of the job."
+   }
   },
   {
    "id": "13-down",
@@ -271,7 +609,39 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAGNATION",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "STAGNATION",
+    "definition": "Lack of liveliness",
+    "indicators": [
+     "Spooner says"
+    ],
+    "indicatorNotes": {
+     "Spooner says": "The Reverend Spooner was famous for trading the opening sounds of two words as he spoke, so naming him is the whole instruction."
+    },
+    "linkWords": [
+     "but"
+    ],
+    "pieces": [
+     "STAG",
+     "NATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stable",
+      "gives": "NAG STATION",
+      "note": "a stable is where nags are kept, so it can be read as a station for nags"
+     },
+     {
+      "clueFragment": "Spooner says",
+      "soundsLike": "NAG STATION",
+      "gives": "STAGNATION",
+      "note": "trade the openings of those two words, N for ST, and say the result aloud"
+     }
+    ],
+    "walkthrough": "'Stable' is the trap: it wants to mean steady, and the reverend needs the building full of horses instead. Spoonerisms are easiest worked from the definition end, then sounded backwards to check.",
+    "definitionFit": "Stagnation is what sets in when nothing moves or grows — water, an economy, a career — which is a lack of liveliness in one word."
+   }
   },
   {
    "id": "14-down",
@@ -288,7 +658,35 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHITEBOARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WHITEBOARD",
+    "definition": "Corporate staple",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In a down entry a thing sitting on another is written above it, so the piece named first ends up at the top."
+    },
+    "pieces": [
+     "WHITE",
+     "BOARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member of global minority",
+      "gives": "WHITE",
+      "note": "counted worldwide rather than nationally, white people are in the minority"
+     },
+     {
+      "clueFragment": "committee",
+      "gives": "BOARD",
+      "note": "the board of a company is its governing committee"
+     }
+    ],
+    "walkthrough": "'Global' is the word that makes the first piece fair, and it is easy to skim past: the minority is a minority of the planet, not of the office. The colon does the work of an equals sign.",
+    "definitionFit": "Every meeting room has one on the wall with a marker beside it, so 'corporate staple' points at it as standard office equipment."
+   }
   },
   {
    "id": "15-across",
@@ -309,7 +707,36 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
     ]
    },
    "solution": "TSHIRTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "T-SHIRTS",
+    "definition": "Clobber",
+    "indicators": [
+     "boisterous",
+     "not keeping"
+    ],
+    "indicatorNotes": {
+     "boisterous": "A boisterous crowd will neither stand still nor stay in line, and the letters beside the word behave the same way.",
+     "not keeping": "What is not kept is let go, so the two letters named next are dropped before anything else happens."
+    },
+    "anagram": {
+     "fodder": "RSHTITS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "mum",
+      "gives": "MA",
+      "note": "ma is the nursery word for mother, and these are the two letters taken out"
+     },
+     {
+      "clueFragment": "marsh tits",
+      "gives": "RSHTITS",
+      "note": "the marsh tit is a small British woodland bird; its nine letters lose that pair before the shuffle"
+     }
+    ],
+    "walkthrough": "'Clobber' looks exactly like the anagram signal — to clobber is to hit — and it is the definition instead: British slang for clothes or gear. 'Keeping mum' is a second red herring, staying silent.",
+    "definitionFit": "Clobber is British slang for clothes and kit generally, so the plural garment sits inside it as one of the things you turn up wearing."
+   }
   },
   {
    "id": "16-across",
@@ -326,7 +753,35 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETCHING",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ETCHING",
+    "definition": "artwork",
+    "definitionNote": "The answer wears an -ing ending but is a noun like the definition: it names the finished print, not the act of making one.",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Taking something off is removing it, so the letter named just before this word is stripped from the front of what follows."
+    },
+    "pieces": [
+     "ETCHING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about to throw up",
+      "gives": "RETCHING",
+      "note": "to retch is to heave as though vomiting were a moment away"
+     },
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket scoreboard's abbreviation for runs, and it is this letter that goes"
+     }
+    ],
+    "walkthrough": "'Throw up' tempts you towards a reversal, and this is an across entry where nothing goes up at all. 'Runs off' is a second trap: one phrase on the surface, two separate instructions underneath.",
+    "definitionFit": "An etching is a print pulled from a plate the artist has bitten with acid, so it is artwork in the plainest sense of a work of art."
+   }
   },
   {
    "id": "17-across",
@@ -347,7 +802,30 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
     ]
    },
    "solution": "GETBACK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GET BACK",
+    "definition": "Arrive home",
+    "definition2": "recover",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrive home",
+      "gives": "",
+      "note": "to return to where you started, at the end of a journey"
+     },
+     {
+      "clueFragment": "recover",
+      "gives": "",
+      "note": "to have something lost returned to you — a wallet, a deposit, a borrowed book"
+     }
+    ],
+    "walkthrough": "Both halves are the same phrasal verb, which is why 'and' is all the join needed. In the first you are the thing that moves; in the second something moves back to you.",
+    "definitionFit": "The phrase means both to return to where you set out from and to have a lost thing returned, as in getting your money back."
+   }
   },
   {
    "id": "18-down",
@@ -364,7 +842,27 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNIGHTS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "KNIGHTS",
+    "definition": "Chess pieces",
+    "indicators": [
+     "you say"
+    ],
+    "indicatorNotes": {
+     "you say": "Saying a word puts its sound in play rather than its spelling, so what is wanted is another way of writing the same noise."
+    },
+    "blocks": [
+     {
+      "clueFragment": "more than one black",
+      "soundsLike": "NIGHTS",
+      "gives": "KNIGHTS",
+      "note": "night is when the sky is black, and 'more than one' makes it plural; that plural sounds identical to a word that starts with a silent letter"
+     }
+    ],
+    "walkthrough": "The colon separates definition from wordplay. The joke is entirely in the spelling: one word begins with a letter nobody pronounces, so the two are impossible to tell apart out loud.",
+    "definitionFit": "The knight is the chess piece carved as a horse's head that jumps in an L, so 'chess pieces' names the plural precisely."
+   }
   },
   {
    "id": "19-across",
@@ -381,7 +879,42 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEISURE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LEISURE",
+    "definition": "to be working? Not so",
+    "definitionNote": "The definition arrives as a negated verb phrase — 'not working' — while the answer is the noun for that state, so it describes rather than substitutes.",
+    "indicators": [
+     "assumed"
+    ],
+    "indicatorNotes": {
+     "assumed": "To assume something is to take it in and absorb it, so the letter named here is taken inside the other pieces rather than added at the end."
+    },
+    "pieces": [
+     "LE",
+     "I",
+     "SURE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "the masculine form of 'the' in French"
+     },
+     {
+      "clueFragment": "this writer's",
+      "gives": "I",
+      "note": "the setter referring to himself, which in crosswords is one letter"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "certain of something is sure of it, the plain synonym"
+     }
+    ],
+    "walkthrough": "The definition is the whole tail of the clue and works by negation: the question mark and 'not so' turn 'working' inside out before you may use it.",
+    "definitionFit": "Leisure is the time left over when work is not being done, so a phrase saying you are not at work lands on it exactly."
+   }
   },
   {
    "id": "19-down",
@@ -404,7 +937,27 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LETTUCE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LETTUCE",
+    "definition": "leaves",
+    "definitionNote": "The definition is plural and the answer is a mass noun for the whole head, so the setter is naming the parts and asking for the thing they make up.",
+    "indicators": [
+     "Characters implicated in"
+    ],
+    "indicatorNotes": {
+     "Characters implicated in": "Characters are letters, and something implicated in a thing is caught up inside it, so the run sits unbroken within the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "doleful 'Et tu' - centurion",
+      "gives": "LETTUCE",
+      "note": "the run begins at the end of the first word and stops two letters into the last, straight through the quoted Latin"
+     }
+    ],
+    "walkthrough": "'Leaves' wants to be the verb of the surface, the centurion walking out, and it is the definition — the salad kind. Caesar's dying words are there to make the span look like a quotation rather than a hiding place.",
+    "definitionFit": "A lettuce is grown and eaten as a head of leaves, so 'leaves' names it by the only part of it anyone puts on a plate."
+   }
   },
   {
    "id": "20-across",
@@ -421,7 +974,41 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABBREVIATING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters",
+    "answer": "ABBREVIATING",
+    "definition": "shortening",
+    "indicators": [
+     "Striking",
+     "alternately"
+    ],
+    "indicatorNotes": {
+     "Striking": "A bargain that is struck has been hit, and letters that take a knock do not stay in the order they were given.",
+     "alternately": "Alternately means every other one, so only every second letter of the word beside it is picked up."
+    },
+    "anagram": {
+     "fodder": "BARGAIN VI BTE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "bargain",
+      "gives": "BARGAIN",
+      "note": "seven letters of fodder, handed over whole"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "six written in Roman numerals"
+     },
+     {
+      "clueFragment": "slices of butter",
+      "gives": "BTE",
+      "note": "the first, third and fifth letters of the dairy word, the rest left on the plate"
+     }
+    ],
+    "walkthrough": "Butter and shortening belong to one baking picture, and that is the misdirection: the definition is the other sense of shortening, cutting a word down to a few letters.",
+    "definitionFit": "To abbreviate is to cut a word or phrase down to something briefer, so 'shortening' is the plain synonym in the matching -ing form."
+   }
   },
   {
    "id": "21-down",
@@ -438,7 +1025,32 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIMB",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LIMB",
+    "definition": "Arm or leg",
+    "indicators": [
+     "not the first"
+    ],
+    "indicatorNotes": {
+     "not the first": "The bracket excuses one letter from duty, and the one excused is the letter the word starts with."
+    },
+    "linkWords": [
+     "displaying"
+    ],
+    "pieces": [
+     "LIMB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scale",
+      "gives": "CLIMB",
+      "note": "to scale a wall or a peak is to climb it, the verb rather than the noun"
+     }
+    ],
+    "walkthrough": "'Scale' is the trap, because the fish's and the map's are the first senses that arrive and the clue wants the verb. In a four-letter entry that one substitution is most of the work.",
+    "definitionFit": "Arms and legs are two of the things the word covers, along with wings and branches, so the definition works by naming examples of the category."
+   }
   },
   {
    "id": "22-down",
@@ -455,7 +1067,30 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KNEE",
+    "definition": "Attack!",
+    "indicators": [],
+    "pieces": [
+     "K",
+     "NEE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the king on a chessboard and in a pack of cards"
+     },
+     {
+      "clueFragment": "once called",
+      "gives": "NEE",
+      "note": "nee is the French for 'born', used in English before the name a married woman was known by earlier"
+     }
+    ],
+    "walkthrough": "The colon is doing the work of an equals sign. The exclamation mark sells the definition as a shout of command, which disguises the fact that it is a verb rather than a battle cry.",
+    "definitionFit": "To knee someone is to drive that joint into them, a street-fighter's move, so the verb answers an order to attack."
+   }
   },
   {
    "id": "23-across",
@@ -476,7 +1111,34 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
     ]
    },
    "solution": "ISAY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "I SAY",
+    "definition": "Och!",
+    "indicators": [
+     "has vanished"
+    ],
+    "indicatorNotes": {
+     "has vanished": "Something that has vanished is simply gone, so the letter named just before it is nowhere in what remains."
+    },
+    "pieces": [
+     "ISAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hebridean island",
+      "gives": "ISLAY",
+      "note": "Islay is one of the larger islands of the Inner Hebrides, off the west coast of Scotland, famous for its whiskies"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "L",
+      "note": "maps shorten a Scottish loch to L, and that is the letter dropped here"
+     }
+    ],
+    "walkthrough": "Everything in the surface is Scottish — the exclamation, the island, the water — so the letter that goes missing is the Scottish one too. The definition is the English equivalent of that opening noise.",
+    "definitionFit": "Both are exclamations of surprise or mild protest, one Scots and one clubbable English, and either can stand alone as a whole utterance."
+   }
   },
   {
    "id": "24-across",
@@ -493,7 +1155,38 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAUCERIAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + homophone",
+    "answer": "CHAUCERIAN",
+    "definition": "Geoffrey's",
+    "definitionNote": "The clue names the man by his first name in the possessive, while the answer is the adjective built from his surname.",
+    "indicators": [
+     "repaired",
+     "you said"
+    ],
+    "indicatorNotes": {
+     "repaired": "A chair that has been repaired has been taken apart and put together differently, which is what happens to these letters.",
+     "you said": "Saying a word asks for its sound and not its spelling, so the pronoun arrives as the single letter it sounds like."
+    },
+    "anagram": {
+     "fodder": "CANE CHAIR U"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cane chair",
+      "gives": "CANECHAIR",
+      "note": "nine letters of fodder, one short of the entry"
+     },
+     {
+      "clueFragment": "you said",
+      "soundsLike": "YOU",
+      "gives": "U",
+      "note": "the pronoun said aloud is the name of a letter, which supplies the tenth"
+     }
+    ],
+    "walkthrough": "The first name alone is fair in a Sunday puzzle: only one Geoffrey has an adjective named after him. 'You said' is the neat touch, sounding a single letter into the fodder rather than sounding the whole answer.",
+    "definitionFit": "Chaucerian means belonging to or in the style of Geoffrey Chaucer, poet of the Canterbury Tales, so the first name points at the man behind the adjective."
+   }
   },
   {
    "id": "25-across",
@@ -510,7 +1203,38 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NODE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "NODE",
+    "definition": "a knob",
+    "indicators": [
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "beginning": "A word's beginning is the letter it starts with, so only that one letter comes from the name in front of it."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "pieces": [
+     "NOD",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gesture of agreement",
+      "gives": "NOD",
+      "note": "the dip of the head that says yes without speaking"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "E",
+      "note": "the first letter of the setter's own pen name, which he uses as a piece of wordplay"
+     }
+    ],
+    "walkthrough": "Everyman signs his clues: the setter's pseudonym is fodder here, a habit worth expecting each week. The colon again stands in for an equals sign.",
+    "definitionFit": "A node is a knob or swelling where something joins or thickens, the sense that survives in nodule and in the lymph nodes a doctor feels for."
+   }
   },
   {
    "id": "26-across",
@@ -527,7 +1251,32 @@ window.CRYPTIC_PUZZLES["everyman-4154"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTENSIBLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OSTENSIBLE",
+    "definition": "apparent",
+    "indicators": [
+     "splotchy"
+    ],
+    "indicatorNotes": {
+     "splotchy": "Blots that run into one another keep no clean shape, and neither does the order of the letters beside the word."
+    },
+    "linkWords": [
+     "what's"
+    ],
+    "anagram": {
+     "fodder": "SEE IN BLOTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "See in blots",
+      "gives": "SEEINBLOTS",
+      "note": "ten letters of fodder: the verb, the preposition and the stains, all taken at face value"
+     }
+    ],
+    "walkthrough": "The surface is an inkblot test, where seeing something in the blots is the whole point. 'See' and 'in' look like instructions and are letters, which is the usual trap in a long anagram.",
+    "definitionFit": "Ostensible describes what a thing appears to be on the surface as against what it really is, so 'apparent' is the exact sense, not merely the obvious one."
+   }
   }
  ]
 } /*JSON-END*/;
