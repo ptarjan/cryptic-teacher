@@ -90,7 +90,15 @@ Rules:
   annotation, it is a note saying you could not do it — and it is invisible to every other
   check, since a cryptic definition claims no letters and so can contradict nothing. If
   you truly cannot solve the clue, leave it `null` and say so. That is honest and someone
-  will finish it; a cryptic definition that isn't one is a wrong answer nobody can find. If you are WRITING clues rather than annotating them (see
+  will finish it; a cryptic definition that isn't one is a wrong answer nobody can find.
+  Before you settle for `null`, though, look it up — you have `WebSearch` and `WebFetch`,
+  and Guardian and Independent puzzles are blogged clue by clue at fifteensquared.net
+  (search `fifteensquared <paper> <number>`; the comments often carry the parsing the
+  blogger missed). Two rules bound this. Reach for it only once a clue has actually beaten
+  you, because reading the blog first turns annotating into transcription and you will
+  stop seeing the mechanisms. And take only the mechanism: the blocks, walkthrough and
+  definitionFit are written from scratch, in this file's voice, teaching in rungs — the
+  blog's prose is someone else's and it explains to a solver who already knows the answer. If you are WRITING clues rather than annotating them (see
   `tools/AUTHORING.md`), the same cap is the rule that keeps a funny sentence from
   replacing the mechanism — a clue needs both, and a funny sentence is much easier to find
   than a funny mechanism. Related: an indicator that reads as a visible instruction

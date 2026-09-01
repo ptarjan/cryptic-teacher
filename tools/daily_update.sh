@@ -290,9 +290,15 @@ if [ -n "$pending" ]; then
       # on 30078 (see STYLE.md), it matched — 23/25 types, 22/25 definitions,
       # zero cryptic definitions, both hard clues solved — in the same wall time
       # for a third of the cost, because the bill is nearly all output tokens.
+      # Web lookup belongs to the annotate call and to no other: a clue nobody
+      # can parse ships with no teaching ladder, so a solvers' blog is worth a
+      # fetch as a last resort (bounded in tools/annotate_prompt.md). The cold
+      # solve above gets none on purpose — the paper's answers are unpublished
+      # but the blogs are not, and a solve that reads the answers measures
+      # nothing.
       if claude -p "Annotate the cryptic crossword in puzzles/$num.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
         --model "$ANNOTATE_MODEL" \
-        --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
+        --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
         --max-turns 80 2>&1 | tee "$run_log"
       then
         annotated_ok=$((annotated_ok + 1))
