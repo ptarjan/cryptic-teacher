@@ -29,7 +29,37 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGELOU",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANGELOU",
+    "definition": "Writer",
+    "indicators": [
+     "playing"
+    ],
+    "indicatorNotes": {
+     "playing": "An actor playing a part is being somebody other than themselves, and letters told to play will not stay as the clue sets them down."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "ALONG EU"
+    },
+    "blocks": [
+     {
+      "clueFragment": "along",
+      "gives": "ALONG",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "the European Union by its usual two initials"
+     }
+    ],
+    "walkthrough": "The surface sounds like a musician joining in with Brussels, so 'playing' passes as something a person does rather than an instruction to the letters.",
+    "definitionFit": "Writer → ANGELOU: definition by example — Maya Angelou, the American poet and memoirist who wrote I Know Why the Caged Bird Sings."
+   }
   },
   {
    "id": "1-down",
@@ -46,7 +76,53 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALGEBRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ALGEBRA",
+    "definition": "In which X often appears",
+    "indicators": [
+     "broken"
+    ],
+    "indicatorNotes": {
+     "broken": "Something broken has come apart and been put back together wrongly, which is what happens to the three letters it sits next to."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "A",
+     "LGE",
+     "BRA"
+    ],
+    "anagram": {
+     "fodder": "A LEG BRA"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "LEG",
+      "gives": "LGE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a', taken as a single letter"
+     },
+     {
+      "clueFragment": "broken leg",
+      "gives": "LGE",
+      "note": "the three letters of LEG, reset in another order"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "BRA",
+      "note": "the undergarment is the crossword's standard support"
+     }
+    ],
+    "walkthrough": "X is the schoolroom's unknown, so the opening reads as a question about kisses or films. A support that turns out to be underwear is a joke this puzzle never tires of.",
+    "definitionFit": "In which X often appears → ALGEBRA: the branch of mathematics that writes unknown quantities as letters, and x is the traditional first choice."
+   }
   },
   {
    "id": "2-down",
@@ -63,7 +139,41 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLADIOLUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + first letter",
+    "answer": "GLADIOLUS",
+    "definition": "flower",
+    "indicators": [
+     "dancing round",
+     "top"
+    ],
+    "indicatorNotes": {
+     "dancing round": "A dancer whirling round the floor finishes facing every way but the one they set off in, and so do these letters.",
+     "top": "The top of a word printed down the page is where it starts, so only Ireland's opening letter is wanted."
+    },
+    "anagram": {
+     "fodder": "GLAD SOUL I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Happy",
+      "gives": "GLAD",
+      "note": "glad = happy, and these four letters lead off unshuffled"
+     },
+     {
+      "clueFragment": "soul",
+      "gives": "SOUL",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "Ireland’s top",
+      "gives": "I",
+      "note": "the letter Ireland begins with"
+     }
+    ],
+    "walkthrough": "'Flower' is the word solvers learn to distrust — in a cryptic it is often a river, something that flows — and this time it is honestly a bloom.",
+    "definitionFit": "flower → GLADIOLUS: the tall spike of funnel-shaped blooms grown from a corm, named from the Latin for a little sword after its leaves."
+   }
   },
   {
    "id": "3-down",
@@ -80,7 +190,35 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOPED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOPED",
+    "definition": "Was wolf-like",
+    "indicators": [
+     "against"
+    ],
+    "indicatorNotes": {
+     "against": "To lean one thing against another is to set them side by side, so this letter simply sits in front of what follows."
+    },
+    "pieces": [
+     "L",
+     "OPED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "l = lecturer, the academic abbreviation"
+     },
+     {
+      "clueFragment": "journalist’s opinion piece",
+      "gives": "OPED",
+      "note": "an op-ed is the signed column a paper prints opposite its editorial page"
+     }
+    ],
+    "walkthrough": "The surface is a newsroom quarrel between a lecturer and a journalist, which is why nothing in it suggests an animal crossing open ground.",
+    "definitionFit": "Was wolf-like → LOPED: to lope is to run with the long, loose, unhurried stride a wolf covers ground with, so the past tense answers 'was'."
+   }
   },
   {
    "id": "4-down",
@@ -97,7 +235,34 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNCROWNED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNCROWNED",
+    "definition": "Like a single draughts piece",
+    "indicators": [
+     "review"
+    ],
+    "indicatorNotes": {
+     "review": "A review looks at something again and hands it back rearranged, which is what becomes of the nine letters in front of it."
+    },
+    "anagram": {
+     "fodder": "C NOW UNDER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "now under",
+      "gives": "NOWUNDER",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "walkthrough": "'Under review' looks like one phrase doing one job. Only 'review' is the instruction; 'under' has quietly been handed over as letters.",
+    "definitionFit": "Like a single draughts piece → UNCROWNED: in draughts, the British name for checkers, a piece is crowned into a king on reaching the far row."
+   }
   },
   {
    "id": "5-across",
@@ -118,7 +283,30 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
     ]
    },
    "solution": "LACEDUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LACED UP",
+    "definition": "As corsets are",
+    "indicators": [],
+    "pieces": [
+     "LACED",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spiked",
+      "gives": "LACED",
+      "note": "a drink spiked with spirits has been laced"
+     },
+     {
+      "clueFragment": "all over",
+      "gives": "UP",
+      "note": "when time is up it is all over — the sense in 'the game's up'"
+     }
+    ],
+    "walkthrough": "The surface dresses every word as one remark about uncomfortable corsetry; both halves of the answer are ordinary idioms wearing that costume.",
+    "definitionFit": "As corsets are → LACED UP: a corset closes by threading cord through its eyelets and hauling it tight, which is the everyday phrase for that fastening."
+   }
   },
   {
    "id": "5-down",
@@ -135,7 +323,30 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LINED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LINED",
+    "definition": "Scored",
+    "definition2": "showing signs of age",
+    "indicators": [],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scored",
+      "gives": "",
+      "note": "to score a surface is to cut or rule straight marks across it"
+     },
+     {
+      "clueFragment": "showing signs of age",
+      "gives": "",
+      "note": "a face that has weathered years is creased and furrowed"
+     }
+    ],
+    "walkthrough": "'Scored' pulls the surface towards football or sheet music, and the exclamation mark sells the sting: one word that can flatter and insult.",
+    "definitionFit": "Scored → LINED: a scored surface carries ruled marks and an aged face carries creases, so both senses come back to the same word for a mark."
+   }
   },
   {
    "id": "6-down",
@@ -152,7 +363,42 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAPACITOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CAPACITOR",
+    "definition": "electrical store",
+    "indicators": [
+     "opens"
+    ],
+    "indicatorNotes": {
+     "opens": "To open something is to make a gap in it, and the letter named just before slips into that gap."
+    },
+    "pieces": [
+     "CAP",
+     "AC",
+     "I",
+     "TOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test player",
+      "gives": "CAP",
+      "note": "a Test is an international cricket match, and a player who appears in one wins a cap"
+     },
+     {
+      "clueFragment": "another player",
+      "gives": "ACTOR",
+      "note": "the other kind of player treads the boards, and this word parts after two letters"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "i = international, the standard abbreviation"
+     }
+    ],
+    "walkthrough": "Two kinds of player stand side by side and the surface asks you to read both as sportsmen, which is what keeps the one on the stage out of sight.",
+    "definitionFit": "electrical store → CAPACITOR: the circuit component that holds a charge between two plates and gives it back when the circuit needs it."
+   }
   },
   {
    "id": "7-down",
@@ -169,7 +415,42 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DANTE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "DANTE",
+    "definition": "Poet",
+    "indicators": [
+     "to drop"
+    ],
+    "indicatorNotes": {
+     "to drop": "Dropping something lets it fall away, so the two letters named after this are simply lost from the word."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "DANTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slowish",
+      "gives": "ANDANTE",
+      "note": "the musical direction for a moderate, walking pace — on the slow side of the tempo markings"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the first letter to go is the clue's own 'a'"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n = name, the usual abbreviation"
+     }
+    ],
+    "walkthrough": "Tempo markings are worth collecting for crosswords, and 'slowish' is doing all the work here: the whole answer is sitting inside one of them.",
+    "definitionFit": "Poet → DANTE: definition by example — Dante Alighieri, whose Divine Comedy makes him the poet of medieval Florence."
+   }
   },
   {
    "id": "8-down",
@@ -186,7 +467,41 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERUSAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PERUSAL",
+    "definition": "examination",
+    "indicators": [
+     "introducing"
+    ],
+    "indicatorNotes": {
+     "introducing": "To introduce is to bring something new in — used loosely here, since the letters brought in arrive at the end rather than inside."
+    },
+    "pieces": [
+     "PERUS",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country’s",
+      "gives": "PERUS",
+      "note": "the South American country with the S of the possessive left on"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a', taken as a letter"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "l = Latin, as on a school timetable"
+     }
+    ],
+    "walkthrough": "The trick is the apostrophe: 'Country's' is not really possessive at all, just a country's name with an S left stuck to it.",
+    "definitionFit": "examination → PERUSAL: a perusal is a careful reading right through a document, examining it line by line rather than glancing at it."
+   }
   },
   {
    "id": "9-across",
@@ -203,7 +518,35 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRASP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "GRASP",
+    "definition": "Master",
+    "indicators": [
+     "lead"
+    ],
+    "indicatorNotes": {
+     "lead": "A lead is what goes in front, so it asks for the letter standing at the front of the word before it."
+    },
+    "pieces": [
+     "G",
+     "RASP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goldsmith’s lead",
+      "gives": "G",
+      "note": "the letter at the head of the word goldsmith"
+     },
+     {
+      "clueFragment": "file",
+      "gives": "RASP",
+      "note": "a rasp is a coarse file for wood or metal"
+     }
+    ],
+    "walkthrough": "'Master goldsmith' is a job title in the surface and a seam in the parse — the split falls in the middle of the phrase, which is the whole disguise.",
+    "definitionFit": "Master → GRASP: to grasp a subject is to master it, the mental sense of taking firm hold rather than the hand's."
+   }
   },
   {
    "id": "10-across",
@@ -224,7 +567,34 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
     ]
    },
    "solution": "CANOPENER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CAN-OPENER",
+    "definition": "a handy means of access for consumers",
+    "indicators": [],
+    "linkWords": [
+     "Is",
+     "to provide"
+    ],
+    "pieces": [
+     "CAN",
+     "OPENER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "able",
+      "gives": "CAN",
+      "note": "able to do a thing = can do it"
+     },
+     {
+      "clueFragment": "cricketer",
+      "gives": "OPENER",
+      "note": "in cricket the opener is the batter who goes in first, at the start of an innings"
+     }
+    ],
+    "walkthrough": "The question mark licenses the leap from a sportsman's usefulness to something in the kitchen drawer, and 'handy' does double duty as praise and as description.",
+    "definitionFit": "a handy means of access for consumers → CAN-OPENER: the little tool that lets a shopper get at tinned food, so 'access' means opening a tin."
+   }
   },
   {
    "id": "11-across",
@@ -246,7 +616,40 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLINDFOLD",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "BLINDFOLD CHESS",
+    "definition": "You won’t see board members taking part in this",
+    "indicators": [
+     "criminal"
+    ],
+    "indicatorNotes": {
+     "criminal": "A criminal breaks the rules and leaves things out of place, which is exactly what befalls the letters that follow."
+    },
+    "anagram": {
+     "fodder": "BLOCS NHS FIDDLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "bloc’s",
+      "gives": "BLOCS",
+      "note": "a bloc is a group acting together, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "NHS",
+      "gives": "NHS",
+      "note": "the National Health Service, Britain's state health system, by its initials"
+     },
+     {
+      "clueFragment": "fiddle",
+      "gives": "FIDDLE",
+      "note": "a fiddle is a swindle, which is what the surface is describing"
+     }
+    ],
+    "walkthrough": "'Board members' are chessmen rather than directors, and the answer runs on into 12 across. Playing without sight of the board is a real competitive discipline.",
+    "definitionFit": "You won’t see board members taking part in this → BLINDFOLD CHESS: the players are given no sight of the board and call their moves from memory."
+   }
   },
   {
    "id": "12-across",
@@ -266,7 +669,9 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "CHESS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "11-across"
+   }
   },
   {
    "id": "13-across",
@@ -283,7 +688,41 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGLOW",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AGLOW",
+    "definition": "Ruddy",
+    "indicators": [
+     "get in"
+    ],
+    "indicatorNotes": {
+     "get in": "Getting in means arriving inside something, so the letter named before it lands within the words that follow."
+    },
+    "pieces": [
+     "A",
+     "G",
+     "LOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a', taken as a letter"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g = good, the standard abbreviation"
+     },
+     {
+      "clueFragment": "depressed state",
+      "gives": "LOW",
+      "note": "a low is a slump — a depressed state of mind or of the market"
+     }
+    ],
+    "walkthrough": "'Ruddy' is also the polite British stand-in for a stronger word, which is what the exclamation mark is selling, and the depressed state is a mood, not a country.",
+    "definitionFit": "Ruddy → AGLOW: a ruddy face is flushed and warm with colour, which is how a face described as glowing looks."
+   }
   },
   {
    "id": "14-down",
@@ -300,7 +739,52 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WORCESTER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + anagram",
+    "answer": "WORCESTER",
+    "definition": "China might be after this",
+    "indicators": [
+     "up",
+     "open"
+    ],
+    "indicatorNotes": {
+     "up": "This is a down clue, so a piece told to go up is read from the bottom of the grid back towards the top.",
+     "open": "To open something out is to spread it apart and lay it down differently, so the letters after it need not keep their order."
+    },
+    "pieces": [
+     "WOR",
+     "CESTER"
+    ],
+    "anagram": {
+     "fodder": "ROW SECRET"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "SECRET",
+      "gives": "CESTER"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ROW",
+      "to": "WOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line-up",
+      "gives": "WOR",
+      "note": "a line is a row, and this one is read upwards"
+     },
+     {
+      "clueFragment": "secret",
+      "gives": "CESTER",
+      "note": "the six letters of SECRET, opened out into another order"
+     }
+    ],
+    "walkthrough": "'Line-up' looks like one word for a squad or an identity parade, and it is two instructions. The city's porcelain works are what make the definition fair.",
+    "definitionFit": "China might be after this → WORCESTER: the English cathedral city whose potteries gave Royal Worcester its name, so the china is named after the place."
+   }
   },
   {
    "id": "15-across",
@@ -317,7 +801,39 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIGHTFALL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NIGHTFALL",
+    "definition": "Evening",
+    "indicators": [],
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "NIGH",
+     "T",
+     "FALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "almost",
+      "gives": "NIGH",
+      "note": "nigh is the old word for near — 'the end is nigh'"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t = time, as in the physics formulae"
+     },
+     {
+      "clueFragment": "collapse",
+      "gives": "FALL",
+      "note": "a government or a wall that collapses is said to fall"
+     }
+    ],
+    "walkthrough": "The colon makes the clue read as a diary note about somebody flagging at the end of the day, while every word after it is quietly supplying letters.",
+    "definitionFit": "Evening → NIGHTFALL: the point at which the light goes and darkness arrives, which is what 'evening' names when it means dusk rather than the whole span."
+   }
   },
   {
    "id": "16-down",
@@ -334,7 +850,53 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GATECRASH",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram + charade",
+    "answer": "GATECRASH",
+    "definition": "break in",
+    "indicators": [
+     "accepts",
+     "new"
+    ],
+    "indicatorNotes": {
+     "accepts": "What you accept you take in, so the billionaire's letters open up and receive the ones named next.",
+     "new": "Something made new is remade from the same material, so those three letters are rebuilt in a different order."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "GATE",
+     "CRA",
+     "S",
+     "H"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CAR",
+      "gives": "CRA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Billionaire",
+      "gives": "GATES",
+      "note": "the software billionaire Bill supplies his surname"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "CRA",
+      "note": "the three letters of CAR, reordered"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "h = hard, the grade stamped on a pencil"
+     }
+    ],
+    "walkthrough": "The quotation marks make 'hard to break in' sound like a verdict on a stiff new car. Only the first of those words is wordplay; the rest is the definition.",
+    "definitionFit": "break in → GATECRASH: turning up at a party nobody invited you to is breaking in on it, and this is the verb for doing exactly that."
+   }
   },
   {
    "id": "17-down",
@@ -351,7 +913,36 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTRITION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "ATTRITION",
+    "definition": "form of grinding",
+    "indicators": [
+     "Maybe",
+     "main"
+    ],
+    "indicatorNotes": {
+     "Maybe": "A loose anagram signal: it offers the letters that follow as only one possible arrangement, so you may settle them another way.",
+     "main": "The main letter of a name is its chief one, which is a loose way of asking for the initial and nothing else."
+    },
+    "anagram": {
+     "fodder": "TITIAN OR T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Titian or",
+      "gives": "TITIANOR",
+      "note": "anagram fodder — the painter's name and the little word after it, eight letters"
+     },
+     {
+      "clueFragment": "Turner’s main",
+      "gives": "T",
+      "note": "the chief, and so the first, letter of Turner"
+     }
+    ],
+    "walkthrough": "Two painters side by side make this look like an art quiz, and neither is being defined: one lends his whole name to the letters, the other lends a single one.",
+    "definitionFit": "form of grinding → ATTRITION: wearing something down by constant friction, which is what a war of attrition does to an enemy over time."
+   }
   },
   {
    "id": "18-across",
@@ -368,7 +959,44 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCREDIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "DISCREDIT",
+    "definition": "Rubbish!",
+    "indicators": [
+     "head"
+    ],
+    "indicatorNotes": {
+     "head": "The head of anything is its top or its front, so this asks for the letter the previous word starts with."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "D",
+     "IS",
+     "CREDIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Department head",
+      "gives": "D",
+      "note": "the letter at the front of Department"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own 'is', taken at face value as two letters"
+     },
+     {
+      "clueFragment": "recognition",
+      "gives": "CREDIT",
+      "note": "credit is the recognition given for work done"
+     }
+    ],
+    "walkthrough": "'Rubbish!' at the end reads as the setter's own snort about the department. It is the definition, and it is a verb.",
+    "definitionFit": "Rubbish! → DISCREDIT: 'to rubbish' is British informal for dismissing something as worthless, and destroying its standing is precisely that."
+   }
   },
   {
    "id": "18-down",
@@ -385,7 +1013,28 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DEPOSIT",
+    "definition": "Pledge from would-be MP",
+    "definition2": "dregs",
+    "definitionNote": "'Dregs' is plural where the answer is singular: the sediment left in a bottle is spoken of as the dregs, a plural noun naming one settled layer.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Pledge from would-be MP",
+      "gives": "",
+      "note": "a parliamentary candidate in Britain must lodge £500, forfeited unless they win a twentieth of the votes cast"
+     },
+     {
+      "clueFragment": "dregs",
+      "gives": "",
+      "note": "what settles out of a liquid and lies at the bottom of the bottle"
+     }
+    ],
+    "walkthrough": "The dash makes the two halves read as one weary remark about politics, and both are the same noun: one from the returning officer's desk, one from the bottom of a bottle.",
+    "definitionFit": "Pledge from would-be MP → DEPOSIT: the sum a candidate lodges with the returning officer; the same word names what a liquid lets fall, its dregs."
+   }
   },
   {
    "id": "19-across",
@@ -402,7 +1051,39 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RATED",
+    "definition": "judged",
+    "indicators": [],
+    "linkWords": [
+     "wants"
+    ],
+    "pieces": [
+     "R",
+     "A",
+     "TED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "r = right, the standard abbreviation"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a', taken as a letter"
+     },
+     {
+      "clueFragment": "familiar ex-PM",
+      "gives": "TED",
+      "note": "Edward Heath, prime minister from 1970 to 1974, was known to everyone as Ted"
+     }
+    ],
+    "walkthrough": "British prime ministers turn up in crosswords by their familiar first names as often as by their surnames, and 'Right wants' dresses the whole thing as a party dispute.",
+    "definitionFit": "judged → RATED: to rate something is to judge its quality and put a value on it, the way a critic rates a film."
+   }
   },
   {
    "id": "20-down",
@@ -419,7 +1100,42 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISPLAY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "DISPLAY",
+    "definition": "show",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' puts the letters named before it inside the word named after, rather than alongside it."
+    },
+    "pieces": [
+     "D",
+     "IS",
+     "PL",
+     "AY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doris’s",
+      "gives": "DAY",
+      "note": "Doris Day, the American singer and film star, supplies the surname"
+     },
+     {
+      "clueFragment": "One’s",
+      "gives": "IS",
+      "note": "one is the Roman numeral I, and the clue's own 's follows it"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "pl is the abbreviation for Place in a street address"
+     }
+    ],
+    "walkthrough": "'Doris's show' reads as a programme with her name on it and 'One's place' as somebody's home; neither picture survives the parse.",
+    "definitionFit": "show → DISPLAY: a display is a show mounted for people to look at — fireworks, shop windows, temper — and the verbs match too."
+   }
   },
   {
    "id": "21-across",
@@ -441,7 +1157,37 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLATE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + deletion",
+    "answer": "PLATE TECTONICS",
+    "definition": "study of underground movement",
+    "indicators": [
+     "without a",
+     "new"
+    ],
+    "indicatorNotes": {
+     "without a": "To be without something is to lack it, so the letter named goes missing before anything else is done.",
+     "new": "What is made new is made over out of the same material, and these letters are rebuilt into different words."
+    },
+    "anagram": {
+     "fodder": "POLICE STATE CNT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Police state",
+      "gives": "POLICESTATE",
+      "note": "anagram fodder, eleven letters"
+     },
+     {
+      "clueFragment": "can’t, without a",
+      "gives": "CNT",
+      "note": "CAN'T gives up its A, leaving three letters for the mix"
+     }
+    ],
+    "walkthrough": "The surface is a political complaint and the question mark admits the definition is playful — the movement is geological, and the answer runs on into 23 across.",
+    "definitionFit": "study of underground movement → PLATE TECTONICS: the geology of how the earth's crustal plates drift, collide and grind past one another far below the surface."
+   }
   },
   {
    "id": "22-down",
@@ -458,7 +1204,49 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANNEX",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ANNEX",
+    "definition": "Seize",
+    "indicators": [
+     "leader ousted",
+     "in"
+    ],
+    "indicatorNotes": {
+     "leader ousted": "A word's leader is the letter at its front, and ousting throws that letter out of office altogether.",
+     "in": "'In' drops what precedes it inside the little assembly that follows, between its pieces rather than after them."
+    },
+    "pieces": [
+     "A",
+     "N",
+     "NE",
+     "X"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a', taken as a letter"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n = new, the standard abbreviation"
+     },
+     {
+      "clueFragment": "one with leader ousted",
+      "gives": "NE",
+      "note": "ONE without the letter at its head"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "a vote is cast by marking a cross on the ballot paper"
+     }
+    ],
+    "walkthrough": "The surface is a leadership challenge, so 'leader ousted' reads as political news rather than an instruction to knock a letter off the front of a word.",
+    "definitionFit": "Seize → ANNEX: a state that annexes territory seizes it and keeps it, the formal word for taking land by force."
+   }
   },
   {
    "id": "23-across",
@@ -478,7 +1266,9 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "TECTONICS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "21-across"
+   }
   },
   {
    "id": "23-down",
@@ -495,7 +1285,35 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TORTE",
+    "definition": "dish",
+    "indicators": [
+     "end of"
+    ],
+    "indicatorNotes": {
+     "end of": "The end of a word is the letter it finishes on, so only the final character of the next word is wanted."
+    },
+    "pieces": [
+     "TORT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "TORT",
+      "note": "in law a tort is a civil wrong, the injury one person does another"
+     },
+     {
+      "clueFragment": "end of the",
+      "gives": "E",
+      "note": "the last letter of the word 'the'"
+     }
+    ],
+    "walkthrough": "'Wrong end of' is an idiom about grasping something the wrong way round, and it splits neatly into a legal noun and one letter of the next word.",
+    "definitionFit": "dish → TORTE: a rich, many-layered cake from Germany and Austria, and any prepared item of food can be called a dish."
+   }
   },
   {
    "id": "24-down",
@@ -512,7 +1330,30 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OFFER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OFFER",
+    "definition": "Tender",
+    "indicators": [],
+    "pieces": [
+     "OFF",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sickly",
+      "gives": "OFF",
+      "note": "someone feeling off is out of sorts, and milk that has gone off has turned"
+     },
+     {
+      "clueFragment": "even more",
+      "gives": "ER",
+      "note": "the comparative ending -er is what makes a word into more of itself"
+     }
+    ],
+    "walkthrough": "This is not a synonym hunt: the back half of the answer is a grammatical ending, and 'even more' is the instruction to add it. Comparatives are a rarer trick than they look.",
+    "definitionFit": "Tender → OFFER: a tender is the formal bid a contractor puts in for a job, and to tender something is to offer it."
+   }
   },
   {
    "id": "25-across",
@@ -529,7 +1370,42 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SANATORIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SANATORIA",
+    "definition": "health centres",
+    "indicators": [
+     "ordered"
+    ],
+    "indicatorNotes": {
+     "ordered": "Something ordered has been put into an arrangement chosen by somebody else, not the one it arrived in."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "anagram": {
+     "fodder": "A RATIONS A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Top grade",
+      "gives": "A",
+      "note": "the top grade awarded in an exam is an A"
+     },
+     {
+      "clueFragment": "rations",
+      "gives": "RATIONS",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "a = advanced, as in the A-levels taken at eighteen in England and Wales"
+     }
+    ],
+    "walkthrough": "Two separate As, one an exam grade and one the advanced level of those same exams, sit either side of the fodder — which is how the letter count reaches nine.",
+    "definitionFit": "health centres → SANATORIA: the Latin plural of sanatorium, the residential clinics where patients were sent to convalesce, especially from tuberculosis."
+   }
   },
   {
    "id": "26-across",
@@ -546,7 +1422,35 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRILL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "FRILL",
+    "definition": "Gathering",
+    "indicators": [
+     "close to"
+    ],
+    "indicatorNotes": {
+     "close to": "A close is an ending, so this asks for the letter that finishes the word after it."
+    },
+    "pieces": [
+     "F",
+     "RILL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close to Gulf",
+      "gives": "F",
+      "note": "the final letter of Gulf"
+     },
+     {
+      "clueFragment": "Stream",
+      "gives": "RILL",
+      "note": "a rill is a small stream or brook"
+     }
+    ],
+    "walkthrough": "'Gulf Stream' is one thing in the surface and two instructions in the parse, and the current in the Atlantic has nothing to do with either.",
+    "definitionFit": "Gathering → FRILL: in dressmaking a gathering is cloth drawn up on a thread into ruffles, which is exactly what edges a collar or cuff."
+   }
   },
   {
    "id": "27-across",
@@ -567,7 +1471,41 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAXFREE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TAX-FREE",
+    "definition": "as, say, kid’s clothing is",
+    "indicators": [
+     "between"
+    ],
+    "indicatorNotes": {
+     "between": "What lies between two things has one on either side of it, so these letters take the middle position."
+    },
+    "pieces": [
+     "T",
+     "AX",
+     "FREE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "t = tense, the grammarian's abbreviation"
+     },
+     {
+      "clueFragment": "A cross",
+      "gives": "AX",
+      "note": "a cross is the letter X, with the clue's own A in front of it"
+     },
+     {
+      "clueFragment": "loose",
+      "gives": "FREE",
+      "note": "an animal that is loose has got free of its pen"
+     }
+    ],
+    "walkthrough": "'A cross between' is the everyday phrase for a hybrid, and here it means precisely what it says: a cross, sitting between two other pieces.",
+    "definitionFit": "as, say, kid’s clothing is → TAX-FREE: children's clothes carry no VAT in Britain, so they are sold free of the tax charged on most goods."
+   }
   },
   {
    "id": "28-across",
@@ -584,7 +1522,44 @@ window.CRYPTIC_PUZZLES["cryptic-30049"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERONRY",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "HERONRY",
+    "definition": "fledgling colony",
+    "indicators": [
+     "protecting",
+     "regressing"
+    ],
+    "indicatorNotes": {
+     "protecting": "To protect something is to stand all round it, so the king's letters close over what comes next.",
+     "regressing": "To regress is to go back the way you came, and in an across answer that means reading those letters right to left."
+    },
+    "pieces": [
+     "HE",
+     "RO",
+     "NRY"
+    ],
+    "subReversals": [
+     {
+      "from": "OR",
+      "to": "RO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old king",
+      "gives": "HENRY",
+      "note": "eight English kings bore the name, which makes it the crossword's default old king"
+     },
+     {
+      "clueFragment": "(or regressing)",
+      "gives": "RO",
+      "note": "the little word 'or', read backwards"
+     }
+    ],
+    "walkthrough": "The brackets make '(or regressing)' look like an editorial aside, which is exactly where two of the letters are hiding.",
+    "definitionFit": "fledgling colony → HERONRY: the wood or reed bed where herons nest together season after season, so the colony is full of young birds."
+   }
   }
  ]
 } /*JSON-END*/;
