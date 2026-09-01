@@ -1212,7 +1212,26 @@ window.CRYPTIC_PUZZLES["cryptic-30048"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRANGLAIS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FRANGLAIS",
+    "definition": "Amusing language",
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the following",
+      "note": "read as English it is a pointer, meaning whatever comes next; the setter wants it read as a phrase waiting to be translated, 'the' and 'after'"
+     },
+     {
+      "clueFragment": "might sound like laughter",
+      "note": "translate only the first half and leave the second in English, the way the answer does: l'after, said aloud, is laughter"
+     }
+    ],
+    "walkthrough": "Nothing to take apart, and no letters to collect. Do to 'the following' what the answer is named for: turn half of it French, leave half English, and you get l'after — which spoken aloud is laughter. The clue is a specimen of the language it defines, hence the question mark.",
+    "definitionFit": "Amusing language → FRANGLAIS: French and English run together in one sentence for comic effect, and the clue itself is a sample of the mixture."
+   }
   },
   {
    "id": "24-down",
