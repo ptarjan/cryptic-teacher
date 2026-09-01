@@ -30,7 +30,26 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TICS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TICS",
+    "definition": "mannerisms",
+    "indicators": [
+     "suppresses"
+    ],
+    "indicatorNotes": {
+     "suppresses": "To suppress a thing is to keep it from showing, and what is kept from showing here is a run of letters lying quietly inside two ordinary words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cosmetic surgeon",
+      "gives": "TICS",
+      "note": "four consecutive letters straddling the gap between the two words, three from the end of the first and one from the start of the second"
+     }
+    ],
+    "walkthrough": "The surface offers a plastic surgeon smoothing away a patient's twitches, which is why nobody looks at the two words as spelling rather than sense.",
+    "definitionFit": "mannerisms → TICS: a tic is an involuntary twitch or a repeated verbal habit, and the ones a person cannot help are what others notice as mannerisms."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +66,29 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THUMBELINA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THUMBELINA",
+    "definition": "Tiny individual",
+    "indicators": [
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "sadly": "The word admits that things have gone wrong, and letters in a sorry state no longer stand in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "AINT HUMBLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ain't humble",
+      "gives": "THUMBELINA",
+      "note": "the ten letters of these two words, apostrophe ignored, rearranged"
+     }
+    ],
+    "walkthrough": "Hans Christian Andersen's heroine was born inside a flower and stood no higher than a thumb, which is where her name comes from and why she can define smallness.",
+    "definitionFit": "Tiny individual → THUMBELINA: definition by example, one thumb-high fairy-tale girl standing in for any minute person."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +109,24 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHESSMATCH",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CHESS MATCH",
+    "definition": "In which a monarch hopes not to find a mate",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "hopes not to find a mate",
+      "note": "the reading the surface pushes: a lonely royal with no luck in romance, or none wanted"
+     },
+     {
+      "clueFragment": "In which a monarch",
+      "note": "the setter means the king on the board, and the mate he dreads is the move that finishes him"
+     }
+    ],
+    "walkthrough": "'Mate' is the crossword's favourite three-way word — a partner, a friend and the move that ends a game. Only the last of them is bad news for a king.",
+    "definitionFit": "The clue describes the answer the long way round: the one contest a king plays hoping never to be mated is a game played on sixty-four squares."
+   }
   },
   {
    "id": "3-across",
@@ -89,7 +147,42 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "PINOTBLANC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letters",
+    "answer": "PINOT BLANC",
+    "definition": "Bin ends",
+    "definitionNote": "Bin ends are the last few bottles of a wine a merchant is clearing out, so the plural names the leftover stock of one wine rather than several different ones.",
+    "indicators": [
+     "ends in",
+     "shifting"
+    ],
+    "indicatorNotes": {
+     "ends in": "The end of a word is the letter it finishes on, and that single letter is all each place name is being asked for.",
+     "shifting": "Anything shifting has left the position it held a moment ago, so the letters gathered beside it settle somewhere new."
+    },
+    "anagram": {
+     "fodder": "BIN PL ACTON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bin",
+      "gives": "BIN",
+      "note": "the wine trade's word for the rack a bottle is laid down in, taken whole for three of the letters"
+     },
+     {
+      "clueFragment": "Ruislip, Southall",
+      "gives": "PL",
+      "note": "the letter each of these two west London suburbs finishes on"
+     },
+     {
+      "clueFragment": "Acton",
+      "gives": "ACTON",
+      "note": "the third suburb is used entire, all five of its letters going into the mix"
+     }
+    ],
+    "walkthrough": "All three places are west London suburbs, which is what makes the surface read as a refuse round. Only two of them are wanted for their last letter; the third goes in whole.",
+    "definitionFit": "Bin ends → PINOT BLANC: bin ends are odd bottles sold off cheap, so the term defines by example, one white grape standing in for the wine on offer."
+   }
   },
   {
    "id": "4-down",
@@ -106,7 +199,44 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSULAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "INSULAR",
+    "definition": "xenophobic",
+    "indicators": [
+     "Curtly"
+    ],
+    "indicatorNotes": {
+     "Curtly": "To say something curtly is to cut it short, so the word standing next to it arrives one letter shy of its full length."
+    },
+    "linkWords": [
+     "that's"
+    ],
+    "pieces": [
+     "INSUL",
+     "A",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "malign",
+      "gives": "INSUL",
+      "note": "to malign someone is to insult them, and curt delivery clips the last letter off that word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value as a single letter"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for Republican, as printed beside an American politician's name"
+     }
+    ],
+    "walkthrough": "American party letters are staple filler in British cryptics — R for Republican, D for Democrat — and they turn up wherever a clue needs one more consonant.",
+    "definitionFit": "xenophobic → INSULAR: an island's cut-off position gave English the word for a mind closed to anything from outside, which is what fear of foreigners amounts to."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +253,26 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSMOSIS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OSMOSIS",
+    "definition": "oozing",
+    "indicators": [
+     "Part of"
+    ],
+    "indicatorNotes": {
+     "Part of": "Only a portion is wanted, not the whole thing, so a run of letters inside the words that follow is what the clue is pointing at."
+    },
+    "blocks": [
+     {
+      "clueFragment": "cosmos isn't",
+      "gives": "OSMOSIS",
+      "note": "seven consecutive letters that start inside the first word and finish inside the second"
+     }
+    ],
+    "walkthrough": "The surface promises astronomy and the answer delivers biology. An apostrophe counts for nothing in a letter run, so the two words read as one unbroken string.",
+    "definitionFit": "oozing → OSMOSIS: the slow seeping of liquid through a membrane, which is what oozing describes when the barrier is a cell wall rather than a crack."
+   }
   },
   {
    "id": "6-down",
@@ -144,7 +293,35 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "BULLDOGCLIPS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BULLDOG CLIPS",
+    "definition": "They hold things together",
+    "indicators": [
+     "depicting"
+    ],
+    "indicatorNotes": {
+     "depicting": "Whatever a picture shows is named ahead of the picture here, so the subject is written first and the images follow behind it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "icon of Britishness",
+      "gives": "BULLDOG",
+      "note": "the squat, jut-jawed breed Churchill was likened to, and the animal on wartime posters standing for national stubbornness"
+     },
+     {
+      "clueFragment": "Films",
+      "gives": "CLIPS",
+      "note": "a short piece of film is a clip, and the plural is what the wordplay hands over"
+     }
+    ],
+    "pieces": [
+     "BULLDOG",
+     "CLIPS"
+    ],
+    "walkthrough": "The question mark admits a bulldog is only one of the things a Briton might be represented by. 'Films' looks like the definition and is really the back half of the wordplay.",
+    "definitionFit": "They hold things together → BULLDOG CLIPS: the sprung steel clamps that grip a sheaf of paper, named for the jaw that will not let go."
+   }
   },
   {
    "id": "7-down",
@@ -161,7 +338,24 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ANTE",
+    "definition": "Might this prompt someone to give you a hand?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "give you a hand",
+      "note": "the everyday reading, and the one the surface wants first: somebody stepping in to help you out"
+     },
+     {
+      "clueFragment": "Might this prompt",
+      "note": "at the card table nothing is dealt until the stake is down, so the money is what makes the dealer move"
+     }
+    ],
+    "walkthrough": "In poker everyone puts a token stake in before the cards come out, and no stake means no deal. The hand you are given is therefore five cards rather than a favour.",
+    "definitionFit": "The whole clue points sideways at the answer: a compulsory stake paid before the deal is precisely what causes cards to be dealt to a player."
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +372,37 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARB",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "CARB",
+    "definition": "13 rejects it",
+    "indicators": [
+     "mostly",
+     "rejected"
+    ],
+    "indicatorNotes": {
+     "mostly": "Most of a word is not all of it, so the piece beside this loses the letter it finishes on.",
+     "rejected": "To reject a thing is to throw it back, and letters thrown back are read from the far end towards the near one."
+    },
+    "pieces": [
+     "CARB"
+    ],
+    "subReversals": [
+     {
+      "from": "BRAC",
+      "to": "CARB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2",
+      "gives": "BRACE",
+      "note": "a brace is a pair of anything — two birds, two goals — so the figure is written out as that word before it is trimmed"
+     }
+    ],
+    "walkthrough": "Everyman numbers usually cross-refer, and 13 does. The 2 does not: it is just the number, and the word for two is what the wordplay is after.",
+    "definitionFit": "13 rejects it → CARB: the low-carbohydrate regime clued at 13 down is defined by what it cuts out, so the thing it bans names the food group."
+   }
   },
   {
    "id": "9-across",
@@ -195,7 +419,30 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "USED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "USED",
+    "definition": "Second-hand",
+    "indicators": [],
+    "pieces": [
+     "US",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the standard short form for American, and a favourite two letters in short clues"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ed. is how an edition is abbreviated on a title page"
+     }
+    ],
+    "walkthrough": "Two abbreviations laid end to end and nothing else, which is the shape a great many four-letter clues take once you learn to expect it.",
+    "definitionFit": "Second-hand → USED: goods that have already had an owner are described as used, the hyphenated phrase and the adjective doing exactly the same job."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +464,29 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASKMELATER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASK ME LATER",
+    "definition": "I don't have time for this",
+    "indicators": [
+     "comic"
+    ],
+    "indicatorNotes": {
+     "comic": "Comic treatment takes a straight thing and makes it ridiculous, and letters handled that way come back in a ridiculous order."
+    },
+    "anagram": {
+     "fodder": "MARK STEEL A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mark Steel, a",
+      "gives": "ASKMELATER",
+      "note": "the nine letters of the stand-up's name plus the article, rearranged"
+     }
+    ],
+    "walkthrough": "Mark Steel is a British stand-up and radio comedian, so the surface reads as a review; the question mark is the setter admitting the name is here for its letters.",
+    "definitionFit": "I don't have time for this → ASK ME LATER: the brush-off given by somebody too busy to deal with a request now, told as an instruction to come back."
+   }
   },
   {
    "id": "11-down",
@@ -239,7 +508,36 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "FISHANDCHIPS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "FISH AND CHIPS",
+    "definition": "Dish",
+    "indicators": [
+     "loudly"
+    ],
+    "indicatorNotes": {
+     "loudly": "Said out loud rather than written down, so the piece beside it must be judged by ear and spelt however the sound allows."
+    },
+    "pieces": [
+     "FISH AND",
+     "CHIPS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "splitting",
+      "soundsLike": "FISSION",
+      "gives": "FISH AND",
+      "note": "splitting an atom is fission, and that word spoken aloud runs two short words together"
+     },
+     {
+      "clueFragment": "tiny pieces",
+      "gives": "CHIPS",
+      "note": "a chip is a small fragment knocked off something larger"
+     }
+    ],
+    "walkthrough": "The surface is a plate breaking; the setter is thinking of an atom. The second half hides in plain sight because a chip is a fried potato and a fragment at once.",
+    "definitionFit": "Dish → FISH AND CHIPS: definition by example, one named meal of battered fish and fried potatoes standing in for the general word."
+   }
   },
   {
    "id": "12-across",
@@ -256,7 +554,29 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BESTIALISED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BESTIALISED",
+    "definition": "Made like an animal",
+    "indicators": [
+     "after changes to"
+    ],
+    "indicatorNotes": {
+     "after changes to": "Once a word has had changes made to it there is no reason for its letters to be where they were, which is the whole of the instruction."
+    },
+    "anagram": {
+     "fodder": "DESTABILISE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "destabilise",
+      "gives": "BESTIALISED",
+      "note": "the eleven letters of the verb, rearranged"
+     }
+    ],
+    "walkthrough": "The surface sounds like a policy going wrong, so nobody reads the last word as raw material. An answer ending -ISED very often comes out of a word ending -ISE.",
+    "definitionFit": "Made like an animal → BESTIALISED: to bestialise is to drag something down to the level of a beast, and the past participle describes what has been so dragged."
+   }
   },
   {
    "id": "13-down",
@@ -277,7 +597,46 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATKINSDIET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ATKINS DIET",
+    "definition": "Regime",
+    "indicators": [
+     "after",
+     "includes"
+    ],
+    "indicatorNotes": {
+     "after": "Whatever comes next follows the piece named here, so those two opening letters take the front and everything else is built behind them.",
+     "includes": "To include is to have something inside rather than beside, so the word for relatives drops into the middle of what has been assembled."
+    },
+    "linkWords": [
+     "in which"
+    ],
+    "pieces": [
+     "AT",
+     "KINS",
+     "DIET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a time",
+      "gives": "AT",
+      "note": "the article stands as itself and T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "families",
+      "gives": "KINS",
+      "note": "your kin are your relatives, and the plural names more than one such group"
+     },
+     {
+      "clueFragment": "Parliament",
+      "gives": "DIET",
+      "note": "the Japanese parliament is called the Diet, as the German and Hungarian assemblies once were"
+     }
+    ],
+    "walkthrough": "The surface promises a political dynasty and delivers an eating plan. The cross-reference runs both ways: 8 down is the food group this entry bans.",
+    "definitionFit": "Regime → ATKINS DIET: a regime is a prescribed course of living, and a named low-carbohydrate eating plan is one of the commonest kinds people put themselves on."
+   }
   },
   {
    "id": "14-down",
@@ -294,7 +653,36 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADULTERATE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ADULTERATE",
+    "definition": "Contaminate",
+    "indicators": [
+     "accepted by"
+    ],
+    "indicatorNotes": {
+     "accepted by": "To accept a thing is to take it in, so the longer piece opens up and the shorter one is received inside it."
+    },
+    "pieces": [
+     "ADUL",
+     "TER",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fawn",
+      "gives": "ADULATE",
+      "note": "to fawn on someone is to adulate them — flattery laid on thick"
+     },
+     {
+      "clueFragment": "territory",
+      "gives": "TER",
+      "note": "ter. is the map-maker's short form of territory"
+     }
+    ],
+    "walkthrough": "'Fawn' looks like the young deer or the pale colour and is neither: setters use the grovelling verb far more often than either noun.",
+    "definitionFit": "Contaminate → ADULTERATE: to adulterate is to spoil a substance by mixing something cheaper into it, which is contaminating it deliberately and for profit."
+   }
   },
   {
    "id": "15-across",
@@ -311,7 +699,27 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEATHER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LEATHER",
+    "definition": "Belt",
+    "definition2": "coat",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Belt",
+      "gives": "",
+      "note": "the verb: to belt someone is to hit them hard, which is what a strap was traditionally for"
+     },
+     {
+      "clueFragment": "coat",
+      "gives": "",
+      "note": "the noun: an animal's own covering, the hide that tanning turns into a material"
+     }
+    ],
+    "walkthrough": "Three words, and both halves point at the same corner of the world, which is what makes the split so hard to see. The question mark covers the second half being an example.",
+    "definitionFit": "Belt → LEATHER as a verb, to thrash somebody; coat → LEATHER by example, since the hide the material is made from is an animal's own covering."
+   }
   },
   {
    "id": "16-across",
@@ -328,7 +736,27 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIGHTED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SIGHTED",
+    "definition": "Seen",
+    "indicators": [
+     "talked about"
+    ],
+    "indicatorNotes": {
+     "talked about": "Talk reaches you as a sound rather than a spelling, so the word beside it is to be judged by ear."
+    },
+    "blocks": [
+     {
+      "clueFragment": "quoted",
+      "soundsLike": "CITED",
+      "gives": "SIGHTED",
+      "note": "to quote a source in an essay is to cite it, and that word said aloud is spelt a completely different way"
+     }
+    ],
+    "walkthrough": "Two words that sound identical and share barely a letter: one belongs to scholarship and the other to the eye, and a three-word clue gives you nothing else to go on.",
+    "definitionFit": "Seen → SIGHTED: to sight something is to catch sight of it, so the past participle names what has been spotted, usually at a distance."
+   }
   },
   {
    "id": "17-across",
@@ -350,7 +778,46 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOCANDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone + deletion",
+    "answer": "NO CAN DO",
+    "definition": "refusal",
+    "indicators": [
+     "heard",
+     "missing"
+    ],
+    "indicatorNotes": {
+     "heard": "What is heard is a sound and not a spelling, so the two words beside it shrink to the two letters that say them.",
+     "missing": "Something missing has been taken out, so those letters come away from the word they were sitting inside."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "NO",
+     "CANDO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lack",
+      "gives": "NO",
+      "note": "a lack of something is none of it, and this is the two-letter word for that"
+     },
+     {
+      "clueFragment": "honesty",
+      "gives": "CANDOUR",
+      "note": "candour is plain honest speech, and it is the word the letters are quarried from"
+     },
+     {
+      "clueFragment": "you are",
+      "soundsLike": "YOU ARE",
+      "gives": "UR",
+      "note": "the letters U and R read aloud say those two words, and they are the pair that leaves"
+     }
+    ],
+    "walkthrough": "Single letters standing for whole words by sound — U for you, R for are, Y for why — are worth collecting: a few of them turn up in any week of puzzles.",
+    "definitionFit": "refusal → NO CAN DO: the pidgin-flavoured catchphrase for turning a request down, a flat statement that the thing asked for cannot be managed."
+   }
   },
   {
    "id": "18-down",
@@ -367,7 +834,29 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OCTAGON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OCTAGON",
+    "definition": "Figure",
+    "indicators": [
+     "has gone to the dogs"
+    ],
+    "indicatorNotes": {
+     "has gone to the dogs": "Something that has gone to the dogs has fallen apart and lost the shape it used to hold, which is what becomes of these letters."
+    },
+    "anagram": {
+     "fodder": "CAN GO TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "can go to",
+      "gives": "OCTAGON",
+      "note": "the seven letters of these three small words, rearranged"
+     }
+    ],
+    "walkthrough": "'Figure' is a shape here rather than a number, and the dots invite you to read a sentence about a dog going somewhere instead of three words waiting to be jumbled.",
+    "definitionFit": "Figure → OCTAGON: in geometry a figure is any closed shape, and the eight-sided one is a standard member of that family."
+   }
   },
   {
    "id": "19-across",
@@ -388,7 +877,30 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "ILLWILL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ILL-WILL",
+    "definition": "bitterness",
+    "indicators": [],
+    "pieces": [
+     "ILL",
+     "WILL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman is going to",
+      "gives": "ILL",
+      "note": "the setter calls himself Everyman, so he is I, and 'is going to' shrinks to the contraction that follows it"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "WILL",
+      "note": "what you leave behind when you die is set out in a document of that name"
+     }
+    ],
+    "walkthrough": "Everyman writes himself into his own puzzles constantly, and he is nearly always the first person singular. Apostrophes vanish in the grid, so a contraction is just letters.",
+    "definitionFit": "bitterness → ILL-WILL: settled hostility towards somebody, which is what bitterness means when it describes a grudge rather than a taste."
+   }
   },
   {
    "id": "19-down",
@@ -405,7 +917,50 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IGNEOUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "IGNEOUS",
+    "definition": "Made from fire",
+    "indicators": [
+     "rampant",
+     "boxed"
+    ],
+    "indicatorNotes": {
+     "rampant": "A rampant beast in heraldry is reared up on its hind legs, and a piece reared up in a down entry is read from the bottom.",
+     "boxed": "Anything boxed has been put inside a container, so the letter named next to it is slotted into the piece beside it."
+    },
+    "pieces": [
+     "IG",
+     "N",
+     "E",
+     "OUS"
+    ],
+    "subReversals": [
+     {
+      "from": "GI",
+      "to": "IG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "IG",
+      "note": "GI is the American private of countless war films, stood on his head by the entry running downwards"
+     },
+     {
+      "clueFragment": "gumption",
+      "gives": "NOUS",
+      "note": "nous is practical common sense, exactly the quality gumption names"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physicist's symbol for energy"
+     }
+    ],
+    "walkthrough": "The definition is geology dressed as a battle report: rock formed out of molten magma is what a volcano leaves behind once it cools.",
+    "definitionFit": "Made from fire → IGNEOUS: geology's term for rock that solidified from molten magma, taken from the Latin for fire, so the definition is literal."
+   }
   },
   {
    "id": "20-across",
@@ -427,7 +982,32 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
     ]
    },
    "solution": "CUTANDPASTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CUT AND PASTE",
+    "definition": "Perform digital operations",
+    "indicators": [
+     "reinstalling"
+    ],
+    "indicatorNotes": {
+     "reinstalling": "Reinstalling puts the very same parts back in a different arrangement, which is what these letters are being told to do."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "anagram": {
+     "fodder": "UPDATES CANT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "updates? Can't",
+      "gives": "CUTANDPASTE",
+      "note": "the eleven letters of these two words, punctuation ignored, rearranged"
+     }
+    ],
+    "walkthrough": "Fingers are digits, so the definition is a joke told twice: the operation is done on a computer and it is done with the hands.",
+    "definitionFit": "Perform digital operations → CUT AND PASTE: moving text about on a computer, digital in the electronic sense and in the older sense of the fingers."
+   }
   },
   {
    "id": "21-down",
@@ -450,7 +1030,38 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EPIC",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "EPIC",
+    "definition": "Big film",
+    "indicators": [
+     "cut",
+     "in"
+    ],
+    "indicatorNotes": {
+     "cut": "A cut piece has lost its end, so the creature named beside it arrives one letter shorter than it was.",
+     "in": "The small word is doing real work rather than joining: what it names goes inside the place that follows, not alongside it."
+    },
+    "pieces": [
+     "E",
+     "PI",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the City",
+      "gives": "EC",
+      "note": "EC is the postcode district covering the City of London, the financial square mile"
+     },
+     {
+      "clueFragment": "Pig",
+      "gives": "PI",
+      "note": "the three-letter farm animal, docked of the letter it ends on"
+     }
+    ],
+    "walkthrough": "The italics dress the last four words up as the Babe sequel, and that is the whole trap: the only film in the clue is the one the definition names.",
+    "definitionFit": "Big film → EPIC: the trade's noun for a long, lavish production with a cast of thousands, so the word names a film by its scale."
+   }
   },
   {
    "id": "22-down",
@@ -467,7 +1078,32 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDLE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "IDLE",
+    "definition": "unimportant",
+    "indicators": [
+     "Not starting"
+    ],
+    "indicatorNotes": {
+     "Not starting": "A word that does not start never gets its opening letter written down, so what reaches the grid begins one letter in."
+    },
+    "linkWords": [
+     "That's"
+    ],
+    "pieces": [
+     "IDLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to walk like a crab",
+      "gives": "SIDLE",
+      "note": "to sidle is to edge along sideways, which is how a crab gets from place to place"
+     }
+    ],
+    "walkthrough": "The surface dismisses somebody's odd walk as beneath notice, and the definition is the dismissal itself rather than anything to do with laziness.",
+    "definitionFit": "unimportant → IDLE: used of talk, threats and gossip that carry no weight, an idle rumour being one nobody need act on."
+   }
   },
   {
    "id": "23-across",
@@ -484,7 +1120,43 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PADDINGTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "PADDINGTON",
+    "definition": "Bear",
+    "indicators": [
+     "finally",
+     "after"
+    ],
+    "indicatorNotes": {
+     "finally": "The finish of a word is its closing letter, and that single letter is the whole of what this piece contributes.",
+     "after": "It sets the letter behind the piece already named instead of in front of it, which is where the join happens."
+    },
+    "pieces": [
+     "PADDING",
+     "T",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waffling",
+      "gives": "PADDING",
+      "note": "to waffle is to fill space with words that say nothing, and the noun for that filling is what the letters spell"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "T",
+      "note": "the closing letter of the word for what a tree bears"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the small word is taken at face value and tacked to the end"
+     }
+    ],
+    "walkthrough": "'Bear' is a verb all through the surface — bearing fruit — and a noun in the answer, which is the switch the whole clue turns on.",
+    "definitionFit": "Bear → PADDINGTON: definition by example, the duffel-coated bear from Darkest Peru named after the London terminus he was found at."
+   }
   },
   {
    "id": "24-across",
@@ -501,7 +1173,38 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PISA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "PISA",
+    "definition": "somewhere in Italy",
+    "indicators": [
+     "repulsive"
+    ],
+    "indicatorNotes": {
+     "repulsive": "To repulse is to drive back, so what stands beside it is driven back too and read from its far end."
+    },
+    "linkWords": [
+     "that's"
+    ],
+    "pieces": [
+     "PISA"
+    ],
+    "subReversals": [
+     {
+      "from": "A SIP",
+      "to": "PISA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A taste",
+      "gives": "A SIP",
+      "note": "the article, then the word for a small mouthful of drink"
+     }
+    ],
+    "walkthrough": "The leaning tower is the only thing most solvers know the city for and the clue never mentions it. 'Repulsive' is not describing the taste; it says which way to read.",
+    "definitionFit": "somewhere in Italy → PISA: a Tuscan city with a famously tilted bell tower, one place name standing in for the setter's vaguer 'somewhere'."
+   }
   },
   {
    "id": "25-across",
@@ -518,7 +1221,29 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEESINESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CHEESINESS",
+    "definition": "having broad appeal",
+    "indicators": [
+     "weirdly"
+    ],
+    "indicatorNotes": {
+     "weirdly": "What is weird is out of true, and letters knocked out of true no longer sit in the order they were given."
+    },
+    "anagram": {
+     "fodder": "HIS ESSENCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "His essence",
+      "gives": "CHEESINESS",
+      "note": "the ten letters of these two words, rearranged"
+     }
+    ],
+    "walkthrough": "The surface reads as a compliment about somebody's character, and 'essence' looks as though it is defining something when it is only supplying letters.",
+    "definitionFit": "having broad appeal → CHEESINESS: the corny, unsubtle quality that pleases a crowd precisely because it aims low, so wide popularity is the point of it."
+   }
   },
   {
    "id": "26-across",
@@ -535,7 +1260,32 @@ window.CRYPTIC_PUZZLES["everyman-4152"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STYE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "STYE",
+    "definition": "Something taunting your eye, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "What comes primarily comes first, so only the opening letter of each word is wanted."
+    },
+    "pieces": [
+     "S",
+     "T",
+     "Y",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something taunting your eye",
+      "gives": "STYE",
+      "note": "the opening letter of each of these four words, taken in the order they are written"
+     }
+    ],
+    "walkthrough": "An all-in-one: the same words define the answer and spell it out, and the question mark is the only signal that anything unusual is going on.",
+    "definitionFit": "The whole clue reads straight: a small, sore swelling on the lid torments the very eye it has settled on, so the sentence describes what it also spells."
+   }
   }
  ]
 } /*JSON-END*/;
