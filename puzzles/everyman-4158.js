@@ -30,7 +30,35 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "MARY",
+    "definition": "Woman",
+    "indicators": [
+     "end of"
+    ],
+    "indicatorNotes": {
+     "end of": "The end of a word is its final character, so only the last letter of the word that follows is taken."
+    },
+    "pieces": [
+     "MAR",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to spoil",
+      "gives": "MAR",
+      "note": "to mar something is to spoil or damage it"
+     },
+     {
+      "clueFragment": "end of party",
+      "gives": "Y",
+      "note": "the last letter of partY"
+     }
+    ],
+    "walkthrough": "A four-letter clue with two chunks and no indicator worth the name is Everyman easing you in, and the surface, a woman ruining the fun, holds together perfectly.",
+    "definitionFit": "Mary is a common woman's given name, so the definition works by example rather than by meaning."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +79,44 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAINCOURSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "MAIN COURSE",
+    "definition": "substantial fare",
+    "indicators": [
+     "With a prune",
+     "nuts"
+    ],
+    "indicatorNotes": {
+     "With a prune": "To prune a plant is to cut its growth back, so the herb named next loses the letter on its tip.",
+     "nuts": "Something nuts has lost its senses, and letters that have lost their senses will not stay in the order they were given."
+    },
+    "linkWords": [
+     "will give you"
+    ],
+    "anagram": {
+     "fodder": "MIN SAUCE OR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "mint",
+      "gives": "MIN",
+      "note": "the herb is pruned, so its final letter goes"
+     },
+     {
+      "clueFragment": "sauce or",
+      "gives": "SAUCEOR",
+      "note": "anagram fodder, seven letters, taken as they stand"
+     },
+     {
+      "clueFragment": "nuts",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Prune, mint sauce and nuts read as a list of things served alongside, which is the trap: 'nuts' is the instruction, not the food, and the pruning happens to a word.",
+    "definitionFit": "The main course is the biggest dish of a meal, the one a starter and a pudding are arranged around, so it is the substantial part."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +133,35 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETIREMENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RETIREMENT",
+    "definition": "not going to work any more",
+    "definitionNote": "The definition describes a person's situation while the answer is the noun naming that situation; the setter lets the state stand in for the word for it.",
+    "indicators": [
+     "ghastly"
+    ],
+    "indicatorNotes": {
+     "ghastly": "Something ghastly is in a dreadful state, and letters in a dreadful state are not left in the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "ENTIRE TERM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Entire term",
+      "gives": "ENTIRETERM",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "ghastly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The surface is a schoolteacher complaining about a bad term, and every word of that complaint is either raw material or the instruction to shuffle it.",
+    "definitionFit": "Retirement is the state of having given up work for good, which is what no longer going in each day amounts to."
+   }
   },
   {
    "id": "3-across",
@@ -85,7 +178,42 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPPROBRIUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OPPROBRIUM",
+    "definition": "disgrace",
+    "indicators": [
+     "getting into"
+    ],
+    "indicatorNotes": {
+     "getting into": "Getting into a thing means ending up inside it, so the pieces just named are planted within the word that follows."
+    },
+    "pieces": [
+     "OP",
+     "PRO",
+     "BR",
+     "IUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "narcotic juice",
+      "gives": "OPIUM",
+      "note": "opium is the dried juice of the poppy, so the two words are one thing, not two"
+     },
+     {
+      "clueFragment": "In favour of",
+      "gives": "PRO",
+      "note": "pro = in favour of, as in the pros and cons"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "BR",
+      "note": "br. is the standard shorthand for British"
+     }
+    ],
+    "walkthrough": "'Narcotic juice' looks like two separate pieces of wordplay and is a single definition. Once the poppy is spotted, the drug wraps round the other three letters and the exclamation mark is pure surface.",
+    "definitionFit": "Opprobrium is the public scorn and shame heaped on someone, which is what being in disgrace attracts."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +230,31 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREFABS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PREFABS",
+    "definition": "Assembled accommodation",
+    "definitionNote": "The answer is plural and 'accommodation' is a mass noun in British English, which covers any number of dwellings at once.",
+    "indicators": [],
+    "pieces": [
+     "PRE",
+     "FABS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in anticipation of",
+      "gives": "PRE",
+      "note": "pre- is the prefix meaning before, so anticipating something is standing in front of it"
+     },
+     {
+      "clueFragment": "the Beatles",
+      "gives": "FABS",
+      "note": "the Beatles were the Fab Four, and the Fabs for short"
+     }
+    ],
+    "walkthrough": "Everyman is dating himself twice over: the Fabs belong to the sixties and the houses to the years after the war, when factory-built homes went up in weeks on bombed streets.",
+    "definitionFit": "Prefabs are prefabricated buildings, delivered as factory-made sections and put together on site, so they are accommodation that arrives assembled."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +271,26 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSSINI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ROSSINI",
+    "definition": "Musician",
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "Somewhat means only partly, and the part meant is a run of the clue's own letters rather than a whole word."
+    },
+    "blocks": [
+     {
+      "clueFragment": "gross, in isolation",
+      "gives": "ROSSINI",
+      "note": "the run starts inside the first word and carries straight on across the comma"
+     }
+    ],
+    "walkthrough": "'Somewhat gross' does what a good hidden-word clue must: it reads as an aside about the musician, and the letters sit in plain sight while you look for a synonym.",
+    "definitionFit": "Rossini wrote The Barber of Seville and William Tell, so 'musician' points at the composer by class rather than defining the name."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +311,44 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "BUSINESSPARK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BUSINESS PARK",
+    "definition": "commercial area",
+    "indicators": [
+     "not beginning"
+    ],
+    "indicatorNotes": {
+     "not beginning": "A word that does not begin has lost its opening letter, so what follows the first character is all that survives."
+    },
+    "linkWords": [
+     "to reach"
+    ],
+    "pieces": [
+     "BUS",
+     "INES",
+     "SPARK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public transport",
+      "gives": "BUS",
+      "note": "the everyday public vehicle, and the crossword's shortest one"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "INES",
+      "note": "LINES with its opening letter gone"
+     },
+     {
+      "clueFragment": "flash",
+      "gives": "SPARK",
+      "note": "a flash of electricity is a spark"
+     }
+    ],
+    "walkthrough": "'Flash commercial area' reads as one phrase about somewhere expensive, and the split falls in the middle of it. Buses and lines keep the surface on the transport network throughout.",
+    "definitionFit": "A business park is a purpose-built estate of offices and light industry on a town's edge, laid out as a commercial area by design."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +365,47 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITEM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "ITEM",
+    "definition": "particular",
+    "indicators": [
+     "About",
+     "sent up"
+    ],
+    "indicatorNotes": {
+     "About": "In wordplay 'about' means placed round, so the letters it governs close outside the piece named beside them.",
+     "sent up": "Sent up means dispatched upwards, and a piece written upwards in a down entry is read from its last letter back to its first."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "I",
+     "T",
+     "EM"
+    ],
+    "subReversals": [
+     {
+      "from": "MEI",
+      "to": "IEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman twice",
+      "gives": "IEM",
+      "note": "the setter signs himself both ME and I; take the two in that order and send them back up the column"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t = time, the standard abbreviation"
+     }
+    ],
+    "walkthrough": "Everyman naming himself in his own clue is a signature move, and 'twice' is the whole trick: he answers to ME and to I, which is two pieces rather than one repeated.",
+    "definitionFit": "An item is one particular entry on a list or an agenda, using 'particular' as a noun for a single separate detail."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +422,32 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATE",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "MATE",
+    "definition": "amigo",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "What comes primarily comes first, so only the opening character of each word in the list is wanted."
+    },
+    "pieces": [
+     "M",
+     "A",
+     "T",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marry / amigo / tisane / ending",
+      "gives": "MATE",
+      "note": "the opening letter of each of the four listed words, read in order"
+     }
+    ],
+    "walkthrough": "Every word in the list also means the answer: to marry is to mate, mate is chess for the ending, and mate is a South American tisane. The setter has clued it four times and spelled it once.",
+    "definitionFit": "Amigo is Spanish for friend, and in British English your mate is exactly that, a friend or companion."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +464,35 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IOTA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "IOTA",
+    "definition": "Letter from Athens",
+    "indicators": [
+     "returned"
+    ],
+    "indicatorNotes": {
+     "returned": "Something returned comes back the way it came, so the phrase is read from its final letter to its first."
+    },
+    "pieces": [
+     "IOTA"
+    ],
+    "subReversals": [
+     {
+      "from": "ATOI",
+      "to": "IOTA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to you in Paris",
+      "gives": "IOTA",
+      "note": "in French, 'to you' is a toi, and naming a French city is the standard way of asking for French"
+     }
+    ],
+    "walkthrough": "'Letter from Athens returned' reads as post going back unopened, and both halves are doing something else: Athens means the Greek alphabet and the letters travel backwards.",
+    "definitionFit": "Iota is the ninth letter of the Greek alphabet, so 'from Athens' points at the alphabet rather than at correspondence."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +509,39 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERSISTENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PERSISTENT",
+    "definition": "fixed",
+    "indicators": [],
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "PER",
+     "SIS",
+     "TENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "According to",
+      "gives": "PER",
+      "note": "per = according to, as in 'per your email'"
+     },
+     {
+      "clueFragment": "sibling",
+      "gives": "SIS",
+      "note": "sis is the familiar short form of sister"
+     },
+     {
+      "clueFragment": "canvas",
+      "gives": "TENT",
+      "note": "canvas is what one is made of, and 'under canvas' means camping"
+     }
+    ],
+    "walkthrough": "Three ordinary words in a row with nothing marking the joins, which is what makes a long charade hard: the surface is a remark about an artist's stretched canvas and never stumbles.",
+    "definitionFit": "Something persistent keeps on without shifting, which is 'fixed' in the sense of steadfast and unbudging rather than mended."
+   }
   },
   {
    "id": "11-down",
@@ -229,7 +562,33 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "QUESTIONMARK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "QUESTION MARK",
+    "definition": "?",
+    "indicators": [],
+    "linkWords": [
+     "value of"
+    ],
+    "pieces": [
+     "QUESTION",
+     "MARK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doubt",
+      "gives": "QUESTION",
+      "note": "to question something is to doubt it"
+     },
+     {
+      "clueFragment": "pre-euro currency",
+      "gives": "MARK",
+      "note": "Germany spent the mark until the euro arrived in 2002"
+     }
+    ],
+    "walkthrough": "The definition is the last character of the clue rather than a word in it: the setter writes the thing itself and leaves you to notice. Read without it, the sentence is nothing but wordplay.",
+    "definitionFit": "The clue ends with the punctuation it defines, the sign written to show that something is being asked or cast into doubt."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +605,27 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CIRCULATION",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CIRCULATION",
+    "definition": "Number of readers",
+    "definition2": "an issue for first-aider",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Number of readers",
+      "gives": "",
+      "note": "a newspaper's reach is measured by how many copies get out to buyers"
+     },
+     {
+      "clueFragment": "an issue for first-aider",
+      "gives": "",
+      "note": "first aid is taught as airway, breathing and then keeping the blood moving"
+     }
+    ],
+    "walkthrough": "'Issue' is placed to keep you in the newsroom, where it means an edition; for the first-aider it means a problem, and the two trades share one word without a join between them.",
+    "definitionFit": "One word covers a paper's readership figure and the flow of blood round a body, which is what a first-aider checks for."
+   }
   },
   {
    "id": "13-down",
@@ -267,7 +646,48 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLEAKHOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + outer letters",
+    "answer": "BLEAK HOUSE",
+    "definition": "novel",
+    "indicators": [
+     "Empty",
+     "containing"
+    ],
+    "indicatorNotes": {
+     "Empty": "Emptying a word tips out everything between its first and last characters and leaves the shell.",
+     "containing": "What contains something holds it inside, so the piece named next goes within the letters just found."
+    },
+    "linkWords": [
+     "onto",
+     "that's"
+    ],
+    "pieces": [
+     "B",
+     "LEAK",
+     "H",
+     "OUSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Empty bath",
+      "gives": "BH",
+      "note": "the word for the tub keeps only its two outer letters"
+     },
+     {
+      "clueFragment": "ooze",
+      "gives": "LEAK",
+      "note": "water that oozes out where it should not is a leak"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "OUSE",
+      "note": "the Ouse is an English river and a setter's favourite, being almost all vowels"
+     }
+    ],
+    "walkthrough": "The whole surface is a plumbing disaster, which is a long way from Dickens. Learn the river: with four letters and three vowels it turns up constantly, usually clued as bluntly as this.",
+    "definitionFit": "Bleak House is Dickens's novel about an endless chancery lawsuit, so 'novel' names the title by class."
+   }
   },
   {
    "id": "14-down",
@@ -284,7 +704,34 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INFIELDERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INFIELDERS",
+    "definition": "Cricketers",
+    "indicators": [
+     "arranged"
+    ],
+    "indicatorNotes": {
+     "arranged": "Fixtures get arranged and so do letters, and letters arranged afresh come out in a new order."
+    },
+    "anagram": {
+     "fodder": "FRIENDLIES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "friendlies",
+      "gives": "FRIENDLIES",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "arranged",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Three words, one of them the definition and one the instruction, so the fodder has to be the remaining one. 'Arranged friendlies' is such natural sports-desk English that neither job shows.",
+    "definitionFit": "Fielders posted close to the bat inside the ring make up the in-field, so 'cricketers' defines them by their position."
+   }
   },
   {
    "id": "15-across",
@@ -301,7 +748,41 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNMASKS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "UNMASKS",
+    "definition": "shows up",
+    "indicators": [
+     "disheartened",
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "disheartened": "To be disheartened is to lose heart, and a word's heart is the letter sitting at its centre.",
+     "sadly": "Sadly marks something that has gone wrong, and letters gone wrong are letters out of their proper order."
+    },
+    "anagram": {
+     "fodder": "KM SUSAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Kim disheartened",
+      "gives": "KM",
+      "note": "the name loses its central letter and keeps the two either side"
+     },
+     {
+      "clueFragment": "Susan",
+      "gives": "SUSAN",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "sadly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Two ordinary first names are the hardest fodder to spot, because nothing about Kim or Susan looks like raw material until you count the letters against the enumeration.",
+    "definitionFit": "To unmask someone is to show them up for what they really are, using 'show up' in its exposing sense rather than its arriving one."
+   }
   },
   {
    "id": "16-across",
@@ -318,7 +799,35 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSULIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "INSULIN",
+    "definition": "Regulator",
+    "indicators": [
+     "cutting short"
+    ],
+    "indicatorNotes": {
+     "cutting short": "To cut a thing short is to stop it before the end, so the word beside it loses its final letter."
+    },
+    "pieces": [
+     "INSUL",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abuse",
+      "gives": "INSUL",
+      "note": "an insult is abuse, and it is cut short by one letter"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "IN",
+      "note": "in = fashionable, what is cool this season"
+     }
+    ],
+    "walkthrough": "The surface is a watchdog clamping down on trolls and keeping its head, so all three parts read as one sentence about conduct while none of them is about the body.",
+    "definitionFit": "Insulin is the hormone that keeps the level of sugar in the blood within bounds, so 'regulator' names it by what it does."
+   }
   },
   {
    "id": "17-across",
@@ -335,7 +844,24 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUNDIAL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SUNDIAL",
+    "definition": "Take time here on cloudless day",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Take time here",
+      "note": "the surface invites you to be unhurried; the setter means take a reading of the hour off the object itself"
+     },
+     {
+      "clueFragment": "on cloudless day",
+      "note": "it tells you nothing at all under an overcast sky, which points at what powers it"
+     }
+    ],
+    "walkthrough": "There is no wordplay to hunt for here, only one sly sentence. 'Cloudless day' is more than scenery: the instrument is named for the very thing it needs to work at all.",
+    "definitionFit": "A shadow thrown by a gnomon creeps round a marked plate as the earth turns, so the hour can be read off it in sunshine."
+   }
   },
   {
    "id": "18-down",
@@ -356,7 +882,45 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEAPTAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "LEAPT AT",
+    "definition": "Eagerly approached",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "Something that covers lies over what it hides, so the letters named before it close round the piece named after."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "LEA",
+     "P",
+     "T",
+     "AT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meadow",
+      "gives": "LEA",
+      "note": "lea is the poets' and setters' word for a meadow"
+     },
+     {
+      "clueFragment": "dung",
+      "gives": "PAT",
+      "note": "a cowpat is a pat of dung dropped in a field"
+     },
+     {
+      "clueFragment": "rabbit's tail",
+      "gives": "T",
+      "note": "the last letter of rabbiT, its tail end on the page"
+     }
+    ],
+    "walkthrough": "Two pieces of country vocabulary worth keeping: a lea is a meadow and a pat is dung. The rabbit is in the field for the surface and lends nothing but its final letter.",
+    "definitionFit": "To leap at something is to seize it the instant it is offered, which is approaching it as eagerly as anyone can."
+   }
   },
   {
    "id": "19-across",
@@ -373,7 +937,34 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOPRANI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOPRANI",
+    "definition": "Singers",
+    "indicators": [],
+    "linkWords": [
+     "giving",
+     "to"
+    ],
+    "pieces": [
+     "SOP",
+     "RANI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appeasing gift",
+      "gives": "SOP",
+      "note": "a sop is something handed over to placate someone, as in a sop to Cerberus"
+     },
+     {
+      "clueFragment": "Indian princess",
+      "gives": "RANI",
+      "note": "a rani is an Indian queen or princess, the feminine of raja"
+     }
+    ],
+    "walkthrough": "The English plural would end in -OS, and the crossing letter shows the setter has gone to the opera house for the Italian one instead. That last letter is the whole difficulty.",
+    "definitionFit": "Soprani is the Italian plural of soprano, the highest voices in a choir, so it names singers by their range."
+   }
   },
   {
    "id": "19-down",
@@ -394,7 +985,36 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "SIDLEUP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SIDLE UP",
+    "definition": "Furtively approach",
+    "indicators": [
+     "hiding"
+    ],
+    "indicatorNotes": {
+     "hiding": "A thing hidden is put out of sight inside something else, so this piece is buried in the letters beside it."
+    },
+    "pieces": [
+     "S",
+     "IDLE",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink, and supper takes its name from it"
+     },
+     {
+      "clueFragment": "empty",
+      "gives": "IDLE",
+      "note": "an idle boast or an idle threat is an empty one"
+     }
+    ],
+    "walkthrough": "'Drink, hiding empty' is a whole little scene of someone concealing a drained glass, and both nouns in it are synonyms doing wordplay instead.",
+    "definitionFit": "To sidle up to someone is to edge towards them sideways and unnoticed, which is a furtive approach in one movement."
+   }
   },
   {
    "id": "20-across",
@@ -411,7 +1031,34 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEANDERTHAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NEANDERTHAL",
+    "definition": "Palaeolithic man",
+    "indicators": [
+     "tilled"
+    ],
+    "indicatorNotes": {
+     "tilled": "Tilled ground has been turned over and broken up, and letters given that treatment come out in a different order."
+    },
+    "anagram": {
+     "fodder": "EARTHEN LAND"
+    },
+    "blocks": [
+     {
+      "clueFragment": "earthen land",
+      "gives": "EARTHENLAND",
+      "note": "anagram fodder, eleven letters"
+     },
+     {
+      "clueFragment": "tilled",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The picture of a man working his fields is tens of thousands of years too late for the answer, whose people hunted and gathered and tilled nothing at all. That gap is the joke.",
+    "definitionFit": "Neanderthals were the archaic humans of the Palaeolithic, so the definition names them by their era."
+   }
   },
   {
    "id": "21-down",
@@ -428,7 +1075,35 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THUS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "THUS",
+    "definition": "So",
+    "indicators": [
+     "regularly wasted"
+    ],
+    "indicatorNotes": {
+     "regularly wasted": "Wasting at regular intervals throws away every other character, and what survives is read straight through."
+    },
+    "linkWords": [
+     "being"
+    ],
+    "pieces": [
+     "T",
+     "H",
+     "U",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it's hours",
+      "gives": "THUS",
+      "note": "take the second letter and then every second one after it, counting the s of the contraction as a letter like any other"
+     }
+    ],
+    "walkthrough": "The apostrophe earns its keep: the count runs through it as though it were not there, which is what stops the fodder looking like fodder in so short a clue.",
+    "definitionFit": "Thus and so both mean 'in this way', the adverb pointing back at whatever has just been said."
+   }
   },
   {
    "id": "22-down",
@@ -445,7 +1120,29 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ANTI",
+    "definition": "Antagonistic",
+    "indicators": [
+     "some characters from"
+    ],
+    "indicatorNotes": {
+     "some characters from": "Characters are letters as well as people, and taking some of them means lifting a run out of what follows."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pleasant Island",
+      "gives": "ANTI",
+      "note": "the old European name for Nauru, in the Pacific, carries the letters wanted straight across the gap between its two words"
+     }
+    ],
+    "walkthrough": "A capital letter mid-clue usually means a proper noun, and this one is a colonial name for a Pacific island - pleasant enough on the surface to hide something hostile.",
+    "definitionFit": "Someone who is anti is set against whatever is under discussion, which is the hostile stance the definition names."
+   }
   },
   {
    "id": "23-across",
@@ -466,7 +1163,44 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "HENPARTIES",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "HEN PARTIES",
+    "definition": "women's gatherings",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner was famous for trading the opening sounds of two words, so his name alone is the instruction to swap them."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "HEN",
+     "PARTIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to corral",
+      "gives": "PEN",
+      "note": "to corral livestock is to pen it"
+     },
+     {
+      "clueFragment": "lusty types",
+      "gives": "HEARTIES",
+      "note": "hearties are hearty, full-blooded fellows, as in 'me hearties'"
+     },
+     {
+      "clueFragment": "Spooner's",
+      "soundsLike": "PEN HEARTIES",
+      "gives": "HEN PARTIES",
+      "note": "say those two words with their opening sounds traded, P for H"
+     }
+    ],
+    "walkthrough": "Work out the plain version first and the swap is mechanical. Everyman signposts the device by name, which is the convention: a spoonerism always has someone in the clue doing the talking.",
+    "definitionFit": "In Britain a hen party is the bride's celebration before a wedding, the women-only counterpart of a stag do."
+   }
   },
   {
    "id": "24-across",
@@ -483,7 +1217,27 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUBE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CUBE",
+    "definition": "Cut into pieces",
+    "definition2": "eight or 27, perhaps",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Cut into pieces",
+      "gives": "",
+      "note": "in the kitchen you chop meat or vegetables into small even blocks"
+     },
+     {
+      "clueFragment": "eight or 27, perhaps",
+      "gives": "",
+      "note": "two multiplied by itself three times, and three treated the same way"
+     }
+    ],
+    "walkthrough": "'Cut into pieces' looks exactly like an anagram instruction, which is the trap; it is a plain definition, and the second one arrives as arithmetic. The question mark admits the numbers are only examples.",
+    "definitionFit": "To cube food is to cut it into small blocks, and a cube number is what you get multiplying a number by itself three times."
+   }
   },
   {
    "id": "25-across",
@@ -504,7 +1258,45 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
     ]
    },
    "solution": "STICKYTAPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "STICKY TAPE",
+    "definition": "this'll help you hold things together",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "Ultimately points at the end of a thing, so the final letter is taken - here from each of the two adjectives it governs."
+    },
+    "linkWords": [
+     "given by"
+    ],
+    "pieces": [
+     "STICK",
+     "Y",
+     "T",
+     "APE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aggro",
+      "gives": "STICK",
+      "note": "aggro is British slang for trouble, and to give someone stick is to give them a hard time"
+     },
+     {
+      "clueFragment": "snarky, flippant",
+      "gives": "YT",
+      "note": "the closing letters of the two adjectives, in the order they are written"
+     },
+     {
+      "clueFragment": "imitator",
+      "gives": "APE",
+      "note": "to ape someone is to imitate them"
+     }
+    ],
+    "walkthrough": "'Ultimately' governs both adjectives at once, and that is where solvers stall: take one last letter and the count comes up short by one.",
+    "definitionFit": "Sticky tape is the everyday clear adhesive roll used on paper and parcels, which the definition describes rather than names."
+   }
   },
   {
    "id": "26-across",
@@ -521,7 +1313,27 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEWS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MEWS",
+    "definition": "announcements from Persians",
+    "indicators": [
+     "Overheard"
+    ],
+    "indicatorNotes": {
+     "Overheard": "Something overheard is caught by ear alone, so the spelling wanted is the other one that sounds the same."
+    },
+    "blocks": [
+     {
+      "clueFragment": "one inspiring",
+      "soundsLike": "MUSE",
+      "gives": "MEWS",
+      "note": "one of the nine Muses is what inspires a poet, and said aloud she is spelled quite differently"
+     }
+    ],
+    "walkthrough": "The capital P wants you to think of people from Persia. The Persians here are cats, and what they are announcing is dinner.",
+    "definitionFit": "A Persian is a long-haired breed of cat, and the noise a cat makes to announce itself is a mew."
+   }
   }
  ]
 } /*JSON-END*/;
