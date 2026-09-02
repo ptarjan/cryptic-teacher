@@ -30,6 +30,7 @@ import os
 import sys
 from pathlib import Path
 
+PREFIX = "/cryptic-teacher"
 CONF = Path.home() / ".config" / "ga4"
 KEY = CONF / "cryptic-teacher.json"
 PROP = CONF / "property"
@@ -82,6 +83,18 @@ def table(title, pairs, note=""):
         print(f"  {label:<24} {n:>6}  {'#' * (round(24 * n / top) if top else 0)}")
 
 
+def page_label(path, width=24):
+    """A page path shortened from the LEFT, so the tail survives.
+
+    Every path here starts /cryptic-teacher/ and the part that says which page it
+    is sits at the end, so cutting the tail to fit printed fifteen rows all
+    reading "/cryptic-teacher/puzzles". Drop the shared prefix, then keep the end.
+    """
+    if path.startswith(PREFIX):
+        path = path[len(PREFIX):] or "/"
+    return path if len(path) <= width else "…" + path[-(width - 1):]
+
+
 def realtime(cl, prop):
     """The last 30 minutes. This is the one that answers "is it working".
 
@@ -129,7 +142,7 @@ def batch(cl, prop, days):
         dimensions=[Dimension(name="pagePath")],
         metrics=[Metric(name="screenPageViews")],
         limit=15))
-    table("top pages", [(d[0][:24], n) for d, n in rows(pages)])
+    table("top pages", [(page_label(d[0]), n) for d, n in rows(pages)])
 
 
 def main():
