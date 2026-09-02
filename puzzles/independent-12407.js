@@ -165,7 +165,8 @@ window.CRYPTIC_PUZZLES["independent-12407"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THREATEN",
-   "annotation": null
+   "annotation": null,
+   "clueCorrupt": "The Independent printed 5-down's clue here, with a different ending glued on. The setter's own wordplay for this one, in the paper's data feed, is an anagram of THERE AT plus N — words that never appeared on the page."
   },
   {
    "id": "5-down",

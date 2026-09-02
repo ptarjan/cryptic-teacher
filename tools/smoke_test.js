@@ -2085,9 +2085,9 @@ registry["reset-puzzle"].onclick();
     // whose only gaps are blank clues has to count as done, or it sits in the
     // backlog forever.
     if (annotatedInIndex.has(puz.id)) {
-      const answerable = puz.entries.filter((e) => hasWords(e.clue));
+      const answerable = puz.entries.filter((e) => hasWords(e.clue) && !e.clueCorrupt);
       assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation),
-        `${puz.id}: index 'annotated' should count only the clues that have words`);
+        `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
     }
   });
 }
