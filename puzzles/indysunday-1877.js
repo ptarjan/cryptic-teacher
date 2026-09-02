@@ -34,7 +34,36 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
     ]
    },
    "solution": "OPENPLAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "OPEN-PLAN",
+    "definition": "Undivided",
+    "indicators": [
+     "cooking",
+     "right of"
+    ],
+    "indicatorNotes": {
+     "cooking": "Cooking turns raw ingredients into something with a different shape entirely, so letters put through it do not come out in the order they went in.",
+     "right of": "The right of a written word is its far end, so this phrase points at the single letter standing last in the word that follows."
+    },
+    "anagram": {
+     "fodder": "APPLE ON N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "apple on",
+      "gives": "APPLEON",
+      "note": "seven of the eight letters come straight off these two words, before anything is rearranged"
+     },
+     {
+      "clueFragment": "right of oven",
+      "gives": "N",
+      "note": "the letter standing at the far end of the four-letter appliance, making the eighth"
+     }
+    ],
+    "walkthrough": "'Cooking apple' wants to be one thing, a Bramley destined for a crumble. It is not: the first word is the instruction and the second is material for it.",
+    "definitionFit": "Undivided -> OPEN-PLAN: a floor with no internal walls is one undivided space, which is exactly what the estate agent's term describes."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +80,51 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHENOMENAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PHENOMENAL",
+    "definition": "extraordinary",
+    "indicators": [
+     "raised",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "raised": "Something raised has been lifted from where it lay, and in a down entry that means its letters are read from the bottom of the grid upwards.",
+     "behind": "One thing behind another comes after it, so the piece described first ends up following the piece named next."
+    },
+    "linkWords": [
+     " is "
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "PH",
+      "note": "PH is the map-maker's abbreviation for a public house, and it opens the answer"
+     },
+     {
+      "clueFragment": "Large",
+      "gives": "L",
+      "note": "L is the size on a clothing label, one letter joining the front of the next piece"
+     },
+     {
+      "clueFragment": "tentacled creature",
+      "gives": "ANEMONE",
+      "note": "a sea anemone waves tentacles from a rock, seven letters that turn over with the L in front of them"
+     }
+    ],
+    "pieces": [
+     "PH",
+     "ENOMENAL"
+    ],
+    "subReversals": [
+     {
+      "from": "LANEMONE",
+      "to": "ENOMENAL"
+     }
+    ],
+    "walkthrough": "'Large tentacled creature' pulls you towards a squid or an octopus. It is a sea anemone, which is tentacled but not large — the size is a separate letter.",
+    "definitionFit": "extraordinary -> PHENOMENAL: a phenomenon is something striking enough to be remarked on, so the adjective means far outside the ordinary run of things."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +141,32 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOTUS",
+    "definition": "southerly wind",
+    "linkWords": [
+     "suggesting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some other",
+      "gives": "NOT",
+      "note": "the phrase sets these people apart from the ones talking, and a plain negative is what does the setting apart"
+     },
+     {
+      "clueFragment": "people, presumably",
+      "gives": "US",
+      "note": "the people taken for granted as the reference point are the speaker and whoever is listening"
+     }
+    ],
+    "pieces": [
+     "NOT",
+     "US"
+    ],
+    "walkthrough": "Notus is the Greek god of the south wind, brother to Boreas in the north. The wordplay is a phrase anyone might say, run together into a name.",
+    "definitionFit": "southerly wind -> NOTUS: in Greek myth Notus is the god who brings the south wind, so his name stands for the wind itself."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +183,29 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUBRICANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LUBRICANT",
+    "definition": "it makes running easier",
+    "indicators": [
+     "Running"
+    ],
+    "indicatorNotes": {
+     "Running": "An engine that is running has every part in motion, and letters set in motion will not stay in the sequence they were handed over in."
+    },
+    "anagram": {
+     "fodder": "CLUB TRAIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "club train",
+      "gives": "CLUBTRAIN",
+      "note": "nine letters arrive as two innocent words, which is exactly the length wanted"
+     }
+    ],
+    "walkthrough": "'Running club' reads as a jogging club, which is the trap: the first word is the instruction, and the second 'running' belongs to the definition.",
+    "definitionFit": "it makes running easier -> LUBRICANT: oil or grease cuts the friction between moving parts, so 'running' here is machinery rather than athletics."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +226,47 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOTHALF",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + reversal",
+    "answer": "NOT HALF",
+    "definition": "Exceedingly",
+    "indicators": [
+     " in ",
+     "up"
+    ],
+    "indicatorNotes": {
+     " in ": "One thing put in another sits bodily inside it, so the letter named before this word drops into the middle of the word named after it.",
+     "up": "A down entry runs from the top of the grid downwards, so anything travelling up it is being read the opposite way to the way it was built."
+    },
+    "blocks": [
+     {
+      "clueFragment": "apartment",
+      "gives": "FLAT",
+      "note": "the British word for an apartment, four letters that open after the third"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the letter on a hot tap, and it is what goes into the gap"
+     },
+     {
+      "clueFragment": "going",
+      "gives": "ON",
+      "note": "a heater that is going is on, two letters added at the end before anything turns"
+     }
+    ],
+    "pieces": [
+     "NOT HALF"
+    ],
+    "subReversals": [
+     {
+      "from": "FLAHTON",
+      "to": "NOTHALF"
+     }
+    ],
+    "walkthrough": "This is British emphasis: asked whether the film was any good, a speaker who answers 'not half!' means very much so indeed. The whole stack turns before it is entered.",
+    "definitionFit": "Exceedingly -> NOT HALF: in British speech the phrase is emphatic agreement meaning to the greatest degree, the exact opposite of its literal reading."
+   }
   },
   {
    "id": "6-across",
@@ -127,7 +287,34 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
     ]
    },
    "solution": "ITGIRL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "IT GIRL",
+    "definition": "Notable partygoer",
+    "indicators": [
+     "brought back",
+     "aboard"
+    ],
+    "indicatorNotes": {
+     "brought back": "Something brought back has retraced its route, and in an across entry that route runs right to left.",
+     "aboard": "Cargo taken aboard is carried inside the vessel rather than added to it, so the letters wanted are already sitting within the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "oil rig tipsy",
+      "gives": "LRIGTI",
+      "note": "six letters run consecutively from the last letter of the first word to the second letter of the last, straight through the gaps"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "LRIGTI",
+      "to": "ITGIRL"
+     }
+    ],
+    "walkthrough": "'Tipsy' looks like a shuffling instruction and 'oil rig' like the letters to shuffle. Both readings are wrong: the letters are already in place and only need turning round.",
+    "definitionFit": "Notable partygoer -> IT GIRL: an It girl is a young woman famous for glamour and nightlife rather than for any particular work."
+   }
   },
   {
    "id": "6-down",
@@ -144,7 +331,32 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICENI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ICENI",
+    "definition": "Tribe",
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apparently glacial",
+      "gives": "ICE",
+      "note": "what is glacial is frozen, and 'apparently' warns that only the look of it is being claimed"
+     },
+     {
+      "clueFragment": "part of UK",
+      "gives": "NI",
+      "note": "NI is Northern Ireland, the part of the United Kingdom that is not on the island of Britain"
+     }
+    ],
+    "pieces": [
+     "ICE",
+     "NI"
+    ],
+    "walkthrough": "Nothing here is really frozen: the question mark is the setter admitting that the second half of the wordplay is a piece of the map read as a syllable.",
+    "definitionFit": "Tribe -> ICENI: the Iceni were the East Anglian tribe Boudicca led against Rome, so the name defines by example, one tribe out of many."
+   }
   },
   {
    "id": "7-down",
@@ -165,7 +377,32 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOBANANAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GO BANANAS",
+    "definition": "become cracked",
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "GO",
+      "note": "to leave is to depart, and the shortest word for departing is these two letters"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "BANANAS",
+      "note": "a hand is the greengrocer's name for the cluster this fruit grows in, several fingers joined at one stem"
+     }
+    ],
+    "pieces": [
+     "GO",
+     "BANANAS"
+    ],
+    "walkthrough": "'Cracked' here is mad rather than broken, and 'Leave hands' reads as an instruction at a card table. Neither phrase is doing what the surface says it is.",
+    "definitionFit": "become cracked -> GO BANANAS: 'cracked' is the informal sense of mentally unhinged, and the phrase is the idiom for suddenly losing your grip."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +419,24 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RARE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RARE",
+    "definition": "Excellent",
+    "definition2": "red at dinner",
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "note": "the sense in 'a talent seldom seen', where uncommon shades into outstanding"
+     },
+     {
+      "clueFragment": "red at dinner",
+      "note": "a steak sent out still red in the middle has spent the least time on the griddle"
+     }
+    ],
+    "walkthrough": "Two straight meanings side by side and no letters to build. The second is a menu word, which is why 'dinner' is doing the pointing rather than the cooking.",
+    "definitionFit": "Excellent -> RARE, as in a rare talent, where scarcity implies quality; and red at dinner -> RARE, the butcher's grade for barely cooked meat."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +453,24 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PELT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PELT",
+    "definition": "Hide",
+    "definition2": "pepper",
+    "blocks": [
+     {
+      "clueFragment": "Hide",
+      "note": "the noun, not the verb: an animal's skin taken off whole, fur still on it"
+     },
+     {
+      "clueFragment": "pepper",
+      "note": "the verb, as in peppering someone with questions or with snowballs — hitting them again and again"
+     }
+    ],
+    "walkthrough": "A two-word clue is all definition and no wordplay: one noun, one verb, and the setter trusts you to find the word that answers both.",
+    "definitionFit": "Hide -> PELT, the skin stripped from an animal; and pepper -> PELT, to throw things at someone repeatedly and fast."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +487,41 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BATTENBERG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BATTENBERG",
+    "definition": "Cake",
+    "indicators": [
+     "eats"
+    ],
+    "indicatorNotes": {
+     "eats": "What is eaten goes inside the eater, so the pieces on either side of this word close around whatever the rest of the clue supplies."
+    },
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the standard abbreviation for British, one letter opening the answer"
+     },
+     {
+      "clueFragment": "when the news is on?",
+      "gives": "ATTEN",
+      "note": "the main evening bulletin on British television goes out at ten, and the two little words run together"
+     },
+     {
+      "clueFragment": "composer",
+      "gives": "BERG",
+      "note": "Alban Berg, the Viennese composer of Wozzeck, four letters closing the answer"
+     }
+    ],
+    "pieces": [
+     "B",
+     "ATTEN",
+     "BERG"
+    ],
+    "walkthrough": "The Ten O'Clock News is the BBC's flagship bulletin, which is what 'when the news is on' points at. 'British composer' looks like one man, Britten or Elgar, and is two separate pieces.",
+    "definitionFit": "Cake -> BATTENBERG: the pink-and-yellow chequered sponge wrapped in marzipan, a British teatime staple named after a princely family."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +538,36 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONSTIPATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CONSTIPATION",
+    "definition": "Slow movement",
+    "indicators": [
+     "moving",
+     "comes in"
+    ],
+    "indicatorNotes": {
+     "moving": "Letters described as moving have left their places, so nothing before this word can be relied on to stay where it was written.",
+     "comes in": "A piece that comes in joins the others already gathered, so its letter is added to the pile before anything is rearranged."
+    },
+    "anagram": {
+     "fodder": "TO TOSCANINI P"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to Toscanini",
+      "gives": "TOTOSCANINI",
+      "note": "eleven of the twelve letters, taken from the little preposition and the conductor's name together"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the mark in a score meaning softly, the twelfth letter joining the pile"
+     }
+    ],
+    "walkthrough": "Toscanini conducted the NBC Symphony, so 'slow movement' arrives sounding like an adagio. What it really names has nothing to do with music.",
+    "definitionFit": "Slow movement -> CONSTIPATION: the movement is the bowel sort, and the condition is exactly that movement slowing to a standstill."
+   }
   },
   {
    "id": "12-down",
@@ -250,7 +584,47 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSEVERATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ASSEVERATE",
+    "definition": "Swear",
+    "indicators": [
+     "spilled"
+    ],
+    "indicatorNotes": {
+     "spilled": "Anything spilled lands scattered rather than stacked, so the three letters beside this word arrive in no particular order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool, three letters to start the build"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "always and ever are the same word in different registers"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "ATE",
+      "note": "the three letters of the drink, tipped out and reset"
+     }
+    ],
+    "pieces": [
+     "ASS",
+     "EVER",
+     "ATE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TEA",
+      "gives": "ATE"
+     }
+    ],
+    "walkthrough": "The surface has someone knocking a mug over while an idiot rants. 'Swear' is the courtroom sense of the word, the oath rather than the profanity.",
+    "definitionFit": "Swear -> ASSEVERATE: to asseverate is to declare something earnestly and on oath, which is swearing in the affirming sense rather than cursing."
+   }
   },
   {
    "id": "13-across",
@@ -267,7 +641,35 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CESSNA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "CESSNA",
+    "definition": "Small plane",
+    "indicators": [
+     "that cuts out at certain frequency"
+    ],
+    "indicatorNotes": {
+     "that cuts out at certain frequency": "A signal dropping at a fixed interval is heard in every other moment only, so the letters survive at that same steady spacing and the ones between are lost."
+    },
+    "blocks": [
+     {
+      "clueFragment": "crew's",
+      "gives": "CES",
+      "note": "the first, third and fifth letters survive and the ones between them drop away"
+     },
+     {
+      "clueFragment": "using AM",
+      "gives": "SNA",
+      "note": "the count carries on across the gap, picking up letters at the same spacing"
+     }
+    ],
+    "pieces": [
+     "CES",
+     "SNA"
+    ],
+    "walkthrough": "'AM' is the radio band and not the morning, which sets the whole picture: a cockpit transmission breaking up at a steady interval.",
+    "definitionFit": "Small plane -> CESSNA: Cessna is the American maker whose light single-engine aircraft are the archetype, so the brand stands in for the thing."
+   }
   },
   {
    "id": "14-down",
@@ -284,7 +686,50 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUGABABES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SUGABABES",
+    "definition": "Women's group",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "recalled"
+    ],
+    "indicatorNotes": {
+     "recalled": "Goods recalled are sent back the way they came, so the two letters before this word are entered in the opposite order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "US",
+      "gives": "SU",
+      "note": "the two letters of the country, sent back so they arrive the other way round"
+     },
+     {
+      "clueFragment": "eloquence",
+      "gives": "GAB",
+      "note": "the gift of the gab is fluent talk, three letters of plain slang"
+     },
+     {
+      "clueFragment": "of Lincoln",
+      "gives": "ABES",
+      "note": "the president was Abe to his contemporaries, and 'of' makes the name possessive"
+     }
+    ],
+    "pieces": [
+     "SU",
+     "GAB",
+     "ABES"
+    ],
+    "subReversals": [
+     {
+      "from": "US",
+      "to": "SU"
+     }
+    ],
+    "walkthrough": "'Eloquence of Lincoln' pulls towards the Gettysburg Address, and it is two unrelated pieces. The president goes by his first name here, worn short.",
+    "definitionFit": "Women's group -> SUGABABES: the Sugababes were a British girl band, so the general phrase is answered by one particular group of singers."
+   }
   },
   {
    "id": "15-across",
@@ -301,7 +746,44 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FEMINIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + outer letters",
+    "answer": "FEMINIST",
+    "definition": "objecting to it?",
+    "definitionNote": "The setter describes an attitude rather than naming the person who holds it, which is why the question mark is there; read it as the adjective and the swap works.",
+    "indicators": [
+     "front and back of",
+     "holding"
+    ],
+    "indicatorNotes": {
+     "front and back of": "The front and the back of a written word are its first and last letters, and this phrase asks for both while discarding everything between them.",
+     "holding": "Someone holding a thing has it enclosed in their arms, so the letters named on either side part company to take the next piece inside."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron, from the Latin ferrum"
+     },
+     {
+      "clueFragment": "baby",
+      "gives": "MINI",
+      "note": "a baby version of anything is the mini one, and this is what drops into the gap"
+     },
+     {
+      "clueFragment": "front and back of shirt",
+      "gives": "ST",
+      "note": "the first and last letters of the garment, the three in the middle discarded"
+     }
+    ],
+    "pieces": [
+     "FE",
+     "MINI",
+     "ST"
+    ],
+    "walkthrough": "The joke is in 'it': what is being objected to is being called 'baby', which is the very word the wordplay has just tucked inside.",
+    "definitionFit": "objecting to it? -> FEMINIST: objecting to a woman being addressed as 'baby' is objecting on feminist grounds, which is the stance the word names."
+   }
   },
   {
    "id": "16-down",
@@ -318,7 +800,36 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISGOVERN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "MISGOVERN",
+    "definition": "lead to ruin?",
+    "indicators": [
+     "Silly",
+     "heartless"
+    ],
+    "indicatorNotes": {
+     "Silly": "Silly behaviour has no order to it, and letters made silly will not keep the sequence they were given in.",
+     "heartless": "A word with no heart loses the letter at its exact centre, and the two halves then close up over the gap."
+    },
+    "anagram": {
+     "fodder": "MEN VIRGOS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "MEN",
+      "note": "three letters lifted straight out of the clue to join the pile"
+     },
+     {
+      "clueFragment": "heartless viragos",
+      "gives": "VIRGOS",
+      "note": "a virago is a fierce, domineering woman; strike the middle letter out of the seven and six remain"
+     }
+    ],
+    "walkthrough": "A virago is an overbearing, quarrelsome woman, an old and unkind word, which is why the surface reads as an insult rather than as instructions.",
+    "definitionFit": "lead to ruin? -> MISGOVERN: to misgovern is to rule so badly that the country falls apart, so the phrase names the result of the act."
+   }
   },
   {
    "id": "17-across",
@@ -335,7 +846,42 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAUGHTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LAUGHTER",
+    "definition": "Snickers",
+    "definitionNote": "'Snickers' is a plural noun for stifled laughs while the answer is an uncountable one, so the setter is trading several instances for the mass they add up to.",
+    "indicators": [
+     "sandwiches"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "To sandwich something is to trap it between two slices, so the piece named goes in the middle and the other word splits round it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "LA",
+      "note": "the first two letters of LATER, the five-letter word meaning after, which splits to make room"
+     },
+     {
+      "clueFragment": "that's disgusting",
+      "gives": "UGH",
+      "note": "the noise you make at something disgusting, three letters dropped into the gap"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "TER",
+      "note": "the remaining three letters of LATER, closing up behind the filling"
+     }
+    ],
+    "pieces": [
+     "LA",
+     "UGH",
+     "TER"
+    ],
+    "walkthrough": "'Snickers' reads as the chocolate bar and 'sandwiches' as lunch. One is the definition and the other is an instruction about where a piece goes.",
+    "definitionFit": "Snickers -> LAUGHTER: a snicker is a half-suppressed laugh, so a run of them is the mass noun the answer supplies."
+   }
   },
   {
    "id": "18-down",
@@ -356,7 +902,39 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
     ]
    },
    "solution": "RULEOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "RULE OUT",
+    "definition": "bar",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "heard"
+    ],
+    "indicatorNotes": {
+     "heard": "What is heard is a sound and not a spelling, so the piece beside this word is written the way it is said rather than the way it appears in a dictionary."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rugby",
+      "gives": "RU",
+      "note": "RU is Rugby Union on any British sports page, two letters laid down first"
+     },
+     {
+      "clueFragment": "hooligan",
+      "gives": "LEOUT",
+      "soundsLike": "LOUT",
+      "note": "a hooligan is a lout, one syllable that comes out spelled across five letters once the two above are in front of it"
+     }
+    ],
+    "pieces": [
+     "RU",
+     "LEOUT"
+    ],
+    "walkthrough": "The trick is that the second piece only matches by ear: the answer's word break falls in a place the sound does not acknowledge at all.",
+    "definitionFit": "bar -> RULE OUT: to bar somebody from an event is to exclude them, and ruling an option out excludes it in exactly the same way."
+   }
   },
   {
    "id": "19-across",
@@ -373,7 +951,38 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SISTER",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SISTER",
+    "definition": "Nun",
+    "indicators": [
+     "remains in",
+     "nameless"
+    ],
+    "indicatorNotes": {
+     "remains in": "Whatever remains in a place stays inside it, so the letters named before this phrase sit within the ones named after.",
+     "nameless": "N is the standard short form of name, so a thing described as nameless hands over the word beside it with that letter taken out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "'s",
+      "gives": "IS",
+      "note": "the apostrophe-s on the first word is the verb 'is' written short, and those two letters go inside"
+     },
+     {
+      "clueFragment": "nameless grave",
+      "gives": "STER",
+      "note": "a grave look is a stern one, and that five-letter word gives up its N to leave a wrapper"
+     }
+    ],
+    "pieces": [
+     "S",
+     "IS",
+     "TER"
+    ],
+    "walkthrough": "'Nun's remains' reads as a body in a churchyard, which is what the setter is banking on. The apostrophe-s is a verb, and 'grave' is the adjective, not the plot.",
+    "definitionFit": "Nun -> SISTER: a member of a religious order is addressed as Sister, so the title is the everyday word for one of them."
+   }
   },
   {
    "id": "20-across",
@@ -394,7 +1003,29 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
     ]
    },
    "solution": "BOTTLEOPENER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOTTLE-OPENER",
+    "definition": "boozing essential",
+    "blocks": [
+     {
+      "clueFragment": "Cravenly lose",
+      "gives": "BOTTLE",
+      "note": "to bottle it is British slang for losing your nerve at the last moment"
+     },
+     {
+      "clueFragment": "first of series",
+      "gives": "OPENER",
+      "note": "the first match of a season or episode of a run is the opener, the whole word and not its initial"
+     }
+    ],
+    "pieces": [
+     "BOTTLE",
+     "OPENER"
+    ],
+    "walkthrough": "'First of series' begs to be the letter S, and it is not: it is the whole word for the opening item in a run of them.",
+    "definitionFit": "boozing essential -> BOTTLE-OPENER: nobody gets at the beer without one, so the tool is what a drinking session cannot do without."
+   }
   },
   {
    "id": "21-down",
@@ -411,7 +1042,24 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TARRY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TARRY",
+    "definition": "Remain",
+    "definition2": "black and sticky",
+    "blocks": [
+     {
+      "clueFragment": "Remain",
+      "note": "the verb, meaning to linger or hang about somewhere instead of moving on"
+     },
+     {
+      "clueFragment": "black and sticky",
+      "note": "the adjective, describing a road surface or a smoker's lungs, formed from the stuff itself"
+     }
+    ],
+    "walkthrough": "The two senses are not even said the same way: the waiting one rhymes with 'marry' and the sticky one with 'starry'. Spelling is all they share.",
+    "definitionFit": "Remain -> TARRY, to linger; and black and sticky -> TARRY, the adjective from tar, the stuff spread on roads."
+   }
   },
   {
    "id": "22-down",
@@ -428,7 +1076,35 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELFIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ELFIN",
+    "definition": "delicate and charming",
+    "indicators": [
+     "Cervantes might have written"
+    ],
+    "indicatorNotes": {
+     "Cervantes might have written": "The author of Don Quixote wrote in Spanish, so the two words before this phrase are to be translated into that language before they are spelled out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "EL",
+      "note": "the masculine definite article in Spanish, two letters to start"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "FIN",
+      "note": "the Spanish word for end, the one printed on screen when a film there finishes"
+     }
+    ],
+    "pieces": [
+     "EL",
+     "FIN"
+    ],
+    "walkthrough": "The surface offers a lost ending to a Spanish novel. Read those two words as they would appear in that language and they turn into an English adjective.",
+    "definitionFit": "delicate and charming -> ELFIN: elfin describes small, dainty, faintly magical looks, the word reached for about a face like Audrey Hepburn's."
+   }
   },
   {
    "id": "23-down",
@@ -445,7 +1121,45 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PURR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PURR",
+    "definition": "sound pleased",
+    "indicators": [
+     "north"
+    ],
+    "indicatorNotes": {
+     "north": "North is up the map, and a down entry read upwards delivers the assembled letters in the opposite order to the one they were built in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is Rex, the Latin king, the letter a monarch signs after his name"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R again, this time for Regina, so one letter serves both monarchs"
+     },
+     {
+      "clueFragment": "flying",
+      "gives": "UP",
+      "note": "a flag or a kite flying is aloft, which in two letters is simply that"
+     }
+    ],
+    "pieces": [
+     "PURR"
+    ],
+    "subReversals": [
+     {
+      "from": "RRUP",
+      "to": "PURR"
+     }
+    ],
+    "walkthrough": "The surface has birds heading north for the summer. Underneath it is two royal abbreviations sitting on a small word, and the same letter answers both King and queen.",
+    "definitionFit": "sound pleased -> PURR: a contented cat purrs, so the phrase describes the noise rather than naming the animal that makes it."
+   }
   },
   {
    "id": "24-across",
@@ -462,7 +1176,41 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUMBERSOME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CUMBERSOME",
+    "definition": "Awkward",
+    "indicators": [
+     "alongside"
+    ],
+    "indicatorNotes": {
+     "alongside": "Two things placed alongside each other are laid end to end and not one within the other, so these pieces simply sit next to their neighbours."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the phonetic alphabet used on the radio"
+     },
+     {
+      "clueFragment": "Brown",
+      "gives": "UMBER",
+      "note": "umber is the brown earth pigment, raw or burnt, in any paintbox"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "SOME",
+      "note": "part of the cake and some of the cake are the same helping"
+     }
+    ],
+    "pieces": [
+     "C",
+     "UMBER",
+     "SOME"
+    ],
+    "walkthrough": "Charlie Brown looks like the name from Peanuts. Neither half is a name: one is a letter from the radio alphabet, the other a pigment.",
+    "definitionFit": "Awkward -> CUMBERSOME: something cumbersome is bulky and unwieldy to handle, which is awkwardness of the physical kind rather than the social."
+   }
   },
   {
    "id": "25-across",
@@ -479,7 +1227,37 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "FLAB",
+    "definition": "Fat",
+    "indicators": [
+     "on",
+     "lead in"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry a piece placed on another follows it along the row, so the letters named first end up second.",
+     "lead in": "The lead of a word is the letter it opens with, and the little word after it says which word to take that letter from."
+    },
+    "blocks": [
+     {
+      "clueFragment": "lead in field",
+      "gives": "F",
+      "note": "the opening letter of the last word of the clue"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "LAB",
+      "note": "a Lab is a Labrador, the commonest three-letter dog in crosswords"
+     }
+    ],
+    "pieces": [
+     "F",
+     "LAB"
+    ],
+    "walkthrough": "'Lead' is not the leash the surface is holding but the start of something, and 'field' supplies a letter rather than a place for the dog to run in.",
+    "definitionFit": "Fat -> FLAB: flab is the informal noun for soft surplus flesh, the fat somebody complains about wanting to lose."
+   }
   },
   {
    "id": "26-across",
@@ -496,7 +1274,43 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRASHY",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "TRASHY",
+    "definition": "Junky",
+    "indicators": [
+     "emptied",
+     "bags"
+    ],
+    "indicatorNotes": {
+     "emptied": "A container emptied keeps only its walls, so the word beside this one hands over its first and last letters and loses everything between.",
+     "bags": "To bag something is to pocket it, which puts it inside, so the letters left standing close around whatever the rest of the clue supplies."
+    },
+    "blocks": [
+     {
+      "clueFragment": "emptied twenty",
+      "gives": "T",
+      "note": "the first of the two letters left when the number word is hollowed out"
+     },
+     {
+      "clueFragment": "lacking caution",
+      "gives": "RASH",
+      "note": "somebody lacking caution is rash, four letters going into the gap"
+     },
+     {
+      "clueFragment": "twenty",
+      "gives": "Y",
+      "note": "the last letter of the same number word, closing up behind"
+     }
+    ],
+    "pieces": [
+     "T",
+     "RASH",
+     "Y"
+    ],
+    "walkthrough": "'Junky' is the adjective, meaning junk-like, and not the noun for a drug user, which is spelled with an -ie and is what the surface wants you to see.",
+    "definitionFit": "Junky -> TRASHY: both adjectives describe something cheap and worthless, the sense in a trashy novel rather than anything to do with addiction."
+   }
   },
   {
    "id": "27-across",
@@ -513,7 +1327,41 @@ window.CRYPTIC_PUZZLES["indysunday-1877"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENANTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TENANTED",
+    "definition": "Let",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry a thing placed on another comes after it along the row, so the pieces named before this word settle at the end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "X",
+      "gives": "TEN",
+      "note": "X is ten in Roman numerals, three letters opening the answer"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "two letters lifted straight out of the clue"
+     },
+     {
+      "clueFragment": "Irish priest",
+      "gives": "TED",
+      "note": "Father Ted, the priest in the Irish sitcom named after him"
+     }
+    ],
+    "pieces": [
+     "TEN",
+     "AN",
+     "TED"
+    ],
+    "walkthrough": "The question mark covers the surface's peculiar request. Underneath, none of it is a sentence: a Roman numeral, an article and a sitcom clergyman.",
+    "definitionFit": "Let -> TENANTED: a property that has been let has tenants living in it, so both words describe premises occupied under a lease."
+   }
   }
  ]
 } /*JSON-END*/;
