@@ -30,7 +30,44 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRUMPET",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CRUMPET",
+    "definition": "Cake",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "fed to"
+    ],
+    "indicatorNotes": {
+     "fed to": "Whatever is fed to something ends up inside it, so the spirit is swallowed by the pieces on either side rather than standing next to them."
+    },
+    "pieces": [
+     "C",
+     "RUM",
+     "PET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "c is the standard abbreviation for cold, the letter on the tap"
+     },
+     {
+      "clueFragment": "stiff drink",
+      "gives": "RUM",
+      "note": "rum is a strong spirit, the stiff drink of the sailor's tot"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "PET",
+      "note": "a pet is an animal kept at home"
+     }
+    ],
+    "walkthrough": "The surface lays out a tea table, so 'cold animal' reads as a shivering creature. It is two separate pieces of wordplay that happen to sit side by side.",
+    "definitionFit": "Cake -> CRUMPET: a crumpet is a soft griddle cake, toasted and buttered for tea, so the general word covers it as a type."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +84,37 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COCK",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "COCK",
+    "definition": "Male",
+    "indicators": [
+     "initially",
+     "doubled in value"
+    ],
+    "indicatorNotes": {
+     "initially": "A word's initial is the letter it starts with, so only that leading character is touched and the rest stays put.",
+     "doubled in value": "Read as a Roman numeral the letter is worth fifty, and twice fifty has a single-letter numeral of its own."
+    },
+    "pieces": [
+     "C",
+     "OCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rugby player",
+      "gives": "LOCK",
+      "note": "a lock is a second-row forward, the tall one who packs down behind the front row"
+     },
+     {
+      "clueFragment": "initially doubled in value",
+      "gives": "C",
+      "note": "that leading L is fifty in Roman numerals, and a hundred is written as one letter"
+     }
+    ],
+    "walkthrough": "'Doubled in value' sounds like money, and the surface invites you to price a player. The sum is arithmetic done on a Roman numeral instead.",
+    "definitionFit": "Male -> COCK: the male of the domestic fowl is a cock, so the bare adjective stands as the noun naming a bird by its sex."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +131,46 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPROARS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + middle letters",
+    "answer": "UPROARS",
+    "definition": "rackets",
+    "indicators": [
+     "breaking",
+     "suspect",
+     "exposed"
+    ],
+    "indicatorNotes": {
+     "breaking": "Something that breaks in forces its way inside, splitting the letters apart to make room for itself.",
+     "suspect": "Letters you cannot trust will not stay in the order they were handed to you.",
+     "exposed": "A word left exposed has had its covering letters stripped off, leaving only the middle on show."
+    },
+    "pieces": [
+     "U",
+     "PRO",
+     "ARS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "URSA",
+      "gives": "UARS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bursar's",
+      "gives": "URSA",
+      "note": "the four letters left in the middle once the outer pair of that word goes"
+     },
+     {
+      "clueFragment": "Expert",
+      "gives": "PRO",
+      "note": "a pro is a professional, expert enough to be paid for it"
+     }
+    ],
+    "walkthrough": "The surface is an interrogation, so 'rackets' reads as criminal schemes. The definition wants the other sense of the word entirely: plain noise.",
+    "definitionFit": "rackets -> UPROARS: a racket is a din or loud disturbance, and the plural agrees, so this is an everyday synonym in its noise sense."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +187,40 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PESTO",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters + reversal",
+    "answer": "PESTO",
+    "definition": "Here we find Basil",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "occasionally",
+     "having retired"
+    ],
+    "indicatorNotes": {
+     "occasionally": "Something done occasionally happens every so often rather than every time, so you take every second letter and leave the rest.",
+     "having retired": "A word that has retired has gone back the way it came, so the letters are read from the far end."
+    },
+    "pieces": [
+     "PESTO"
+    ],
+    "subReversals": [
+     {
+      "from": "OTSEP",
+      "to": "PESTO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coot asleep",
+      "gives": "OTSEP",
+      "note": "the second, fourth, sixth, eighth and tenth letters of those two words, in that order"
+     }
+    ],
+    "walkthrough": "Two capital letters that look like two men: Basil is the herb, not Fawlty, and Coot is the setter signing his own clue and lending it letters.",
+    "definitionFit": "Here we find Basil -> PESTO: basil leaves are the main ingredient of the sauce, so the clue points at where you would meet the herb."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +237,36 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORONTO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TORONTO",
+    "definition": "City",
+    "indicators": [
+     "suffering",
+     "parts"
+    ],
+    "indicatorNotes": {
+     "suffering": "A place suffering is a place in a bad way, and letters in a bad way do not stay in the order given.",
+     "parts": "To part is to come away from what you were joined to, so the letters separate before they are put back together."
+    },
+    "anagram": {
+     "fodder": "TORN TOO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "torn",
+      "gives": "TORN",
+      "note": "four letters handed over exactly as printed"
+     },
+     {
+      "clueFragment": "excessively",
+      "gives": "TOO",
+      "note": "too much is more than enough, so this is the everyday word for excessively"
+     }
+    ],
+    "walkthrough": "'Torn' reads as the instruction to tear the letters up. It is the fodder, and the words on either side of it are what do the tearing.",
+    "definitionFit": "City -> TORONTO: Toronto is the largest city in Canada, so the bare word defines it by example rather than by meaning."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +287,43 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEATREE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "TEA TREE",
+    "definition": "Oil producer",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "away"
+    ],
+    "indicatorNotes": {
+     "away": "A piece sent away is taken out, so the letter named just before it never reaches the finished word."
+    },
+    "pieces": [
+     "TEATRE",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area of operation",
+      "gives": "THEATRE",
+      "note": "a theatre of operations is the whole region a campaign is fought over, and the question mark nods at the surgical sort too"
+     },
+     {
+      "clueFragment": "Hour",
+      "gives": "H",
+      "note": "h is the standard abbreviation for hour"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "e is the compass abbreviation for east"
+     }
+    ],
+    "walkthrough": "The oil comes from an Australian shrub of the myrtle family, nothing to do with the tea in your cup: only the name overlaps.",
+    "definitionFit": "Oil producer -> TEA TREE: the crushed leaves of the shrub yield tea tree oil, so the plant is named for the product it gives."
+   }
   },
   {
    "id": "5-down",
@@ -140,7 +344,23 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOWROPE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TOW ROPE",
+    "definition": "What one lacking drive might need to move forwards",
+    "blocks": [
+     {
+      "clueFragment": "one lacking drive",
+      "note": "the surface offers a person with no motivation, someone who cannot get going; read it of a vehicle and 'drive' is the engine's power reaching the wheels"
+     },
+     {
+      "clueFragment": "might need to move forwards",
+      "note": "for the idle person this would be a pep talk; for the dead car it has to be a physical link to something in front that is still moving"
+     }
+    ],
+    "walkthrough": "There is no wordplay to find here. Both halves of the sentence read twice over, and the answer is the object that makes the second reading true.",
+    "definitionFit": "The clue describes the thing itself: a car with no power of its own is pulled along by a line fastened to the vehicle ahead."
+   }
   },
   {
    "id": "6-down",
@@ -157,7 +377,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABLEISM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ABLEISM",
+    "definition": "Discrimination",
+    "indicators": [
+     "misdirected"
+    ],
+    "indicatorNotes": {
+     "misdirected": "Something misdirected has been sent the wrong way, so the letters end up somewhere other than where they started."
+    },
+    "anagram": {
+     "fodder": "IS BLAME"
+    },
+    "blocks": [
+     {
+      "clueFragment": "is blame",
+      "gives": "ISBLAME",
+      "note": "seven letters handed straight over from the clue"
+     }
+    ],
+    "walkthrough": "The surface asks whether fault is being aimed at the wrong people, which sits very close to what the answer itself describes. That is neat setting, not coincidence.",
+    "definitionFit": "Discrimination -> ABLEISM: ableism is prejudice against disabled people, one named form of discrimination, so the general word defines it by category."
+   }
   },
   {
    "id": "7-down",
@@ -174,7 +416,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGENTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REGENTS",
+    "definition": "They take temporary charge",
+    "pieces": [
+     "RE",
+     "GENTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "RE",
+      "note": "re means about or concerning, the two letters a memo heading uses for 'of'"
+     },
+     {
+      "clueFragment": "toilets",
+      "gives": "GENTS",
+      "note": "in Britain the men's public lavatory is signed the Gents"
+     }
+    ],
+    "walkthrough": "'Of' is not joinery here but a piece of the build, which is what lets the definition stop dead at 'charge' with the sentence still reading smoothly.",
+    "definitionFit": "They take temporary charge -> REGENTS: a regent rules in place of a monarch who is absent, ill or under age, and only until that ends."
+   }
   },
   {
    "id": "8-down",
@@ -191,7 +455,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EATS",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "EATS",
+    "definition": "Maybe hoovers",
+    "indicators": [
+     "top to bottom"
+    ],
+    "indicatorNotes": {
+     "top to bottom": "In a down entry the first letter is the one at the top, and this sends it all the way round to the far end."
+    },
+    "pieces": [
+     "EATS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "furniture",
+      "gives": "SEAT",
+      "note": "a seat is a piece of furniture"
+     }
+    ],
+    "walkthrough": "In Britain any vacuum cleaner is a hoover, and to hoover food is to clear it fast and greedily. That slang sense is what the definition leans on.",
+    "definitionFit": "Maybe hoovers -> EATS: to hoover food is to eat it greedily, one particular way of eating, which is what the 'maybe' concedes."
+   }
   },
   {
    "id": "9-across",
@@ -208,7 +494,35 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORKSCREW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CORKSCREW",
+    "definition": "take indirect route",
+    "pieces": [
+     "CORK",
+     "S",
+     "CREW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish city",
+      "gives": "CORK",
+      "note": "Cork is a city and county in the south of Ireland"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive apostrophe-s hands over its own letter"
+     },
+     {
+      "clueFragment": "workers",
+      "gives": "CREW",
+      "note": "a crew is a body of workers, on a ship or a film set"
+     }
+    ],
+    "walkthrough": "The definition is a verb, which is easy to miss when the answer is such a familiar noun. The question mark marks the stretch.",
+    "definitionFit": "take indirect route -> CORKSCREW: to corkscrew is to move in a twisting spiral rather than straight on, the path the tool's own thread follows."
+   }
   },
   {
    "id": "10-across",
@@ -225,7 +539,26 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEGIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LEGIT",
+    "definition": "Reasonable",
+    "definition2": "to run away",
+    "blocks": [
+     {
+      "clueFragment": "Reasonable",
+      "gives": "",
+      "note": "the slang clipping of legitimate: above board, within the rules, nothing to answer for"
+     },
+     {
+      "clueFragment": "to run away",
+      "gives": "",
+      "note": "split the five letters after the third and you have the British phrase for taking to your heels"
+     }
+    ],
+    "walkthrough": "The enumeration is the disguise: (5) hides the fact that the second definition wants the letters read as two words rather than one.",
+    "definitionFit": "Reasonable -> LEGIT: slang for legitimate, so above board; and 'to run away' is leg it, the same five letters split after the third."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +575,38 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BABOON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "BABOON",
+    "definition": "Monkey",
+    "indicators": [
+     "cut down",
+     "received"
+    ],
+    "indicatorNotes": {
+     "cut down": "A word cut down is shortened, and it is the tail end that goes.",
+     "received": "What is received is taken in, so the jeer goes inside the other piece instead of alongside it."
+    },
+    "pieces": [
+     "BA",
+     "BOO",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bars",
+      "gives": "BANS",
+      "note": "to bar something is to ban it"
+     },
+     {
+      "clueFragment": "abuse",
+      "gives": "BOO",
+      "note": "a boo is the noise a crowd throws at a performer it wants to abuse"
+     }
+    ],
+    "walkthrough": "'Monkey bars' is the trap: it reads as the playground climbing frame, but the definition stops after one word and 'bars' starts the wordplay.",
+    "definitionFit": "Monkey -> BABOON: a baboon is a large ground-dwelling African monkey, so the general word defines it by example."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +623,49 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORIENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + last letter",
+    "answer": "ORIENT",
+    "definition": "Football team",
+    "indicators": [
+     "without wingers",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "without wingers": "Wingers play out on the flanks, so a word without them loses the letter at each edge and keeps the middle.",
+     "ultimately": "What happens ultimately happens at the very end, so only the final letter is taken."
+    },
+    "pieces": [
+     "O",
+     "RIE",
+     "N",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got",
+      "gives": "O",
+      "note": "the middle letter, once the outer pair is dropped"
+     },
+     {
+      "clueFragment": "grief",
+      "gives": "RIE",
+      "note": "the middle three, on the same instruction"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "N",
+      "note": "the middle letter again, from a three-letter word"
+     },
+     {
+      "clueFragment": "lost",
+      "gives": "T",
+      "note": "the last letter of that word"
+     }
+    ],
+    "walkthrough": "'Without wingers' looks like a note on the team's formation. It is the instruction, and it is applied to three ordinary words in a row.",
+    "definitionFit": "Football team -> ORIENT: Orient is what everyone calls Leyton Orient, a London league club, so one team stands for the general phrase."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +682,27 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLUE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BLUE",
+    "definition": "Conservative",
+    "indicators": [
+     "when speaking"
+    ],
+    "indicatorNotes": {
+     "when speaking": "Said out loud rather than written down, so what you want is the sound of the word and not its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "affected by wind",
+      "soundsLike": "BLEW",
+      "gives": "BLUE",
+      "note": "what the wind has done to something is blown it, and the past tense of blow is the word you say aloud"
+     }
+    ],
+    "walkthrough": "A homophone this short lives on its surface, and 'affected by wind' reads as a sail, a tree or a bad dinner long before it reads as a past tense.",
+    "definitionFit": "Conservative -> BLUE: blue is the British Conservative party's colour, as red is Labour's, so the party name stands in for the shade."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +719,26 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LASH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LASH",
+    "definition": "Leather",
+    "definition2": "eye protector",
+    "blocks": [
+     {
+      "clueFragment": "Leather",
+      "gives": "",
+      "note": "the verb sense: to leather someone is to thrash them with a strap"
+     },
+     {
+      "clueFragment": "eye protector",
+      "gives": "",
+      "note": "the noun sense, and only half a word of it: the fringe of hair on the lid that keeps dust out"
+     }
+    ],
+    "walkthrough": "Four words, no wordplay, and the two definitions are different parts of speech: a verb for beating and a noun for hair. Both readings are ordinary English.",
+    "definitionFit": "Leather -> LASH: to leather someone is to whip them, which is to lash; and an eyelash is the hair fringing the lid that shields the eye."
+   }
   },
   {
    "id": "14-down",
@@ -310,7 +755,50 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEAR",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "LEAR",
+    "definition": "He wrote",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "originally"
+    ],
+    "indicatorNotes": {
+     "originally": "What a word was originally is what it began as, so only the opening character of each is wanted."
+    },
+    "pieces": [
+     "L",
+     "E",
+     "A",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"ladlecum\"",
+      "gives": "L",
+      "note": "the opening letter of the first invented word"
+     },
+     {
+      "clueFragment": "\"enkoopia\"",
+      "gives": "E",
+      "note": "the opening letter of the second"
+     },
+     {
+      "clueFragment": "\"attery\"",
+      "gives": "A",
+      "note": "the opening letter of the third, which describes a squash in one of the nonsense poems"
+     },
+     {
+      "clueFragment": "\"runcible\"",
+      "gives": "R",
+      "note": "the opening letter of the fourth, the best known of them, as in the runcible spoon"
+     }
+    ],
+    "walkthrough": "All four are Edward Lear's own coinages, and several of the creatures from his poem The Quangle Wangle's Hat are hiding elsewhere in this grid.",
+    "definitionFit": "He wrote -> LEAR: Edward Lear invented every one of these words in his nonsense verse, so the man is defined as the one who put them on paper."
+   }
   },
   {
    "id": "15-down",
@@ -327,7 +815,40 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + last letter",
+    "answer": "HAT",
+    "definition": "bowler",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Covers removed from",
+     "end"
+    ],
+    "indicatorNotes": {
+     "Covers removed from": "The covers of a word are the letters at either edge, so taking them off leaves only what was in the middle.",
+     "end": "The end of a word is its final letter, and that is all of it that comes across."
+    },
+    "pieces": [
+     "HA",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "HA",
+      "note": "the two letters in the middle, once the outer pair goes"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "T",
+      "note": "the final letter of that word"
+     }
+    ],
+    "walkthrough": "The surface is a cricket ground with the covers coming off before a quick bowler runs in. A bowler is also headgear, and this puzzle is built round a Lear poem with one in the title.",
+    "definitionFit": "bowler -> HAT: a bowler is a stiff round-crowned hat, so the answer is defined by one example of it, which the question mark flags."
+   }
   },
   {
    "id": "16-across",
@@ -344,7 +865,37 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ROSE",
+    "definition": "attached to the ceiling",
+    "linkWords": [
+     "that's"
+    ],
+    "indicators": [
+     "Some",
+     "revolting"
+    ],
+    "indicatorNotes": {
+     "Some": "Only part of what follows is wanted, and it is a part that runs straight through the words as they stand.",
+     "revolting": "Something revolting turns, and here it is the letters that turn: read them back the way they came."
+    },
+    "subReversals": [
+     {
+      "from": "ESOR",
+      "to": "ROSE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eyesore",
+      "gives": "ESOR",
+      "note": "four consecutive letters sitting in the middle of that word, printed the wrong way round"
+     }
+    ],
+    "walkthrough": "'Some revolting eyesore' reads as one phrase about something ugly. It is two separate instructions and a word to take the letters from.",
+    "definitionFit": "attached to the ceiling -> ROSE: the ceiling rose is the round moulded plate fixed overhead that a light fitting hangs down from."
+   }
   },
   {
    "id": "17-down",
@@ -361,7 +912,26 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SKI",
+    "definition": "Sports equipment",
+    "indicators": [
+     "Inside"
+    ],
+    "indicatorNotes": {
+     "Inside": "What you want is not the words themselves but something sitting within them, unbroken and in the order printed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ask Ingrid",
+      "gives": "SKI",
+      "note": "three consecutive letters straddling the gap between those two words"
+     }
+    ],
+    "walkthrough": "The question mark admits this is one piece of equipment out of thousands, and the dash is punctuation the wordplay has no use for at all.",
+    "definitionFit": "Sports equipment -> SKI: a ski is one of the pair strapped to your boots for downhill or cross-country racing, so the phrase covers it by example."
+   }
   },
   {
    "id": "18-across",
@@ -378,7 +948,41 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOSEL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MOSEL",
+    "definition": "wine region",
+    "indicators": [
+     "to tour"
+    ],
+    "indicatorNotes": {
+     "to tour": "A tour goes round the outside of a place, so the letters named first wrap themselves about the ones named next."
+    },
+    "pieces": [
+     "M",
+     "OS",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "ME",
+      "note": "the person writing the clue is the setter, and setters refer to themselves this way"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "huge",
+      "gives": "OS",
+      "note": "os is outsize, the clothing label for the largest size"
+     }
+    ],
+    "walkthrough": "'Writer' as the setter talking about himself is a convention worth memorising: it turns up whenever a clue seems to need an author nobody can name.",
+    "definitionFit": "wine region -> MOSEL: the Mosel is the German river valley whose steep slate slopes grow Riesling, spelled Moselle when the wine is sold in French."
+   }
   },
   {
    "id": "19-down",
@@ -395,7 +999,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "OUT",
+    "definition": "in public",
+    "indicators": [
+     "covering face"
+    ],
+    "indicatorNotes": {
+     "covering face": "A covered face cannot be seen, so the letter at the front of the word is hidden from the answer."
+    },
+    "pieces": [
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solicitor",
+      "gives": "TOUT",
+      "note": "a tout solicits custom in the street, selling tickets at inflated prices near the ground"
+     }
+    ],
+    "walkthrough": "The surface puts a lawyer in a mask in a crowd. A tout is the British street seller who solicits, and the definition is the sense of open knowledge.",
+    "definitionFit": "in public -> OUT: when something is out it is public knowledge, the sense of 'the secret is out' rather than anything to do with leaving."
+   }
   },
   {
    "id": "20-across",
@@ -412,7 +1038,48 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AORTA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "AORTA",
+    "definition": "vessel",
+    "linkWords": [
+     "has",
+     "on"
+    ],
+    "indicators": [
+     "first couple",
+     "returning"
+    ],
+    "indicatorNotes": {
+     "first couple": "The couple at the front are the opening two letters, and they are the only ones touched.",
+     "returning": "Letters that return come back the way they went, so that pair is written in the opposite order."
+    },
+    "pieces": [
+     "A",
+     "OR",
+     "TA"
+    ],
+    "subReversals": [
+     {
+      "from": "RO",
+      "to": "OR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "a is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "Schedule",
+      "gives": "ROTA",
+      "note": "a rota is the schedule saying who is on duty and when"
+     }
+    ],
+    "walkthrough": "'American vessel' promises a ship and the surface sails on. The vessel is anatomical, and 'American' has quietly been detached to give a single letter.",
+    "definitionFit": "vessel -> AORTA: the aorta is the great blood vessel leaving the heart, so this is the anatomical sense of the word, not the seagoing one."
+   }
   },
   {
    "id": "21-down",
@@ -429,7 +1096,43 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REUNION",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "REUNION",
+    "definition": "social gathering",
+    "indicators": [
+     "using",
+     "for"
+    ],
+    "indicatorNotes": {
+     "using": "To use one thing in place of another is to swap it in, so what comes next takes over a spot already occupied.",
+     "for": "This is the exchange rate: the piece named after it is the one that leaves, and the piece named before it moves in."
+    },
+    "pieces": [
+     "RE",
+     "UN",
+     "ION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "District",
+      "gives": "REGION",
+      "note": "a region is a district, an area marked off within a country"
+     },
+     {
+      "clueFragment": "country club",
+      "gives": "UN",
+      "note": "the United Nations is the club almost every country belongs to"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "g is the standard abbreviation for grand, a thousand pounds"
+     }
+    ],
+    "walkthrough": "The surface hires a country club for a big do. The phrase is really the club that countries join, and 'grand' is money rather than scale.",
+    "definitionFit": "social gathering -> REUNION: a reunion is the party a family, class or regiment holds so that everyone can meet again after years apart."
+   }
   },
   {
    "id": "22-down",
@@ -446,7 +1149,34 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMNESIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AMNESIA",
+    "definition": "recalling difficulty",
+    "indicators": [
+     "Agitated"
+    ],
+    "indicatorNotes": {
+     "Agitated": "Agitate a mixture and everything in it is thrown about, so the letters do not come back in the order they went in."
+    },
+    "anagram": {
+     "fodder": "I SEAMAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "i is the standard abbreviation for international"
+     },
+     {
+      "clueFragment": "seaman",
+      "gives": "SEAMAN",
+      "note": "six letters handed over as printed"
+     }
+    ],
+    "walkthrough": "'Recalling' looks like an instruction to turn something round, sitting where an indicator would sit. Both words are the definition, and the only instruction is at the front.",
+    "definitionFit": "recalling difficulty -> AMNESIA: amnesia is precisely a difficulty in recalling, the loss of memory that follows a blow, an illness or a shock."
+   }
   },
   {
    "id": "23-across",
@@ -463,7 +1193,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIRY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AIRY",
+    "definition": "Fresh",
+    "indicators": [
+     "opening late"
+    ],
+    "indicatorNotes": {
+     "opening late": "A shop that opens late is shut when you get there, so its opening letter is not available to be used."
+    },
+    "pieces": [
+     "AIRY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink supplier",
+      "gives": "DAIRY",
+      "note": "a dairy supplies milk, and milk is a drink"
+     }
+    ],
+    "walkthrough": "'Fresh drink' wants to be read as one phrase, a cold beer or a new round. The definition is the single word, and the wordplay starts at 'drink supplier'.",
+    "definitionFit": "Fresh -> AIRY: an airy room is one with fresh air moving through it, so the adjective carries that sense of freshness rather than lightness."
+   }
   },
   {
    "id": "23-down",
@@ -480,7 +1232,38 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AROUSED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "AROUSED",
+    "definition": "excited",
+    "linkWords": [
+     "getting"
+    ],
+    "indicators": [
+     "topless"
+    ],
+    "indicatorNotes": {
+     "topless": "In a down entry the top is the first letter, and a topless word has lost exactly that."
+    },
+    "pieces": [
+     "AROUSE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revel",
+      "gives": "CAROUSE",
+      "note": "to carouse is to revel, drinking noisily and at length"
+     },
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "d is the standard abbreviation for director"
+     }
+    ],
+    "walkthrough": "The surface has a stripped-off party-goer and a delighted boss, and that picture is exactly what stops 'topless' looking like the instruction it is.",
+    "definitionFit": "excited -> AROUSED: to be aroused is to be stirred up, the general sense of being excited into feeling or action rather than the sexual one."
+   }
   },
   {
    "id": "24-down",
@@ -497,7 +1280,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROWDIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROWDIER",
+    "definition": "relatively rough",
+    "indicators": [
+     "Barking"
+    ],
+    "indicatorNotes": {
+     "Barking": "In Britain barking means completely mad, and a word driven mad will not keep its letters in any settled order."
+    },
+    "anagram": {
+     "fodder": "WORRIED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Worried",
+      "gives": "WORRIED",
+      "note": "seven letters handed over as printed"
+     }
+    ],
+    "walkthrough": "Barking is also a district of east London, which is what makes the capital letter look innocent. 'Relatively' is the quiet signal that the answer is a comparative.",
+    "definitionFit": "relatively rough -> ROWDIER: rowdy means noisily rough, and 'relatively' asks for the comparative, so the answer is that adjective in its -er form."
+   }
   },
   {
    "id": "25-across",
@@ -514,7 +1319,26 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THEE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "THEE",
+    "definition": "You once",
+    "indicators": [
+     "nurses"
+    ],
+    "indicatorNotes": {
+     "nurses": "To nurse something is to hold it close and keep it safe, so these words are cradling the letters wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "learnt he 'entertains'",
+      "gives": "THEE",
+      "note": "four consecutive letters running from the tail of the first word, through the second and into the third"
+     }
+    ],
+    "walkthrough": "'Learnt he' has the ring of Bible English, matching the archaic answer so neatly that you stop seeing the letters running straight through it.",
+    "definitionFit": "You once -> THEE: thee is the old object form of the singular you, kept alive in prayer and in northern speech, which is what 'once' dates."
+   }
   },
   {
    "id": "26-down",
@@ -536,7 +1360,46 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
     ]
    },
    "solution": "HALFAMO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "HALF A MO",
+    "definition": "Brief time",
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "indicators": [
+     "holding"
+    ],
+    "indicatorNotes": {
+     "holding": "Whatever holds something has it inside, so the letter named next goes within the word before it."
+    },
+    "pieces": [
+     "H",
+     "AL",
+     "F",
+     "AMO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "h is the standard abbreviation for hospital, the letter on the road sign"
+     },
+     {
+      "clueFragment": "Texan mission",
+      "gives": "ALAMO",
+      "note": "the Alamo is the old Spanish mission at San Antonio, besieged in 1836"
+     },
+     {
+      "clueFragment": "strong",
+      "gives": "F",
+      "note": "f is forte in music, the instruction to play strongly"
+     }
+    ],
+    "walkthrough": "The answer is British for 'wait a second', a spoken phrase rather than a word, which is why the enumeration comes in three odd little pieces.",
+    "definitionFit": "Brief time -> HALF A MO: a mo is a moment, so half of one is the shortest wait there is, as in 'hang on, I won't be long'."
+   }
   },
   {
    "id": "27-across",
@@ -553,7 +1416,35 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUANGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "QUANGO",
+    "definition": "semi-public body",
+    "indicators": [
+     "First half of"
+    ],
+    "indicatorNotes": {
+     "First half of": "A word's first half is the letters up to its midpoint, and everything past that point is simply dropped."
+    },
+    "pieces": [
+     "QUAN",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "specified number",
+      "gives": "QUANTITY",
+      "note": "a quantity is a specified number or amount of something"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "GO",
+      "note": "to go is to leave"
+     }
+    ],
+    "walkthrough": "The word is an acronym — quasi-autonomous non-governmental organisation — and has been a staple of British political grumbling since the 1970s.",
+    "definitionFit": "semi-public body -> QUANGO: a quango is set up and funded by government yet run at arm's length from it, so it is public and not public at once."
+   }
   },
   {
    "id": "28-across",
@@ -570,7 +1461,35 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WANGLE",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "WANGLE",
+    "definition": "Manipulate",
+    "indicators": [
+     "overturning the front"
+    ],
+    "indicatorNotes": {
+     "overturning the front": "Stand the first letter on its head and it becomes a different letter altogether, and that new one is what you write."
+    },
+    "pieces": [
+     "W",
+     "ANGLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old laundry equipment",
+      "gives": "MANGLE",
+      "note": "a mangle is the hand-cranked pair of rollers that squeezed the water out of the washing"
+     },
+     {
+      "clueFragment": "overturning the front",
+      "gives": "W",
+      "note": "an M stood on its head is a W"
+     }
+    ],
+    "walkthrough": "The instruction turns a letter over rather than a word, and only a few letters survive that treatment. M and W are the classic pair.",
+    "definitionFit": "Manipulate -> WANGLE: to wangle something is to get it by contriving and finessing, which is manipulating a situation rather than an object."
+   }
   },
   {
    "id": "29-down",
@@ -587,7 +1506,36 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NABOB",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NABOB",
+    "definition": "Moneybags",
+    "indicators": [
+     "admits"
+    ],
+    "indicatorNotes": {
+     "admits": "To admit someone is to let them in, so what follows goes inside the word named before it."
+    },
+    "pieces": [
+     "NA",
+     "BO",
+     "B"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nick",
+      "gives": "NAB",
+      "note": "to nab is to nick, in the sense of grabbing or pinching something"
+     },
+     {
+      "clueFragment": "personal hygiene problem",
+      "gives": "BO",
+      "note": "BO is body odour, the polite two letters for it"
+     }
+    ],
+    "walkthrough": "The word came home from India with the officials who made fortunes there, and it has meant conspicuous wealth ever since. The quotation marks flag the nickname.",
+    "definitionFit": "Moneybags -> NABOB: a nabob is a man of great and showy wealth, which is what calling someone moneybags accuses them of being."
+   }
   },
   {
    "id": "30-down",
@@ -604,7 +1552,38 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CALF",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CALF",
+    "definition": "youngster",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Tip from"
+    ],
+    "indicatorNotes": {
+     "Tip from": "The tip of a thing is its very point, and in a down entry that means the letter standing at the top."
+    },
+    "pieces": [
+     "C",
+     "ALF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chris",
+      "gives": "C",
+      "note": "the first letter of that name"
+     },
+     {
+      "clueFragment": "Ramsey",
+      "gives": "ALF",
+      "note": "Alf Ramsey managed England to the World Cup in 1966"
+     }
+    ],
+    "walkthrough": "'Chris Ramsey' reads as one person. The clue takes a letter from the first name and a famous football manager from the second.",
+    "definitionFit": "youngster -> CALF: a calf is the young of the cow, so the general word for a young animal is defined by one particular instance."
+   }
   },
   {
    "id": "31-down",
@@ -621,7 +1600,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ODES",
+    "definition": "Poems",
+    "indicators": [
+     "not every 3rd"
+    ],
+    "indicatorNotes": {
+     "not every 3rd": "Counting along the letters, each third one is passed over and the survivors are written down in the order they stood."
+    },
+    "pieces": [
+     "ODES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most peculiar",
+      "gives": "ODDEST",
+      "note": "the superlative of odd, six letters to count through"
+     }
+    ],
+    "walkthrough": "The trap is reading 'most peculiar' as an anagram signal. It is the fodder, and the only instruction in the clue comes after the comma.",
+    "definitionFit": "Poems -> ODES: an ode is a lyric poem addressed to its subject, a nightingale or a Grecian urn, and the plural matches the plural."
+   }
   },
   {
    "id": "32-across",
@@ -638,7 +1639,29 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMISS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMISS",
+    "definition": "out of order",
+    "pieces": [
+     "AMIS",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novelist",
+      "gives": "AMIS",
+      "note": "Kingsley and his son Martin were both novelists of the first rank"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive apostrophe-s gives up its own letter"
+     }
+    ],
+    "walkthrough": "The apostrophe-s reads as 'is' in the surface — the novelist is out of order — while the wordplay quietly takes the letter itself.",
+    "definitionFit": "out of order -> AMISS: something amiss is wrong or not as it should be, the faulty sense of that phrase rather than the badly behaved one."
+   }
   },
   {
    "id": "33-across",
@@ -655,7 +1678,47 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAILBOARD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "SAILBOARD",
+    "definition": "unfamiliar craft",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "desperately",
+     "going around"
+    ],
+    "indicatorNotes": {
+     "desperately": "Someone acting desperately is following no plan at all, so the letters land in an order nobody chose.",
+     "going around": "What goes around a thing surrounds it, so the shuffled letters close over the piece named first."
+    },
+    "pieces": [
+     "SAILB",
+     "OAR",
+     "D"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ADLIBS",
+      "gives": "SAILBD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adlibs",
+      "gives": "ADLIBS",
+      "note": "six letters handed over as printed, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Rower",
+      "gives": "OAR",
+      "note": "an oar is the blade a rower pulls, so the word stands in for the person by naming their tool"
+     }
+    ],
+    "walkthrough": "'Rower' looks like the person the surface is about. It is three letters standing for the thing they pull, which is the commonest way a setter hides a short word.",
+    "definitionFit": "unfamiliar craft -> SAILBOARD: a sailboard is a floating board with a mast, a craft in the loosest sense and nothing an oarsman would recognise."
+   }
   },
   {
    "id": "34-across",
@@ -672,7 +1735,47 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FENLAND",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + middle letter",
+    "answer": "FENLAND",
+    "definition": "Marsh",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "to tuck into",
+     "the 3rd"
+    ],
+    "indicatorNotes": {
+     "to tuck into": "To tuck in is to settle yourself inside something, so this piece goes within the word that follows it.",
+     "the 3rd": "Count three letters into the name and stop; in a five-letter name that is the one standing in the middle."
+    },
+    "pieces": [
+     "F",
+     "EN",
+     "LAN",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pudding",
+      "gives": "FLAN",
+      "note": "a flan is a baked open tart, served as a pudding"
+     },
+     {
+      "clueFragment": "Space",
+      "gives": "EN",
+      "note": "an en is a printer's space, the width of the letter n"
+     },
+     {
+      "clueFragment": "Jodie",
+      "gives": "D",
+      "note": "the third of that name's five letters"
+     }
+    ],
+    "walkthrough": "Jodie Marsh is a British media personality, so the two names read as one woman and hide the fact that only the first of them is wordplay.",
+    "definitionFit": "Marsh -> FENLAND: a fen is low waterlogged ground, so fenland is marshy country, of which the Fens of eastern England are the famous stretch."
+   }
   },
   {
    "id": "35-across",
@@ -689,7 +1792,39 @@ window.CRYPTIC_PUZZLES["indysunday-1874"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIBBONS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RIBBONS",
+    "definition": "Strips",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "cuts"
+    ],
+    "indicatorNotes": {
+     "cuts": "Something that cuts into a thing goes right inside it, dividing the letters to make room for itself."
+    },
+    "pieces": [
+     "RIB",
+     "BON",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "RIBS",
+      "note": "ribs are a cut of meat, taken off the animal's side"
+     },
+     {
+      "clueFragment": "good French",
+      "gives": "BON",
+      "note": "bon is the French for good"
+     }
+    ],
+    "walkthrough": "'Cuts' works twice over: in the surface it is a butcher's word sitting beside the meat, and in the wordplay it is the knife going in.",
+    "definitionFit": "Strips -> RIBBONS: a ribbon is a long narrow strip of fabric, and 'torn to ribbons' is exactly torn to strips, so both are plural."
+   }
   }
  ]
 } /*JSON-END*/;
