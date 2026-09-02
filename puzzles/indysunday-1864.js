@@ -30,7 +30,45 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BENEFACTRESS",
+    "definition": "Fairy Godmother",
+    "indicators": [
+     "bound"
+    ],
+    "indicatorNotes": {
+     "bound": "Bound means tied up and held fast, so the letter beside it cannot sit alongside the word for muscle — it is tied up inside it."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "BE",
+     "N",
+     "EF",
+     "ACTRESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muscle",
+      "gives": "BEEF",
+      "note": "beef is muscle, both the meat and the bulk a weightlifter puts on"
+     },
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name, the one printed on a form"
+     },
+     {
+      "clueFragment": "actor",
+      "gives": "ACTRESS",
+      "note": "a female actor is an actress, which is how the setter gets the feminine ending"
+     }
+    ],
+    "walkthrough": "'Muscle-bound' looks like one word describing the performer. It is really two jobs at once: a word meaning muscle, and an order to tie something up inside it.",
+    "definitionFit": "Fairy Godmother -> BENEFACTRESS: the storybook example of a woman who showers money and favours on someone, which is what the word names."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +89,29 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLUEPETER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BLUE PETER",
+    "definition": "programme",
+    "indicators": [
+     "cooking"
+    ],
+    "indicatorNotes": {
+     "cooking": "Cooking breaks ingredients down and reassembles them into something else, so the two words in front of it come out in a different order."
+    },
+    "anagram": {
+     "fodder": "PEEL TUBER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Peel tuber",
+      "gives": "BLUEPETER",
+      "note": "these nine letters are the whole of the material; nothing else in the clue joins in"
+     }
+    ],
+    "walkthrough": "Definition by example: a programme in general, one particular show in fact. The BBC has run this children's magazine since 1958, named after the flag a ship flies when about to sail.",
+    "definitionFit": "programme -> BLUE PETER: a named instance rather than a synonym, the long-running BBC children's show standing in for the general word."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +128,34 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTARY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NOTARY",
+    "definition": "Official witness",
+    "indicators": [
+     "dodges"
+    ],
+    "indicatorNotes": {
+     "dodges": "To dodge is to duck and weave and never stay put, so the letters in front will not stay in the order they were given."
+    },
+    "anagram": {
+     "fodder": "TO ANY R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to any",
+      "gives": "TOANY",
+      "note": "five of the six letters come straight off the page, waiting to be reordered"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for a US Republican"
+     }
+    ],
+    "walkthrough": "The surface has a politician evading awkward questions. 'Official witness to any Republican' reads as one long job description, which is where the definition looks longer than it is — it stops after two words.",
+    "definitionFit": "Official witness -> NOTARY: a notary public is the officer licensed to witness signatures and certify documents, so the phrase names the job."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +172,41 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORWARDED",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "FORWARDED",
+    "definition": "sent on to another",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "To cover something is to lie over it and hide it from view, so the word for conflict vanishes inside the letters either side of it."
+    },
+    "pieces": [
+     "FOR",
+     "WAR",
+     "DED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross",
+      "gives": "FORD",
+      "note": "to cross a stream on foot is to ford it"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is the crossword's standing journalist, short for editor"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "a war is an armed conflict"
+     }
+    ],
+    "walkthrough": "'Cross' wants to be the adjective meaning annoyed, matching the angry journalist of the surface. It is the verb, and a ford is a place where you cross.",
+    "definitionFit": "sent on to another -> FORWARDED: a letter or an email passed along to a new recipient has been forwarded, the verb for relaying something you were sent."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +223,23 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CABLE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CABLE",
+    "definition": "Long line of cars?",
+    "blocks": [
+     {
+      "clueFragment": "Long line of cars",
+      "note": "the reading the surface offers is traffic: a tailback of vehicles stretching away up the road"
+     },
+     {
+      "clueFragment": "of cars",
+      "note": "the setter's cars are the ones that hang from a moving steel rope up a mountainside or a San Francisco hill, and it is the rope being described"
+     }
+    ],
+    "walkthrough": "No wordplay to separate out here — the whole clue is one description, and the joke is that a line of cars can mean a mountain lift rather than a traffic jam.",
+    "definitionFit": "Long line of cars? -> CABLE: the continuous rope hauling a cable car is a very long line, and the cars are named after it."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +256,29 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REDSHANK",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "REDSHANK",
+    "definition": "one with colourful legs",
+    "indicators": [
+     "fancy"
+    ],
+    "indicatorNotes": {
+     "fancy": "Fancy is the verb here, to picture something other than what is in front of you — so the eight letters are to be imagined in a new arrangement."
+    },
+    "anagram": {
+     "fodder": "DARK HENS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dark hens",
+      "gives": "REDSHANK",
+      "note": "these two words hold all eight letters, and nothing else in the clue is needed"
+     }
+    ],
+    "walkthrough": "The surface is a poultry keeper's note, so 'one with colourful legs' reads as another bird in the run. It is the definition, and the bird it describes is wild.",
+    "definitionFit": "one with colourful legs -> REDSHANK: a wader named for its bright orange-red legs, so the vague phrase points at the bird by its most obvious feature."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +295,27 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHEAR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SHEAR",
+    "definition": "Fleece",
+    "indicators": [
+     "you'd say"
+    ],
+    "indicatorNotes": {
+     "you'd say": "The phrase hands the clue to the ear: what matters is the noise you would make out loud, not the spelling you would write down."
+    },
+    "blocks": [
+     {
+      "clueFragment": "as thin as tights",
+      "soundsLike": "SHEER",
+      "gives": "SHEAR",
+      "note": "tights thin enough to see through are sheer, and that word said aloud is written a second way"
+     }
+    ],
+    "walkthrough": "'Fleece' looks like the noun, a woolly thing being compared with tights. It is the verb, and the joke is that a fleece is exactly what comes off under the clippers.",
+    "definitionFit": "Fleece -> SHEAR: to fleece a sheep is to clip the wool off it, the plain farming sense of the verb rather than the swindling one the surface suggests."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +332,42 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACQUAINTANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ACQUAINTANCE",
+    "definition": "guy you hardly know",
+    "indicators": [
+     "held by"
+    ],
+    "indicatorNotes": {
+     "held by": "Whatever is held by something ends up inside it, so the two pieces named first are set within the piece named after these words."
+    },
+    "pieces": [
+     "AC",
+     "QUAINT",
+     "ANC",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charming",
+      "gives": "QUAINT",
+      "note": "quaint is charming in an old-fashioned, slightly odd way"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "ANC",
+      "note": "the ANC is South Africa's governing political party, the African National Congress"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "ACE",
+      "note": "ace is slang for great or first-rate, and it splits to take the others in"
+     }
+    ],
+    "walkthrough": "'Held by great guy' reads as a single phrase about one generous host, which is the trap: 'great' is doing its own separate job and the definition is only the last four words.",
+    "definitionFit": "guy you hardly know -> ACQUAINTANCE: someone you know slightly and no better, the word English keeps for exactly that distance short of friendship."
+   }
   },
   {
    "id": "8-across",
@@ -170,7 +384,35 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLUSTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLUSTER",
+    "definition": "Collect",
+    "indicators": [
+     "on Wall Street"
+    ],
+    "indicatorNotes": {
+     "on Wall Street": "Wall Street is in New York, so the word in front of it is to be spelled the American way rather than the British one."
+    },
+    "pieces": [
+     "C",
+     "LUSTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the NATO alphabet used by pilots and radio operators"
+     },
+     {
+      "clueFragment": "Sheen",
+      "gives": "LUSTER",
+      "note": "a sheen is a soft gloss — lustre in Britain, luster in America"
+     }
+    ],
+    "walkthrough": "Charlie Sheen is an actor and Wall Street is one of his films, so the surface reads as a name and a title. The clue wants the two words separated and the spelling changed.",
+    "definitionFit": "Collect -> CLUSTER: things that collect around a point form a cluster, the verb sense of gathering into one tight group."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +433,46 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
     ]
    },
    "solution": "BUDGEUP",
-   "annotation": null
+   "annotation": {
+    "type": "substitution + charade",
+    "answer": "BUDGE UP",
+    "definition": "make room",
+    "indicators": [
+     "replacing",
+     "last of"
+    ],
+    "indicatorNotes": {
+     "replacing": "One thing replacing another takes its place rather than joining it, so a letter is swapped out instead of added on.",
+     "last of": "'Last of' picks the final letter of what it governs — here of the word that means cheap, not of the word 'cheap' itself."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "BUDGE",
+     "U",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheap",
+      "gives": "BUDGET",
+      "note": "a budget airline or a budget hotel is a cheap one"
+     },
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university, and it stands in for the T at the end of the previous word"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the standard abbreviation for parking, the letter on the road sign"
+     }
+    ],
+    "walkthrough": "The surface is a university buying up cheap parking. The trap is reading 'last of cheap' as the letter P: it is the last letter of a word that MEANS cheap.",
+    "definitionFit": "make room -> BUDGE UP: the everyday request to shift along a bench or a sofa, moving over so that someone else can sit down."
+   }
   },
   {
    "id": "10-down",
@@ -208,7 +489,42 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRESENTIMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PRESENTIMENT",
+    "definition": "advance warning",
+    "indicators": [
+     "wrapping"
+    ],
+    "indicatorNotes": {
+     "wrapping": "Wrapping paper goes round the outside of what it covers, so the word for gift closes over the two pieces that follow it."
+    },
+    "pieces": [
+     "PRESEN",
+     "TIME",
+     "N",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gift",
+      "gives": "PRESENT",
+      "note": "a present is a gift, and only its final letter is left on the far side of the wrapping"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "TIME",
+      "note": "a season is a particular stretch of the year, and any stretch like that is a time"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N is November in the NATO alphabet; the possessive 's is only the sentence joining up"
+     }
+    ],
+    "walkthrough": "'Gift wrapping season' says December and 'November' says the month before it, so the whole surface is a Christmas picture. Neither month is what the wordplay wants.",
+    "definitionFit": "advance warning -> PRESENTIMENT: a presentiment is a feeling that something is about to happen, so it warns you before there is anything to see."
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +545,35 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
     ]
    },
    "solution": "UPPERCASE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UPPER CASE",
+    "definition": "Capital",
+    "pieces": [
+     "UP",
+     "PER",
+     "CASE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winning",
+      "gives": "UP",
+      "note": "a side that is winning is up, as in two goals up"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "PER",
+      "note": "per stands in for 'a' or 'an' in phrases like five pounds a head"
+     },
+     {
+      "clueFragment": "event",
+      "gives": "CASE",
+      "note": "a case is an instance or occurrence — in any event, in any case"
+     }
+    ],
+    "walkthrough": "'Capital' is the trap: with 'winning an event' beside it, it wants to be a city or a fortune. Here it is the printer's sense, a capital letter.",
+    "definitionFit": "Capital -> UPPER CASE: a capital letter came from the upper of the two trays of type a compositor kept, the small letters living in the lower one."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +590,27 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HORDE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "HORDE",
+    "definition": "Migrants",
+    "definitionNote": "The definition is plural and the answer singular: the word names one crowd made up of many people, so the setter is defining the mass by its members.",
+    "indicators": [
+     "coming through"
+    ],
+    "indicatorNotes": {
+     "coming through": "People coming through a town pass right across it without stopping, and the letters wanted do the same — they run unbroken across the words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sandwich or Deal",
+      "gives": "HORDE",
+      "note": "Sandwich and Deal are neighbouring towns on the Kent coast, and five letters in a row inside these three words are what is wanted"
+     }
+    ],
+    "walkthrough": "Sandwich and Deal look like lunch and a bargain, which is the joke. Both are real Kent towns a few miles from the Channel, so the surface reads as a news bulletin.",
+    "definitionFit": "Migrants -> HORDE: a horde is a large body of people on the move, originally a wandering tribe, so it names migrants taken together as one mass."
+   }
   },
   {
    "id": "13-across",
@@ -263,7 +627,29 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "INTO",
+    "definition": "Hot on",
+    "indicators": [
+     "wiping head"
+    ],
+    "indicatorNotes": {
+     "wiping head": "The head of a word is the letter at the front of it, and wiping that off leaves the rest of the word standing."
+    },
+    "pieces": [
+     "INTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piebald horse",
+      "gives": "PINTO",
+      "note": "a pinto is the American horse with irregular white patches — piebald, in other words"
+     }
+    ],
+    "walkthrough": "'Hot on' is the definition and looks like more of the riding picture, an eager rider on a spotted pony. Both halves pull the same way, which is what makes the join hard to find.",
+    "definitionFit": "Hot on -> INTO: to be into something is to be keen on it, and 'hot on' is the same slangy way of saying you are enthusiastic about a subject."
+   }
   },
   {
    "id": "14-across",
@@ -280,7 +666,50 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADAMANTINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "ADAMANTINE",
+    "definition": "Very tough",
+    "indicators": [
+     "finally",
+     "admitted to"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally marks the end of the run, so only the closing letter of the word in front is taken and the rest of the drug's name is dropped.",
+     "admitted to": "Being admitted to a hospital puts you inside the building, so everything named before goes within the two letters named after."
+    },
+    "pieces": [
+     "A",
+     "DAM",
+     "ANTI",
+     "N",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "A&E is Accident and Emergency, the British hospital department an American would call the ER, and its two letters open and close the word"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "DAM",
+      "note": "a dam is an animal's mother, the breeder's word that sits beside sire"
+     },
+     {
+      "clueFragment": "opposed to",
+      "gives": "ANTI",
+      "note": "someone opposed to a plan is anti it"
+     },
+     {
+      "clueFragment": "ibuprofen finally",
+      "gives": "N",
+      "note": "the closing letter of the drug's name and nothing else of it"
+     }
+    ],
+    "walkthrough": "The whole surface is a casualty ward, which is what makes 'A&E' look like scenery rather than two letters with work to do.",
+    "definitionFit": "Very tough -> ADAMANTINE: adamant was the legendary unbreakable stone, so adamantine means as hard as that — yielding to nothing."
+   }
   },
   {
    "id": "15-down",
@@ -297,7 +726,23 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOVEMENTS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "MOVEMENTS",
+    "definition": "Pieces' pieces?",
+    "blocks": [
+     {
+      "clueFragment": "Pieces'",
+      "note": "the first word means whole works — a symphony, a sonata, a quartet — each written and performed as one piece of music"
+     },
+     {
+      "clueFragment": "pieces?",
+      "note": "the second means the self-contained sections such a work divides into, the numbered parts a concert programme lists with their tempo markings"
+     }
+    ],
+    "walkthrough": "There is nothing to take apart: the clue is one idea said twice, using the same word in two musical senses and letting the apostrophe do the joining.",
+    "definitionFit": "Pieces' pieces? -> MOVEMENTS: a symphony is built out of self-contained sections, so the parts of a musical work are themselves pieces of music."
+   }
   },
   {
    "id": "16-down",
@@ -314,7 +759,49 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSTITUTE",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal + charade",
+    "answer": "INSTITUTE",
+    "definition": "Start",
+    "indicators": [
+     "carrying",
+     "to the north"
+    ],
+    "indicatorNotes": {
+     "carrying": "A truck carries its load inside it rather than behind it, so what follows is set within the letters already assembled.",
+     "to the north": "North is the top of the page, and this entry runs downwards, so the letters beside it are read from the bottom upwards."
+    },
+    "pieces": [
+     "IN",
+     "STIT",
+     "UTE"
+    ],
+    "subReversals": [
+     {
+      "from": "TITS",
+      "to": "STIT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "filling",
+      "gives": "IN",
+      "note": "whatever is filling something is in it"
+     },
+     {
+      "clueFragment": "melons",
+      "gives": "STIT",
+      "note": "melons is slang for a woman's breasts, and in a down clue those four letters are climbed rather than read down"
+     },
+     {
+      "clueFragment": "Aussie's truck",
+      "gives": "UTE",
+      "note": "a ute is an Australian pickup, short for utility vehicle"
+     }
+    ],
+    "walkthrough": "The loading-bay surface holds together so well that the definition at the front reads as part of it. 'Start filling' is two separate jobs sitting side by side.",
+    "definitionFit": "Start -> INSTITUTE: to institute proceedings or a new rule is to start it formally, the verb sense rather than the college on the corner."
+   }
   },
   {
    "id": "17-down",
@@ -331,7 +818,29 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLOWHARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLOWHARD",
+    "definition": "bigmouth",
+    "pieces": [
+     "BLOW",
+     "HARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thump",
+      "gives": "BLOW",
+      "note": "a thump is a blow, the kind struck with a fist"
+     },
+     {
+      "clueFragment": "insensitive",
+      "gives": "HARD",
+      "note": "a hard man is insensitive, unmoved by anything around him"
+     }
+    ],
+    "walkthrough": "Two plain synonyms laid end to end with nothing to mark the join, and a surface that reads as one continuous description of an unpleasant person.",
+    "definitionFit": "bigmouth -> BLOWHARD: a blowhard boasts loudly and endlessly, which is exactly the charge in calling someone a bigmouth."
+   }
   },
   {
    "id": "18-across",
@@ -348,7 +857,36 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TURTLEDOVE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram + first letters",
+    "answer": "TURTLEDOVE",
+    "definition": "True love juggling with two donations - just the first of those?",
+    "indicators": [
+     "juggling",
+     "just the first of those"
+    ],
+    "indicatorNotes": {
+     "juggling": "A juggler keeps everything moving and nothing where it started, so the letters handed over land in a different arrangement.",
+     "just the first of those": "'Those' points back at the two words already named, and only the letter each one begins with is taken from them."
+    },
+    "anagram": {
+     "fodder": "TRUE LOVE TD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "True love",
+      "gives": "TRUELOVE",
+      "note": "eight of the ten letters come from these two words"
+     },
+     {
+      "clueFragment": "two donations",
+      "gives": "TD",
+      "note": "the opening letter of each of these two words makes up the shortfall"
+     }
+    ],
+    "walkthrough": "An all-in-one: every word is wordplay, and the same words read straight are the definition. The dash is the hinge, and 'those' looks back rather than forward.",
+    "definitionFit": "The whole clue defines: in the Twelve Days of Christmas the true love's second gift is two of these birds, and the clue asks for just one of them."
+   }
   },
   {
    "id": "19-across",
@@ -365,7 +903,43 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PSST",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "PSST",
+    "definition": "Secret alert",
+    "indicators": [
+     "in",
+     "unloading"
+    ],
+    "indicatorNotes": {
+     "in": "A ship in port is inside it, not beside it, so those letters are placed within the word that follows.",
+     "unloading": "Unloading takes the cargo out of the hold, so the letters named afterwards are removed from what came before."
+    },
+    "pieces": [
+     "P",
+     "SS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "OR is gold in heraldry, the tincture named on a coat of arms — and it is what has to come out"
+     },
+     {
+      "clueFragment": "port unloading gold",
+      "gives": "PT",
+      "note": "the harbour is PORT, and losing those two letters leaves a shell of two"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the prefix on a steamship's name"
+     }
+    ],
+    "walkthrough": "The surface is a smuggling story, gold coming ashore at night. The definition is the noise you make to catch one person's attention without anyone else hearing.",
+    "definitionFit": "Secret alert -> PSST: the hissed sound that flags something to one person only, so it alerts them and keeps the rest of the room out of it."
+   }
   },
   {
    "id": "20-down",
@@ -382,7 +956,35 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LACUNA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "LACUNA",
+    "definition": "Break",
+    "indicators": [
+     "nearly all"
+    ],
+    "indicatorNotes": {
+     "nearly all": "Nearly all of a word is every letter but the last one, so the final letter is left behind on the page."
+    },
+    "pieces": [
+     "LAC",
+     "UNA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "want",
+      "gives": "LAC",
+      "note": "to want something is to lack it, and nearly all of that word is these three letters"
+     },
+     {
+      "clueFragment": "one in Rome",
+      "gives": "UNA",
+      "note": "una is Italian for one, so what is wanted is the modern Roman's own word, not a Roman numeral"
+     }
+    ],
+    "walkthrough": "A lacuna is the gap left where something has dropped out, so the definition and the missing letter of the wordplay are telling the same joke.",
+    "definitionFit": "Break -> LACUNA: a lacuna is a gap where something has been left out — the break in a manuscript, an argument or a run of records."
+   }
   },
   {
    "id": "21-across",
@@ -399,7 +1001,37 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOHOW",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "NOHOW",
+    "definition": "Not at all",
+    "indicators": [
+     "on the radio"
+    ],
+    "indicatorNotes": {
+     "on the radio": "Radio reaches you as sound and nothing else, so both names are to be heard rather than read off the page."
+    },
+    "pieces": [
+     "NO",
+     "HOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recognise",
+      "soundsLike": "KNOW",
+      "gives": "NO",
+      "note": "to recognise something is to know it, and said aloud that word loses its silent K"
+     },
+     {
+      "clueFragment": "Thatcherite Chancellor",
+      "soundsLike": "HOWE",
+      "gives": "HOW",
+      "note": "Geoffrey Howe was Margaret Thatcher's Chancellor of the Exchequer, Britain's finance minister, and his name is said exactly like the question word"
+     }
+    ],
+    "walkthrough": "Both halves are heard rather than spelled, and neither is written the way it sounds. The surface asks whether you would place the man's voice on air.",
+    "definitionFit": "Not at all -> NOHOW: nohow is the dialect emphatic for in no way whatever, as in 'that won't work nohow'."
+   }
   },
   {
    "id": "22-down",
@@ -416,7 +1048,36 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HOUSE",
+    "definition": "Where shoes may have to be removed",
+    "indicators": [
+     "protecting"
+    ],
+    "indicatorNotes": {
+     "protecting": "Something protecting you is wrapped right round you, so the single letter standing for the person goes inside the other word."
+    },
+    "pieces": [
+     "HO",
+     "U",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socks",
+      "gives": "HOSE",
+      "note": "hose is the old collective word for socks and stockings, still alive in hosiery"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U is the textspeak short form of you, and crosswords use it freely"
+     }
+    ],
+    "walkthrough": "The surface is one tidy hallway scene. The question mark is the warning: 'socks protecting you' has stopped describing and started instructing.",
+    "definitionFit": "Where shoes may have to be removed -> HOUSE: in many countries, and in plenty of homes anywhere, shoes come off at the front door."
+   }
   },
   {
    "id": "23-across",
@@ -433,7 +1094,29 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GYMNASIUM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GYMNASIUM",
+    "definition": "Space to work out",
+    "indicators": [
+     "anagrams"
+    ],
+    "indicatorNotes": {
+     "anagrams": "The setter names the device outright: in the surface it is a noun about puzzles, underneath it tells you the two words in front are to be respelled."
+    },
+    "anagram": {
+     "fodder": "MY AMUSING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "my amusing",
+      "gives": "GYMNASIUM",
+      "note": "these two words hold all nine letters between them"
+     }
+    ],
+    "walkthrough": "'Work out' does double duty in the surface, where it means solving the puzzles. The definition needs the other sense, the one done in trainers.",
+    "definitionFit": "Space to work out -> GYMNASIUM: the hall fitted with bars and mats where people exercise, so 'work out' is meant physically rather than mentally."
+   }
   },
   {
    "id": "23-down",
@@ -450,7 +1133,29 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLEAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GLEAN",
+    "definition": "Pick up",
+    "pieces": [
+     "G",
+     "LEAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good, as on a school report"
+     },
+     {
+      "clueFragment": "tip",
+      "gives": "LEAN",
+      "note": "to tip is to lean, the way a ladder tips against a wall"
+     }
+    ],
+    "walkthrough": "'Pick up' looks like part of the same instruction as 'tip', as though something were being lifted and tilted. It is the definition, standing on its own.",
+    "definitionFit": "Pick up -> GLEAN: to glean is to gather the stray grain left after harvest, and by extension to pick up scraps of information here and there."
+   }
   },
   {
    "id": "24-across",
@@ -467,7 +1172,29 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMULATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EMULATE",
+    "definition": "rival",
+    "pieces": [
+     "EMU",
+     "LATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast runner",
+      "gives": "EMU",
+      "note": "the Australian bird cannot fly but sprints at close to 50km/h"
+     },
+     {
+      "clueFragment": "passed",
+      "gives": "LATE",
+      "note": "the late Mr So-and-so is the one who has passed away"
+     }
+    ],
+    "walkthrough": "'Fast runner passed' reads as one athlete overtaking another, which is the whole misdirection: 'passed' is the euphemism for died, not the move on the track.",
+    "definitionFit": "rival -> EMULATE: both verbs mean to match someone by measuring yourself against them, the answer adding the sense of copying in order to do it."
+   }
   },
   {
    "id": "25-across",
@@ -484,7 +1211,32 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAURUAN",
-   "annotation": null
+   "annotation": {
+    "type": "palindrome",
+    "answer": "NAURUAN",
+    "definition": "Pacific Islander",
+    "indicators": [
+     "going east or west"
+    ],
+    "indicatorNotes": {
+     "going east or west": "East and west are the two ways an across entry can be read, and the question is which one you should use: the letters come out the same either way."
+    },
+    "pieces": [
+     "NAURUAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pacific Islander",
+      "note": "a person from one particular island republic — all the definition offers, since the wordplay has to supply the spelling"
+     },
+     {
+      "clueFragment": "going east or west",
+      "note": "start at the right-hand end and the letters arrive in exactly the order they do from the left, so the word is its own mirror"
+     }
+    ],
+    "walkthrough": "Nothing is built here and nothing is turned round to become something else — the clue simply says the word reads the same both ways, and the definition narrows the Pacific to one tiny republic.",
+    "definitionFit": "Pacific Islander -> NAURUAN: Nauru is an eight-square-mile republic in the central Pacific, so one of its citizens is exactly that."
+   }
   },
   {
    "id": "26-across",
@@ -506,7 +1258,50 @@ window.CRYPTIC_PUZZLES["indysunday-1864"] = /*JSON-START*/ {
     ]
    },
    "solution": "FEEDONESFACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "FEED ONE'S FACE",
+    "definition": "pig",
+    "indicators": [
+     "spreading"
+    ],
+    "indicatorNotes": {
+     "spreading": "What is spread is scattered loosely instead of being kept in line, so the letters of the word after it can land anywhere."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "FEE",
+     "DON",
+     "ESFACE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FAECES",
+      "gives": "ESFACE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charge",
+      "gives": "FEE",
+      "note": "the charge made for a service is its fee"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "DON",
+      "note": "a don is a fellow of an Oxford or Cambridge college, which is where the crossword's 'fellow' usually comes from"
+     },
+     {
+      "clueFragment": "faeces",
+      "gives": "ESFACE",
+      "note": "the six letters of the British spelling, reordered"
+     }
+    ],
+    "walkthrough": "The surface is the farmyard job nobody wants, and 'Charge fellow' reads as an accusation. The definition is the single verb at the end.",
+    "definitionFit": "pig -> FEED ONE'S FACE: to pig, or pig out, is to eat greedily, and the answer is the same idea drawn out as a phrase."
+   }
   }
  ]
 } /*JSON-END*/;
