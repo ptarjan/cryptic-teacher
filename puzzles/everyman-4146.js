@@ -35,7 +35,36 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASPERUSUAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "AS PER USUAL",
+    "definition": "Predictably",
+    "indicators": [
+     "sadly",
+     "start to"
+    ],
+    "indicatorNotes": {
+     "sadly": "Sadness unsettles a person, and letters described as unsettled are letters that will not stay in the order the clue prints them.",
+     "start to": "The start of a word is its opening letter, so only the U at the front of 'unclasp' joins the shuffle."
+    },
+    "anagram": {
+     "fodder": "U PURSE ALAS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "start to unclasp",
+      "gives": "U",
+      "note": "one letter, the one 'unclasp' begins with"
+     },
+     {
+      "clueFragment": "purse, alas!",
+      "gives": "PURSEALAS",
+      "note": "nine letters handed over whole, punctuation ignored, to be jumbled with that U"
+     }
+    ],
+    "walkthrough": "Two adverbs in a row at the front is the tell: one of them is the definition and the other is an instruction. 'Alas' looks like the setter sighing, and it is really fodder.",
+    "definitionFit": "Predictably → AS PER USUAL: the phrase means exactly in the way it always goes, and something that always goes that way is something you could have predicted."
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +81,33 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACHE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ACHE",
+    "definition": "a persistent pain",
+    "indicators": [],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's first word, taken at face value"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara is the crossword's standing revolutionary, and his first name is the three letters"
+     }
+    ],
+    "pieces": [
+     "A",
+     "CHE"
+    ],
+    "walkthrough": "The apostrophe-s does the joining, so 'A revolutionary's' means A plus CHE is. Guevara turns up so often that the word alone is enough to summon him.",
+    "definitionFit": "a persistent pain → ACHE: not the sharp stab of a twinge but the dull continuous kind of hurt, which is the sense 'persistent' pins down."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +124,35 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUMA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PUMA",
+    "definition": "beast",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "Most of a word is all but a little of it, and the little left off is the final letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Quiz mostly",
+      "gives": "PUM",
+      "note": "to pump somebody is to quiz them for information; three of its four letters are wanted"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own word, used as the letter it is"
+     }
+    ],
+    "pieces": [
+     "PUM",
+     "A"
+    ],
+    "walkthrough": "'Quiz' looks like the setter addressing you, and it is a synonym instead: pumping someone for facts is quizzing them.",
+    "definitionFit": "beast → PUMA: definition by class, the big cat of the Americas also known as the cougar or mountain lion, so one animal answers to the general word."
+   }
   },
   {
    "id": "3-down",
@@ -86,7 +169,29 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATIONALISE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "RATIONALISE",
+    "definition": "How to make realisation?",
+    "indicators": [
+     "How to make"
+    ],
+    "indicatorNotes": {
+     "How to make": "Asking how one word is made out of another is asking what you must do to its letters, which is an instruction to rebuild them."
+    },
+    "anagram": {
+     "fodder": "REALISATION"
+    },
+    "blocks": [
+     {
+      "clueFragment": "realisation",
+      "gives": "RATIONALISE",
+      "note": "eleven letters handed over entire and given back in a new order; nothing added, nothing dropped"
+     }
+    ],
+    "walkthrough": "Four words doing two jobs at once. Read as an instruction the clue shuffles a word; read as a description it says what the answer means, which is to reorganise something into a tidier arrangement.",
+    "definitionFit": "The whole clue reads straight: to rationalise is to reorganise something into a better arrangement, and reorganising is precisely what the clue asks you to do."
+   }
   },
   {
    "id": "4-down",
@@ -107,7 +212,36 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPINDRY",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "SPIN-DRY",
+    "definition": "Activate a kind of cycle",
+    "indicators": [
+     "to swap hands"
+    ],
+    "indicatorNotes": {
+     "to swap hands": "Left and right are the two hands, and their initials are L and R, so swapping them means one letter stands down for the other."
+    },
+    "blocks": [
+     {
+      "clueFragment": "long",
+      "gives": "SPINDLY",
+      "note": "a spindly stem is long and thin, so the adjective covers 'long'"
+     },
+     {
+      "clueFragment": "to swap hands",
+      "gives": "R",
+      "note": "the left hand's L gives way to the right hand's R"
+     }
+    ],
+    "pieces": [
+     "SPIND",
+     "R",
+     "Y"
+    ],
+    "walkthrough": "The washing machine in the surface is genuine: this is the button you press. What the clue hides is that seven of its letters arrive whole, with a single one exchanged.",
+    "definitionFit": "Activate a kind of cycle → SPIN-DRY: setting a washing machine's spin going is exactly what the verb names, so the definition describes the action rather than naming it."
+   }
   },
   {
    "id": "5-down",
@@ -124,7 +258,26 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGELIC",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ANGELIC",
+    "definition": "divine",
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "Somewhat means partly rather than wholly, so only a stretch of what is written counts, and the stretch is a run of letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Orange licorice",
+      "gives": "ANGELIC",
+      "note": "seven consecutive letters that pay no attention to the gap between the two words"
+     }
+    ],
+    "walkthrough": "A sweetshop shelf is all the surface is doing. Orange and licorice are two flavours nobody would put together, and an odd pairing of words is usually a hiding place.",
+    "definitionFit": "divine → ANGELIC: not the god sense but the heavenly-manner one, said of behaviour so good it might have come from an angel."
+   }
   },
   {
    "id": "6-across",
@@ -141,7 +294,32 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "USER",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "USER",
+    "definition": "Computer owner",
+    "indicators": [
+     "regularly"
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "indicatorNotes": {
+     "regularly": "Doing something regularly is doing it at a fixed interval, and the interval here is one letter on, one letter off, across both words."
+    },
+    "pieces": [
+     "USER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bum steer",
+      "gives": "USER",
+      "note": "count the second letter of each pair, straight through the gap, and four come out in order"
+     }
+    ],
+    "walkthrough": "A bum steer is a duff piece of advice, and the whole surface exists to make that phrase sound natural. Only one word here is an instruction.",
+    "definitionFit": "Computer owner → USER: the person who works the machine rather than the one who paid for it, which is the everyday sense of owning a computer."
+   }
   },
   {
    "id": "7-down",
@@ -162,7 +340,34 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEFFIGRAF",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STEFFI GRAF",
+    "definition": "She regularly attended court",
+    "indicators": [
+     "having broken"
+    ],
+    "indicatorNotes": {
+     "having broken": "Something broken has to be reassembled, and letters reassembled need not go back the way they came."
+    },
+    "anagram": {
+     "fodder": "GIRAFFES FT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "giraffe's",
+      "gives": "GIRAFFES",
+      "note": "eight letters, with the apostrophe counting for nothing"
+     },
+     {
+      "clueFragment": "foot",
+      "gives": "FT",
+      "note": "ft is the standard short form of foot, as in six ft tall"
+     }
+    ],
+    "walkthrough": "'Regularly' looks like an instruction to take every other letter, and it is part of the definition instead: the German won 22 grand slam singles titles, so she was on court constantly.",
+    "definitionFit": "She regularly attended court → STEFFI GRAF: the court is a tennis court rather than a royal or legal one, and hers was the dominant career of the late 1980s."
+   }
   },
   {
    "id": "8-down",
@@ -179,7 +384,39 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REMUNERATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REMUNERATE",
+    "definition": "Pay",
+    "indicators": [],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rock band",
+      "gives": "REM",
+      "note": "the Athens, Georgia group behind Losing My Religion, three letters of initials"
+     },
+     {
+      "clueFragment": "in Paris, one",
+      "gives": "UNE",
+      "note": "'one' spoken in Paris is French, and the feminine form runs to three letters"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "RATE",
+      "note": "the rate something moves at is its speed"
+     }
+    ],
+    "pieces": [
+     "REM",
+     "UNE",
+     "RATE"
+    ],
+    "walkthrough": "'Rock band in Paris' reads as one phrase, a group playing a gig abroad. The comma is doing the real work: Paris belongs to the 'one' that follows it, not to the band.",
+    "definitionFit": "Pay → REMUNERATE: the formal verb for paying somebody for work done, the one behind the remuneration package printed on a contract."
+   }
   },
   {
    "id": "9-across",
@@ -196,7 +433,37 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAMSTRINGS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HAMSTRINGS",
+    "definition": "to pull them would be painful",
+    "definitionNote": "This is a description rather than a substitutable noun: the setter names the answer by what happens when you pull one, and 'them' is what carries the plural.",
+    "indicators": [
+     "smothering"
+    ],
+    "indicatorNotes": {
+     "smothering": "To smother something is to close right over it, so one piece of the wordplay wraps completely round the other."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bad actors",
+      "gives": "HAMS",
+      "note": "a ham is the theatre's word for someone who overacts, and the plural is four letters"
+     },
+     {
+      "clueFragment": "series",
+      "gives": "STRING",
+      "note": "a string of victories is a series of them, one after another"
+     }
+    ],
+    "pieces": [
+     "HAM",
+     "STRING",
+     "S"
+    ],
+    "walkthrough": "The surface is a box-set binge, which is the trap: 'series' here is not television but a run of things, and 'bad actors' is the theatrical insult rather than villains.",
+    "definitionFit": "to pull them would be painful → HAMSTRINGS: the tendons at the back of the thigh, and tearing one is the classic sprinter's injury."
+   }
   },
   {
    "id": "10-across",
@@ -213,7 +480,30 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEAM",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TEAM",
+    "definition": "Eleven, maybe",
+    "indicators": [
+     "that's heard"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "that's heard": "What is heard is what counts, so you write down the spelling that matches the sound and not the word printed in the clue."
+    },
+    "blocks": [
+     {
+      "clueFragment": "swarm",
+      "soundsLike": "TEEM",
+      "gives": "TEAM",
+      "note": "to swarm is to teem, to be present in overwhelming numbers"
+     }
+    ],
+    "walkthrough": "An eleven is a football or cricket side, so the definition names the answer by the number it fields. 'Maybe' is the flag that a specific case is standing in for the general word.",
+    "definitionFit": "Eleven, maybe → TEAM: definition by example, since football and cricket sides field exactly eleven and the number stands in for the group itself."
+   }
   },
   {
    "id": "11-across",
@@ -235,7 +525,37 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOODCLEANFUN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "GOOD CLEAN FUN",
+    "definition": "hardly this!",
+    "definitionNote": "The setter never names the answer: 'this' points at it and 'hardly' says the canoodling of the surface is the opposite of it, so the definition works by contrast.",
+    "indicators": [
+     "most of",
+     "spreading"
+    ],
+    "indicatorNotes": {
+     "most of": "Most of a word is all but the end of it, so 'fungi' arrives one letter short.",
+     "spreading": "Something spreading loses its shape and covers new ground, and letters that lose their shape come back in a different order."
+    },
+    "anagram": {
+     "fodder": "CANOODLE FUNG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Canoodle",
+      "gives": "CANOODLE",
+      "note": "eight letters handed over entire"
+     },
+     {
+      "clueFragment": "most of fungi",
+      "gives": "FUNG",
+      "note": "'fungi' drops its last letter, leaving four to join the shuffle"
+     }
+    ],
+    "walkthrough": "The joke is the definition: canoodling is precisely what the answer is not, so the clue defines by pointing at the opposite of the word it has just anagrammed.",
+    "definitionFit": "hardly this! → GOOD CLEAN FUN: the phrase for wholesome enjoyment nobody could object to, which is what a spot of canoodling is being teased for failing to be."
+   }
   },
   {
    "id": "12-down",
@@ -252,7 +572,24 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANACHRONISM",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ANACHRONISM",
+    "definition": "Bad timing?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Bad timing?",
+      "note": "the reading the surface pushes: a remark made at the worst possible moment, or a comedian who fluffs the pause"
+     },
+     {
+      "clueFragment": "timing",
+      "note": "the reading the setter means: timing in the historical sense, a thing placed in the wrong century altogether"
+     }
+    ],
+    "walkthrough": "Two words, no separable wordplay, one pun on 'timing'. A wristwatch on a Roman centurion is bad timing in the setter's sense: the object is right, the era is wrong.",
+    "definitionFit": "Bad timing? → ANACHRONISM: something belonging to the wrong period, so the timing that has gone bad is historical rather than conversational."
+   }
   },
   {
    "id": "13-down",
@@ -273,7 +610,33 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHITEBREAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WHITE BREAD",
+    "definition": "a bloomer",
+    "indicators": [],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chess player",
+      "gives": "WHITE",
+      "note": "the two sides in chess are White and Black, and White moves first"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "BREAD",
+      "note": "slang for money since the 1930s, alongside dough"
+     }
+    ],
+    "pieces": [
+     "WHITE",
+     "BREAD"
+    ],
+    "walkthrough": "A bloomer is also a blunder, which is what 'that might be a bloomer' wants you to hear. Both halves of the wordplay are slang, one from the chessboard and one from the wallet.",
+    "definitionFit": "a bloomer → WHITE BREAD: a bloomer is a long white loaf slashed across the top, so the definition names one example of the answer, flagged by 'might be'."
+   }
   },
   {
    "id": "14-down",
@@ -290,7 +653,38 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLOUNDERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "FLOUNDERED",
+    "definition": "Stumbled",
+    "indicators": [
+     "one-third"
+    ],
+    "linkWords": [
+     "when given"
+    ],
+    "indicatorNotes": {
+     "one-third": "'Cooked' runs to six letters, so a third of it is two, and the pair taken is the tail: the -ED that makes a verb past."
+    },
+    "blocks": [
+     {
+      "clueFragment": "flatfish",
+      "gives": "FLOUNDER",
+      "note": "the flounder lies flat on the seabed with both eyes on one side"
+     },
+     {
+      "clueFragment": "one-third cooked",
+      "gives": "ED",
+      "note": "two of the six letters of 'cooked', counted from the end"
+     }
+    ],
+    "pieces": [
+     "FLOUNDER",
+     "ED"
+    ],
+    "walkthrough": "'Cooked' is the trap: everywhere else in a cryptic it would be telling you to shuffle letters, and here it is a word to be measured out in thirds.",
+    "definitionFit": "Stumbled → FLOUNDERED: to flounder is to thrash about and lose your footing, so in the past tense both words describe the same clumsy loss of balance."
+   }
   },
   {
    "id": "15-across",
@@ -307,7 +701,38 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HILLARY",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + container + outer letters",
+    "answer": "HILLARY",
+    "definition": "Adventurer going to extremes with many heights surrounding?",
+    "indicators": [
+     "going to extremes",
+     "surrounding"
+    ],
+    "indicatorNotes": {
+     "going to extremes": "The extremes of a word are its two ends, so the first and last letters are taken and everything between them is left.",
+     "surrounding": "What surrounds something sits on both sides of it, so one piece opens up and the other is set down inside."
+    },
+    "blocks": [
+     {
+      "clueFragment": "many heights",
+      "gives": "HILLY",
+      "note": "a height is an old word for a hill, and ground with many of them is hilly"
+     },
+     {
+      "clueFragment": "Adventurer going to extremes",
+      "gives": "AR",
+      "note": "the first and last letters of 'Adventurer', in that order"
+     }
+    ],
+    "pieces": [
+     "HILL",
+     "AR",
+     "Y"
+    ],
+    "walkthrough": "The whole clue works twice: the words that build the letters also describe the man, since the first to stand on Everest really did go to extremes with heights all round him.",
+    "definitionFit": "The clue reads straight as a description of the New Zealander who reached the summit of Everest in 1953, an adventurer defined by the heights he went to."
+   }
   },
   {
    "id": "16-across",
@@ -324,7 +749,27 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARGER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHARGER",
+    "definition": "It'll bring your phone back to life",
+    "definition2": "bull",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "It'll bring your phone back to life",
+      "gives": "",
+      "note": "the thing you plug in overnight to put the battery back"
+     },
+     {
+      "clueFragment": "bull",
+      "gives": "",
+      "note": "an animal that charges is one, and a bull is the beast famous for doing it"
+     }
+    ],
+    "walkthrough": "Two definitions with a joke in the join: the modern gadget and the animal both earn the same word, one because it charges a battery and the other because it charges at you.",
+    "definitionFit": "The phone sense is the everyday one; the second leans on the other verb entirely, since anything that charges can be called one, and a bull is the standard charger."
+   }
   },
   {
    "id": "17-across",
@@ -341,7 +786,45 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOURISM",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TOURISM",
+    "definition": "doing this?",
+    "indicators": [
+     "visiting"
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "indicatorNotes": {
+     "visiting": "To visit is to go inside somewhere for a while, so the letter that visits is placed within the city's letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "French city",
+      "gives": "TOURS",
+      "note": "Tours stands on the Loire and is the French city crosswords reach for most"
+     },
+     {
+      "clueFragment": "The writer",
+      "gives": "I",
+      "note": "the person writing the clue refers to himself as I"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is short for Monsieur, the French title"
+     }
+    ],
+    "pieces": [
+     "TOUR",
+     "I",
+     "S",
+     "M"
+    ],
+    "walkthrough": "'The writer' means the setter, and in a crossword the setter is I or ME. The definition then points back at the surface: what he is described as doing is the answer.",
+    "definitionFit": "doing this? → TOURISM: travelling to a foreign city to look around it is exactly the activity the word names, so the clue's own action is the definition."
+   }
   },
   {
    "id": "18-down",
@@ -358,7 +841,44 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAESTRO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MAESTRO",
+    "definition": "Top musician",
+    "indicators": [
+     "smeared"
+    ],
+    "indicatorNotes": {
+     "smeared": "Something smeared has been dragged out of shape, and letters dragged out of shape no longer sit where they were put."
+    },
+    "anagram": {
+     "fodder": "MA ROSET"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "ROSET",
+      "gives": "ESTRO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cellist",
+      "gives": "MA",
+      "note": "Yo-Yo Ma is the cellist crosswords mean, and his surname is two letters"
+     },
+     {
+      "clueFragment": "roset",
+      "gives": "ESTRO",
+      "note": "five letters coming back in a different order"
+     }
+    ],
+    "pieces": [
+     "MA",
+     "ESTRO"
+    ],
+    "walkthrough": "Roset is the rosin a player rubs on a bow, so it sits beside the cellist looking like part of the picture rather than like fodder waiting to be shuffled.",
+    "definitionFit": "Top musician → MAESTRO: Italian for master, borrowed into English for a conductor or a soloist of the very first rank."
+   }
   },
   {
    "id": "19-across",
@@ -379,7 +899,36 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATHEART",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AT HEART",
+    "definition": "Basically",
+    "indicators": [
+     "a little",
+     "scoots over"
+    ],
+    "indicatorNotes": {
+     "a little": "A little of a word is a small piece of it, and the smallest piece there is happens to be the letter it opens with.",
+     "scoots over": "To scoot over is to shift along and sit somewhere else in the row, which is what that one letter does inside the phrase."
+    },
+    "anagram": {
+     "fodder": "A THREAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a menace",
+      "gives": "ATHREAT",
+      "note": "a menace is a threat, and the clue's own 'a' comes along in front of it"
+     },
+     {
+      "clueFragment": "rascal",
+      "gives": "",
+      "note": "the R that 'rascal' begins with is the letter told to move; the word brings no letters of its own"
+     }
+    ],
+    "walkthrough": "Unusually generous fodder: the setter not only shuffles a phrase but names the single letter that shifts, so the rebuild is one small slide rather than a free-for-all.",
+    "definitionFit": "Basically → AT HEART: both adverbs mean when you strip everything else away, describing what a person or thing fundamentally is."
+   }
   },
   {
    "id": "19-down",
@@ -396,7 +945,29 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALTERED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALTERED",
+    "definition": "Modified",
+    "indicators": [
+     "wonky"
+    ],
+    "indicatorNotes": {
+     "wonky": "Something wonky is out of true and will not sit straight, and letters that will not sit straight are letters out of their proper order."
+    },
+    "anagram": {
+     "fodder": "TREADLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "treadle",
+      "gives": "ALTERED",
+      "note": "seven letters given whole, every one of them used"
+     }
+    ],
+    "walkthrough": "A treadle is the foot pedal that drives a sewing machine or a lathe, so a wonky one sounds like a repair job in the workshop rather than an instruction.",
+    "definitionFit": "Modified → ALTERED: both are past participles for changing a thing without replacing it, the word a tailor uses when taking in a jacket."
+   }
   },
   {
    "id": "20-across",
@@ -417,7 +988,27 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
     ]
    },
    "solution": "BADRECEPTION",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BAD RECEPTION",
+    "definition": "It has insufficient bars",
+    "definition2": "no bar at all",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "It has insufficient bars",
+      "gives": "",
+      "note": "the bars are the little signal-strength blocks on a phone screen"
+     },
+     {
+      "clueFragment": "no bar at all",
+      "gives": "",
+      "note": "a wedding or a party is also a reception, and the bar there is the one serving drinks"
+     }
+    ],
+    "walkthrough": "One word, two worlds. Neither half is a synonym: each describes the same failure, once in a phone signal and once at a party, and the pun lives in 'bar'.",
+    "definitionFit": "Both halves turn on the word reception: too few signal bars on a handset, or a party with no bar in sight, and either way it is a poor welcome."
+   }
   },
   {
    "id": "21-down",
@@ -434,7 +1025,30 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VEIN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "VEIN",
+    "definition": "Blood vessel",
+    "indicators": [
+     "you said"
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "indicatorNotes": {
+     "you said": "Saying a word hands over only its sound, so the spelling you write down need not be the spelling of the word meant."
+    },
+    "blocks": [
+     {
+      "clueFragment": "useless",
+      "soundsLike": "VAIN",
+      "gives": "VEIN",
+      "note": "an effort that comes to nothing is made in vain, and the two spellings are said identically"
+     }
+    ],
+    "walkthrough": "The apostrophe-s reads as 'is', joining definition to wordplay. 'Useless' is the sound to be caught, and the question mark is the setter checking you heard him.",
+    "definitionFit": "Blood vessel → VEIN: the vessels carrying blood back towards the heart, so the definition is the general class the answer belongs to."
+   }
   },
   {
    "id": "22-down",
@@ -451,7 +1065,34 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASKS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ASKS",
+    "definition": "Requests",
+    "indicators": [
+     "take no"
+    ],
+    "indicatorNotes": {
+     "take no": "To take none of something is to leave it out, so the letter standing for the next word never joins the assembly."
+    },
+    "pieces": [
+     "ASKS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jobs",
+      "gives": "TASKS",
+      "note": "jobs to be done are tasks"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time, as in a physics equation"
+     }
+    ],
+    "walkthrough": "'That will take no time' sounds like a promise the work is quick, which is the whole disguise: it is an instruction to remove the letter that stands for time.",
+    "definitionFit": "Requests → ASKS: plain synonyms as verbs, both meaning to put a question or make a request, and both third person singular."
+   }
   },
   {
    "id": "23-across",
@@ -468,7 +1109,46 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERRS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "ERRS",
+    "definition": "blunders",
+    "indicators": [
+     "introduction",
+     "first of"
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "indicatorNotes": {
+     "introduction": "An introduction is what comes at the front, so only the opening letter of the name is wanted.",
+     "first of": "Naming the first of a word asks for the letter it begins with, not the word itself."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman's introduction",
+      "gives": "E",
+      "note": "the Observer's setter signs himself Everyman, and only his opening letter is taken"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "RR is Right Reverend, the style by which a bishop is addressed"
+     },
+     {
+      "clueFragment": "first of several",
+      "gives": "S",
+      "note": "the word 'several' gives up the letter it starts with"
+     }
+    ],
+    "pieces": [
+     "E",
+     "RR",
+     "S"
+    ],
+    "walkthrough": "Setters often write themselves into their own clues, and Everyman does it here for a single letter. RR for bishop is worth keeping: it is Right Reverend, not the chess piece.",
+    "definitionFit": "blunders → ERRS: 'blunders' is the verb here, not the plural noun, and to err is to make a mistake, so both are third person singular."
+   }
   },
   {
    "id": "24-across",
@@ -485,7 +1165,32 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STURDINESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STURDINESS",
+    "definition": "lusty quality",
+    "indicators": [
+     "off"
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "indicatorNotes": {
+     "off": "Rinsing something off washes it loose from where it sat, and letters washed loose settle back in a new arrangement."
+    },
+    "anagram": {
+     "fodder": "STUD RINSES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stud rinses",
+      "gives": "STURDINESS",
+      "note": "ten letters between the two words, all of them used"
+     }
+    ],
+    "walkthrough": "The surface is a stable hand at the tap, and 'stud' plus 'rinses' happens to hold exactly the ten letters wanted, which is what makes the picture worth building.",
+    "definitionFit": "lusty quality → STURDINESS: 'lusty' in its older sense means vigorous and robust rather than lecherous, and the -ness noun is that robustness itself."
+   }
   },
   {
    "id": "25-across",
@@ -502,7 +1207,32 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DADA",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "DADA",
+    "definition": "Duchamp's / Arp's derisive avant-gardism, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "What comes primarily is what comes first, so each word in front of it gives up the letter it opens with, in order."
+    },
+    "pieces": [
+     "D",
+     "A",
+     "D",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duchamp's / Arp's derisive avant-gardism",
+      "gives": "DADA",
+      "note": "four words in a row, each handing over its opening letter"
+     }
+    ],
+    "walkthrough": "The clue defines itself: Marcel Duchamp and Jean Arp were the movement's founders, and mocking the art establishment was the point of it, so the initials describe what they spell.",
+    "definitionFit": "The whole clue reads straight as a description of the movement Duchamp and Arp led, whose derisive attacks on the art world were its founding gesture."
+   }
   },
   {
    "id": "26-across",
@@ -519,7 +1249,34 @@ window.CRYPTIC_PUZZLES["everyman-4146"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONDIMENTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CONDIMENTS",
+    "definition": "mint sauce, etc",
+    "definitionNote": "Mint sauce is one thing and the answer is a whole class of them: 'etc' is what does the pluralising, telling you to take the family the example belongs to.",
+    "indicators": [
+     "split"
+    ],
+    "linkWords": [
+     "After",
+     "for"
+    ],
+    "indicatorNotes": {
+     "split": "To split something is to break it into parts, and the parts of a pair of words are letters free to be put back in any order."
+    },
+    "anagram": {
+     "fodder": "SECOND MINT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "second, mint",
+      "gives": "CONDIMENTS",
+      "note": "ten letters across the two words, every one of them used"
+     }
+    ],
+    "walkthrough": "'Split second' reads as an instant of time, and the setter prints 'mint' twice on purpose: the first is fodder to be broken up, the second belongs to the definition.",
+    "definitionFit": "mint sauce, etc → CONDIMENTS: mint sauce is one of the things put on the table to season a meal, and 'etc' widens the example to the whole class."
+   }
   }
  ]
 } /*JSON-END*/;
