@@ -30,7 +30,44 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGROCHEMICAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "AGROCHEMICAL",
+    "definition": "pesticide, perhaps",
+    "indicators": [
+     "development of",
+     "getting into"
+    ],
+    "indicatorNotes": {
+     "development of": "Developing a site means pulling it about and putting it back another way, which is what the letters do here.",
+     "getting into": "A company that gets into something has moved inside it, so these five letters land in the middle of the rest."
+    },
+    "pieces": [
+     "AG",
+     "ROCHE",
+     "MICAL"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MAGICAL",
+      "gives": "AGMICAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "development of magical",
+      "gives": "AGMICAL",
+      "note": "seven letters reordered, then split open to take a passenger"
+     },
+     {
+      "clueFragment": "Pharma giant",
+      "gives": "ROCHE",
+      "note": "Roche of Basel is one of the world's largest drug companies"
+     }
+    ],
+    "walkthrough": "The surface sells a magic potion and the answer is the industrial reality. When a clue says 'pharma giant' it usually wants a real company's name, and that is a habit worth acquiring.",
+    "definitionFit": "A pesticide is one kind of agrochemical, the umbrella word for the chemicals farming uses, so 'perhaps' flags a definition by example."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +84,26 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRUMP",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GRUMP",
+    "definition": "Bellyache",
+    "indicators": [
+     "from"
+    ],
+    "indicatorNotes": {
+     "from": "Here the word points at a source you draw something out of, so the answer is already sitting in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "drinking rum punch",
+      "gives": "GRUMP",
+      "note": "five consecutive letters spanning the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "walkthrough": "A rum punch is a real drink, which is exactly what stops you counting letters. Hidden answers hide best inside phrases that read as ordinary English, and this one reads as a complaint about a party.",
+    "definitionFit": "Both are nouns for a moan: a bellyache is a whinge, and the answer is the sulky grumble a bad-tempered person indulges in."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +120,44 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTRACISE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "OSTRACISE",
+    "definition": "Exclude",
+    "indicators": [
+     "taking",
+     "lead in"
+    ],
+    "indicatorNotes": {
+     "taking": "One piece takes another in the sense of swallowing it, so the new letter goes inside rather than alongside.",
+     "lead in": "The lead of a word is the letter standing at its front, and dogs are led as well, which is what keeps the surface honest."
+    },
+    "pieces": [
+     "OST",
+     "RA",
+     "C",
+     "ISE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East German",
+      "gives": "OST",
+      "note": "'Ost' is simply German for east"
+     },
+     {
+      "clueFragment": "breed",
+      "gives": "RAISE",
+      "note": "a farmer who breeds animals raises them"
+     },
+     {
+      "clueFragment": "Crufts",
+      "gives": "C",
+      "note": "the leading letter of the dog show's name"
+     }
+    ],
+    "walkthrough": "'East German breed' is trying hard to look like a dog — an Alsatian, say — and Crufts, Britain's national dog show, keeps the picture going. Neither phrase is naming a breed at all.",
+    "definitionFit": "To ostracise someone is to shut them out of a group by common consent, which is precisely what excluding them means."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +174,29 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERMIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HERMIT",
+    "definition": "Someone who has quit company",
+    "indicators": [
+     "misusing"
+    ],
+    "indicatorNotes": {
+     "misusing": "To misuse a thing is to put it to the wrong job, and letters put to the wrong job come back in the wrong order."
+    },
+    "anagram": {
+     "fodder": "HRTIME"
+    },
+    "blocks": [
+     {
+      "clueFragment": "HR time",
+      "gives": "HERMIT",
+      "note": "six letters — the personnel department plus a word for a spell"
+     }
+    ],
+    "walkthrough": "'Company' is the pivot. On the surface it is the firm whose HR department is meant; in the definition it means other people's society. Note that the fodder is handed over as an abbreviation.",
+    "definitionFit": "A hermit is a recluse who has withdrawn from society altogether, so the definition names the person by what they walked away from."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +213,49 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MURDERER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + first letter",
+    "answer": "MURDERER",
+    "definition": "Gunman maybe",
+    "indicators": [
+     "spinning",
+     "start of"
+    ],
+    "indicatorNotes": {
+     "spinning": "A cylinder that spins comes round to face the other way, so those letters are read in the opposite direction.",
+     "start of": "It asks only for the letter a word begins with, never for the word itself."
+    },
+    "pieces": [
+     "MURD",
+     "ERE",
+     "R"
+    ],
+    "subReversals": [
+     {
+      "from": "DRUM",
+      "to": "MURD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barrel",
+      "gives": "MURD",
+      "note": "a barrel is a drum, and the spin turns those four letters round"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "'ere' is the old poetic word for before"
+     },
+     {
+      "clueFragment": "roulette",
+      "gives": "R",
+      "note": "the leading letter of roulette"
+     }
+    ],
+    "walkthrough": "Everything on the surface belongs to a revolver and a casino, but the barrel wanted is the wooden kind. 'Gunman maybe' is definition by example — one sort of the answer, not the only one.",
+    "definitionFit": "A gunman who kills is one instance of the wider word, which is what 'maybe' signals: the answer covers every method, not only shooting."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +272,44 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CABAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CABAL",
+    "definition": "Intriguing group",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "set up"
+    ],
+    "indicatorNotes": {
+     "set up": "In a down entry, setting something up stands it on end, so those letters climb back the way they came."
+    },
+    "pieces": [
+     "CA",
+     "BAL"
+    ],
+    "subReversals": [
+     {
+      "from": "LAB",
+      "to": "BAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "CA is the postal abbreviation for California"
+     },
+     {
+      "clueFragment": "research establishment",
+      "gives": "BAL",
+      "note": "a research establishment is a lab, stood on its head here"
+     }
+    ],
+    "walkthrough": "'Intriguing' is not the adjective it looks like. It means engaged in intrigue — plotting — rather than fascinating, and that shift is the whole of the clue.",
+    "definitionFit": "A cabal is a small group that meets in secret to scheme, so 'intriguing' carries its literal sense of plotting rather than fascinating."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +330,36 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
     ]
    },
    "solution": "LASTRITES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LAST RITES",
+    "definition": "ceremony before popping off",
+    "indicators": [
+     "hosts"
+    ],
+    "indicatorNotes": {
+     "hosts": "A host keeps guests inside the house, so one word here takes another in and closes around it."
+    },
+    "pieces": [
+     "LAS",
+     "TRITE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "LASS",
+      "note": "a lass is a girl, chiefly in northern British use"
+     },
+     {
+      "clueFragment": "banal",
+      "gives": "TRITE",
+      "note": "something banal is trite — worn out by repetition"
+     }
+    ],
+    "walkthrough": "'Popping off' is British slang for dying, so the definition reads on the surface like a send-off before somebody nips out for a moment. That misdirection is the whole clue.",
+    "definitionFit": "The last rites are the prayers a priest gives someone who is dying, so the ceremony really does come immediately before death."
+   }
   },
   {
    "id": "8-down",
@@ -158,7 +381,31 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAKEENDSMEET",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MAKE ENDS MEET",
+    "definition": "To run successful budget",
+    "indicators": [],
+    "pieces": [
+     "MAKE",
+     "ENDS",
+     "MEET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "introduce",
+      "gives": "MAKE...MEET",
+      "note": "to introduce two people is to make them meet, which supplies both outer words at once"
+     },
+     {
+      "clueFragment": "limits",
+      "gives": "ENDS",
+      "note": "the limits of anything are its ends"
+     }
+    ],
+    "walkthrough": "The question mark is doing real work: 'introduce limits' sounds like a Treasury announcement, and the definition sounds like more of the same. Both halves talk about money, which is why the seam is so hard to find.",
+    "definitionFit": "Making ends meet is the idiom for spending no more than you earn, which is exactly what running a household budget successfully amounts to."
+   }
   },
   {
    "id": "9-across",
@@ -175,7 +422,33 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHUTTER",
+    "definition": "Screen that opens",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "pieces": [
+     "SH",
+     "UTTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "'sh' is the sound you make to hush somebody"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to say something is to utter it"
+     }
+    ],
+    "walkthrough": "'Silence, say' looks like one phrase asking for an example of quiet, and it is really two separate instructions standing side by side. The comma is the setter's only warning.",
+    "definitionFit": "A shutter is the hinged panel fitted across a window, and its whole purpose is to swing open and shut — a screen that does exactly that."
+   }
   },
   {
    "id": "9-down",
@@ -192,7 +465,41 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEEPLECHASE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "STEEPLECHASE",
+    "definition": "run with water periodically",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Here the little word is an instruction rather than joinery: what comes before it is placed inside what comes after."
+    },
+    "pieces": [
+     "STEEPLE",
+     "CH",
+     "ASE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expensive",
+      "gives": "STEEP",
+      "note": "a steep price is an expensive one"
+     },
+     {
+      "clueFragment": "rental",
+      "gives": "LEASE",
+      "note": "a lease is the rental agreement on a property"
+     },
+     {
+      "clueFragment": "Taps",
+      "gives": "CH",
+      "note": "a sink has two taps, cold and hot, and those are their letters"
+     }
+    ],
+    "walkthrough": "The definition is the whole of the tail, not just 'run': the water is the jump the athletes clear once every lap. Plumbing runs right through the surface, which is what hides the pair of taps.",
+    "definitionFit": "A steeplechase is a distance race whose every lap includes a water jump, so it really is a run that meets water at regular intervals."
+   }
   },
   {
    "id": "10-across",
@@ -209,7 +516,39 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROBUSTA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ROBUSTA",
+    "definition": "coffee",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "breaks"
+    ],
+    "indicatorNotes": {
+     "breaks": "Something that breaks into a thing forces its way inside and splits it, which is where the shorter piece ends up."
+    },
+    "pieces": [
+     "RO",
+     "BUS",
+     "TA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work schedule",
+      "gives": "ROTA",
+      "note": "a rota is the British word for the list saying who works when"
+     },
+     {
+      "clueFragment": "Coach",
+      "gives": "BUS",
+      "note": "a coach is a long-distance bus"
+     }
+    ],
+    "walkthrough": "The surface is a driver's tea break and the definition is a single word at the far end. 'Coach' is capitalised only because it opens the clue, not because it is anybody's name.",
+    "definitionFit": "Robusta is one of the two species of bean the world drinks, alongside arabica, so the plain word 'coffee' names it by its kind."
+   }
   },
   {
    "id": "11-across",
@@ -226,7 +565,37 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMPHASISE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "EMPHASISE",
+    "definition": "Underline",
+    "indicators": [
+     "in report"
+    ],
+    "indicatorNotes": {
+     "in report": "Something given in report is being repeated as spoken, so what you are handed is a sound to write down some other way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "representing",
+      "gives": "FOR",
+      "note": "one thing representing another stands for it"
+     },
+     {
+      "clueFragment": "magnitude",
+      "gives": "SIZE",
+      "note": "magnitude is size — how big a thing is"
+     },
+     {
+      "clueFragment": "M representing magnitude",
+      "soundsLike": "M FOR SIZE",
+      "gives": "EMPHASISE",
+      "note": "the letter is said 'em', and the three spoken words run together into one"
+     }
+    ],
+    "walkthrough": "Nothing is anagrammed or hidden here. The clue asks you to read three words aloud and hear a fourth, and 'M for size' said at speed is the whole mechanism.",
+    "definitionFit": "Underlining a word on the page is how writing gives it extra weight, and that is precisely the job this verb names."
+   }
   },
   {
    "id": "12-across",
@@ -243,7 +612,41 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LURVE",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "LURVE",
+    "definition": "Affection, ironically",
+    "linkWords": [
+     "What"
+    ],
+    "indicators": [
+     "leads",
+     "into"
+    ],
+    "indicatorNotes": {
+     "leads": "What leads a word is the letter standing at its head, the one that goes in front of all the others.",
+     "into": "It marks a placement rather than a journey: the single letter is dropped inside the longer word."
+    },
+    "pieces": [
+     "LUR",
+     "V",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temptation",
+      "gives": "LURE",
+      "note": "a lure is the bait that tempts, so the noun and it come to the same thing"
+     },
+     {
+      "clueFragment": "Veronica",
+      "gives": "V",
+      "note": "the leading letter of the name"
+     }
+    ],
+    "walkthrough": "The clue borrows the Lord's Prayer for its surface — lead us not into temptation — and the question mark owns up to the borrowing. 'Ironically' is the setter admitting the spelling is a joke.",
+    "definitionFit": "The answer is the deliberately gushy, over-sung spelling of love, so it means affection while the misspelling supplies the irony the clue admits to."
+   }
   },
   {
    "id": "13-across",
@@ -260,7 +663,29 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PASTIS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PASTIS",
+    "definition": "aperitif",
+    "indicators": [
+     "Doctor"
+    ],
+    "indicatorNotes": {
+     "Doctor": "To doctor something is to tamper with it, and letters tampered with come back rearranged."
+    },
+    "anagram": {
+     "fodder": "SIPSAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "sips at",
+      "gives": "PASTIS",
+      "note": "six letters, taken from the two words and reordered"
+     }
+    ],
+    "walkthrough": "'Doctor sips' reads as a sentence about a medic having a drink, which is the neatest kind of anagram surface: indicator and fodder disguised as subject and verb.",
+    "definitionFit": "Pastis is the aniseed spirit drunk before dinner in the south of France, which is exactly the job an aperitif does."
+   }
   },
   {
    "id": "14-down",
@@ -277,7 +702,24 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SQUATTERS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SQUATTERS",
+    "definition": "Wicket-keepers perhaps, who can be difficult to get out?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Wicket-keepers perhaps",
+      "note": "the surface is cricket, where the keeper crouches behind the stumps all day; but a wicket is also a small gate, and the people who keep one are not fielders"
+     },
+     {
+      "clueFragment": "who can be difficult to get out?",
+      "note": "in cricket getting someone out means dismissing the batter; in a building it means eviction, and the law makes that slow"
+     }
+    ],
+    "walkthrough": "There is no wordplay to unpick here, only two readings of one sentence. Move it off the cricket field and into an empty house and every word in it changes job.",
+    "definitionFit": "People who move into an empty property without permission crouch on ground that is not theirs and are notoriously slow to evict — both readings at once."
+   }
   },
   {
    "id": "15-across",
@@ -294,7 +736,41 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEIGHTEN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HEIGHTEN",
+    "definition": "Intensify",
+    "indicators": [
+     "using"
+    ],
+    "indicatorNotes": {
+     "using": "A word that uses another has it in hand, so the shorter piece is held inside the longer one."
+    },
+    "pieces": [
+     "H",
+     "EIGHT",
+     "EN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is the chicken of the henhouse, the female bird"
+     },
+     {
+      "clueFragment": "cube",
+      "gives": "EIGHT",
+      "note": "two cubed — a cube here is arithmetic, not a shape"
+     },
+     {
+      "clueFragment": "stock",
+      "gives": "",
+      "note": "surface only: it welds the cube and the chicken into a kitchen ingredient, and contributes no letters"
+     }
+    ],
+    "walkthrough": "A chicken stock cube is exactly the picture the setter wants in your head, and 'stock' is the one word in the clue with no job to do beyond painting it.",
+    "definitionFit": "To heighten a feeling is to raise its pitch, which is what intensifying does — the word survives mostly in this figurative sense rather than about physical height."
+   }
   },
   {
    "id": "16-down",
@@ -315,7 +791,38 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
     ]
    },
    "solution": "GREYSEALS",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram + last letter",
+    "answer": "GREY SEALS",
+    "definition": "These perhaps disturbed eelgrass catching prey finally",
+    "indicators": [
+     "disturbed",
+     "catching",
+     "finally"
+    ],
+    "indicatorNotes": {
+     "disturbed": "Seagrass that has been disturbed is churned up and no longer lying as it was, which is what happens to these letters.",
+     "catching": "A thing catching something has taken it in, so an extra letter joins the pile being churned about.",
+     "finally": "It asks for the last letter of the word in front of it, the one that comes at the finish."
+    },
+    "anagram": {
+     "fodder": "EELGRASSY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "eelgrass",
+      "gives": "EELGRASS",
+      "note": "eight letters of seagrass, waiting to be reordered"
+     },
+     {
+      "clueFragment": "prey",
+      "gives": "Y",
+      "note": "the last letter of the word, added to the shuffle"
+     }
+    ],
+    "walkthrough": "Read straight, the sentence describes real animals foraging in a seagrass bed; read as instructions, the same words build the answer. Doing both at once is what makes a clue an &lit.",
+    "definitionFit": "The whole sentence reads straight as a description of the animals: they really do churn up seagrass beds while hunting fish, and 'these perhaps' points at them."
+   }
   },
   {
    "id": "17-down",
@@ -336,7 +843,36 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
     ]
    },
    "solution": "FINEARTS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FINE ARTS",
+    "definition": "Royal Academy's area",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "One word goes round the other like a coat, so the shorter piece ends up in the middle of the longer."
+    },
+    "pieces": [
+     "FI",
+     "NEAR",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tailors",
+      "gives": "FITS",
+      "note": "a garment that has been tailored fits, and the verb works the same way"
+     },
+     {
+      "clueFragment": "close to",
+      "gives": "NEAR",
+      "note": "close to something is near it"
+     }
+    ],
+    "walkthrough": "The Royal Academy of Arts is the London institution whose summer exhibition fills its walls with painting and sculpture, so the definition is pointing at a discipline rather than a place.",
+    "definitionFit": "The fine arts are painting, sculpture and their relatives — the disciplines a Royal Academy exists to exhibit and teach, so this really is its field."
+   }
   },
   {
    "id": "18-across",
@@ -358,7 +894,26 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
     ]
    },
    "solution": "EAUDENIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EAU DE NIL",
+    "definition": "Pale green",
+    "indicators": [
+     "used by"
+    ],
+    "indicatorNotes": {
+     "used by": "A colour used by something is being carried around inside it, so the letters are already sitting in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "teenage Auden illegibly",
+      "gives": "EAU DE NIL",
+      "note": "eight unbroken letters, running from the end of the first word straight through the second and into the third"
+     }
+    ],
+    "walkthrough": "'Illegibly' is planted to look like an anagram instruction, and it cannot be one — its own letters are part of what is being concealed. The poet's name sits in the middle untouched.",
+    "definitionFit": "Eau de nil is French for 'water of the Nile', the soft grey-green shade decorators and dressmakers have been using for a century."
+   }
   },
   {
    "id": "19-across",
@@ -375,7 +930,37 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CENSUS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CENSUS",
+    "definition": "checking who's in the country",
+    "indicators": [
+     "On the radio"
+    ],
+    "indicatorNotes": {
+     "On the radio": "What comes over the air is heard and never seen, so the clue is describing a sound and leaving you to spell it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "maybe hear",
+      "gives": "SENSE",
+      "note": "hearing is one of the five senses, which is what 'maybe' flags"
+     },
+     {
+      "clueFragment": "America's",
+      "gives": "US",
+      "note": "US is the everyday abbreviation for America"
+     },
+     {
+      "clueFragment": "maybe hear America's",
+      "soundsLike": "SENSE US",
+      "gives": "CENSUS",
+      "note": "the two words said one after the other make a single spoken word"
+     }
+    ],
+    "walkthrough": "The apostrophe-s does two jobs at once: it makes 'America's' possessive on the surface, and it carries the verb 'is' in the reading that matters. Everything after it is the definition.",
+    "definitionFit": "A census is the official head-count of everyone resident, so it is precisely the exercise of checking who is in a country at a given moment."
+   }
   },
   {
    "id": "20-down",
@@ -392,7 +977,36 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIERRA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SIERRA",
+    "definition": "Car",
+    "indicators": [
+     "botched",
+     "with loss of"
+    ],
+    "indicatorNotes": {
+     "botched": "A botched job has come out wrong and misshapen, which is what happens to letters put back in the wrong order.",
+     "with loss of": "It marks a letter that leaves before the shuffling starts, rather than one joining in."
+    },
+    "anagram": {
+     "fodder": "REAIRS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power, and it is dropped before anything else happens"
+     },
+     {
+      "clueFragment": "repairs",
+      "gives": "SIERRA",
+      "note": "the seven letters minus that one, rearranged into six"
+     }
+    ],
+    "walkthrough": "The Ford Sierra was the family car on every British driveway in the 1980s, so 'Car' defines it by example. The surface reads as a botched repair that cost the engine its power.",
+    "definitionFit": "The Sierra was a Ford model sold in Britain for a decade, so the general word 'Car' points at it as one instance."
+   }
   },
   {
    "id": "21-across",
@@ -409,7 +1023,27 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HATCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HATCH",
+    "definition": "Leave egg",
+    "definition2": "where food is served",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Leave egg",
+      "gives": "HATCH",
+      "note": "what a chick does when it breaks out of the shell"
+     },
+     {
+      "clueFragment": "where food is served",
+      "gives": "HATCH",
+      "note": "the opening in a wall between kitchen and dining room, with a shelf for the plates"
+     }
+    ],
+    "walkthrough": "Two senses that share nothing but a spelling, in a clue five words long with no joinery at all, so the only question worth asking is where the seam falls.",
+    "definitionFit": "One sense is the chick breaking out of its shell; the other is the serving hatch, that opening between a kitchen and the room next door."
+   }
   },
   {
    "id": "22-down",
@@ -426,7 +1060,41 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOTEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "HOTEL",
+    "definition": "tiny building on Park Lane?",
+    "indicators": [
+     "put up"
+    ],
+    "indicatorNotes": {
+     "put up": "In a down entry, putting something up sends it back the way it came, so the assembled letters are read from the bottom."
+    },
+    "pieces": [
+     "HO",
+     "TEL"
+    ],
+    "subReversals": [
+     {
+      "from": "LETOH",
+      "to": "HOTEL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permit",
+      "gives": "LET",
+      "note": "to let a flat is to permit its use for rent"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "OH",
+      "note": "'oh' is the noise of understanding, the spoken form of 'I see'"
+     }
+    ],
+    "walkthrough": "Park Lane is the dark-blue square at the expensive end of the British Monopoly board, and what you put on it is a small plastic block — which is what makes 'tiny building' fair.",
+    "definitionFit": "In Monopoly you buy houses and then a hotel for a square like Park Lane, so the answer really is a tiny building placed there."
+   }
   },
   {
    "id": "23-across",
@@ -447,7 +1115,49 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
     ]
    },
    "solution": "ERIKSATIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal",
+    "answer": "ERIK SATIE",
+    "definition": "French composer",
+    "indicators": [
+     "recalled",
+     "in"
+    ],
+    "indicatorNotes": {
+     "recalled": "To recall a thing is to call it back, and letters called back are read the other way round.",
+     "in": "It puts what comes before it inside what comes after, rather than merely joining the two together."
+    },
+    "pieces": [
+     "ERI",
+     "KSATI",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "EITASKIRE",
+      "to": "ERIKSATIE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ireland",
+      "gives": "EIRE",
+      "note": "Eire is the Irish name for the Republic, and it opens up to take the rest"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the map abbreviation for island"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "TASK",
+      "note": "a job you are given to do is a task"
+     }
+    ],
+    "walkthrough": "The pieces are assembled the right way round and only then turned over, which is why no part of the answer looks like any of them. Satie is the composer of the Gymnopedies.",
+    "definitionFit": "Erik Satie wrote the Gymnopedies, so the definition names only a nationality and a trade and leaves you to supply the man."
+   }
   },
   {
    "id": "24-down",
@@ -464,7 +1174,41 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TEMPI",
+    "definition": "rates",
+    "indicators": [
+     "raised"
+    ],
+    "indicatorNotes": {
+     "raised": "A down entry that is raised reads from the bottom upwards, so those letters arrive in the opposite order."
+    },
+    "pieces": [
+     "TEM",
+     "PI"
+    ],
+    "subReversals": [
+     {
+      "from": "MET",
+      "to": "TEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police force",
+      "gives": "TEM",
+      "note": "the Met is London's Metropolitan Police, stood on its head here"
+     },
+     {
+      "clueFragment": "detective's",
+      "gives": "PI",
+      "note": "a PI is a private investigator, the detective for hire"
+     }
+    ],
+    "walkthrough": "'Rates' means speeds here rather than charges, and the surface is pretending to be about pay. The answer is the Italian plural of tempo, which is why it ends the way it does.",
+    "definitionFit": "Tempi are the speeds at which pieces of music are played, and a speed is a rate — the Italian plural of tempo, kept whole in English."
+   }
   },
   {
    "id": "25-across",
@@ -481,7 +1225,41 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWELTER",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "SWELTER",
+    "definition": "are too hot",
+    "indicators": [
+     "changing"
+    ],
+    "indicatorNotes": {
+     "changing": "Changing one thing for another is a swap, so a letter here is not removed but replaced by a different one."
+    },
+    "pieces": [
+     "S",
+     "W",
+     "ELTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tent, perhaps",
+      "gives": "SHELTER",
+      "note": "a tent is one kind of shelter, which is what 'perhaps' is flagging"
+     },
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband, and it is the letter that goes"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife, and it takes the vacated place"
+     }
+    ],
+    "walkthrough": "Getting changed in a tent is a whole camping holiday in four words, and it conceals an instruction to swap one letter for another. Both letters are the crossword's usual shorthand for the two people.",
+    "definitionFit": "To swelter is to suffer oppressive heat, so the phrase describes people in exactly the state this verb names."
+   }
   },
   {
    "id": "26-across",
@@ -498,7 +1276,33 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "READMIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "READMIT",
+    "definition": "Let back in",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [],
+    "pieces": [
+     "READ",
+     "MIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lecture",
+      "gives": "READ",
+      "note": "to read a paper to an audience is to deliver it, the old sense of lecturing"
+     },
+     {
+      "clueFragment": "American uni",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology, known everywhere by its initials"
+     }
+    ],
+    "walkthrough": "'Let back in' opens the clue, which is the awkward place for a definition and the reason it reads as part of the story. Nothing is reversed here despite the word 'back'.",
+    "definitionFit": "To readmit somebody is to let them in again after they have been turned out, the RE- prefix carrying the sense of going back."
+   }
   },
   {
    "id": "27-across",
@@ -515,7 +1319,29 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SALESMANSHIP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SALESMANSHIP",
+    "definition": "marketing art",
+    "indicators": [
+     "Mincing"
+    ],
+    "indicatorNotes": {
+     "Mincing": "Mincing chops a thing into small pieces which are then pressed back together in a new shape."
+    },
+    "anagram": {
+     "fodder": "SPANISHMALES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Spanish males",
+      "gives": "SALESMANSHIP",
+      "note": "twelve letters, taken from the two words and reordered"
+     }
+    ],
+    "walkthrough": "'Mincing' is placed to describe how the Spanish males walk rather than what becomes of their letters, which is the oldest trick in the anagram book and still a good one.",
+    "definitionFit": "Salesmanship is the skill of persuading people to buy, which is what marketing is an art of — the noun names the craft, not the trade."
+   }
   }
  ]
 } /*JSON-END*/;
