@@ -9,6 +9,10 @@ Usage:
                                                  # of one series (default cryptic) ending at
                                                  # the newest; skips ones already on disk and
                                                  # 404s; ~1s delay per request
+  python3 tools/fetch_puzzle.py --extend [N] [series]
+                                                 # the same walk in the other direction: N
+                                                 # puzzles OLDER than the oldest we hold.
+                                                 # Where more annotation work comes from.
   python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
                                                  # from the puzzle files already on disk
   python3 tools/fetch_puzzle.py --refresh-unsolved  # re-fetch puzzles still missing
@@ -515,16 +519,16 @@ def fetch_number(num):
     return puzzle, is_new
 
 
-def backfill(count, series="cryptic"):
-    """Fetch the last `count` puzzles of one series ending at the newest,
-    skipping ones we already have. Guardian numbers are sequential within a
-    series; some may be missing (404) — skip those gracefully. Polite ~1s delay
-    between requests."""
-    latest = find_latest_number(series)
+def walk(numbers, series, what="backfill"):
+    """Fetch each number in turn, skipping what's on disk and what 404s.
+
+    Guardian numbers are sequential within a series but not gapless, so a
+    missing one is normal and must not stop the walk. Polite ~1s delay per
+    request, paid only for numbers actually requested. Returns how many arrived.
+    """
     fetched, skipped, missing = 0, 0, 0
-    for num in range(latest, latest - count, -1):
-        path = puzzle_path(series, num)
-        if path.exists():
+    for num in numbers:
+        if puzzle_path(series, num).exists():
             skipped += 1
             continue
         try:
@@ -538,7 +542,39 @@ def backfill(count, series="cryptic"):
             missing += 1
         time.sleep(1)
     reindex()
-    print(f"backfill done: {fetched} fetched, {skipped} already present, {missing} unavailable")
+    print(f"{what} done: {fetched} fetched, {skipped} already present, "
+          f"{missing} unavailable")
+    return fetched
+
+
+def on_disk_numbers(series):
+    """Every number of `series` we hold, read off the file names."""
+    prefix = f"{series}-"
+    return sorted(int(p.stem[len(prefix):]) for p in puzzle_files()
+                  if p.stem.startswith(prefix) and p.stem[len(prefix):].isdigit())
+
+
+def backfill(count, series="cryptic"):
+    """Fetch the last `count` puzzles of one series ending at the newest,
+    skipping ones we already have."""
+    latest = find_latest_number(series)
+    return walk(range(latest, latest - count, -1), series)
+
+
+def extend(count, series="cryptic"):
+    """Fetch `count` puzzles of one series OLDER than the oldest we hold.
+
+    backfill's counterpart, and the one the annotation queue needs. backfill
+    anchors at the newest, so on a deep archive it spends the run recognising
+    files we already have and can never reach past the far end. The papers
+    publish four or five a day between them and a good night annotates far more
+    than that, so older is the only direction more work comes from.
+    """
+    have = on_disk_numbers(series)
+    if not have:
+        return backfill(count, series)
+    oldest = min(have)
+    return walk(range(oldest - 1, max(oldest - 1 - count, 0), -1), series, "extend")
 
 
 def refresh_unsolved():
@@ -625,6 +661,16 @@ def main(argv):
             raise SystemExit(f"{series} is no longer published here — use "
                              f"{GUARDIAN_SERIES[series]['moved_to']}")
         backfill(count, series)
+        return 0
+    if argv[0] == "--extend":
+        count = int(argv[1]) if len(argv) > 1 else 30
+        series = argv[2] if len(argv) > 2 else "cryptic"
+        if series not in GUARDIAN_SERIES:
+            raise SystemExit(f"Unknown series {series!r}; try {'/'.join(FETCHABLE)}")
+        if GUARDIAN_SERIES[series].get("moved_to"):
+            raise SystemExit(f"{series} is no longer published here — use "
+                             f"{GUARDIAN_SERIES[series]['moved_to']}")
+        extend(count, series)
         return 0
     if argv[0] == "--latest":
         # Every series, not just the cryptic. A per-series loop rather than one
