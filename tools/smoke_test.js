@@ -2038,6 +2038,14 @@ registry["reset-puzzle"].onclick();
     "tools/build_seo_pages.py reads clueMissing — the puzzle page has to tell a blank "
     + "clue apart from an unwritten one, same as app.js");
 
+  // Both renderers, and the re-fetch that would otherwise drop the note.
+  const fetcher = fs.readFileSync(path.join(ROOT, "tools", "fetch_puzzle.py"), "utf8");
+  ["app.js", "tools/build_seo_pages.py", "tools/fetch_puzzle.py"].forEach((f, i) => {
+    assert(/clueMissingNote/.test([src, seo, fetcher][i]),
+      `${f} drops clueMissingNote — a blank clue still has a reason it gives its `
+      + "answer, and only a person can write it, so nothing may silently discard it");
+  });
+
   const hasWords = (clue) => /[a-zA-Z0-9]/.test(clue.replace(/\([\d,\-. ]*\)/g, ""));
   const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
   const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
@@ -2051,6 +2059,8 @@ registry["reset-puzzle"].onclick();
         `${puz.id} ${e.id}: clueMissing disagrees with the clue text — ${JSON.stringify(e.clue)}`);
       assert(!(e.clueMissing && e.annotation),
         `${puz.id} ${e.id}: annotated a clue with no words in it — that explanation was invented`);
+      assert(!(e.clueMissingNote && !e.clueMissing),
+        `${puz.id} ${e.id}: clueMissingNote on a clue that has words — it renders nowhere`);
     });
     // The re-spend is the bug, and this is where it would come back: a puzzle
     // whose only gaps are blank clues has to count as done, or it sits in the

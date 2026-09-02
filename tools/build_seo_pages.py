@@ -332,11 +332,16 @@ def clue_html(e):
         # promises a ladder that is coming; a clue the paper printed blank has
         # no ladder ever, because there is no clue. Say which, or the reader
         # hunts the grid for wordplay that was never printed.
+        # A blank clue printed on purpose still yields its answer. Without the
+        # reason the page shows an answer and no way to get to it, so the
+        # hand-written clueMissingNote carries it; the annotation queue never
+        # writes one, having no words to read.
         bits.append(
-            '<p class="s-todo muted">The paper published this clue with no text in it — '
-            'the space beside the number came through empty, so there&rsquo;s nothing here '
-            'to solve and no wordplay to explain. Not your eyes. '
-            'The answer above is the one the paper printed.</p>'
+            '<p class="s-todo muted">The paper printed this clue blank — no words at all. '
+            'Not your eyes. '
+            + (esc(e["clueMissingNote"]) if e.get("clueMissingNote")
+               else "Nothing was left to solve with, so there is no wordplay to explain.")
+            + '</p>'
             if e.get("clueMissing") else
             '<p class="s-todo muted">Not yet annotated — '
             'the full hint ladder for this puzzle is still being written.</p>')

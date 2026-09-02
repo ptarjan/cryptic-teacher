@@ -570,6 +570,7 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    "length": 7,
    "clue": "  (7)",
    "clueMissing": true,
+   "clueMissingNote": "The blank is the clue. Take a clue's words away and one thing is still pointing at the answer: the number it sits at. This one is 12 — and twelve o'clock is the middle of the day.",
    "group": [
     "12-across"
    ],
