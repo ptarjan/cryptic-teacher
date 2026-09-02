@@ -30,7 +30,35 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WINEGLASS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WINEGLASS",
+    "definition": "Temporary vintage carrier",
+    "pieces": [
+     "WIN",
+     "EG",
+     "LASS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bag",
+      "gives": "WIN",
+      "note": "to bag a prize is to win it, the verb rather than the shopping bag of the surface"
+     },
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "'for one' is how a clue says e.g., the abbreviation for 'for example'"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "LASS",
+      "note": "a lass is a girl, chiefly in northern English"
+     }
+    ],
+    "walkthrough": "Three everyday words, none of them meaning what the sentence about shopping wants them to mean, and no instruction between them beyond laying them end to end.",
+    "definitionFit": "Temporary vintage carrier -> WINEGLASS: it holds a measure of wine only until you drink it, with 'vintage' standing in for the wine itself."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +79,47 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "WARDSOFF",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "WARDS OFF",
+    "definition": "repels",
+    "indicators": [
+     "reversed"
+    ],
+    "indicatorNotes": {
+     "reversed": "A word reversed is written from its final letter back to its first, so the pull named beside this runs the other way."
+    },
+    "pieces": [
+     "WARD",
+     "SO",
+     "FF"
+    ],
+    "subReversals": [
+     {
+      "from": "DRAW",
+      "to": "WARD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magnetism reversed",
+      "gives": "WARD",
+      "note": "magnetism is a DRAW, the pull one thing exerts on another, and it is turned round here"
+     },
+     {
+      "clueFragment": "like that",
+      "gives": "SO",
+      "note": "'so' means 'like that' in a sentence: he did it so, meaning in that manner"
+     },
+     {
+      "clueFragment": "very strongly",
+      "gives": "FF",
+      "note": "FF is fortissimo, the score's instruction to play very loudly"
+     }
+    ],
+    "walkthrough": "Magnetism attracts, which is the trap the first word sets; the clue only wants that attraction so it can turn it round into its opposite.",
+    "definitionFit": "repels -> WARDS OFF: to ward something off is to keep it at a distance, the everyday phrase for driving away whatever is coming at you."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +140,42 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONDAIRY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "NON-DAIRY",
+    "definition": "suiting vegans",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "A thing set about something else has closed round it, so the letter named next is planted inside the word before rather than added on."
+    },
+    "pieces": [
+     "NO",
+     "N",
+     "D",
+     "AIRY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "gives": "NOD",
+      "note": "to nod is to agree without saying anything, and this word opens up to take a letter"
+     },
+     {
+      "clueFragment": "Norway",
+      "gives": "N",
+      "note": "N is Norway's international vehicle code, the letter carried on cars registered there"
+     },
+     {
+      "clueFragment": "offhand",
+      "gives": "AIRY",
+      "note": "an airy remark is offhand — light, casual and unbothered"
+     }
+    ],
+    "walkthrough": "Read as English, 'Agree offhand' is one idea; the clue needs it as two separate words doing separate jobs, which is the seam the surface hides.",
+    "definitionFit": "suiting vegans -> NON-DAIRY: made without milk, butter or cream, so it clears the biggest hurdle a vegan diet sets, though not the only one."
+   }
   },
   {
    "id": "3-down",
@@ -93,7 +196,48 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "GEOFFREYBOYCOTT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "GEOFFREY BOYCOTT",
+    "definition": "old bat",
+    "indicators": [
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "wearing": "What you wear goes on the outside of you, so the word after this is the coat and the letters named before it sit inside it."
+    },
+    "pieces": [
+     "G",
+     "E",
+     "OFF",
+     "REY",
+     "BOYCOTT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grey",
+      "gives": "GREY",
+      "note": "the plain word, opened up after its first letter to take what the clue puts inside"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "OFF",
+      "note": "a cricket field divides into the off side and the leg side, and the off is the half the batter faces"
+     },
+     {
+      "clueFragment": "refuse to use",
+      "gives": "BOYCOTT",
+      "note": "to boycott something is to refuse to use it, after an Irish land agent his neighbours cut off"
+     }
+    ],
+    "walkthrough": "'Old bat' is normally an insult aimed at an elderly woman, and here it means a batsman long retired, which is the whole joke of the clue.",
+    "definitionFit": "old bat -> GEOFFREY BOYCOTT: England's famously obdurate opening batsman of the 1960s and 70s, so 'bat' means the player and 'old' the retired one."
+   }
   },
   {
    "id": "4-down",
@@ -110,7 +254,44 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APHID",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "APHID",
+    "definition": "Pest",
+    "indicators": [
+     "turned up"
+    ],
+    "indicatorNotes": {
+     "turned up": "In a down entry, up runs back towards the first square, so the two letters named next are written the other way round."
+    },
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "AP",
+     "HID"
+    ],
+    "subReversals": [
+     {
+      "from": "PA",
+      "to": "AP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every year",
+      "gives": "AP",
+      "note": "per annum is Latin for every year and shortens to PA, which climbs the entry here"
+     },
+     {
+      "clueFragment": "disappeared",
+      "gives": "HID",
+      "note": "something that hid has disappeared from view, and the past tense matches"
+     }
+    ],
+    "walkthrough": "'Turned up' reads as arriving, which is what makes the sentence about an insect work; in the wordplay it is an instruction about direction.",
+    "definitionFit": "Pest -> APHID: greenfly and blackfly are aphids, the sap-sucking insects gardeners treat as the classic garden pest, so this defines by example."
+   }
   },
   {
    "id": "5-down",
@@ -133,7 +314,36 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SYMPHONIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SYMPHONIC",
+    "definition": "for orchestra",
+    "indicators": [
+     "Bit of",
+     "arranged"
+    ],
+    "indicatorNotes": {
+     "Bit of": "A bit of a word is the smallest piece you can break off the front of it, which is its opening letter.",
+     "arranged": "Music is arranged by rewriting it for other forces, and letters rearranged the same way land in a fresh order."
+    },
+    "anagram": {
+     "fodder": "M IN PSYCHO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bit of music",
+      "gives": "M",
+      "note": "the opening letter of music, and the only part of the word wanted"
+     },
+     {
+      "clueFragment": "in Psycho",
+      "gives": "INPSYCHO",
+      "note": "eight more letters of fodder, taken from the film's title along with the word in front of it"
+     }
+    ],
+    "walkthrough": "Psycho is italicised because it is Hitchcock's title; those shrieking violins are a fine decoy, since all the clue wants from the film is its letters.",
+    "definitionFit": "for orchestra -> SYMPHONIC: written for the full orchestral forces a symphony calls on, so the adjective describes music on that scale."
+   }
   },
   {
    "id": "6-across",
@@ -150,7 +360,36 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WIELD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WIELD",
+    "definition": "Handle",
+    "indicators": [
+     "through"
+    ],
+    "indicatorNotes": {
+     "through": "A current running through something passes inside it, so the letter named goes between the letters of the word beside it."
+    },
+    "pieces": [
+     "W",
+     "I",
+     "ELD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuse",
+      "gives": "WELD",
+      "note": "to fuse two pieces of metal is to weld them, and this word splits after its first letter"
+     },
+     {
+      "clueFragment": "electric current",
+      "gives": "I",
+      "note": "I is the physicist's symbol for electric current, from the French intensité"
+     }
+    ],
+    "walkthrough": "'Handle' is the definition and it is a verb — to handle a sword — not the part you grip, which is what the fusebox picture wants you to think.",
+    "definitionFit": "Handle -> WIELD: to wield a tool or a weapon is to handle it with control and purpose, the verb sense rather than the noun."
+   }
   },
   {
    "id": "6-down",
@@ -171,7 +410,41 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "WITHOUTCEREMONY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "WITHOUT CEREMONY",
+    "definition": "Informally",
+    "indicators": [
+     "turning"
+    ],
+    "indicatorNotes": {
+     "turning": "Something turning is being moved round into a new position, and letters moved round come out in a different order."
+    },
+    "pieces": [
+     "WI",
+     "THOUTCEREMONY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MORETOCHUTNEY",
+      "gives": "THOUTCEREMONY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jam makers",
+      "gives": "WI",
+      "note": "the Women's Institute, the British village organisation famous for making and selling jam"
+     },
+     {
+      "clueFragment": "more to chutney",
+      "gives": "THOUTCEREMONY",
+      "note": "thirteen letters of fodder, which with the two above make the fifteen the enumeration wants"
+     }
+    ],
+    "walkthrough": "Once the preserves stall stops being the subject, the definition turns out to be the single word at the front, easy to read as part of the sentence.",
+    "definitionFit": "Informally -> WITHOUT CEREMONY: stripped of the formalities that would normally attend it, with a hint of brusqueness the plainer word lacks."
+   }
   },
   {
    "id": "7-down",
@@ -188,7 +461,26 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELIXIR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ELIXIR",
+    "definition": "magic potion",
+    "indicators": [
+     "imbued with"
+    ],
+    "indicatorNotes": {
+     "imbued with": "Something imbued with a substance has it running right through, so the letters wanted are lying inside the words before this."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Obelix irreversibly",
+      "gives": "ELIXIR",
+      "note": "six letters in a row, running out of the end of the name and on into the word beside it"
+     }
+    ],
+    "walkthrough": "Obelix fell into the cauldron as a baby in the Asterix books, so the surface is a joke about him and the letters need no more than a careful reading.",
+    "definitionFit": "magic potion -> ELIXIR: the alchemists' elixir was the draught that cured every ill or granted long life, which is a magic potion exactly."
+   }
   },
   {
    "id": "8-down",
@@ -205,7 +497,40 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIGEST",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "DIGEST",
+    "definition": "summarised version",
+    "indicators": [
+     "you hear"
+    ],
+    "indicatorNotes": {
+     "you hear": "What you hear is what is spoken, so the words before this are to be said aloud and then written down some other way."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass on",
+      "gives": "DIE",
+      "note": "to pass on is to die, the gentle way of saying it"
+     },
+     {
+      "clueFragment": "joke",
+      "gives": "JEST",
+      "note": "a jest is a joke, the older word for one"
+     },
+     {
+      "clueFragment": "Pass on joke",
+      "soundsLike": "DIE JEST",
+      "gives": "DIGEST",
+      "note": "said at any speed the two short words run together into one, and the spelling shifts as they join"
+     }
+    ],
+    "walkthrough": "Nothing is shuffled or buried here: the clue asks you to say two words one after another and write down the single word you hear.",
+    "definitionFit": "summarised version -> DIGEST: a digest is a condensed account of something longer — Reader's Digest is the famous one — boiled down to its substance."
+   }
   },
   {
    "id": "9-across",
@@ -222,7 +547,41 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RONDO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "RONDO",
+    "definition": "Movement",
+    "indicators": [
+     "guards"
+    ],
+    "indicatorNotes": {
+     "guards": "A guard stands around whatever it protects, so the letters named either side close over the word that follows."
+    },
+    "pieces": [
+     "R",
+     "ON",
+     "DO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for a Republican in American politics"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "ON",
+      "note": "to lean on something is to lean against it, so the two share that sense"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party — a works do, a birthday do"
+     }
+    ],
+    "walkthrough": "'Republican party' reads as one phrase and the clue needs it as two words doing separate jobs, which is the commonest way a surface hides a split.",
+    "definitionFit": "Movement -> RONDO: a self-contained movement of a sonata or concerto, the one whose opening tune keeps returning between the episodes."
+   }
   },
   {
    "id": "10-across",
@@ -239,7 +598,29 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAMSTRING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HAMSTRING",
+    "definition": "Lame",
+    "indicators": [
+     "to jog"
+    ],
+    "indicatorNotes": {
+     "to jog": "To jog something is to knock it out of place, and letters knocked out of place settle back in another order."
+    },
+    "anagram": {
+     "fodder": "MAN'S RIGHT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "man's right",
+      "gives": "MANSRIGHT",
+      "note": "nine letters of fodder, exactly the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Lame' is doing duty as a verb, and 'right' is not the crossword's usual single letter R here — every one of its letters is wanted.",
+    "definitionFit": "Lame -> HAMSTRING: to hamstring is to cut the tendon behind the knee and cripple, so it means to lame in the literal sense before the figurative one."
+   }
   },
   {
    "id": "11-across",
@@ -256,7 +637,29 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCARFED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCARFED",
+    "definition": "covered around his neck",
+    "pieces": [
+     "SCAR",
+     "FED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "SCAR",
+      "note": "a scar is the mark an old wound leaves behind"
+     },
+     {
+      "clueFragment": "US agent",
+      "gives": "FED",
+      "note": "a fed is an FBI or federal agent in American slang"
+     }
+    ],
+    "walkthrough": "The definition is the whole phrase at the end, and it means wearing a scarf, not the informal sense of eating something at speed.",
+    "definitionFit": "covered around his neck -> SCARFED: wrapped in a scarf, from the verb 'to scarf' meaning to wear one, which is a separate word from scarfing food down."
+   }
   },
   {
    "id": "12-across",
@@ -273,7 +676,35 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOODIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HOODIES",
+    "definition": "These",
+    "indicators": [
+     "with head hidden"
+    ],
+    "indicatorNotes": {
+     "with head hidden": "A word's head is its first letter; keep that out of sight and only what follows it is written down."
+    },
+    "pieces": [
+     "HO",
+     "ODIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the standard abbreviation for house, the one estate agents use"
+     },
+     {
+      "clueFragment": "torsos",
+      "gives": "ODIES",
+      "note": "torsos are BODIES, and this set arrives with its opening B left off"
+     }
+    ],
+    "walkthrough": "Read straight through, the sentence is also a fair description of the garment — it houses the torso and keeps the head out of sight — which is what makes 'These' enough of a definition.",
+    "definitionFit": "These -> HOODIES: the bare pronoun leans on the rest of the sentence, which describes a hooded top; the word also names the youth wearing one."
+   }
   },
   {
    "id": "13-across",
@@ -295,7 +726,49 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "FORGETMENOTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "FORGET-ME-NOTS",
+    "definition": "little flowers",
+    "indicators": [
+     "on",
+     "back-to-front"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue a piece sitting on another comes after it, so the two letters named first are written second.",
+     "back-to-front": "A word written back-to-front starts from its final letter, so the thing named beside this is spelled in reverse."
+    },
+    "pieces": [
+     "FORGE",
+     "TM",
+     "ENOTS"
+    ],
+    "subReversals": [
+     {
+      "from": "STONE",
+      "to": "ENOTS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "counterfeit",
+      "gives": "FORGE",
+      "note": "to forge is to counterfeit, and the verb hands over five letters whole"
+     },
+     {
+      "clueFragment": "Trademark",
+      "gives": "TM",
+      "note": "TM is the symbol printed beside a trademarked name"
+     },
+     {
+      "clueFragment": "jewel",
+      "gives": "ENOTS",
+      "note": "a jewel is a STONE, turned round here so that it reads from its last letter"
+     }
+    ],
+    "walkthrough": "The definition is the tail of the sentence even though it reads as part of it, and the comma after 'jewel' is punctuation the setter may put wherever the surface needs it.",
+    "definitionFit": "little flowers -> FORGET-ME-NOTS: the small blue spring flowers of the borage family, named for the plea a lover was supposed to attach to them."
+   }
   },
   {
    "id": "14-down",
@@ -316,7 +789,36 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "MOTHERHEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MOTHER HEN",
+    "definition": "Fussy manager",
+    "indicators": [
+     "through",
+     "ground"
+    ],
+    "indicatorNotes": {
+     "through": "A letter running through the rest is threaded among them, so it joins the pile being shuffled instead of standing outside it.",
+     "ground": "Anything ground has been crushed and reassembled, and letters put through that come out in a new order."
+    },
+    "anagram": {
+     "fodder": "R THEN HOME"
+    },
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the scorer's abbreviation for runs on a cricket card"
+     },
+     {
+      "clueFragment": "then home",
+      "gives": "THENHOME",
+      "note": "eight more letters, which with the one above make the nine the enumeration wants"
+     }
+    ],
+    "walkthrough": "The surface is a player crossing a pitch and both halves of it are wordplay: a cricketer's single letter, and seven words' worth of nothing but letters.",
+    "definitionFit": "Fussy manager -> MOTHER HEN: someone who clucks over everyone in their charge, fussing round them the way a hen gathers her chicks."
+   }
   },
   {
    "id": "15-down",
@@ -333,7 +835,44 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MACARONI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MACARONI",
+    "definition": "penguin",
+    "indicators": [
+     "arranged"
+    ],
+    "indicatorNotes": {
+     "arranged": "Air conditioning gets arranged by an installer; letters arranged are simply set down in a different order."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "MA",
+     "CARONI"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "AIRCON",
+      "gives": "CARONI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "MA",
+      "note": "an MA is a Master of Arts, the crossword's usual graduate"
+     },
+     {
+      "clueFragment": "air-con",
+      "gives": "CARONI",
+      "note": "the six letters of the shortened air conditioning, rewritten in another order"
+     }
+    ],
+    "walkthrough": "The bird is named after the 18th-century macaronis, dandies with absurdly elaborate hair — the ones Yankee Doodle mocks — which its yellow crest resembles.",
+    "definitionFit": "penguin -> MACARONI: a crested Antarctic species, so the plain word defines the bird by example rather than by synonym."
+   }
   },
   {
    "id": "16-down",
@@ -350,7 +889,41 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TELEGRAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TELEGRAM",
+    "definition": "Message",
+    "indicators": [
+     "brought over"
+    ],
+    "indicatorNotes": {
+     "brought over": "Bringing something over turns it to face the other way, so the letters assembled beside this are read from the end back."
+    },
+    "pieces": [
+     "TEL",
+     "EGRAM"
+    ],
+    "subReversals": [
+     {
+      "from": "MARGELET",
+      "to": "TELEGRAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shortening",
+      "gives": "MARGE",
+      "note": "marge is British shorthand for margarine, and margarine is a shortening — the fat rubbed into pastry"
+     },
+     {
+      "clueFragment": "tenancy",
+      "gives": "LET",
+      "note": "a let is a tenancy, the flat or room you rent for a term"
+     }
+    ],
+    "walkthrough": "'Shortening' looks like an instruction to trim a word and is really a noun for baking fat, which is the whole trap the clue is built on.",
+    "definitionFit": "Message -> TELEGRAM: the message wired to a post office and delivered on paper, the standard way to send urgent news before the telephone took over."
+   }
   },
   {
    "id": "17-across",
@@ -371,7 +944,50 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "OBSTACLERACE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram + charade",
+    "answer": "OBSTACLE RACE",
+    "definition": "hampered event",
+    "indicators": [
+     "going round",
+     "ruined"
+    ],
+    "indicatorNotes": {
+     "going round": "Something going round another thing encircles it, so the word before this closes over what the clue names next.",
+     "ruined": "A ruined castle has fallen into a heap, and letters in a heap have lost the order they were handed to you in."
+    },
+    "pieces": [
+     "O",
+     "B",
+     "STACLE",
+     "RACE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CASTLE",
+      "gives": "STACLE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "BRACE",
+      "note": "a brace is a couple — two of a thing, as in a brace of pheasants"
+     },
+     {
+      "clueFragment": "castle",
+      "gives": "STACLE",
+      "note": "the castle's six letters, rebuilt in another order and dropped inside"
+     }
+    ],
+    "walkthrough": "'Hampered' is not saying the event was spoiled: it is the definition's own word for a course deliberately filled with things to climb through.",
+    "definitionFit": "hampered event -> OBSTACLE RACE: a race hampered on purpose by nets, tyres and hurdles, so the hindrance is the point rather than a mishap."
+   }
   },
   {
    "id": "18-down",
@@ -388,7 +1004,29 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARPET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CARPET",
+    "definition": "Roast",
+    "pieces": [
+     "CARP",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beef",
+      "gives": "CARP",
+      "note": "to beef about something is to carp about it — both are verbs for complaining"
+     },
+     {
+      "clueFragment": "out of this world",
+      "gives": "ET",
+      "note": "ET is Spielberg's extra-terrestrial, and an extra-terrestrial comes from beyond this world"
+     }
+    ],
+    "walkthrough": "'Roast beef' is a Sunday dinner in the surface and two separate jobs in the clue, and reading the pair as one dish is the trap.",
+    "definitionFit": "Roast -> CARPET: in British usage to carpet someone is to haul them in for a dressing-down, and to roast them is the same reprimand."
+   }
   },
   {
    "id": "19-down",
@@ -405,7 +1043,35 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COCOON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COCOON",
+    "definition": "Shelter",
+    "indicators": [
+     "beneath"
+    ],
+    "indicatorNotes": {
+     "beneath": "In a down entry what lies beneath sits lower in the column, so the piece named before this ends up second."
+    },
+    "pieces": [
+     "COCO",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "palm tree",
+      "gives": "COCO",
+      "note": "the coco is the coconut palm, the tree itself rather than its fruit"
+     },
+     {
+      "clueFragment": "for longer",
+      "gives": "ON",
+      "note": "to keep going for longer is to go on, so 'on' carries the sense of continuing"
+     }
+    ],
+    "walkthrough": "'Shelter' is a noun here rather than the verb: the case a caterpillar spins round itself, which is why the clue's picture of beach shade is a decoy.",
+    "definitionFit": "Shelter -> COCOON: the silk case a caterpillar spins to protect itself while it pupates, so it is a shelter in the most literal sense."
+   }
   },
   {
    "id": "20-across",
@@ -422,7 +1088,38 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANODYNE",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "ANODYNE",
+    "definition": "Dull",
+    "indicators": [
+     "regularly",
+     "boring"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken regularly come at a fixed interval, here every second one as you count along the word.",
+     "boring": "To bore into something is to drive a hole through the middle of it, so the letters just picked out go inside the word that follows."
+    },
+    "pieces": [
+     "AN",
+     "ODY",
+     "NE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "princess",
+      "gives": "ANNE",
+      "note": "Princess Anne, the Princess Royal and the King's sister, is the crossword's usual princess"
+     },
+     {
+      "clueFragment": "Mondays regularly",
+      "gives": "ODY",
+      "note": "the second, fourth and sixth letters of Mondays, counted off in step"
+     }
+    ],
+    "walkthrough": "'Boring' reads as a second word for dull and is really the instruction, so the pun is the point — only one of its two senses hands over anything.",
+    "definitionFit": "Dull -> ANODYNE: an anodyne remark is so inoffensive it is dull, from the medical sense of a drug that soothes pain away."
+   }
   },
   {
    "id": "21-across",
@@ -443,7 +1140,24 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
     ]
    },
    "solution": "DUEDATE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "DUE DATE",
+    "definition": "End of term decided on by start of last period",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "End of term",
+      "note": "the surface is a school calendar breaking up for the holidays; the other reading is the end of a pregnancy, which is also called a term"
+     },
+     {
+      "clueFragment": "decided on by start of last period",
+      "note": "a timetable's last period is a lesson, but a midwife counts forty weeks from the first day of the previous monthly cycle"
+     }
+    ],
+    "walkthrough": "There is no wordplay to take apart here: it is one sentence read twice, once in a school and once in a maternity clinic, and every word changes job between them.",
+    "definitionFit": "The whole clue reads straight in an obstetric sense: the expected end of gestation, worked out by counting forward from the last menstrual period."
+   }
   },
   {
    "id": "21-down",
@@ -460,7 +1174,35 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIPSO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DIPSO",
+    "definition": "Drinker",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "A piece that comes after another is written to its right, so the word named before this ends up second in the answer."
+    },
+    "pieces": [
+     "DIP",
+     "SO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drop",
+      "gives": "DIP",
+      "note": "a drop in the road, or in prices, is a dip"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "SO",
+      "note": "'so' does the same work as 'really' as an intensifier: it was so cold, it was really cold"
+     }
+    ],
+    "walkthrough": "'Drinker' is doing more than naming someone with a glass in hand; the answer is a clipped, faintly clinical word for one who cannot stop.",
+    "definitionFit": "Drinker -> DIPSO: British slang shortened from dipsomaniac, so it names not the social drinker but the compulsive one."
+   }
   },
   {
    "id": "22-across",
@@ -477,7 +1219,42 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHOTOSHOP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PHOTOSHOP",
+    "definition": "Doctor",
+    "indicators": [
+     "admits"
+    ],
+    "indicatorNotes": {
+     "admits": "To admit someone is to let them inside, so the words beside this open up and take the earlier letters in."
+    },
+    "pieces": [
+     "P",
+     "HOT",
+     "OSH",
+     "OP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swanky",
+      "gives": "POSH",
+      "note": "posh is swanky — showily upmarket"
+     },
+     {
+      "clueFragment": "visually very attractive",
+      "gives": "HOT",
+      "note": "calling someone hot is calling them very good-looking"
+     },
+     {
+      "clueFragment": "surgery",
+      "gives": "OP",
+      "note": "an op is an operation, the surgery a patient goes in for"
+     }
+    ],
+    "walkthrough": "'Doctor' is the verb — to tamper with an image — rather than the person in the surgery, and the whole surface exists to keep you reading it the other way.",
+    "definitionFit": "Doctor -> PHOTOSHOP: the software's name became a verb for retouching a picture, and doctoring an image is exactly that alteration."
+   }
   },
   {
    "id": "23-across",
@@ -494,7 +1271,26 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODOUR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ODOUR",
+    "definition": "something to sniff",
+    "indicators": [
+     "keeps"
+    ],
+    "indicatorNotes": {
+     "keeps": "What a person keeps they hold on to inside, so the letters wanted are sitting within the words before this."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Well-to-do urbanite",
+      "gives": "ODOUR",
+      "note": "five letters in a row, running out of the hyphenated phrase and on into the word after it"
+     }
+    ],
+    "walkthrough": "An urbanite is only a city dweller, a stiff word chosen for the letters it begins with — that awkwardness is the tell worth learning.",
+    "definitionFit": "something to sniff -> ODOUR: a smell considered as the thing the nose picks up, and the word leans towards the unpleasant end of them."
+   }
   },
   {
    "id": "24-across",
@@ -511,7 +1307,38 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "TENET",
+    "definition": "Principle",
+    "indicators": [
+     "superficially"
+    ],
+    "indicatorNotes": {
+     "superficially": "What is superficial sits on the surface, so only the outside letters at each end of the word beside this are taken."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "TE",
+     "NET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "superficially true",
+      "gives": "TE",
+      "note": "the two outer letters of TRUE, one at each end, with its middle left behind"
+     },
+     {
+      "clueFragment": "clear",
+      "gives": "NET",
+      "note": "to clear a sum is to net it — what is left once the deductions are done"
+     }
+    ],
+    "walkthrough": "'True and clear' reads as one description of a principle, which is the misdirection: the two words are doing quite separate mechanical jobs.",
+    "definitionFit": "Principle -> TENET: a belief held as an article of faith by a person or a group, so it is a principle in the doctrinal sense."
+   }
   },
   {
    "id": "25-across",
@@ -528,7 +1355,43 @@ window.CRYPTIC_PUZZLES["indysunday-1870"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEODYMIUM",
-   "annotation": null
+   "annotation": {
+    "type": "middle letter + container + anagram",
+    "answer": "NEODYMIUM",
+    "definition": "Metal",
+    "indicators": [
+     "inside",
+     "covered by",
+     "plastic"
+    ],
+    "indicatorNotes": {
+     "inside": "The inside of a three-letter word is its middle character, the one with a letter either side of it.",
+     "covered by": "Something covered by another lies underneath it and out of sight, so the letter before this goes within the letters after.",
+     "plastic": "Plastic means able to be moulded into any shape, and letters that can be moulded will not keep the order they came in."
+    },
+    "anagram": {
+     "fodder": "I DUMMY ONE"
+    },
+    "pieces": [
+     "NEODYM",
+     "I",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zip's inside",
+      "gives": "I",
+      "note": "the middle letter of ZIP, and nothing else of the word is wanted"
+     },
+     {
+      "clueFragment": "dummy one",
+      "gives": "DUMMYONE",
+      "note": "eight letters of fodder, which with the letter above make the nine the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Zip' is the crossword's usual word for nothing, which makes it a fine decoy: the clue wants a letter out of the middle of it, not its meaning.",
+    "definitionFit": "Metal -> NEODYMIUM: element 60, a soft silvery rare-earth metal used to make the strongest permanent magnets there are."
+   }
   }
  ]
 } /*JSON-END*/;
