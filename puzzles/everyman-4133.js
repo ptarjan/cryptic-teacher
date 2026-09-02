@@ -34,7 +34,39 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "WALKINGSTICKS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WALKING STICKS",
+    "definition": "they aid mobility",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Type of surgery",
+      "gives": "WALKIN",
+      "note": "in Britain a surgery is a doctor's practice, and a walk-in one takes patients who turn up without an appointment"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard one-letter abbreviation for German"
+     },
+     {
+      "clueFragment": "jabs",
+      "gives": "STICKS",
+      "note": "to stick something into a person is to jab them"
+     }
+    ],
+    "pieces": [
+     "WALKIN",
+     "G",
+     "STICKS"
+    ],
+    "walkthrough": "Everything before the colon is a scene at a health centre, jabs and all, which is why the German sits there so quietly as a single letter.",
+    "definitionFit": "they aid mobility: the plural matches, and the phrase names the sticks by their job — supports leaned on so that walking stays possible."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +83,29 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AEROSOL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AEROSOL",
+    "definition": "spray",
+    "indicators": [
+     "Diffused"
+    ],
+    "indicatorNotes": {
+     "Diffused": "Something diffused has been scattered in all directions at once, so the seven letters arrive with their order broken up."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a looser",
+      "gives": "AEROSOL",
+      "note": "seven letters in and seven out, the two Os keeping each other company"
+     }
+    ],
+    "anagram": {
+     "fodder": "ALOOSER"
+    },
+    "walkthrough": "The trap is reading 'Diffused' as what the answer does rather than as an order given to the two words after it — a can does diffuse things, which is exactly why it sits first.",
+    "definitionFit": "spray: the pressurised can of fine mist is called a spray in everyday speech, so the noun swaps straight in."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +122,26 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNOWN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "KNOWN",
+    "definition": "Understood",
+    "indicators": [
+     "some"
+    ],
+    "indicatorNotes": {
+     "some": "Asking for some of a run of words is asking for a piece of it letter by letter, not for a meaning."
+    },
+    "blocks": [
+     {
+      "clueFragment": "work now non-essential",
+      "gives": "KNOWN",
+      "note": "five letters run without a break from the end of the first word, through the whole of the second and into the third"
+     }
+    ],
+    "walkthrough": "The colon makes the first word look like a curt reply, and 'non-essential' looks like an instruction to throw something away. Neither is doing any work beyond the surface.",
+    "definitionFit": "Understood: as past participles they swap directly — a thing that is widely known is widely understood to be so."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +158,52 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEGLIGIBLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion + first letter",
+    "answer": "NEGLIGIBLE",
+    "definition": "Barely-there",
+    "indicators": [
+     "short",
+     "covering",
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "short": "A word called short is written a letter shy of its usual spelling, and the letter it loses is the one at the end.",
+     "covering": "What covers a thing lies over it on both sides, so the long word closes round the letters that follow rather than sitting beside them.",
+     "bit of": "A bit of a word is a single letter of it, and the bit a setter takes is the one it begins with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "nightgown",
+      "gives": "NEGLIGE",
+      "note": "a negligee is a filmy nightgown; docked of its final E it hands over seven letters"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "bold",
+      "gives": "B",
+      "note": "B is the printer's mark for bold type"
+     },
+     {
+      "clueFragment": "licentiousness",
+      "gives": "L",
+      "note": "the opening letter of the word, and nothing more of it"
+     }
+    ],
+    "pieces": [
+     "NEGLIG",
+     "I",
+     "B",
+     "L",
+     "E"
+    ],
+    "walkthrough": "The joke is how close the two words are on the page: the nightgown and the answer share their first six letters, so the surface can describe the garment while the wordplay quietly builds something else.",
+    "definitionFit": "Barely-there: something negligible is so slight it can be ignored, which is what 'barely there' says of a quantity or a garment."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +220,35 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAPS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SAPS",
+    "definition": "Drains",
+    "indicators": [
+     "in retreat"
+    ],
+    "indicatorNotes": {
+     "in retreat": "An army in retreat is going back the way it came, so these four letters are read in the opposite direction."
+    },
+    "blocks": [
+     {
+      "clueFragment": "visible in rest areas",
+      "gives": "SPAS",
+      "note": "what is on show at a place built for resting: a spa is a resort of baths and treatments"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "SPAS",
+      "to": "SAPS"
+     }
+    ],
+    "pieces": [
+     "SAPS"
+    ],
+    "walkthrough": "'Retreat' is doing two jobs at once — a health retreat is precisely the sort of place the first half of the clue describes, and the same word is the instruction.",
+    "definitionFit": "Drains: to sap someone is to drain their strength little by little, the sense used of energy and morale rather than of water."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +265,30 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INRUSHES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INRUSHES",
+    "definition": "Floods",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "among",
+      "gives": "IN",
+      "note": "to be among a crowd is to be in it"
+     },
+     {
+      "clueFragment": "the reeds",
+      "gives": "RUSHES",
+      "note": "rushes are the tall stiff marsh plants that grow where reeds do"
+     }
+    ],
+    "pieces": [
+     "IN",
+     "RUSHES"
+    ],
+    "walkthrough": "Three words make one picture of a riverbank, and there is no indicator anywhere to break the spell. The whole trick is hearing the same phrase as two pieces instead of one.",
+    "definitionFit": "Floods: an inrush is a sudden pouring in of water, and the plural matches — both name surges arriving all at once."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +305,34 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KINDLES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KINDLES",
+    "definition": "books in here",
+    "definitionNote": "The definition describes the answer instead of naming it: these are devices, and the clue points at them by what is stored inside them rather than offering a synonym.",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "German child",
+      "gives": "KIND",
+      "note": "Kind is the German for child"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "les is French for 'the' when what follows is plural"
+     }
+    ],
+    "pieces": [
+     "KIND",
+     "LES"
+    ],
+    "walkthrough": "Two languages in six words, and both are asking to be translated rather than pictured — the surface's small child on a French holiday never existed.",
+    "definitionFit": "books in here: the answer names Amazon's e-readers, so the definition points at the objects by their contents."
+   }
   },
   {
    "id": "8-across",
@@ -159,7 +355,49 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FURLONG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FURLONG",
+    "definition": "bit of horse-racing",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Not"
+    ],
+    "indicatorNotes": {
+     "Not": "A bare 'Not' in front of a piece of wordplay marks that piece as one to take away rather than to add on."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Roll up!",
+      "gives": "FURL",
+      "note": "to furl a sail or a flag is to roll it up"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the usual abbreviation for old"
+     },
+     {
+      "clueFragment": "nag",
+      "gives": "NAG",
+      "note": "a nag is a worn-out horse"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "the letter that leaves: 'one' here is the article a, taken out of the horse"
+     }
+    ],
+    "pieces": [
+     "FURL",
+     "O",
+     "NG"
+    ],
+    "walkthrough": "'Roll up!' is a fairground barker's shout, which is what makes the sentence hang together; it is an instruction to a sail instead.",
+    "definitionFit": "bit of horse-racing: races are measured in furlongs, an eighth of a mile each, so the vague 'bit' names the unit rather than an event."
+   }
   },
   {
    "id": "8-down",
@@ -181,7 +419,27 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "FULLOFBEANS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FULL OF BEANS",
+    "definition": "Dashing",
+    "definition2": "having knocked back some runners?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Dashing",
+      "gives": "",
+      "note": "lively and brimming with energy, the way you describe someone who bounds into a room"
+     },
+     {
+      "clueFragment": "having knocked back some runners?",
+      "gives": "",
+      "note": "runner beans, the climbing green pods of every British allotment, are runners — and to knock a plateful back is to get it down you"
+     }
+    ],
+    "walkthrough": "'Knocked back' looks like an instruction to turn something round and 'some' like the start of a hidden word. Both belong to the pub-and-plate picture, and neither is a mechanism here.",
+    "definitionFit": "Dashing is 'full of beans' in the sense of brimming energy; the second reading takes the phrase at its word, of someone who has eaten a plate of runner beans."
+   }
   },
   {
    "id": "9-across",
@@ -198,7 +456,33 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARSNIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PARSNIP",
+    "definition": "root vegetable",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Score",
+      "gives": "PAR",
+      "note": "par is the score a golfer is expected to take at a hole"
+     },
+     {
+      "clueFragment": "trim",
+      "gives": "SNIP",
+      "note": "to snip is to trim with a quick cut of the scissors"
+     }
+    ],
+    "pieces": [
+     "PAR",
+     "SNIP"
+    ],
+    "walkthrough": "'Score and trim' reads as two things a cook does to a vegetable, which is precisely what keeps the two separate words from showing.",
+    "definitionFit": "root vegetable: definition by example — the parsnip is one particular pale root eaten roasted, not the class of roots itself."
+   }
   },
   {
    "id": "10-down",
@@ -215,7 +499,29 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERIPATETIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PERIPATETIC",
+    "definition": "Itinerant",
+    "indicators": [
+     "rashly"
+    ],
+    "indicatorNotes": {
+     "rashly": "To do a thing rashly is to do it without arranging anything first, so the eleven letters are handed over in no order worth keeping."
+    },
+    "blocks": [
+     {
+      "clueFragment": "precipitate",
+      "gives": "PERIPATETIC",
+      "note": "eleven letters out of eleven, two Is and two Ts among them to place"
+     }
+    ],
+    "anagram": {
+     "fodder": "PRECIPITATE"
+    },
+    "walkthrough": "Both of the last two words mean hasty, so they read as one idea and neither looks like raw material. A near-synonym standing next to its own fodder is a favourite piece of cover.",
+    "definitionFit": "Itinerant: both describe someone who works while moving from place to place; the answer's Greek root means walking about."
+   }
   },
   {
    "id": "11-across",
@@ -236,7 +542,33 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOSINGIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOSING IT",
+    "definition": "Snapping",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Down",
+      "gives": "LOSING",
+      "note": "a side that is down in a match is behind on the scoreboard"
+     },
+     {
+      "clueFragment": "that thing",
+      "gives": "IT",
+      "note": "the pronoun that stands in for a thing already pointed at"
+     }
+    ],
+    "pieces": [
+     "LOSING",
+     "IT"
+    ],
+    "walkthrough": "The quotation marks sell it as a protester's shout — a demand that something be got rid of — and a shout is read as one phrase, never as two pieces laid end to end.",
+    "definitionFit": "Snapping: to lose it is to lose your self-control, and someone who snaps at people has just done exactly that."
+   }
   },
   {
    "id": "12-across",
@@ -253,7 +585,37 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLAR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "SOLAR",
+    "definition": "Eco option",
+    "definitionNote": "The definition is a noun phrase while the answer is an adjective; the energy trade uses it as a noun anyway — 'solar is cheaper than gas' — which is the usage the setter is leaning on.",
+    "indicators": [
+     "wanting",
+     "abandoned"
+    ],
+    "indicatorNotes": {
+     "wanting": "A thing described as wanting is missing something, and what goes missing here is the letter named next to it.",
+     "abandoned": "Abandoned behaviour has no restraint on it at all, and letters described that way keep none of their order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "the letter that leaves: economists write the money supply as M, and crosswords take M for money"
+     },
+     {
+      "clueFragment": "morals",
+      "gives": "ORALS",
+      "note": "six letters less that M leaves five, and those five are what gets shuffled"
+     }
+    ],
+    "anagram": {
+     "fodder": "ORALS"
+    },
+    "walkthrough": "The surface is a character sketch of someone broke and unscrupulous, so the two instructions look like judgements. Both of them land on the single word between them.",
+    "definitionFit": "Eco option: solar power is the green choice being pointed at, the sun's energy standing in for the whole phrase."
+   }
   },
   {
    "id": "13-down",
@@ -274,7 +636,38 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOWINGOFF",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHOWING OFF",
+    "definition": "doing this?",
+    "definitionNote": "The definition is a back-reference rather than a synonym: 'this' is the boast the clue has just made, so the answer has to be read as what that speaker is up to.",
+    "linkWords": [
+     "will"
+    ],
+    "indicators": [
+     "jump around"
+    ],
+    "indicatorNotes": {
+     "jump around": "Something that jumps around will not stay where it was put, so these letters finish in different places from the ones they started in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gosh! Now I",
+      "gives": "GOSHNOWI",
+      "note": "eight letters, the exclamation included, handed straight over"
+     },
+     {
+      "clueFragment": "very loudly",
+      "gives": "FF",
+      "note": "ff is the musician's fortissimo, the marking for very loud"
+     }
+    ],
+    "anagram": {
+     "fodder": "GOSHNOWIFF"
+    },
+    "walkthrough": "A semi-&lit: the sentence being taken apart for its letters is also the behaviour being defined, so the speaker demonstrates the answer while spelling it.",
+    "definitionFit": "doing this?: the definition points back at the speaker of the clue, whose announced leap is exactly the display the answer names."
+   }
   },
   {
    "id": "14-across",
@@ -291,7 +684,28 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OILS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "OILS",
+    "definition": "Art",
+    "definition2": "gets lubricated",
+    "definitionNote": "A painter's medium is always spoken of in the plural — 'she works in oils' — so the singular 'Art' fairly defines a plural answer.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Art",
+      "gives": "",
+      "note": "pigment ground in linseed, and by extension the pictures painted with it"
+     },
+     {
+      "clueFragment": "gets lubricated",
+      "gives": "",
+      "note": "what you do to a hinge or a bicycle chain to stop it squeaking"
+     }
+    ],
+    "walkthrough": "Three words, and the likeliest reading of them is a bloke named Art getting drunk. Nothing in the clue announces that it is two definitions in a row.",
+    "definitionFit": "Art: oils are the paints and the pictures made with them; the second sense is the verb, since to oil a thing is to get it lubricated."
+   }
   },
   {
    "id": "15-across",
@@ -312,7 +726,29 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIGHTENSUP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LIGHTENS UP",
+    "definition": "cools down?",
+    "indicators": [
+     "after combustion"
+    ],
+    "indicatorNotes": {
+     "after combustion": "What comes out of a fire is the same material in a wholly different arrangement, so the letters are re-laid rather than left as they were."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Huge splint",
+      "gives": "LIGHTENSUP",
+      "note": "ten letters between the two words, and ten in the answer"
+     }
+    ],
+    "anagram": {
+     "fodder": "HUGESPLINT"
+    },
+    "walkthrough": "A splint here is not the surgical kind but the thin strip of wood used to carry a flame — which is what lets the middle of the clue sound like a description rather than an order.",
+    "definitionFit": "cools down?: both are what you say to someone taking things too seriously, and the question mark marks how loosely the two idioms overlap."
+   }
   },
   {
    "id": "16-down",
@@ -329,7 +765,37 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BERGERAC",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "BERGERAC",
+    "definition": "town of French literature?",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Merrily"
+    ],
+    "indicatorNotes": {
+     "Merrily": "Doing a job merrily is doing it with cheerful disregard for the proper order, which is how these letters are put back."
+    },
+    "blocks": [
+     {
+      "clueFragment": "herbgrace",
+      "gives": "HERBGRACE",
+      "note": "herb of grace is the old name for rue, run into one word here so that its letters can be used as raw material"
+     },
+     {
+      "clueFragment": "deadheaded",
+      "gives": "H",
+      "note": "the letter that goes: deadheading a plant is cutting its head off, and the head here is the first letter of the word that follows"
+     }
+    ],
+    "anagram": {
+     "fodder": "ERBGRACE"
+    },
+    "walkthrough": "The whole first half reads as gardening, and 'herbgrace' looks like a plant to be translated into a shorter name. It is a bag of letters instead.",
+    "definitionFit": "town of French literature?: a real town on the Dordogne, and the name Rostand gave Cyrano, so literature is what makes this particular town famous."
+   }
   },
   {
    "id": "17-across",
@@ -346,7 +812,37 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEDFELLOWS",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "BEDFELLOWS",
+    "definition": "associates",
+    "indicators": [
+     "as Spooner tells"
+    ],
+    "indicatorNotes": {
+     "as Spooner tells": "The Reverend Spooner was famous for trading the opening sounds of two words as he spoke, so anything he tells arrives with those sounds swapped over."
+    },
+    "blocks": [
+     {
+      "clueFragment": "FBI agent",
+      "soundsLike": "FED",
+      "gives": "BED",
+      "note": "a fed is an agent of the US federal government; it gives up its F and takes the B coming the other way"
+     },
+     {
+      "clueFragment": "yells",
+      "soundsLike": "BELLOWS",
+      "gives": "FELLOWS",
+      "note": "to bellow is to yell, and this word hands over its B in exchange for the F"
+     }
+    ],
+    "pieces": [
+     "BED",
+     "FELLOWS"
+    ],
+    "walkthrough": "Say the plain version out loud first — an agent bellowing — and the swap does the rest. The surface keeps both words in the same newsroom so neither gives itself away.",
+    "definitionFit": "associates: the word names people thrown together in a common cause, and lives mostly in the phrase 'strange bedfellows' about unlikely allies."
+   }
   },
   {
    "id": "18-down",
@@ -367,7 +863,41 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "DRIVEIN",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "DRIVE-IN",
+    "definition": "cinema",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Almost",
+     "overcome by"
+    ],
+    "indicatorNotes": {
+     "Almost": "Almost a word is not quite all of a word, so the spelling stops one letter short of the end.",
+     "overcome by": "To be overcome by something is to be swamped by it, with the other word closing over the top rather than lining up alongside."
+    },
+    "blocks": [
+     {
+      "clueFragment": "noise",
+      "gives": "DIN",
+      "note": "a din is a continuous racket, and this one opens up to take a passenger"
+     },
+     {
+      "clueFragment": "in pieces",
+      "gives": "RIVE",
+      "note": "something in pieces is riven, and stopping a letter short of that leaves RIVE"
+     }
+    ],
+    "pieces": [
+     "D",
+     "RIVE",
+     "IN"
+    ],
+    "walkthrough": "'Noise in cinema' reads as a single complaint about other people's popcorn, which is what hides the fact that the last word alone is the definition.",
+    "definitionFit": "cinema: the answer is the open-air kind you watch from a parked car, so 'cinema' defines it as one variety of the thing."
+   }
   },
   {
    "id": "19-across",
@@ -384,7 +914,27 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PACT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PACT",
+    "definition": "Treaty",
+    "indicators": [
+     "in the auditorium"
+    ],
+    "indicatorNotes": {
+     "in the auditorium": "An auditorium is a room built for listening, so what counts is how the words sound in it rather than how they are spelled."
+    },
+    "blocks": [
+     {
+      "clueFragment": "very popular",
+      "soundsLike": "PACKED",
+      "gives": "PACT",
+      "note": "a show that is very popular plays to a packed house, and that word said aloud is written quite differently"
+     }
+    ],
+    "walkthrough": "'In the auditorium' looks like more of the picture of a full theatre. It is the instruction, and the picture is what keeps it invisible.",
+    "definitionFit": "Treaty: a pact is an agreement between parties and a treaty is that agreement between states — the same noun, one narrower than the other."
+   }
   },
   {
    "id": "20-down",
@@ -401,7 +951,29 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADELPHI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ADELPHI",
+    "definition": "Plays seen here",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "part of"
+    ],
+    "indicatorNotes": {
+     "part of": "Asking for part of a name is asking for a run of its letters exactly as they stand, not for a district or a suburb."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Philadelphia",
+      "gives": "ADELPHI",
+      "note": "the city's name carries seven consecutive letters that spell something else, though not from its start"
+     }
+    ],
+    "walkthrough": "The surface offers a neighbourhood in an American city, and American cities do have theatre districts — which is why the geography feels like the answer rather than the container.",
+    "definitionFit": "Plays seen here: the Adelphi is a West End theatre on the Strand in London, so 'here' points at a named venue instead of giving a synonym."
+   }
   },
   {
    "id": "21-across",
@@ -418,7 +990,39 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AGING",
+    "definition": "Getting on",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as the single letter it is"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "GIN",
+      "note": "gin is the crossword's default spirit, three letters and always to hand"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     }
+    ],
+    "pieces": [
+     "A",
+     "GIN",
+     "G"
+    ],
+    "walkthrough": "British solvers may want the spelling with an E in the middle; the grid takes the shorter form, and both are current.",
+    "definitionFit": "Getting on: 'getting on' is the everyday idiom for growing old, and the answer is that same process as a participle."
+   }
   },
   {
    "id": "22-across",
@@ -439,7 +1043,29 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "INEFFECT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN EFFECT",
+    "definition": "actually",
+    "indicators": [
+     "shivering"
+    ],
+    "indicatorNotes": {
+     "shivering": "Someone shivering cannot keep still, and letters that cannot keep still do not stay in the order they were given."
+    },
+    "blocks": [
+     {
+      "clueFragment": "15C",
+      "gives": "INEFFECT",
+      "note": "spell the number out in letters and keep the C beside it: seven and one make the eight needed"
+     }
+    ],
+    "anagram": {
+     "fodder": "FIFTEENC"
+    },
+    "walkthrough": "'15C' looks like a cross-reference to another entry, and with 'shivering' next to it, like a temperature. It is neither: it is a number waiting to be written out in words.",
+    "definitionFit": "actually, in the conceding sense rather than the surprised one: both phrases mean that something holds for practical purposes even if not formally."
+   }
   },
   {
    "id": "23-down",
@@ -456,7 +1082,39 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FREER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "FREER",
+    "definition": "increasingly, Frank",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "energy rising"
+    ],
+    "indicatorNotes": {
+     "energy rising": "Energy is written E, and in a down entry rising means climbing the column, so that E moves up a place past the letter above it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Jacques's one",
+      "gives": "FRERE",
+      "note": "the French nursery rhyme is Frere Jacques, so the one that belongs with the name is frere, French for brother"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "RE",
+      "to": "ER"
+     }
+    ],
+    "pieces": [
+     "FRE",
+     "ER"
+    ],
+    "walkthrough": "A French first name usually asks for the French word for whatever comes next. Here the name is half a nursery rhyme, and what the clue wants is the word that always precedes it.",
+    "definitionFit": "increasingly, Frank: free carries the sense of frank or outspoken — free with his opinions — and 'increasingly' asks for the comparative."
+   }
   },
   {
    "id": "24-down",
@@ -473,7 +1131,37 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HYDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + first letters",
+    "answer": "HYDE",
+    "definition": "hideous alter ego",
+    "indicators": [
+     "On vacation",
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "On vacation": "A house on vacation is empty in the middle, so the word keeps only the letters standing at each end.",
+     "starts to": "The start of a word is its opening letter, and the plural asks the same of each word that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "HY",
+      "note": "hollowed out, the word leaves only its first and last letters"
+     },
+     {
+      "clueFragment": "detest Everyman's",
+      "gives": "DE",
+      "note": "two words, two opening letters, in the order they are written"
+     }
+    ],
+    "pieces": [
+     "HY",
+     "DE"
+    ],
+    "walkthrough": "Two dashes chop the clue into three, so 'On vacation - holiday' reads as one idea about being away rather than as an instruction and the word it acts on. Everyman naming himself mid-clue is this setter's signature.",
+    "definitionFit": "hideous alter ego: in Stevenson's story Dr Jekyll's other self is Mr Hyde, and the adjective 'hideous' carries the name inside it."
+   }
   },
   {
    "id": "25-across",
@@ -500,7 +1188,42 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "SWEARBY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWEAR BY",
+    "definition": "Trust",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the family-tree abbreviation for son"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w with a stroke through it is the everyday shorthand for with"
+     },
+     {
+      "clueFragment": "organ",
+      "gives": "EAR",
+      "note": "the ear is an organ of the body, not of a church or a newspaper"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "BY",
+      "note": "in multiplication you say three by four, so 'times' is the word BY"
+     }
+    ],
+    "pieces": [
+     "S",
+     "W",
+     "EAR",
+     "BY"
+    ],
+    "walkthrough": "The italics dress the last word up as the newspaper, and 'organ' is happy to be one too. Both belong to arithmetic and anatomy instead.",
+    "definitionFit": "Trust: to swear by a remedy or a brand is to trust it completely, the verb phrase standing in for the plain verb."
+   }
   },
   {
    "id": "26-across",
@@ -517,7 +1240,35 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OZEMPIC",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "OZEMPIC",
+    "definition": "Omnipresent, zeitgeisty, expensive medicine putatively inhibiting cuddliness, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means first of all, so only the opening character of each word in the run is kept."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Omnipresent, zeitgeisty, expensive medicine putatively inhibiting cuddliness",
+      "gives": "OZEMPIC",
+      "note": "seven words, seven initials, taken in the order they are written"
+     }
+    ],
+    "pieces": [
+     "O",
+     "Z",
+     "E",
+     "M",
+     "P",
+     "I",
+     "C"
+    ],
+    "walkthrough": "An &lit: the sentence describes the thing and spells it at the same time, and the run of adjectives that would be padding anywhere else is the whole mechanism.",
+    "definitionFit": "The clue reads straight: this is the much-discussed and costly weight-loss drug, so 'inhibiting cuddliness' is a description of what it does."
+   }
   },
   {
    "id": "27-across",
@@ -539,7 +1290,29 @@ window.CRYPTIC_PUZZLES["everyman-4133"] = /*JSON-START*/ {
     ]
    },
    "solution": "KNOCKEDFORSIX",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "KNOCKED FOR SIX",
+    "definition": "blown away",
+    "indicators": [
+     "Crazy"
+    ],
+    "indicatorNotes": {
+     "Crazy": "Someone crazy is not thinking in any order, and three words described that way surrender the order of their letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "kids reckon fox",
+      "gives": "KNOCKEDFORSIX",
+      "note": "thirteen letters across three words, and thirteen in the grid to fill"
+     }
+    ],
+    "anagram": {
+     "fodder": "KIDSRECKONFOX"
+    },
+    "walkthrough": "'Blown away' sits at the end looking like the fox's fate in a windy field, which is what stops it looking like a definition.",
+    "definitionFit": "blown away: both mean utterly overwhelmed, and the phrase comes from cricket, where a ball hit clean out of the ground scores six."
+   }
   }
  ]
 } /*JSON-END*/;
