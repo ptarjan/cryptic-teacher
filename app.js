@@ -2677,7 +2677,7 @@
     const meterHTML = solved
       ? ((charged || reveals)
           ? `Solved with ${charged} hint${charged === 1 ? "" : "s"}${revealsNote}`
-          : "Solved with no hints — bravo!")
+          : "Solved with no hints at all")
       // "used on this clue" — you are looking at the clue. Just the count, and
       // no longer called hints: a rung you answered yourself was never one, and
       // the score has never charged for it. What you worked out is reported
@@ -2712,8 +2712,8 @@
       // answer with no reason for it. clueMissingNote is where a person writes
       // that reason; the annotation queue cannot, having no words to read.
       bodyHTML = e.clueMissing
-        ? `<div class="hint-step"><p class="muted">The paper printed this clue blank — no words at all.
-        Not your eyes. ${e.clueMissingNote
+        ? `<div class="hint-step"><p class="muted">The paper printed this clue blank —
+        the space was empty in every copy, not just yours. ${e.clueMissingNote
           ? esc(e.clueMissingNote)
           : "Nothing was left to solve with, so there is no wordplay to explain."}
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
@@ -3398,10 +3398,10 @@
     const note = $("unofficial-note");
     note.classList.toggle("hidden", !meta.solutionsUnofficial);
     note.textContent = meta.solutionsUnofficial
-      ? "Heads up: the Guardian hasn't published this prize puzzle's answers yet. "
+      ? "The Guardian hasn't published this prize puzzle's answers yet. "
         + "The solutions and hints here are our own solve — checked for consistency "
-        + "across every crossing, but not the paper's. They get replaced by the "
-        + "official ones the day they appear."
+        + "at every crossing, but not confirmed by the paper. They are replaced by "
+        + "the official ones the day those appear."
       : "";
     renderGrid();
     renderClues();

@@ -337,8 +337,8 @@ def clue_html(e):
         # hand-written clueMissingNote carries it; the annotation queue never
         # writes one, having no words to read.
         bits.append(
-            '<p class="s-todo muted">The paper printed this clue blank — no words at all. '
-            'Not your eyes. '
+            '<p class="s-todo muted">The paper printed this clue blank — '
+            'the space was empty in every copy. '
             + (esc(e["clueMissingNote"]) if e.get("clueMissingNote")
                else "Nothing was left to solve with, so there is no wordplay to explain.")
             + '</p>'
