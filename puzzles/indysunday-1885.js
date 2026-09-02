@@ -34,7 +34,45 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
     ]
    },
    "solution": "STRAWMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "STRAW MAN",
+    "definition": "Nobody",
+    "indicators": [
+     "climbing"
+    ],
+    "indicatorNotes": {
+     "climbing": "The two entries it names sit one above the other in a single column of the grid, so climbing them means reading their letters upwards."
+    },
+    "blocks": [
+     {
+      "clueFragment": "from 12",
+      "gives": "STRAW",
+      "note": "12 down opens with WARTS, and going up the column you meet those five letters the other way round"
+     },
+     {
+      "clueFragment": "to 7",
+      "gives": "MAN",
+      "note": "7 down is NAM, read upwards from the foot of the same column"
+     }
+    ],
+    "pieces": [
+     "STRAW",
+     "MAN"
+    ],
+    "subReversals": [
+     {
+      "from": "WARTS",
+      "to": "STRAW"
+     },
+     {
+      "from": "NAM",
+      "to": "MAN"
+     }
+    ],
+    "walkthrough": "12 down and 7 down share a column, and the answer is written up it: the top of one entry, then the whole of the other, read from the bottom of the grid towards the top.",
+    "definitionFit": "Nobody → STRAW MAN: a straw man is an invented opponent, nobody real, set up so that knocking him over looks like winning the argument."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +89,26 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THAW",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "THAW",
+    "definition": "Improvement in relationship",
+    "indicators": [
+     "seen during"
+    ],
+    "indicatorNotes": {
+     "seen during": "What is seen during something is inside it rather than beside it, so the letters run unbroken through the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "month away",
+      "gives": "THAW",
+      "note": "four letters run straight on across the gap between these two words, already in the order you need"
+     }
+    ],
+    "walkthrough": "Nothing looks like an instruction: 'month away' reads as a holiday. Warmth is also what the definition is about, so the surface and the answer share one idea and the span is easy to walk past.",
+    "definitionFit": "Improvement in relationship → THAW: a thaw is ice melting, and the same word covers hostility easing between two people or two countries."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +125,30 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPELLATION",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "APPELLATION",
+    "definition": "Name",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "you hear"
+    ],
+    "indicatorNotes": {
+     "you hear": "It asks for the sound of the mountain range rather than its spelling, so what goes in the grid is a different word entirely."
+    },
+    "blocks": [
+     {
+      "clueFragment": "range in eastern US",
+      "soundsLike": "APPALACHIAN",
+      "gives": "APPELLATION",
+      "note": "the Appalachians are the mountain chain running down the eastern United States; keep the sound of that name and change every letter that needs changing"
+     }
+    ],
+    "walkthrough": "Say the range's name and the entry one after the other and you hear how near they run. A setter is allowed a homophone this approximate when the pairing is the whole joke.",
+    "definitionFit": "Name → APPELLATION: an appellation is the name or title something goes by, the formal word for what a person, a place or a wine is called."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +165,44 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MESOMORPH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MESOMORPH",
+    "definition": "Muscly type",
+    "indicators": [
+     "makeover"
+    ],
+    "indicatorNotes": {
+     "makeover": "A makeover throws nothing away and rearranges everything, which is what the two words in front of it undergo."
+    },
+    "blocks": [
+     {
+      "clueFragment": "miles",
+      "gives": "M",
+      "note": "m is the short form of miles, as printed on a road sign"
+     },
+     {
+      "clueFragment": "more posh",
+      "gives": "ESOMORPH",
+      "note": "these eight letters, given a new arrangement, follow the M"
+     }
+    ],
+    "anagram": {
+     "fodder": "M MORE POSH"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "MORE POSH",
+      "gives": "ESOMORPH"
+     }
+    ],
+    "pieces": [
+     "M",
+     "ESOMORPH"
+    ],
+    "walkthrough": "'Muscly type' sounds like slang for a person and is in fact the technical term for one of the three body builds, which is what makes it a definition rather than a joke.",
+    "definitionFit": "Muscly type → MESOMORPH: in the three-way classification of body builds the mesomorph is the solid, muscular one, so the definition names a category."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +223,40 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONSTOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + last letter",
+    "answer": "NON-STOP",
+    "definition": "Express",
+    "indicators": [
+     "departing"
+    ],
+    "indicatorNotes": {
+     "departing": "In a clue full of trains it reads as a timetable word, but what it sends away is a letter of the wordplay."
+    },
+    "blocks": [
+     {
+      "clueFragment": "midday's",
+      "gives": "NOONS",
+      "note": "midday is noon, and the possessive brings an S with it"
+     },
+     {
+      "clueFragment": "back to Waterloo",
+      "gives": "O",
+      "note": "the letter at the back of Waterloo, and the one that leaves"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "TOP",
+      "note": "best in the sense of top of the class"
+     }
+    ],
+    "pieces": [
+     "NONS",
+     "TOP"
+    ],
+    "walkthrough": "Every word is station announcement — an express, a terminus, a departure, a time — and none of it is doing the job the surface claims.",
+    "definitionFit": "Express → NON-STOP: an express is the service that runs through without calling anywhere, so the adjective and the train describe the same thing."
+   }
   },
   {
    "id": "6-across",
@@ -123,7 +273,35 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUNISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PUNISH",
+    "definition": "Correct",
+    "blocks": [
+     {
+      "clueFragment": "wordplay",
+      "gives": "PUN",
+      "note": "a pun is the commonest kind of wordplay"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own linking verb, taken at face value for its two letters"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is hard, the grade stamped on a pencil"
+     }
+    ],
+    "pieces": [
+     "PUN",
+     "IS",
+     "H"
+    ],
+    "walkthrough": "The surface is a solver grumbling that cryptics are difficult. A charade needs no instruction word, so there is nothing here that announces itself and the small pieces simply queue up.",
+    "definitionFit": "Correct → PUNISH: the old schoolroom sense of correcting a child is disciplining them, so the verb means chastise rather than put right."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +318,38 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLAR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "POLAR",
+    "definition": "alternative to brown or black?",
+    "indicators": [
+     "upset",
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "upset": "Something upset has been tipped over, so the two letters it applies to arrive the other way about.",
+     "wearing": "What you wear goes round you, so the piece doing the wearing opens up and closes again over the other one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard, the score a golf hole is expected to take"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "OL",
+      "note": "lo is the old exclamation for look, tipped over here"
+     }
+    ],
+    "pieces": [
+     "P",
+     "OL",
+     "AR"
+    ],
+    "walkthrough": "'Look' as the archaic lo is a crossword staple worth owning. The definition is the third member of the bear family: brown, black and this one.",
+    "definitionFit": "alternative to brown or black? → POLAR: the three familiar kinds of bear are brown, black and polar, so the question mark flags a definition by example."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +366,35 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "NAM",
+    "definition": "American war",
+    "indicators": [
+     "on the rise"
+    ],
+    "indicatorNotes": {
+     "on the rise": "This is a down entry, so a piece on the rise is read from the bottom of the grid towards the top."
+    },
+    "blocks": [
+     {
+      "clueFragment": "oh boy",
+      "gives": "MAN",
+      "note": "'oh boy' and 'man!' are the same exclamation of surprise"
+     }
+    ],
+    "pieces": [
+     "NAM"
+    ],
+    "subReversals": [
+     {
+      "from": "MAN",
+      "to": "NAM"
+     }
+    ],
+    "walkthrough": "Both halves lean on American speech — the exclamation for the wordplay, the soldiers' shorthand for the definition — which is why the clue reads in one voice.",
+    "definitionFit": "American war → NAM: Nam is what US soldiers and films call Vietnam, so the shortened place name stands in for the war fought there."
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +415,32 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOLARPANEL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SOLAR PANEL",
+    "definition": "silent generator",
+    "linkWords": [
+     "producing"
+    ],
+    "indicators": [
+     "New"
+    ],
+    "indicatorNotes": {
+     "New": "It reads as half of the city's name, but the instruction is the ordinary adjective: make something new out of the letters beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Orleans pal",
+      "gives": "ORLEANSPAL",
+      "note": "ten letters of fodder, split between a city and a friend"
+     }
+    ],
+    "anagram": {
+     "fodder": "ORLEANS PAL"
+    },
+    "walkthrough": "'New Orleans' is the trap: the city is so familiar that breaking the name in two feels wrong, and the half you would never separate is the anagram indicator.",
+    "definitionFit": "silent generator → SOLAR PANEL: a panel makes electricity straight from sunlight, with no engine and no moving parts, so it generates without a sound."
+   }
   },
   {
    "id": "9-across",
@@ -195,7 +457,40 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAMP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DAMP",
+    "definition": "Discourage",
+    "indicators": [
+     "revolutionary"
+    ],
+    "indicatorNotes": {
+     "revolutionary": "A revolution takes a thing full circle, so the assembled letters are read round the other way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "p = power, in physics and on a switch"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "MAD",
+      "note": "crazy is mad, three letters queueing behind the P"
+     }
+    ],
+    "pieces": [
+     "DAMP"
+    ],
+    "subReversals": [
+     {
+      "from": "PMAD",
+      "to": "DAMP"
+     }
+    ],
+    "walkthrough": "A power-crazy revolutionary is one person on the surface, which hides the join. The two pieces are assembled first and only then turned round.",
+    "definitionFit": "Discourage → DAMP: to damp something is to deaden it, and damping someone's enthusiasm or spirits is exactly discouraging them."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +511,37 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
     ]
    },
    "solution": "SINGLEMALT",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SINGLE MALT",
+    "definition": "whiskey",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner's name is the standing signal that two words trade their opening sounds."
+    },
+    "blocks": [
+     {
+      "clueFragment": "blend",
+      "soundsLike": "MINGLE",
+      "gives": "SINGLE",
+      "note": "to blend is to mingle; it hands its opening sound to the second word and takes that word's in exchange"
+     },
+     {
+      "clueFragment": "basic flavour",
+      "soundsLike": "SALT",
+      "gives": "MALT",
+      "note": "salt is one of the basic flavours the tongue detects, and it receives the sound the first word gave up"
+     }
+    ],
+    "pieces": [
+     "SINGLE",
+     "MALT"
+    ],
+    "walkthrough": "The joke is that both halves of the swap are still drink words — a blend and a flavour — so the surface stays in the bar while the sounds change places.",
+    "definitionFit": "whiskey → SINGLE MALT: a single malt is whisky made from the malted barley of one distillery, so the definition names the family it belongs to."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +558,47 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAMETHROWER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "FLAMETHROWER",
+    "definition": "Weapon",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "troubled"
+    ],
+    "indicatorNotes": {
+     "troubled": "A troubled thing has been disturbed out of its settled state, so the seven letters beside it will not stay where they were put."
+    },
+    "blocks": [
+     {
+      "clueFragment": "elm haft",
+      "gives": "FLAMETH",
+      "note": "seven letters of fodder, shaken into a new order"
+     },
+     {
+      "clueFragment": "man wielding blade",
+      "gives": "ROWER",
+      "note": "the flat end of an oar is its blade, so the man wielding one is at the oars"
+     }
+    ],
+    "anagram": {
+     "fodder": "ELM HAFT ROWER"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "ELM HAFT",
+      "gives": "FLAMETH"
+     }
+    ],
+    "pieces": [
+     "FLAMETH",
+     "ROWER"
+    ],
+    "walkthrough": "'Man wielding blade' wants to be a swordsman, and that is the trap — the blade belongs to an oar. The surface is assembling an axe from an elm handle while the answer assembles something else.",
+    "definitionFit": "Weapon → FLAMETHROWER: a flamethrower is a weapon in the plainest sense, a device built and carried to attack with, so this is a straight category word."
+   }
   },
   {
    "id": "12-down",
@@ -255,7 +620,49 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
     ]
    },
    "solution": "WARTSANDALL",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + alternate letters",
+    "answer": "WARTS AND ALL",
+    "definition": "showing what's better hidden",
+    "indicators": [
+     "during",
+     "with regular gaps"
+    ],
+    "indicatorNotes": {
+     "during": "What happens during a walk happens inside it, so the other two pieces are dropped between the letters that survive.",
+     "with regular gaps": "Leave a gap after each letter you keep and a four-letter word gives up only two of them, evenly spaced."
+    },
+    "blocks": [
+     {
+      "clueFragment": "walk",
+      "gives": "W",
+      "note": "read at alternate letters this word keeps two, and this is the one it starts with"
+     },
+     {
+      "clueFragment": "Design",
+      "gives": "ART",
+      "note": "design in the sense of decorative work — the art on a vase"
+     },
+     {
+      "clueFragment": "shoe",
+      "gives": "SANDAL",
+      "note": "an open summer shoe, six letters"
+     },
+     {
+      "clueFragment": "walk",
+      "gives": "L",
+      "note": "the other letter that same word keeps when it is read at alternate spacing"
+     }
+    ],
+    "pieces": [
+     "W",
+     "ART",
+     "SANDAL",
+     "L"
+    ],
+    "walkthrough": "Two long pieces go inside a two-letter shell, which is back to front for a container — usually the big word is the one that opens up. Counting the gaps is what breaks it open.",
+    "definitionFit": "showing what's better hidden → WARTS AND ALL: the phrase comes from Cromwell's order to paint him complete with blemishes, so it means the flaws left on show."
+   }
   },
   {
    "id": "13-down",
@@ -272,7 +679,44 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MELANCHOLY",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters + charade",
+    "answer": "MELANCHOLY",
+    "definition": "Blue",
+    "indicators": [
+     "skirts",
+     "received by"
+    ],
+    "indicatorNotes": {
+     "skirts": "To skirt a thing is to keep to its outside edge, so what you take is the pair of letters at either end of the word.",
+     "received by": "Whoever receives something has it inside them, so the pop star's name opens up and closes again round it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sporty Spice",
+      "gives": "MELC",
+      "note": "Melanie Chisholm was Sporty Spice of the Spice Girls and goes by Mel C; that short name splits in two here"
+     },
+     {
+      "clueFragment": "from Amazon",
+      "gives": "AN",
+      "note": "the letters at either end of the river's name"
+     },
+     {
+      "clueFragment": "divine",
+      "gives": "HOLY",
+      "note": "divine in the religious sense is holy"
+     }
+    ],
+    "pieces": [
+     "MEL",
+     "AN",
+     "C",
+     "HOLY"
+    ],
+    "walkthrough": "The surface is online shopping, so 'skirts' reads as clothing and 'Amazon' as the shop; both are doing other work. Mel C is the piece a solver outside Britain may need told.",
+    "definitionFit": "Blue → MELANCHOLY: feeling blue is feeling low, and melancholy is that same settled sadness rather than a passing mood."
+   }
   },
   {
    "id": "14-across",
@@ -289,7 +733,38 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPAIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REPAIR",
+    "definition": "more than a tune?",
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touching",
+      "gives": "RE",
+      "note": "touching in the old prepositional sense of concerning, which is what re means at the head of a letter"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is piano in a score, the mark telling you to play softly"
+     },
+     {
+      "clueFragment": "melody",
+      "gives": "AIR",
+      "note": "an air is a melody, the word Handel and the folk singers use"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "P",
+     "AIR"
+    ],
+    "walkthrough": "The tune here is the one a garage gives an engine, not a melody. In an across clue one thing 'on' another sits after it, so the melody follows the piano.",
+    "definitionFit": "more than a tune? → REPAIR: a tune is the quick adjustment a mechanic makes, so mending what has actually broken goes well beyond one."
+   }
   },
   {
    "id": "15-across",
@@ -306,7 +781,29 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PATERNAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PATERNAL",
+    "definition": "concerning dad?",
+    "indicators": [
+     "changes"
+    ],
+    "indicatorNotes": {
+     "changes": "On the surface these are the alterations a pregnancy brings; as an instruction the word says the letters beside it change places."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pre-natal",
+      "gives": "PRENATAL",
+      "note": "eight letters of fodder, hyphen and all"
+     }
+    ],
+    "anagram": {
+     "fodder": "PRE-NATAL"
+    },
+    "walkthrough": "'Pre-natal changes' is such a natural phrase that the instruction hides inside it, and the answer's moment is one step further on than the surface's — after the birth rather than before it.",
+    "definitionFit": "concerning dad? → PATERNAL: paternal means of or from a father, and 'dad' is the everyday word for one, which is what the question mark excuses."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +820,40 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRENCHANT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "TRENCHANT",
+    "definition": "Scathing",
+    "indicators": [
+     "put off by"
+    ],
+    "indicatorNotes": {
+     "put off by": "Being put off is being dropped, so the letter named in front of it leaves the word that comes after."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "TREND",
+      "note": "a fashion is a trend, and it is about to be a letter shorter"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "d = daughter in the family abbreviations, and this is the letter that goes"
+     },
+     {
+      "clueFragment": "mantra",
+      "gives": "CHANT",
+      "note": "a mantra is a chant, said over and over"
+     }
+    ],
+    "pieces": [
+     "TREN",
+     "CHANT"
+    ],
+    "walkthrough": "The surface is a teenager unimpressed by a slogan, and every word of it is doing a second job. Only the deletion needs spotting; the rest is two words laid end to end.",
+    "definitionFit": "Scathing → TRENCHANT: trenchant comes from the French for cutting, so trenchant criticism is incisive and severe rather than merely clever."
+   }
   },
   {
    "id": "17-across",
@@ -340,7 +870,36 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAMISHED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAMISHED",
+    "definition": "Ravenous",
+    "indicators": [
+     "sandwiches"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "A sandwich holds its filling between two slices, so the word doing the sandwiching splits and closes round the other piece."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ate",
+      "gives": "FED",
+      "note": "someone who has eaten has fed; these three letters open after the F"
+     },
+     {
+      "clueFragment": "Shakers",
+      "gives": "AMISH",
+      "note": "the Amish are the plain-living American sect the setter is pointing at, though the Shakers were a different group"
+     }
+    ],
+    "pieces": [
+     "F",
+     "AMISH",
+     "ED"
+    ],
+    "walkthrough": "Sandwiches, eating and hunger make a single picture, and that is what hides the instruction inside it: the food word is the container, not the meal.",
+    "definitionFit": "Ravenous → FAMISHED: to be famished is to be weak with hunger, the same far end of the scale that ravenous describes."
+   }
   },
   {
    "id": "18-down",
@@ -357,7 +916,35 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEEPEST",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "DEEPEST",
+    "definition": "Most genuinely felt",
+    "indicators": [
+     "reduced"
+    ],
+    "indicatorNotes": {
+     "reduced": "Something reduced has been made shorter, so the word beside it loses its final letter before anything is added."
+    },
+    "blocks": [
+     {
+      "clueFragment": "insect repellent",
+      "gives": "DEET",
+      "note": "DEET is the active ingredient in almost every bottle of insect repellent, and it is about to lose its tail"
+     },
+     {
+      "clueFragment": "irritation",
+      "gives": "PEST",
+      "note": "an irritation is a pest, four letters following on"
+     }
+    ],
+    "pieces": [
+     "DEE",
+     "PEST"
+    ],
+    "walkthrough": "'Insect repellent reduced irritation' is a whole sentence about a camping trip, which is why none of it reads as instruction. DEET is the piece worth learning once.",
+    "definitionFit": "Most genuinely felt → DEEPEST: your deepest sympathy or regret is the most heartfelt kind, so the superlative measures sincerity rather than distance."
+   }
   },
   {
    "id": "19-across",
@@ -374,7 +961,36 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASTER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "EASTER",
+    "definition": "extra long weekend",
+    "indicators": [
+     "Leaving",
+     "worked"
+    ],
+    "indicatorNotes": {
+     "Leaving": "Leaving says a piece goes: the two letters named beside it come out before anything else happens.",
+     "worked": "Dough that is worked is pushed into a new shape, and letters worked over do not keep the order they arrived in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in, and that pair is what departs"
+     },
+     {
+      "clueFragment": "trainees",
+      "gives": "TRAEES",
+      "note": "the eight letters of trainees less the pair above, ready to be pushed around"
+     }
+    ],
+    "anagram": {
+     "fodder": "TRAEES"
+    },
+    "walkthrough": "Trainees leaving home to work reads as a job advert, so nothing announces itself. In Britain Good Friday and Easter Monday are both public holidays, which is what makes the weekend an extra long one.",
+    "definitionFit": "extra long weekend → EASTER: with Good Friday and Easter Monday as British bank holidays, the festival delivers four days off instead of the usual two."
+   }
   },
   {
    "id": "20-across",
@@ -391,7 +1007,47 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONVALESCENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CONVALESCENT",
+    "definition": "now recovering",
+    "indicators": [
+     "across"
+    ],
+    "indicatorNotes": {
+     "across": "Something laid across another thing spans it and lies within its width, so the valley goes into the middle of what the other pieces build."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "c = cold, the letter on a tap"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "ON",
+      "note": "on carries the sense of coming after — from that day on — and hands over two letters"
+     },
+     {
+      "clueFragment": "glen",
+      "gives": "VALE",
+      "note": "a glen is a narrow valley, a vale"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "SCENT",
+      "note": "the track a hound follows is a scent"
+     }
+    ],
+    "pieces": [
+     "C",
+     "ON",
+     "VALE",
+     "SCENT"
+    ],
+    "walkthrough": "The surface is a walk over cold hills, and the definition is the last two words — 'now' belongs to it, not to the wordplay, which is where most solvers put the break too early.",
+    "definitionFit": "now recovering → CONVALESCENT: a convalescent patient is one getting their strength back after illness, so the word names the stage rather than the cure."
+   }
   },
   {
    "id": "21-down",
@@ -408,7 +1064,41 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ALLOT",
+    "definition": "Divide",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "This is a down entry, so the piece marked up is read from the bottom of the grid towards the top."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own indefinite article, taken as a single letter"
+     },
+     {
+      "clueFragment": "tax on motorists",
+      "gives": "TOLL",
+      "note": "a toll is what a driver pays to use a bridge or a road; this is the piece that climbs"
+     }
+    ],
+    "pieces": [
+     "A",
+     "LLOT"
+    ],
+    "subReversals": [
+     {
+      "from": "TOLL",
+      "to": "LLOT"
+     }
+    ],
+    "walkthrough": "'A tax on motorists' reads as one phrase, and the trap is dragging the A into the climb with it. Only the tax is turned; the article stays where it is.",
+    "definitionFit": "Divide → ALLOT: to allot is to divide something into shares and hand them out, the sense behind an allotted time or an allotment."
+   }
   },
   {
    "id": "22-down",
@@ -425,7 +1115,24 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEAT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HEAT",
+    "definition": "Round",
+    "definition2": "microwave?",
+    "blocks": [
+     {
+      "clueFragment": "Round",
+      "note": "the qualifying round of a race or a contest, the one finalists come out of"
+     },
+     {
+      "clueFragment": "microwave?",
+      "note": "what the kitchen appliance does to last night's dinner, read as a verb"
+     }
+    ],
+    "walkthrough": "Two words, two definitions, no wordplay at all — the shortest kind of cryptic. The question mark admits that the appliance is only one way of doing the second one.",
+    "definitionFit": "Round → HEAT and microwave? → HEAT: a heat is a qualifying round, and to heat food is precisely what that appliance does to it."
+   }
   },
   {
    "id": "23-across",
@@ -442,7 +1149,38 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORDILLERA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CORDILLERA",
+    "definition": "chain",
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thin rope",
+      "gives": "CORD",
+      "note": "a cord is a thin rope, the sort on a dressing gown"
+     },
+     {
+      "clueFragment": "in bad condition",
+      "gives": "ILL",
+      "note": "something in bad condition is ill"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a stretch of time"
+     }
+    ],
+    "pieces": [
+     "CORD",
+     "ILL",
+     "ERA"
+    ],
+    "walkthrough": "Three plain synonyms laid end to end; the difficulty is all in the answer, a Spanish word English borrowed for the mountain systems of the Americas.",
+    "definitionFit": "chain → CORDILLERA: a cordillera is a system of parallel mountain ranges, which is exactly what English means by a mountain chain."
+   }
   },
   {
    "id": "24-down",
@@ -459,7 +1197,29 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEN",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "DEN",
+    "definition": "Retreat",
+    "indicators": [
+     "in the second half"
+    ],
+    "indicatorNotes": {
+     "in the second half": "It asks for the back half of a six-letter word rather than the whole of it, so only three letters are kept."
+    },
+    "blocks": [
+     {
+      "clueFragment": "without warning",
+      "gives": "DEN",
+      "note": "'without warning' says sudden, and the half of that word you keep is the half at the end"
+     }
+    ],
+    "pieces": [
+     "DEN"
+    ],
+    "walkthrough": "'Retreat without warning' is one idea on the surface — bolting — and two on the page, because the definition stops after the first word.",
+    "definitionFit": "Retreat → DEN: a den is the private room someone retreats to for peace and quiet, rather than the animal's lair of the other sense."
+   }
   },
   {
    "id": "25-across",
@@ -476,7 +1236,38 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AXEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "AXEL",
+    "definition": "Winter Olympics aerial manoeuvre",
+    "linkWords": [
+     "on"
+    ],
+    "indicators": [
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "beginning": "It asks for the front of the name that follows and nothing else — one letter, taken off the start."
+    },
+    "blocks": [
+     {
+      "clueFragment": "chopper",
+      "gives": "AXE",
+      "note": "a chopper is an axe, the tool rather than the helicopter the surface offers"
+     },
+     {
+      "clueFragment": "beginning for Lindsey",
+      "gives": "L",
+      "note": "the letter that name starts with"
+     }
+    ],
+    "pieces": [
+     "AXE",
+     "L"
+    ],
+    "walkthrough": "In an across clue one piece 'on' another sits after it, so the single letter goes at the end. 'Chopper' pulls hard towards a helicopter, which is just what an aerial surface wants.",
+    "definitionFit": "Winter Olympics aerial manoeuvre → AXEL: the Axel is the figure-skating jump named after Axel Paulsen, the one entered from a forward edge."
+   }
   },
   {
    "id": "26-across",
@@ -493,7 +1284,45 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CYGNET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + anagram",
+    "answer": "CYGNET",
+    "definition": "New pen, say",
+    "indicators": [
+     "agitated",
+     "not appearing"
+    ],
+    "indicatorNotes": {
+     "agitated": "Agitate a liquid and everything in it is thrown out of place, which is what becomes of the letters standing beside the word.",
+     "not appearing": "What does not appear is missing from the finished word, so the letter named beside it never reaches the grid."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the phonetic alphabet used over the radio"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l = line, and this is the letter held back"
+     },
+     {
+      "clueFragment": "gently",
+      "gives": "GENTY",
+      "note": "gently once the L above has gone, leaving five letters to be shaken up"
+     }
+    ],
+    "anagram": {
+     "fodder": "C GENTY"
+    },
+    "pieces": [
+     "C",
+     "YGNET"
+    ],
+    "walkthrough": "'New pen' is a stationery cupboard on the surface. A pen is a female swan, so the definition is about a bird, and 'say' is the warning that she is only an example.",
+    "definitionFit": "New pen, say → CYGNET: a pen is a female swan and a cygnet is a swan's young, so 'say' marks the pen as one example of the parent bird."
+   }
   },
   {
    "id": "27-across",
@@ -510,7 +1339,43 @@ window.CRYPTIC_PUZZLES["indysunday-1885"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOTALITY",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "TOTALITY",
+    "definition": "Whole",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "replaced in"
+    ],
+    "indicatorNotes": {
+     "replaced in": "One piece stands down and another takes its place inside the longer word, so nothing is added at either end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ceremony",
+      "gives": "FORMALITY",
+      "note": "a ceremony gone through for the sake of appearances is a formality, nine letters"
+     },
+     {
+      "clueFragment": "form",
+      "gives": "FORM",
+      "note": "the four letters at the front of the word above, and the ones being shown the door"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "TOT",
+      "note": "a tot is a small child, and it moves in where those four letters were"
+     }
+    ],
+    "pieces": [
+     "TOT",
+     "ALITY"
+    ],
+    "walkthrough": "'Whole form' reads as a school year group, and that is the trap: the definition is one word long and 'form' belongs to the wordplay.",
+    "definitionFit": "Whole → TOTALITY: the totality of something is the whole of it taken together, the noun for completeness rather than the adjective."
+   }
   }
  ]
 } /*JSON-END*/;
