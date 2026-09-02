@@ -34,7 +34,40 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEARHUGS",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "BEAR HUGS",
+    "definition": "Embraces",
+    "linkWords": [
+     "giving you"
+    ],
+    "indicators": [
+     "according to Spooner"
+    ],
+    "indicatorNotes": {
+     "according to Spooner": "The Reverend Spooner was the Oxford don who kept trading the opening sounds of two words as he spoke, so anything reported from him arrives with those sounds swapped."
+    },
+    "blocks": [
+     {
+      "clueFragment": "headlice",
+      "soundsLike": "HAIR",
+      "gives": "BEAR",
+      "note": "head lice live in hair, and that word hands its H over to the word beside it, taking a B in return"
+     },
+     {
+      "clueFragment": "headlice",
+      "soundsLike": "BUGS",
+      "gives": "HUGS",
+      "note": "lice are bugs; this word gives up its B and takes the H coming the other way"
+     }
+    ],
+    "pieces": [
+     "BEAR",
+     "HUGS"
+    ],
+    "walkthrough": "Say the plain version first — headlice are hair bugs — and then trade the two opening sounds. The surface keeps both halves in the same unpleasant scene so neither gives itself away.",
+    "definitionFit": "Embraces → BEAR HUGS: the big enveloping squeezes that pin your arms, named for the way a bear is imagined to grip its prey."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +84,32 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEAU",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "BEAU",
+    "definition": "Boy essaying amorous undertakings, primarily?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "What is primary comes first, so each word in the list ahead of it surrenders its opening letter and nothing else."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Boy essaying amorous undertakings",
+      "gives": "BEAU",
+      "note": "the opening letters of these four words, read straight off in the order they stand"
+     }
+    ],
+    "pieces": [
+     "B",
+     "E",
+     "A",
+     "U"
+    ],
+    "walkthrough": "An &lit: one sentence doing both jobs at once. Read for sense it describes a young man trying his luck; read for letters it spells him out.",
+    "definitionFit": "Read straight, the clue describes a young man making romantic advances, which is what the word names: a woman's suitor or sweetheart."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +126,24 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACNE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ACNE",
+    "definition": "What teenagers are loth be seen spotted in?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "loth be seen",
+      "note": "the reading the surface pushes: an outfit so embarrassing a self-conscious teenager would hate to be caught wearing it"
+     },
+     {
+      "clueFragment": "spotted in",
+      "note": "the reading the setter meant: not noticed but covered in spots, worn on the face rather than the body"
+     }
+    ],
+    "walkthrough": "Nothing here comes apart into letters. One phrase does two jobs, because 'be seen in' belongs to clothes and the skin complaint is worn like an outfit nobody chose. The question mark owns the joke.",
+    "definitionFit": "The clue describes the condition by the embarrassment it causes rather than naming it: spots on a teenage face, the last thing anyone wants noticed."
+   }
   },
   {
    "id": "3-down",
@@ -90,7 +165,29 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "HUSHABYE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HUSH-A-BYE",
+    "definition": "lullaby",
+    "indicators": [
+     "composed"
+    ],
+    "indicatorNotes": {
+     "composed": "A composer sets notes in whatever order suits, and the same freedom is being handed to these letters."
+    },
+    "anagram": {
+     "fodder": "YEAH BUSH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Yeah! Bush",
+      "gives": "YEAHBUSH",
+      "note": "eight letters from an exclamation and a surname, to be dealt out again"
+     }
+    ],
+    "walkthrough": "The exclamation mark makes the first word look like a stray cry of agreement, and the capital B like a singer or a president. Both are only a letter supply.",
+    "definitionFit": "lullaby → HUSH-A-BYE: the old nursery refrain sung over a cot, built on hush, the word for keeping quiet."
+   }
   },
   {
    "id": "4-down",
@@ -107,7 +204,35 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GREEK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "GREEK",
+    "definition": "Like some salad?",
+    "indicators": [
+     "not quite"
+    ],
+    "indicatorNotes": {
+     "not quite": "Not quite the whole of a thing is that thing with its end missing, so the growl before it is stopped one letter short."
+    },
+    "blocks": [
+     {
+      "clueFragment": "I'm angry",
+      "gives": "GR",
+      "note": "an angry growl written down is grr, and it is cut off before its final letter"
+     },
+     {
+      "clueFragment": "I'm alarmed",
+      "gives": "EEK",
+      "note": "eek is the squeak of alarm printed in comic strips"
+     }
+    ],
+    "pieces": [
+     "GR",
+     "EEK"
+    ],
+    "walkthrough": "Two noises, not two words. The surface reads as one person's mood swinging about, while the parse wants only the sounds people write down for those moods.",
+    "definitionFit": "Like some salad? → GREEK: the salad of tomato, cucumber, olives and feta named after the country, so the adjective defines by example."
+   }
   },
   {
    "id": "5-across",
@@ -124,7 +249,45 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WARBLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "WARBLE",
+    "definition": "Sing happily",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "ditched",
+     "following"
+    ],
+    "indicatorNotes": {
+     "ditched": "To ditch something is to throw it away and drive off without it, so the letter named goes missing from the word it was sitting in.",
+     "following": "What follows arrives behind, so this piece is written after the one named at the end of the clue."
+    },
+    "blocks": [
+     {
+      "clueFragment": "combat",
+      "gives": "WAR",
+      "note": "combat between nations is war"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is the signaller's word for that letter, and this is the letter being thrown out"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "BLE",
+      "note": "the colour with the letter just named taken out of it"
+     }
+    ],
+    "pieces": [
+     "WAR",
+     "BLE"
+    ],
+    "walkthrough": "The military surface does all the misdirection: 'blue uniform' looks like one thing to picture, when the second word is only the signaller's name for a letter.",
+    "definitionFit": "Sing happily → WARBLE: to sing with a trill or quaver, the verb used of birdsong and of a cheerful, unserious human voice."
+   }
   },
   {
    "id": "6-down",
@@ -141,7 +304,33 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMIGO",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "AMIGO",
+    "definition": "pal",
+    "indicators": [
+     "at regular intervals"
+    ],
+    "indicatorNotes": {
+     "at regular intervals": "Anything taken at intervals skips what lies between, and the skip here is one letter: start at the second and take every other one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lammy is goof",
+      "gives": "AMIGO",
+      "note": "the second letter of this run and then every other letter after it, straight across the word breaks"
+     }
+    ],
+    "pieces": [
+     "A",
+     "M",
+     "I",
+     "G",
+     "O"
+    ],
+    "walkthrough": "David Lammy is a British Labour politician, and the surface is a mild insult aimed at him. The parse cares about none of that, only about where his letters fall.",
+    "definitionFit": "pal → AMIGO: Spanish for friend, borrowed into English as the breezy word for a mate."
+   }
   },
   {
    "id": "7-down",
@@ -158,7 +347,33 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROADCASTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BROADCASTS",
+    "definition": "TV shows",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Fat",
+      "gives": "BROAD",
+      "note": "fat in the sense of wide — broad in the beam"
+     },
+     {
+      "clueFragment": "collections of actors",
+      "gives": "CASTS",
+      "note": "a cast is the whole company appearing in one production, and several productions have several"
+     }
+    ],
+    "pieces": [
+     "BROAD",
+     "CASTS"
+    ],
+    "walkthrough": "'Fat collections of actors' reads as one idea and is really two pieces meeting: the definition is the last two words, not the first.",
+    "definitionFit": "TV shows → BROADCASTS: programmes sent out over the air, a noun taken from what the transmitter does rather than from what is watched."
+   }
   },
   {
    "id": "8-down",
@@ -179,7 +394,39 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "EASTERLILY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "EASTER LILY",
+    "definition": "Bloomer",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "overwhelmed by"
+    ],
+    "indicatorNotes": {
+     "overwhelmed by": "To be overwhelmed is to be swallowed up by something larger, so the numeral disappears inside the word named after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "wind",
+      "gives": "EASTERLY",
+      "note": "a wind is named for where it blows from, so one out of the east is an easterly"
+     },
+     {
+      "clueFragment": "51",
+      "gives": "LI",
+      "note": "Roman numerals: L is fifty and I is one"
+     }
+    ],
+    "pieces": [
+     "EASTER",
+     "LI",
+     "LY"
+    ],
+    "walkthrough": "'Bloomer' is a blunder in the surface and a plant in the parse, which is one of the oldest puns in the crossword vocabulary. The wind opens up to let the number in.",
+    "definitionFit": "Bloomer → EASTER LILY: the white trumpet-shaped lily forced into flower for Easter, so 'bloomer' names it as a thing that blooms."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +447,41 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "AGNUSDEI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AGNUS DEI",
+    "definition": "Prayer",
+    "linkWords": [
+     "that's"
+    ],
+    "indicators": [
+     "unfortunately",
+     "bad",
+     "all round"
+    ],
+    "indicatorNotes": {
+     "unfortunately": "When something turns out unfortunately it has not come out the way it was arranged, and neither have these letters.",
+     "bad": "An idea that has gone bad no longer holds together in the shape it was handed over in.",
+     "all round": "It says the disorder reaches the whole assembly, so the two words are stirred together rather than shuffled one at a time."
+    },
+    "anagram": {
+     "fodder": "SUNG IDEA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "sung",
+      "gives": "SUNG",
+      "note": "four letters offered up for rearrangement, not a description of the prayer"
+     },
+     {
+      "clueFragment": "idea",
+      "gives": "IDEA",
+      "note": "the other four letters, to be mixed in with the first lot"
+     }
+    ],
+    "walkthrough": "'Sung' wants to belong to the definition — a prayer that is sung — and belongs to the fodder instead, which is why the letters come up short if you leave it there.",
+    "definitionFit": "Prayer → AGNUS DEI: the Latin 'Lamb of God', the set petition sung near the end of Mass, so it is one named prayer."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +498,42 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BIGOTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BIGOTS",
+    "definition": "Reactionaries",
+    "indicators": [
+     "internally"
+    ],
+    "indicatorNotes": {
+     "internally": "What happens internally happens within, so the letter named goes inside the piece just built rather than after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "BIG",
+      "note": "the everyday three-letter word for large"
+     },
+     {
+      "clueFragment": "outsize",
+      "gives": "OS",
+      "note": "OS is the size printed on a clothing label for outsize"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammarian's abbreviation for tense"
+     }
+    ],
+    "pieces": [
+     "BIG",
+     "O",
+     "T",
+     "S"
+    ],
+    "walkthrough": "The colon, brackets and semicolon are punctuation for the surface only — both asides are wordplay. 'Tense' is the grammar word here, not the mood.",
+    "definitionFit": "Reactionaries → BIGOTS: both name people who hold hard to their own view and allow nobody else's, though bigotry is prejudice rather than politics."
+   }
   },
   {
    "id": "11-down",
@@ -234,7 +550,40 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENEVA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GENEVA",
+    "definition": "European city",
+    "linkWords": [
+     "on",
+     "in"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Info",
+      "gives": "GEN",
+      "note": "gen is British slang for information, shortened from wartime 'general information'"
+     },
+     {
+      "clueFragment": "electric vehicle",
+      "gives": "EV",
+      "note": "EV is the standard shorthand on any car dealer's forecourt"
+     },
+     {
+      "clueFragment": "acceleration",
+      "gives": "A",
+      "note": "physics writes a for acceleration in its equations"
+     }
+    ],
+    "pieces": [
+     "GEN",
+     "EV",
+     "A"
+    ],
+    "walkthrough": "In a down clue 'on' means sitting on top of, which is exactly where the first piece goes. The surface pretends to be a news item about the motor trade.",
+    "definitionFit": "European city → GENEVA: the Swiss city on its lake, home of the UN's European headquarters, and named here by continent alone."
+   }
   },
   {
    "id": "12-across",
@@ -255,7 +604,38 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "YANKEEDOODLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "YANKEE-DOODLE",
+    "definition": "American icon",
+    "linkWords": [
+     "portraying"
+    ],
+    "indicators": [
+     "Fancifully"
+    ],
+    "indicatorNotes": {
+     "Fancifully": "It warns that the first piece is a coinage rather than a dictionary entry, invented on the spot out of a verb and a suffix."
+    },
+    "blocks": [
+     {
+      "clueFragment": "one's drawn",
+      "gives": "YANKEE",
+      "note": "to yank is to draw something with a sharp pull, and the -ee ending names the one it is done to, as in payee or employee"
+     },
+     {
+      "clueFragment": "scribble",
+      "gives": "DOODLE",
+      "note": "the idle scribble made while the mind is somewhere else"
+     }
+    ],
+    "pieces": [
+     "YANKEE",
+     "DOODLE"
+    ],
+    "walkthrough": "'Drawn' looks like a job for a pencil, matching the scribble beside it, and means pulled instead. That switch is the whole difficulty of the clue.",
+    "definitionFit": "American icon → YANKEE-DOODLE: the Revolutionary War song and its feather-in-the-cap hero, still a byword for American self-image."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +656,29 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "OCEANFRONT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OCEAN-FRONT",
+    "definition": "where waves break onto the shore",
+    "indicators": [
+     "in disarray"
+    ],
+    "indicatorNotes": {
+     "in disarray": "Disarray is the state of things flung out of their proper places, which is what has happened to the two words before it."
+    },
+    "anagram": {
+     "fodder": "NONE FACTOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "None factor",
+      "gives": "NONEFACTOR",
+      "note": "ten letters from a pairing that means nothing on its own, waiting to be redealt"
+     }
+    ],
+    "walkthrough": "'None factor' is not a phrase anybody says, and that is the tell: two words dropped in together with no job except to supply letters.",
+    "definitionFit": "where waves break onto the shore → OCEAN-FRONT: the strip of land facing open sea, the American term for property with that outlook."
+   }
   },
   {
    "id": "14-down",
@@ -293,7 +695,32 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROCREATED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PROCREATED",
+    "definition": "Started a family",
+    "linkWords": [
+     "as seen in"
+    ],
+    "indicators": [
+     "ghastly"
+    ],
+    "indicatorNotes": {
+     "ghastly": "Something ghastly has gone badly wrong, and letters that have gone wrong are letters no longer standing in their proper order."
+    },
+    "anagram": {
+     "fodder": "TAPE-RECORD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tape-record",
+      "gives": "TAPERECORD",
+      "note": "the ten letters of this hyphenated verb, handed over to be rearranged"
+     }
+    ],
+    "walkthrough": "'As seen in' is the shape of a hidden-word signal, and the letters really are all present in that last word — scattered, though, rather than consecutive.",
+    "definitionFit": "Started a family → PROCREATED: the formal verb for producing offspring, so the homely phrase and the biological one describe one act."
+   }
   },
   {
    "id": "15-across",
@@ -314,7 +741,32 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "CURLYFRIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CURLY FRIES",
+    "definition": "may be served with burger",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "Questionable"
+    ],
+    "indicatorNotes": {
+     "Questionable": "What is questionable cannot be taken as it stands, so the two words after it are not to be trusted in the order given."
+    },
+    "anagram": {
+     "fodder": "FURRY SLICE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "furry slice",
+      "gives": "FURRYSLICE",
+      "note": "ten letters from a pairing no menu would ever print, ready to be reordered"
+     }
+    ],
+    "walkthrough": "The surface is an unappetising plateful and every word of it is working: the odd pairing supplies the letters and the doubt cast on it is the instruction.",
+    "definitionFit": "may be served with burger → CURLY FRIES: the spiral-cut potato fries sold alongside burgers, defined here by the company they keep."
+   }
   },
   {
    "id": "16-down",
@@ -337,7 +789,43 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECIPE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + deletion",
+    "answer": "RECIPE",
+    "definition": "Orders for chef",
+    "definitionNote": "One of these is a single document, so the plural definition is counting the instructions written on it rather than the thing itself.",
+    "indicators": [
+     "leaving",
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "leaving": "To leave is to go away, so the two letters named just before it walk out of the word that comes after.",
+     "flipping": "To flip a thing is to turn it over, so what remains of the word is written out back to front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the everyday abbreviation of the Latin id est, which translates as 'that is'"
+     },
+     {
+      "clueFragment": "épicerie",
+      "gives": "EPICER",
+      "note": "French for a grocer's shop, with the two letters just named taken off its end"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "EPICER",
+      "to": "RECIPE"
+     }
+    ],
+    "pieces": [
+     "RECIPE"
+    ],
+    "walkthrough": "'Flipping' does double duty: mild British swearing in the surface, an instruction to turn the word round in the parse. The italics mark the last word as French rather than English.",
+    "definitionFit": "Orders for chef → RECIPE: the written instructions a cook follows step by step, so 'orders' means directions to carry out, not restaurant orders."
+   }
   },
   {
    "id": "17-across",
@@ -354,7 +842,30 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BALL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BALL",
+    "definition": "Dance",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "audibly"
+    ],
+    "indicatorNotes": {
+     "audibly": "Audibly means to the ear, so the clue is offering a sound and the spelling of it is yours to work out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "sob",
+      "soundsLike": "BAWL",
+      "gives": "BALL",
+      "note": "to bawl is to sob noisily, and said aloud it can be written the other way"
+     }
+    ],
+    "walkthrough": "Four letters and three words of clue, so nothing is being assembled: one word is simply spoken and respelt. The definition is the formal dance, not the thing you kick.",
+    "definitionFit": "Dance → BALL: the formal evening dance with an orchestra and a dress code, a noun naming the occasion rather than the activity."
+   }
   },
   {
    "id": "18-down",
@@ -375,7 +886,39 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "SMALLADS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SMALL ADS",
+    "definition": "Newspaper feature",
+    "linkWords": [
+     "showing"
+    ],
+    "indicators": [
+     "enthralled by"
+    ],
+    "indicatorNotes": {
+     "enthralled by": "To be enthralled is to be held captive, so the letters named before it are trapped inside the word that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "underwear",
+      "gives": "SMALLS",
+      "note": "smalls is the British informal word for underwear, the small items on a washing line"
+     },
+     {
+      "clueFragment": "a duke",
+      "gives": "AD",
+      "note": "A stands for itself and D is the standard abbreviation for duke"
+     }
+    ],
+    "pieces": [
+     "SMALL",
+     "AD",
+     "S"
+    ],
+    "walkthrough": "The aristocratic scandal of the surface is pure decoration. What matters is the domestic British word for underwear, which opens up at the last letter.",
+    "definitionFit": "Newspaper feature → SMALL ADS: the classified advertisements set in small type at the back, a fixture of any local paper."
+   }
   },
   {
    "id": "19-across",
@@ -392,7 +935,27 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ARCH",
+    "definition": "Knowing",
+    "definition2": "what may mark a triumph",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Knowing",
+      "gives": "",
+      "note": "the sense of sly, teasing amusement — the look that lets you see it is playing with you"
+     },
+     {
+      "clueFragment": "what may mark a triumph",
+      "gives": "",
+      "note": "Rome raised one for a general to ride through on his return, and cities still put them up over a victory"
+     }
+    ],
+    "walkthrough": "Two definitions and no wordplay, and the join is hard to see because the first word could easily be the start of a longer phrase.",
+    "definitionFit": "Knowing → ARCH: the adjective for a sly, teasing manner; and a triumphal arch is the monument raised over a victory parade."
+   }
   },
   {
    "id": "20-across",
@@ -419,7 +982,55 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCRAPMETAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + first letter",
+    "answer": "SCRAP METAL",
+    "definition": "Any Old Iron",
+    "indicators": [
+     "Recalled",
+     "beginning to"
+    ],
+    "indicatorNotes": {
+     "Recalled": "To recall a thing is to call it back, and what is called back arrives in the opposite order to the way it set out.",
+     "beginning to": "The beginning of a word is its first letter, and that single letter is all this takes from the word after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "LATE",
+      "note": "the late chairman is the former one, no longer in post"
+     },
+     {
+      "clueFragment": "MP",
+      "gives": "MP",
+      "note": "a Member of Parliament, taken at face value from the clue's own letters"
+     },
+     {
+      "clueFragment": "(Bow)",
+      "gives": "ARC",
+      "note": "a bow is a curve, and an arc is the geometer's word for one"
+     },
+     {
+      "clueFragment": "sing",
+      "gives": "S",
+      "note": "the first letter of this word"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "LATEMPARCS",
+      "to": "SCRAPMETAL"
+     }
+    ],
+    "pieces": [
+     "S",
+     "CRA",
+     "PM",
+     "ETAL"
+    ],
+    "walkthrough": "'Any Old Iron' is a music-hall song about a rag-and-bone man's haul, italicised as a title while defining the haul itself. Bow is an East End constituency, so the politics reads straight.",
+    "definitionFit": "Any Old Iron → SCRAP METAL: the song's refrain names exactly what a rag-and-bone man collects, and old iron is scrap under another name."
+   }
   },
   {
    "id": "21-across",
@@ -440,7 +1051,36 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRENCHPOODLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "FRENCH POODLE",
+    "definition": "a dainty one",
+    "indicators": [
+     "Preposterously",
+     "principally"
+    ],
+    "indicatorNotes": {
+     "Preposterously": "What is preposterous is back to front and out of all sense, which is the state the letters before it have been left in.",
+     "principally": "A principal is the one standing at the head, so this takes the letter at the head of the word beside it."
+    },
+    "anagram": {
+     "fodder": "FORCE NO HELP D"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Force getting no help",
+      "gives": "FORCENOHELP",
+      "note": "eleven letters from these words, to be dealt out again"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "D",
+      "note": "the letter at the head of this word, and the twelfth the enumeration asks for"
+     }
+    ],
+    "walkthrough": "The colon makes the first word look like a heading, and it is the shuffle instruction. 'Dog' sits next to the definition and belongs to the wordplay instead.",
+    "definitionFit": "a dainty one → FRENCH POODLE: the clipped and primped show dog, picked out from other breeds by exactly that fussy elegance."
+   }
   },
   {
    "id": "22-down",
@@ -457,7 +1097,26 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIME",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CHIME",
+    "definition": "ring a bell?",
+    "indicators": [
+     "Measure of"
+    ],
+    "indicatorNotes": {
+     "Measure of": "A measure of something is a portion taken from it, and the portion wanted here is a run of letters already lying inside the name that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Archimedes",
+      "gives": "CHIME",
+      "note": "five consecutive letters, beginning at the second letter of the name"
+     }
+    ],
+    "walkthrough": "'Measure of' reads as a quantity and is really asking for a slice of the word beside it. The Greek mathematician is present for his spelling alone.",
+    "definitionFit": "ring a bell? → CHIME: the verb for a bell sounding its note, not the idiom about something seeming familiar."
+   }
   },
   {
    "id": "23-down",
@@ -474,7 +1133,41 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ORION",
+    "definition": "that shines in the sky",
+    "indicators": [
+     "Looking up"
+    ],
+    "indicatorNotes": {
+     "Looking up": "In a down entry up means towards the top of the grid, so the pieces just built are read back from the bottom."
+    },
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "NOIR",
+      "note": "noir is French for black, borrowed by English for bleak films"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring drawn on paper is a circle, which is the letter O"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "NOIRO",
+      "to": "ORION"
+     }
+    ],
+    "pieces": [
+     "O",
+     "RION"
+    ],
+    "walkthrough": "'Looking up' does two jobs at once: stargazing in the surface, and in the parse an instruction to a down answer to be read from the bottom.",
+    "definitionFit": "that shines in the sky → ORION: the hunter constellation, among the brightest and most easily found groups of stars at night."
+   }
   },
   {
    "id": "24-down",
@@ -491,7 +1184,30 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKID",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SKID",
+    "definition": "to lose grip",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the size marked on clothing for small"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child, and was a young goat first"
+     }
+    ],
+    "pieces": [
+     "S",
+     "KID"
+    ],
+    "walkthrough": "The definition is the last three words, and they read as part of the same sentence about a child holding on to something. It is a tyre that lets go.",
+    "definitionFit": "to lose grip → SKID: what a wheel does when it slides across a surface instead of holding it, so losing traction is the verb itself."
+   }
   },
   {
    "id": "25-down",
@@ -508,7 +1224,39 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRAD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRAD",
+    "definition": "Pitt",
+    "linkWords": [
+     "to be"
+    ],
+    "indicators": [
+     "overcome by"
+    ],
+    "indicatorNotes": {
+     "overcome by": "To be overcome is to be got the better of and swallowed up, so the letter named goes inside the word that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "evil",
+      "gives": "BAD",
+      "note": "evil in its plainest three-letter form"
+     },
+     {
+      "clueFragment": "the Elder's last character",
+      "gives": "R",
+      "note": "the final letter of Elder, a character meaning a single letter here rather than a person"
+     }
+    ],
+    "pieces": [
+     "B",
+     "R",
+     "AD"
+    ],
+    "walkthrough": "Pitt the Elder was an eighteenth-century British prime minister, which is the surface story. The question mark admits that the definition wants the Hollywood Pitt.",
+    "definitionFit": "Pitt → BRAD: definition by example, the surname on its own pointing at one particular Pitt, the American film star."
+   }
   },
   {
    "id": "26-across",
@@ -525,7 +1273,27 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTFIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "OUTFIT",
+    "definition": "Firm",
+    "definition2": "clothing",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "",
+      "note": "a business, especially a small one — the crew who do the work"
+     },
+     {
+      "clueFragment": "clothing",
+      "gives": "",
+      "note": "a complete set of clothes worn together and chosen to go with each other"
+     }
+    ],
+    "walkthrough": "A two-word clue is all definition, so the only question is where the first meaning stops. 'Firm' looks like an adjective describing the second word and is a noun.",
+    "definitionFit": "A firm is an outfit in the informal sense of an organisation or crew, and an outfit is equally the whole set of clothes someone puts on."
+   }
   },
   {
    "id": "27-across",
@@ -542,7 +1310,39 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIJACKER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HIJACKER",
+    "definition": "perhaps a pirate?",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Greeting",
+      "gives": "HI",
+      "note": "the shortest greeting there is"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "JACK",
+      "note": "jack is an old word for a sailor, as in jack tar"
+     },
+     {
+      "clueFragment": "hesitant expression",
+      "gives": "ER",
+      "note": "er is the noise made while the next word is being found"
+     }
+    ],
+    "pieces": [
+     "HI",
+     "JACK",
+     "ER"
+    ],
+    "walkthrough": "The surface is one polite exchange on a quayside; the parse is three unrelated scraps laid end to end, which is what a charade always looks like once seen.",
+    "definitionFit": "perhaps a pirate? → HIJACKER: definition by example, since piracy is one kind of seizing a vehicle, and the question mark flags the looseness."
+   }
   },
   {
    "id": "28-across",
@@ -559,7 +1359,27 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIDIER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TIDIER",
+    "definition": "In better order",
+    "definition2": "more like 13?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "In better order",
+      "gives": "",
+      "note": "the plain sense: things put straight, with less mess about them than before"
+     },
+     {
+      "clueFragment": "more like 13",
+      "gives": "",
+      "note": "13 down is a shore washed twice a day, so this wants a comparative built on the word for that movement of the sea"
+     }
+    ],
+    "walkthrough": "The second half is the setter's own invention rather than a dictionary word: a shore where the sea comes and goes is, in this joke, more tide-y. The question mark owns it.",
+    "definitionFit": "In better order → TIDIER: the plain comparative of tidy, while the second half puns on the tides at 13's shoreline."
+   }
   },
   {
    "id": "29-across",
@@ -580,7 +1400,38 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONESIDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ONE-SIDED",
+    "definition": "unbalanced",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "Being pretentious"
+    ],
+    "indicatorNotes": {
+     "Being pretentious": "A speaker putting on airs says 'one' where the rest of us say 'I', so the setter's by-line is to be replaced by that grand little word."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman's",
+      "gives": "ONES",
+      "note": "the setter's own by-line, and the lofty way to say 'mine' is 'one's'"
+     },
+     {
+      "clueFragment": "identified",
+      "gives": "IDED",
+      "note": "ID'd is how a police report writes 'identified'"
+     }
+    ],
+    "pieces": [
+     "ONES",
+     "IDED"
+    ],
+    "walkthrough": "Everyman signs every one of these puzzles, so the name in a clue almost always points back at the setter rather than at anybody in the surface story.",
+    "definitionFit": "unbalanced → ONE-SIDED: weighted all towards a single party, the word used of an argument or a contest that gives the other side no chance."
+   }
   }
  ]
 } /*JSON-END*/;
