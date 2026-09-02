@@ -194,6 +194,25 @@ if [ "$resets_rc" = 3 ] && awk "BEGIN{exit !($resets_in <= $WINDOW_HOURS)}"; the
   exit 1
 fi
 
+RESET_AT=$(awk -v n="$(date +%s)" -v h="$resets_in" 'BEGIN{printf "%d", n + h * 3600}')
+
+# What the week actually landed at, said once, after it is too late to change —
+# because otherwise nobody ever finds out. A run that dies, stands down early or
+# is sized off a bad yield all end the same way: a meter that reads 0% and no
+# evidence it ever read anything else. LANDING_OK is the point below which the
+# leftovers were worth having.
+LANDING_FILE=".prereset_landing"
+LANDING_OK="${LANDING_OK:-90}"
+if [ -f "$LANDING_FILE" ]; then
+  read -r landed deadline < "$LANDING_FILE"
+  if [ "$(date +%s)" -ge "${deadline:-0}" ]; then
+    rm -f "$LANDING_FILE"
+    echo "the weekly window turned over with the meter at ${landed}%"
+    awk -v l="${landed:-100}" -v ok="$LANDING_OK" 'BEGIN{exit !(l < ok)}' &&
+      alert "the weekly window turned over with the meter at ${landed}% — $(awk -v l="$landed" 'BEGIN{printf "%d", 100 - l}')% of the week expired unspent. The backfill either started too late for the remainder, stood down early, or stopped; .prereset.log has the wave-by-wave rates and the start time it computed."
+  fi
+fi
+
 if [ "${FORCE:-0}" = 1 ]; then
   echo "FORCE=1 — ignoring the ${resets_in}h until reset, capped at ${FORCE_HOURS}h"
   budget_hours="$FORCE_HOURS"
@@ -457,6 +476,12 @@ after_wave() {
   # waves where one of them was pinned or had reset.
   python3 tools/prereset_plan.py --observe-yield "$climb" "$climb_s" >/dev/null 2>&1
   echo "  weekly ${before}% -> ${now}%, five-hour ${before_s}% -> ${now_s}% in ${hours}h at width ${wide}"
+  # Where the weekly meter stood, and when it turns over. The meter reads 0% the
+  # instant it does, so a week that landed at 100% and a week that landed at 54%
+  # look identical the morning after and the leftovers evaporate unremarked —
+  # which is how 46% of the week of 2026-09-02 went. report_landing reads this
+  # back on the first fire after the reset and says the number out loud.
+  echo "$now $RESET_AT" > "$LANDING_FILE"
   # THE FIVE-HOUR METER IS SHARED WITH A PERSON. The weekly remainder is this
   # job's to spend and all of it is meant to go, but the windows it spends
   # through are the same ones Paul talks to the bridge on, and a window run to

@@ -73,6 +73,15 @@ SEED_YIELD = 12.6
 # way.
 SEED_RATE = 1.1
 
+# Session points a wave must move before its ratio is worth believing. Both
+# meters are read as whole percentages, so a wave that moved the session meter
+# two points and the weekly meter one reports a window worth 50 — four times
+# anything ever measured — and _blend gives that half the weight. Two of those
+# in a row is how .prereset_yield reached 29.5 by 2026-09-02, which asked for
+# two windows where six were needed and left 46% of the week to expire. The
+# denominator has to be big enough that a rounding error is not the reading.
+MIN_YIELD_SAMPLE = 10
+
 # These runs sit waiting on the API almost the whole time, so a spare one costs a
 # process, not a core. The cap is here to bound the fan-out, not to ration.
 CAP = int(os.environ.get("PARALLEL_MAX", 8))
@@ -131,16 +140,23 @@ def observe(climb, hours, width_):
     return _blend(rate(), climb / (hours * width_), RATE_FILE)
 
 
+def yield_sample_ok(weekly_climb, session_climb):
+    """Is this wave's pair of climbs worth dividing? Pure, so self_test can ask."""
+    return weekly_climb > 0 and session_climb >= MIN_YIELD_SAMPLE
+
+
 def observe_yield(weekly_climb, session_climb):
     """Fold one wave's two meters into the per-window yield.
 
     Skipped unless both meters moved: a pinned session meter reads as no climb
     while weekly keeps rising, which would report a window as worth far more
     than it is, and a session window that reset mid-wave reads as a fall.
-    Refusing those leaves only the unpinned stretches, which is exactly where
-    the ratio is honest.
+    Skipped too when the session meter barely moved, because dividing by a
+    number that is mostly rounding error is not a measurement — see
+    MIN_YIELD_SAMPLE. What is left is the unpinned stretches with a real
+    denominator, which is exactly where the ratio is honest.
     """
-    if session_climb <= 0 or weekly_climb <= 0:
+    if not yield_sample_ok(weekly_climb, session_climb):
         return session_yield()
     return _blend(session_yield(), 100.0 * weekly_climb / session_climb, YIELD_FILE)
 
@@ -261,7 +277,21 @@ def self_test():
         (25, 1, 120),       # one at a time cannot drain 25 points; guard, not plan
         (0, 4, 25),         # no reserve to hand back: never zero, never negative
     ]
+    yields = [
+        # weekly climb, session climb -> is the wave worth dividing?
+        (3, 38, True),      # a real wave, the shape every honest reading has
+        (1, 2, False),      # a ratio of two rounding errors, and it reads as 50
+        (3, 0, False),      # session pinned at 100 while weekly kept climbing
+        (3, -20, False),    # the session window turned over mid-wave
+        (0, 38, False),     # weekly did not move: nothing to attribute
+    ]
     bad = 0
+    for weekly, session, want in yields:
+        got = yield_sample_ok(weekly, session)
+        if got != want:
+            print(f"FAIL yield sample weekly +{weekly} session +{session}: "
+                  f"{'believed' if got else 'refused'}", file=sys.stderr)
+            bad += 1
     for hours, left, want in schedule:
         got = behind(hours, left, Y)
         if got != want:
