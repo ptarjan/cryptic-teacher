@@ -30,7 +30,29 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGONISED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AGONISED",
+    "definition": "were really worrying",
+    "indicators": [
+     "quakes"
+    ],
+    "indicatorNotes": {
+     "quakes": "A quake leaves everything standing but nothing where it was, which is what happens to the eight letters in front of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "San Diego",
+      "gives": "SANDIEGO",
+      "note": "the city's name supplies eight letters and no meaning; they go into the grid in a different arrangement"
+     }
+    ],
+    "anagram": {
+     "fodder": "SAN DIEGO"
+    },
+    "walkthrough": "The surface is a news bulletin, and that is what keeps a Californian city looking like scenery rather than like the raw material the clue is handing you.",
+    "definitionFit": "were really worrying → AGONISED: to agonise is to worry to the point of anguish, so the definition catches the intensity as well as the fretting."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +69,29 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAPPLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GRAPPLE",
+    "definition": "Wrestle",
+    "blocks": [
+     {
+      "clueFragment": "gross",
+      "gives": "GR",
+      "note": "gr is the standard short form of gross, the dozen dozen a wholesaler counts in"
+     },
+     {
+      "clueFragment": "eater",
+      "gives": "APPLE",
+      "note": "a British greengrocer calls a variety you bite into raw an eater, as opposed to a cooker"
+     }
+    ],
+    "pieces": [
+     "GR",
+     "APPLE"
+    ],
+    "walkthrough": "Both words change job the moment you stop reading the surface: 'gross' turns from disgusting into a number, and 'eater' from a person into a fruit.",
+    "definitionFit": "Wrestle → GRAPPLE: to grapple with somebody is to seize them and struggle hand to hand, which is wrestling in its plainest sense."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +108,47 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NITRO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NITRO",
+    "definition": "Stuff that explodes",
+    "indicators": [
+     "upset",
+     "returning"
+    ],
+    "indicatorNotes": {
+     "upset": "Something upset has been tipped over, so the three letters beside it are read from their far end.",
+     "returning": "Soldiers returning are going back the way they came, and their two letters do the same."
+    },
+    "blocks": [
+     {
+      "clueFragment": "can upset",
+      "gives": "NIT",
+      "note": "a can is a TIN, stood on its head"
+     },
+     {
+      "clueFragment": "returning troops",
+      "gives": "RO",
+      "note": "OR is the army's other ranks, the ordinary soldiers, and it comes back to front"
+     }
+    ],
+    "pieces": [
+     "NIT",
+     "RO"
+    ],
+    "subReversals": [
+     {
+      "from": "TIN",
+      "to": "NIT"
+     },
+     {
+      "from": "OR",
+      "to": "RO"
+     }
+    ],
+    "walkthrough": "Two turnarounds in a row, and the surface hides both: a can of drink and a column of soldiers make one picture, and neither word looks like an instruction inside it.",
+    "definitionFit": "Stuff that explodes → NITRO: nitro is the short name for nitroglycerine, the liquid explosive, so the definition names the substance by what it does."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +169,29 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCOURINGPAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCOURING PAD",
+    "definition": "Aggressive cleaner",
+    "blocks": [
+     {
+      "clueFragment": "ransacking",
+      "gives": "SCOURING",
+      "note": "to ransack a place is to scour it, turning it over in search of something"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "PAD",
+      "note": "a pad is slang for the place somebody lives"
+     }
+    ],
+    "pieces": [
+     "SCOURING",
+     "PAD"
+    ],
+    "walkthrough": "The surface is a burglary, and the definition sits in front of it: 'Aggressive cleaner' looks like a person with a mop until you hear it as the thing doing the scrubbing.",
+    "definitionFit": "Aggressive cleaner → SCOURING PAD: a tool rather than a person, and 'aggressive' points at the abrasive wire mesh that scratches a pan clean."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +212,47 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "DRESSUP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "DRESS UP",
+    "definition": "Prepare for party",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "various"
+    ],
+    "indicatorNotes": {
+     "various": "It says the reds are not all of one kind, and letters described that way will not stay in one settled order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "reds",
+      "gives": "DRES",
+      "note": "the four letters of the wines, in a new arrangement, open the answer"
+     },
+     {
+      "clueFragment": "to drink",
+      "gives": "SUP",
+      "note": "to sup is to drink, chiefly in northern English use"
+     }
+    ],
+    "anagram": {
+     "fodder": "REDS SUP"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "REDS",
+      "gives": "DRES"
+     }
+    ],
+    "pieces": [
+     "DRES",
+     "SUP"
+    ],
+    "walkthrough": "'Prepare for party' looks like wordplay and the wines like the definition, because a glass of red is easier to picture than an instruction. It is the other way round.",
+    "definitionFit": "Prepare for party → DRESS UP: dressing up is putting on smarter or fancier clothes than usual, which is the preparation a party calls for."
+   }
   },
   {
    "id": "6-across",
@@ -123,7 +269,41 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGIFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "REGIFT",
+    "definition": "Pass on",
+    "indicators": [
+     "left"
+    ],
+    "indicatorNotes": {
+     "left": "The left of a written word is where it begins, so this asks for the single letter standing at that end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning, the word heading a memo or a letter"
+     },
+     {
+      "clueFragment": "file with images",
+      "gives": "GIF",
+      "note": "a GIF is the picture file format, animated or not"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "T",
+      "note": "the letter at the front of the word, the one on its left"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "GIF",
+     "T"
+    ],
+    "walkthrough": "'Left in taxi' reads as lost property on the back seat, which is the whole misdirection: nothing has been forgotten anywhere, and the word is being pointed at rather than searched.",
+    "definitionFit": "Pass on → REGIFT: to regift is to hand a present you were given straight along to somebody else, so passing it on is exactly the act."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +320,29 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIG",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RIG",
+    "definition": "Doctor",
+    "indicators": [
+     "half"
+    ],
+    "indicatorNotes": {
+     "half": "Half of a six-letter word is three letters, and it is the front half that stays behind."
+    },
+    "blocks": [
+     {
+      "clueFragment": "justified claims",
+      "gives": "RIGHTS",
+      "note": "a claim you are entitled to is a right, and the plural of that runs to six letters"
+     }
+    ],
+    "pieces": [
+     "RIG"
+    ],
+    "walkthrough": "'Doctor' looks like the person and is the verb: to doctor a result is to fiddle it. 'Justified claims' looks like a legal complaint rather than one word waiting to be cut in two.",
+    "definitionFit": "Doctor → RIG: both are verbs for tampering with something so it comes out the way you want — a doctored photograph, a rigged election."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +359,36 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLOBALISE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letters",
+    "answer": "GLOBALISE",
+    "definition": "spread everywhere",
+    "indicators": [
+     "Damaging",
+     "middle of"
+    ],
+    "indicatorNotes": {
+     "Damaging": "Damage leaves a thing with all its parts and none of its shape, which is what happens to the letters gathered here.",
+     "middle of": "It asks for the letters at the centre of the word, with both ends thrown away."
+    },
+    "blocks": [
+     {
+      "clueFragment": "middle of smelly",
+      "gives": "EL",
+      "note": "the word has six letters, so its centre is the third and fourth"
+     },
+     {
+      "clueFragment": "bag, soil",
+      "gives": "BAGSOIL",
+      "note": "seven more letters join that pair, and the nine are then rearranged together"
+     }
+    ],
+    "anagram": {
+     "fodder": "EL BAGSOIL"
+    },
+    "walkthrough": "'Spread everywhere' reads as part of the mess the surface describes — soil over the floor — which is exactly why it takes a while to see it as the definition.",
+    "definitionFit": "spread everywhere → GLOBALISE: to globalise a business or a habit is to take it worldwide, which is spreading it as far as everywhere goes."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +405,35 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINGERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FINGERS",
+    "definition": "piano players",
+    "indicators": [
+     "wanting top"
+    ],
+    "indicatorNotes": {
+     "wanting top": "To want something here is to lack it, and the top of a word written down a column is the letter it starts with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "f is forte, the direction printed in a score to play loudly"
+     },
+     {
+      "clueFragment": "sopranos perhaps",
+      "gives": "INGERS",
+      "note": "sopranos are one kind of singer, and that word turns up with its first letter gone"
+     }
+    ],
+    "pieces": [
+     "F",
+     "INGERS"
+    ],
+    "walkthrough": "'Perhaps' is the tell that sopranos are an example rather than a synonym: the word you want is the general one they belong to.",
+    "definitionFit": "piano players → FINGERS: a definition by transfer — the pianist plays, but the fingers are what strike the keys, so they do the playing."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +450,24 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAST",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FAST",
+    "definition": "Fixed",
+    "definition2": "ahead of time",
+    "blocks": [
+     {
+      "clueFragment": "Fixed",
+      "note": "of a knot or a dye: held so firmly that nothing will shift it or wash it out"
+     },
+     {
+      "clueFragment": "ahead of time",
+      "note": "of a clock that gains: it shows an hour that has not arrived yet"
+     }
+    ],
+    "walkthrough": "The two senses have nothing to do with each other, and a third — going without food — is the one 26 across borrows. Four letters, three unrelated jobs.",
+    "definitionFit": "Fixed → FAST, as in a knot held firm; ahead of time → FAST, as in a clock that gains, so one word covers immovable and too quick."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +484,34 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERGROUND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERGROUND",
+    "definition": "on the surface",
+    "blocks": [
+     {
+      "clueFragment": "too",
+      "gives": "OVER",
+      "note": "over- in front of a word means too much of it: over-cautious, over-cooked"
+     },
+     {
+      "clueFragment": "powdery",
+      "gives": "GROUND",
+      "note": "what has been ground fine is powder, so the two words describe one state"
+     },
+     {
+      "clueFragment": "Maybe",
+      "gives": "",
+      "note": "it softens the equation that follows — something ground may be powdery rather than must be — and hands over no letters of its own"
+     }
+    ],
+    "pieces": [
+     "OVER",
+     "GROUND"
+    ],
+    "walkthrough": "The trap is 'powdery on the surface', which reads as a single phrase about snow. The definition is only the last three words, and the wordplay stops before them.",
+    "definitionFit": "on the surface → OVERGROUND: an overground railway runs above ground instead of through a tunnel, so it is the line you can see at street level."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +528,29 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROCRASTINATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PROCRASTINATE",
+    "definition": "make it later",
+    "indicators": [
+     "Poorly"
+    ],
+    "indicatorNotes": {
+     "Poorly": "Somebody poorly is out of sorts, and letters out of sorts are letters no longer in their proper order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "so partier can't",
+      "gives": "SOPARTIERCANT",
+      "note": "thirteen letters, exactly what the grid asks for, waiting to be put in another order"
+     }
+    ],
+    "anagram": {
+     "fodder": "so partier can't"
+    },
+    "walkthrough": "'Poorly' does two jobs at once: the excuse in the surface story and the instruction in the wordplay, which is why it reads as scenery rather than as a signal.",
+    "definitionFit": "make it later → PROCRASTINATE: to procrastinate is to put a thing off until some later time, so making it later is precisely the act."
+   }
   },
   {
    "id": "12-down",
@@ -247,7 +572,41 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "INTHESADDLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "IN THE SADDLE",
+    "definition": "mounted",
+    "indicators": [
+     "pack among"
+    ],
+    "indicatorNotes": {
+     "pack among": "To pack one thing among others is to push it in between them, which is where the two letters end up."
+    },
+    "blocks": [
+     {
+      "clueFragment": "discounted items",
+      "gives": "IN THE SALE",
+      "note": "goods with money off are in the sale, and this phrase opens up to take something"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for five hundred"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the card player's shorthand for diamonds"
+     }
+    ],
+    "pieces": [
+     "IN THE SA",
+     "DD",
+     "LE"
+    ],
+    "walkthrough": "The surface is a shoplifting story, so 'mounted' at the end reads as stock piled up rather than as the definition. Two Ds arrive from two quite different conventions.",
+    "definitionFit": "mounted → IN THE SADDLE: a rider up on a horse is in the saddle, and the phrase carries over to whoever is in charge of something."
+   }
   },
   {
    "id": "13-across",
@@ -268,7 +627,35 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEANON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LEAN ON",
+    "definition": "to intimidate",
+    "indicators": [
+     "spending"
+    ],
+    "indicatorNotes": {
+     "spending": "To spend something is to part with it, so the country parts with the letter named next."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Middle Eastern country",
+      "gives": "LEBANON",
+      "note": "Lebanon sits on the Mediterranean coast, north of Israel"
+     },
+     {
+      "clueFragment": "billions",
+      "gives": "B",
+      "note": "b is the usual short form for billions in a set of accounts"
+     }
+    ],
+    "pieces": [
+     "LEAN",
+     "ON"
+    ],
+    "walkthrough": "'Spending billions' reads as government policy right up to the moment it turns into an instruction, and the country that loses its B is left threatening somebody.",
+    "definitionFit": "to intimidate → LEAN ON: leaning on somebody is applying pressure to make them do what you want, the standard idiom for menace without violence."
+   }
   },
   {
    "id": "14-down",
@@ -289,7 +676,43 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONEXEMPT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + deletion",
+    "answer": "NON-EXEMPT",
+    "definition": "bound to be taxed",
+    "indicators": [
+     "rising",
+     "almost"
+    ],
+    "indicatorNotes": {
+     "rising": "The entry runs down the grid, so a gas rising through it is read from the bottom letter upwards.",
+     "almost": "Almost all of a word is all of it bar the last letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gas rising",
+      "gives": "NONEX",
+      "note": "xenon is the noble gas, and here it is climbing the column"
+     },
+     {
+      "clueFragment": "depleted",
+      "gives": "EMPT",
+      "note": "a depleted store is empty, and that word arrives one letter short"
+     }
+    ],
+    "pieces": [
+     "NONEX",
+     "EMPT"
+    ],
+    "subReversals": [
+     {
+      "from": "XENON",
+      "to": "NONEX"
+     }
+    ],
+    "walkthrough": "The hyphen falls in the wrong place for the wordplay: the join between the two pieces is two letters later than the grid's, which is what makes the halves hard to see.",
+    "definitionFit": "bound to be taxed → NON-EXEMPT: exempt income is income the taxman cannot touch, so anything non-exempt is caught and has to pay."
+   }
   },
   {
    "id": "15-across",
@@ -310,7 +733,36 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUTFIRST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PUT FIRST",
+    "definition": "Make key",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "What goes around something has that thing inside it, so the stroke's letters open up to take what follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "golf shot",
+      "gives": "PUTT",
+      "note": "a putt is the stroke played on the green, with the flat-faced club"
+     },
+     {
+      "clueFragment": "trees",
+      "gives": "FIRS",
+      "note": "firs are the evergreens, and four letters of them go inside"
+     }
+    ],
+    "pieces": [
+     "PUT",
+     "FIRS",
+     "T"
+    ],
+    "walkthrough": "'Make key' is the definition and looks like the beginning of an instruction about cutting one. The golf course is the surface's own invention.",
+    "definitionFit": "Make key → PUT FIRST: both mean granting something top priority — whatever you put first on a list is the thing you have decided matters most."
+   }
   },
   {
    "id": "16-across",
@@ -327,7 +779,38 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WINNIPEG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WINNIPEG",
+    "definition": "Canadian city",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overcome",
+      "gives": "WIN",
+      "note": "to overcome your opponents is to win"
+     },
+     {
+      "clueFragment": "feeling of cold",
+      "gives": "NIP",
+      "note": "a nip in the air is the sharp feel of cold weather"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "say introduces an example, which is what eg stands for"
+     }
+    ],
+    "pieces": [
+     "WIN",
+     "NIP",
+     "EG"
+    ],
+    "walkthrough": "'Overcome feeling of cold' reads as one idea, soldiering on through the chill, and that is the join the clue is hiding: three separate pieces pretending to be a phrase.",
+    "definitionFit": "Canadian city → WINNIPEG: Winnipeg is the capital of Manitoba, so the definition places it by country and category rather than by any feature of its own."
+   }
   },
   {
    "id": "17-down",
@@ -344,7 +827,26 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMMERSE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "IMMERSE",
+    "definition": "duck",
+    "indicators": [
+     "grabbing"
+    ],
+    "indicatorNotes": {
+     "grabbing": "Words that grab something are holding it between them, so the letters run unbroken inside them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Swimmer seen",
+      "gives": "IMMERSE",
+      "note": "seven letters run straight on across the gap between these two words, already in the order you need"
+     }
+    ],
+    "walkthrough": "'Duck' looks like the bird being grabbed, which is the whole disguise: it is the definition, and 'Swimmer' is not a definition at all but half the hiding place.",
+    "definitionFit": "duck → IMMERSE: to duck somebody is to push them under water, and immersing is that same action stated in full, putting a thing wholly under."
+   }
   },
   {
    "id": "18-down",
@@ -361,7 +863,49 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GREASER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "GREASER",
+    "definition": "Gang member John Travolta plays",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "cast",
+     "after"
+    ],
+    "indicatorNotes": {
+     "cast": "In a theatre the cast is the company, but the verb means thrown, and letters thrown down land in a new arrangement.",
+     "after": "It puts the single letter behind what has just been assembled rather than in front of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "agrees",
+      "gives": "GREASE",
+      "note": "these six letters rearrange into the title of the film the surface is talking about"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the radio alphabet"
+     }
+    ],
+    "anagram": {
+     "fodder": "AGREES R"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "AGREES",
+      "gives": "GREASE"
+     }
+    ],
+    "pieces": [
+     "GREASE",
+     "R"
+    ],
+    "walkthrough": "The film turns up twice: once as the role Travolta played, once as the six letters 'agrees' rearranges into. One of those is the definition, the other the wordplay.",
+    "definitionFit": "Gang member John Travolta plays → GREASER: a greaser is a 1950s youth with slicked-back hair, and Danny in Grease is exactly one of them."
+   }
   },
   {
    "id": "19-across",
@@ -382,7 +926,32 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "EVENSO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EVEN SO",
+    "definition": "still",
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flat",
+      "gives": "EVEN",
+      "note": "a flat surface is an even one, with no bumps in it"
+     },
+     {
+      "clueFragment": "incredibly",
+      "gives": "SO",
+      "note": "so does the work of very in speech: so good, so tired"
+     }
+    ],
+    "pieces": [
+     "EVEN",
+     "SO"
+    ],
+    "walkthrough": "'Still' at the end reads as part of the description, flat and motionless, when it is the definition — and the sense wanted is 'nevertheless' rather than 'not moving'.",
+    "definitionFit": "still → EVEN SO: both work as 'nevertheless' — 'it rained; still, we went' and 'it rained; even so, we went' are the same sentence."
+   }
   },
   {
    "id": "20-down",
@@ -399,7 +968,36 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SARACEN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SARACEN",
+    "definition": "Old Arab",
+    "indicators": [
+     "admitting"
+    ],
+    "indicatorNotes": {
+     "admitting": "A hospital admits patients by taking them inside, so the word doing the admitting opens and closes round the other piece."
+    },
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "SAN",
+      "note": "a san is a sanatorium, the sick bay at a British boarding school"
+     },
+     {
+      "clueFragment": "certain type of people",
+      "gives": "RACE",
+      "note": "one particular kind of people, taken as a group, is a race"
+     }
+    ],
+    "pieces": [
+     "SA",
+     "RACE",
+     "N"
+    ],
+    "walkthrough": "The surface is a hospital admissions story, so 'admitting' reads as ordinary English right up to the moment it becomes an instruction. The question mark covers the vagueness of 'certain type'.",
+    "definitionFit": "Old Arab → SARACEN: Saracen was the medieval European name for an Arab or Muslim, used above all of the peoples the Crusaders fought."
+   }
   },
   {
    "id": "21-across",
@@ -420,7 +1018,23 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
     ]
    },
    "solution": "MIXEDMETAPHOR",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "MIXED METAPHOR",
+    "definition": "Is one white elephant in the room?",
+    "blocks": [
+     {
+      "clueFragment": "white elephant",
+      "note": "one stock figure of speech: a possession that costs a fortune and does nothing useful"
+     },
+     {
+      "clueFragment": "elephant in the room",
+      "note": "a quite different figure of speech, for the obvious thing nobody will mention — and the clue has welded the two together at the word they share"
+     }
+    ],
+    "walkthrough": "Two idioms have been joined at the word they have in common, and the sentence that results is an example of the very thing it is asking you to name.",
+    "definitionFit": "The whole clue is the definition: it jams two figures of speech into one sentence, and a sentence that does that is itself the thing being defined."
+   }
   },
   {
    "id": "22-down",
@@ -437,7 +1051,34 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOTEL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal + &lit",
+    "answer": "HOTEL",
+    "definition": "This sending up a little tipple to honeymooners?",
+    "indicators": [
+     "sending up",
+     "a little"
+    ],
+    "indicatorNotes": {
+     "sending up": "The entry runs down the grid, so anything sent up it is read from the bottom letter towards the top.",
+     "a little": "Only a little of the phrase is wanted: a short run of letters inside it, not the whole thing."
+    },
+    "blocks": [
+     {
+      "clueFragment": "tipple to honeymooners",
+      "gives": "HOTEL",
+      "note": "five letters sit in a row across these words, waiting to be read the other way up"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "LETOH",
+      "to": "HOTEL"
+     }
+    ],
+    "walkthrough": "Every word does both jobs at once: read straight, the clue describes what the place does for its guests; read as instructions, it points at five letters running upwards through its last two words.",
+    "definitionFit": "The whole clue reads straight: the establishment that sends a little champagne up to the honeymoon suite is the thing being defined, room service and all."
+   }
   },
   {
    "id": "23-across",
@@ -454,7 +1095,50 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAMATISED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DRAMATISED",
+    "definition": "put in play, perhaps",
+    "indicators": [
+     "wayward"
+    ],
+    "indicatorNotes": {
+     "wayward": "Something wayward will not keep to the order it was given, and neither will the four letters beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Shot",
+      "gives": "DRAM",
+      "note": "a dram is a shot of whisky"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "AT",
+      "note": "by and at both mean beside: waiting by the door, waiting at the door"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "ISED",
+      "note": "the same four letters, in a different order, finish the word"
+     }
+    ],
+    "anagram": {
+     "fodder": "DRAM AT SIDE"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "SIDE",
+      "gives": "ISED"
+     }
+    ],
+    "pieces": [
+     "DRAM",
+     "AT",
+     "ISED"
+    ],
+    "walkthrough": "The surface is a football match, so 'put in play' reads as a ball coming back into the game rather than as a script. Only 'wayward' is an instruction.",
+    "definitionFit": "put in play, perhaps → DRAMATISED: a novel dramatised for the stage has been turned into a play, and 'perhaps' allows for radio or television instead."
+   }
   },
   {
    "id": "24-down",
@@ -471,7 +1155,29 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TIN",
+    "definition": "part of bronze",
+    "indicators": [
+     "Reduced"
+    ],
+    "indicatorNotes": {
+     "Reduced": "Something reduced has lost a piece of itself, and here it is the final letter that goes."
+    },
+    "blocks": [
+     {
+      "clueFragment": "very small",
+      "gives": "TINY",
+      "note": "very small is tiny, and that word loses its tail"
+     }
+    ],
+    "pieces": [
+     "TIN"
+    ],
+    "walkthrough": "Bronze is an alloy of copper and one other metal, which is where the definition comes from, while 'Reduced very small' reads as a description of a shrunken statue.",
+    "definitionFit": "part of bronze → TIN: bronze is copper alloyed with tin, so the definition names one of its two ingredients rather than offering a synonym."
+   }
   },
   {
    "id": "25-across",
@@ -488,7 +1194,43 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TACK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + reversal",
+    "answer": "TACK",
+    "definition": "Stitch",
+    "indicators": [
+     "lining",
+     "back to front"
+    ],
+    "indicatorNotes": {
+     "lining": "The lining of a garment is what sits inside it, so the letters wanted are the inner ones of the word that follows.",
+     "back to front": "The pieces are assembled one way and written into the grid the other way, ends swapped."
+    },
+    "blocks": [
+     {
+      "clueFragment": "silk",
+      "gives": "KC",
+      "note": "a senior British barrister is a King's Counsel, and being appointed one is called taking silk"
+     },
+     {
+      "clueFragment": "hats",
+      "gives": "AT",
+      "note": "the two letters inside the word, with the outer pair stripped away"
+     }
+    ],
+    "pieces": [
+     "TA",
+     "CK"
+    ],
+    "subReversals": [
+     {
+      "from": "KCAT",
+      "to": "TACK"
+     }
+    ],
+    "walkthrough": "The misdirection is that hats and linings belong together, so you look for a fabric. The lining wanted is the middle of a word, not the inside of a hat.",
+    "definitionFit": "Stitch → TACK: to tack is to fasten cloth with long loose stitches before sewing it properly, so the word names one kind of stitch."
+   }
   },
   {
    "id": "26-across",
@@ -505,7 +1247,35 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LENTEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "LENTEN",
+    "definition": "during 9",
+    "indicators": [
+     "clothing"
+    ],
+    "indicatorNotes": {
+     "clothing": "What clothes a thing is on the outside of it, so the letters wanted are the ones at each end of the name."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Allowed to use",
+      "gives": "LENT",
+      "note": "if you allowed somebody to use your car, you lent it to them"
+     },
+     {
+      "clueFragment": "Elton's clothing",
+      "gives": "EN",
+      "note": "the first and last letters of the singer's name, the ones on the outside"
+     }
+    ],
+    "pieces": [
+     "LENT",
+     "EN"
+    ],
+    "walkthrough": "The 9 is a cross-reference to 9 across, where the word means going without food as well as fixed and quick, and it is that third sense the definition needs.",
+    "definitionFit": "during 9 → LENTEN: Lenten means belonging to Lent, the church's forty days of fasting, so it describes whatever happens during that fast."
+   }
   },
   {
    "id": "27-across",
@@ -522,7 +1292,29 @@ window.CRYPTIC_PUZZLES["indysunday-1883"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIESLING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RIESLING",
+    "definition": "white",
+    "indicators": [
+     "turned"
+    ],
+    "indicatorNotes": {
+     "turned": "Wine that has turned has gone off, and letters that turn come out in an order nobody planned."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sir Nigel",
+      "gives": "SIRNIGEL",
+      "note": "the knight's title and name supply eight letters between them, to be taken in another order"
+     }
+    ],
+    "anagram": {
+     "fodder": "SIR NIGEL"
+    },
+    "walkthrough": "'Turned' looks like what happens to wine that has gone off, which is the joke: the only word in the clue meaning anything is the definition, and the knight is letters wearing a name.",
+    "definitionFit": "white → RIESLING: a definition by category — Riesling is a German grape and the dry or sweet white wine pressed from it, so it is one white among many."
+   }
   }
  ]
 } /*JSON-END*/;
