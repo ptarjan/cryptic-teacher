@@ -34,7 +34,40 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "SMALLFORTUNE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SMALL FORTUNE",
+    "definition": "mint",
+    "linkWords": [
+     "of",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sergeant major",
+      "gives": "SM",
+      "note": "SM is the army's shorthand for the rank, the two initials on a duty roster"
+     },
+     {
+      "clueFragment": "really in favour",
+      "gives": "ALLFOR",
+      "note": "somebody really in favour of a plan is all for it, six letters that arrive as one phrase"
+     },
+     {
+      "clueFragment": "cough sweet",
+      "gives": "TUNE",
+      "note": "Tunes were a British brand of menthol lozenge, sold in a roll for a blocked nose"
+     }
+    ],
+    "pieces": [
+     "SM",
+     "ALL",
+     "FOR",
+     "TUNE"
+    ],
+    "walkthrough": "The surface keeps you in the sweetshop right to the last word, and that last word is the definition: not the herb or the confectionery but the money sense.",
+    "definitionFit": "mint -> SMALL FORTUNE: both are idioms for a very large sum of money, and 'small' in the answer is pure irony."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +84,40 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MINUS",
+    "definition": "Without",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "Something upset has been tipped right over, and in a down entry that means reading the assembled letters from the bottom of the grid upwards."
+    },
+    "blocks": [
+     {
+      "clueFragment": "good weather",
+      "gives": "SUN",
+      "note": "fine weather comes from the sun, three letters laid down first"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IM",
+      "note": "'one' in the formal sense is the speaker, so 'one's' is written I'm before anything is turned"
+     }
+    ],
+    "pieces": [
+     "MINUS"
+    ],
+    "subReversals": [
+     {
+      "from": "SUNIM",
+      "to": "MINUS"
+     }
+    ],
+    "walkthrough": "It is the whole stack that turns, not each piece on its own: build the two bits in clue order, then read the five letters back up the grid.",
+    "definitionFit": "Without -> MINUS: both mean lacking something, and 'a week minus the weekend' says exactly what 'a week without it' says."
+   }
   },
   {
    "id": "3-down",
@@ -72,7 +138,43 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOOSEENDS",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "LOOSE ENDS",
+    "definition": "Untidy business",
+    "indicators": [
+     "in",
+     "emptied out"
+    ],
+    "indicatorNotes": {
+     "in": "One thing placed in another goes bodily inside it, so this word is what splits the letters already gathered.",
+     "emptied out": "A container emptied out keeps only its walls, so the word beside it gives up everything between its first and last letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "LOO",
+      "note": "the everyday British word for one, and it opens up to take a guest"
+     },
+     {
+      "clueFragment": "spotted",
+      "gives": "SEEN",
+      "note": "whatever was spotted was seen, and this is what drops into the gap"
+     },
+     {
+      "clueFragment": "diapers emptied out",
+      "gives": "DS",
+      "note": "the outside letters survive and the five in the middle are thrown away"
+     }
+    ],
+    "pieces": [
+     "LOO",
+     "SEEN",
+     "DS"
+    ],
+    "walkthrough": "'Business' is not trade here but the vaguer sense of a matter or affair. 'Diapers' is the American word, which is why nothing British-sounding is being emptied.",
+    "definitionFit": "Untidy business -> LOOSE ENDS: the phrase names the details of a job left dangling, which is business at its untidiest."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +191,36 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOSSIL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FOSSIL",
+    "definition": "being rock-bound",
+    "indicators": [
+     "has cracked"
+    ],
+    "indicatorNotes": {
+     "has cracked": "Something cracked has split open, and the letters in front of the phrase part company to let the next piece into the gap."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Thin metal",
+      "gives": "FOIL",
+      "note": "kitchen foil is metal rolled thin, and it splits after its second letter"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the prefix on a steamship's name, and it drops into the split"
+     }
+    ],
+    "pieces": [
+     "FO",
+     "SS",
+     "IL"
+    ],
+    "walkthrough": "The surface has a vessel in trouble; underneath, the vessel is two letters and the trouble is what lets them in. 'Being' is a creature, not the participle it looks like.",
+    "definitionFit": "being rock-bound -> FOSSIL: the remains of a creature turned to stone and locked in rock, so 'being' is the noun, a living thing."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +237,29 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFORMER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REFORMER",
+    "definition": "Change advocate",
+    "blocks": [
+     {
+      "clueFragment": "dealing with",
+      "gives": "RE",
+      "note": "RE heads a memo to say what it deals with, the standard two letters for 'concerning'"
+     },
+     {
+      "clueFragment": "ex",
+      "gives": "FORMER",
+      "note": "an ex-anything is a former one, plain synonym"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "FORMER"
+    ],
+    "walkthrough": "The tempting split is 'Change' on its own, leaving 'advocate' to supply letters. Both words are the definition together, and the wordplay is only the last three.",
+    "definitionFit": "Change advocate -> REFORMER: a reformer campaigns for an institution to be changed rather than swept away, so arguing for change is the whole job."
+   }
   },
   {
    "id": "6-down",
@@ -123,7 +276,34 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UTTER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UTTER",
+    "definition": "Perfect",
+    "indicators": [
+     "short of"
+    ],
+    "indicatorNotes": {
+     "short of": "To be short of a thing is to be missing it, so the word beside the phrase turns up without the letter named after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "golf club",
+      "gives": "PUTTER",
+      "note": "the club a golfer takes out on the green, six letters before anything goes"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the letter on a British road sign for parking, and this is the one that leaves"
+     }
+    ],
+    "pieces": [
+     "UTTER"
+    ],
+    "walkthrough": "'Perfect' is not the verb but the intensifier, the sense in 'a perfect fool' - which is why an adjective meaning complete is what answers it.",
+    "definitionFit": "Perfect -> UTTER: both are intensifiers meaning absolute, so a perfect stranger and an utter stranger are the same person."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +320,38 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMPIRICAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "EMPIRICAL",
+    "definition": "going by experience",
+    "indicators": [
+     "melting",
+     "around",
+     "start of"
+    ],
+    "indicatorNotes": {
+     "melting": "Ice that melts loses its shape altogether, so the letters beside the word cannot keep the order they arrived in.",
+     "around": "What melts around a thing closes over it, so the single letter named next finishes up buried among the rest.",
+     "start of": "The start of a word is the letter it begins with, and that one letter is all this asks for."
+    },
+    "blocks": [
+     {
+      "clueFragment": "April ice",
+      "gives": "APRILICE",
+      "note": "eight letters of raw material: the month and the frozen water are there to be dissolved, not read"
+     },
+     {
+      "clueFragment": "start of month",
+      "gives": "M",
+      "note": "the first letter of the word that follows, joining the pool"
+     }
+    ],
+    "anagram": {
+     "fodder": "APRIL ICE M"
+    },
+    "walkthrough": "'Around' tempts you to build a container, with something wrapped round an M. The melting has already dissolved everything, so the M is simply one letter of the nine.",
+    "definitionFit": "going by experience -> EMPIRICAL: empirical knowledge is what observation and trial produce, as opposed to what theory predicts."
+   }
   },
   {
    "id": "8-down",
@@ -162,7 +373,47 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONONESUPPERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ON ONE'S UPPERS",
+    "definition": "Short of cash",
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "ON",
+      "note": "'on arrival' means after arriving, so 'on' is one of the words English uses for after"
+     },
+     {
+      "clueFragment": "a single",
+      "gives": "ONE",
+      "note": "a single of anything is one of it"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink, the old verb that survives in 'supping ale'"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per is Latin for each, as in miles per hour"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard family-tree abbreviation for son"
+     }
+    ],
+    "pieces": [
+     "ON",
+     "ONE",
+     "SUP",
+     "PER",
+     "S"
+    ],
+    "walkthrough": "The joins never fall where the wordplay does: the S that closes the second word is the front of the drink, and the son's S is the very last letter of all.",
+    "definitionFit": "Short of cash -> ON ONE'S UPPERS: the idiom pictures shoes worn through the soles until only the uppers are left, so the wearer is broke."
+   }
   },
   {
    "id": "9-across",
@@ -179,7 +430,35 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DINGO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "DINGO",
+    "definition": "Dog",
+    "indicators": [
+     "coming last"
+    ],
+    "indicatorNotes": {
+     "coming last": "Whatever comes last ends up at the back, so the bird's letter leaves the place it sits in and is written on the end instead."
+    },
+    "blocks": [
+     {
+      "clueFragment": "performing",
+      "gives": "DING",
+      "note": "to be performing is to be doing, and these four letters are what is left when the bird's is taken out"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a batsman out for no runs has scored a duck, and no runs is written as a nought"
+     }
+    ],
+    "pieces": [
+     "DING",
+     "O"
+    ],
+    "walkthrough": "'Performing with duck' reads as a circus act. The duck is cricket's nought, and the question mark is there because the letter will not stay where its own word puts it.",
+    "definitionFit": "Dog -> DINGO: the wild dog of the Australian outback, so the definition names the family the animal belongs to."
+   }
   },
   {
    "id": "9-down",
@@ -196,7 +475,37 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOPPELGANGER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DOPPELGANGER",
+    "definition": "identical spirit",
+    "indicators": [
+     "fashioned"
+    ],
+    "indicatorNotes": {
+     "fashioned": "Something fashioned has been worked into a new shape, and the letters beside the word are worked into a new order."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two pegs",
+      "gives": "PEGPEG",
+      "note": "the word is written out twice over, six letters of raw material rather than a description"
+     },
+     {
+      "clueFragment": "Ronald",
+      "gives": "RONALD",
+      "note": "the name goes into the mix whole, all six of its letters"
+     }
+    ],
+    "anagram": {
+     "fodder": "PEG PEG RONALD"
+    },
+    "walkthrough": "Count before you shuffle. The fodder only reaches twelve letters if 'Two pegs' means the word spelled out twice, which is the step the surface hides.",
+    "definitionFit": "identical spirit -> DOPPELGANGER: German for 'double-goer', the ghostly twin of a living person, so it is a spirit and an exact likeness at once."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +526,23 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "SAFETYPIN",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SAFETY PIN",
+    "definition": "Fixing device",
+    "blocks": [
+     {
+      "clueFragment": "Fixing device",
+      "note": "read straight: a small thing for holding two pieces of fabric together, the sort that lives in a sewing tin"
+     },
+     {
+      "clueFragment": "you can't see the point of?",
+      "note": "the surface says pointless; the setter means the sharp end really is out of sight, folded away under its little metal clasp"
+     }
+    ],
+    "walkthrough": "There are no letters to collect here. The clue is one joke told twice over: no point as futility, and a point genuinely hidden so that it cannot prick anybody.",
+    "definitionFit": "Fixing device -> SAFETY PIN: it fastens two pieces of cloth to each other, which is fixing in the fastening sense rather than the mending one."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +559,29 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSTERIOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POSTERIOR",
+    "definition": "bringing up the rear",
+    "indicators": [
+     "on manoeuvres"
+    ],
+    "indicatorNotes": {
+     "on manoeuvres": "Troops on manoeuvres are marched about the field into fresh positions, and the nine letters beside the phrase take fresh positions too."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Is trooper",
+      "gives": "ISTROOPER",
+      "note": "nine letters of raw material: the soldier is not a soldier here, only a supply of letters"
+     }
+    ],
+    "anagram": {
+     "fodder": "IS TROOPER"
+    },
+    "walkthrough": "The definition is adjectival, not the polite noun for a backside. Whatever brings up the rear is the hindmost of its line, and that is the sense wanted.",
+    "definitionFit": "bringing up the rear -> POSTERIOR: posterior means situated behind or coming after, so whoever is last in a column is the posterior one."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +598,41 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RERUN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "RERUN",
+    "definition": "Programme you might have seen",
+    "indicators": [
+     "endless"
+    ],
+    "indicatorNotes": {
+     "endless": "A word made endless loses the letters at both of its ends, and with a three-letter word only the middle one is left standing."
+    },
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "RE is the shorthand at the head of a memo, meaning 'about'"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "RU",
+      "note": "RU is rugby union, one of the games a British crossword shortens to two letters"
+     },
+     {
+      "clueFragment": "endless one",
+      "gives": "N",
+      "note": "strip a letter off each end of the number and a single one survives"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "RU",
+     "N"
+    ],
+    "walkthrough": "The tempting move is to dock the number at the tail and get ON. Endless means no ends at all, and only then do the pieces come to five letters.",
+    "definitionFit": "Programme you might have seen -> RERUN: a rerun is a repeat showing, so anyone watching may well have caught that episode before."
+   }
   },
   {
    "id": "13-across",
@@ -268,7 +649,24 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EBBING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "EBBING",
+    "definition": "Missouri town at the cinema",
+    "definition2": "going out",
+    "blocks": [
+     {
+      "clueFragment": "Missouri town at the cinema",
+      "note": "the invented town of the 2017 film 'Three Billboards Outside ---, Missouri', so the place exists only on screen"
+     },
+     {
+      "clueFragment": "going out",
+      "note": "said of the tide: the twice-daily retreat of the sea back down the beach"
+     }
+    ],
+    "walkthrough": "Nothing to take apart. The two senses have nothing to do with each other, and the comma is doing all the work of hiding the seam between them.",
+    "definitionFit": "Both senses: the fictional town of a well-known film, and a tide going out, which is what a tide is doing when it ebbs."
+   }
   },
   {
    "id": "14-down",
@@ -285,7 +683,29 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLOOTERED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BLOOTERED",
+    "definition": "Glaswegian drunk",
+    "indicators": [
+     "Distribute"
+    ],
+    "indicatorNotes": {
+     "Distribute": "To distribute things is to scatter them about, and the nine letters after the word are scattered into a new order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "beer to old",
+      "gives": "BEERTOOLD",
+      "note": "nine letters of raw material, three ordinary words handed over for their spelling"
+     }
+    ],
+    "anagram": {
+     "fodder": "BEER TO OLD"
+    },
+    "walkthrough": "The surface has somebody handing out drink and the wordplay hands out letters. 'Old' is fodder rather than the usual single O, which is what makes the count come right.",
+    "definitionFit": "Glaswegian drunk -> BLOOTERED: Scots slang for thoroughly drunk, the word you would hear in Glasgow and nowhere south of it."
+   }
   },
   {
    "id": "15-across",
@@ -302,7 +722,40 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LETTUCES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LETTUCES",
+    "definition": "Greens",
+    "indicators": [
+     "putting Republican out"
+    ],
+    "indicatorNotes": {
+     "putting Republican out": "Putting somebody out is getting rid of them, so the letter that stands for the party is thrown out of the word in front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "sanctioned",
+      "gives": "LET",
+      "note": "to let a thing happen is to sanction it"
+     },
+     {
+      "clueFragment": "peace agreements",
+      "gives": "TRUCES",
+      "note": "a truce is an agreed pause in the fighting, and the plural is six letters long before anything goes"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for a Republican in American politics, and this is the letter that goes"
+     }
+    ],
+    "pieces": [
+     "LET",
+     "TUCES"
+    ],
+    "walkthrough": "The surface is a party-political headline and every word of it is doing a second job: the sanction is permission, the peace deals are a plural noun, and the party is one letter.",
+    "definitionFit": "Greens -> LETTUCES: 'greens' is the everyday word for leaves eaten as vegetables, and these are the commonest of the salad ones."
+   }
   },
   {
    "id": "16-down",
@@ -319,7 +772,41 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAOISEACH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "TAOISEACH",
+    "definition": "PM",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken regularly come at a fixed interval, and here it is every second one, counting from the second letter of the word."
+    },
+    "blocks": [
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is the everyday British way of saying thanks"
+     },
+     {
+      "clueFragment": "Tories regularly",
+      "gives": "OIS",
+      "note": "the second, fourth and sixth letters of the party, taken in order"
+     },
+     {
+      "clueFragment": "every single one",
+      "gives": "EACH",
+      "note": "every single one of a group is each of them"
+     }
+    ],
+    "pieces": [
+     "TA",
+     "OIS",
+     "EACH"
+    ],
+    "walkthrough": "Irish politics, not British: the Tories in the clue and the prime minister in the definition sit in different parliaments, which is the joke and the trap in one.",
+    "definitionFit": "PM -> TAOISEACH: the head of the Irish government holds this title, so the definition points at the equivalent office rather than translating the word."
+   }
   },
   {
    "id": "17-down",
@@ -340,7 +827,42 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "COCOPALM",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "COCO PALM",
+    "definition": "Tree by the beach",
+    "indicators": [
+     "sheltering"
+    ],
+    "indicatorNotes": {
+     "sheltering": "To shelter people is to take them in, so the word in front opens up and holds the two pieces named after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "CALM",
+      "note": "still water is calm, and these four letters part company after the first"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the usual single letter for old"
+     },
+     {
+      "clueFragment": "policeman",
+      "gives": "COP",
+      "note": "a cop is a policeman, informally"
+     }
+    ],
+    "pieces": [
+     "C",
+     "O",
+     "COP",
+     "ALM"
+    ],
+    "walkthrough": "'Still' is the tempting word. It wants to mean 'even now', and the wordplay needs the quiet sense, water without a ripple on it.",
+    "definitionFit": "Tree by the beach -> COCO PALM: the coconut palm is the tree that lines tropical shores, so a beach is exactly where you would find one."
+   }
   },
   {
    "id": "18-across",
@@ -361,7 +883,37 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOODSHOW",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "GOOD SHOW",
+    "definition": "Congratulations",
+    "indicators": [
+     "according to Spooner"
+    ],
+    "indicatorNotes": {
+     "according to Spooner": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the whole instruction."
+    },
+    "blocks": [
+     {
+      "clueFragment": "are expected",
+      "soundsLike": "SHOULD",
+      "gives": "GOOD",
+      "note": "if you are expected somewhere then you should be there; this word gives its opening SH away and takes a G"
+     },
+     {
+      "clueFragment": "at event",
+      "soundsLike": "GO",
+      "gives": "SHOW",
+      "note": "to be at an event is to go to it, and this word collects the SH that its neighbour dropped"
+     }
+    ],
+    "pieces": [
+     "GOOD",
+     "SHOW"
+    ],
+    "walkthrough": "Say the plain version first - somebody expected at an event should go - then trade the openings. What comes out is British praise, as dated as the reverend himself.",
+    "definitionFit": "Congratulations -> GOOD SHOW: an old-fashioned British exclamation of approval, said to someone who has done well, doing the job of 'well done'."
+   }
   },
   {
    "id": "19-across",
@@ -382,7 +934,27 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROLLUP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROLL-UP",
+    "definition": "Come and see",
+    "definition2": "smoke",
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Come and see",
+      "note": "the fairground barker's shout, two words hollered outside a tent to pull a crowd in"
+     },
+     {
+      "clueFragment": "smoke",
+      "note": "the noun: a cigarette somebody has made for themselves out of loose tobacco and a paper"
+     }
+    ],
+    "walkthrough": "Five words and no wordplay at all. The shout and the cigarette have nothing in common, and 'this' is the nudge saying the second half is a thing rather than an action.",
+    "definitionFit": "Both senses: 'Roll up!' is the showman's cry inviting people to come and see, and a roll-up is a hand-rolled cigarette."
+   }
   },
   {
    "id": "20-down",
@@ -399,7 +971,28 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEDLAR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "PEDLAR",
+    "definition": "Travelling salesman",
+    "indicators": [
+     "set up",
+     "stores"
+    ],
+    "indicatorNotes": {
+     "set up": "In a down entry, letters set up are read from the bottom towards the top, so they come out the other way round.",
+     "stores": "To store a thing is to keep it inside, so the two words beside this one are holding a run of letters between them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "rural department",
+      "gives": "PEDLAR",
+      "note": "six letters in a row straddle the space between the two words, sitting there back to front"
+     }
+    ],
+    "walkthrough": "Every word of the surface belongs to retail, which is the disguise: the shop talk hides a run of letters that has to be read the wrong way along the clue.",
+    "definitionFit": "Travelling salesman -> PEDLAR: a pedlar carries goods from door to door on foot, which is selling on the move in its oldest form."
+   }
   },
   {
    "id": "21-across",
@@ -416,7 +1009,29 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOTED",
+    "definition": "Roger",
+    "blocks": [
+     {
+      "clueFragment": "rather than",
+      "gives": "NOT",
+      "note": "choosing one thing rather than another is choosing it and not the other"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is the everyday short form of the name"
+     }
+    ],
+    "pieces": [
+     "NOT",
+     "ED"
+    ],
+    "walkthrough": "The trap is hunting for a man. 'Roger' is not a person here but radio-speak for 'understood', and it is the word doing the defining.",
+    "definitionFit": "Roger -> NOTED: radio operators say Roger to confirm a message has been received and understood, which is what noting it means."
+   }
   },
   {
    "id": "22-down",
@@ -433,7 +1048,38 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOHYO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DOHYO",
+    "definition": "ring with heavyweights",
+    "indicators": [
+     "cut short"
+    ],
+    "indicatorNotes": {
+     "cut short": "A word cut short stops before it was due to end, so the pronoun beside the phrase arrives two letters long."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Homeric quote",
+      "gives": "DOH",
+      "note": "the Homer wanted is Homer Simpson, and his groan of self-reproach is his whole contribution"
+     },
+     {
+      "clueFragment": "you cut short",
+      "gives": "YO",
+      "note": "the pronoun gives up its final letter"
+     }
+    ],
+    "pieces": [
+     "DOH",
+     "YO"
+    ],
+    "walkthrough": "'Homeric' points at the Iliad and means the cartoon. Once you accept Springfield rather than Greece, the quote is a single syllable.",
+    "definitionFit": "ring with heavyweights -> DOHYO: the raised clay circle a sumo bout is fought in, and sumo wrestlers are the heaviest athletes in sport."
+   }
   },
   {
    "id": "23-across",
@@ -450,7 +1096,45 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERSTATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OVERSTATE",
+    "definition": "Exaggerate",
+    "indicators": [
+     "full of"
+    ],
+    "indicatorNotes": {
+     "full of": "Something full of a thing has it inside, so the letters in front open up and take what follows into the middle."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "in tennis a score of nothing is called love, and nothing is written as a nought"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "VERSE",
+      "note": "a poem is verse, and these five letters part company before the last of them"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TAT",
+      "note": "tat is cheap and shoddy stuff, the goods on a bad market stall"
+     }
+    ],
+    "pieces": [
+     "O",
+     "VERS",
+     "TAT",
+     "E"
+    ],
+    "walkthrough": "A love poem full of rubbish is a complete picture, and that is what makes the seams hard to find: three separate pieces, and the middle one has to split.",
+    "definitionFit": "Exaggerate -> OVERSTATE: to overstate a case is to put it more strongly than the facts warrant, which is what exaggerating does."
+   }
   },
   {
    "id": "24-down",
@@ -467,7 +1151,39 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALIEN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ALIEN",
+    "definition": "Strange",
+    "indicators": [
+     "covers"
+    ],
+    "indicatorNotes": {
+     "covers": "To cover a thing is to lie over the top of it, so the two letters named here close around what they are covering."
+    },
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "one of English's three articles, and it opens up between its two letters"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a story in the sense a child is told off for telling, an untruth"
+     }
+    ],
+    "pieces": [
+     "A",
+     "LIE",
+     "N"
+    ],
+    "walkthrough": "'Strange story' reads as one phrase and the definition is only the first word of it. The story is the fib sense, which is the step most solvers miss.",
+    "definitionFit": "Strange -> ALIEN: what is alien is foreign to everything you know, so it strikes you as strange rather than merely unfamiliar."
+   }
   },
   {
    "id": "25-across",
@@ -484,7 +1200,37 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARTHFALL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EARTHFALL",
+    "definition": "landslide",
+    "indicators": [
+     "lost"
+    ],
+    "indicatorNotes": {
+     "lost": "Somebody lost has wandered out of position, and the letters beside the word wander out of theirs."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "FATHER",
+      "note": "six letters handed over as material rather than read as a person"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "everything is all of it, three more letters for the pile"
+     }
+    ],
+    "anagram": {
+     "fodder": "FATHER ALL"
+    },
+    "walkthrough": "Read as English it is a man ruined at the tables. Read as instructions it is nine letters and a signal to rearrange them, and the signal is one small word.",
+    "definitionFit": "landslide -> EARTHFALL: the name says what it is, a mass of earth dropping down a slope, which is what a landslide amounts to."
+   }
   },
   {
    "id": "26-across",
@@ -501,7 +1247,39 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALIAS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ALIAS",
+    "definition": "Fake ID",
+    "indicators": [
+     "imprisoned"
+    ],
+    "indicatorNotes": {
+     "imprisoned": "A prisoner is shut inside walls, so the single letter named beside the word is locked into the middle of the four around it."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfortunately",
+      "gives": "ALAS",
+      "note": "alas is the old-fashioned word for unfortunately, and it splits after its second letter"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one is a single upright stroke"
+     }
+    ],
+    "pieces": [
+     "AL",
+     "I",
+     "AS"
+    ],
+    "walkthrough": "'Fake ID unfortunately' reads as one rueful phrase. The definition stops after two words, and the sigh that follows is the wordplay.",
+    "definitionFit": "Fake ID -> ALIAS: an alias is the false name somebody goes by, the identity they hand over instead of their own."
+   }
   },
   {
    "id": "27-across",
@@ -522,7 +1300,35 @@ window.CRYPTIC_PUZZLES["indysunday-1879"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOOMMERCHANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DOOM-MERCHANT",
+    "definition": "I say it'll end badly",
+    "definitionNote": "The definition is voiced by the answer itself: instead of describing the person from outside, the setter lets them announce themselves in the first person.",
+    "indicators": [
+     "weird"
+    ],
+    "indicatorNotes": {
+     "weird": "Something weird is not as it ought to be, and the letters beside the word are not in the order they ought to be either."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Date",
+      "gives": "D",
+      "note": "D is the standard abbreviation for date, and it joins the letters being shuffled"
+     },
+     {
+      "clueFragment": "chat room men",
+      "gives": "CHATROOMMEN",
+      "note": "eleven letters of raw material, there for their spelling and not their meaning"
+     }
+    ],
+    "anagram": {
+     "fodder": "D CHAT ROOM MEN"
+    },
+    "walkthrough": "The surface tells a small sad story about internet dating. Even the first word is fodder, which is why the shuffle needs twelve letters where the phrase supplies eleven.",
+    "definitionFit": "I say it'll end badly -> DOOM-MERCHANT: a doom merchant deals in gloomy predictions, forever announcing that whatever it is will turn out badly."
+   }
   }
  ]
 } /*JSON-END*/;
