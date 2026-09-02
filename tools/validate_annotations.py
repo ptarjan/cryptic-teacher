@@ -68,6 +68,10 @@ TYPE_PARTS = {
     # this block carry no double quotes: tools/smoke_test.js reads every quoted
     # string between the braces as a type part.
     "second letter", "second letters",
+    # the same device counted one place further in: 12405 3D takes the third
+    # letter of students for the U of GURU. Not a middle letter, which is what
+    # third of means only when the word has five letters (30068 6D, those).
+    "third letter", "third letters",
     # "alternate letters" is the every-SECOND case; a setter may count in any
     # step (30077 17D takes every third letter of HOPE TO GOD to spell POD)
     "regular letters",
@@ -855,8 +859,9 @@ INVARIANT_PLURALS = {
     # Not nouns, but the plural head of a definition all the same: "Those in
     # charge" defines RULERS and "these" and "those" carry the number on their
     # own (30051 3D). Without them the check asks for a definitionNote about a
-    # mismatch that isn't there.
-    "those", "these",
+    # mismatch that isn't there. "They print" defines PRESSES the same way
+    # (12401 18A) — the pronoun is plural without an S.
+    "those", "these", "they",
 }
 
 
