@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGASSI",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "AGASSI",
+    "definition": "American great Andre - super server incarnate, primarily",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means in the first place, so it asks for the opening letter of each word it gathers up."
+    },
+    "pieces": [
+     "A",
+     "G",
+     "A",
+     "S",
+     "S",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American great Andre",
+      "gives": "AGA",
+      "note": "the opening letters of the first three words, taken in the order they stand"
+     },
+     {
+      "clueFragment": "super server incarnate",
+      "gives": "SSI",
+      "note": "the opening letters of the next three, still in order"
+     }
+    ],
+    "walkthrough": "The dash makes the clue look like a definition on one side and wordplay on the other. It is not split at all: every word serves both jobs at once, which is what an &lit does.",
+    "definitionFit": "Read straight, the clue is a portrait of Andre Agassi, the American tennis champion, so the sentence that spells him out also describes him."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +83,29 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
     ]
    },
    "solution": "GARDENFURNITURE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GARDEN FURNITURE",
+    "definition": "that's brought out in summer",
+    "indicators": [
+     "Harry"
+    ],
+    "indicatorNotes": {
+     "Harry": "To harry is to harass and drive about, and letters driven about like that will not stay in the order they were given."
+    },
+    "anagram": {
+     "fodder": "NURTURED A FRINGE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nurtured a fringe",
+      "gives": "NURTUREDAFRINGE",
+      "note": "fifteen letters of fodder, which is the whole enumeration"
+     }
+    ],
+    "walkthrough": "'Harry' reads as a name — a gardener, or the prince — and it is really a verb meaning to harass. That is the instruction, and the fifteen letters beside it are the material.",
+    "definitionFit": "The tables and chairs that live outdoors, hauled out of the shed when the weather turns and put away again in autumn."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +122,26 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHAMBLE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SHAMBLE",
+    "definition": "totter",
+    "indicators": [
+     "Some characters from"
+    ],
+    "indicatorNotes": {
+     "Some characters from": "Characters are letters as well as people, and only some of them are wanted, so what you need is sitting inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lewisham blearily",
+      "gives": "SHAMBLE",
+      "note": "Lewisham is a district of south-east London; the letters wanted run straight on across the gap between these two words, in the order they already stand"
+     }
+    ],
+    "walkthrough": "'Blearily' looks like part of the definition — the way an unsteady walker moves — and it is only there for its letters. That is the usual shape of a hidden word: a phrase that reads like description.",
+    "definitionFit": "totter → SHAMBLE: to shamble is to walk with a slow dragging gait, the unsteady progress that tottering describes."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +158,38 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INITIATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "INITIATED",
+    "definition": "kicked off",
+    "indicators": [
+     "starter of"
+    ],
+    "indicatorNotes": {
+     "starter of": "A starter is what comes first at table and first in a word, so it lifts the opening letter of what follows."
+    },
+    "linkWords": [
+     "given"
+    ],
+    "pieces": [
+     "INITIATE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman's description of restaurant trip",
+      "gives": "INITIATE",
+      "note": "Everyman is I, and his account of the meal reads IN IT I ATE — four words closed up into eight letters"
+     },
+     {
+      "clueFragment": "starter of daikons",
+      "gives": "D",
+      "note": "the first letter of daikons, the long white radish"
+     }
+    ],
+    "walkthrough": "Everyman writes himself into his own puzzles, so 'Everyman's' is a first-person I. The word order is a poet's rather than a diner's, which is what stops the sentence sounding like wordplay.",
+    "definitionFit": "kicked off → INITIATED: to initiate something is to set it going, and 'kicked off' is the informal way of saying a thing was started."
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +206,27 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIRECT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DIRECT",
+    "definition": "Outspoken",
+    "definition2": "usher",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Outspoken",
+      "gives": "",
+      "note": "the blunt sense: saying the thing itself rather than working round to it"
+     },
+     {
+      "clueFragment": "usher",
+      "gives": "",
+      "note": "the verb an attendant does, showing somebody to a seat or pointing them down the right corridor"
+     }
+    ],
+    "walkthrough": "Two words, no join and no wordplay. One is an adjective about plain speaking, the other a verb about showing somebody where to go.",
+    "definitionFit": "Outspoken is the frank sense, saying a thing without softening it; to usher somebody is to direct them, steering them where they should go."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +243,32 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIGIT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "DIGIT",
+    "definition": "number",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "Reported speech is what somebody was heard to say, so the word beside it counts for its sound and not its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a whole (reportedly)",
+      "soundsLike": "WHOLE",
+      "gives": "HOLE",
+      "note": "the word for something entire is said exactly like the word for a pit in the ground, and only the second spelling is any use here"
+     },
+     {
+      "clueFragment": "What to do to",
+      "gives": "DIGIT",
+      "note": "the instruction for dealing with a pit in the ground — a verb and the pronoun after it, pushed together into one five-letter word"
+     }
+    ],
+    "walkthrough": "Say 'whole' aloud and you have the kind you dig. What you then do to it is two words that close up into one, and the exclamation mark is Everyman enjoying himself.",
+    "definitionFit": "number → DIGIT: definition by category, since a digit is a single numeral from 0 to 9 rather than any quantity you could count to."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +285,36 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIOTOUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RIOTOUS",
+    "definition": "Rowdy",
+    "indicators": [],
+    "pieces": [
+     "RIO",
+     "TO",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "starting in S America",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, in Brazil, is the South American end of the trip, and a ticket prints it short"
+     },
+     {
+      "clueFragment": "summary of journey",
+      "gives": "TO",
+      "note": "summarise any journey and it comes out as one place TO another; that joining word is all that is borrowed"
+     },
+     {
+      "clueFragment": "ending in N America?",
+      "gives": "US",
+      "note": "the two letters an itinerary uses for the United States, at the North American end"
+     }
+    ],
+    "walkthrough": "The colon makes the first word look like a heading for what follows, when it is the definition standing on its own. The rest is an itinerary written the way a ticket would print it.",
+    "definitionFit": "Rowdy → RIOTOUS: a riotous crowd is unruly and noisy to the edge of disorder, which is what rowdy behaviour amounts to."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +335,27 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
     ]
    },
    "solution": "COMMONKNOWLEDGE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "COMMON KNOWLEDGE",
+    "definition": "It's generally understood",
+    "definition2": "what's possessed by Wombles",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "It's generally understood",
+      "gives": "",
+      "note": "the plain sense: a thing everybody already knows, so nobody has to be told it"
+     },
+     {
+      "clueFragment": "what's possessed by Wombles",
+      "gives": "",
+      "note": "the Wombles of Elisabeth Beresford's stories live on Wimbledon Common and tidy up the litter left there, so the ground is theirs"
+     }
+    ],
+    "walkthrough": "The Wombles are burrowing creatures from a 1970s children's series, and the one thing everybody knows about them is where they live. Two definitions side by side, and no letters move.",
+    "definitionFit": "Something everybody already knows is common knowledge; and the Wombles' patch is Wimbledon Common, so a common is what those creatures possess."
+   }
   },
   {
    "id": "8-across",
@@ -178,7 +376,44 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
     ]
    },
    "solution": "READINGROOM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "READING ROOM",
+    "definition": "can be seen in library",
+    "indicators": [
+     "rolling"
+    ],
+    "indicatorNotes": {
+     "rolling": "Something rolling turns over as it goes, and a word turned over is read from its far end back to its first letter."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "READING",
+     "ROOM"
+    ],
+    "subReversals": [
+     {
+      "from": "MOOR",
+      "to": "ROOM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Location of Gaol",
+      "gives": "READING",
+      "note": "Oscar Wilde's ballad names its gaol by the Berkshire town it stood in, west of London"
+     },
+     {
+      "clueFragment": "rolling heath",
+      "gives": "ROOM",
+      "note": "a heath is open moorland, and MOOR turned end for end gives these four letters"
+     }
+    ],
+    "walkthrough": "'Gaol' is the older British spelling of jail, and the prison is famous because Wilde was locked up there and wrote a ballad about it. The town's name does double duty.",
+    "definitionFit": "The quiet room set aside in a library for people to sit and read, so the definition names it by where you would find one."
+   }
   },
   {
    "id": "9-down",
@@ -195,7 +430,30 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "POLO",
+    "definition": "Game in which you need a horse",
+    "definition2": "a car",
+    "indicators": [],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game in which you need a horse",
+      "gives": "",
+      "note": "the mounted team game played with long mallets, four riders a side"
+     },
+     {
+      "clueFragment": "a car",
+      "gives": "",
+      "note": "Volkswagen's small hatchback, a common sight on European roads for fifty years"
+     }
+    ],
+    "walkthrough": "'Or' looks like it is offering a choice of equipment within one game, and it is really the seam between two definitions of the same four letters.",
+    "definitionFit": "The first half is the game played on horseback; the second is definition by example, one make of car happening to carry the same name."
+   }
   },
   {
    "id": "10-down",
@@ -212,7 +470,30 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRAY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PRAY",
+    "definition": "I ask you",
+    "indicators": [
+     "did you say?"
+    ],
+    "indicatorNotes": {
+     "did you say?": "Asking what was said moves the clue off the page and into the ear, so a different spelling of the same sound is wanted."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victim",
+      "soundsLike": "PREY",
+      "gives": "PRAY",
+      "note": "an animal hunted by another is its prey, and that word said aloud is written the other way here"
+     }
+    ],
+    "walkthrough": "'I ask you' is also an exclamation of exasperation, which is how the surface wants it read. The definition needs the older sense instead, the one still alive in 'pray tell'.",
+    "definitionFit": "I ask you → PRAY: the archaic sense meaning please, as in 'pray be seated' — to pray somebody is to beg or entreat them."
+   }
   },
   {
    "id": "11-across",
@@ -229,7 +510,29 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERBUILT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OVERBUILT",
+    "definition": "with too much development",
+    "indicators": [
+     "ugly"
+    ],
+    "indicatorNotes": {
+     "ugly": "Something ugly is misshapen, its parts not where they ought to be, and that is what has happened to the letters beside it."
+    },
+    "anagram": {
+     "fodder": "LOUVRE BIT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Louvre: bit",
+      "gives": "LOUVREBIT",
+      "note": "nine letters of fodder, the museum's name plus the short word after the colon"
+     }
+    ],
+    "walkthrough": "The colon and the capital make 'Louvre' look like a topic heading, as if the clue were about the museum's glass pyramid. It is nine letters of raw material and nothing more.",
+    "definitionFit": "A site with too much development on it has been overbuilt: the prefix carries the excess and the participle the building work."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +549,33 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODOUR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ODOUR",
+    "definition": "smell",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "O",
+     "DOUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Band",
+      "gives": "O",
+      "note": "a band is a ring or a hoop, and a ring drawn on paper is the round letter"
+     },
+     {
+      "clueFragment": "grim",
+      "gives": "DOUR",
+      "note": "dour means grim and unsmiling, said of a face or a mood"
+     }
+    ],
+    "walkthrough": "'Band with grim' reads as a gloomy group of musicians, which is the whole misdirection. O for a ring is worth keeping: it turns up as a band, a hoop, a duck and a love score.",
+    "definitionFit": "smell → ODOUR: the formal noun for what reaches the nose, and in practice the word people reach for when the smell is not a pleasant one."
+   }
   },
   {
    "id": "13-across",
@@ -263,7 +592,44 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OFFBEAT",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "OFFBEAT",
+    "definition": "Eccentric",
+    "indicators": [
+     "getting into",
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "getting into": "To get into something is to end up inside it, so what stands before these words is planted within what comes after.",
+     "flipping": "To flip a thing is to turn it over, and a word turned over is read starting from its last letter."
+    },
+    "pieces": [
+     "O",
+     "FF",
+     "BEAT"
+    ],
+    "subReversals": [
+     {
+      "from": "TAEBO",
+      "to": "OBEAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flipping Korean exercise",
+      "gives": "OBEAT",
+      "note": "Tae Bo, the fitness workout built on Korean taekwondo, supplies five letters; turned round they read the other way"
+     },
+     {
+      "clueFragment": "very loudly",
+      "gives": "FF",
+      "note": "ff is fortissimo in a musical score, the marking that tells a player to be very loud"
+     }
+    ],
+    "walkthrough": "The surface is a gym timetable, a long way from the definition. Keep ff: it is one of the most reliable pairs of letters in cryptics, and it is always music.",
+    "definitionFit": "Eccentric → OFFBEAT: away from the regular rhythm and so out of the ordinary, the sense used of humour, films and clothes rather than of people."
+   }
   },
   {
    "id": "14-across",
@@ -286,7 +652,39 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PASSKEY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letters",
+    "answer": "PASSKEY",
+    "definition": "access to multiple places",
+    "indicators": [
+     "Recast",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "Recast": "To recast a drama is to fill its parts with different people, so the letters beside it are put into new positions.",
+     "ultimately": "Ultimately means at the very end, so it points at the final letter of each word it follows."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "anagram": {
+     "fodder": "PEAKY SS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Peaky",
+      "gives": "PEAKY",
+      "note": "five of the seven letters, taken from the first word of the title"
+     },
+     {
+      "clueFragment": "Blinders actors ultimately",
+      "gives": "SS",
+      "note": "the closing letter of each of those two words, an S apiece"
+     }
+    ],
+    "walkthrough": "Peaky Blinders is the British drama about a Birmingham gang, and the italics mark it as a title. Only its first word is fodder; the second is there for its final letter alone.",
+    "definitionFit": "A passkey opens every lock in a building rather than one, so the definition names what it gives you rather than the object itself."
+   }
   },
   {
    "id": "14-down",
@@ -303,7 +701,49 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLEMICAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "POLEMICAL",
+    "definition": "Belligerent",
+    "indicators": [
+     "sent up",
+     "cops"
+    ],
+    "indicatorNotes": {
+     "sent up": "Sending a thing up lifts it, and in a down clue a lifted word is read from the bottom of the grid upwards.",
+     "cops": "To cop something is to catch or take it, so the outer pieces take the short one in between them."
+    },
+    "pieces": [
+     "POLE",
+     "MI",
+     "CAL"
+    ],
+    "subReversals": [
+     {
+      "from": "IM",
+      "to": "MI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a native of Poland, one European among many"
+     },
+     {
+      "clueFragment": "the writer's sent up",
+      "gives": "MI",
+      "note": "the writer of the puzzle is I, so 'the writer's' is I'M, and lifting it puts the two letters the other way about"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "CAL",
+      "note": "Cal is the standard short form of California, a state of the USA"
+     }
+    ],
+    "walkthrough": "The surface pretends to be a news headline about European police. 'The writer' is the setter talking about himself, which is a convention worth knowing: it also comes as I, ME or the setter's own name.",
+    "definitionFit": "Belligerent → POLEMICAL: given to attacking argument, the adjective for writing or speech that sets out to fight rather than to persuade."
+   }
   },
   {
    "id": "15-across",
@@ -320,7 +760,36 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CURDLED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "CURDLED",
+    "definition": "Sour",
+    "indicators": [
+     "nasty",
+     "heartless"
+    ],
+    "indicatorNotes": {
+     "nasty": "A nasty state of affairs is one where nothing is as it should be, and letters in that state are no longer in the order they came in.",
+     "heartless": "A thing with no heart has lost its middle, and the middle of a four-letter word is the pair in the centre."
+    },
+    "anagram": {
+     "fodder": "DD CRUEL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "heartless, dead",
+      "gives": "DD",
+      "note": "DEAD with its centre pair EA taken out leaves the two consonants at either end"
+     },
+     {
+      "clueFragment": "cruel",
+      "gives": "CRUEL",
+      "note": "the other five letters of the fodder, taken exactly as they stand"
+     }
+    ],
+    "walkthrough": "The clue is a string of adjectives about a person, and 'dead cruel' reads as British intensifier — dead meaning very. That reading is what hides the pair of Ds.",
+    "definitionFit": "Sour → CURDLED: milk that has curdled has gone sour and separated into lumps, so the two words describe one spoiled state."
+   }
   },
   {
    "id": "15-down",
@@ -337,7 +806,29 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CHAR",
+    "definition": "Burn",
+    "indicators": [
+     "in ruins"
+    ],
+    "indicatorNotes": {
+     "in ruins": "A building in ruins has its stones lying every which way, and letters left that way are no longer in the order given."
+    },
+    "anagram": {
+     "fodder": "ARCH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "arch",
+      "gives": "ARCH",
+      "note": "the fodder: four letters, the curved span of stone or brick"
+     }
+    ],
+    "walkthrough": "Only four letters move here, and 'in ruins' is what moves them. 'Burn arch' reads as a threat to a monument, which is the whole of the misdirection.",
+    "definitionFit": "Burn → CHAR: to scorch something until it blackens, the partial burning that leaves toast and firewood black rather than gone."
+   }
   },
   {
    "id": "16-down",
@@ -354,7 +845,29 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOURDES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LOURDES",
+    "definition": "holy site",
+    "indicators": [
+     "Splash of"
+    ],
+    "indicatorNotes": {
+     "Splash of": "A splash of something is a small part of a larger quantity, so only a run of letters out of the phrase is wanted."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colour desired",
+      "gives": "LOURDES",
+      "note": "the letters run straight on from one word into the next, in the order they already stand"
+     }
+    ],
+    "walkthrough": "'Splash of colour' is such an ordinary phrase that it disappears into the surface, which is exactly what a hidden-word indicator wants to do.",
+    "definitionFit": "holy site → LOURDES: the town in the French Pyrenees where a vision of the Virgin was reported in 1858, now a pilgrimage place for the sick."
+   }
   },
   {
    "id": "17-across",
@@ -371,7 +884,36 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMPOON",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LAMPOON",
+    "definition": "Satirise",
+    "indicators": [
+     "hiding"
+    ],
+    "indicatorNotes": {
+     "hiding": "Hiding a thing means keeping it out of sight inside something else, so the piece named after this word goes within the piece named before."
+    },
+    "pieces": [
+     "L",
+     "AMP",
+     "OON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nitwit",
+      "gives": "LOON",
+      "note": "a loon is a fool, and the four letters open up to take something in"
+     },
+     {
+      "clueFragment": "electrical unit",
+      "gives": "AMP",
+      "note": "an amp is an ampere, the unit of electric current"
+     }
+    ],
+    "walkthrough": "'Amp' for anything electrical is one of the standard crossword shorthands, and it is short enough to hide anywhere. The surface reads as an insult, not an instruction.",
+    "definitionFit": "Satirise → LAMPOON: both mean attacking somebody by making public fun of them, in a cartoon, a song or a sketch."
+   }
   },
   {
    "id": "18-down",
@@ -388,7 +930,36 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MICROBE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MICROBE",
+    "definition": "this might make you sick",
+    "indicators": [
+     "covered in"
+    ],
+    "indicatorNotes": {
+     "covered in": "If you are covered in something, that something is all over your outside, so the word before these two ends up within the word after."
+    },
+    "pieces": [
+     "MIC",
+     "ROB",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rodents",
+      "gives": "MICE",
+      "note": "the plural of mouse, and the four letters that do the covering"
+     },
+     {
+      "clueFragment": "Nick",
+      "gives": "ROB",
+      "note": "to nick is British slang for to steal, so a thief's verb sits under the capital letter"
+     }
+    ],
+    "walkthrough": "The capital N makes Nick look like a man's name, which is the trap. Rodents and a thief in one sentence buy the setter a very smooth surface.",
+    "definitionFit": "A microbe is a germ too small to see, and germs are what give people infections, so the clue names the answer by what it does to you."
+   }
   },
   {
    "id": "19-down",
@@ -405,7 +976,30 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NINE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "NINE",
+    "definition": "Square",
+    "indicators": [
+     "verbal"
+    ],
+    "indicatorNotes": {
+     "verbal": "Verbal means by word of mouth, so the refusal is one you hear rather than one you read on a page."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refusal in Rheinland",
+      "soundsLike": "NEIN",
+      "gives": "NINE",
+      "note": "the German for no is nein, and a German saying it produces exactly the sound an English speaker writes another way"
+     }
+    ],
+    "walkthrough": "The Rhineland is the German region along the Rhine, which is how the clue tells you which language to refuse in. The two words are said identically and spelt nothing alike.",
+    "definitionFit": "Square → NINE: three multiplied by itself, so the definition names the class of numbers this one belongs to rather than giving a synonym."
+   }
   },
   {
    "id": "20-across",
@@ -422,7 +1016,39 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADIEU",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ADIEU",
+    "definition": "Take care",
+    "indicators": [
+     "plated"
+    ],
+    "indicatorNotes": {
+     "plated": "Plating is a thin coat of metal laid over the outside of something, so the metal named goes round what follows."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "A",
+     "DIE",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is gold's symbol in the periodic table, from the Latin aurum"
+     },
+     {
+      "clueFragment": "cube",
+      "gives": "DIE",
+      "note": "a die is the singular of dice, the numbered cube you throw"
+     }
+    ],
+    "walkthrough": "'Take care of' reads as one phrase meaning look after, and the definition stops a word earlier than you want it to. That single word is where the whole clue turns.",
+    "definitionFit": "'Take care' is what you say to somebody on parting, and adieu is the French farewell used in English for the same moment of leaving."
+   }
   },
   {
    "id": "21-across",
@@ -439,7 +1065,32 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEMICOLON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SEMICOLON",
+    "definition": "Mark",
+    "indicators": [
+     "represent"
+    ],
+    "indicatorNotes": {
+     "represent": "To re-present a thing is to set it out again, and letters set out again arrive in a different order."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "LION COMES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lion comes",
+      "gives": "LIONCOMES",
+      "note": "nine letters of fodder, both words used whole"
+     }
+    ],
+    "walkthrough": "The winged lion really is the emblem of St Mark, so the surface is a true sentence about Venice. The capital M is doing all the hiding.",
+    "definitionFit": "Mark → SEMICOLON: a punctuation mark, and this one is the join that holds two clauses together more firmly than a comma would."
+   }
   },
   {
    "id": "21-down",
@@ -456,7 +1107,33 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STRAY",
+    "definition": "Get lost",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ST",
+     "RAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holy man",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint, printed in front of every canonised name"
+     },
+     {
+      "clueFragment": "beam",
+      "gives": "RAY",
+      "note": "a beam of light is a ray, the sunshine sense rather than the timber one"
+     }
+    ],
+    "walkthrough": "'Get lost' is a rude dismissal on the surface and a literal wandering underneath. St for saint is one of the first abbreviations a solver should learn.",
+    "definitionFit": "Get lost → STRAY: to stray is to wander off the path and end up where you should not be, which is how a thing gets lost."
+   }
   },
   {
    "id": "22-across",
@@ -478,7 +1155,29 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
     ]
    },
    "solution": "UNDERACLOUD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNDER A CLOUD",
+    "definition": "in the doghouse",
+    "indicators": [
+     "misbehaving"
+    ],
+    "indicatorNotes": {
+     "misbehaving": "Children who misbehave will not stay where they are put, and neither will the letters standing in front of the word."
+    },
+    "anagram": {
+     "fodder": "OUR DAD UNCLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Our dad and uncle",
+      "gives": "OURDADUNCLE",
+      "note": "eleven letters of fodder; the 'and' is joinery and contributes nothing"
+     }
+    ],
+    "walkthrough": "'Misbehaving' reads as what dad and uncle are up to, which is the disguise: it is an instruction, not a description of the family.",
+    "definitionFit": "Both are idioms for disgrace: someone in the doghouse is in trouble with those around them, and to be under a cloud is to be under suspicion."
+   }
   },
   {
    "id": "23-across",
@@ -495,7 +1194,39 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MERSEY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "MERSEY",
+    "definition": "river",
+    "indicators": [
+     "leaving",
+     "swimming"
+    ],
+    "indicatorNotes": {
+     "leaving": "What leaves is gone, so the letter named just before this word comes out of the mixture before anything else happens.",
+     "swimming": "Something swimming is adrift and moving about, and letters adrift like that settle into a new order."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "RMEYES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rome? Yes",
+      "gives": "ROMEYES",
+      "note": "seven letters to start from, before anything is taken away"
+     },
+     {
+      "clueFragment": "Duck",
+      "gives": "O",
+      "note": "a batter out for no runs in cricket has made a duck, written as a nought, and that is the letter that goes"
+     }
+    ],
+    "walkthrough": "The duck is the piece of cricket the crossword borrowed: nought, and so the letter O. On the surface it is a bird flying out of Italy, which is why nobody counts the letters.",
+    "definitionFit": "river → MERSEY: definition by example, since the Mersey is the river running past Liverpool into the Irish Sea and only one instance of the class."
+   }
   },
   {
    "id": "24-across",
@@ -512,7 +1243,43 @@ window.CRYPTIC_PUZZLES["everyman-4130"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "LEERED",
+    "definition": "Looked unpleasantly",
+    "indicators": [
+     "return of",
+     "following"
+    ],
+    "indicatorNotes": {
+     "return of": "Something that returns comes back the way it went, so the word beside it is read from its far end.",
+     "following": "Following means coming after, so the piece it belongs to takes its place behind the one the rest of the clue supplies."
+    },
+    "pieces": [
+     "LEE",
+     "RED"
+    ],
+    "subReversals": [
+     {
+      "from": "EEL",
+      "to": "LEE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "return of slippery character",
+      "gives": "LEE",
+      "note": "the slippery character is an eel, and it comes back the other way round"
+     },
+     {
+      "clueFragment": "flushed",
+      "gives": "RED",
+      "note": "a flushed face has gone red, so the colour is what the word is for"
+     }
+    ],
+    "walkthrough": "'Slippery character' for an eel is the joke, and 'flushed' looks like embarrassment when all the clue wants from it is a colour.",
+    "definitionFit": "Looked unpleasantly → LEERED: a leer is a sideways look full of malice or lust, so the adverb is naming which kind of look is meant."
+   }
   }
  ]
 } /*JSON-END*/;
