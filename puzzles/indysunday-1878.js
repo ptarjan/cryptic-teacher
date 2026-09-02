@@ -30,7 +30,45 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GODS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "GODS",
+    "definition": "Gallery",
+    "definitionNote": "The answer is a plural noun naming one place, the topmost balcony of a theatre, so a singular 'gallery' matches it in sense even though the two disagree in number.",
+    "indicators": [
+     "pointing north"
+    ],
+    "indicatorNotes": {
+     "pointing north": "North is the top of a map and the top of a grid, so a down entry's letters that point that way are read from the bottom upwards."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shadow",
+      "gives": "DOG",
+      "note": "to dog somebody is to shadow them, following wherever they go"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the compass point on a map, one letter for south"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "DOG",
+      "to": "GOD"
+     }
+    ],
+    "pieces": [
+     "GOD",
+     "S"
+    ],
+    "walkthrough": "'Gallery' sends you to paintings; the theatre is meant, where the cheap seats sit up under the roof. Only the first piece turns - the compass letter stays where it is.",
+    "definitionFit": "Gallery -> GODS: the gods is the theatre's highest tier of seats, so the word names that balcony rather than a room full of pictures."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +89,36 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHEEPTICKS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SHEEP TICKS",
+    "definition": "bugs on lamb",
+    "indicators": [
+     "suspect",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "suspect": "Something suspect is not what it claims to be, so the letters in front of the word cannot be trusted to stay in the order they arrive in.",
+     "initially": "Initially points at the very start of a word, so nothing but its opening letter joins the pile."
+    },
+    "blocks": [
+     {
+      "clueFragment": "These sick",
+      "gives": "THESESICK",
+      "note": "nine letters of raw material: both words are there for their spelling, not their sense"
+     },
+     {
+      "clueFragment": "people initially",
+      "gives": "P",
+      "note": "the opening letter of the word, making the tenth"
+     }
+    ],
+    "anagram": {
+     "fodder": "THESE SICK P"
+    },
+    "walkthrough": "'Sick' looks like the shuffle signal and is fodder instead; the word doing the shuffling is 'suspect'. The count only reaches ten once the borrowed P joins in.",
+    "definitionFit": "bugs on lamb -> SHEEP TICKS: these are the parasites that fasten on to sheep, and a lamb is a young sheep, so the definition names the host."
+   }
   },
   {
    "id": "3-down",
@@ -72,7 +139,29 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "INCAMERA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IN CAMERA",
+    "definition": "secretly",
+    "blocks": [
+     {
+      "clueFragment": "entered",
+      "gives": "INCAME",
+      "note": "English inverts the verb for a dramatic arrival: somebody who entered is somebody who in came"
+     },
+     {
+      "clueFragment": "Painter",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an elected member of Britain's Royal Academy of Arts and the crossword's standard artist"
+     }
+    ],
+    "pieces": [
+     "INCAME",
+     "RA"
+    ],
+    "walkthrough": "'Painter' looks like the definition and belongs to the wordplay; the single word at the end is what defines. The seam falls inside a word, so nothing marks where one piece stops.",
+    "definitionFit": "secretly -> IN CAMERA: a hearing held in camera is held in the judge's private room with the public shut out, so it happens in secret."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +178,36 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEAT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NEAT",
+    "definition": "Compact",
+    "indicators": [
+     "fills"
+    ],
+    "indicatorNotes": {
+     "fills": "Whatever fills a thing sits inside it, so the letter named here drops into the middle of the piece already built."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bag",
+      "gives": "NET",
+      "note": "a net is a bag for catching things, and it opens up between its second and third letters"
+     },
+     {
+      "clueFragment": "the smallest article",
+      "gives": "A",
+      "note": "English has three articles and this is the one that is a single letter long"
+     }
+    ],
+    "pieces": [
+     "NE",
+     "A",
+     "T"
+    ],
+    "walkthrough": "'Compact bag' reads as one phrase, a small holdall you might carry. The definition is the first word on its own, and the bag belongs to the wordplay.",
+    "definitionFit": "Compact -> NEAT: both describe something trim and closely packed with nothing spilling over the edges, the way a compact summary is a neat one."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +224,36 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LINGER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LINGER",
+    "definition": "delay",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "One thing set about another is wrapped round it, so the single letter that follows finishes up in the middle."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Large cat cross",
+      "gives": "LIGER",
+      "note": "a liger is what you get by crossing a lion with a tiger, and the five letters part company after the second"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard single letter for new"
+     }
+    ],
+    "pieces": [
+     "LI",
+     "N",
+     "GER"
+    ],
+    "walkthrough": "'Cross' looks like an anagram signal and means a crossbreed: the big cat is one animal bred from two, and the bad-tempered cat of the surface never existed.",
+    "definitionFit": "delay -> LINGER: to linger is to stay on longer than you need to, which is delaying by hanging about rather than by putting something off."
+   }
   },
   {
    "id": "6-down",
@@ -123,7 +270,29 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ICON",
+    "definition": "Picture",
+    "blocks": [
+     {
+      "clueFragment": "fraudster's",
+      "gives": "I",
+      "note": "the crook is the one talking, and anybody summing themselves up starts with the first-person pronoun"
+     },
+     {
+      "clueFragment": "brief résumé",
+      "gives": "CON",
+      "note": "a whole career in three letters, since to con is to swindle people out of their money"
+     }
+    ],
+    "pieces": [
+     "I",
+     "CON"
+    ],
+    "walkthrough": "The joke is that the answer is a sentence: a swindler asked for a two-word CV would write exactly this, and it happens to spell a small picture.",
+    "definitionFit": "Picture -> ICON: an icon is a painted image of a saint, and now also the little symbol on a screen, so it is a picture in both senses."
+   }
   },
   {
    "id": "7-across",
@@ -144,7 +313,26 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOCHANCE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NO CHANCE",
+    "definition": "that you'll never see!",
+    "indicators": [
+     "Part of"
+    ],
+    "indicatorNotes": {
+     "Part of": "Naming a part rather than the whole says the letters wanted are a run sitting inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Badenoch ancestry",
+      "gives": "NOCHANCE",
+      "note": "eight consecutive letters run across the gap between the two words, starting partway into the first"
+     }
+    ],
+    "walkthrough": "Badenoch is both a district of the Scottish Highlands and a Conservative leader's surname, so the eye reads it as a fact to check rather than a string of letters.",
+    "definitionFit": "that you'll never see! -> NO CHANCE: the exclamation says a thing will never happen, so an ancestry nobody will ever lay eyes on is one that does not exist."
+   }
   },
   {
    "id": "8-across",
@@ -165,7 +353,35 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "INCALF",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "IN-CALF",
+    "definition": "expected to drop a little lower",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken regularly come at a fixed interval, and the interval here is every second one, counting from the first."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Old American",
+      "gives": "INCA",
+      "note": "the Inca ruled Peru long before Columbus arrived, so they are Americans of the oldest kind"
+     },
+     {
+      "clueFragment": "lift",
+      "gives": "LF",
+      "note": "the first and third letters of the word, taken in that order"
+     }
+    ],
+    "pieces": [
+     "INCA",
+     "LF"
+    ],
+    "walkthrough": "'Old American lift' reads as a museum piece and is two separate pieces of wordplay. Everything after it is the definition, which is a farmer's phrase rather than an instruction.",
+    "definitionFit": "expected to drop a little lower -> IN CALF: a cow in calf is pregnant, due to drop her calf, and a lower is a beast that lows."
+   }
   },
   {
    "id": "9-down",
@@ -186,7 +402,29 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOSEHEART",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOSE HEART",
+    "definition": "become yellow?",
+    "blocks": [
+     {
+      "clueFragment": "Stop seeing",
+      "gives": "LOSE",
+      "note": "lose sight of something and you have stopped seeing it"
+     },
+     {
+      "clueFragment": "red card",
+      "gives": "HEART",
+      "note": "a pack of cards has two red suits, and this is the one that is not diamonds"
+     }
+    ],
+    "pieces": [
+     "LOSE",
+     "HEART"
+    ],
+    "walkthrough": "The surface is a referee's afternoon, with one card replacing another. The cards are the playing kind, and the definition is only the last two words.",
+    "definitionFit": "become yellow? -> LOSE HEART: yellow is the old colour of cowardice, so turning yellow is losing your nerve, which is what losing heart amounts to."
+   }
   },
   {
    "id": "10-across",
@@ -203,7 +441,34 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISLE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ISLE",
+    "definition": "E.g. Lewis",
+    "indicators": [
+     "obscuring"
+    ],
+    "indicatorNotes": {
+     "obscuring": "To obscure a thing is to put it out of sight, so the letters named next disappear from the word in front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "given wrong information",
+      "gives": "MISLED",
+      "note": "anybody given wrong information has been misled, six letters before anything is hidden"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "MD",
+      "note": "the case of a word is its outer shell, one letter at each end, and both of those go out of sight"
+     }
+    ],
+    "pieces": [
+     "ISLE"
+    ],
+    "walkthrough": "Lewis is the northern part of the largest island in the Outer Hebrides, and 'E.g.' is the warning that the answer is the general word rather than the name.",
+    "definitionFit": "E.g. Lewis -> ISLE: Lewis is an island off the Scottish coast, so the clue defines by example, naming one instance instead of the class it belongs to."
+   }
   },
   {
    "id": "11-across",
@@ -220,7 +485,29 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTAGONISE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "ANTAGONISE",
+    "definition": "Turn against one?",
+    "indicators": [
+     "Turn"
+    ],
+    "indicatorNotes": {
+     "Turn": "To turn something is to change it into something else - turned milk is no longer milk - and the letters beside the word are changed round."
+    },
+    "blocks": [
+     {
+      "clueFragment": "against one",
+      "gives": "AGAINSTONE",
+      "note": "ten letters of raw material, exactly the length wanted, read for their spelling and not their sense"
+     }
+    ],
+    "anagram": {
+     "fodder": "AGAINST ONE"
+    },
+    "walkthrough": "An all-in-one: read straight, the three words describe what the answer does to a person, and read again those same three words are the ten letters to rearrange.",
+    "definitionFit": "The whole clue defines: to antagonise somebody is to turn them against you, with 'one' the formal pronoun standing in for yourself."
+   }
   },
   {
    "id": "12-across",
@@ -237,7 +524,32 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HURTLE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HURTLE",
+    "definition": "go quickly",
+    "indicators": [
+     "In your ear"
+    ],
+    "indicatorNotes": {
+     "In your ear": "Something put in your ear is heard rather than read, so what is wanted is the spelling of a sound and not the words on the page."
+    },
+    "blocks": [
+     {
+      "clueFragment": "pain",
+      "gives": "HURT",
+      "note": "a pain is a hurt, the noun, and this is the part said first"
+     },
+     {
+      "clueFragment": "pain will",
+      "soundsLike": "HURT'LL",
+      "gives": "HURTLE",
+      "note": "English contracts 'will' to 'll and hangs it on the word before; say the two together and the apostrophe vanishes"
+     }
+    ],
+    "walkthrough": "Say it rather than read it. Two words become one, and the six letters you write down are not the letters of either of them.",
+    "definitionFit": "go quickly -> HURTLE: to hurtle is to move fast and barely under control, so it is going quickly with the recklessness built into the word."
+   }
   },
   {
    "id": "13-down",
@@ -254,7 +566,32 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNHARNESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNHARNESS",
+    "definition": "clear of tackle",
+    "indicators": [
+     "dodges"
+    ],
+    "indicatorNotes": {
+     "dodges": "A dodge is a sudden move to a different spot, so the letters beside the word will not be found where they started."
+    },
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shane runs",
+      "gives": "SHANERUNS",
+      "note": "nine letters of raw material: the name and the verb are handed over for their spelling"
+     }
+    ],
+    "anagram": {
+     "fodder": "SHANE RUNS"
+    },
+    "walkthrough": "The rugby picture is the disguise. 'Runs clear of tackle' reads as one phrase from a match report, but the break falls after 'runs', and the tackle is a horse's gear.",
+    "definitionFit": "clear of tackle -> UNHARNESS: a working horse's tackle is its harness and traces, so freeing the animal of that gear is what the word describes."
+   }
   },
   {
    "id": "14-across",
@@ -271,7 +608,45 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GARNACHA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "GARNACHA",
+    "definition": "red in Spain",
+    "indicators": [
+     "turned"
+    ],
+    "indicatorNotes": {
+     "turned": "Letters that have been turned are read the other way along the row, so the whole assembly comes out back to front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "How lovely",
+      "gives": "AH",
+      "note": "the small noise of pleasure somebody makes at the sight of something sweet"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "CAN",
+      "note": "the can is American slang for the lavatory"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "RAG",
+      "note": "a rag is a newspaper, named with contempt for what is printed in it"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "AHCANRAG",
+      "to": "GARNACHA"
+     }
+    ],
+    "pieces": [
+     "GARNACHA"
+    ],
+    "walkthrough": "'Turned red' looks like one phrase, a blush. 'Turned' belongs to the wordplay and 'red' to the definition, which is where the sentence quietly stops being English.",
+    "definitionFit": "red in Spain -> GARNACHA: the Spanish name for the grenache grape, the country's great red-wine grape, so this is a red as Spain spells it."
+   }
   },
   {
    "id": "14-down",
@@ -292,7 +667,27 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "GETON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GET ON",
+    "definition": "Step aboard",
+    "definition2": "go places",
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Step aboard",
+      "note": "what you do at the door of a bus: foot on the step and climb in"
+     },
+     {
+      "clueFragment": "go places",
+      "note": "said of a career rather than a journey: to be heading somewhere, making progress in the world"
+     }
+    ],
+    "walkthrough": "Two everyday senses laid side by side, one about a bus and one about a career, with a single word of joinery between them and no letters to build.",
+    "definitionFit": "Both senses: stepping aboard a bus is getting on it, and somebody going places is getting on in life, which is progress rather than boarding."
+   }
   },
   {
    "id": "15-down",
@@ -309,7 +704,29 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLITERATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALLITERATE",
+    "definition": "Make similar sounds",
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone in a room is all of them"
+     },
+     {
+      "clueFragment": "repeats",
+      "gives": "ITERATE",
+      "note": "to iterate is to say or do a thing over again, the formal verb for repeating"
+     }
+    ],
+    "pieces": [
+     "ALL",
+     "ITERATE"
+    ],
+    "walkthrough": "'Sounds' is not a signal to listen here - it belongs to the definition. The wordplay is a plain two-piece build, and both pieces are ordinary words.",
+    "definitionFit": "Make similar sounds -> ALLITERATE: to alliterate is to begin a run of words with the same sound, the way 'sing a song of sixpence' does."
+   }
   },
   {
    "id": "16-across",
@@ -332,7 +749,29 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "THECOASTISCLEAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THE COAST IS CLEAR",
+    "definition": "one might safely venture",
+    "indicators": [
+     "originally"
+    ],
+    "indicatorNotes": {
+     "originally": "To be original is to be unlike whatever came before, so the letters are put into an arrangement they were not in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Easter's Catholic",
+      "gives": "EASTERSCATHOLIC",
+      "note": "fifteen letters of raw material, the exact length required, handed over for their spelling"
+     }
+    ],
+    "anagram": {
+     "fodder": "EASTERS CATHOLIC"
+    },
+    "walkthrough": "'Catholic' looks like the crossword's usual single letter and is fodder entire, apostrophe included. Count the letters first and the fifteen come out exactly.",
+    "definitionFit": "one might safely venture -> THE COAST IS CLEAR: the phrase comes from smugglers watching a shore, and means nobody is in sight to stop you."
+   }
   },
   {
    "id": "17-down",
@@ -353,7 +792,36 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPACEOUT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPACE OUT",
+    "definition": "Separate",
+    "indicators": [
+     "boards"
+    ],
+    "indicatorNotes": {
+     "boards": "To board is to step inside a vehicle, so the piece named before this word goes into the middle of the one named after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "jet",
+      "gives": "SPOUT",
+      "note": "a jet of water is a spout, and these five letters part company after the second"
+     },
+     {
+      "clueFragment": "pilot with superior skills",
+      "gives": "ACE",
+      "note": "a flier of exceptional skill has been called an ace since the first war fought in the air"
+     }
+    ],
+    "pieces": [
+     "SP",
+     "ACE",
+     "OUT"
+    ],
+    "walkthrough": "'Separate pilot' reads as an adjective and a noun, one flier on their own. The first word is the definition and a verb, which is the thing to fix before the jet turns into water.",
+    "definitionFit": "Separate -> SPACE OUT: to space things out is to set them further apart with gaps between them, which is separating them in the physical sense."
+   }
   },
   {
    "id": "18-across",
@@ -370,7 +838,42 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRASHCAN",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TRASH CAN",
+    "definition": "New York garbage collector",
+    "indicators": [
+     "jackets"
+    ],
+    "indicatorNotes": {
+     "jackets": "A jacket goes round whatever it covers, so the word before this one closes over the two pieces named between them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "leather",
+      "gives": "TAN",
+      "note": "tan is both the colour of leather and what is done to a hide to make it, and it opens up after its first letter"
+     },
+     {
+      "clueFragment": "spots",
+      "gives": "RASH",
+      "note": "a crop of spots on the skin is a rash"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     }
+    ],
+    "pieces": [
+     "T",
+     "RASH",
+     "C",
+     "AN"
+    ],
+    "walkthrough": "The definition sounds like a person and is a thing: American English calls the bin this, and 'New York' is the flag saying the word is not the British one.",
+    "definitionFit": "New York garbage collector -> TRASH CAN: the American name for a dustbin, the container that garbage is collected in rather than the man who empties it."
+   }
   },
   {
    "id": "19-down",
@@ -387,7 +890,44 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANDLE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + container",
+    "answer": "CANDLE",
+    "definition": "Stick with end of twisted line coming through?",
+    "indicators": [
+     "end of",
+     "coming through"
+    ],
+    "indicatorNotes": {
+     "end of": "The end of a word is the letter it finishes on, and that single letter is all this asks for.",
+     "coming through": "Whatever comes through a thing passes into the middle of it, so the letters named go inside the piece already built."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stick",
+      "gives": "CANE",
+      "note": "a cane is a walking stick, and it splits between its third and fourth letters"
+     },
+     {
+      "clueFragment": "twisted",
+      "gives": "D",
+      "note": "the final letter of the word, and nothing else of it"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line, as in a page reference"
+     }
+    ],
+    "pieces": [
+     "CAN",
+     "D",
+     "L",
+     "E"
+    ],
+    "walkthrough": "An all-in-one: every word builds the letters and describes the object at the same time. The twisted line is the wick, which really does run up through the middle.",
+    "definitionFit": "The whole clue reads straight: a stick of wax with a twisted thread running up inside it and poking out of the top is exactly what the answer names."
+   }
   },
   {
    "id": "20-across",
@@ -404,7 +944,35 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTUTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ASTUTE",
+    "definition": "Clever",
+    "indicators": [
+     "two thirds of"
+    ],
+    "indicatorNotes": {
+     "two thirds of": "Two thirds of a six-letter word is four letters, and a fraction counts from the front unless the clue says otherwise."
+    },
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "'quick like lightning' and 'quick as lightning' say the same thing"
+     },
+     {
+      "clueFragment": "private pupils",
+      "gives": "TUTE",
+      "note": "pupils taught one to one are tutees, and only four of those six letters are wanted"
+     }
+    ],
+    "pieces": [
+     "AS",
+     "TUTE"
+    ],
+    "walkthrough": "'Private' pulls towards a soldier or a fee-paying school and is neither: it describes how the pupils are taught, one at a time by a tutor.",
+    "definitionFit": "Clever -> ASTUTE: astute is clever in the shrewd, practical sense, quick to see where an advantage lies, rather than clever at book learning."
+   }
   },
   {
    "id": "21-across",
@@ -421,7 +989,42 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEASONABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SEASONABLE",
+    "definition": "appropriate for the time of year",
+    "indicators": [
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "wearing": "You are inside what you wear, so the word in front of this one is put on by the word after it and ends up in the middle."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Marine",
+      "gives": "SEA",
+      "note": "marine means belonging to the sea, and the three letters are laid down first"
+     },
+     {
+      "clueFragment": "fur",
+      "gives": "SABLE",
+      "note": "sable is the dark fur of a marten, prized for coats, and it opens after its first letter"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "ON",
+      "note": "an attack on somebody is an attack against them, so the small word swaps straight in"
+     }
+    ],
+    "pieces": [
+     "SEA",
+     "S",
+     "ON",
+     "ABLE"
+    ],
+    "walkthrough": "The animal-rights surface is all misdirection: nobody is wearing any fur, and 'Marine' is the adjective for the sea rather than a soldier in uniform.",
+    "definitionFit": "appropriate for the time of year -> SEASONABLE: seasonable weather is what the season leads you to expect, unlike 'seasonal', which only means it happens then."
+   }
   },
   {
    "id": "22-down",
@@ -438,7 +1041,38 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNIB",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "SNIB",
+    "definition": "Catch",
+    "indicators": [
+     "pinching",
+     "bottom"
+    ],
+    "indicatorNotes": {
+     "pinching": "To pinch a thing is to grip it between two sides, and the letters here close on the one letter that follows.",
+     "bottom": "The bottom of a word is where it finishes, so only its final letter is taken."
+    },
+    "blocks": [
+     {
+      "clueFragment": "brother or sister",
+      "gives": "SIB",
+      "note": "a sib is a sibling, brother or sister alike, and the three letters open after the first"
+     },
+     {
+      "clueFragment": "postman's",
+      "gives": "N",
+      "note": "the last letter of the word, taken on its own"
+     }
+    ],
+    "pieces": [
+     "S",
+     "N",
+     "IB"
+    ],
+    "walkthrough": "The saucy surface is the misdirection. 'Bottom' is not the joke it looks like but an instruction, and 'brother or sister' is one short word rather than two people.",
+    "definitionFit": "Catch -> SNIB: a snib is the Scots and northern English word for the small catch or bolt that fastens a door, so the definition is the plain noun."
+   }
   },
   {
    "id": "23-down",
@@ -455,7 +1089,36 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BACH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "BACH",
+    "definition": "Church musician",
+    "indicators": [
+     "down",
+     "middle of"
+    ],
+    "indicatorNotes": {
+     "down": "Something that has gone down is no longer standing where it was, so the letter named next drops out of the word before it.",
+     "middle of": "The middle of a three-letter word is its second letter, the one with a letter on either side."
+    },
+    "blocks": [
+     {
+      "clueFragment": "sands",
+      "gives": "BEACH",
+      "note": "a stretch of sands at the seaside is a beach"
+     },
+     {
+      "clueFragment": "pew",
+      "gives": "E",
+      "note": "the central letter of the three, and it is the one that goes"
+     }
+    ],
+    "pieces": [
+     "BACH"
+    ],
+    "walkthrough": "'Sands down' reads as one verb, a carpenter at work. It is a noun and an instruction bolted together, which is the whole trick of the clue.",
+    "definitionFit": "Church musician -> BACH: he spent his working life as an organist and cantor writing for Lutheran services, so the definition names the job rather than the fame."
+   }
   },
   {
    "id": "24-across",
@@ -472,7 +1135,27 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUFF",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RUFF",
+    "definition": "Long hair round neck",
+    "indicators": [
+     "you'd say"
+    ],
+    "indicatorNotes": {
+     "you'd say": "What you would say is the spoken version, so the answer is written from the sound of the word beside it rather than its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "unshaven",
+      "soundsLike": "ROUGH",
+      "gives": "RUFF",
+      "note": "a chin nobody has shaved feels rough to the touch, and that word said aloud is spelled another way entirely"
+     }
+    ],
+    "walkthrough": "The Elizabethan collar is the picture most solvers reach for, and the definition wants the animal sense: a lion or a bird carries one too.",
+    "definitionFit": "Long hair round neck -> RUFF: a ruff is the collar of longer hair or feathers standing out round the neck of an animal or a bird."
+   }
   },
   {
    "id": "25-down",
@@ -489,7 +1172,36 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLEE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FLEE",
+    "definition": "Suddenly take off",
+    "indicators": [
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "cutting": "To cut into a thing is to open a gap in it, and the letter named before this word slots into the gap."
+    },
+    "blocks": [
+     {
+      "clueFragment": "price",
+      "gives": "FEE",
+      "note": "the price charged for a service is a fee, and it opens after its first letter"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L stands for a pound sterling, from the Latin libra that also gives the crossbar of the pound sign"
+     }
+    ],
+    "pieces": [
+     "F",
+     "L",
+     "EE"
+    ],
+    "walkthrough": "'Cutting price' is the phrase the surface wants you to read as one, a shop slashing what it charges. It is two separate jobs, and 'take off' is the runner's sense.",
+    "definitionFit": "Suddenly take off -> FLEE: to flee is to run away in a hurry from something dangerous, and 'take off' is the informal way of saying the same thing."
+   }
   },
   {
    "id": "26-across",
@@ -506,7 +1218,29 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESPIAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ESPIAL",
+    "definition": "Notice",
+    "indicators": [
+     "doctor"
+    ],
+    "indicatorNotes": {
+     "doctor": "To doctor something is to tamper with it, and letters that have been tampered with do not stay in the order they were given in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "sip ale",
+      "gives": "SIPALE",
+      "note": "six letters of raw material, two ordinary words handed over for their spelling"
+     }
+    ],
+    "anagram": {
+     "fodder": "SIP ALE"
+    },
+    "walkthrough": "Four words and nothing wasted: one defines, two are letters, and the fourth is a person in the surface and a verb in the wordplay.",
+    "definitionFit": "Notice -> ESPIAL: espial is the noun for catching sight of something, the act of espying it, so it is a notice in the sense of noticing."
+   }
   },
   {
    "id": "27-across",
@@ -523,7 +1257,35 @@ window.CRYPTIC_PUZZLES["indysunday-1878"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COURTIER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "COURTIER",
+    "definition": "Attendant",
+    "indicators": [
+     "first to"
+    ],
+    "indicatorNotes": {
+     "first to": "Whoever is first to do a thing is at the head of the queue, so only the opening letter of the word after it is used."
+    },
+    "blocks": [
+     {
+      "clueFragment": "confirm",
+      "gives": "C",
+      "note": "the opening letter of the word and nothing else of it"
+     },
+     {
+      "clueFragment": "the level we're on",
+      "gives": "OURTIER",
+      "note": "a level of a building is a tier, and the one we are standing on is ours: two words run together"
+     }
+    ],
+    "pieces": [
+     "C",
+     "OURTIER"
+    ],
+    "walkthrough": "'Attendant first' reads as one phrase, the senior servant of the household. The definition is that first word alone, and the question mark flags the pun on levels.",
+    "definitionFit": "Attendant -> COURTIER: a courtier attends a monarch at court as part of the royal household, so attendance is the whole of the job."
+   }
   }
  ]
 } /*JSON-END*/;
