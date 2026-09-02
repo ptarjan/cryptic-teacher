@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WAYS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WAYS",
+    "definition": "Approaches",
+    "indicators": [
+     "taking"
+    ],
+    "indicatorNotes": {
+     "taking": "A word that takes something in has admitted it inside itself, so the short piece goes into the middle rather than beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "used to be",
+      "gives": "WAS",
+      "note": "the past tense of the verb to be, which is what a thing used to be"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y is the standard short form on any form asking for a span of time"
+     }
+    ],
+    "pieces": [
+     "WA",
+     "Y",
+     "S"
+    ],
+    "walkthrough": "The dash makes 'used to be' look like a definition trailing off at the end of the sentence. It is the wordplay, and the one word in front of it is what needs defining.",
+    "definitionFit": "Approaches → WAYS: an approach to a problem is a way of tackling it, the method sense of the word rather than the road one."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +76,36 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHIPSAWS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "WHIPSAWS",
+    "definition": "carpenters use these",
+    "indicators": [
+     "at last",
+     "nasty"
+    ],
+    "indicatorNotes": {
+     "at last": "Whatever arrives at last arrives at the very end, so the word in front surrenders only the letter it finishes on.",
+     "nasty": "A nasty piece of work will not behave itself, and letters that will not behave refuse to stay in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "WASPISH W"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Now",
+      "gives": "W",
+      "note": "the letter that word closes on"
+     },
+     {
+      "clueFragment": "waspish",
+      "gives": "WASPISH",
+      "note": "seven letters of fodder, handed over whole"
+     }
+    ],
+    "walkthrough": "'Now, at last' reads as the setter's sigh of relief, which is exactly why the single letter buried in it walks past unnoticed. Eight letters of fodder is the confirmation.",
+    "definitionFit": "carpenters use these → WHIPSAWS: a whipsaw is a long narrow blade worked by two people, one at each end, for ripping planks out of a log."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +122,33 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YODEL",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "YODEL",
+    "definition": "Primarily yell, oscillating down Eiger lyrically?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "What comes primarily comes first of all, so each word here gives up nothing but the letter standing at its head."
+    },
+    "blocks": [
+     {
+      "clueFragment": "yell, oscillating down Eiger lyrically",
+      "gives": "YODEL",
+      "note": "the leading letters of five words in a row, read in the order they stand"
+     }
+    ],
+    "pieces": [
+     "Y",
+     "O",
+     "D",
+     "E",
+     "L"
+    ],
+    "walkthrough": "Read straight it is a singer on an Alpine slope — the Eiger is one of the great Swiss peaks — and read again the same five words hand over their initials.",
+    "definitionFit": "The whole clue defines: a yell delivered musically, the voice swinging back and forth between chest and falsetto, is what echoes down a mountainside."
+   }
   },
   {
    "id": "3-across",
@@ -81,7 +165,30 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ECOLOGICAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ECOLOGICAL",
+    "definition": "prone to recycle",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Italian author",
+      "gives": "ECO",
+      "note": "Umberto Eco, the novelist who wrote The Name of the Rose"
+     },
+     {
+      "clueFragment": "sensible",
+      "gives": "LOGICAL",
+      "note": "a sensible decision is a logical one, reasoned out rather than felt"
+     }
+    ],
+    "pieces": [
+     "ECO",
+     "LOGICAL"
+    ],
+    "walkthrough": "Everyman keeps a small stable of short-named writers for the front of a word, and this Italian is the most useful of them all. Worth banking for next time.",
+    "definitionFit": "prone to recycle → ECOLOGICAL: describing habits guided by the health of the environment, of which sorting the household rubbish is the everyday sign."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +205,37 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAFETERIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "CAFETERIA",
+    "definition": "here",
+    "definitionNote": "'Here' points at a place instead of naming one, so an adverb is standing in for a noun — the setter's way of saying 'this is where it happens'.",
+    "indicators": [
+     "cut",
+     "served up"
+    ],
+    "indicatorNotes": {
+     "cut": "Something cut has had a slice taken off the end of it, and what comes off a word here is its final letter.",
+     "served up": "Food served up has been dished out in whatever arrangement the kitchen chose, so the letters arrive in an order of their own."
+    },
+    "anagram": {
+     "fodder": "ICE TEA FAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ice tea",
+      "gives": "ICETEA",
+      "note": "six letters of fodder, taken exactly as they are written"
+     },
+     {
+      "clueFragment": "farl",
+      "gives": "FAR",
+      "note": "a farl is a quarter of a round of Irish or Scottish soda bread, and it loses its final letter"
+     }
+    ],
+    "walkthrough": "A farl and a glass of iced tea make a plausible snack, and that is the whole disguise: the words are raw letters, not a menu.",
+    "definitionFit": "here → CAFETERIA: a self-service canteen is a room defined entirely by the food handed out in it, which is what the clue points at."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +252,37 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEASE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LEASE",
+    "definition": "tenure",
+    "indicators": [
+     "not quietly"
+    ],
+    "indicatorNotes": {
+     "not quietly": "Saying a thing is not there is an instruction to take it out, and what goes is the single letter the soft-music word stands for."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm asking you",
+      "gives": "PLEASE",
+      "note": "the word you add to a request when you are asking rather than telling"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "quietly is piano in music, marked P on the stave, and that is the letter dropped"
+     }
+    ],
+    "pieces": [
+     "LEASE"
+    ],
+    "walkthrough": "The dashes stage a row over a flat, with somebody raising their voice. Bank the convention underneath it: musicians mark a soft passage with one letter.",
+    "definitionFit": "tenure → LEASE: both name the terms on which you hold property from somebody else, a lease being the contract that grants that holding for a fixed span."
+   }
   },
   {
    "id": "6-down",
@@ -138,7 +305,33 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "GIVEUPTHEGHOST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GIVE UP THE GHOST",
+    "definition": "go west",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Betray",
+      "gives": "GIVE UP",
+      "note": "to give up a fellow conspirator to the police is to betray them"
+     },
+     {
+      "clueFragment": "Marley",
+      "gives": "THE GHOST",
+      "note": "Jacob Marley comes back to Scrooge in chains in A Christmas Carol, so he is the spectre of the story"
+     }
+    ],
+    "pieces": [
+     "GIVE UP",
+     "THE GHOST"
+    ],
+    "walkthrough": "Marley wants to be the reggae singer, and the question mark is there for the other one: Dickens's dead business partner, who returns as a haunting.",
+    "definitionFit": "go west is British slang for dying or packing up for good; the answer is the older phrase for the soul departing the body."
+   }
   },
   {
    "id": "7-down",
@@ -155,7 +348,29 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CENTIPEDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CENTIPEDE",
+    "definition": "Leggy type",
+    "indicators": [
+     "baked"
+    ],
+    "indicatorNotes": {
+     "baked": "Whatever goes into an oven comes out changed in shape, so the letters beside the word are not the ones you get back."
+    },
+    "anagram": {
+     "fodder": "DECENT PIE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "decent pie",
+      "gives": "CENTIPEDE",
+      "note": "nine letters of fodder, the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Leggy' invites a model in heels and the pie invites a cook. Neither survives the count: nine letters of baking are sitting there waiting.",
+    "definitionFit": "Leggy type → CENTIPEDE: 'type' means a kind of creature and 'leggy' its one famous feature, a pair of legs on every segment of the body."
+   }
   },
   {
    "id": "8-down",
@@ -172,7 +387,36 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIEGES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LIEGES",
+    "definition": "Lords",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "To put one thing about another is to wrap it round, so the longer piece closes over the shorter and hides it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tells untruths",
+      "gives": "LIES",
+      "note": "somebody who tells untruths lies"
+     },
+     {
+      "clueFragment": "to give an example",
+      "gives": "EG",
+      "note": "EG is the Latin exempli gratia, the standard short way of offering an instance"
+     }
+    ],
+    "pieces": [
+     "LI",
+     "EG",
+     "ES"
+    ],
+    "walkthrough": "The dashes make the middle phrase read as an aside from a nervous witness, when it is two letters of the build. A liege lord is owed the loyalty; a liege man owes it.",
+    "definitionFit": "Lords → LIEGES: in feudal usage a liege is the superior to whom homage is owed, so the plural names a body of overlords."
+   }
   },
   {
    "id": "9-down",
@@ -194,7 +438,34 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "PROPOSEDATOAST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PROPOSED A TOAST",
+    "definition": "What the best man did",
+    "indicators": [
+     "nervously"
+    ],
+    "indicatorNotes": {
+     "nervously": "Somebody doing a thing nervously fumbles it, and fumbled letters end up in an order nobody intended."
+    },
+    "anagram": {
+     "fodder": "ROSE TO DOT'S PAPA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rose",
+      "gives": "ROSE",
+      "note": "four letters of fodder, taken as they stand"
+     },
+     {
+      "clueFragment": "'To Dot's Papa!'",
+      "gives": "TODOTSPAPA",
+      "note": "ten more letters of fodder, apostrophe ignored, exactly as the little speech is printed"
+     }
+    ],
+    "walkthrough": "The colon sells the clue as a report of the speech itself, so the words of the toast look like meaning rather than material. Fourteen letters against (8,1,5) settles it.",
+    "definitionFit": "What the best man did → PROPOSED A TOAST: his speech at a wedding ends with him raising a glass and inviting everyone to drink to the couple."
+   }
   },
   {
    "id": "10-across",
@@ -211,7 +482,35 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDYREF",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "INDYREF",
+    "definition": "plebiscite",
+    "indicators": [
+     "Ultimately"
+    ],
+    "indicatorNotes": {
+     "Ultimately": "What happens ultimately happens at the very end, so every word in the run gives up the letter it finishes on and nothing else."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Kublai Khan granted country power because of",
+      "gives": "INDYREF",
+      "note": "the closing letters of seven words in a row, read in the order they stand"
+     }
+    ],
+    "pieces": [
+     "I",
+     "N",
+     "D",
+     "Y",
+     "R",
+     "E",
+     "F"
+    ],
+    "walkthrough": "The emperor, the grant and the power are a complete decoy: even 'because of' is there for its two final letters. Britain's 2014 vote on Scottish independence went by this nickname in every headline.",
+    "definitionFit": "plebiscite → INDYREF: the press shorthand for Scotland's 2014 independence referendum, and a question put to a whole electorate is a plebiscite."
+   }
   },
   {
    "id": "11-across",
@@ -228,7 +527,27 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADVANCE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ADVANCE",
+    "definition": "Down payment",
+    "definition2": "Proceed",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Down payment",
+      "gives": "",
+      "note": "money handed over before the work is done, against what will be owed for it later"
+     },
+     {
+      "clueFragment": "Proceed",
+      "gives": "",
+      "note": "to move forward, the way an army or a queue does"
+     }
+    ],
+    "walkthrough": "Two words, two senses, and the question mark is an apology: a deposit on a house is not quite the same as money paid ahead of earnings.",
+    "definitionFit": "Down payment gives the money-up-front sense, a sum paid before delivery; Proceed gives the movement sense, to go forward."
+   }
   },
   {
    "id": "12-across",
@@ -245,7 +564,32 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SALTPETRE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SALTPETRE",
+    "definition": "explosive",
+    "indicators": [
+     "improved"
+    ],
+    "indicatorNotes": {
+     "improved": "To improve a thing is to make it over into a better arrangement, and here the arrangement being made over is one of letters."
+    },
+    "linkWords": [
+     "it's"
+    ],
+    "anagram": {
+     "fodder": "STEEL TRAP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Steel trap",
+      "gives": "SALTPETRE",
+      "note": "nine letters of fodder, the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "A mind like a steel trap is the phrase the surface leans on, and the ellipsis pretends the sentence is merely trailing off rather than handing its letters over.",
+    "definitionFit": "explosive → SALTPETRE: potassium nitrate, the oxidiser making up three-quarters of gunpowder and the reason the mixture goes off at all."
+   }
   },
   {
    "id": "13-across",
@@ -262,7 +606,35 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UTILE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "UTILE",
+    "definition": "of use",
+    "indicators": [
+     "Finally"
+    ],
+    "indicatorNotes": {
+     "Finally": "To do something finally is to do it at the close of everything, so what is wanted is the letter the word ends on."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bijou",
+      "gives": "U",
+      "note": "the letter that word ends on"
+     },
+     {
+      "clueFragment": "ceramic item",
+      "gives": "TILE",
+      "note": "a glazed clay square for a wall or a floor"
+     }
+    ],
+    "pieces": [
+     "U",
+     "TILE"
+    ],
+    "walkthrough": "'Bijou' is estate-agent language for small and charming, which makes it read as part of the description of the ornament. It is only there to lend one letter.",
+    "definitionFit": "of use → UTILE: a bookish adjective meaning useful, from the same Latin root as utility, and 'of use' is an adjectival phrase too."
+   }
   },
   {
    "id": "14-across",
@@ -283,7 +655,32 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "WINDSORCASTLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WINDSOR CASTLE",
+    "definition": "royal residence",
+    "indicators": [
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "dancing": "Dancers spend the whole evening changing places with one another, and letters told to dance behave the same way."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "WILD ANCESTORS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wild ancestors",
+      "gives": "WINDSOR CASTLE",
+      "note": "thirteen letters of fodder, the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Wild' is the trap: it looks like the shuffling instruction and is really the first word of the material. The word doing the work is the one about the dance.",
+    "definitionFit": "royal residence → WINDSOR CASTLE: the fortress west of London that has housed English monarchs since the Conqueror, and lent the royal family its surname."
+   }
   },
   {
    "id": "15-down",
@@ -304,7 +701,35 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOWORRIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NO WORRIES",
+    "definition": "not a problem",
+    "indicators": [
+     "top blown off"
+    ],
+    "indicatorNotes": {
+     "top blown off": "In a down entry the top of a word is the letter it starts on, and blowing that off leaves everything below it standing."
+    },
+    "blocks": [
+     {
+      "clueFragment": "At this moment",
+      "gives": "NOW",
+      "note": "the word for the present instant"
+     },
+     {
+      "clueFragment": "transportation vehicles",
+      "gives": "LORRIES",
+      "note": "a lorry is what British English calls a truck, the vehicle that hauls goods by road, and these seven letters go on to lose their first"
+     }
+    ],
+    "pieces": [
+     "NOW",
+     "ORRIES"
+    ],
+    "walkthrough": "The colon sets up a report of an accident, roof torn off and nobody hurt. The answer is the Australian shrug that has spread everywhere since.",
+    "definitionFit": "not a problem → NO WORRIES: the Australian reply that has become general English for 'that's fine, think nothing of it'."
+   }
   },
   {
    "id": "16-down",
@@ -321,7 +746,27 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGGREGATE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "AGGREGATE",
+    "definition": "Collect",
+    "definition2": "concrete material",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Collect",
+      "gives": "",
+      "note": "the verb for gathering separate things together into a single mass"
+     },
+     {
+      "clueFragment": "concrete material",
+      "gives": "",
+      "note": "the sand, gravel and crushed stone a builder mixes with cement"
+     }
+    ],
+    "walkthrough": "Three words and no join between them: 'Collect concrete' reads as one instruction to a builder, and it is really two definitions standing side by side.",
+    "definitionFit": "Collect gives the verb, to gather into one mass; 'concrete material' gives the noun, the gravel and stone bulking out the mix."
+   }
   },
   {
    "id": "17-down",
@@ -344,7 +789,39 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASISEEIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AS I SEE IT",
+    "definition": "In my view",
+    "indicators": [],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "'like a bird' and 'as a bird' do the same job in a sentence"
+     },
+     {
+      "clueFragment": "A-Ha",
+      "gives": "I SEE",
+      "note": "aha is the noise you make the moment the penny drops, and so is the phrase it stands for here"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "IT",
+      "note": "IT is the old crossword word for sex appeal, as in the 1920s It girl"
+     }
+    ],
+    "pieces": [
+     "AS",
+     "I SEE",
+     "IT"
+    ],
+    "walkthrough": "The Norwegian band is the decoy, hyphen and capitals and all. Say the exclamation aloud instead, and bank the convention: 'appeal' means those two letters most weeks.",
+    "definitionFit": "In my view → AS I SEE IT: both preface an opinion as one person's reading of things rather than offering it as settled fact."
+   }
   },
   {
    "id": "18-across",
@@ -368,7 +845,29 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "WIDEANGLELENS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WIDE-ANGLE LENS",
+    "definition": "It helps see big picture",
+    "indicators": [
+     "tweaking"
+    ],
+    "indicatorNotes": {
+     "tweaking": "To tweak a thing is to give it a small adjustment, and adjusting a set of letters means nudging them out of the order they came in."
+    },
+    "anagram": {
+     "fodder": "AS WELL NEEDING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "as well, needing",
+      "gives": "WIDE-ANGLE LENS",
+      "note": "thirteen letters of fodder, the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'needing tweaking' reads as one phrase about a photograph that wants work, and the split runs straight through it: the first word is material, the second the instruction.",
+    "definitionFit": "It helps see big picture → WIDE-ANGLE LENS: a short focal length takes in a broader field than the eye does, fitting more of a scene into one frame."
+   }
   },
   {
    "id": "19-down",
@@ -385,7 +884,32 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEMBER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MEMBER",
+    "definition": "arm",
+    "definition2": "your representative",
+    "indicators": [
+     "Maybe"
+    ],
+    "indicatorNotes": {
+     "Maybe": "Maybe warns that the word beside it is one instance of what the answer covers rather than a synonym for it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Maybe arm",
+      "gives": "",
+      "note": "a limb of the body, of which one is named and a leg would have done as well"
+     },
+     {
+      "clueFragment": "your representative",
+      "gives": "",
+      "note": "the one you elect to sit in Parliament for your constituency"
+     }
+    ],
+    "walkthrough": "Four words, and the first is the signal that saves you: it flags a definition by example, so the body part is not the meaning but a specimen of it.",
+    "definitionFit": "arm → MEMBER: a member is any limb of the body and an arm is one; 'your representative' is the Member of Parliament sitting for your seat."
+   }
   },
   {
    "id": "20-across",
@@ -402,7 +926,29 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EGRET",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EGRET",
+    "definition": "wading bird",
+    "indicators": [
+     "Somewhat"
+    ],
+    "indicatorNotes": {
+     "Somewhat": "Somewhat means partly rather than wholly, so only a stretch of the word beside it is wanted and the rest stays behind."
+    },
+    "linkWords": [
+     "I'm a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regrettably",
+      "gives": "EGRET",
+      "note": "five consecutive letters beginning at the second, with the tail of the word left where it is"
+     }
+    ],
+    "walkthrough": "The comma invites you to read 'regrettably' as the setter apologising for the joke, and that is exactly why the letters sitting inside it go unread.",
+    "definitionFit": "wading bird → EGRET: a white heron on long legs that feeds standing in shallow water, once hunted for the plumes on its back."
+   }
   },
   {
    "id": "21-across",
@@ -423,7 +969,40 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEERHALLS",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "BEER HALLS",
+    "definition": "alehouses",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner was famous for trading the opening sounds of two words, so naming him is the instruction to swap them over."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to try",
+      "soundsLike": "HEAR",
+      "gives": "BEER",
+      "note": "to try a case in court is to hear it; this word gives up its H and takes a B in exchange"
+     },
+     {
+      "clueFragment": "dancing",
+      "soundsLike": "BALLS",
+      "gives": "HALLS",
+      "note": "a ball is a formal dance, and it collects the H that the other word let go of"
+     }
+    ],
+    "pieces": [
+     "BEER",
+     "HALLS"
+    ],
+    "walkthrough": "'Dancing' sits exactly where an anagram indicator would and shuffles nothing at all. Say the plain phrase first — hear, balls — and the swap does the rest.",
+    "definitionFit": "alehouses → BEER HALLS: the great drinking rooms of Germany and central Europe, an alehouse being any place whose business is selling the stuff."
+   }
   },
   {
    "id": "21-down",
@@ -440,7 +1019,27 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BIDEN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BIDEN",
+    "definition": "former Pres.",
+    "indicators": [
+     "In the auditorium"
+    ],
+    "indicatorNotes": {
+     "In the auditorium": "An auditorium is the part of a theatre where people listen, so what counts is how the word sounds and not how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "waitin'",
+      "soundsLike": "BIDIN'",
+      "gives": "BIDEN",
+      "note": "to bide your time is to wait, and the clue's dropped g asks for the same clipped form — say it aloud and this is what you write"
+     }
+    ],
+    "walkthrough": "Both words wear the same missing g, which is the setter pointing at sound rather than spelling. The full stop after 'Pres' is an abbreviation, not the end of the sentence.",
+    "definitionFit": "former Pres. → BIDEN: the forty-sixth president of the United States, out of office and so named by the job he used to hold."
+   }
   },
   {
    "id": "22-down",
@@ -457,7 +1056,43 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEAVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "LEAVE",
+    "definition": "Go away!",
+    "indicators": [
+     "beginning",
+     "to follow"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a word is the single letter it opens on, and that letter is the whole of what this piece contributes.",
+     "to follow": "To follow is to come along behind, so this piece takes its place at the back of everything already assembled."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Idyllic spot",
+      "gives": "LEA",
+      "note": "a lea is a meadow or stretch of open grassland, the word poets reach for"
+     },
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "V is the standard short form of very, as in 'v. good'"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "E",
+      "note": "the setter signs himself Everyman, and only the letter that name begins on is wanted"
+     }
+    ],
+    "pieces": [
+     "LEA",
+     "V",
+     "E"
+    ],
+    "walkthrough": "The full stops chop the sentence into an estate agent's patter, so each instruction reads as praise. Everyman puts his own byline into a clue most weeks: expect it.",
+    "definitionFit": "Go away! → LEAVE: the imperative of the verb, an order to clear off, rather than the noun meaning permission or a fortnight's holiday."
+   }
   },
   {
    "id": "23-across",
@@ -474,7 +1109,36 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRIGAND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRIGAND",
+    "definition": "bandit",
+    "indicators": [
+     "welcoming"
+    ],
+    "indicatorNotes": {
+     "welcoming": "To welcome somebody is to take them in, so this piece opens up and lets the other one sit inside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gang",
+      "gives": "BAND",
+      "note": "a band of outlaws is a gang of them"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "RIG",
+      "note": "to rig a boat out is to fit it with what it needs"
+     }
+    ],
+    "pieces": [
+     "B",
+     "RIG",
+     "AND"
+    ],
+    "walkthrough": "'Fit' looks like an adjective sizing up a new recruit, and the word wanted is the chandler's verb instead. Four words, and three of them are doing work.",
+    "definitionFit": "bandit → BRIGAND: both name a robber who works the roads and hills in a gang, brigand being the older and more Mediterranean word for one."
+   }
   },
   {
    "id": "24-across",
@@ -495,7 +1159,27 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATSTAKE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "AT STAKE",
+    "definition": "In danger",
+    "definition2": "like Joan of Arc",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "In danger",
+      "gives": "",
+      "note": "the figurative sense, as in 'the whole firm's future is riding on this'"
+     },
+     {
+      "clueFragment": "like Joan of Arc",
+      "gives": "",
+      "note": "she was burnt tied to a post, which is the literal reading of the same phrase"
+     }
+    ],
+    "walkthrough": "The second half is a picture rather than a synonym, which is the joke: the phrase is figurative in the first three words and horribly literal in the last four.",
+    "definitionFit": "In danger gives the gambling sense, something risked on an outcome; 'like Joan of Arc' gives the literal one, tied to a post and burnt."
+   }
   },
   {
    "id": "25-across",
@@ -522,7 +1206,26 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROSETINTED",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ROSE-TINTED",
+    "definition": "Upbeat",
+    "indicators": [
+     "section of"
+    ],
+    "indicatorNotes": {
+     "section of": "A section of a thing is a piece cut out of the middle of it, so what is wanted is a run taken from inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "allegro set in Te Deum",
+      "gives": "ROSE-TINTED",
+      "note": "ten consecutive letters starting near the end of the first word and running on through the next four"
+     }
+    ],
+    "walkthrough": "Everything in sight is musical — an Italian tempo marking, a Latin hymn of praise — and none of it is being defined. The italics dress the title up as the subject.",
+    "definitionFit": "Upbeat → ROSE-TINTED: seeing things through rose-tinted spectacles is looking on the cheerful side, so the adjective describes a determinedly optimistic outlook."
+   }
   },
   {
    "id": "26-across",
@@ -539,7 +1242,41 @@ window.CRYPTIC_PUZZLES["everyman-4141"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "VERT",
+    "definition": "green",
+    "indicators": [
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "flipping": "To flip a thing over is to turn it end for end, so the assembled letters are read from the far end back."
+    },
+    "blocks": [
+     {
+      "clueFragment": "In Yorkshire, the",
+      "gives": "T",
+      "note": "Yorkshire speech clips the definite article down to a single consonant, as in 'off t'moor'"
+     },
+     {
+      "clueFragment": "vicar",
+      "gives": "REV",
+      "note": "a parish vicar is styled the Reverend, shortened to Rev in front of his name"
+     }
+    ],
+    "pieces": [
+     "VER",
+     "T"
+    ],
+    "subReversals": [
+     {
+      "from": "TREV",
+      "to": "VERT"
+     }
+    ],
+    "walkthrough": "'Flipping' is doing double duty as mild swearing about the clergy. The answer belongs to heraldry, where each colour on a shield has its own French-derived name.",
+    "definitionFit": "green → VERT: the heraldic word for green, used when blazoning a coat of arms, taken straight from the French for the colour."
+   }
   }
  ]
 } /*JSON-END*/;
