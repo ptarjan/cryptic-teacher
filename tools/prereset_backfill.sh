@@ -538,6 +538,34 @@ after_wave() {
 # Commit whatever a task produced, but only if the tree still validates. A run
 # that ran out of room mid-file leaves a half-written annotation behind, and
 # committing that would publish a broken puzzle page at 06:15.
+# puzzles/index.js and puzzles/index.json are generated from the puzzle files, so
+# any two runs that both touched puzzles/ conflict here, and the conflict never
+# carries information: the answer is always whatever a fresh reindex produces.
+# One arrived the night of 2026-09-02, from an archive extend pushed to master
+# while a wave was mid-flight, and it stopped the run with most of a window left.
+#
+# Only these two paths, and only when they are the ONLY thing unmerged. A
+# conflict anywhere else is a real disagreement about authored text and must
+# still stop the job — resolving it by regenerating would throw away a sibling's
+# annotations without anyone finding out.
+resolve_generated_conflict() {
+  local unmerged
+  unmerged=$(git diff --name-only --diff-filter=U)
+  [ -z "$unmerged" ] && return 0
+  if echo "$unmerged" | grep -qv '^puzzles/index\.\(js\|json\)$'; then
+    return 1
+  fi
+  python3 tools/fetch_puzzle.py --reindex >/dev/null || return 1
+  git add puzzles/index.js puzzles/index.json || return 1
+  # The autostash git could not apply is still on the stack, holding the same
+  # conflict. Left there it is applied again by the next rebase.
+  case "$(git stash list | head -1)" in
+    *autostash*) git stash drop -q ;;
+  esac
+  echo "  regenerated puzzles/index.* over a rebase conflict"
+  return 0
+}
+
 commit_puzzle() {
   local num="$1" what="$2"   # num is a puzzle ID, e.g. cryptic-30089
   if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $num"; return 0; fi
@@ -585,6 +613,10 @@ commit_puzzle() {
     # in this worktree, so master is named on both sides of the push.
     git fetch -q origin master && git rebase -q --autostash origin/master &&
       git push -q origin HEAD:master || {
+      # Folded into this puzzle's own commit rather than left staged: the tree
+      # that gets pushed should be the tree the reindex describes, and a stray
+      # staged index.* would ride along in whatever committed next.
+      if resolve_generated_conflict; then git commit -q --amend --no-edit; fi
       git fetch -q origin master && git rebase -q --autostash origin/master &&
         git push -q origin HEAD:master ||
         alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until someone pushes. See .prereset.log."
@@ -794,8 +826,12 @@ if [ -n "$(git status --porcelain)" ]; then
   # HEAD is detached here, so master is named on both sides — `pull --rebase`
   # has no upstream to read and `push origin HEAD` has no branch to write.
   git fetch -q origin master && git rebase -q --autostash origin/master &&
-    git push -q origin HEAD:master ||
-    alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
+    git push -q origin HEAD:master || {
+    if resolve_generated_conflict; then git commit -q --amend --no-edit; fi
+    git fetch -q origin master && git rebase -q --autostash origin/master &&
+      git push -q origin HEAD:master ||
+      alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
+  }
 fi
 
 # Where the rollout got to. Nothing to flip by hand any more: the ratchet in
