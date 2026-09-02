@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIPTOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TIPTOP",
+    "definition": "Excellent",
+    "indicators": [],
+    "pieces": [
+     "TIP",
+     "TO",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A few coins left",
+      "gives": "TIP",
+      "note": "the small change left on the table for the waiter is a tip"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "TO",
+      "note": "'to' does the same job as 'for' when you name a purpose: an aid to sleep, an aid for sleep"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     }
+    ],
+    "walkthrough": "'Left for parking?' reads like an instruction to swap an L for a P, and there is no swap here — three chunks simply sit end to end. The question mark marks the joke about how mean a tip can be.",
+    "definitionFit": "TIPTOP is the everyday intensifier for the very best quality — a car in tiptop condition — which is exactly the sense of 'excellent'."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +76,47 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IGNOBLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "IGNOBLE",
+    "definition": "Common",
+    "indicators": [
+     "cracks",
+     "worried"
+    ],
+    "indicatorNotes": {
+     "cracks": "a crack is a split you can slip something into, so the word says these letters open up to admit another one",
+     "worried": "a dog worries a rag by shaking it about, and letters shaken about will not stay in the order they were given"
+    },
+    "anagram": {
+     "fodder": "BOEING L"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "BOEING",
+      "gives": "IGNOBE"
+     }
+    ],
+    "pieces": [
+     "IGNOB",
+     "L",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boeing",
+      "gives": "IGNOBE",
+      "note": "the plane-maker's six letters, resettled into a new order"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-label abbreviation for large"
+     }
+    ],
+    "walkthrough": "Two words in this surface read as damage to an aircraft, and only one of them shuffles. The shuffle is six letters long against a seven-letter grid entry, so the L has to be posted into the gap the crack opens.",
+    "definitionFit": "'Common' is meant in the old class sense — low-born, vulgar, beneath one's station — and that disdain is what IGNOBLE carries."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +133,52 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIATHLON",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + homophone + cycling + container",
+    "answer": "TRIATHLON",
+    "definition": "Sound of 'Go', then lake with hat for cycling and running around it?",
+    "indicators": [
+     "Sound of",
+     "for cycling",
+     "around"
+    ],
+    "indicatorNotes": {
+     "Sound of": "this asks what the quoted word sounds like when you say it, not how the dictionary spells it",
+     "for cycling": "cycling sends the front letter round to the back, the way a wheel brings the same point round again, and the rest keep their order",
+     "around": "the pieces named before and after this word close on either side of what it points at"
+    },
+    "pieces": [
+     "TRI",
+     "ATH",
+     "L",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sound of 'Go'",
+      "soundsLike": "TRY",
+      "gives": "TRI",
+      "note": "a go at something is a try, and said aloud that is the prefix meaning three"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "ATH",
+      "note": "send the H of HAT round to the back and the other two letters stay put"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map-maker's abbreviation for lake"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "ON",
+      "note": "a machine that is running is on"
+     }
+    ],
+    "walkthrough": "Read straight, the sentence is a race: a starting shout, a lake, then a bike and a run. Read again, the same words spell that race out, which is why nothing is left over for a separate definition.",
+    "definitionFit": "Every word does double duty: the sentence describes the three-leg race itself — swim the lake, then cycle and run — and that race is the answer."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +195,35 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROVERB",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PROVERB",
+    "definition": "moral in a line",
+    "indicators": [
+     "alongside"
+    ],
+    "indicatorNotes": {
+     "alongside": "this places one piece next to the other rather than inside it, which is what a charade asks for"
+    },
+    "pieces": [
+     "PROVER",
+     "B"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demonstrator",
+      "gives": "PROVER",
+      "note": "someone who demonstrates a theorem is a prover"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess notation for a bishop"
+     }
+    ],
+    "walkthrough": "The clue names the bishop first and the answer puts him last: 'alongside' is deliberately silent about which side, so the crossing letters decide it for you.",
+    "definitionFit": "A proverb is a short saying that packs a moral into one line — 'pride comes before a fall' — so the definition names both its content and its length."
+   }
   },
   {
    "id": "5-across",
@@ -102,7 +244,40 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
     ]
    },
    "solution": "TENTCITY",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "TENT CITY",
+    "definition": "Refugee camp",
+    "indicators": [
+     "becoming"
+    ],
+    "indicatorNotes": {
+     "becoming": "this turns one thing into another, so the letter named before it is replaced where it stands by the letter named after"
+    },
+    "pieces": [
+     "TENT",
+     "CITY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perseverance",
+      "gives": "TENACITY",
+      "note": "tenacity is dogged perseverance"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammarian's abbreviation for tense, and it takes the vacant place"
+     }
+    ],
+    "walkthrough": "One letter steps out and another steps in — the whole instruction is those four words. The surface hides it behind 'tense' in its emotional sense, when the clue wants the grammar-book one.",
+    "definitionFit": "A tent city is the improvised settlement of tents that goes up when people are displaced, which is what a refugee camp is."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +300,37 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
     ]
    },
    "solution": "THATSMORELIKEIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THAT'S MORE LIKE IT",
+    "definition": "Now we're making progress",
+    "indicators": [],
+    "pieces": [
+     "THAT'S",
+     "MORE",
+     "LIKE",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "which means",
+      "gives": "THAT'S",
+      "note": "'which means' is 'that is', and that's is its contraction"
+     },
+     {
+      "clueFragment": "are increasingly popular",
+      "gives": "MORE LIKE",
+      "note": "if a thing is catching on, more people like it"
+     },
+     {
+      "clueFragment": "computers",
+      "gives": "IT",
+      "note": "IT is information technology, the trade's own name for computing"
+     }
+    ],
+    "walkthrough": "The wordplay is the phrase taken literally, with IT as the department rather than the pronoun. The definition is the same six syllables used as the exclamation you make when something finally starts going right.",
+    "definitionFit": "You say 'that's more like it' the moment a thing improves, which is an admission out loud that ground is being gained."
+   }
   },
   {
    "id": "6-down",
@@ -146,7 +351,29 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
     ]
    },
    "solution": "NICEAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NICE AND",
+    "definition": "pleasantly",
+    "indicators": [
+     "Butcher"
+    ],
+    "indicatorNotes": {
+     "Butcher": "to butcher something is to hack it about crudely, and letters hacked about can be put back in any order"
+    },
+    "anagram": {
+     "fodder": "CAN DINE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "can dine",
+      "gives": "CANDINE",
+      "note": "seven letters of fodder, and every one of them is used"
+     }
+    ],
+    "walkthrough": "The butcher's shop and the trailing dots are surface. What you get is only half an idiom — nice and warm, nice and easy — which is why the definition is a single adverb.",
+    "definitionFit": "'Nice and' is the first half of an idiom that intensifies whatever follows it, doing there the job an adverb like 'pleasantly' does."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +390,34 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIPS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CHIPS",
+    "definition": "means to gamble",
+    "indicators": [
+     "showing no"
+    ],
+    "indicatorNotes": {
+     "showing no": "this declares something absent, so the letter it names is taken out of the word standing before it"
+    },
+    "pieces": [
+     "CHIPS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tweets",
+      "gives": "CHIRPS",
+      "note": "a small bird tweets, which is to say it chirps"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican in American politics"
+     }
+    ],
+    "walkthrough": "The surface is a politician's timeline, and the wordplay wants the birdsong sense of 'tweets' instead. Take the R out of what a bird does and the casino counters are left.",
+    "definitionFit": "Chips are the counters you stake at a casino table, so they are literally what a gambler plays with."
+   }
   },
   {
    "id": "8-down",
@@ -180,7 +434,38 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TATTLER",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "TATTLER",
+    "definition": "gossip",
+    "indicators": [
+     "coming round",
+     "starts"
+    ],
+    "indicatorNotes": {
+     "coming round": "something that comes round you closes on both sides of you, so the outer word wraps what follows",
+     "starts": "a start is the letter a word begins with, so each word named here gives up its first and nothing else"
+    },
+    "pieces": [
+     "TAT",
+     "TL",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Murphy",
+      "gives": "TATER",
+      "note": "a murphy is British and Irish slang for a potato, and a tater is the same vegetable"
+     },
+     {
+      "clueFragment": "the latest",
+      "gives": "TL",
+      "note": "the opening letters of those two words, in the order the clue gives them"
+     }
+    ],
+    "walkthrough": "Murphy reads as a surname turning up at a party; he is a potato. The slang is two centuries old and still standard crossword vocabulary.",
+    "definitionFit": "A tattler is a person who tells tales, and 'gossip' names the teller as readily as the talk, so the two swap in a sentence."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +482,32 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTIMONARCHIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANTIMONARCHIST",
+    "definition": "Opponent of UK institution",
+    "indicators": [
+     "possibly"
+    ],
+    "indicatorNotes": {
+     "possibly": "this says the letters beside it are only one possible arrangement, and some other arrangement is wanted"
+    },
+    "linkWords": [
+     "giving"
+    ],
+    "anagram": {
+     "fodder": "NATION ITS CHARM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nation its charm",
+      "gives": "NATIONITSCHARM",
+      "note": "fourteen letters, exactly the material the grid needs"
+     }
+    ],
+    "walkthrough": "The UK institution is the monarchy, and the joke is that the letters spelling its opponent are drawn entirely from the nation's own charm.",
+    "definitionFit": "An antimonarchist wants the crown abolished, so 'opponent of' that institution names the person rather than the argument."
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +524,37 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BATHERS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BATHERS",
+    "definition": "Bondi Beach swimming costume",
+    "definitionNote": "In Australian English 'bathers' is a plural-form noun naming one garment, like 'trousers', so a singular 'costume' defines it fairly.",
+    "indicators": [
+     "wears"
+    ],
+    "indicatorNotes": {
+     "wears": "what you wear goes round you, so the phrase after this word closes over the woman named before it"
+    },
+    "pieces": [
+     "BAT",
+     "HER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out to lunch",
+      "gives": "BATS",
+      "note": "someone out to lunch is bats — away with the fairies"
+     },
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "'that woman' is her, the object pronoun"
+     }
+    ],
+    "walkthrough": "Bondi Beach is in Sydney, and the beach is there to tell you which country's word is wanted: Australians call swimwear this, where the British say trunks or costume.",
+    "definitionFit": "Australians say 'bathers' for what you swim in, so naming their most famous beach does the work of a dictionary label."
+   }
   },
   {
    "id": "11-across",
@@ -231,7 +571,36 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANSELM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ANSELM",
+    "definition": "Saintly Archbishop of Canterbury",
+    "indicators": [
+     "perverts",
+     "avoiding"
+    ],
+    "indicatorNotes": {
+     "perverts": "to pervert something is to twist it out of its proper form, and letters twisted that way come out in a new order",
+     "avoiding": "this keeps something away, so the letter it names never joins the mix at all"
+    },
+    "anagram": {
+     "fodder": "LAMENS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "laments",
+      "gives": "LAMENS",
+      "note": "the T has gone from the word for mourning, leaving six letters to shuffle"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time, and it is the letter that drops out"
+     }
+    ],
+    "walkthrough": "'Saintly' is not describing a temperament: it tells you the archbishop wanted is one of the canonised ones, which narrows eleven centuries of them to a handful.",
+    "definitionFit": "Anselm was the eleventh-century Archbishop of Canterbury who was later canonised, so the definition points at one particular man."
+   }
   },
   {
    "id": "12-across",
@@ -248,7 +617,27 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SELL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SELL",
+    "definition": "Betray",
+    "indicators": [
+     "in report"
+    ],
+    "indicatorNotes": {
+     "in report": "a report is something spoken, so the clue wants how the words sound rather than how they are spelt"
+    },
+    "blocks": [
+     {
+      "clueFragment": "clandestine group",
+      "soundsLike": "CELL",
+      "gives": "SELL",
+      "note": "a clandestine group is a cell — the small secret unit that activists and spies organise into"
+     }
+    ],
+    "walkthrough": "The surface is a spy story, where a secret group and a betrayal sit together happily. The whole trick is that the group is heard rather than written down, and C and S sound alike here.",
+    "definitionFit": "To sell someone is to betray them for advantage — 'sold down the river' keeps that sense alive in everyday English."
+   }
   },
   {
    "id": "13-across",
@@ -265,7 +654,42 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROADSWORD",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BROADSWORD",
+    "definition": "military equipment",
+    "indicators": [
+     "involving"
+    ],
+    "indicatorNotes": {
+     "involving": "to involve something is to wrap it up in the business, so the letter it introduces goes inside the piece before it"
+    },
+    "pieces": [
+     "BR",
+     "O",
+     "ADS",
+     "WORD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from Pitt, say",
+      "gives": "BRADS",
+      "note": "Brad Pitt is one Pitt you might name, 'say' flagging the example, and something from him is Brad's"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Promise",
+      "gives": "WORD",
+      "note": "your word is your promise — 'I give you my word'"
+     }
+    ],
+    "walkthrough": "Read as the surface asks and this is a promise from a film star, Brad's word, with a letter let into it. 'Old' looks like the front of the definition and is really that letter.",
+    "definitionFit": "A broadsword is the wide-bladed cutting sword soldiers carried into battle, which is military equipment in the plainest sense."
+   }
   },
   {
    "id": "14-down",
@@ -282,7 +706,37 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WORKBENCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WORKBENCH",
+    "definition": "table",
+    "indicators": [
+     "New"
+    ],
+    "indicatorNotes": {
+     "New": "something made new is rebuilt out of the same material, which is what a set of letters is when it comes back reordered"
+    },
+    "linkWords": [
+     "making"
+    ],
+    "anagram": {
+     "fodder": "WC BROKEN H"
+    },
+    "blocks": [
+     {
+      "clueFragment": "WC broken",
+      "gives": "WCBROKEN",
+      "note": "the two letters of WC and the six of 'broken', all of them raw material"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband"
+     }
+    ],
+    "walkthrough": "'Broken' is not the instruction here, it is the material — its own six letters go into the mix. The word doing the shuffling is 'New', and for once it comes first.",
+    "definitionFit": "A workbench is the sturdy table a joiner or a mechanic works at, so 'table' is a plain synonym narrowed to the workshop."
+   }
   },
   {
    "id": "15-across",
@@ -299,7 +753,47 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOWNSTREAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "DOWNSTREAM",
+    "definition": "as the water runs",
+    "indicators": [
+     "last bit of"
+    ],
+    "indicatorNotes": {
+     "last bit of": "the last bit of a word is its final letter, and only that one letter is wanted"
+    },
+    "pieces": [
+     "D",
+     "OWNS",
+     "T",
+     "REAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the genealogist's abbreviation for daughter"
+     },
+     {
+      "clueFragment": "holds",
+      "gives": "OWNS",
+      "note": "to hold property is to own it"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "T",
+      "note": "the closing letter of that word"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "REAM",
+      "note": "a ream is five hundred sheets of paper"
+     }
+    ],
+    "walkthrough": "'Holds' looks like an instruction to put something inside; it is simply the verb owns. Four pieces in a row, and the plumbing surface falls away.",
+    "definitionFit": "Downstream means in the direction the current carries you, which is where the water runs to."
+   }
   },
   {
    "id": "16-down",
@@ -316,7 +810,32 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSSUARY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OSSUARY",
+    "definition": "Vault with bones",
+    "indicators": [
+     "broken"
+    ],
+    "indicatorNotes": {
+     "broken": "bones that are broken no longer sit in their proper places, and neither do the letters this word points at"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "YOUR ASS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "your ass",
+      "gives": "YOURASS",
+      "note": "seven letters, and every one of them is used"
+     }
+    ],
+    "walkthrough": "Filbert's surface is a joke about a broken tailbone, and the letters he needs are sitting in the last two words of it.",
+    "definitionFit": "An ossuary is the chamber or chest where bones are stored once a grave is reused, so it is literally a vault for them."
+   }
   },
   {
    "id": "17-down",
@@ -337,7 +856,41 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIMELAG",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "TIME LAG",
+    "definition": "Maybe hours of delay",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "this entry runs down the grid, so 'up' means reading its letters from the bottom back to the top"
+    },
+    "pieces": [
+     "TIME",
+     "LAG"
+    ],
+    "subReversals": [
+     {
+      "from": "GALEMIT",
+      "to": "TIMELAG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wind",
+      "gives": "GALE",
+      "note": "a gale is a strong wind"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "MIT",
+      "note": "MIT is the Massachusetts Institute of Technology"
+     }
+    ],
+    "walkthrough": "'Wind' invites you to twist something, and it is the weather noun instead. Assemble the two pieces, turn the whole thing round as 'up' asks, and it reads down the grid.",
+    "definitionFit": "A time lag is the gap between one event and the one that answers it, and such a gap may well be counted in hours."
+   }
   },
   {
    "id": "18-down",
@@ -354,7 +907,36 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAHATMA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MAHATMA",
+    "definition": "Sage",
+    "indicators": [
+     "pocketed by"
+    ],
+    "indicatorNotes": {
+     "pocketed by": "to pocket something is to tuck it out of sight inside, so the headgear disappears into the letters either side"
+    },
+    "pieces": [
+     "MA",
+     "HAT",
+     "MA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lesbian parents?",
+      "gives": "MAMA",
+      "note": "two mothers between them, so a MA on each side"
+     },
+     {
+      "clueFragment": "beanie, say",
+      "gives": "HAT",
+      "note": "a beanie is one example of the thing, which 'say' flags"
+     }
+    ],
+    "walkthrough": "'Sage' is the noun, a wise man, not the herb the kitchen-ish surface offers. Mahatma is the honorific Indians gave Gandhi, and it means great soul.",
+    "definitionFit": "Mahatma is a title of reverence for a great soul in India, and English borrowed it for any revered wise man — a sage."
+   }
   },
   {
    "id": "19-across",
@@ -371,7 +953,37 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROPY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ROPY",
+    "definition": "Unsatisfactory",
+    "indicators": [
+     "in the audience"
+    ],
+    "indicatorNotes": {
+     "in the audience": "someone sitting out front hears the words and never sees them written, so the spelling is left to you"
+    },
+    "blocks": [
+     {
+      "clueFragment": "seats",
+      "gives": "ROW",
+      "note": "a theatre's seats are counted in rows"
+     },
+     {
+      "clueFragment": "16",
+      "gives": "P",
+      "note": "P is the sixteenth letter of the alphabet, and theatres letter their rows from the front"
+     },
+     {
+      "clueFragment": "seats 16 back",
+      "soundsLike": "ROW P",
+      "gives": "ROPY",
+      "note": "said in one breath, that seat description runs together into a single word"
+     }
+    ],
+    "walkthrough": "The number is not a cross-reference to another clue, which is the trap — count sixteen letters into the alphabet instead, and say the result out loud.",
+    "definitionFit": "'Ropy' is British colloquial for shoddy or slightly unwell: a ropy performance is one that left the audience unsatisfied."
+   }
   },
   {
    "id": "20-down",
@@ -388,7 +1000,36 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POTHOLE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "POTHOLE",
+    "definition": "Danger for cyclists",
+    "indicators": [
+     "coming through"
+    ],
+    "indicatorNotes": {
+     "coming through": "what comes through something passes into the middle of it, so these letters land inside the others"
+    },
+    "pieces": [
+     "PO",
+     "THO",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "icy zone",
+      "gives": "POLE",
+      "note": "the icy zones at the ends of the globe are the poles"
+     },
+     {
+      "clueFragment": "even if",
+      "gives": "THO",
+      "note": "'even if' is 'though', which verse and crosswords alike shorten to THO"
+     }
+    ],
+    "walkthrough": "The surface is a winter warning to cyclists, which is what the answer is too — but the icy zone is the polar one, and 'even if' is a contraction rather than a condition.",
+    "definitionFit": "A pothole is a hole worn in the road surface, and hitting one is the classic way a cyclist is thrown off."
+   }
   },
   {
    "id": "21-across",
@@ -405,7 +1046,34 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESTEEM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ESTEEM",
+    "definition": "Favour",
+    "indicators": [
+     "endless",
+     "revising"
+    ],
+    "indicatorNotes": {
+     "endless": "a word with no ends at all loses the letter at each extremity, not just the final one",
+     "revising": "to revise a text is to set it down again in another form, and letters revised come back in another order"
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "EMESTE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "semester",
+      "gives": "EMESTE",
+      "note": "take the S off the front and the R off the back and six letters remain"
+     }
+    ],
+    "walkthrough": "The count settles which reading of 'endless' is meant: strip only the last letter and there are seven letters for a six-letter grid entry, so both ends have to go.",
+    "definitionFit": "To hold someone in esteem is to regard them with favour, both nouns naming the good opinion you have formed of a person."
+   }
   },
   {
    "id": "22-down",
@@ -422,7 +1090,29 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETHOS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ETHOS",
+    "definition": "Spirit",
+    "indicators": [
+     "contains"
+    ],
+    "indicatorNotes": {
+     "contains": "what a phrase contains is sitting inside it letter for letter, in the order printed"
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teeth 16D",
+      "gives": "ETHOS",
+      "note": "the closing letters of one word run straight on into the opening letters of the entry at 16 down"
+     }
+    ],
+    "walkthrough": "The '16D' is not decoration: write out the answer to that clue after 'teeth' and the five letters are lying there in order, straddling the join between the two words.",
+    "definitionFit": "A school's or a team's ethos is the spirit that animates it — the characteristic tone and beliefs the place is said to have."
+   }
   },
   {
    "id": "23-across",
@@ -439,7 +1129,36 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INHABIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "INHABIT",
+    "definition": "People",
+    "indicators": [
+     "bored by"
+    ],
+    "indicatorNotes": {
+     "bored by": "boring is drilling into something, so the letter that follows tunnels into the middle rather than joining on the end"
+    },
+    "pieces": [
+     "IN",
+     "H",
+     "ABIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soon",
+      "gives": "INABIT",
+      "note": "'in a bit' means soon, and its three words run together"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the road-sign abbreviation for hospital"
+     }
+    ],
+    "walkthrough": "'People' is the verb, not the noun — to people a place. That single shift is the whole misdirection, and the surface's queue of bored patients keeps it up.",
+    "definitionFit": "To people a place is to fill it with residents, and to inhabit it is to be those residents: the same act from either end."
+   }
   },
   {
    "id": "24-across",
@@ -460,7 +1179,42 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
     ]
    },
    "solution": "ACHILLESTENDON",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ACHILLES TENDON",
+    "definition": "Body part",
+    "indicators": [
+     "put in"
+    ],
+    "indicatorNotes": {
+     "put in": "this says the word before it does not sit alongside the trunk but goes inside it"
+    },
+    "pieces": [
+     "ACH",
+     "ILL",
+     "EST",
+     "ENDON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a trunk",
+      "gives": "ACHEST",
+      "note": "a trunk is a chest, the big box you pack for a voyage"
+     },
+     {
+      "clueFragment": "wrongly",
+      "gives": "ILL",
+      "note": "ill means wrongly, as in ill-judged or ill-gotten"
+     },
+     {
+      "clueFragment": "lengthways",
+      "gives": "ENDON",
+      "note": "end on means lengthways, with one end pointing towards you"
+     }
+    ],
+    "walkthrough": "'Body part' and 'trunk' belong to the same picture, and that is the trap: the trunk here is the box you pack, not the torso.",
+    "definitionFit": "The Achilles tendon is the cord joining calf muscle to heel bone, an anatomical part named for the hero's one vulnerable spot."
+   }
   },
   {
    "id": "25-across",
@@ -477,7 +1231,36 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYESIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "EYESIGHT",
+    "definition": "Ability to spy",
+    "indicators": [
+     "limited by"
+    ],
+    "indicatorNotes": {
+     "limited by": "to be limited is to have a boundary set at each end of you, so the other word closes on both sides"
+    },
+    "pieces": [
+     "E",
+     "YES",
+     "IGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "double-0 following Bond?",
+      "gives": "EIGHT",
+      "note": "Bond is 007, and the number following seven is eight"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "YES",
+      "note": "'certainly!' as a reply is simply yes"
+     }
+    ],
+    "walkthrough": "The Bond surface does two jobs at once: it makes 'spy' look like espionage, and it hides an ordinary number behind a licence to kill.",
+    "definitionFit": "To spy something is to catch sight of it, so the ability to do that is the power of your eyes rather than any espionage."
+   }
   },
   {
    "id": "26-across",
@@ -498,7 +1281,30 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASHKEY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASH-KEY",
+    "definition": "Seed for tree that's dying back",
+    "indicators": [],
+    "pieces": [
+     "ASH",
+     "KEY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "what remains in the grate after a fire is ash"
+     },
+     {
+      "clueFragment": "important",
+      "gives": "KEY",
+      "note": "a key witness is an important one"
+     }
+    ],
+    "walkthrough": "Ash dieback is the fungal disease that has been killing Britain's ash trees since 2012, so 'dying back' names the tree without ever naming it.",
+    "definitionFit": "An ash key is the winged seed that the ash drops in papery bunches, so the definition names the seed and its tree together."
+   }
   }
  ]
 } /*JSON-END*/;
