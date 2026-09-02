@@ -2717,6 +2717,11 @@
           ? esc(e.clueMissingNote)
           : "Nothing was left to solve with, so there is no wordplay to explain."}
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
+        : e.clueCorrupt
+        ? `<div class="hint-step"><p class="muted">The paper printed the wrong text against
+        this clue — the words above are not the ones this answer came from, so there is no
+        wordplay in them to explain. ${esc(e.clueCorrupt)}
+        ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
         : `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
         (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for it.
         You can still check your letters${canCheck() ? " and reveal below" : ""}.</p></div>`;

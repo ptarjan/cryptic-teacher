@@ -382,15 +382,16 @@ def merge_annotations(new_puzzle, old_puzzle):
         if old.get(e["id"]) is not None:
             e["annotation"] = old[e["id"]]
 
-    # clueMissingNote is the only hand-written field on an entry the annotation
-    # queue never touches — a blank clue has no words for a model to read, so
-    # the explanation of one can only come from a person. Carry it too, or a
-    # re-fetch silently drops the single sentence that makes that clue make
-    # sense and the page falls back to "the paper printed nothing here".
-    notes = {e["id"]: e.get("clueMissingNote") for e in old_puzzle.get("entries", [])}
-    for e in new_puzzle["entries"]:
-        if notes.get(e["id"]):
-            e["clueMissingNote"] = notes[e["id"]]
+    # The two hand-written fields on entries the annotation queue never touches.
+    # A blank clue has no words for a model to read and a corrupt one has the
+    # wrong words, so in both cases the explanation can only come from a person.
+    # Carry them, or a re-fetch silently drops the single sentence that makes
+    # that clue make sense and the page falls back to the generic line.
+    for field in ("clueMissingNote", "clueCorrupt"):
+        notes = {e["id"]: e.get(field) for e in old_puzzle.get("entries", [])}
+        for e in new_puzzle["entries"]:
+            if notes.get(e["id"]):
+                e[field] = notes[e["id"]]
 
     was_model = (old_puzzle.get("solutionSource") or {}).get("kind") == "model"
     if not was_model:
@@ -426,9 +427,14 @@ def puzzle_is_annotated(puzzle):
     model or human, can write a ladder for it. Counting one against its puzzle
     marks that puzzle permanently un-annotated, which buys a full annotation
     run on it every night, for ever, to solve the clues that were already done.
+
+    A clue the paper published with the WRONG words costs exactly the same and
+    is just as unfillable — the printed text does not lead to the printed
+    answer, so a ladder over it would have to be invented. clueCorrupt is a
+    person saying so, and it counts the same way.
     """
     return all(e.get("annotation") is not None or not has_words(e["clue"])
-               for e in puzzle["entries"])
+               or e.get("clueCorrupt") for e in puzzle["entries"])
 
 
 def reindex():

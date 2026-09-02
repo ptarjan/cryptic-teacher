@@ -13,12 +13,14 @@ teaching ladder in it.
 So the ratio gets checked by something that can shout. Give it the puzzles a run
 tried to annotate; it exits non-zero and names the clues if any came back short.
 
-Only ONE of the two ways to come up short is a failure. A clue the model could
+Only ONE of the three ways to come up short is a failure. A clue the model could
 not solve is a quality problem and gets shouted about. A clue the paper
 published with no words in it is owed nothing by anybody — it is printed, so a
 scrape that started blanking clues is still visible in the log, but it does not
 fail the check, because a gap that can never be filled would otherwise alert
-every single night for the life of the puzzle.
+every single night for the life of the puzzle. A clue the paper published with
+the WRONG words (clueCorrupt, hand-written) is the same kind of gap: the printed
+text does not lead to the printed answer, so no annotator can ever close it.
 
     python3 tools/check_annotation_loss.py 30094 12429
     python3 tools/check_annotation_loss.py            # whatever the tree changed
@@ -62,23 +64,32 @@ def main(argv):
         # Two very different failures land in the same gap, and treating them
         # alike sent someone to grade a model that had been handed a clue with
         # no words in it. Only the solvable one is a loss.
-        unsolved = [e["id"] for e in missing if has_words(e["clue"])]
+        unsolved = [e["id"] for e in missing
+                    if has_words(e["clue"]) and not e.get("clueCorrupt")]
         wordless = [e["id"] for e in missing if not has_words(e["clue"])]
+        corrupt = [e["id"] for e in missing if e.get("clueCorrupt")
+                   and has_words(e["clue"])]
         if unsolved:
             short.append((puzzle["id"], total - len(missing), total,
-                          unsolved, wordless))
+                          unsolved, wordless, corrupt))
         else:
-            wordless_only.append((puzzle["id"], wordless))
-    for pid, wordless in wordless_only:
-        print(f"{pid}: {', '.join(wordless)} published with no clue text — "
-              f"nothing to solve, so nothing is owed")
-    for pid, done, total, unsolved, wordless in short:
+            wordless_only.append((puzzle["id"], wordless, corrupt))
+    for pid, wordless, corrupt in wordless_only:
+        for ids, why in ((wordless, "published with no clue text"),
+                         (corrupt, "published with the wrong clue text")):
+            if ids:
+                print(f"{pid}: {', '.join(ids)} {why} — nothing to solve, "
+                      f"so nothing is owed")
+    for pid, done, total, unsolved, wordless, corrupt in short:
         why = [f"could not solve {', '.join(unsolved)} — if that keeps "
                f"happening the model is failing to solve the puzzle, "
                f"which is a quality problem, not a spend one"]
         if wordless:
             why.append(f"{', '.join(wordless)} published with no clue text, so "
                        f"there is nothing to solve there")
+        if corrupt:
+            why.append(f"{', '.join(corrupt)} published with the wrong clue "
+                       f"text, so nothing there leads to the answer")
         print(f"{pid}: {done}/{total} annotated — {'; '.join(why)}")
     if not short:
         print(f"annotation loss check: {len(paths)} puzzle(s), none left short")
