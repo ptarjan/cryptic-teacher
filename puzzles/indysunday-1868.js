@@ -30,7 +30,45 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRIDESMAID",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BRIDESMAID",
+    "definition": "girl taking train",
+    "linkWords": [
+     "on",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "B",
+      "note": "the standard abbreviation, as in Bachelor of Arts"
+     },
+     {
+      "clueFragment": "travels",
+      "gives": "RIDES",
+      "note": "someone who travels by horse, bike or bus rides"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "British roads are numbered this way: the M1, the M25"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help, and the two swap freely as noun or verb"
+     }
+    ],
+    "pieces": [
+     "B",
+     "RIDES",
+     "M",
+     "AID"
+    ],
+    "walkthrough": "The surface is a journey by road, so 'taking train' invites you to add a leg by rail. It is the trailing part of a dress instead.",
+    "definitionFit": "girl taking train -> BRIDESMAID: the attendant who walks behind the bride carrying the long train of her wedding dress."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +85,26 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROUND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROUND",
+    "definition": "One piece of toast",
+    "definition2": "ample",
+    "blocks": [
+     {
+      "clueFragment": "One piece of toast",
+      "gives": "",
+      "note": "a British cafe counts toast in slices, and one slice is one of these"
+     },
+     {
+      "clueFragment": "ample",
+      "gives": "",
+      "note": "the kindly word for a full, well-padded figure"
+     }
+    ],
+    "walkthrough": "Two definitions butted straight together with no joinery, which is why five words read as one breakfast order. The question mark marks the second, looser sense.",
+    "definitionFit": "One piece of toast -> ROUND: a single cut slice; ample -> ROUND: of a person's body, plump and full rather than merely circular."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +121,36 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISGUST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letters",
+    "answer": "DISGUST",
+    "definition": "Revolt",
+    "indicators": [
+     "leaders of",
+     "for reform"
+    ],
+    "indicatorNotes": {
+     "leaders of": "The leader of a word is the letter standing at its head, and the two words named after this each surrender only that one.",
+     "for reform": "Something put up for reform is to be made over into a different shape, so the letters gathered up beforehand are rebuilt in another order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "suits",
+      "gives": "SUITS",
+      "note": "five of the seven letters, handed over as a word before being broken up"
+     },
+     {
+      "clueFragment": "guerrillas desperate",
+      "gives": "GD",
+      "note": "the opening letter of each of the two words joins the pool"
+     }
+    ],
+    "anagram": {
+     "fodder": "SUITS GD"
+    },
+    "walkthrough": "Guerrillas and revolt paint one political picture, and that is what hides the seam: the first word is the definition and the second is raw material.",
+    "definitionFit": "Revolt -> DISGUST: the verb sense, as in 'it revolts me' — filling someone with nausea rather than rising up against a government."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +167,42 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAINTLINESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SAINTLINESS",
+    "definition": "very good quality",
+    "indicators": [
+     "aboard"
+    ],
+    "indicatorNotes": {
+     "aboard": "To be aboard a vessel is to be inside it, so everything named before this ends up within the two letters that stand for the ship."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Aren't",
+      "gives": "AINT",
+      "note": "read as the colloquial ain't, and the apostrophe drops out as it always does in a grid"
+     },
+     {
+      "clueFragment": "ropes",
+      "gives": "LINES",
+      "note": "at sea a rope that has a job to do is called a line"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the prefix on a steamship's name, and the pair splits to sit at either end"
+     }
+    ],
+    "pieces": [
+     "S",
+     "AINT",
+     "LINES",
+     "S"
+    ],
+    "walkthrough": "'Aren't' looks like grammar holding the question together. Read it as the slangy contraction instead and it stops being a word and becomes four letters.",
+    "definitionFit": "very good quality -> SAINTLINESS: the quality of being saintly, holiness of conduct, which is goodness at its very highest pitch."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +219,40 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARGONNE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "ARGONNE",
+    "definition": "WWI battleground",
+    "indicators": [
+     "evacuated",
+     "coming over"
+    ],
+    "indicatorNotes": {
+     "evacuated": "A building that is evacuated is emptied of everyone in the middle, leaving only the two standing at the doors — the first and last letters.",
+     "coming over": "In a down clue what comes over something is laid on top of it, so this piece is placed above the letters that survive the emptying."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gas",
+      "gives": "ARGON",
+      "note": "argon is the inert gas used in light bulbs and welding"
+     },
+     {
+      "clueFragment": "Nivelle",
+      "gives": "NE",
+      "note": "the outer pair from the name of the French general who commanded in 1917"
+     }
+    ],
+    "pieces": [
+     "ARGON",
+     "NE"
+    ],
+    "walkthrough": "The Argonne is a forest in north-eastern France, and the Meuse-Argonne offensive of autumn 1918 was the largest battle the American army had then fought.",
+    "definitionFit": "WWI battleground -> ARGONNE: the French forest where the final Allied offensive of 1918 was fought, so the name stands for the battle itself."
+   }
   },
   {
    "id": "6-down",
@@ -116,7 +270,30 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DAMPEN",
+    "definition": "Restrain",
+    "coversGroup": true,
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "DAM",
+      "note": "a dam is the mother of a foal or a calf, the breeder's word that pairs with sire"
+     },
+     {
+      "clueFragment": "hen",
+      "gives": "PEN",
+      "note": "a pen is a female swan, and hen serves for the female of a bird generally"
+     }
+    ],
+    "pieces": [
+     "DAM",
+     "PEN"
+    ],
+    "walkthrough": "Three words long, and the two after the definition both mean a female animal, which is what lets them read as one phrase about poultry.",
+    "definitionFit": "Restrain -> DAMPEN: to dampen enthusiasm is to hold it back and take the force out of it, the figurative sense rather than wetting anything."
+   }
   },
   {
    "id": "7-across",
@@ -133,7 +310,36 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BIFF",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BIFF",
+    "definition": "Thump",
+    "indicators": [
+     "admitting"
+    ],
+    "indicatorNotes": {
+     "admitting": "To admit someone is to let them in through the door, so the letters named after this go inside the pair named before."
+    },
+    "blocks": [
+     {
+      "clueFragment": "boyfriend",
+      "gives": "BF",
+      "note": "BF is how a boyfriend is abbreviated in a text message"
+     },
+     {
+      "clueFragment": "condition",
+      "gives": "IF",
+      "note": "an if is the condition attached to a promise"
+     }
+    ],
+    "pieces": [
+     "B",
+     "IF",
+     "F"
+    ],
+    "walkthrough": "Three words with nothing to skip past, which is what makes a short clue hard: 'boyfriend' looks like the subject of a sentence and is really two initials.",
+    "definitionFit": "Thump -> BIFF: a biff is a smack or a blow, the comic-strip word, and it serves as noun and verb alike."
+   }
   },
   {
    "id": "7-down",
@@ -150,7 +356,29 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUTTONS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BUTTONS",
+    "definition": "Remote controls",
+    "blocks": [
+     {
+      "clueFragment": "absolutely",
+      "gives": "BUT",
+      "note": "but carries the sense of purely or no more than: it is but a trifle"
+     },
+     {
+      "clueFragment": "loads",
+      "gives": "TONS",
+      "note": "tons of it means loads of it, the same everyday exaggeration"
+     }
+    ],
+    "pieces": [
+     "BUT",
+     "TONS"
+    ],
+    "walkthrough": "'Remote controls' wants to be a verb phrase about operating something from a distance. It is a plural noun: the controls on a remote.",
+    "definitionFit": "Remote controls -> BUTTONS: the pressable keys covering a handset, so the definition names the controls themselves rather than any act of controlling."
+   }
   },
   {
    "id": "8-down",
@@ -167,7 +395,41 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FUNDAMENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "FUNDAMENT",
+    "definition": "arse",
+    "indicators": [
+     "awful"
+    ],
+    "indicatorNotes": {
+     "awful": "Something in an awful state is in disarray, and letters in disarray have lost the order they were printed in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Kitty",
+      "gives": "FUND",
+      "note": "the kitty is the pot of money a group all chips into"
+     },
+     {
+      "clueFragment": "met an",
+      "gives": "AMENT",
+      "note": "five letters across two little words, to be reassembled"
+     }
+    ],
+    "pieces": [
+     "FUND",
+     "AMENT"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MET AN",
+      "gives": "AMENT"
+     }
+    ],
+    "walkthrough": "FUNDAMENT is the formal, faintly medical word for the buttocks, and it shares a root with foundation: what you sit on is what you rest on.",
+    "definitionFit": "arse -> FUNDAMENT: the polite anatomical word for the same part, the seat of the body, where the clue's word is the blunt one."
+   }
   },
   {
    "id": "9-across",
@@ -184,7 +446,29 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUISLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "QUISLING",
+    "definition": "Collaborator",
+    "blocks": [
+     {
+      "clueFragment": "who French",
+      "gives": "QUI",
+      "note": "qui is the French for who, with the language named after the word it translates"
+     },
+     {
+      "clueFragment": "support when injured",
+      "gives": "SLING",
+      "note": "the cloth loop that holds a broken arm across the chest"
+     }
+    ],
+    "pieces": [
+     "QUI",
+     "SLING"
+    ],
+    "walkthrough": "Vidkun Quisling ran Norway on Germany's behalf from 1940, and within months his surname had become the ordinary English word for anyone who does the same.",
+    "definitionFit": "Collaborator -> QUISLING: someone who works with an occupying enemy against their own country, named after the Norwegian who did exactly that."
+   }
   },
   {
    "id": "10-across",
@@ -201,7 +485,38 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUTINY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MUTINY",
+    "definition": "insubordination",
+    "indicators": [
+     "curtailed"
+    ],
+    "indicatorNotes": {
+     "curtailed": "To curtail is to dock a tail, so the word before this loses the letter at its end and keeps everything else."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MU",
+      "note": "mum is the British word for mother, and its tail comes off"
+     },
+     {
+      "clueFragment": "baby",
+      "gives": "TINY",
+      "note": "a baby portion or a baby car is a tiny one"
+     }
+    ],
+    "pieces": [
+     "MU",
+     "TINY"
+    ],
+    "walkthrough": "The surface has a parent cutting short some backchat, so the two halves of the wordplay read as one continuous sentence about a family row.",
+    "definitionFit": "insubordination -> MUTINY: refusal to obey those set over you, the word reached for when a crew or a regiment turns on its officers."
+   }
   },
   {
    "id": "11-across",
@@ -222,7 +537,36 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOUBTINGTHOMAS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DOUBTING THOMAS",
+    "definition": "Sceptic",
+    "indicators": [
+     "feeds",
+     "tailored version of"
+    ],
+    "indicatorNotes": {
+     "feeds": "A letter fed into something joins what is already there, so the bishop's initial goes into the pool of letters instead of standing on its own.",
+     "tailored version of": "A tailored version has been cut and stitched into a new shape, which is what becomes of the words named after this."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the bishop on a chess scoresheet"
+     },
+     {
+      "clueFragment": "God to humanist",
+      "gives": "GOD TO HUMANIST",
+      "note": "thirteen letters, which with the bishop's one make up the full fourteen"
+     }
+    ],
+    "anagram": {
+     "fodder": "B GOD TO HUMANIST"
+    },
+    "walkthrough": "'Sceptic bishop' sounds like a churchman with private doubts, and that smooth picture is what buries the seam: only the first word is the definition.",
+    "definitionFit": "Sceptic -> DOUBTING THOMAS: one who will not take a thing on trust, named for the apostle who insisted on seeing the wounds for himself."
+   }
   },
   {
    "id": "12-down",
@@ -239,7 +583,47 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TALLAHASSEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TALLAHASSEE",
+    "definition": "Florida city",
+    "indicators": [
+     "across"
+    ],
+    "indicatorNotes": {
+     "across": "To lie across something is to stretch right over it, so the word that follows is spanned by the pieces assembled before it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "high-rise",
+      "gives": "TALL",
+      "note": "a high-rise is a tall building, and it is the adjective that is wanted"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area"
+     },
+     {
+      "clueFragment": "enjoys",
+      "gives": "HAS",
+      "note": "someone who enjoys good health has it"
+     },
+     {
+      "clueFragment": "view",
+      "gives": "SEE",
+      "note": "to view something is to see it"
+     }
+    ],
+    "pieces": [
+     "TALL",
+     "A",
+     "HAS",
+     "SEE"
+    ],
+    "walkthrough": "Not Miami and not Orlando: the state capital of Florida is a small city up in the northern panhandle, which is why the skyline in the surface misleads.",
+    "definitionFit": "Florida city -> TALLAHASSEE: definition by example, since it is one city in that state — the capital, though far from the largest."
+   }
   },
   {
    "id": "13-across",
@@ -260,7 +644,27 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAITAI",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MAI TAI",
+    "definition": "cocktail",
+    "indicators": [
+     "said"
+    ],
+    "indicatorNotes": {
+     "said": "Said means spoken out loud, so what matters about the words before it is the noise they make and not how they are spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Would it be OK if I",
+      "soundsLike": "MIGHT I",
+      "gives": "MAI TAI",
+      "note": "'Might I?' is the polite way of asking whether something would be allowed, and aloud the t slides across to open the second word"
+     }
+    ],
+    "walkthrough": "The quotation marks are the tell: 'cocktail' is being held up as a word to be defined, and everything before it is a phrase you say out loud.",
+    "definitionFit": "cocktail -> MAI TAI: the rum, lime and orgeat drink mixed in California in 1944 and poured in tiki bars ever since."
+   }
   },
   {
    "id": "14-down",
@@ -277,7 +681,29 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFOREHAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AFOREHAND",
+    "definition": "earlier",
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A abbreviates American, and it does double duty as the nationality in the surface"
+     },
+     {
+      "clueFragment": "shot by Fritz, perhaps",
+      "gives": "FOREHAND",
+      "note": "Taylor Fritz is a tennis player, so a stroke of his is one example of this shot"
+     }
+    ],
+    "pieces": [
+     "A",
+     "FOREHAND"
+    ],
+    "walkthrough": "'Fritz' wants to be a German, the old wartime nickname for one. The 'perhaps' is what redirects it towards a particular named sportsman.",
+    "definitionFit": "earlier -> AFOREHAND: the older form of beforehand, meaning in advance of the moment in question, and now mostly dialect."
+   }
   },
   {
    "id": "15-across",
@@ -294,7 +720,29 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENLISTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ENLISTED",
+    "definition": "on a roll",
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "EN",
+      "note": "EN is the British qualification of enrolled nurse, the grade below a registered one"
+     },
+     {
+      "clueFragment": "leant",
+      "gives": "LISTED",
+      "note": "a ship that leant over to one side listed"
+     }
+    ],
+    "pieces": [
+     "EN",
+     "LISTED"
+    ],
+    "walkthrough": "'On a roll' looks like a run of good luck, or a filling in a bap. A roll is a register of names, the muster an army keeps.",
+    "definitionFit": "on a roll -> ENLISTED: to be enlisted is to have had your name written onto a regiment's roll, which is exactly being on it."
+   }
   },
   {
    "id": "16-across",
@@ -316,7 +764,35 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOTAPEEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOT A PEEP",
+    "definition": "Silence",
+    "blocks": [
+     {
+      "clueFragment": "a lack of",
+      "gives": "NO",
+      "note": "a lack of something amounts to none of it"
+     },
+     {
+      "clueFragment": "records",
+      "gives": "TAPE",
+      "note": "one recording format, the magnetic ribbon inside a cassette"
+     },
+     {
+      "clueFragment": "records",
+      "gives": "EP",
+      "note": "the other, an extended-play disc carrying more tracks than a single"
+     }
+    ],
+    "pieces": [
+     "NO",
+     "TAPE",
+     "EP"
+    ],
+    "walkthrough": "The question mark flags the definition by example: two named formats stand in for records in general, and their joins fall nowhere near the answer's.",
+    "definitionFit": "Silence -> NOT A PEEP: not a peep out of someone is not the faintest sound, so the phrase is an idiom for complete quiet."
+   }
   },
   {
    "id": "17-down",
@@ -333,7 +809,35 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AURALLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AURALLY",
+    "definition": "by listening",
+    "indicators": [
+     "crowns"
+    ],
+    "indicatorNotes": {
+     "crowns": "A crown sits on top of a head, so in a down clue the piece named before this is placed above the one named after."
+    },
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "AU is gold's symbol on the periodic table, from the Latin aurum"
+     },
+     {
+      "clueFragment": "Recover",
+      "gives": "RALLY",
+      "note": "a patient who rallies recovers strength, and so does a falling share price"
+     }
+    ],
+    "pieces": [
+     "AU",
+     "RALLY"
+    ],
+    "walkthrough": "'Recover gold crowns' reads as dentistry or treasure, and it is that picture which disguises the middle word as loot rather than as an instruction.",
+    "definitionFit": "by listening -> AURALLY: aurally means through the ear, so taking something in aurally is taking it in by listening rather than reading."
+   }
   },
   {
    "id": "18-down",
@@ -354,7 +858,53 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
     ]
    },
    "solution": "PINTPOT",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "PINT POT",
+    "definition": "Container of two halves",
+    "indicators": [
+     "seen in",
+     "flipped"
+    ],
+    "indicatorNotes": {
+     "seen in": "Something seen in another thing sits within it, so the letter named before this drops into the middle of the word named after.",
+     "flipped": "Anything flipped is turned end over end, so the three letters it applies to are written out in the reverse order."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine, the word used across the British coalfields"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name on any form"
+     },
+     {
+      "clueFragment": "lid",
+      "gives": "TOP",
+      "note": "the lid of a jar is its top, and this one does not stay that way up"
+     }
+    ],
+    "pieces": [
+     "PI",
+     "N",
+     "T",
+     "POT"
+    ],
+    "subReversals": [
+     {
+      "from": "TOP",
+      "to": "POT"
+     }
+    ],
+    "walkthrough": "The definition is a hint as well as a definition: two half-pints fill one of these, so the vessel is named by the measure it holds.",
+    "definitionFit": "Container of two halves -> PINT POT: the pint mug a pub pulls beer into, holding precisely the two half-pints the definition counts out."
+   }
   },
   {
    "id": "19-across",
@@ -371,7 +921,48 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACUITY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ACUITY",
+    "definition": "sharpness",
+    "indicators": [
+     "carrying",
+     "goes in"
+    ],
+    "indicatorNotes": {
+     "carrying": "What you carry you hold within your arms, so the word before this closes right around everything that follows it.",
+     "goes in": "A piece that goes in is placed inside its neighbour, splitting that word open rather than joining on at either end."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certainly",
+      "gives": "AY",
+      "note": "ay is the old spelling of aye, the word for yes certainly"
+     },
+     {
+      "clueFragment": "knife",
+      "gives": "CUT",
+      "note": "to knife someone is to cut them, so the verb stands for the noun"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one, a single stroke"
+     }
+    ],
+    "pieces": [
+     "A",
+     "CU",
+     "I",
+     "T",
+     "Y"
+    ],
+    "walkthrough": "The comma after the first word reads as a pause in speech, as though the setter were agreeing with you. It is there to disguise wordplay as conversation.",
+    "definitionFit": "sharpness -> ACUITY: keenness of mind or of the senses — visual acuity is how sharply you see — rather than the sharpness of a blade."
+   }
   },
   {
    "id": "20-down",
@@ -388,7 +979,35 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNIFORM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNIFORM",
+    "definition": "Showing equality",
+    "blocks": [
+     {
+      "clueFragment": "further education",
+      "gives": "UNI",
+      "note": "uni is the everyday British short form of university"
+     },
+     {
+      "clueFragment": "to benefit",
+      "gives": "FOR",
+      "note": "to be for something is to be in its favour, working to its benefit"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M stands for millions on a balance sheet"
+     }
+    ],
+    "pieces": [
+     "UNI",
+     "FOR",
+     "M"
+    ],
+    "walkthrough": "The surface is an argument about funding, and the trap is the noun everyone knows: school clothes never come into it, because the definition wants an adjective.",
+    "definitionFit": "Showing equality -> UNIFORM: uniform means the same all the way through, unvarying from one part to the next, which is equality across the whole."
+   }
   },
   {
    "id": "21-across",
@@ -405,7 +1024,53 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPRESENTATIVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "REPRESENTATIVE",
+    "definition": "Ambassador",
+    "indicators": [
+     "sandwiches"
+    ],
+    "indicatorNotes": {
+     "sandwiches": "A sandwich has bread on both sides, so the two short pieces named last go one at each end of everything assembled before them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "dealing with",
+      "gives": "RE",
+      "note": "re heads a memo about its subject: re your letter of the third"
+     },
+     {
+      "clueFragment": "among others here",
+      "gives": "PRESENT",
+      "note": "to be present is to be here, in the room with the rest of the company"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the little word is taken exactly as it stands"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "IV",
+      "note": "four written in Roman numerals"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the usual abbreviation on a form or a scoreboard"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "PRESENT",
+     "AT",
+     "IV",
+     "E"
+    ],
+    "walkthrough": "'Ambassador among others' invites you to picture a room full of diplomats, and that smooth opening is what buries the seam after the very first word.",
+    "definitionFit": "Ambassador -> REPRESENTATIVE: definition by example, an ambassador being one kind — the person sent abroad to stand and speak for a country."
+   }
   },
   {
    "id": "22-down",
@@ -422,7 +1087,35 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVENS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EVENS",
+    "definition": "Half chance",
+    "definitionNote": "The answer takes a plural form but names a single set of odds — 'it's evens' — so a singular definition is fair.",
+    "indicators": [
+     "doesn't start"
+    ],
+    "indicatorNotes": {
+     "doesn't start": "A word that does not start has been denied the letter it would have begun with, so that first character comes off and the rest stands."
+    },
+    "blocks": [
+     {
+      "clueFragment": "rugby",
+      "gives": "SEVENS",
+      "note": "sevens is the seven-a-side form of the game, an Olympic sport since 2016"
+     },
+     {
+      "clueFragment": "doesn't start",
+      "gives": "S",
+      "note": "the letter that would have opened it is the one taken away"
+     }
+    ],
+    "pieces": [
+     "EVENS"
+    ],
+    "walkthrough": "Naming a sport by the number of players a side is what lets the setter treat a whole game as a word, and the surface hides it as a scoreline.",
+    "definitionFit": "Half chance -> EVENS: odds of evens mean a bet is as likely to lose as win, which is a fifty-fifty or half chance."
+   }
   },
   {
    "id": "23-across",
@@ -439,7 +1132,32 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WALLOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WALLOP",
+    "definition": "buffet",
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One standing at the side of the room",
+      "gives": "WALL",
+      "note": "the upright at the edge of a room, described at length rather than named"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is opus, a composer's numbered work"
+     }
+    ],
+    "pieces": [
+     "WALL",
+     "OP"
+    ],
+    "walkthrough": "'Buffet' at the end looks like a spread of food. Said the other way, to rhyme with tuffet, it means to knock about with blows.",
+    "definitionFit": "buffet -> WALLOP: to buffet is to strike repeatedly, as wind buffets a roof, and to wallop is to hit hard, so both are the striking sense."
+   }
   },
   {
    "id": "24-down",
@@ -457,7 +1175,9 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "6-down"
+   }
   },
   {
    "id": "25-across",
@@ -474,7 +1194,47 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUSHOVER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PUSHOVER",
+    "definition": "one managed easily",
+    "indicators": [
+     "turning"
+    ],
+    "indicatorNotes": {
+     "turning": "Something turning comes round to face the other way, so the two letters before this are written out back to front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Happy",
+      "gives": "UP",
+      "note": "someone feeling up is in high spirits, and these two letters do not stay in that order"
+     },
+     {
+      "clueFragment": "barge",
+      "gives": "SHOVE",
+      "note": "to barge into someone is to shove them out of the way"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is right on a map or in a stage direction"
+     }
+    ],
+    "pieces": [
+     "PU",
+     "SHOVE",
+     "R"
+    ],
+    "subReversals": [
+     {
+      "from": "UP",
+      "to": "PU"
+     }
+    ],
+    "walkthrough": "'Barge' is the trap: with a river of a surface around it, it reads as a boat rather than as the verb for shouldering through a crowd.",
+    "definitionFit": "one managed easily -> PUSHOVER: a person or team so easily beaten that they go over at the first push, which is what makes them easy to manage."
+   }
   },
   {
    "id": "26-across",
@@ -491,7 +1251,38 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GDAY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "G'DAY",
+    "definition": "Neighbours' greeting, perhaps",
+    "indicators": [
+     "across",
+     "front of"
+    ],
+    "indicatorNotes": {
+     "across": "To lie across something is to stretch over it from one side to the other, so the word before this closes over the single letter picked out after.",
+     "front of": "The front of a word is the letter it leads with, so only that opening character of the word after this is taken."
+    },
+    "blocks": [
+     {
+      "clueFragment": "not straight",
+      "gives": "GAY",
+      "note": "straight is the slang for heterosexual, so its opposite gives the three letters"
+     },
+     {
+      "clueFragment": "drive",
+      "gives": "D",
+      "note": "the letter it begins with, and nothing more"
+     }
+    ],
+    "pieces": [
+     "G",
+     "D",
+     "AY"
+    ],
+    "walkthrough": "Neighbours is the Australian soap that ran for decades on British afternoon television, so the greeting wanted is the one heard on Ramsay Street.",
+    "definitionFit": "Neighbours' greeting, perhaps -> G'DAY: the Australian hello, with 'perhaps' conceding that the characters on that soap say plenty of other things too."
+   }
   },
   {
    "id": "27-across",
@@ -508,7 +1299,36 @@ window.CRYPTIC_PUZZLES["indysunday-1868"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NETHERMOST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NETHERMOST",
+    "definition": "right at the bottom",
+    "indicators": [
+     " in "
+    ],
+    "indicatorNotes": {
+     " in ": "A thing described as in another is inside it, so the word before this goes within the word after, splitting it open."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bag",
+      "gives": "NET",
+      "note": "a net is the bag a shopper or a fisherman carries things home in"
+     },
+     {
+      "clueFragment": "Flask",
+      "gives": "THERMOS",
+      "note": "the vacuum flask that keeps tea hot, known by its brand name"
+     }
+    ],
+    "pieces": [
+     "NE",
+     "THERMOS",
+     "T"
+    ],
+    "walkthrough": "'Right at the bottom' reads as the last thing left in the bag, which is the joke: the words that sound like a position in the surface are the definition.",
+    "definitionFit": "right at the bottom -> NETHERMOST: nethermost is the superlative of nether, meaning lowest of all, the nether regions being those below."
+   }
   }
  ]
 } /*JSON-END*/;
