@@ -341,14 +341,28 @@ fi
 
 # --- 4. validate, reindex, commit ---
 python3 tools/fetch_puzzle.py --reindex
-if ! python3 tools/validate_annotations.py; then
+# Tonight's work is judged on tonight's work. This used to validate the whole
+# corpus and revert on any failure anywhere, so a type part in a puzzle from
+# months ago discarded three clean puzzles and published nothing (2026-09-02).
+# A puzzle that is already live cannot be made good by throwing away a puzzle
+# that isn't.
+if [ -n "$annotated_nums" ] &&
+   ! python3 tools/validate_annotations.py $annotated_nums >/tmp/ct-validate.txt 2>&1; then
+  cat /tmp/ct-validate.txt
   echo "VALIDATION FAILED — reverting today's puzzle-file changes"
   git checkout -- puzzles/
   # Tonight's annotation is gone and the inference that produced it is spent.
   # This branch used to exit 1 in silence, which is the same shape of failure as
   # the seven authentication days: the log knew, and nobody did.
-  alert "annotation validation failed, so tonight's puzzle hints were thrown away and nothing published. The ERROR lines are in .update.log; re-run \`python3 tools/validate_annotations.py\` to see them."
+  alert "annotation validation failed on tonight's own puzzles ($annotated_nums), so the hints were thrown away and nothing published: $(grep ERROR /tmp/ct-validate.txt | head -3 | tr '\n' ' ')"
   exit 1
+fi
+# The corpus still gets checked every night, because a live page can be made
+# wrong by a change to the validator or the glossary and nobody would look. It
+# shouts and publishes anyway: the clues it names are already in front of
+# readers, so holding tonight's puzzle back fixes nothing and costs a day.
+if ! python3 tools/validate_annotations.py >/tmp/ct-corpus-validate.txt 2>&1; then
+  alert "$(grep -c ERROR /tmp/ct-corpus-validate.txt) validation error(s) in already-published puzzles — tonight's puzzle published anyway: $(grep ERROR /tmp/ct-corpus-validate.txt | head -3 | tr '\n' ' ')"
 fi
 
 # Draw the social cards for any puzzle whose annotation landed tonight. Before
