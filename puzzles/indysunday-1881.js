@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BATTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BATTER",
+    "definition": "Who's in",
+    "indicators": [
+     "besetting"
+    ],
+    "indicatorNotes": {
+     "besetting": "To beset a place is to press in on it from every side, so the word in front closes around what follows it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "the pub of the surface is its bar, and the three letters open up after the second one"
+     },
+     {
+      "clueFragment": "teetotal",
+      "gives": "TT",
+      "note": "TT is the standard shorthand for teetotal, the pledge to drink nothing at all"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the usual single letter for European"
+     }
+    ],
+    "pieces": [
+     "BA",
+     "TT",
+     "E",
+     "R"
+    ],
+    "walkthrough": "The surface asks who is drinking; the definition asks who is at the crease. A teetotaller inside a pub is the joke holding both readings together.",
+    "definitionFit": "Who's in → BATTER: in cricket the side that is batting is said to be in, so the player at the crease is the one who is in."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +82,56 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAFFLEGAB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + deletion",
+    "answer": "BAFFLEGAB",
+    "definition": "Incoherent talk",
+    "indicators": [
+     "feeding",
+     "cut short"
+    ],
+    "indicatorNotes": {
+     "feeding": "What feeds into a thing ends up inside it, so the letters gathered before this word are placed within the ones after it.",
+     "cut short": "A visit cut short stops before it was due to end, and a word cut short loses the letter it would have ended on."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baby cut short",
+      "gives": "BAB",
+      "note": "the infant loses its last letter, and the three that remain part company after the first"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article joins in as the single letter it is written with"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f is forte in a score, the composer's instruction to play loud"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the leg side of the field is also called the on side, so on is LEG"
+     }
+    ],
+    "pieces": [
+     "B",
+     "AFFLEG",
+     "AB"
+    ],
+    "walkthrough": "Cricket's leg side is the convention doing the work here, and it is well buried: the surface is a nursery scene, and nothing in it points at a field.",
+    "definitionFit": "Incoherent talk → BAFFLEGAB: the word names official jargon so padded and evasive that it baffles the listener instead of informing them."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +148,32 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREMOLO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TREMOLO",
+    "definition": "musical effect",
+    "indicators": [
+     "deployed"
+    ],
+    "indicatorNotes": {
+     "deployed": "Troops deployed are spread out into fresh positions, and the seven letters beside the word take up fresh positions too."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tool REM",
+      "gives": "TOOLREM",
+      "note": "the capitalised band and the implement next to it are seven letters of raw material, not a description"
+     }
+    ],
+    "anagram": {
+     "fodder": "TOOL REM"
+    },
+    "walkthrough": "Two bands in one clue, and neither of them matters: R.E.M. is there because the letters are useful, and the effect wanted is a violinist's, not a guitarist's.",
+    "definitionFit": "musical effect → TREMOLO: a tremolo is the rapid wavering repetition of a note that a player produces deliberately, so it is an effect named in the language of music."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +190,38 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDDIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EDDIES",
+    "definition": "Dust devils",
+    "indicators": [
+     "maybe"
+    ],
+    "indicatorNotes": {
+     "maybe": "A signal that the word before it is one instance of what is wanted rather than the thing itself, so a particular person of that name is being asked for."
+    },
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large maybe",
+      "gives": "EDDIE",
+      "note": "Eddie Large was half of Little and Large, the British comedy double act, so the surname clues a forename by example"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-label abbreviation for small"
+     }
+    ],
+    "pieces": [
+     "EDDIE",
+     "S"
+    ],
+    "walkthrough": "Large and small read as a pair of adjectives, which is the trap: one is a comedian's surname and the other a size on a label. Little is in the grid too, at 14 across.",
+    "definitionFit": "Dust devils → EDDIES: a dust devil is a whirl of air spinning debris up off the ground, which is an eddy made visible."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +238,38 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CELLARS",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "CELLARS",
+    "definition": "booze-filled rooms",
+    "indicators": [
+     "regularly",
+     "seen around"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken regularly are taken at a steady interval, here every other one counting from the first.",
+     "seen around": "To be seen around a person is to be on both sides of them, so these letters part company and let a name sit between."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Corks regularly",
+      "gives": "CRS",
+      "note": "the first, third and fifth letters of the word, read in order"
+     },
+     {
+      "clueFragment": "Fitzgerald's",
+      "gives": "ELLA",
+      "note": "Ella Fitzgerald the jazz singer supplies her first name, which drops in after the opening letter"
+     }
+    ],
+    "pieces": [
+     "C",
+     "ELLA",
+     "RS"
+    ],
+    "walkthrough": "'Fitzgerald's' looks like a possessive and the apostrophe is surface work only: what the wordplay wants is the singer's first name, not anything she owns.",
+    "definitionFit": "booze-filled rooms → CELLARS: a cellar is the underground room a house keeps its wine in, so filling one with drink is what the word already implies."
+   }
   },
   {
    "id": "4-down",
@@ -115,7 +286,43 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAKES",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "CAKES",
+    "definition": "Patisserie items",
+    "indicators": [
+     "wrapped in",
+     "piece of"
+    ],
+    "indicatorNotes": {
+     "wrapped in": "Wrapping goes round the outside of a thing, so the letter named before this phrase is tucked inside the letters named after it.",
+     "piece of": "A piece of a word is a fragment of it, and the fragment taken here is the one it opens with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "piece of cling",
+      "gives": "C",
+      "note": "the opening letter is the piece taken off"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "A",
+      "note": "an are is the metric unit of area, a hundred square metres, and its symbol is a"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "KES",
+      "note": "Kes is Ken Loach's 1969 film about a boy and a kestrel, a fixture of British screens"
+     }
+    ],
+    "pieces": [
+     "C",
+     "A",
+     "KES"
+    ],
+    "walkthrough": "'Cling film' reads as one thing, the kitchen wrap, and the setter splits it down the middle: cling gives up a letter and film becomes a title on its own.",
+    "definitionFit": "Patisserie items → CAKES: a patisserie is a pastry shop, and cake by the counterful is what it sells, so the plural names its stock."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +339,41 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOCKSTEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "LOCKSTEP",
+    "definition": "tight formation",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Something turned over is read from its other end, and the four letters in front of the word come back the way they went."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rugby player",
+      "gives": "LOCK",
+      "note": "a lock is the forward who packs down in the second row of a rugby scrum"
+     },
+     {
+      "clueFragment": "huffs over",
+      "gives": "STEP",
+      "note": "a pet is a fit of sulks — to be in a pet is to be in a huff — and the plural is turned round"
+     }
+    ],
+    "pieces": [
+     "LOCK",
+     "STEP"
+    ],
+    "subReversals": [
+     {
+      "from": "PETS",
+      "to": "STEP"
+     }
+    ],
+    "walkthrough": "'Huffs' is the sulking kind, not the breathing kind: a pet is a sulk, the sense that survives in the phrase 'in a pet'.",
+    "definitionFit": "tight formation → LOCKSTEP: marching in lockstep means each rank so close to the next that the whole body moves as one, which is a formation at its tightest."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +390,44 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMAZING",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "AMAZING",
+    "definition": "Shocking",
+    "indicators": [
+     "in",
+     "undermining"
+    ],
+    "indicatorNotes": {
+     "in": "The plainest container word there is: what sits in a thing is inside it, so the letter before goes between the pair after.",
+     "undermining": "To undermine is to work away beneath, and in a down entry that is exactly where these letters land — under everything else."
+    },
+    "blocks": [
+     {
+      "clueFragment": "support group",
+      "gives": "AA",
+      "note": "AA is Alcoholics Anonymous, the best known support group of them all"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male, and it drops between the two letters"
+     },
+     {
+      "clueFragment": "American's scorn",
+      "gives": "ZING",
+      "note": "a zing, in American usage, is a barbed one-liner delivered at somebody's expense"
+     }
+    ],
+    "pieces": [
+     "A",
+     "M",
+     "A",
+     "ZING"
+    ],
+    "walkthrough": "The apostrophe reads as 'American is' on the surface and as 'the American word for' in the wordplay, which is where the scorn comes from.",
+    "definitionFit": "Shocking → AMAZING: both words describe what stops a person short; the setter uses the overlap in the middle, where either would do."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +444,35 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAYLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SAYLE",
+    "definition": "stand-up comedian from Liverpool",
+    "indicators": [
+     "exhausted"
+    ],
+    "indicatorNotes": {
+     "exhausted": "Something exhausted has had its contents used up, so the word beside it keeps only the two letters at its edges."
+    },
+    "blocks": [
+     {
+      "clueFragment": "E.g.",
+      "gives": "SAY",
+      "note": "e.g. means 'for example', and one everyday word does the same job in a sentence: 'say, an apple'"
+     },
+     {
+      "clueFragment": "exhausted live",
+      "gives": "LE",
+      "note": "the outer letters of the four-letter word, its middle emptied out"
+     }
+    ],
+    "pieces": [
+     "SAY",
+     "LE"
+    ],
+    "walkthrough": "Alexei Sayle, the Liverpool-born comedian and actor, was a leading figure in the alternative comedy boom of the early 1980s.",
+    "definitionFit": "stand-up comedian from Liverpool → SAYLE: Alexei Sayle was born in the city and built his career in stand-up, so the surname names the man himself."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +489,42 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLINKIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SLINKIER",
+    "definition": "More close-fitting",
+    "indicators": [
+     "pants"
+    ],
+    "indicatorNotes": {
+     "pants": "British slang for rubbish or useless, and letters in a useless order are the ones a solver has to put right."
+    },
+    "linkWords": [
+     "must wear with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silken",
+      "gives": "SILKEN",
+      "note": "six letters of raw material; the fabric is there for the surface alone"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the speaker joins the mixture as the single letter used to write them"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "R is Romeo in the NATO spelling alphabet"
+     }
+    ],
+    "anagram": {
+     "fodder": "SILKEN I R"
+    },
+    "walkthrough": "'Pants' works twice over: a garment in the surface sentence and, in the wordplay, the slang for hopeless that tells you the letters are in the wrong order.",
+    "definitionFit": "More close-fitting → SLINKIER: slinky describes clothing cut to cling to the body, so the comparative is a garment fitting closer still."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +541,29 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIEND",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "FIEND",
+    "definition": "Massive fan",
+    "indicators": [
+     "Banks"
+    ],
+    "indicatorNotes": {
+     "Banks": "To bank a thing is to stow it away for keeping, so the capitalised surname is quietly saying the letters are stored inside the words in front of it."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sci-fi endorsing",
+      "gives": "FIEND",
+      "note": "five consecutive letters run straight across the space between the two words"
+     }
+    ],
+    "walkthrough": "Iain Banks wrote literary novels and, as Iain M. Banks, science fiction, so the capital letter looks like a tribute to a writer rather than an instruction.",
+    "definitionFit": "Massive fan → FIEND: a fiend for something is an addict of it — a fresh-air fiend, a crossword fiend — enthusiasm rather than the devil."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +584,30 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIKECRAZY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LIKE CRAZY",
+    "definition": "with a will",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Be attracted to",
+      "gives": "LIKE",
+      "note": "to be attracted to somebody is to like them"
+     },
+     {
+      "clueFragment": "eccentric",
+      "gives": "CRAZY",
+      "note": "an eccentric person is crazy in the mild, affectionate sense of the word"
+     }
+    ],
+    "pieces": [
+     "LIKE",
+     "CRAZY"
+    ],
+    "walkthrough": "Two everyday synonyms laid end to end, and the join is invisible because the sentence reads so smoothly as a description of somebody's temperament.",
+    "definitionFit": "with a will → LIKE CRAZY: doing a job with a will means throwing energy at it, and doing it like crazy is the same idea in slang."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +628,47 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOOSEENDS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "LOOSE ENDS",
+    "definition": "BBC radio show",
+    "indicators": [
+     "latest two characters"
+    ],
+    "indicatorNotes": {
+     "latest two characters": "The latest characters of a name are the letters it finishes on, and two of them are wanted here rather than a person from a sketch."
+    },
+    "blocks": [
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "John is the American word for the lavatory, and the British word for the same room is three letters"
+     },
+     {
+      "clueFragment": "Cleese's latest two characters",
+      "gives": "SE",
+      "note": "the final two letters of the surname, kept in order"
+     },
+     {
+      "clueFragment": "complete",
+      "gives": "END",
+      "note": "to complete a task is to end it, verb for verb"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the usual single letter for special"
+     }
+    ],
+    "pieces": [
+     "LOO",
+     "SE",
+     "END",
+     "S"
+    ],
+    "walkthrough": "Loose Ends is Radio 4's Saturday-evening arts and conversation programme. Cleese supplies letters rather than comedy, which is what makes the surface look like a tribute.",
+    "definitionFit": "BBC radio show → LOOSE ENDS: it is the title of a long-running Radio 4 programme, so the definition names a broadcast rather than describing the phrase."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +685,43 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPIKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + first letter",
+    "answer": "SPIKE",
+    "definition": "drug",
+    "indicators": [
+     "around",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "around": "Turning a thing around leaves it facing the other way, so the four letters beside the word are read from their far end.",
+     "initially": "Initially points at the very start of the word that follows and takes that letter only."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sleeps around",
+      "gives": "SPIK",
+      "note": "a kip is British slang for a sleep, and the plural is turned back to front"
+     },
+     {
+      "clueFragment": "initially eschewing",
+      "gives": "E",
+      "note": "the first letter of the word that follows"
+     }
+    ],
+    "pieces": [
+     "SPIK",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "KIPS",
+      "to": "SPIK"
+     }
+    ],
+    "walkthrough": "'Sleeps around' reads as one racy phrase, and the wordplay wants it as two jobs: a slang plural, then the instruction to turn it.",
+    "definitionFit": "drug → SPIKE: to spike a drink is to slip something into it without telling the drinker, which is the same verb as drugging one."
+   }
   },
   {
    "id": "13-across",
@@ -280,7 +742,30 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GO ON",
+    "definition": "waffle",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "gives": "GO",
+      "note": "your turn in a game is your go"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "ON",
+      "note": "the two prepositions swap freely — you tell somebody over the phone or on the phone"
+     }
+    ],
+    "pieces": [
+     "GO",
+     "ON"
+    ],
+    "walkthrough": "'Turn over' looks like an instruction to reverse something, which is the trap in a three-word clue; it is really two separate synonyms, one word each.",
+    "definitionFit": "waffle → GO ON: to go on is to keep talking well past the point of interest, which is what waffling amounts to."
+   }
   },
   {
    "id": "14-across",
@@ -297,7 +782,27 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LITTLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LITTLE",
+    "definition": "Pinch",
+    "definition2": "Mini",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Pinch",
+      "gives": "",
+      "note": "a pinch of salt is the amount you can hold between finger and thumb, which is to say a very small quantity"
+     },
+     {
+      "clueFragment": "Mini",
+      "gives": "",
+      "note": "a mini skirt or a mini break is a small version of the thing, so the prefix is the same idea again"
+     }
+    ],
+    "walkthrough": "Two words of clue and no wordplay at all: the setter's economy is the joke, and Syd Little of Little and Large is looking across at 3 down.",
+    "definitionFit": "Pinch and Mini both point at smallness: a pinch is the little you can hold in two fingers, and mini is the prefix meaning little in size."
+   }
   },
   {
    "id": "15-down",
@@ -314,7 +819,29 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THUGGISH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THUGGISH",
+    "definition": "Like a rough",
+    "indicators": [
+     "on the rocks"
+    ],
+    "indicatorNotes": {
+     "on the rocks": "A marriage or a ship on the rocks has come to pieces, and letters in pieces have to be put back together in a new order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "gust, high",
+      "gives": "GUSTHIGH",
+      "note": "eight letters of raw material: the weather and the state of mind are surface only"
+     }
+    ],
+    "anagram": {
+     "fodder": "GUST HIGH"
+    },
+    "walkthrough": "A rough, in older British usage, is a hooligan or a ruffian, which is what makes the adjective fair; 'on the rocks' is the drink the surface is pouring.",
+    "definitionFit": "Like a rough → THUGGISH: a rough is a British term for a violent hooligan, and thuggish is the adjective for behaving as one does."
+   }
   },
   {
    "id": "16-across",
@@ -331,7 +858,26 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GYM",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "GYM",
+    "definition": "Room accommodating squatters",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Room accommodating squatters",
+      "gives": "",
+      "note": "read straight, this is a building somebody has moved into without permission, and that housing-page picture is what the clue wants you to see first"
+     },
+     {
+      "clueFragment": "squatters",
+      "gives": "",
+      "note": "the setter's reading makes them exercisers instead: a squat is the knees-bent lift done with a barbell, and the people doing it need a hall with equipment in it"
+     }
+    ],
+    "walkthrough": "There is no wordplay to unpick here. The whole clue is the definition, and the joke is that the second reading of 'squatters' is entirely straight-faced.",
+    "definitionFit": "Room accommodating squatters → GYM: the answer is the room set aside for people doing squats, so the pun is itself the definition and nothing is assembled."
+   }
   },
   {
    "id": "17-down",
@@ -348,7 +894,51 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANNERISM",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal + first letter",
+    "answer": "MANNERISM",
+    "definition": "Habit",
+    "indicators": [
+     "beginning to",
+     "when interrupted by",
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "beginning to": "The beginning of the word after it is the letter it starts with, and that letter is all this asks for.",
+     "when interrupted by": "An interruption arrives in the middle of things, so what follows is dropped into the letters already assembled.",
+     "flipping": "To flip a thing is to turn it right over, so the five letters beside the word are read from the back."
+    },
+    "blocks": [
+     {
+      "clueFragment": "guy",
+      "gives": "MAN",
+      "note": "a guy is a man, plain synonym"
+     },
+     {
+      "clueFragment": "flipping alarm",
+      "gives": "NERIS",
+      "note": "a siren is the alarm, and its five letters are turned round"
+     },
+     {
+      "clueFragment": "beginning to moan",
+      "gives": "M",
+      "note": "the first letter of the verb, and it ends up right at the back"
+     }
+    ],
+    "pieces": [
+     "MAN",
+     "NERIS",
+     "M"
+    ],
+    "subReversals": [
+     {
+      "from": "SIREN",
+      "to": "NERIS"
+     }
+    ],
+    "walkthrough": "'Habit of guy' reads as a single phrase — a man's way of carrying on — and that is the trap: the definition stops at the first word, and the guy belongs to the wordplay.",
+    "definitionFit": "Habit → MANNERISM: a mannerism is a gesture or turn of phrase somebody repeats without noticing, which is what a habit is in the behavioural sense."
+   }
   },
   {
    "id": "18-down",
@@ -365,7 +955,44 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HELSINKI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HELSINKI",
+    "definition": "somewhere in Finland",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "Mostly means all but a little, and a word kept mostly keeps everything except the letter it ends on."
+    },
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beatles movie mostly",
+      "gives": "HEL",
+      "note": "Help! is the band's 1965 film, and it gives up its final letter"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SINK",
+      "note": "the sun sets, or sinks, below the horizon — the same movement under either verb"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the map-maker's abbreviation for island"
+     }
+    ],
+    "pieces": [
+     "HEL",
+     "SINK",
+     "I"
+    ],
+    "walkthrough": "'Set on island' reads as a film's location, which is the surface's job; the wordplay takes the words one at a time, a synonym and then an abbreviation.",
+    "definitionFit": "somewhere in Finland → HELSINKI: it is the country's capital and largest city, so the vague definition is fair by example rather than by synonym."
+   }
   },
   {
    "id": "19-across",
@@ -382,7 +1009,32 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEN",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "BEN",
+    "definition": "Height",
+    "indicators": [
+     "occasionally overlooked"
+    ],
+    "indicatorNotes": {
+     "occasionally overlooked": "Skipping a letter here and there is what this asks for: read the word through and pass over every second one."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boeing occasionally overlooked",
+      "gives": "BEN",
+      "note": "the first, third and fifth letters of the aircraft maker, with the others passed over"
+     }
+    ],
+    "pieces": [
+     "BEN"
+    ],
+    "walkthrough": "A ben is a mountain peak in Scotland — Ben Nevis is the tallest of them — so the three letters name a height instead of measuring one.",
+    "definitionFit": "Height → BEN: ben is the Scottish word for a mountain, the one in Ben Nevis, so it names a high place rather than a measurement."
+   }
   },
   {
    "id": "20-down",
@@ -399,7 +1051,46 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTATED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "NOTATED",
+    "definition": "Scored",
+    "indicators": [
+     "fantastic",
+     "in the end"
+    ],
+    "indicatorNotes": {
+     "fantastic": "Fantastic here means fanciful and out of true, so the letters gathered in front of it are not in their proper order.",
+     "in the end": "This points at the finish of the name beside it and takes only the letter it closes with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "the number contributes its own three letters"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the preposition is raw material too, taken at face value"
+     },
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Trafford in the end",
+      "gives": "D",
+      "note": "the last letter of the ground's name"
+     }
+    ],
+    "anagram": {
+     "fodder": "TEN AT O D"
+    },
+    "walkthrough": "The surface is a match report from Old Trafford, Manchester's famous stadium; the wordplay ignores the place entirely and treats its words as letters.",
+    "definitionFit": "Scored → NOTATED: to notate music is to write it down in notes on a stave, which is what scoring a piece means, verb for verb."
+   }
   },
   {
    "id": "21-across",
@@ -416,7 +1107,34 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARFUL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EARFUL",
+    "definition": "Roasting",
+    "indicators": [
+     "having removed its head"
+    ],
+    "indicatorNotes": {
+     "having removed its head": "The head of a word is the letter it starts with, and this says to take that letter off before using the rest."
+    },
+    "blocks": [
+     {
+      "clueFragment": "chicken",
+      "gives": "FEARFUL",
+      "note": "chicken means cowardly, and a cowardly person is fearful"
+     },
+     {
+      "clueFragment": "having removed its head",
+      "gives": "",
+      "note": "the F at the front is what goes, leaving the six letters behind it"
+     }
+    ],
+    "pieces": [
+     "EARFUL"
+    ],
+    "walkthrough": "Roasting a chicken is the picture, and both halves of it are false: the roasting is verbal and the chicken is a coward rather than a bird.",
+    "definitionFit": "Roasting → EARFUL: a roasting is a severe telling-off, and an earful is as much of one as a listener can take at a time."
+   }
   },
   {
    "id": "22-across",
@@ -433,7 +1151,35 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "TEEN",
+    "definition": "Youth",
+    "indicators": [
+     "essentially"
+    ],
+    "indicatorNotes": {
+     "essentially": "The essence of a word, for a setter, is the letter sitting exactly at its centre — here the sixth of eleven."
+    },
+    "blocks": [
+     {
+      "clueFragment": "essentially brightening",
+      "gives": "T",
+      "note": "the middle letter of the eleven, six in from either end"
+     },
+     {
+      "clueFragment": "poet's evening",
+      "gives": "EEN",
+      "note": "e'en is the poetic contraction of evening, the one preserved in Hallowe'en"
+     }
+    ],
+    "pieces": [
+     "T",
+     "EEN"
+    ],
+    "walkthrough": "Poets' contractions are a standing crossword resource, worth learning as a set: e'en for evening, o'er for over, ne'er for never.",
+    "definitionFit": "Youth → TEEN: a teen is a person in their teenage years, and youth names the same person by the stage of life they are at."
+   }
   },
   {
    "id": "23-down",
@@ -450,7 +1196,38 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERRATIC",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ERRATIC",
+    "definition": "Unpredictable",
+    "indicators": [
+     "perhaps",
+     "covering"
+    ],
+    "indicatorNotes": {
+     "perhaps": "The example flag: the guitarist is one man with that first name and not the only one, so his forename is what is being clued.",
+     "covering": "To cover a thing is to lie over it from both sides, so the name opens and takes three letters inside."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Clapton perhaps",
+      "gives": "ERIC",
+      "note": "Eric Clapton the guitarist gives up his first name; the surname is only there to point at him"
+     },
+     {
+      "clueFragment": "Supergrass",
+      "gives": "RAT",
+      "note": "a supergrass is British slang for an informer who names many others at once, and a rat is the same idea in one syllable"
+     }
+    ],
+    "pieces": [
+     "ER",
+     "RAT",
+     "IC"
+    ],
+    "walkthrough": "Supergrass were a Britpop band, which is why they sit capitalised beside a guitarist; the wordplay wants the police-informer sense instead.",
+    "definitionFit": "Unpredictable → ERRATIC: something erratic wanders off course without warning, so nobody can say what it will do next."
+   }
   },
   {
    "id": "24-down",
@@ -467,7 +1244,34 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STELLA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STELLA",
+    "definition": "McCartney possibly",
+    "indicators": [
+     "away"
+    ],
+    "indicatorNotes": {
+     "away": "Away is the instruction to take a thing out: whatever it names goes missing from the word in front of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "excellent",
+      "gives": "STELLAR",
+      "note": "the word here means excellent — literally 'of the stars', from the Latin for star, then figuratively outstanding"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the crossword shorthand for right, and it is the letter that leaves"
+     }
+    ],
+    "pieces": [
+     "STELLA"
+    ],
+    "walkthrough": "'Right away' reads as immediately, which is the trap: the two words are separate instructions. Stella McCartney, Paul's daughter, is a fashion designer.",
+    "definitionFit": "McCartney possibly → STELLA: Stella McCartney the designer is one bearer of the surname, so 'possibly' marks a definition by example rather than a synonym."
+   }
   },
   {
    "id": "25-across",
@@ -484,7 +1288,44 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATHS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MATHS",
+    "definition": "school lesson",
+    "indicators": [
+     "finishing off"
+    ],
+    "indicatorNotes": {
+     "finishing off": "This says where a letter goes rather than which letter it is: the son is sent to the back of the queue."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dull",
+      "gives": "MAT",
+      "note": "a mat finish is a dull one, the paint that does not shine"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "H",
+      "note": "h is the abbreviation for hour"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard single letter for son"
+     }
+    ],
+    "pieces": [
+     "MAT",
+     "H",
+     "S"
+    ],
+    "walkthrough": "'Dull' wants the paint-tin sense, spelled with one T. The word that follows the son is not part of him — it is the instruction about where he goes.",
+    "definitionFit": "school lesson → MATHS: it is the timetable name British schools give the subject, so the definition points at a period in the day rather than at the discipline."
+   }
   },
   {
    "id": "25-down",
@@ -505,7 +1346,35 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
     ]
    },
    "solution": "MOPUP",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "MOP UP",
+    "definition": "Tidy",
+    "indicators": [
+     "mess made by"
+    ],
+    "indicatorNotes": {
+     "mess made by": "The entry is not described by the words after this phrase, it makes them: read as an instruction, the answer produces the slang term beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Englishman in Australia",
+      "gives": "MOP",
+      "note": "an Englishman down under is a POM in Australian slang, and these three letters are that word written the other way round"
+     },
+     {
+      "clueFragment": "as it were",
+      "gives": "UP",
+      "note": "the entry carries its own instruction: this is a down clue, and reading letters up the grid is what turns them round"
+     }
+    ],
+    "pieces": [
+     "MOP",
+     "UP"
+    ],
+    "walkthrough": "This clue runs backwards. Instead of the wordplay building the answer, the answer read as wordplay builds the Australian nickname, and 'as it were' is the nudge that says so.",
+    "definitionFit": "Tidy → MOP UP: to mop up is to clear away what a spill or a mess has left behind, which is tidying at its most literal."
+   }
   },
   {
    "id": "26-across",
@@ -526,7 +1395,29 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIGHTARSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TIGHT-ARSE",
+    "definition": "one buttoned-up",
+    "indicators": [
+     "undone"
+    ],
+    "indicatorNotes": {
+     "undone": "Something undone has come apart, and letters that have come apart have to be fastened together again in another order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Get a shirt",
+      "gives": "GETASHIRT",
+      "note": "nine letters of raw material; the garment belongs to the surface only"
+     }
+    ],
+    "anagram": {
+     "fodder": "GET A SHIRT"
+    },
+    "walkthrough": "The surface undoes a shirt and the definition does it back up, which is the joke: the buttoned-up person of the second half is the mean or repressed sort.",
+    "definitionFit": "one buttoned-up → TIGHT-ARSE: calling somebody buttoned-up says they are clenched about money or pleasure, which is exactly the accusation the blunter word makes."
+   }
   },
   {
    "id": "26-down",
@@ -543,7 +1434,38 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "THING",
+    "definition": "cup of tea",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "Ultimately points at the very last letter of the word beside it, the one it closes on."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weak",
+      "gives": "THIN",
+      "note": "weak tea is thin, and the sense carries over to a weak argument as well"
+     },
+     {
+      "clueFragment": "ultimately disappointing",
+      "gives": "G",
+      "note": "the last letter of the adjective"
+     }
+    ],
+    "pieces": [
+     "THIN",
+     "G"
+    ],
+    "walkthrough": "The definition is the idiom, not the drink: 'not my cup of tea' means not what I care for, and the setter hides it behind a weak brew.",
+    "definitionFit": "cup of tea → THING: in the idiom 'not my cup of tea', the phrase means the sort of pursuit a person enjoys — what somebody would call their thing."
+   }
   },
   {
    "id": "27-across",
@@ -565,7 +1487,30 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUTONAIRS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PUT ON AIRS",
+    "definition": "assume a haughty manner",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Broadcast",
+      "gives": "PUT ON AIR",
+      "note": "to broadcast a programme is to put it on air"
+     },
+     {
+      "clueFragment": "satisfactory",
+      "gives": "S",
+      "note": "S is the grade meaning satisfactory on a school report"
+     }
+    ],
+    "pieces": [
+     "PUT ON AIR",
+     "S"
+    ],
+    "walkthrough": "'Broadcast' is a favourite anagram signal, and that is the trap here: it is a plain synonym, and the phrase it hands over is three words long.",
+    "definitionFit": "assume a haughty manner → PUT ON AIRS: to put on airs is to adopt a grandeur you have no claim to, so the definition is the idiom's plain meaning."
+   }
   },
   {
    "id": "28-across",
@@ -582,7 +1527,26 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATHI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LATHI",
+    "definition": "wooden weapon",
+    "indicators": [
+     "Partly"
+    ],
+    "indicatorNotes": {
+     "Partly": "Only part of what follows is wanted, and the part in question is a run of letters sitting inside it untouched."
+    },
+    "blocks": [
+     {
+      "clueFragment": "flat, Hindu's",
+      "gives": "LATHI",
+      "note": "five letters run straight on across the comma and into the next word"
+     }
+    ],
+    "walkthrough": "The comma and the apostrophe are the camouflage: punctuation counts for nothing in the letters, so the run reads through them as if they were not there.",
+    "definitionFit": "wooden weapon → LATHI: a lathi is the heavy bamboo baton carried by Indian police, so it is a wooden weapon in the plainest sense."
+   }
   },
   {
    "id": "29-across",
@@ -599,7 +1563,50 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUDDING",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "PUDDING",
+    "definition": "course",
+    "indicators": [
+     "brought about"
+    ],
+    "indicatorNotes": {
+     "brought about": "Bringing a thing about turns it to face the other way, so the party's three letters are read back to front."
+    },
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party brought about",
+      "gives": "PUD",
+      "note": "the DUP is Northern Ireland's Democratic Unionist Party, and its three letters are turned round"
+     },
+     {
+      "clueFragment": "noise",
+      "gives": "DIN",
+      "note": "a din is a continuous loud noise"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "golf is G in the NATO spelling alphabet"
+     }
+    ],
+    "pieces": [
+     "PUD",
+     "DIN",
+     "G"
+    ],
+    "subReversals": [
+     {
+      "from": "DUP",
+      "to": "PUD"
+     }
+    ],
+    "walkthrough": "'Golf course' is a single thing in the surface and two separate pieces underneath. In Britain the sweet course of a meal is called the pudding whatever is served.",
+    "definitionFit": "course → PUDDING: in British usage pudding is the name of the sweet course at the end of a meal, not just one dish within it."
+   }
   },
   {
    "id": "30-across",
@@ -616,7 +1623,47 @@ window.CRYPTIC_PUZZLES["indysunday-1881"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAECUM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "CAECUM",
+    "definition": "part of gut",
+    "indicators": [
+     "Neither finishing",
+     "twisted"
+    ],
+    "indicatorNotes": {
+     "Neither finishing": "One instruction covering two words at once: neither of them keeps the letter it would have ended on.",
+     "twisted": "Twisted means turned right round, so each piece is read from its far end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "CAE",
+      "note": "the word loses its final letter, and the three that remain are read from the far end"
+     },
+     {
+      "clueFragment": "much",
+      "gives": "CUM",
+      "note": "this one is docked in the same way and turned round too"
+     }
+    ],
+    "pieces": [
+     "CAE",
+     "CUM"
+    ],
+    "subReversals": [
+     {
+      "from": "EAC",
+      "to": "CAE"
+     },
+     {
+      "from": "MUC",
+      "to": "CUM"
+     }
+    ],
+    "walkthrough": "'Neither finishing' governs both words at once, which is the piece most solvers miss: it is not one deletion but two, and each word pays the same toll.",
+    "definitionFit": "part of gut → CAECUM: the caecum is the pouch where the small intestine opens into the large, so it is a named section of the gut."
+   }
   }
  ]
 } /*JSON-END*/;
