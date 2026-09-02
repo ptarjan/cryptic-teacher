@@ -327,8 +327,19 @@ def clue_html(e):
     if ann.get("walkthrough"):
         bits.append(f'<p class="s-walk">{esc(ann["walkthrough"])}</p>')
     if not ann:
-        bits.append('<p class="s-todo muted">Not yet annotated — '
-                    'the full hint ladder for this puzzle is still being written.</p>')
+        # Two different silences, and telling them apart is the whole point —
+        # the same split app.js makes off clueMissing. "Not yet annotated"
+        # promises a ladder that is coming; a clue the paper printed blank has
+        # no ladder ever, because there is no clue. Say which, or the reader
+        # hunts the grid for wordplay that was never printed.
+        bits.append(
+            '<p class="s-todo muted">The paper published this clue with no text in it — '
+            'the space beside the number came through empty, so there&rsquo;s nothing here '
+            'to solve and no wordplay to explain. Not your eyes. '
+            'The answer above is the one the paper printed.</p>'
+            if e.get("clueMissing") else
+            '<p class="s-todo muted">Not yet annotated — '
+            'the full hint ladder for this puzzle is still being written.</p>')
     bits.append("</article>")
     return "\n".join(bits)
 
