@@ -30,7 +30,33 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MACE",
+    "definition": "club",
+    "indicators": [],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Masculine",
+      "gives": "M",
+      "note": "M is the standing abbreviation for male or masculine, on forms and in dictionaries alike"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "the card with a single pip on it, which is also the one on a die"
+     }
+    ],
+    "pieces": [
+     "M",
+     "ACE"
+    ],
+    "walkthrough": "Four letters and two pieces is as small as a charade gets, so the whole clue rests on spotting that 'one' is a card rather than a number.",
+    "definitionFit": "club → MACE: the medieval weapon is a heavy staff with a spiked head, and the word still names the ceremonial staff carried into parliament."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +73,33 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATCHBOX",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MATCHBOX",
+    "definition": "source of illumination",
+    "indicators": [],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "MATCH",
+      "note": "at the poker table, to see a bet is to match it — you put up the same amount"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "BOX",
+      "note": "to box is to fight with gloves on, under rules"
+     }
+    ],
+    "pieces": [
+     "MATCH",
+     "BOX"
+    ],
+    "walkthrough": "The surface is a scuffle witnessed in the street. 'See' sitting at the front looks like an instruction to look at something, and the poker sense is what rescues it.",
+    "definitionFit": "source of illumination → MATCHBOX: strike one of the sticks it holds and you have a flame, which is where household light came from before switches."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +116,26 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHINO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CHINO",
+    "definition": "cotton",
+    "indicators": [
+     "Bit of"
+    ],
+    "indicatorNotes": {
+     "Bit of": "Only part of what follows is wanted, and the part is a run of letters lifted out of the middle rather than any whole word."
+    },
+    "blocks": [
+     {
+      "clueFragment": "starch in old",
+      "gives": "CHINO",
+      "note": "five letters in a row that pay no attention to either gap between the words"
+     }
+    ],
+    "walkthrough": "'Bit of starch' reads like an instruction to take the S off the front, which is the trap: the bit wanted is five letters long and does not begin where the word does.",
+    "definitionFit": "cotton → CHINO: the hard-wearing twill that trousers are cut from, so the fabric is named by the raw material it is woven out of."
+   }
   },
   {
    "id": "3-across",
@@ -85,7 +156,32 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
     ]
    },
    "solution": "UPPERCRUST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UPPER CRUST",
+    "definition": "Posh people",
+    "indicators": [
+     "stilted"
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "indicatorNotes": {
+     "stilted": "Speech that is stilted is stiff and unnatural, not sitting the way it ought to, and letters that will not sit properly are letters to be reordered."
+    },
+    "anagram": {
+     "fodder": "CURT SUPPER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "curt supper",
+      "gives": "UPPERCRUST",
+      "note": "ten letters handed over entire, and every one of them is used"
+     }
+    ],
+    "walkthrough": "The surface is a dinner party where nobody is enjoying themselves. A curt supper is an odd thing to say, and oddness of phrasing is usually the fodder announcing itself.",
+    "definitionFit": "Posh people → UPPER CRUST: society's top layer, the phrase borrowed from a pie, where the crust is the bit sitting above everything else."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +198,32 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POIGNANCY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POIGNANCY",
+    "definition": "aura of sadness",
+    "indicators": [
+     "Tattered"
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "indicatorNotes": {
+     "Tattered": "Something tattered has been torn about and left in disarray, which is exactly the treatment the word beside it is being promised."
+    },
+    "anagram": {
+     "fodder": "CANOPYING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "canopying",
+      "gives": "POIGNANCY",
+      "note": "nine letters, every one reused and none added"
+     }
+    ],
+    "walkthrough": "A tattered canopy over a graveside is the picture the surface paints, and it is a good one: the sadness feels like part of the story rather than the definition waiting at the end.",
+    "definitionFit": "aura of sadness → POIGNANCY: the quality of touching something tender in you — a sharpness of feeling rather than plain grief."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +240,41 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELVIS",
-   "annotation": null
+   "annotation": {
+    "type": "first letter + charade",
+    "answer": "ELVIS",
+    "definition": "one gyrating hips no more",
+    "indicators": [
+     "Glimpse of"
+    ],
+    "indicatorNotes": {
+     "Glimpse of": "A glimpse is the briefest possible look at something, so what is taken from the name after it is the letter it starts with and nothing more."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "E",
+      "note": "the letter the byline starts with"
+     },
+     {
+      "clueFragment": "55",
+      "gives": "LV",
+      "note": "fifty is L and five is V in Roman numerals, written side by side"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "two letters taken exactly as printed"
+     }
+    ],
+    "pieces": [
+     "E",
+     "LV",
+     "IS"
+    ],
+    "walkthrough": "Everyman signs his puzzles, so his name in a clue normally means the setter himself. Here it is being read one letter at a time, and the age beside it is numerals.",
+    "definitionFit": "one gyrating hips no more → ELVIS: the swivelling hips were the King's trademark, and 'no more' is the gentle English way of saying he is dead."
+   }
   },
   {
    "id": "6-down",
@@ -148,7 +303,35 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
     ]
    },
    "solution": "COLDLIGHTOFDAY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "COLD LIGHT OF DAY",
+    "definition": "it's easier to see now",
+    "definitionNote": "The answer is a noun phrase and the definition a whole clause: there is no one-word synonym for this, so the setter names the state by what happens in it.",
+    "indicators": [
+     "bananas"
+    ],
+    "indicatorNotes": {
+     "bananas": "To go bananas is to go wildly out of control, and letters out of control will not stay in the order they were printed."
+    },
+    "anagram": {
+     "fodder": "FACT HOLLY DID GO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fact",
+      "gives": "FACT",
+      "note": "four letters straight from the clue"
+     },
+     {
+      "clueFragment": "Holly did go",
+      "gives": "HOLLYDIDGO",
+      "note": "ten more, taken entire, name and all"
+     }
+    ],
+    "walkthrough": "Two colons make this read as a piece of gossip about somebody, and the italics on 'did' are the surface insisting on the story. Neither the punctuation nor the emphasis carries an instruction.",
+    "definitionFit": "it's easier to see now → COLD LIGHT OF DAY: the morning-after clarity in which a thing is looked at plainly, without whatever excitement was blurring it."
+   }
   },
   {
    "id": "7-down",
@@ -165,7 +348,53 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "URUGUAYAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone + anagram",
+    "answer": "URUGUAYAN",
+    "definition": "A S American",
+    "indicators": [
+     "heard",
+     "said",
+     "touring"
+    ],
+    "indicatorNotes": {
+     "heard": "What is heard arrives by ear, so the words before it are to be listened to and then written down however English spells that sound.",
+     "said": "Said means spoken rather than printed, so this scrap too is handed over as a noise rather than as a spelling.",
+     "touring": "A tourist wanders about with no fixed route, and letters sent wandering do not come back in the order they left."
+    },
+    "blocks": [
+     {
+      "clueFragment": "you are",
+      "soundsLike": "YOU ARE",
+      "gives": "UR",
+      "note": "said aloud, the two words are the names of two letters, and the names are all that is kept"
+     },
+     {
+      "clueFragment": "you",
+      "soundsLike": "YOU",
+      "gives": "U",
+      "note": "the same trick once more, this time on a single word"
+     },
+     {
+      "clueFragment": "Guyana",
+      "gives": "GUAYAN",
+      "note": "the six letters of the country next door, shuffled into another order"
+     }
+    ],
+    "pieces": [
+     "UR",
+     "U",
+     "GUAYAN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GUYANA",
+      "gives": "GUAYAN"
+     }
+    ],
+    "walkthrough": "Both sounds lean on the same trick, that a letter's name said aloud is a whole word, and the country supplying the rest is the one a solver would find on the same map.",
+    "definitionFit": "A S American → URUGUAYAN: S is the usual shorthand for South, and the clue defines by example — this is one particular kind of South American."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +411,33 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEETHE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TEETHE",
+    "definition": "cut, in a way",
+    "indicators": [],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "TEE",
+      "note": "the little peg a golf ball is balanced on"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article, the commonest three letters in the language"
+     }
+    ],
+    "pieces": [
+     "TEE",
+     "THE"
+    ],
+    "walkthrough": "'In a way' is the setter admitting the definition is a special case, and it is doing honest work: no ordinary sense of cutting will get you there, only the nursery one.",
+    "definitionFit": "cut, in a way → TEETHE: a baby cutting its first teeth is doing this, so 'cut' is fair in that one sense and no other."
+   }
   },
   {
    "id": "9-down",
@@ -206,7 +461,34 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
     ]
    },
    "solution": "HOTWATERBOTTLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOT-WATER BOTTLE",
+    "definition": "taken to bed",
+    "definitionNote": "A noun defined by a participle phrase: there is no synonym for the object, so the setter names it by the one thing everybody does with it.",
+    "indicators": [],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trouble",
+      "gives": "HOTWATER",
+      "note": "to be in hot water is to be in trouble, deep enough to matter"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "BOTTLE",
+      "note": "bottle is British slang for nerve or courage — somebody who loses their bottle has lost their nerve"
+     }
+    ],
+    "pieces": [
+     "HOT WATER",
+     "BOTTLE"
+    ],
+    "walkthrough": "The surface promises a ghost story, or a night on the spirits. Both halves turn out to be idioms instead, and neither means the thing the sentence wants it to.",
+    "definitionFit": "taken to bed → HOT-WATER BOTTLE: the rubber bottle filled from the kettle and carried under the covers, named here by what anyone does with it."
+   }
   },
   {
    "id": "10-across",
@@ -223,7 +505,30 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIPOLI",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TRIPOLI",
+    "definition": "port on the Med",
+    "indicators": [
+     "Caught"
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "Caught": "To catch what somebody says is to hear it, so the words after this one are to be taken by ear and then spelled some other way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "thrice as much",
+      "soundsLike": "TRIPLY",
+      "gives": "TRIPOLI",
+      "note": "three times the amount is triply, and said at speed that is what you write down"
+     }
+    ],
+    "walkthrough": "'Caught' looks like the cricket scorer's C, which is the commonest one-letter piece in the puzzle world. Here it is the ear doing the catching, not the fielder.",
+    "definitionFit": "port on the Med → TRIPOLI: the Libyan capital sits on the North African coast of the Mediterranean and is that country's main harbour."
+   }
   },
   {
    "id": "11-across",
@@ -240,7 +545,24 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VULTURE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "VULTURE",
+    "definition": "My food is usually late",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "My food",
+      "note": "the sentence is spoken in the first person, so the speaker is whatever eats the meal being complained about"
+     },
+     {
+      "clueFragment": "is usually late",
+      "note": "the surface grumbles about dinner arriving behind schedule; read 'late' as it is read in 'the late Mr Smith' and the meal has already died"
+     }
+    ],
+    "walkthrough": "There is nothing here to take apart: the whole sentence is one sly description, pivoting on a single word that means tardy in the surface reading and deceased in the setter's.",
+    "definitionFit": "My food is usually late → VULTURE: a scavenger that eats carrion, and since 'the late Mr Smith' is how English says dead, its dinner is already deceased."
+   }
   },
   {
    "id": "12-across",
@@ -257,7 +579,30 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOODWINKS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOODWINKS",
+    "definition": "Tricks",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "gangster",
+      "gives": "HOOD",
+      "note": "hood is short for hoodlum, the American word for a thug on somebody's payroll"
+     },
+     {
+      "clueFragment": "makes cheeky gesture",
+      "gives": "WINKS",
+      "note": "the small cheeky gesture one eye can make on its own"
+     }
+    ],
+    "pieces": [
+     "HOOD",
+     "WINKS"
+    ],
+    "walkthrough": "The semicolon does the misdirection, making the clue look like two separate observations about a criminal, when the first word alone is the definition and everything after it builds.",
+    "definitionFit": "Tricks → HOODWINKS: both are verbs for deceiving somebody, the answer keeping an older sense of blindfolding — cover the eyes and the victim sees nothing."
+   }
   },
   {
    "id": "13-across",
@@ -274,7 +619,26 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAUGH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LAUGH",
+    "definition": "Roar",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The little word says the letters are sitting inside the long one that follows, unbroken and in the order given, rather than being clued separately."
+    },
+    "blocks": [
+     {
+      "clueFragment": "slaughterhouse",
+      "gives": "LAUGH",
+      "note": "five letters in a row inside the long word, waiting where nobody would think to look"
+     }
+    ],
+    "walkthrough": "A slaughterhouse is the least amusing place in the language, and that is the joke — the question mark is Everyman conceding that nobody makes this noise in one.",
+    "definitionFit": "Roar → LAUGH: to roar is to do this loudly and helplessly, as in a roar of laughter, so the noise stands in for the thing itself."
+   }
   },
   {
    "id": "14-across",
@@ -291,7 +655,35 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTSTANDINGLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "OUTSTANDINGLY",
+    "definition": "to extraordinary degree",
+    "indicators": [
+     "vacuous"
+    ],
+    "indicatorNotes": {
+     "vacuous": "A vacuous remark has nothing inside it, so the name beside the word keeps its outside and loses everything in the middle."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Unsettled",
+      "gives": "OUTSTANDING",
+      "note": "an unsettled bill is an outstanding one — money owed and not yet paid"
+     },
+     {
+      "clueFragment": "Lucy",
+      "gives": "LY",
+      "note": "hollowed out, the name is left holding only its first and last letters"
+     }
+    ],
+    "pieces": [
+     "OUTSTANDING",
+     "LY"
+    ],
+    "walkthrough": "'Unsettled' begs to be read as an anagram indicator and is not one: it is a whole word standing in for another, which is the trap Everyman most often lays in first position.",
+    "definitionFit": "to extraordinary degree → OUTSTANDINGLY: the adverb built on standing out from everything around, so it measures how much rather than simply praising."
+   }
   },
   {
    "id": "15-down",
@@ -315,7 +707,33 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
     ]
    },
    "solution": "TODOLISTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TO-DO LISTS",
+    "definition": "lists of chores",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fuss",
+      "gives": "TODO",
+      "note": "a to-do is a commotion — 'what a to-do' is what you say when a small crisis breaks out"
+     },
+     {
+      "clueFragment": "over tips",
+      "gives": "LISTS",
+      "note": "a ship that tips over to one side is said to list"
+     }
+    ],
+    "pieces": [
+     "TO-DO",
+     "LISTS"
+    ],
+    "walkthrough": "'Fuss over' begs to be read as one phrase, and that is where the join is hidden: the second word belongs with what comes after it, not with what comes before.",
+    "definitionFit": "lists of chores → TO-DO LISTS: the written reminders of jobs still outstanding, which is the everyday name for exactly that piece of paper."
+   }
   },
   {
    "id": "16-down",
@@ -332,7 +750,43 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMAGINARY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + third letter + outer letters",
+    "answer": "IMAGINARY",
+    "definition": "Fabulous",
+    "indicators": [
+     "third piece",
+     "vacuously",
+     "altered"
+    ],
+    "indicatorNotes": {
+     "third piece": "The suit here is a word rather than a garment, and the piece wanted is the single letter standing third as you count in from the front.",
+     "vacuously": "To be vacuous is to be empty inside, so the name keeps its two outside letters and surrenders the middle.",
+     "altered": "Something altered is no longer as it was, and letters told to alter will not stay in the order the clue prints them."
+    },
+    "anagram": {
+     "fodder": "ARMANI I GY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Armani",
+      "gives": "ARMANI",
+      "note": "six letters of the Milanese fashion house, taken whole"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "I",
+      "note": "count three letters into the word and stop"
+     },
+     {
+      "clueFragment": "granny",
+      "gives": "GY",
+      "note": "emptied of its inside, the word is down to its outer pair"
+     }
+    ],
+    "walkthrough": "Three instructions in a row is a great deal to spot, and the surface — a grandmother taking in a designer suit — is smooth enough to hide every one of them.",
+    "definitionFit": "Fabulous → IMAGINARY: not 'marvellous' but the older sense, of fable — the dragon and the unicorn are fabulous because nobody has ever met one."
+   }
   },
   {
    "id": "17-down",
@@ -354,7 +808,29 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASITWERE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AS IT WERE",
+    "definition": "so to speak",
+    "indicators": [
+     "done in"
+    ],
+    "indicatorNotes": {
+     "done in": "Somebody done in has been wrecked or worn out, and a word in that state cannot hold its letters in their proper order."
+    },
+    "anagram": {
+     "fodder": "WEARIEST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Weariest",
+      "gives": "ASITWERE",
+      "note": "eight letters used once each, nothing added and nothing left over"
+     }
+    ],
+    "walkthrough": "'So to speak' looks like an invitation to listen for a sound. It is not — it is the definition, and the phrase in quotation marks is what stirs the letters.",
+    "definitionFit": "so to speak → AS IT WERE: both are the aside you drop in to flag that what you just said is a figure, not the literal truth."
+   }
   },
   {
    "id": "18-across",
@@ -375,7 +851,39 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
     ]
    },
    "solution": "DIRTYMARTINIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DIRTY MARTINIS",
+    "definition": "drinks",
+    "indicators": [],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue",
+      "gives": "DIRTY",
+      "note": "a blue joke is a dirty one — the colour has meant smutty since the music halls"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "MARTIN",
+      "note": "a small bird of the swallow family, the house martin being the common British one"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "two letters taken exactly as printed"
+     }
+    ],
+    "pieces": [
+     "DIRTY",
+     "MARTIN",
+     "IS"
+    ],
+    "walkthrough": "A blue bird sounds like a species and is not one: the colour is doing slang duty at the front while the actual bird waits in the next word.",
+    "definitionFit": "drinks → DIRTY MARTINIS: definition by example — a martini clouded with olive brine is one specific cocktail, and both words are plural together."
+   }
   },
   {
    "id": "19-down",
@@ -392,7 +900,35 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASHRAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASHRAM",
+    "definition": "retreat",
+    "indicators": [
+     "behind"
+    ],
+    "indicatorNotes": {
+     "behind": "Whatever is behind something comes after it, so the animal is set down following the tree rather than in front of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "a common British hardwood whose three letters make it a crossword favourite"
+     },
+     {
+      "clueFragment": "Sheep",
+      "gives": "RAM",
+      "note": "the male of the flock"
+     }
+    ],
+    "pieces": [
+     "ASH",
+     "RAM"
+    ],
+    "walkthrough": "The exclamation mark sells 'retreat!' as an order to run for it. The word is a noun here, and a quiet one: the place people go to, not the thing an army does.",
+    "definitionFit": "retreat → ASHRAM: a Hindu religious community set apart from the world, so it is a retreat in the sense of a place rather than a flight."
+   }
   },
   {
    "id": "20-across",
@@ -409,7 +945,26 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SALVO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SALVO",
+    "definition": "attack",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Some of a thing is a part of it, so what is wanted is a stretch of letters out of the words that follow, not the words themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "colossal voles",
+      "gives": "SALVO",
+      "note": "five letters in a row that take no notice of the gap between the two words"
+     }
+    ],
+    "walkthrough": "Giant voles are odd enough to be worth staring at, and staring at the picture is precisely what stops a solver reading the letters straight through the space.",
+    "definitionFit": "attack → SALVO: a volley of guns fired at once, and by extension any sudden concerted burst of aggression, verbal as readily as military."
+   }
   },
   {
    "id": "21-across",
@@ -426,7 +981,34 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKINFLINT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SKINFLINT",
+    "definition": "Miser",
+    "indicators": [],
+    "linkWords": [
+     "'s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ciggie paper",
+      "gives": "SKIN",
+      "note": "a skin is British slang for a cigarette paper, the kind you roll your own with"
+     },
+     {
+      "clueFragment": "lighter",
+      "gives": "FLINT",
+      "note": "the little stone inside a lighter that the wheel strikes a spark from"
+     }
+    ],
+    "pieces": [
+     "SKIN",
+     "FLINT"
+    ],
+    "walkthrough": "Everyman builds the whole clue out of one smoker's pocket, which is why the two halves sit together so comfortably that neither announces itself as a separate piece.",
+    "definitionFit": "Miser → SKINFLINT: somebody so tight they would skin a flint sooner than pay for a new one, an old insult that survives as one word."
+   }
   },
   {
    "id": "21-down",
@@ -443,7 +1025,33 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STORK",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + &lit",
+    "answer": "STORK",
+    "definition": "Principally, supposedly, the one relaying kids?",
+    "indicators": [
+     "Principally"
+    ],
+    "indicatorNotes": {
+     "Principally": "A principal is the chief or first one, so the letters wanted are those standing at the head of each word that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "supposedly, the one relaying kids",
+      "gives": "STORK",
+      "note": "the opening letter of each of the five words, read in the order they are printed"
+     }
+    ],
+    "pieces": [
+     "S",
+     "T",
+     "O",
+     "R",
+     "K"
+    ],
+    "walkthrough": "The sentence works twice over: read straight it describes the bird, and read as an instruction it spells that same bird out of its own beginnings. That is what an &lit is.",
+    "definitionFit": "Read straight, the whole clue describes the bird folklore credits with delivering babies — 'relaying kids' is the flippant version, and 'supposedly' concedes it is only a story."
+   }
   },
   {
    "id": "22-down",
@@ -460,7 +1068,34 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICIER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ICIER",
+    "definition": "more remote",
+    "indicators": [
+     "heading off"
+    ],
+    "indicatorNotes": {
+     "heading off": "A head is the front of a thing, and heading off says that front letter departs, leaving the rest of the word to close up behind it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "More risky",
+      "gives": "DICIER",
+      "note": "dicey means chancy, and the comparative of dicey is what these two words ask for"
+     },
+     {
+      "clueFragment": "heading off",
+      "gives": "",
+      "note": "the D at the front is the letter that leaves; nothing is put in its place"
+     }
+    ],
+    "pieces": [
+     "ICIER"
+    ],
+    "walkthrough": "The dashes make 'heading off' look like an aside dropped into the middle of a sentence. It is the instruction, and the two phrases either side are doing straightforward work.",
+    "definitionFit": "more remote → ICIER: said of a person rather than a place — an icier greeting is a colder, more distant one, so the remoteness is manner, not miles."
+   }
   },
   {
    "id": "23-across",
@@ -477,7 +1112,37 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RISOTTO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RISOTTO",
+    "definition": "a carby dish",
+    "indicators": [
+     "Mashed"
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "indicatorNotes": {
+     "Mashed": "Mashing food breaks it up and pushes it into a new shape, so the letters beside the word are to be broken up and reset the same way."
+    },
+    "anagram": {
+     "fodder": "ROOTS IT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "roots",
+      "gives": "ROOTS",
+      "note": "five letters straight from the clue"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the two letters printed next, joining the mix"
+     }
+    ],
+    "walkthrough": "Mashed roots sounds like the dish being described, which is the misdirection: the vegetables are only fodder, and the meal at the end of the clue is a quite different one.",
+    "definitionFit": "a carby dish → RISOTTO: the Italian rice dish, and rice is carbohydrate, so the definition names it by what it is mostly made of."
+   }
   },
   {
    "id": "24-across",
@@ -494,7 +1159,39 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVARICE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AVARICE",
+    "definition": "another",
+    "indicators": [
+     "gripped by"
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "indicatorNotes": {
+     "gripped by": "To be gripped is to be held tight on all sides, so these letters are pushed in between the letters doing the holding."
+    },
+    "blocks": [
+     {
+      "clueFragment": "one sin",
+      "gives": "AVICE",
+      "note": "a single moral failing is a vice, and 'one' supplies the article standing in front of it"
+     },
+     {
+      "clueFragment": "A rector",
+      "gives": "AR",
+      "note": "the article A, then R, the abbreviation for a rector in a church listing"
+     }
+    ],
+    "pieces": [
+     "AV",
+     "AR",
+     "ICE"
+    ],
+    "walkthrough": "'One sin ... and another' is a favourite setter's join: the first phrase is raw material for the wordplay and the second is the definition, quietly borrowing its noun from the first.",
+    "definitionFit": "another → AVARICE: greed for money, a second entry on the same list of deadly sins as the failing the wordplay has just spelled out."
+   }
   },
   {
    "id": "25-across",
@@ -515,7 +1212,30 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
     ]
    },
    "solution": "MASTERKEYS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MASTER KEYS",
+    "definition": "Such should open many doors",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Pass grade-eight",
+      "gives": "MASTER",
+      "note": "grade eight is the top rung of the British music-exam ladder, and getting through it means you have the instrument mastered"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "KEYS",
+      "note": "what the fingers press on that instrument"
+     }
+    ],
+    "pieces": [
+     "MASTER",
+     "KEYS"
+    ],
+    "walkthrough": "The wordplay reads as a verb and its object — what you must do to pass the exam — while the answer is a pair of nouns, and 'Such' is the pivot between the two readings.",
+    "definitionFit": "Such should open many doors → MASTER KEYS: single keys cut to work every lock in a building, and the phrase carries its figurative sense of opportunities too."
+   }
   },
   {
    "id": "26-across",
@@ -532,7 +1252,38 @@ window.CRYPTIC_PUZZLES["everyman-4149"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERIE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "ERIE",
+    "definition": "Great Lake",
+    "indicators": [
+     "Receding"
+    ],
+    "linkWords": [
+     "seen in"
+    ],
+    "indicatorNotes": {
+     "Receding": "Something receding is going back the way it came, so the letters beside it are read from the far end towards the near one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "land",
+      "gives": "EIRE",
+      "note": "Eire is the Irish state's own name for itself, four letters of country"
+     }
+    ],
+    "pieces": [
+     "ERIE"
+    ],
+    "subReversals": [
+     {
+      "from": "EIRE",
+      "to": "ERIE"
+     }
+    ],
+    "walkthrough": "A country and a lake made of the same four letters, one written the way the other is read the other way round — the smallest joke in the grid, and the neatest.",
+    "definitionFit": "Great Lake → ERIE: one of the five great lakes on the Canada-US border, so the clue defines by example rather than by any synonym."
+   }
   }
  ]
 } /*JSON-END*/;
