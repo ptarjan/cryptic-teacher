@@ -30,7 +30,44 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEADMISTRESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "HEADMISTRESS",
+    "definition": "Teacher",
+    "indicators": [
+     "knots",
+     "in"
+    ],
+    "indicatorNotes": {
+     "knots": "Hair in knots has lost the order it was combed into, and letters left that way can be written out in any sequence.",
+     "in": "Something put in a thing sits among its letters, so the tangled piece is planted inside the word beside it rather than added on the end."
+    },
+    "pieces": [
+     "H",
+     "EADM",
+     "ISTRESS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MADE",
+      "gives": "EADM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his hair",
+      "gives": "HISTRESS",
+      "note": "a tress is a length of hair, and with HIS in front the eight letters split open after the first"
+     },
+     {
+      "clueFragment": "made",
+      "gives": "EADM",
+      "note": "the four letters of MADE, tangled into a new order"
+     }
+    ],
+    "walkthrough": "The surface sells a scruffy schoolmaster and the answer is a woman: 'his' belongs to the wordplay only, and never to the person being defined.",
+    "definitionFit": "Teacher -> HEADMISTRESS: the woman in charge of a school is a teacher, the most senior one in the building, so the definition names her by her job."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +84,30 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMOJI",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "EMOJI",
+    "definition": "Meaningful picture",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "reading out"
+    ],
+    "indicatorNotes": {
+     "reading out": "Reading something out means saying it rather than writing it, so what counts is the noise the characters make in the mouth."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Mog's letters",
+      "soundsLike": "EM OH GEE",
+      "gives": "EMOJI",
+      "note": "the name is spelled M, O, G, and each of those three letters has a spoken name of its own"
+     }
+    ],
+    "walkthrough": "Say the three letter-names one after another and they run together into a word borrowed from Japanese, where it means picture-character.",
+    "definitionFit": "Meaningful picture -> EMOJI: a tiny symbol typed in place of words, so the picture is doing the carrying that a sentence would otherwise do."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +128,47 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
     ]
    },
    "solution": "DEEPSOUTH",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "DEEP SOUTH",
+    "definition": "old cotton belt",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "A down entry is read bottom to top, so up tells you the word just clued is written into the grid the other way round."
+    },
+    "pieces": [
+     "DEEPS",
+     "OUT",
+     "H"
+    ],
+    "subReversals": [
+     {
+      "from": "SPEED",
+      "to": "DEEPS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tear",
+      "gives": "DEEPS",
+      "note": "to tear along a road is to speed, and those five letters go in backwards"
+     },
+     {
+      "clueFragment": "unfashionable",
+      "gives": "OUT",
+      "note": "what is out is no longer in fashion"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband, as on a form"
+     }
+    ],
+    "walkthrough": "'Tear' is the verb that rhymes with air, not the one that comes with crying. The Cotton Belt is the old plantation country of the southern United States.",
+    "definitionFit": "old cotton belt -> DEEP SOUTH: the states where cotton plantations once ruled the economy, Mississippi and Alabama among them, are still called the Deep South."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +185,29 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISSUED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ISSUED",
+    "definition": "released to the public",
+    "pieces": [
+     "IS",
+     "SUED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faces",
+      "gives": "IS",
+      "note": "a defendant who faces something is up against it, and the passive phrase that says so needs this two-letter verb to stand it up"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "SUED",
+      "note": "to take someone to court is to sue them, so the person in the dock has been sued"
+     }
+    ],
+    "walkthrough": "The whole trick is where the space goes: IS SUED, two words about a courtroom, run together into one word with no law in it at all.",
+    "definitionFit": "released to the public -> ISSUED: a statement, a stamp or a passport that has been issued has been put out officially for anyone to have."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +224,40 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRACTION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "TRACTION",
+    "definition": "Grip",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "empty",
+     "ahead"
+    ],
+    "indicatorNotes": {
+     "empty": "Emptying a word tips out everything between its first and last letters, leaving just the two standing at the ends.",
+     "ahead": "What is ahead goes first, so the pair just taken opens the answer instead of trailing along behind."
+    },
+    "pieces": [
+     "TR",
+     "ACTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "empty travelator",
+      "gives": "TR",
+      "note": "the moving walkway keeps only the letter it starts with and the letter it ends with"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "ACTION",
+      "note": "an action is a case brought before a court of law"
+     }
+    ],
+    "walkthrough": "'Case' sits next to a travelator and looks like luggage at an airport. It is the legal sort, and the airport never comes into it.",
+    "definitionFit": "Grip -> TRACTION: traction is the grip a tyre or a boot keeps on the ground, the friction that stops the thing sliding away."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +274,28 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMAIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "EMAIL",
+    "definition": "Message",
+    "indicators": [
+     "from",
+     "about"
+    ],
+    "indicatorNotes": {
+     "from": "Taking something from a phrase means lifting it out of what is already written there, one consecutive letter after another.",
+     "about": "About means turned round, the way a ship comes about, so the run of letters is read the other way along the entry."
+    },
+    "blocks": [
+     {
+      "clueFragment": "girl I am excited",
+      "gives": "EMAIL",
+      "note": "five letters in a row, starting in the middle of the first word and stopping just inside the last, read backwards"
+     }
+    ],
+    "walkthrough": "The girl is never named and 'I am' is not fodder to be shuffled. Every letter is already sitting in the clue, running the wrong way.",
+    "definitionFit": "Message -> EMAIL: an email is a message sent electronically, so the definition is the general word standing in for one particular kind."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +312,36 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWINGEING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SWINGEING",
+    "definition": "Severe",
+    "indicators": [
+     "trousers"
+    ],
+    "indicatorNotes": {
+     "trousers": "To trouser something is to pocket it, slipping it out of sight inside, so the letter beside this word goes within the other."
+    },
+    "pieces": [
+     "S",
+     "W",
+     "INGEING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burning",
+      "gives": "SINGEING",
+      "note": "singeing is burning at the edges, and the word opens up after its first letter"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the usual abbreviation for wife"
+     }
+    ],
+    "walkthrough": "'Trousers' is a verb, British slang for quietly pocketing something, and that is the only word telling you one letter goes inside another.",
+    "definitionFit": "Severe -> SWINGEING: swingeing cuts or fines are punishingly harsh ones, a British adjective with no connection at all to swinging."
+   }
   },
   {
    "id": "8-down",
@@ -158,7 +363,41 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
     ]
    },
    "solution": "HARRYSTRUMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HARRY S TRUMAN",
+    "definition": "old 21",
+    "indicators": [
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "supporting": "A support sits under what it holds up, and in a down entry underneath means later, so the guitar work goes below the royal name."
+    },
+    "pieces": [
+     "HARRY",
+     "STRUM",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "HARRY",
+      "note": "the younger of the two British princes born to Charles and Diana"
+     },
+     {
+      "clueFragment": "Play guitar",
+      "gives": "STRUM",
+      "note": "to strum is to play a guitar by sweeping a hand across the strings"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the article goes in as the two letters it is spelled with"
+     }
+    ],
+    "walkthrough": "A bare number sends you to that clue for the definition, so solve 21 across first. The middle initial stands for nothing: his parents could not choose between two grandfathers.",
+    "definitionFit": "old 21 -> HARRY S TRUMAN: 21 across is the acronym for the American president, and Truman held that office from 1945, so he is a past one."
+   }
   },
   {
    "id": "9-across",
@@ -175,7 +414,34 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOOTERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MOOTERS",
+    "definition": "Practising lawyers",
+    "indicators": [
+     "troubling"
+    ],
+    "indicatorNotes": {
+     "troubling": "Something troubling will not let things settle, and letters that cannot settle finish up in an order nobody gave them."
+    },
+    "anagram": {
+     "fodder": "TO MORSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to Morse",
+      "gives": "TOMORSE",
+      "note": "seven letters of fodder, exactly the length the enumeration asks for"
+     },
+     {
+      "clueFragment": "troubling",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "Morse is the Oxford detective of the television series, and the surface wants you reading him as a code. He is seven letters and a preposition.",
+    "definitionFit": "Practising lawyers -> MOOTERS: a moot is the mock case law students argue for training, so mooters practise in the rehearsing sense, not the professional one."
+   }
   },
   {
    "id": "9-down",
@@ -196,7 +462,49 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARSHALLPLAN",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "MARSHALL PLAN",
+    "definition": "8's scheme for regenerating",
+    "indicators": [
+     "in",
+     "shrunk"
+    ],
+    "indicatorNotes": {
+     "in": "One thing put in another sits between its parts, so the two short pieces named before this word are buried between the two named after.",
+     "shrunk": "A word that has shrunk has come up short, and what it loses is the letter standing at its end."
+    },
+    "pieces": [
+     "MARS",
+     "H",
+     "ALL",
+     "PLAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chocolate",
+      "gives": "MARS",
+      "note": "a Mars is a chocolate bar sold in every British newsagent"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "H is the standard abbreviation for height"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone, every last one of them"
+     },
+     {
+      "clueFragment": "factory shrunk",
+      "gives": "PLAN",
+      "note": "a factory is a plant, and it comes up one letter short of that"
+     }
+    ],
+    "walkthrough": "The surface is selling Roald Dahl. The wordplay wants a confectionery brand and an industrial plant instead, and only the brand survives whole.",
+    "definitionFit": "8's scheme for regenerating -> MARSHALL PLAN: the American programme, named for Truman's secretary of state, that funded the rebuilding of western Europe after 1945."
+   }
   },
   {
    "id": "10-across",
@@ -213,7 +521,38 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMANITA",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "AMANITA",
+    "definition": "Bad mushroom",
+    "indicators": [
+     "beginning",
+     "in"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a word is the letter it opens with, so a single character of the noun in front of this is all that is wanted.",
+     "in": "One letter put in a phrase finishes up inside it, so the character just taken is planted within the words that follow."
+    },
+    "pieces": [
+     "AMANI",
+     "T",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a frenzy",
+      "gives": "AMANIA",
+      "note": "a frenzy is a mania, with the article riding in front; the six letters split before the last one"
+     },
+     {
+      "clueFragment": "trip's beginning",
+      "gives": "T",
+      "note": "trip hands over its opening letter and nothing else"
+     }
+    ],
+    "walkthrough": "A bad mushroom trip is the picture, and mushrooms really are the subject. This genus holds the death cap and the destroying angel.",
+    "definitionFit": "Bad mushroom -> AMANITA: the amanitas are the toadstool genus that includes the death cap, so 'bad' means deadly poisonous rather than merely off."
+   }
   },
   {
    "id": "11-across",
@@ -230,7 +569,42 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REINSPECT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "REINSPECT",
+    "definition": "Vet again",
+    "indicators": [
+     "caught"
+    ],
+    "indicatorNotes": {
+     "caught": "Whatever is caught is held fast inside the thing that caught it, so the letter named after this word sits within the animal."
+    },
+    "pieces": [
+     "REINS",
+     "PE",
+     "C",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "checks",
+      "gives": "REINS",
+      "note": "reins are what check a horse, and to rein in is to check"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "PET",
+      "note": "a pet is the animal kept at home, and its three letters open up after two"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the letter on the cold tap"
+     }
+    ],
+    "walkthrough": "'Vet' is the verb — to examine something closely before approving it — and not the animal doctor the pet in the wordplay keeps hinting at.",
+    "definitionFit": "Vet again -> REINSPECT: to vet is to examine critically before giving approval, and the re- prefix asks for that examination a second time."
+   }
   },
   {
    "id": "12-across",
@@ -247,7 +621,38 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAGER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "LAGER",
+    "definition": "Cheap fizz",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "brought round"
+    ],
+    "indicatorNotes": {
+     "brought round": "Bringing a thing round turns it to face the other way, so the word beside this one is entered right to left."
+    },
+    "pieces": [
+     "LAGER"
+    ],
+    "subReversals": [
+     {
+      "from": "REGAL",
+      "to": "LAGER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Majestic",
+      "gives": "LAGER",
+      "note": "majestic means regal, and those five letters are turned round"
+     }
+    ],
+    "walkthrough": "Majestic is a British wine chain, which is what makes the surface read as a shopping trip. The wordplay wants the adjective regal, spelled backwards.",
+    "definitionFit": "Cheap fizz -> LAGER: the pale gassy beer that is the cheapest pint in most bars, so both halves of the phrase point at it."
+   }
   },
   {
    "id": "13-across",
@@ -264,7 +669,43 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HATFUL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + first letter",
+    "answer": "HATFUL",
+    "definition": "as much as bowler could bear?",
+    "indicators": [
+     "opener",
+     "exploited"
+    ],
+    "indicatorNotes": {
+     "opener": "In cricket the opener is the batsman who goes in first, and a word's opener is likewise the letter it starts with.",
+     "exploited": "A fault that is exploited gets worked at until it breaks open, and letters treated that way do not stay in the order they arrived in."
+    },
+    "pieces": [
+     "H",
+     "ATFUL"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FAULT",
+      "gives": "ATFUL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hampshire's opener",
+      "gives": "H",
+      "note": "the county's name gives up its first letter and nothing more"
+     },
+     {
+      "clueFragment": "fault",
+      "gives": "ATFUL",
+      "note": "the five letters of FAULT, shaken into another arrangement"
+     }
+    ],
+    "walkthrough": "Every word points at cricket: Hampshire, an English county side, its opening batsman, and a bowler taking wickets. The answer is about millinery.",
+    "definitionFit": "as much as bowler could bear? -> HATFUL: a bowler is a hard round hat, so what one could hold is a hatful, the loose measure the word names."
+   }
   },
   {
    "id": "14-down",
@@ -285,7 +726,23 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOASTRACK",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TOAST RACK",
+    "definition": "B&B owner might stand round here",
+    "blocks": [
+     {
+      "clueFragment": "B&B owner might stand round",
+      "note": "The surface has a landlord standing a round of drinks for his guests, which is the wrong sort of bar altogether."
+     },
+     {
+      "clueFragment": "stand round here",
+      "note": "A round is one slice off a loaf, and 'stand' is literal: at a bed-and-breakfast table the browned slices are stood upright in a wire frame."
+     }
+    ],
+    "walkthrough": "There is no separable wordplay to hunt for — the sentence simply means the object twice over. British breakfast tables stand the slices up so they cool and stay crisp.",
+    "definitionFit": "B&B owner might stand round here -> TOAST RACK: a round is a slice of bread, and the wire frame on a breakfast table is where the slices stand."
+   }
   },
   {
    "id": "15-across",
@@ -302,7 +759,53 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WOOLLIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + container",
+    "answer": "WOOLLIES",
+    "definition": "winter clothing",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "back",
+     "keeping"
+    ],
+    "indicatorNotes": {
+     "back": "In an across entry the way back is right to left, so the word before this one is written into the grid in reverse.",
+     "keeping": "What you keep you hold on to and enclose, so the letter after this word is kept within the one already turned round."
+    },
+    "pieces": [
+     "WOO",
+     "LL",
+     "I",
+     "ES"
+    ],
+    "subReversals": [
+     {
+      "from": "SELL",
+      "to": "LLES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offer suit",
+      "gives": "WOO",
+      "note": "to pay suit to somebody is to woo them, the old sense of courting"
+     },
+     {
+      "clueFragment": "sell",
+      "gives": "LLES",
+      "note": "the four letters go in the other way round, and they open up before the last of them"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physicist's symbol for electric current"
+     }
+    ],
+    "walkthrough": "'Offer suit' is the courtship sense rather than a tailor's, and 'current' is the electrical one. Two everyday words, both doing crossword jobs.",
+    "definitionFit": "winter clothing -> WOOLLIES: woollies are the jumpers and socks knitted from wool that people pull on once the weather turns cold."
+   }
   },
   {
    "id": "16-down",
@@ -319,7 +822,43 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDOWNER",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "LANDOWNER",
+    "definition": "Title holder",
+    "indicators": [
+     "during",
+     "at the start"
+    ],
+    "indicatorNotes": {
+     "during": "What happens during something happens inside it, so the fallen word drops in among the letters of the road.",
+     "at the start": "The start of a word is the character it opens with, so the race gives up one letter and keeps the rest to itself."
+    },
+    "pieces": [
+     "LAN",
+     "DOWN",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "LANE",
+      "note": "a lane is a narrow road, and its four letters split after the third"
+     },
+     {
+      "clueFragment": "race at the start",
+      "gives": "R",
+      "note": "race supplies its opening letter alone"
+     },
+     {
+      "clueFragment": "fallen",
+      "gives": "DOWN",
+      "note": "someone fallen is down, and the word goes in whole"
+     }
+    ],
+    "walkthrough": "'Title holder' sounds like a champion defending a belt. The title meant is the deed that proves who owns a piece of ground.",
+    "definitionFit": "Title holder -> LANDOWNER: title is the legal term for ownership of property, so whoever holds the title to a field is the person who owns it."
+   }
   },
   {
    "id": "17-down",
@@ -336,7 +875,46 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROMANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram + deletion",
+    "answer": "BROMANCE",
+    "definition": "Platonic relationship",
+    "indicators": [
+     "troubled",
+     "in",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "troubled": "A troubled thing is unsettled, and letters that will not settle can be set down in any order at all.",
+     "in": "One word put in another sits between its letters, so the shuffled name lands inside the shortened word rather than beside it.",
+     "mostly": "Mostly means all but a little, and the little left off the end of a word is its final letter."
+    },
+    "pieces": [
+     "B",
+     "ROMANC",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MACRON",
+      "gives": "ROMANC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed mostly",
+      "gives": "BE",
+      "note": "bed drops its last letter, and the two that remain part company to take something in"
+     },
+     {
+      "clueFragment": "Macron",
+      "gives": "ROMANC",
+      "note": "the six letters of the French president's surname, rearranged"
+     }
+    ],
+    "walkthrough": "The surface reads as a headline about Macron's private life. The word itself is a portmanteau, brother spliced onto romance, coined for friendships between men.",
+    "definitionFit": "Platonic relationship -> BROMANCE: a bromance is a close and affectionate friendship between two men with nothing sexual in it, which is what platonic means."
+   }
   },
   {
    "id": "18-across",
@@ -353,7 +931,37 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEATHERS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "LEATHERS",
+    "definition": "Biking kit",
+    "definitionNote": "Kit is a mass noun for gear in general while the answer is plural, which is how motorcyclists talk: the jacket and the trousers are named together.",
+    "indicators": [
+     "verges on"
+    ],
+    "indicatorNotes": {
+     "verges on": "A verge is the strip at the edge of a road, so what is wanted is the letters standing at the two edges of the word after it."
+    },
+    "pieces": [
+     "LE",
+     "AT",
+     "HERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "verges on lingerie",
+      "gives": "LE",
+      "note": "the first and last letters of the garment, with everything between them dropped"
+     },
+     {
+      "clueFragment": "where she lives",
+      "gives": "ATHERS",
+      "note": "if something is at hers, it is where she lives, and the two words run together"
+     }
+    ],
+    "walkthrough": "The surface is all underwear and roadside verges, and neither survives the parse: 'verges on' is an instruction rather than a description.",
+    "definitionFit": "Biking kit -> LEATHERS: leathers are the thick hide jacket and trousers a motorcyclist wears as armour against the road."
+   }
   },
   {
    "id": "19-across",
@@ -370,7 +978,26 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ONAGER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ONAGER",
+    "definition": "Ass",
+    "indicators": [
+     "kept hidden in"
+    ],
+    "indicatorNotes": {
+     "kept hidden in": "Something kept hidden inside a phrase has been there all along, written out in order, waiting for somebody to notice it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "apprehension, age-related",
+      "gives": "ONAGER",
+      "note": "six letters in a row, running across the comma and the hyphen, from the tail of one word to the middle of the next"
+     }
+    ],
+    "walkthrough": "Nothing in the surface is about animals, so there is no reason to suspect a species lying across three words of a sentence about worry.",
+    "definitionFit": "Ass -> ONAGER: definition by example, since the onager is one particular wild ass, the Asiatic species, rather than the animal in general."
+   }
   },
   {
    "id": "20-down",
@@ -387,7 +1014,38 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUTMEG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NUTMEG",
+    "definition": "Spice",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "reduced"
+    ],
+    "indicatorNotes": {
+     "reduced": "Reducing a name here means using the short form its owner answers to, not chopping letters off the end of it."
+    },
+    "pieces": [
+     "NUT",
+     "MEG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruitcake",
+      "gives": "NUT",
+      "note": "a fruitcake is a nut in the slang sense, somebody crazy"
+     },
+     {
+      "clueFragment": "Margaret reduced",
+      "gives": "MEG",
+      "note": "the short form a Margaret goes by"
+     }
+    ],
+    "walkthrough": "Both halves turn on the same move away from the kitchen: the fruitcake is a person rather than a cake, and Margaret is here only to be shortened.",
+    "definitionFit": "Spice -> NUTMEG: the hard aromatic seed grated over custards and into mulled wine, one of the standard jars on a kitchen shelf."
+   }
   },
   {
    "id": "21-across",
@@ -404,7 +1062,36 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POTUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "POTUS",
+    "definition": "Premier",
+    "indicators": [
+     "turned",
+     "missing"
+    ],
+    "indicatorNotes": {
+     "turned": "Milk that has turned has gone off, and a word turned the same way comes out with its letters no longer in the order they were given.",
+     "missing": "What is missing has been taken out, so the letters named after this word are lifted away from the word standing before it."
+    },
+    "anagram": {
+     "fodder": "UP TO S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "up to",
+      "gives": "UPTO",
+      "note": "four letters of fodder, taken exactly as they stand"
+     },
+     {
+      "clueFragment": "speak, missing point",
+      "gives": "S",
+      "note": "a point is a peak, and lifting PEAK out of SPEAK leaves a single letter behind"
+     }
+    ],
+    "walkthrough": "'Point' is a peak, and spotting that is the whole clue: four ordinary letters and one survivor, shuffled into the acronym Washington uses every day.",
+    "definitionFit": "Premier -> POTUS: premier is used loosely for a country's chief executive, and POTUS is the acronym officials use for the one in the White House."
+   }
   },
   {
    "id": "22-down",
@@ -421,7 +1108,36 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEDAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SEDAN",
+    "definition": "saloon in US",
+    "indicators": [
+     "outside"
+    ],
+    "indicatorNotes": {
+     "outside": "What stands outside a thing surrounds it, so the name just found closes around the letter clued beside it."
+    },
+    "pieces": [
+     "SE",
+     "D",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr Bean from the telly",
+      "gives": "SEAN",
+      "note": "the Bean who is on television is the actor Sean Bean, and his first name opens after two letters"
+     },
+     {
+      "clueFragment": "Date",
+      "gives": "D",
+      "note": "D is the standard abbreviation for date"
+     }
+    ],
+    "walkthrough": "Mr Bean pulls hard towards Rowan Atkinson. The Bean meant is Sean Bean, the Sheffield actor known here for Sharpe and Game of Thrones.",
+    "definitionFit": "saloon in US -> SEDAN: what British drivers call a saloon car, with a fixed roof and a separate boot, Americans call a sedan."
+   }
   },
   {
    "id": "23-across",
@@ -438,7 +1154,45 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAUSOLEUM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MAUSOLEUM",
+    "definition": "the Taj Mahal",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "pinching"
+    ],
+    "indicatorNotes": {
+     "pinching": "Fingers pinching something close on it from both sides, so the word before this one shuts around everything that follows."
+    },
+    "pieces": [
+     "M",
+     "AU",
+     "SOLE",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep quiet",
+      "gives": "MUM",
+      "note": "to keep mum is to say nothing, and the three letters open after the first"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "AU is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "alone",
+      "gives": "SOLE",
+      "note": "sole means alone, the only one there is"
+     }
+    ],
+    "walkthrough": "The definition is doing quiet work: the Taj Mahal is a tomb, built by Shah Jahan for his wife, which is why silence and solitude suit the surface so well.",
+    "definitionFit": "the Taj Mahal -> MAUSOLEUM: definition by example, since the Taj Mahal is one grand tomb built to house a body, which is what the word names."
+   }
   },
   {
    "id": "24-down",
@@ -455,7 +1209,36 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVOKE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "EVOKE",
+    "definition": "Call up",
+    "indicators": [
+     "collecting"
+    ],
+    "indicatorNotes": {
+     "collecting": "To collect something is to gather it in and hold it, so the word before this one closes around the word after."
+    },
+    "pieces": [
+     "EV",
+     "OK",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the day before",
+      "gives": "EVE",
+      "note": "the eve of an event is the day before it, and the word opens after two letters"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "OK",
+      "note": "to OK something is to permit it"
+     }
+    ],
+    "walkthrough": "'Call up' looks like a summons to the army, and the thing being summoned is a memory instead. Neither little word in the wordplay is doing anything unusual.",
+    "definitionFit": "Call up -> EVOKE: to evoke a memory or a mood is to call it up, summoning something absent until it feels present again."
+   }
   },
   {
    "id": "25-across",
@@ -472,7 +1255,33 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABANDON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABANDON",
+    "definition": "Freedom from restraint",
+    "linkWords": [
+     "which"
+    ],
+    "pieces": [
+     "A",
+     "BAND",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Glastonbury stage",
+      "gives": "A BAND",
+      "note": "what a festival stage has standing on it is a band, article and all"
+     },
+     {
+      "clueFragment": "might have",
+      "gives": "ON",
+      "note": "a band that is playing is on, the word a festival uses for whoever is performing"
+     }
+    ],
+    "walkthrough": "Glastonbury is Britain's biggest summer music festival, held on a Somerset dairy farm, so the surface is entirely literal and the answer is a mood.",
+    "definitionFit": "Freedom from restraint -> ABANDON: to dance with abandon is to dance without holding back, so the noun names the throwing off of self-control."
+   }
   },
   {
    "id": "26-across",
@@ -489,7 +1298,32 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MONSOON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MONSOON",
+    "definition": "rain",
+    "linkWords": [
+     "implying this"
+    ],
+    "pieces": [
+     "MON",
+     "SOON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sun",
+      "gives": "MON",
+      "note": "the calendar abbreviation for the day that follows Sunday's"
+     },
+     {
+      "clueFragment": "now",
+      "gives": "SOON",
+      "note": "if it is Sunday at this moment, the next day is not far off"
+     }
+    ],
+    "walkthrough": "'Sun' reads as the thing in the sky right up to the moment you notice 'now'. It is a day of the week on a calendar, and the answer is a season of rains.",
+    "definitionFit": "rain -> MONSOON: in South Asia the monsoon is the wind that brings months of torrential downpours, and the word is used for the rains themselves."
+   }
   },
   {
    "id": "27-across",
@@ -506,7 +1340,34 @@ window.CRYPTIC_PUZZLES["indysunday-1867"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KINDERGARTEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "KINDERGARTEN",
+    "definition": "School",
+    "indicators": [
+     "sports"
+    ],
+    "indicatorNotes": {
+     "sports": "To sport, in gardening, is to come up as a mutation unlike the parent plant, so what sports arrives in a form nobody planted."
+    },
+    "anagram": {
+     "fodder": "NERD RETAKING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nerd retaking",
+      "gives": "NERDRETAKING",
+      "note": "twelve letters of fodder, exactly the length the enumeration asks for"
+     },
+     {
+      "clueFragment": "sports",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "walkthrough": "The surface is a resit and a games afternoon. The answer is German for children's garden, borrowed whole into English for the youngest class.",
+    "definitionFit": "School -> KINDERGARTEN: a kindergarten is the class small children attend before formal lessons begin, so it is a school by name and by function."
+   }
   }
  ]
 } /*JSON-END*/;
