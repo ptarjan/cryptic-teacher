@@ -30,7 +30,33 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRUMMIEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCRUMMIEST",
+    "definition": "most delicious",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Seconds",
+      "gives": "S",
+      "note": "S is the stopwatch abbreviation for seconds"
+     },
+     {
+      "clueFragment": "extremely cheap",
+      "gives": "CRUMMIEST",
+      "note": "crummy means cheap and shoddy, and pushed to its extreme the adjective goes into its superlative form"
+     }
+    ],
+    "pieces": [
+     "S",
+     "CRUMMIEST"
+    ],
+    "walkthrough": "The colon invites you to read the first word as a second helping, which the definition at the far end is only too happy to encourage. It is a stopwatch abbreviation.",
+    "definitionFit": "most delicious: the superlative of 'scrummy', a nursery shortening of scrumptious, so it names food at the very top of tasty."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +73,32 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUSS",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "SUSS",
+    "definition": "Primarily solve / understand (somewhat slangily!)",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "To do something primarily is to do it first of all, so each word after it yields only the letter it begins with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "solve / understand (somewhat slangily!)",
+      "gives": "SUSS",
+      "note": "the starting letters of the four words, taken in the order they stand"
+     }
+    ],
+    "pieces": [
+     "S",
+     "U",
+     "S",
+     "S"
+    ],
+    "walkthrough": "An all-in-one: the very words that hand over their opening letters also describe what the answer means, and the exclamation mark is the setter flagging the informal register.",
+    "definitionFit": "The whole clue reads straight: to work something out or grasp it, in casual British speech, is precisely what this verb means."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +115,30 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUED",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RUED",
+    "definition": "Regretted",
+    "linkWords": [
+     "being"
+    ],
+    "indicators": [
+     "audibly"
+    ],
+    "indicatorNotes": {
+     "audibly": "What is audible reaches you through the ear, so the word beside it is to be taken by its sound and then written down another way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "crass",
+      "soundsLike": "RUDE",
+      "gives": "RUED",
+      "note": "a crass remark is a rude one, and out loud the two spellings are impossible to tell apart"
+     }
+    ],
+    "walkthrough": "Past tense on both sides: the definition is in the past, so what you hear has to be written down as a past tense too, which is what makes the odd spelling findable.",
+    "definitionFit": "Regretted: to rue something is to look back on it with sorrow, a verb that survives mainly in the phrase 'rue the day'."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +155,49 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEGALOMANIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + first letter",
+    "answer": "MEGALOMANIA",
+    "definition": "a delusion",
+    "indicators": [
+     "broadcast",
+     "modicum of"
+    ],
+    "indicatorNotes": {
+     "broadcast": "To broadcast seed is to scatter it wide across a field, so the letters land in no order anyone chose.",
+     "modicum of": "A modicum is the smallest amount there is, and the smallest amount of a written word is the single letter at its front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter signs this puzzle Everyman, and a setter pointing at themselves is the commonest convention in the business"
+     },
+     {
+      "clueFragment": "main goal",
+      "gives": "GALOMANI",
+      "note": "eight letters across the two words, resettled into a new order"
+     },
+     {
+      "clueFragment": "admiration",
+      "gives": "A",
+      "note": "the starting letter of the word is all that is taken"
+     }
+    ],
+    "pieces": [
+     "ME",
+     "GALOMANI",
+     "A"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MAINGOAL",
+      "gives": "GALOMANI"
+     }
+    ],
+    "walkthrough": "Everyman naming himself in the clue is standard practice in this series: the byline is the wordplay. The colon is holding the surface together and nothing more.",
+    "definitionFit": "a delusion: the answer names one particular delusion, that of one's own greatness and power, so the clue defines it by the general class."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +219,29 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
     ]
    },
    "solution": "IKNEWIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "I KNEW IT",
+    "definition": "that's no shock",
+    "indicators": [
+     "drunk"
+    ],
+    "indicatorNotes": {
+     "drunk": "Someone drunk cannot walk a straight line, so the letters handed over will not stay in the line they were given."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wine Kit",
+      "gives": "IKNEWIT",
+      "note": "seven letters go in and the same seven come out in a new order"
+     }
+    ],
+    "anagram": {
+     "fodder": "WINEKIT"
+    },
+    "walkthrough": "The surface is someone tipsy on home-made wine, and the colon hides the join: everything before it is letters to shuffle, everything after is the definition.",
+    "definitionFit": "that's no shock: the answer is the three-word phrase you blurt when something turns out exactly as expected, so nothing about it surprises you."
+   }
   },
   {
    "id": "5-down",
@@ -120,7 +258,28 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHELVES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SHELVES",
+    "definition": "Suspends",
+    "definition2": "ledges",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Suspends",
+      "note": "in the sense of putting a plan on hold, not of hanging something from a hook"
+     },
+     {
+      "clueFragment": "ledges",
+      "note": "the plural noun: flat boards fixed to a wall, named after the rock ledges they imitate"
+     }
+    ],
+    "walkthrough": "Three words, two definitions and nothing else: 'from' is joinery, and a solver hunting a mechanism inside these seven letters will find none.",
+    "definitionFit": "Suspends is the verb, putting a plan on hold; ledges is the plural noun, the boards a wall carries. One word, two parts of speech."
+   }
   },
   {
    "id": "6-across",
@@ -137,7 +296,34 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPUS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "OPUS",
+    "definition": "work",
+    "indicators": [
+     "Making comeback",
+     "incomplete"
+    ],
+    "indicatorNotes": {
+     "Making comeback": "Something making a comeback returns the way it went, so this run of letters is read against the direction the entry travels.",
+     "incomplete": "The words on either side are not used whole: each gives up only the end or the start of itself to the run."
+    },
+    "blocks": [
+     {
+      "clueFragment": "builds upon",
+      "gives": "OPUS",
+      "note": "four letters straddle the gap between the two words, and they are read from right to left"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "SUPO",
+      "to": "OPUS"
+     }
+    ],
+    "walkthrough": "'work' looks like part of the surface picture — an unfinished job — and a solver who reads it that way has the right words in the wrong roles.",
+    "definitionFit": "work: a composer's numbered piece is called exactly that, which is why concert programmes print Op. in front of its number."
+   }
   },
   {
    "id": "7-down",
@@ -154,7 +340,30 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERMAFROST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PERMAFROST",
+    "definition": "in which it's always cold",
+    "definitionNote": "The setter defines by description rather than by synonym: what is wanted is a noun, and the clue offers a relative clause saying what is true of the stuff all year round.",
+    "indicators": [
+     "resort"
+    ],
+    "indicatorNotes": {
+     "resort": "Read as two words, re-sort, it asks for the letters to be sorted a second time into some other arrangement."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Performs at",
+      "gives": "PERMAFROST",
+      "note": "ten letters across the two words, re-sorted"
+     }
+    ],
+    "anagram": {
+     "fodder": "PERFORMSAT"
+    },
+    "walkthrough": "The surface offers a chilly holiday town, and buying that picture is the trap: the word in the middle is an instruction, not a place.",
+    "definitionFit": "The definition describes rather than substitutes: the answer is ground that stays frozen right through the summer, so it is never not cold."
+   }
   },
   {
    "id": "8-down",
@@ -175,7 +384,29 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
     ]
    },
    "solution": "SIAMESECAT",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "SIAMESE CAT",
+    "definition": "What could be represented as 'eats mice'?",
+    "indicators": [
+     "could be represented"
+    ],
+    "indicatorNotes": {
+     "could be represented": "Saying a thing could be shown as something else licenses its letters to be redrawn into a different picture."
+    },
+    "blocks": [
+     {
+      "clueFragment": "as 'eats mice'",
+      "gives": "SIAMESECAT",
+      "note": "ten letters, the little word before the quotation included, redrawn"
+     }
+    ],
+    "anagram": {
+     "fodder": "ASEATSMICE"
+    },
+    "walkthrough": "An all-in-one: the whole question is the definition, and the same words are the letters. The quotation marks are the flag that a phrase is being handled as raw material.",
+    "definitionFit": "The whole clue reads straight: a breed that could indeed be pictured eating mice, the question mark admitting this is one example among many."
+   }
   },
   {
    "id": "9-across",
@@ -196,7 +427,34 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEMGINGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STEM GINGER",
+    "definition": "spicy in the kitchen",
+    "definitionNote": "The definition is an adjective phrase where a noun is wanted: the setter is describing the ingredient rather than offering a word you could swap straight in.",
+    "linkWords": [
+     "that's"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Repress",
+      "gives": "STEM",
+      "note": "to stem a flow or a tide is to hold it back"
+     },
+     {
+      "clueFragment": "redhead",
+      "gives": "GINGER",
+      "note": "British slang for a person with red hair, from the colour of the root"
+     }
+    ],
+    "pieces": [
+     "STEM",
+     "GINGER"
+    ],
+    "walkthrough": "Both halves are ordinary words in kitchen clothes: a verb about holding something back and a nickname for hair colour, edible only once they are pushed together.",
+    "definitionFit": "The definition describes rather than substitutes: the preserved root sold in syrup is a baking-cupboard staple with a hot, peppery bite."
+   }
   },
   {
    "id": "10-across",
@@ -213,7 +471,39 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "URSA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "URSA",
+    "definition": "bear",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken regularly come at a fixed interval, here every second one, counting from the second letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Guard's van",
+      "gives": "URSA",
+      "note": "every second letter of the two words, read straight through"
+     },
+     {
+      "clueFragment": "out of service",
+      "gives": "",
+      "note": "surface only: a guard's van is the railway carriage at the tail of a British train, and one out of service completes the picture"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "",
+      "note": "surface only: 'bear up' reads as an encouragement to keep going, but the definition stops at the animal"
+     }
+    ],
+    "pieces": [
+     "URSA"
+    ],
+    "walkthrough": "The bear is the one in the sky. Ursa Major and Ursa Minor are the Latin names of the two constellations, so the definition asks for a Latin animal, not an English one.",
+    "definitionFit": "bear: the Latin word for the animal, familiar in English from the two constellations, so the clue defines by translation rather than by synonym."
+   }
   },
   {
    "id": "11-across",
@@ -235,7 +525,39 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
     ]
    },
    "solution": "OLDWIVESTALE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "OLD WIVES' TALE",
+    "definition": "it may not be true",
+    "linkWords": [
+     "getting"
+    ],
+    "indicators": [
+     "we're told"
+    ],
+    "indicatorNotes": {
+     "we're told": "What we are told arrives as sound, so one piece has to be written down as a different word that happens to sound the same."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Divorcées",
+      "gives": "OLDWIVES",
+      "note": "a divorcée is a former wife, and former wives are old ones — two words the wordplay uses whole"
+     },
+     {
+      "clueFragment": "dog",
+      "soundsLike": "TAIL",
+      "gives": "TALE",
+      "note": "the part of a dog that wags; spoken, it is indistinguishable from the word that gets written down"
+     }
+    ],
+    "pieces": [
+     "OLDWIVES",
+     "TALE"
+    ],
+    "walkthrough": "The first word does the heavy lifting: former wives are old wives, an idiom rather than an insult. The colon is all that separates wordplay from definition.",
+    "definitionFit": "it may not be true: the phrase names a piece of traditional lore passed on as fact, and the whole force of the label is that it is unreliable."
+   }
   },
   {
    "id": "12-down",
@@ -252,7 +574,25 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPOONERISMS",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SPOONERISMS",
+    "definition": "these",
+    "linkWords": [
+     "is one for"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "'Bird watching'",
+      "soundsLike": "WORD BOTCHING",
+      "gives": "BIRD WATCHING",
+      "note": "exchange the opening sounds of the two words and a hobby turns into a description of what that exchange does to language"
+     }
+    ],
+    "walkthrough": "The quotation marks are the signal that a phrase is being handled as a phrase. Say it with its front sounds traded and you get 'word botching', which is the whole joke.",
+    "definitionFit": "'these' points at the category the clue is demonstrating: swapping the front sounds of two words is the verbal slip named after the Oxford don who kept making it."
+   }
   },
   {
    "id": "13-down",
@@ -269,7 +609,32 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREDENTIAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CREDENTIAL",
+    "definition": "an entitlement",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "arranged"
+    ],
+    "indicatorNotes": {
+     "arranged": "What has been arranged was put into an order somebody chose, which is not the order it arrived in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Interlaced characters",
+      "gives": "CREDENTIAL",
+      "note": "the characters meant are the ten letters of the first word, set out afresh"
+     }
+    ],
+    "anagram": {
+     "fodder": "INTERLACED"
+    },
+    "walkthrough": "'characters' means letters here, not people, and the word whose letters they are is sitting immediately in front of it. The picture of woven strands is pure decoration.",
+    "definitionFit": "an entitlement: a document that entitles the bearer to practise or to enter, so the noun names the right the paper confers."
+   }
   },
   {
    "id": "14-down",
@@ -286,7 +651,47 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NARROWBOAT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "NARROWBOAT",
+    "definition": "vessel",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "describing",
+     "over"
+    ],
+    "indicatorNotes": {
+     "describing": "To describe a circle is to draw one round something, so these two letters go around the piece that follows rather than beside it.",
+     "over": "In a down entry one thing over another sits above it, so the grain waits underneath until the rest is built."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "NB",
+      "note": "nota bene, the Latin tag a writer scribbles in a margin, is the two-letter form"
+     },
+     {
+      "clueFragment": "quarrel",
+      "gives": "ARROW",
+      "note": "a quarrel is the short bolt shot from a crossbow, a piece of medieval vocabulary crosswords keep alive"
+     },
+     {
+      "clueFragment": "grain",
+      "gives": "OAT",
+      "note": "the cereal, singular, three letters"
+     }
+    ],
+    "pieces": [
+     "N",
+     "ARROW",
+     "B",
+     "OAT"
+    ],
+    "walkthrough": "A narrowboat is the long thin canal boat built to fit Britain's narrow locks. 'Note' is the trap: the musical scale is not wanted here, the Latin margin tag is.",
+    "definitionFit": "vessel: any craft that carries people on water qualifies, and this one is a canal boat, so the definition is deliberately general."
+   }
   },
   {
    "id": "15-across",
@@ -303,7 +708,33 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "READMIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "READMIT",
+    "definition": "Let back in",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "READ",
+      "note": "at a British university you read a subject rather than major in it"
+     },
+     {
+      "clueFragment": "at Cambridge University",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology stands in Cambridge, across the river from Boston"
+     }
+    ],
+    "pieces": [
+     "READ",
+     "MIT"
+    ],
+    "walkthrough": "The trap is the other Cambridge. The surface points firmly at the English university town, and the institute the setter means is the one in Massachusetts.",
+    "definitionFit": "Let back in: to admit someone a second time is to let them in again, the prefix carrying the 'back' of the definition."
+   }
   },
   {
    "id": "16-across",
@@ -320,7 +751,36 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOURGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCOURGE",
+    "definition": "Anathema",
+    "indicators": [
+     "takes over"
+    ],
+    "indicatorNotes": {
+     "takes over": "One firm taking over another swallows it whole, so the shorter piece ends up inside the longer rather than after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "jerk",
+      "gives": "SURGE",
+      "note": "a jerk and a surge are both a sudden movement forward"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation printed after a firm's name"
+     }
+    ],
+    "pieces": [
+     "S",
+     "CO",
+     "URGE"
+    ],
+    "walkthrough": "The colon reads as a definition mark, and it is one. 'takes over' looks like a business manoeuvre, which is exactly the surface the setter is paying for.",
+    "definitionFit": "Anathema: something loathed and cursed, and the answer names a plague or affliction that blights whatever it touches, so both nouns name a thing wished away."
+   }
   },
   {
    "id": "17-across",
@@ -337,7 +797,46 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DURANGO",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "DURANGO",
+    "definition": "Mexican city",
+    "linkWords": [
+     "that's",
+     "in"
+    ],
+    "indicators": [
+     "welcomed by"
+    ],
+    "indicatorNotes": {
+     "welcomed by": "A host who welcomes guests takes them indoors, so the pair opens up and receives the other letters between its own."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Led",
+      "gives": "RAN",
+      "note": "to run a company is to lead it, and the tense matches"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the one-letter abbreviation for government"
+     },
+     {
+      "clueFragment": "pair",
+      "gives": "DUO",
+      "note": "a duo is two of anything, most often two performers"
+     }
+    ],
+    "pieces": [
+     "DU",
+     "RAN",
+     "G",
+     "O"
+    ],
+    "walkthrough": "Durango is a city in northern Mexico and the state around it. 'Led' wants to begin a sentence about a leader; it is a three-letter past tense doing wordplay.",
+    "definitionFit": "Mexican city: the answer is the capital of the Mexican state of the same name, so the definition is plain geography with no trickery in it."
+   }
   },
   {
    "id": "18-down",
@@ -354,7 +853,33 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPPRESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OPPRESS",
+    "definition": "Act dictatorially towards",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "OP is the hospital shorthand for an operation"
+     },
+     {
+      "clueFragment": "newspapers",
+      "gives": "PRESS",
+      "note": "the press is the collective name for newspapers and the people who write them"
+     }
+    ],
+    "pieces": [
+     "OP",
+     "PRESS"
+    ],
+    "walkthrough": "The surface is a medical procedure covered by the papers, and that is where the join hides: the little word between the two halves is joinery and carries no letters.",
+    "definitionFit": "Act dictatorially towards: the verb means to rule harshly and keep a people down, which is precisely how a dictator behaves towards those under them."
+   }
   },
   {
    "id": "19-across",
@@ -371,7 +896,29 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMNESIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AMNESIA",
+    "definition": "Forgetting",
+    "indicators": [
+     "awkward"
+    ],
+    "indicatorNotes": {
+     "awkward": "An awkward thing will not sit where you put it, so the letters offered are not in the position they end up in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a name is",
+      "gives": "AMNESIA",
+      "note": "seven letters spread across three small words, dealt out again"
+     }
+    ],
+    "anagram": {
+     "fodder": "ANAMEIS"
+    },
+    "walkthrough": "The definition sits at the front and the fodder is the three small words behind it, which is what makes this hard to see: small words are easy to skip when you are hunting letters.",
+    "definitionFit": "Forgetting: the condition is loss of memory, so the -ing noun naming the act of losing it swaps in without strain."
+   }
   },
   {
    "id": "19-down",
@@ -392,7 +939,50 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASHTREE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "ASH TREE",
+    "definition": "bit of woodland",
+    "linkWords": [
+     "blowing in"
+    ],
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Taken regularly means taken at an even interval, so every second letter of the word is picked up and the rest left behind."
+    },
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own letter, taken exactly as it stands"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "the noise you make when asking for silence"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "breeze",
+      "gives": "REE",
+      "note": "every second letter of the word, counting from its second"
+     }
+    ],
+    "pieces": [
+     "A",
+     "SH",
+     "T",
+     "REE"
+    ],
+    "walkthrough": "Four pieces for seven letters, and the smallest of them is the bare letter that opens the clue — easy to read as an article and skip straight past.",
+    "definitionFit": "bit of woodland: one tree is a piece of what a wood is made of, so the definition names the answer by the larger thing it belongs to."
+   }
   },
   {
    "id": "20-across",
@@ -413,7 +1003,29 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
     ]
    },
    "solution": "NEWHAMPSHIRE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NEW HAMPSHIRE",
+    "definition": "somewhere in the USA",
+    "indicators": [
+     "pathetically"
+    ],
+    "indicatorNotes": {
+     "pathetically": "To do a thing pathetically is to do it badly, and letters handled badly finish out of their proper order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ashen, whimper",
+      "gives": "NEWHAMPSHIRE",
+      "note": "twelve letters across the two words, dealt again into two new ones"
+     }
+    ],
+    "anagram": {
+     "fodder": "ASHENWHIMPER"
+    },
+    "walkthrough": "The instruction looks as though it belongs to the whimpering, which is the point of putting it there, and the comma between the two words is not a real pause.",
+    "definitionFit": "somewhere in the USA: the answer is one of the six New England states, and such a vague definition is only fair because the wordplay is exact."
+   }
   },
   {
    "id": "21-down",
@@ -430,7 +1042,28 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERB",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HERB",
+    "definition": "Bertie",
+    "definition2": "Rosemary",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Bertie",
+      "note": "one familiar shortening of a long forename; the four letters wanted are another shortening of that same name"
+     },
+     {
+      "clueFragment": "Rosemary",
+      "note": "a plant grown for flavouring, so this half defines by example — which is what the question mark admits"
+     }
+    ],
+    "walkthrough": "Two proper names and no wordplay at all: one is a person, one is a plant, and the question mark covers both for being examples rather than equivalents.",
+    "definitionFit": "Bertie and the answer are both pet forms of Herbert; rosemary is one example of the kitchen plants the noun covers, which the question mark flags."
+   }
   },
   {
    "id": "22-down",
@@ -447,7 +1080,29 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STYE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "STYE",
+    "definition": "Ocular irritant",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "some"
+    ],
+    "indicatorNotes": {
+     "some": "Some of a thing is a portion of it, and a portion of a phrase means a run of its letters rather than any part of its meaning."
+    },
+    "blocks": [
+     {
+      "clueFragment": "dusty environs",
+      "gives": "STYE",
+      "note": "four letters run without a break from inside the first word into the start of the second"
+     }
+    ],
+    "walkthrough": "The definition works hard to look like the surface's subject — grit blown into the eye — while the letters sit in plain view across the final two words.",
+    "definitionFit": "Ocular irritant: the small inflamed swelling on an eyelid is exactly that, something at the eye that hurts and will not be ignored."
+   }
   },
   {
    "id": "23-across",
@@ -464,7 +1119,27 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IPOD",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "IPOD",
+    "definition": "music held here",
+    "definitionNote": "The setter defines by description, not by synonym: a noun is wanted and what the clue offers is a phrase saying what the thing is for.",
+    "indicators": [
+     "Sample from"
+    ],
+    "indicatorNotes": {
+     "Sample from": "A sample is a small piece cut out of something bigger, so a run of letters is lifted straight out of the long word that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Antipodean",
+      "gives": "IPOD",
+      "note": "four consecutive letters sit inside the long word, beginning at its second letter"
+     }
+    ],
+    "walkthrough": "The capital letter and the Australian angle are the misdirection, and the word is long enough that the four letters buried inside it go unnoticed.",
+    "definitionFit": "music held here: the pocket player stores a library of songs, so the phrase points at the object by the job it does rather than by a synonym."
+   }
   },
   {
    "id": "24-across",
@@ -481,7 +1156,32 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETROSPECT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RETROSPECT",
+    "definition": "contemplation of the past",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "edited"
+    ],
+    "indicatorNotes": {
+     "edited": "An editor cuts and moves whatever they are handed, so the text does not come out in the order it went in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Reports, etc.",
+      "gives": "RETROSPECT",
+      "note": "ten letters, the abbreviation counted in, dealt out again"
+     }
+    ],
+    "anagram": {
+     "fodder": "REPORTSETC"
+    },
+    "walkthrough": "'etc.' is not a lazy 'and so on' here: its three letters are part of the fodder, which is the small trick the full stop is hiding.",
+    "definitionFit": "contemplation of the past: the noun names exactly the act of looking back over events once they are already over."
+   }
   },
   {
    "id": "25-across",
@@ -498,7 +1198,35 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "LATE",
+    "definition": "behind",
+    "indicators": [
+     "sent back"
+    ],
+    "indicatorNotes": {
+     "sent back": "Something sent back travels the way it came, so the four letters are read from the far end towards the near one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "And others",
+      "gives": "ETAL",
+      "note": "et al is the Latin tag a bibliography uses for the authors it cannot be bothered to list"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ETAL",
+      "to": "LATE"
+     }
+    ],
+    "pieces": [
+     "LATE"
+    ],
+    "walkthrough": "The definition means behind time, not behind in space: a runner behind the field is the wrong picture, a train behind schedule the right one.",
+    "definitionFit": "behind: in the sense of behind schedule rather than behind in space, which is how a train or a payment earns the word."
+   }
   },
   {
    "id": "26-across",
@@ -521,7 +1249,32 @@ window.CRYPTIC_PUZZLES["everyman-4132"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTENSIBLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OSTENSIBLE",
+    "definition": "So-called",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "dubious"
+    ],
+    "indicatorNotes": {
+     "dubious": "What is dubious cannot be trusted to be what it looks like, and letters that cannot be trusted are not in the order given."
+    },
+    "blocks": [
+     {
+      "clueFragment": "noblesse - it",
+      "gives": "OSTENSIBLE",
+      "note": "ten letters, the italicised French word plus the little pronoun beside it, dealt again"
+     }
+    ],
+    "anagram": {
+     "fodder": "NOBLESSEIT"
+    },
+    "walkthrough": "The italics flag the French word as a quotation, which is the setter dressing the surface; its letters are simply raw material, and the dash is a red herring.",
+    "definitionFit": "So-called: said to be such but not necessarily so, and the adjective marks a reason or a title that is only apparent — the same doubt exactly."
+   }
   }
  ]
 } /*JSON-END*/;
