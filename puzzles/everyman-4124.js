@@ -34,7 +34,37 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "EASYCHAIRS",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "EASY CHAIRS",
+    "definition": "Where to comfortably enjoy",
+    "definitionNote": "The definition names a place and an activity rather than a thing, which is how the setter gets a plural piece of furniture out of a 'where' phrase.",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner traded the opening sounds of two words, so his name alone is the instruction to swap them over."
+    },
+    "pieces": [
+     "EASY",
+     "CHAIRS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "schmaltzy music",
+      "gives": "CHEESY AIRS",
+      "note": "schmaltzy is cheesy, and airs are tunes — that is the plain pair Spooner is handed"
+     },
+     {
+      "clueFragment": "Spooner's schmaltzy music",
+      "soundsLike": "CHEESY AIRS",
+      "gives": "EASY CHAIRS",
+      "note": "say those two words with their opening sounds exchanged: the CH crosses over to the second word and the long E is left at the front of the first"
+     }
+    ],
+    "walkthrough": "The surface offers a sentimental concert; the Reverend's swap turns it into furniture. 'Airs' for tunes is the old sense that makes the plain version sound natural.",
+    "definitionFit": "An easy chair is the padded armchair you sink into, so a pair of them is precisely where you would settle to enjoy something comfortably."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +81,35 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELMS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ELMS",
+    "definition": "trees",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Something done regularly happens at a fixed interval, and the interval wanted here is every second letter."
+    },
+    "linkWords": [
+     "seen in"
+    ],
+    "pieces": [
+     "E",
+     "L",
+     "M",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key limes",
+      "gives": "ELMS",
+      "note": "take every second letter across the two words, starting with the second letter of the first"
+     }
+    ],
+    "walkthrough": "Key limes are a real variety, small and sharp, which is what keeps the surface innocent — nothing about the fruit suggests woodland.",
+    "definitionFit": "Elms are one kind of tree, so the definition names the class the answer belongs to: general standing for particular, plural for plural."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +126,33 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINS",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "SINS",
+    "definition": "Seven in number. Satanic? Originally",
+    "definitionNote": "In an &lit the definition is the whole clue, a description of the answer rather than a phrase that could be swapped in for it, so it carries no plural of its own.",
+    "indicators": [
+     "Originally"
+    ],
+    "indicatorNotes": {
+     "Originally": "The origin of a written word is the letter it starts with, so 'originally' asks for the opening letter of each word."
+    },
+    "pieces": [
+     "S",
+     "I",
+     "N",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seven in number. Satanic",
+      "gives": "SINS",
+      "note": "the initial letters of those four words, taken in the order they stand"
+     }
+    ],
+    "walkthrough": "Read straight, the clue describes the deadly seven and who they were traditionally blamed on; read as wordplay, each word simply hands over its first letter.",
+    "definitionFit": "The seven deadly sins are seven in number and were traditionally laid at Satan's door, so the whole clue reads as a plain description of them."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +169,43 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COGNOSCENTI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "COGNOSCENTI",
+    "definition": "they know",
+    "definitionNote": "The definition is a clause rather than a noun: 'they know' stands in for the people who know, which is what this plural answer names.",
+    "indicators": [
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "bit of": "A bit of something is a small piece of it, and the smallest piece of a written word is the letter it opens with."
+    },
+    "pieces": [
+     "COG",
+     "NO",
+     "SCENT",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unimportant employee",
+      "gives": "COG",
+      "note": "a cog in the machine is the standard image for a worker who counts for little"
+     },
+     {
+      "clueFragment": "no trace",
+      "gives": "NOSCENT",
+      "note": "a trace is a scent, so those two words are written out as they stand"
+     },
+     {
+      "clueFragment": "bit of inkling",
+      "gives": "I",
+      "note": "the letter INKLING opens with"
+     }
+    ],
+    "walkthrough": "The surface grumbles about a nobody in the office and the answer is the opposite — the people in the know. It is Italian for 'those who know'.",
+    "definitionFit": "Cognoscenti are the people with expert knowledge of a subject, so the relative clause 'they know' stands exactly where the plural noun would."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +222,33 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIRFARE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AIRFARE",
+    "definition": "price to go up",
+    "indicators": [],
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "AIR",
+     "FARE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "FARE",
+      "note": "fare is what is set before you to eat, as in bill of fare"
+     }
+    ],
+    "walkthrough": "The colon makes it read as a headline about grocery inflation, so 'price to go up' looks like a verb phrase about rising costs rather than a noun.",
+    "definitionFit": "It is the price of a flight, and 'to go up' is the setter's way of saying by air rather than of anything getting dearer."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +269,42 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROADMAP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ROAD MAP",
+    "definition": "I'll tell you where to go",
+    "definitionNote": "The definition is spoken in the answer's own voice — a whole clause rather than a noun phrase, the object saying what it is for.",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' is positional here — placed around, the way a coat goes about your shoulders — not the 'concerning' sense the surface wants."
+    },
+    "pieces": [
+     "R",
+     "OADM",
+     "AP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perform hiphop",
+      "gives": "RAP",
+      "note": "to rap is to perform hiphop, and this is the word that gets opened up"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o = old, the usual abbreviation"
+     },
+     {
+      "clueFragment": "admiral",
+      "gives": "ADM",
+      "note": "adm. is the standard shortening of the naval rank"
+     }
+    ],
+    "walkthrough": "'I'll tell you where to go' reads as the opening of an argument, which is the misdirection — it is a flat statement of what the thing does for a driver.",
+    "definitionFit": "A road map tells you which way to travel, so the first-person boast is the object describing its own job."
+   }
   },
   {
    "id": "6-across",
@@ -140,7 +321,30 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEWS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HEWS",
+    "definition": "prunes dramatically",
+    "indicators": [
+     "Talked of"
+    ],
+    "indicatorNotes": {
+     "Talked of": "Talking of something is saying it out loud, so what follows is to be judged by sound rather than by spelling."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colours",
+      "soundsLike": "HUES",
+      "gives": "HEWS",
+      "note": "colours are hues, and that word said aloud can be written a second way"
+     }
+    ],
+    "walkthrough": "The surface is a gardener attacking a shrub, and 'talked of' quietly moves the wordplay from ink to sound. Hewing is axe-work, so 'dramatically' is fair warning.",
+    "definitionFit": "To hew is to chop with heavy strokes, which is pruning taken to an extreme — hence the 'dramatically' the setter attaches."
+   }
   },
   {
    "id": "7-down",
@@ -162,7 +366,34 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "EASTOFEDEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EAST OF EDEN",
+    "definition": "one from 1952",
+    "indicators": [
+     "novel"
+    ],
+    "indicatorNotes": {
+     "novel": "A novel thing is a new one, so the letters are asked for in an arrangement they have not been in before — the noun sense is the surface's decoy."
+    },
+    "anagram": {
+     "fodder": "E FEASTED ON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e = English, the standard abbreviation"
+     },
+     {
+      "clueFragment": "feasted on",
+      "gives": "FEASTEDON",
+      "note": "anagram fodder, nine letters, with the E joined on"
+     }
+    ],
+    "walkthrough": "'Novel' is the trap: it looks like the definition sitting where a definition would sit, and it is the anagram signal, leaving 'one' to carry the definition.",
+    "definitionFit": "East of Eden is John Steinbeck's novel of 1952, so 'one' points back at the word before it and the date says which book."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +414,30 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "STABLEBOYS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STABLE BOYS",
+    "definition": "they won't frighten the horses",
+    "definitionNote": "The definition is a clause describing the people rather than a noun naming them, and it leans on the old idiom about not frightening the horses — doing nothing that would alarm anybody.",
+    "indicators": [
+     "cavort"
+    ],
+    "indicatorNotes": {
+     "cavort": "To cavort is to leap about with no order to it, which is what the letters are being told to do."
+    },
+    "anagram": {
+     "fodder": "SO LETS BABY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "So let baby",
+      "gives": "SOLETSBABY",
+      "note": "anagram fodder, ten letters — the printed version dropped the S from 'lets' and the Observer corrected it online the same day; without that S the fodder is a letter short"
+     }
+    ],
+    "walkthrough": "Count the fodder before you trust it: as printed it is one letter shy, and the paper reissued the clue with 'lets' that Sunday. The horses are the giveaway.",
+    "definitionFit": "Stable boys spend their days among horses, so the horses are used to them — the clue defines the job by the calm it leaves behind."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +454,56 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANAGERIAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MANAGERIAL",
+    "definition": "Concerning boss",
+    "indicators": [
+     "in retirement"
+    ],
+    "indicatorNotes": {
+     "in retirement": "Someone in retirement has withdrawn from the field, and a withdrawing across entry is read the other way — right to left along the row."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "MA",
+     "NA",
+     "GE",
+     "RIAL"
+    ],
+    "subReversals": [
+     {
+      "from": "LAIREGANAM",
+      "to": "MANAGERIAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hidey-hole",
+      "gives": "LAIR",
+      "note": "a lair is an animal's hidey-hole"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "eg = say, in the sense 'for example'"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the article taken at face value"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "am. is the standard shortening of American"
+     }
+    ],
+    "walkthrough": "Everything is assembled forwards and then read backwards, so the clue runs left to right while the entry is built right to left. 'Say' = EG is worth keeping; it turns up constantly.",
+    "definitionFit": "Managerial means having to do with a manager, and boss is the everyday word for one, so the adjective sits straight over 'concerning'."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +520,44 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ASIA",
+    "definition": "most of humanity",
+    "indicators": [
+     "step back"
+    ],
+    "indicatorNotes": {
+     "step back": "Stepping back takes you the way you came, so the letters are read in the opposite direction — right to left across the row."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "A",
+     "SIA"
+    ],
+    "subReversals": [
+     {
+      "from": "AISA",
+      "to": "ASIA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps ChatGPT's",
+      "gives": "AIS",
+      "note": "ChatGPT is one instance of AI — 'perhaps' flags the example — and the 's brings an S with it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article at face value"
+     }
+    ],
+    "walkthrough": "The surface argues that machines are a backward step for us all, and the answer is a continent. Modern crossword shorthand: a named chatbot is there to give you AI.",
+    "definitionFit": "Asia holds around sixty per cent of the world's people, so the setter names the continent by the share of humanity living in it."
+   }
   },
   {
    "id": "11-across",
@@ -240,7 +580,30 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOHARMNOFOUL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NO HARM NO FOUL",
+    "definition": "forgive the transgression",
+    "definitionNote": "The answer is a set phrase, not a verb: it is what you say in order to forgive a transgression, so the definition describes the job the phrase does.",
+    "indicators": [
+     "Dodgy"
+    ],
+    "indicatorNotes": {
+     "Dodgy": "Dodgy means not to be trusted, and letters that cannot be trusted will not stay in the order the clue gives them."
+    },
+    "anagram": {
+     "fodder": "MOOLAH FOR NUN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "moolah for nun",
+      "gives": "MOOLAHFORNUN",
+      "note": "anagram fodder, twelve letters — moolah is slang for money"
+     }
+    ],
+    "walkthrough": "'Dodgy moolah for nun' paints a small scandal and the phrase that comes out waves the whole thing away, which is the joke of the surface.",
+    "definitionFit": "It is the American basketball phrase for a foul that cost nobody anything, said to wave a transgression away instead of punishing it."
+   }
   },
   {
    "id": "12-down",
@@ -261,7 +624,29 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "OUTSIDERART",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OUTSIDER ART",
+    "definition": "Creation on the fringes",
+    "indicators": [
+     "bizarrely"
+    ],
+    "indicatorNotes": {
+     "bizarrely": "Something done bizarrely is done in a strange, unexpected way, and letters handled like that come out in a strange order."
+    },
+    "anagram": {
+     "fodder": "ITS OUR TRADE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "it's our trade",
+      "gives": "ITSOURTRADE",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "walkthrough": "The surface is a couple of craftspeople describing their line of work, and the answer is what galleries call art made right outside the art world.",
+    "definitionFit": "Outsider art is work by self-taught makers beyond the mainstream, so the phrase names both the making and the position it is made from."
+   }
   },
   {
    "id": "13-down",
@@ -278,7 +663,32 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGISTRANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "REGISTRANT",
+    "definition": "One signing in",
+    "indicators": [
+     "after revision"
+    ],
+    "indicatorNotes": {
+     "after revision": "A revision is a reworking, so the word comes back with its letters worked over into another arrangement."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "RESTARTING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "restarting",
+      "gives": "RESTARTING",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "walkthrough": "'Signing in' and 'restarting' both belong to the same computer screen, which is what makes the definition so hard to see as a definition.",
+    "definitionFit": "A registrant is somebody who has put their name on a register, which is exactly what signing in amounts to."
+   }
   },
   {
    "id": "14-down",
@@ -299,7 +709,24 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "PROPERNOUN",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PROPER NOUN",
+    "definition": "May, say, but may ... not",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "May, say",
+      "note": "with its capital, May is a month and a surname — a name for one particular thing, which is the test being applied"
+     },
+     {
+      "clueFragment": "but may ... not",
+      "note": "in lower case the same three letters are an ordinary verb of permission, no kind of name, and so fail that test"
+     }
+    ],
+    "walkthrough": "One word inspected twice. A capital at the start of a clue is invisible, since every clue starts with one, which is why 'May, say' looks like an example of something else.",
+    "definitionFit": "A proper noun is a name for a particular person, place or month, so capital-M May qualifies while the modal verb never could."
+   }
   },
   {
    "id": "15-across",
@@ -316,7 +743,30 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARACHE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade",
+    "answer": "EARACHE",
+    "definition": "What makes a lug smart?",
+    "indicators": [],
+    "pieces": [
+     "EAR",
+     "ACHE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lug",
+      "gives": "EAR",
+      "note": "lug is northern and Scottish slang for the thing you hear with"
+     },
+     {
+      "clueFragment": "smart",
+      "gives": "ACHE",
+      "note": "to smart is to sting or hurt — the verb, not the adjective the surface suggests"
+     }
+    ],
+    "walkthrough": "Read as a question it is a riddle, read as instructions it is two words laid end to end, and both readings land on the same thing. That double duty is what &lit means.",
+    "definitionFit": "The whole clue reads straight: the complaint named is precisely a pain in the ear, so the question doubles as its own definition."
+   }
   },
   {
    "id": "16-across",
@@ -337,7 +787,26 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "POTHERB",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "POT-HERB",
+    "definition": "culinary flavouring",
+    "indicators": [
+     "that contains"
+    ],
+    "indicatorNotes": {
+     "that contains": "Something that contains a thing has it inside, and the containing here is literal — the letters are sitting inside the words themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Swap other basket",
+      "gives": "POTHERB",
+      "note": "the letters run on consecutively from the end of the first word, straight through the second and into the start of the third"
+     }
+    ],
+    "walkthrough": "'Swap' invites you to rearrange the letters of what follows, and that is the trap: nothing moves here, and the whole answer has been lying in plain sight all along.",
+    "definitionFit": "A pot-herb is any leaf grown for the cooking pot — parsley, sorrel, chervil — so it is a flavouring in the kitchen sense."
+   }
   },
   {
    "id": "17-across",
@@ -354,7 +823,41 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPINGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "IMPINGE",
+    "definition": "to intrude",
+    "indicators": [
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a written word is the letter it starts with, so only that single opening letter is wanted."
+    },
+    "pieces": [
+     "IM",
+     "PING",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman's",
+      "gives": "IM",
+      "note": "Everyman is what this setter calls himself, so 'Everyman's' is I'M"
+     },
+     {
+      "clueFragment": "to send text",
+      "gives": "PING",
+      "note": "to ping somebody is to send them a quick message"
+     },
+     {
+      "clueFragment": "Everyman's beginning",
+      "gives": "E",
+      "note": "the letter the setter's name starts with"
+     }
+    ],
+    "walkthrough": "Everyman signs his own clues, so his name means both I'M and the letter it opens with — the same word doing two different jobs a few syllables apart.",
+    "definitionFit": "To impinge on something is to encroach on it, which is what intruding is: advancing into a place you were not invited."
+   }
   },
   {
    "id": "18-down",
@@ -371,7 +874,30 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXHAUST",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "EXHAUST",
+    "definition": "Sap",
+    "definition2": "a kind of pipe",
+    "indicators": [],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sap",
+      "gives": "",
+      "note": "the verb sense: to sap somebody is to drain their strength away"
+     },
+     {
+      "clueFragment": "a kind of pipe",
+      "gives": "",
+      "note": "a noun and a different word altogether — the tube that carries burnt gases out of an engine"
+     }
+    ],
+    "walkthrough": "The two senses share a spelling and nothing else, and 'getting' is there only to join them. 'A kind of' is the usual flag that a category, not a synonym, is being pointed at.",
+    "definitionFit": "To exhaust somebody is to sap their energy, and an exhaust is the pipe venting an engine's spent gases: one verb, one noun."
+   }
   },
   {
    "id": "19-across",
@@ -388,7 +914,44 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPIDERY",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SPIDERY",
+    "definition": "like Black Widow?",
+    "indicators": [
+     "Abrupt",
+     "into"
+    ],
+    "indicatorNotes": {
+     "Abrupt": "An abrupt ending stops before it should, so the word is cut short of its final letter.",
+     "into": "'Into' puts one thing inside another, so what stands before it is buried in what comes after."
+    },
+    "pieces": [
+     "SP",
+     "IDE",
+     "R",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intelligence agent",
+      "gives": "SPY",
+      "note": "a spy is an intelligence agent, and it is this word that gets opened up"
+     },
+     {
+      "clueFragment": "Abrupt notion",
+      "gives": "IDE",
+      "note": "a notion is an IDEA, docked of its last letter"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "r = run, the cricket scorer's abbreviation"
+     }
+    ],
+    "walkthrough": "Black Widow is the Marvel spy, which is why the definition sits so quietly at the end. The clue wants the other black widow, the one with eight legs.",
+    "definitionFit": "The answer means like a spider, and a black widow is a spider — the question mark marks a definition by example rather than a synonym."
+   }
   },
   {
    "id": "19-down",
@@ -405,7 +968,40 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOTTIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCOTTIE",
+    "definition": "pooch",
+    "indicators": [],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "pieces": [
+     "S",
+     "COT",
+     "TIE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "s = small, as on a clothing label"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "TIE",
+      "note": "to couple two things is to tie them together — the verb, not the pair"
+     }
+    ],
+    "walkthrough": "A nationality falls out of the first two pieces by accident, which is half the pleasure: 'small bed' has nothing to do with Scotland and produces it anyway.",
+    "definitionFit": "A Scottie is a Scottish terrier and pooch is affectionate slang for a dog, so the general word is defining one particular breed."
+   }
   },
   {
    "id": "20-across",
@@ -426,7 +1022,24 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "TURKISHTOWEL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TURKISH TOWEL",
+    "definition": "What gets wetter when it dries up in Istanbul?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "What gets wetter when it dries",
+      "note": "the old riddle: whatever does the drying takes on all the water it removes, so it ends up soaked"
+     },
+     {
+      "clueFragment": "up in Istanbul",
+      "note": "'dries up' looks like one phrase about a drought; split it and the rest is only saying which country the thing comes from"
+     }
+    ],
+    "walkthrough": "The paradox is literally true rather than a trick of words, and Istanbul is there to supply the nationality — the plain word on its own would be four letters short.",
+    "definitionFit": "A Turkish towel is the thick looped-cotton bath towel, and a towel is the answer to the old riddle about growing wetter as it dries."
+   }
   },
   {
    "id": "21-down",
@@ -443,7 +1056,27 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CIAO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CIAO",
+    "definition": "A friendly 'hello' in Naples",
+    "definition2": "quite the opposite",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "A friendly 'hello' in Naples",
+      "gives": "",
+      "note": "Naples is doing no more than telling you which language to greet somebody in"
+     },
+     {
+      "clueFragment": "quite the opposite",
+      "gives": "",
+      "note": "the very same word is what Italians say on leaving, so the greeting doubles as a farewell"
+     }
+    ],
+    "walkthrough": "One word for both ends of a meeting is unusual in English, which is why the clue can define it twice and still read as a single sentence about Italy.",
+    "definitionFit": "Ciao is the Italian greeting used both on arrival and on departure, so 'hello' and its opposite are equally accurate."
+   }
   },
   {
    "id": "22-down",
@@ -460,7 +1093,29 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENID",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ENID",
+    "definition": "Maybe Blyton",
+    "indicators": [
+     "a bit"
+    ],
+    "indicatorNotes": {
+     "a bit": "A bit of something is a small piece taken from inside it, which is exactly where these letters are sitting."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uneven? I daresay",
+      "gives": "ENID",
+      "note": "the letters run on from the end of the first word, through the one-letter word, and into the start of the last"
+     }
+    ],
+    "walkthrough": "'A bit uneven' reads as mild criticism of the writing, which is the innocent surface a hidden word needs, and the capital I helps disguise the join.",
+    "definitionFit": "It was Blyton's first name, so the definition points at the answer through the surname everyone knows — 'maybe' flags one example among many."
+   }
   },
   {
    "id": "23-across",
@@ -477,7 +1132,29 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATOM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ATOM",
+    "definition": "Tiny thing",
+    "indicators": [],
+    "linkWords": [
+     "seen in"
+    ],
+    "pieces": [
+     "A",
+     "TO",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first half of dictionary",
+      "gives": "ATOM",
+      "note": "a dictionary runs from A to Z, so the half you reach first stops at M, and that span written out as a range is the wordplay"
+     }
+    ],
+    "walkthrough": "The wordplay takes no letters out of the word 'dictionary' at all — it is the range the entries cover, written as you would say it.",
+    "definitionFit": "An atom is the smallest unit of an element, the everyday byword for something too small to see."
+   }
   },
   {
    "id": "24-across",
@@ -494,7 +1171,49 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUSTRALIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "AUSTRALIAN",
+    "definition": "he from Perth",
+    "indicators": [
+     "taken back"
+    ],
+    "indicatorNotes": {
+     "taken back": "Taking something back sends it the way it came, so those letters are read from the right-hand end of the row instead."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "AU",
+     "STRALIAN"
+    ],
+    "subReversals": [
+     {
+      "from": "NAILARTS",
+      "to": "STRALIAN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "au is the chemical symbol for gold, from the Latin aurum"
+     },
+     {
+      "clueFragment": "pin",
+      "gives": "NAIL",
+      "note": "a nail is a pin you hammer in"
+     },
+     {
+      "clueFragment": "Arthur's",
+      "gives": "ARTS",
+      "note": "Art is the familiar short form of Arthur, and the 's comes along with it"
+     }
+    ],
+    "walkthrough": "Perth is the trap — there is one in Scotland too, and an Arthur nudges you towards it. The reversal runs across both of the last two pieces at once, not just the pin.",
+    "definitionFit": "Perth is the state capital of Western Australia, so a man from there is one — a definition by a single city standing for the whole country."
+   }
   },
   {
    "id": "25-across",
@@ -511,7 +1230,27 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TANK",
+    "definition": "Cistern",
+    "definition2": "to fail - at great cost",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Cistern",
+      "gives": "",
+      "note": "the plain noun: a large container for holding water"
+     },
+     {
+      "clueFragment": "to fail - at great cost",
+      "gives": "",
+      "note": "the verb, borrowed from American sport and the box office, where a film that flops expensively is said to do this"
+     }
+    ],
+    "walkthrough": "A dash is all that separates the two definitions, which is why the clue reads as one sentence about a plumbing disaster.",
+    "definitionFit": "The noun is a cistern for storing water and the verb is to fail spectacularly, usually of a film losing money — same spelling, unrelated senses."
+   }
   },
   {
    "id": "26-across",
@@ -532,7 +1271,30 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
     ]
    },
    "solution": "STREETFOOD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STREET FOOD",
+    "definition": "Trendy dining option",
+    "indicators": [],
+    "pieces": [
+     "STREET",
+     "FOOD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coronation",
+      "gives": "STREET",
+      "note": "Coronation Street is Britain's longest-running television soap, so the name supplies the word that follows it"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "FOOD",
+      "note": "chicken is one example of the general category, so the category is what the word gives you"
+     }
+    ],
+    "walkthrough": "Coronation chicken is a real dish, invented for the Queen's coronation in 1953, and that is the whole misdirection: those two words belong to different halves of the clue.",
+    "definitionFit": "It is what is cooked and sold from stalls and vans, the fashionable way of eating out that the definition is pointing at."
+   }
   }
  ]
 } /*JSON-END*/;
