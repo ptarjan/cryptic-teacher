@@ -171,7 +171,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Imogen",
    "date": 1787961600000,
    "file": "cryptic-30098.js",
-   "v": "552a82c1",
+   "v": "ee9cc902",
    "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": true,
