@@ -30,7 +30,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RASH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RASH",
+    "definition": "Unguarded",
+    "definition2": "hives?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Unguarded",
+      "gives": "",
+      "note": "of a person or a remark: made without a thought for the consequences, with nothing held back in reserve"
+     },
+     {
+      "clueFragment": "hives?",
+      "gives": "",
+      "note": "the itchy raised welts of urticaria, one particular outbreak on the skin — which is what the question mark admits"
+     }
+    ],
+    "walkthrough": "Two words, no joinery at all, and the two senses are miles apart: one is about somebody's character, the other about their skin.",
+    "definitionFit": "Unguarded is the reckless sense, acting before thinking; hives are nettle welts, so that half is definition by example of a skin eruption."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +67,47 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACCORDION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ACCORDION",
+    "definition": "musical instrument",
+    "indicators": [
+     "to pick up"
+    ],
+    "indicatorNotes": {
+     "to pick up": "In a down entry, picking a thing up carries it towards the top of the grid, so the short word beside it is written from its far end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Agreement",
+      "gives": "ACCORD",
+      "note": "an accord is a formal agreement between parties, the word used of treaties"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter signs these puzzles Everyman, and a setter speaking of himself is I"
+     },
+     {
+      "clueFragment": "never",
+      "gives": "ON",
+      "note": "never is a flat refusal and so is no, which is the pair of letters that then travels upward"
+     }
+    ],
+    "pieces": [
+     "ACCORD",
+     "I",
+     "ON"
+    ],
+    "subReversals": [
+     {
+      "from": "NO",
+      "to": "ON"
+     }
+    ],
+    "walkthrough": "The colon makes 'Agreement' look like a heading announcing what follows. It is the first piece of the build, and the definition is the two words at the very end.",
+    "definitionFit": "musical instrument → ACCORDION: definition by example, the bellows-and-buttons squeezebox standing in for the whole category."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +124,32 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HANDSET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HANDSET",
+    "definition": "phone component",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Milk that has gone off has turned, and letters told they have turned will not stay in the order the clue prints them."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "HAD SENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Had sent",
+      "gives": "HADSENT",
+      "note": "seven letters handed over whole, the past-perfect verb chosen only for what it contains"
+     }
+    ],
+    "walkthrough": "'Had sent off' reads as posting a parcel, and that ordinary picture is what stops anybody counting the seven letters sitting in front of the definition.",
+    "definitionFit": "phone component → HANDSET: the part you lift and hold to your ear, so the definition names it as one piece of the telephone."
+   }
   },
   {
    "id": "4-across",
@@ -81,7 +166,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BALE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BALE",
+    "definition": "package",
+    "indicators": [
+     "Announced"
+    ],
+    "indicatorNotes": {
+     "Announced": "To announce a thing is to say it out loud, so the clue describes a sound and leaves the spelling for you to settle."
+    },
+    "blocks": [
+     {
+      "clueFragment": "legal collateral",
+      "soundsLike": "BAIL",
+      "gives": "BALE",
+      "note": "the money a court holds as security for a defendant's return is bail"
+     }
+    ],
+    "walkthrough": "One sound, two spellings, and nothing connects them: the security a court takes and the bundle a farmer stacks share only their pronunciation.",
+    "definitionFit": "package → BALE: a large bundle of hay, wool or cotton bound up for storage or transport, so it is one particular shape of parcel."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +203,42 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BORSTAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BORSTAL",
+    "definition": "here?",
+    "definitionNote": "'Here' only points at a place rather than naming one; the rest of the sentence says what sort of place, which is how an adverb comes to stand in for a noun.",
+    "indicators": [
+     "picked up"
+    ],
+    "indicatorNotes": {
+     "picked up": "A down entry runs from the top, so anything picked up is read from the bottom upward — and in the surface the same phrase means arrested."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Muscle collective",
+      "gives": "LATS",
+      "note": "the lats are the latissimus dorsi, the broad pair of back muscles gym-goers name as a group"
+     },
+     {
+      "clueFragment": "commit crime",
+      "gives": "ROB",
+      "note": "to rob is to commit one particular crime, taking property by stealth or by force"
+     }
+    ],
+    "pieces": [
+     "BOR",
+     "STAL"
+    ],
+    "subReversals": [
+     {
+      "from": "LATSROB",
+      "to": "BORSTAL"
+     }
+    ],
+    "walkthrough": "A borstal was the British institution for young offenders, abolished in 1982 and still the word for where a teenage criminal was sent. Arrest in the surface, a turnaround in the parse.",
+    "definitionFit": "here? → BORSTAL: the question mark owns up to a bare pointer, and what the sentence points at is the place a young offender was sent after arrest."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +255,34 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOSER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LOSER",
+    "definition": "No-hoper",
+    "indicators": [
+     "abandoning"
+    ],
+    "indicatorNotes": {
+     "abandoning": "To abandon a thing is to walk away leaving it behind, and what gets left behind here is the single letter named just before the word."
+    },
+    "blocks": [
+     {
+      "clueFragment": "one sealing deal",
+      "gives": "CLOSER",
+      "note": "the closer is the salesman brought in at the end to get the contract signed"
+     },
+     {
+      "clueFragment": "charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet, and it is the letter that goes"
+     }
+    ],
+    "pieces": [
+     "LOSER"
+    ],
+    "walkthrough": "'Charlie' looks like a name in a story about a business deal, and the small c is the only sign the setter gives that it is one letter instead.",
+    "definitionFit": "No-hoper → LOSER: a person with no chance of winning, the noun for somebody who fails at things rather than one who has mislaid something."
+   }
   },
   {
    "id": "6-down",
@@ -132,7 +299,41 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPARTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SPARTA",
+    "definition": "somewhere in ancient Greece",
+    "indicators": [
+     "backfiring"
+    ],
+    "indicatorNotes": {
+     "backfiring": "A plan that backfires comes back on the person who laid it, so the pieces assembled so far are read from the far end instead."
+    },
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the indefinite article taken as itself, one letter before anything else is done"
+     },
+     {
+      "clueFragment": "sneaky trick's",
+      "gives": "TRAPS",
+      "note": "a trap is the sneaky trick you lay for somebody, and the apostrophe-s supplies a fifth letter"
+     }
+    ],
+    "pieces": [
+     "SPART",
+     "A"
+    ],
+    "subReversals": [
+     {
+      "from": "ATRAPS",
+      "to": "SPARTA"
+     }
+    ],
+    "walkthrough": "The apostrophe does two jobs: in the surface it is 'is', holding the sentence together, and in the parse it is a plain S that the assembly cannot do without.",
+    "definitionFit": "somewhere in ancient Greece → SPARTA: the militaristic city-state that fought Athens in the Peloponnesian War, so a vague location is answered by naming one."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +354,36 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "AGEOLD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AGE-OLD",
+    "definition": "Ancient",
+    "indicators": [
+     "sporting"
+    ],
+    "indicatorNotes": {
+     "sporting": "To sport a hat or a badge is to wear it where it shows, so the piece named next is worn inside the other one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a medal",
+      "gives": "A GOLD",
+      "note": "the medal a winner takes is a gold, and the article in front of it is part of the material"
+     },
+     {
+      "clueFragment": "earl",
+      "gives": "E",
+      "note": "E is the standard abbreviation for an earl, as printed in lists of the peerage"
+     }
+    ],
+    "pieces": [
+     "AG",
+     "E",
+     "OLD"
+    ],
+    "walkthrough": "Peerage abbreviations are worth learning as a set — D for duke, M marquess, E earl, V viscount, B baron — because a title in a clue is usually just its letter.",
+    "definitionFit": "Ancient → AGE-OLD: both mean having existed for a very long time, though this one attaches to customs, questions and traditions rather than to ruins."
+   }
   },
   {
    "id": "8-across",
@@ -174,7 +404,34 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "PELICANCROSSING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PELICAN CROSSING",
+    "definition": "Safe arrangement",
+    "indicators": [],
+    "linkWords": [
+     "in which",
+     "comes with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large bill?",
+      "gives": "PELICAN",
+      "note": "the bird whose pouched beak is big enough to hold its own catch; the question mark allows that other birds have large bills too"
+     },
+     {
+      "clueFragment": "breeding",
+      "gives": "CROSSING",
+      "note": "breeding one strain with another is crossing them, the word a stockman or a horticulturist uses"
+     }
+    ],
+    "pieces": [
+     "PELICAN",
+     "CROSSING"
+    ],
+    "walkthrough": "A pelican crossing is the British road crossing whose lights a pedestrian presses for, named from PEdestrian LIght CONtrolled — while the surface reads as a zoo's breeding programme.",
+    "definitionFit": "Safe arrangement → PELICAN CROSSING: a light-controlled place to walk across a busy road, so the definition describes it by what it is there for."
+   }
   },
   {
    "id": "9-down",
@@ -191,7 +448,32 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOGARITHMIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LOGARITHMIC",
+    "definition": "concerning operation",
+    "indicators": [
+     "deployed"
+    ],
+    "indicatorNotes": {
+     "deployed": "Troops deployed are spread out into fresh positions, and letters moved into fresh positions are no longer in the order they were handed over in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "A MICROLIGHT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A microlight",
+      "gives": "AMICROLIGHT",
+      "note": "eleven letters straight from the clue; a microlight is the tiny one-person aircraft"
+     }
+    ],
+    "walkthrough": "Eleven letters for an eleven-letter entry is the tell, and the aviation surface — a small aircraft sent up on a mission — is doing all the work of hiding them.",
+    "definitionFit": "concerning operation → LOGARITHMIC: taking a logarithm is a mathematical operation, so the adjective means belonging to that one rather than to surgery or war."
+   }
   },
   {
    "id": "10-down",
@@ -208,7 +490,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICEBREAKERS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ICEBREAKERS",
+    "definition": "topics to start conversation",
+    "definition2": "They float",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "topics to start conversation",
+      "gives": "",
+      "note": "the opening question or silly game at a party, there to get strangers talking to each other"
+     },
+     {
+      "clueFragment": "They float",
+      "gives": "",
+      "note": "read the first two words as ships instead: the reinforced vessels that shoulder a channel through frozen sea"
+     }
+    ],
+    "walkthrough": "Nothing punctuates the join, so the whole thing reads as one remark about a party; the two words at the front are a definition in their own right.",
+    "definitionFit": "One half is the party sense, a topic that gets strangers talking; the other is the strengthened ship that shoulders a way through pack ice."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +527,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGARDS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REGARDS",
+    "definition": "Compliments",
+    "definition2": "looks",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Compliments",
+      "gives": "",
+      "note": "the plural noun signed at the foot of a letter — good wishes sent to somebody"
+     },
+     {
+      "clueFragment": "looks",
+      "gives": "",
+      "note": "the verb instead: to look at a thing steadily, or to consider it in a certain light"
+     }
+    ],
+    "walkthrough": "Two words and no joinery, the hardest shape a clue can take: one half is a noun, the other a verb, and nothing whatever says where the definition stops.",
+    "definitionFit": "Compliments are the good wishes sent at the end of a letter; looks is the verb for viewing or considering — one word covering two parts of speech."
+   }
   },
   {
    "id": "12-across",
@@ -242,7 +564,42 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORPEDO",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TORPEDO",
+    "definition": "Put an end to",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "About means round the outside of a thing, so the word beside it wraps itself round the two pieces that come after."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fuss",
+      "gives": "TODO",
+      "note": "a to-do is a fuss or a commotion, as in 'what a to-do'"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the letter printed beside a candidate's name on an American ballot"
+     },
+     {
+      "clueFragment": "games",
+      "gives": "PE",
+      "note": "games at a British school is PE, the physical education lesson"
+     }
+    ],
+    "pieces": [
+     "TO",
+     "R",
+     "PE",
+     "DO"
+    ],
+    "walkthrough": "The wrapper opens after only two letters, which is why 'fuss' looks far too short to hold anything at all.",
+    "definitionFit": "Put an end to → TORPEDO: the figurative sense of sinking a plan or a negotiation outright, borrowed from what the weapon does to a ship."
+   }
   },
   {
    "id": "13-across",
@@ -263,7 +620,41 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "AIRPISTOL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "AIR PISTOL",
+    "definition": "arm",
+    "indicators": [
+     "will dance",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "will dance": "Dancing is movement that will not hold a line, so the letters gathered beside it end up somewhere other than where they started.",
+     "mostly": "Mostly means all of it bar a little, and the little dropped is the final letter of the word standing next to it."
+    },
+    "anagram": {
+     "fodder": "I PILOTS AR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun taken as a single letter, the first thing thrown into the mix"
+     },
+     {
+      "clueFragment": "pilots",
+      "gives": "PILOTS",
+      "note": "six more letters lifted straight from the clue"
+     },
+     {
+      "clueFragment": "arm",
+      "gives": "AR",
+      "note": "the first of the clue's two limbs, with its last letter dropped"
+     }
+    ],
+    "walkthrough": "'Arm in arm' is one warm phrase in the surface and two separate jobs in the parse: the first arm supplies two letters, the second is the definition.",
+    "definitionFit": "arm → AIR PISTOL: an arm is a weapon, so this is definition by example — one particular target-shooting sidearm standing for the general word."
+   }
   },
   {
    "id": "14-across",
@@ -284,7 +675,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "GORED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GO RED",
+    "definition": "Stuck",
+    "definition2": "flush",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Stuck",
+      "gives": "",
+      "note": "close the gap between the two words and you have the past tense of what a bull does with its horns — pierced, and so stuck"
+     },
+     {
+      "clueFragment": "flush",
+      "gives": "",
+      "note": "to flush is what a face does when its owner is embarrassed, the colour rising into the cheeks"
+     }
+    ],
+    "walkthrough": "The enumeration promises two words and the second definition needs them; the first needs the space closed up. The letters are fixed, the gaps are the setter's to move.",
+    "definitionFit": "Flush is the blushing sense, colour rising to the cheeks; stuck fits the same letters read as one word, what a bull's horn does to a matador."
+   }
   },
   {
    "id": "14-down",
@@ -305,7 +716,29 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "GETBEHIND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GET BEHIND",
+    "definition": "Support",
+    "indicators": [
+     "rogue"
+    ],
+    "indicatorNotes": {
+     "rogue": "A rogue elephant has left the herd and does as it pleases, so the letters beside the word will not keep the arrangement they were given."
+    },
+    "anagram": {
+     "fodder": "BENIGHTED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "benighted",
+      "gives": "BENIGHTED",
+      "note": "nine letters handed over whole; benighted means overtaken by darkness, or else ignorant"
+     }
+    ],
+    "walkthrough": "'Benighted rogue' reads as a description of one shady person, and that is what stops you seeing that one of the two words is only there to shuffle the other.",
+    "definitionFit": "Support → GET BEHIND: to get behind a candidate or a campaign is to back it publicly, the idiom of pushing from the rear rather than leading."
+   }
   },
   {
    "id": "15-across",
@@ -326,7 +759,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LET ON",
+    "definition": "Allow to board",
+    "definition2": "squeal",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Allow to board",
+      "gives": "",
+      "note": "the conductor's sense: permitting a passenger up onto a bus or a train"
+     },
+     {
+      "clueFragment": "squeal",
+      "gives": "",
+      "note": "to squeal is to give the game away, telling what you were meant to keep quiet about"
+     }
+    ],
+    "walkthrough": "The dash makes it look like a sentence interrupted, and the 'and' is the only joinery in the clue: two unrelated senses of the same two small words.",
+    "definitionFit": "One sense is letting a passenger climb aboard; the other is giving a secret away, which English keeps alive in the phrase 'don't let on'."
+   }
   },
   {
    "id": "15-down",
@@ -343,7 +796,33 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMBDA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAMBDA",
+    "definition": "Greek character",
+    "indicators": [],
+    "linkWords": [
+     "represented by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naïve type",
+      "gives": "LAMB",
+      "note": "an innocent led into something is a lamb, as in lamb to the slaughter"
+     },
+     {
+      "clueFragment": "US lawyer",
+      "gives": "DA",
+      "note": "the DA is the district attorney, the state's prosecutor in an American court"
+     }
+    ],
+    "pieces": [
+     "LAMB",
+     "DA"
+    ],
+    "walkthrough": "'Greek character' is a person in the surface and a letter of the alphabet in the parse — the commonest swap in cryptics, and worth expecting every time.",
+    "definitionFit": "Greek character → LAMBDA: the eleventh letter of the Greek alphabet, so 'character' means a written symbol rather than somebody's personality."
+   }
   },
   {
    "id": "16-across",
@@ -364,7 +843,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "GREATDANE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GREAT DANE",
+    "definition": "Maybe Hans Christian Andersen",
+    "definition2": "the dog!",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Hans Christian Andersen",
+      "gives": "",
+      "note": "the writer of the fairy tales was born in Odense and is about as distinguished as his countrymen come; 'maybe' allows that others qualify"
+     },
+     {
+      "clueFragment": "the dog!",
+      "gives": "",
+      "note": "the second reading is the breed: the huge smooth-coated hound that stands waist-high to its owner"
+     }
+    ],
+    "walkthrough": "The comma invites you to read the whole thing as one exclamation about a man, and the two words after it are quietly doing a job of their own.",
+    "definitionFit": "One half is definition by example, a famous Dane of the first rank; the other is the breed of very large hound that goes by the same name."
+   }
   },
   {
    "id": "16-down",
@@ -381,7 +880,36 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLASGOW",
-   "annotation": null
+   "annotation": {
+    "type": "outer letters + anagram",
+    "answer": "GLASGOW",
+    "definition": "City",
+    "indicators": [
+     "exhausted",
+     "unlikely"
+    ],
+    "indicatorNotes": {
+     "exhausted": "An exhausted supply has had its middle used up, so only the letters standing at either end of the word are left.",
+     "unlikely": "An unlikely story is one that does not hold together, and letters that do not hold together have to be put back in some other order."
+    },
+    "anagram": {
+     "fodder": "WG GOALS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "wing",
+      "gives": "WG",
+      "note": "the first and last letters of the word, everything inside having gone"
+     },
+     {
+      "clueFragment": "goal's",
+      "gives": "GOALS",
+      "note": "five more letters, with the apostrophe counting for nothing"
+     }
+    ],
+    "walkthrough": "The surface is a match report — a winger running out of steam, a goal that will not come — and every word of it is either letters or an instruction to move them.",
+    "definitionFit": "City → GLASGOW: definition by example, Scotland's largest city standing in for the general word, and the capital letter at the start of a clue signals nothing."
+   }
   },
   {
    "id": "17-down",
@@ -398,7 +926,30 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARSHOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EARSHOT",
+    "definition": "Hearing",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "they're talking about you?",
+      "gives": "EARS",
+      "note": "the old superstition says the pair on the sides of your head give it away when you are discussed behind your back"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "HOT",
+      "note": "the sign in that superstition is a sudden burning glow, which in one word is what burning makes a thing"
+     }
+    ],
+    "pieces": [
+     "EARS",
+     "HOT"
+    ],
+    "walkthrough": "The whole clue leans on a folk belief rather than on any convention, and the question mark is the setter admitting as much.",
+    "definitionFit": "Hearing → EARSHOT: within earshot means within the distance at which a thing can be heard, so the word names the range of somebody's hearing."
+   }
   },
   {
    "id": "18-down",
@@ -415,7 +966,26 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARNED",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EARNED",
+    "definition": "Achieved",
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "Somewhat means to a partial degree, so what is wanted is a part of the word that follows rather than the whole of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "learnedly",
+      "gives": "EARNED",
+      "note": "six consecutive letters inside the long adverb, beginning one letter in from the front"
+     }
+    ],
+    "walkthrough": "Only two words follow the comma and the hiding place is one of them: an adverb odd enough to have been chosen for its letters rather than its sense.",
+    "definitionFit": "Achieved → EARNED: the sense of having got something by deserving it — a reputation, a rest, a place — rather than merely having reached it."
+   }
   },
   {
    "id": "19-across",
@@ -432,7 +1002,29 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOMBASA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MOMBASA",
+    "definition": "somewhere in Kenya",
+    "indicators": [
+     "choreographed"
+    ],
+    "indicatorNotes": {
+     "choreographed": "A choreographer sets dancers moving into new positions, and the letters beside the word are moved about in exactly that way."
+    },
+    "anagram": {
+     "fodder": "A MAMBO'S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A mambo's",
+      "gives": "AMAMBOS",
+      "note": "seven letters from the clue; the mambo is the Cuban ballroom dance, and the apostrophe-s gives the last of them"
+     }
+    ],
+    "walkthrough": "Mombasa is Kenya's old port on the Indian Ocean rather than its capital, and the clue says 'somewhere' precisely because it will not narrow the country down for you.",
+    "definitionFit": "somewhere in Kenya → MOMBASA: the country's second city and its main seaport, so a deliberately vague pointer is answered by naming one place."
+   }
   },
   {
    "id": "20-down",
@@ -449,7 +1041,26 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANISE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ANISE",
+    "definition": "Aromatic",
+    "indicators": [
+     "slice of"
+    ],
+    "indicatorNotes": {
+     "slice of": "A slice is cut out of the middle of a thing, so a short run of letters is taken from the words that follow and the rest left alone."
+    },
+    "blocks": [
+     {
+      "clueFragment": "flan I served",
+      "gives": "ANISE",
+      "note": "five consecutive letters that run across both gaps, starting inside the first word"
+     }
+    ],
+    "walkthrough": "Three short words of a dinner-party sentence, and the run crosses two spaces — which is what makes a hidden word laid across a phrase so hard to see.",
+    "definitionFit": "Aromatic → ANISE: an aromatic is a plant or substance with a strong scent, and this is the liquorice-flavoured seed used in baking and drinks."
+   }
   },
   {
    "id": "21-across",
@@ -470,7 +1081,31 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROEDEER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ROE DEER",
+    "definition": "woodland creatures",
+    "indicators": [
+     "Uncapped",
+     "wounded"
+    ],
+    "indicatorNotes": {
+     "Uncapped": "A cap sits on top of a thing, so a word uncapped has lost the letter at its front; the sporting sense, never having played for one's country, belongs to the surface.",
+     "wounded": "A wounded animal moves crookedly, and letters made to move crookedly do not arrive in the order they set off in."
+    },
+    "anagram": {
+     "fodder": "EDERERO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "pederero",
+      "gives": "EDERERO",
+      "note": "a pederero was a small ship's cannon; the P at its front is the letter the cap takes away"
+     }
+    ],
+    "walkthrough": "Nobody knows the word 'pederero', and that is the point: an unfamiliar string of letters sitting in a clue is nearly always there to be rearranged.",
+    "definitionFit": "woodland creatures → ROE DEER: the small native deer of British woods, a name that does not change between one animal and a herd of them."
+   }
   },
   {
    "id": "22-across",
@@ -492,7 +1127,29 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
     ]
    },
    "solution": "DUCKINGTHEISSUE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DUCKING THE ISSUE",
+    "definition": "avoiding reality",
+    "indicators": [
+     "blunder"
+    ],
+    "indicatorNotes": {
+     "blunder": "To blunder about is to stumble around with no sense of direction, so the letters named before it finish up somewhere other than where they began."
+    },
+    "anagram": {
+     "fodder": "STUCK INSIDE HUGE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stuck inside - huge",
+      "gives": "STUCKINSIDEHUGE",
+      "note": "fifteen letters for a fifteen-letter entry, three ordinary words picked for what they contain"
+     }
+    ],
+    "walkthrough": "'Blunder' wants to be the noun in a sentence about a mistake, and it is the verb. The dashes chop the clue into three so the fodder never looks like one block of letters.",
+    "definitionFit": "avoiding reality → DUCKING THE ISSUE: to duck is to dodge, and the idiom means side-stepping the question that actually matters instead of facing it."
+   }
   },
   {
    "id": "23-across",
@@ -509,7 +1166,47 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEOW",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "MEOW",
+    "definition": "Primarily, mog's exclamation (or wail!)",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "Primarily means in the first place, so it asks for the opening letter of each word that follows, taken in the order they are printed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "mog's",
+      "gives": "M",
+      "note": "the opening letter; a mog is British slang for a cat"
+     },
+     {
+      "clueFragment": "exclamation",
+      "gives": "E",
+      "note": "the second initial, from a word that says what sort of noise is coming"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "O",
+      "note": "even the little joining word gives up its initial"
+     },
+     {
+      "clueFragment": "wail!",
+      "gives": "W",
+      "note": "the last initial, from a word for a long complaining cry"
+     }
+    ],
+    "pieces": [
+     "M",
+     "E",
+     "O",
+     "W"
+    ],
+    "walkthrough": "Read the sentence again once the four letters are down: a cat's exclamation is exactly what you have written, which is what makes this wordplay and definition at once.",
+    "definitionFit": "The whole clue also reads straight: a mog is a cat and this is the noise one makes, while the very same words hand over their initials."
+   }
   },
   {
    "id": "24-across",
@@ -526,7 +1223,27 @@ window.CRYPTIC_PUZZLES["everyman-4147"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIDE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TIDE",
+    "definition": "Season",
+    "indicators": [
+     "did you say?"
+    ],
+    "indicatorNotes": {
+     "did you say?": "The question asks what was heard rather than what was written, so the entry is spelled one way and sounds like another word entirely."
+    },
+    "blocks": [
+     {
+      "clueFragment": "limited",
+      "soundsLike": "TIED",
+      "gives": "TIDE",
+      "note": "something limited is tied — restricted, kept within bounds"
+     }
+    ],
+    "walkthrough": "'Season' looks like a red herring until you remember Yuletide and Whitsuntide: the old sense survives almost nowhere else in modern English.",
+    "definitionFit": "Season → TIDE: the archaic word for a season or a festival time, alive now only in Yuletide, Eastertide and the phrase 'time and tide'."
+   }
   }
  ]
 } /*JSON-END*/;
