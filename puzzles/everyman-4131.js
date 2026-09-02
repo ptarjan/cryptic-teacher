@@ -30,7 +30,27 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SECONDS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SECONDS",
+    "definition": "Supports",
+    "definition2": "ticks",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Supports",
+      "gives": "",
+      "note": "to second a motion is to back it, which is what a supporter at a meeting does"
+     },
+     {
+      "clueFragment": "ticks",
+      "gives": "",
+      "note": "each tick of a clock marks off one unit of time, sixty of them to the minute"
+     }
+    ],
+    "walkthrough": "The dash is the whole disguise: two unrelated senses of one word sit either side of it, one from the committee room and one from the clock face.",
+    "definitionFit": "Supports backs a motion the way a seconder does; ticks are the clock's own units — one word, two everyday senses."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +67,45 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEETROOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BEETROOT",
+    "definition": "Red",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "entertaining"
+    ],
+    "indicatorNotes": {
+     "entertaining": "To entertain a guest is to have them in your house, so the word that entertains holds the other letter inside itself."
+    },
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "BEE",
+      "note": "the three-letter insect a setter reaches for first"
+     },
+     {
+      "clueFragment": "horn's noise",
+      "gives": "TOOT",
+      "note": "the noise a horn makes, written the way comics spell it"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is the crossword king, from the Latin Rex stamped on coins and documents"
+     }
+    ],
+    "pieces": [
+     "BEE",
+     "T",
+     "R",
+     "OOT"
+    ],
+    "walkthrough": "The insect and the horn belong to a garden afternoon, and 'entertaining King' sounds like a royal visit — nothing in the surface admits that a colour is being built.",
+    "definitionFit": "Red: the deep purple-red of the vegetable is a colour in its own right, the shade a blushing face is said to go."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +122,29 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAELLA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PAELLA",
+    "definition": "saffrony mixture",
+    "indicators": [
+     "splotched"
+    ],
+    "indicatorNotes": {
+     "splotched": "A splotched surface has had something flung at it and landed in blotches, so the letters arrive in no particular order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lapel splotched with a",
+      "gives": "PAELLA",
+      "note": "five letters from the garment and one stray article, six in all, re-sorted into a Valencian rice dish"
+     }
+    ],
+    "anagram": {
+     "fodder": "LAPELA"
+    },
+    "walkthrough": "The surface is a stained jacket, which is exactly what a plate of this balanced on your knee would produce.",
+    "definitionFit": "saffrony mixture: the dish is rice, seafood and vegetables cooked together in one pan and turned yellow by saffron, so it really is a tinted mixture."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +161,26 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DECANTER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "DECANTER",
+    "definition": "provider of vino",
+    "indicators": [
+     "A little"
+    ],
+    "indicatorNotes": {
+     "A little": "Asking for a little of a phrase is asking for a short piece of the letters themselves, not for a word that means something smaller."
+    },
+    "blocks": [
+     {
+      "clueFragment": "prude can't eradicate",
+      "gives": "DECANTER",
+      "note": "eight letters run without a break from the end of the first word, through the whole of the second and into the third; the apostrophe is no obstacle"
+     }
+    ],
+    "walkthrough": "'Can't eradicate' reads as a stubborn stain and the prude as the person complaining about it. The three words are only a letter run.",
+    "definitionFit": "provider of vino: the glass jug wine is poured into and served out of at table, so it is what supplies your glass."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +201,46 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
     ]
    },
    "solution": "SLAPUP",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SLAP-UP",
+    "definition": "'Lavish'",
+    "indicators": [
+     "starter for",
+     "covered in",
+     "sent back"
+    ],
+    "indicatorNotes": {
+     "starter for": "A starter is the first thing to arrive, so what is taken from the word after it is the letter it begins with.",
+     "covered in": "To be covered in something is to have it all round you, so the letter ends up inside the other piece rather than beside it.",
+     "sent back": "Something sent back retraces the way it came, so those letters are written out in the opposite order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "young insects",
+      "gives": "PUPAS",
+      "note": "a pupa is an insect at its second stage, between grub and adult"
+     },
+     {
+      "clueFragment": "starter for lunch",
+      "gives": "L",
+      "note": "the opening letter of the meal, and nothing else of it"
+     }
+    ],
+    "pieces": [
+     "S",
+     "L",
+     "APUP"
+    ],
+    "subReversals": [
+     {
+      "from": "PUPAS",
+      "to": "SAPUP"
+     }
+    ],
+    "walkthrough": "'Starter' pulls double duty: on the surface it is the first course of the lavish meal, in the wordplay the first letter of the word after it.",
+    "definitionFit": "'Lavish': a slap-up meal is a generous, no-expense-spared spread — British informal, and lavish is precisely the sense meant."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +257,29 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNUCKLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "KNUCKLE",
+    "definition": "a horrible kind of 'sandwich'",
+    "indicators": [
+     "Rotten"
+    ],
+    "indicatorNotes": {
+     "Rotten": "Something rotten has decayed out of its proper shape, so the letters it labels do not keep the order they are given in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "luck, Ken",
+      "gives": "KNUCKLE",
+      "note": "seven letters from the two words, the K turning up twice, redealt"
+     }
+    ],
+    "anagram": {
+     "fodder": "LUCKKEN"
+    },
+    "walkthrough": "The surface is one friend commiserating with another, and the quotation marks are the only hint that the sandwich is not lunch.",
+    "definitionFit": "a horrible kind of 'sandwich': a knuckle sandwich is British slang for a punch in the mouth, so the answer is the word that heads that compound."
+   }
   },
   {
    "id": "7-across",
@@ -136,7 +296,26 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENEVA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GENEVA",
+    "definition": "Almond cake",
+    "indicators": [
+     "consumed in"
+    ],
+    "indicatorNotes": {
+     "consumed in": "What has been consumed has been swallowed whole by what surrounds it, so the letters sit unbroken inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Jarbidge, Nevada",
+      "gives": "GENEVA",
+      "note": "six letters run straight on from the end of the town's name into the start of the state's, comma and all"
+     }
+    ],
+    "walkthrough": "Jarbidge is a real Nevada town, and it is in the clue for one reason: its last two letters and the state's first four sit side by side.",
+    "definitionFit": "Almond cake: a Geneva cake is the dense French bake made with ground almonds in place of flour, so a city's name doubles as a recipe."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +332,38 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIESLING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RIESLING",
+    "definition": "Vino",
+    "linkWords": [
+     "then"
+    ],
+    "indicators": [
+     "not started"
+    ],
+    "indicatorNotes": {
+     "not started": "A word that is not started has lost the letter it begins with, so what is left runs from the second letter on."
+    },
+    "blocks": [
+     {
+      "clueFragment": "cheese (not started)",
+      "gives": "RIE",
+      "note": "brie is the cheese, and lopping off the letter it opens with leaves three"
+     },
+     {
+      "clueFragment": "cocktail",
+      "gives": "SLING",
+      "note": "a sling is a long mixed drink — gin sling, Singapore sling"
+     }
+    ],
+    "pieces": [
+     "RIE",
+     "SLING"
+    ],
+    "walkthrough": "The dashes make the clue look like three items on a wine list. Only the middle one is a word to be trimmed.",
+    "definitionFit": "Vino: a German white grape and the wine pressed from it, so the slangy word for wine defines the answer by kind."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +384,32 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROASTEDGARLIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROASTED GARLIC",
+    "definition": "Pungent ingredient",
+    "linkWords": [
+     "presenting"
+    ],
+    "indicators": [
+     "unfortunate"
+    ],
+    "indicatorNotes": {
+     "unfortunate": "An unfortunate turn of events is one that has not gone as planned, and letters called unfortunate have likewise ended up somewhere other than where they belong."
+    },
+    "blocks": [
+     {
+      "clueFragment": "gastric ordeal",
+      "gives": "ROASTED GARLIC",
+      "note": "thirteen letters across the two words, redealt to fill the seven and the six"
+     }
+    ],
+    "anagram": {
+     "fodder": "GASTRICORDEAL"
+    },
+    "walkthrough": "Both halves of the clue describe the same dinner from opposite ends — what went into it, and what it did afterwards.",
+    "definitionFit": "Pungent ingredient: roasting mellows garlic, but it still goes into a dish for the strong smell and taste that pungent names."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +432,47 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORTILLA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TORTILLA",
+    "definition": "An omelette and a cake",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Something turned over ends up facing the way it came from, so the assembled pieces are read out from their far end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everything",
+      "gives": "ALL",
+      "note": "the everyday word for the whole of something"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun is taken at face value, as the single letter it is written with"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "TROT",
+      "note": "a Trot is a Trotskyist, British shorthand for someone well over on the political left"
+     }
+    ],
+    "pieces": [
+     "TORT",
+     "I",
+     "LLA"
+    ],
+    "subReversals": [
+     {
+      "from": "ALLITROT",
+      "to": "TORTILLA"
+     }
+    ],
+    "walkthrough": "'Left' looks like the turning instruction an across clue would use; it is a person instead, and the little word after it does the turning.",
+    "definitionFit": "An omelette and a cake: a Spanish tortilla is a potato omelette, a Mexican one a flat maize cake — one word, both dishes."
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +489,45 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPICS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASPICS",
+    "definition": "jellies",
+    "linkWords": [
+     "showing"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own first word, taken as the letter it is"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S for small, as on a clothing label"
+     },
+     {
+      "clueFragment": "image",
+      "gives": "PIC",
+      "note": "a pic is a picture, the short form used in every newspaper office"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the apostrophe-s reads as a possessive on the surface and hands over a letter in the wordplay"
+     }
+    ],
+    "pieces": [
+     "A",
+     "S",
+     "PIC",
+     "S"
+    ],
+    "walkthrough": "Everyman is fond of letting an apostrophe-s do a letter's work; here it is the S that makes the answer plural, which the enumeration never warns you about.",
+    "definitionFit": "jellies: savoury meat or vegetable jellies set clear in a mould, so the plural noun swaps straight in."
+   }
   },
   {
    "id": "11-across",
@@ -231,7 +544,38 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADVOCAAT",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ADVOCAAT",
+    "definition": "liqueur",
+    "indicators": [
+     "mostly",
+     "having swallowed"
+    ],
+    "indicatorNotes": {
+     "mostly": "A word taken mostly is written all but its final letter, since most of it is what is left once the end goes.",
+     "having swallowed": "What swallows a thing takes it right inside, so the letter goes into the middle of the word rather than after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Champion mostly",
+      "gives": "ADVOCAT",
+      "note": "to champion a cause is to advocate it; docked of its last letter that leaves seven"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is swallowed whole, as the single letter it is written with"
+     }
+    ],
+    "pieces": [
+     "ADVOCA",
+     "A",
+     "T"
+    ],
+    "walkthrough": "Wordplay and drink share a root: advocaat is Dutch for a lawyer, and the thick egg-and-brandy drink was reckoned good for a pleader's throat.",
+    "definitionFit": "liqueur: the thick, sweet Dutch egg-yolk-and-brandy drink is one of the sweetened spirits that word covers."
+   }
   },
   {
    "id": "12-across",
@@ -248,7 +592,37 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIPPLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TIPPLE",
+    "definition": "drink",
+    "indicators": [
+     "Before",
+     "curt"
+    ],
+    "indicatorNotes": {
+     "Before": "Putting one piece before another places it in front, so what the clue mentions second is written first.",
+     "curt": "A curt reply is cut short, and a word described that way gives up the letter at its end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "spill",
+      "gives": "TIP",
+      "note": "to tip a bucket over is to spill what is in it"
+     },
+     {
+      "clueFragment": "curt excuse",
+      "gives": "PLE",
+      "note": "a plea is an excuse, shortened here by a letter"
+     }
+    ],
+    "pieces": [
+     "TIP",
+     "PLE"
+    ],
+    "walkthrough": "The surface has someone apologising and knocking a glass over. Read as instructions it is the excuse that gets cut short, not the glass.",
+    "definitionFit": "drink: your tipple is the drink you habitually take — 'what's your tipple?' — an everyday, slightly jocular noun."
+   }
   },
   {
    "id": "13-across",
@@ -269,7 +643,38 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEWEDFRUIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STEWED FRUIT",
+    "definition": "compote",
+    "linkWords": [
+     "suggesting"
+    ],
+    "indicators": [
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "perhaps": "The word admits an example rather than a synonym: one named variety is standing in for the whole class it belongs to."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "STEWED",
+      "note": "stewed is long-standing slang for drunk"
+     },
+     {
+      "clueFragment": "at Conference perhaps",
+      "gives": "FRUIT",
+      "note": "Conference is the commonest British pear variety, so a particular pear stands for the general kind"
+     }
+    ],
+    "pieces": [
+     "STEWED",
+     "FRUIT"
+    ],
+    "walkthrough": "The surface is a delegate who has enjoyed the hospitality. The capital letter is the tell: Conference is a pear, not a venue.",
+    "definitionFit": "compote: a compote is fruit simmered slowly in syrup, which is what the two words describe between them."
+   }
   },
   {
    "id": "14-down",
@@ -290,7 +695,41 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
     ]
    },
    "solution": "WINEBARS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "WINE BARS",
+    "definition": "where one may drink elegantly",
+    "indicators": [
+     "intro to"
+    ],
+    "indicatorNotes": {
+     "intro to": "An intro is the opening of a thing, so what is taken from the word after it is the letter it starts with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "WIN",
+      "note": "to catch a prize is to win it"
+     },
+     {
+      "clueFragment": "intro to elegant",
+      "gives": "E",
+      "note": "the first letter of the word, and no more of it"
+     },
+     {
+      "clueFragment": "music",
+      "gives": "BARS",
+      "note": "written music is divided into bars"
+     }
+    ],
+    "pieces": [
+     "WIN",
+     "E",
+     "BARS"
+    ],
+    "walkthrough": "The word 'elegant' works twice over: once to give up its opening letter, and once, as an adverb, to say what sort of drinking place is meant.",
+    "definitionFit": "where one may drink elegantly: these sell wine by the glass in more genteel surroundings than a pub, so the phrase names them by function."
+   }
   },
   {
    "id": "15-down",
@@ -311,7 +750,37 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
     ]
    },
    "solution": "ICECREAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "ICE CREAM",
+    "definition": "Dessert",
+    "indicators": [
+     "audibly"
+    ],
+    "indicatorNotes": {
+     "audibly": "What holds only audibly is judged by ear, so the letters follow the sound of the phrase and not its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "the writer",
+      "gives": "I",
+      "note": "a setter referring to himself in a clue is 'the writer', which on paper is one letter"
+     },
+     {
+      "clueFragment": "emits shrill laugh",
+      "gives": "SCREAM",
+      "note": "to let out a shrill cry of laughter is to scream"
+     },
+     {
+      "clueFragment": "audibly",
+      "soundsLike": "I SCREAM",
+      "gives": "ICE CREAM",
+      "note": "said at speed the two words run together and a listener writes down something else entirely"
+     }
+    ],
+    "walkthrough": "The children's chant 'I scream, you scream, we all scream for ice cream' is built on exactly this: identical sounds, quite different spellings.",
+    "definitionFit": "Dessert: the frozen sweet served at the end of a meal, so the general word covers the answer as one kind of pudding."
+   }
   },
   {
    "id": "16-down",
@@ -328,7 +797,37 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BILIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters",
+    "answer": "BILIOUS",
+    "definition": "being this?",
+    "definitionNote": "The definition is a pointer rather than a synonym: 'this' is the state the clue has just painted — someone boiling with anger — and BILIOUS is the adjective for it.",
+    "indicators": [
+     "Every so often",
+     "angrily"
+    ],
+    "indicatorNotes": {
+     "Every so often": "Something done every so often is done at regular intervals, and the letters are taken at intervals too — every second one.",
+     "angrily": "Doing a thing angrily is doing it wildly and with no care for order, so the letters land out of their proper places."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Every so often, Linus",
+      "gives": "IU",
+      "note": "the second and fourth letters of the name, picked out in turn"
+     },
+     {
+      "clueFragment": "boils",
+      "gives": "BOILS",
+      "note": "all five letters go into the mix, to be re-sorted along with the two above"
+     }
+    ],
+    "anagram": {
+     "fodder": "IUBOILS"
+    },
+    "walkthrough": "'Boils angrily' looks like the definition and is really fodder plus its instruction. The definition is the two words after the dash, pointing back at the whole picture.",
+    "definitionFit": "being this?: the clue points at its own scene — bilious means liverish and bad-tempered, which is what a man boiling with anger is."
+   }
   },
   {
    "id": "17-down",
@@ -345,7 +844,33 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BISCUIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "BISCUIT",
+    "definition": "snap!",
+    "indicators": [
+     "Unfinished",
+     "confused",
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "Unfinished": "A word left unfinished stops short of its last letter, so the final C never reaches the mix.",
+     "confused": "Something confused has been jumbled into disorder, and letters in disorder are letters no longer in the sequence given.",
+     "perhaps": "The word flags an example rather than a synonym: one named kind is standing in for the whole family it belongs to."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Unfinished, Cubistic",
+      "gives": "BISCUIT",
+      "note": "the art word gives up its closing letter, and the seven that remain are redealt"
+     }
+    ],
+    "anagram": {
+     "fodder": "CUBISTI"
+    },
+    "walkthrough": "The quotation marks and the dashes make the first two words look like a gallery label for a half-painted canvas. They are only letters.",
+    "definitionFit": "snap!: a ginger snap or a brandy snap is a thin crisp biscuit, so the exclamation defines the answer by one of its kinds."
+   }
   },
   {
    "id": "18-across",
@@ -366,7 +891,30 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
     ]
    },
    "solution": "DIGSIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DIGS IN",
+    "definition": "begins to eat",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "DIGS",
+      "note": "digs are lodgings — the British word for rented rooms you go home to"
+     },
+     {
+      "clueFragment": "once more",
+      "gives": "IN",
+      "note": "the words ask for home a second time, and someone who is in is at home"
+     }
+    ],
+    "pieces": [
+     "DIGS",
+     "IN"
+    ],
+    "walkthrough": "The comma makes 'Home, once more' read as a weary arrival, when it is really an instruction to give a word for home twice over.",
+    "definitionFit": "begins to eat: to dig in is to set about a meal with appetite — 'dig in!' is the invitation at the table — and the tense matches."
+   }
   },
   {
    "id": "19-down",
@@ -383,7 +931,41 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAMMY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SPAMMY",
+    "definition": "persistently irritating online",
+    "indicators": [
+     "sent back"
+    ],
+    "indicatorNotes": {
+     "sent back": "Something sent back travels the way it came, so the letters of the word before it are written in the opposite order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Plans",
+      "gives": "MAPS",
+      "note": "plans in the draughtsman's sense — street plans are maps"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "MY",
+      "note": "the setter signs himself Everyman, so his own possessive is these two letters"
+     }
+    ],
+    "pieces": [
+     "SPAM",
+     "MY"
+    ],
+    "subReversals": [
+     {
+      "from": "MAPS",
+      "to": "SPAM"
+     }
+    ],
+    "walkthrough": "Everyman writes himself into his own wordplay: whenever this puzzle says 'Everyman's', it means 'my'. Worth remembering — he does it most weeks.",
+    "definitionFit": "persistently irritating online: spammy describes the junk that keeps arriving unasked in an inbox, which is exactly that nuisance."
+   }
   },
   {
    "id": "20-across",
@@ -404,7 +986,24 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
     ]
    },
    "solution": "APPLEPIE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "APPLE PIE",
+    "definition": "Yankiness yardstick?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Yankiness",
+      "note": "the invented noun asks what makes a thing American, which sends you hunting for a flag, a president or a state"
+     },
+     {
+      "clueFragment": "yardstick?",
+      "note": "a yardstick is what other things are measured against, and the phrase wanted is the one Americans use for something that could not be more American"
+     }
+    ],
+    "walkthrough": "'As American as apple pie' is the set phrase, so the yardstick turns out to be a pudding. There is no wordplay here to find — the whole clue is one definition, told slant.",
+    "definitionFit": "Yankiness yardstick?: the simile 'as American as apple pie' makes the pudding the standard measure of Americanness, which is a yardstick's job."
+   }
   },
   {
    "id": "21-down",
@@ -421,7 +1020,31 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PECANS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "PECANS",
+    "definition": "nuts",
+    "indicators": [
+     "Gutted",
+     "mixed"
+    ],
+    "indicatorNotes": {
+     "Gutted": "A gutted fish has had its insides taken out, so the word loses the letter sitting at its dead centre.",
+     "mixed": "Mixed things have been stirred about until nothing is where it started, which is what the remaining letters do."
+    },
+    "blocks": [
+     {
+      "clueFragment": "canapés",
+      "gives": "PECANS",
+      "note": "the seven letters lose the one at the dead centre, and the six left over are re-sorted"
+     }
+    ],
+    "anagram": {
+     "fodder": "CANPES"
+    },
+    "walkthrough": "'Gutted' is also British for bitterly disappointed, which is what the surface wants: the canapés have gone and only the bowl of nuts is left.",
+    "definitionFit": "nuts: pecans are the sweet North American nuts of pie and praline fame, so the plural noun covers them as one kind."
+   }
   },
   {
    "id": "22-across",
@@ -438,7 +1061,39 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BICARB",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BICARB",
+    "definition": "Baking powder",
+    "linkWords": [
+     "composed of"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "bismuth",
+      "gives": "BI",
+      "note": "Bi is the chemical symbol for the element"
+     },
+     {
+      "clueFragment": "calcium",
+      "gives": "CA",
+      "note": "Ca is the chemical symbol for the element"
+     },
+     {
+      "clueFragment": "rubidium",
+      "gives": "RB",
+      "note": "Rb is the chemical symbol for the element"
+     }
+    ],
+    "pieces": [
+     "BI",
+     "CA",
+     "RB"
+    ],
+    "walkthrough": "'Composed of' is doing double work: a compound is composed of elements, and so is this answer — three symbols off the periodic table, in order.",
+    "definitionFit": "Baking powder: bicarb is bicarbonate of soda, the raising agent sold as baking soda and the working half of baking powder."
+   }
   },
   {
    "id": "23-across",
@@ -461,7 +1116,35 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LICORICE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "LICORICE",
+    "definition": "Sweet",
+    "indicators": [
+     "bits of"
+    ],
+    "indicatorNotes": {
+     "bits of": "A bit of a word is the smallest piece that still points at it — the letter it opens with — and each word in the run gives one up."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bits of lardons in coulis on",
+      "gives": "LICO",
+      "note": "the opening letters of the four words after the instruction, taken in the order they come"
+     },
+     {
+      "clueFragment": "arborio, perhaps",
+      "gives": "RICE",
+      "note": "arborio is the short-grain Italian variety used for risotto, so the named type stands for the grain itself"
+     }
+    ],
+    "pieces": [
+     "LICO",
+     "RICE"
+    ],
+    "walkthrough": "The surface is a menu of French and Italian oddments, and 'on' looks like joinery holding it together. It is the fourth word to give up a letter.",
+    "definitionFit": "Sweet: in Britain a sweet is a piece of confectionery, and this is the black aniseed-flavoured one sold in laces and pipes."
+   }
   },
   {
    "id": "24-across",
@@ -478,7 +1161,37 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TURMERIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TURMERIC",
+    "definition": "curry powder",
+    "linkWords": [
+     "gets"
+    ],
+    "indicators": [
+     "New"
+    ],
+    "indicatorNotes": {
+     "New": "A new arrangement is the old one broken up and set out differently, which is what these letters are put through."
+    },
+    "blocks": [
+     {
+      "clueFragment": "recruit",
+      "gives": "RECRUIT",
+      "note": "all seven letters of the word go into the mix as they stand"
+     },
+     {
+      "clueFragment": "Miles",
+      "gives": "M",
+      "note": "M is the standard abbreviation for miles, as on a road sign"
+     }
+    ],
+    "anagram": {
+     "fodder": "RECRUITM"
+    },
+    "walkthrough": "Miles is a man on the surface and a unit of distance in the wordplay; the two commas are what make him look like a person being introduced.",
+    "definitionFit": "curry powder: turmeric is the yellow ground root that colours the blend, so the setter defines it by the mixture it goes into."
+   }
   },
   {
    "id": "25-across",
@@ -495,7 +1208,34 @@ window.CRYPTIC_PUZZLES["everyman-4131"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIACIN",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "NIACIN",
+    "definition": "Necessity in alimentation; compound; indispensable nutrient, primarily!",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means first of all, so what each word in the run hands over is the letter it starts with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Necessity in alimentation; compound; indispensable nutrient",
+      "gives": "NIACIN",
+      "note": "six words, six opening letters, read straight off in the order they are written"
+     }
+    ],
+    "pieces": [
+     "N",
+     "I",
+     "A",
+     "C",
+     "I",
+     "N"
+    ],
+    "walkthrough": "Every word is doing both jobs at once: read as a sentence the clue describes the vitamin, and read as an instruction each word gives up its initial.",
+    "definitionFit": "The whole clue reads straight: niacin is vitamin B3, an essential compound the body cannot make and has to take from food."
+   }
   }
  ]
 } /*JSON-END*/;
