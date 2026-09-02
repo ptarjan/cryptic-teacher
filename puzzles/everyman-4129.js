@@ -30,7 +30,27 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOCK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SOCK",
+    "definition": "Biff",
+    "definition2": "one that's odd when alone",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Biff",
+      "gives": "SOCK",
+      "note": "to biff someone is to land a blow on them, and there is a four-letter verb for that"
+     },
+     {
+      "clueFragment": "one that's odd when alone",
+      "gives": "SOCK",
+      "note": "these come in pairs, so a single one left in the drawer has no partner"
+     }
+    ],
+    "walkthrough": "The joke is all in 'odd': one of a pair left by itself is an odd one, while the surface is offering you 'odd' in the sense of peculiar.",
+    "definitionFit": "Biff is a punch and to sock someone is to hit them; the second sense is the garment, which looks wrong alone because they come in pairs."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +71,30 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "STRIKESOUT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STRIKES OUT",
+    "definition": "Deletes with a sweep of the pen",
+    "definition2": "leaves",
+    "linkWords": [
+     "or"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Deletes with a sweep of the pen",
+      "gives": "STRIKESOUT",
+      "note": "one line drawn through a word cancels it on the page"
+     },
+     {
+      "clueFragment": "leaves",
+      "gives": "STRIKESOUT",
+      "note": "the sense of setting off somewhere new, as a pioneer does on their own"
+     }
+    ],
+    "walkthrough": "The dash does the misdirecting: 'or leaves' looks like more about the pen, when it is a whole second definition and it is about departure.",
+    "definitionFit": "One sense is drawing a line through writing to cancel it; the other is setting off in a new direction, as in striking out on your own."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +111,30 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONFERENCE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CONFERENCE",
+    "definition": "Summit",
+    "definition2": "a pear",
+    "linkWords": [
+     "where you find"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Summit",
+      "gives": "CONFERENCE",
+      "note": "a summit is a top-level meeting of leaders, talks rather than a mountain"
+     },
+     {
+      "clueFragment": "a pear",
+      "gives": "CONFERENCE",
+      "note": "the long green variety that fills British greengrocers carries this name"
+     }
+    ],
+    "walkthrough": "'Where you find' is only joinery, and no letters are hidden anywhere: the two senses sit side by side, one from diplomacy and one from the fruit bowl.",
+    "definitionFit": "A summit is a meeting of heads of state; the other sense is Britain's commonest pear variety, so the fruit defines by example."
+   }
   },
   {
    "id": "3-across",
@@ -89,7 +155,36 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "BONAPPETIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "BON APPETIT",
+    "definition": "Dig in",
+    "indicators": [
+     "fragments",
+     "away"
+    ],
+    "indicatorNotes": {
+     "fragments": "to break a thing into fragments is to leave nothing whole, and letters in pieces are letters free to be laid out in a new order",
+     "away": "what has gone away is no longer present, so the letter it names never joins the pile being shuffled"
+    },
+    "anagram": {
+     "fodder": "PIT BONE PAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scorer's mark for a run, and this is the letter that goes"
+     },
+     {
+      "clueFragment": "pit - bone part",
+      "gives": "PITBONEPAT",
+      "note": "eleven letters with that R removed, leaving ten to rearrange"
+     }
+    ],
+    "walkthrough": "A pit, a bone and a run make a grim little archaeology scene, and none of it survives: the whole sentence after the first two words is raw material.",
+    "definitionFit": "Dig in → BON APPETIT: both are what a host says as food reaches the table, one blunt English and one borrowed straight from French."
+   }
   },
   {
    "id": "4-down",
@@ -112,7 +207,36 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPTIMUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OPTIMUM",
+    "definition": "'Best'",
+    "indicators": [],
+    "pieces": [
+     "OPT",
+     "I'M",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'Select'",
+      "gives": "OPT",
+      "note": "to select between things is to opt for one"
+     },
+     {
+      "clueFragment": "Everyman is",
+      "gives": "I'M",
+      "note": "the setter refers to himself as I, so his name plus 'is' contracts to I'm"
+     },
+     {
+      "clueFragment": "Um",
+      "gives": "UM",
+      "note": "the hesitation noise, taken down letter for letter"
+     }
+    ],
+    "walkthrough": "The surface is somebody groping for the right compliment and trailing off. That trailing off is not decoration: the noise at the end is two of the seven letters.",
+    "definitionFit": "'Best' → OPTIMUM: the optimum is the most favourable point available, so where best ranks things, this names the one that comes top."
+   }
   },
   {
    "id": "5-down",
@@ -129,7 +253,59 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVIGNON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "AVIGNON",
+    "definition": "French city",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "rebuffed"
+    ],
+    "indicatorNotes": {
+     "rebuffed": "to rebuff is to push back what was offered, so the little pile just built is pushed back and read the other way round"
+    },
+    "pieces": [
+     "A",
+     "VIGNON"
+    ],
+    "subReversals": [
+     {
+      "from": "NONGIV",
+      "to": "VIGNON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard short form of answer, as in a quiz's Q and A"
+     },
+     {
+      "clueFragment": "their refusal",
+      "gives": "NON",
+      "note": "French for no, and 'their' points back at the country in the definition"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the usual single letter for German"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter is the person writing the clue, and in a clue that person is I"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the phonetic alphabet, alongside Charlie and Romeo"
+     }
+    ],
+    "walkthrough": "'German' sits right beside 'refusal' and offers you NEIN. The refusal is French, like the city, and German is doing nothing but its single letter.",
+    "definitionFit": "French city → AVIGNON: the walled town on the Rhône that housed the popes in the fourteenth century, still a city in its own right."
+   }
   },
   {
    "id": "6-down",
@@ -150,7 +326,29 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "POSTAGESTAMP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POSTAGE STAMP",
+    "definition": "it's stuck in the corner",
+    "indicators": [
+     "assembled"
+    ],
+    "indicatorNotes": {
+     "assembled": "a thing assembled has been put together out of loose parts, so these letters are built up into an arrangement they did not arrive in"
+    },
+    "anagram": {
+     "fodder": "STOPGAP TEAMS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Stopgap team's",
+      "gives": "STOPGAPTEAMS",
+      "note": "twelve letters, taken exactly as they stand"
+     }
+    ],
+    "walkthrough": "'Stopgap' promises a makeshift arrangement and 'team's assembled' a squad turning up; neither survives into the answer, which is a thing on an envelope.",
+    "definitionFit": "it's stuck in the corner → POSTAGE STAMP: the little gummed square you lick and press into the top right of an envelope before posting."
+   }
   },
   {
    "id": "7-down",
@@ -167,7 +365,27 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAIL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TAIL",
+    "definition": "Dog",
+    "indicators": [
+     "related"
+    ],
+    "indicatorNotes": {
+     "related": "a story that is related is one told out loud, so what you write down is a spelling of what the ear receives"
+    },
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "soundsLike": "TALE",
+      "gives": "TAIL",
+      "note": "a story is a tale, and said aloud that word can just as well be written the other way"
+     }
+    ],
+    "walkthrough": "'Dog story' reads as one phrase and is two: the first word is a verb, and only the second is being sounded out.",
+    "definitionFit": "Dog → TAIL: to dog someone is to follow them everywhere, which is exactly what a detective is told to do to a suspect."
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +402,42 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTU",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + deletion + first letter + charade",
+    "answer": "TUTU",
+    "definition": "ballerina's clothing",
+    "indicators": [
+     "Lacking",
+     "up"
+    ],
+    "indicatorNotes": {
+     "Lacking": "to lack something is to be without it, so whatever gets named next never makes it into the letters",
+     "up": "this is a down entry, and a piece written up runs from the bottom of the grid towards the top, so its letters arrive in the opposite order"
+    },
+    "pieces": [
+     "TU",
+     "TU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shred of compassion",
+      "gives": "C",
+      "note": "a shred is the smallest scrap of a thing, so this is the letter compassion opens on, and it is the one to lose"
+     },
+     {
+      "clueFragment": "cut up",
+      "gives": "TU",
+      "note": "CUT climbing a down entry reads T-U-C, and the C just named comes off the end"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "TU",
+      "note": "the same pair written out a second time, one straight after the other"
+     }
+    ],
+    "walkthrough": "The surface accuses somebody of heartlessness, and every word of it turns out to be machinery: even 'twice' is an instruction rather than a description.",
+    "definitionFit": "ballerina's clothing → TUTU: the stiff layered skirt a ballet dancer performs in, so the definition names her costume rather than any outfit."
+   }
   },
   {
    "id": "9-across",
@@ -201,7 +454,34 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAND",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RAND",
+    "definition": "S African money",
+    "indicators": [
+     "seemingly no"
+    ],
+    "indicatorNotes": {
+     "seemingly no": "the phrase sets up a familiar pair, then says its second half is not there after all — a letter missing, not a project stalling"
+    },
+    "pieces": [
+     "RAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Research",
+      "gives": "RANDD",
+      "note": "the everyday shorthand for a company's research-and-development arm sets two initials either side of the little joining word"
+     },
+     {
+      "clueFragment": "development",
+      "gives": "D",
+      "note": "the final letter of that shorthand stands for development, and it is the one to drop"
+     }
+    ],
+    "walkthrough": "'Research' looks like a definition and is really an abbreviation written out in full. The dashes sell it as a complaint about a stalled project.",
+    "definitionFit": "S African money → RAND: the currency unit of South Africa, named after the Witwatersrand gold reef the country's wealth came out of."
+   }
   },
   {
    "id": "10-across",
@@ -222,7 +502,32 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATKINSDIET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ATKINS DIET",
+    "definition": "restrictive regimen",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "cooked"
+    ],
+    "indicatorNotes": {
+     "cooked": "food that has been cooked has been broken down and remade, and a cooked set of letters comes out in a shape it did not go in as"
+    },
+    "anagram": {
+     "fodder": "DATE SKIN IT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Date skin: it",
+      "gives": "DATESKINIT",
+      "note": "ten letters, taken exactly as they stand"
+     }
+    ],
+    "walkthrough": "'Date skin' offers you dried fruit or a beauty tip, and 'it's cooked' reads as slang for finished. Both are only letters and the instruction to move them.",
+    "definitionFit": "restrictive regimen → ATKINS DIET: the low-carbohydrate plan named after Robert Atkins, so it is one particular eating regime rather than dieting in general."
+   }
   },
   {
    "id": "11-down",
@@ -243,7 +548,30 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "STANDARDLAMP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STANDARD LAMP",
+    "definition": "source of illumination",
+    "indicators": [],
+    "pieces": [
+     "STANDARD",
+     "LAMP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Classic song",
+      "gives": "STANDARD",
+      "note": "a song from the old repertoire that every band is expected to know goes by this name"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "LAMP",
+      "note": "to lamp someone is British slang for hitting them hard"
+     }
+    ],
+    "walkthrough": "Both halves are decoys from the music business: one is a jazz musician's word, and 'hit' is not a chart-topper at all but a punch.",
+    "definitionFit": "source of illumination → STANDARD LAMP: the British name for a floor lamp, a tall light standing on its own stem beside a chair."
+   }
   },
   {
    "id": "12-across",
@@ -260,7 +588,24 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KLEPTOMANIA",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "KLEPTOMANIA",
+    "definition": "Taking forever?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Taking",
+      "note": "not the time a job takes: this is taking in the sense of taking things that are not yours"
+     },
+     {
+      "clueFragment": "forever",
+      "note": "not a long wait either, but an urge that never lets up, however little is worth having"
+     }
+    ],
+    "walkthrough": "There is nothing to take apart here, only one phrase read twice: the impatient grumble about a slow queue turns into a clinical condition.",
+    "definitionFit": "Taking forever? → KLEPTOMANIA: a compulsion to steal that never lets up, so a grumble about slowness doubles as endless helpless thieving."
+   }
   },
   {
    "id": "13-down",
@@ -277,7 +622,29 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLORIOUSLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GLORIOUSLY",
+    "definition": "in magnificent style",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "milk that has gone off has turned and is no longer what it was, and letters that turn will not stay in the order they were handed over"
+    },
+    "anagram": {
+     "fodder": "SIR YOU'LL GO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sir, you'll go",
+      "gives": "SIRYOULLGO",
+      "note": "ten letters, apostrophe ignored, taken as they stand"
+     }
+    ],
+    "walkthrough": "'Go off' looks like a single instruction, which costs you two letters: 'go' is material, and only the little word after it is the signal.",
+    "definitionFit": "in magnificent style → GLORIOUSLY: to do a thing gloriously is to do it with splendour and to acclaim, which is the adverb the phrase asks for."
+   }
   },
   {
    "id": "14-down",
@@ -294,7 +661,36 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADULTERATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + first letter",
+    "answer": "ADULTERATE",
+    "definition": ", corrupt",
+    "indicators": [
+     "With no",
+     "that's corrupt"
+    ],
+    "indicatorNotes": {
+     "With no": "with no X means X is absent, so the letter named straight afterwards never joins the mix",
+     "that's corrupt": "something corrupt has been tampered with and no longer stands as it was, so these letters are out of their proper order"
+    },
+    "anagram": {
+     "fodder": "TAUT LEADER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hint of nervousness",
+      "gives": "N",
+      "note": "a hint of a word is the letter it opens on, and this is the one taken out"
+     },
+     {
+      "clueFragment": "taunt leader",
+      "gives": "TAUTLEADER",
+      "note": "eleven letters with that N gone, leaving ten to rearrange"
+     }
+    ],
+    "walkthrough": "The setter writes the same word twice and gives it two jobs: the first tells you to disturb the letters, the second says what they add up to.",
+    "definitionFit": "corrupt → ADULTERATE: to adulterate is to spoil something pure by mixing a cheaper substance in, the sense of corrupt that applies to goods."
+   }
   },
   {
    "id": "15-across",
@@ -311,7 +707,39 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STERNUM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STERNUM",
+    "definition": "bone",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "including"
+    ],
+    "indicatorNotes": {
+     "including": "to include a thing is to have it inside you rather than beside you, so one word opens up and the other takes the gap"
+    },
+    "pieces": [
+     "S",
+     "TERN",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Total",
+      "gives": "SUM",
+      "note": "the total of a column of figures is its sum"
+     },
+     {
+      "clueFragment": "seabird",
+      "gives": "TERN",
+      "note": "a tern is the small fork-tailed sea bird, and it is the crossword's default one"
+     }
+    ],
+    "walkthrough": "The possessive in 'seabird's' is doing link duty rather than belonging to anyone: the bird is the wordplay and the word after it is the definition.",
+    "definitionFit": "bone → STERNUM: the flat breastbone running down the front of the ribcage, so the clue names one particular bone by its anatomical word."
+   }
   },
   {
    "id": "16-across",
@@ -328,7 +756,39 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEEDLED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NEEDLED",
+    "definition": "annoyed",
+    "linkWords": [
+     "to be"
+    ],
+    "indicators": [
+     "About"
+    ],
+    "indicatorNotes": {
+     "About": "to put something about a thing is to wrap round it, so one piece opens and takes the other into the middle of itself"
+    },
+    "pieces": [
+     "NEED",
+     "L",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wanted",
+      "gives": "NEEDED",
+      "note": "wanted in the past tense, six letters"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "walkthrough": "'About' is most often C for circa in a cryptic, and here it is the wrapping instruction instead. The tense of 'wanted' is what makes the letters fit.",
+    "definitionFit": "annoyed → NEEDLED: to needle someone is to prod them with small jabs until they are irritated, so the past participle matches the mood."
+   }
   },
   {
    "id": "17-across",
@@ -345,7 +805,38 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNCLASP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "UNCLASP",
+    "definition": "let go",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "mostly visible"
+    ],
+    "indicatorNotes": {
+     "mostly visible": "what is mostly visible is not entirely visible, so the word keeps its last letter out of sight"
+    },
+    "pieces": [
+     "UNCL",
+     "ASP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "UNCL",
+      "note": "a relative may be an uncle, and here the final E stays out of view"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "the asp is the small venomous snake of Egypt, and three letters make it a crossword regular"
+     }
+    ],
+    "walkthrough": "The clue reads as a warning shouted at somebody gripping a snake. That shout is the definition, and everything in front of it is construction.",
+    "definitionFit": "let go → UNCLASP: to unclasp is to open the grip of fingers or of a fastening, so whatever was being held is released."
+   }
   },
   {
    "id": "18-down",
@@ -366,7 +857,36 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "PADTHAI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "PAD THAI",
+    "definition": "stir-fry",
+    "indicators": [
+     "Unwisely",
+     "most of"
+    ],
+    "indicatorNotes": {
+     "Unwisely": "to act unwisely is to act without sense or order, and letters handled without order come out in a new arrangement",
+     "most of": "most of a word is all but a little of it, so the word hands over everything except its final letter"
+    },
+    "anagram": {
+     "fodder": "IHAD PAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I had",
+      "gives": "IHAD",
+      "note": "four letters exactly as written"
+     },
+     {
+      "clueFragment": "pâté",
+      "gives": "PAT",
+      "note": "the French spread, with its final letter left off"
+     }
+    ],
+    "walkthrough": "'Unwisely, I had...' sets up a confession about a bad meal, and the pâté is the giveaway: it is a French delicacy on the surface and three letters underneath.",
+    "definitionFit": "stir-fry → PAD THAI: the Thai dish of rice noodles tossed fast in a hot wok, so it is one example of the form rather than the form."
+   }
   },
   {
    "id": "19-across",
@@ -389,7 +909,27 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATERAL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LATERAL",
+    "definition": "cunning manner of thinking",
+    "definitionNote": "The clue defines the whole phrase 'lateral thinking'; the answer is only its first word, the adjective that heads it.",
+    "indicators": [
+     "concealing"
+    ],
+    "indicatorNotes": {
+     "concealing": "to conceal a thing is to keep it out of sight inside something else, so the letters wanted are running unbroken through the words in front"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Idolater almost",
+      "gives": "LATERAL",
+      "note": "seven letters in a single unbroken run across these two words, starting in the middle of the first"
+     }
+    ],
+    "walkthrough": "'Idolater almost' looks like an instruction to trim a word, which is the trap: it is the hiding place, and the join falls inside a word rather than at the space.",
+    "definitionFit": "cunning manner of thinking → LATERAL: lateral thinking comes at a problem from the side instead of head on, which is where its cleverness lies."
+   }
   },
   {
    "id": "19-down",
@@ -410,7 +950,34 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIEDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LIE DOWN",
+    "definition": "then do this",
+    "definitionNote": "The definition is a pointer rather than a synonym: it tells you to perform the action the clue's own two pieces have just spelled out.",
+    "linkWords": [
+     "getting"
+    ],
+    "indicators": [],
+    "pieces": [
+     "LIE",
+     "DOWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act dishonestly",
+      "gives": "LIE",
+      "note": "to act dishonestly in speech is to tell an untruth"
+     },
+     {
+      "clueFragment": "stuffing for duvet",
+      "gives": "DOWN",
+      "note": "the soft under-feathers a quilt is filled with"
+     }
+    ],
+    "walkthrough": "The definition arrives last and points backwards: having built the phrase, the clue simply tells you to go and do it. Both pieces are bedroom words already.",
+    "definitionFit": "then do this → LIE DOWN: after a duvet has been stuffed you stretch out on the bed, so the phrase names the very action its pieces spell."
+   }
   },
   {
    "id": "20-across",
@@ -431,7 +998,29 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
     ]
    },
    "solution": "DUDLEYMOORE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DUDLEY MOORE",
+    "definition": "Comic actor",
+    "indicators": [
+     "astray"
+    ],
+    "indicatorNotes": {
+     "astray": "something led astray has been taken off its proper path, and letters off their path are letters out of order"
+    },
+    "anagram": {
+     "fodder": "ROD YOU LED ME"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rod: you led me",
+      "gives": "RODYOULEDME",
+      "note": "eleven letters, taken as they stand"
+     }
+    ],
+    "walkthrough": "The clue dangles a first name at you, so 'Rod' reads as the man being named. It is the first three letters of the shuffle instead.",
+    "definitionFit": "Comic actor → DUDLEY MOORE: the British comedian and pianist of Beyond the Fringe and Arthur, so the definition names his trade exactly."
+   }
   },
   {
    "id": "21-down",
@@ -448,7 +1037,32 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAI",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "CHAI",
+    "definition": "Primarily cinnamony, hot Asian infusion?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "what comes primarily comes before everything else, so each word gives up only the character it opens with"
+    },
+    "pieces": [
+     "C",
+     "H",
+     "A",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cinnamony, hot Asian infusion",
+      "gives": "CHAI",
+      "note": "the opening letter of each of the four words, read in the order they stand"
+     }
+    ],
+    "walkthrough": "An all-in-one: the sentence is the recipe and the description at once, and the question mark admits this is not the only spiced hot drink going.",
+    "definitionFit": "The whole clue describes the drink: chai is a spiced Indian tea, cinnamon among its spices, drunk hot as an infusion of leaves."
+   }
   },
   {
    "id": "22-down",
@@ -465,7 +1079,32 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EPIC",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "EPIC",
+    "definition": "Huge",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "what happens ultimately happens at the very end, so each word in the run gives up the letter it finishes on and nothing else"
+    },
+    "pieces": [
+     "E",
+     "P",
+     "I",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eerie deathcap fungi: panic",
+      "gives": "EPIC",
+      "note": "the closing letter of each of these four words, read in the order they stand"
+     }
+    ],
+    "walkthrough": "The mushroom hunt is a decoy: deathcaps and panic build a poisoning scene, and every word in it is there only for the letter it ends on.",
+    "definitionFit": "Huge → EPIC: an epic effort is one on a vast scale, the adjective having drifted from the long heroic poem to anything outsized."
+   }
   },
   {
    "id": "23-across",
@@ -482,7 +1121,32 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEPTATHLON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HEPTATHLON",
+    "definition": "contest",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "scuppered"
+    ],
+    "indicatorNotes": {
+     "scuppered": "a scuppered boat has been holed and sunk, so what stood in good order ends up in a heap"
+    },
+    "anagram": {
+     "fodder": "NO HELP THAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "No help - that",
+      "gives": "NOHELPTHAT",
+      "note": "ten letters, taken as they stand"
+     }
+    ],
+    "walkthrough": "The Greek hepta is seven and athlon a contest, so the answer says 'seven contests' on its own, which is why one word can define it.",
+    "definitionFit": "contest → HEPTATHLON: the seven-event athletics competition decided over two days, so it is one particular contest rather than contests in general."
+   }
   },
   {
    "id": "24-across",
@@ -499,7 +1163,26 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASIA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ASIA",
+    "definition": "most of humanity",
+    "indicators": [
+     "describing"
+    ],
+    "indicatorNotes": {
+     "describing": "to describe a circle is to draw a line right round it, so the word that describes has these letters enclosed within it"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fantasias",
+      "gives": "ASIA",
+      "note": "one word holds four consecutive letters, starting at its fifth"
+     }
+    ],
+    "walkthrough": "'Most of' is the standard signal for chopping a letter off a word, and here it belongs to the definition instead — a plain statement of population.",
+    "definitionFit": "most of humanity → ASIA: about six in ten people alive are Asian, so the continent genuinely holds the majority of the human race."
+   }
   },
   {
    "id": "25-across",
@@ -516,7 +1199,29 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCEPTIONS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INCEPTIONS",
+    "definition": "Starts",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "something that has gone off has turned and no longer holds its shape, so these letters will not stay as they were given"
+    },
+    "anagram": {
+     "fodder": "NINE OPTICS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nine optics",
+      "gives": "NINEOPTICS",
+      "note": "ten letters, taken as they stand"
+     }
+    ],
+    "walkthrough": "'Starts off' looks like one phrase and splits down the middle: the noun in front is the definition, and the little word after it is the signal.",
+    "definitionFit": "Starts → INCEPTIONS: an inception is the moment a thing begins, so the plural names beginnings in a formal word where 'starts' is the plain one."
+   }
   },
   {
    "id": "26-across",
@@ -533,7 +1238,27 @@ window.CRYPTIC_PUZZLES["everyman-4129"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BYTE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BYTE",
+    "definition": "Slice of memory",
+    "indicators": [
+     "picked up"
+    ],
+    "indicatorNotes": {
+     "picked up": "what is picked up is caught by the ear, so the wordplay hands you a sound and leaves the spelling to you"
+    },
+    "blocks": [
+     {
+      "clueFragment": "snack",
+      "soundsLike": "BITE",
+      "gives": "BYTE",
+      "note": "a small snack is a bite, and said aloud that word can be written another way"
+     }
+    ],
+    "walkthrough": "'Slice of memory' looks like an instruction to cut letters out of the word 'memory'. It is the definition, and the whole mechanism is in the ear.",
+    "definitionFit": "Slice of memory → BYTE: eight bits, the unit computer storage is counted in, so a portion of memory is measured in these."
+   }
   }
  ]
 } /*JSON-END*/;
