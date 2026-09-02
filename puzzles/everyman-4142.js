@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERMISSIVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PERMISSIVE",
+    "definition": "Easy-going",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "according to",
+      "gives": "PER",
+      "note": "'as per the memo' means going by what the memo says, so this little Latin word is the three letters at the front"
+     },
+     {
+      "clueFragment": "correspondence",
+      "gives": "MISSIVE",
+      "note": "a missive is a letter, the formal word for the kind of thing that arrives in the post"
+     }
+    ],
+    "pieces": [
+     "PER",
+     "MISSIVE"
+    ],
+    "walkthrough": "The comma invites you to read 'according to correspondence' as one phrase about what the letters said. It is two separate pieces, one Latin tag and one formal word for a letter.",
+    "definitionFit": "Easy-going → PERMISSIVE: both describe someone who lets things go rather than laying down rules, the word used of lenient parents and lax societies."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +70,30 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PADS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PADS",
+    "definition": "Increases apparent value",
+    "definition2": "homes",
+    "indicators": [],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Increases apparent value",
+      "gives": "",
+      "note": "the sense used of an expense claim or a CV puffed up with things that were never there"
+     },
+     {
+      "clueFragment": "homes",
+      "gives": "",
+      "note": "informal for the place someone lives, as in 'back at my place'"
+     }
+    ],
+    "walkthrough": "Two senses of one four-letter word, welded by 'of' into an estate agent's sentence about property. Nothing here is spelled out of anything else.",
+    "definitionFit": "'Increases apparent value' gives the puffing-up sense, as of an expense claim; 'homes' gives the informal word for the place someone lives."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +110,40 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ROAM",
+    "definition": "Travel",
+    "indicators": [
+     "going back"
+    ],
+    "indicatorNotes": {
+     "going back": "Going back is retracing your steps, so the two pieces built before it are read out again from their far end."
+    },
+    "subReversals": [
+     {
+      "from": "MAOR",
+      "to": "ROAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "ma is what a child calls its mother, the two-letter version setters lean on"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "OR",
+      "note": "'do it, or else' is 'do it, otherwise' — the same choice between two things"
+     }
+    ],
+    "pieces": [
+     "ROAM"
+    ],
+    "walkthrough": "A smooth surface about a trip with your mother, and every word of it is working. 'Otherwise' for OR is worth pocketing; setters use it constantly.",
+    "definitionFit": "Travel → ROAM: to roam is to travel with no fixed route, wandering about rather than heading anywhere in particular."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +164,30 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
     ]
    },
    "solution": "IRISHSETTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IRISH SETTER",
+    "definition": "perhaps your best friend?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Limerick",
+      "gives": "IRISH",
+      "note": "Limerick is a city and county in the south-west of Ireland, so anything from there is this"
+     },
+     {
+      "clueFragment": "writer offering conundrums",
+      "gives": "SETTER",
+      "note": "the person who writes a crossword is its setter, and a crossword is a page of conundrums"
+     }
+    ],
+    "pieces": [
+     "IRISH",
+     "SETTER"
+    ],
+    "walkthrough": "Limerick is a place before it is a five-line verse, and the setter is the person whose puzzle you are holding — a self-reference this paper enjoys.",
+    "definitionFit": "perhaps your best friend? → IRISH SETTER: a breed of gundog, and a dog is proverbially man's best friend, with 'perhaps' flagging one example of the class."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +204,39 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUGGEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUGGEST",
+    "definition": "intimate",
+    "indicators": [
+     "cops",
+     "straightened out"
+    ],
+    "indicatorNotes": {
+     "cops": "To cop something is to catch or take it, so the letter named first is what picks up everything that follows.",
+     "straightened out": "Something straightened out has been pulled apart and laid down again in a different arrangement, which is what happens to the letters beside it."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "anagram": {
+     "fodder": "G GUSSET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "g is the standard abbreviation for good, the mark on an old school report"
+     },
+     {
+      "clueFragment": "gusset",
+      "gives": "GUSSET",
+      "note": "the six letters of the tailoring word, handed over to be rearranged"
+     }
+    ],
+    "walkthrough": "'Good cops' opens like a sentence about the police, which is exactly why 'cops' reads as a plural noun rather than the verb holding the wordplay together.",
+    "definitionFit": "intimate → SUGGEST: the verb, stressed on the last syllable, meaning to hint at a thing rather than state it outright."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +253,32 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAINEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VAINEST",
+    "definition": "most proud",
+    "indicators": [
+     "revolution"
+    ],
+    "indicatorNotes": {
+     "revolution": "A revolution overthrows the established order, and the word beside it loses the order of its letters the same way."
+    },
+    "linkWords": [
+     "After"
+    ],
+    "anagram": {
+     "fodder": "NATIVES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "natives",
+      "gives": "NATIVES",
+      "note": "seven letters that already contain everything wanted, in the wrong arrangement"
+     }
+    ],
+    "walkthrough": "'Revolution' is the trap: it sounds like an instruction to turn the word round, and turning that word round gives nothing usable. Here it means upheaval.",
+    "definitionFit": "most proud → VAINEST: vanity is pride in one's own looks or worth, and both words are superlatives of it."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +295,27 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ICED",
+    "definition": "Knocked off",
+    "definition2": "like some tea?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Knocked off",
+      "gives": "",
+      "note": "underworld slang for killed, the way a gangster reports a job finished"
+     },
+     {
+      "clueFragment": "like some tea?",
+      "gives": "",
+      "note": "tea served cold over cubes from the freezer — an adjective describing the drink, not the drink itself"
+     }
+    ],
+    "walkthrough": "The dash pretends to join a hitman's report to a summer drinks order. Both halves are straight definitions of the same four letters, and neither is wordplay.",
+    "definitionFit": "'Knocked off' gives the gangland sense of killed; 'like some tea' gives the chilled version, an adjective for how the drink is served."
+   }
   },
   {
    "id": "7-down",
@@ -159,7 +338,33 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COASTLINES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COASTLINES",
+    "definition": "Land's Ends?",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make little effort",
+      "gives": "COAST",
+      "note": "to coast through a job is to let momentum do it for you"
+     },
+     {
+      "clueFragment": "script",
+      "gives": "LINES",
+      "note": "an actor learns their lines, which is the script as it is divided up for speaking"
+     }
+    ],
+    "pieces": [
+     "COAST",
+     "LINES"
+    ],
+    "walkthrough": "Land's End is the far south-western tip of Cornwall, and the italics mark the name as borrowed. Everyman then pluralises it into a general description.",
+    "definitionFit": "Land's Ends? → COASTLINES: the lines where land stops and sea begins, one at every edge of a country rather than only at the Cornish one."
+   }
   },
   {
    "id": "8-down",
@@ -176,7 +381,30 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCREETLY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "DISCREETLY",
+    "definition": "With diplomacy",
+    "indicators": [
+     "did you say?"
+    ],
+    "indicatorNotes": {
+     "did you say?": "Asking what you said moves the clue from the page to the ear: what matters now is the sound, not the spelling."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one-by-one",
+      "soundsLike": "DISCRETELY",
+      "gives": "DISCREETLY",
+      "note": "taking things one by one is taking them DISCRETELY, separately, the spelling with an E in the middle — and said aloud it is written the other way"
+     }
+    ],
+    "walkthrough": "English keeps both spellings and pronounces them identically: the one with the E in the middle means separately, the one wanted here means tactfully.",
+    "definitionFit": "With diplomacy → DISCREETLY: doing a thing discreetly is doing it without drawing attention, the tact you use when a matter is delicate."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +425,35 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
     ]
    },
    "solution": "DRAWINGPIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DRAWING PIN",
+    "definition": "tacky",
+    "definitionNote": "An adjective is standing in for a noun, and the setter's licence is the pun: the answer is a kind of tack, so it is tacky in a way no sticky surface is.",
+    "indicators": [],
+    "linkWords": [
+     "of",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Making illustration",
+      "gives": "DRAWING",
+      "note": "the act of making an illustration with a pencil"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "PIN",
+      "note": "'pins' is British slang for legs, so a single one of them is a pin"
+     }
+    ],
+    "pieces": [
+     "DRAWING",
+     "PIN"
+    ],
+    "walkthrough": "The surface offers a sketch of somebody's leg and a rude verdict on it. Both halves of the wordplay are ordinary words hiding inside that picture.",
+    "definitionFit": "tacky → DRAWING PIN: the British name for a thumbtack, so the answer really is a tack, which is where the adjective comes from."
+   }
   },
   {
    "id": "10-across",
@@ -214,7 +470,30 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PASS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PASS",
+    "definition": "I don't know",
+    "definition2": "way through mountains",
+    "indicators": [],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I don't know",
+      "gives": "",
+      "note": "the word a quiz contestant says to decline a question and move it on"
+     },
+     {
+      "clueFragment": "way through mountains",
+      "gives": "",
+      "note": "the gap between two peaks that a road or a walker can take, like the Khyber"
+     }
+    ],
+    "walkthrough": "'That' is the hinge, holding up a sentence that means neither of the two things it is made of. Four letters serve a quiz contestant and a mountaineer equally.",
+    "definitionFit": "'I don't know' gives the quiz answer that declines the question; 'way through mountains' gives the gap a road takes between two peaks."
+   }
   },
   {
    "id": "11-across",
@@ -231,7 +510,29 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEESEGRATER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CHEESE GRATER",
+    "definition": "help for chef",
+    "indicators": [
+     "arranging"
+    ],
+    "indicatorNotes": {
+     "arranging": "To arrange things is to set them out in an order of your choosing, so the letters may be laid down in any order that works."
+    },
+    "anagram": {
+     "fodder": "HE GETS CAREER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "He gets career",
+      "gives": "HEGETSCAREER",
+      "note": "twelve letters of office talk, handed over to be laid out again"
+     }
+    ],
+    "walkthrough": "The surface is a story about a colleague being given a leg-up at work. The kitchen only appears once you count those twelve letters against the enumeration.",
+    "definitionFit": "help for chef → CHEESE GRATER: the kitchen tool that shreds a block into strands, so the help is of the equipment kind rather than a person."
+   }
   },
   {
    "id": "12-down",
@@ -253,7 +554,32 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROCKTHEBOAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROCK THE BOAT",
+    "definition": "make trouble",
+    "indicators": [
+     "swerving"
+    ],
+    "indicatorNotes": {
+     "swerving": "A car that swerves leaves the line it was following, and the letters beside it leave the order they were given in."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "BETH TOOK CAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Beth took car",
+      "gives": "BETHTOOKCAR",
+      "note": "eleven letters of the invented story, waiting to be rearranged"
+     }
+    ],
+    "walkthrough": "Beth and her borrowed car exist only to make eleven letters look like a person doing something. The idiom is what you say of someone who will not let things settle.",
+    "definitionFit": "make trouble → ROCK THE BOAT: the idiom for upsetting a settled arrangement, the thing you are told not to do when everyone else is content."
+   }
   },
   {
    "id": "13-down",
@@ -275,7 +601,30 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANDSOFORTH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AND SO FORTH",
+    "definition": "etc",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Ergo",
+      "gives": "AND SO",
+      "note": "ergo is therefore, and 'and so' is the plain English way of saying it"
+     },
+     {
+      "clueFragment": "Scottish river",
+      "gives": "FORTH",
+      "note": "the river running through Stirling into the firth that Edinburgh looks out on"
+     }
+    ],
+    "pieces": [
+     "AND SO",
+     "FORTH"
+    ],
+    "walkthrough": "'Ergo' is the word a lawyer uses for a phrase everyone else says plainly, and that Latin flourish is the only misdirection on offer here.",
+    "definitionFit": "etc → AND SO FORTH: both are the tag put at the end of a list to say the rest carries on in the same way."
+   }
   },
   {
    "id": "14-down",
@@ -296,7 +645,36 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
     ]
    },
    "solution": "USERSGUIDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "USER'S GUIDE",
+    "definition": "Manual",
+    "indicators": [
+     "finally",
+     "upgrade"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally means at the very end, so only the letter the word beside it finishes on is wanted.",
+     "upgrade": "Anything due for an upgrade is going to be rebuilt, and the setter takes that loosely enough to rebuild the letters themselves."
+    },
+    "anagram": {
+     "fodder": "R I GUESS DUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "labour finally",
+      "gives": "R",
+      "note": "the last letter of the word standing in front of it"
+     },
+     {
+      "clueFragment": "I guess, due",
+      "gives": "IGUESSDUE",
+      "note": "nine letters, the pronoun and both words after it, thrown in with the letter above"
+     }
+    ],
+    "walkthrough": "'Manual labour' is one phrase in the surface and two separate jobs in the parse: the first word defines, the second only lends the letter it ends on.",
+    "definitionFit": "Manual → USER'S GUIDE: the booklet that comes with a machine and tells you how to work it, which is exactly what a manual is."
+   }
   },
   {
    "id": "15-across",
@@ -313,7 +691,33 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NASCENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NASCENT",
+    "definition": "Rising",
+    "indicators": [],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sodium",
+      "gives": "NA",
+      "note": "the chemical symbol for the element, taken from its Latin name natrium"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "SCENT",
+      "note": "a scent is a smell, usually a pleasant one you follow or wear"
+     }
+    ],
+    "pieces": [
+     "NA",
+     "SCENT"
+    ],
+    "walkthrough": "Chemistry supplies symbols crosswords use constantly, and this is one of the commonest. The wordplay reads the phrase as the element's own smell, which is what puts the symbol first.",
+    "definitionFit": "Rising → NASCENT: just coming into being, said of a talent or an industry in its first growth rather than one already arrived."
+   }
   },
   {
    "id": "16-across",
@@ -330,7 +734,29 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TACTILE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TACTILE",
+    "definition": "touching",
+    "indicators": [
+     "A bit of"
+    ],
+    "indicatorNotes": {
+     "A bit of": "A bit of something is a piece taken out of the middle of it and left exactly as it was found."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eye-contact, I learn",
+      "gives": "TACTILE",
+      "note": "seven consecutive letters starting inside the hyphenated word and running on across the comma and the pronoun into the next"
+     }
+    ],
+    "walkthrough": "The hyphen and the two commas are punctuation a setter may ignore, and they sit exactly where the letters cross from one word into the next.",
+    "definitionFit": "touching → TACTILE: belonging to the sense of touch, as a tactile display is one meant to be handled, not the moving sense of the word."
+   }
   },
   {
    "id": "17-across",
@@ -347,7 +773,27 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRATCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SCRATCH",
+    "definition": "You should come up to this",
+    "definition2": "damage",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "You should come up to this",
+      "gives": "",
+      "note": "the noun inside the idiom 'come up to ___', meaning to meet the standard required"
+     },
+     {
+      "clueFragment": "damage",
+      "gives": "",
+      "note": "the shallow mark a key leaves down the side of a car"
+     }
+    ],
+    "walkthrough": "Boxers once had to stand at a line drawn in the ground to show they could go on, which is where the idiom comes from and why it means meeting a standard.",
+    "definitionFit": "'You should come up to this' points at the required standard in the idiom; 'damage' gives the shallow mark left by something sharp."
+   }
   },
   {
    "id": "18-down",
@@ -364,7 +810,35 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOSANNA",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "HOSANNA",
+    "definition": "happy outcry, sung, about nifty Nazarene's advent?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "Primarily points at what comes first, and what comes first in a written word is the letter it opens with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "happy outcry, sung",
+      "gives": "HOS",
+      "note": "the opening letter of each of those three words, in the order the clue gives them"
+     },
+     {
+      "clueFragment": "about nifty Nazarene's advent",
+      "gives": "ANNA",
+      "note": "the same trick continued through the remaining four words, the preposition included"
+     }
+    ],
+    "pieces": [
+     "HOS",
+     "ANNA"
+    ],
+    "walkthrough": "Seven words and seven letters, and 'about' earns its keep twice: it reads as a preposition and hands over its own initial. Read straight, the sentence describes the shout itself.",
+    "definitionFit": "The whole clue describes the cry: a shout of praise raised at the coming of Jesus of Nazareth, sung by the crowds on Palm Sunday."
+   }
   },
   {
    "id": "19-across",
@@ -381,7 +855,36 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OATMEAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OATMEAL",
+    "definition": "porridge, basically",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "nothing is written as a nought, and a nought on the page is the letter it looks like"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the little word taken straight off the clue"
+     },
+     {
+      "clueFragment": "repast",
+      "gives": "MEAL",
+      "note": "a repast is a meal, the formal word for a sitting down to eat"
+     }
+    ],
+    "pieces": [
+     "O",
+     "AT",
+     "MEAL"
+    ],
+    "walkthrough": "'Porridge' is British slang for a prison sentence, which is the bleak picture the surface is painting. The definition wants the plain breakfast instead.",
+    "definitionFit": "porridge, basically → OATMEAL: porridge is oatmeal boiled in water or milk, so 'basically' points at what it is made of rather than offering a synonym."
+   }
   },
   {
    "id": "19-down",
@@ -398,7 +901,36 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORATION",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ORATION",
+    "definition": "speech",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The plainest insertion word there is: whatever is named before it gets written inside whatever comes after."
+    },
+    "pieces": [
+     "O",
+     "RATIO",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the two-letter word taken at face value, and it splits to make room"
+     },
+     {
+      "clueFragment": "Relation",
+      "gives": "RATIO",
+      "note": "the relation between two quantities is their ratio, as in three to one"
+     }
+    ],
+    "walkthrough": "'Relation' meaning ratio is the step to spot; the family sense is the decoy, and 'in on' reads as a phrase about being party to something.",
+    "definitionFit": "speech → ORATION: a formal public speech, the grand kind delivered from a platform rather than a few words said at a table."
+   }
   },
   {
    "id": "20-across",
@@ -419,7 +951,26 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
     ]
    },
    "solution": "FIGURESKATER",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FIGURE SKATER",
+    "definition": "Did she hope her 8 would get +5.0?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "her 8",
+      "gives": "",
+      "note": "the surface offers a mark out of ten; the numeral is also a shape, and the shape is one traced on ice"
+     },
+     {
+      "clueFragment": "would get +5.0?",
+      "gives": "",
+      "note": "under the modern judging system the grade of execution runs from minus five to plus five, so this is a perfect one"
+     }
+    ],
+    "walkthrough": "Everyman writes the numeral rather than the word, so '8' reads as a score. It is the other sense that matters: a figure is a shape, and this one is cut into the ice.",
+    "definitionFit": "The competitor the question is about: a woman marked by judges for the figures she cuts on ice, so her 8 is both her shape and her score."
+   }
   },
   {
    "id": "21-down",
@@ -436,7 +987,34 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAIR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "FAIR",
+    "definition": "Just",
+    "indicators": [
+     "missing"
+    ],
+    "indicatorNotes": {
+     "missing": "What is missing has been left out, so the letter named beside it never makes it into the word."
+    },
+    "pieces": [
+     "FAIR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panache",
+      "gives": "FAIR",
+      "note": "panache is FLAIR, and with one letter taken out of it these four remain"
+     },
+     {
+      "clueFragment": "student's",
+      "gives": "L",
+      "note": "L is the letter on the plate a British learner driver must display until they pass the test"
+     }
+    ],
+    "walkthrough": "'Just panache' reads as a shrug about style over substance, which is the whole disguise: 'just' is the definition and 'panache' is only a word to be trimmed.",
+    "definitionFit": "Just → FAIR: a fair decision is an even-handed one, the umpire's sense of the word rather than the weather's or the funfair's."
+   }
   },
   {
    "id": "22-down",
@@ -453,7 +1031,35 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "MESS",
+    "definition": "confusion",
+    "indicators": [
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A house whose owners are on vacation stands empty, and a word emptied that way keeps only the letters at its two ends."
+    },
+    "pieces": [
+     "ME",
+     "SS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter signs every one of these puzzles with that name, so when he writes it he means himself"
+     },
+     {
+      "clueFragment": "sightsees",
+      "gives": "SS",
+      "note": "the outer letters of that word, with everything between them cleared out"
+     }
+    ],
+    "walkthrough": "Everyman putting himself in his own clue is a habit worth expecting here. The surface reads as a holidaymaker wandering about, and both halves of it are instructions.",
+    "definitionFit": "confusion → MESS: a state of disorder, things scattered about with nothing where it belongs — the muddle sense rather than the soldiers' dining room."
+   }
   },
   {
    "id": "23-across",
@@ -470,7 +1076,35 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAIL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "RAIL",
+    "definition": "Pole",
+    "indicators": [
+     "heading west"
+    ],
+    "indicatorNotes": {
+     "heading west": "West is leftwards on a map and on the grid, so an across answer sent that way is read out from its last letter back."
+    },
+    "subReversals": [
+     {
+      "from": "LIAR",
+      "to": "RAIL"
+     }
+    ],
+    "pieces": [
+     "RAIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fibber",
+      "gives": "RAIL",
+      "note": "someone who fibs is a liar, and here that word travels the other way along the row"
+     }
+    ],
+    "walkthrough": "Everything points at a Polish fibber until you notice that 'Pole' can be a length of wood, and that 'heading west' is an instruction rather than a journey.",
+    "definitionFit": "Pole → RAIL: a rail is a bar of wood or metal fixed in place, the long pole you lean on at a fence or hang washing from."
+   }
   },
   {
    "id": "24-across",
@@ -487,7 +1121,36 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INVIGORATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letters",
+    "answer": "INVIGORATE",
+    "definition": "Get perked up",
+    "indicators": [
+     "fantastic",
+     "drops of"
+    ],
+    "indicatorNotes": {
+     "fantastic": "Here it means fanciful rather than excellent: what is fantastic has no fixed shape, so the letters may take one they never had.",
+     "drops of": "A drop is the smallest amount you can take of a thing, and the smallest amount of a written word is the letter it starts with."
+    },
+    "anagram": {
+     "fodder": "RIGATONI E V"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rigatoni",
+      "gives": "RIGATONI",
+      "note": "eight letters of ridged pasta tubes, offered up for rearrangement"
+     },
+     {
+      "clueFragment": "excellent vinos",
+      "gives": "EV",
+      "note": "the first letter of each of those two words, joining the eight above"
+     }
+    ],
+    "walkthrough": "The surface is a menu of Italian food and drink, and that is where 'fantastic' hides: it reads as praise for the pasta rather than as the instruction it is.",
+    "definitionFit": "Get perked up → INVIGORATE: to invigorate someone is to put fresh energy into them, which is getting them perked up."
+   }
   },
   {
    "id": "25-across",
@@ -504,7 +1167,27 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEEL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HEEL",
+    "definition": "Part of foot",
+    "indicators": [
+     "so we're told"
+    ],
+    "indicatorNotes": {
+     "so we're told": "Being told a thing puts it in the ear rather than on the page, so what is wanted is a different spelling of the same sound."
+    },
+    "blocks": [
+     {
+      "clueFragment": "to get better",
+      "soundsLike": "HEAL",
+      "gives": "HEEL",
+      "note": "getting better after an injury is healing, and that word said aloud is written the other way here"
+     }
+    ],
+    "walkthrough": "Two homely words and one sound. The trap is reading 'get better' as improve rather than recover, since only the recovering sense supplies what you say aloud.",
+    "definitionFit": "Part of foot → HEEL: the rounded back of it, the bit that strikes the ground first with every step you take."
+   }
   },
   {
    "id": "26-across",
@@ -521,7 +1204,33 @@ window.CRYPTIC_PUZZLES["everyman-4142"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAINSTORMS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RAINSTORMS",
+    "definition": "precipitation",
+    "definitionNote": "Precipitation is a mass noun covering all water that falls from the sky, so it can define a plural answer without taking a plural form itself.",
+    "indicators": [
+     "not started"
+    ],
+    "indicatorNotes": {
+     "not started": "A word not started is one you begin without its opening letter, so that letter is simply never written."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RAINSTORMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idea sessions",
+      "gives": "RAINSTORMS",
+      "note": "sessions for generating ideas are BRAINSTORMS, and without the letter they begin with these ten remain"
+     }
+    ],
+    "walkthrough": "The whole surface is a meeting round a whiteboard and the definition is a weather forecast; one letter at the front is all that stands between them.",
+    "definitionFit": "precipitation → RAINSTORMS: precipitation is the forecaster's word for water falling out of the sky, and a storm of rain is one violent form of it."
+   }
   }
  ]
 } /*JSON-END*/;
