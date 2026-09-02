@@ -30,7 +30,27 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTRACT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ATTRACT",
+    "definition": "Draw",
+    "indicators": [
+     "in hearing"
+    ],
+    "indicatorNotes": {
+     "in hearing": "what is in hearing reaches you as a sound, so the ear decides the spelling and not the page"
+    },
+    "blocks": [
+     {
+      "clueFragment": "an area of land",
+      "soundsLike": "A TRACT",
+      "gives": "ATTRACT",
+      "note": "a tract is a stretch of open country, and the article runs straight onto it when you say the phrase"
+     }
+    ],
+    "walkthrough": "'Draw' wants to be a sketch or a tied match; it is the magnet's sense here, and the rest of the clue is one spoken phrase rather than any spelling.",
+    "definitionFit": "Draw -> ATTRACT: the magnetic sense of the verb, pulling something towards you rather than sketching it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +67,28 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ANIL",
+    "definition": "Dye source",
+    "indicators": [
+     "in",
+     "envelope discarded"
+    ],
+    "indicatorNotes": {
+     "in": "the letters sit inside the word that follows instead of being clued separately",
+     "envelope discarded": "an envelope is the wrapper round the contents, so throwing it away loses the letter at each end"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Manila",
+      "gives": "ANIL",
+      "note": "four consecutive letters of the city's name, once the ends have gone"
+     }
+    ],
+    "walkthrough": "'Manila envelope' is a real thing in a stationery cupboard, which is why the setter puts those two words together; only the first of them is fodder.",
+    "definitionFit": "Dye source -> ANIL: the West Indian shrub that indigo is extracted from, so it is the plant behind the colour rather than the colour itself."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +105,41 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TYPESET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "TYPESET",
+    "definition": "get ready to print",
+    "indicators": [
+     "Extremists"
+    ],
+    "indicatorNotes": {
+     "Extremists": "the extremists of a word are the letters at its two ends, as far from the middle as you can get"
+    },
+    "pieces": [
+     "TY",
+     "PE",
+     "SET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "TY",
+      "note": "the two ends of the party's name"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "PE",
+      "note": "the same treatment again, the letters at the front and back of the word"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group of things taken together"
+     }
+    ],
+    "walkthrough": "'Tory pressure group' is one phrase in the surface and three separate jobs in the parse: two words plundered for their ends and a third swapped for a synonym.",
+    "definitionFit": "get ready to print -> TYPESET: to typeset copy is to set it in type, the preparation a page goes through before a press can touch it."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +156,27 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AISLE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "AISLE",
+    "definition": "a passage",
+    "indicators": [
+     "read out loud"
+    ],
+    "indicatorNotes": {
+     "read out loud": "reading a thing out loud turns it into a sound, and the sound is what the entry has to match"
+    },
+    "blocks": [
+     {
+      "clueFragment": "The author will",
+      "soundsLike": "I'LL",
+      "gives": "AISLE",
+      "note": "the person writing the clue is 'I', and 'I will' shrinks to a single syllable"
+     }
+    ],
+    "walkthrough": "Setters call themselves 'the author', 'the setter' or 'this compiler' and mean the one letter I. Everything after that is just the contraction said aloud.",
+    "definitionFit": "a passage -> AISLE: the walkway between rows of seats or supermarket shelves, a passage you move along rather than one you read."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +193,29 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THISTLES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THISTLES",
+    "definition": "Potentially injurious plants",
+    "indicators": [
+     "alarmingly"
+    ],
+    "indicatorNotes": {
+     "alarmingly": "something done alarmingly is out of control, and letters out of control will not stay in the order given"
+    },
+    "anagram": {
+     "fodder": "SHE TILTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "she tilts",
+      "gives": "THISTLES",
+      "note": "eight letters of fodder, straight from the clue"
+     }
+    ],
+    "walkthrough": "'Potentially injurious' is a long way of saying prickly, and it reads like a warning label on the surface while the two little words beside it quietly hand over every letter.",
+    "definitionFit": "Potentially injurious plants -> THISTLES: thistles are weeds armoured with spines, so a bare leg brushing one really can come off worse."
+   }
   },
   {
    "id": "5-across",
@@ -115,7 +232,39 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAPPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLAPPER",
+    "definition": "girl in 20s",
+    "linkWords": [
+     "gets"
+    ],
+    "indicators": [],
+    "pieces": [
+     "F",
+     "LAP",
+     "PER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the standard abbreviation for fellow, as in Fellow of the Royal Society"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "LAP",
+      "note": "a cat drinks by lapping, and to lap up liquid is to drink it"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     }
+    ],
+    "walkthrough": "The 20s are the 1920s, not an age bracket: bobbed hair, dropped waists and the Charleston are what the definition is pointing at.",
+    "definitionFit": "girl in 20s -> FLAPPER: the fashionable young woman of the 1920s, named for the flapping of her unbuckled galoshes."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +281,41 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOGBOW",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "FOGBOW",
+    "definition": "that shines faintly in mist",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "the Reverend Spooner was famous for swapping the opening sounds of two words, so the pair trade their first letters"
+    },
+    "pieces": [
+     "FOG",
+     "BOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marshland",
+      "gives": "BOG",
+      "note": "waterlogged marshy ground, the first word of the pair"
+     },
+     {
+      "clueFragment": "enemy",
+      "gives": "FOE",
+      "note": "an enemy is a foe, the second word of the pair"
+     },
+     {
+      "clueFragment": "Spooner's marshland enemy",
+      "soundsLike": "FOG BOE",
+      "gives": "FOGBOW",
+      "note": "trade the opening consonants of those two words and write down what you hear"
+     }
+    ],
+    "walkthrough": "The thing itself is the pale, almost colourless cousin of a rainbow, seen when the sun catches fog: droplets too small to split the light properly.",
+    "definitionFit": "that shines faintly in mist -> FOGBOW: a fogbow is a rainbow formed in fog, its colours washed out to a ghostly white arc."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +332,37 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALIGHTING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letter",
+    "answer": "ALIGHTING",
+    "definition": "Getting down",
+    "indicators": [
+     "trimming",
+     "possibly"
+    ],
+    "indicatorNotes": {
+     "trimming": "to trim a thing is to cut the ends off it, and cutting both ends off leaves only what was in the middle",
+     "possibly": "the word marks an example rather than a synonym: what is named is one instance of a wider category"
+    },
+    "pieces": [
+     "A",
+     "LIGHTING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gas",
+      "gives": "A",
+      "note": "the outer letters of the three-letter word come off and the middle one survives"
+     },
+     {
+      "clueFragment": "street lamps",
+      "gives": "LIGHTING",
+      "note": "street lamps are one example of the general word for lamps at work"
+     }
+    ],
+    "walkthrough": "'Trimming gas street lamps' sounds like a lamplighter's job description, which is the disguise: the phrase splits in two and 'gas' is only three letters waiting to be pruned.",
+    "definitionFit": "Getting down -> ALIGHTING: alighting is what a passenger does stepping down from a bus or a train, and what a bird does landing."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +383,36 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     ]
    },
    "solution": "PINENUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PINE NUT",
+    "definition": "salad item",
+    "indicators": [
+     "Re-order",
+     "containing"
+    ],
+    "indicatorNotes": {
+     "Re-order": "to re-order a thing is to put it into a different sequence, which is exactly what happens to these letters",
+     "containing": "the letter named next is taken in among the others rather than tacked on at either end"
+    },
+    "anagram": {
+     "fodder": "PUNNET I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "punnet",
+      "gives": "PUNNET",
+      "note": "six letters of fodder; a punnet is the little basket soft fruit is sold in"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "I",
+      "note": "the Roman numeral for one, the crossword's usual single"
+     }
+    ],
+    "walkthrough": "The surface is a greengrocer rearranging his baskets. 'Single' is not part of what gets shuffled in the surface reading, but it is one more letter joining the mix.",
+    "definitionFit": "salad item -> PINE NUT: pine nuts are the small seeds of pine cones, scattered by the handful over a salad."
+   }
   },
   {
    "id": "8-down",
@@ -187,7 +429,56 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REASSEMBLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal",
+    "answer": "REASSEMBLE",
+    "definition": "put things back together",
+    "indicators": [
+     "to suppress",
+     "rising",
+     "in"
+    ],
+    "indicatorNotes": {
+     "to suppress": "to suppress a thing is to hold it down, and in a down clue whatever does the holding sits above what it holds",
+     "rising": "a piece that rises in a down clue is read from the bottom upwards, so its letters come out backwards",
+     "in": "a piece placed in another sits inside its letters rather than joining on at either end"
+    },
+    "pieces": [
+     "RE",
+     "A",
+     "SSEM",
+     "BLE"
+    ],
+    "subReversals": [
+     {
+      "from": "ELBA",
+      "to": "ABLE"
+     },
+     {
+      "from": "MESS",
+      "to": "SSEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re is the 'about' at the head of a memo or an email subject line"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "ELBA",
+      "note": "Napoleon's island of exile, and it climbs the grid rather than descending it"
+     },
+     {
+      "clueFragment": "chaos",
+      "gives": "MESS",
+      "note": "a mess is chaos, and this one climbs the grid too"
+     }
+    ],
+    "walkthrough": "Two separate things are read upwards here, one inside the other, and only then does the memo heading go on top of the pair.",
+    "definitionFit": "put things back together -> REASSEMBLE: to reassemble is to fit the separated parts back into the whole they came out of."
+   }
   },
   {
    "id": "9-across",
@@ -208,7 +499,43 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     ]
    },
    "solution": "INPASSING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "IN PASSING",
+    "definition": "incidentally",
+    "indicators": [
+     "touring",
+     "first"
+    ],
+    "indicatorNotes": {
+     "touring": "a tour wanders from place to place, and letters sent touring do not come home in the order they left",
+     "first": "the piece just made goes at the front, ahead of everything else in the answer"
+    },
+    "pieces": [
+     "INPAS",
+     "SING"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SPAIN",
+      "gives": "INPAS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spain",
+      "gives": "INPAS",
+      "note": "the country's five letters, shaken into a new order"
+     },
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing, especially outside somebody's front door in December"
+     }
+    ],
+    "walkthrough": "Carol reads as a woman's name in the surface and is a verb in the parse; 'first' is not part of the definition but the instruction that puts the shuffled country in front.",
+    "definitionFit": "incidentally -> IN PASSING: to mention something in passing is to drop it in as an aside, not as the point you are making."
+   }
   },
   {
    "id": "10-across",
@@ -225,7 +552,42 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IONIA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "IONIA",
+    "definition": "classical region",
+    "indicators": [
+     "stopping"
+    ],
+    "indicatorNotes": {
+     "stopping": "a thing that stops somewhere comes to rest inside it, between the letters rather than beside them"
+    },
+    "pieces": [
+     "I",
+     "ON",
+     "I",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman couple",
+      "gives": "II",
+      "note": "two of the Roman numeral for one, and they part company to let something in"
+     },
+     {
+      "clueFragment": "close to",
+      "gives": "ON",
+      "note": "a village on the river is close to it, so the little preposition carries the sense of nearness"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken at face value, one letter lifted from the clue"
+     }
+    ],
+    "walkthrough": "The surface offers a pair of Roman tourists. The couple is really two numerals, and the innocuous 'close to' is doing a preposition's work.",
+    "definitionFit": "classical region -> IONIA: Ionia was the Greek-settled coastal strip of ancient Asia Minor, home of Homer and of the Ionic column."
+   }
   },
   {
    "id": "11-across",
@@ -246,7 +608,29 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     ]
    },
    "solution": "SWEETNOTHINGS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SWEET NOTHINGS",
+    "definition": "lovey-dovey words",
+    "indicators": [
+     "incoherent"
+    ],
+    "indicatorNotes": {
+     "incoherent": "speech that is incoherent has lost its proper order, and so have these letters"
+    },
+    "anagram": {
+     "fodder": "TEEN SONGS WITH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Teen songs with",
+      "gives": "SWEETNOTHINGS",
+      "note": "thirteen letters of fodder, counting the little word that looks like joinery"
+     }
+    ],
+    "walkthrough": "'Teen songs' and 'lovey-dovey' pull in the same direction, which is the disguise: one of those phrases is raw material and the other is the definition.",
+    "definitionFit": "lovey-dovey words -> SWEET NOTHINGS: the murmured endearments couples exchange, affectionate noises carrying no information at all."
+   }
   },
   {
    "id": "12-down",
@@ -263,7 +647,35 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERLACES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "INTERLACES",
+    "definition": "Mixes up",
+    "indicators": [
+     "openings go begging"
+    ],
+    "indicatorNotes": {
+     "openings go begging": "an opening that goes begging is one nobody takes up, so the letter each word starts with is left behind"
+    },
+    "pieces": [
+     "INTER",
+     "LACES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seasonal",
+      "gives": "INTER",
+      "note": "winter is the season meant, and it turns up here without its W"
+     },
+     {
+      "clueFragment": "posts",
+      "gives": "LACES",
+      "note": "posts in the sense of places, that word starting a letter late"
+     }
+    ],
+    "walkthrough": "'Mixes up' sits at the front looking exactly like an anagram instruction and is really the definition: nothing in this clue gets shuffled.",
+    "definitionFit": "Mixes up -> INTERLACES: to interlace strands is to weave them in and out of one another, mixing them into a single fabric."
+   }
   },
   {
    "id": "13-across",
@@ -280,7 +692,35 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTABLES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOTABLES",
+    "definition": "VIPs",
+    "indicators": [
+     "to be put before"
+    ],
+    "indicatorNotes": {
+     "to be put before": "what is put before something else goes in front of it, which settles which piece leads"
+    },
+    "pieces": [
+     "NO",
+     "TABLES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "denial",
+      "gives": "NO",
+      "note": "the flattest two-letter refusal there is"
+     },
+     {
+      "clueFragment": "Schedules",
+      "gives": "TABLES",
+      "note": "a timetable is a schedule, and the plural matches the plural in the clue"
+     }
+    ],
+    "walkthrough": "'Schedules' opens the clue and looks like the definition; the definition is the three letters at the far end, and the schedules are a synonym waiting to be found.",
+    "definitionFit": "VIPs -> NOTABLES: notables are the people of note on a guest list, important enough to be named individually."
+   }
   },
   {
    "id": "14-down",
@@ -297,7 +737,36 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLISTERED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BLISTERED",
+    "definition": "Berated",
+    "indicators": [
+     "retired"
+    ],
+    "indicatorNotes": {
+     "retired": "someone retired has gone to bed for the night, and that sleeping place is what closes round the other piece"
+    },
+    "pieces": [
+     "B",
+     "LISTER",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retired",
+      "gives": "BED",
+      "note": "gone to bed, the word opening up after its first letter to make room"
+     },
+     {
+      "clueFragment": "surgical pioneer",
+      "gives": "LISTER",
+      "note": "Joseph Lister brought antiseptics into the operating theatre in the 1860s"
+     }
+    ],
+    "walkthrough": "The question mark admits the surface joke about a surgeon who has hung up his scalpel; the wordplay wants the man himself, tucked up for the night.",
+    "definitionFit": "Berated -> BLISTERED: to blister someone is to scorch them with criticism, and the past tense matches the past tense in the clue."
+   }
   },
   {
    "id": "15-across",
@@ -314,7 +783,45 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DICTUM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "DICTUM",
+    "definition": "Formal pronouncement",
+    "linkWords": [
+     "by",
+     "on"
+    ],
+    "indicators": [
+     "turning"
+    ],
+    "indicatorNotes": {
+     "turning": "a thing that is turning ends up facing the other way, so those letters are read back to front"
+    },
+    "pieces": [
+     "DIC",
+     "TUM"
+    ],
+    "subReversals": [
+     {
+      "from": "CID",
+      "to": "DIC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police",
+      "gives": "CID",
+      "note": "the CID is the detective branch of a British police force, and it faces the other way here"
+     },
+     {
+      "clueFragment": "corporation",
+      "gives": "TUM",
+      "note": "corporation is an old joke word for a large stomach; this is the nursery word for the same thing"
+     }
+    ],
+    "walkthrough": "Nothing here is a business: 'corporation' is Victorian slang for a paunch, and the police force is only three letters facing backwards.",
+    "definitionFit": "Formal pronouncement -> DICTUM: a dictum is an authoritative saying, the word used of a judge's formal statement of principle."
+   }
   },
   {
    "id": "16-down",
@@ -331,7 +838,33 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TINNIEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TINNIEST",
+    "definition": "most cheap",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [],
+    "pieces": [
+     "TINNIES",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canned drinks in Perth",
+      "gives": "TINNIES",
+      "note": "in Australian slang a tinnie is a can of beer, and Perth is the city on Australia's west coast"
+     },
+     {
+      "clueFragment": "Tango",
+      "gives": "T",
+      "note": "Tango is T in the radio alphabet"
+     }
+    ],
+    "walkthrough": "There is a Perth in Scotland too, which is what the question mark is apologising for; the drinks are Australian and so is the slang.",
+    "definitionFit": "most cheap -> TINNIEST: tinny means cheap and flimsy, of the quality of thin tin, so the superlative is the cheapest-feeling of all."
+   }
   },
   {
    "id": "17-across",
@@ -348,7 +881,46 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYELID",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone + first letter",
+    "answer": "EYELID",
+    "definition": "Shutter",
+    "indicators": [
+     "only opening",
+     "as reported",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "only opening": "a word's opening is the letter it starts with, and 'only' says that letter is all you get",
+     "as reported": "a thing reported is passed on by ear, so what counts is the sound and not the spelling",
+     "initially": "what comes initially comes at the very start, which is where the sounded piece goes"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Yes",
+      "soundsLike": "AYE",
+      "gives": "EYE",
+      "note": "aye is the vote in favour, and said aloud it is a part of the face"
+     },
+     {
+      "clueFragment": "Leica",
+      "gives": "L",
+      "note": "the first letter of the camera's name"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "diameter",
+      "gives": "D",
+      "note": "d is the standard symbol for diameter in geometry"
+     }
+    ],
+    "walkthrough": "Every scrap of this is camera talk hiding a single letter, and 'initially' is not an instruction to take initials: it says where the spoken piece belongs.",
+    "definitionFit": "Shutter -> EYELID: the lid drops over the eye the way a camera's shutter drops over its lens, closing off the light."
+   }
   },
   {
    "id": "18-down",
@@ -365,7 +937,41 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENNOBLE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "ENNOBLE",
+    "definition": "turn to peer",
+    "indicators": [
+     "turns up"
+    ],
+    "indicatorNotes": {
+     "turns up": "in a down clue a word that turns up is read from the bottom of the grid, so its letters arrive backwards"
+    },
+    "pieces": [
+     "ENNOB",
+     "LE"
+    ],
+    "subReversals": [
+     {
+      "from": "BONNE",
+      "to": "ENNOB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French maid",
+      "gives": "BONNE",
+      "note": "bonne is the French word for a housemaid, and it climbs the grid"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "'the' in French is le, in its masculine form"
+     }
+    ],
+    "walkthrough": "Both halves of the wordplay are in French, the maid and the article alike. The peer at the end is British and belongs to the definition.",
+    "definitionFit": "turn to peer -> ENNOBLE: to ennoble somebody is to raise them to the peerage, turning a commoner into a lord."
+   }
   },
   {
    "id": "19-across",
@@ -386,7 +992,35 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     ]
    },
    "solution": "RINGPULL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RING-PULL",
+    "definition": "can part",
+    "indicators": [
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "perhaps": "the crooks are offered as one example of a wider word, not as a synonym for it"
+    },
+    "pieces": [
+     "RING",
+     "PULL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Close-knit criminals",
+      "gives": "RING",
+      "note": "an organised gang of crooks is named for the closed circle it forms"
+     },
+     {
+      "clueFragment": "Force",
+      "gives": "PULL",
+      "note": "a tug towards you is one kind of force, the opposite of a push"
+     }
+    ],
+    "walkthrough": "'Force can part' reads as a police raid breaking the gang up. In the parse 'can' is a drinks can and 'part' is a component of one.",
+    "definitionFit": "can part -> RING-PULL: the little tab you hook a finger under to open a drink can, so it really is a piece of the can."
+   }
   },
   {
    "id": "20-down",
@@ -403,7 +1037,26 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNEARTH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "UNEARTH",
+    "definition": "Discover",
+    "indicators": [
+     "hides"
+    ],
+    "indicatorNotes": {
+     "hides": "a thing that hides is out of sight inside its surroundings, and the surroundings here are the clue's own words"
+    },
+    "blocks": [
+     {
+      "clueFragment": "caribou near the",
+      "gives": "UNEARTH",
+      "note": "seven letters running consecutively across the joins between these three words"
+     }
+    ],
+    "walkthrough": "The surface is a wildlife hide with deer grazing in front of it, and a picture that good is exactly what stops you counting letters across the gaps.",
+    "definitionFit": "Discover -> UNEARTH: to unearth a thing is to dig it out of the ground, bringing to light what nobody had found."
+   }
   },
   {
    "id": "21-down",
@@ -420,7 +1073,37 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMUSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "AMUSED",
+    "definition": "Victoria wasn't",
+    "indicators": [
+     "to follow",
+     "lead"
+    ],
+    "indicatorNotes": {
+     "to follow": "what follows a thing comes after it, which sets the order the two pieces are laid in",
+     "lead": "a person's lead is the letter their name begins with, the one out in front"
+    },
+    "pieces": [
+     "A",
+     "MUSED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Albert's",
+      "gives": "A",
+      "note": "the initial of the prince consort's name"
+     },
+     {
+      "clueFragment": "thought",
+      "gives": "MUSED",
+      "note": "to muse is to think a matter over"
+     }
+    ],
+    "walkthrough": "The definition is a quotation: 'We are not amused' is the remark every schoolbook hangs on Queen Victoria, so what she was not is what the grid wants.",
+    "definitionFit": "Victoria wasn't -> AMUSED: the Queen's most quoted line is 'We are not amused', so the clue defines the answer by her denial of it."
+   }
   },
   {
    "id": "22-across",
@@ -443,7 +1126,39 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     ]
    },
    "solution": "LONGTIMENOSEE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LONG TIME NO SEE",
+    "definition": "we haven't met in yonks",
+    "indicators": [
+     "Fantastic"
+    ],
+    "indicatorNotes": {
+     "Fantastic": "what is fantastic belongs to fantasy rather than fact, so the letters need not keep the arrangement they came in"
+    },
+    "anagram": {
+     "fodder": "ON MEETING O LES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "On meeting",
+      "gives": "ONMEETING",
+      "note": "nine letters of fodder, straight from the clue"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Les",
+      "gives": "LES",
+      "note": "the name joins the mix as its own three letters"
+     }
+    ],
+    "walkthrough": "The greeting two old friends exchange in the surface is spelled out by the letters of the meeting itself, with 'yonks' the British word for ages.",
+    "definitionFit": "we haven't met in yonks -> LONG TIME NO SEE: the pidgin-English greeting for exactly that, said when two people have not run into each other for ages."
+   }
   },
   {
    "id": "23-down",
@@ -460,7 +1175,38 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEDNA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SEDNA",
+    "definition": "remote orbiter",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "Boosted"
+    ],
+    "indicatorNotes": {
+     "Boosted": "a boosted thing has been lifted, and in a down clue lifting means reading the letters from the bottom up"
+    },
+    "pieces": [
+     "SEDNA"
+    ],
+    "subReversals": [
+     {
+      "from": "ANDES",
+      "to": "SEDNA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "range",
+      "gives": "ANDES",
+      "note": "the South American mountain range, which then climbs the grid"
+     }
+    ],
+    "walkthrough": "'Range' is the mountain kind rather than the distance kind, which is a neat trap in a clue that has just said 'remote'.",
+    "definitionFit": "remote orbiter -> SEDNA: Sedna is a dwarf planet far beyond Neptune, on one of the longest and most distant orbits known."
+   }
   },
   {
    "id": "24-down",
@@ -481,7 +1227,36 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     ]
    },
    "solution": "KPOP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "K-POP",
+    "definition": "music",
+    "indicators": [
+     "filled with"
+    ],
+    "indicatorNotes": {
+     "filled with": "a stand filled with something has it inside, so the letter goes between the others rather than alongside them"
+    },
+    "pieces": [
+     "K",
+     "P",
+     "OP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Football stand",
+      "gives": "KOP",
+      "note": "the Kop is the steep terrace behind a goal at a British football ground, Liverpool's the most famous of them"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano in music, the direction to play softly"
+     }
+    ],
+    "walkthrough": "The whole surface is a Saturday afternoon in England and the definition arrives from Seoul, which is the jolt the clue is built for.",
+    "definitionFit": "music -> K-POP: definition by example, since K-pop is South Korean pop music, one genre standing in for the general word."
+   }
   },
   {
    "id": "25-across",
@@ -498,7 +1273,37 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CABER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CABER",
+    "definition": "Pole",
+    "linkWords": [
+     "at"
+    ],
+    "indicators": [
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "dancing": "letters set dancing move around the floor and come to rest somewhere new"
+    },
+    "anagram": {
+     "fodder": "BARE C"
+    },
+    "blocks": [
+     {
+      "clueFragment": "bare",
+      "gives": "BARE",
+      "note": "four letters of fodder, straight from the clue"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card table's abbreviation for clubs"
+     }
+    ],
+    "walkthrough": "'Pole dancing' is the trap the whole clue is built on: the two words belong to opposite halves of the parse, and the pole is a Highland Games one.",
+    "definitionFit": "Pole -> CABER: a caber is the trimmed tree trunk tossed at Highland games, a pole in the plainest sense of the word."
+   }
   },
   {
    "id": "26-across",
@@ -519,7 +1324,27 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPEEDTRAP",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SPEED TRAP",
+    "definition": "What lies in wait for those over 30, sometimes?",
+    "blocks": [
+     {
+      "clueFragment": "those over 30",
+      "note": "the surface offers an age bracket, everyone past their thirtieth birthday"
+     },
+     {
+      "clueFragment": "lies in wait",
+      "note": "meant literally: something concealed at the roadside, patient, watching for whoever comes past too quickly"
+     },
+     {
+      "clueFragment": "sometimes",
+      "note": "the qualifier concedes that not every stretch of road has one"
+     }
+    ],
+    "walkthrough": "British limits are posted in miles per hour and 30 is the standard one through a town, so 'over 30' describes a driver rather than a birthday.",
+    "definitionFit": "The whole clue -> SPEED TRAP: a hidden camera or patrol set to catch drivers exceeding the limit, so it does lie in wait for anyone over 30."
+   }
   },
   {
    "id": "27-across",
@@ -536,7 +1361,38 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLEDDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "SLEDDED",
+    "definition": "Travelled down in snow",
+    "linkWords": [
+     "used by"
+    ],
+    "indicators": [
+     "periodically"
+    ],
+    "indicatorNotes": {
+     "periodically": "something done periodically happens at a fixed interval, and the interval here is every second letter"
+    },
+    "pieces": [
+     "SLEDDE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver Dodge",
+      "gives": "SLEDDE",
+      "note": "every other letter of the two words, counting from the first"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "D",
+      "note": "d was the British penny before decimal currency, the abbreviation coming from the Roman denarius"
+     }
+    ],
+    "walkthrough": "'In silver Dodge' paints an American car and Penny sounds like a passenger; the car is a source of letters and Penny is a pre-1971 coin.",
+    "definitionFit": "Travelled down in snow -> SLEDDED: to sled is to ride a sledge downhill over snow, and both clue and answer are in the past tense."
+   }
   },
   {
    "id": "28-across",
@@ -553,7 +1409,39 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEASHOP",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "TEASHOP",
+    "definition": "genteel establishment",
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "indicators": [
+     "short"
+    ],
+    "indicatorNotes": {
+     "short": "a word called short is docked of its final letter, arriving one shy of its full length"
+    },
+    "pieces": [
+     "TEAS",
+     "HOP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guy",
+      "gives": "TEAS",
+      "note": "to guy someone is to tease them, and that word turns up a letter short"
+     },
+     {
+      "clueFragment": "Dance",
+      "gives": "HOP",
+      "note": "a hop is an informal dance in a village hall"
+     }
+    ],
+    "walkthrough": "'Guy' is a verb here rather than a bloke: to guy someone is to make fun of them, and that is the one step the surface works hardest to hide.",
+    "definitionFit": "genteel establishment -> TEASHOP: the polite British cafe of teapots and cake stands, a byword for respectability."
+   }
   }
  ]
 } /*JSON-END*/;
