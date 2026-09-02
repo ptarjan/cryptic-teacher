@@ -2707,10 +2707,15 @@
       // printed blank has no ladder ever, because there is no clue. Say which,
       // or the reader hunts the grid for wordplay that was never printed.
       // clueMissing is written by the fetchers off has_words — see fetch_puzzle.
+      // A blank clue printed on purpose still yields its answer, and saying
+      // only "the space came through empty" leaves the reader staring at an
+      // answer with no reason for it. clueMissingNote is where a person writes
+      // that reason; the annotation queue cannot, having no words to read.
       bodyHTML = e.clueMissing
-        ? `<div class="hint-step"><p class="muted">The paper published this clue with no text in it —
-        the space beside the number came through empty, so there’s nothing here
-        to solve and no wordplay to explain. Not your eyes.
+        ? `<div class="hint-step"><p class="muted">The paper printed this clue blank — no words at all.
+        Not your eyes. ${e.clueMissingNote
+          ? esc(e.clueMissingNote)
+          : "Nothing was left to solve with, so there is no wordplay to explain."}
         ${canCheck() ? "You can reveal the answer below." : ""}</p></div>`
         : `<div class="hint-step"><p class="muted">This clue hasn’t been hand-annotated yet
         (<span class="badge auto">auto hints</span>), so there’s no teaching ladder for it.

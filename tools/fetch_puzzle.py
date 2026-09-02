@@ -382,6 +382,16 @@ def merge_annotations(new_puzzle, old_puzzle):
         if old.get(e["id"]) is not None:
             e["annotation"] = old[e["id"]]
 
+    # clueMissingNote is the only hand-written field on an entry the annotation
+    # queue never touches — a blank clue has no words for a model to read, so
+    # the explanation of one can only come from a person. Carry it too, or a
+    # re-fetch silently drops the single sentence that makes that clue make
+    # sense and the page falls back to "the paper printed nothing here".
+    notes = {e["id"]: e.get("clueMissingNote") for e in old_puzzle.get("entries", [])}
+    for e in new_puzzle["entries"]:
+        if notes.get(e["id"]):
+            e["clueMissingNote"] = notes[e["id"]]
+
     was_model = (old_puzzle.get("solutionSource") or {}).get("kind") == "model"
     if not was_model:
         return None
