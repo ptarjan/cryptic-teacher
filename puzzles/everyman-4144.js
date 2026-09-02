@@ -30,7 +30,32 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARCS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ARCS",
+    "definition": "bows",
+    "indicators": [
+     "Cockney"
+    ],
+    "indicatorNotes": {
+     "Cockney": "A Cockney accent drops the aitch off the front of a word, and it is the spoken version, not the written one, that the clue hands you."
+    },
+    "blocks": [
+     {
+      "clueFragment": "listens",
+      "gives": "HARKS",
+      "note": "To hark is to listen — 'hark at him', 'hark the herald angels'."
+     },
+     {
+      "clueFragment": "Cockney listens",
+      "soundsLike": "'ARKS",
+      "gives": "ARCS",
+      "note": "With the aitch gone, what is left is said aloud and comes out spelt a different way."
+     }
+    ],
+    "walkthrough": "'Bows' first reads as the ones you tie, or the ones you take on stage. The archer's is the one meant, and it is the shape of it that matters.",
+    "definitionFit": "An archer's bow is a curve, so 'bows' names curved lines — the geometric sense of the word, not the knot or the stage exit."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +72,32 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APOCRYPHAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "APOCRYPHAL",
+    "definition": "uncertain",
+    "indicators": [
+     "Silly"
+    ],
+    "indicatorNotes": {
+     "Silly": "Silly here means scatterbrained rather than merely foolish, and a scatterbrained arrangement is one that has lost the order it was given in."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "anagram": {
+     "fodder": "CAROL HAPPY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Carol, happy",
+      "gives": "CAROLHAPPY",
+      "note": "A woman's name and the adjective after it supply all ten letters between them."
+     }
+    ],
+    "walkthrough": "Everyman's fodder is often a first name plus an adjective, and the step that costs solvers time is seeing that Carol is wanted for her letters, not as a person.",
+    "definitionFit": "An apocryphal story is one of doubtful authenticity, endlessly repeated but never verified, so 'uncertain' names that unreliable standing."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +119,29 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
     ]
    },
    "solution": "CANOFWORMS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CAN OF WORMS",
+    "definition": "Tricky situation",
+    "indicators": [
+     "flounder"
+    ],
+    "indicatorNotes": {
+     "flounder": "To flounder is to thrash about without getting anywhere, and letters thrashing about end up somewhere other than where they started."
+    },
+    "anagram": {
+     "fodder": "FARM NO COWS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "farm with no cows",
+      "gives": "FARMNOCOWS",
+      "note": "'with' only joins them: farm, no and cows between them supply the ten letters."
+     }
+    ],
+    "walkthrough": "A farm with no cows sounds like a subtraction, and it is not: nothing is taken away. All three words stay and hand over every letter they have.",
+    "definitionFit": "Opening a can of worms means starting something that turns messy and cannot be tidied away again, which is the tricky situation meant."
+   }
   },
   {
    "id": "3-across",
@@ -86,7 +158,29 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROCEDURES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PROCEDURES",
+    "definition": "systems",
+    "indicators": [
+     "dodgy"
+    ],
+    "indicatorNotes": {
+     "dodgy": "Something dodgy cannot be trusted to stay as it looks, so the word warns you the letters beside it will not stay where they are."
+    },
+    "anagram": {
+     "fodder": "REPRODUCES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Reproduces",
+      "gives": "REPRODUCES",
+      "note": "The opening word is the raw material, and its ten letters match the enumeration exactly."
+     }
+    ],
+    "walkthrough": "A three-word clue leaves nowhere to hide, and the trap is taking the first word as the definition. Count its letters against the enumeration and it is plainly the fodder.",
+    "definitionFit": "Procedures are the settled ways an organisation does things, and a system is likewise a fixed method — the plurals line up step for step."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +197,27 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RULINGS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RULINGS",
+    "definition": "Decrees",
+    "definition2": "when you've repeatedly drawn a line",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Decrees",
+      "gives": "",
+      "note": "The legal sense: what a judge or a referee formally hands down."
+     },
+     {
+      "clueFragment": "when you've repeatedly drawn a line",
+      "gives": "",
+      "note": "The other sense of the verb: to rule is to draw a line against a straight edge, and doing it more than once makes it plural."
+     }
+    ],
+    "walkthrough": "The question mark is the setter owning up to the second reading. One word covers a courtroom and a pencil case, and only the plural joins them.",
+    "definitionFit": "Rulings are the decisions a judge or referee hands down, which is what decrees are; the second sense takes the verb back to the ruler that draws lines."
+   }
   },
   {
    "id": "5-down",
@@ -120,7 +234,28 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COMEDIC",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "COMEDIC",
+    "definition": "amusing",
+    "indicators": [
+     "Some",
+     "characters"
+    ],
+    "indicatorNotes": {
+     "Some": "Some of a phrase is a part of it and not the whole, which is the signal that a run of what follows is to be lifted out untouched.",
+     "characters": "Characters are letters as well as people in a novel, and it is the letters of the words before it that are wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "welcome Dickensian",
+      "gives": "COMEDIC",
+      "note": "Seven consecutive letters run from the middle of the first word straight on into the second, needing no rearrangement."
+     }
+    ],
+    "walkthrough": "Dickens wrote characters, so the surface gives nothing away — which is exactly what a hidden word needs. The join between the two words is where to look.",
+    "definitionFit": "Comedic means belonging to comedy, so a comedic turn is a funny one, and 'amusing' is the everyday adjective for that same quality."
+   }
   },
   {
    "id": "6-down",
@@ -141,7 +276,32 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
     ]
    },
    "solution": "DOUBLESCOTCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOUBLE SCOTCH",
+    "definition": "some whisky",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "DOUBLE",
+     "SCOTCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twin",
+      "gives": "DOUBLE",
+      "note": "A twin is a double — one of an identical pair."
+     },
+     {
+      "clueFragment": "put lid on",
+      "gives": "SCOTCH",
+      "note": "To scotch a rumour is to put a lid on it and stop it dead."
+     }
+    ],
+    "walkthrough": "The second half is doing two jobs at once: the verb that kills a rumour builds the word, while the drink is what the finished phrase orders at a bar.",
+    "definitionFit": "A double Scotch is two measures of Scotch whisky in one glass, so 'some whisky' names the drink by the amount poured."
+   }
   },
   {
    "id": "7-down",
@@ -158,7 +318,42 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAID",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "RAID",
+    "definition": "police swoop",
+    "indicators": [
+     "Most of",
+     "picked up"
+    ],
+    "indicatorNotes": {
+     "Most of": "Most of a word is nearly all of it, which in practice means every letter but the last one.",
+     "picked up": "Picked up means lifted, and a down entry read from the bottom upwards delivers its letters in the opposite order."
+    },
+    "pieces": [
+     "RAID"
+    ],
+    "subReversals": [
+     {
+      "from": "DIAR",
+      "to": "RAID"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "logbook",
+      "gives": "DIARY",
+      "note": "A logbook is filled in day by day, which is what a diary is for."
+     },
+     {
+      "clueFragment": "Most of logbook",
+      "gives": "DIAR",
+      "note": "Take all but the final letter of those five and four are left to turn round."
+     }
+    ],
+    "walkthrough": "'Picked up' reads as gossip overheard, which is how it slips past as an instruction — and in a down clue it can only mean read the letters upwards.",
+    "definitionFit": "A raid is a sudden descent by police on premises, so 'police swoop' is the newspaper phrase for exactly that operation."
+   }
   },
   {
    "id": "8-down",
@@ -175,7 +370,27 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIGN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SIGN",
+    "definition": "Notice",
+    "indicators": [
+     "making noise"
+    ],
+    "indicatorNotes": {
+     "making noise": "Making noise is saying the thing out loud, so what counts is how the word sounds and not how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "soundsLike": "SINE",
+      "gives": "SIGN",
+      "note": "The trigonometric function that sits beside cosine and tangent; said aloud it is written another way entirely."
+     }
+    ],
+    "walkthrough": "'Function' looks like it wants to be a party or a job, and it is neither — it is the one from school trigonometry, and only its sound is used.",
+    "definitionFit": "A sign is a notice put up to be read: the placard sense of the word, not the verb meaning to spot something."
+   }
   },
   {
    "id": "9-across",
@@ -192,7 +407,34 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OINK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OINK",
+    "definition": "Sound from pen",
+    "pieces": [
+     "O",
+     "INK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "why pen no use?",
+      "gives": "",
+      "note": "The riddle framing: a pen is no use when it has nothing in it. Its two pieces are taken below."
+     },
+     {
+      "clueFragment": "no",
+      "gives": "O",
+      "note": "Nothing is written as a round zero, which doubles as the letter."
+     },
+     {
+      "clueFragment": "pen",
+      "gives": "INK",
+      "note": "The second one is the writing kind, and what it runs on is ink."
+     }
+    ],
+    "walkthrough": "Two different pens sit in this clue: the first is a sty, the second writes. Everyman reuses the word on purpose, so it belongs to the definition and to the wordplay both.",
+    "definitionFit": "A pen is also a pig's enclosure, so the sound coming out of one is a grunt, and the answer is the comic-strip spelling of that grunt."
+   }
   },
   {
    "id": "10-across",
@@ -209,7 +451,36 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLAMOURING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CLAMOURING",
+    "definition": "making racket",
+    "indicators": [
+     "clutching"
+    ],
+    "indicatorNotes": {
+     "clutching": "To clutch something is to close your hand right round it, so whatever is clutched ends up inside the word doing the clutching."
+    },
+    "pieces": [
+     "CL",
+     "AMOUR",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clutch",
+      "gives": "CLING",
+      "note": "To clutch at a rail is to cling to it."
+     },
+     {
+      "clueFragment": "loved one",
+      "gives": "AMOUR",
+      "note": "Amour is the French for love and is used in English for a lover — 'a secret amour'."
+     }
+    ],
+    "walkthrough": "'Clutch' and 'clutching' sit side by side doing different jobs: the first is the word to be opened up, the second is the instruction to open it.",
+    "definitionFit": "To clamour is to shout insistently and all at once, which is making a racket — the noisy sense rather than the 'clamouring for reform' one."
+   }
   },
   {
    "id": "11-down",
@@ -230,7 +501,29 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
     ]
    },
    "solution": "KEEPINGWATCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KEEPING WATCH",
+    "definition": "What guard's doing",
+    "pieces": [
+     "KEEPING",
+     "WATCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not selling",
+      "gives": "KEEPING",
+      "note": "If you are not selling something, you are keeping it."
+     },
+     {
+      "clueFragment": "retirement gift",
+      "gives": "WATCH",
+      "note": "The traditional present for a long-serving employee on retirement is a gold watch."
+     }
+    ],
+    "walkthrough": "The question mark flags a definition by tradition rather than by dictionary: not every leaver gets one, but every crossword leaver does.",
+    "definitionFit": "To keep watch is to stay alert and look out for trouble, which is a sentry's whole job, so the -ing form matches what a guard is doing."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +544,39 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAFAELNADAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RAFAEL NADAL",
+    "definition": "tennis ace",
+    "indicators": [
+     "Playing"
+    ],
+    "indicatorNotes": {
+     "Playing": "To play with something is to move it about idly, and what is being moved about here is the letters that follow, not a racket."
+    },
+    "anagram": {
+     "fodder": "LENDL AAAA FR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lendl",
+      "gives": "LENDL",
+      "note": "Ivan Lendl, eight times a grand slam champion, is wanted only for his five letters."
+     },
+     {
+      "clueFragment": "a four-time",
+      "gives": "AAAA",
+      "note": "The letter A, taken four times over, exactly as the words say."
+     },
+     {
+      "clueFragment": "French",
+      "gives": "FR",
+      "note": "Fr. is the usual abbreviation for French, the one a dictionary uses to label a borrowed word."
+     }
+    ],
+    "walkthrough": "The hard step is reading 'a four-time' literally. It is not describing a champion; it is asking for one letter written out four times over.",
+    "definitionFit": "'Tennis ace' defines by example: an ace is a top player, and the Spaniard who owns the French Open clay-court record is one."
+   }
   },
   {
    "id": "13-down",
@@ -268,7 +593,33 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCHOOLWORK",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SCHOOLWORK",
+    "definition": "Assignments",
+    "definitionNote": "The answer is a mass noun — you never speak of two of them — so the plural 'Assignments' names the several separate tasks that one uncountable word covers.",
+    "indicators": [
+     "reformed"
+    ],
+    "indicatorNotes": {
+     "reformed": "Reformed is re-formed, made into a new shape, and a word re-formed is one whose letters have been put together differently."
+    },
+    "linkWords": [
+     "making"
+    ],
+    "anagram": {
+     "fodder": "CROOKS HOWL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "crooks howl",
+      "gives": "CROOKSHOWL",
+      "note": "The two words after the indicator give up all ten of their letters."
+     }
+    ],
+    "walkthrough": "The surface is a police story — reformed criminals, howling — and it hangs together so well that the ten letters sitting in plain sight take a while to notice.",
+    "definitionFit": "Schoolwork is the set of tasks a pupil is given to get through, in class or at home, which is what a teacher calls assignments."
+   }
   },
   {
    "id": "14-down",
@@ -285,7 +636,29 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWEEPSTAKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWEEPSTAKE",
+    "definition": "drawing of lots",
+    "pieces": [
+     "SWEEPS",
+     "TAKE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chimney-cleaners",
+      "gives": "SWEEPS",
+      "note": "A chimney sweep cleans the flue; put in the plural the job title gives six letters."
+     },
+     {
+      "clueFragment": "draw in",
+      "gives": "TAKE",
+      "note": "A stall that draws in a hundred pounds a day takes a hundred pounds a day."
+     }
+    ],
+    "walkthrough": "'Draw' appears twice and means two different things: money coming in for the wordplay, and a name pulled out of a hat for the definition.",
+    "definitionFit": "A sweepstake is a lottery in which the whole pot goes to whoever's name comes out, so 'drawing of lots' describes how the winner is picked."
+   }
   },
   {
    "id": "15-across",
@@ -302,7 +675,34 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROMPTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PROMPTS",
+    "definition": "Spurs",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Milk that has gone off has turned, and a word told to go off turns the same way — its letters no longer in the state they were handed over in."
+    },
+    "anagram": {
+     "fodder": "PP STORM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "very quietly",
+      "gives": "PP",
+      "note": "Pianissimo, the score's marking for very quiet, is written as a doubled p."
+     },
+     {
+      "clueFragment": "storm",
+      "gives": "STORM",
+      "note": "The five letters of the word itself join the two above."
+     }
+    ],
+    "walkthrough": "'Spurs' opens the clue looking like Tottenham Hotspur, the London football club, and 'storm off' looks like what a beaten team does. Both readings belong to the surface.",
+    "definitionFit": "To prompt someone is to spur them into speech or action, which is the theatre sense too: the prompt feeds an actor the line they have lost."
+   }
   },
   {
    "id": "16-across",
@@ -323,7 +723,36 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
     ]
    },
    "solution": "CASHCOW",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "CASH COW",
+    "definition": "steady source of income",
+    "indicators": [
+     "decrepit",
+     "exhausted"
+    ],
+    "indicatorNotes": {
+     "decrepit": "Something decrepit has fallen apart with age, and letters that have fallen apart no longer sit in the order they were given in.",
+     "exhausted": "A thing exhausted has had everything inside it used up, so what survives is only what sits at either end."
+    },
+    "anagram": {
+     "fodder": "COACH WS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "coach",
+      "gives": "COACH",
+      "note": "The five letters of the word itself, before they are shaken up."
+     },
+     {
+      "clueFragment": "exhausted, wants",
+      "gives": "WS",
+      "note": "Empty the middle out of the second word and its first and last letters are what remain."
+     }
+    ],
+    "walkthrough": "The commas are load-bearing. 'Exhausted' looks like it describes the coach, and the sentence reads perfectly that way — but the word it hollows is the one after it.",
+    "definitionFit": "A cash cow is a product that keeps earning with little effort, milked like a dairy herd, so it is a steady source of income rather than a windfall."
+   }
   },
   {
    "id": "17-across",
@@ -340,7 +769,26 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMENIA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ARMENIA",
+    "definition": "country",
+    "indicators": [
+     "surrounding"
+    ],
+    "indicatorNotes": {
+     "surrounding": "What surrounds a thing sits on both sides of it, so the words named are the wrapping and what is wanted lies inside them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Beggar me! Niagara's",
+      "gives": "ARMENIA",
+      "note": "Seven letters run on without a break from the end of the first word, through the second and into the third; the punctuation is ignored."
+     }
+    ],
+    "walkthrough": "'Beggar me!' is an old exclamation of astonishment, thrown in purely to smuggle its last two letters into the run. Hidden words often begin mid-word like this.",
+    "definitionFit": "Armenia is a landlocked country in the Caucasus, south of Georgia, so 'country' names it by the class it belongs to."
+   }
   },
   {
    "id": "18-down",
@@ -357,7 +805,30 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANKLETS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANKLETS",
+    "definition": "Bling",
+    "definitionNote": "Bling is an uncountable word for flashy jewellery, so it names the category rather than agreeing in number with the plural answer.",
+    "indicators": [
+     "grotesque"
+    ],
+    "indicatorNotes": {
+     "grotesque": "A grotesque figure is one distorted out of its proper shape, and a word distorted out of its proper shape has its letters somewhere new."
+    },
+    "anagram": {
+     "fodder": "SLANKET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "slanket",
+      "gives": "SLANKET",
+      "note": "A slanket is a blanket with sleeves, sold as loungewear; here it is simply seven letters."
+     }
+    ],
+    "walkthrough": "A colon after a one-word definition is Everyman's favourite joinery, and everything on the far side of it is indicator plus fodder and nothing else.",
+    "definitionFit": "Anklets are ornamental chains worn round the ankle, and bling is the slang term for showy jewellery of exactly that kind."
+   }
   },
   {
    "id": "19-across",
@@ -374,7 +845,47 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROVOKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "PROVOKE",
+    "definition": "annoy",
+    "indicators": [
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a word is where it starts, so what is taken from it is the single letter it starts with."
+    },
+    "pieces": [
+     "PRO",
+     "V",
+     "OK",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "PRO",
+      "note": "Pro means in favour of — pro-reform, the pros and cons."
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "v. is the everyday abbreviation for very, as in 'v. good'."
+     },
+     {
+      "clueFragment": "average",
+      "gives": "OK",
+      "note": "Something merely OK is average: neither good nor bad."
+     },
+     {
+      "clueFragment": "Everyman's beginning",
+      "gives": "E",
+      "note": "Everyman is this setter's own pen name, and what it begins with is its first letter."
+     }
+    ],
+    "walkthrough": "Everyman signs his clues, so his name inside one is nearly always letters rather than a person. The quotation marks are the hint that 'very average' is two pieces, not one phrase.",
+    "definitionFit": "To provoke someone is to needle them until they react, so 'annoy' is the milder everyday synonym for the same deliberate act."
+   }
   },
   {
    "id": "19-down",
@@ -391,7 +902,40 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRUSSIA",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "PRUSSIA",
+    "definition": "Initially powerful realm; ultimately subservient state ignobly abolished!",
+    "indicators": [
+     "Initially"
+    ],
+    "indicatorNotes": {
+     "Initially": "Initially means at the very start, and set in front of a run of words it asks for the letter each of them starts with."
+    },
+    "pieces": [
+     "P",
+     "R",
+     "U",
+     "S",
+     "S",
+     "I",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "powerful realm; ultimately",
+      "gives": "PRU",
+      "note": "The first three words of the run hand over the letters they begin with, semicolon and all."
+     },
+     {
+      "clueFragment": "subservient state ignobly abolished",
+      "gives": "SSIA",
+      "note": "The last four do the same, and the letters arrive in the order the clue reads."
+     }
+    ],
+    "walkthrough": "Nothing here is left over for a definition, because the sentence is the definition: seven words of history, each one also giving up its first letter.",
+    "definitionFit": "Every word reads straight as history — the realm rose, was reduced to a rubber stamp under the Nazis, and was dissolved by Allied decree in 1947."
+   }
   },
   {
    "id": "20-across",
@@ -415,7 +959,37 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
     ]
    },
    "solution": "WAKEUPCALLS",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "WAKE-UP CALLS",
+    "definition": "Warnings",
+    "indicators": [
+     "Spooner relays"
+    ],
+    "indicatorNotes": {
+     "Spooner relays": "The Reverend Spooner was famous for trading the opening sounds of two words, so having him relay a phrase means it arrives with those sounds swapped."
+    },
+    "pieces": [
+     "WAKE",
+     "UP",
+     "CALLS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outcome of birthday-party food fight",
+      "gives": "CAKE UP WALLS",
+      "note": "The food at the centre of a birthday party is the cake, and a fight ends with it up the walls."
+     },
+     {
+      "clueFragment": "Spooner relays",
+      "soundsLike": "CAKE UP WALLS",
+      "gives": "WAKE-UP CALLS",
+      "note": "Say that aloud with the opening sounds of the outer words traded, C for W."
+     }
+    ],
+    "walkthrough": "A spoonerism always names its speaker, so the clue tells you which two sounds to swap before you have any idea what you are swapping them in.",
+    "definitionFit": "A wake-up call is the jolt that makes somebody face a problem, so 'Warnings' is the figurative sense — the hotel's morning telephone call turned metaphor."
+   }
   },
   {
    "id": "21-down",
@@ -432,7 +1006,32 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCUM",
+    "definition": "Mucky film",
+    "linkWords": [
+     "showing"
+    ],
+    "pieces": [
+     "SC",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special Constable",
+      "gives": "SC",
+      "note": "A special constable is a volunteer part-time police officer in Britain, and SC is the rank's short form."
+     },
+     {
+      "clueFragment": "hesitant expression",
+      "gives": "UM",
+      "note": "The noise you make out loud while you hunt for the next word."
+     }
+    ],
+    "walkthrough": "'Mucky film' sets up a seedy movie, and the answer turns out to be nothing so interesting: it is the layer that forms on top of standing water.",
+    "definitionFit": "Scum is the dirty layer that gathers on the surface of a liquid, so 'film' is meant in its thin-coating sense, not its cinema one."
+   }
   },
   {
    "id": "22-down",
@@ -449,7 +1048,27 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAIR",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FAIR",
+    "definition": "Decent",
+    "definition2": "trade show",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Decent",
+      "gives": "",
+      "note": "The sense of adequate rather than admirable: a decent effort, a middling grade."
+     },
+     {
+      "clueFragment": "trade show",
+      "gives": "",
+      "note": "The industry gathering where firms take a stand and show off what they sell."
+     }
+    ],
+    "walkthrough": "Three words and no wordplay, so the whole trick is the join: 'Decent trade' reads as one phrase, which is what stops you splitting the clue in the right place.",
+    "definitionFit": "Fair means decent in the sense of acceptable rather than excellent, and a trade fair is the exhibition where an industry shows off its wares."
+   }
   },
   {
    "id": "23-across",
@@ -466,7 +1085,38 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARTREUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHARTREUSE",
+    "definition": "something intoxicating",
+    "indicators": [
+     "following"
+    ],
+    "indicatorNotes": {
+     "following": "To follow is to come after, so the piece it governs is set down behind the other rather than in front of it."
+    },
+    "linkWords": [
+     "depicting"
+    ],
+    "pieces": [
+     "CHART",
+     "REUSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diagram",
+      "gives": "CHART",
+      "note": "A chart is a diagram of figures — a bar chart, a flow chart."
+     },
+     {
+      "clueFragment": "Once again, apply",
+      "gives": "REUSE",
+      "note": "To apply something once again is to put it to use a second time."
+     }
+    ],
+    "walkthrough": "Chartreuse is a fiercely strong herbal liqueur made by Carthusian monks in the French Alps, and the yellow-green colour is named after the drink rather than the other way round.",
+    "definitionFit": "The liqueur is about 55% alcohol, so 'something intoxicating' points at the drink and not at the colour that borrowed its name."
+   }
   },
   {
    "id": "24-across",
@@ -483,7 +1133,35 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CODA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "CODA",
+    "definition": "End-piece",
+    "indicators": [
+     "taken aback"
+    ],
+    "indicatorNotes": {
+     "taken aback": "To be taken aback is to be pushed backwards, and in an across entry backwards means reading the letters right to left."
+    },
+    "pieces": [
+     "CODA"
+    ],
+    "subReversals": [
+     {
+      "from": "ADOC",
+      "to": "CODA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a physician",
+      "gives": "A DOC",
+      "note": "Doc is the familiar short form for a doctor, with the article kept in front of it."
+     }
+    ],
+    "walkthrough": "'Taken aback' reads as the doctor being startled, which is exactly what a good reversal indicator does: it describes a person while instructing the letters.",
+    "definitionFit": "A coda is the passage that rounds off a piece of music, so 'End-piece' names it by where it sits rather than by what it contains."
+   }
   },
   {
    "id": "25-across",
@@ -504,7 +1182,32 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
     ]
    },
    "solution": "MURPHYSLAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MURPHY'S LAW",
+    "definition": "It says you'll go wrong",
+    "linkWords": [
+     "adding"
+    ],
+    "pieces": [
+     "MURPHY",
+     "SLAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "potato",
+      "gives": "MURPHY",
+      "note": "Murphy is an old informal British word for a potato, borrowed from the Irish surname."
+     },
+     {
+      "clueFragment": "cabbage salad",
+      "gives": "SLAW",
+      "note": "Slaw, as in coleslaw, is shredded cabbage dressed as a salad."
+     }
+    ],
+    "walkthrough": "The apostrophe is invisible in the wordplay: the two chunks run straight together and it is the solver who puts the punctuation back in.",
+    "definitionFit": "The law is the maxim that anything which can go wrong will go wrong, so the definition simply states what the named principle asserts."
+   }
   },
   {
    "id": "26-across",
@@ -521,7 +1224,35 @@ window.CRYPTIC_PUZZLES["everyman-4144"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKYE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "SKYE",
+    "definition": "Island",
+    "indicators": [
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A house on vacation stands empty, and a word emptied the same way keeps only the letters at each end."
+    },
+    "pieces": [
+     "SK",
+     "YE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sark",
+      "gives": "SK",
+      "note": "Sark is one of the Channel Islands; emptied out, its first and last letters are left."
+     },
+     {
+      "clueFragment": "yippee!",
+      "gives": "YE",
+      "note": "The shout of delight, hollowed the same way, leaves the letters at its ends."
+     }
+    ],
+    "walkthrough": "One indicator serving two words is the economy that makes a four-letter clue work, and the surface — an island, a holiday, a cheer — never lets on.",
+    "definitionFit": "Skye is the largest of the Inner Hebrides, off the west coast of Scotland, so 'Island' names it by the category it belongs to."
+   }
   }
  ]
 } /*JSON-END*/;
