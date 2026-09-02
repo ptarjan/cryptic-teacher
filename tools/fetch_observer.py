@@ -7,6 +7,8 @@ Usage:
   python3 tools/fetch_observer.py --backfill [N]       # last N puzzles ending at the
                                                         # newest (default 30), skipping
                                                         # ones already on disk and 404s
+  python3 tools/fetch_observer.py --extend [N]         # N puzzles OLDER than the oldest
+                                                        # on disk, stopping at EARLIEST
   python3 tools/fetch_observer.py --refresh-unsolved   # fill in solutions for puzzles
                                                         # whose answers have since posted
 
@@ -81,6 +83,11 @@ import series as series_meta  # noqa: E402
 
 ARTICLE_URL = "https://observer.co.uk/puzzles/everyman/article/everyman-no-{num}"
 TOPICS_URL = "https://observer.co.uk/topics/everyman"
+# The oldest everyman anyone still serves. 4096 and below were the Guardian's
+# mirror, which 404s since the Observer moved to Tortoise Media, so the archive
+# has a hard floor and walking below it only buys 404s. The handful we hold
+# under this number were downloaded before the mirror went.
+EARLIEST = 4097
 API_BASE = "https://content-api.slowdownwiseup.co.uk"
 
 # The article's own hydration payload double-escapes its embedded JSON (it's a
@@ -334,12 +341,11 @@ def latest():
     return fetch_number(newest)
 
 
-def backfill(count=30):
-    """Fetch the last `count` puzzles ending at the newest, skipping ones
-    already on disk."""
-    newest = find_latest_number()
+def walk(numbers, what="backfill"):
+    """Fetch each number in turn, skipping what's on disk and what 404s.
+    Returns how many arrived."""
     fetched = skipped = missing = 0
-    for num in range(newest, newest - count, -1):
+    for num in numbers:
         path = puzzle_path("everyman", num)
         if path.exists():
             skipped += 1
@@ -355,7 +361,32 @@ def backfill(count=30):
             missing += 1
         time.sleep(1)
     reindex()
-    print(f"backfill done: {fetched} fetched, {skipped} already present, {missing} unavailable")
+    print(f"{what} done: {fetched} fetched, {skipped} already present, {missing} unavailable")
+    return fetched
+
+
+def backfill(count=30):
+    """Fetch the last `count` puzzles ending at the newest, skipping ones
+    already on disk."""
+    newest = find_latest_number()
+    return walk(range(newest, newest - count, -1))
+
+
+def extend(count=30):
+    """Fetch `count` puzzles OLDER than the oldest everyman on disk.
+
+    Stops at EARLIEST rather than walking into the Guardian's dead mirror. Every
+    number below it 404s at both publishers, and a walk that discovers that one
+    polite second at a time would burn a minute of the run to learn nothing.
+    """
+    have = sorted(int(p.stem[len("everyman-"):]) for p in puzzle_files()
+                  if p.stem.startswith("everyman-")
+                  and p.stem[len("everyman-"):].isdigit())
+    oldest = min(have) if have else find_latest_number() + 1
+    if oldest <= EARLIEST:
+        print(f"extend done: everyman starts at {EARLIEST}; nothing older exists")
+        return 0
+    return walk(range(oldest - 1, max(oldest - 1 - count, EARLIEST - 1), -1), "extend")
 
 
 def refresh_unsolved():
@@ -409,6 +440,9 @@ def main(argv):
         return 0
     if argv[0] == "--backfill":
         backfill(int(argv[1]) if len(argv) > 1 else 30)
+        return 0
+    if argv[0] == "--extend":
+        extend(int(argv[1]) if len(argv) > 1 else 30)
         return 0
     if argv[0] == "--latest":
         puzzle = latest()

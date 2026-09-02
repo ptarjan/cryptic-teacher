@@ -611,6 +611,23 @@ fi
 
 python3 tools/fetch_puzzle.py --reindex >/dev/null
 
+# Top the queue up from the archives before reading it. A window spent with
+# nothing left to annotate wastes exactly as much as a window that stops early,
+# and the papers publish four or five a day against a burn that clears far more,
+# so the queue empties on its own. tools/extend_archive.py walks each paper
+# backwards until the queue is deeper than the best week this job has had.
+#
+# Here rather than when the queue runs dry: the queue is read once below, and
+# fetching mid-wave would race the reindex the running annotators read through.
+#
+# Never fatal. A paper being down is a smaller problem than not annotating.
+if [ "$DRY_RUN" = 1 ]; then
+  python3 tools/extend_archive.py --dry-run || true
+else
+  python3 tools/extend_archive.py ||
+    echo "archive extend failed — running on what is already on disk"
+fi
+
 # --- 1. un-annotated puzzles, quiptics first ---------------------------------
 echo "un-annotated backlog, newest first:"
 todo=$(python3 - <<'EOF'

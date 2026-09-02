@@ -7,6 +7,10 @@ Usage:
   python3 tools/fetch_independent.py --backfill [N]  # the last N days (default 30),
                                                      # skipping days already on disk
   python3 tools/fetch_independent.py --sundays [N]   # the last N Sundays (default 52)
+  python3 tools/fetch_independent.py --extend [N]    # N days OLDER than the oldest daily
+                                                     # on disk (default 30)
+  python3 tools/fetch_independent.py --extend-sundays [N]
+                                                     # N Sundays older than the oldest (26)
   python3 tools/fetch_independent.py --check         # is the feed still there?
 
 One feed, two series: the daily Monday–Saturday and the Independent on Sunday's
@@ -254,6 +258,22 @@ def days_back(n, end=None):
     return [(end - timedelta(days=i)).strftime("%y%m%d") for i in range(n)]
 
 
+def oldest_held(series):
+    """The earliest date we hold for one of the two series, or None.
+
+    The anchor --extend walks back from. This feed is keyed by date and the
+    number only appears inside the file, so unlike the number-based fetchers it
+    cannot skip a day it already has without paying for the download — which
+    makes anchoring at the far end of the archive the difference between
+    fetching N days and re-fetching the entire history to reach them.
+    """
+    stamps = [p["date"] for p in (read_puzzle_file(f) for f in puzzle_files())
+              if p["id"].startswith(f"{series}-")]
+    if not stamps:
+        return None
+    return datetime.fromtimestamp(min(stamps) / 1000, timezone.utc).date()
+
+
 def sundays_back(n, end=None):
     """The last N Sundays, newest first.
 
@@ -339,6 +359,19 @@ def main(argv):
         return 0
     if argv[0] == "--sundays":
         backfill(sundays_back(int(argv[1]) if len(argv) > 1 else 52))
+        return 0
+    # The two --extend forms walk older instead of newer, one per series. Both
+    # anchor a day before the oldest we hold: a Saturday for the daily, and for
+    # the Sunday walk a day that sundays_back then snaps to the Sunday before.
+    if argv[0] == "--extend":
+        n = int(argv[1]) if len(argv) > 1 else 30
+        held = oldest_held("independent")
+        backfill(days_back(n, held - timedelta(days=1) if held else None))
+        return 0
+    if argv[0] == "--extend-sundays":
+        n = int(argv[1]) if len(argv) > 1 else 26
+        held = oldest_held("indysunday")
+        backfill(sundays_back(n, held - timedelta(days=1) if held else None))
         return 0
     if argv[0] == "--latest":
         puzzle = latest()
