@@ -30,7 +30,41 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ORAL",
+    "definition": "exam",
+    "indicators": [
+     "lying about"
+    ],
+    "indicatorNotes": {
+     "lying about": "Something left lying about has been turned round from the way it was put down, so the letters it points at are written in the opposite order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Otherwise",
+      "gives": "OR",
+      "note": "or carries the sense of otherwise — do this, or else that"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "AL",
+      "note": "the French word for 'the' is la, and it arrives the other way round"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "LA",
+      "to": "AL"
+     }
+    ],
+    "pieces": [
+     "OR",
+     "AL"
+    ],
+    "walkthrough": "'Otherwise lying' looks like an anagram waiting to happen. The shuffle never comes: 'or' is quietly doing duty as a word meaning otherwise.",
+    "definitionFit": "exam → ORAL: the spoken paper in a language exam, a noun in its own right rather than the adjective meaning by mouth."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +81,36 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAILCARDS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RAILCARDS",
+    "definition": "Train-users' conveniences",
+    "indicators": [
+     "containing"
+    ],
+    "indicatorNotes": {
+     "containing": "To contain is to hold something inside, so the piece named first opens up and the piece named next goes in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bars",
+      "gives": "RAILS",
+      "note": "bars in the sense of rails — the metal bars of a fence, or of a track"
+     },
+     {
+      "clueFragment": "source of merriment",
+      "gives": "CARD",
+      "note": "a card is an amusing person, the joker who keeps a table laughing"
+     }
+    ],
+    "pieces": [
+     "RAIL",
+     "CARD",
+     "S"
+    ],
+    "walkthrough": "'Source of' almost always asks for a first letter, and here it does not: the source of merriment is a whole person, not an M.",
+    "definitionFit": "Train-users' conveniences → RAILCARDS: the discount cards British passengers buy, convenient in the plain sense of handy rather than the lavatory sense."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +131,27 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAYSOUT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LAYS OUT",
+    "definition": "Exhibits",
+    "definition2": "floors",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Exhibits",
+      "gives": "",
+      "note": "to exhibit is to spread things out where people can look at them"
+     },
+     {
+      "clueFragment": "floors",
+      "gives": "",
+      "note": "floors as a verb, the boxing sense: knocking a man flat"
+     }
+    ],
+    "walkthrough": "Two words and nothing between them, which is the shape of a double definition. The surface reads as one phrase about a gallery's flooring, and that is the whole disguise.",
+    "definitionFit": "Exhibits puts goods on display; floors knocks a person to the ground — one phrase covering a curator and a boxer."
+   }
   },
   {
    "id": "4-across",
@@ -85,7 +168,26 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUBS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PUBS",
+    "definition": "Round houses?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Round houses",
+      "gives": "",
+      "note": "the surface offers circular buildings, or the engine shed where locomotives were turned"
+     },
+     {
+      "clueFragment": "houses",
+      "gives": "",
+      "note": "read as a verb instead: what these places do with a round of drinks, each of them being a public house itself"
+     }
+    ],
+    "walkthrough": "Nothing is spelled out here — the clue is one sly description, and the question mark is the setter admitting he has bent 'round' from the drinks sense into an adjective.",
+    "definitionFit": "Round houses? → PUBS: a pub is a public house, and a round of drinks is what it houses, so both halves of the phrase define it at once."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +204,27 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PONTOON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PONTOON",
+    "definition": "Boat",
+    "definition2": "21",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Boat",
+      "gives": "",
+      "note": "a flat-bottomed float, the kind lashed together to carry a temporary bridge"
+     },
+     {
+      "clueFragment": "21",
+      "gives": "",
+      "note": "the British name for the card game called blackjack elsewhere, twenty-one being the score to hit"
+     }
+    ],
+    "walkthrough": "A two-word clue has no room for an indicator, so both halves have to be definitions — and the numeral is a whole definition rather than a number to use.",
+    "definitionFit": "One sense is the flat-bottomed boat that floats a bridge; the other is the card game British players name after its winning score."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +241,33 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOGOF",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "BOGOF",
+    "definition": "Acronymic bargain offering, gratis, other fare?",
+    "indicators": [
+     "Acronymic"
+    ],
+    "indicatorNotes": {
+     "Acronymic": "An acronym is built out of the opening letters of a phrase, so the instruction is to take the initial of each word that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bargain offering, gratis, other fare",
+      "gives": "BOGOF",
+      "note": "five words, five opening letters, in the order they are printed"
+     }
+    ],
+    "pieces": [
+     "B",
+     "O",
+     "G",
+     "O",
+     "F"
+    ],
+    "walkthrough": "BOGOF is British supermarket shorthand for buy one get one free, and the clue is its own definition: the words that describe the deal also spell it.",
+    "definitionFit": "Read straight, the whole clue describes a shop's acronymic deal in which the second item costs nothing — which is what the initials spell."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +284,30 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMUSES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMUSES",
+    "definition": "causes hilarity",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the standing abbreviation for Australian, as on a nationality plate"
+     },
+     {
+      "clueFragment": "engages in deep thought",
+      "gives": "MUSES",
+      "note": "to muse is to ponder something at length"
+     }
+    ],
+    "pieces": [
+     "A",
+     "MUSES"
+    ],
+    "walkthrough": "'Engages in' reads like a container instruction — something going inside deep thought — but nothing is inserted here. The two pieces simply sit end to end.",
+    "definitionFit": "causes hilarity → AMUSES: the everyday sense of making people laugh, and the third-person verb matches the 'causes' of the definition."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +328,30 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASWELL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AS WELL",
+    "definition": "Besides",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken at face value, one letter"
+     },
+     {
+      "clueFragment": "balloon",
+      "gives": "SWELL",
+      "note": "to balloon is to swell — both verbs for puffing outwards"
+     }
+    ],
+    "pieces": [
+     "A",
+     "SWELL"
+    ],
+    "walkthrough": "'Balloon' looks like the noun in a clue about a party, and the whole trick is hearing it as a verb instead.",
+    "definitionFit": "Besides → AS WELL: both are adverbs meaning in addition, filling the same slot in 'he came besides' and 'he came as well'."
+   }
   },
   {
    "id": "8-across",
@@ -178,7 +372,32 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "MAGNIFYINGGLASS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MAGNIFYING GLASS",
+    "definition": "Detective's helper",
+    "indicators": [
+     "worried"
+    ],
+    "indicatorNotes": {
+     "worried": "Worried in the sense a dog worries a sheep, shaking it about — and letters shaken about will not stay in the order they were given."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "anagram": {
+     "fodder": "GANG SIGN FAMILYS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gang sign; family's",
+      "gives": "MAGNIFYING GLASS",
+      "note": "fifteen letters handed over, and every one of them is used"
+     }
+    ],
+    "walkthrough": "Count before you commit: fifteen letters of fodder for a fifteen-letter answer. The semicolon sitting in the middle of them is punctuation the setter is entitled to ignore.",
+    "definitionFit": "Detective's helper → MAGNIFYING GLASS: not a sidekick but the lens of the Sherlock Holmes cliché, the thing that helps a detective see."
+   }
   },
   {
    "id": "9-down",
@@ -199,7 +418,62 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "GARAMMASALA",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "GARAM MASALA",
+    "definition": "Spicy mix",
+    "indicators": [
+     "embraced by",
+     "up",
+     "describing"
+    ],
+    "indicatorNotes": {
+     "embraced by": "An embrace closes around whatever it holds, so the letters named first end up inside the ones named next.",
+     "up": "The entry runs down the grid, so a piece written up the light is read back the way it came.",
+     "describing": "To describe a circle is to draw one around something, which is what this outer piece does to everything gathered so far."
+    },
+    "blocks": [
+     {
+      "clueFragment": "tabloid",
+      "gives": "GAR",
+      "note": "a rag is a tabloid newspaper, climbing the light here"
+     },
+     {
+      "clueFragment": "Australians",
+      "gives": "AA",
+      "note": "A is Australian, and the plural asks for a second one"
+     },
+     {
+      "clueFragment": "Frenchmen",
+      "gives": "MM",
+      "note": "M is monsieur and MM is its plural, the standard French abbreviation"
+     },
+     {
+      "clueFragment": "sadly",
+      "gives": "SALA",
+      "note": "sadly is alas, and it climbs the light too"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "RAG",
+      "to": "GAR"
+     },
+     {
+      "from": "ALAS",
+      "to": "SALA"
+     }
+    ],
+    "pieces": [
+     "GAR",
+     "A",
+     "MM",
+     "A",
+     "SALA"
+    ],
+    "walkthrough": "Two envelopes, one inside the other, and colons doing the work of commas — Everyman's punctuation is decoration and never part of the parse.",
+    "definitionFit": "Spicy mix → GARAM MASALA: the northern Indian blend of ground spices, so 'mix' is literal, a mixture, and not an instruction to shuffle."
+   }
   },
   {
    "id": "10-down",
@@ -220,7 +494,38 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANNAPAVLOVA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ANNA PAVLOVA",
+    "definition": "Dancer",
+    "indicators": [
+     "crashed",
+     "twice",
+     "not electric"
+    ],
+    "indicatorNotes": {
+     "crashed": "A crash leaves its pieces in a heap, so the letters beside it are to be rebuilt in some other order.",
+     "twice": "It doubles what has just been named: those four letters go into the heap a second time.",
+     "not electric": "Electric is E on a plug or a car badge, and 'not' takes that single letter away before anything is rebuilt."
+    },
+    "anagram": {
+     "fodder": "A VAN A VAN OPL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a van twice",
+      "gives": "AVANAVAN",
+      "note": "four letters counted out, then counted out again"
+     },
+     {
+      "clueFragment": "Opel",
+      "gives": "OPL",
+      "note": "the German car marque, minus the letter the bracket takes off it"
+     }
+    ],
+    "walkthrough": "The dessert and the dancer share a name: Anna Pavlova was the Russian ballerina, and the meringue pudding was invented in her honour while she was on tour.",
+    "definitionFit": "Dancer → ANNA PAVLOVA: a definition by example, pointing at one celebrated ballerina rather than at dancers in general."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +542,45 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIROCCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SIROCCO",
+    "definition": "It brings warmth",
+    "indicators": [
+     "reflected"
+    ],
+    "indicatorNotes": {
+     "reflected": "A reflection shows a thing beside its own mirror image, so those two letters appear once backwards and then once forwards."
+    },
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gentleman",
+      "gives": "SIR",
+      "note": "the polite form of address for a man"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "OCCO",
+      "note": "company is CO on a firm's letterhead, and set against its own mirror image it runs OC then CO"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "CO",
+      "to": "OC"
+     }
+    ],
+    "pieces": [
+     "SIR",
+     "OC",
+     "CO"
+    ],
+    "walkthrough": "A sirocco is the hot wind that blows off the Sahara into southern Europe, so 'it brings warmth' is meteorology rather than affection.",
+    "definitionFit": "It brings warmth → SIROCCO: the wind is named for the heat it carries north from Africa, so the definition points at it by its effect."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +597,30 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OFFENCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OFFENCE",
+    "definition": "Crime",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "the preposition taken at face value, two letters straight off the page"
+     },
+     {
+      "clueFragment": "stolen goods' receiver",
+      "gives": "FENCE",
+      "note": "a fence is the dealer who buys stolen property and passes it on"
+     }
+    ],
+    "pieces": [
+     "OF",
+     "FENCE"
+    ],
+    "walkthrough": "'Crime of...' reads as a single phrase, which is the whole disguise: the 'of' belongs to the wordplay, not to the definition.",
+    "definitionFit": "Crime → OFFENCE: the legal word for a breach of the law, singular and general, so it swaps straight into 'a serious crime'."
+   }
   },
   {
    "id": "13-across",
@@ -271,7 +637,30 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAMARITAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SAMARITAN",
+    "definition": "he was once good, they say",
+    "definitionNote": "The definition is a whole clause rather than a noun: it points at a figure from a story instead of offering a synonym.",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Here it means turned round and moved out of place, not concerning — letters sent about will land in a new order."
+    },
+    "anagram": {
+     "fodder": "AIRMAN SAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Airman sat",
+      "gives": "SAMARITAN",
+      "note": "nine letters offered up, and every one of them used"
+     }
+    ],
+    "walkthrough": "The good one of the parable is proverbial: a stranger who stopped to help a beaten traveller. 'They say' is the story being told, not a signal about how anything sounds.",
+    "definitionFit": "he was once good, they say → SAMARITAN: the definition is the parable itself, the passer-by who helped when everyone respectable walked on."
+   }
   },
   {
    "id": "14-across",
@@ -288,7 +677,29 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEPAL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NEPAL",
+    "definition": "High state",
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "Somewhat means partly, and part of the words that follow is exactly what is wanted — a run of their letters, not all of them."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saturnine pallor",
+      "gives": "NEPAL",
+      "note": "five consecutive letters straddle the gap between the two words"
+     }
+    ],
+    "walkthrough": "The surface describes an unhealthy complexion, and 'high' is the giveaway: this country sits in the Himalayas, so height is geography rather than mood.",
+    "definitionFit": "High state → NEPAL: state in the sense of a sovereign country, and the highest ground on earth runs along its northern border."
+   }
   },
   {
    "id": "14-down",
@@ -305,7 +716,32 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSTALGIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NOSTALGIA",
+    "definition": "rose-tinted view",
+    "indicators": [
+     "Daft"
+    ],
+    "indicatorNotes": {
+     "Daft": "Daft is silly, not right in the head, and letters that are not right will not stay in the order they were printed."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "anagram": {
+     "fodder": "ANALOGIST"
+    },
+    "blocks": [
+     {
+      "clueFragment": "analogist",
+      "gives": "NOSTALGIA",
+      "note": "nine letters, all of them used; an analogist is someone who reasons by analogy"
+     }
+    ],
+    "walkthrough": "An unusual word in a smooth surface is nearly always fodder — nobody reaches for 'analogist' unless what they want is its letters.",
+    "definitionFit": "rose-tinted view → NOSTALGIA: looking back on the past as warmer than it really was, which is what the rose-tinted spectacles idiom describes."
+   }
   },
   {
    "id": "15-across",
@@ -322,7 +758,26 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMASS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "AMASS",
+    "definition": "Collect",
+    "indicators": [
+     "collection of"
+    ],
+    "indicatorNotes": {
+     "collection of": "A collection is a part gathered out of something larger, so what follows gives up some of its letters rather than all of them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "glam assistants",
+      "gives": "AMASS",
+      "note": "five letters in a row, spanning the space between the two words"
+     }
+    ],
+    "walkthrough": "The definition and the indicator sit side by side and mean nearly the same thing, which is what makes the seam between them so hard to see.",
+    "definitionFit": "Collect → AMASS: both are verbs for gathering things up in quantity, though amass leans towards wealth piling up over time."
+   }
   },
   {
    "id": "15-down",
@@ -339,7 +794,30 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASSIST",
+    "definition": "Back up",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "donkey",
+      "gives": "ASS",
+      "note": "the plain word for a donkey"
+     },
+     {
+      "clueFragment": "in pole position?",
+      "gives": "IST",
+      "note": "pole position is the front of a motor-racing grid, first place — and first is written 1st"
+     }
+    ],
+    "pieces": [
+     "ASS",
+     "IST"
+    ],
+    "walkthrough": "'Back up' looks like an instruction to reverse something, and in a down clue that is exactly what it would normally do. Here it is the definition.",
+    "definitionFit": "Back up → ASSIST: to back someone up is to help them out, and both are verbs that fit 'will you back me up'."
+   }
   },
   {
    "id": "16-across",
@@ -366,7 +844,43 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "GLOSSOVER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + third letter",
+    "answer": "GLOSS OVER",
+    "definition": "Explain away",
+    "indicators": [
+     "before",
+     "third"
+    ],
+    "indicatorNotes": {
+     "before": "A positional instruction rather than a description: what the clue names next is written in front of the piece it has just named.",
+     "third": "It counts a position instead of describing anything — walk three letters into the word beside it and keep the one you land on."
+    },
+    "blocks": [
+     {
+      "clueFragment": "England's",
+      "gives": "G",
+      "note": "count three letters into the country's name"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "LOSS",
+      "note": "a defeat is a loss, on the field as anywhere else"
+     },
+     {
+      "clueFragment": "stint of bowling",
+      "gives": "OVER",
+      "note": "in cricket a bowler's stint is an over, six balls delivered from one end"
+     }
+    ],
+    "pieces": [
+     "G",
+     "LOSS",
+     "OVER"
+    ],
+    "walkthrough": "Everyman is fond of cricket and the surface is an England collapse — but 'England's third' is a letter count, not the third wicket.",
+    "definitionFit": "Explain away → GLOSS OVER: to gloss over a fault is to smooth past it with a comfortable account of it, both being verbs you can swap."
+   }
   },
   {
    "id": "16-down",
@@ -387,7 +901,49 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "GROWNUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "GROWN-UP",
+    "definition": "Adult",
+    "indicators": [
+     "curt",
+     "to recall"
+    ],
+    "indicatorNotes": {
+     "curt": "Curt means cut short, so the word it describes arrives without its final letter.",
+     "to recall": "To recall something is to call it back, and a piece called back is written in the opposite direction."
+    },
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "PUN",
+      "note": "a pun is the joke that turns on a word having two meanings"
+     },
+     {
+      "clueFragment": "oath",
+      "gives": "WOR",
+      "note": "an oath is a word given — 'my word!' — and it comes here with its last letter cut off"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standing abbreviation for good, as on a school report"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "PUNWORG",
+      "to": "GROWNUP"
+     }
+    ],
+    "pieces": [
+     "G",
+     "ROW",
+     "NUP"
+    ],
+    "walkthrough": "Build the three pieces in clue order and then read them from the bottom of the entry upwards. 'Oath' is the 'word' of 'my word!', not a curse.",
+    "definitionFit": "Adult → GROWN-UP: the noun for a fully grown person, the word children use for one, so it swaps into 'ask an adult' unchanged."
+   }
   },
   {
    "id": "17-down",
@@ -409,7 +965,49 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONAWHIM",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "ON A WHIM",
+    "definition": "For fun",
+    "indicators": [
+     "that's eaten",
+     "up"
+    ],
+    "indicatorNotes": {
+     "that's eaten": "Something eaten has gone inside, so the letters it names are swallowed by the ones already assembled.",
+     "up": "The entry runs down the grid, so a piece written up the light comes out the other way round."
+    },
+    "blocks": [
+     {
+      "clueFragment": "circle",
+      "gives": "O",
+      "note": "the letter is drawn as a circle, which is why O also does duty for nothing, love and a ring"
+     },
+     {
+      "clueFragment": "pasty",
+      "gives": "NAW",
+      "note": "pasty means pale and sickly — wan — climbing the light"
+     },
+     {
+      "clueFragment": "that guy",
+      "gives": "HIM",
+      "note": "the pronoun for a man already mentioned"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "WAN",
+      "to": "NAW"
+     }
+    ],
+    "pieces": [
+     "O",
+     "NAW",
+     "HIM"
+    ],
+    "walkthrough": "'Pasty' wants to be the Cornish pie, especially with 'eaten' alongside it. It is the adjective for a pale face instead.",
+    "definitionFit": "For fun → ON A WHIM: doing a thing on a whim is doing it for the fun of it, on a sudden fancy with no reason behind it."
+   }
   },
   {
    "id": "18-down",
@@ -426,7 +1024,36 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RESIST",
+    "definition": "Confront",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "About means around here rather than concerning: the piece before it closes around the letter that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "second attempt at exam",
+      "gives": "RESIT",
+      "note": "a resit is the exam a British student takes again after failing it"
+     },
+     {
+      "clueFragment": "Sweden",
+      "gives": "S",
+      "note": "S is Sweden's international vehicle code, the letter on the back of its cars"
+     }
+    ],
+    "pieces": [
+     "RESI",
+     "S",
+     "T"
+    ],
+    "walkthrough": "Everyman likes country codes from car plates — S, D, F, E — and they are worth learning, because they turn up wherever a single letter is wanted.",
+    "definitionFit": "Confront → RESIST: both are verbs for standing against something, though resist is holding out where confront is going out to meet it."
+   }
   },
   {
    "id": "19-across",
@@ -443,7 +1070,35 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHAMPOO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SHAMPOO",
+    "definition": "bathroom product",
+    "indicators": [
+     "Scratching backsides of"
+    ],
+    "indicatorNotes": {
+     "Scratching backsides of": "To scratch something is to strike it out, and a backside is the end of a word, so both words named lose their final letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "stain",
+      "gives": "SHAM",
+      "note": "a stain on a reputation is a shame, docked at the end"
+     },
+     {
+      "clueFragment": "low-quality",
+      "gives": "POO",
+      "note": "low-quality is poor, and it gives up its final letter too"
+     }
+    ],
+    "pieces": [
+     "SHAM",
+     "POO"
+    ],
+    "walkthrough": "The lavatory humour of 'backsides' is a joke aimed at the second piece, and 'stain' is meant abstractly — a blot on a name, not on a shirt.",
+    "definitionFit": "bathroom product → SHAMPOO: the everyday word for the hair-washing liquid, defined by where the bottle stands rather than by what it does."
+   }
   },
   {
    "id": "20-down",
@@ -466,7 +1121,27 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIECE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PIECE",
+    "definition": "sidearm",
+    "indicators": [
+     "Heard"
+    ],
+    "indicatorNotes": {
+     "Heard": "It asks for the sound of a word rather than its spelling, so what goes into the grid is a different word that says the same thing."
+    },
+    "blocks": [
+     {
+      "clueFragment": "last word of Silent Night",
+      "soundsLike": "PEACE",
+      "gives": "PIECE",
+      "note": "the carol closes on 'sleep in heavenly peace', and that word said aloud is written another way"
+     }
+    ],
+    "walkthrough": "A sidearm is a handgun, and a Christmas carol and a pistol have nothing whatever to do with each other — which is where the joke lives.",
+    "definitionFit": "sidearm → PIECE: slang for a handgun, the sense in 'carrying a piece', which is why the setter flags it with a question mark."
+   }
   },
   {
    "id": "21-across",
@@ -488,7 +1163,27 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATALOSS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "AT A LOSS",
+    "definition": "Confronted with a puzzle",
+    "definition2": "for no monetary gain",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Confronted with a puzzle",
+      "gives": "",
+      "note": "the state of being baffled, with no idea what to do next"
+     },
+     {
+      "clueFragment": "for no monetary gain",
+      "gives": "",
+      "note": "selling something for less than it cost you"
+     }
+    ],
+    "walkthrough": "The dash is the entire join. Two idioms share a phrase for quite different reasons, one about bafflement and one about the books.",
+    "definitionFit": "One sense is being baffled with nothing to go on; the other is trading below cost, where what is lost is money rather than wits."
+   }
   },
   {
    "id": "22-across",
@@ -511,7 +1206,55 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
     ]
    },
    "solution": "SNAKEINTHEGRASS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + alternate letters",
+    "answer": "SNAKE IN THE GRASS",
+    "definition": "treacherer",
+    "indicators": [
+     "almost",
+     "regularly stripped"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost a word is not quite all of it, so the last letter is left off.",
+     "regularly stripped": "Stripped at regular intervals: every other letter is taken away and what survives is read in order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is small on a clothing label"
+     },
+     {
+      "clueFragment": "bald",
+      "gives": "NAKE",
+      "note": "a bald head is a naked one, docked of its final letter"
+     },
+     {
+      "clueFragment": "dignity",
+      "gives": "INT",
+      "note": "the second, fourth and sixth letters, the odd ones discarded"
+     },
+     {
+      "clueFragment": "that man",
+      "gives": "HE",
+      "note": "the pronoun standing in for a man"
+     },
+     {
+      "clueFragment": "tell-tale",
+      "gives": "GRASS",
+      "note": "to grass is British slang for informing on someone, and a grass is the informer"
+     }
+    ],
+    "pieces": [
+     "S",
+     "NAKE",
+     "INT",
+     "HE",
+     "GRASS"
+    ],
+    "walkthrough": "The definition is the last word on its own: 'treacherer' is a rare form of traitor. 'Tell-tale' belongs to the wordplay, though it reads like part of the definition.",
+    "definitionFit": "treacherer → SNAKE IN THE GRASS: the idiom for a betrayer hidden among friends, which is what a rare noun for one who commits treachery names."
+   }
   },
   {
    "id": "23-across",
@@ -528,7 +1271,30 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WEEP",
+    "definition": "sob",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "WEE",
+      "note": "wee is the Scottish word for small, long since at home across Britain"
+     },
+     {
+      "clueFragment": "minimal amount of money",
+      "gives": "P",
+      "note": "a penny is the smallest unit of British money and is written p"
+     }
+    ],
+    "pieces": [
+     "WEE",
+     "P"
+    ],
+    "walkthrough": "Both halves are British in their own way: 'wee' came south from Scotland, and 'p' is how a penny is written and said aloud — 'fifty p'.",
+    "definitionFit": "sob → WEEP: both are verbs for crying, weep being the quieter and more literary of the two."
+   }
   },
   {
    "id": "24-across",
@@ -545,7 +1311,35 @@ window.CRYPTIC_PUZZLES["everyman-4127"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "MEAN",
+    "definition": "Stingy",
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "A start is the opening letter, and the plural is carried by the two words that follow — one letter from each."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter of these puzzles signs himself Everyman, and a setter speaking of himself is me"
+     },
+     {
+      "clueFragment": "audit nibbles",
+      "gives": "AN",
+      "note": "the opening letter of each word, taken in order"
+     }
+    ],
+    "pieces": [
+     "ME",
+     "AN"
+    ],
+    "walkthrough": "The surface is an accountant picking at his lunch. Nobody in it is named, which is the tell that 'Everyman' is the byline at the top of the puzzle.",
+    "definitionFit": "Stingy → MEAN: the British sense of unwilling to spend rather than the American sense of nasty, both being adjectives for a person."
+   }
   }
  ]
 } /*JSON-END*/;
