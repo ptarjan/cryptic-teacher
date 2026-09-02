@@ -30,7 +30,35 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHONEY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "PHONEY",
+    "definition": "a fake",
+    "indicators": [
+     "latest from"
+    ],
+    "indicatorNotes": {
+     "latest from": "The latest arrival is the one at the end of the queue, so it asks for the final letter of the name that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Call",
+      "gives": "PHONE",
+      "note": "to call someone is to phone them"
+     },
+     {
+      "clueFragment": "Zoffany",
+      "gives": "Y",
+      "note": "the closing letter of the painter's name"
+     }
+    ],
+    "pieces": [
+     "PHONE",
+     "Y"
+    ],
+    "walkthrough": "Johan Zoffany painted 18th-century society portraits, so the surface is about spotting a forged picture — but only one letter of him is wanted.",
+    "definitionFit": "Phoney means counterfeit, and it works as a noun too — 'he's a phoney' names the fake thing itself."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +75,38 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRADA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRADA",
+    "definition": "fashion house",
+    "indicators": [
+     "under"
+    ],
+    "indicatorNotes": {
+     "under": "In a down entry the letters run top to bottom, so putting the students beneath the pressure starts the column with a single letter."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physicist's symbol for pressure"
+     },
+     {
+      "clueFragment": "Acting students",
+      "gives": "RADA",
+      "note": "RADA is the Royal Academy of Dramatic Art, the London school where acting students train"
+     }
+    ],
+    "pieces": [
+     "P",
+     "RADA"
+    ],
+    "walkthrough": "The surface is a drama school under strain; the two halves belong to completely different worlds, which is what makes the join hard to see.",
+    "definitionFit": "Prada is a Milanese fashion house, so the general phrase defines by example — one named house standing in for the class."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +123,41 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTRICH",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "OSTRICH",
+    "definition": "Someone avoiding the truth",
+    "indicators": [
+     "about",
+     "cut"
+    ],
+    "indicatorNotes": {
+     "about": "To put one thing about another is to wrap it round, so the noise of surprise ends up on either side of the rest.",
+     "cut": "Cut here means shortened rather than sliced up: the word for precise loses its final letter."
+    },
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surprised comment",
+      "gives": "OH",
+      "note": "'Oh!' is what you say when something takes you by surprise, and it splits round what it holds"
+     },
+     {
+      "clueFragment": "precise",
+      "gives": "STRIC",
+      "note": "STRICT means precise, minus its last letter"
+     }
+    ],
+    "pieces": [
+     "O",
+     "STRIC",
+     "H"
+    ],
+    "walkthrough": "'About' tempts you into turning something round; here it does the quieter job of meaning 'around'.",
+    "definitionFit": "An ostrich supposedly buries its head in the sand, so it is the proverbial name for anyone who refuses to face facts."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +174,36 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPEL",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "EXPEL",
+    "definition": "drive off",
+    "indicators": [
+     "change of heart"
+    ],
+    "indicatorNotes": {
+     "change of heart": "The heart of a word is its middle letter, and changing it swaps that one letter for another — the clue never says which, so the crossing letters have to decide it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "gives": "EXCEL",
+      "note": "to better a rival is to excel — the verb, not the comparative adjective the surface offers"
+     },
+     {
+      "clueFragment": "change of heart",
+      "gives": "P",
+      "note": "the central letter of that five-letter verb makes way and P moves in"
+     }
+    ],
+    "pieces": [
+     "EX",
+     "P",
+     "EL"
+    ],
+    "walkthrough": "'Better' reads as an adjective in the surface — a better driver — while the wordplay wants the verb, to outdo someone.",
+    "definitionFit": "To expel is to drive someone off the premises, the sense used of a pupil thrown out of school for good."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +220,43 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HARASS",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "HARASS",
+    "definition": "badger",
+    "indicators": [
+     "cut",
+     "allowing incursion by"
+    ],
+    "indicatorNotes": {
+     "cut": "Cut means shortened: the word for severe arrives one letter short of its full length.",
+     "allowing incursion by": "An incursion is a push in from outside, so what follows is let into the middle rather than added on the end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Severe",
+      "gives": "HARS",
+      "note": "HARSH is severe, and the cut takes its final letter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as its own letter"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second, as on a stopwatch"
+     }
+    ],
+    "pieces": [
+     "HAR",
+     "AS",
+     "S"
+    ],
+    "walkthrough": "The surface is a wildlife-crime story, and the animal at the end of it is the definition: 'badger' here is the verb.",
+    "definitionFit": "To badger someone is to pester them without let-up, which is the answer's verb sense — hound, worry, keep on at them."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +273,48 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFTERMATH",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "AFTERMATH",
+    "definition": "what follows",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing said to be in another sits inside it, so the first word goes within the letters that come after."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as itself"
+     },
+     {
+      "clueFragment": "substantial",
+      "gives": "FAT",
+      "note": "a substantial cheque is a fat one"
+     },
+     {
+      "clueFragment": "Period",
+      "gives": "TERM",
+      "note": "a term is a period of time — school terms, a term of office"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the road-sign abbreviation for hospital"
+     }
+    ],
+    "pieces": [
+     "A",
+     "F",
+     "TERM",
+     "AT",
+     "H"
+    ],
+    "walkthrough": "A 'math' is an old word for a mowing of grass: the aftermath was the second crop of the year, and only later the consequences of anything.",
+    "definitionFit": "The aftermath of an event is what follows it — the state of things left behind once the event itself is over."
+   }
   },
   {
    "id": "6-down",
@@ -132,7 +331,42 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMORINI",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AMORINI",
+    "definition": "group of cupids",
+    "definitionNote": "The answer is a plural, and 'group of cupids' names them as a collection rather than one by one — which is what the question mark is acknowledging.",
+    "indicators": [
+     "seen in"
+    ],
+    "indicatorNotes": {
+     "seen in": "Something seen in a thing is inside it, so the gold goes within the two letter-chunks around it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article, taken as itself"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "MINI",
+      "note": "a mini is the small version of anything — a mini break, a mini bar"
+     },
+     {
+      "clueFragment": "Shade of gold",
+      "gives": "OR",
+      "note": "OR is gold in heraldry, the tincture painted yellow on a coat of arms"
+     }
+    ],
+    "pieces": [
+     "AM",
+     "OR",
+     "INI"
+    ],
+    "walkthrough": "'Shade of gold' looks like it wants a colour word; heraldry's OR is the gold the setter means.",
+    "definitionFit": "Amorini are the plump little cupids of Renaissance painting — Italian for small Amors, so a painted crowd of them is exactly it."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +383,44 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEMANTEME",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "SEMANTEME",
+    "definition": "Source of idea",
+    "indicators": [
+     "almost",
+     "to enthral"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost a word is that word one letter short, stopping just before the end of it.",
+     "to enthral": "To enthral is to hold captive, so the outer word keeps the next two pieces shut inside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "appeared",
+      "gives": "SEEME",
+      "note": "SEEMED is appeared; almost all of it survives, and the rest then splits open"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "ANT",
+      "note": "soldier ants are the fighting caste of a colony, so a soldier can be one"
+     }
+    ],
+    "pieces": [
+     "SE",
+     "M",
+     "ANT",
+     "EME"
+    ],
+    "walkthrough": "The insect is the crossword's favourite soldier, and the definition is a linguist's term — an unfriendly pair to meet in the same clue.",
+    "definitionFit": "A semanteme is the smallest unit of meaning a word is built on, so it really is where the idea inside a word comes from."
+   }
   },
   {
    "id": "8-across",
@@ -166,7 +437,46 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAPTOP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LAPTOP",
+    "definition": "Computer",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "One thing said to be in another goes inside it, so the middle word is swallowed by the letters around it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is large on a clothing label"
+     },
+     {
+      "clueFragment": "suitable",
+      "gives": "APT",
+      "note": "apt means suitable, well fitted to the purpose"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "OP is the short form of operation, as in a military op"
+     },
+     {
+      "clueFragment": "for use",
+      "gives": "",
+      "note": "surface only — it makes the machine sound office-ready and hands over no letters"
+     }
+    ],
+    "pieces": [
+     "L",
+     "APT",
+     "OP"
+    ],
+    "walkthrough": "The surface promises major surgery. Nothing here is medical: both of the outer words are ordinary crossword abbreviations.",
+    "definitionFit": "A laptop is the portable computer you work with on your knees, so the plain noun covers it as the general class."
+   }
   },
   {
    "id": "9-across",
@@ -183,7 +493,29 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUTWORMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CUTWORMS",
+    "definition": "Caterpillars",
+    "blocks": [
+     {
+      "clueFragment": "stayed away from",
+      "gives": "CUT",
+      "note": "to cut a lecture, or a person, is to stay away from them deliberately"
+     },
+     {
+      "clueFragment": "historic German city",
+      "gives": "WORMS",
+      "note": "Worms sits on the Rhine, and its 1521 Diet summoned Martin Luther"
+     }
+    ],
+    "pieces": [
+     "CUT",
+     "WORMS"
+    ],
+    "walkthrough": "The city is said 'Vorms' in German, which is how a very ordinary English word manages to hide there in plain sight.",
+    "definitionFit": "Cutworms are the caterpillars of certain moths, named for chewing through seedlings at ground level, so the definition names them by family."
+   }
   },
   {
    "id": "9-down",
@@ -200,7 +532,50 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONSECUTIVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container",
+    "answer": "CONSECUTIVE",
+    "definition": "in a row",
+    "indicators": [
+     "a lot of",
+     "including"
+    ],
+    "indicatorNotes": {
+     "a lot of": "A lot of a word is most of it but not the whole, so each word this governs turns up one letter short.",
+     "including": "To include something is to hold it inside, so the numeral drops into the middle of the piece beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "CON",
+      "note": "a Tory is a Conservative, printed CON on British election results"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "SE",
+      "note": "most of the word, with the final letter left off"
+     },
+     {
+      "clueFragment": "babes",
+      "gives": "CUTIE",
+      "note": "babes are cuties, and again the last letter goes"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is five in Roman numerals"
+     }
+    ],
+    "pieces": [
+     "CON",
+     "SE",
+     "CUTI",
+     "V",
+     "E"
+    ],
+    "walkthrough": "Phi's surface is deliberately racy and every risqué word is doing sober work: a political party, two curtailments and a Roman numeral.",
+    "definitionFit": "Things in a row follow one another with no gap between, which is the counting sense of the answer rather than a queue of people."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +592,39 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARILLON",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "CARILLON",
+    "definition": "bells",
+    "definitionNote": "'Bells' is plural where the answer is one instrument: a carillon is the whole tuned set of them, so the setter names it by its parts.",
+    "indicators": [
+     "taking in",
+     "first couple of"
+    ],
+    "indicatorNotes": {
+     "taking in": "To take something in is to admit it indoors, so the visit opens up and holds the letters that follow.",
+     "first couple of": "A couple is two, so only the opening pair of letters of the next word is wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Visit",
+      "gives": "CALL ON",
+      "note": "to call on a friend is to visit them"
+     },
+     {
+      "clueFragment": "ringing",
+      "gives": "RI",
+      "note": "the opening pair of letters of the word, and nothing more of it"
+     }
+    ],
+    "pieces": [
+     "CA",
+     "RI",
+     "LLON"
+    ],
+    "walkthrough": "'Ringing bells' reads as one phrase, and that is the trap: only 'ringing' is fodder, and 'bells' is the definition.",
+    "definitionFit": "A carillon is a tuned set of tower bells played from a keyboard of levers, so 'bells' names the instrument by what it is made of."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +641,35 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REIGNS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "REIGNS",
+    "definition": "Stays in power",
+    "indicators": [
+     "moves"
+    ],
+    "indicatorNotes": {
+     "moves": "This asks for a letter to change address rather than vanish: it leaves the slot it was in and joins on again at the far end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "to abdicate",
+      "gives": "RESIGN",
+      "note": "a monarch who abdicates resigns the crown"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son, and this is the letter that travels"
+     }
+    ],
+    "pieces": [
+     "REIGN",
+     "S"
+    ],
+    "walkthrough": "Nothing is anagrammed here — one letter simply changes address, which is what lets the surface talk about a son moving.",
+    "definitionFit": "A monarch who reigns stays in power and holds the throne; the verb is about occupying it rather than about governing day to day."
+   }
   },
   {
    "id": "12-across",
@@ -251,7 +686,32 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SETH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SETH",
+    "definition": "Third child",
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fixed",
+      "gives": "SET",
+      "note": "a fixed jaw is a set one"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the crossword abbreviation for husband"
+     }
+    ],
+    "pieces": [
+     "SET",
+     "H"
+    ],
+    "walkthrough": "Genesis gives Adam and Eve a third son once Cain has killed Abel, and that is the only place a solver is meant to look.",
+    "definitionFit": "Seth was the third son born to Adam and Eve, so the definition points at him by that biblical fact rather than by meaning."
+   }
   },
   {
    "id": "13-down",
@@ -268,7 +728,44 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EFFLUVIUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EFFLUVIUM",
+    "definition": "it pollutes the air",
+    "linkWords": [
+     "will have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swear",
+      "gives": "EFF",
+      "note": "to eff is to swear, as in effing and blinding"
+     },
+     {
+      "clueFragment": "dear?",
+      "gives": "LUV",
+      "note": "'luv' is how a British shopkeeper addresses the customer she calls dear"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun taken as its own letter"
+     },
+     {
+      "clueFragment": "show of hesitation",
+      "gives": "UM",
+      "note": "'um' is the noise you make while you hesitate"
+     }
+    ],
+    "pieces": [
+     "EFF",
+     "LUV",
+     "I",
+     "UM"
+    ],
+    "walkthrough": "Four small pieces, three of them noises people actually make: a Latin-looking word assembled from swearing, endearment and dithering.",
+    "definitionFit": "An effluvium is the invisible stream of stink given off by something rotting, so the setter defines it by what it does rather than naming it."
+   }
   },
   {
    "id": "14-across",
@@ -289,7 +786,50 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
     ]
    },
    "solution": "REEXAMINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "RE-EXAMINE",
+    "definition": "Observe again",
+    "indicators": [
+     "brought about",
+     "end of"
+    ],
+    "indicatorNotes": {
+     "brought about": "To bring a thing about is to bring it round, so the king's letters finish up on either side of what they collect.",
+     "end of": "The end of a word is its last letter, so one letter of the battle is taken and the rest left."
+    },
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "REX",
+      "note": "REX is Latin for king, the word printed on British coins"
+     },
+     {
+      "clueFragment": "end of battle",
+      "gives": "E",
+      "note": "the final letter of the word battle"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article joins on as itself"
+     },
+     {
+      "clueFragment": "bomb",
+      "gives": "MINE",
+      "note": "a mine is a bomb laid in the ground or at sea"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "E",
+     "X",
+     "A",
+     "MINE"
+    ],
+    "walkthrough": "'Brought about' looks like an instruction to turn something round; here it means only 'placed around', and that difference is the whole clue.",
+    "definitionFit": "The answer is what you do when you look at evidence a second time, so 'again' is carrying the RE- in front of the verb."
+   }
   },
   {
    "id": "14-down",
@@ -306,7 +846,43 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFLEXIVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "REFLEXIVE",
+    "definition": "by instinct",
+    "definitionNote": "'By instinct' is an adverbial phrase where the answer is an adjective; it fits the sense — done by instinct, without thinking — rather than the grammar.",
+    "indicators": [
+     "embracing"
+    ],
+    "indicatorNotes": {
+     "embracing": "To embrace is to put your arms round something, so the broadcast word closes over the two letters between them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Official",
+      "gives": "REF",
+      "note": "the official in charge of a football match is the ref"
+     },
+     {
+      "clueFragment": "as it happens",
+      "gives": "LIVE",
+      "note": "a broadcast going out as it happens is live"
+     },
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "an ex is the lover you used to have"
+     }
+    ],
+    "pieces": [
+     "REF",
+     "L",
+     "EX",
+     "IVE"
+    ],
+    "walkthrough": "Set aside the grammar-book sense about verbs turning back on their subject — the definition wants the knee-jerk one.",
+    "definitionFit": "A reflexive movement is one the body makes before the mind decides anything, so it is done purely by instinct."
+   }
   },
   {
    "id": "15-across",
@@ -327,7 +903,32 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
     ]
    },
    "solution": "FOURFLUSH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FOUR-FLUSH",
+    "definition": "the basis of a bluff",
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pair of couples",
+      "gives": "FOUR",
+      "note": "two couples come to four people"
+     },
+     {
+      "clueFragment": "look embarrassed",
+      "gives": "FLUSH",
+      "note": "to flush is to go red in the face"
+     }
+    ],
+    "pieces": [
+     "FOUR",
+     "FLUSH"
+    ],
+    "walkthrough": "'Four-flusher' passed from the poker table into American slang for a fraud, on exactly this logic.",
+    "definitionFit": "Four cards of one suit is a hand four fifths of the way to something and worth nothing, so betting on it can only be bluffing."
+   }
   },
   {
    "id": "16-down",
@@ -344,7 +945,46 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "URETHRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "URETHRA",
+    "definition": "internal duct",
+    "indicators": [
+     "getting over",
+     "treatment"
+    ],
+    "indicatorNotes": {
+     "getting over": "In a down entry, getting over something means sitting on top of it, so this pair of letters starts the column.",
+     "treatment": "A patient under treatment comes out changed, and so do these letters: the word for heart is remade in a new order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "You are",
+      "gives": "UR",
+      "note": "UR is the text-message spelling of 'you are'"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "ETHRA",
+      "note": "the five letters of HEART, shuffled into a new order"
+     }
+    ],
+    "anagram": {
+     "fodder": "UR HEART"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "HEART",
+      "gives": "ETHRA"
+     }
+    ],
+    "pieces": [
+     "UR",
+     "ETHRA"
+    ],
+    "walkthrough": "The surface reads as a course of cardiac care; the anatomy the answer names is somewhere else entirely.",
+    "definitionFit": "The urethra is the tube carrying urine out of the bladder, and 'internal duct' is the plain anatomical description of that piece of plumbing."
+   }
   },
   {
    "id": "17-across",
@@ -361,7 +1001,42 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "TIER",
+    "definition": "Row of seats",
+    "indicators": [
+     "gutted",
+     "after reflection"
+    ],
+    "indicatorNotes": {
+     "gutted": "Gutting takes out the innards, and the innards of a five-letter word are the single letter at its centre.",
+     "after reflection": "A reflection is a mirror image, so the letters come out reading the opposite way round."
+    },
+    "blocks": [
+     {
+      "clueFragment": "new design",
+      "gives": "REFIT",
+      "note": "a refit is a new design for something that already exists — a ship, a shop"
+     },
+     {
+      "clueFragment": "gutted",
+      "gives": "REIT",
+      "note": "the middle letter F is taken out of the five above"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "REIT",
+      "to": "TIER"
+     }
+    ],
+    "pieces": [
+     "TIER"
+    ],
+    "walkthrough": "The colon hides the join: everything before it is the definition and everything after it is instruction.",
+    "definitionFit": "A tier is one of the rising levels in a theatre or a stadium, and each of those levels is a row of seats."
+   }
   },
   {
    "id": "17-down",
@@ -378,7 +1053,44 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THERMOS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "THERMOS",
+    "definition": "source of drink",
+    "indicators": [
+     "Going around",
+     "overturned"
+    ],
+    "indicatorNotes": {
+     "Going around": "To go around a thing is to pass outside it, so one chunk of letters wraps itself right round the island.",
+     "overturned": "Overturned means tipped upside down, so the letters it governs are written the other way about."
+    },
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "TOS",
+      "note": "a sot is a habitual drunk, and here he is tipped over"
+     },
+     {
+      "clueFragment": "Channel Island",
+      "gives": "HERM",
+      "note": "Herm is one of the smallest Channel Islands, just off Guernsey"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "SOT",
+      "to": "TOS"
+     }
+    ],
+    "pieces": [
+     "T",
+     "HERM",
+     "OS"
+    ],
+    "walkthrough": "Setters love the Channel Islands for their short names — Sark, Herm and Alderney all turn up as letter chunks.",
+    "definitionFit": "A Thermos keeps a drink hot for hours, so on a cold morning it is where your tea comes from — a trade name gone generic."
+   }
   },
   {
    "id": "18-across",
@@ -395,7 +1107,36 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SURETE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SURETE",
+    "definition": "Calais police once",
+    "indicators": [
+     "to involve"
+    ],
+    "indicatorNotes": {
+     "to involve": "To involve something is to wrap it up in what you are doing, so the French word ends up inside the English one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Certain",
+      "gives": "SURE",
+      "note": "sure means certain, and it opens up to take the insert"
+     },
+     {
+      "clueFragment": "Parisian and",
+      "gives": "ET",
+      "note": "'et' is French for and, which is what a Parisian says"
+     }
+    ],
+    "pieces": [
+     "SUR",
+     "ET",
+     "E"
+    ],
+    "walkthrough": "'Calais' is doing no more than saying 'French' — the force was national, not a local station on the coast.",
+    "definitionFit": "The Sûreté was France's detective force until 1966, so a policeman anywhere in the country belonged to it before the name was retired."
+   }
   },
   {
    "id": "19-across",
@@ -412,7 +1153,41 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTREPID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "INTREPID",
+    "definition": "Courageous",
+    "indicators": [
+     "probing"
+    ],
+    "indicatorNotes": {
+     "probing": "To probe is to push into something, so the party man's letters go inside the two abbreviations rather than beside them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "international",
+      "gives": "INT",
+      "note": "INT is the usual short form of international"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "REP",
+      "note": "a Republican in American politics is a Rep"
+     },
+     {
+      "clueFragment": "documents",
+      "gives": "ID",
+      "note": "your ID is the documents that prove who you are"
+     }
+    ],
+    "pieces": [
+     "INT",
+     "REP",
+     "ID"
+    ],
+    "walkthrough": "The surface reads as a political scandal, a Republican digging through foreign papers, and the answer has nothing to do with politics.",
+    "definitionFit": "Someone intrepid presses on where others would not dare, so it is a courageous person's word — the one that attaches itself to explorers."
+   }
   },
   {
    "id": "20-down",
@@ -429,7 +1204,36 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TILDE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TILDE",
+    "definition": "Mark on letter",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "To cover something is to lie over it, so this piece closes right round the single letter it hides."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Scrabble letter",
+      "gives": "TILE",
+      "note": "in Scrabble every letter arrives on a wooden tile"
+     },
+     {
+      "clueFragment": "two-pointer",
+      "gives": "D",
+      "note": "D and G are the tiles worth two points in the game"
+     }
+    ],
+    "pieces": [
+     "TIL",
+     "D",
+     "E"
+    ],
+    "walkthrough": "The Scrabble scores are the whole of this clue: only two letters are worth two points, and only one of them fits.",
+    "definitionFit": "A tilde is the wavy stroke written above the n of Spanish señor, so it is literally a mark sitting on a letter."
+   }
   },
   {
    "id": "21-down",
@@ -446,7 +1250,46 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDEX",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container + first letter",
+    "answer": "INDEX",
+    "definition": "Finger",
+    "indicators": [
+     "cut",
+     "handling",
+     "tip of"
+    ],
+    "indicatorNotes": {
+     "cut": "Cut means shortened: the word for subsequently gives up its final letter.",
+     "handling": "What you handle you hold in your hands, so this piece closes round the letter that follows it.",
+     "tip of": "The tip of a word is the letter it starts with, the point of it you meet first."
+    },
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is one in Roman numerals"
+     },
+     {
+      "clueFragment": "subsequently",
+      "gives": "NEX",
+      "note": "NEXT means subsequently, with its last letter cut"
+     },
+     {
+      "clueFragment": "tip of dagger",
+      "gives": "D",
+      "note": "the opening letter of dagger"
+     }
+    ],
+    "pieces": [
+     "I",
+     "N",
+     "D",
+     "EX"
+    ],
+    "walkthrough": "Four instructions in five letters, and 'tip' is the giveaway: a dagger's point is a letter here, not a blade.",
+    "definitionFit": "The index finger is the one you point and indicate with, so 'Finger' names it by dropping the word we normally add."
+   }
   },
   {
    "id": "22-across",
@@ -467,7 +1310,44 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIGHFIVE",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letters",
+    "answer": "HIGH FIVE",
+    "definition": "enthusiastic welcome",
+    "indicators": [
+     "Middle of",
+     "entering"
+    ],
+    "indicatorNotes": {
+     "Middle of": "The middle of a word is what survives when both ends are taken off — here three letters do.",
+     "entering": "Whatever enters a place goes inside it, so these letters push into the busy word rather than sit beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "busy area",
+      "gives": "HIVE",
+      "note": "a hive is the busiest place there is — a hive of activity"
+     },
+     {
+      "clueFragment": "night",
+      "gives": "IGH",
+      "note": "strip the outer letters off and this is what is left in the centre"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     }
+    ],
+    "pieces": [
+     "H",
+     "IGH",
+     "F",
+     "IVE"
+    ],
+    "walkthrough": "'Middle of night' invites you to take one letter; three come out instead, which is what makes the insertion long enough to work.",
+    "definitionFit": "The slap of two raised palms is how people congratulate each other, so it is a welcome delivered with visible enthusiasm."
+   }
   },
   {
    "id": "23-across",
@@ -484,7 +1364,38 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMBDA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAMBDA",
+    "definition": "character in Homer",
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Innocent",
+      "gives": "LAMB",
+      "note": "a lamb is the proverbial innocent — like a lamb to the slaughter"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the crossword abbreviation for daughter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article joins on at the end as itself"
+     }
+    ],
+    "pieces": [
+     "LAMB",
+     "D",
+     "A"
+    ],
+    "walkthrough": "The clue sends you hunting for Achilles or Penelope; Homer wrote in Greek, and the characters wanted are the ones he wrote with.",
+    "definitionFit": "Lambda is the eleventh letter of the Greek alphabet and Homer's poems are Greek, so 'character' means a letter, not a person."
+   }
   },
   {
    "id": "24-across",
@@ -501,7 +1412,41 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOANED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MOANED",
+    "definition": "Complained",
+    "indicators": [
+     "suppressed by"
+    ],
+    "indicatorNotes": {
+     "suppressed by": "Suppressed is pressed-under: the article is held down inside the others, not removed, which is the reading it tempts you into."
+    },
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "half a mo is half a moment in British speech"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "AN is one of the three articles in English grammar"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the newsroom short form for editor"
+     }
+    ],
+    "pieces": [
+     "MO",
+     "AN",
+     "ED"
+    ],
+    "walkthrough": "'Suppressed' looks like an instruction to delete, and that is the trap: nothing goes, the article is simply buried alive.",
+    "definitionFit": "To moan is to complain at length in a low grumbling voice — the everyday British sense of having a good moan about something."
+   }
   },
   {
    "id": "25-across",
@@ -522,7 +1467,29 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
     ]
    },
    "solution": "LESSIX",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LES SIX",
+    "definition": "Group of composers",
+    "blocks": [
+     {
+      "clueFragment": "missing",
+      "gives": "LESS",
+      "note": "the arithmetic word for taking away, as in ten less two"
+     },
+     {
+      "clueFragment": "nine",
+      "gives": "IX",
+      "note": "nine written in Roman numerals"
+     }
+    ],
+    "pieces": [
+     "LESS",
+     "IX"
+    ],
+    "walkthrough": "The answer splits one way as a name and another as arithmetic: three and three on the page, four and two in the wordplay.",
+    "definitionFit": "Les Six were six young French composers — Poulenc, Milhaud, Honegger, Auric, Durey and Tailleferre — grouped together in 1920s Paris."
+   }
   }
  ]
 } /*JSON-END*/;
