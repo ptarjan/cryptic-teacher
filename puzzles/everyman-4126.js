@@ -30,7 +30,29 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIRESTORMS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FIRESTORMS",
+    "definition": "blazing issues",
+    "indicators": [
+     "resolved"
+    ],
+    "indicatorNotes": {
+     "resolved": "To resolve a substance is to break it down into the parts it is made of, and parts broken out like that can be put back in any order."
+    },
+    "anagram": {
+     "fodder": "REFORMISTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Reformists",
+      "gives": "REFORMISTS",
+      "note": "ten letters handed over whole; the campaigners are only there for the surface"
+     }
+    ],
+    "walkthrough": "It reads like a headline about politicians settling burning questions, so 'issues' looks like a verb. It is a noun, and it is half the definition.",
+    "definitionFit": "blazing issues -> FIRESTORMS: a firestorm is both a fire that feeds its own wind and a furious public row, so the plural covers flames and controversies at once."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +69,41 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "FORD",
+    "definition": "Cross",
+    "indicators": [
+     "removing most"
+    ],
+    "indicatorNotes": {
+     "removing most": "Take most of a word away and the least that can still stand for it is left: the single letter it opens with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "off",
+      "gives": "F",
+      "note": "the opening letter survives; the rest of the word is what got removed"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the little conjunction is taken whole, exactly as printed"
+     },
+     {
+      "clueFragment": "delete",
+      "gives": "D",
+      "note": "again only the initial is left standing"
+     }
+    ],
+    "pieces": [
+     "F",
+     "OR",
+     "D"
+    ],
+    "walkthrough": "Three words in a row that all mean strike out, which is what makes the clue read as one instruction rather than as a list of ingredients.",
+    "definitionFit": "Cross -> FORD: to ford a river is to cross it at a shallow place on foot, so the plain verb swaps in without changing the sentence."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +120,32 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAMP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RAMP",
+    "definition": "incline",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "struggling"
+    ],
+    "indicatorNotes": {
+     "struggling": "Something struggling is thrashing and will not hold still, so the letters beside it refuse to stay in the order given."
+    },
+    "anagram": {
+     "fodder": "PRAM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pram",
+      "gives": "PRAM",
+      "note": "four letters, with the pushchair supplying nothing but the picture"
+     }
+    ],
+    "walkthrough": "The join is well hidden: 'in incline' sounds like one phrase, and the word that ends the clue is the definition on its own.",
+    "definitionFit": "incline -> RAMP: a ramp is a built slope joining two levels, so the noun names the same rising surface an incline does."
+   }
   },
   {
    "id": "3-down",
@@ -86,7 +167,29 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "SIMPLEASABC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SIMPLE AS ABC",
+    "definition": "very straightforward",
+    "indicators": [
+     "flourishing"
+    ],
+    "indicatorNotes": {
+     "flourishing": "To flourish something is to wave it about, and letters waved about come down in a new arrangement."
+    },
+    "anagram": {
+     "fodder": "MISS CAPABLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Miss Capable",
+      "gives": "MISSCAPABLE",
+      "note": "eleven letters; the name was invented purely to supply them"
+     }
+    ],
+    "walkthrough": "'Miss Capable' looks like a character the clue is about. The enumeration gives her away: no name is shaped 6,2,3.",
+    "definitionFit": "very straightforward -> SIMPLE AS ABC: the idiom rates a task as easy as reciting the alphabet, the plainest way of saying it needs no skill."
+   }
   },
   {
    "id": "4-down",
@@ -107,7 +210,36 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONEEYED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ONE-EYED",
+    "definition": "with vision restricted",
+    "indicators": [
+     "wasted",
+     "unwisely"
+    ],
+    "indicatorNotes": {
+     "wasted": "What is wasted is used up and gone, so the two letters named next drop out of the pile before anything is rebuilt.",
+     "unwisely": "An unwise arrangement is not the sensible one, so what remains is set down in some order other than the one printed."
+    },
+    "anagram": {
+     "fodder": "EEDONEY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Seed money",
+      "gives": "SEEDMONEY",
+      "note": "the capital that starts a business off, nine letters given up whole"
+     },
+     {
+      "clueFragment": "M&S",
+      "gives": "MS",
+      "note": "Marks & Spencer, the British high-street chain, and its two initials are what go missing from those nine"
+     }
+    ],
+    "walkthrough": "The surface is a company burning through its start-up cash. Nothing about sight appears until the last three words, which is where the definition finally begins.",
+    "definitionFit": "with vision restricted -> ONE-EYED: having a single working eye does restrict what you see, and the word also carries the figurative sense of a narrow, partial view."
+   }
   },
   {
    "id": "5-down",
@@ -124,7 +256,45 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEMOIRS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "MEMOIRS",
+    "definition": "recollections",
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "indicators": [
+     "vacuously"
+    ],
+    "indicatorNotes": {
+     "vacuously": "A vacuous word has had its middle emptied out, so only the letters standing at each end are kept."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter writes himself into his own puzzle; the man holding the pen is 'me'"
+     },
+     {
+      "clueFragment": "pretentious reference to self",
+      "gives": "MOI",
+      "note": "the French for 'me', used in English by anyone putting on airs"
+     },
+     {
+      "clueFragment": "rambles",
+      "gives": "RS",
+      "note": "hollowed out, the word keeps only its first and last letters"
+     }
+    ],
+    "pieces": [
+     "ME",
+     "MOI",
+     "RS"
+    ],
+    "walkthrough": "'Everyman' is this setter's signature for himself and turns up in most of his puzzles, so it is worth banking. 'Pretentious' is what flags the French pronoun rather than the English one.",
+    "definitionFit": "recollections -> MEMOIRS: a memoir is a written account of what a person remembers of their own life, so the plural names a book of them."
+   }
   },
   {
    "id": "6-across",
@@ -141,7 +311,32 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IBIS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "IBIS",
+    "definition": "One wading",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Doing something regularly means at a fixed interval, so you count off every second letter of what follows and drop the rest."
+    },
+    "blocks": [
+     {
+      "clueFragment": "in bliss",
+      "gives": "IBIS",
+      "note": "the first, third, fifth and seventh letters of the two words read as one run"
+     }
+    ],
+    "pieces": [
+     "I",
+     "B",
+     "I",
+     "S"
+    ],
+    "walkthrough": "'In' looks like the joint between wordplay and definition and is really the start of the fodder, which is what makes so short an answer hard to see.",
+    "definitionFit": "One wading -> IBIS: a long-legged bird that feeds by wading in shallow water, so the clue names it by what its kind is always doing."
+   }
   },
   {
    "id": "7-down",
@@ -162,7 +357,33 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEAVERAWAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEAVER AWAY",
+    "definition": "Labour",
+    "linkWords": [
+     "'s",
+     "account of why"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dam construction",
+      "gives": "BEAVER",
+      "note": "the animal that builds dams across streams out of felled wood"
+     },
+     {
+      "clueFragment": "incomplete?",
+      "gives": "AWAY",
+      "note": "work stops when the builder is not there but off somewhere else"
+     }
+    ],
+    "pieces": [
+     "BEAVER",
+     "AWAY"
+    ],
+    "walkthrough": "'Labour' wants to be the political party and the capital letter is there to encourage that; it is the plain verb. The rest is a joke, not an instruction: why has the dam stalled?",
+    "definitionFit": "Labour -> BEAVER AWAY: to beaver away is to work steadily and hard at something, so the phrase drops straight into 'labour over a task'."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +404,23 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "SQUAREMEAL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SQUARE MEAL",
+    "definition": "What some Shreddies and cheese slices will give you?",
+    "blocks": [
+     {
+      "clueFragment": "What some Shreddies and cheese slices will give you",
+      "note": "the reading the surface pushes: cereal and cheese add up to something solid and nourishing"
+     },
+     {
+      "clueFragment": "Shreddies and cheese slices",
+      "note": "the reading the setter meant is about geometry — the woven cereal pillows and the processed cheese are both four-sided"
+     }
+    ],
+    "walkthrough": "Nothing is spelled out; the whole clue is one sly description and the question mark admits the pun. Shreddies are a British wheat cereal, familiar enough at home that the shape needs no explaining.",
+    "definitionFit": "Read straight the clue promises a nourishing plateful, while the foods it names are all four-sided, so the phrase describes their shape and their worth at once."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +441,36 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "REMEMBERME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "REMEMBER ME",
+    "definition": "do I ring a bell?",
+    "indicators": [
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "cycling": "Letters go round a loop: the pair at the front is carried to the back and everything else keeps its place in the queue."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Humble",
+      "gives": "MERE",
+      "note": "mere in the sense of nothing more than that — a mere clerk is a humble one"
+     },
+     {
+      "clueFragment": "representative",
+      "gives": "MEMBER",
+      "note": "the person who sits in a parliament on your behalf"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "MEMBER",
+     "ME"
+    ],
+    "walkthrough": "'Cycling' is the instruction, not a detail of how the representative gets to work. Two letters travel from the front of the assembly to the back, and what comes out is what you say to someone who has forgotten you.",
+    "definitionFit": "ringing a bell is the idiom for jogging someone's memory, so the question and the plea are asking for exactly the same thing."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +487,32 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAKU",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "BAKU",
+    "definition": "What's originally displaying big Azerbaijani khanate urbanity?",
+    "indicators": [
+     "originally displaying"
+    ],
+    "indicatorNotes": {
+     "originally displaying": "What a word shows originally is the letter it starts with, and the plural list that follows gives up one apiece."
+    },
+    "blocks": [
+     {
+      "clueFragment": "big Azerbaijani khanate urbanity",
+      "gives": "BAKU",
+      "note": "four words, four opening letters, in the order they are printed"
+     }
+    ],
+    "pieces": [
+     "B",
+     "A",
+     "K",
+     "U"
+    ],
+    "walkthrough": "The city was the seat of a khanate before Russia annexed it, so the sentence describes the place as well as spelling it — which is what makes this one clue rather than two halves.",
+    "definitionFit": "Read straight, the clue describes a big Azerbaijani city with a khanate's history and a metropolitan air, which is the place the initials spell out."
+   }
   },
   {
    "id": "11-across",
@@ -244,7 +535,47 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLAYSITBYEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container",
+    "answer": "PLAYS IT BY EAR",
+    "definition": "thinks on one's feet",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "mostly",
+     "around"
+    ],
+    "indicatorNotes": {
+     "mostly": "Mostly a word is all of it bar the end, so the final letter comes off before anything else is done.",
+     "around": "To go around something is to enclose it, so the piece just built opens up and the next one is set inside."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tries to win at tag",
+      "gives": "PLAYSIT",
+      "note": "in the children's game one child is 'it', and chasing the others is playing that role"
+     },
+     {
+      "clueFragment": "stands",
+      "gives": "BEAR",
+      "note": "to bear a thing is to stand it, put up with it, and the word arrives one letter short"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the standing abbreviation for a yard of length"
+     }
+    ],
+    "pieces": [
+     "PLAYS",
+     "IT",
+     "BY",
+     "EAR"
+    ],
+    "walkthrough": "The colon makes 'tag: mostly stands around' read as one scene in a playground, which hides the join. 'Stands' is the verb meaning tolerates, not the things spectators sit on.",
+    "definitionFit": "thinks on one's feet -> PLAYS IT BY EAR: a musician playing by ear works without written music, and the phrase came to mean improvising as you go."
+   }
   },
   {
    "id": "12-down",
@@ -265,7 +596,36 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "BURKINAFASO",
-   "annotation": null
+   "annotation": {
+    "type": "first letter + anagram",
+    "answer": "BURKINA FASO",
+    "definition": "African country",
+    "indicators": [
+     "Leader of",
+     "touring"
+    ],
+    "indicatorNotes": {
+     "Leader of": "A word's leader is the letter at its head, the one marching in front of all the others.",
+     "touring": "A tour goes round and about from place to place, and letters sent about like that come back in a different order."
+    },
+    "anagram": {
+     "fodder": "B UK ON SAFARI"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Leader of blasted",
+      "gives": "B",
+      "note": "the letter standing at the head of the word that follows"
+     },
+     {
+      "clueFragment": "UK on safari",
+      "gives": "UKONSAFARI",
+      "note": "the country code and the trip supply ten letters between them"
+     }
+    ],
+    "walkthrough": "The surface is a holiday snap of Britons abroad and the definition is the last two words. The country took this name in 1984; before that it was Upper Volta.",
+    "definitionFit": "African country -> BURKINA FASO: a landlocked state in West Africa, so the definition names the category and leaves the solver to work out which one."
+   }
   },
   {
    "id": "13-down",
@@ -286,7 +646,26 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLACKSHEEP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BLACK SHEEP",
+    "definition": "Bad son, perhaps",
+    "definition2": "that may get you sacked thrice?",
+    "blocks": [
+     {
+      "clueFragment": "Bad son, perhaps",
+      "gives": "",
+      "note": "the family disgrace, the relative everybody sighs about; 'perhaps' admits a son is only one example"
+     },
+     {
+      "clueFragment": "that may get you sacked thrice?",
+      "gives": "",
+      "note": "the nursery rhyme asks the animal for wool and is promised 'three bags full', and a bag here is a sack"
+     }
+    ],
+    "walkthrough": "Both halves point at the same phrase, one plainly and one through a rhyme. 'Sacked' does double duty: dismissed from a job, or put into bags.",
+    "definitionFit": "A bad son is one example of a family's disgrace, and the rhyme's animal of that colour yields three bagfuls, so both halves land on the same pair of words."
+   }
   },
   {
    "id": "14-down",
@@ -303,7 +682,30 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COUNCILLOR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "COUNCILLOR",
+    "definition": "Local official",
+    "linkWords": [
+     "also"
+    ],
+    "indicators": [
+     "we're told"
+    ],
+    "indicatorNotes": {
+     "we're told": "Being told a thing means hearing it, so the clue points at the sound of a word and not at the way it is written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "therapist",
+      "soundsLike": "COUNSELLOR",
+      "gives": "COUNCILLOR",
+      "note": "one who gives counsel to the troubled, said aloud and then spelt the other way"
+     }
+    ],
+    "walkthrough": "Two English words, one sound, two spellings: one of them sits on a local authority and the other sits with a client. Only a C and a vowel separate them on the page.",
+    "definitionFit": "Local official -> COUNCILLOR: an elected member of a town or county council, so the definition names the office by the level of government it belongs to."
+   }
   },
   {
    "id": "15-across",
@@ -320,7 +722,38 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEOTARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LEOTARD",
+    "definition": "tight-fitting clothing",
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign",
+      "gives": "LEO",
+      "note": "the fifth sign of the zodiac, the lion"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "a tar is an old word for a seaman, from the tarpaulin he wore"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the standing abbreviation for Dutch, as on a language label"
+     }
+    ],
+    "pieces": [
+     "LEO",
+     "TAR",
+     "D"
+    ],
+    "walkthrough": "The surface is a note about a seaman's nationality, so 'Sign' looks like a verb; it is the zodiac noun, and the colon is the only join the clue offers.",
+    "definitionFit": "tight-fitting clothing -> LEOTARD: the one-piece stretch garment dancers and gymnasts wear, named after Jules Leotard, the trapeze artist who devised it."
+   }
   },
   {
    "id": "16-across",
@@ -337,7 +770,36 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SARCASM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "SARCASM",
+    "definition": "Scorn",
+    "indicators": [
+     "wanting",
+     "reform"
+    ],
+    "indicatorNotes": {
+     "wanting": "To want a thing is to be without it, so the letter named next is missing from what goes into the mix.",
+     "reform": "Re-form is to form again, and letters formed a second time are set down in a fresh order."
+    },
+    "anagram": {
+     "fodder": "SA RACSM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "South African racism",
+      "gives": "SARACISM",
+      "note": "SA is the standing abbreviation for South Africa, and the whole of the next word follows it: eight letters before anything is taken out"
+     },
+     {
+      "clueFragment": "wanting independence",
+      "gives": "I",
+      "note": "independence is I in the shorthand of clues, and that is the letter which goes missing"
+     }
+    ],
+    "walkthrough": "The dash is a red herring in the punctuation: 'and reform' belongs to the wordplay rather than to any political programme. The definition is the single word at the front.",
+    "definitionFit": "Scorn -> SARCASM: both name mockery meant to wound, sarcasm being the sharp-tongued form of it and scorn the contempt behind the words."
+   }
   },
   {
    "id": "17-across",
@@ -354,7 +816,23 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CENTAUR",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CENTAUR",
+    "definition": "He's a bit of a nag",
+    "blocks": [
+     {
+      "clueFragment": "a bit of a nag",
+      "note": "the reading the surface pushes: a man who is somewhat of a nagger, forever on at you about something"
+     },
+     {
+      "clueFragment": "a nag",
+      "note": "the reading the setter meant: a nag is a broken-down old horse, and 'a bit of' turns literal"
+     }
+    ],
+    "walkthrough": "Nothing is spelled out here — one description read two ways. 'He's' earns its keep too: the creatures of Greek myth are male, human down to the waist and horse below it.",
+    "definitionFit": "The whole clue is the definition: in Greek myth this creature is a man to the waist and a horse below, so part of him really is an old nag."
+   }
   },
   {
    "id": "18-down",
@@ -375,7 +853,27 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROEDEER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ROE DEER",
+    "definition": "doe-eyed creature",
+    "indicators": [
+     "Cockney"
+    ],
+    "indicatorNotes": {
+     "Cockney": "A Cockney speaker drops the aitch at the front of a word, so what is heard begins one letter later than what is written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "How the Cockney oarsman got to this",
+      "soundsLike": "ROWED 'ERE",
+      "gives": "ROEDEER",
+      "note": "he rowed, and the place he arrived at is 'here' with its aitch gone"
+     }
+    ],
+    "walkthrough": "Say the answer quickly and it turns into a sentence about a boatman. 'Doe-eyed' is a genuine hint as well as a pun, because the female of this species is a doe.",
+    "definitionFit": "doe-eyed creature -> ROE DEER: a small European deer whose female is called a doe, and the phrase also describes the large soft eyes it has."
+   }
   },
   {
    "id": "19-across",
@@ -396,7 +894,29 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALIBABA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALI BABA",
+    "definition": "one from Arabia that's a bit of a legend",
+    "blocks": [
+     {
+      "clueFragment": "The Greatest",
+      "gives": "ALI",
+      "note": "the boxer who called himself that, and nobody much argued"
+     },
+     {
+      "clueFragment": "Pudding",
+      "gives": "BABA",
+      "note": "a baba is a small sponge cake soaked in rum"
+     }
+    ],
+    "pieces": [
+     "ALI",
+     "BABA"
+    ],
+    "walkthrough": "Two capital letters do the misdirecting: 'The Greatest' is a boxer's own title rather than a superlative, and 'Pudding' is a dessert rather than part of a name.",
+    "definitionFit": "The definition is the whole second half: a legendary figure of the Arabian Nights, the woodcutter who found the thieves' cave and the words that opened it."
+   }
   },
   {
    "id": "19-down",
@@ -413,7 +933,41 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGELIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ANGELIC",
+    "definition": "sweet!",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "short",
+     "casing"
+    ],
+    "indicatorNotes": {
+     "short": "Cut short, a word turns up without the letter it ought to end on.",
+     "casing": "A casing is what goes round the outside of a thing, so these letters close about the piece named next to them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a nice",
+      "gives": "ANIC",
+      "note": "two words run together and docked of the final E"
+     },
+     {
+      "clueFragment": "Hair product",
+      "gives": "GEL",
+      "note": "gel is what you comb through hair to hold it in place"
+     }
+    ],
+    "pieces": [
+     "AN",
+     "GEL",
+     "IC"
+    ],
+    "walkthrough": "'Hair product' looks like the definition of the whole answer and is only three letters of it. The real definition is the exclamation at the end, describing a person rather than a taste.",
+    "definitionFit": "sweet! -> ANGELIC: said of someone whose behaviour is faultless and kind, the way a child who has been good all day gets described."
+   }
   },
   {
    "id": "20-across",
@@ -434,7 +988,32 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "SWITCHESGEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWITCHES GEAR",
+    "definition": "Changes approach",
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whips",
+      "gives": "SWITCHES",
+      "note": "a switch is a thin springy cane, and to switch someone is to beat them with one"
+     },
+     {
+      "clueFragment": "Kit",
+      "gives": "GEAR",
+      "note": "the stuff you carry with you — climbing kit, camera kit"
+     }
+    ],
+    "pieces": [
+     "SWITCHES",
+     "GEAR"
+    ],
+    "walkthrough": "The capital K invites you to look for a name — Kit being short for Christopher — and a person being flogged. It is the ordinary noun, and the surface exists to hide that.",
+    "definitionFit": "Changes approach -> SWITCHES GEAR: shifting to a different way of tackling something, borrowed from the driver's image of moving up or down the box."
+   }
   },
   {
    "id": "21-down",
@@ -451,7 +1030,32 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ONUS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ONUS",
+    "definition": "a liability",
+    "linkWords": [
+     "That's"
+    ],
+    "indicators": [
+     "Uncapped"
+    ],
+    "indicatorNotes": {
+     "Uncapped": "A cap sits on top of a thing, so a word left uncapped has lost the letter at its head."
+    },
+    "blocks": [
+     {
+      "clueFragment": "perk",
+      "gives": "BONUS",
+      "note": "a perk is an extra payment, a bonus, and it comes here with its first letter gone"
+     }
+    ],
+    "pieces": [
+     "ONUS"
+    ],
+    "walkthrough": "The question mark is the setter admitting he has bent his own phrase: an uncapped bonus sounds like one with no upper limit, which is the opposite of what the instruction does to the word.",
+    "definitionFit": "a liability -> ONUS: the burden or responsibility falling on a particular person, as in 'the onus is on you' — a duty owed rather than a debt."
+   }
   },
   {
    "id": "22-down",
@@ -472,7 +1076,40 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "GDAY",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "G'DAY",
+    "definition": "Victorian greeting",
+    "indicators": [
+     "ultimately",
+     "welcoming",
+     "The reverse"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What happens ultimately happens last, so only the closing letter of the word beside it is taken.",
+     "welcoming": "To welcome someone is to take them in, so one piece opens up and the other is set inside it.",
+     "The reverse": "It swaps the two roles just described: the piece said to be doing the taking in is really the one taken in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "carefree?",
+      "gives": "GAY",
+      "note": "the older sense of the word, light-hearted and merry"
+     },
+     {
+      "clueFragment": "ultimately relaxed",
+      "gives": "D",
+      "note": "the closing letter of the second of those two words"
+     }
+    ],
+    "pieces": [
+     "G",
+     "D",
+     "AY"
+    ],
+    "walkthrough": "The ellipsis and 'The reverse' between them undo the clue's own instruction, since taken at face value it asks for a three-letter word inside a single letter. Victoria is an Australian state, not only a queen.",
+    "definitionFit": "Victorian greeting -> G'DAY: the standard Australian hello, and Victoria here is a state of Australia rather than a monarch or an era."
+   }
   },
   {
    "id": "23-across",
@@ -489,7 +1126,37 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EELS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "EELS",
+    "definition": "Slippery types",
+    "indicators": [
+     "up",
+     "for the most part"
+    ],
+    "indicatorNotes": {
+     "up": "It turns the letters round to be read the other way; strictly an across answer comes 'back' rather than up, and the setter is taking a small liberty.",
+     "for the most part": "Most of the word, not all of it, so the letter it ends on is left behind."
+    },
+    "blocks": [
+     {
+      "clueFragment": "rest",
+      "gives": "SLEE",
+      "note": "rest in the sense of sleep, arriving without its final letter"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "SLEE",
+      "to": "EELS"
+     }
+    ],
+    "pieces": [
+     "EELS"
+    ],
+    "walkthrough": "'Rest up' reads as one phrase about taking it easy, and the two words are two separate instructions. The bracket at the end is where the P goes.",
+    "definitionFit": "Slippery types -> EELS: an eel is proverbially impossible to keep hold of, and 'a slippery type' is equally what you call a person who cannot be pinned down."
+   }
   },
   {
    "id": "24-across",
@@ -510,7 +1177,26 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
     ]
    },
    "solution": "WELLEARNED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "WELL-EARNED",
+    "definition": "Justly deserved",
+    "definition2": "like some oil?",
+    "blocks": [
+     {
+      "clueFragment": "Justly deserved",
+      "gives": "",
+      "note": "the plain reading: got by effort and thoroughly merited"
+     },
+     {
+      "clueFragment": "like some oil",
+      "gives": "",
+      "note": "split the answer at the hyphen and the first half is where crude oil comes from, a bore sunk into the ground"
+     }
+    ],
+    "walkthrough": "One phrase read two ways, and the question mark marks the second as the playful one. The hyphen in (4-6) is a strong hint that the front half is a word in its own right.",
+    "definitionFit": "Justly deserved is the straight sense, a rest you have worked for; the second points at crude oil, which is raised from a bore and so obtained from one."
+   }
   },
   {
    "id": "25-across",
@@ -527,7 +1213,26 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PART",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PART",
+    "definition": "Leave",
+    "definition2": "rôle",
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "",
+      "note": "read as a verb: to go away from someone, as two people do when they say goodbye"
+     },
+     {
+      "clueFragment": "rôle",
+      "gives": "",
+      "note": "read as a noun instead: what an actor is given in a play"
+     }
+    ],
+    "walkthrough": "Two words, no indicator and nothing joining them, which is the shape of a double definition. The circumflex is only French spelling and carries no instruction.",
+    "definitionFit": "Leave is the verb for going away from company; rôle is the character an actor is given — one short word covering a farewell and a stage assignment."
+   }
   },
   {
    "id": "26-across",
@@ -544,7 +1249,38 @@ window.CRYPTIC_PUZZLES["everyman-4126"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRACIOUSLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "GRACIOUSLY",
+    "definition": "in elegant fashion",
+    "linkWords": [
+     "to have"
+    ],
+    "indicators": [
+     "exhausted"
+    ],
+    "indicatorNotes": {
+     "exhausted": "Exhausted means emptied right out, so the word keeps the letters at each end and loses everything between them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "I'm surprised",
+      "gives": "GRACIOUS",
+      "note": "'Gracious!' on its own is the mild exclamation people once used for astonishment"
+     },
+     {
+      "clueFragment": "Lady",
+      "gives": "LY",
+      "note": "hollowed out, the word leaves just its first and last letters"
+     }
+    ],
+    "pieces": [
+     "GRACIOUS",
+     "LY"
+    ],
+    "walkthrough": "'Lady' looks like the object of the sentence, someone worn out by a long day, and it is only a shell to be emptied. The definition is the last three words.",
+    "definitionFit": "in elegant fashion -> GRACIOUSLY: the adverb for doing a thing with grace and courtesy, which is what behaving elegantly amounts to."
+   }
   }
  ]
 } /*JSON-END*/;
