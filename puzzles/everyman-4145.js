@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASIDES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASIDES",
+    "definition": "Remarks to audience",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "So",
+      "gives": "AS",
+      "note": "in a comparison the two little words swap freely — not so tall, not as tall — so one stands in for the other"
+     },
+     {
+      "clueFragment": "a bad day for Caesar",
+      "gives": "IDES",
+      "note": "the Roman calendar's mid-month date, and the one in March is when Caesar was assassinated after being told to beware it"
+     }
+    ],
+    "pieces": [
+     "AS",
+     "IDES"
+    ],
+    "walkthrough": "The quotation marks make the second half look like a line of dialogue somebody speaks, when it is really two pieces laid end to end — one a tiny synonym, one a date from the Roman calendar.",
+    "definitionFit": "Asides are the lines an actor turns and speaks straight to the audience, which the other characters on stage are meant not to hear."
+   }
   },
   {
    "id": "2-down",
@@ -59,7 +82,38 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "SINGININTHERAIN",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "SINGIN' IN THE RAIN",
+    "definition": "Song",
+    "indicators": [
+     "from Spooner"
+    ],
+    "indicatorNotes": {
+     "from Spooner": "The Reverend Spooner was famous for muddling the opening sounds of two words, so the phrase described here has to have its first and last initial sounds traded before you write it down."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Underwater Quasimodo",
+      "gives": "RINGIN' IN THE SEINE",
+      "note": "Quasimodo is Notre-Dame's bell-ringer, and Notre-Dame stands on an island in the Seine, so a submerged one would be pulling his ropes in that river"
+     },
+     {
+      "clueFragment": "suggestin' Underwater Quasimodo?",
+      "soundsLike": "RINGIN' IN THE SEINE",
+      "gives": "SINGIN' IN THE RAIN",
+      "note": "swap the R at the front of the first word with the S at the front of the last, and the same sounds come out as an altogether wetter phrase"
+     }
+    ],
+    "pieces": [
+     "SINGIN'",
+     "IN",
+     "THE",
+     "RAIN"
+    ],
+    "walkthrough": "The italics dress 'Underwater Quasimodo' up as a title, but it is a picture to be described. An English speaker says Seine to rhyme with rain, which is what lets the swap land so neatly.",
+    "definitionFit": "Song: the title number of the 1952 Gene Kelly musical, danced round a lamppost with an umbrella, is one of the best known in cinema."
+   }
   },
   {
    "id": "3-down",
@@ -76,7 +130,44 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOWNTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "DOWNTON",
+    "definition": "storied Abbey",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "Ultimately means at the very end of things, so the word beside it gives up only the letter it finishes on."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sad",
+      "gives": "DOWN",
+      "note": "the everyday word for low spirits — feeling down, a bit down in the mouth"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken at face value, the two letters written as they stand"
+     },
+     {
+      "clueFragment": "remain, ultimately",
+      "gives": "N",
+      "note": "the closing letter of the verb before the comma"
+     }
+    ],
+    "pieces": [
+     "DOWN",
+     "TO",
+     "N"
+    ],
+    "walkthrough": "The capital A is the tell: this is a name rather than a monastery. 'Sad to remain' reads as one wistful phrase, and that is exactly what disguises it as three separate pieces.",
+    "definitionFit": "storied Abbey → DOWNTON: 'storied' means famous in fiction, and this is the Yorkshire estate whose name is the first half of a television title."
+   }
   },
   {
    "id": "4-down",
@@ -93,7 +184,33 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINGLETON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SINGLETON",
+    "definition": "One",
+    "linkWords": [
+     "description of"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "a vest",
+      "gives": "SINGLET",
+      "note": "a singlet is the sleeveless undershirt or running top that British shops sell as a vest"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "ON",
+      "note": "you have a thing on when you are wearing it"
+     }
+    ],
+    "pieces": [
+     "SINGLET",
+     "ON"
+    ],
+    "walkthrough": "A vest here is the British sleeveless undergarment, not an American waistcoat. 'One description of' reads as a single phrase, and only that first word is doing the defining.",
+    "definitionFit": "One → SINGLETON: a lone one of a kind — one card of a suit in a bridge hand, or one baby where twins were expected."
+   }
   },
   {
    "id": "5-across",
@@ -114,7 +231,27 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "LETSGO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LETS GO",
+    "definition": "Releases",
+    "definition2": "Come on!",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Releases",
+      "gives": "",
+      "note": "to release your grip on something is to let it go, and the quotation marks warn that the answer is a phrase rather than one word"
+     },
+     {
+      "clueFragment": "Come on!",
+      "gives": "",
+      "note": "the chivvying shout that gets a group moving, an invitation to set off together"
+     }
+    ],
+    "walkthrough": "One set of letters read two ways, and an apostrophe is the only difference between them: the first is a verb about a hand opening, the second is somebody impatient at the door.",
+    "definitionFit": "Releases is 'lets go' as a verb, loosening a grip; 'Come on!' is the same sound with an apostrophe, the shout that starts a group moving."
+   }
   },
   {
    "id": "5-down",
@@ -131,7 +268,26 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEARN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LEARN",
+    "definition": "Study",
+    "indicators": [
+     "section of"
+    ],
+    "indicatorNotes": {
+     "section of": "A section is a piece cut out of something bigger, so what is wanted is an unbroken run of the letters that follow rather than all of them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "trochlear nerve",
+      "gives": "LEARN",
+      "note": "five consecutive letters beginning six in, crossing the space into the second word"
+     }
+    ],
+    "walkthrough": "The trochlear nerve is one of the cranial nerves that swivel the eye — an anatomical phrase chosen for the run of letters straddling its two words, not for what it means.",
+    "definitionFit": "Study → LEARN: the sense of taking knowledge in — studying French is learning it — rather than the room or the piece of research."
+   }
   },
   {
    "id": "6-down",
@@ -148,7 +304,30 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAFFIC",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TRAFFIC",
+    "definition": "Trade",
+    "definition2": "what may be used in jam-making",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Trade",
+      "gives": "",
+      "note": "the buying and selling of a commodity, and particularly the illicit kind — a dealer in arms or ivory"
+     },
+     {
+      "clueFragment": "what may be used in jam-making",
+      "gives": "",
+      "note": "not fruit and sugar: the nose-to-tail queue of cars that makes the other sort of jam"
+     }
+    ],
+    "walkthrough": "Jam-making pulls the mind straight into a kitchen, and the answer belongs on a motorway. The setter keeps both halves in the same register so neither gives the other away.",
+    "definitionFit": "Trade is the commerce in a commodity — TRAFFIC in arms; the second half is the road jam, which is made of nothing but traffic."
+   }
   },
   {
    "id": "7-down",
@@ -177,7 +356,27 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "GONEWITHTHEWIND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GONE WITH THE WIND",
+    "definition": "Classic movie",
+    "definition2": "Swept Away?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Classic movie",
+      "gives": "",
+      "note": "the 1939 Civil War epic with Vivien Leigh and Clark Gable, still among the most watched films ever made"
+     },
+     {
+      "clueFragment": "Swept Away?",
+      "gives": "",
+      "note": "carried off by a gale and not seen again — the plain English meaning of the italicised phrase"
+     }
+    ],
+    "walkthrough": "The italics dress the second half as another film title, and there is one. Read it as ordinary English instead and it says exactly what a gale does to whatever is loose.",
+    "definitionFit": "Classic movie names the 1939 film by its title; 'swept away' is what a strong wind does, which is the very image that title borrows."
+   }
   },
   {
    "id": "8-across",
@@ -199,7 +398,36 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOWANDAGAIN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "NOW AND AGAIN",
+    "definition": "from time to time",
+    "indicators": [
+     "Last of",
+     "wasted"
+    ],
+    "indicatorNotes": {
+     "Last of": "Asking for the last of a thing takes only its final letter, here the one that closes the hyphenated adjective.",
+     "wasted": "Wasted means drunk to the point of falling about, and letters in that state will not stay standing in the order they were handed to you."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Last of ill-gotten",
+      "gives": "N",
+      "note": "the closing letter of the hyphenated word"
+     },
+     {
+      "clueFragment": "wonga Diana",
+      "gives": "WONGADIANA",
+      "note": "wonga is British slang for cash, money; the princess supplies the other five letters"
+     }
+    ],
+    "anagram": {
+     "fodder": "N WONGA DIANA"
+    },
+    "walkthrough": "'Ill-gotten wonga' is such a complete picture of dodgy cash that it takes some doing to see only its final letter is wanted, and that most of the fodder is a name.",
+    "definitionFit": "from time to time → NOW AND AGAIN: both are idioms for occasionally, something recurring at irregular intervals rather than on any schedule."
+   }
   },
   {
    "id": "9-down",
@@ -216,7 +444,34 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITCH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ITCH",
+    "definition": "Yearning",
+    "indicators": [
+     "in East End"
+    ],
+    "indicatorNotes": {
+     "in East End": "Traditional Cockney speech from London's East End drops the H at the front of a word, so a word spoken there arrives one letter shorter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "to ride free",
+      "gives": "HITCH",
+      "note": "to hitch a lift is to thumb a ride you do not pay for"
+     },
+     {
+      "clueFragment": "East End",
+      "gives": "H",
+      "note": "the aitch the Cockney accent leaves off, and the letter that goes"
+     }
+    ],
+    "pieces": [
+     "ITCH"
+    ],
+    "walkthrough": "'Free' belongs with 'ride' rather than with the yearning: the phrase to find is the unpaid lift, and the East End then gets at its first letter.",
+    "definitionFit": "Yearning → ITCH: the figurative sense, an itch to travel — a restless craving you cannot leave alone — rather than anything happening on the skin."
+   }
   },
   {
    "id": "10-down",
@@ -233,7 +488,32 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAD",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "GRAD",
+    "definition": "Such is primarily gowned, radiant, accepting diploma!",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily points at what comes first, so each word in the list after it gives up nothing but its opening letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "gowned, radiant, accepting diploma",
+      "gives": "GRAD",
+      "note": "the opening letters of the four words, taken in the order they are written"
+     }
+    ],
+    "pieces": [
+     "G",
+     "R",
+     "A",
+     "D"
+    ],
+    "walkthrough": "Read straight, the clue is a photograph of one person at a ceremony; read again, those same words hand over their initials. Doing both jobs at once is what makes it an &lit.",
+    "definitionFit": "The whole clue reads straight: somebody gowned, glowing and taking a diploma is exactly a graduate, which this clipped four-letter form names."
+   }
   },
   {
    "id": "11-across",
@@ -250,7 +530,29 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIATHLON",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "TRIATHLON",
+    "definition": "Ran, hot, 'til knackered - as part of this?",
+    "indicators": [
+     "knackered"
+    ],
+    "indicatorNotes": {
+     "knackered": "Knackered is British for utterly worn out or broken, and something broken no longer has its parts sitting where they belong."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ran, hot, 'til",
+      "gives": "RANHOTTIL",
+      "note": "nine letters from the three words before the dash, which is the length required"
+     }
+    ],
+    "anagram": {
+     "fodder": "RAN HOT TIL"
+    },
+    "walkthrough": "'Ran' looks like the definition and is fodder instead. Every word before the dash is letters, and the sentence read a second time describes the event those letters spell.",
+    "definitionFit": "Read straight, the clue describes one competitor's running leg, and running genuinely is only part of the three-sport race the answer names."
+   }
   },
   {
    "id": "12-across",
@@ -267,7 +569,33 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FEWER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FEWER",
+    "definition": "less",
+    "linkWords": [
+     "no"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil-grading letter for fine, from the same table that gives H for hard"
+     },
+     {
+      "clueFragment": "water jug",
+      "gives": "EWER",
+      "note": "an ewer is the wide-mouthed jug that stands with a basin on an old washstand"
+     }
+    ],
+    "pieces": [
+     "F",
+     "EWER"
+    ],
+    "walkthrough": "'No less!' is the surface's flourish and only the last word defines. The pedant's rule is the joke underneath: the word wanted is the one used of things that can be counted.",
+    "definitionFit": "less → FEWER: both name a smaller quantity, and fewer is the form English reserves for things counted one by one — fewer coins, less money."
+   }
   },
   {
    "id": "13-across",
@@ -284,7 +612,30 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAIRNET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HAIRNET",
+    "definition": "Cook's convenience",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "mop",
+      "gives": "HAIR",
+      "note": "a mop of curls is a thick unbrushed head of the stuff"
+     },
+     {
+      "clueFragment": "to take home",
+      "gives": "NET",
+      "note": "take-home pay is what is left after tax — the net figure rather than the gross"
+     }
+    ],
+    "pieces": [
+     "HAIR",
+     "NET"
+    ],
+    "walkthrough": "'Mop' wants to be the thing you clean a floor with, and the colon makes the rest read as a shopping errand. Both halves are figures of speech instead.",
+    "definitionFit": "Cook's convenience → HAIRNET: the fine mesh worn in a kitchen to keep loose strands out of the food, so it is a convenience for whoever is cooking."
+   }
   },
   {
    "id": "14-across",
@@ -301,7 +652,33 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXCITED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXCITED",
+    "definition": "Roused",
+    "linkWords": [
+     "seeing"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "old flame",
+      "gives": "EX",
+      "note": "an ex is the partner you used to have, and the two letters stand for a former anything"
+     },
+     {
+      "clueFragment": "mentioned",
+      "gives": "CITED",
+      "note": "to cite a source is to mention it by name, the way a judgment quotes an earlier case"
+     }
+    ],
+    "pieces": [
+     "EX",
+     "CITED"
+    ],
+    "walkthrough": "'Mentioned' looks like the standard instruction to listen for a sound-alike, and it is not: here it is a plain synonym, sitting after the two letters a solver meets constantly.",
+    "definitionFit": "Roused → EXCITED: stirred up into an eager state, the sense of having been worked up rather than of being woken from sleep."
+   }
   },
   {
    "id": "14-down",
@@ -318,7 +695,29 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESTRANGES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ESTRANGES",
+    "definition": "Alienates",
+    "indicators": [
+     "foolishly"
+    ],
+    "indicatorNotes": {
+     "foolishly": "To do a thing foolishly is to do it wrongly, and the letters beside the word have been put in the wrong order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "sergeants",
+      "gives": "SERGEANTS",
+      "note": "the nine letters of the rank, exactly the length the grid asks for"
+     }
+    ],
+    "anagram": {
+     "fodder": "SERGEANTS"
+    },
+    "walkthrough": "Nine letters sitting in plain sight beside a word saying they are out of order. The only real difficulty is that the definition looks just as shufflable as the fodder.",
+    "definitionFit": "Alienates → ESTRANGES: to estrange people is to turn them into strangers to one another, which is what alienating a friend or a spouse does."
+   }
   },
   {
    "id": "15-across",
@@ -335,7 +734,38 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BITTERN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "BITTERN",
+    "definition": "bird",
+    "linkWords": [
+     "gets the"
+    ],
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally marks where something ends, so the name beside it hands over only the letter it stops on."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sullen",
+      "gives": "BITTER",
+      "note": "bitter describes somebody soured by resentment, which is a sullen frame of mind"
+     },
+     {
+      "clueFragment": "Everyman finally",
+      "gives": "N",
+      "note": "Everyman is the name this paper's setter signs, and its last letter is the one wanted"
+     }
+    ],
+    "pieces": [
+     "BITTER",
+     "N"
+    ],
+    "walkthrough": "'Gets the bird' is an idiom for being booed off the stage, which is the trap. Only the last word defines, and it defines a species.",
+    "definitionFit": "bird → BITTERN: definition by category — the shy brown heron of the reedbeds, famous for a foghorn boom you hear far more often than you see the bird."
+   }
   },
   {
    "id": "15-down",
@@ -352,7 +782,27 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BACK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BACK",
+    "definition": "Second",
+    "definition2": "tail",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "",
+      "note": "to second a proposal at a meeting is to give it your support, the verb the chair waits to hear"
+     },
+     {
+      "clueFragment": "tail",
+      "gives": "",
+      "note": "the tail of anything is its hindmost part, the end that comes last"
+     }
+    ],
+    "walkthrough": "Two words and nothing else, so there is nowhere for wordplay to hide. One is a verb of support, the other a noun for a rear end, and the answer covers both.",
+    "definitionFit": "Second is the verb for supporting a motion — you back it; tail is the hindmost part, which is what the rear of anything is called."
+   }
   },
   {
    "id": "16-down",
@@ -369,7 +819,29 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ECHIDNA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ECHIDNA",
+    "definition": "Aussie animal",
+    "indicators": [
+     "bananas"
+    ],
+    "indicatorNotes": {
+     "bananas": "To go bananas is to go wildly out of your mind, and letters in that condition land anywhere except where they started."
+    },
+    "blocks": [
+     {
+      "clueFragment": "had nice",
+      "gives": "HADNICE",
+      "note": "seven letters from the two words before the instruction"
+     }
+    ],
+    "anagram": {
+     "fodder": "HAD NICE"
+    },
+    "walkthrough": "The surface pictures a snack, and one word tells you otherwise. The two innocent little words in front of it are there for their letters, not for their sense.",
+    "definitionFit": "Aussie animal → ECHIDNA: definition by example — the spiny anteater, one of only two egg-laying mammals, found across Australia and New Guinea."
+   }
   },
   {
    "id": "17-across",
@@ -390,7 +862,24 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "TANKTOP",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "TANK TOP",
+    "definition": "What has a turret but isn't armed?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "What has a turret",
+      "note": "the surface wants a fighting vehicle, since a turret is the revolving gun housing on one — and the first half of the answer is that vehicle"
+     },
+     {
+      "clueFragment": "but isn't armed?",
+      "note": "armed changes sense between the two readings: carrying no weapons, and also having no arms, which is to say no sleeves"
+     }
+    ],
+    "walkthrough": "The whole joke lives in 'armed'. A sleeveless summer garment borrows an armoured vehicle's name, so it comes with the turret and none of the guns.",
+    "definitionFit": "The clue describes the answer sideways: a sleeveless top named after the armoured vehicle, which supplies the turret while the garment supplies the missing arms."
+   }
   },
   {
    "id": "18-down",
@@ -407,7 +896,29 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NAMASTE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NAMASTE",
+    "definition": "Asian greeting",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "taking part"
+    ],
+    "indicatorNotes": {
+     "taking part": "Taking a part of something is helping yourself to a piece of it, so only some of the letters on offer are wanted, and they come as one unbroken run."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Vietnam, as teacher",
+      "gives": "NAMASTE",
+      "note": "seven letters running on from halfway through the country, over the comma and into the word after next"
+     }
+    ],
+    "walkthrough": "A greeting concealed inside the name of a country it has nothing to do with: namaste is Sanskrit and belongs to India and Nepal, while the letters simply happen to sit here.",
+    "definitionFit": "Asian greeting → NAMASTE: the Sanskrit salutation said with the palms pressed together, used across India and Nepal for both hello and goodbye."
+   }
   },
   {
    "id": "19-down",
@@ -424,7 +935,41 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PALS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PALS",
+    "definition": "Friends",
+    "indicators": [
+     "shrinking"
+    ],
+    "indicatorNotes": {
+     "shrinking": "To shrink from a thing is to draw back from it, and letters that draw back are read from their far end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size printed on a clothing label for small"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "LAP",
+      "note": "one circuit of a running track is a lap"
+     }
+    ],
+    "pieces": [
+     "PAL",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "SLAP",
+      "to": "PALS"
+     }
+    ],
+    "walkthrough": "'Small circle' sounds like a definition of a tight group of friends, which is the disguise: they are two separate pieces, and the assembly turns round before it is written in.",
+    "definitionFit": "Friends → PALS: the informal word for mates or chums, a plural standing for a plural, with no shade of meaning beyond the casualness."
+   }
   },
   {
    "id": "20-across",
@@ -441,7 +986,30 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CZECH",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CZECH",
+    "definition": "Language",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "spoken"
+    ],
+    "indicatorNotes": {
+     "spoken": "Spoken asks for the sound of a word rather than its spelling, so what goes into the grid only has to be said the same way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "soundsLike": "CHECK",
+      "gives": "CZECH",
+      "note": "Americans ask a waiter for the check where the British ask for the bill, and said aloud that word is spelled quite differently"
+     }
+    ],
+    "walkthrough": "The capital B makes Bill look like a man's name, which is the misdirection. What you hear belongs to a country in central Europe rather than to a diner.",
+    "definitionFit": "Language → CZECH: definition by category — the Slavic language of Czechia, named after its people, is one member of the class the clue points at."
+   }
   },
   {
    "id": "21-across",
@@ -462,7 +1030,29 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALARMBELL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALARM BELL",
+    "definition": "this may be because of a drill",
+    "indicators": [
+     "shattered"
+    ],
+    "indicatorNotes": {
+     "shattered": "Something shattered has broken into pieces that no longer sit where they did, which is what has happened to the letters in front of the colon."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Marble all",
+      "gives": "MARBLEALL",
+      "note": "nine letters from the two words before the colon"
+     }
+    ],
+    "anagram": {
+     "fodder": "MARBLE ALL"
+    },
+    "walkthrough": "A drill sounds like a power tool, especially standing next to shattered marble. It is the practice-evacuation kind, and the definition is everything after the colon.",
+    "definitionFit": "A fire drill is a practice evacuation, and what sets one going is the bell — so 'because of a drill' explains why the thing is ringing."
+   }
   },
   {
    "id": "21-down",
@@ -479,7 +1069,33 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AHEAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AHEAD",
+    "definition": "coming",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article is used as the single letter it already is"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "HEAD",
+      "note": "the head is what a British school calls the person in charge, short for head teacher"
+     }
+    ],
+    "pieces": [
+     "A",
+     "HEAD"
+    ],
+    "walkthrough": "The apostrophe-s means 'is' in the surface story and does no work at all in the wordplay, where the two pieces simply sit side by side in the order given.",
+    "definitionFit": "coming → AHEAD: what lies ahead is what is still to arrive — the sense in 'trouble ahead' rather than the sense of leading on points."
+   }
   },
   {
    "id": "22-across",
@@ -500,7 +1116,32 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANDREAGASSI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANDRE AGASSI",
+    "definition": "sports star",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "reassigned"
+    ],
+    "indicatorNotes": {
+     "reassigned": "To reassign is to move something to a different place from the one it held, and here every letter is given a new one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "A (as in grades)",
+      "gives": "AASINGRADES",
+      "note": "the single letter plus the three words bracketed after it — eleven letters, the length required"
+     }
+    ],
+    "anagram": {
+     "fodder": "A AS IN GRADES"
+    },
+    "walkthrough": "The bracket looks like the setter explaining which A is meant, the one on a school report. It is really telling you that those words are letters too.",
+    "definitionFit": "sports star → ANDRE AGASSI: definition by example — the Las Vegas tennis player who won all four grand slam titles during the 1990s."
+   }
   },
   {
    "id": "23-across",
@@ -521,7 +1162,27 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONHAND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ON HAND",
+    "definition": "Convenient",
+    "definition2": "like an oven glove",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Convenient",
+      "gives": "",
+      "note": "available at the moment it is wanted, close enough to reach for without going to fetch it"
+     },
+     {
+      "clueFragment": "like an oven glove",
+      "gives": "",
+      "note": "read absolutely literally — a glove is worn over the fingers, so this says where it sits"
+     }
+    ],
+    "walkthrough": "The second half takes the phrase word by word, which is the joke, and a kitchen glove is the one object that answers both senses at the same time.",
+    "definitionFit": "Convenient means within reach when wanted; the oven glove reads the phrase literally instead, since a glove really is worn on a hand."
+   }
   },
   {
    "id": "24-across",
@@ -538,7 +1199,47 @@ window.CRYPTIC_PUZZLES["everyman-4145"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPEEDO",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SPEEDO",
+    "definition": "swimwear brand",
+    "linkWords": [
+     "After"
+    ],
+    "indicators": [
+     "upset",
+     "to wear"
+    ],
+    "indicatorNotes": {
+     "upset": "Upset means tipped over, and a word tipped over is read from its last letter back to its first.",
+     "to wear": "You climb inside whatever you wear, so the piece doing the wearing goes in the middle of the piece named after it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "outsize",
+      "gives": "OS",
+      "note": "OS is the clothing label for outsize, and these are the two letters that wrap round"
+     },
+     {
+      "clueFragment": "learned",
+      "gives": "DEEP",
+      "note": "a deep thinker is a learned one — profound rather than shallow — and it goes inside"
+     }
+    ],
+    "pieces": [
+     "S",
+     "PEED",
+     "O"
+    ],
+    "subReversals": [
+     {
+      "from": "ODEEPS",
+      "to": "SPEEDO"
+     }
+    ],
+    "walkthrough": "'After upset' reads as the aftermath of a row in the surface story. It is the instruction that turns the whole assembly round once the wrapping has been done.",
+    "definitionFit": "swimwear brand → SPEEDO: the Australian company whose racing trunks became so standard that the name is now used for the garment itself."
+   }
   }
  ]
 } /*JSON-END*/;
