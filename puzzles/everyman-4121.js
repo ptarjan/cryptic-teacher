@@ -40,7 +40,27 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHEA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "RHEA",
+    "definition": "I'm never overhead!",
+    "definitionNote": "The setter lets the creature answer for itself, so the definition is a whole first-person sentence rather than a noun you could swap straight into a sentence.",
+    "indicators": [
+     "Not fully"
+    ],
+    "indicatorNotes": {
+     "Not fully": "Taking something not fully is taking part of it, so only a stretch inside the long word beside it is wanted, never the whole of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "'Not fully overhead?'",
+      "gives": "RHEA",
+      "note": "four consecutive letters sit in the middle of the quoted question's last word, running from its fourth letter on"
+     }
+    ],
+    "walkthrough": "The same word does both jobs: the question quotes it for its letters, the shout uses it for its meaning. A bird that has never once left the ground is entitled to sound touchy about it.",
+    "definitionFit": "I'm never overhead! -> RHEA: the big South American ratite cannot fly, so it can honestly claim to stay on the ground and never pass above you."
+   }
   },
   {
    "id": "2-down",
@@ -61,7 +81,36 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
     ]
    },
    "solution": "HEADFIRST",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "HEAD-FIRST",
+    "definition": "reckless",
+    "indicators": [
+     "Not",
+     "reckless"
+    ],
+    "indicatorNotes": {
+     "Not": "The negative sitting in front of an abbreviation takes that letter out of the pile instead of adding it in.",
+     "reckless": "Someone reckless keeps to no order and no plan, so the letters will not stay in the sequence they were handed over in."
+    },
+    "anagram": {
+     "fodder": "FARSIHTED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Far-sighted",
+      "gives": "FARSIGHTED",
+      "note": "ten letters given up whole, the hyphen counting for nothing"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good, and it is the letter that leaves the pile"
+     }
+    ],
+    "walkthrough": "The word is printed twice on purpose: the first is the instruction, the second is the meaning. 'Far-sighted' looks like a definition and is really the bag of letters.",
+    "definitionFit": "reckless -> HEAD-FIRST: going head-first is diving in without looking where you land, which is what acting recklessly amounts to."
+   }
   },
   {
    "id": "3-down",
@@ -78,7 +127,36 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANALYSE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "ANALYSE",
+    "definition": "study",
+    "indicators": [
+     "Wanting",
+     "overturned"
+    ],
+    "indicatorNotes": {
+     "Wanting": "Here it means lacking rather than desiring, so the thing named next is absent from the letters you are given.",
+     "overturned": "What has been overturned has been tipped up and spilled, so its letters come to rest in some order other than the printed one."
+    },
+    "anagram": {
+     "fodder": "NAYSEAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "navy seal",
+      "gives": "NAVYSEAL",
+      "note": "eight letters given whole, an elite American sailor-commando on the surface"
+     },
+     {
+      "clueFragment": "volume",
+      "gives": "V",
+      "note": "V is the standard abbreviation for volume, and that is the letter going missing"
+     }
+    ],
+    "walkthrough": "A navy seal is a person on the surface and a bag of letters underneath. The study wanted is the verb, not the room you do it in.",
+    "definitionFit": "study -> ANALYSE: to study something closely is to take it apart and examine the parts, which is exactly what this verb asks of you."
+   }
   },
   {
    "id": "4-across",
@@ -95,7 +173,37 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OHMS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + homophone",
+    "answer": "OHMS",
+    "definition": "Resistance units",
+    "indicators": [
+     "reported"
+    ],
+    "indicatorNotes": {
+     "reported": "What is reported is passed on by mouth, so you want the sound of the words rather than the way they are written."
+    },
+    "blocks": [
+     {
+      "clueFragment": "residences",
+      "gives": "HOMES",
+      "note": "residences are homes, the step before anything is said aloud"
+     },
+     {
+      "clueFragment": "East End",
+      "gives": "OMES",
+      "note": "the East End is working-class London, and Cockney speech there drops the aitch off the front"
+     },
+     {
+      "clueFragment": "East End residences",
+      "soundsLike": "'OMES",
+      "gives": "OHMS",
+      "note": "said out loud, that aitchless word is written with the aitch put back in the middle"
+     }
+    ],
+    "walkthrough": "The joke is one sound with two spellings: a Londoner's word for houses, and the unit named after the physicist Georg Ohm.",
+    "definitionFit": "Resistance units -> OHMS: the ohm is the SI unit of electrical resistance, so the plural is simply several of them."
+   }
   },
   {
    "id": "4-down",
@@ -112,7 +220,28 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OMNIBUS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "OMNIBUS",
+    "definition": "Books",
+    "definition2": "a vehicle in Clapham",
+    "definitionNote": "The answer is a single volume, so the plural names the several works bound up inside it rather than the thing itself.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Books",
+      "gives": "",
+      "note": "several works reprinted together in one fat volume"
+     },
+     {
+      "clueFragment": "a vehicle in Clapham",
+      "gives": "",
+      "note": "English law measures behaviour against the ordinary reasonable person, always pictured on the bus through Clapham in south London"
+     }
+    ],
+    "walkthrough": "Two meanings and no letter mechanics. The trap is reading 'Books' as a verb, as though somebody were booking a taxi in south London.",
+    "definitionFit": "An omnibus is one volume collecting several works, and it is also the full old word for a bus, preserved in that legal catchphrase."
+   }
   },
   {
    "id": "5-down",
@@ -129,7 +258,30 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOTIF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MOTIF",
+    "definition": "figure",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Car exam",
+      "gives": "MOT",
+      "note": "the MOT is the annual British roadworthiness test every car over three years old has to pass"
+     },
+     {
+      "clueFragment": "providing",
+      "gives": "IF",
+      "note": "providing that something happens means if it happens"
+     }
+    ],
+    "pieces": [
+     "MOT",
+     "IF"
+    ],
+    "walkthrough": "Two staples worth keeping: the British car test, and 'providing' standing in for the two-letter conditional. The surface sounds like a driving school and means nothing.",
+    "definitionFit": "figure -> MOTIF: a figure in the design sense, the small repeated shape in a pattern, or the phrase that keeps returning in a piece of music."
+   }
   },
   {
    "id": "6-down",
@@ -150,7 +302,32 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHATHO",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "WHAT HO",
+    "definition": "Hullo",
+    "indicators": [
+     "you say?"
+    ],
+    "indicatorNotes": {
+     "you say?": "Saying it is the whole point: the words are to be heard rather than read, and the spelling changes on the way."
+    },
+    "blocks": [
+     {
+      "clueFragment": "weeding tool",
+      "gives": "HOE",
+      "note": "the long-handled blade you chop weeds out of a bed with"
+     },
+     {
+      "clueFragment": "I see no weeding tool",
+      "soundsLike": "WHAT HOE",
+      "gives": "WHAT HO",
+      "note": "seeing none of it, the question you ask is which one — and that question said aloud loses the tool's final letter"
+     }
+    ],
+    "walkthrough": "The greeting is Bertie Wooster's, hailed across a drawing room in Wodehouse. The joke rests on a garden tool and a hearty exclamation sounding identical.",
+    "definitionFit": "Hullo -> WHAT HO: a hearty, old-fashioned British hail, the greeting a P G Wodehouse character throws at a friend on sight."
+   }
   },
   {
    "id": "7-down",
@@ -167,7 +344,30 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEYDAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HEYDAY",
+    "definition": "boom",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Excuse me",
+      "gives": "HEY",
+      "note": "the shout you use to stop someone and get their attention"
+     },
+     {
+      "clueFragment": "Doris",
+      "gives": "DAY",
+      "note": "Doris Day, the American singer and film star of the 1950s, supplies her surname"
+     }
+    ],
+    "pieces": [
+     "HEY",
+     "DAY"
+    ],
+    "walkthrough": "A first name in a clue is very often there only to fetch the famous surname standing beside it, and this is one of the most-used pairs in the game.",
+    "definitionFit": "boom -> HEYDAY: a boom is the stretch of time when something flourishes, which is what a heyday is — the peak years of success."
+   }
   },
   {
    "id": "8-across",
@@ -189,7 +389,36 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
     ]
    },
    "solution": "HOPEAGAINSTHOPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOPE AGAINST HOPE",
+    "definition": "pray",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Bob",
+      "gives": "HOPE",
+      "note": "Bob Hope, the comedian who entertained the troops for decades, gives his surname"
+     },
+     {
+      "clueFragment": "vs.",
+      "gives": "AGAINST",
+      "note": "vs. is short for versus, Latin for against"
+     },
+     {
+      "clueFragment": "his uncle",
+      "gives": "HOPE",
+      "note": "Bob's your uncle is the British catchphrase for and there you are, so the uncle is another Bob and hands over the same surname again"
+     }
+    ],
+    "pieces": [
+     "HOPE",
+     "AGAINST",
+     "HOPE"
+    ],
+    "walkthrough": "Two catchphrases in one line, and both Bobs turn out to be the same comedian. The family quarrel of the surface never happened.",
+    "definitionFit": "pray -> HOPE AGAINST HOPE: to pray for a thing is to want it when the odds have gone, which is hoping on after hope has run out."
+   }
   },
   {
    "id": "9-down",
@@ -211,7 +440,38 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
     ]
    },
    "solution": "PORTOFSPAIN",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "PORT-OF-SPAIN",
+    "definition": "somewhere in Trinidad",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner was the Oxford don forever trading the opening sounds of two words as he spoke, so anything credited to him arrives with those sounds swapped."
+    },
+    "blocks": [
+     {
+      "clueFragment": "rugby",
+      "soundsLike": "SPORT",
+      "gives": "PORT",
+      "note": "rugby is a sport, and this word gives up its opening S to the one at the far end"
+     },
+     {
+      "clueFragment": "report",
+      "soundsLike": "PAIN",
+      "gives": "SPAIN",
+      "note": "the report on that game is that it hurts, and this word collects the S coming back the other way"
+     }
+    ],
+    "pieces": [
+     "PORT",
+     "OF",
+     "SPAIN"
+    ],
+    "walkthrough": "Say the plain verdict on the game first, then trade the two opening sounds. The middle word sits still while the outer two swap, which is what makes the capital city appear.",
+    "definitionFit": "somewhere in Trinidad -> PORT-OF-SPAIN: the capital city of Trinidad and Tobago, on the north-west coast of the larger island."
+   }
   },
   {
    "id": "10-down",
@@ -232,7 +492,34 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
     ]
    },
    "solution": "OBLIVIOUSTO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OBLIVIOUS TO",
+    "definition": "Unaware of",
+    "indicators": [
+     "seething"
+    ],
+    "indicatorNotes": {
+     "seething": "Something seething is boiling and churning over, so the letters cannot be expected to settle in the order they were printed."
+    },
+    "anagram": {
+     "fodder": "VTOOBILIOUS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is the NATO phonetic alphabet's word for the letter V"
+     },
+     {
+      "clueFragment": "too bilious",
+      "gives": "TOOBILIOUS",
+      "note": "ten more letters handed over whole"
+     }
+    ],
+    "walkthrough": "The NATO alphabet repays learning in one go — Victor, Oscar, Charlie, Echo and the rest each hand a clue a single letter, and setters lean on it constantly.",
+    "definitionFit": "Unaware of -> OBLIVIOUS TO: to be oblivious to a thing is not to register it at all, a stronger phrase for simply not noticing."
+   }
   },
   {
    "id": "11-across",
@@ -249,7 +536,37 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THRIFTY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "THRIFTY",
+    "definition": "careful",
+    "indicators": [
+     "60%",
+     "80%"
+    ],
+    "indicatorNotes": {
+     "60%": "Three fifths of a five-letter word is its first three letters, so the percentage says how much of the spelled-out number to keep.",
+     "80%": "Four fifths of a five-letter word leaves exactly one letter to be shed, and here it is the opening one that goes."
+    },
+    "blocks": [
+     {
+      "clueFragment": "60% of 3",
+      "gives": "THR",
+      "note": "write the number out as a word and keep three of its five letters"
+     },
+     {
+      "clueFragment": "80% of 50",
+      "gives": "IFTY",
+      "note": "the larger number spelled out, with the first of its five letters shed"
+     }
+    ],
+    "pieces": [
+     "THR",
+     "IFTY"
+    ],
+    "walkthrough": "Numbers spelled out as words are the trick, and the percentages measure letters rather than value. Three keeps its front, fifty loses its front.",
+    "definitionFit": "careful -> THRIFTY: careful in the money sense, spending little and wasting nothing, rather than careful about danger."
+   }
   },
   {
    "id": "12-across",
@@ -266,7 +583,41 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAFFLED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BAFFLED",
+    "definition": "perplexed",
+    "indicators": [
+     "After"
+    ],
+    "indicatorNotes": {
+     "After": "It puts everything that follows behind the piece it names, so the qualification is written down first and the rest lines up behind it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "degree",
+      "gives": "BA",
+      "note": "a BA, bachelor of arts, is the standard British first degree"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow, as in the FRS after a scientist's name"
+     },
+     {
+      "clueFragment": "ran off",
+      "gives": "FLED",
+      "note": "to run off is to flee, and the past tense keeps the surface story going"
+     }
+    ],
+    "pieces": [
+     "BA",
+     "F",
+     "FLED"
+    ],
+    "walkthrough": "Two abbreviations a solver meets every week, then an everyday past tense. The absconding academic of the surface is pure invention.",
+    "definitionFit": "perplexed -> BAFFLED: both describe someone thoroughly puzzled, left with no idea what is going on in front of them."
+   }
   },
   {
    "id": "13-across",
@@ -283,7 +634,24 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODOURLESS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ODOURLESS",
+    "definition": "Not to be sniffed at?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Not to be sniffed at?",
+      "note": "the reading the surface pushes: the idiom for something well worth taking seriously, not to be dismissed"
+     },
+     {
+      "clueFragment": "sniffed",
+      "note": "the reading the setter meant, taken flat: put a nose to it and there is nothing there to detect"
+     }
+    ],
+    "walkthrough": "Nothing here comes apart into letters. One phrase carries a figurative meaning and a literal one at once, and the question mark is the setter admitting it.",
+    "definitionFit": "The clue names the property by what you cannot do: sniffing gets you nowhere, because there is no smell there at all."
+   }
   },
   {
    "id": "14-across",
@@ -300,7 +668,29 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAVOY",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SAVOY",
+    "definition": "hotel",
+    "indicators": [
+     "Somewhat"
+    ],
+    "indicatorNotes": {
+     "Somewhat": "Somewhat means to a partial extent, so what is wanted is a slice of the words that follow and not all of them."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inconspicuous, a voyeur",
+      "gives": "SAVOY",
+      "note": "five letters run on without a break from the end of one word through the two that follow, comma and all"
+     }
+    ],
+    "walkthrough": "The definition is one famous building rather than the general word, which is fair because the Strand's grandest address is known well beyond London.",
+    "definitionFit": "hotel -> SAVOY: definition by example — the Savoy on the Strand is one particular grand London hotel, not the word for hotels in general."
+   }
   },
   {
    "id": "14-down",
@@ -317,7 +707,32 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKEDADDLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SKEDADDLE",
+    "definition": "run!",
+    "indicators": [
+     "resort"
+    ],
+    "indicatorNotes": {
+     "resort": "Read it as re-sort: to sort again is to set the letters down in a fresh order, and it has nothing to do with a holiday town."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "ELKSADDED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Elks added",
+      "gives": "ELKSADDED",
+      "note": "nine letters handed over whole, which is exactly the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Resort' leads a double life and this is the crossword one. The elks are on the page only to look plausible next to a holiday destination.",
+    "definitionFit": "run! -> SKEDADDLE: an informal order to clear off in a hurry, the comic word for running away at speed."
+   }
   },
   {
    "id": "15-across",
@@ -334,7 +749,38 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESAT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "RESAT",
+    "definition": "Took another exam",
+    "indicators": [
+     "From The East"
+    ],
+    "indicatorNotes": {
+     "From The East": "An across entry read from the east is read from its right-hand end, so the weapon named before it arrives back to front."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weaponry",
+      "gives": "TASER",
+      "note": "a stun gun firing barbed darts, standing in here for weaponry in general"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "TASER",
+      "to": "RESAT"
+     }
+    ],
+    "pieces": [
+     "RESAT"
+    ],
+    "walkthrough": "Capital letters in the middle of a clue are decoration and not significance: they make the last four words look like the title of something.",
+    "definitionFit": "Took another exam -> RESAT: the past tense of sitting a paper a second time, after failing it or missing it at the first attempt."
+   }
   },
   {
    "id": "15-down",
@@ -357,7 +803,27 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESUME",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RESUME",
+    "definition": "Take back",
+    "definition2": "précis",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Take back",
+      "gives": "",
+      "note": "to take a thing back is to occupy or take it up once again — take back your seat, take back the throne"
+     },
+     {
+      "clueFragment": "précis",
+      "gives": "",
+      "note": "a précis is a short summary of a longer text, and with its French accents it is also a CV"
+     }
+    ],
+    "walkthrough": "One spelling doing duty for two words: the plain English verb, and the French noun that normally keeps its accents. The italics are the setter's nod to the second.",
+    "definitionFit": "To take back is to resume, in the sense of taking something up again; and a précis is a résumé, the same letters with the accents printed."
+   }
   },
   {
    "id": "16-across",
@@ -374,7 +840,32 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINNESOTA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MINNESOTA",
+    "definition": "Midwestern state",
+    "indicators": [
+     "Liberal"
+    ],
+    "indicatorNotes": {
+     "Liberal": "Taken in its loose, unconstrained sense: a liberal arrangement is not the strict one, so the letters are free to move about."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "NOMINATES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Nominates",
+      "gives": "NOMINATES",
+      "note": "nine letters given whole, and they are exactly the nine the answer needs"
+     }
+    ],
+    "walkthrough": "The capital L is the trap. It looks like the political party about to donate its usual abbreviation, and it is really the instruction to shuffle.",
+    "definitionFit": "Midwestern state -> MINNESOTA: the North Star State on the Canadian border, one of the dozen states counted as the American Midwest."
+   }
   },
   {
    "id": "16-down",
@@ -391,7 +882,36 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARLOWE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MARLOWE",
+    "definition": "poet",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Hurt",
+      "gives": "MAR",
+      "note": "to mar something is to damage or spoil it"
+     },
+     {
+      "clueFragment": "depressed",
+      "gives": "LOW",
+      "note": "feeling low is feeling depressed"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     }
+    ],
+    "pieces": [
+     "MAR",
+     "LOW",
+     "E"
+    ],
+    "walkthrough": "Christopher Marlowe wrote Doctor Faustus and was stabbed in a Deptford tavern at twenty-nine. Three plain pieces, the last of them a one-letter abbreviation seen constantly.",
+    "definitionFit": "poet -> MARLOWE: definition by example — Christopher Marlowe, the Elizabethan dramatist and verse writer, is one poet rather than the word for all of them."
+   }
   },
   {
    "id": "17-down",
@@ -408,7 +928,41 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEGRONI",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "NEGRONI",
+    "definition": "Drops of (not exclusively) gin, rosso, orange ... naturally, ice!",
+    "indicators": [
+     "Drops of"
+    ],
+    "indicatorNotes": {
+     "Drops of": "A drop of something is the smallest possible measure of it, and the smallest measure of a written word is its first letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "(not exclusively)",
+      "gives": "NE",
+      "note": "the bracketed aside is fodder as well as apology: both its words give up an initial"
+     },
+     {
+      "clueFragment": "gin, rosso, orange",
+      "gives": "GRO",
+      "note": "the three ingredients give their opening letters in the order they are listed"
+     },
+     {
+      "clueFragment": "naturally, ice",
+      "gives": "NI",
+      "note": "the last two words supply the two initials that finish the run"
+     }
+    ],
+    "pieces": [
+     "NE",
+     "GRO",
+     "NI"
+    ],
+    "walkthrough": "Every word works twice. Read straight it is the recipe — gin, red vermouth, bitter orange, served over ice — and read again it is a list of initials, brackets included.",
+    "definitionFit": "The whole clue is the definition: an aperitivo built from equal drops of gin, rosso vermouth and orange-red bitters, poured over ice."
+   }
   },
   {
    "id": "18-down",
@@ -425,7 +979,38 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AISLES",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "AISLES",
+    "definition": "divisions in Church",
+    "indicators": [
+     "Regularly"
+    ],
+    "indicatorNotes": {
+     "Regularly": "Regularly means at even intervals, so you count through the words taking every second letter instead of choosing freely."
+    },
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "panics",
+      "gives": "AIS",
+      "note": "the second, fourth and sixth letters of the word"
+     },
+     {
+      "clueFragment": "elders",
+      "gives": "LES",
+      "note": "the same even-numbered count carries straight on into the next word"
+     }
+    ],
+    "pieces": [
+     "AIS",
+     "LES"
+    ],
+    "walkthrough": "A clue that says 'regularly' is counting, not describing. The alarmed elders are there only to put the right letters in the even positions.",
+    "definitionFit": "divisions in Church -> AISLES: the passages running between the pews that divide a church's floor into separate parts."
+   }
   },
   {
    "id": "19-across",
@@ -442,7 +1027,40 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STABLER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "STABLER",
+    "definition": "not so crazy",
+    "indicators": [
+     "looking back"
+    ],
+    "indicatorNotes": {
+     "looking back": "An across answer looked back over is read from its right-hand end, so the two pieces arrive in the opposite order to the one they were built in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "REL",
+      "note": "rel. is the everyday short form of relative"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "BATS",
+      "note": "bats is informal British for crazy, from having bats in the belfry"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "RELBATS",
+      "to": "STABLER"
+     }
+    ],
+    "pieces": [
+     "STABLER"
+    ],
+    "walkthrough": "'Crazy' is written twice and does two different jobs: once it hands over a four-letter synonym, and once, negated, it supplies the meaning.",
+    "definitionFit": "not so crazy -> STABLER: more stable, and of a person that means steadier and less unhinged than someone else."
+   }
   },
   {
    "id": "20-down",
@@ -459,7 +1077,30 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAYER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LAYER",
+    "definition": "Blanket",
+    "definition2": "quail in nest?",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blanket",
+      "gives": "",
+      "note": "a covering spread evenly over the whole of something, as in a blanket of snow or fog"
+     },
+     {
+      "clueFragment": "quail in nest?",
+      "gives": "",
+      "note": "a bird sitting on eggs is named for the one job it is doing, and the question mark admits this is an example rather than the word"
+     }
+    ],
+    "walkthrough": "The question mark is doing real work. 'Blanket' also looks like an adjective describing the bird, and it is a noun: a covering.",
+    "definitionFit": "A blanket of something is a layer of it spread over a surface, and a hen or quail producing eggs is a layer in the poultry-keeper's sense."
+   }
   },
   {
    "id": "21-across",
@@ -476,7 +1117,30 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRASSES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GRASSES",
+    "definition": "Rats",
+    "definition2": "pasturage",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rats",
+      "gives": "",
+      "note": "to rat on someone is to inform on them, and British underworld slang has a second word for doing exactly that"
+     },
+     {
+      "clueFragment": "pasturage",
+      "gives": "",
+      "note": "the plants that make up grazing land, taken as a class"
+     }
+    ],
+    "walkthrough": "Both halves are definitions and neither is the everyday one. The informing sense is British slang, still common in police dramas.",
+    "definitionFit": "Rats on someone and grasses on them are the same slang act of informing, and pasturage is the grasses cattle graze on."
+   }
   },
   {
    "id": "22-across",
@@ -499,7 +1163,29 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
     ]
    },
    "solution": "MONEYFOROLDROPE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MONEY FOR OLD ROPE",
+    "definition": "getting paid while idle",
+    "indicators": [
+     "break"
+    ],
+    "indicatorNotes": {
+     "break": "To break a thing is to smash it into pieces, and pieces can be put back together in an order nobody intended."
+    },
+    "anagram": {
+     "fodder": "EMPLOYEROFRODON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Employer of Rod on",
+      "gives": "EMPLOYEROFRODON",
+      "note": "fifteen letters given up whole, matching the four-word enumeration"
+     }
+    ],
+    "walkthrough": "'Employer' opens the clue like a definition and is really the front of the letter pile. Rod is nobody in particular, which is the giveaway.",
+    "definitionFit": "getting paid while idle -> MONEY FOR OLD ROPE: the British idiom for payment earned with next to no effort, from selling off worn-out ship's rope."
+   }
   },
   {
    "id": "23-across",
@@ -516,7 +1202,30 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BRIE",
+    "definition": "mild cheese",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Brother",
+      "gives": "BR",
+      "note": "Br. is how a monk's title is written short"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. stands for the Latin id est, which is what that is means"
+     }
+    ],
+    "pieces": [
+     "BR",
+     "IE"
+    ],
+    "walkthrough": "Two of the shortest conventions in the game laid end to end — a religious title and a Latin tag — with the exclamation mark marking the setter's pleasure.",
+    "definitionFit": "mild cheese -> BRIE: the soft white-rinded French cheese, gentle in flavour beside the blues and the mature hard cheeses."
+   }
   },
   {
    "id": "24-across",
@@ -539,7 +1248,35 @@ window.CRYPTIC_PUZZLES["everyman-4121"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDEA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IDEA",
+    "definition": "Hypothesis",
+    "indicators": [
+     "Not entirely"
+    ],
+    "indicatorNotes": {
+     "Not entirely": "Not entirely means you stop short of the end, so the word beside it hands over everything but its final letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter signs these puzzles Everyman, so when a clue names him he is speaking of himself"
+     },
+     {
+      "clueFragment": "cherished",
+      "gives": "DEA",
+      "note": "something cherished is dear, and here it is written one letter short"
+     }
+    ],
+    "pieces": [
+     "I",
+     "DEA"
+    ],
+    "walkthrough": "Setters sign their own puzzles, and a clue that names the signature usually means the first person singular — one letter, and a habit worth learning early.",
+    "definitionFit": "Hypothesis -> IDEA: a hypothesis is a proposal put up to be tested, which is one particular kind of notion someone has had."
+   }
   }
  ]
 } /*JSON-END*/;

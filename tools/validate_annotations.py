@@ -559,8 +559,20 @@ def check_definition_fit(tag, ann, errors, warnings):
 # rewording would leave the next one free to make the same mistake.
 #
 # So this guards the fields that stay early, where naming the answer is never
-# necessary and never fair. Letters only, so "trump cards" is caught by
-# TRUMPCARDS and a stray hyphen or apostrophe cannot slip it through.
+# necessary and never fair. Matched with `says`, the same word-run matcher
+# check_block_notes_dont_name_the_answer uses: the answer's letters have to line
+# up with whole words of the field, so "trump cards" is still caught by
+# TRUMPCARDS and a stray hyphen or apostrophe still cannot slip it through.
+#
+# This check was written first, with a bare substring test, and `says` was built
+# afterwards for the sibling check precisely because a bare substring finds a
+# short answer inside an unrelated longer word. The clue that proved the two
+# needed to agree is everyman-4121 1A, "'Not fully overhead?' I'm never
+# overhead!" — RHEA hides in ove(RHEA)d, the setter uses that word in BOTH
+# halves, and so every possible definition span contains the answer's letters.
+# There the letters are the clue's own, on screen from the start, and the
+# definition rung adds nothing the solver could not already see; a leak is text
+# the annotator WROTE that the clue does not say.
 EARLY_RUNG_FIELDS = ("definition", "definition2", "indicators", "linkWords",
                      "indicatorNotes")
 
@@ -577,7 +589,7 @@ def check_no_answer_in_early_rungs(tag, ann, errors, warnings):
         parts = list(val.values()) if isinstance(val, dict) else \
             (val if isinstance(val, list) else [val])
         for part in parts:
-            if ans in re.sub(r"[^a-z]", "", str(part).lower()):
+            if says(part, ans):
                 errors.append(
                     f"{tag}: {field} {part!r} contains the answer — it is shown "
                     f"before the building blocks, so it hands over the solve for "
@@ -738,6 +750,43 @@ def words_of(s):
     """
     s = re.sub(r"<[^>]*>", " ", s or "")
     return re.findall(r"[a-z]+", re.sub(r"\([^)]*\)", " ", s.lower()))
+
+
+# A clue may hide its answer across the join between its own words and another
+# entry's SOLUTION: indysunday-1863 22D, "Spirit's teeth 16D contains", hides
+# ETHOS in te(ETH OS)suary, where OSSUARY is what 16 down spells. The solver
+# writes that answer into the grid and then reads the span, so the hidden-word
+# check has to read it the same way — otherwise the only honest annotation of
+# such a clue fails, and the annotator is pushed towards typing it as something
+# it is not. Only ever ADDS letters, and only for clues already typed hidden, so
+# it can only make that one check more lenient.
+REFERENCE_RE = re.compile(r"\b(\d+)\s*(across|down|a|d)?\b", re.I)
+
+# The enumeration, and nothing else in brackets. This used to be r"\([^)]*\)",
+# which also deleted a parenthetical aside — and an aside is ordinary clue text
+# that a hidden word may run straight through: everyman-4122 15A, "Madman seen
+# in Psycho (the adaptation)", hides HOTHEAD across psyc(HO THE AD)aptation.
+# Stripping the bracket said the answer was not in the clue at all, which pushes
+# the annotator towards typing an honest hidden word as something it is not.
+# Digits and separators only, so "(7)", "(4,6)" and "(4-6)" still go and no
+# bracketed words do.
+ENUMERATION_RE = re.compile(r"\([\d\s,.\-–—]+\)")
+
+
+def expand_cross_references(clue, entries):
+    """The clue with '16D' / '16 down' replaced by that entry's solution.
+
+    The enumeration is stripped first, so "(5)" cannot be read as a reference to
+    entry 5. A bare number is only expanded when exactly one entry carries it —
+    an ambiguous one is left alone rather than guessed at, since a wrong
+    expansion would let a wrong hidden claim pass.
+    """
+    def sub(m):
+        num, direction = int(m.group(1)), (m.group(2) or "").lower()
+        hits = [e for e in entries if e.get("number") == num
+                and (not direction or e.get("direction", "").startswith(direction[0]))]
+        return f" {hits[0].get('solution', '')} " if len(hits) == 1 else m.group(0)
+    return REFERENCE_RE.sub(sub, ENUMERATION_RE.sub(" ", clue or ""))
 
 
 def check_coverage(tag, ann, clue, warnings):
@@ -1441,7 +1490,7 @@ def validate_puzzle(puzzle):
             # A reversed hidden word sits in the clue back to front (30045 26A
             # hides LEND across "commanD NELson"), so when the type also declares
             # the reversal, the mirror image counts as found.
-            clue_letters = letters(clue)
+            clue_letters = letters(expand_cross_references(clue, puzzle["entries"]))
             reversed_ok = ("reversal" in ann["type"]
                            and ans_letters[::-1] in clue_letters)
             if ans_letters not in clue_letters and not reversed_ok:

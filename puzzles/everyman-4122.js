@@ -30,7 +30,32 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHATTERING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHATTERING",
+    "definition": "exhausting",
+    "linkWords": [
+     "but it's"
+    ],
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Out here means out of true: a thing knocked out no longer sits the way it was set, so the letters in front of it lose their order."
+    },
+    "anagram": {
+     "fodder": "STRAIGHTEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Straighten",
+      "gives": "SHATTERING",
+      "note": "ten letters, and exactly the ten wanted once they are dealt out again"
+     }
+    ],
+    "walkthrough": "The dash invites you to read two definitions, tidying and tiring. There is only one: the instruction to straighten is itself the thing put out of order.",
+    "definitionFit": "exhausting → SHATTERING: British usage takes it well past merely tiring, to a weariness that feels like being broken apart."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +72,27 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEAR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SEAR",
+    "definition": "sizzle",
+    "indicators": [
+     "Heard"
+    ],
+    "indicatorNotes": {
+     "Heard": "What is heard arrives as sound alone, so the clue is describing how a word is pronounced and leaving the spelling to you."
+    },
+    "blocks": [
+     {
+      "clueFragment": "prophet",
+      "soundsLike": "SEER",
+      "gives": "SEAR",
+      "note": "a seer is one who sees what is to come, which is a prophet's trade, and aloud it can be written the other way"
+     }
+    ],
+    "walkthrough": "Three words and four letters, so nothing is being assembled. 'Heard prophet' reads as a sentence, which hides that the first word is an instruction rather than part of it.",
+    "definitionFit": "sizzle → SEAR: to sear meat is to scorch its surface in a hot pan, and the noise that makes is the definition, verb for verb."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +109,34 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARGO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ARGO",
+    "definition": "mighty ship",
+    "indicators": [
+     "lost"
+    ],
+    "indicatorNotes": {
+     "lost": "What is lost is gone from where it stood, so the letter named just before drops out of the word it was sitting in."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Slowly",
+      "gives": "LARGO",
+      "note": "largo is the musical direction to play at a slow, broad tempo"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the plate a British driving learner has to display on the car"
+     }
+    ],
+    "pieces": [
+     "ARGO"
+    ],
+    "walkthrough": "The comma dresses the first word as an adverb attached to the sentence, when it is the whole of the fodder. Both conventions here are standing ones: the tempo marking and the L-plate.",
+    "definitionFit": "mighty ship → ARGO: definition by example, the great galley Jason sailed after the Golden Fleece with fifty heroes aboard."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +153,29 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORCHBEARER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TORCHBEARER",
+    "definition": "he's seen in the lead",
+    "indicators": [
+     "pathetically"
+    ],
+    "indicatorNotes": {
+     "pathetically": "To do a thing pathetically is to do it badly, and a word handled badly comes out with its letters in the wrong places."
+    },
+    "anagram": {
+     "fodder": "RACE BROTHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Race brother",
+      "gives": "TORCHBEARER",
+      "note": "eleven letters from a sprint and a sibling, to be dealt out again"
+     }
+    ],
+    "walkthrough": "'Race' looks like a definition and 'in the lead' like a finishing position, so the athletics stays in your head throughout. Both belong to the surface only.",
+    "definitionFit": "he's seen in the lead → TORCHBEARER: the runner carrying the Olympic flame heads the procession, so being out in front is the whole of the job."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +192,43 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETAPED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "RETAPED",
+    "definition": "Made another recording",
+    "linkWords": [
+     "that's"
+    ],
+    "indicators": [
+     "stuck up"
+    ],
+    "indicatorNotes": {
+     "stuck up": "A notice stuck up climbs the wall it is fixed to, and in a down entry climbing means reading the assembled letters from the bottom."
+    },
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is the French word for of"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "PATER",
+      "note": "pater is Latin for father and survives in British public-school slang as a name for one's dad"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "DEPATER",
+      "to": "RETAPED"
+     }
+    ],
+    "pieces": [
+     "RETAPED"
+    ],
+    "walkthrough": "'French father' pulls you straight to PERE, and that is the trap. Split the words the other way — 'of French', then 'father' on its own — and two pieces appear.",
+    "definitionFit": "Made another recording → RETAPED: the RE- prefix means doing it over, and taping was how a recording got made before discs and files."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +245,30 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUMBERS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NUMBERS",
+    "definition": "Songs",
+    "definition2": "book",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Songs",
+      "gives": "",
+      "note": "a number is one item on a programme — a single song or dance performed as one turn"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "",
+      "note": "the fourth book of the Old Testament, titled for the two censuses of the Israelites it records"
+     }
+    ],
+    "walkthrough": "Three words, and the middle one only joins the other two. Nothing is spelled out here, which is why so short a clue can hold so long an answer.",
+    "definitionFit": "Songs → NUMBERS: a number is a single turn on a bill; and 'book' → NUMBERS, the Old Testament book whose title is itself a plural."
+   }
   },
   {
    "id": "6-across",
@@ -132,7 +285,30 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YETI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "YETI",
+    "definition": "supposed mountain-dweller",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Still",
+      "gives": "YET",
+      "note": "both words mean up to now, as in 'is he here still?'"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "I is India in the NATO spelling alphabet"
+     }
+    ],
+    "pieces": [
+     "YET",
+     "I"
+    ],
+    "walkthrough": "The comma makes the first word look like a discourse marker opening a sentence about the subcontinent. It is the first chunk, and the country is only a radio-alphabet letter.",
+    "definitionFit": "supposed mountain-dweller → YETI: the ape-like creature said to walk the high Himalaya, with 'supposed' admitting nobody has produced one."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +325,24 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EUROVISION",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "EUROVISION",
+    "definition": "Air battle across the Continent?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Air battle",
+      "note": "the reading the surface pushes: fighters and dogfights over occupied Europe, war in the sky"
+     },
+     {
+      "clueFragment": "across the Continent",
+      "note": "the reading the setter meant: an air is an old word for a tune, and the fight is between countries each sending one song"
+     }
+    ],
+    "walkthrough": "Nothing comes apart into letters here; the question mark is the tell. Once 'air' stops being sky and starts being melody, the whole clue settles into one annual televised contest.",
+    "definitionFit": "Air battle across the Continent? → EUROVISION: read straight, the clue describes Europe's yearly televised competition of songs, one entry per country."
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +359,52 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTERBREED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "INTERBREED",
+    "definition": "Cross",
+    "linkWords": [
+     "given"
+    ],
+    "indicators": [
+     "maybe",
+     "up"
+    ],
+    "indicatorNotes": {
+     "maybe": "Maybe admits the word beside it is only one instance of what is wanted, so you climb from the male animal to the name of its kind.",
+     "up": "In a down entry up runs towards the top of the grid, so the four letters just found are written out starting from the bottom."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Italian footballers",
+      "gives": "INTER",
+      "note": "Internazionale of Milan, known everywhere by the first half of its name"
+     },
+     {
+      "clueFragment": "Belgium",
+      "gives": "B",
+      "note": "B is Belgium's international vehicle registration letter"
+     },
+     {
+      "clueFragment": "buck",
+      "gives": "DEER",
+      "note": "a buck is the male of the species, so the general word for the animal is what is wanted"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "DEER",
+      "to": "REED"
+     }
+    ],
+    "pieces": [
+     "INTER",
+     "B",
+     "REED"
+    ],
+    "walkthrough": "The surface is a transfer story and the colon is punctuation for it, nothing more. 'Cross' is the definition and means to mate one strain with another, not to be annoyed.",
+    "definitionFit": "Cross → INTERBREED: a breeder who crosses two strains puts them together to produce young, the stockman's verb rather than the bad-tempered adjective."
+   }
   },
   {
    "id": "9-across",
@@ -183,7 +421,39 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALGORITHMS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ALGORITHMS",
+    "definition": "Procedures for solving problems",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "clattering",
+     "overwhelms"
+    ],
+    "indicatorNotes": {
+     "clattering": "A clatter is the noise of loose things falling about, and letters falling about are not going to land where they started.",
+     "overwhelms": "To overwhelm is to engulf, so the single letter that follows is swallowed into the mix rather than left standing beside it."
+    },
+    "anagram": {
+     "fodder": "HAILSTORM G"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hailstorm",
+      "gives": "HAILSTORM",
+      "note": "nine letters of weather, waiting to be dealt out again"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "G is golf in the NATO spelling alphabet"
+     }
+    ],
+    "walkthrough": "'Clattering hailstorm' is one picture, which makes it easy to read both words as scenery. Only the noun is fodder; the participle in front of it is the instruction.",
+    "definitionFit": "Procedures for solving problems → ALGORITHMS: step-by-step recipes a computer or a person follows to reach a result, one settled method per task."
+   }
   },
   {
    "id": "10-across",
@@ -200,7 +470,35 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRIT",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "GRIT",
+    "definition": "Determination",
+    "linkWords": [
+     "exhibited by"
+    ],
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Doing a thing regularly means doing it at a fixed interval, and the interval here is one: take a letter, skip a letter, all the way through."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Geraint",
+      "gives": "GRIT",
+      "note": "the first letter of the name and then every other one after it"
+     }
+    ],
+    "pieces": [
+     "G",
+     "R",
+     "I",
+     "T"
+    ],
+    "walkthrough": "'Regularly exhibited by' sounds like a phrase about character, which is what makes it easy to read past as padding. Geraint is a Welsh name, here only a supply of letters.",
+    "definitionFit": "Determination → GRIT: the crossword's favourite sense of the word, courage that keeps going under pressure, borrowed from the hard sand that gives a wheel purchase."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +519,49 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHOPPEDLIVER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "CHOPPED LIVER",
+    "definition": "an irrelevance",
+    "indicators": [
+     "before",
+     "at end of"
+    ],
+    "indicatorNotes": {
+     "before": "What comes before goes in front, so the first chunk is placed ahead of the Roman numeral rather than after it.",
+     "at end of": "The end of a word is its final letter, and that one letter is all this takes from the word it points at."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Axed",
+      "gives": "CHOPPED",
+      "note": "to axe something is to chop it, and the past tense carries across"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "fifty in Roman numerals"
+     },
+     {
+      "clueFragment": "Everyman's",
+      "gives": "IVE",
+      "note": "the setter talking about himself: Everyman's here is I've, short for I have"
+     },
+     {
+      "clueFragment": "career",
+      "gives": "R",
+      "note": "the last letter of this word"
+     }
+    ],
+    "pieces": [
+     "CHOPPED",
+     "L",
+     "IVE",
+     "R"
+    ],
+    "walkthrough": "Everyman signs every puzzle, so his name in a clue is the setter saying 'I'. The definition is the aside tacked on at the end, and the comma is the only warning of the switch.",
+    "definitionFit": "an irrelevance → CHOPPED LIVER: from the complaint 'What am I, chopped liver?', so the phrase names something treated as of no account."
+   }
   },
   {
    "id": "12-down",
@@ -242,7 +582,29 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
     ]
    },
    "solution": "LLOYDGEORGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LLOYD GEORGE",
+    "definition": "Statesman",
+    "indicators": [
+     "aflutter"
+    ],
+    "indicatorNotes": {
+     "aflutter": "A flag aflutter is flapping loose in the wind, and letters flapping loose will not stay in the order they were handed to you."
+    },
+    "anagram": {
+     "fodder": "GEE OLD GLORY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Gee! Old Glory",
+      "gives": "LLOYDGEORGE",
+      "note": "an exclamation plus the flag's nickname, eleven letters between them"
+     }
+    ],
+    "walkthrough": "Old Glory is the nickname of the flag of the United States, so 'aflutter' reads as bunting on a pole. The colon after 'Statesman' is doing the same job a dash would.",
+    "definitionFit": "Statesman → LLOYD GEORGE: definition by example — the Liberal prime minister who led Britain through the last years of the First World War."
+   }
   },
   {
    "id": "13-down",
@@ -263,7 +625,30 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOTPUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHOT-PUTTER",
+    "definition": "Sportsperson",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "damaged",
+      "gives": "SHOT",
+      "note": "a knee or an engine described as shot is wrecked past use"
+     },
+     {
+      "clueFragment": "golf-club",
+      "gives": "PUTTER",
+      "note": "the club used on the green, the one that rolls the ball at the hole"
+     }
+    ],
+    "pieces": [
+     "SHOT",
+     "PUTTER"
+    ],
+    "walkthrough": "Three words and a story about a broken golf club, which is exactly the wrong sport. The hyphen in the clue also sits in a different place from the hyphen in the answer.",
+    "definitionFit": "Sportsperson → SHOT-PUTTER: definition by example, the athlete whose event is heaving a heavy metal ball as far as possible from the shoulder."
+   }
   },
   {
    "id": "14-down",
@@ -280,7 +665,30 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTENDANCE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ATTENDANCE",
+    "definition": "how many in the audience",
+    "linkWords": [
+     "but"
+    ],
+    "indicators": [
+     "in the auditorium"
+    ],
+    "indicatorNotes": {
+     "in the auditorium": "An auditorium is a room built for listening, so the word before it is to be judged by ear rather than by its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Servants",
+      "soundsLike": "ATTENDANTS",
+      "gives": "ATTENDANCE",
+      "note": "attendants are the servants who wait on someone, and spoken aloud that plural is indistinguishable from the word wanted"
+     }
+    ],
+    "walkthrough": "The colon and the question mark make this look like two separate thoughts about a theatre. The middle phrase belongs to the first half, as an instruction to listen.",
+    "definitionFit": "how many in the audience → ATTENDANCE: the count of people present at an event, the figure a theatre or a stadium announces afterwards."
+   }
   },
   {
    "id": "15-across",
@@ -303,7 +711,26 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOTHEAD",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "HOTHEAD",
+    "definition": "Madman",
+    "indicators": [
+     "seen in"
+    ],
+    "indicatorNotes": {
+     "seen in": "If a thing can be seen in something else it is already there, so the letters are sitting untouched inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Psycho (the adaptation)",
+      "gives": "HOTHEAD",
+      "note": "seven letters in a row starting in the middle of the film title and running on past the bracket"
+     }
+    ],
+    "walkthrough": "The italics and the brackets dress this as a note about which version of the film is meant, and that is the disguise: punctuation never interrupts a hidden run.",
+    "definitionFit": "Madman → HOTHEAD: a loose fit rather than a clinical one — someone whose temper goes off without warning, reckless rather than actually ill."
+   }
   },
   {
    "id": "16-across",
@@ -320,7 +747,36 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPONSOR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPONSOR",
+    "definition": "back",
+    "indicators": [
+     "circling"
+    ],
+    "indicatorNotes": {
+     "circling": "To circle a thing is to go all the way round it, so the word beside the instruction closes about the letters already named."
+    },
+    "blocks": [
+     {
+      "clueFragment": "track",
+      "gives": "SPOOR",
+      "note": "a spoor is the trail of prints and scent an animal leaves for a hunter to follow"
+     },
+     {
+      "clueFragment": "North, then south",
+      "gives": "NS",
+      "note": "the two compass initials, taken in the order the clue sets them out"
+     }
+    ],
+    "pieces": [
+     "SPO",
+     "NS",
+     "OR"
+    ],
+    "walkthrough": "The exclamation mark makes the last word read as a shout at a dog on a trail. It is the definition, and it means to fund something rather than to retreat.",
+    "definitionFit": "back → SPONSOR: to back a venture is to put money behind it, the financial sense of the verb rather than the physical one."
+   }
   },
   {
    "id": "17-across",
@@ -337,7 +793,26 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THEOREM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "THEOREM",
+    "definition": "idea",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Some asks for a part and not the whole, so only a stretch of the letters in front of you is wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "loathe - or embrace",
+      "gives": "THEOREM",
+      "note": "seven letters in a row, beginning inside the first word and finishing inside the last"
+     }
+    ],
+    "walkthrough": "'Embrace' is doing everything it can to look like an instruction to put one thing inside another. It is fodder, and the two dashes are there to break the run up.",
+    "definitionFit": "idea → THEOREM: a proposition proved from axioms, so 'idea' is the loose everyday cover a setter puts over a precise mathematical noun."
+   }
   },
   {
    "id": "18-down",
@@ -354,7 +829,36 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEERKAT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "MEERKAT",
+    "definition": "kind of a mammal",
+    "indicators": [
+     "At sea",
+     "flying"
+    ],
+    "indicatorNotes": {
+     "At sea": "To be at sea is to be adrift with no bearings, so the letters beside it are in no settled order.",
+     "flying": "Something flying has taken off and gone, so the letter named just before it leaves the mix before anything is rearranged."
+    },
+    "anagram": {
+     "fodder": "ARK TEEM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size printed on a clothing label for small"
+     },
+     {
+      "clueFragment": "ark teems",
+      "gives": "MEERKAT",
+      "note": "eight letters, less the one named just before, leaving seven to deal out again"
+     }
+    ],
+    "walkthrough": "'With small flying' reads as insects over the water, which is the picture the surface wants. It is an instruction: one letter goes before any shuffling happens.",
+    "definitionFit": "kind of a mammal → MEERKAT: definition by example — the small southern African mongoose that stands upright on its hind legs to watch for danger."
+   }
   },
   {
    "id": "19-across",
@@ -371,7 +875,45 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TADPOLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TADPOLE",
+    "definition": "who'll become a frog",
+    "linkWords": [
+     "to get"
+    ],
+    "indicators": [
+     "embracing"
+    ],
+    "indicatorNotes": {
+     "embracing": "An embrace closes round whatever is held, so the word before it opens up and takes the letter named after it inside."
+    },
+    "blocks": [
+     {
+      "clueFragment": "I'm grateful",
+      "gives": "TA",
+      "note": "ta is the everyday British word for thanks"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "DOLE",
+      "note": "the dole is British unemployment benefit, state support for those out of work"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "P",
+      "note": "P is the standard abbreviation for prince"
+     }
+    ],
+    "pieces": [
+     "TA",
+     "D",
+     "P",
+     "OLE"
+    ],
+    "walkthrough": "'Support' wants to be a pole or a prop, and it is the benefit money instead. In the fairy tale of the surface a frog turns into a prince, which is the wrong way round here.",
+    "definitionFit": "who'll become a frog → TADPOLE: the larval stage, all tail and gills, that grows legs and turns into the adult amphibian."
+   }
   },
   {
    "id": "19-down",
@@ -388,7 +930,27 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIPLET",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TRIPLET",
+    "definition": "Unusual issue",
+    "definition2": "characteristic of Pitt the Elder?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Unusual issue",
+      "gives": "",
+      "note": "issue in its old legal sense of a person's offspring, and three arriving at once is well out of the ordinary"
+     },
+     {
+      "clueFragment": "characteristic of Pitt the Elder?",
+      "gives": "",
+      "note": "stop reading the name as an eighteenth-century prime minister and count the letter T as the two words run together"
+     }
+    ],
+    "walkthrough": "Pitt the Elder was a British prime minister, and the clue is banking on you searching his family history. Write the words out instead: PiTT THe puts three Ts in a row.",
+    "definitionFit": "Unusual issue → TRIPLET: issue is the formal word for offspring, and three born at once is the unusual case; the run of Ts is the second sense."
+   }
   },
   {
    "id": "20-across",
@@ -405,7 +967,29 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERDELIVER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNDERDELIVER",
+    "definition": "fail to make good on promise",
+    "indicators": [
+     "Rashly"
+    ],
+    "indicatorNotes": {
+     "Rashly": "To act rashly is to act with no care for order or consequence, so what stands beside it comes out in no particular arrangement."
+    },
+    "anagram": {
+     "fodder": "ENDURE DRIVEL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "endure drivel",
+      "gives": "UNDERDELIVER",
+      "note": "twelve letters between the two words, which is the whole supply needed"
+     }
+    ],
+    "walkthrough": "The semicolon is the join: wordplay to the left of it, definition to the right. 'Rashly endure' reads as one act of impatience, and that is what hides the instruction.",
+    "definitionFit": "fail to make good on promise → UNDERDELIVER: office jargon for producing less than you said you would, measured against the boast that came first."
+   }
   },
   {
    "id": "21-down",
@@ -422,7 +1006,43 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "GIFT",
+    "definition": "Present",
+    "linkWords": [
+     "that's"
+    ],
+    "indicators": [
+     "offered up"
+    ],
+    "indicatorNotes": {
+     "offered up": "What is offered up is raised towards whoever takes it, and in a down entry raised means the letters are read from the bottom of the grid."
+    },
+    "blocks": [
+     {
+      "clueFragment": "the northern",
+      "gives": "T",
+      "note": "in northern English speech 'the' is clipped to a single t', as in down t'pit"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "FIG",
+      "note": "one of the shortest fruits in the language, which is why setters reach for it so often"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "TFIG",
+      "to": "GIFT"
+     }
+    ],
+    "pieces": [
+     "GIFT"
+    ],
+    "walkthrough": "'Present the northern fruit' reads as one instruction to hand something over, so the definition looks like it runs on. It stops after the first word.",
+    "definitionFit": "Present → GIFT: a plain synonym, two nouns for a thing handed over for nothing, though only one of them also means a natural talent."
+   }
   },
   {
    "id": "22-down",
@@ -445,7 +1065,32 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EGOS",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "EGOS",
+    "definition": "Exhausting grandeur of showbusiness primarily displayed here?",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "Primarily means first of all, so each word in the run ahead of it surrenders its opening letter and nothing more."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Exhausting grandeur of showbusiness",
+      "gives": "EGOS",
+      "note": "the opening letters of these four words, read straight off in the order they stand"
+     }
+    ],
+    "pieces": [
+     "E",
+     "G",
+     "O",
+     "S"
+    ],
+    "walkthrough": "An all-in-one: the same four words spell the answer out of their initials and describe it at the same time, with 'displayed here' pointing back at the clue itself.",
+    "definitionFit": "Read straight, the clue says self-importance is what the entertainment industry chiefly puts on show, and that is what the word names."
+   }
   },
   {
    "id": "23-across",
@@ -462,7 +1107,47 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TONG",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "TONG",
+    "definition": "one would lose grip without partner at the barbecue",
+    "indicators": [
+     "Ultimately"
+    ],
+    "indicatorNotes": {
+     "Ultimately": "The ultimate letter of a word is its very last one, and that final letter is taken from each word in the run that follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "prudent",
+      "gives": "T",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "O",
+      "note": "the last letter, which in a two-letter word is half of it"
+     },
+     {
+      "clueFragment": "learn",
+      "gives": "N",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "mingling",
+      "gives": "G",
+      "note": "the last letter, from the word planted here to look like a shuffling instruction"
+     }
+    ],
+    "pieces": [
+     "T",
+     "O",
+     "N",
+     "G"
+    ],
+    "walkthrough": "The semicolon marks the switch to the definition, which is long and jokey enough to look like the whole clue. Tongs come in pairs, so a single one drops the sausage.",
+    "definitionFit": "one would lose grip without partner at the barbecue → TONG: the singular of tongs, a pair of arms that only pinch when both are present."
+   }
   },
   {
    "id": "24-across",
@@ -479,7 +1164,41 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKYLARKING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SKYLARKING",
+    "definition": "gallivanting",
+    "indicators": [
+     "backing"
+    ],
+    "indicatorNotes": {
+     "backing": "Backing here means lending support rather than turning anything round, and it does no more than set the broadcaster against the piece beside it — loose, as joins go."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Broadcaster",
+      "gives": "SKY",
+      "note": "Sky is the British satellite television company"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "LARKIN",
+      "note": "Philip Larkin, the Hull librarian who became one of Britain's best-known post-war poets"
+     },
+     {
+      "clueFragment": "(German)",
+      "gives": "G",
+      "note": "G is the dictionary abbreviation for German"
+     }
+    ],
+    "pieces": [
+     "SKY",
+     "LARKIN",
+     "G"
+    ],
+    "walkthrough": "The surface is a broadcaster funding a German poet, a sentence plausible enough to stop you looking any further. The definition is the single word at the end.",
+    "definitionFit": "gallivanting → SKYLARKING: both mean larking about to no serious purpose, one leaning towards roaming for pleasure and the other towards high-spirited mischief."
+   }
   },
   {
    "id": "25-across",
@@ -496,7 +1215,27 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REEL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REEL",
+    "definition": "It may be a Fisherman's",
+    "definition2": "Dance",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "It may be a Fisherman's",
+      "gives": "",
+      "note": "'may be' flags an example: the thing meant belongs to an angler, who winds his line back onto it"
+     },
+     {
+      "clueFragment": "Dance",
+      "gives": "",
+      "note": "a brisk Scottish and Irish country dance in which the couples wheel round one another"
+     }
+    ],
+    "walkthrough": "The capital letters make the clue look like the title of a piece of music, which is the whole of the misdirection. Both halves are ordinary senses of one short word.",
+    "definitionFit": "It may be a Fisherman's → REEL: the spool an angler winds his line onto; and 'Dance' → REEL, the whirling Scottish and Irish country dance."
+   }
   },
   {
    "id": "26-across",
@@ -513,7 +1252,36 @@ window.CRYPTIC_PUZZLES["everyman-4122"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STATUETTES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STATUETTES",
+    "definition": "little figures",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "To cover a thing is to lie over it and hide it, so the word in front goes right round the letters named next."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Laws",
+      "gives": "STATUTES",
+      "note": "statutes are laws as written down and passed by a parliament"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "the extraterrestrial of the film, and the crossword's standard alien"
+     }
+    ],
+    "pieces": [
+     "STATU",
+     "ET",
+     "TES"
+    ],
+    "walkthrough": "'Laws covering alien' reads as immigration policy, which is exactly the sentence the setter wants in your head. The definition is the two words at the end.",
+    "definitionFit": "little figures → STATUETTES: small sculpted models of a person or an animal, the mantelpiece size rather than the public-square size."
+   }
   }
  ]
 } /*JSON-END*/;
