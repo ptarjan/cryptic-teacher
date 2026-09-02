@@ -632,6 +632,18 @@ commit_puzzle() {
     # night's: every commit and every autostash from here on fails, so the job
     # would keep buying Opus annotations it cannot save and alert once per wave.
     # Stop while the alert still names one cause instead of five symptoms.
+    # The retry above resolves a generated conflict BEFORE its rebase, so a
+    # conflict the retry's own autostash pop creates is still sitting there when
+    # the guard below looks — and the guard ends the night. Same conflict, same
+    # answer, and it is never a disagreement about authored text: give it the one
+    # more pass rather than stop a burn with hours of window left (2026-09-02,
+    # which stopped at 55% of the last window before the weekly reset).
+    if [ -n "$(git ls-files -u)" ] && resolve_generated_conflict; then
+      git commit -q --amend --no-edit
+      git fetch -q origin master && git rebase -q --autostash origin/master &&
+        git push -q origin HEAD:master &&
+        echo "  recovered from a generated conflict and pushed"
+    fi
     if [ -n "$(git ls-files -u)" ]; then
       alert "pre-reset backfill wedged its worktree — a rebase left these unmerged: $(git diff --name-only --diff-filter=U | tr '\n' ' '). Nothing more can commit, so the run stopped rather than spend on work it cannot save. Resolve in $PWD, then push."
       exit 1
