@@ -30,7 +30,51 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ULTIMATUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ULTIMATUM",
+    "definition": "Pressing demand",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "a piece placed in something sits within its letters rather than being added at either end"
+    },
+    "pieces": [
+     "UL",
+     "TIM",
+     "AT",
+     "U",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German city",
+      "gives": "ULM",
+      "note": "Ulm stands on the Danube in southern Germany, and these three letters open up after the second"
+     },
+     {
+      "clueFragment": "internet pioneer for friends",
+      "gives": "TIM",
+      "note": "Sir Tim Berners-Lee invented the web, and 'for friends' asks for the first name rather than the surname"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the little word is taken at face value, two letters lifted from the clue"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "walkthrough": "The surface promises Silicon Valley and student days; every one of those words is really a separate scrap of letters, and all of them end up inside the city.",
+    "definitionFit": "Pressing demand -> ULTIMATUM: a final demand with a deadline and a threat behind it, so 'pressing' carries the time limit."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +91,35 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WITHDRAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WITHDRAW",
+    "definition": "Pull out",
+    "indicators": [],
+    "pieces": [
+     "WITH",
+     "DRAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "WITH",
+      "note": "the word is used as itself, four letters straight from the clue"
+     },
+     {
+      "clueFragment": "no win or lose",
+      "gives": "DRAW",
+      "note": "a match that is neither won nor lost has been drawn"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "",
+      "note": "surface only: it makes the clue sound like a shrug and contributes no letters"
+     }
+    ],
+    "walkthrough": "'No win or lose' reads as a run of bad luck at the bookmaker's; in the wordplay it is the sporting result that is neither one nor the other.",
+    "definitionFit": "Pull out -> WITHDRAW: both mean quitting something you had entered, a race or a deal, rather than physically extracting anything."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +136,51 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WITNESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "WITNESS",
+    "definition": "See",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "perhaps",
+     "more than once",
+     "beginning to",
+     "inside"
+    ],
+    "indicatorNotes": {
+     "perhaps": "red names one variety of drink, so the clue points at the general word through an example of it",
+     "more than once": "one glass would leave the singular; being told there are several puts the word into the plural",
+     "beginning to": "what a word begins with is its opening letter, and that letter is all this fragment hands over",
+     "inside": "a letter set inside an assembly is buried within it rather than joined on at an end"
+    },
+    "pieces": [
+     "WI",
+     "T",
+     "NES",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red perhaps more than once",
+      "gives": "WINES",
+      "note": "red is one kind of wine, and the plural gives five letters that split after the second"
+     },
+     {
+      "clueFragment": "beginning to struggle",
+      "gives": "S",
+      "note": "the opening letter of struggle, which goes on the end"
+     },
+     {
+      "clueFragment": "tension",
+      "gives": "T",
+      "note": "T is the physics symbol for tension, the pull along a rope or a string"
+     }
+    ],
+    "walkthrough": "'See red' is one idiom in the surface and two jobs in the parse: the definition stops after the first word, and 'red' is already fodder.",
+    "definitionFit": "See -> WITNESS: to witness an event is to see it happen, the verb a police statement uses of someone who was there."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +201,36 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
     ]
    },
    "solution": "THIRDWAY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "THIRD WAY",
+    "definition": "neither left or right-wing policies",
+    "definitionNote": "The answer names one political position while the definition is plural: the Third Way was a programme of many policies, so the setter defines it by its contents.",
+    "indicators": [
+     "less"
+    ],
+    "indicatorNotes": {
+     "less": "'less X' means X taken away, so the named word is subtracted from what came before it"
+    },
+    "pieces": [
+     "THIRD",
+     "WAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What Heathrow wants",
+      "gives": "THIRDRUNWAY",
+      "note": "Heathrow is London's largest airport, and its long-fought expansion plan is a third runway"
+     },
+     {
+      "clueFragment": "control",
+      "gives": "",
+      "note": "to run a business is to control it, and those three letters are the ones taken out"
+     }
+    ],
+    "walkthrough": "Both halves of the clue are politics, which is the disguise: the airport row supplies the letters and the centrist slogan supplies the meaning.",
+    "definitionFit": "neither left or right-wing policies -> THIRD WAY: the centrist programme Blair and Clinton campaigned on, pitched as an alternative to both old sides."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +247,38 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WARHOL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "WARHOL",
+    "definition": "Artist",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "what comes ultimately comes at the very end, so each word gives up only its final letter"
+    },
+    "pieces": [
+     "WAR",
+     "HOL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "an armed conflict between states is a war"
+     },
+     {
+      "clueFragment": "with Picasso surreal",
+      "gives": "HOL",
+      "note": "the last letters of these three words, in the order the clue sets them down"
+     }
+    ],
+    "walkthrough": "Picasso and 'surreal' point at the wrong movement entirely; both are there for their final letters and neither painter is wanted.",
+    "definitionFit": "Artist -> WARHOL: definition by example, one artist among thousands, the Pop Art printmaker of the soup tins and the silkscreened film stars."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +295,47 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADORE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADORE",
+    "definition": "Love",
+    "indicators": [
+     "being ahead of"
+    ],
+    "indicatorNotes": {
+     "being ahead of": "to be ahead of something is to come before it, which fixes the order these pieces are laid in"
+    },
+    "pieces": [
+     "A",
+     "D",
+     "OR",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Austria",
+      "gives": "A",
+      "note": "A is Austria's international vehicle code, the oval sticker on the back of a car"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D for Deutschland is Germany's international vehicle code"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the conjunction is used as itself, two letters from the clue"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E for Espana is Spain's international vehicle code"
+     }
+    ],
+    "walkthrough": "Three country codes in a row with one plain word between them: these are the letters a driver sees on number plates all over Europe.",
+    "definitionFit": "Love -> ADORE: the strong end of the verb, worship rather than mere fondness, and it substitutes straight into 'I love this'."
+   }
   },
   {
    "id": "7-across",
@@ -136,7 +352,40 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELGIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "ELGIN",
+    "definition": "Moray town",
+    "indicators": [
+     "avoiding"
+    ],
+    "indicatorNotes": {
+     "avoiding": "a word that avoids something keeps clear of it, so those two letters are dropped before the rest is used"
+    },
+    "pieces": [
+     "ELG",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English composer",
+      "gives": "ELGAR",
+      "note": "Sir Edward Elgar wrote the Enigma Variations and the Pomp and Circumstance marches"
+     },
+     {
+      "clueFragment": "a river",
+      "gives": "",
+      "note": "A and R are the letters to lose: r. is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word is used as itself, two letters straight from the clue"
+     }
+    ],
+    "walkthrough": "'In' looks like the join between wordplay and definition and is actually part of the build, which is why the composer alone comes up short.",
+    "definitionFit": "Moray town -> ELGIN: the cathedral town that is the main settlement of Moray, a council area on the coast of north-east Scotland."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +402,45 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIGHLANDS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "HIGHLANDS",
+    "definition": "mountainous area",
+    "definitionNote": "The answer is plural in form but names one region, so the singular 'area' defines it fairly.",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "wandering",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "wandering": "someone wandering keeps to no fixed route, and letters with no fixed route arrive in a new order",
+     "initially": "what a word is initially is the letter it opens with, and only that one joins the mix"
+    },
+    "anagram": {
+     "fodder": "H DASHING L"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband, as on a form"
+     },
+     {
+      "clueFragment": "dashing",
+      "gives": "DASHING",
+      "note": "seven letters of fodder, straight from the clue"
+     },
+     {
+      "clueFragment": "looks initially",
+      "gives": "L",
+      "note": "the opening letter of looks"
+     }
+    ],
+    "walkthrough": "'Husband with dashing looks' is a compliment in the surface and three separate scraps in the parse; splitting that phrase up is the whole trick.",
+    "definitionFit": "mountainous area -> HIGHLANDS: the Scottish Highlands are the mountainous north and west of Scotland, and the word names any upland country."
+   }
   },
   {
    "id": "9-down",
@@ -170,7 +457,43 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASIA",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "ASIA",
+    "definition": "area including India?",
+    "indicators": [
+     "Extremely",
+     "including"
+    ],
+    "indicatorNotes": {
+     "Extremely": "the extremes of a word are the letters at its two ends, so everything between them is left out",
+     "including": "to include something is to hold it within you, so the letter goes inside rather than alongside"
+    },
+    "pieces": [
+     "AS",
+     "I",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely ambitious",
+      "gives": "AS",
+      "note": "the two outermost letters of ambitious, first and last"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "a is the abbreviation for area, the one a geometry formula uses"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO alphabet that radio operators spell with"
+     }
+    ],
+    "walkthrough": "'Area' and 'India' each do two jobs at once, defining and handing over a letter; that double duty is what makes four letters this hard.",
+    "definitionFit": "area including India? -> ASIA: definition by example, and the question mark admits that naming one country only points at the continent holding it."
+   }
   },
   {
    "id": "10-across",
@@ -188,7 +511,9 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIGHTS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "11-across"
+   }
   },
   {
    "id": "11-across",
@@ -210,7 +535,50 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
     ]
    },
    "solution": "NORTHERN",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + container",
+    "answer": "NORTHERN LIGHTS",
+    "definition": "this may brighten up the sky",
+    "definitionNote": "The definition treats the display as one thing while the answer is plural in form: the lights are only ever spoken of together.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "one thing set in another sits inside it, so the single letter is buried in the longer word"
+    },
+    "pieces": [
+     "NORTH",
+     "ER",
+     "N",
+     "L",
+     "IGHTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British PM",
+      "gives": "NORTH",
+      "note": "Lord North was prime minister from 1770 to 1782, the one who lost the American colonies"
+     },
+     {
+      "clueFragment": "his majesty",
+      "gives": "ER",
+      "note": "ER is Edwardus Rex, the Latin cypher of a King Edward"
+     },
+     {
+      "clueFragment": "dark times",
+      "gives": "NIGHTS",
+      "note": "the dark hours are nights, and the word opens up after its first letter"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "L",
+      "note": "L marks the live wire in household wiring, the brown one"
+     }
+    ],
+    "walkthrough": "'PM' invites a modern prime minister and gets a Georgian one; 'his majesty' wants a king's Latin cypher rather than any living monarch.",
+    "definitionFit": "this may brighten up the sky -> NORTHERN LIGHTS: the aurora borealis, green curtains of light that hang over high latitudes on a clear winter night."
+   }
   },
   {
    "id": "12-across",
@@ -232,7 +600,57 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
     ]
    },
    "solution": "HADRIANS",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + anagram",
+    "answer": "HADRIAN'S WALL",
+    "definition": "sort of borderline?",
+    "linkWords": [
+     "which is"
+    ],
+    "indicators": [
+     "in a fight"
+    ],
+    "indicatorNotes": {
+     "in a fight": "anything caught in a fight gets knocked out of position, and letters knocked about land in a new order"
+    },
+    "pieces": [
+     "HAD",
+     "RIANS",
+     "W",
+     "ALL"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "IRANS",
+      "gives": "RIANS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deceived",
+      "gives": "HAD",
+      "note": "to be had is to be deceived, as in 'you've been had'"
+     },
+     {
+      "clueFragment": "Iran's",
+      "gives": "RIANS",
+      "note": "the country plus its apostrophe-s, five letters rearranged"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w/ is the everyday shorthand for with"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone present is all of them"
+     }
+    ],
+    "walkthrough": "The fight in the surface is a news bulletin; in the parse it is an instruction, and what it builds has stood in the north of England since 122 AD.",
+    "definitionFit": "sort of borderline? -> HADRIAN'S WALL: the Roman frontier across northern England is not quite the Scottish border, and 'sort of' concedes it."
+   }
   },
   {
    "id": "13-across",
@@ -250,7 +668,9 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WALL",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "12-across"
+   }
   },
   {
    "id": "14-down",
@@ -267,7 +687,47 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COCKAIGNE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + homophone",
+    "answer": "COCKAIGNE",
+    "definition": "life of luxury here",
+    "definitionNote": "The definition describes what the place offers rather than naming a place; 'here' is the word that tells you a location is wanted.",
+    "indicators": [
+     "talked about",
+     "after",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "talked about": "a name that is talked about is heard rather than read, so what counts is the sound and not the spelling",
+     "after": "what comes after something follows it, so this piece is written second in a down entry",
+     "initially": "the initial of a word is the letter it opens with, and only that letter is taken"
+    },
+    "pieces": [
+     "CO",
+     "C",
+     "KAIGNE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colombia",
+      "gives": "CO",
+      "note": "CO is Colombia's two-letter country code, the one on its web addresses"
+     },
+     {
+      "clueFragment": "initially criticised",
+      "gives": "C",
+      "note": "the opening letter of criticised"
+     },
+     {
+      "clueFragment": "England striker",
+      "soundsLike": "KANE",
+      "gives": "KAIGNE",
+      "note": "Harry Kane is England's record goalscorer, and this spelling of the sound ends the way campaign does"
+     }
+    ],
+    "walkthrough": "The spelling is the joke: -AIGNE says 'ayn', exactly as it does in campaign and champagne, so a footballer's name comes out looking medieval.",
+    "definitionFit": "life of luxury here -> COCKAIGNE: the imaginary land of plenty in medieval poetry, where roast birds fly into your mouth and nobody works."
+   }
   },
   {
    "id": "15-across",
@@ -284,7 +744,38 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTWARD",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "OUTWARD",
+    "definition": "away from the centre",
+    "indicators": [
+     "Mostly",
+     "to keep"
+    ],
+    "indicatorNotes": {
+     "Mostly": "most of a word is all of it bar the final letter, so the tail is left off",
+     "to keep": "to keep something is to hold it within, so one word shuts around another"
+    },
+    "pieces": [
+     "OUT",
+     "WAR",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mostly better",
+      "gives": "OUTD",
+      "note": "to better a rival is to outdo them, and the last letter is not wanted"
+     },
+     {
+      "clueFragment": "hostilities",
+      "gives": "WAR",
+      "note": "open hostilities between countries are war"
+     }
+    ],
+    "walkthrough": "Read as English the clue is about keeping a fight at arm's length; read as wordplay it insists on shutting one in. That reversal is the joke.",
+    "definitionFit": "away from the centre -> OUTWARD: the word for motion heading out from a middle point, as in an outward journey or an outward flow."
+   }
   },
   {
    "id": "16-down",
@@ -305,7 +796,39 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAGEBAIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters",
+    "answer": "RAGE BAIT",
+    "definition": "designed to deliberately make you angry",
+    "linkWords": [
+     "it's"
+    ],
+    "indicators": [
+     "New",
+     "oddly lacking"
+    ],
+    "indicatorNotes": {
+     "New": "something remade as new is built again from the same material, which is what happens to these letters",
+     "oddly lacking": "the odd-numbered letters are the ones missing, so only the second and the fourth survive"
+    },
+    "anagram": {
+     "fodder": "ET AIRBAG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "SEAT oddly lacking",
+      "gives": "ET",
+      "note": "drop the first and third letters of the four and its even ones are left"
+     },
+     {
+      "clueFragment": "airbag",
+      "gives": "AIRBAG",
+      "note": "six letters of fodder, straight from the clue"
+     }
+    ],
+    "walkthrough": "SEAT in capitals is the Spanish car maker, which is why the whole surface reads as a motoring review rather than a note about the internet.",
+    "definitionFit": "designed to deliberately make you angry -> RAGE BAIT: online content posted to provoke furious replies, bait in the angler's sense, cast to get a bite."
+   }
   },
   {
    "id": "17-across",
@@ -322,7 +845,46 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CYPRIOT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + last letter",
+    "answer": "CYPRIOT",
+    "definition": "one from Europe",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Deranged",
+     "latest",
+     "removed"
+    ],
+    "indicatorNotes": {
+     "Deranged": "a deranged mind has lost its arrangement, and letters that lose their arrangement come back in a different one",
+     "latest": "the latest of anything is the one that comes last, so the final letter is what is wanted",
+     "removed": "what is removed is taken out and not put back, so that letter never reaches the grid"
+    },
+    "anagram": {
+     "fodder": "P ICTORY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Trump's latest",
+      "gives": "P",
+      "note": "the last letter of Trump"
+     },
+     {
+      "clueFragment": "'victory'",
+      "gives": "ICTORY",
+      "note": "the quoted word supplies its letters once the opening one has gone"
+     },
+     {
+      "clueFragment": "Venezuela's leader",
+      "gives": "",
+      "note": "V is the letter Venezuela leads with, and it is the one that leaves"
+     }
+    ],
+    "walkthrough": "The quotation marks are the surface's sarcasm about the claimed win, not an instruction: nothing in the parse depends on them.",
+    "definitionFit": "one from Europe -> CYPRIOT: definition by example, a native of Cyprus being one European among many; the island joined the EU in 2004."
+   }
   },
   {
    "id": "18-down",
@@ -343,7 +905,30 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
     ]
    },
    "solution": "RAREBIRD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RARE BIRD",
+    "definition": "Something unusual",
+    "indicators": [],
+    "pieces": [
+     "RARE",
+     "BIRD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like bloody",
+      "gives": "RARE",
+      "note": "a steak cooked rare is still red in the middle"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "BIRD",
+      "note": "a chicken is one kind of bird"
+     }
+    ],
+    "walkthrough": "Both halves come off the same dinner plate, the cooking of the meat and the creature it came from, which is why the clue reads as one phrase.",
+    "definitionFit": "Something unusual -> RARE BIRD: an idiom for a person or thing seldom met with, translated straight from the Latin rara avis."
+   }
   },
   {
    "id": "19-down",
@@ -360,7 +945,30 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPLIED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "APPLIED",
+    "definition": "Non-theoretical",
+    "indicators": [],
+    "pieces": [
+     "APP",
+     "LIED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "program",
+      "gives": "APP",
+      "note": "a program on a phone is an app"
+     },
+     {
+      "clueFragment": "spread fake news",
+      "gives": "LIED",
+      "note": "whoever spread fake news lied"
+     }
+    ],
+    "walkthrough": "The question mark is doing real work: 'spread fake news' is a loose gloss for the second chunk rather than a dictionary synonym for it.",
+    "definitionFit": "Non-theoretical -> APPLIED: applied maths and applied science put theory to work on real problems, the other half of the pure-versus-applied split."
+   }
   },
   {
    "id": "20-across",
@@ -377,7 +985,44 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMOG",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SMOG",
+    "definition": "something that is breathtaking",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "to receive"
+    ],
+    "indicatorNotes": {
+     "to receive": "to receive a thing is to take it in, so the letter arrives inside rather than beside"
+    },
+    "pieces": [
+     "S",
+     "M",
+     "OG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so means very, as in 'so good'"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good, as on a school report"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M stands for a million in sums of money, as in a £5m transfer"
+     }
+    ],
+    "walkthrough": "'Breathtaking' is a compliment everywhere except here, where the definition means it literally: air you would rather not breathe.",
+    "definitionFit": "something that is breathtaking -> SMOG: the literal reading of the word, a choking mix of smoke and fog that makes breathing hard."
+   }
   },
   {
    "id": "21-down",
@@ -394,7 +1039,40 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANANA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + deletion",
+    "answer": "MANANA",
+    "definition": "later",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Bit of",
+     "topped"
+    ],
+    "indicatorNotes": {
+     "Bit of": "a bit of a word is a piece of it, and the smallest piece a setter can mean is the letter it starts with",
+     "topped": "in a down entry the top is the first letter, and a topped word has had it cut away"
+    },
+    "pieces": [
+     "M",
+     "ANANA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of mango",
+      "gives": "M",
+      "note": "the opening letter of mango"
+     },
+     {
+      "clueFragment": "fruit topped",
+      "gives": "ANANA",
+      "note": "the fruit is a banana, and this entry runs downwards so its top letter comes away"
+     }
+    ],
+    "walkthrough": "Two fruits in a row keep the surface in the greengrocer's, and the answer is a Spanish word English borrowed for putting things off.",
+    "definitionFit": "later -> MANANA: Spanish for tomorrow, taken into English for a vague future you never quite reach, as in 'I'll do it manana'."
+   }
   },
   {
    "id": "22-across",
@@ -411,7 +1089,39 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEMBROKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PEMBROKE",
+    "definition": "Welsh town",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "pieces": [
+     "P",
+     "EM",
+     "BROKE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parking",
+      "gives": "P",
+      "note": "P is the letter on the road sign and the gearstick for parking"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EM",
+      "note": "an em is a printer's space, the width of a capital M"
+     },
+     {
+      "clueFragment": "was revealed",
+      "gives": "BROKE",
+      "note": "a story that was revealed broke, as in the news broke overnight"
+     }
+    ],
+    "walkthrough": "'Parking space' is one idea in the surface and two separate abbreviations in the parse. EM is the typesetter's unit and is worth keeping.",
+    "definitionFit": "Welsh town -> PEMBROKE: the small town round a Norman castle in the far south-west of Wales, which gives Pembrokeshire its name."
+   }
   },
   {
    "id": "23-down",
@@ -428,7 +1138,32 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAUL",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "MAUL",
+    "definition": "badly hurt",
+    "linkWords": [
+     "gets"
+    ],
+    "indicators": [
+     "Every now and then"
+    ],
+    "indicatorNotes": {
+     "Every now and then": "what happens every now and then happens at intervals, so the letters are picked at every second step"
+    },
+    "pieces": [
+     "MAUL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emmanuel",
+      "gives": "MAUL",
+      "note": "the second, fourth, sixth and eighth letters of the name, read in order"
+     }
+    ],
+    "walkthrough": "A long name hides its alternate letters well: count them off in pairs rather than trying to read anything out of the word itself.",
+    "definitionFit": "badly hurt -> MAUL: what a bear or a dog does to a person, tearing and battering rather than inflicting one clean injury."
+   }
   },
   {
    "id": "24-down",
@@ -445,7 +1180,27 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAPPY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HAPPY",
+    "definition": "One of seven",
+    "definition2": "slightly intoxicated",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "One of seven",
+      "gives": "",
+      "note": "Snow White's seven dwarfs are each named for a mood or a habit, and this is the cheerful one"
+     },
+     {
+      "clueFragment": "slightly intoxicated",
+      "gives": "",
+      "note": "two drinks leave you merry rather than drunk, and English has a mild word for that state"
+     }
+    ],
+    "walkthrough": "Four words, no wordplay, and the join is invisible because a dwarf's name and a state of mind are the same word in the same tone.",
+    "definitionFit": "One of seven -> HAPPY: definition by example, one dwarf out of Snow White's seven; slightly intoxicated -> HAPPY, the tipsy sense, merry after a drink."
+   }
   },
   {
    "id": "25-across",
@@ -462,7 +1217,37 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HANNIBAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + deletion",
+    "answer": "HANNIBAL",
+    "definition": "an enemy of Rome",
+    "indicators": [
+     "At first",
+     "beheaded"
+    ],
+    "indicatorNotes": {
+     "At first": "what comes at first is the letter a word starts with, and that is all this fragment gives",
+     "beheaded": "a beheaded word loses its head, the letter standing at the front of it"
+    },
+    "pieces": [
+     "H",
+     "ANNIBAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At first hungry",
+      "gives": "H",
+      "note": "the opening letter of hungry"
+     },
+     {
+      "clueFragment": "maneater beheaded",
+      "gives": "ANNIBAL",
+      "note": "a maneater is a cannibal, and the front letter is struck off"
+     }
+    ],
+    "walkthrough": "The surface is a horror film, and the film's cannibal borrowed his name from the general, which is exactly why the misdirection works so smoothly.",
+    "definitionFit": "an enemy of Rome -> HANNIBAL: definition by example — Rome had many enemies, and the Carthaginian who crossed the Alps with elephants is the famous one."
+   }
   },
   {
    "id": "26-across",
@@ -479,7 +1264,39 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UMBRIA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UMBRIA",
+    "definition": "somewhere in Italy",
+    "linkWords": [
+     "but"
+    ],
+    "indicators": [
+     "Capital of",
+     "is not in"
+    ],
+    "indicatorNotes": {
+     "Capital of": "the capital of a word is the big letter it starts with, so a single letter is meant and not a city",
+     "is not in": "what is not in a word has been taken out of it, leaving the rest to stand on its own"
+    },
+    "pieces": [
+     "UMBRIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of England",
+      "gives": "CUMBRIA",
+      "note": "Cumbria is the county in England's north-west that holds the Lake District"
+     },
+     {
+      "clueFragment": "Capital of Campania",
+      "gives": "",
+      "note": "C is the letter Campania starts with, and it is the one that goes"
+     }
+    ],
+    "walkthrough": "Naples is the capital of Campania and is not wanted at all; the clue means the letter C. Two Italian regions and an English county in one sentence.",
+    "definitionFit": "somewhere in Italy -> UMBRIA: the green landlocked region north of Rome, around Perugia and Assisi, one of the country's twenty."
+   }
   },
   {
    "id": "27-across",
@@ -496,7 +1313,47 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APENNINES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + deletion",
+    "answer": "APENNINES",
+    "definition": "a feature of Italy",
+    "definitionNote": "The name is plural in form but the range is a single feature, so the singular definition is fair.",
+    "indicators": [
+     "mostly",
+     "found in",
+     "lively"
+    ],
+    "indicatorNotes": {
+     "mostly": "most of a word is all of it bar the last letter, so the ending is dropped",
+     "found in": "what is found in something lies within it, so this piece goes inside rather than after",
+     "lively": "a lively crowd will not stand still, and letters that will not stand still come out in a new order"
+    },
+    "pieces": [
+     "A",
+     "PENN",
+     "INES"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SIENA",
+      "gives": "AINES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lively Siena",
+      "gives": "AINES",
+      "note": "the five letters of the Tuscan city shaken up, then opened out to take a filling"
+     },
+     {
+      "clueFragment": "Type of pasta mostly",
+      "gives": "PENN",
+      "note": "penne are the short quill-shaped tubes, and the final letter is left behind"
+     }
+    ],
+    "walkthrough": "A Tuscan city, a Roman pasta and a definition in Italy: the surface is a holiday, and everything in it except the definition is raw material.",
+    "definitionFit": "a feature of Italy -> APENNINES: the mountain chain running the whole length of the peninsula, the spine that gives the country its shape on a map."
+   }
   },
   {
    "id": "28-across",
@@ -513,7 +1370,31 @@ window.CRYPTIC_PUZZLES["independent-12413"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TREND",
+    "definition": "Fashion",
+    "indicators": [
+     "displayed during"
+    ],
+    "indicatorNotes": {
+     "displayed during": "to display one thing during another is to set it inside, so these five letters drop into the middle of a longer word"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hearing",
+      "gives": "",
+      "note": "HEARING is the word doing the containing: it splits as HEAR and ING with a gap between them"
+     },
+     {
+      "clueFragment": "causing great sadness",
+      "gives": "",
+      "note": "fill that gap and HEARTRENDING appears, which is the phrase this fragment defines"
+     }
+    ],
+    "walkthrough": "The wordplay is inside out: it does not build the answer, it tells you what the answer builds once you post it into a word for listening.",
+    "definitionFit": "Fashion -> TREND: the noun sense, the direction tastes are moving in, which is what 'fashion' means when it is not a garment."
+   }
   }
  ]
 } /*JSON-END*/;
