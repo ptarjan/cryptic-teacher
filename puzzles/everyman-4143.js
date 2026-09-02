@@ -30,7 +30,29 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ICARUS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ICARUS",
+    "definition": "high-flier (for a while)",
+    "indicators": [
+     "A little"
+    ],
+    "indicatorNotes": {
+     "A little": "Asking for a little of something means a small helping taken out of the middle of it rather than the whole thing."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vicar used",
+      "gives": "ICARUS",
+      "note": "six letters running consecutively from the second letter of the first word, straight across the gap into the second"
+     }
+    ],
+    "walkthrough": "The bracket is the joke: the Greek boy's wax wings held him up until the sun got at them. A parish clergyman is the disguise, and none of him is wordplay.",
+    "definitionFit": "high-flier (for a while) → ICARUS: he soared on wings of feathers and wax until the sun melted them, so the height lasted no time at all."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +73,30 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "CLARIFIEDBUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLARIFIED BUTTER",
+    "definition": "ingredient for frying",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Explained",
+      "gives": "CLARIFIED",
+      "note": "to clarify a point is to explain it, making it clear"
+     },
+     {
+      "clueFragment": "goat maybe",
+      "gives": "BUTTER",
+      "note": "a goat butts with its horns, so it is one that butts, and 'maybe' flags it as only one example of such a creature"
+     }
+    ],
+    "pieces": [
+     "CLARIFIED",
+     "BUTTER"
+    ],
+    "walkthrough": "The colon dresses 'Explained' up as a heading introducing the rest of the sentence, when it is really the first half of a two-part build.",
+    "definitionFit": "Butter simmered until the milk solids are strained off is ghee, which takes a much higher heat in the pan without burning."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +113,26 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RICHEST",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "RICHEST",
+    "definition": "Most intense",
+    "indicators": [
+     "will contain"
+    ],
+    "indicatorNotes": {
+     "will contain": "What a thing contains is already sitting inside it, so the letters are there untouched and in order, waiting to be read off."
+    },
+    "blocks": [
+     {
+      "clueFragment": "potpourri chests",
+      "gives": "RICHEST",
+      "note": "seven consecutive letters beginning near the end of the first word and running on into the second"
+     }
+    ],
+    "walkthrough": "Potpourri and chests belong to a surface picture of a scented drawer. Neither is being defined — they are only the wrapping the letters travel in.",
+    "definitionFit": "Most intense → RICHEST: of a colour, a flavour or a sound, rich means deep and concentrated, so the superlative is the most intense of them."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +153,33 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "SKIPLANES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SKI-PLANES",
+    "definition": "cold-weather vehicles",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoid",
+      "gives": "SKIP",
+      "note": "to skip a meeting is to avoid going to it"
+     },
+     {
+      "clueFragment": "narrow streets",
+      "gives": "LANES",
+      "note": "a lane is the narrowest kind of street, wide enough for a single line of traffic"
+     }
+    ],
+    "pieces": [
+     "SKIP",
+     "LANES"
+    ],
+    "walkthrough": "'Avoid narrow streets' reads as advice to a driver, and that is the whole trap: the two words are clued separately, with the hyphen in the enumeration marking the join.",
+    "definitionFit": "cold-weather vehicles → SKI-PLANES: aircraft fitted with long runners in place of wheels, so they can land on snow and ice."
+   }
   },
   {
    "id": "5-across",
@@ -106,7 +196,43 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSUME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + second letter",
+    "answer": "ASSUME",
+    "definition": "Take as read",
+    "indicators": [
+     "first and foremost",
+     "secondarily"
+    ],
+    "indicatorNotes": {
+     "first and foremost": "Something described as first and foremost goes to the head of the queue, so this piece opens the answer instead of sitting where the clue mentions it.",
+     "secondarily": "To come secondarily is to come in second place, and that place is counted into the word beside it: keep the letter standing there and drop the rest."
+    },
+    "blocks": [
+     {
+      "clueFragment": "twit",
+      "gives": "ASS",
+      "note": "calling someone an ass is calling them a fool, which is what a twit is"
+     },
+     {
+      "clueFragment": "buffoon",
+      "gives": "U",
+      "note": "the letter standing in position two of that word"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter signs every one of these puzzles with that name, so when he writes it he means himself"
+     }
+    ],
+    "pieces": [
+     "ASS",
+     "U",
+     "ME"
+    ],
+    "walkthrough": "The semicolon separates two instructions that read as one long insult. Everyman's own byline is a piece of the wordplay, which is a habit worth expecting in this puzzle.",
+    "definitionFit": "Take as read → ASSUME: to take a thing as read is to treat it as settled without checking it, which is precisely what assuming is."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +249,30 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALONG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALONG",
+    "definition": "By the side of",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the single letter taken straight off the clue"
+     },
+     {
+      "clueFragment": "pine",
+      "gives": "LONG",
+      "note": "to pine for someone is to long for them"
+     }
+    ],
+    "pieces": [
+     "A",
+     "LONG"
+    ],
+    "walkthrough": "'a pine' offers you a tree, and the tree is a noun. The clue wants the verb, and five letters is far too few for a species anyway.",
+    "definitionFit": "By the side of → ALONG: the sense in 'a path along the wall', meaning beside and following it, rather than the 'come along' sense."
+   }
   },
   {
    "id": "6-down",
@@ -144,7 +293,39 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEPSON",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "STEPSON",
+    "definition": "Relative",
+    "indicators": [
+     "having change of heart"
+    ],
+    "indicatorNotes": {
+     "having change of heart": "The heart of a seven-letter word is the letter sitting dead centre, and a change of heart swaps that one letter while the six around it stand still."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cowboy hat",
+      "gives": "STETSON",
+      "note": "the tall, broad-brimmed felt hat of the American West, named after the hatter John B Stetson"
+     },
+     {
+      "clueFragment": "having change of heart",
+      "gives": "P",
+      "note": "the fourth of those seven letters steps aside and P takes the empty seat"
+     }
+    ],
+    "pieces": [
+     "STE",
+     "P",
+     "SON"
+    ],
+    "walkthrough": "In the surface a change of heart is a softening of feeling towards a relative. Here it is strictly arithmetic: one letter, dead centre, replaced by another.",
+    "definitionFit": "Relative → STEPSON: the son a husband or wife brings into a marriage, family by remarriage rather than by blood."
+   }
   },
   {
    "id": "7-down",
@@ -167,7 +348,29 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "MINDINTHEGUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "MIND IN THE GUTTER",
+    "definition": "Rude intent might - possibly - give you this?",
+    "indicators": [
+     "possibly"
+    ],
+    "indicatorNotes": {
+     "possibly": "Possibly says the letters could come out any number of ways, which is licence to rearrange them rather than read them as they stand."
+    },
+    "anagram": {
+     "fodder": "RUDE INTENT MIGHT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rude intent might",
+      "gives": "MIND IN THE GUTTER",
+      "note": "fifteen letters of fodder, exactly the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "The dashes make 'possibly' look like an aside from the setter. Read straight, the sentence describes a state of mind; read again, its first three words are the raw material for it.",
+    "definitionFit": "The whole clue defines: someone whose intent is rude has exactly this, a habit of finding the smutty reading in anything said to them."
+   }
   },
   {
    "id": "8-across",
@@ -188,7 +391,37 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "ARCTICOCEAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARCTIC OCEAN",
+    "definition": "Much water",
+    "indicators": [
+     "vigorous"
+    ],
+    "indicatorNotes": {
+     "vigorous": "Anything done vigorously is done hard enough to shake things out of their places, so the letters beside the word will not stay where they were put."
+    },
+    "linkWords": [
+     "wanting"
+    ],
+    "anagram": {
+     "fodder": "AERATION CCC"
+    },
+    "blocks": [
+     {
+      "clueFragment": "aeration",
+      "gives": "AERATION",
+      "note": "eight letters of fodder, handed over whole"
+     },
+     {
+      "clueFragment": "carbon thrice",
+      "gives": "CCC",
+      "note": "C is the chemical symbol for carbon, and it is wanted three times over"
+     }
+    ],
+    "walkthrough": "The surface is a fish tank in need of a pump. Counting eleven letters of fodder against the (6,5) enumeration is what confirms the shuffle before any answer suggests itself.",
+    "definitionFit": "Much water → ARCTIC OCEAN: an ocean is the largest body of water there is, and this is the one that sits on top of the globe."
+   }
   },
   {
    "id": "9-down",
@@ -205,7 +438,47 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWIM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + container",
+    "answer": "SWIM",
+    "definition": "crawl",
+    "indicators": [
+     "exhausted",
+     "clenching"
+    ],
+    "indicatorNotes": {
+     "exhausted": "Something exhausted has been emptied right out, so the word beside it keeps the letters at its two ends and loses everything between them.",
+     "clenching": "A clenched fist closes tight around whatever is in it, so these letters shut on the piece named next and hold it inside."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the size printed on a clothing label"
+     },
+     {
+      "clueFragment": "worm, exhausted",
+      "gives": "WM",
+      "note": "the first and last letters of the creature, with its insides emptied out"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "I",
+      "note": "first is number one, and the Roman numeral for one is I — it goes between the two letters above"
+     }
+    ],
+    "pieces": [
+     "S",
+     "W",
+     "I",
+     "M"
+    ],
+    "walkthrough": "'first to crawl' paints a baby on the carpet, and the crawl in question is the swimming stroke. The dash is doing no work at all except keeping that picture alive.",
+    "definitionFit": "crawl → SWIM: the crawl is the front stroke every pool teaches first, so it defines by example, one style standing in for the whole activity."
+   }
   },
   {
    "id": "10-down",
@@ -222,7 +495,35 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KEEP",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "KEEP",
+    "definition": "Tower",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "This is a down entry, so a piece told to go up is written from the bottom of the grid towards the top — backwards, in other words."
+    },
+    "subReversals": [
+     {
+      "from": "PEEK",
+      "to": "KEEP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "KEEP",
+      "note": "a quick look is a peek, and here it is written climbing the grid instead of descending it"
+     }
+    ],
+    "pieces": [
+     "KEEP"
+    ],
+    "walkthrough": "The colon does all the misdirection. 'Tower: look up' reads as an instruction to raise your eyes, when the second half is simply a word to be turned round.",
+    "definitionFit": "Tower → KEEP: the keep is the great central tower of a castle, the stronghold defenders fall back to when the outer walls are lost."
+   }
   },
   {
    "id": "11-across",
@@ -243,7 +544,44 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHITEFLAG",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WHITE FLAG",
+    "definition": "sign of submission",
+    "indicators": [
+     "accepting"
+    ],
+    "indicatorNotes": {
+     "accepting": "To accept something is to take it on, and the prisoner here takes the letter on at his front — a loose join rather than a true swallowing."
+    },
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ashen",
+      "gives": "WHITE",
+      "note": "a face drained of all its colour is described as ashen"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the grade stamped on a pencil for fine, the harder, thinner lead"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "LAG",
+      "note": "an old lag is British slang for a convict who has served plenty of time"
+     }
+    ],
+    "pieces": [
+     "WHITE",
+     "F",
+     "LAG"
+    ],
+    "walkthrough": "The surface is a convict taking his punishment on the chin. F for fine is the pencil grade, nothing to do with money, and it is the smallest of the three pieces.",
+    "definitionFit": "sign of submission → WHITE FLAG: the plain pale cloth raised on a battlefield to signal surrender and ask for terms."
+   }
   },
   {
    "id": "12-across",
@@ -260,7 +598,27 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEIZE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SEIZE",
+    "definition": "Take control of",
+    "indicators": [
+     "as dictated"
+    ],
+    "indicatorNotes": {
+     "as dictated": "Dictation is words spoken for somebody else to write down, so what counts is the sound of the word and not the way it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "waters",
+      "soundsLike": "SEAS",
+      "gives": "SEIZE",
+      "note": "the world's great bodies of water are the seas, and that single sound has a second spelling in English"
+     }
+    ],
+    "walkthrough": "One sound, two spellings, and the naval surface — taking control of the waters — is smooth enough that the whole device is easy to walk straight past.",
+    "definitionFit": "Take control of → SEIZE: to seize a ship, a town or a chance is to take hold of it suddenly and by force."
+   }
   },
   {
    "id": "13-across",
@@ -277,7 +635,36 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOISTEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + fourth letter",
+    "answer": "MOISTEN",
+    "definition": "Perhaps lick",
+    "indicators": [
+     "fourth of",
+     "that's damaged"
+    ],
+    "indicatorNotes": {
+     "fourth of": "Counting to the fourth of anything picks out the single item standing in position four, which here is a letter and not a stamp.",
+     "that's damaged": "Something damaged has been knocked out of shape, so the letters it names no longer sit in the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "IT'S ONE M"
+    },
+    "blocks": [
+     {
+      "clueFragment": "stamps",
+      "gives": "M",
+      "note": "count four letters into the word and stop there"
+     },
+     {
+      "clueFragment": "it's one",
+      "gives": "ITSONE",
+      "note": "six letters of fodder, taken exactly as they are written, apostrophe ignored"
+     }
+    ],
+    "walkthrough": "The colon makes the clue read as a note to self — lick the stamps — and the two halves of that phrase are doing quite different jobs, one defining and one surrendering a letter.",
+    "definitionFit": "Perhaps lick → MOISTEN: licking a stamp is one way of moistening it, so the definition offers an example of the action rather than a synonym for it."
+   }
   },
   {
    "id": "14-across",
@@ -298,7 +685,45 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "NONSTOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NON-STOP",
+    "definition": "Steadily",
+    "indicators": [
+     "on a roll"
+    ],
+    "indicatorNotes": {
+     "on a roll": "Something on a roll is turning over and over, so the assembly built before it is read back the other way."
+    },
+    "subReversals": [
+     {
+      "from": "POTSNON",
+      "to": "NONSTOP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at pool table, sinks",
+      "gives": "POTS",
+      "note": "to sink a ball on a pool table is to pot it"
+     },
+     {
+      "clueFragment": "last of seven",
+      "gives": "N",
+      "note": "the closing letter of that number written out"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the little word taken at face value"
+     }
+    ],
+    "pieces": [
+     "NON-STOP"
+    ],
+    "walkthrough": "Everyman strings the sentence out with ellipses so that 'on ... on' reads as a chant from the crowd. Only the first of the two is a piece; the second belongs to the instruction.",
+    "definitionFit": "Steadily → NON-STOP: to talk or work non-stop is to keep at it without a break, which is doing it steadily."
+   }
   },
   {
    "id": "14-down",
@@ -315,7 +740,29 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEBULISER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NEBULISER",
+    "definition": "Spray",
+    "indicators": [
+     "all over the place"
+    ],
+    "indicatorNotes": {
+     "all over the place": "Things all over the place are scattered with no order to them, which is what becomes of the letters standing beside the phrase."
+    },
+    "anagram": {
+     "fodder": "BLUE RINSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "blue rinse",
+      "gives": "NEBULISER",
+      "note": "nine letters of fodder, the same count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "A blue rinse is the pale tint an old-fashioned hairdresser puts on grey hair, which is why the phrase sits so comfortably next to a spray. It is material, not description.",
+    "definitionFit": "Spray → NEBULISER: the device that turns liquid medicine into a fine mist for an asthma patient to breathe in."
+   }
   },
   {
    "id": "15-across",
@@ -332,7 +779,33 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REDACTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REDACTS",
+    "definition": "Censors",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Communist",
+      "gives": "RED",
+      "note": "a red has meant a communist ever since the colour of the revolutionary flag"
+     },
+     {
+      "clueFragment": "legislation",
+      "gives": "ACTS",
+      "note": "laws that have passed through parliament are acts"
+     }
+    ],
+    "pieces": [
+     "RED",
+     "ACTS"
+    ],
+    "walkthrough": "The clue reads as a headline about state control of the press, and that is the whole disguise — the two halves are separate pieces laid end to end.",
+    "definitionFit": "Censors → REDACTS: to redact a document is to black out the sensitive parts before releasing it, the official word for censoring on paper."
+   }
   },
   {
    "id": "15-down",
@@ -349,7 +822,27 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROWS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ROWS",
+    "definition": "Disputes",
+    "definition2": "files",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Disputes",
+      "gives": "",
+      "note": "the noisy-quarrel sense, the one that rhymes with cows"
+     },
+     {
+      "clueFragment": "files",
+      "gives": "",
+      "note": "soldiers drawn up in ranks and files are standing in lines, and a line of things is the other reading"
+     }
+    ],
+    "walkthrough": "Two words and no other wordplay, and the sly part is that the two are not even said the same way: one rhymes with cows, the other with nose.",
+    "definitionFit": "Disputes gives the shouting-match sense; 'files' gives the straight-line sense, as in the ranks and files of a parade ground."
+   }
   },
   {
    "id": "16-down",
@@ -366,7 +859,26 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CEDILLA",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CEDILLA",
+    "definition": "Provençal character?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Provençal",
+      "gives": "",
+      "note": "the surface offers a person from Provence; the setter is holding the word itself up for inspection, hook and all"
+     },
+     {
+      "clueFragment": "character?",
+      "gives": "",
+      "note": "not a personality but a written mark, the sense in which a keyboard carries a hundred of them"
+     }
+    ],
+    "walkthrough": "The clue is its own example: the mark being described is printed right there under the c of Provençal, and 'character' quietly trades a person for a piece of type.",
+    "definitionFit": "The little hook written beneath a c to soften it to an s sound, used in French and Portuguese — and shown off in the clue's own first word."
+   }
   },
   {
    "id": "17-across",
@@ -383,7 +895,30 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUCKETS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BUCKETS",
+    "definition": "Receptacles",
+    "definition2": "pelts",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Receptacles",
+      "gives": "",
+      "note": "the plain sense: the things you carry water in"
+     },
+     {
+      "clueFragment": "pelts",
+      "gives": "",
+      "note": "when rain pelts down it comes in torrents — a verb about heavy weather, not the animal skins the surface offers"
+     }
+    ],
+    "walkthrough": "'Receptacles for pelts' conjures a tannery, and that is the entire misdirection: 'pelts' is what rain does, so both halves are straight definitions.",
+    "definitionFit": "Receptacles are buckets in the pail sense; 'pelts' is the weather verb, since rain that pelts down is rain that buckets down."
+   }
   },
   {
    "id": "18-down",
@@ -400,7 +935,26 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CYCLOPS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CYCLOPS",
+    "definition": "Monster, one I only mentioned?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Monster",
+      "gives": "",
+      "note": "the straight half — a giant out of Homer, the shepherd Odysseus blinded with a burning stake"
+     },
+     {
+      "clueFragment": "one I only mentioned?",
+      "gives": "",
+      "note": "on the page that is the pronoun, but in the mouth it is the organ this giant has exactly one of"
+     }
+    ],
+    "walkthrough": "The joke lives entirely in the ear: written down it is a pronoun, spoken it is an eye, and a single eye is the one thing everybody knows about the creature.",
+    "definitionFit": "A one-eyed giant of Greek myth: the clue's 'one I' is that solitary eye, so the sentence describes the monster rather than building it out of letters."
+   }
   },
   {
    "id": "19-down",
@@ -417,7 +971,32 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SESH",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "SESH",
+    "definition": "Primarily slangy expression signifying hangin'?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "Primarily points at what comes first, so each word after it surrenders nothing but the letter it opens with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "slangy expression signifying hangin'",
+      "gives": "SESH",
+      "note": "the four initials, read straight off the four words in the order they stand"
+     }
+    ],
+    "pieces": [
+     "S",
+     "E",
+     "S",
+     "H"
+    ],
+    "walkthrough": "The apostrophe on 'hangin'' does double duty: it marks the dropped g of casual speech, and casual speech is exactly the register of the word being spelled out.",
+    "definitionFit": "The whole clue defines: a clipped, slangy shortening of 'session', the word for an evening spent drinking or hanging about with friends."
+   }
   },
   {
    "id": "20-across",
@@ -434,7 +1013,27 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WOUND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "WOUND",
+    "definition": "Tightened",
+    "definition2": "injury",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Tightened",
+      "gives": "",
+      "note": "the past tense of wind: a clock spring that has been turned tight"
+     },
+     {
+      "clueFragment": "injury",
+      "gives": "",
+      "note": "a cut or a gash, the noun a nurse dresses and bandages"
+     }
+    ],
+    "walkthrough": "Two words side by side and nothing else to go on. They share five letters and no sound at all: one rhymes with found, the other with tuned.",
+    "definitionFit": "Tightened is the past tense of wind, as a spring is; injury is the gash sense — the same five letters spelling two unrelated words."
+   }
   },
   {
    "id": "21-across",
@@ -455,7 +1054,30 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOLFCLUBS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "GOLF CLUBS",
+    "definition": "Where Woods would use woods",
+    "definition2": "woods",
+    "indicators": [],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where Woods would use woods",
+      "gives": "",
+      "note": "Tiger Woods is the golfer, and the place he would swing a driver is a venue with a course and a clubhouse"
+     },
+     {
+      "clueFragment": "woods",
+      "gives": "",
+      "note": "a wood is the club with the big rounded head, once carved from persimmon and now made of metal"
+     }
+    ],
+    "walkthrough": "Three woods in one sentence and not a tree among them: a surname, a set of clubs, then the same set again. The capital W is the only signpost on offer.",
+    "definitionFit": "The first sense is the venue, the club as a place to play; 'woods' alone gives the clubs themselves, defining by naming one kind of them."
+   }
   },
   {
    "id": "21-down",
@@ -472,7 +1094,30 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENOA",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "GENOA",
+    "definition": "Italian port",
+    "indicators": [
+     "delivered"
+    ],
+    "indicatorNotes": {
+     "delivered": "A line is delivered when it is spoken out to an audience, so the question in front of the word is to be heard rather than read."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Are you familiar with that woman",
+      "soundsLike": "D'YE KNOW 'ER",
+      "gives": "GENOA",
+      "note": "the question collapses in speech to 'd'ye know 'er?', with the aitch dropped and the three words run together"
+     }
+    ],
+    "walkthrough": "The sounded phrase is a whole question rather than a single word, and it only works at conversational speed — the sort of run-together English nobody ever writes down.",
+    "definitionFit": "Italian port → GENOA: the great harbour city on the north-west coast, birthplace of Columbus and still the country's busiest seaport."
+   }
   },
   {
    "id": "22-across",
@@ -493,7 +1138,38 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
     ]
    },
    "solution": "TALENTSCOUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TALENT SCOUT",
+    "definition": "I'm seeking that special someone",
+    "definitionNote": "The definition is a sentence spoken in the first person rather than a noun phrase: the setter lets the answer introduce itself, so read it as 'one who is seeking'.",
+    "indicators": [
+     "foreign"
+    ],
+    "indicatorNotes": {
+     "foreign": "What is foreign is out of its own country and out of place, so the letters beside the word have been moved from where they belong."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "CONSULATE T T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "consulate",
+      "gives": "CONSULATE",
+      "note": "nine letters of fodder, a country's office in a foreign city"
+     },
+     {
+      "clueFragment": "time and time again",
+      "gives": "TT",
+      "note": "T is the standard abbreviation for time, and the phrase asks for it twice over"
+     }
+    ],
+    "walkthrough": "'Time and time again' reads as an idiom for endless repetition and is really an instruction to write one letter down twice. The definition speaks in the answer's own voice.",
+    "definitionFit": "That is exactly a talent scout's job: touring clubs, gigs and auditions hunting for the one performer worth signing up."
+   }
   },
   {
    "id": "23-across",
@@ -510,7 +1186,29 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERRATA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ERRATA",
+    "definition": "Mistakes",
+    "indicators": [
+     "resorts"
+    ],
+    "indicatorNotes": {
+     "resorts": "Read it as re-sorts: to sort a thing again is to put the very same items into a different order."
+    },
+    "anagram": {
+     "fodder": "RARE AT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rare at",
+      "gives": "ERRATA",
+      "note": "six letters of fodder, which is the whole length of the entry"
+     }
+    ],
+    "walkthrough": "The surface makes a claim about holiday hotels, and the holiday word is the instruction. Watch for it: 'resorts' is a favourite because it hides a hyphen.",
+    "definitionFit": "Mistakes → ERRATA: the Latin plural for errors, the slip of corrections a publisher tucks into a book once it has been printed."
+   }
   },
   {
    "id": "24-across",
@@ -527,7 +1225,29 @@ window.CRYPTIC_PUZZLES["everyman-4143"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSTRA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ROSTRA",
+    "definition": "lecturers talk here",
+    "indicators": [
+     "Extract of"
+    ],
+    "indicatorNotes": {
+     "Extract of": "An extract is a passage lifted out of a longer text exactly as it stands, so the letters come out unshuffled and in the order they were in."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intro's transcribed",
+      "gives": "ROSTRA",
+      "note": "six letters in a row, starting three into the first word and crossing both the apostrophe and the space"
+     }
+    ],
+    "walkthrough": "The apostrophe is the only real obstacle, and it is not one: a hidden run ignores punctuation and the gaps between words and reads straight on through.",
+    "definitionFit": "lecturers talk here → ROSTRA: rostra are the raised platforms a speaker stands on to address a hall, the Latin plural of rostrum."
+   }
   }
  ]
 } /*JSON-END*/;
