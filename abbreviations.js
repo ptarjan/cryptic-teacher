@@ -57,6 +57,9 @@ const ABBREVIATIONS = {
  ],
  "B": [
   "bachelor",
+  "belgium",
+  "billion",
+  "billions",
   "bishop",
   "black",
   "book",
@@ -73,6 +76,9 @@ const ABBREVIATIONS = {
  "BC": [
   "before christ",
   "long ago"
+ ],
+ "BR": [
+  "brother"
  ],
  "C": [
   "about",
@@ -106,6 +112,7 @@ const ABBREVIATIONS = {
   "church"
  ],
  "CH": [
+  "central heating",
   "check",
   "child",
   "church",
@@ -192,6 +199,7 @@ const ABBREVIATIONS = {
   "female",
   "fine",
   "following",
+  "force",
   "forte",
   "franc",
   "function",
@@ -208,6 +216,7 @@ const ABBREVIATIONS = {
   "german",
   "golf",
   "good",
+  "government",
   "gram",
   "grand",
   "gravity",
@@ -240,7 +249,8 @@ const ABBREVIATIONS = {
   "hot",
   "hotel",
   "hour",
-  "husband"
+  "husband",
+  "hydrogen"
  ],
  "HE": [
   "helium",
@@ -255,6 +265,7 @@ const ABBREVIATIONS = {
  ],
  "I": [
   "current",
+  "india",
   "information",
   "international",
   "iodine",
@@ -272,6 +283,7 @@ const ABBREVIATIONS = {
  "IN": [
   "at home",
   "fashionable",
+  "inside",
   "trendy"
  ],
  "IS": [
@@ -325,6 +337,9 @@ const ABBREVIATIONS = {
   "pound",
   "weight"
  ],
+ "LH": [
+  "left hand"
+ ],
  "LIT": [
   "literary"
  ],
@@ -348,8 +363,10 @@ const ABBREVIATIONS = {
   "metre",
   "metres",
   "mile",
+  "miles",
   "millions",
   "money",
+  "monsieur",
   "month",
   "motorway",
   "thousand"
@@ -502,6 +519,7 @@ const ABBREVIATIONS = {
   "power",
   "president",
   "pressure",
+  "prince",
   "quiet"
  ],
  "PA": [
@@ -569,6 +587,7 @@ const ABBREVIATIONS = {
   "rare",
   "recipe",
   "republican",
+  "resistance",
   "right",
   "river",
   "romeo",
@@ -593,6 +612,9 @@ const ABBREVIATIONS = {
   "engineers",
   "note",
   "sappers"
+ ],
+ "REL": [
+  "relative"
  ],
  "RES": [
   "reserve"
@@ -644,6 +666,9 @@ const ABBREVIATIONS = {
  "SE": [
   "southeast"
  ],
+ "SM": [
+  "sergeant major"
+ ],
  "SO": [
   "note",
   "therefore",
@@ -651,6 +676,7 @@ const ABBREVIATIONS = {
  ],
  "SP": [
   "special",
+  "species",
   "starting price",
   "without"
  ],
@@ -745,7 +771,9 @@ const ABBREVIATIONS = {
   "verse",
   "versus",
   "very",
-  "volt"
+  "victor",
+  "volt",
+  "volume"
  ],
  "VI": [
   "six"
@@ -784,6 +812,7 @@ const ABBREVIATIONS = {
  ],
  "Y": [
   "unknown",
+  "yankee",
   "yard",
   "year",
   "yen"
