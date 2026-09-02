@@ -30,7 +30,41 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOBBLEDEGOOK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GOBBLEDEGOOK",
+    "definition": "Jargon",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "Saying a piece comes first puts it at the front of the build, so the noise made by the bird opens things and the two short bits follow."
+    },
+    "pieces": [
+     "GOBBLED",
+     "EGO",
+     "OK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having talked turkey",
+      "gives": "GOBBLED",
+      "note": "a turkey gobbles, so a turkey that has talked has gobbled"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "EGO",
+      "note": "the ego is the self, which is why setters render I as those three letters"
+     },
+     {
+      "clueFragment": "allow",
+      "gives": "OK",
+      "note": "to OK something is to allow it, the shortest permission in English"
+     }
+    ],
+    "walkthrough": "Talking turkey normally means getting down to blunt business, which is the opposite of what the definition describes. Here it is meant literally: the bird makes a noise.",
+    "definitionFit": "Jargon -> GOBBLEDEGOOK: gobbledegook is language so clotted with technical and official terms that it stops communicating, which is jargon at its worst."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +81,41 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTRAGE",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "OUTRAGE",
+    "definition": "Shock",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "back of",
+     "during"
+    ],
+    "indicatorNotes": {
+     "back of": "The back of a word is its final letter, so only the last character of the word named is taken.",
+     "during": "Something that happens during an event falls in the middle of it, so this letter is planted inside the word beside it."
+    },
+    "pieces": [
+     "OUT",
+     "R",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "power cut",
+      "gives": "OUTAGE",
+      "note": "an outage is a break in supply, which is what a power cut is"
+     },
+     {
+      "clueFragment": "generator",
+      "gives": "R",
+      "note": "the final letter of that word"
+     }
+    ],
+    "walkthrough": "The surface is an electrical fault and the definition is emotional, which is the whole trick: shock reads as a jolt of current right up until the last moment.",
+    "definitionFit": "Shock -> OUTRAGE: an outrage is a thing so offensive it shocks, and the noun names the affront rather than any physical jolt."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +132,37 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOATHOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BOATHOUSE",
+    "definition": "home for eight",
+    "linkWords": [
+     "gets"
+    ],
+    "indicators": [
+     "heaving"
+    ],
+    "indicatorNotes": {
+     "heaving": "A heaving crowd is one shoving in every direction at once, so the letters end up somewhere other than where they began."
+    },
+    "anagram": {
+     "fodder": "A SOHO TUBE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "Soho, tube",
+      "gives": "SOHOTUBE",
+      "note": "eight letters handed over exactly as printed, comma ignored"
+     }
+    ],
+    "walkthrough": "Soho is a district of central London and the tube its underground railway, so the picture is a packed night out. Neither place contributes anything but letters.",
+    "definitionFit": "home for eight -> BOATHOUSE: an eight is a racing shell rowed by a crew of eight, and the boathouse is the shed by the water where it is kept."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +179,29 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDDY",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EDDY",
+    "definition": "Vortex",
+    "linkWords": [
+     "that"
+    ],
+    "indicators": [
+     "hoovers"
+    ],
+    "indicatorNotes": {
+     "hoovers": "In Britain any vacuum cleaner is a hoover and to hoover is to suck up, so the words in front have swallowed something whole."
+    },
+    "blocks": [
+     {
+      "clueFragment": "inspired Dyson",
+      "gives": "EDDY",
+      "note": "four consecutive letters straddle the gap between these two words, starting near the end of the first"
+     }
+    ],
+    "walkthrough": "Dyson's bagless cleaners work by spinning air into a cyclone, so the brand and the definition are the same idea twice over, which is why the surface reads as a fact.",
+    "definitionFit": "Vortex -> EDDY: an eddy is a small circular current turning against the main flow, a vortex at modest scale."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +218,49 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDEMIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letters + reversal",
+    "answer": "ENDEMIC",
+    "definition": "across the region",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "exposed",
+     "rising",
+     "coming in"
+    ],
+    "indicatorNotes": {
+     "exposed": "Exposing a thing strips off what covers it, and what covers a word is its first and last letters, leaving the middle bare.",
+     "rising": "In a down entry the letters run downwards, so anything rising is written from the bottom up and reads the other way.",
+     "coming in": "Whatever comes in ends up on the inside, so these letters are set within the other piece rather than beside it."
+    },
+    "pieces": [
+     "EN",
+     "DEM",
+     "IC"
+    ],
+    "subReversals": [
+     {
+      "from": "MED",
+      "to": "DEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Venice",
+      "gives": "ENIC",
+      "note": "the city loses the letter at each end, leaving the four in the middle"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "DEM",
+      "note": "MED is the Mediterranean, the sea a crossword usually means, and it is set down the other way up"
+     }
+    ],
+    "walkthrough": "The definition is the four words at the very end, which read as more of the flooding picture. Nothing in the clue signals where the wordplay stops.",
+    "definitionFit": "across the region -> ENDEMIC: a disease or trait called endemic is constantly present throughout one particular region and scarce anywhere else."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +277,42 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORDINARILY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ORDINARILY",
+    "definition": "as usual",
+    "indicators": [
+     "brought through"
+    ],
+    "indicatorNotes": {
+     "brought through": "Bringing something through a place carries it into the middle of that place, so these letters finish up inside."
+    },
+    "pieces": [
+     "OR",
+     "DINAR",
+     "I",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paris airport",
+      "gives": "ORLY",
+      "note": "Orly is the older of the two big airports serving Paris"
+     },
+     {
+      "clueFragment": "Arab's cash",
+      "gives": "DINAR",
+      "note": "the dinar is the currency of Iraq, Jordan, Kuwait and several other Arab states"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter the clue names outright"
+     }
+    ],
+    "walkthrough": "Paris has two big airports and the short one is the one worth banking: four letters, against the twelve of Charles de Gaulle.",
+    "definitionFit": "as usual -> ORDINARILY: ordinarily means in the ordinary run of things, and swaps straight into a sentence where you would say as usual."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +329,36 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNOUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "KNOUT",
+    "definition": "Russian scourge",
+    "indicators": [
+     "treating",
+     "a bit of"
+    ],
+    "indicatorNotes": {
+     "treating": "To treat a substance is to work on it until it comes out altered, so the letters do not stay in the order given.",
+     "a bit of": "One bit of a longer word is its opening letter, and that single character is all the word hands over."
+    },
+    "anagram": {
+     "fodder": "UK TO N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "UK to",
+      "gives": "UKTO",
+      "note": "four letters straight off the page, the little preposition counting as fodder"
+     },
+     {
+      "clueFragment": "Novichok",
+      "gives": "N",
+      "note": "the opening letter of the nerve agent's name"
+     }
+    ],
+    "walkthrough": "Novichok is the Russian-made nerve agent of the Salisbury poisonings, which is what lets the whole clue pass as a news headline instead of an instruction.",
+    "definitionFit": "Russian scourge -> KNOUT: the knout was the heavy plaited whip used for judicial flogging in imperial Russia, a scourge in the most literal sense."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +375,39 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SATURN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "SATURN",
+    "definition": "World",
+    "linkWords": [
+     "that",
+     "have"
+    ],
+    "indicators": [
+     "leaders"
+    ],
+    "indicatorNotes": {
+     "leaders": "A word's leader is the letter at its head, so each word named surrenders its opening character and nothing more."
+    },
+    "pieces": [
+     "SA",
+     "TURN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shout and argue",
+      "gives": "SA",
+      "note": "the opening letters of the two verbs, in the order printed"
+     },
+     {
+      "clueFragment": "become sour",
+      "gives": "TURN",
+      "note": "milk that goes off is said to turn, so turning is becoming sour"
+     }
+    ],
+    "walkthrough": "World leaders reads as heads of state, and that is the whole trap: only the first word is the definition, and leaders is an instruction about letters.",
+    "definitionFit": "World -> SATURN: definition by example, since Saturn is one particular planet and any planet counts as a world."
+   }
   },
   {
    "id": "9-across",
@@ -166,7 +424,24 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRANDED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STRANDED",
+    "definition": "Cut off",
+    "definition2": "in long twisted pieces",
+    "blocks": [
+     {
+      "clueFragment": "Cut off",
+      "note": "the marooned sense: left behind somewhere with no way of getting on"
+     },
+     {
+      "clueFragment": "in long twisted pieces",
+      "note": "the rope-maker's sense, describing something built from fibres laid and twisted together"
+     }
+    ],
+    "walkthrough": "Both senses come from one noun. A strand is a shore, so being left on one is being cut off, and a strand is also a single twisted fibre in a rope.",
+    "definitionFit": "Cut off -> STRANDED, left with no way to move on; and in long twisted pieces -> STRANDED, made up of fibres laid together."
+   }
   },
   {
    "id": "10-across",
@@ -183,7 +458,50 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOODAH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DOODAH",
+    "definition": "Thingamy",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "on reflection"
+    ],
+    "indicatorNotes": {
+     "on reflection": "A reflection shows you a word the wrong way round, so the letters immediately before this are set down in reverse."
+    },
+    "pieces": [
+     "DO",
+     "O",
+     "DAH"
+    ],
+    "subReversals": [
+     {
+      "from": "HAD",
+      "to": "DAH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party or social function in everyday British use"
+     },
+     {
+      "clueFragment": "none",
+      "gives": "O",
+      "note": "the letter is the shape of a zero, so it stands for nothing"
+     },
+     {
+      "clueFragment": "enjoyed",
+      "gives": "DAH",
+      "note": "someone who enjoyed a thing HAD it, and those three letters are then turned round"
+     }
+    ],
+    "walkthrough": "Only the final piece reverses, not the whole assembly. The instruction sits at the end of the clue and reaches back over exactly one word.",
+    "definitionFit": "Thingamy -> DOODAH: both are placeholder nouns for an object whose real name has slipped your mind mid-sentence."
+   }
   },
   {
    "id": "11-across",
@@ -200,7 +518,44 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACHE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "ACHE",
+    "definition": "hunger",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "rolls"
+    ],
+    "indicatorNotes": {
+     "rolls": "A thing that rolls turns over on itself, so the two pieces named before it are read back the other way."
+    },
+    "pieces": [
+     "AC",
+     "HE"
+    ],
+    "subReversals": [
+     {
+      "from": "EHCA",
+      "to": "ACHE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "EH is the written form of the questioning noise you make when you have missed something"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "CA is short for circa, the Latin for about, used of approximate dates"
+     }
+    ],
+    "walkthrough": "The surface offers you a bread roll and a bakery. Rolls is really the instruction, and the definition is the single word waiting at the end.",
+    "definitionFit": "hunger -> ACHE: to hunger for something is to ache for it, the sense of longing for what you lack rather than of physical pain."
+   }
   },
   {
    "id": "12-across",
@@ -217,7 +572,38 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINOTAUR",
-   "annotation": null
+   "annotation": {
+    "type": "container + second letters",
+    "answer": "MINOTAUR",
+    "definition": "bull cross",
+    "indicators": [
+     "eating",
+     "seconds of"
+    ],
+    "indicatorNotes": {
+     "eating": "Whatever is eaten ends up inside the eater, so the letters named next are swallowed by the word before them.",
+     "seconds of": "The second of anything is the one after the first, so each word listed here gives up its second letter alone."
+    },
+    "pieces": [
+     "MINO",
+     "TAU",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child",
+      "gives": "MINOR",
+      "note": "a minor is a person under the legal age, the law's word for a child"
+     },
+     {
+      "clueFragment": "steak made our",
+      "gives": "TAU",
+      "note": "the second letter of each of these three words, taken in turn"
+     }
+    ],
+    "walkthrough": "Seconds of steak reads as a second helping, which is why there is a meal in the surface at all. It is an instruction about letters, not about dinner.",
+    "definitionFit": "bull cross -> MINOTAUR: in Greek myth the Minotaur is the offspring of a bull and a queen, a crossbreed with a bull's head on a man's body."
+   }
   },
   {
    "id": "13-down",
@@ -234,7 +620,44 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLANGOROUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "CLANGOROUS",
+    "definition": "Noisy",
+    "indicators": [
+     "for a change"
+    ],
+    "indicatorNotes": {
+     "for a change": "Doing a thing for a change means doing it differently from usual, so these letters are set down in a different order."
+    },
+    "pieces": [
+     "CLAN",
+     "GOROUS"
+    ],
+    "anagram": {
+     "fodder": "CLAN GO OURS"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "GO OURS",
+      "gives": "GOROUS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family",
+      "gives": "CLAN",
+      "note": "a clan is a family group, the Scottish sense of the word"
+     },
+     {
+      "clueFragment": "Try ours",
+      "gives": "GOROUS",
+      "note": "a try is a GO, and those two letters plus the four of OURS are the ones being reordered"
+     }
+    ],
+    "walkthrough": "Try meaning a go is worth banking, because setters lean on it constantly. Here it quietly supplies two of the ten letters while looking like plain conversation.",
+    "definitionFit": "Noisy -> CLANGOROUS: clangorous means full of clanging, the harsh metallic racket of bells or machinery, so it is noisy in one particular key."
+   }
   },
   {
    "id": "14-across",
@@ -251,7 +674,39 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPUBLIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "REPUBLIC",
+    "definition": "one of USSR's vassals",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "largely",
+     "represented"
+    ],
+    "indicatorNotes": {
+     "largely": "Largely a thing is most of it and not quite all, so the final letter drops off before anything else is done.",
+     "represented": "To re-present is to present again in another form, so the letters come back rearranged rather than as printed."
+    },
+    "anagram": {
+     "fodder": "PERIL CUB"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Peril",
+      "gives": "PERIL",
+      "note": "five letters going into the mix exactly as written"
+     },
+     {
+      "clueFragment": "Cuba largely",
+      "gives": "CUB",
+      "note": "the island's name shorn of its last letter, leaving three"
+     }
+    ],
+    "walkthrough": "Cuba was a Soviet ally but never a Soviet member, which is the joke. The clue points you at Havana while the definition is really about Ukraine and Georgia.",
+    "definitionFit": "one of USSR's vassals -> REPUBLIC: the Soviet Union was formally a union of fifteen republics, each nominally sovereign and in practice run from Moscow."
+   }
   },
   {
    "id": "15-across",
@@ -268,7 +723,41 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFINE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "REFINE",
+    "definition": "Perfect",
+    "indicators": [
+     "close to"
+    ],
+    "indicatorNotes": {
+     "close to": "The close of a word is its ending, so this takes the very last character of what follows and leaves the rest."
+    },
+    "pieces": [
+     "REF",
+     "IN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decider at Wembley",
+      "gives": "REF",
+      "note": "Wembley is England's national football stadium, and the referee is the official whose calls settle the game"
+     },
+     {
+      "clueFragment": "netted",
+      "gives": "IN",
+      "note": "a ball that has been netted has gone in, which is what a commentator means by the word"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "E",
+      "note": "the last letter of that word"
+     }
+    ],
+    "walkthrough": "Perfect is a verb here rather than an adjective, and it is the first word rather than the last. Both of those are the setter setting you up.",
+    "definitionFit": "Perfect -> REFINE: to perfect a technique is to work it over until it is polished, which is what refining does to anything crude."
+   }
   },
   {
    "id": "16-down",
@@ -285,7 +774,45 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINGERTIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "FINGERTIP",
+    "definition": "might fetch you a bogey",
+    "linkWords": [
+     "which"
+    ],
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "One thing about another is wrapped round it, so the single letter named next is enclosed by the word before it."
+    },
+    "pieces": [
+     "FIN",
+     "G",
+     "ER",
+     "TIP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "gives": "FINER",
+      "note": "finer means better in quality, comparative matching comparative"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "golf is G in the radio alphabet used by pilots and the forces"
+     },
+     {
+      "clueFragment": "advice",
+      "gives": "TIP",
+      "note": "a tip is a handy piece of advice"
+     }
+    ],
+    "walkthrough": "Golf supplies a letter and a false trail at once. On a course a bogey is a score of one over par, and that is emphatically not the bogey being promised here.",
+    "definitionFit": "might fetch you a bogey -> FINGERTIP: bogey is British slang for a lump of dried nasal mucus, and a fingertip is what digs one out."
+   }
   },
   {
    "id": "17-across",
@@ -302,7 +829,36 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAVERN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CAVERN",
+    "definition": "Deep void",
+    "indicators": [
+     "inside",
+     "spread"
+    ],
+    "indicatorNotes": {
+     "inside": "The letter named just before this is not tacked onto either end but dropped among the others.",
+     "spread": "Things that have been spread are scattered out of their arrangement, so the letters settle in an order of their own."
+    },
+    "anagram": {
+     "fodder": "R VANCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right, as in a map reference or a stage direction"
+     },
+     {
+      "clueFragment": "Vance",
+      "gives": "VANCE",
+      "note": "five letters of surname, joining the R in the mix"
+     }
+    ],
+    "walkthrough": "A surname dropped into a grid is almost always fodder rather than a fact you need to know. Nothing about the man matters here beyond his five letters.",
+    "definitionFit": "Deep void -> CAVERN: a cavern is a large hollow chamber underground, which is literally a deep empty space in the rock."
+   }
   },
   {
    "id": "18-down",
@@ -323,7 +879,24 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
     ]
    },
    "solution": "ALLOUT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ALL-OUT",
+    "definition": "Extremely hard",
+    "definition2": "for ten playing cricket",
+    "blocks": [
+     {
+      "clueFragment": "Extremely hard",
+      "note": "the everyday sense: going at something with everything you have and nothing held back"
+     },
+     {
+      "clueFragment": "for ten playing cricket",
+      "note": "a cricket side of eleven bats until ten are dismissed, since the last one has no partner left, and that state has its own name"
+     }
+    ],
+    "walkthrough": "There is no wordplay to hunt for: two straight meanings sit side by side. The cricket one is the harder half unless you grew up with the game.",
+    "definitionFit": "Extremely hard -> ALL-OUT: an all-out effort keeps nothing in reserve; and in cricket a side is all out once ten of its eleven batters have been dismissed."
+   }
   },
   {
    "id": "19-across",
@@ -340,7 +913,34 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDLENESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IDLENESS",
+    "definition": "Rest",
+    "indicators": [
+     "travelling"
+    ],
+    "indicatorNotes": {
+     "travelling": "Letters that travel do not stay where they were put, so the ones named here arrive somewhere other than where they set off."
+    },
+    "anagram": {
+     "fodder": "IN LEEDS S"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in Leeds",
+      "gives": "INLEEDS",
+      "note": "the preposition counts as fodder too, so seven letters go into the mix"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the compass abbreviation for south"
+     }
+    ],
+    "walkthrough": "The little word in is doing letter work rather than joining anything, and that is the trap: it reads as ordinary grammar while supplying a quarter of the fodder.",
+    "definitionFit": "Rest -> IDLENESS: rest in the sense of doing nothing whatever, which is the state idleness names rather than a pause between bouts of work."
+   }
   },
   {
    "id": "19-down",
@@ -361,7 +961,35 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
     ]
    },
    "solution": "INFOCUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IN FOCUS",
+    "definition": "Sharp",
+    "pieces": [
+     "INFO",
+     "CU",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intelligence",
+      "gives": "INFO",
+      "note": "info is short for information, and intelligence is information gathered on someone"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper, taken from the Latin cuprum"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "S",
+      "note": "the intelligence OF copper is copper's intelligence, and that possessive s is what this small word hands over"
+     }
+    ],
+    "walkthrough": "Copper wants badly to be a policeman and the whole clue wants to be about a shrewd detective. It is the metal, and even the word of turns out to be a letter.",
+    "definitionFit": "Sharp -> IN FOCUS: of a picture or a lens, sharp means the edges come out crisp and defined, which is exactly what being in focus produces."
+   }
   },
   {
    "id": "20-down",
@@ -378,7 +1006,35 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEEPAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SEEPAGE",
+    "definition": "oozing",
+    "indicators": [
+     "on the end of"
+    ],
+    "indicatorNotes": {
+     "on the end of": "Put on the end of a word means written after it, so the piece named first is the one that finishes the answer."
+    },
+    "pieces": [
+     "SEE",
+     "PAGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twig",
+      "gives": "SEE",
+      "note": "to twig, in British informal use, is to catch on or suddenly see what is going on"
+     },
+     {
+      "clueFragment": "Leaf",
+      "gives": "PAGE",
+      "note": "a leaf of a book is a page"
+     }
+    ],
+    "walkthrough": "Oozing is a noun here, not a participle: the clue means the slow leaking itself. A leaf and a twig make a tidy surface out of two words that are doing neither botany nor gardening.",
+    "definitionFit": "oozing -> SEEPAGE: seepage is the slow leaking of liquid through something, so it names the oozing itself rather than the stuff that oozes."
+   }
   },
   {
    "id": "21-across",
@@ -399,7 +1055,29 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
     ]
    },
    "solution": "CLEAROFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLEAR OFF",
+    "definition": "bunk",
+    "pieces": [
+     "CLEAR",
+     "OFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Successfully jump over",
+      "gives": "CLEAR",
+      "note": "a horse or an athlete that clears a bar has got over it without touching"
+     },
+     {
+      "clueFragment": "high",
+      "gives": "OFF",
+      "note": "meat or milk called high has gone off, which is to say turned rotten"
+     }
+    ],
+    "walkthrough": "High meaning rotten is a British food word, from game birds hung until they are high. It is the only piece of this clue that is not being literal.",
+    "definitionFit": "bunk -> CLEAR OFF: to bunk, or do a bunk, is British slang for making a hurried departure, which is exactly what clearing off is."
+   }
   },
   {
    "id": "22-down",
@@ -416,7 +1094,38 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARTIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "ARTIC",
+    "definition": "Lorry",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "starts to"
+    ],
+    "indicatorNotes": {
+     "starts to": "The start of a word is its opening letter, and each of the two words after this gives up just that one character."
+    },
+    "pieces": [
+     "AR",
+     "TIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alarm rider",
+      "gives": "AR",
+      "note": "the opening letters of the two words, in the order written"
+     },
+     {
+      "clueFragment": "uncontrolled movement",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch that nobody can stop happening"
+     }
+    ],
+    "walkthrough": "The surface is a lorry frightening a cyclist, which is exactly the picture wanted. The answer turns out to be the lorry itself and not the fright.",
+    "definitionFit": "Lorry -> ARTIC: British shorthand for an articulated lorry, the kind whose cab and trailer are hinged, so a lorry by example."
+   }
   },
   {
    "id": "23-across",
@@ -433,7 +1142,36 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FETE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FETE",
+    "definition": "Event with games and refreshments",
+    "indicators": [
+     "hosts"
+    ],
+    "indicatorNotes": {
+     "hosts": "A host takes the guest into the house, so the letter named after this sits inside the word before it."
+    },
+    "pieces": [
+     "FE",
+     "T",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cost",
+      "gives": "FEE",
+      "note": "a fee is what a thing costs you"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "walkthrough": "Five words of definition and three of wordplay is a lopsided clue, and that is why the mechanism feels too small to find until you spot where it starts.",
+    "definitionFit": "Event with games and refreshments -> FETE: a fete is an outdoor fundraising day of stalls, games and tea, run by a British village, church or school."
+   }
   },
   {
    "id": "24-down",
@@ -450,7 +1188,39 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAIR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAIR",
+    "definition": "Pretty",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "splitting"
+    ],
+    "indicatorNotes": {
+     "splitting": "To split a thing is to go into the middle and part it, so the letter named lands between the two halves."
+    },
+    "pieces": [
+     "FA",
+     "I",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remote",
+      "gives": "FAR",
+      "note": "far means remote, a long way off"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the map-maker's abbreviation for island"
+     }
+    ],
+    "walkthrough": "Pretty reads as the qualifier in pretty remote, meaning fairly far away. It is the definition standing alone, and it means good-looking.",
+    "definitionFit": "Pretty -> FAIR: fair in the older sense of good-looking, as in a fair maiden, rather than fair meaning just or merely adequate."
+   }
   },
   {
    "id": "25-across",
@@ -471,7 +1241,29 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
     ]
    },
    "solution": "JUSTSO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "JUST SO",
+    "definition": "Quite",
+    "indicators": [
+     "in which Oscar comes last"
+    ],
+    "indicatorNotes": {
+     "in which Oscar comes last": "Oscar is O in the radio alphabet, and saying it comes last shifts that one letter to the very end while everything else closes up behind it."
+    },
+    "anagram": {
+     "fodder": "JOUSTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "violent equestrian events",
+      "gives": "JOUSTS",
+      "note": "a joust is mounted combat with lances, the tournament sport of medieval knights"
+     }
+    ],
+    "walkthrough": "Only one letter travels, so the fodder and the answer look almost identical on the page. That near-identity is what makes this hard to see rather than easy.",
+    "definitionFit": "Quite -> JUST SO: just so is the clipped expression of agreement, carrying the same precisely that a bare quite conveys in British speech."
+   }
   },
   {
    "id": "26-across",
@@ -488,7 +1280,45 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLAPTRAP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CLAPTRAP",
+    "definition": "silly speech",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "gets overwhelming"
+    ],
+    "indicatorNotes": {
+     "gets overwhelming": "To be overwhelmed is to be engulfed and covered over entirely, so the two pieces named before it end up buried within the word that follows."
+    },
+    "pieces": [
+     "CL",
+     "APT",
+     "R",
+     "AP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ovation",
+      "gives": "CLAP",
+      "note": "an ovation is applause, and applauding is clapping"
+     },
+     {
+      "clueFragment": "Likely",
+      "gives": "APT",
+      "note": "apt means likely to do something, as in apt to forget"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the one-letter tag for a Republican in American political reporting"
+     }
+    ],
+    "walkthrough": "Republican and ovation together paint an American rally, and only one of them is doing any work. The party abbreviation supplies a letter; the rally supplies nothing.",
+    "definitionFit": "silly speech -> CLAPTRAP: claptrap is empty, pretentious talk, and the word began as a bit of stage rhetoric written purely to trap applause."
+   }
   },
   {
    "id": "27-across",
@@ -509,7 +1339,44 @@ window.CRYPTIC_PUZZLES["indysunday-1876"] = /*JSON-START*/ {
     ]
    },
    "solution": "CASHSTRAPPED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CASH-STRAPPED",
+    "definition": "Poor",
+    "indicators": [
+     "behind",
+     "trousers"
+    ],
+    "indicatorNotes": {
+     "behind": "What stands behind something comes after it, so the saint's two letters follow the tree's three rather than leading them.",
+     "trousers": "To trouser a thing is to pocket it, tucking it out of sight inside, so those letters go into the middle of the word beside them."
+    },
+    "pieces": [
+     "C",
+     "ASH",
+     "ST",
+     "RAPPED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shat",
+      "gives": "CRAPPED",
+      "note": "to shit is to crap, so shat and crapped are two past tenses of the same act"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common British hardwood"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "St is the standard abbreviation for saint, as in St Paul's"
+     }
+    ],
+    "walkthrough": "Trousers is a verb here, not a garment: to trouser money is to pocket it. The whole crude surface exists to keep you reading it as clothing.",
+    "definitionFit": "Poor -> CASH-STRAPPED: short of money, the literal sense of poor rather than poor meaning shoddy, feeble or unlucky."
+   }
   }
  ]
 } /*JSON-END*/;
