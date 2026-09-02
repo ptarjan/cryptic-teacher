@@ -2031,6 +2031,13 @@ registry["reset-puzzle"].onclick();
     "app.js reads clueMissing — otherwise a blank clue reads as 'not annotated yet', "
     + "which promises a ladder that can never be written");
 
+  // The static page makes the same promise to the same reader, and it shipped
+  // the wrong half of it while app.js had it right.
+  const seo = fs.readFileSync(path.join(ROOT, "tools", "build_seo_pages.py"), "utf8");
+  assert(/clueMissing/.test(seo),
+    "tools/build_seo_pages.py reads clueMissing — the puzzle page has to tell a blank "
+    + "clue apart from an unwritten one, same as app.js");
+
   const hasWords = (clue) => /[a-zA-Z0-9]/.test(clue.replace(/\([\d,\-. ]*\)/g, ""));
   const index = JSON.parse(fs.readFileSync(path.join(ROOT, "puzzles", "index.json"), "utf8"));
   const annotatedInIndex = new Map(index.puzzles.map((p) => [p.id, p.annotated]));
