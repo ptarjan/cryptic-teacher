@@ -30,7 +30,41 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAMBOO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "BAMBOO",
+    "definition": "shoots to eat",
+    "definitionNote": "The definition is plural and the answer is a mass noun: you buy bamboo shoots by the tin but the plant itself has no plural.",
+    "indicators": [
+     "leaving"
+    ],
+    "indicatorNotes": {
+     "leaving": "Somebody leaving goes out, and here it is two letters of the wordplay that walk off rather than the child."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Italian child",
+      "gives": "BAMBINO",
+      "note": "a bambino is an Italian baby or young child"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "somebody at home is in, and those are the two letters that go"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is written as a round zero, the letter O"
+     }
+    ],
+    "pieces": [
+     "BAMBO",
+     "O"
+    ],
+    "walkthrough": "The surface is a teenager moving out with no money. Both of the crossword conventions here are worth owning: at home is IN, and nothing is O.",
+    "definitionFit": "shoots to eat -> BAMBOO: the young canes of the plant are the vegetable sold for stir-fries, so the plant is named by its edible part."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +81,41 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALOOF",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ALOOF",
+    "definition": "Cool",
+    "indicators": [
+     "entered upside down"
+    ],
+    "indicatorNotes": {
+     "entered upside down": "A word put into the grid the wrong way up reads from its far end, so the pieces below are assembled first and then turned."
+    },
+    "blocks": [
+     {
+      "clueFragment": "trick",
+      "gives": "FOOL",
+      "note": "to trick somebody is to fool them"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the short form of answer, the letter beside the solution in a quiz book"
+     }
+    ],
+    "pieces": [
+     "A",
+     "LOOF"
+    ],
+    "subReversals": [
+     {
+      "from": "FOOLA",
+      "to": "ALOOF"
+     }
+    ],
+    "walkthrough": "Nothing in the surface admits to being an instruction: it reads as a card trick going in the wrong way round, and the two pieces queue up in plain sight.",
+    "definitionFit": "Cool -> ALOOF: cool here is manner rather than temperature, the distance somebody keeps from other people, as in a cool reception."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +132,35 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAN",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "BAN",
+    "definition": "Make criminal",
+    "indicators": [
+     "flip-flops"
+    ],
+    "indicatorNotes": {
+     "flip-flops": "To flip-flop is to swap completely to the opposite position, so the three letters in front arrive the other way round."
+    },
+    "blocks": [
+     {
+      "clueFragment": "steal",
+      "gives": "NAB",
+      "note": "to nab something is to steal it"
+     }
+    ],
+    "pieces": [
+     "BAN"
+    ],
+    "subReversals": [
+     {
+      "from": "NAB",
+      "to": "BAN"
+     }
+    ],
+    "walkthrough": "The surface is beachwear being pinched. 'Make criminal' looks like a phrase about corrupting a person, and it means outlawing an act instead.",
+    "definitionFit": "Make criminal -> BAN: banning something is what turns doing it into an offence, so the verb converts a legal act into an illegal one."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +177,36 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERSEE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letter",
+    "answer": "OVERSEE",
+    "definition": "witness unintentionally",
+    "indicators": [
+     "Suspect",
+     "exposed"
+    ],
+    "indicatorNotes": {
+     "Suspect": "Anything suspect cannot be taken as it stands, and letters that cannot be taken as they stand are not in their proper order.",
+     "exposed": "Stripped of its covering, the word keeps nothing but what was underneath the outside letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "severe",
+      "gives": "SEVERE",
+      "note": "six of the seven letters, handed over to be rebuilt"
+     },
+     {
+      "clueFragment": "cop exposed",
+      "gives": "O",
+      "note": "take the C and the P off the outside of cop and a single letter is left"
+     }
+    ],
+    "anagram": {
+     "fodder": "SEVERE O"
+    },
+    "walkthrough": "The everyday sense of the answer is to supervise, and that is the reading to put aside: the setter wants the older sense, seeing by accident.",
+    "definitionFit": "witness unintentionally -> OVERSEE: besides supervising, to oversee is to happen to see something not meant for you, the eye's version of overhearing."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +223,35 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SQUIDGE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SQUIDGE",
+    "definition": "press",
+    "indicators": [
+     "shunned"
+    ],
+    "indicatorNotes": {
+     "shunned": "What is shunned is kept out, so the two letters named next never make it into the grid."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Macabre S Korean survival show",
+      "gives": "SQUIDGAME",
+      "note": "Squid Game is the Korean series in which contestants play playground games for their lives"
+     },
+     {
+      "clueFragment": "by American",
+      "gives": "AM",
+      "note": "American shortens to Am, and that pair is what gets shunned"
+     }
+    ],
+    "pieces": [
+     "SQUID",
+     "GE"
+    ],
+    "walkthrough": "'Press' invites you to think of newspapers, which fits the surface about a television show and is the wrong sense entirely.",
+    "definitionFit": "press -> SQUIDGE: to squidge something is to squash it between your fingers, pressing soft stuff out of shape rather than pressing a shirt."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +268,44 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRATUS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "STRATUS",
+    "definition": "Cloud",
+    "indicators": [
+     "lifting",
+     "around"
+    ],
+    "indicatorNotes": {
+     "lifting": "This is a down entry, so a piece being lifted is read from the bottom of the column towards the top.",
+     "around": "What goes around something encloses it, so the single letter sits inside the longer piece rather than beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "begins",
+      "gives": "STARTS",
+      "note": "to begin is to start, and this is the word before it is turned"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "U is the text-message spelling of you"
+     }
+    ],
+    "pieces": [
+     "STRAT",
+     "U",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "STARTS",
+      "to": "STRATS"
+     }
+    ],
+    "walkthrough": "The surface is a weather report, where cloud lifting is exactly what you would expect it to say, so neither instruction word looks like one.",
+    "definitionFit": "Cloud -> STRATUS: stratus is the low grey sheet that covers the whole sky, one of the standard cloud classes, so the general word names a particular kind."
+   }
   },
   {
    "id": "6-down",
@@ -132,7 +322,34 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNWHOLESOME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNWHOLESOME",
+    "definition": "lacking family values",
+    "indicators": [
+     "Disorderly"
+    ],
+    "indicatorNotes": {
+     "Disorderly": "A disorderly house is a brothel on the surface; taken as an instruction the word says these letters are in no proper order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "house women",
+      "gives": "HOUSEWOMEN",
+      "note": "ten of the eleven letters, taken straight from the two words"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is left, as stamped inside a pair of boots"
+     }
+    ],
+    "anagram": {
+     "fodder": "HOUSE WOMEN L"
+    },
+    "walkthrough": "'Disorderly house' is a set phrase, which is why it reads as one thing and works as two: the adjective is the instruction and the noun is material.",
+    "definitionFit": "lacking family values -> UNWHOLESOME: something unwholesome is morally unhealthy, the word a tabloid reaches for about what children should not watch."
+   }
   },
   {
    "id": "7-down",
@@ -149,7 +366,44 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEPOSITOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + outer letters",
+    "answer": "DEPOSITOR",
+    "definition": "customer at bank",
+    "indicators": [
+     "vacated",
+     "taken by"
+    ],
+    "indicatorNotes": {
+     "vacated": "A vacated building has everybody out of the middle and only its walls standing, so the word keeps its first and last letters.",
+     "taken by": "If the seat has been taken by somebody, they are sitting round it, so the shorter piece goes inside the longer one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "DE",
+      "note": "the walls of the word, its middle emptied out"
+     },
+     {
+      "clueFragment": "needy",
+      "gives": "POOR",
+      "note": "the needy are the poor, and these four letters open up to take the next piece"
+     },
+     {
+      "clueFragment": "seat",
+      "gives": "SIT",
+      "note": "to seat somebody is to sit them down"
+     }
+    ],
+    "pieces": [
+     "DE",
+     "PO",
+     "SIT",
+     "OR"
+    ],
+    "walkthrough": "A duke's seat is his country house, which is the picture the surface is painting; the wordplay wants the plain verb instead.",
+    "definitionFit": "customer at bank -> DEPOSITOR: a depositor is whoever pays money into an account, so the bank's customer is named by the one thing they do there."
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +420,27 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "EARN",
+    "definition": "Make",
+    "indicators": [
+     "out of your mug"
+    ],
+    "indicatorNotes": {
+     "out of your mug": "A mug is slang for the face, so what comes out of yours is spoken, and the sound is what has to go in the grid."
+    },
+    "blocks": [
+     {
+      "clueFragment": "vase",
+      "soundsLike": "URN",
+      "gives": "EARN",
+      "note": "the vase is an urn, most often the one that holds ashes, and it is the sound of that word you want"
+     }
+    ],
+    "walkthrough": "The surface has you throwing a pot out of your own drinking cup, and 'make' looks like part of that instruction rather than the definition.",
+    "definitionFit": "Make -> EARN: to make a living is to earn one, the sense of make that applies to money you are paid rather than money you find."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +461,36 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
     ]
    },
    "solution": "BROWNBEAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "BROWN BEAR",
+    "definition": "Yogi, say",
+    "indicators": [
+     "endless",
+     "spoils"
+    ],
+    "indicatorNotes": {
+     "endless": "Something endless never reaches its finish, so the name gives up the letter at its end.",
+     "spoils": "Goods that have spoiled have gone out of shape, and letters out of shape no longer sit in the order they were given."
+    },
+    "blocks": [
+     {
+      "clueFragment": "won",
+      "gives": "WON",
+      "note": "three of the nine letters, taken exactly as written"
+     },
+     {
+      "clueFragment": "Barbera",
+      "gives": "BARBER",
+      "note": "the grape's name one letter shorter, and the other six letters of the fodder"
+     }
+    ],
+    "anagram": {
+     "fodder": "WON BARBER"
+    },
+    "walkthrough": "Yogi was drawn by the Hanna-Barbera studio, so the fodder and the definition come out of the same cartoon; 'say' is what marks him as an example.",
+    "definitionFit": "Yogi, say -> BROWN BEAR: the Jellystone Park cartoon character is drawn as one, so 'say' flags a definition by example rather than a synonym."
+   }
   },
   {
    "id": "9-down",
@@ -204,7 +507,38 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRANDISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BRANDISH",
+    "definition": "Wave",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "beneath"
+    ],
+    "indicatorNotes": {
+     "beneath": "This is a down entry, so the piece put beneath the other one comes lower in the column and therefore later in the word."
+    },
+    "blocks": [
+     {
+      "clueFragment": "hulls",
+      "gives": "BRAN",
+      "note": "the hulls of grain are its husks, milled off as bran"
+     },
+     {
+      "clueFragment": "concave shape",
+      "gives": "DISH",
+      "note": "a shallow curve is a dish, which is how the satellite aerial got its name"
+     }
+    ],
+    "pieces": [
+     "BRAN",
+     "DISH"
+    ],
+    "walkthrough": "Waves and hulls make the surface nautical and neither word is doing nautical work: one is the definition, the other is breakfast cereal.",
+    "definitionFit": "Wave -> BRANDISH: to brandish a sword is to wave it about as a threat or a display, so it is waving with menace behind it."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +555,35 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WIPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "WIPER",
+    "definition": "Arm waving in front of driver",
+    "indicators": [
+     "decapitated"
+    ],
+    "indicatorNotes": {
+     "decapitated": "A decapitated word has lost its head, so the snake arrives without its first letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w is the standard short form of with, the one used in recipes and notes"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "IPER",
+      "note": "the snake is a viper, and its head has been cut off"
+     }
+    ],
+    "pieces": [
+     "W",
+     "IPER"
+    ],
+    "walkthrough": "The definition is the whole picture of a windscreen fitting, described so plainly that it reads as surface, while 'with' quietly does duty as a single letter.",
+    "definitionFit": "Arm waving in front of driver -> WIPER: a windscreen wiper is a hinged arm that sweeps to and fro across the glass ahead of the driver."
+   }
   },
   {
    "id": "11-across",
@@ -245,7 +607,24 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASFARASITGOES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "AS FAR AS IT GOES",
+    "definition": "Though less than satisfactory",
+    "definition2": "what EV's range is?",
+    "blocks": [
+     {
+      "clueFragment": "Though less than satisfactory",
+      "note": "the concession you make when something is true only up to a point: fine, but do not push it further"
+     },
+     {
+      "clueFragment": "what EV's range is?",
+      "note": "an electric vehicle's range is the distance it will cover on one charge, read here as plain measurement"
+     }
+    ],
+    "walkthrough": "EV is the everyday abbreviation for an electric vehicle. The first half is idiom and the second is literal, which is what makes the two readings feel so different.",
+    "definitionFit": "Both halves -> AS FAR AS IT GOES: the idiom grants approval only up to a limit, and an electric car's range is literally the distance it travels."
+   }
   },
   {
    "id": "12-down",
@@ -266,7 +645,29 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
     ]
    },
    "solution": "RHODEISLAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RHODE ISLAND",
+    "definition": "Smallest union member",
+    "indicators": [
+     "wobbly"
+    ],
+    "indicatorNotes": {
+     "wobbly": "Something wobbly will not stay put in the position it was given, so the three words after it are rebuilt in another order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "on his ladder",
+      "gives": "ONHISLADDER",
+      "note": "eleven letters across three words, which is the whole of the material"
+     }
+    ],
+    "anagram": {
+     "fodder": "ON HIS LADDER"
+    },
+    "walkthrough": "The Union is the United States, so a union member is one of the fifty; the surface's decorator teetering on a ladder has nothing to do with it.",
+    "definitionFit": "Smallest union member -> RHODE ISLAND: of the fifty American states this one covers the least ground, so 'member' means a state rather than a trade unionist."
+   }
   },
   {
    "id": "13-down",
@@ -283,7 +684,44 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRIENDLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "FRIENDLY",
+    "definition": "Helpful",
+    "indicators": [
+     "ordered",
+     "in"
+    ],
+    "indicatorNotes": {
+     "ordered": "Ordered here means put in a different order rather than tidied up, so the five letters before it are rearranged.",
+     "in": "The rearranged letters go in: inside the piece that follows, splitting it open rather than sitting next to it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "hurry",
+      "gives": "FLY",
+      "note": "to fly is to hurry, and this piece opens up to take the other letters"
+     },
+     {
+      "clueFragment": "diner",
+      "gives": "RIEND",
+      "note": "the five letters of diner in a new arrangement"
+     }
+    ],
+    "pieces": [
+     "F",
+     "RIEND",
+     "LY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DINER",
+      "gives": "RIEND"
+     }
+    ],
+    "walkthrough": "The surface is a restaurant evening, and 'ordered in' reads as one phrase about takeaway food rather than as two separate instructions.",
+    "definitionFit": "Helpful -> FRIENDLY: a friendly face is a helpful one, the word covering willingness to assist as much as actual affection."
+   }
   },
   {
    "id": "14-across",
@@ -300,7 +738,35 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISPOSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "DISPOSE",
+    "definition": "Settle",
+    "indicators": [
+     "back in"
+    ],
+    "indicatorNotes": {
+     "back in": "The back of a word is its final letter, and 'in' points at which word to take it from."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "D",
+      "note": "the last letter of the three, and all that is wanted"
+     },
+     {
+      "clueFragment": "OK, reluctantly",
+      "gives": "ISPOSE",
+      "note": "a grudging agreement is I s'pose, with suppose worn down to one syllable"
+     }
+    ],
+    "pieces": [
+     "D",
+     "ISPOSE"
+    ],
+    "walkthrough": "'Settle back in bed' reads as one comfortable phrase, and that is the trap: the definition stops after the first word.",
+    "definitionFit": "Settle -> DISPOSE: to dispose of a matter is to settle it once and for all, the sense kept in the phrase 'the case was disposed of'."
+   }
   },
   {
    "id": "15-down",
@@ -317,7 +783,23 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNOWDRIFT",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SNOWDRIFT",
+    "definition": "Bank blown up in winter?",
+    "blocks": [
+     {
+      "clueFragment": "Bank",
+      "note": "the surface offers a high street branch, which makes 'blown up' an explosion; a bank is also any heaped-up mass of stuff"
+     },
+     {
+      "clueFragment": "blown up in winter?",
+      "note": "the wind does the heaping here, piling what has fallen against a wall or a hedge until it is deep enough to close a lane"
+     }
+    ],
+    "walkthrough": "There is nothing to take apart. The clue is one picture read twice, a robbery on the surface and a blocked country road underneath.",
+    "definitionFit": "The whole clue -> SNOWDRIFT: a drift is a heap piled up by the wind, so 'bank' and 'blown up' are describing one thing and not two."
+   }
   },
   {
    "id": "16-across",
@@ -334,7 +816,29 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWEATER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWEATER",
+    "definition": "Top",
+    "blocks": [
+     {
+      "clueFragment": "part of UK for cider",
+      "gives": "SW",
+      "note": "cider country is the West Country, Somerset and Devon, in the south-west corner of England"
+     },
+     {
+      "clueFragment": "nice apple",
+      "gives": "EATER",
+      "note": "in a British greengrocer's an eater is an apple for eating raw, as against a cooker"
+     }
+    ],
+    "pieces": [
+     "SW",
+     "EATER"
+    ],
+    "walkthrough": "'Top part of UK' sends you to Scotland, and the cider is what tells you to look south-west instead. Nothing here announces itself as wordplay.",
+    "definitionFit": "Top -> SWEATER: in a clothes shop a top is any upper garment, and a sweater is one of them, so the general word names it by category."
+   }
   },
   {
    "id": "17-across",
@@ -355,7 +859,32 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOREUP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHORE UP",
+    "definition": "support underground, perhaps",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "played"
+    ],
+    "indicatorNotes": {
+     "played": "Played reads as a lyre being performed on, but to play with something is to move it about, which is what happens to the seven letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Orpheus",
+      "gives": "SHOREUP",
+      "note": "the letters of the name, all seven of them, given a different order"
+     }
+    ],
+    "anagram": {
+     "fodder": "ORPHEUS"
+    },
+    "walkthrough": "Orpheus went down to the underworld to fetch Eurydice and played his way past its guards, so every word of the surface is his story.",
+    "definitionFit": "support underground, perhaps -> SHORE UP: to shore up is to prop with timbers, the job done to a mine tunnel, which is what 'perhaps' points at."
+   }
   },
   {
    "id": "18-down",
@@ -372,7 +901,35 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANTHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PANTHER",
+    "definition": "Potentially big game",
+    "indicators": [
+     "starts with"
+    ],
+    "indicatorNotes": {
+     "starts with": "If she starts with the breath then the breath is written first and she follows on behind it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "deep breath",
+      "gives": "PANT",
+      "note": "a pant is the breath you take when you are out of puff"
+     },
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "her is the pronoun standing in for the woman already mentioned"
+     }
+    ],
+    "pieces": [
+     "PANT",
+     "HER"
+    ],
+    "walkthrough": "'Potentially big game' reads as a hopeful sports fixture, which is exactly the wrong picture: the phrase belongs to hunting, not to the fixture list.",
+    "definitionFit": "Potentially big game -> PANTHER: big game is the hunter's term for large wild animals, and the big cats are the first thing on that list."
+   }
   },
   {
    "id": "19-across",
@@ -389,7 +946,37 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOURGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SCOURGE",
+    "definition": "Flog",
+    "indicators": [
+     "half of",
+     "saving the last"
+    ],
+    "indicatorNotes": {
+     "half of": "Only the front portion of the word is wanted, three letters out of its six.",
+     "saving the last": "To save one is to hold it back rather than spend it, so the final letter never arrives."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Scotch",
+      "gives": "SCO",
+      "note": "the front half of the word, three letters out of six"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "URGE",
+      "note": "to egg somebody on is to urge them, and the S at the end is held back"
+     }
+    ],
+    "pieces": [
+     "SCO",
+     "URGE"
+    ],
+    "walkthrough": "A Scotch egg is one picnic item on the surface and two separate pieces of wordplay underneath, with 'eggs' as a verb rather than a food.",
+    "definitionFit": "Flog -> SCOURGE: to scourge is to whip somebody, and flog is the everyday word for that punishment rather than for selling something off."
+   }
   },
   {
    "id": "19-down",
@@ -406,7 +993,42 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPECIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "SPECIES",
+    "definition": "Type",
+    "indicators": [
+     "limited by"
+    ],
+    "indicatorNotes": {
+     "limited by": "What limits something stands at its edges, so the outer pieces close round the middle one."
+    },
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is small, the letter on a clothing label"
+     },
+     {
+      "clueFragment": "muscles",
+      "gives": "PECS",
+      "note": "pecs are the chest muscles, short for pectorals"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, and it means that is"
+     }
+    ],
+    "pieces": [
+     "S",
+     "PEC",
+     "IE",
+     "S"
+    ],
+    "walkthrough": "'Small muscles' reads as one anatomical description and is really two pieces clued separately, which is what hides the join.",
+    "definitionFit": "Type -> SPECIES: a species is a kind or sort, strictly the biologist's rank below genus but used loosely of any category of thing."
+   }
   },
   {
    "id": "20-across",
@@ -423,7 +1045,44 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISINTERESTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "DISINTERESTED",
+    "definition": "unconcerned",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "heart"
+    ],
+    "indicatorNotes": {
+     "heart": "The heart of a word is what sits at its centre, here the middle pair of the emperor's six letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Exhume",
+      "gives": "DISINTER",
+      "note": "to disinter a body is to dig it up again"
+     },
+     {
+      "clueFragment": "Caesar's",
+      "gives": "ES",
+      "note": "the middle two letters of the name"
+     },
+     {
+      "clueFragment": "Catholic priest",
+      "gives": "TED",
+      "note": "Father Ted, the priest in the Irish sitcom named after him"
+     }
+    ],
+    "pieces": [
+     "DISINTER",
+     "ES",
+     "TED"
+    ],
+    "walkthrough": "Father Ted is a 1990s sitcom about three Catholic priests on an island off Ireland, which is why a first name on its own can clue one.",
+    "definitionFit": "unconcerned -> DISINTERESTED: strictly the word means impartial, but the sense in common use, and the one the setter wants, is simply not interested."
+   }
   },
   {
    "id": "21-down",
@@ -440,7 +1099,27 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THREW",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "THREW",
+    "definition": "Cast",
+    "indicators": [
+     "to the audience"
+    ],
+    "indicatorNotes": {
+     "to the audience": "An audience hears rather than reads, so it is the sound of the phrase that matters and not the way it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "connected by phone",
+      "soundsLike": "THROUGH",
+      "gives": "THREW",
+      "note": "a switchboard puts you through, and that word said aloud is written another way entirely"
+     }
+    ],
+    "walkthrough": "'Cast' is a past tense here, which is what tells you the answer is one too. The trap is reading it as the people in a play, which the audience encourages.",
+    "definitionFit": "Cast -> THREW: to cast a line or a stone is to throw it, and the definition sits in the past tense to match the answer."
+   }
   },
   {
    "id": "22-down",
@@ -457,7 +1136,32 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAM",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "SCAM",
+    "definition": "Unreal opportunity",
+    "indicators": [
+     "those backing"
+    ],
+    "indicatorNotes": {
+     "those backing": "The ones at the rear are meant: each word in the run gives up the letter at its back and nothing else."
+    },
+    "blocks": [
+     {
+      "clueFragment": "this magic formula claim",
+      "gives": "SCAM",
+      "note": "four words, each contributing its final letter, in the order they are written"
+     }
+    ],
+    "pieces": [
+     "S",
+     "C",
+     "A",
+     "M"
+    ],
+    "walkthrough": "The surface is a dodgy pitch and the people behind it, so 'those backing' reads as supporters rather than as a direction to look at the ends of words.",
+    "definitionFit": "Unreal opportunity -> SCAM: the chance being offered does not exist, and the only real transaction is your money leaving."
+   }
   },
   {
    "id": "23-across",
@@ -474,7 +1178,28 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHINA",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHINA",
+    "definition": "Source of tea",
+    "definition2": "tea cups?",
+    "definitionNote": "The second definition names the cups rather than the ceramic they are made from, a definition by example that the question mark admits to.",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Source of tea",
+      "note": "the country the leaf first came from, and still the name printed on the caddy"
+     },
+     {
+      "clueFragment": "tea cups?",
+      "note": "the fine white ceramic they are made of, which took its name from where Europe first imported it"
+     }
+    ],
+    "walkthrough": "Both halves are about tea and both point at the same word, which is why the clue reads as one short question rather than two definitions in a row.",
+    "definitionFit": "Source of tea and tea cups? both -> CHINA: tea reached Europe from that country, and the porcelain the cups are made of is named after it too."
+   }
   },
   {
    "id": "24-across",
@@ -491,7 +1216,35 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAIRSPRAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HAIRSPRAY",
+    "definition": "setter in salon",
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "H",
+      "note": "H is hot, the letter on the tap"
+     },
+     {
+      "clueFragment": "breezes",
+      "gives": "AIRS",
+      "note": "an air is a light breeze, and the plural comes with it"
+     },
+     {
+      "clueFragment": "please",
+      "gives": "PRAY",
+      "note": "pray is the old-fashioned please, as in pray tell me"
+     }
+    ],
+    "pieces": [
+     "H",
+     "AIRS",
+     "PRAY"
+    ],
+    "walkthrough": "'Setter' is the word to distrust: in a crossword it usually means the person who wrote the clue, and here it is a thing that sets hair.",
+    "definitionFit": "setter in salon -> HAIRSPRAY: hairspray is what holds a style in place, so it literally sets the hair, and a salon is where most of it is used."
+   }
   },
   {
    "id": "25-down",
@@ -508,7 +1261,43 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIR",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + last letter",
+    "answer": "SIR",
+    "definition": "Man tapped on the shoulder",
+    "indicators": [
+     "turning",
+     "back to"
+    ],
+    "indicatorNotes": {
+     "turning": "A piece that is turning comes out facing the other way, so its two letters swap places.",
+     "back to": "The back of a word is its last letter, and that single letter is all of it that crosses over."
+    },
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own verb, taken at face value for its two letters"
+     },
+     {
+      "clueFragment": "customer",
+      "gives": "R",
+      "note": "the last letter of the word, and nothing more of it"
+     }
+    ],
+    "pieces": [
+     "SI",
+     "R"
+    ],
+    "subReversals": [
+     {
+      "from": "IS",
+      "to": "SI"
+     }
+    ],
+    "walkthrough": "A sword laid on each shoulder is a knighthood, so the definition is the ceremony; the rest of the sentence is shop-floor politeness and pure surface.",
+    "definitionFit": "Man tapped on the shoulder -> SIR: a knight is dubbed by a sword touched to his shoulders, and that is the title he answers to afterwards."
+   }
   },
   {
    "id": "26-across",
@@ -525,7 +1314,47 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MATADOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MATADOR",
+    "definition": "Deadly sportsman",
+    "indicators": [
+     "twirling"
+    ],
+    "indicatorNotes": {
+     "twirling": "Something given a twirl comes back to you facing the other way, so the assembled pieces are read from their far end."
+    },
+    "blocks": [
+     {
+      "clueFragment": "stick",
+      "gives": "ROD",
+      "note": "a rod is a stick, and this is the piece before the turn"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the clue's own preposition, taken for its two letters"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "AM",
+      "note": "am is the short form of amateur, as in am-dram"
+     }
+    ],
+    "pieces": [
+     "MA",
+     "TA",
+     "DOR"
+    ],
+    "subReversals": [
+     {
+      "from": "RODATAM",
+      "to": "MATADOR"
+     }
+    ],
+    "walkthrough": "'Twirling stick' paints a majorette and 'deadly sportsman' an assassin with a racket. Neither picture is the one the clue means, and only one word is an instruction.",
+    "definitionFit": "Deadly sportsman -> MATADOR: the matador is the bullfighter whose job is the kill, so 'deadly' is meant literally rather than as a compliment."
+   }
   },
   {
    "id": "27-across",
@@ -542,7 +1371,38 @@ window.CRYPTIC_PUZZLES["indysunday-1884"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHREWD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "SHREWD",
+    "definition": "Penetrating",
+    "indicators": [
+     "reported",
+     "after"
+    ],
+    "indicatorNotes": {
+     "reported": "A word reported is passed on by sound, so what goes in the grid is the noise it makes and not its spelling.",
+     "after": "What comes after goes second, so the sounded piece is written behind the hush rather than in front of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "call for peace",
+      "gives": "SH",
+      "note": "sh is the noise you make to quieten a room"
+     },
+     {
+      "clueFragment": "offensive",
+      "soundsLike": "RUDE",
+      "gives": "REWD",
+      "note": "offensive behaviour is rude, and once that sound follows the hush it is spelt differently"
+     }
+    ],
+    "pieces": [
+     "SH",
+     "REWD"
+    ],
+    "walkthrough": "'Penetrating offensive' reads as a military push, and that is the whole misdirection: the first word is the definition and the second is a noise.",
+    "definitionFit": "Penetrating -> SHREWD: a penetrating question is one that sees straight through things, which is exactly what a shrewd judgement does."
+   }
   }
  ]
 } /*JSON-END*/;
