@@ -35,7 +35,47 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
     ]
    },
    "solution": "OFFTHEWALL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OFF-THE-WALL",
+    "definition": "Eccentric",
+    "definitionFit": "Eccentric → OFF-THE-WALL: the idiom means wildly unconventional, as though bouncing away from any straight line, and it is everyday English rather than a crossword-only sense.",
+    "indicators": [
+     "follows"
+    ],
+    "indicatorNotes": {
+     "follows": "'follows' is a placement instruction rather than a description: the pieces named before it queue up behind the short word at the end of the clue."
+    },
+    "pieces": [
+     "OF",
+     "FT",
+     "HEW",
+     "ALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "OF",
+      "note": "a book about birds is a book of birds, so the two words swap in this sense"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the Financial Times, whose initials are crosswordland's favourite paper"
+     },
+     {
+      "clueFragment": "hack",
+      "gives": "HEW",
+      "note": "to hack at a log is to hew it"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone present is all of them"
+     }
+    ],
+    "walkthrough": "The surface hands you 'newspaper hack' as one job title, and the parse splits it into two unrelated pieces: a paper's initials and a verb about chopping wood."
+   }
   },
   {
    "id": "2-down",
@@ -52,7 +92,44 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLEX",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "FLEX",
+    "definition": "Move supply",
+    "definitionFit": "Move supply → FLEX: 'supply' is the adverb of 'supple', so the definition asks for movement that bends and gives, which is what flexing is.",
+    "indicators": [
+     "crossing"
+    ],
+    "indicatorNotes": {
+     "crossing": "'crossing' means passing right through something, so the letter it introduces ends up inside the other piece instead of alongside it."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "F",
+     "L",
+     "EX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "the chemical symbol for the metal"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "three by four is written 3 x 4, so 'by' is the multiplication sign"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "the standard map abbreviation"
+     }
+    ],
+    "walkthrough": "The trap is 'supply of iron', which reads as a delivery of metal. Split it the other way: 'supply' is an adverb, and the definition stops right there."
+   }
   },
   {
    "id": "3-down",
@@ -69,7 +146,44 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOSTADA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "TOSTADA",
+    "definition": "Fried tortilla",
+    "definitionFit": "Fried tortilla → TOSTADA: in Mexican cooking a tostada is precisely that, a tortilla fried flat and crisp so that toppings can be piled on it.",
+    "indicators": [
+     "flipped"
+    ],
+    "indicatorNotes": {
+     "flipped": "'flipped' means turned over the way you turn a pancake, so the three letters it governs are read from their far end back."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "TOS",
+     "TADA"
+    ],
+    "subReversals": [
+     {
+      "from": "SOT",
+      "to": "TOS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "SOT",
+      "note": "a sot is a habitual soak, and here the word is a noun, not an instruction"
+     },
+     {
+      "clueFragment": "cry of accomplishment",
+      "gives": "TADA",
+      "note": "ta-da is what you shout when you produce something with a flourish"
+     }
+    ],
+    "walkthrough": "'Drunk' sits next to a food word and looks exactly like an anagram signal. It is a noun instead, and the only thing done to it is a turn."
+   }
   },
   {
    "id": "4-down",
@@ -86,7 +200,46 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXTENSION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "EXTENSION",
+    "definition": "E.g. more time for homework",
+    "definitionFit": "E.g. more time for homework → EXTENSION: an extension is any granted lengthening of a deadline, and the 'e.g.' flags a school deadline as one instance of that.",
+    "indicators": [
+     "turning",
+     "after"
+    ],
+    "indicatorNotes": {
+     "turning": "'turning' here is what a birthday does — you turn sixteen and become something else — so the letters it governs come out as something else too.",
+     "after": "'after' is positional: the short piece it introduces sits behind the shuffled letters rather than in front of them."
+    },
+    "anagram": {
+     "fodder": "SIXTEEN ON"
+    },
+    "pieces": [
+     "EXTENSI",
+     "ON"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SIXTEEN",
+      "gives": "EXTENSI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sixteen",
+      "gives": "SIXTEEN",
+      "note": "seven letters handed over as the number is spelled out"
+     },
+     {
+      "clueFragment": "available",
+      "gives": "ON",
+      "note": "an offer that is on is one that is available"
+     }
+    ],
+    "walkthrough": "'Turning sixteen' is a whole idiom about birthdays, which is why it reads as scene-setting rather than as an instruction. Spelling the number out is the move."
+   }
   },
   {
    "id": "5-down",
@@ -107,7 +260,34 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASTRONOMERROYAL",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "ASTRONOMER ROYAL",
+    "definition": "A starry role, with moon involved?",
+    "definitionFit": "The whole clue reads straight: the post is a senior crown appointment in astronomy, so its holder's work genuinely is stars and moon, and the question mark flags the whimsy.",
+    "indicators": [
+     "involved"
+    ],
+    "indicatorNotes": {
+     "involved": "'involved' means tangled up with something, and letters tangled together do not come out in the order they went in."
+    },
+    "anagram": {
+     "fodder": "A STARRY ROLE MOON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A starry role",
+      "gives": "ASTARRYROLE",
+      "note": "eleven letters taken straight off the front of the clue"
+     },
+     {
+      "clueFragment": "moon",
+      "gives": "MOON",
+      "note": "four more letters joining the pile before it is shuffled"
+     }
+    ],
+    "walkthrough": "Every word does double duty here: read once it describes the job, read again it is fifteen letters and an instruction. That is what &lit means."
+   }
   },
   {
    "id": "6-down",
@@ -124,7 +304,47 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LILAC",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "LILAC",
+    "definition": "Shade of flowering tree",
+    "definitionFit": "Shade of flowering tree → LILAC: the pale mauve colour is named after the blossom of the shrub, so the plant's name doubles as the name of its own colour.",
+    "indicators": [
+     "during",
+     "to north"
+    ],
+    "indicatorNotes": {
+     "during": "'during' means in the middle of a stretch, so the letter it introduces lands inside the other piece rather than beside it.",
+     "to north": "north is up the page, and this entry runs down it, so the letters travel against the grid and are read the other way round."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "L",
+     "I",
+     "LAC"
+    ],
+    "subReversals": [
+     {
+      "from": "CALL",
+      "to": "LLAC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visit",
+      "gives": "CALL",
+      "note": "a visit is a call — you pay someone a call"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO alphabet"
+     }
+    ],
+    "walkthrough": "The comma after 'India' is the misdirection. The country is not where the tree grows, and 'visit' is a noun rather than the verb the sentence wants."
+   }
   },
   {
    "id": "7-across",
@@ -141,7 +361,24 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAWN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FAWN",
+    "definition": "Appear keen to serve",
+    "definition2": "venison one day?",
+    "definitionFit": "Both senses of one word: to fawn is to grovel for favour, and a fawn is a young deer — the meat it will become is the question mark's joke.",
+    "blocks": [
+     {
+      "clueFragment": "Appear keen to serve",
+      "note": "the verb: a courtier or a dog at your feet, showing exaggerated eagerness to please"
+     },
+     {
+      "clueFragment": "venison one day?",
+      "note": "the noun: an animal defined by what it will grow into rather than by what it is now"
+     }
+    ],
+    "walkthrough": "The two senses are unrelated in origin, which is what makes the pairing land — a servile courtier and a young deer have nothing in common but four letters."
+   }
   },
   {
    "id": "7-down",
@@ -158,7 +395,36 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORBEAR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FORBEAR",
+    "definition": "Avoid",
+    "definitionFit": "Avoid → FORBEAR: to forbear is to hold back from an action, which is how you avoid something by choosing simply not to do it.",
+    "indicators": [
+     "gripping"
+    ],
+    "indicatorNotes": {
+     "gripping": "'gripping' is holding tight in a closed fist, so the piece doing the gripping shuts around whatever is named next."
+    },
+    "pieces": [
+     "F",
+     "ORB",
+     "EAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terror",
+      "gives": "FEAR",
+      "note": "terror is fear at full strength"
+     },
+     {
+      "clueFragment": "globe",
+      "gives": "ORB",
+      "note": "an orb is any sphere, and the globe is the sphere we live on"
+     }
+    ],
+    "walkthrough": "'Gripping terror' is a phrase you have read a hundred times, which is exactly why the eye slides over it and misses that only one of those words is the container."
+   }
   },
   {
    "id": "8-down",
@@ -175,7 +441,35 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WUNDERKIND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WUNDERKIND",
+    "definition": "young wizard",
+    "definitionFit": "young wizard → WUNDERKIND: German for 'wonder child', it names someone brilliant at a thing while still very young, with 'wizard' in its whiz-at-something sense.",
+    "pieces": [
+     "W",
+     "UNDER",
+     "KIND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women",
+      "gives": "W",
+      "note": "W is the standard abbreviation, as on a lavatory door"
+     },
+     {
+      "clueFragment": "given orders by",
+      "gives": "UNDER",
+      "note": "you are under whoever gives you your orders"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "KIND",
+      "note": "a plain synonym in the sense of good-natured"
+     }
+    ],
+    "walkthrough": "'Wizard' is not a robed spellcaster but the everyday sense, a wizard with numbers. The orders in the clue are the ones you take, not the ones you give."
+   }
   },
   {
    "id": "9-across",
@@ -196,7 +490,38 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
     ]
    },
    "solution": "PETSIT",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "PET-SIT",
+    "definition": "Watch dog, say",
+    "definitionFit": "Watch dog, say → PET-SIT: to pet-sit is to mind someone's animal while they are away, and the 'say' offers a dog as one example of such an animal.",
+    "indicators": [
+     "beginning to",
+     "through"
+    ],
+    "indicatorNotes": {
+     "beginning to": "'beginning to' points at where a word starts rather than at what it means, and a word starts with exactly one letter.",
+     "through": "'through' is passage right into the middle, so the letter is planted inside the other piece instead of tacked on an end."
+    },
+    "pieces": [
+     "PET",
+     "S",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wee in Paris",
+      "gives": "PETIT",
+      "note": "'petit' is French for small, and Paris is the instruction to say it in French"
+     },
+     {
+      "clueFragment": "beginning to splash",
+      "gives": "S",
+      "note": "the first letter of the word that follows"
+     }
+    ],
+    "walkthrough": "'Wee' is the hinge of the joke: the surface wants the toilet sense, with the dog and the splash to help, while the wordplay wants the Scots sense, small."
+   }
   },
   {
    "id": "10-across",
@@ -213,7 +538,29 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOLERANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TOLERANT",
+    "definition": "Patient",
+    "definitionFit": "Patient → TOLERANT: both describe someone who puts up with irritation without complaining, and the word is an adjective in each case, not a noun.",
+    "indicators": [
+     "wandering"
+    ],
+    "indicatorNotes": {
+     "wandering": "'wandering' is straying off any fixed route, and letters that stray will not stay in the order they were given."
+    },
+    "anagram": {
+     "fodder": "ALERT NOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "alert, not",
+      "gives": "ALERTNOT",
+      "note": "eight letters lifted straight from the clue in the order the setter printed them"
+     }
+    ],
+    "walkthrough": "The surface reads like a note on a hospital chart. 'Patient' is the definition and an adjective there, not a person in a bed, which is the whole misdirection."
+   }
   },
   {
    "id": "11-across",
@@ -235,7 +582,37 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANNEOFCLEVES",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "ANNE OF CLEVES",
+    "definition": "a queen",
+    "definitionFit": "Definition by example: she was Henry VIII's fourth wife, and so queen consort of England for the six months that the marriage lasted.",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "the Reverend Spooner was famous for swapping the opening sounds of two words, and his name in a clue is the instruction to do it."
+    },
+    "pieces": [
+     "ANNE",
+     "OF",
+     "CLEVES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family all named after original matriarch",
+      "gives": "CLAN OF EVES",
+      "note": "a family is a clan, and everyone sharing the name of the first woman in Genesis is one of the Eves"
+     },
+     {
+      "clueFragment": "Spooner's",
+      "soundsLike": "CLAN OF EVES",
+      "gives": "ANNE OF CLEVES",
+      "note": "say that phrase, then move the CL from the front of the first word to the front of the last"
+     }
+    ],
+    "walkthrough": "Spoonerisms are worked backwards: build the innocent phrase the clue describes first, then shuffle its opening sounds and see what famous name falls out."
+   }
   },
   {
    "id": "12-down",
@@ -252,7 +629,49 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CADAVEROUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CADAVEROUS",
+    "definition": "Gaunt",
+    "definitionFit": "Gaunt → CADAVEROUS: a cadaver is a corpse, so cadaverous describes a face so hollow and fleshless that it looks like one.",
+    "indicators": [
+     "keeping",
+     "apart"
+    ],
+    "indicatorNotes": {
+     "keeping": "'keeping' is holding things in position, which gives the single letter just named a job: it holds the two larger pieces where they are.",
+     "apart": "'apart' means not touching, so the two pieces either side of it must have something wedged between them."
+    },
+    "pieces": [
+     "CAD",
+     "AVER",
+     "O",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rogue",
+      "gives": "CAD",
+      "note": "a cad is an old British word for a man who behaves dishonourably"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver something is to state it formally, as a witness does"
+     },
+     {
+      "clueFragment": "head of operations",
+      "gives": "O",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the two-letter abbreviation for the United States"
+     }
+    ],
+    "walkthrough": "'Rogue state' reads as one phrase straight off a news bulletin, and that is the misdirection: the two words are clued separately and never belong together."
+   }
   },
   {
    "id": "13-across",
@@ -269,7 +688,35 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAFARI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SAFARI",
+    "definition": "Hunting trip",
+    "definitionFit": "Hunting trip → SAFARI: Swahili for a journey, the word entered English specifically for the big-game expedition, so the hunting sense is its original one.",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "'mostly' means all but a little, and the little you leave out is the final letter — here it does that job to two separate words."
+    },
+    "pieces": [
+     "SAF",
+     "ARI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free of risk",
+      "gives": "SAF",
+      "note": "a four-letter word for out of danger, docked of its last letter"
+     },
+     {
+      "clueFragment": "very dry",
+      "gives": "ARI",
+      "note": "a four-letter word for parched land, docked the same way"
+     }
+    ],
+    "walkthrough": "One indicator doing two jobs is the thing to spot here: 'mostly' is placed early and reaches over the 'and' to trim both halves alike."
+   }
   },
   {
    "id": "14-across",
@@ -290,7 +737,24 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONSTRIKE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ON STRIKE",
+    "definition": "Facing",
+    "definition2": "out",
+    "definitionFit": "In cricket the batter receiving the bowling is on strike, so is facing; workers who have downed tools and walked out are on strike too.",
+    "blocks": [
+     {
+      "clueFragment": "Facing",
+      "note": "the cricket sense: of the two batters at the wicket, the one the bowler is aiming at"
+     },
+     {
+      "clueFragment": "out",
+      "note": "the industrial sense: a workforce that has stopped work is said to be out"
+     }
+    ],
+    "walkthrough": "Two words, two definitions, no wordplay at all. Short clues like this are often the hardest, because there is nothing to take apart and no indicator to find."
+   }
   },
   {
    "id": "15-down",
@@ -307,7 +771,49 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRATAGEM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + reversal",
+    "answer": "STRATAGEM",
+    "definition": "Plan",
+    "definitionFit": "Plan → STRATAGEM: a stratagem is a plan with cunning in it, a scheme for outwitting somebody, rather than a neutral arrangement of steps.",
+    "indicators": [
+     "upset",
+     "moving right up"
+    ],
+    "indicatorNotes": {
+     "upset": "'upset' reads as set up, tipped over, so the piece it governs is read from the bottom of this down entry towards the top.",
+     "moving right up": "'right' names the letter R and 'up' names the direction, and up a down entry means earlier, so that one letter shifts a place towards the top."
+    },
+    "pieces": [
+     "STRAT",
+     "AGEM"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "START",
+      "gives": "STRAT"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "MEGA",
+      "to": "AGEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kick-off",
+      "gives": "START",
+      "note": "the kick-off is the start of a match"
+     },
+     {
+      "clueFragment": "huge",
+      "gives": "MEGA",
+      "note": "mega is the prefix for enormous, and on its own it is slang for the same"
+     }
+    ],
+    "walkthrough": "The surface is a football result, and 'upset' looks like an anagram signal aimed at 'huge'. It is not: 'huge' is a word to be turned, and only one letter changes places."
+   }
   },
   {
    "id": "16-across",
@@ -324,7 +830,41 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAGRANGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAGRANGE",
+    "definition": "Mathematician",
+    "definitionFit": "Mathematician → LAGRANGE: definition by example, Joseph-Louis Lagrange being an eighteenth-century giant of mechanics and number theory.",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "'after' is a positional instruction: the two pieces named before it sit behind the one word named at the end."
+    },
+    "pieces": [
+     "LAG",
+     "RANG",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delay",
+      "gives": "LAG",
+      "note": "a lag is a delay between two things"
+     },
+     {
+      "clueFragment": "telephoned",
+      "gives": "RANG",
+      "note": "to telephone somebody is to ring them"
+     },
+     {
+      "clueFragment": "Euler's number",
+      "gives": "E",
+      "note": "e is the constant behind natural logarithms, about 2.718"
+     }
+    ],
+    "walkthrough": "A whole mathematical constant standing in for a single letter is a trick worth banking — 'Euler's number' looks like a fact to know and is really one character."
+   }
   },
   {
    "id": "17-down",
@@ -341,7 +881,44 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROUTINE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "ROUTINE",
+    "definition": "Turn",
+    "definitionFit": "Turn → ROUTINE: a performer's turn is their routine, the set piece they go on and do — a theatrical sense of the noun, not rotation.",
+    "indicators": [
+     "into",
+     "abroad"
+    ],
+    "indicatorNotes": {
+     "into": "'into' names a destination rather than a sum of money, so the piece before it is planted inside the piece after it.",
+     "abroad": "'abroad' means scattered far and wide, so the four letters it governs are spread out into a different order."
+    },
+    "pieces": [
+     "ROU",
+     "TIN",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "EURO",
+      "gives": "ROUE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Euro",
+      "gives": "ROUE",
+      "note": "the currency's four letters, spread into a new order"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is old British slang for cash"
+     }
+    ],
+    "walkthrough": "'Turn' wants to be an instruction to reverse something. It is the definition instead, in the music-hall sense: a single act on a variety bill."
+   }
   },
   {
    "id": "18-across",
@@ -358,7 +935,29 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAGING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RAGING",
+    "definition": "Stormy",
+    "definitionFit": "Stormy → RAGING: a raging storm is the stock phrase, and on its own the word describes weather at its most violent pitch.",
+    "pieces": [
+     "RAG",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece by Joplin",
+      "gives": "RAG",
+      "note": "Scott Joplin wrote ragtime, and one ragtime composition is a rag"
+     },
+     {
+      "clueFragment": "with one sharp?",
+      "gives": "ING",
+      "note": "a key signature of a single sharp is G major, so such a piece is written in G"
+     }
+    ],
+    "walkthrough": "'Joplin' wants to be Janis and is Scott. The question mark then flags the key signature as a roundabout way of naming one particular note."
+   }
   },
   {
    "id": "19-down",
@@ -375,7 +974,47 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GODDAMN",
-   "annotation": null
+   "annotation": {
+    "type": "substitution + charade",
+    "answer": "GODDAMN",
+    "definition": "Hateful",
+    "definitionFit": "Hateful → GODDAMN: used as an adjective it is what you spit at something you detest, so it carries exactly that loathing rather than mere emphasis.",
+    "indicators": [
+     "turning to"
+    ],
+    "indicatorNotes": {
+     "turning to": "'turning to' is a change of allegiance: whatever it names first walks out, and whatever it names next takes over that place."
+    },
+    "pieces": [
+     "G",
+     "ODD",
+     "AM",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "the spirit, spelled out — these are the letters the swap happens inside"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral, and the letter that is about to leave"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "ODD",
+      "note": "rum is an old British adjective meaning strange or peculiar"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "the half of the clock before noon"
+     }
+    ],
+    "walkthrough": "Two spirits in a row make the surface look like a drinks order, and only the first is a drink in the wordplay — the second is an adjective, the third a numeral."
+   }
   },
   {
    "id": "20-across",
@@ -392,7 +1031,45 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEQUESTRATED",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SEQUESTRATED",
+    "definition": "kept apart",
+    "definitionFit": "kept apart → SEQUESTRATED: to sequestrate is to seize property and hold it aside, so what has been sequestrated is shut away from whoever owned it.",
+    "indicators": [
+     "outside"
+    ],
+    "indicatorNotes": {
+     "outside": "'outside' puts one piece around the others, which means its own letters split so that some lead and the rest follow."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "SE",
+     "QUEST",
+     "RAT",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hunt",
+      "gives": "QUEST",
+      "note": "as a noun, a hunt for something is a quest"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "RAT",
+      "note": "to rat on someone is to betray them, so a rat is the betrayer"
+     },
+     {
+      "clueFragment": "likely winner",
+      "gives": "SEED",
+      "note": "a seed in tennis is a ranked player expected to go far in the draw"
+     }
+    ],
+    "walkthrough": "'Hunt' opens the clue with a capital letter and a verb's shape, which is the misdirection: it is a noun, and it is not the definition."
+   }
   },
   {
    "id": "21-down",
@@ -409,7 +1086,32 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLID",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOLID",
+    "definition": "all made of the same material",
+    "definitionFit": "all made of the same material → SOLID: solid gold means gold right through rather than plated, so this is the uniform-substance sense, not the hard-not-soft one.",
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "SO",
+     "LID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incredibly",
+      "gives": "SO",
+      "note": "'incredibly hot' just means 'hot' with an intensifier, and this is the shortest one"
+     },
+     {
+      "clueFragment": "cap",
+      "gives": "LID",
+      "note": "the cap on a jar is its lid"
+     }
+    ],
+    "walkthrough": "'Incredibly' at the head of a clue, with a comma after it, looks like an anagram signal. Here it is plain fodder: a two-letter synonym is all it hands over."
+   }
   },
   {
    "id": "22-down",
@@ -426,7 +1128,29 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEAT",
+    "definition": "course for police",
+    "definitionFit": "course for police → BEAT: a constable's beat is the fixed round they walk, so the ground itself takes its name from the pacing that covers it.",
+    "pieces": [
+     "BE",
+     "AT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attend",
+      "gives": "BE",
+      "note": "to attend a thing is to be present at it, and this is the verb that phrase opens with"
+     },
+     {
+      "clueFragment": "Attend",
+      "gives": "AT",
+      "note": "the second half of that same two-word phrase — you attend something by being at it"
+     }
+    ],
+    "walkthrough": "A four-letter answer with only three words of clue: 'Attend' is not a definition at all but a single word that unpacks into a two-word phrase."
+   }
   },
   {
    "id": "23-across",
@@ -443,7 +1167,36 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOVIALLY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "JOVIALLY",
+    "definition": "in high spirits",
+    "definitionFit": "in high spirits → JOVIALLY: jovial comes from Jove, whose planet was held to make people merry, so to act jovially is to act cheerfully.",
+    "indicators": [
+     "crosses"
+    ],
+    "indicatorNotes": {
+     "crosses": "'crosses' means goes over the top of, so one piece lies across the other and has to open up to let it through."
+    },
+    "pieces": [
+     "JO",
+     "VIA",
+     "LLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal Marine",
+      "gives": "JOLLY",
+      "note": "a jolly is old naval slang for a Royal Marine"
+     },
+     {
+      "clueFragment": "Roman road",
+      "gives": "VIA",
+      "note": "via is simply Latin for road, and 'Roman' tells you which language to use"
+     }
+    ],
+    "walkthrough": "Both halves are vocabulary rather than mechanism, which is why this one is either instant or impossible: you either know the naval slang or you do not."
+   }
   },
   {
    "id": "24-across",
@@ -460,7 +1213,35 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLAZED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GLAZED",
+    "definition": "given coat then fired?",
+    "definitionFit": "given coat then fired? → GLAZED: pottery is glazed by brushing on a coat of glaze and baking it in a kiln, which is both halves at once.",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "'after' is positional: what it introduces goes in front, so the single letter ends up leading and the longer word trails it."
+    },
+    "pieces": [
+     "G",
+     "LAZED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "G in the NATO alphabet, the same table that gives India and Whiskey"
+     },
+     {
+      "clueFragment": "Was an idler",
+      "gives": "LAZED",
+      "note": "the past tense is doing real work — it is what makes the tense of the answer come out right"
+     }
+    ],
+    "walkthrough": "The question mark is the warning label: 'fired' here means a kiln rather than a dismissal, and 'coat' is a layer of liquid rather than something you wear."
+   }
   },
   {
    "id": "25-across",
@@ -477,7 +1258,26 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISLE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ISLE",
+    "definition": "area for Notre-Dame?",
+    "definitionFit": "area for Notre-Dame? → ISLE: the cathedral was built on an island in the Seine, so the question mark flags one particular one standing for the class.",
+    "indicators": [
+     "In centre of"
+    ],
+    "indicatorNotes": {
+     "In centre of": "'In centre of' points at where letters sit rather than at what words mean, and the middle of the stretch that follows is where to look."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Paris, level",
+      "gives": "ISLE",
+      "note": "four letters in a row, straddling both the comma and the space between the two words"
+     }
+    ],
+    "walkthrough": "Punctuation is the disguise. A concealed answer that runs across a comma is far harder to see than one buried inside a single long word."
+   }
   },
   {
    "id": "26-across",
@@ -494,7 +1294,29 @@ window.CRYPTIC_PUZZLES["indysunday-1882"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DELAMINATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DELAMINATE",
+    "definition": "Peel apart",
+    "definitionFit": "Peel apart → DELAMINATE: a laminate is built from bonded layers, so to delaminate is for those layers to come unstuck and lift away from each other.",
+    "indicators": [
+     "bananas"
+    ],
+    "indicatorNotes": {
+     "bananas": "'bananas' means driven out of your mind, and letters sent out of their minds will not keep the places they were in."
+    },
+    "anagram": {
+     "fodder": "EAT LIME AND"
+    },
+    "blocks": [
+     {
+      "clueFragment": "eat lime and",
+      "gives": "EATLIMEAND",
+      "note": "ten letters taken straight from the clue, in the order they are printed"
+     }
+    ],
+    "walkthrough": "The surface is a fruit bowl and 'Peel' plays along with it. It is the definition, and a verb — the fruit is only there to be shuffled."
+   }
   }
  ]
 } /*JSON-END*/;
