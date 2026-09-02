@@ -86,6 +86,12 @@ MAX_WINDOWS = int(float(os.environ.get("PRERESET_MAX_HOURS", 7 * 24)) / SESSION_
 # quota — the failure this whole file exists to fix — while guessing low costs an
 # earlier start inside a window that was going to evaporate anyway.
 SAFETY = 0.7
+# Margin on the computed endgame start, and the guards either side of it. The
+# measurement is good to about one wave, so the margin is one wave's worth. The
+# ceiling is a sanity guard on a corrupt rate, not a policy — no reserve is
+# worth taking half a window off somebody to spend.
+ENDGAME_SLACK = 1.25
+ENDGAME_FLOOR, ENDGAME_CEIL = 25, 120
 
 
 def _read(path, seed):
@@ -155,7 +161,7 @@ def window_hours(pct_left, y=None):
     return windows(pct_left, y) * SESSION_HOURS
 
 
-def width(pct_left, hours_left, r=None):
+def width(pct_left, hours_left, r=None, y=None):
     """How many annotation runs to keep in flight for the next wave.
 
     Sized to fill the CURRENT five-hour window, not the whole remainder: past
@@ -163,11 +169,43 @@ def width(pct_left, hours_left, r=None):
     would have bought it fail instead.
     """
     r = rate() if r is None else r
-    goal = min(session_yield(), pct_left)
+    # Threaded, not read from the file: a self-test whose answer depends on what
+    # last night's waves happened to measure is not a test of anything.
+    y = session_yield() if y is None else y
+    goal = min(y, pct_left)
     hours = min(SESSION_HOURS, hours_left)
     if hours <= 0 or goal <= 0:
         return 1
     return max(1, min(CAP, math.ceil(goal / (hours * r * SAFETY))))
+
+
+def session_rate(width_=1, r=None, y=None):
+    """Five-hour meter points burned per hour at this width.
+
+    `rate` is measured against the WEEKLY meter and `session_yield` is what a
+    whole five-hour window is worth on that same meter, so their ratio converts
+    one to the other without a second measurement.
+    """
+    r = rate() if r is None else r
+    y = session_yield() if y is None else y
+    return r * width_ * 100.0 / max(y, 1e-6)
+
+
+def endgame_min(reserve_pct, width_=1, r=None, y=None):
+    """Minutes before the reset at which the held-back reserve starts spending.
+
+    Sized so the reserve runs out AS the window turns over. Both ways of being
+    wrong cost something real and they are not symmetric in kind: too late
+    strands quota on a window that is about to expire, too early hands the job
+    a window Paul is still trying to use. Paul would rather overspend than
+    strand any, hence the slack — but only a slack, because a fixed 90 minutes
+    ran a window to 100% a full hour before its reset and that hour was his.
+    """
+    per_h = session_rate(width_, r, y)
+    if per_h <= 0:
+        return ENDGAME_CEIL
+    mins = math.ceil(reserve_pct / per_h * 60 * ENDGAME_SLACK)
+    return int(max(ENDGAME_FLOOR, min(ENDGAME_CEIL, mins)))
 
 
 def behind(hours_until_reset, pct, y=None):
@@ -216,6 +254,13 @@ def self_test():
         (4, 1, True),       # the last window, whatever is left in it
         (4, 0, False),      # nothing left: never spend, however close the reset
     ]
+    endgames = [
+        # reserve pct, width -> minutes before the reset to start spending it
+        (25, 4, 54),        # the live shape: a reserve that needs most of an hour
+        (25, 8, 27),        # wide enough to drain it fast, so start late
+        (25, 1, 120),       # one at a time cannot drain 25 points; guard, not plan
+        (0, 4, 25),         # no reserve to hand back: never zero, never negative
+    ]
     bad = 0
     for hours, left, want in schedule:
         got = behind(hours, left, Y)
@@ -230,13 +275,19 @@ def self_test():
             print(f"FAIL start {left}% at yield {y}: {got:.2f}h (want {want})", file=sys.stderr)
             bad += 1
     for left, hours, want in widths:
-        got = width(left, hours, R)
+        got = width(left, hours, R, Y)
         if got != want:
             print(f"FAIL width {left}% in {hours}h: {got} (want {want})", file=sys.stderr)
             bad += 1
+    for reserve, wide, want in endgames:
+        got = endgame_min(reserve, wide, R, Y)
+        if got != want:
+            print(f"FAIL endgame {reserve}% at width {wide}: {got}m (want {want})",
+                  file=sys.stderr)
+            bad += 1
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
-    n = len(starts) + len(widths) + len(schedule)
+    n = len(starts) + len(widths) + len(schedule) + len(endgames)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -258,6 +309,13 @@ def main():
         return 0
     if "--yield" in sys.argv:
         print(f"{session_yield():.3f}")
+        return 0
+    if "--endgame-min" in sys.argv:
+        at = sys.argv.index("--endgame-min")
+        args = sys.argv[at + 1:at + 3]
+        reserve = float(args[0])
+        wide = float(args[1]) if len(args) > 1 and not args[1].startswith("-") else 1
+        print(endgame_min(reserve, wide))
         return 0
     if "--width" in sys.argv:
         hours = float(sys.argv[sys.argv.index("--width") + 1])

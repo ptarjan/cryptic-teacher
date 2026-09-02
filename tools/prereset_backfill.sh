@@ -109,10 +109,26 @@ BRIDGE_DIR="${BRIDGE_DIR:-$HOME/.claude/projects/-Users-pt}"
 BRIDGE_IDLE_MIN="${BRIDGE_IDLE_MIN:-60}"
 # The reserve is DEFERRED, never forfeited. A five-hour window that turns over
 # with room left on it has thrown that room away for good, so in the last of its
-# minutes the reserve gets spent whether or not anyone is on the bridge: the
-# worst that costs is a lockout that ends when the window does, and this many
-# minutes is how long that lockout can last.
+# minutes the reserve gets spent whether or not anyone is on the bridge.
+#
+# How many minutes is NOT a constant: it is however long the reserve takes to
+# spend at the width in use, which prereset_plan measures. This number is also
+# exactly how long the lockout it causes can last, so a constant is wrong in
+# both directions — too small strands quota on an expiring window, too big takes
+# an account Paul is using and hands it nothing to show for the difference. An
+# env override is honoured as-is and never refreshed.
+SESSION_ENDGAME_FIXED=$([ -n "${SESSION_ENDGAME_MIN:-}" ] && echo 1 || echo 0)
 SESSION_ENDGAME_MIN="${SESSION_ENDGAME_MIN:-40}"
+
+# Re-derive the endgame from the width the last wave actually ran at. Silent on
+# failure: the previous value is a better answer than no gate at all.
+refresh_endgame() {
+  local got
+  [ "$SESSION_ENDGAME_FIXED" = 1 ] && return 0
+  got=$(python3 tools/prereset_plan.py --endgame-min "$SESSION_RESERVE_PCT" "${1:-1}" 2>/dev/null)
+  case "$got" in ''|*[!0-9]*) return 0 ;; esac
+  SESSION_ENDGAME_MIN="$got"
+}
 # One nap per five-hour window this job asked for is the PLAN, not a failure, so
 # the allowance is that count with slack rather than a constant. A constant that
 # is smaller than the number of windows ends the job in the middle of the run it
@@ -456,6 +472,10 @@ after_wave() {
   # over is gone for nothing, so the nap below wakes for the window's last
   # SESSION_ENDGAME_MIN minutes and spends the reserve then regardless of who is
   # about — a lockout that late cannot outlast the window it is in.
+  # This wave just re-measured the burn, so the endgame it implies is fresher
+  # than the one the last wave computed. Sized at THIS wave's width, which is
+  # the width the endgame will run at too.
+  refresh_endgame "$wide"
   local left_min
   left_min=$(session_left_min)
   # Only when the wave came back clean: if the API already refused it, the window
