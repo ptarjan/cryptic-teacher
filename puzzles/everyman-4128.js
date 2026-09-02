@@ -30,7 +30,32 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARLIAMENTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PARLIAMENTS",
+    "definition": "Those passing laws",
+    "linkWords": [
+     "showing"
+    ],
+    "indicators": [
+     "regrettable"
+    ],
+    "indicatorNotes": {
+     "regrettable": "something regrettable has gone wrong, and letters that have gone wrong no longer stand in the order the clue handed them over in"
+    },
+    "anagram": {
+     "fodder": "PATERNALISM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "paternalism",
+      "gives": "PATERNALISM",
+      "note": "eleven letters, exactly the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Regrettable paternalism' reads as a complaint about a nannying government, which is why the second noun looks like an opinion rather than eleven letters waiting to be moved around.",
+    "definitionFit": "Those passing laws → PARLIAMENTS: a parliament is the assembly that makes a country's statutes, so the plural names the law-making bodies themselves."
+   }
   },
   {
    "id": "1-down",
@@ -53,7 +78,41 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PITHIER",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "PITHIER",
+    "definition": "Shorter",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "harbour",
+     "short"
+    ],
+    "indicatorNotes": {
+     "harbour": "to harbour someone is to shelter them inside your own walls, so what is harboured sits within the word beside it",
+     "short": "asking for something short is asking for it cut down, and a word cut down loses the letter at its end"
+    },
+    "pieces": [
+     "PI",
+     "THI",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jetty",
+      "gives": "PIER",
+      "note": "a jetty running out into the water is a pier, and it splits to make room for a guest"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THI",
+      "note": "the italics mark the word itself rather than anything it points at, and it is handed over docked of its final letter"
+     }
+    ],
+    "walkthrough": "The italics are the whole instruction: that word is not pointing at anything in the clue, it is the four-letter word itself, handed over with its tail docked.",
+    "definitionFit": "Shorter → PITHIER: something pithier says the same thing in fewer words, so it is shorter in the sense of more concise rather than smaller."
+   }
   },
   {
    "id": "2-down",
@@ -70,7 +129,27 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFLECTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REFLECTS",
+    "definition": "Considers",
+    "definition2": "what a still lake does",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Considers",
+      "gives": "REFLECTS",
+      "note": "to consider a matter is to turn it over in the mind, and there is one verb for that"
+     },
+     {
+      "clueFragment": "what a still lake does",
+      "gives": "REFLECTS",
+      "note": "water with no ripple on it throws back the image of everything above it"
+     }
+    ],
+    "walkthrough": "There is nothing to take apart here: two straight definitions sit end to end, and the second is a description standing in for a single verb.",
+    "definitionFit": "To reflect is to think a matter over, and a mirror-calm lake reflects by throwing an image back — one sense mental, one physical."
+   }
   },
   {
    "id": "3-down",
@@ -87,7 +166,28 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IOTA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "IOTA",
+    "definition": "Greek character",
+    "indicators": [
+     "reading",
+     "not in full"
+    ],
+    "indicatorNotes": {
+     "reading": "reading a phrase means running your eye along its letters as they already stand, without moving any of them",
+     "not in full": "taking something not in full means stopping short of all of it, so only part of the letters on offer are used"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Riot Act",
+      "gives": "IOTA",
+      "note": "four consecutive letters run across these two words, straight through the space between them"
+     }
+    ],
+    "walkthrough": "'Reading the Riot Act' is a set phrase for a stern telling-off, and the capital letters sell it as history. The bracket at the end is where the real instruction hides.",
+    "definitionFit": "Greek character → IOTA: the ninth letter of the Greek alphabet, with 'character' meaning a written sign here rather than a person."
+   }
   },
   {
    "id": "4-down",
@@ -104,7 +204,44 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MADAGASCAR",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + deletion",
+    "answer": "MADAGASCAR",
+    "definition": "somewhere in Africa",
+    "indicators": [
+     "curtailed",
+     "shipping"
+    ],
+    "indicatorNotes": {
+     "curtailed": "a curtailed thing has had its tail cut off, so the last letter of what it names never arrives",
+     "shipping": "to ship goods is to carry them inside the hold, so whatever is shipped ends up within the carrier"
+    },
+    "pieces": [
+     "M",
+     "AD",
+     "AG",
+     "ASCAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "18",
+      "gives": "MASCAR",
+      "note": "the answer at 18 down, less its final letter, and it opens up to take cargo"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "a commercial on television is an ad, short for advertisement"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is silver's symbol in the periodic table, from the Latin argentum"
+     }
+    ],
+    "walkthrough": "A cross-reference clue, so another entry has to be solved first. 'Commercial silver' reads as a phrase off the metals market and is two separate abbreviations.",
+    "definitionFit": "somewhere in Africa → MADAGASCAR: the large island off the continent's south-east coast is an African country, so the vague phrase defines by example."
+   }
   },
   {
    "id": "5-down",
@@ -121,7 +258,30 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NONET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NONET",
+    "definition": "group",
+    "indicators": [],
+    "pieces": [
+     "NO",
+     "NET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The bravest",
+      "gives": "NO",
+      "note": "the ones with the most nerve use none of the safety gear, and 'none of it' shrinks to two letters"
+     },
+     {
+      "clueFragment": "trapeze artists perform with this",
+      "gives": "NET",
+      "note": "the mesh slung under a high wire to catch anyone who falls"
+     }
+    ],
+    "walkthrough": "Trapeze artists work above a safety net and the bravest go on without one, which is the picture the clue is painting. 'Group' at the end is the only straight word in the sentence.",
+    "definitionFit": "group → NONET: in music a nonet is an ensemble of nine players, so the plain word defines it by the class it belongs to."
+   }
   },
   {
    "id": "6-down",
@@ -138,7 +298,40 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEAMER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STEAMER",
+    "definition": "Boat",
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "indicators": [],
+    "pieces": [
+     "S",
+     "TEAM",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "a second of time is written s, the standard scientific abbreviation"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "TEAM",
+      "note": "a crew is a set of people working together, which is what a team is"
+     },
+     {
+      "clueFragment": "sign of uncertainty",
+      "gives": "ER",
+      "note": "the noise someone makes while hesitating, written down as two letters"
+     }
+    ],
+    "walkthrough": "'Boat's second' invites you to count into the word and take its second letter. 'Second' is the unit of time here, and the boat is the definition standing at the front.",
+    "definitionFit": "Boat → STEAMER: any vessel driven by a steam engine, so it defines by naming the class of boat rather than one ship."
+   }
   },
   {
    "id": "7-down",
@@ -161,7 +354,29 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROLLOFTHEDICE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROLL OF THE DICE",
+    "definition": "Risky attempt",
+    "indicators": [
+     "wavers"
+    ],
+    "indicatorNotes": {
+     "wavers": "something that wavers will not hold still, and letters that will not hold still end up somewhere other than where they started"
+    },
+    "anagram": {
+     "fodder": "FORCED HELLO IT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "forced 'hello'; it",
+      "gives": "FORCEDHELLOIT",
+      "note": "thirteen letters, exactly the count the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Forced' looks like the word doing the shuffling and is not: it describes a strained greeting and is part of the raw material. The instruction to move things comes last.",
+    "definitionFit": "Risky attempt → ROLL OF THE DICE: throwing dice settles a matter purely by chance, so the phrase names any try whose outcome you cannot control."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +397,53 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
     ]
    },
    "solution": "STORAGEDEVICE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "STORAGE DEVICE",
+    "definition": "the computer's memory",
+    "linkWords": [
+     "to",
+     "it's"
+    ],
+    "indicators": [
+     "after",
+     "abrupt"
+    ],
+    "indicatorNotes": {
+     "after": "what comes after a thing is written down behind it, so the anger lands second and the halt goes in first",
+     "abrupt": "an abrupt stop breaks off before it is finished, so the word for a halt loses its final letter"
+    },
+    "pieces": [
+     "STO",
+     "RAGED",
+     "EV",
+     "ICE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "halt",
+      "gives": "STO",
+      "note": "a four-letter word for a halt, broken off before its last letter"
+     },
+     {
+      "clueFragment": "Expressed anger",
+      "gives": "RAGED",
+      "note": "someone who expressed anger raged, in the past tense the clue is using"
+     },
+     {
+      "clueFragment": "electric vehicle",
+      "gives": "EV",
+      "note": "the two initials now standard for an electric vehicle on any forecourt"
+     },
+     {
+      "clueFragment": "freeze",
+      "gives": "ICE",
+      "note": "to ice something is to freeze it, and ice is what frozen water becomes"
+     }
+    ],
+    "walkthrough": "The punctuation does the hiding: a colon and a semicolon chop the sentence into four unrelated-looking scraps, so it reads as a list of complaints rather than a build.",
+    "definitionFit": "the computer's memory → STORAGE DEVICE: the disk or drive a machine keeps its data on, memory in the everyday sense of where things are kept."
+   }
   },
   {
    "id": "9-across",
@@ -204,7 +465,30 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
     ]
    },
    "solution": "OUTOFIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OUT OF IT",
+    "definition": "in La-La Land",
+    "indicators": [],
+    "pieces": [
+     "OUT OF",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No longer working in",
+      "gives": "OUTOF",
+      "note": "someone who has left a trade is out of that trade, two short words"
+     },
+     {
+      "clueFragment": "computing",
+      "gives": "IT",
+      "note": "IT is information technology, the usual initials for the computing business"
+     }
+    ],
+    "walkthrough": "Two 'in's run together and the join between the halves is hard to spot: the first belongs to the wordplay, the second opens the definition.",
+    "definitionFit": "in La-La Land → OUT OF IT: both describe someone dazed and taking nothing in, whether through tiredness, drink or daydreaming."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +505,47 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DENSEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "DENSEST",
+    "definition": "as thick as can be",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "on backside",
+     "in"
+    ],
+    "indicatorNotes": {
+     "on backside": "what sits on a word's backside is its rear end, so only the letter at the very back of that word is taken",
+     "in": "this little word puts one thing inside another, and here a single letter drops into the middle of what follows"
+    },
+    "pieces": [
+     "DEN",
+     "SE",
+     "S",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comfy room",
+      "gives": "DEN",
+      "note": "the name for the small snug room in a house where people go to slump"
+     },
+     {
+      "clueFragment": "TV",
+      "gives": "SET",
+      "note": "a television is a set, the old word still used for the box in the corner"
+     },
+     {
+      "clueFragment": "Doofus",
+      "gives": "S",
+      "note": "only one letter of this word is wanted, the one standing at the very end"
+     }
+    ],
+    "walkthrough": "The surface paints an idiot slouched in front of the telly. 'Comfy room with TV' is not one thing to look up but two separate words laid side by side.",
+    "definitionFit": "as thick as can be → DENSEST: thick means stupid in British usage, and the superlative names the most stupid of the lot."
+   }
   },
   {
    "id": "11-across",
@@ -238,7 +562,36 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOIRE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LOIRE",
+    "definition": "French banker",
+    "indicators": [
+     "investing"
+    ],
+    "indicatorNotes": {
+     "investing": "to invest money is to put it into something, so the letter named goes inside the word beside it"
+    },
+    "pieces": [
+     "L",
+     "O",
+     "IRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turkish capital",
+      "gives": "LIRE",
+      "note": "capital here is money, and the Turkish unit is the lira — this is its plural"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is written as a zero, and a zero on the page is a letter O"
+     }
+    ],
+    "walkthrough": "'Turkish capital' wants to be Ankara and 'French banker' wants to be a man in a suit. Both are the wrong half of the pun: one is money, the other geography.",
+    "definitionFit": "French banker → LOIRE: crossword shorthand in which a banker is anything that has banks, and the Loire is the longest river in France."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +612,24 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
     ]
    },
    "solution": "EGGTIMER",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "EGG TIMER",
+    "definition": "Alarm triggered by poacher?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "poacher?",
+      "note": "the surface offers a man creeping across someone else's land after game, and the question mark warns that this is not the sense wanted"
+     },
+     {
+      "clueFragment": "Alarm triggered by",
+      "note": "the setter means a poacher at the stove, who needs telling when the three minutes are up, and something small beside the pan does the ringing"
+     }
+    ],
+    "walkthrough": "There is no wordplay to separate out here. Everything turns on which kind of poacher you picture: the one with a gun in the woods, or the one at the hob.",
+    "definitionFit": "Alarm triggered by poacher? → EGG TIMER: it counts down and sounds off for whoever is poaching an egg, so the whole sentence is the definition."
+   }
   },
   {
    "id": "13-down",
@@ -280,7 +650,41 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
     ]
    },
    "solution": "ILLNATURED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ILL-NATURED",
+    "definition": "Sullen",
+    "indicators": [
+     "across"
+    ],
+    "indicatorNotes": {
+     "across": "something laid across a thing covers it from one side to the other, so the pieces either side close round the middle"
+    },
+    "pieces": [
+     "ILL",
+     "NATURE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman's going to",
+      "gives": "ILL",
+      "note": "the setter calls himself Everyman, so 'Everyman is going to' becomes I'll, and the grid drops the apostrophe"
+     },
+     {
+      "clueFragment": "the countryside",
+      "gives": "NATURE",
+      "note": "open country and its wildlife, as against the town"
+     },
+     {
+      "clueFragment": "drive",
+      "gives": "D",
+      "note": "D is the single letter for drive, as on the selector of an automatic gearbox"
+     }
+    ],
+    "walkthrough": "Everyman signs his clues in the first person, so his name is a pronoun wherever it appears. The country outing on the surface is doing nothing but hiding that.",
+    "definitionFit": "Sullen → ILL-NATURED: both describe a person whose temper is sour and unwelcoming, one as the mood shown and one as the disposition behind it."
+   }
   },
   {
    "id": "14-across",
@@ -301,7 +705,27 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
     ]
    },
    "solution": "FIRSTCLASS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FIRST-CLASS",
+    "definition": "Terrific",
+    "definition2": "group taught after the register?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Terrific",
+      "gives": "FIRSTCLASS",
+      "note": "the everyday praise word for something of the very highest quality"
+     },
+     {
+      "clueFragment": "group taught after the register?",
+      "gives": "FIRSTCLASS",
+      "note": "the register is the attendance roll a British teacher calls at the start of the day, so the lesson following it is the earliest one"
+     }
+    ],
+    "walkthrough": "The question mark is the setter admitting the second reading is a joke rather than a dictionary sense: the two halves of the phrase are being taken apart and read literally.",
+    "definitionFit": "Terrific means top quality, which is first-class; the other sense splits the phrase into the first class of the school day, the one after registration."
+   }
   },
   {
    "id": "15-across",
@@ -318,7 +742,38 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRAG",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "BRAG",
+    "definition": "Boast",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "you've sent back"
+    ],
+    "indicatorNotes": {
+     "you've sent back": "what you have sent back returns the way it came, and in an across entry that means reading the letters from right to left"
+    },
+    "pieces": [
+     "BRAG"
+    ],
+    "subReversals": [
+     {
+      "from": "GARB",
+      "to": "BRAG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fancy clothing",
+      "gives": "GARB",
+      "note": "clothing of any kind, the word a costume drama would reach for"
+     }
+    ],
+    "walkthrough": "'Fancy' looks like it is telling you to jumble the letters. It is only an adjective on the clothing, and the real instruction waits until the end of the clue.",
+    "definitionFit": "Boast → BRAG: to brag is to talk your own achievements up loudly, exactly what to boast means, and both words work as noun or verb."
+   }
   },
   {
    "id": "16-down",
@@ -335,7 +790,29 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGONISES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AGONISES",
+    "definition": "Feels the strain",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "milk that has gone off has turned into something else, and letters that have gone off no longer sit in the order they were given"
+    },
+    "anagram": {
+     "fodder": "SO EASING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "so easing",
+      "gives": "SOEASING",
+      "note": "eight letters, matching the length of the entry exactly"
+     }
+    ],
+    "walkthrough": "'So easing off' reads as pressure letting up, the opposite of what the definition wants. The middle two words are raw material and the last one is the instruction.",
+    "definitionFit": "Feels the strain → AGONISES: to agonise is to be in mental torment over something, the strain being worry rather than physical load."
+   }
   },
   {
    "id": "17-across",
@@ -352,7 +829,30 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HYMN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HYMN",
+    "definition": "a song of praise",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "recited"
+    ],
+    "indicatorNotes": {
+     "recited": "to recite something is to speak it aloud, so what matters is the sound of the word and not the way it is spelt"
+    },
+    "blocks": [
+     {
+      "clueFragment": "That man",
+      "soundsLike": "HIM",
+      "gives": "HYMN",
+      "note": "the pronoun you would use for a male person already mentioned, said out loud"
+     }
+    ],
+    "walkthrough": "Said aloud the two are identical; on the page they share only one letter, with a Y doing the work of an I and a silent letter on the end.",
+    "definitionFit": "a song of praise → HYMN: a hymn is sung in worship to praise God, so the definition names the whole class of religious song."
+   }
   },
   {
    "id": "18-down",
@@ -369,7 +869,41 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASCARA",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "MASCARA",
+    "definition": "Cosmetic",
+    "linkWords": [
+     "with which"
+    ],
+    "indicators": [
+     "at first",
+     "conceal"
+    ],
+    "indicatorNotes": {
+     "at first": "'at first' points at the beginning of each word that follows, so only the opening letters are taken",
+     "conceal": "to conceal a thing is to hide it inside something bigger, so the mark goes within the letters just collected"
+    },
+    "pieces": [
+     "MA",
+     "SCAR",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my Aunt Agatha",
+      "gives": "MAA",
+      "note": "three words, and only the letter each one starts with is wanted"
+     },
+     {
+      "clueFragment": "blemish",
+      "gives": "SCAR",
+      "note": "the mark left on skin once a wound has healed"
+     }
+    ],
+    "walkthrough": "Aunt Agatha is a Wodehouse terror and pure surface decoration; she is here for her initials. Covering a blemish is what the product genuinely does, which makes the sentence sit still.",
+    "definitionFit": "Cosmetic → MASCARA: the make-up brushed onto eyelashes to darken them, so the general word defines by the class it belongs to."
+   }
   },
   {
    "id": "19-across",
@@ -386,7 +920,33 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDANGERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ENDANGERED",
+    "definition": "under threat",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [],
+    "pieces": [
+     "END",
+     "ANGERED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish up",
+      "gives": "END",
+      "note": "to finish a thing up is to bring it to a close, and there is a three-letter word for that close"
+     },
+     {
+      "clueFragment": "less serene",
+      "gives": "ANGERED",
+      "note": "someone made less serene has been made cross, in the past tense"
+     }
+    ],
+    "walkthrough": "'Finish up' is a whole phrasal verb on the surface and only its plainest sense is wanted, while 'less serene' is a comparative standing in for a past participle.",
+    "definitionFit": "under threat → ENDANGERED: the word used of a species at risk of dying out, so it means actively put in danger rather than merely warned."
+   }
   },
   {
    "id": "20-down",
@@ -403,7 +963,39 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGENCY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letters",
+    "answer": "REGENCY",
+    "definition": "Period",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "recreated",
+     "hints of"
+    ],
+    "indicatorNotes": {
+     "recreated": "something recreated is built again out of the same material in a new shape, which is what happens to these letters",
+     "hints of": "a hint of a word is the smallest part of it that shows, and the smallest part of a written word is the letter it starts with"
+    },
+    "anagram": {
+     "fodder": "GENRE CY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "genre",
+      "gives": "GENRE",
+      "note": "five letters of raw material, taken exactly as they stand"
+     },
+     {
+      "clueFragment": "cravats and yestermorns",
+      "gives": "CY",
+      "note": "the opening letter of each of these two words joins the pile"
+     }
+    ],
+    "walkthrough": "'Yestermorns' is not a word anybody uses, and that is the tell: it is there to donate a letter and to let the question mark's costume-drama joke land.",
+    "definitionFit": "Period → REGENCY: a regency is the span during which one person rules for an absent monarch, and Britain names a whole era after one."
+   }
   },
   {
    "id": "21-across",
@@ -420,7 +1012,30 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCRETE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "DISCRETE",
+    "definition": "Unattached",
+    "linkWords": [
+     "that's"
+    ],
+    "indicators": [
+     "you say"
+    ],
+    "indicatorNotes": {
+     "you say": "'you say' asks for the sound of a word rather than its spelling, and two quite different spellings are said the same way here"
+    },
+    "blocks": [
+     {
+      "clueFragment": "prudent",
+      "soundsLike": "DISCREET",
+      "gives": "DISCRETE",
+      "note": "someone prudent keeps things to themselves, and the word for that is spelt with two Es at the end"
+     }
+    ],
+    "walkthrough": "These two spellings are the classic confusion in English and the clue is built on it: the sound belongs to one word and the meaning wanted belongs to the other.",
+    "definitionFit": "Unattached → DISCRETE: discrete means separate and individually distinct, so discrete things stand apart from one another rather than joined."
+   }
   },
   {
    "id": "22-down",
@@ -437,7 +1052,50 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROTAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ROTAS",
+    "definition": "there's work to be done",
+    "definitionNote": "The phrase describes what these lists are for rather than naming them, and it is singular where the answer is plural; the setter is pointing at scheduled duty in general.",
+    "indicators": [
+     "After",
+     "up"
+    ],
+    "indicatorNotes": {
+     "After": "what comes after a thing is written down behind it, so the resistance is laid in first and the rest follows",
+     "up": "this is a down entry, so letters going up are read from the bottom of the grid towards the top"
+    },
+    "pieces": [
+     "R",
+     "O",
+     "TAS"
+    ],
+    "subReversals": [
+     {
+      "from": "SAT",
+      "to": "TAS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some resistance",
+      "gives": "R",
+      "note": "R is the physicist's symbol for resistance, and only a bit of the word is being asked for"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the radio alphabet, alongside Papa and Quebec"
+     },
+     {
+      "clueFragment": "sat",
+      "gives": "TAS",
+      "note": "a three-letter word for having taken a seat, written the other way round"
+     }
+    ],
+    "walkthrough": "Everyman is being generous with the definition here, pointing at the work rather than at the paperwork that lists it, and a colon is all that separates the two halves.",
+    "definitionFit": "there's work to be done → ROTAS: a rota is the list saying whose turn it is to do a job, so the phrase names the duty the list records."
+   }
   },
   {
    "id": "23-across",
@@ -454,7 +1112,29 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEGEV",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NEGEV",
+    "definition": "desert",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "somewhat"
+    ],
+    "indicatorNotes": {
+     "somewhat": "'somewhat' means to some extent but not entirely, so only part of the letters on offer are taken"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Renege - viciously",
+      "gives": "NEGEV",
+      "note": "five consecutive letters sit across these two words, running straight through the dash between them"
+     }
+    ],
+    "walkthrough": "The dashes make 'viciously, somewhat' look like an aside about the reneging. They are the setter's way of parking the instruction where nobody will look at it.",
+    "definitionFit": "desert → NEGEV: the Negev is the arid region covering the southern half of Israel, so the general word defines by the kind of place it is."
+   }
   },
   {
    "id": "24-down",
@@ -471,7 +1151,32 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IAGO",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "IAGO",
+    "definition": "Primarily insidious antagonist goading Othello?",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "'primarily' means in the first place, so what is wanted from each word is the letter standing first in it"
+    },
+    "pieces": [
+     "I",
+     "A",
+     "G",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insidious antagonist goading Othello",
+      "gives": "IAGO",
+      "note": "the first letter of each of these four words, taken in the order they come"
+     }
+    ],
+    "walkthrough": "An all-in-one: read the sentence once as a description of Shakespeare's villain, then read the very same words again as the instruction that spells his name.",
+    "definitionFit": "The whole clue defines: Iago is the scheming officer who works on Othello's jealousy, so every word describes him and builds him at the same time."
+   }
   },
   {
    "id": "25-across",
@@ -488,7 +1193,27 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAPTER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHAPTER",
+    "definition": "Part of society",
+    "definition2": "that moves the narrative along",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Part of society",
+      "gives": "CHAPTER",
+      "note": "a society or club divides into local branches, and each branch carries this name"
+     },
+     {
+      "clueFragment": "that moves the narrative along",
+      "gives": "CHAPTER",
+      "note": "a novel advances one numbered division at a time"
+     }
+    ],
+    "walkthrough": "It reads as one smooth phrase, which is the whole trick: the words after 'society' look like they are describing the branch when they are a second definition.",
+    "definitionFit": "A society's local branch is called a chapter, and so is a book's numbered division — one sense from clubs and orders, the other from the printed page."
+   }
   },
   {
    "id": "26-across",
@@ -505,7 +1230,32 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARSENIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARSENIC",
+    "definition": "poison",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "treat"
+    ],
+    "indicatorNotes": {
+     "treat": "to treat a substance is to work on it chemically until it comes out changed, and letters worked on come out in a new order"
+    },
+    "anagram": {
+     "fodder": "RACES IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Races in",
+      "gives": "RACESIN",
+      "note": "seven letters, exactly the length of the entry"
+     }
+    ],
+    "walkthrough": "'Races in' looks like an instruction to put one thing inside another. It is not an instruction at all but the seven letters themselves, dressed up as a hospital scene.",
+    "definitionFit": "poison → ARSENIC: a metallic element deadly in tiny doses and the standby of Victorian murder trials, so the general word names it by kind."
+   }
   },
   {
    "id": "27-across",
@@ -522,7 +1272,36 @@ window.CRYPTIC_PUZZLES["everyman-4128"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSIDUOUSLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASSIDUOUSLY",
+    "definition": "in diligent manner",
+    "indicators": [
+     "After training",
+     "around"
+    ],
+    "indicatorNotes": {
+     "After training": "training works a body into a new shape, so after it the letters no longer stand in the order the clue gave them",
+     "around": "what is scattered around a thing ends up on every side of it, so these two letters can land anywhere among the rest"
+    },
+    "anagram": {
+     "fodder": "S YOU'D SAIL US"
+    },
+    "blocks": [
+     {
+      "clueFragment": "son, you'd sail",
+      "gives": "SYOUDSAIL",
+      "note": "son shortens to its usual single letter and the next two words are taken as they stand"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the two initials that stand for the United States"
+     }
+    ],
+    "walkthrough": "The comma makes it look as though the setter is addressing you as son, when the word is there for its abbreviation. Sailing around America is a picture and nothing more.",
+    "definitionFit": "in diligent manner → ASSIDUOUSLY: to do a thing assiduously is to do it with steady, careful application, which is exactly doing it diligently."
+   }
   }
  ]
 } /*JSON-END*/;
