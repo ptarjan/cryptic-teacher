@@ -605,6 +605,13 @@ commit_puzzle() {
     # adds a generated path. What is excluded is what a run actually authors —
     # a sibling wave's puzzle, still mid-write, and glossary edits under tools/.
     git checkout -q -- . ':(exclude)puzzles/*.js' ':(exclude)tools/'
+    # checkout only restores files git is tracking HERE. A generated page for a
+    # puzzle this worktree's HEAD predates is untracked, so it survives — and the
+    # moment origin commits that same path, rebase's checkout refuses to detach
+    # HEAD over it ("untracked working tree files would be overwritten"), the &&
+    # chain never reaches the push, and every puzzle for the rest of the night
+    # commits locally and alerts. Same exclusions, same reason (2026-09-02).
+    git clean -qfd -e 'puzzles/*.js' -e 'tools/'
     # --autostash still, for what is left: a plain rebase refuses outright with a
     # sibling's half-written puzzle unstaged ("cannot pull with rebase: You have
     # unstaged changes"). Every push in this job failed that way on the nights of
