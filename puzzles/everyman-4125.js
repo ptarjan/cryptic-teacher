@@ -30,7 +30,33 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWATCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWATCH",
+    "definition": "piece of cloth",
+    "indicators": [],
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "S",
+     "WATCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the size printed on a clothing label for small"
+     },
+     {
+      "clueFragment": "timepiece",
+      "gives": "WATCH",
+      "note": "a watch is the timepiece you wear on your wrist"
+     }
+    ],
+    "walkthrough": "The trap is reading 'Small timepiece' as one idea. 'Small' stands alone as its abbreviation, and the apostrophe-s that looks possessive is only the joint between wordplay and definition.",
+    "definitionFit": "A swatch is the sample square a tailor or decorator snips from a fabric to show it, so it is exactly a small piece of cloth."
+   }
   },
   {
    "id": "2-down",
@@ -52,7 +78,52 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
     ]
    },
    "solution": "WALLSTREETCRASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "WALL STREET CRASH",
+    "definition": "depression begins now",
+    "definitionNote": "The setter defines an event by the headline it produced rather than by a noun phrase, so the definition is a whole sentence where the answer is a thing.",
+    "indicators": [
+     "including"
+    ],
+    "indicatorNotes": {
+     "including": "To include something is to take it in and hold it there, so the single letter for the element is dropped inside the word for rubbish rather than tacked onto either end."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "WALLS",
+     "TREE",
+     "T",
+     "C",
+     "RASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Encircles",
+      "gives": "WALLS",
+      "note": "a hedge that encircles a field walls it in"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "the word goes in at face value, four letters off the page"
+     },
+     {
+      "clueFragment": "garbage",
+      "gives": "TRASH",
+      "note": "trash is the American word for household garbage"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is carbon's symbol in the periodic table, and it lands after the first letter of the rubbish"
+     }
+    ],
+    "walkthrough": "'Depression' offers a dip in the ground or a low mood long before it offers the economic one. Every join lands in the wrong place on purpose: the T that ends the middle word is the front of the rubbish.",
+    "definitionFit": "The 1929 crash on Wall Street is the event conventionally dated as the start of the Great Depression, so the definition names it by what followed."
+   }
   },
   {
    "id": "3-down",
@@ -69,7 +140,41 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOWERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "TOWERED",
+    "definition": "Rose",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Milk that has gone off has turned, and letters told to turn do not stay in the sequence the clue printed them in."
+    },
+    "pieces": [
+     "T",
+     "OWERED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WE RODE",
+      "gives": "OWERED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time, as on a stopwatch"
+     },
+     {
+      "clueFragment": "we rode",
+      "gives": "OWERED",
+      "note": "the six letters of these two words, resettled in a new order"
+     }
+    ],
+    "walkthrough": "'Rose' looks like the woman being addressed as the riders leave, and the capital letter is the setter helping that along. It is the past tense of rise.",
+    "definitionFit": "To tower over something is to stand high above it, so in the past tense the two words describe the same upward reach."
+   }
   },
   {
    "id": "4-down",
@@ -90,7 +195,29 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
     ]
    },
    "solution": "HARDWATER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HARD WATER",
+    "definition": "Mineral-rich fluid",
+    "indicators": [
+     "tumbling"
+    ],
+    "indicatorNotes": {
+     "tumbling": "Something that tumbles falls over itself end for end, so it lands in a different arrangement from the one it set out in."
+    },
+    "anagram": {
+     "fodder": "EARTHWARD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "earthward",
+      "gives": "HARDWATER",
+      "note": "the nine letters of this single word, dealt out again"
+     }
+    ],
+    "walkthrough": "Fluid tumbling earthward is rain, which is what the surface wants you to picture. The one word that looks like scenery is the whole of the wordplay.",
+    "definitionFit": "Hard water is groundwater that has taken up dissolved calcium and magnesium from chalk or limestone, which is what makes it mineral-rich."
+   }
   },
   {
    "id": "5-across",
@@ -107,7 +234,32 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGEIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "AGEIST",
+    "definition": "Discriminating",
+    "indicators": [
+     "announcement of"
+    ],
+    "indicatorNotes": {
+     "announcement of": "An announcement is made out loud, so what the clue hands over is the sound of the words rather than their spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "just one",
+      "gives": "A",
+      "note": "just one of a thing is a single one of it, and the indefinite article is the one-letter way of saying so"
+     },
+     {
+      "clueFragment": "summary",
+      "soundsLike": "A GIST",
+      "gives": "AGEIST",
+      "note": "the gist of a report is its summary, and spoken straight on from the article those two words make a single six-letter sound"
+     }
+    ],
+    "walkthrough": "'Discriminating' is praise when you say it of a palate and an accusation here — that flip is the whole misdirection, and only the ear gets you from two words to one.",
+    "definitionFit": "Discriminating carries the unkind sense of treating people differently, and the answer names someone who does that on the grounds of how old you are."
+   }
   },
   {
    "id": "5-down",
@@ -130,7 +282,44 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APHID",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + second letter",
+    "answer": "APHID",
+    "definition": "cause of Rosebud's loss",
+    "indicators": [
+     "describing",
+     "second"
+    ],
+    "indicatorNotes": {
+     "describing": "In geometry you describe a circle around a shape by drawing it round the outside, which is what these letters do to the one that follows.",
+     "second": "It picks a letter out by position rather than by meaning: the one standing second in the word, counted from the front."
+    },
+    "pieces": [
+     "A",
+     "PH",
+     "I",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article is taken at face value"
+     },
+     {
+      "clueFragment": "doctorate",
+      "gives": "PHD",
+      "note": "a PhD is the doctorate, and here it is split open to make room"
+     },
+     {
+      "clueFragment": "Citizen's second",
+      "gives": "I",
+      "note": "the italics point at Citizen Kane, and it is the second letter of that first word that is wanted"
+     }
+    ],
+    "walkthrough": "Rosebud is the sled in the film, so the surface is all cinema. The garden reading is the one that counts: a rosebud lost off its bush.",
+    "definitionFit": "Aphids are the greenfly that colonise a rose bush and suck the sap, so one of them is what costs a gardener the bud."
+   }
   },
   {
    "id": "6-down",
@@ -147,7 +336,44 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMBARGO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "EMBARGO",
+    "definition": "Trade barrier",
+    "indicators": [
+     "flickering"
+    ],
+    "indicatorNotes": {
+     "flickering": "A flickering light will not hold steady, and neither will the letters it is pointing at."
+    },
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "EMBAR",
+     "GO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "AMBER",
+      "gives": "EMBAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amber",
+      "gives": "EMBAR",
+      "note": "the five letters of the traffic light's middle colour, rearranged"
+     },
+     {
+      "clueFragment": "green light",
+      "gives": "GO",
+      "note": "green is the signal to go, and giving something the green light is telling it to proceed"
+     }
+    ],
+    "walkthrough": "The whole surface is a set of traffic lights, which is the joke: what gets built out of them is the opposite of permission to proceed.",
+    "definitionFit": "An embargo is an official ban on trading with a country, so it is literally a barrier laid across trade."
+   }
   },
   {
    "id": "7-down",
@@ -169,7 +395,29 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
     ]
    },
    "solution": "STRAPPEDFORCASH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STRAPPED FOR CASH",
+    "definition": "poor",
+    "indicators": [
+     "reshuffle"
+    ],
+    "indicatorNotes": {
+     "reshuffle": "A cabinet reshuffle keeps every minister and gives them all new jobs, which is exactly what happens to these fifteen letters."
+    },
+    "anagram": {
+     "fodder": "DROPS CHAPS AFTER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Drops chaps after",
+      "gives": "STRAPPEDFORCASH",
+      "note": "fifteen letters across three words, dealt out again"
+     }
+    ],
+    "walkthrough": "'After' looks like an instruction to put the chaps behind the drops. It is fodder, and every letter of all three words goes into the pot.",
+    "definitionFit": "Strapped for cash is the idiom for having no money to hand, and poor is the plain adjective for the same condition."
+   }
   },
   {
    "id": "8-across",
@@ -191,7 +439,29 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOWERTHEBAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LOWER THE BAR",
+    "definition": "make things easier",
+    "indicators": [
+     "jittery"
+    ],
+    "indicatorNotes": {
+     "jittery": "Somebody jittery cannot keep still, and letters that cannot keep still do not stay where the clue put them."
+    },
+    "anagram": {
+     "fodder": "ELBOW RATHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Elbow rather",
+      "gives": "LOWERTHEBAR",
+      "note": "eleven letters from these two words, redealt"
+     }
+    ],
+    "walkthrough": "'Elbow' is a body part in the surface and raw material in the parse. The idiom comes from the high jump, where the bar drops to make the clearance easy.",
+    "definitionFit": "Lowering the bar is setting a standard people can clear more easily, so the phrase and the definition describe the same slackening."
+   }
   },
   {
    "id": "9-down",
@@ -208,7 +478,27 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUMP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PUMP",
+    "definition": "Shoe",
+    "definition2": "quiz",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Shoe",
+      "gives": "",
+      "note": "in Britain this is the flat, soft-soled shoe worn for gym or for dancing"
+     },
+     {
+      "clueFragment": "quiz",
+      "gives": "",
+      "note": "to question somebody persistently is to work information out of them, the way water is drawn from a well"
+     }
+    ],
+    "walkthrough": "A two-word clue is all definition and no wordplay, so the only thing to find is where one meaning stops and the next one starts.",
+    "definitionFit": "A pump is the light flat shoe used for gym or dancing in Britain, and to pump somebody is to press them for information."
+   }
   },
   {
    "id": "10-down",
@@ -225,7 +515,30 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALIT",
+    "definition": "disembarked",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "LIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the short form of Australian that crosswords keep permanently on hand"
+     },
+     {
+      "clueFragment": "drunk",
+      "gives": "LIT",
+      "note": "lit is old slang for drunk — lit up, like a Christmas tree"
+     }
+    ],
+    "walkthrough": "'Drunk' is the anagram indicator that isn't. Nothing here is jumbled: it is a plain synonym, and the tipsy Australian of the surface does all the misleading.",
+    "definitionFit": "To alight from a train or bus is to step down out of it, which is what disembarking is; the word survives on British station announcements."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +555,26 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNSCREWED",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "UNSCREWED",
+    "definition": "ready to take off",
+    "indicators": [
+     "Some of"
+    ],
+    "indicatorNotes": {
+     "Some of": "It asks for a part rather than the whole, and the part wanted is a run of letters already lying untouched in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "bosun's crew edgy",
+      "gives": "UNSCREWED",
+      "note": "nine consecutive letters begin at the fourth letter of the first word and stop two short of the end of the last"
+     }
+    ],
+    "walkthrough": "Hidden words like to run straight across an apostrophe, because the eye reads possession instead of letters. 'Ready to take off' sounds like an aeroplane and describes a lid.",
+    "definitionFit": "A lid or a fitting that has been unscrewed is loose and ready to be lifted away, so taking off here means removal rather than flight."
+   }
   },
   {
    "id": "12-across",
@@ -259,7 +591,35 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPEL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "REPEL",
+    "definition": "Disgust",
+    "indicators": [
+     "returns"
+    ],
+    "indicatorNotes": {
+     "returns": "Somebody who returns comes back along the road they went out on, so the letters are read from the far end towards the near one."
+    },
+    "pieces": [
+     "REPEL"
+    ],
+    "subReversals": [
+     {
+      "from": "LEPER",
+      "to": "REPEL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social outcast",
+      "gives": "REPEL",
+      "note": "a leper is the byword for somebody society will not go near, and those five letters are then read the other way round"
+     }
+    ],
+    "walkthrough": "'Disgust' is the verb here, not the noun — you repel somebody the way a smell disgusts them. The outcast wanted is the figurative leper, not the medical one.",
+    "definitionFit": "To repel is to drive someone back in revulsion, and to disgust is that same act named by the feeling it produces."
+   }
   },
   {
    "id": "13-across",
@@ -276,7 +636,35 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERIDOT",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "PERIDOT",
+    "definition": "Precious-ish, emeraldesque rock in demand; olivine trinket, primarily!",
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "What comes primarily comes before all else, so each word gives up only the character it opens with."
+    },
+    "pieces": [
+     "P",
+     "E",
+     "R",
+     "I",
+     "D",
+     "O",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precious-ish, emeraldesque rock in demand; olivine trinket",
+      "gives": "PERIDOT",
+      "note": "the opening letter of each of these seven words, read in the order they stand"
+     }
+    ],
+    "walkthrough": "An all-in-one: the sentence describes the gem and spells it at the same time, and the exclamation mark is the setter enjoying that. 'Emeraldesque' was invented for the job.",
+    "definitionFit": "The whole clue reads straight: peridot is the green gem variety of olivine, near-precious rather than precious, and cut for costume jewellery."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +681,27 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROJECT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PROJECT",
+    "definition": "Launch",
+    "definition2": "campaign",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Launch",
+      "gives": "",
+      "note": "to throw something forward — the same root that gives a missile its name"
+     },
+     {
+      "clueFragment": "campaign",
+      "gives": "",
+      "note": "a piece of organised work with an aim and an end date"
+     }
+    ],
+    "walkthrough": "Two definitions and no wordplay. The question mark owns up to the second one being loose: a campaign is a kind of the thing rather than another word for it.",
+    "definitionFit": "To project is to throw forward, which is what launching does, and a project is equally an undertaking of the sort a campaign is."
+   }
   },
   {
    "id": "14-down",
@@ -314,7 +722,35 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
     ]
    },
    "solution": "PARTYLINE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PARTY LINE",
+    "definition": "agreed policy",
+    "definition2": "conga",
+    "indicators": [
+     "Say"
+    ],
+    "indicatorNotes": {
+     "Say": "It means 'for instance', flagging that what follows is one example of the thing wanted rather than another name for it."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conga",
+      "gives": "",
+      "note": "a conga is danced in single file, each dancer holding the hips of the one in front"
+     },
+     {
+      "clueFragment": "agreed policy",
+      "gives": "",
+      "note": "the position a political group has settled on and expects its members to repeat"
+     }
+    ],
+    "walkthrough": "The same two words carry a dance floor and a party conference. 'Say' is the tell: it warns you that a conga is an instance, not a synonym.",
+    "definitionFit": "A party line is the position a political party requires its members to hold, and a conga is literally a line of people at a party."
+   }
   },
   {
    "id": "15-across",
@@ -331,7 +767,27 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLEEPER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SLEEPER",
+    "definition": "Overnight train",
+    "definition2": "what it will cross",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Overnight train",
+      "gives": "",
+      "note": "the service with berths, taken so the journey happens while you are asleep"
+     },
+     {
+      "clueFragment": "what it will cross",
+      "gives": "",
+      "note": "the timber or concrete beams laid crosswise under the rails, holding them to gauge"
+     }
+    ],
+    "walkthrough": "The whole clue turns on 'it' — the train from the first half. Americans call those beams ties, which is why the second definition has to describe rather than name.",
+    "definitionFit": "One word covers both the berth train and each beam laid across the track bed, so the train literally runs over what it is named after."
+   }
   },
   {
    "id": "15-down",
@@ -348,7 +804,46 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + reversal",
+    "answer": "STEM",
+    "definition": "staunch",
+    "indicators": [
+     "Upset",
+     "cut 50% of"
+    ],
+    "indicatorNotes": {
+     "Upset": "In a down clue what is upset reads from the bottom of the column upwards, so the assembly is taken in the opposite of the order it was built.",
+     "cut 50% of": "It halves the word that follows, and the half kept is the back one — the opening pair is what gets cut away."
+    },
+    "linkWords": [
+     "being"
+    ],
+    "pieces": [
+     "ST",
+     "EM"
+    ],
+    "subReversals": [
+     {
+      "from": "METS",
+      "to": "STEM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "ME",
+      "note": "the setter signs the puzzle Everyman, and a setter pointing at themselves in the wordplay is two letters"
+     },
+     {
+      "clueFragment": "fats",
+      "gives": "TS",
+      "note": "the back half of a four-letter word, its first two letters gone"
+     }
+    ],
+    "walkthrough": "'Staunch' looks like the adjective for a loyal supporter and is the verb for stopping a flow. Everyman appearing in person is a habit of this setter worth banking.",
+    "definitionFit": "To stem a flow and to staunch a wound are the same act: holding back something that is running, so both verbs mean to stop it."
+   }
   },
   {
    "id": "16-down",
@@ -365,7 +860,30 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PALERMO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PALERMO",
+    "definition": "somewhere in Sicily",
+    "indicators": [],
+    "pieces": [
+     "PALER",
+     "MO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lighter",
+      "gives": "PALER",
+      "note": "a lighter shade of a colour is a paler one"
+     },
+     {
+      "clueFragment": "twinkling",
+      "gives": "MO",
+      "note": "in a twinkling means in a moment, and moment is shortened to two letters"
+     }
+    ],
+    "walkthrough": "'Lighter' is doing its colour job, not its flame job, and 'twinkling' is time rather than starlight — the surface offers the wrong sense of both at once.",
+    "definitionFit": "Palermo is the capital and largest city of Sicily, so the definition places it by island and leaves the name for you to supply."
+   }
   },
   {
    "id": "17-across",
@@ -382,7 +900,33 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REBUFFS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REBUFFS",
+    "definition": "Snubs",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "RE",
+     "BUFFS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bible study",
+      "gives": "RE",
+      "note": "RE is religious education, the scripture lesson on a British school timetable"
+     },
+     {
+      "clueFragment": "enthusiasts",
+      "gives": "BUFFS",
+      "note": "a buff is an enthusiast — a film buff, an opera buff"
+     }
+    ],
+    "walkthrough": "Everything after the first word reads as one phrase, enthusiasts for Bible study, and the parse cuts it in two with the school subject coming first.",
+    "definitionFit": "To rebuff somebody is to turn their approach away curtly, which is what snubbing them amounts to."
+   }
   },
   {
    "id": "18-down",
@@ -399,7 +943,26 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROWSER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "BROWSER",
+    "definition": "23?",
+    "indicators": [
+     "cancelling some characters"
+    ],
+    "indicatorNotes": {
+     "cancelling some characters": "Crossing letters out at each end leaves the ones you keep sitting exactly where they were, in the order they were printed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dumb row's erupting",
+      "gives": "BROWSER",
+      "note": "seven consecutive letters begin at the last letter of the first word and run through the second into the third"
+     }
+    ],
+    "walkthrough": "'Erupting' pulls hard towards a jumble, or towards an upward move in a down clue, and it is neither: those letters sit still. The 23 points at another entry.",
+    "definitionFit": "The definition is the answer at 23, which is one make of browser — a definition by example, with the question mark owning up to it."
+   }
   },
   {
    "id": "19-down",
@@ -420,7 +983,35 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOSO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SO-SO",
+    "definition": "neither good nor bad",
+    "indicators": [
+     "missing"
+    ],
+    "indicatorNotes": {
+     "missing": "What is missing is not there, so the word it names is struck out of the longer phrase before you read what remains."
+    },
+    "pieces": [
+     "SO",
+     "SO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pest",
+      "gives": "SOANDSO",
+      "note": "an irritating person is a so-and-so, the polite British way of not naming them"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "the linking word in the middle of that phrase is quoted here so that it can be lifted out"
+     }
+    ],
+    "walkthrough": "The dashes read as a parenthesis in a grumble about pests, and what they really fence off is an instruction. Britain's mildest insult stands in for a name you would rather not say.",
+    "definitionFit": "So-so is the shrug between the two extremes — not one nor the other — which is the middle ground the definition spells out."
+   }
   },
   {
    "id": "20-across",
@@ -437,7 +1028,32 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXCEL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "EXCEL",
+    "definition": "go far",
+    "indicators": [
+     "We hear"
+    ],
+    "indicatorNotes": {
+     "We hear": "Hearing rather than reading is the point: what the clue names is to be said out loud and the sound of it written down."
+    },
+    "blocks": [
+     {
+      "clueFragment": "40 in Rome",
+      "gives": "XL",
+      "note": "Roman numerals put X for ten in front of L for fifty to mean fifty less ten"
+     },
+     {
+      "clueFragment": "40 in Rome",
+      "soundsLike": "EX ELL",
+      "gives": "EXCEL",
+      "note": "those two numerals read out as the names of their letters make a five-letter word"
+     }
+    ],
+    "walkthrough": "Nothing here is Italian. The numeral is not translated but spoken, letter name by letter name, which is the whole trick, and 'go far' means getting on in life.",
+    "definitionFit": "Somebody who excels goes far in the sense of outdoing the field, not in the sense of covering distance."
+   }
   },
   {
    "id": "21-across",
@@ -454,7 +1070,24 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KEYBOARDS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "KEYBOARDS",
+    "definition": "Frequently depressed characters?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "depressed",
+      "note": "the surface offers low spirits; the sense in play is the physical one, pushed down under a finger"
+     },
+     {
+      "clueFragment": "characters",
+      "note": "not people of a gloomy sort but letters and symbols, one printed on each of the things pressed"
+     }
+    ],
+    "walkthrough": "There is nothing to take apart, only one phrase read twice. The office gloom of the surface turns into fingers on plastic, and the question mark is the setter admitting it.",
+    "definitionFit": "Every key carries a character and is pressed down all day, so the clue describes the object by what happens to it rather than naming it."
+   }
   },
   {
    "id": "21-down",
@@ -471,7 +1104,39 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNAVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KNAVE",
+    "definition": "a rascal",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In a down clue what sits on something else is written above it, so what follows this word goes underneath."
+    },
+    "linkWords": [
+     "one's"
+    ],
+    "pieces": [
+     "K",
+     "N",
+     "AVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two knights",
+      "gives": "KN",
+      "note": "chess writes a knight as N, while a knighthood is a K — one of each, and no repetition"
+     },
+     {
+      "clueFragment": "the street",
+      "gives": "AVE",
+      "note": "AVE is how an avenue is shortened on a street sign"
+     }
+    ],
+    "walkthrough": "Two knights and two different abbreviations — the setter is not asking for the same letter twice. 'One's' does nothing but hold the sentence upright.",
+    "definitionFit": "Knave is the old word for a dishonest man, and the playing card between ten and queen took its name, so rascal is the plain modern equivalent."
+   }
   },
   {
    "id": "22-across",
@@ -492,7 +1157,36 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADRIATICSEA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "ADRIATIC SEA",
+    "definition": "Balkans' neighbour",
+    "indicators": [
+     "Composed",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "Composed": "To compose is to put pieces together into an arrangement of your own, so these letters are yours to set in a fresh order.",
+     "initially": "It asks for the beginning of the word it governs — the opening letter only, and nothing after it."
+    },
+    "anagram": {
+     "fodder": "ACID SATIRE A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "acid satire",
+      "gives": "ACIDSATIRE",
+      "note": "ten letters from these two words, waiting to be redealt"
+     },
+     {
+      "clueFragment": "attacking",
+      "gives": "A",
+      "note": "the opening letter of this word, and the eleventh letter the enumeration asks for"
+     }
+    ],
+    "walkthrough": "'Composed' means calm in the surface, where a cool reviewer writes a sharp notice, and means assembled in the parse. That double life is the standard anagram misdirection.",
+    "definitionFit": "The Adriatic washes the western shore of the Balkan peninsula, so the sea and the region are neighbours along a coastline."
+   }
   },
   {
    "id": "23-across",
@@ -509,7 +1203,33 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHROME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHROME",
+    "definition": "Classic car's finish",
+    "indicators": [],
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "CH",
+     "ROME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Switzerland",
+      "gives": "CH",
+      "note": "CH is Switzerland's international vehicle code, short for the Latin Confoederatio Helvetica"
+     },
+     {
+      "clueFragment": "major Italian city",
+      "gives": "ROME",
+      "note": "the Italian capital, and the four-letter city this description is pointing at"
+     }
+    ],
+    "walkthrough": "'Finish' looks like an instruction to take a last letter, which is the trap. It is a noun here — the shiny plating itself — and the colon marks the only break.",
+    "definitionFit": "Chrome is the bright plating that trims a classic car's bodywork, so 'finish' here means a surface coating and not an ending."
+   }
   },
   {
    "id": "24-across",
@@ -532,7 +1252,26 @@ window.CRYPTIC_PUZZLES["everyman-4125"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARTHY",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EARTHY",
+    "definition": "not refined",
+    "indicators": [
+     "Mostly"
+    ],
+    "indicatorNotes": {
+     "Mostly": "Most of a thing is some of it and not all, which is a loose way of saying the letters already sit inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "clear: thyme's",
+      "gives": "EARTHY",
+      "note": "six consecutive letters begin at the third letter of the first word and stop three short of the end of the second"
+     }
+    ],
+    "walkthrough": "'Not refined' invites you to rough up the letters of thyme's. It is the definition instead, and nothing is jumbled: the surface only pretends to be a weather forecast.",
+    "definitionFit": "Earthy means coarse or unpolished — an earthy sense of humour is the unrefined kind — so the definition is a plain negative."
+   }
   }
  ]
 } /*JSON-END*/;
