@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONSOMME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CONSOMME",
+    "definition": "soup",
+    "indicators": [
+     "enters"
+    ],
+    "indicatorNotes": {
+     "enters": "Someone who enters a room ends up inside it, so the letter arrives in the middle of the word beside it rather than alongside."
+    },
+    "pieces": [
+     "CON",
+     "SOM",
+     "M",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have",
+      "gives": "CON",
+      "note": "to have someone, in the sense of tricking them, is to con them"
+     },
+     {
+      "clueFragment": "Monsieur",
+      "gives": "M",
+      "note": "M is the standard abbreviation for the French courtesy title, as written on an envelope"
+     },
+     {
+      "clueFragment": "a little",
+      "gives": "SOME",
+      "note": "a little of something is some of it, and the Frenchman's letter goes in among these four"
+     }
+    ],
+    "walkthrough": "'to have' looks like joinery holding the sentence up; it is the first chunk of the wordplay, in the sense of having someone over.",
+    "definitionFit": "soup -> CONSOMME: a clear broth simmered from meat stock and served as a first course, so the general word names one particular dish."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +82,26 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBOE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OBOE",
+    "definition": "Bit of wind",
+    "indicators": [
+     "taking the wings off"
+    ],
+    "indicatorNotes": {
+     "taking the wings off": "Wings are the outer edges of a thing, so stripping them leaves only what was sitting in the middle of the words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "two Boeings",
+      "gives": "OBOE",
+      "note": "four consecutive letters run across the join between these two words once the outer ones are gone"
+     }
+    ],
+    "walkthrough": "Boeing builds aeroplanes, so 'wings' reads as part of the picture rather than as an instruction. The aircraft never matter; only the spelling does.",
+    "definitionFit": "Bit of wind -> OBOE: an instrument sounded by blowing, so it belongs to the wind section of an orchestra and 'bit of' picks out one member."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +118,29 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCREWED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCREWED",
+    "definition": "up the creek",
+    "pieces": [
+     "S",
+     "CREWED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son, as on a family tree"
+     },
+     {
+      "clueFragment": "worked on boat",
+      "gives": "CREWED",
+      "note": "the hands who work a boat are its crew, and as a verb they crewed her"
+     }
+    ],
+    "walkthrough": "The surface is a lad helping out on the water. 'Up the creek' is the short form of being up it without a paddle, which is the definition.",
+    "definitionFit": "up the creek -> SCREWED: both are idioms for being stuck in hopeless trouble with no way out, the answer being the blunter modern one."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +161,41 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "MYHAT",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "MY HAT",
+    "definition": "Surely not",
+    "indicators": [
+     "for Spooner?"
+    ],
+    "indicatorNotes": {
+     "for Spooner?": "The Reverend Spooner was famous for trading the opening sounds of two words, so the phrase clued has to be said with its first sounds swapped."
+    },
+    "pieces": [
+     "MY",
+     "HAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on top",
+      "gives": "HIGH",
+      "note": "whatever sits on top of everything else is high up"
+     },
+     {
+      "clueFragment": "Rug",
+      "gives": "MAT",
+      "note": "a mat is a small rug, the sort you wipe your feet on"
+     },
+     {
+      "clueFragment": "Rug on top",
+      "soundsLike": "HIGH MAT",
+      "gives": "MY HAT",
+      "note": "the two pieces stand as HIGH MAT, and trading their opening sounds gives what you write in"
+     }
+    ],
+    "walkthrough": "A Spoonerism happens in the mouth, not on paper: say the two words with their first sounds exchanged and out comes an old-fashioned cry of disbelief.",
+    "definitionFit": "Surely not -> MY HAT: 'my hat!' is a dated British exclamation of flat disbelief, registering the same refusal to accept what has just been claimed."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +212,38 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EQUINOX",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "EQUINOX",
+    "definition": "12 hour day",
+    "indicators": [
+     "Shortened"
+    ],
+    "indicatorNotes": {
+     "Shortened": "A shortened word has lost its tail, so the adjective beside it is written without its final letter."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "EQUIN",
+     "OX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horsy",
+      "gives": "EQUIN",
+      "note": "horsy is equine in a vet's vocabulary, and the word arrives with its last letter clipped"
+     },
+     {
+      "clueFragment": "draught animal",
+      "gives": "OX",
+      "note": "an ox is the beast harnessed to pull a plough or a cart"
+     }
+    ],
+    "walkthrough": "The definition is exact rather than loose: on this date daylight and darkness each last twelve hours, which happens twice a year.",
+    "definitionFit": "12 hour day -> EQUINOX: the date when the sun crosses the equator and light and dark come out equal, twelve hours apiece."
+   }
   },
   {
    "id": "6-across",
@@ -125,7 +266,47 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIGEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "DIGEST",
+    "definition": "dissolve with acid",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "in which",
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "in which": "The clue says the vessel's letter is in the creature, so that letter is planted between its two rather than added on the end.",
+     "beginning": "A word's beginning is the letter it opens with, so only that one is taken from the vessel."
+    },
+    "pieces": [
+     "DIG",
+     "E",
+     "S",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Really enjoy",
+      "gives": "DIG",
+      "note": "to dig something, in sixties slang, is to be very keen on it"
+     },
+     {
+      "clueFragment": "Alien",
+      "gives": "ET",
+      "note": "ET is the crossword's standard alien, short for extraterrestrial"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "S",
+      "note": "the first letter of ship, the vessel the surface has in mind"
+     }
+    ],
+    "walkthrough": "Italics mark Alien as the film, which is scene-setting only. The wordplay wants the two-letter alien every crossword uses, and a spacecraft is just a ship.",
+    "definitionFit": "dissolve with acid -> DIGEST: the stomach breaks food down in acid, and that is precisely the process this verb names."
+   }
   },
   {
    "id": "6-down",
@@ -142,7 +323,41 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIETITIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "DIETITIAN",
+    "definition": "Scoffing expert",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally points at the end of the word beside it, so only its closing letter is taken."
+    },
+    "pieces": [
+     "D",
+     "IE",
+     "TITIAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "said",
+      "gives": "D",
+      "note": "the closing letter of said"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. is short for the Latin id est, which translates as that is"
+     },
+     {
+      "clueFragment": "an old master",
+      "gives": "TITIAN",
+      "note": "Titian was the great Venetian painter of the sixteenth century, one of the old masters"
+     }
+    ],
+    "walkthrough": "The quotation marks make the last five words sound like someone admiring a painting on a wall; the wordplay reads them piece by piece instead.",
+    "definitionFit": "Scoffing expert -> DIETITIAN: scoff is British slang for eating greedily, so the scoffing expert is the professional who advises on what people eat."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +378,36 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "GASLAMP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GAS LAMP",
+    "definition": "Burning light",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing said to be in another sits among its letters, so the piece just clued is dropped into the middle of the one that follows."
+    },
+    "pieces": [
+     "GA",
+     "SLAM",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "GAP",
+      "note": "a gap is the space left between two things"
+     },
+     {
+      "clueFragment": "alarmingly close",
+      "gives": "SLAM",
+      "note": "to slam a door is to close it hard enough to make everyone jump"
+     }
+    ],
+    "walkthrough": "The surface pictures two objects nearly colliding out in the cosmos. 'Close' is not a distance at all but a door being shut, and 'space' is only a gap.",
+    "definitionFit": "Burning light -> GAS LAMP: a lamp with a live flame inside it, so unlike a bulb this kind of light really is burning."
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +428,29 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "STANDALONE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STAND-ALONE",
+    "definition": "Acting independently",
+    "indicators": [
+     "troubled"
+    ],
+    "indicatorNotes": {
+     "troubled": "Troubled water is churned up and no longer settled, so the letters beside the word will not stay in the order they are given."
+    },
+    "anagram": {
+     "fodder": "NELSON A TAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Nelson a tad",
+      "gives": "STANDALONE",
+      "note": "these ten letters, shaken out of the order the clue prints them in"
+     }
+    ],
+    "walkthrough": "Nelson lends the surface an admiral who stops mattering the moment you count: the name and 'a tad' hold exactly ten letters, which is the enumeration.",
+    "definitionFit": "Acting independently -> STAND-ALONE: a stand-alone unit works on its own without being plugged into anything else, which is independence described as equipment."
+   }
   },
   {
    "id": "9-across",
@@ -201,7 +467,36 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COURTHOUSE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COURTHOUSE",
+    "definition": "Trying venue",
+    "indicators": [
+     "that accommodates"
+    ],
+    "indicatorNotes": {
+     "that accommodates": "To accommodate guests is to house them within your walls, so the number named next goes inside the letters already clued."
+    },
+    "pieces": [
+     "COUR",
+     "THOU",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where race might be held",
+      "gives": "COURSE",
+      "note": "a race is run over a course, whether the runners are horses or people"
+     },
+     {
+      "clueFragment": "1,000",
+      "gives": "THOU",
+      "note": "thou is the everyday short form of a thousand"
+     }
+    ],
+    "walkthrough": "'Trying' is the pun: not wearisome but conducting a trial. The surface keeps you at the racetrack, where the same word would mean a testing afternoon.",
+    "definitionFit": "Trying venue -> COURTHOUSE: the building where trials are heard, so 'trying' is the legal verb at work rather than the tiring adjective."
+   }
   },
   {
    "id": "10-across",
@@ -218,7 +513,35 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SCAM",
+    "definition": "fleece",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Something turned over lies the other way round, so the letters just clued are read from the far end back."
+    },
+    "pieces": [
+     "SCAM"
+    ],
+    "subReversals": [
+     {
+      "from": "MACS",
+      "to": "SCAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anorak's",
+      "gives": "SCAM",
+      "note": "an anorak is a mac, the British word for a raincoat, and one belonging to somebody makes MACS, written in the other way round"
+     }
+    ],
+    "walkthrough": "Both halves of the clue talk about coats: an anorak in the wordplay and a sheep's fleece in the definition, and only one of them is really clothing.",
+    "definitionFit": "fleece -> SCAM: both are verbs for cheating a person out of their money, one drawn from shearing sheep and the other from confidence tricks."
+   }
   },
   {
    "id": "11-across",
@@ -240,7 +563,47 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "WITHNAILANDI",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "WITHNAIL AND I",
+    "definition": "drunken comedy",
+    "indicators": [
+     "boxing in",
+     "back of",
+     "in Thailand"
+    ],
+    "indicatorNotes": {
+     "boxing in": "To box something in is to shut it on every side, so the console's letters close round everything else.",
+     "back of": "The back of a word is its final letter, so one letter comes out of the tavern and no more.",
+     "in Thailand": "The country is where the tavern's letter is put, so it lands among the letters of the name rather than beside them."
+    },
+    "pieces": [
+     "WI",
+     "TH",
+     "N",
+     "AILAND",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wii",
+      "gives": "WII",
+      "note": "Nintendo's games console, spelled with a double i"
+     },
+     {
+      "clueFragment": "tavern",
+      "gives": "N",
+      "note": "the letter at the back of the word tavern"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "THAILAND",
+      "note": "the country supplies eight letters, opened up early on to take the tavern's letter"
+     }
+    ],
+    "walkthrough": "'Drunken' looks like an instruction to shuffle and is not: it belongs to the definition, describing a 1987 film about two soaked out-of-work actors.",
+    "definitionFit": "drunken comedy -> WITHNAIL AND I: Bruce Robinson's film follows two permanently sozzled actors through a wet weekend, so the definition names it by its plot."
+   }
   },
   {
    "id": "12-down",
@@ -262,7 +625,47 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEDONEWITH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BE DONE WITH",
+    "definition": "Get rid of",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "What comes first is written at the front, so the three pieces just clued line up ahead of the letter for the spouse."
+    },
+    "pieces": [
+     "BED",
+     "ONE",
+     "WIT",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shag",
+      "gives": "BED",
+      "note": "to bed someone is the printable verb for what the surface says more coarsely"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "a single of anything is one of it"
+     },
+     {
+      "clueFragment": "comedian",
+      "gives": "WIT",
+      "note": "a wit is someone whose talk gets laughs, which is a comedian's whole trade"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the standard abbreviation for husband, as on a form"
+     }
+    ],
+    "walkthrough": "The order is the trap: the husband is named at the start of the clue and written at the end of the answer, and 'but' only props the sentence up.",
+    "definitionFit": "Get rid of -> BE DONE WITH: to be done with a person is to have finished with them for good, which is disposal put as a decision."
+   }
   },
   {
    "id": "13-across",
@@ -283,7 +686,40 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "READYMIX",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "READY-MIX",
+    "definition": "Sponge without water perhaps",
+    "indicators": [
+     "upsetting"
+    ],
+    "indicatorNotes": {
+     "upsetting": "To upset a tray is to tip everything on it into a heap, and letters tipped over land in a different order."
+    },
+    "anagram": {
+     "fodder": "MARY DIE X"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "MARYDIE",
+      "gives": "READYMI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mary, die",
+      "gives": "READYMI",
+      "note": "seven letters tipped out of their printed order"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "X",
+      "note": "a cross is written as an X, the mark on a ballot paper"
+     }
+    ],
+    "walkthrough": "The definition is a packet of dry cake mix: add water and you get a sponge. 'Perhaps' is there because concrete is sold the same way.",
+    "definitionFit": "Sponge without water perhaps -> READY-MIX: the packet holds everything a sponge needs except the liquid, so the cake is one example of what comes premixed."
+   }
   },
   {
    "id": "14-down",
@@ -300,7 +736,42 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOUSTACHE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MOUSTACHE",
+    "definition": "hair",
+    "indicators": [
+     "must cut"
+    ],
+    "indicatorNotes": {
+     "must cut": "To cut into something is to go right through the middle of it, so the letter for the reader lands inside the word that follows."
+    },
+    "pieces": [
+     "MO",
+     "U",
+     "ST",
+     "ACHE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely",
+      "gives": "MOST",
+      "note": "extremely rich and most rich say the same thing, so the adverb hands over four letters"
+     },
+     {
+      "clueFragment": "You",
+      "gives": "U",
+      "note": "U stands in for you in text-message spelling"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "ACHE",
+      "note": "to long for something is to ache for it"
+     }
+    ],
+    "walkthrough": "'You must cut' reads as an order barked at the solver, and that is exactly what it is — an instruction about one letter, not about anybody's hair.",
+    "definitionFit": "hair -> MOUSTACHE: the definition names the general stuff and the answer is one particular growth of it, the kind worn on the upper lip."
+   }
   },
   {
    "id": "15-across",
@@ -317,7 +788,41 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPALE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "IMPALE",
+    "definition": "Stick",
+    "indicators": [
+     "back"
+    ],
+    "indicatorNotes": {
+     "back": "The back of a word is its rear end, so what is wanted from the long one is the single letter it finishes on."
+    },
+    "pieces": [
+     "IM",
+     "PAL",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one's",
+      "gives": "IM",
+      "note": "a person speaking of themselves turns one is into I'm, two letters once the apostrophe goes"
+     },
+     {
+      "clueFragment": "china",
+      "gives": "PAL",
+      "note": "china plate is Cockney rhyming slang for mate, and a mate is a pal"
+     },
+     {
+      "clueFragment": "mantelpiece",
+      "gives": "E",
+      "note": "the letter this long word ends on"
+     }
+    ],
+    "walkthrough": "'Stick' is the definition and it is a verb, meaning to run something through on a spike — not the noun the ornaments and the mantelpiece invite.",
+    "definitionFit": "Stick -> IMPALE: to stick a fork through a piece of meat is to impale it, the verb for driving a point clean through something."
+   }
   },
   {
    "id": "16-across",
@@ -334,7 +839,35 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HONSHU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HONSHU",
+    "definition": "Japanese island",
+    "indicators": [
+     "largely"
+    ],
+    "indicatorNotes": {
+     "largely": "Largely means most of a thing but not all of it, so the word beside it arrives with its final letter missing."
+    },
+    "pieces": [
+     "HON",
+     "SHU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ducks",
+      "gives": "HON",
+      "note": "ducks is a British term of address for someone you are fond of, and hon, short for honey, does the same job"
+     },
+     {
+      "clueFragment": "avoid",
+      "gives": "SHU",
+      "note": "to avoid a person is to shun them, and the word turns up here a letter short"
+     }
+    ],
+    "walkthrough": "'Ducks' looks like waterfowl, or a batter's score of nothing; it is the friendly Midlands form of address, the sort said across a shop counter.",
+    "definitionFit": "Japanese island -> HONSHU: the largest of Japan's islands and the one holding Tokyo, so the definition names it by country and kind."
+   }
   },
   {
    "id": "17-down",
@@ -351,7 +884,36 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNEAKER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "SNEAKER",
+    "definition": "Shoe",
+    "indicators": [
+     "case of",
+     "failing"
+    ],
+    "indicatorNotes": {
+     "case of": "A case is the shell that encloses a thing, so what is taken is the pair of letters at either end of the word.",
+     "failing": "Something failing is coming apart at the seams, and letters that come apart can be reassembled in any order."
+    },
+    "anagram": {
+     "fodder": "REEKS AN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "aeration",
+      "gives": "AN",
+      "note": "the two letters that case this word, one at each end"
+     },
+     {
+      "clueFragment": "reeks",
+      "gives": "REEKS",
+      "note": "five letters as printed, waiting to be reordered along with the pair beside them"
+     }
+    ],
+    "walkthrough": "The question mark flags the whole picture as invention: footwear has no aeration case. It is there so 'case of' reads as a complaint rather than an order.",
+    "definitionFit": "Shoe -> SNEAKER: a soft rubber-soled trainer, named for how quietly you can creep about in it, so it is one kind of shoe."
+   }
   },
   {
    "id": "18-across",
@@ -368,7 +930,29 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PINPOINT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PINPOINT",
+    "definition": "Accurately position",
+    "pieces": [
+     "PIN",
+     "POINT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leg",
+      "gives": "PIN",
+      "note": "pins is old slang for legs, as in being unsteady on them"
+     },
+     {
+      "clueFragment": "off-side fielder",
+      "gives": "POINT",
+      "note": "point is the cricket fielding position square of the batter on the off side"
+     }
+    ],
+    "walkthrough": "Cricket divides the field into the leg side and the off side, and the clue uses both words — one as a limb, one as a genuine fielding position.",
+    "definitionFit": "Accurately position -> PINPOINT: to pinpoint a target is to fix exactly where it is, the verb borrowed from marking a map with a pin."
+   }
   },
   {
    "id": "18-down",
@@ -385,7 +969,38 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRETERM",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "PRETERM",
+    "definition": "earlier than expected",
+    "indicators": [
+     "Half",
+     "in"
+    ],
+    "indicatorNotes": {
+     "Half": "Half of a six-letter word is three letters, and the front half is what the clue hands over.",
+     "in": "A piece described as being in another is planted among its letters rather than added at either end."
+    },
+    "pieces": [
+     "P",
+     "RET",
+     "ERM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "style",
+      "gives": "PERM",
+      "note": "a perm is a hairstyle, short for permanent wave"
+     },
+     {
+      "clueFragment": "retire",
+      "gives": "RET",
+      "note": "the first half of retire, three of its six letters"
+     }
+    ],
+    "walkthrough": "'Half retire' is solver's shorthand for taking half the letters, not for going part-time, and the early retirement in the surface is the joke.",
+    "definitionFit": "earlier than expected -> PRETERM: a preterm baby arrives before its due date, the prefix pre- carrying exactly that sense of ahead of time."
+   }
   },
   {
    "id": "19-down",
@@ -406,7 +1021,42 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTOAST",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "ON TOAST",
+    "definition": "How to serve cheese and beans",
+    "indicators": [
+     "inside"
+    ],
+    "indicatorNotes": {
+     "inside": "What goes inside a word sits between its letters, so the letter just named moves into the middle of what is left of it."
+    },
+    "pieces": [
+     "O",
+     "N",
+     "T",
+     "OAST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not",
+      "gives": "OT",
+      "note": "the word Not with its leading letter taken away"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "N",
+      "note": "the head of a word is the letter at its front, here the one just removed"
+     },
+     {
+      "clueFragment": "oven",
+      "gives": "OAST",
+      "note": "an oast is the kiln in a Kentish oast house, built for drying hops"
+     }
+    ],
+    "walkthrough": "The trick is that the letter taken off the front never leaves the clue: it moves back in one place, which is why the letter count never changes.",
+    "definitionFit": "How to serve cheese and beans -> ON TOAST: both are British teatime staples ladled over a hot slice, so the phrase answers what they sit on."
+   }
   },
   {
    "id": "20-across",
@@ -427,7 +1077,50 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEVENTYEIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "SEVENTY-EIGHT",
+    "definition": "Old record",
+    "indicators": [
+     "broken",
+     "in"
+    ],
+    "indicatorNotes": {
+     "broken": "A broken thing is in pieces that can be put back any way round, so the three letters beside the word are reordered.",
+     "in": "Something in a thing lies within its letters, so the pieces assembled first are planted inside the word that follows."
+    },
+    "pieces": [
+     "S",
+     "EVEN",
+     "TYE",
+     "IGHT"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "YET",
+      "gives": "TYE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prospect",
+      "gives": "SIGHT",
+      "note": "a prospect is a view, and a view is a sight"
+     },
+     {
+      "clueFragment": "tied",
+      "gives": "EVEN",
+      "note": "scores that are tied are level, or even"
+     },
+     {
+      "clueFragment": "yet",
+      "gives": "TYE",
+      "note": "the three letters of yet, put back in another order"
+     }
+    ],
+    "walkthrough": "'Record ... broken' is the surface's athletics story and has nothing to do with it: the record here is the brittle shellac disc a wind-up gramophone played.",
+    "definitionFit": "Old record -> SEVENTY-EIGHT: shellac discs are named after the revolutions a minute they spin at, and collectors still call them by that number."
+   }
   },
   {
    "id": "21-down",
@@ -444,7 +1137,39 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUILD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GUILD",
+    "definition": "society",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "to cover"
+    ],
+    "indicatorNotes": {
+     "to cover": "To cover something is to lie over it on both sides, so the letter named next is taken in among the ones already clued."
+    },
+    "pieces": [
+     "G",
+     "U",
+     "ILD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put precious coat on",
+      "gives": "GILD",
+      "note": "to gild is to lay a thin skin of gold over something"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is uniform in the radio alphabet, where every letter has a spoken name"
+     }
+    ],
+    "walkthrough": "'Put precious coat on' is one instruction rather than three, and 'precious' is in it only because the metal being laid on has to be gold.",
+    "definitionFit": "society -> GUILD: an association of craftsmen banded together to protect a trade, so it is one particular kind of society."
+   }
   },
   {
    "id": "22-down",
@@ -461,7 +1186,29 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLOT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SLOT",
+    "definition": "scheduled time",
+    "indicators": [
+     "missing the last"
+    ],
+    "indicatorNotes": {
+     "missing the last": "Missing the last means the final letter has gone, so the creature's name is written out one letter short."
+    },
+    "pieces": [
+     "SLOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slow mover",
+      "gives": "SLOTH",
+      "note": "the sloth hangs about in South American trees and is a byword for going nowhere fast"
+     }
+    ],
+    "walkthrough": "The surface grumbles about a dawdler who has missed the last bus. 'The last' is not part of that story: it is an instruction about a letter.",
+    "definitionFit": "scheduled time -> SLOT: the fixed gap in a timetable that a plane or a broadcast is allotted, so it names a booked stretch of time."
+   }
   },
   {
    "id": "23-across",
@@ -478,7 +1225,26 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TICK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TICK",
+    "definition": "Beat",
+    "definition2": "little pest that won't let go",
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "gives": "TICK",
+      "note": "a clock marks each beat of time with one small sound"
+     },
+     {
+      "clueFragment": "little pest that won't let go",
+      "gives": "TICK",
+      "note": "the parasite that buries its head in a dog's skin and cannot be shaken off"
+     }
+    ],
+    "walkthrough": "Nothing is anagrammed or hidden here: the clue simply sets two unrelated meanings side by side and lets the surface pretend they are one sentence.",
+    "definitionFit": "Beat -> TICK: the regular beat of a clock, while the little pest is the blood-sucking mite that fastens onto skin and holds until pulled off."
+   }
   },
   {
    "id": "24-across",
@@ -495,7 +1261,29 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREDITABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CREDITABLE",
+    "definition": "Decent",
+    "indicators": [
+     "plastic"
+    ],
+    "indicatorNotes": {
+     "plastic": "Plastic means easily moulded into another shape, so the letters beside the word can be pressed into a different order."
+    },
+    "anagram": {
+     "fodder": "ID BRACELET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ID bracelet",
+      "gives": "CREDITABLE",
+      "note": "the ten letters of these two words, pressed into a new shape"
+     }
+    ],
+    "walkthrough": "'Plastic ID bracelet' is one believable object, which is what hides the instruction inside it. The enumeration is the tell: the phrase holds exactly ten letters.",
+    "definitionFit": "Decent -> CREDITABLE: work that does you credit is respectable enough to earn praise, which is what calling a performance decent amounts to."
+   }
   },
   {
    "id": "25-across",
@@ -512,7 +1300,41 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARGE",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "CHARGE",
+    "definition": "Bill",
+    "indicators": [
+     "to replace"
+    ],
+    "indicatorNotes": {
+     "to replace": "Replacing means one letter steps out and another steps into the same spot, so the word keeps the length it started with."
+    },
+    "pieces": [
+     "CHA",
+     "R",
+     "GE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coins",
+      "gives": "CHANGE",
+      "note": "the coins rattling in your pocket are your change"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N is the standard abbreviation for note, and it is the letter that leaves"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right, as on a diagram"
+     }
+    ],
+    "walkthrough": "'Bill', 'note' and 'coins' are all money on the surface, which is the misdirection: two of them are money and the third is a single letter.",
+    "definitionFit": "Bill -> CHARGE: the sum a garage or a restaurant charges you is what turns up on the bill, so both name the amount demanded."
+   }
   },
   {
    "id": "26-across",
@@ -529,7 +1351,41 @@ window.CRYPTIC_PUZZLES["indysunday-1865"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEDITATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MEDITATE",
+    "definition": "Consider",
+    "indicators": [
+     "about it"
+    ],
+    "indicatorNotes": {
+     "about it": "About means around, and 'it' points back at the alteration just clued, so the two short pieces close round that word."
+    },
+    "pieces": [
+     "M",
+     "EDIT",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mike",
+      "gives": "M",
+      "note": "Mike is M in the radio alphabet, the same list that gives uniform for U"
+     },
+     {
+      "clueFragment": "change to clue, perhaps",
+      "gives": "EDIT",
+      "note": "changing a piece of writing is editing it, and a clue is one example of writing"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "what worried you ate at you, in the idiom about something eating a person"
+     }
+    ],
+    "walkthrough": "The question mark covers 'perhaps': a clue is only one example of the thing being changed. On the surface a setter is fretting over his own puzzle.",
+    "definitionFit": "Consider -> MEDITATE: to meditate on a problem is to turn it over in the mind at length, which is considering it slowly and deliberately."
+   }
   }
  ]
 } /*JSON-END*/;
