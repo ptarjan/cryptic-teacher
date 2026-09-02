@@ -344,7 +344,8 @@ compound type's family is decided by the FIRST row below that matches it.
 
   `alternate letters` `first letter` `first letters` `hidden word` `last letter`
   `last letters` `middle letter` `middle letters` `outer letters` `regular letters`
-  `second letter` `second letters` `third letter` `third letters`
+  `prime letters` `second letter` `second letters` `third letter` `third letters`
+  `fourth letter` `fourth letters`
 
 ### What the validator rejects
 

@@ -72,9 +72,16 @@ TYPE_PARTS = {
     # letter of students for the U of GURU. Not a middle letter, which is what
     # third of means only when the word has five letters (30068 6D, those).
     "third letter", "third letters",
+    # and one further again: everyman-4143 13A takes the fourth of stamps for the
+    # M of MOISTEN.
+    "fourth letter", "fourth letters",
     # "alternate letters" is the every-SECOND case; a setter may count in any
     # step (30077 17D takes every third letter of HOPE TO GOD to spell POD)
     "regular letters",
+    # positions picked by a rule rather than a fixed step: indysunday-1871 12A
+    # keeps the 2nd, 3rd, 5th, 7th and 11th letters of holes in prime spots
+    # along road to spell OASES.
+    "prime letters",
     # letter-movement mechanisms: a rotation that keeps letter order (30079 7D
     # TSUNAMIS = A MIST SUN cycled), and a swap of one indicated letter for
     # another (30079 15D LAUGH LINE = TAUGHT IN E with Ls covering the Ts)
