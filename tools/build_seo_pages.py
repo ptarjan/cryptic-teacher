@@ -343,6 +343,10 @@ def clue_html(e):
                else "Nothing was left to solve with, so there is no wordplay to explain.")
             + '</p>'
             if e.get("clueMissing") else
+            '<p class="s-todo muted">The paper printed the wrong text against this clue — '
+            'the words above are not the ones this answer came from, so there is no '
+            'wordplay in them to explain. ' + esc(e["clueCorrupt"]) + '</p>'
+            if e.get("clueCorrupt") else
             '<p class="s-todo muted">Not yet annotated — '
             'the full hint ladder for this puzzle is still being written.</p>')
     bits.append("</article>")
