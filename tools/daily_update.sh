@@ -382,6 +382,17 @@ python3 tools/build_seo_pages.py
 # Before the stamp, because a rebuild changes the bytes the stamp is of.
 python3 tools/build_abbreviations.py
 
+# The README's generated regions, so the corpus counts in it are never more than
+# one run behind. This can also fail, on purpose: a tool added without a line
+# describing it, or a knob renamed out from under the paragraph quoting it. Worth
+# shouting about, but not worth withholding tonight's puzzle over — and the
+# refusal names exactly what is undescribed, so it travels in the alert rather
+# than waiting in a log for someone to go and look.
+if ! readme_err=$(python3 tools/build_readme.py 2>&1); then
+  printf '%s\n' "$readme_err"
+  alert "the README could not be regenerated, so its corpus counts are frozen at their last good value:"$'\n'"\`\`\`"$'\n'"$(printf '%s' "$readme_err" | head -12)"$'\n'"\`\`\`"
+fi
+
 # Re-stamp index.html so phones don't serve yesterday's cached assets. After
 # build_seo_pages.py, because that rewrites part of index.html and the stamp has
 # to reflect the file as it finally stands.
