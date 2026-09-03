@@ -1224,7 +1224,7 @@ window.CRYPTIC_PUZZLES["cryptic-30074"] = /*JSON-START*/ {
      }
     ],
     "walkthrough": "The two halves are not even pronounced alike: the one who shows rhymes with 'lower', the hopeless lot with 'power'. Only the spelling is shared, which is all this type needs.",
-    "definitionFit": "One that displays → SHOWER: the agent noun off the verb 'show'. useless lot → SHOWER: army slang for a rabble, shouted at a team playing badly."
+    "definitionFit": "One that displays → SHOWER: the agent noun off the verb 'show'; useless lot → SHOWER: army slang for a rabble, shouted at a team playing badly."
    }
   },
   {

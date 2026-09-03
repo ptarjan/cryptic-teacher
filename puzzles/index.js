@@ -201,7 +201,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.204,
-    "percentile": 78,
+    "percentile": 77,
     "basis": [
      "checking",
      "device",
@@ -293,7 +293,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.206,
-    "percentile": 44,
+    "percentile": 43,
     "basis": [
      "checking",
      "device",
@@ -385,7 +385,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.356,
-    "percentile": 36,
+    "percentile": 35,
     "basis": [
      "checking",
      "device",
@@ -408,7 +408,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.2,
-    "percentile": 77,
+    "percentile": 76,
     "basis": [
      "checking",
      "device",
@@ -546,7 +546,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.141,
-    "percentile": 71,
+    "percentile": 70,
     "basis": [
      "checking",
      "device",
@@ -569,7 +569,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Brutal",
     "index": 0.713,
-    "percentile": 94,
+    "percentile": 93,
     "basis": [
      "checking",
      "device",
@@ -684,7 +684,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.699,
-    "percentile": 9,
+    "percentile": 8,
     "basis": [
      "checking",
      "device",
@@ -799,7 +799,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.234,
-    "percentile": 81,
+    "percentile": 80,
     "basis": [
      "checking",
      "device",
@@ -914,7 +914,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.24,
-    "percentile": 82,
+    "percentile": 81,
     "basis": [
      "checking",
      "device",
@@ -937,7 +937,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.38,
-    "percentile": 89,
+    "percentile": 88,
     "basis": [
      "checking",
      "device",
@@ -960,7 +960,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.165,
-    "percentile": 73,
+    "percentile": 72,
     "basis": [
      "checking",
      "device",
@@ -1029,7 +1029,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.199,
-    "percentile": 45,
+    "percentile": 44,
     "basis": [
      "checking",
      "device",
@@ -1144,7 +1144,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.106,
-    "percentile": 52,
+    "percentile": 51,
     "basis": [
      "checking",
      "device",
@@ -1351,7 +1351,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.107,
-    "percentile": 68,
+    "percentile": 67,
     "basis": [
      "checking",
      "device",
@@ -1374,7 +1374,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.008,
-    "percentile": 60,
+    "percentile": 59,
     "basis": [
      "checking",
      "device",
@@ -1443,7 +1443,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.582,
-    "percentile": 18,
+    "percentile": 17,
     "basis": [
      "checking",
      "device",
@@ -1551,7 +1551,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "setter": "Kite",
    "date": 1785542400000,
    "file": "cryptic-30074.js",
-   "v": "54240ed8",
+   "v": "95914afb",
    "annotated": true,
    "hasSolutions": true,
    "solutionsUnofficial": false,
@@ -1581,7 +1581,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.383,
-    "percentile": 90,
+    "percentile": 89,
     "basis": [
      "checking",
      "device",
@@ -1604,7 +1604,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.356,
-    "percentile": 87,
+    "percentile": 86,
     "basis": [
      "checking",
      "device",
@@ -1742,7 +1742,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.367,
-    "percentile": 35,
+    "percentile": 34,
     "basis": [
      "checking",
      "device",
@@ -1765,7 +1765,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.23,
-    "percentile": 80,
+    "percentile": 79,
     "basis": [
      "checking",
      "device",
@@ -1834,7 +1834,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.027,
-    "percentile": 62,
+    "percentile": 61,
     "basis": [
      "checking",
      "device",
@@ -1903,7 +1903,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.317,
-    "percentile": 86,
+    "percentile": 85,
     "basis": [
      "checking",
      "device",
@@ -2041,7 +2041,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.072,
-    "percentile": 54,
+    "percentile": 53,
     "basis": [
      "checking",
      "device",
@@ -2248,7 +2248,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.146,
-    "percentile": 72,
+    "percentile": 71,
     "basis": [
      "checking",
      "device",
@@ -2340,7 +2340,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.082,
-    "percentile": 53,
+    "percentile": 52,
     "basis": [
      "checking",
      "device",
@@ -2501,7 +2501,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.122,
-    "percentile": 51,
+    "percentile": 50,
     "basis": [
      "checking",
      "device",
@@ -2570,7 +2570,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.464,
-    "percentile": 26,
+    "percentile": 25,
     "basis": [
      "checking",
      "device",
@@ -2593,7 +2593,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.011,
-    "percentile": 61,
+    "percentile": 60,
     "basis": [
      "checking",
      "device",
@@ -2639,7 +2639,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.037,
-    "percentile": 63,
+    "percentile": 62,
     "basis": [
      "checking",
      "device",
@@ -2662,7 +2662,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.387,
-    "percentile": 34,
+    "percentile": 33,
     "basis": [
      "checking",
      "device",
@@ -2878,6 +2878,29 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    }
   },
   {
+   "id": "independent-12398",
+   "number": 12398,
+   "series": "independent",
+   "name": "Independent cryptic crossword No 12,398",
+   "setter": "Phi",
+   "date": 1783036800000,
+   "file": "independent-12398.js",
+   "v": "5347742e",
+   "annotated": true,
+   "hasSolutions": true,
+   "solutionsUnofficial": false,
+   "difficulty": {
+    "band": "Brutal",
+    "index": 0.716,
+    "percentile": 94,
+    "basis": [
+     "checking",
+     "device",
+     "obscurity"
+    ]
+   }
+  },
+  {
    "id": "cryptic-30048",
    "number": 30048,
    "series": "cryptic",
@@ -2984,7 +3007,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.415,
-    "percentile": 91,
+    "percentile": 90,
     "basis": [
      "checking",
      "device",
@@ -3099,7 +3122,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.222,
-    "percentile": 79,
+    "percentile": 78,
     "basis": [
      "checking",
      "device",
@@ -3639,7 +3662,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.374,
-    "percentile": 88,
+    "percentile": 87,
     "basis": [
      "checking",
      "device",
@@ -3662,7 +3685,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.002,
-    "percentile": 59,
+    "percentile": 58,
     "basis": [
      "checking",
      "device",
@@ -3708,7 +3731,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.2,
-    "percentile": 77,
+    "percentile": 76,
     "basis": [
      "checking",
      "device",
@@ -3975,7 +3998,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.292,
-    "percentile": 84,
+    "percentile": 83,
     "basis": [
      "checking",
      "device",
@@ -4021,7 +4044,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Moderate",
     "index": -0.453,
-    "percentile": 27,
+    "percentile": 26,
     "basis": [
      "checking",
      "device",
@@ -4408,7 +4431,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.594,
-    "percentile": 93,
+    "percentile": 92,
     "basis": [
      "checking",
      "device",
@@ -4615,7 +4638,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.058,
-    "percentile": 55,
+    "percentile": 54,
     "basis": [
      "checking",
      "device",
@@ -4661,7 +4684,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": -0.226,
-    "percentile": 43,
+    "percentile": 42,
     "basis": [
      "checking",
      "device",
@@ -4730,7 +4753,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.31,
-    "percentile": 85,
+    "percentile": 84,
     "basis": [
      "checking",
      "device",
@@ -4822,7 +4845,7 @@ window.CRYPTIC_INDEX = /*JSON-START*/ {
    "difficulty": {
     "band": "Tough",
     "index": 0.064,
-    "percentile": 64,
+    "percentile": 63,
     "basis": [
      "checking",
      "device",

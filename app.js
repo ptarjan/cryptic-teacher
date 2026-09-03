@@ -731,9 +731,13 @@
     return i === undefined ? -1 : i;
   }
 
-  function clueHTML(e) {
+  // Which stretches of the clue are lit, and why. Kept apart from clueHTML
+  // because the same ranges have to be painted twice over: once across the whole
+  // string, and once word by word when the words themselves are the targets of a
+  // question — see pickableClueHTML.
+  function clueMarks(e) {
     const ann = annOf(e);
-    if (!ann) return plainClueHTML(e);
+    if (!ann) return [];
     const shown = (key) => isShown(e, key);
     const marks = [];
     const push = (text, cls) => {
@@ -750,15 +754,15 @@
       (ann.linkWords || []).forEach((w) => push(w, "link"));
     }
     if (shown("indicators")) (ann.indicators || []).forEach((ind) => push(ind, "ind"));
-    if (!marks.length) return plainClueHTML(e);
     // Where two marks still overlap — an indicator genuinely sitting inside the
     // definition — markUp gives each cut piece to the FIRST mark that covers it,
     // so shortest-first hands the overlap to the more specific of the two and
     // the longer one keeps everything either side. Both stay visible; neither is
     // thrown away.
-    marks.sort((a, b) => a.len - b.len);
-    return markUp(e.clue, marks, italicsOf(e));
+    return marks.sort((a, b) => a.len - b.len);
   }
+
+  const clueHTML = (e) => markUp(e.clue, clueMarks(e), italicsOf(e));
 
   // A CHECKING letter is the crossword term for a square this entry shares with
   // one crossing the other way — the letters another answer hands you for free.
@@ -2170,6 +2174,40 @@
       words.join(" ")}</p>`;
   }
 
+  // The question, asked of the clue itself. It used to print a second copy of the
+  // clue below the panel's own and ask the solver to point at that one — "can we
+  // select from the original clue instead of duplicating it?" (Paul, 2026-09-03).
+  // Two copies of the same sentence, one lit and unpickable and one pickable and
+  // unlit, is the reader deciding which is the clue before they can start.
+  //
+  // Marks are ranges over the clue string and words are ranges over that same
+  // string, so each word is marked up from its own slice and the gaps between
+  // them — the spaces, and the enumeration clueTokens leaves off the end — are
+  // marked up as themselves. Every mark already bought therefore stays lit,
+  // inside the word you are pointing at.
+  function pickableClueHTML(e, ask, picked, rung) {
+    const marks = clueMarks(e);
+    const italics = italicsOf(e);
+    // markUp clips its own cut points to the slice and asks only whether a range
+    // covers a position, so a mark that starts before this slice or ends after it
+    // needs shifting and nothing else.
+    const slice = (a, b) => markUp(e.clue.slice(a, b),
+      marks.map((m) => ({ i: m.i - a, len: m.len, cls: m.cls })),
+      italics.map((r) => [r[0] - a, r[1]]));
+    let out = "", at = 0;
+    ask.tokens.forEach((t, i) => {
+      const settled = ask.known.indexOf(i) >= 0;
+      const inner = slice(t.i, t.i + t.text.length);
+      out += slice(at, t.i) + (settled
+        ? `<span class="gw known">${inner}</span>`
+        : `<button type="button" id="gw-${i}" class="gw${
+            picked.indexOf(i) >= 0 ? " on" : ""}">${inner}</button>`);
+      at = t.i + t.text.length;
+    });
+    return `<span class="guess-clue ask pick-${rung || "indicators"}">${
+      out + slice(at, e.clue.length)}</span>`;
+  }
+
   // ---------- dragging a run of words ----------
   //
   // A definition is a RUN of words, and pointing at a run is one gesture rather
@@ -2285,15 +2323,21 @@
         `<button type="button" id="gc-${i}" class="gc">${esc(c)}</button>`).join("")}</p>`;
   }
 
-  function guessHTML(ask, position, label) {
+  // Words are pointed at up in the clue itself, so a words question has no answer
+  // of its own down here: the prompt, and the two buttons that end it. The seven
+  // families have nowhere else to live and keep their chips, and so does a linked
+  // clue, whose own words are not the ones on display — see renderHintPanel.
+  function guessHTML(ask, position, label, inClue) {
     const answer = ask.choices
       ? guessChoicesHTML(ask)
+      : inClue ? ""
       : guessWordsHTML(ask.tokens, null, guessing.picked, ask.known, guessing.rung);
     const check = ask.choices ? "" : `<button id="guess-check" class="primary"${
       guessing.picked.length ? "" : " disabled"}>Check my answer</button> `;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       ${placedHTML(guessing.placed)}
-      <p>${ask.prompt}</p>
+      <p>${ask.prompt}${inClue && !ask.choices
+        ? ` <span class="muted">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
       <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button></p></div>`;
   }
@@ -2660,8 +2704,6 @@
 
     let clueLine = `<span class="entry-tag">${tag(e)}</span>`;
     if (holder !== e) clueLine += `<span class="muted">(linked with ${tag(holder)}) </span>`;
-    clueLine += clueHTML(holder);
-    const clueWrote = setHTML($("hint-clue"), clueLine);
     setHTML($("hint-pattern"), patternHTML(e));
 
     const solved = isEntrySolved(e);
@@ -2769,7 +2811,7 @@
       if (guessing && !ask) guessing = null;
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
-        bodyHTML += guessHTML(ask, at + 1, steps[at].label);
+        bodyHTML += guessHTML(ask, at + 1, steps[at].label, holder === e);
       }
 
       // How the ladder works, said once and then never again: it stops the
@@ -2824,6 +2866,19 @@
         nextSpec.push({ fill: true, text: FILL_LABEL });
       }
     }
+    // Written last, because whether its words are targets is decided by whether a
+    // question ended up being asked. A linked clue is the exception and keeps the
+    // second copy: the words being asked about are this entry's own clue, and the
+    // one on display belongs to the entry it is linked with.
+    clueLine += (ask && !ask.choices && guessing && holder === e)
+      ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
+      : clueHTML(holder);
+    const clueWrote = setHTML($("hint-clue"), clueLine);
+    // Bordered words need the leading the duplicate copy used to have, and the
+    // clue line is one element whichever form it is in — so the state goes on the
+    // element rather than into the markup setHTML compares.
+    $("hint-clue").classList.toggle("picking", clueLine.indexOf("guess-clue") >= 0);
+
     setHTML($("hint-meter"), meterHTML + (freeRest ? " · the rest are free now" : ""));
 
     const bodyWrote = setHTML(body, bodyHTML);

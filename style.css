@@ -569,6 +569,12 @@ button:disabled:hover { border-color: var(--line); }
    forms re-wraps the whole clue at the moment the solver is trying to read what
    changed. Nothing below may override it. */
 .guess-clue { line-height: 2.1; }
+/* The question is now asked of the clue at the top of the panel rather than of a
+   copy printed under it, so that line has to carry bordered words without them
+   colliding with the line above. Only while it is being pointed at: a clue that
+   is merely being read wants its own tighter leading back. */
+.hint-clue.picking { line-height: 2.1; }
+.hint-clue .guess-clue { line-height: inherit; }
 /* A word you point at wears the colour of the thing you are pointing it out AS:
    green on the definition rung because a definition is green everywhere else on
    the page, pink on the others because that is what an indicator and a wordplay
@@ -701,9 +707,20 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    the whole verdict — there are no words to mark up underneath it. So right
    arrives, and a miss shakes its head. A miss still isn't coloured; the motion
    says it instead. */
-.guess-verdict { margin: 10px 0 0; font-size: .9rem; }
-.guess-verdict.right { color: var(--def-fg); font-weight: 600; }
-.guess-verdict.miss { color: var(--muted); }
+/* And it has to be FOUND before it can be read. It was .9rem — smaller than the
+   body text it was announcing a result to — so "my eye isn't drawn to Yes, that's
+   exactly it, when it appears" (Paul, 2026-09-03). The answer is not another
+   animation: the marked clue is travelling at that moment and motion beside
+   motion is a race. It is size and a shape — the right verdict is an object on
+   the page, in the definition's own tint, not a coloured line of small print. */
+.guess-verdict { margin: 10px 0 0; font-size: 1.05rem; }
+.guess-verdict.right {
+  display: inline-block; color: var(--def-fg); font-weight: 700;
+  background: var(--def-bg); padding: 4px 10px; border-radius: 999px;
+}
+/* A miss stays plain and stays quiet: it is a step in the lesson, not an error
+   state, and it must never be the loudest thing in the panel. */
+.guess-verdict.miss { color: var(--muted); font-size: .95rem; }
 .guess-result.fresh .guess-verdict.right { animation: gv-right .45s ease-out; }
 .guess-result.fresh .guess-verdict.miss { animation: gv-miss .4s ease-out; }
 @keyframes gv-right {

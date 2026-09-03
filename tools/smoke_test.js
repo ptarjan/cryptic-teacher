@@ -17,6 +17,12 @@ const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", 
 const { registry, document, storage, docListeners, canonicalLink, FakeEl, appSrc, beacons } =
   require("./fake_dom.js").boot();
 const EVENTS = require("../sync/events.js");
+// A guess is asked of the clue at the top of the panel and answered in the body
+// under it, so "what the panel is showing" spans both elements. Tests that care
+// which of the two still name the element; the rest ask the panel. Before
+// 2026-09-03 the question printed a second copy of the clue in the body and
+// every one of these read hint-body alone.
+const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].innerHTML;
 // What the page reported since a mark, in order. Sliced rather than read whole:
 // the harness opens a great many puzzles over a run, and the rule under test is
 // "at most once per puzzle per session", not "at most once ever".
@@ -2440,10 +2446,19 @@ global.realSetTimeout(() => {
   const btn = defBtn();
   assert(btn, "the definition rung is offered: " + registry["hint-next"].innerHTML);
   btn.onclick();
-  let html = registry["hint-body"].innerHTML;
+  let html = panelHTML();
   assert(html.includes("guess-clue"), "the definition rung asks before it tells: " + html);
   assert(!html.includes("hint-step\"><span class=\"step-label\">2 ·"),
     "the rung is not handed over while the question is still open: " + html);
+  // One clue on the screen, and it is the real one. The question used to print a
+  // second copy of the clue in the body and ask the solver to point at that,
+  // leaving them to work out which of the two sentences was the live one
+  // (Paul, 2026-09-03). The words are targets where they are read.
+  assert(/id="gw-\d+"/.test(registry["hint-clue"].innerHTML),
+    "the clue's own words are the targets: " + registry["hint-clue"].innerHTML);
+  assert(!/id="gw-\d+"/.test(registry["hint-body"].innerHTML),
+    "and there is no second copy of the clue to point at instead: "
+      + registry["hint-body"].innerHTML);
   assert(!registry["hint-clue"].innerHTML.includes('mark class="def"'),
     "nor is the answer given away by the highlight: " + registry["hint-clue"].innerHTML);
   assert(registry["hint-next"].innerHTML === "",
@@ -2452,7 +2467,7 @@ global.realSetTimeout(() => {
   // Right: exactly the words, nothing else.
   for (let i = 0; i < found.words; i++) registry["gw-" + i].onclick();
   registry["guess-check"].onclick();
-  html = registry["hint-body"].innerHTML;
+  html = panelHTML();
   // The verdict lands on the words as well as in a sentence: "3 of 5" never says
   // WHICH three, and which three is the lesson.
   assert(html.includes("guess-verdict right"), "a correct guess is told so: " + html);
@@ -2467,7 +2482,7 @@ global.realSetTimeout(() => {
   assert(!/id="gw-\d+"/.test(html),
     "and the graded words stop being buttons rather than stopping taps: " + html);
   global.flushTimers(10000);
-  assert(registry["hint-body"].innerHTML === html,
+  assert(panelHTML() === html,
     "nothing is on a timer: the verdict and its marked clue stay put: "
       + registry["hint-body"].innerHTML);
   assert(registry["hint-clue"].innerHTML.includes('mark class="def"'),
@@ -2478,18 +2493,18 @@ global.realSetTimeout(() => {
   // Wrong: every word in the clue is never the answer to any of these.
   openIt();
   defBtn().onclick();
-  const words = (registry["hint-body"].innerHTML.match(/id="gw-\d+"/g) || []).length;
+  const words = (panelHTML().match(/id="gw-\d+"/g) || []).length;
   assert(words > found.words, "the clue offers more words than the definition uses");
   for (let i = 0; i < words; i++) registry["gw-" + i].onclick();
   registry["guess-check"].onclick();
-  html = registry["hint-body"].innerHTML;
+  html = panelHTML();
   assert(html.includes("guess-verdict miss"), "a wrong guess is told so: " + html);
   assert((html.match(/class="gw on hit"/g) || []).length === found.words &&
          /class="gw on spare"/.test(html),
     `the words that were doing the job are told apart from the ones that weren't: ${html}`);
   assert(html.includes("hint-step"), "and the rung still opens — never a gate: " + html);
   global.flushTimers(10000);
-  assert(registry["hint-body"].innerHTML === html,
+  assert(panelHTML() === html,
     "a miss is left on screen to be read too: " + registry["hint-body"].innerHTML);
   assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
     "a rung you did not earn still costs one: " + registry["scorebar"].innerHTML);
@@ -2497,7 +2512,7 @@ global.realSetTimeout(() => {
   // And the escape hatch out of the question itself.
   openIt();
   defBtn().onclick();
-  assert(registry["hint-body"].innerHTML.includes("guess-clue"), "asked again");
+  assert(panelHTML().includes("guess-clue"), "asked again");
   registry["guess-tell"].onclick();
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "“Just tell me” tells you");
   assert(!registry["hint-body"].innerHTML.includes("guess-verdict"),
@@ -2603,16 +2618,18 @@ global.realSetTimeout(() => {
 
   // Mid-sequence: the first piece is placed and named, its words are settled, and
   // the rung has NOT been handed over.
-  let html = registry["hint-body"].innerHTML;
+  let html = panelHTML();
   assert(html.includes(escHtml(walked.bl[0].gives)),
     "the piece just placed is named, not just greyed: " + html);
   assert(html.includes(escHtml(walked.bl[1].gives)),
     "and the next piece is what is now being asked for: " + html);
-  const placed = html.slice(html.indexOf("guess-placed"));
-  walked.spans[0].forEach((n) => assert(!placed.includes(`id="gw-${n}"`),
-    `word ${n} was this solver's answer a moment ago and is not offered again: ` + placed));
-  assert((placed.match(/class="gw known"/g) || []).length >= walked.spans[0].length,
-    "the placed piece is settled scaffolding for the next question: " + placed);
+  // Settled means settled in the clue, which is where the words are pointed at:
+  // no longer a button, and visibly already spoken for.
+  const clue = registry["hint-clue"].innerHTML;
+  walked.spans[0].forEach((n) => assert(!clue.includes(`id="gw-${n}"`),
+    `word ${n} was this solver's answer a moment ago and is not offered again: ` + clue));
+  assert((clue.match(/class="gw known"/g) || []).length >= walked.spans[0].length,
+    "the placed piece is settled scaffolding for the next question: " + clue);
   assert(registry["scorebar"].innerHTML === walked.paid,
     "and nothing has been bought yet — one rung, one price: " + registry["scorebar"].innerHTML);
 
@@ -2621,7 +2638,7 @@ global.realSetTimeout(() => {
   // elimination guard's call, not this test's.
   for (let n = 1; n < walked.bl.length && asking(); n++) {
     const span = walked.spans[n] || spanTokens(walked.e.clue, walked.bl[n].clueFragment);
-    if (!span || span.some((i) => !registry["hint-body"].innerHTML.includes(`id="gw-${i}"`))) break;
+    if (!span || span.some((i) => !panelHTML().includes(`id="gw-${i}"`))) break;
     pick(span);
     registry["guess-check"].onclick();
   }
@@ -2643,7 +2660,7 @@ global.realSetTimeout(() => {
   assert(asking(), "and asks before telling: " + registry["hint-body"].innerHTML);
   // Deliberately wrong, so there is a verdict to lose. The last word of a clue is
   // never the whole definition of one that starts with it.
-  const last = (registry["hint-body"].innerHTML.match(/id="gw-(\d+)"/g) || []).pop();
+  const last = (panelHTML().match(/id="gw-(\d+)"/g) || []).pop();
   registry[last.slice(4, -1)].onclick();
   registry["guess-check"].onclick();
   assert(registry["hint-body"].innerHTML.includes("guess-verdict"), "graded");
@@ -2715,7 +2732,7 @@ global.realSetTimeout(() => {
     fire("pointermove", { clientX: to, clientY: 0 });
     fire("pointerup", {});
   };
-  const onNow = () => (registry["hint-body"].innerHTML.match(/class="gw on"/g) || []).length;
+  const onNow = () => (panelHTML().match(/class="gw on"/g) || []).length;
 
   // Drag the definition's run in one gesture.
   open();
@@ -3217,7 +3234,7 @@ global.realSetTimeout(() => {
   // A settled word gets no button, so the ids in the question ARE what is
   // pickable. Read off the panel rather than worked out here.
   const pickable = () => {
-    const seen = (registry["hint-body"].innerHTML.match(/id="gw-(\d+)"/g) || [])
+    const seen = (panelHTML().match(/id="gw-(\d+)"/g) || [])
       .map((m) => Number(m.slice(7, -1)));
     return seen.sort((a, b) => a - b);
   };
@@ -3332,7 +3349,7 @@ global.realSetTimeout(() => {
     const b = rung(re);
     if (!b) return null;
     b.onclick();
-    if (!registry["hint-body"].innerHTML.includes("guess-clue")) return null;
+    if (!panelHTML().includes("guess-clue")) return null;
     registry["gw-0"].onclick();
     registry["guess-check"].onclick();
     const marks = registry["hint-body"].innerHTML.match(/class="gw([^"]*)"/g) || [];
@@ -3351,7 +3368,7 @@ global.realSetTimeout(() => {
   const pickClass = (re) => {
     open();
     rung(re).onclick();
-    return (registry["hint-body"].innerHTML.match(/class="guess-clue[^"]*"/) || [""])[0];
+    return (panelHTML().match(/class="guess-clue[^"]*"/) || [""])[0];
   };
   const defPick = pickClass(/definition/i), indPick = pickClass(/indicator/i);
   assert(/pick-definition/.test(defPick),
