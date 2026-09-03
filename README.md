@@ -5,7 +5,7 @@
 A static, no-framework web app that teaches you to solve cryptic crosswords using real
 broadsheet puzzles — the Guardian's cryptic and Quiptic, the Independent's daily and
 Sunday, and the Observer's Everyman — with an escalating **hint ladder per clue** instead of a bare
-answer key. Each hint level teaches the next solving skill:
+answer key. Each rung teaches the next solving skill:
 
 1. **Clue type** — anagram? charade? container? hidden word? …
 2. **Definition** — the definition part of the clue is highlighted.
@@ -14,17 +14,35 @@ answer key. Each hint level teaches the next solving skill:
 5. **Full walkthrough** — step-by-step assembly of the answer.
 6. **Fill in answer** — writes the solution into the grid.
 
-A separate "reveal one letter" escape hatch is available at any hint level (it doesn't
-advance the ladder, but it does count against your score).
+**The rungs ask before they tell.** Rungs 2–4 pose their question first — "which words are
+the definition?" — and you answer by tapping those words in the clue itself. Get it right
+and the rung is yours without spending a hint; "Just tell me" answers it for you at the
+usual price. Guessing is how the skill transfers, so a rung you worked out is scored apart
+from one you bought.
+
+The ladder is **tiers, not a chain**. The three spotting rungs (type, definition,
+indicators) can be taken in any order, because which one you want is your business. The
+building blocks and the walkthrough stay locked until the spotting rungs are up, since
+they restate those answers on the way to giving the whole thing away — "skip to the
+walkthrough" one click from cold is not a ladder. Solving the clue unlocks the rest of it
+for free: the explanation of a clue you already got is the one thing this site is for.
+
+A "reveal one letter" escape hatch is available at any point (it doesn't advance the
+ladder, but it does count against your score), and every clue carries a **Report a bad
+hint** button — two taps and a sentence, posted with the puzzle and clue already filled
+in, because a reader who has just been taught something false will only say so if it
+costs them nothing.
 
 There are also check buttons (letter / entry / grid) that mark wrong letters without
-revealing, a gentle score (clues solved with no hints, hint levels used), a collapsible
-"How cryptic clues work" tutorial, and a puzzle picker. Progress is saved in
-localStorage per puzzle.
+revealing, a gentle score (clues solved with no hints, rungs shown, rungs worked out), a
+collapsible "How cryptic clues work" tutorial, a **glossary of standard abbreviations**
+that the building-blocks rung links into word by word, and a puzzle picker. Progress is
+saved in localStorage per puzzle.
 
-**Flagship puzzles** — Guardian Cryptic **No 30,066 (Tramp)** and **No 30,067 (Imogen)**
-are fully hand-annotated (every clue, all six hint levels, machine-validated). The other
-bundled puzzles are un-annotated backlog: they show an <em>auto hints</em> badge and
+**Corpus** — 268 puzzles across five series (Guardian cryptic 69, Observer Everyman 78,
+Independent daily 49 and Sunday 56, Guardian Quiptic 16). 216 of them are annotated
+clue-for-clue, all six rungs, machine-validated: 6,363 of 7,793 clues, or 82%. The rest
+are backlog the daily job is still draining — they show an <em>auto hints</em> badge and
 degrade gracefully (checking and letter reveals still work; the teaching ladder appears
 once a puzzle is annotated).
 
@@ -40,19 +58,50 @@ No build step, no backend. Either:
 
 ```
 index.html, style.css, app.js   the app (vanilla HTML/CSS/JS)
-tools/tutorial.html             the "How cryptic clues work" lesson, built into learn/
+learn/                          the "How cryptic clues work" lesson, built from tools/tutorial.html
+abbreviations/                  the glossary of standard abbreviations the blocks rung links into
+og/                             one 1200x630 social card per puzzle, drawn from one of its clues
 puzzles/index.json              manifest: one row per puzzle (latest first)
 puzzles/index.js                the same manifest as a script (so file:// works)
-puzzles/<number>.js             one puzzle per file, JSON between /*JSON-START*/ ... /*JSON-END*/
+puzzles/<series>-<n>.js         one puzzle per file, JSON between /*JSON-START*/ ... /*JSON-END*/
+
+fetching
 tools/fetch_puzzle.py           fetch/convert Guardian puzzles, --latest/--backfill/--reindex
-tools/validate_annotations.py   proves every annotation actually spells its answer
+tools/fetch_independent.py      the Independent's daily and Sunday
+tools/fetch_observer.py         the Observer's Everyman
+tools/extend_archive.py         walks the archives backwards to refill the backfill queue
+
+annotating
+tools/annotate_prompt.md        the prompt the daily Claude Code job follows to annotate
+tools/validate_annotations.py   proves every annotation actually spells its answer, and ~30
+                                other rules about what a rung may and may not say
 tools/annotation_backlog.json   how many clues of each OLD puzzle predate a required field;
                                 a puzzle not listed is allowed none, so new rules bind new puzzles
-tools/annotate_prompt.md        the prompt the daily Claude Code job follows to annotate
+tools/check_annotation_loss.py  refuses a commit that drops annotation a previous run wrote
+tools/app_tables.py             the clue-family table, read by the tools so there is no port
+                                of the app's wording to keep in step
+
+solving the puzzles whose answers aren't published yet
+tools/solve_packet.py           the clues and the grid's crossing map, for a cold solve
+tools/solve_prompt.md           the method the model follows
+tools/apply_solution.py         writes a blind solve in only if every crossing letter agrees
+
+building and checking the site
+tools/build_seo_pages.py        one static page per puzzle, for search engines and unfurls
+tools/build_abbreviations.py    builds abbreviations/ from the annotations that cite them
+tools/make_og_card.py           picks a puzzle's best clue and lays out its social card
+tools/make_og.sh                screenshots those cards with headless Chrome
+tools/stamp_assets.py           cache-busting ?v= stamps; the smoke test fails on a stale one
+tools/smoke_test.js             the whole app driven headless against the real corpus
+tools/fake_dom.js               the DOM the smoke test drives it in
+
+scheduling
 tools/daily_update.sh           daily script: fetch latest, annotate backlog, validate, commit
+tools/alert.sh                  posts a run's failures to Discord instead of burying them in a log
 tools/com.pt.cryptic-teacher.plist  LaunchAgent that runs daily_update.sh at 06:15
 tools/weekly_usage.py           how much of a Claude quota window is spent, and when it resets
 tools/prereset_backfill.sh      burns the tail of the weekly quota on backfills, ungated
+tools/backlog_burndown.py       how long the remaining backlog will take at the current rate
 tools/com.pt.cryptic-teacher-prereset.plist  LaunchAgent that polls prereset_backfill.sh hourly
 ```
 
@@ -120,6 +169,28 @@ Then annotate the new `puzzles/<series>-<n>.js` by hand or with Claude Code usin
 ```
 python3 tools/validate_annotations.py 30123
 python3 tools/fetch_puzzle.py --reindex
+```
+
+### Checking your work
+
+```
+node tools/smoke_test.js            # the app, driven headless against the whole corpus
+python3 tools/validate_annotations.py   # no argument: every puzzle
+```
+
+`smoke_test.js` is the load-bearing one. It drives the real `app.js` against a fake DOM
+and the real puzzle files, so it fails on data as readily as on code — a rung that gives
+the answer away early, a clue whose highlight doesn't sit where the annotation says, a
+sound clue that never prints what it sounds like. Assertions match the **markup the app
+emits**, never a phrase of English, because annotation prose is written by a model and
+will eventually contain any sentence you were using as a signal.
+
+If you edit `style.css`, `app.js` or a puzzle file, the static pages need rebuilding and
+restamping or the suite will fail on hundreds of stale `?v=` references:
+
+```
+python3 tools/build_seo_pages.py && python3 tools/stamp_assets.py
+bash tools/make_og.sh --all         # only redraws cards older than their puzzle
 ```
 
 ### Automated daily updates
