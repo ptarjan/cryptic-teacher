@@ -2680,14 +2680,29 @@
       refreshAll();
     });
   }
-  function bindReport(e) {
+  // Takes no entry, on purpose. These handlers are bound behind setHTML, which
+  // rewrites nothing when the new markup equals the old — and the escape hatch's
+  // markup is identical for every unsolved, revealable clue whose report is not
+  // open, which is most of them. So moving between two such clues rebinds
+  // nothing, and a handler that had closed over the entry it was bound on would
+  // still be answering for that one several clues later: the report would be
+  // filed against a clue the reader had left. That is the rule stated over
+  // setHTML — no handler in this panel may close over state the compared value
+  // does not contain — and the fix is the one that rule asks for, reading the
+  // current entry at the moment of the click rather than rebinding more often.
+  function bindReport() {
     const open = $("rp-open");
-    if (open) open.onclick = () => { report = { key: entryKey(e), phase: "open" }; refreshAll(); };
+    if (open) open.onclick = () => {
+      report = { key: entryKey(currentEntry()), phase: "open" };
+      refreshAll();
+    };
     const send = $("rp-send");
-    if (send) send.onclick = () => sendReport(e);
+    if (send) send.onclick = () => sendReport(currentEntry());
     const note = $("rp-note");
     if (note && note.addEventListener) {
-      note.addEventListener("keydown", (ev) => { if (ev.key === "Enter") sendReport(e); });
+      note.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter") sendReport(currentEntry());
+      });
     }
   }
 
@@ -2894,7 +2909,7 @@
       + reportHTML();
     if (setHTML(escape, escapeHTML)) {
       if (canReveal) $("hx-letter").onclick = revealLetter;
-      bindReport(e);
+      bindReport();
     }
 
     if (!bodyWrote && !clueWrote) return;
