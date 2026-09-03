@@ -295,7 +295,7 @@ def indicator_gloss(ann, ind, family):
         return None
     head = f'<mark class="ind">{html.escape(ind)}</mark> {html.escape(tail)}'
     try:
-        check_prose_stays_in_family(head, family)
+        check_prose_stays_in_family(head, family, ann.get("type"))
     except RuntimeError:
         return None
     return head
@@ -383,7 +383,20 @@ FAMILY_SIGNALS = {
 }
 
 
-def check_prose_stays_in_family(prose_html, family):
+def families_in(type_):
+    """Every family a (possibly compound) type belongs to, not just the winning one.
+
+    family_of takes the first match because a card has one headline to print.
+    Whether the card's prose is allowed to name a mechanism is a different
+    question with a different answer: "&lit + hidden word" IS an extraction, and
+    saying so lower down is the clue being taught, not a second device wandering
+    in from another family.
+    """
+    t = (type_ or "").lower()
+    return {fam[0] for fam in FAMILIES if any(k in t for k in fam[2])}
+
+
+def check_prose_stays_in_family(prose_html, family, type_):
     """The card's own words may not borrow another family's signal.
 
     Rung 3 on a hidden-word card read "<ind> says so out loud" from the day the
@@ -405,14 +418,17 @@ def check_prose_stays_in_family(prose_html, family):
     flagged once the hidden rung was reworded — this is the fix held in place,
     not a backlog.
     """
-    own = FAMILY_SIGNALS.get(family[0], ())
+    # Every family this clue actually is, so a hybrid type is judged against all
+    # of them and not only against the one that won the headline.
+    mine_families = families_in(type_) | {family[0]}
+    own = {sig for label in mine_families for sig in FAMILY_SIGNALS.get(label, ())}
     # The marks and the fodder are quoted from the clue and the annotation. Only
     # the words the card puts around them are ours to be judged on.
     mine = re.sub(r'<mark\b[^>]*>.*?</mark>|<span class="fodder">.*?</span>',
                   " ", prose_html, flags=re.S)
     mine = html.unescape(re.sub(r"<[^>]+>", " ", mine)).lower()
     for label, signals in FAMILY_SIGNALS.items():
-        if label == family[0]:
+        if label in mine_families:
             continue
         for sig in signals:
             if sig in mine and sig not in own:
@@ -459,7 +475,7 @@ def compose(entry, p, number=0):
     # that nothing ever takes three lines; plan() refuses anything longer still.
     size = " small" if len(clue) > 64 else " long" if len(clue) > 36 else ""
     check_no_answer(clue_html, steps, ann["answer"])
-    check_prose_stays_in_family(steps, p["family"])
+    check_prose_stays_in_family(steps, p["family"], ann.get("type"))
     return f"""<!--CARD-START {number} {entry["id"]}-->
   <div class="clue{size}">{clue_html} <span class="enum">{html.escape(enumeration)}</span></div>
   <ol class="rungs">{steps}</ol>
