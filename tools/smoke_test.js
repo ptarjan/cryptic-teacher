@@ -1330,18 +1330,27 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       openClue(s);
       // Climb until the blocks rung has been bought.
       let html = "";
+      // Escaped the way app.js escapes it: "I'D A" reaches the page as I&#39;D A.
+      const esc = (t) => String(t).replace(/[&<>"']/g, (c) =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+      // What the blocks rung emits for a sounded block, character for character —
+      // see the `b.soundsLike` line in app.js. Matching the markup and not the
+      // words is the point: this loop used to stop climbing as soon as the body
+      // contained the bare phrase "said aloud", which is also ordinary English an
+      // indicator note may use ("the words before this are to be said aloud"), so
+      // two clues broke out of the ladder one rung early and were then failed for
+      // a blocks rung they had never bought.
+      const sounded = (b) => `<span class="gives">${esc(b.soundsLike)}</span>`
+        + ` <span class="muted">said aloud</span>`;
       for (let i = 0; i < 8; i++) {
         const btn = registry["hint-next"].children[0];
         if (!btn || !btn.onclick || !/^\d+ · /.test(btn.textContent || "")) break;
         takeRung(btn);
         html = registry["hint-body"].innerHTML;
-        if (html.includes("said aloud")) break;
+        if (heard.every((b) => html.includes(sounded(b)))) break;
       }
-      // Escaped the way app.js escapes it: "I'D A" reaches the page as I&#39;D A.
-      const esc = (t) => String(t).replace(/[&<>"']/g, (c) =>
-        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
       for (const b of heard) {
-        assert(html.includes(esc(b.soundsLike)),
+        assert(html.includes(sounded(b)),
           `${s.id} ${s.e.id}: the blocks rung never shows ${b.soundsLike}, ` +
           `which is the whole mechanism — ` + html);
       }

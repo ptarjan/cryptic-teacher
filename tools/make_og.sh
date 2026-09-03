@@ -43,7 +43,12 @@ case "${1:-}" in
   "") ;;
   --all)
     mkdir -p "$REPO/og"
-    for n in $(python3 "$REPO/tools/make_og_card.py" --list); do
+    # Listed into a variable of its own, because `for n in $(...)` throws the
+    # command's exit status away: a lister that dies partway through is then
+    # indistinguishable from a shorter corpus, and every puzzle after the one it
+    # died on silently keeps a stale card while the run reports success.
+    list="$(python3 "$REPO/tools/make_og_card.py" --list)"
+    for n in $list; do
       if [ ! -f "$REPO/og/$n.png" ] || [ "$REPO/puzzles/$n.js" -nt "$REPO/og/$n.png" ]; then
         one "$n"
       fi
