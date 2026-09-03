@@ -342,10 +342,10 @@ compound type's family is decided by the FIRST row below that matches it.
 
 **Extraction** — The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.
 
-  `alternate letters` `first letter` `first letters` `hidden word` `last letter`
-  `last letters` `middle letter` `middle letters` `outer letters` `regular letters`
-  `prime letters` `second letter` `second letters` `third letter` `third letters`
-  `fourth letter` `fourth letters`
+  `alternate letters` `first letter` `first letters` `fourth letter` `fourth letters`
+  `hidden word` `last letter` `last letters` `middle letter` `middle letters`
+  `outer letters` `prime letters` `regular letters` `second letter` `second letters`
+  `third letter` `third letters`
 
 ### What the validator rejects
 

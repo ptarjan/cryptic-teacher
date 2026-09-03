@@ -30,7 +30,27 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FLAT",
+    "definition": "Monotonous",
+    "definition2": "place to live",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Monotonous",
+      "gives": "",
+      "note": "the sense of a voice or a tune with no rise or fall in it"
+     },
+     {
+      "clueFragment": "place to live",
+      "gives": "",
+      "note": "the British word for an apartment, one floor of a larger building"
+     }
+    ],
+    "walkthrough": "Two everyday senses of one short word, laid side by side with nothing between them. Three words of clue is usually the sign that no wordplay is coming.",
+    "definitionFit": "A monotonous voice is a flat one, and a British apartment is a flat — one spelling covering an adjective and a noun with nothing in common."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +67,49 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABSENTEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + outer letters",
+    "answer": "ABSENTEE",
+    "definition": "he’s not here",
+    "indicators": [
+     "originally",
+     "gutted"
+    ],
+    "indicatorNotes": {
+     "originally": "A thing's origin is where it began, so only the opening letter of the word beside it is wanted.",
+     "gutted": "To gut a fish is to take out everything inside it, leaving the two ends of the name standing."
+    },
+    "pieces": [
+     "A",
+     "B",
+     "SENT",
+     "EE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own first word, taken at face value"
+     },
+     {
+      "clueFragment": "bin",
+      "gives": "B",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "delivered",
+      "gives": "SENT",
+      "note": "a parcel delivered is a parcel sent"
+     },
+     {
+      "clueFragment": "Eddie",
+      "gives": "EE",
+      "note": "the name emptied out, its middle three letters gone"
+     }
+    ],
+    "walkthrough": "Eddie is not just surface: the unchecked letters of the top and bottom rows spell FAREWELL EDDIE BOY, and dogs run through the whole puzzle. The dash hides the join between name and instruction.",
+    "definitionFit": "An absentee is the person who has failed to turn up, so the setter defines them by the gap they leave rather than by naming them."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +126,37 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RANT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RANT",
+    "definition": "diatribe",
+    "indicators": [
+     "blowing his top"
+    ],
+    "indicatorNotes": {
+     "blowing his top": "Blowing your top is losing your temper, and here the top of a down entry is literally its first letter, blown off."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "GRANT",
+      "note": "Ulysses S. Grant, the Union general who became the eighteenth US president"
+     },
+     {
+      "clueFragment": "Stormy",
+      "gives": "",
+      "note": "surface only: the capital letter points at a recent White House scandal and hands over no letters"
+     }
+    ],
+    "walkthrough": "'President' and 'Stormy' together conjure one particular administration, which is the whole trick. The president you want is the one on the fifty-dollar bill.",
+    "definitionFit": "A diatribe is a bitter, sustained verbal attack delivered at length — the same outburst, in a more formal register."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +177,50 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
     ]
    },
    "solution": "EYETEETH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "EYE TEETH",
+    "definition": "canines",
+    "indicators": [
+     "stops",
+     "angry"
+    ],
+    "indicatorNotes": {
+     "stops": "In British usage to stop somewhere is to stay there, so the alien lodges among the other letters instead of pausing.",
+     "angry": "Anger throws things into disorder, and letters described as angry will not stay in the order they were handed over."
+    },
+    "pieces": [
+     "EYE",
+     "TE",
+     "ET",
+     "H"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "THE",
+      "gives": "TEH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to watch",
+      "gives": "EYE",
+      "note": "to eye something is to watch it closely"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "TEH",
+      "note": "the clue's own three letters, shaken out of order"
+     },
+     {
+      "clueFragment": "Alien",
+      "gives": "ET",
+      "note": "ET is the crossword's standard alien, after the film"
+     }
+    ],
+    "walkthrough": "'Canines' sets you hunting for dogs, in a grid that is full of them. They are teeth, and the surface's alien pausing at a dog fight is pure decoration.",
+    "definitionFit": "The eyeteeth are the pointed upper canine teeth, so named because they sit directly below the eyes — an exact anatomical synonym."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +237,38 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WRENCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WRENCH",
+    "definition": "tool",
+    "indicators": [
+     "on top of"
+    ],
+    "indicatorNotes": {
+     "on top of": "A down entry is read from the top, so a piece placed on top of another is written first."
+    },
+    "linkWords": [
+     "reveals"
+    ],
+    "pieces": [
+     "WREN",
+     "CH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Architect",
+      "gives": "WREN",
+      "note": "Sir Christopher Wren, who designed St Paul's Cathedral"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "ch. is the standard abbreviation for church"
+     }
+    ],
+    "walkthrough": "Wren is the crossword's default architect, and the surface — a man standing on a church roof — draws exactly the stack the down entry asks for.",
+    "definitionFit": "A wrench is the spanner for gripping and turning nuts, the plain American name for a tool in any British toolbox too."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +285,50 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESPADRILLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ESPADRILLE",
+    "definition": "shoe",
+    "indicators": [
+     "Mongrel",
+     "over"
+    ],
+    "indicatorNotes": {
+     "Mongrel": "A mongrel is a dog of no fixed breed, a mixture of several — and letters described as mixed do not keep their order.",
+     "over": "Something laid over another thing covers it, so these letters wrap right round the pieces named next."
+    },
+    "pieces": [
+     "ESP",
+     "A",
+     "DRILL",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "PEES",
+      "gives": "ESPE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pees",
+      "gives": "ESPE",
+      "note": "these four letters resettled, then split to make the outside"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken straight from the clue"
+     },
+     {
+      "clueFragment": "training",
+      "gives": "DRILL",
+      "note": "drill = training, as in square-bashing or a fire drill"
+     }
+    ],
+    "walkthrough": "'Training shoe' is the trap: it reads as one thing, a trainer, and breaks in half. The training is the drill and the shoe alone is the definition.",
+    "definitionFit": "An espadrille is a summer shoe with a canvas upper and a rope sole, so the bare category word defines it by kind."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +349,30 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIELOW",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LIE LOW",
+    "definition": "Keep doggo",
+    "indicators": [
+     "did you say?"
+    ],
+    "indicatorNotes": {
+     "did you say?": "The question asks how a word sounds rather than how it is spelt, so what you want is heard and not read."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mattress",
+      "soundsLike": "LILO",
+      "gives": "LIELOW",
+      "note": "a Li-Lo is the British inflatable air mattress you take camping, and its two syllables are heard as two words"
+     }
+    ],
+    "walkthrough": "Say the mattress brand out loud and it falls apart into a phrase about hiding. 'Doggo' is old army slang, and in this grid it is also one more dog.",
+    "definitionFit": "To keep doggo is British slang for staying hidden and perfectly still until trouble passes, which is what the phrase means."
+   }
   },
   {
    "id": "8-down",
@@ -157,7 +389,27 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEAD",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LEAD",
+    "definition": "Guide",
+    "definition2": "dog’s accessory",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Guide",
+      "gives": "",
+      "note": "the verb: to show someone the way by going in front of them"
+     },
+     {
+      "clueFragment": "dog’s accessory",
+      "gives": "",
+      "note": "the strap you clip to a collar for a walk; Americans call it a leash"
+     }
+    ],
+    "walkthrough": "The split falls inside 'guide dog', which is why it is so hard to see — the two definitions overlap in the one phrase every reader knows.",
+    "definitionFit": "To guide is to lead someone along, and the strap on a collar is a lead in British English: one spelling doing a verb and a noun."
+   }
   },
   {
    "id": "9-across",
@@ -174,7 +426,41 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIBRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LIBRA",
+    "definition": "house",
+    "indicators": [
+     "lying around"
+    ],
+    "indicatorNotes": {
+     "lying around": "Something lying around another thing encircles it, so the letter named next is dropped inside."
+    },
+    "pieces": [
+     "L",
+     "I",
+     "BRA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "BRA",
+      "note": "the everyday undergarment, three letters long"
+     }
+    ],
+    "walkthrough": "After underwear and somewhere to live, 'house' reads as a home. The house wanted is one of the twelve in astrology, which is how a zodiac sign gets clued.",
+    "definitionFit": "Astrologers call each division of the zodiac a house, so the seventh sign answers to 'house' in that specialist sense."
+   }
   },
   {
    "id": "10-across",
@@ -191,7 +477,41 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YORKSHIRE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "YORKSHIRE",
+    "definition": "Pig",
+    "indicators": [
+     "potty"
+    ],
+    "indicatorNotes": {
+     "potty": "Potty is British for mildly mad, and letters that have gone mad will not hold the order they were given in."
+    },
+    "pieces": [
+     "YORK",
+     "SHIRE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ISHER",
+      "gives": "SHIRE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowl",
+      "gives": "YORK",
+      "note": "in cricket, to york a batsman is to bowl the ball that pitches right under his bat"
+     },
+     {
+      "clueFragment": "is her",
+      "gives": "SHIRE",
+      "note": "these five letters, rearranged"
+     }
+    ],
+    "walkthrough": "'Pig bowl' reads as a trough, which is the joke — bowl is the cricketer's verb, and several British pig breeds are named after counties.",
+    "definitionFit": "A Yorkshire is a breed of large white pig, so the answer is defined by example: one breed standing for the animal."
+   }
   },
   {
    "id": "11-across",
@@ -212,7 +532,33 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
     ]
    },
    "solution": "TWENTYTEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TWENTY TEN",
+    "definition": "y?",
+    "indicators": [],
+    "linkWords": [
+     "="
+    ],
+    "pieces": [
+     "TWENTY",
+     "TEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2x",
+      "gives": "TWENTY",
+      "note": "x is the Roman numeral ten, and two of them make this"
+     },
+     {
+      "clueFragment": "+ x",
+      "gives": "TEN",
+      "note": "the same numeral again, on its own"
+     }
+    ],
+    "walkthrough": "The clue is laid out as algebra and solved as Roman numerals — nothing here is a sum. The question mark warns that the answer is a date rather than a number.",
+    "definitionFit": "Written out in words, the year 2010 is twenty ten, and y is the usual abbreviation for year on forms and in dates."
+   }
   },
   {
    "id": "12-across",
@@ -229,7 +575,37 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AILED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AILED",
+    "definition": "was unwell",
+    "indicators": [
+     "Cockney"
+    ],
+    "indicatorNotes": {
+     "Cockney": "A Cockney speaker drops the aitch at the front of a word, so that letter is not written here either."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "AILED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "showered",
+      "gives": "HAILED",
+      "note": "hail is what showers down, so to shower is to hail"
+     },
+     {
+      "clueFragment": "Cockney",
+      "gives": "",
+      "note": "the H at the front is the letter that goes"
+     }
+    ],
+    "walkthrough": "Guardian setters use 'Cockney' as a standing instruction to drop an aitch. The surface, someone caught out in a downpour, is doing nothing else at all.",
+    "definitionFit": "To ail is to be unwell, an old verb kept alive mostly by crosswords and by the phrase 'what ails you?'."
+   }
   },
   {
    "id": "13-across",
@@ -250,7 +626,42 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
     ]
    },
    "solution": "PETNAME",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PET NAME",
+    "definition": "Maybe 25",
+    "indicators": [
+     "touring"
+    ],
+    "indicatorNotes": {
+     "touring": "A tour goes right round its subject, so the short word here ends up enclosed by the letters on either side."
+    },
+    "pieces": [
+     "PE",
+     "T",
+     "NAM",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go",
+      "gives": "PEE",
+      "note": "'go' is the nursery euphemism for what you do in the lavatory"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is Thailand's international vehicle registration code"
+     },
+     {
+      "clueFragment": "Vietnam",
+      "gives": "NAM",
+      "note": "'Nam is the familiar short form, from the war and its films"
+     }
+    ],
+    "walkthrough": "The holiday surface is a good disguise. Neither country hands over its name: one gives a car code, the other a nickname, and 'go' is at its most childish.",
+    "definitionFit": "The answer at 25 across is one particular term of endearment, and 'Maybe' flags that it is only an example of the class."
+   }
   },
   {
    "id": "13-down",
@@ -267,7 +678,46 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSIT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "POSIT",
+    "definition": "put forward",
+    "indicators": [
+     "Revolutionary",
+     "on"
+    ],
+    "indicatorNotes": {
+     "Revolutionary": "A revolution turns a thing full circle, so the short word beside it is read the other way round.",
+     "on": "In a down entry the piece sitting on another is written above it, so it starts the answer."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "PO",
+     "SIT"
+    ],
+    "subReversals": [
+     {
+      "from": "OP",
+      "to": "PO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surgery",
+      "gives": "PO",
+      "note": "an op is surgery, turned about"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "SIT",
+      "note": "to model for a painter is to sit for them"
+     }
+    ],
+    "walkthrough": "'Revolutionary' looks political next to surgery and models, and is only an instruction to turn two letters round. No politics anywhere in the clue.",
+    "definitionFit": "To posit something is to put it forward as a proposition for discussion — the verb a philosopher uses for advancing a claim."
+   }
   },
   {
    "id": "14-down",
@@ -288,7 +738,49 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
     ]
    },
    "solution": "ACETICACID",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container",
+    "answer": "ACETIC ACID",
+    "definition": "that’s in a pickle",
+    "indicators": [
+     "rejecting",
+     "to collar"
+    ],
+    "indicatorNotes": {
+     "rejecting": "To reject something is to throw it out, so the letter named beside it is discarded from the word.",
+     "to collar": "To collar someone is to seize them round the neck, so these letters close around the one that follows."
+    },
+    "pieces": [
+     "ACETIC",
+     "A",
+     "C",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hermit",
+      "gives": "ASCETIC",
+      "note": "an ascetic lives alone and denies himself comfort, as a hermit does"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "",
+      "note": "S is the standard abbreviation for society, and that is the letter thrown out"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "help = aid, as noun or verb"
+     },
+     {
+      "clueFragment": "canine",
+      "gives": "C",
+      "note": "the first letter of the word, which the setter takes without an explicit signal — dentists write C for a canine tooth too"
+     }
+    ],
+    "walkthrough": "'In a pickle' reads as being in trouble and is meant literally: this is what pickling vinegar is made of. Collaring a canine belongs to the dog theme, not the chemistry.",
+    "definitionFit": "Pickling vinegar is a dilute solution of acetic acid, so the thing literally sitting in a pickle jar is this acid."
+   }
   },
   {
    "id": "15-across",
@@ -309,7 +801,36 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
     ]
    },
    "solution": "HARDWON",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HARD-WON",
+    "definition": "requiring great effort",
+    "indicators": [
+     "drunk by"
+    ],
+    "indicatorNotes": {
+     "drunk by": "What is drunk goes inside the drinker, so the letter before it is swallowed by the phrase that follows."
+    },
+    "pieces": [
+     "HARD",
+     "W",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upstanding member",
+      "gives": "HARDON",
+      "note": "'member' is the anatomical euphemism and 'upstanding' means erect; the vulgar phrase is in Chambers"
+     },
+     {
+      "clueFragment": "Whiskey",
+      "gives": "W",
+      "note": "W is Whiskey in the NATO phonetic alphabet"
+     }
+    ],
+    "walkthrough": "The surface is a drinking party and the member is not a club's. The hyphen in the enumeration is the tell: the answer is an adjective, not a body part.",
+    "definitionFit": "A hard-won victory is one that cost great effort to get, the adjective for anything gained only after a long struggle."
+   }
   },
   {
    "id": "16-down",
@@ -326,7 +847,50 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NURSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + deletion",
+    "answer": "NURSE",
+    "definition": "treat",
+    "indicators": [
+     "Climbing",
+     "on",
+     "without"
+    ],
+    "indicatorNotes": {
+     "Climbing": "Climbing goes up the page, and in a down entry that means the letters are collected from the bottom end first.",
+     "on": "In a down entry one piece sits on another, so this one is written above the next.",
+     "without": "Without means lacking, so whatever is named after it is taken out of the word in front."
+    },
+    "pieces": [
+     "NUR",
+     "SE"
+    ],
+    "subReversals": [
+     {
+      "from": "RUN",
+      "to": "NUR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladder",
+      "gives": "NUR",
+      "note": "in Britain a ladder in a stocking is what Americans call a run, taken upwards here"
+     },
+     {
+      "clueFragment": "stopping",
+      "gives": "",
+      "note": "a stopping is a filling — a dentist's, or the plug in a bottle — and it is the LID in the middle"
+     },
+     {
+      "clueFragment": "slide",
+      "gives": "SE",
+      "note": "SLIDE keeps only its two ends"
+     }
+    ],
+    "walkthrough": "Two British senses do all the work: a ladder is a run in a stocking, nothing you climb, and a stopping is a filling rather than a halt.",
+    "definitionFit": "To nurse a cold or an injury is to treat and tend it, the everyday verb for looking after someone who is ill."
+   }
   },
   {
    "id": "17-across",
@@ -343,7 +907,34 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCENE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SCENE",
+    "definition": "picture",
+    "indicators": [
+     "leaves"
+    ],
+    "indicatorNotes": {
+     "leaves": "This is the departure sense and not the foliage one: what it names walks out of the longer word."
+    },
+    "pieces": [
+     "SCENE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old boy",
+      "gives": "",
+      "note": "OB is the standard abbreviation for an old boy, a former pupil of a school"
+     },
+     {
+      "clueFragment": "disgusting",
+      "gives": "OBSCENE",
+      "note": "obscene = disgusting, offensively indecent"
+     }
+    ],
+    "walkthrough": "'Old boy' looks like the subject of a sentence about a school and is really two letters to be taken away. Nothing else in the surface is doing any work.",
+    "definitionFit": "A scene is a picture of a place or an incident — the word covers a painted view and a moment in a play alike."
+   }
   },
   {
    "id": "18-across",
@@ -360,7 +951,30 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIM",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HIM",
+    "definition": "That bloke",
+    "indicators": [
+     "on the radio"
+    ],
+    "indicatorNotes": {
+     "on the radio": "Radio carries sound and not spelling, so what you want is the word you hear rather than the one printed."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "soundsLike": "HYMN",
+      "gives": "HIM",
+      "note": "a hymn is a song sung in church"
+     }
+    ],
+    "walkthrough": "The two are exact sound-twins once the silent letters go. 'That bloke's' reads as a possessive and is really 'that bloke is', which is the joinery.",
+    "definitionFit": "It is the object pronoun for a male person, so 'that bloke' points at exactly the same man in words rather than grammar."
+   }
   },
   {
    "id": "19-down",
@@ -377,7 +991,38 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISSABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MISSABLE",
+    "definition": "difficult to spot",
+    "indicators": [
+     "swapping places"
+    ],
+    "indicatorNotes": {
+     "swapping places": "Two things that swap places exchange positions, so the pieces go in the reverse of the order the clue names them."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "MISS",
+     "ABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "MISS",
+      "note": "a miss is a young unmarried woman"
+     },
+     {
+      "clueFragment": "Clever",
+      "gives": "ABLE",
+      "note": "able = clever, capable"
+     }
+    ],
+    "walkthrough": "The two halves are clued the wrong way round on purpose, which is what lets 'clever girl' read so naturally. That swap is the only wordplay there is.",
+    "definitionFit": "Something missable is easy to overlook, so it is by definition hard to spot — the adjective is built straight from the verb miss."
+   }
   },
   {
    "id": "20-across",
@@ -394,7 +1039,34 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOWER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LOWER",
+    "definition": "Take down",
+    "indicators": [
+     "having removed outer wear"
+    ],
+    "indicatorNotes": {
+     "having removed outer wear": "The outer wear is the letter at each end, and taking those off leaves the middle of the word standing."
+    },
+    "pieces": [
+     "LOWER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloomers",
+      "gives": "FLOWERS",
+      "note": "bloomers are things that bloom"
+     },
+     {
+      "clueFragment": "outer wear",
+      "gives": "",
+      "note": "the F and the S at the two ends come off"
+     }
+    ],
+    "walkthrough": "Bloomers are underwear, which is the joke — what comes off is the outside of the word, not the outside of the outfit.",
+    "definitionFit": "To lower a flag, a blind or a drawbridge is to take it down, so the two verbs swap in either direction."
+   }
   },
   {
    "id": "21-down",
@@ -411,7 +1083,32 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WATERLOO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "WATERLOO",
+    "definition": "defeat",
+    "definition2": "terminal",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Single",
+      "gives": "",
+      "note": "a third definition: ABBA's Eurovision winner of 1974, released on a 45"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "",
+      "note": "Napoleon's last battle, in 1815, and ever since the byword for anyone's final rout"
+     },
+     {
+      "clueFragment": "terminal",
+      "gives": "",
+      "note": "one of London's great railway termini, on the south bank of the Thames"
+     }
+    ],
+    "walkthrough": "Three definitions of one word and no wordplay at all: a pop record, a battle and a station. 'Is' is there only to hold the three together.",
+    "definitionFit": "The 1815 battle gave English 'meet your Waterloo' for a final defeat, and the London station is a terminal in the railway sense."
+   }
   },
   {
    "id": "22-across",
@@ -428,7 +1125,43 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERRIER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "TERRIER",
+    "definition": "dog",
+    "indicators": [
+     "Nameless"
+    ],
+    "indicatorNotes": {
+     "Nameless": "N is the standard abbreviation for name, and the '-less' on the end is the instruction to do without it."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "TERRIE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casserole",
+      "gives": "TERRINE",
+      "note": "a terrine is the earthenware pot for a slow-cooked dish, and the dish itself"
+     },
+     {
+      "clueFragment": "Nameless",
+      "gives": "",
+      "note": "the N, standing for name, is what goes"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, the Latin instruction at the head of a prescription"
+     }
+    ],
+    "walkthrough": "'Nameless casserole' sounds like something unpleasant found at the back of the fridge. Eddie, the dedicatee of the whole puzzle, is thought to have been one of these.",
+    "definitionFit": "A terrier is a small breed of dog, originally bred to bolt foxes from their earths, so 'dog' names it by category."
+   }
   },
   {
    "id": "23-down",
@@ -445,7 +1178,35 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETROD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "RETROD",
+    "definition": "performed steps again",
+    "indicators": [
+     "Head of"
+    ],
+    "indicatorNotes": {
+     "Head of": "The head of a word is the letter at its front, so only the initial of the name that follows is used."
+    },
+    "pieces": [
+     "RETRO",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old school",
+      "gives": "RETRO",
+      "note": "retro means deliberately old-fashioned, in the style of an earlier decade"
+     },
+     {
+      "clueFragment": "Dance",
+      "gives": "D",
+      "note": "the initial of the capitalised word"
+     }
+    ],
+    "walkthrough": "'Old school' reads as a place in the surface and is an adjective in the wordplay. The capital letter on Dance is the only signal that a word is about to be cut down.",
+    "definitionFit": "To tread is to step, so the past tense with 're-' in front says the steps were gone over a second time."
+   }
   },
   {
    "id": "24-down",
@@ -462,7 +1223,38 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIMINI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "RIMINI",
+    "definition": "Italian city",
+    "indicators": [
+     "stripped"
+    ],
+    "indicatorNotes": {
+     "stripped": "To strip a thing is to take its outer covering off, leaving only what was inside the word."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RI",
+     "MINI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brit",
+      "gives": "RI",
+      "note": "the middle of the word, once the letters at each end have gone"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "MINI",
+      "note": "the Mini, the small British car of the 1960s"
+     }
+    ],
+    "walkthrough": "The whole surface is a package holiday and it hides nothing. What makes it hard is that both halves of the wordplay look like scene-setting.",
+    "definitionFit": "Rimini is a resort city on Italy's Adriatic coast, famous for its beaches and as Fellini's birthplace."
+   }
   },
   {
    "id": "25-across",
@@ -479,7 +1271,43 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWEETIE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "SWEETIE",
+    "definition": "baby",
+    "indicators": [
+     "What’s behind",
+     "cuddling"
+    ],
+    "indicatorNotes": {
+     "What’s behind": "What is behind a word is its back end, so only the final letter of the name is taken.",
+     "cuddling": "A cuddle wraps arms right round someone, so these letters hold the short word between them."
+    },
+    "pieces": [
+     "S",
+     "WEE",
+     "TIE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "James",
+      "gives": "S",
+      "note": "the last letter of the name"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "WEE",
+      "note": "wee is the Scots word for little, and standard crossword shorthand"
+     },
+     {
+      "clueFragment": "Bond",
+      "gives": "TIE",
+      "note": "a bond between two people is a tie"
+     }
+    ],
+    "walkthrough": "'James Bond' is one name on the surface and two separate jobs in the wordplay, which is why the 007 reading is so hard to put down.",
+    "definitionFit": "Sweetie is an affectionate name for a loved one, the same endearment as baby — and in Britain it is also a boiled sweet."
+   }
   },
   {
    "id": "26-across",
@@ -496,7 +1324,42 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TETRA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "TETRA",
+    "definition": "fish",
+    "indicators": [
+     "abruptly",
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "abruptly": "Something done abruptly is cut short before its proper end, so the final letter never arrives.",
+     "flipping": "Flipping a thing over presents it the other way round, so the letters are read in the opposite direction."
+    },
+    "pieces": [
+     "TETRA"
+    ],
+    "subReversals": [
+     {
+      "from": "ARTET",
+      "to": "TETRA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arsenal boss",
+      "gives": "ARTETA",
+      "note": "Mikel Arteta, manager of Arsenal, the north London football club"
+     },
+     {
+      "clueFragment": "abruptly",
+      "gives": "",
+      "note": "the last letter is docked before anything is turned round"
+     }
+    ],
+    "walkthrough": "Football managers date a puzzle — this clue works only while that name is current. 'Flipping' is mild swearing on the surface and an instruction underneath.",
+    "definitionFit": "A tetra is a small, brightly coloured freshwater fish from South America, the kind sold for home aquariums."
+   }
   },
   {
    "id": "26-down",
@@ -513,7 +1376,40 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TREE",
+    "definition": "Plant",
+    "indicators": [
+     "OTT"
+    ],
+    "indicatorNotes": {
+     "OTT": "OTT is 'over the top': the shirt goes over, and the top is the front letter of the name that follows."
+    },
+    "linkWords": [
+     "is",
+     "for"
+    ],
+    "pieces": [
+     "T",
+     "R",
+     "EE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shirt",
+      "gives": "TEE",
+      "note": "a tee, or T-shirt, is a shirt"
+     },
+     {
+      "clueFragment": "Robert",
+      "gives": "R",
+      "note": "the first letter of the name, as in R. Plant on a record label"
+     }
+    ],
+    "walkthrough": "The clue is one rock star's name and both halves of it are cryptic: the shirt supplies letters and Plant is the definition, capital and all.",
+    "definitionFit": "A tree is the largest kind of plant, a woody perennial — the capital letters only make it look like the Led Zeppelin singer."
+   }
   },
   {
    "id": "27-across",
@@ -530,7 +1426,50 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEANDERED",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "MEANDERED",
+    "definition": "wound",
+    "indicators": [
+     "bit of",
+     "to cover"
+    ],
+    "indicatorNotes": {
+     "bit of": "A bit of a word is a piece of it, and the piece a setter means by that is its opening letter.",
+     "to cover": "To cover something is to lie over it, so what follows is tucked inside the letters already assembled."
+    },
+    "pieces": [
+     "ME",
+     "A",
+     "ND",
+     "E",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fix",
+      "gives": "MEND",
+      "note": "to fix a broken thing is to mend it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken straight from the clue"
+     },
+     {
+      "clueFragment": "bit of Elastoplast",
+      "gives": "E",
+      "note": "Elastoplast is the British sticking plaster, the equivalent of a Band-Aid, and only its front letter is wanted"
+     },
+     {
+      "clueFragment": "bloody",
+      "gives": "RED",
+      "note": "blood is red, so 'bloody' is the colour"
+     }
+    ],
+    "walkthrough": "'Bloody wound' is the trap. It reads as an injury, and the definition is 'wound' alone — the past tense of wind. The first-aid surface exists to sell that.",
+    "definitionFit": "Here wound is the past of wind, not a gash: a river that meandered wound through the fields, so the verbs match exactly."
+   }
   },
   {
    "id": "28-down",
@@ -547,7 +1486,35 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAB",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "DRAB",
+    "definition": "Boring",
+    "indicators": [
+     "making comeback"
+    ],
+    "indicatorNotes": {
+     "making comeback": "A comeback is a return the way you came, so the letters are taken in the opposite order."
+    },
+    "pieces": [
+     "DRAB"
+    ],
+    "subReversals": [
+     {
+      "from": "BARD",
+      "to": "DRAB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poet",
+      "gives": "BARD",
+      "note": "a bard is a poet, Shakespeare being the Bard"
+     }
+    ],
+    "walkthrough": "'Making comeback' does double duty: a poet enjoying a revival, and the instruction to read the letters the other way. Both senses sit in the one phrase.",
+    "definitionFit": "Drab describes something dull and colourless, which is the visual sense of boring rather than the tedious-conversation one."
+   }
   },
   {
    "id": "29-down",
@@ -564,7 +1531,28 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUTY",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "DUTY",
+    "definition": "tax",
+    "indicators": [
+     "raised",
+     "housing"
+    ],
+    "indicatorNotes": {
+     "raised": "Raising a thing lifts it, and in a down entry that means reading the run of letters from the bottom up.",
+     "housing": "To house something is to give it a home inside, so the letters are already sitting in the clue rather than being clued."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Henry Tudor",
+      "gives": "YTUD",
+      "note": "four consecutive letters straddling the join between the two names"
+     }
+    ],
+    "walkthrough": "Henry Tudor is Henry VII, and a name that specific is exactly what stops you looking at the letters themselves. The span crosses both words and runs up the entry.",
+    "definitionFit": "A duty is a tax levied on goods — customs duty, stamp duty — the fiscal sense rather than the sense of obligation."
+   }
   },
   {
    "id": "30-across",
@@ -581,7 +1569,50 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMOTIONAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade + last letter",
+    "answer": "EMOTIONAL",
+    "definition": "Intense",
+    "indicators": [
+     "escaping",
+     "the end of",
+     "before"
+    ],
+    "indicatorNotes": {
+     "escaping": "What escapes gets out, so the letter it names leaves the word it was sitting in.",
+     "the end of": "The end of a word is its final letter, and that is all that is taken from the one following.",
+     "before": "Before means in front, so the long piece is written ahead of the two short ones."
+    },
+    "pieces": [
+     "EMOTION",
+     "A",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Germany",
+      "gives": "",
+      "note": "D, for Deutschland, is Germany's international vehicle code, and that is the letter getting away"
+     },
+     {
+      "clueFragment": "relegation",
+      "gives": "EMOTION",
+      "note": "relegation is demotion, one letter lighter here"
+     },
+     {
+      "clueFragment": "the end of Europa",
+      "gives": "A",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "League",
+      "gives": "L",
+      "note": "L is the standard abbreviation for league"
+     }
+    ],
+    "walkthrough": "The football surface is seamless — relegation, a country escaping, the Europa League — and every word of it is wordplay. 'Intense', at the front, is the only plain one.",
+    "definitionFit": "An emotional scene is one charged with strong feeling, so the adjective covers the same ground whenever the intensity is a matter of feelings."
+   }
   },
   {
    "id": "31-across",
@@ -598,7 +1629,30 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADOPT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADOPT",
+    "definition": "Take in",
+    "indicators": [],
+    "pieces": [
+     "ADO",
+     "PT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song and dance",
+      "gives": "ADO",
+      "note": "to make a song and dance about something is to make a fuss, and ado is the crossword's fuss"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "PT",
+      "note": "pt is the standard abbreviation for part"
+     }
+    ],
+    "walkthrough": "'Song and dance' is an idiom for a fuss rather than a stage turn, and the theatrical reading is what the surface is banking on throughout.",
+    "definitionFit": "To adopt a child is to take them in permanently and make them part of the family, so the phrasal verb matches sense for sense."
+   }
   }
  ]
 } /*JSON-END*/;

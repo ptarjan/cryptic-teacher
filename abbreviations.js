@@ -6,6 +6,7 @@
 // out.
 const ABBREVIATIONS = {
  "A": [
+  "about",
   "academy",
   "ace",
   "active",
@@ -82,6 +83,7 @@ const ABBREVIATIONS = {
  ],
  "C": [
   "about",
+  "canine",
   "carbon",
   "catholic",
   "caught",
@@ -201,6 +203,7 @@ const ABBREVIATIONS = {
   "following",
   "force",
   "forte",
+  "foxtrot",
   "franc",
   "function",
   "loud"
@@ -320,6 +323,7 @@ const ABBREVIATIONS = {
   "lake",
   "large",
   "latin",
+  "league",
   "learner",
   "lecturer",
   "left",
@@ -364,6 +368,7 @@ const ABBREVIATIONS = {
   "metres",
   "mile",
   "miles",
+  "million",
   "millions",
   "money",
   "monsieur",
@@ -450,6 +455,7 @@ const ABBREVIATIONS = {
   "refusal"
  ],
  "NT": [
+  "national theatre",
   "national trust",
   "new testament"
  ],
@@ -512,6 +518,7 @@ const ABBREVIATIONS = {
  "P": [
   "page",
   "parking",
+  "pawn",
   "pee",
   "pence",
   "penny",
@@ -712,6 +719,7 @@ const ABBREVIATIONS = {
   "tenor",
   "tense",
   "tesla",
+  "thailand",
   "time",
   "ton",
   "tons",

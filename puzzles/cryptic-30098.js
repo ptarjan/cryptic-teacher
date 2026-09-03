@@ -570,13 +570,13 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
    "length": 7,
    "clue": "  (7)",
    "clueMissing": true,
-   "clueMissingNote": "What looks like a printing error is the whole trick: with no words to read, the only thing left pointing at the answer is the clue's own number. This is 12, and twelve o'clock is the middle of the day.",
    "group": [
     "12-across"
    ],
    "separatorLocations": {},
    "solution": "NOONDAY",
-   "annotation": null
+   "annotation": null,
+   "clueMissingNote": "What looks like a printing error is the whole trick: with no words to read, the only thing left pointing at the answer is the clue's own number. This is 12, and twelve o'clock is the middle of the day."
   },
   {
    "id": "13-across",
