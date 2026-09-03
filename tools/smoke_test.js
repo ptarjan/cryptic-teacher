@@ -3634,5 +3634,37 @@ global.realSetTimeout(() => {
         "and which clue it was about, which is the half the reporter should not have to type: "
           + JSON.stringify(body));
     }
+
+    // --- and it is about the clue you are LOOKING at, after walking past others ---
+    // The escape hatch's markup is byte-identical for every unsolved clue whose
+    // report is not open, so setHTML — which skips a write when the new string
+    // equals the old — rebinds nothing as you move between them. bindReport used
+    // to close over the entry it was last bound on, and stayed bound to it for as
+    // long as the markup did not change: several clues, sometimes a whole puzzle.
+    // The report was then filed against a clue the reader had left, with the
+    // reader's own words attached to it, which is worse than losing the report.
+    // Walk a few clues the way a solver does and check the last one is the one
+    // that gets reported.
+    const walkTo = (global.window.CRYPTIC_PUZZLES[first].entries || [])
+      .filter((x) => registry["clue-" + x.id]).slice(0, 4);
+    if (assert(walkTo.length >= 2, "there are clues to walk between")) {
+      walkTo.forEach((x) => registry["clue-" + x.id].listeners.click[0]());
+      const last = walkTo[walkTo.length - 1];
+      registry["rp-open"].onclick();
+      assert(/id="rp-note"/.test(registry["hint-escape"].innerHTML),
+        "the report opens on the clue you walked to: " + registry["hint-escape"].innerHTML);
+      registry["rp-note"].value = "this one, not the one four taps ago";
+      let sent2 = null;
+      const realFetch2 = global.fetch;
+      global.fetch = (url, opt) => { sent2 = { url, opt }; return new Promise(() => {}); };
+      registry["rp-send"].onclick();
+      global.fetch = realFetch2;
+      if (assert(sent2, "Send still sends it after walking")) {
+        const body2 = JSON.parse(sent2.opt.body);
+        assert(body2.clue === last.id,
+          `the report names the clue on screen (${last.id}), not one left behind: `
+            + JSON.stringify(body2));
+      }
+    }
   }
 }
