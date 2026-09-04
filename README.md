@@ -146,8 +146,9 @@ tools/apply_solution.py                      writes a blind solve in only if eve
 building and checking the site
 tools/build_seo_pages.py                     one static page per puzzle, for search engines and
                                              unfurls
-tools/build_abbreviations.py                 builds abbreviations/ from the annotations that
-                                             cite them
+tools/build_abbreviations.py                 publishes the abbreviations table to the browser
+                                             as abbreviations.js, so the solver’s glossary
+                                             can’t drift from the clue-writer’s
 tools/build_readme.py                        this: rewrites the generated regions of README.md,
                                              --check fails on drift
 tools/make_og_card.py                        picks a puzzle’s best clue and lays out its social
