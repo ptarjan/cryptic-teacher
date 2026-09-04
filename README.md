@@ -159,13 +159,15 @@ tools/stamp_assets.py                        cache-busting ?v= stamps; the smoke
                                              a stale one
 tools/smoke_test.js                          the whole app driven headless against the real
                                              corpus
-tools/fake_dom.js                            the DOM the smoke test drives it in
+tools/fake_dom.js                            the fake DOM that boots the real app.js under
+                                             Node, shared by every harness
 tools/e2e_analytics.py                       drives a real browser through a solve and checks
                                              every event lands in KV
 tools/wait_for_deploy.py                     blocks until Pages is serving the pushed commit,
                                              so nobody is told to reload early
 tools/tutorial.html                          source of the learn/ lesson
-tools/og_card.html                           the social card’s template and type
+tools/og_card.html                           source and type for og.png, the site’s one social
+                                             card
 
 syncing between devices, with no login and no accounts
 sync/worker.js                               the Cloudflare Worker: stores and merges saves and

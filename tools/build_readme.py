@@ -103,11 +103,11 @@ LAYOUT = [
     ("building and checking the site", "tools/make_icons.py", "renders every favicon and PWA icon from one source of truth"),
     ("building and checking the site", "tools/stamp_assets.py", "cache-busting ?v= stamps; the smoke test fails on a stale one"),
     ("building and checking the site", "tools/smoke_test.js", "the whole app driven headless against the real corpus"),
-    ("building and checking the site", "tools/fake_dom.js", "the DOM the smoke test drives it in"),
+    ("building and checking the site", "tools/fake_dom.js", "the fake DOM that boots the real app.js under Node, shared by every harness"),
     ("building and checking the site", "tools/e2e_analytics.py", "drives a real browser through a solve and checks every event lands in KV"),
     ("building and checking the site", "tools/wait_for_deploy.py", "blocks until Pages is serving the pushed commit, so nobody is told to reload early"),
     ("building and checking the site", "tools/tutorial.html", "source of the learn/ lesson"),
-    ("building and checking the site", "tools/og_card.html", "the social card’s template and type"),
+    ("building and checking the site", "tools/og_card.html", "source and type for og.png, the site’s one social card"),
 
     ("syncing between devices, with no login and no accounts",
      "sync/worker.js", "the Cloudflare Worker: stores and merges saves and events in KV"),
