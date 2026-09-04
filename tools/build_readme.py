@@ -125,7 +125,7 @@ LAYOUT = [
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
     ("scheduling", "tools/prereset_plan.py", "how many puzzles the remaining quota will carry before the reset"),
-    ("scheduling", "tools/backlog_burndown.py", "how long the remaining backlog will take at the current rate"),
+    ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
     ("scheduling", "tools/com.pt.cryptic-teacher-prereset.plist", "LaunchAgent that polls prereset_backfill.sh hourly"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),

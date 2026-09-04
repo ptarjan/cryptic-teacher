@@ -190,8 +190,9 @@ tools/prereset_backfill.sh                   burns the tail of the weekly quota 
                                              ungated
 tools/prereset_plan.py                       how many puzzles the remaining quota will carry
                                              before the reset
-tools/backlog_burndown.py                    how long the remaining backlog will take at the
-                                             current rate
+tools/backlog_burndown.py                    the annotation backlog over time, rebuilt from git
+                                             history, and how long the rest will take at that
+                                             pace
 tools/com.pt.cryptic-teacher-prereset.plist  LaunchAgent that polls prereset_backfill.sh hourly
 
 finding out whether any of it is working
