@@ -30,7 +30,33 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAVABO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAVABO",
+    "definition": "Bowl",
+    "definitionFit": "A lavabo is the basin used for the ritual washing of hands at Mass, and by extension any washbasin.",
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "pieces": [
+     "LAVA",
+     "BO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot stuff",
+      "gives": "LAVA",
+      "note": "molten rock out of a volcano is about as hot as stuff gets"
+     },
+     {
+      "clueFragment": "foul smell",
+      "gives": "BO",
+      "note": "BO is body odour, two polite initials standing in for the smell"
+     }
+    ],
+    "walkthrough": "BO is the crossword's stock foul smell, and 'hot stuff' reads as innuendo until the volcano turns up. The bowl being defined is a church fitting, which is why the surface can ignore it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +73,51 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAWFARE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + reversal",
+    "answer": "LAWFARE",
+    "definition": "Underhand tactic",
+    "definitionFit": "Lawfare is attacking an enemy through lawsuits and legal process instead of weapons, so it wins by sly means rather than force.",
+    "indicators": [
+     "fudging",
+     "before",
+     "up"
+    ],
+    "indicatorNotes": {
+     "fudging": "To fudge something is to mess about with it until it is no longer straight, and letters treated that way will not stay as given.",
+     "before": "One thing placed before another is written first, so this piece takes the top of a down entry.",
+     "up": "The entry runs downwards, so a piece written 'up' is read from the bottom and arrives the other way round."
+    },
+    "pieces": [
+     "LAWF",
+     "ARE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FLAW",
+      "gives": "LAWF"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ERA",
+      "to": "ARE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flaw",
+      "gives": "LAWF",
+      "note": "the four letters of FLAW, shuffled"
+     },
+     {
+      "clueFragment": "time’s",
+      "gives": "ARE",
+      "note": "an ERA is a stretch of time, climbing back up the column here"
+     }
+    ],
+    "walkthrough": "ERA is one of the crossword's workhorses for time, and it turns up climbing as often as the right way up. The word defined is a recent coinage: courts used the way weapons are."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +138,43 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
     ]
    },
    "solution": "VWBUG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + first letter",
+    "answer": "VW BUG",
+    "definition": "Early Porsche development",
+    "definitionFit": "Ferdinand Porsche designed the original Volkswagen Beetle, nicknamed the Bug in America, decades before the sports cars carrying his name.",
+    "indicators": [
+     "frontiers of",
+     "on"
+    ],
+    "indicatorNotes": {
+     "frontiers of": "A frontier is where two territories meet, and these two words meet at the end of one and the start of the next.",
+     "on": "In a down entry one thing sits on top of another, so this piece goes above — written first."
+    },
+    "pieces": [
+     "V",
+     "W",
+     "BUG"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "UV",
+      "gives": "V",
+      "note": "the letter standing at that word's border"
+     },
+     {
+      "clueFragment": "waves",
+      "gives": "W",
+      "note": "the letter that word starts with, on the far side of the same border"
+     },
+     {
+      "clueFragment": "spyware",
+      "gives": "BUG",
+      "note": "a bug is the hidden microphone a spy plants"
+     }
+    ],
+    "walkthrough": "Nothing in the surface admits to being about letters — 'frontiers of UV waves' reads as physics. The car is the one Ferdinand Porsche drew up in the 1930s and the world bought by the million."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +195,24 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEANSALAD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BEAN SALAD",
+    "definition": "where kidneys may be found?",
+    "definitionFit": "Kidney beans are the standard ingredient of such a dish, so the question mark asks you to read 'kidneys' as the pulse, not the organ.",
+    "pieces": [
+     "BEAN",
+     "SALAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bane",
+      "gives": "BEAN",
+      "note": "the same four letters in a different order — the clue prints the jumbled version and wants the tidy one"
+     }
+    ],
+    "walkthrough": "The clue never says shuffle, because the answer says it: a salad is a mixture, so 'BEAN, mixed' is exactly the word the clue opens with. Setters call this reverse wordplay."
+   }
   },
   {
    "id": "4-across",
@@ -106,7 +229,37 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PICADOR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PICADOR",
+    "definition": "ring combatant",
+    "definitionFit": "A picador is the horseman who lances the bull early in a bullfight, so the ring is the bullring and he does the fighting.",
+    "indicators": [
+     "Outspoken"
+    ],
+    "indicatorNotes": {
+     "Outspoken": "Something outspoken is said out loud, so it is the sound of the words that counts here and not their spelling."
+    },
+    "pieces": [
+     "PIC",
+     "ADOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choice",
+      "soundsLike": "PICK",
+      "gives": "PIC",
+      "note": "your pick is your choice, and the K vanishes once you write down only the sound"
+     },
+     {
+      "clueFragment": "to be in love with",
+      "soundsLike": "ADORE",
+      "gives": "ADOR",
+      "note": "to adore is to be in love with, and the closing E is not sounded"
+     }
+    ],
+    "walkthrough": "Two ordinary English words said quickly run together into a Spanish one. 'Ring' is the trap — boxing first, bullfighting second — and only the answer settles which."
+   }
   },
   {
    "id": "4-down",
@@ -123,7 +276,37 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIRATED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PIRATED",
+    "definition": "bootlegged",
+    "definitionFit": "Bootlegged music is copied and sold without permission, which is what the word means in the trade in records, films and software.",
+    "indicators": [
+     "taken"
+    ],
+    "indicatorNotes": {
+     "taken": "What is taken is carried off, so the two letters named leave the longer word and do not come back."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "PIRATED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Breathily said",
+      "gives": "ASPIRATED",
+      "note": "a consonant let out with a puff of breath is aspirated — the p at the start of 'pin'"
+     },
+     {
+      "clueFragment": "Arsenic",
+      "gives": "AS",
+      "note": "As is the chemical symbol for arsenic, straight off the periodic table"
+     }
+    ],
+    "walkthrough": "The quotation marks make it look like reported speech. It is really one long word about pronunciation with a poison lifted out of the front of it."
+   }
   },
   {
    "id": "5-down",
@@ -140,7 +323,29 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHILL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CHILL",
+    "definition": "Stick ice cubes in",
+    "definitionFit": "To chill a drink is to cool it, and dropping ice cubes into the glass is the quickest way of doing exactly that.",
+    "indicators": [
+     "rear"
+    ],
+    "indicatorNotes": {
+     "rear": "The rear of a thing is its back end, so only the closing stretch of the longer name is kept."
+    },
+    "pieces": [
+     "CHILL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prime minister",
+      "gives": "CHURCHILL",
+      "note": "Winston Churchill, Britain's wartime PM, whose name is long enough to carry a short word at its back"
+     }
+    ],
+    "walkthrough": "The question mark apologises for the liberty: no particular prime minister is named, so you try the famous ones until one of them ends in something meaning cool."
+   }
   },
   {
    "id": "6-down",
@@ -161,7 +366,51 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
     ]
    },
    "solution": "DONOTHING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + anagram",
+    "answer": "DO-NOTHING",
+    "definition": "Deadbeat",
+    "definitionFit": "A deadbeat is an idler who never gets round to anything, and the answer is the older name for the same useless character.",
+    "indicators": [
+     "leaderless",
+     "errant",
+     "to pursue"
+    ],
+    "indicatorNotes": {
+     "leaderless": "A body with no leader has lost the one at its head, and a word's head is the letter at the front.",
+     "errant": "A knight errant wanders where he pleases, and letters that wander do not keep the order they came in.",
+     "to pursue": "To pursue is to come along behind, so this piece is written after the ones it chases."
+    },
+    "pieces": [
+     "DON",
+     "O",
+     "THING"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "NIGHT",
+      "gives": "THING"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mobster",
+      "gives": "DON",
+      "note": "the head of a Mafia family is a don"
+     },
+     {
+      "clueFragment": "Duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nought, written on the scoreboard as a zero"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "THING",
+      "note": "KNIGHT gives up its leading letter and the five that remain are jumbled"
+     }
+    ],
+    "walkthrough": "Cricket's duck for zero comes up constantly and is worth learning. The surface has a knight chasing a gangster, a picture from two different centuries that belongs to neither."
+   }
   },
   {
    "id": "7-down",
@@ -178,7 +427,32 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RECANT",
+    "definition": "Withdraw",
+    "definitionFit": "To recant is to take back something you have publicly said or sworn, which is what withdrawing a statement or an accusation means.",
+    "indicators": [
+     "drunken"
+    ],
+    "indicatorNotes": {
+     "drunken": "A drunk cannot walk in a straight line, and these letters will not keep to theirs either."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "anagram": {
+     "fodder": "TRANCE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "trance",
+      "gives": "TRANCE",
+      "note": "six letters of fodder, exactly as the clue prints them"
+     }
+    ],
+    "walkthrough": "'Withdraw from' reads as one phrase and wants to be the definition; only the first word is. The drink and the trance are scenery, and the letters were in plain sight."
+   }
   },
   {
    "id": "8-down",
@@ -195,7 +469,29 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STYLET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STYLET",
+    "definition": "Probe",
+    "definitionFit": "A stylet is the fine wire or slender surgical probe a doctor runs down a needle or a catheter, so the two words name one instrument.",
+    "pieces": [
+     "STY",
+     "LET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hovel",
+      "gives": "STY",
+      "note": "a pigsty, and by insult any filthy dwelling"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "LET",
+      "note": "-let is the ending that shrinks a thing: booklet, piglet, droplet"
+     }
+    ],
+    "walkthrough": "The joke is that the two halves say the same thing twice — a small sty — and the question mark admits it. The medical instrument has nothing to do with pigs."
+   }
   },
   {
    "id": "9-across",
@@ -212,7 +508,36 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEBMASTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WEBMASTER",
+    "definition": "Techie",
+    "definitionFit": "The person who builds and runs a website is a techie by trade, and the job title is the informal one the whole industry uses.",
+    "indicators": [
+     "holds"
+    ],
+    "indicatorNotes": {
+     "holds": "What a thing holds is inside it, so the shorter piece is dropped into the middle of the longer one."
+    },
+    "pieces": [
+     "WEB",
+     "MA",
+     "STER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wordsmith",
+      "gives": "WEBSTER",
+      "note": "Noah Webster wrote the American dictionary that still carries his name"
+     },
+     {
+      "clueFragment": "advanced degree",
+      "gives": "MA",
+      "note": "MA is a Master of Arts, one step past a first degree"
+     }
+    ],
+    "walkthrough": "Every word of the surface belongs to a CV — techie, holds, advanced degree — and none of it is doing what it appears to. The lexicographer behind 'wordsmith' is the whole solve."
+   }
   },
   {
    "id": "10-across",
@@ -229,7 +554,29 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IONIC",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "IONIC",
+    "definition": "like ancient Greeks",
+    "definitionFit": "Ionia was the Greek-settled coast of Asia Minor, and the adjective covers its people, their dialect and the order of column they built.",
+    "indicators": [
+     "uncrowned"
+    ],
+    "indicatorNotes": {
+     "uncrowned": "A crown sits on the head, so a word stripped of its crown gives up the letter at the front."
+    },
+    "pieces": [
+     "IONIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having special powers",
+      "gives": "BIONIC",
+      "note": "bionic limbs give their owner powers no ordinary body has"
+     }
+    ],
+    "walkthrough": "Losing a crown sounds like abdication, which is why the word sits so comfortably next to the ancient world. It is only the first letter going."
+   }
   },
   {
    "id": "11-across",
@@ -246,7 +593,29 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGUS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ANGUS",
+    "definition": "Mr. Young",
+    "definition2": "beef",
+    "definitionFit": "Angus Young plays guitar in AC/DC, so a Mr Young may well be one; and Angus cattle are the breed prized for their steak.",
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr. Young",
+      "gives": "",
+      "note": "the guitarist in school uniform, Australian by upbringing and Scottish by name"
+     },
+     {
+      "clueFragment": "beef",
+      "gives": "",
+      "note": "the black cattle from the old Scottish county, and the steak they are raised for"
+     }
+    ],
+    "walkthrough": "The full stop after Mr marks the setter as American. Both halves are Scottish: a common first name that goes with the surname, and a breed named after the county."
+   }
   },
   {
    "id": "12-across",
@@ -267,7 +636,38 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
     ]
    },
    "solution": "LATELATIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "LATE LATIN",
+    "definition": "Language",
+    "definitionFit": "Late Latin is the written form used in the later Roman empire and the early church, a distinct stage of a tongue that lasted centuries.",
+    "indicators": [
+     "sections of",
+     "eschewing",
+     "contrived"
+    ],
+    "indicatorNotes": {
+     "sections of": "A section is a part cut out of something, so it is the individual letters of the name that go, not the name as a block.",
+     "eschewing": "To eschew is to have nothing to do with something, so the fodder must manage without those letters.",
+     "contrived": "Something contrived has been put together artificially, so what is left is arranged into an order it never had."
+    },
+    "anagram": {
+     "fodder": "ALLITEATN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "alliteration",
+      "gives": "ALLITERATION",
+      "note": "twelve letters, and the raw material for everything that follows"
+     },
+     {
+      "clueFragment": "Rio",
+      "gives": "RIO",
+      "note": "R, I and O come out, each one taken from a different place in the twelve"
+     }
+    ],
+    "walkthrough": "'Sections of Rio' reads as districts of a Brazilian city and 'contrived alliteration' as a complaint about the clue's own writing. Both are instructions, and the long word at the end is the material."
+   }
   },
   {
    "id": "13-across",
@@ -288,7 +688,26 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
     ]
    },
    "solution": "EWALLET",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "E-WALLET",
+    "definition": "payment aid",
+    "definitionFit": "The app that keeps your card details on a phone lets you pay by tapping it, which is help of a strictly financial kind.",
+    "indicators": [
+     "includes"
+    ],
+    "indicatorNotes": {
+     "includes": "What a thing includes is already inside it, so the letters are sitting in the clue in the order they are wanted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Renewal letter",
+      "gives": "EWALLET",
+      "note": "seven letters in a row, starting partway into the first word and stopping partway through the second"
+     }
+    ],
+    "walkthrough": "A renewal letter is such an ordinary piece of post that nothing about it asks to be read letter by letter, which is exactly the cover a hidden word wants."
+   }
   },
   {
    "id": "14-down",
@@ -305,7 +724,38 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APOLOGIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "APOLOGIST",
+    "definition": "Defender",
+    "definitionFit": "An apologist argues in defence of a cause or a doctrine, so the plain sense is meant and no saying sorry is involved.",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "A",
+     "POLO",
+     "GIST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own indefinite article, taken at face value"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "POLO",
+      "note": "the four-letter game played on horseback, a crossword regular"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "GIST",
+      "note": "the gist of an argument is its point"
+     }
+    ],
+    "walkthrough": "The modern sense of apology pulls the whole clue towards regret; the older sense, a reasoned defence of a position, is the one being defined. At four letters, try POLO for any game."
+   }
   },
   {
    "id": "15-across",
@@ -322,7 +772,33 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEBRIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DEBRIS",
+    "definition": "Remnants",
+    "definitionNote": "Debris is a mass noun taking a singular verb, but it names a scattered plurality, which is why a plural like 'remnants' defines it fairly.",
+    "definitionFit": "What is left lying about after something breaks up or is destroyed is exactly what the plural in the clue describes.",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "DE",
+     "BRIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reversal",
+      "gives": "DE",
+      "note": "de- is the prefix that undoes a process: de-ice, de-frost, de-camp"
+     },
+     {
+      "clueFragment": "Jewish ritual",
+      "gives": "BRIS",
+      "note": "a bris is the circumcision ceremony held on a boy's eighth day"
+     }
+    ],
+    "walkthrough": "'Reversal' looks like an instruction to turn letters round, and obeying it gets you nowhere. The word is being defined rather than obeyed: the setter wants the prefix meaning undo."
+   }
   },
   {
    "id": "16-down",
@@ -343,7 +819,36 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLINDDATE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "BLIND DATE",
+    "definition": "fix-up",
+    "definitionFit": "In American usage a fix-up is an evening someone arranges between two people who have never met, which is the whole point of it.",
+    "indicators": [
+     "removed from",
+     "unwise"
+    ],
+    "indicatorNotes": {
+     "removed from": "What is removed comes out and stays out, so those three letters are gone before anything else happens.",
+     "unwise": "An unwise arrangement is a badly thought-out one — a loose way of saying the letters end up in no sensible order."
+    },
+    "anagram": {
+     "fodder": "BLANDDIET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "balanced diet",
+      "gives": "BALANCEDDIET",
+      "note": "twelve letters to start from, and the surface's picture of healthy eating"
+     },
+     {
+      "clueFragment": "Three vitamins",
+      "gives": "ACE",
+      "note": "A, C and E are all vitamins, and all three come out"
+     }
+    ],
+    "walkthrough": "Take the vitamins out of a balanced diet and what is left spells, pleasingly, a bland one. Those nine letters then rearrange into the evening the definition describes."
+   }
   },
   {
    "id": "17-across",
@@ -360,7 +865,41 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORDIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NORDIC",
+    "definition": "Blonde, blue-eyed",
+    "definitionFit": "The adjective covers Scandinavia and its people, and fair hair with pale eyes is the stereotype that travels with the word.",
+    "indicators": [
+     "lying about"
+    ],
+    "indicatorNotes": {
+     "lying about": "Something left lying about has been dropped any old way up, so the assembled letters are read from the other end."
+    },
+    "pieces": [
+     "NOR",
+     "DIC"
+    ],
+    "subReversals": [
+     {
+      "from": "CIDRON",
+      "to": "NORDIC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detectives",
+      "gives": "CID",
+      "note": "the CID is the Criminal Investigation Department, the plain-clothes branch of a British police force"
+     },
+     {
+      "clueFragment": "Harry’s pal",
+      "gives": "RON",
+      "note": "Ron Weasley, Harry Potter's best friend"
+     }
+    ],
+    "walkthrough": "The surface sounds like Scandinavian television — blond detectives, something nasty in the snow — which is the genre the answer names. Harry Potter has given crosswords a reliable three-letter friend."
+   }
   },
   {
    "id": "18-down",
@@ -377,7 +916,35 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEMISE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CHEMISE",
+    "definition": "undergarment",
+    "definitionFit": "A chemise is a loose slip worn next to the skin, so it goes under a dress rather than over it.",
+    "indicators": [
+     "shortened"
+    ],
+    "indicatorNotes": {
+     "shortened": "A shortened word has had its end trimmed off, so the final letter never reaches the grid."
+    },
+    "pieces": [
+     "CHEMIS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug dealer",
+      "gives": "CHEMIS",
+      "note": "a chemist in Britain is the pharmacist who dispenses drugs, docked of his last letter here"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the compass abbreviation for eastern"
+     }
+    ],
+    "walkthrough": "'Drug dealer' is a British chemist's shop rather than a street corner. It is the same joke every setter makes with the word, and worth expecting on sight."
+   }
   },
   {
    "id": "19-across",
@@ -394,7 +961,32 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWINGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SWINGER",
+    "definition": "Promiscuous sort",
+    "definitionFit": "A swinger is someone who swaps sexual partners freely, which is the loose living the surface is winking at.",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "S",
+     "WINGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-label abbreviation for small"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "WINGER",
+      "note": "one that has wings, coined for the occasion — the question mark owns up to it"
+     }
+    ],
+    "walkthrough": "A winger is normally a footballer out on the flank. Here the word is taken back to its parts and handed to anything with wings, which is what the question mark apologises for."
+   }
   },
   {
    "id": "19-down",
@@ -411,7 +1003,26 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SQUASH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SQUASH",
+    "definition": "Obliterate",
+    "definition2": "vegetable",
+    "definitionFit": "One sense is to crush something flat until nothing of it is left; the other is the American name for the marrow and pumpkin family.",
+    "blocks": [
+     {
+      "clueFragment": "Obliterate",
+      "gives": "",
+      "note": "to flatten a thing out of existence, under a boot or a thumb"
+     },
+     {
+      "clueFragment": "vegetable",
+      "gives": "",
+      "note": "the gourd family, summer or winter, on every American table in autumn"
+     }
+    ],
+    "walkthrough": "Two words with nothing in common but their spelling, and the shortest clue in the puzzle. British solvers meet the vegetable sense less often than the drink of the same name."
+   }
   },
   {
    "id": "20-down",
@@ -428,7 +1039,29 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROFLMAO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROFLMAO",
+    "definition": "That’s hilarious!",
+    "definitionFit": "The letters are texting shorthand for rolling on the floor laughing my ass off, typed in reply to something very funny indeed.",
+    "indicators": [
+     "deviant"
+    ],
+    "indicatorNotes": {
+     "deviant": "A deviant has strayed from the straight path, and letters that stray end up in an order nobody intended."
+    },
+    "anagram": {
+     "fodder": "MORAL OF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Moral of",
+      "gives": "MORALOF",
+      "note": "seven letters of fodder — the little 'of' is part of the material, not a joining word"
+     }
+    ],
+    "walkthrough": "'Of' looks like joinery and is really part of the fodder, which is what makes the count come out. A clue about morals delivering internet slang is the joke."
+   }
   },
   {
    "id": "21-down",
@@ -445,7 +1078,34 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STARER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STARER",
+    "definition": "a rude sort",
+    "definitionFit": "Someone who gazes at strangers is being rude, and the noun for that person is formed the plain way, from the verb.",
+    "indicators": [
+     "expels"
+    ],
+    "indicatorNotes": {
+     "expels": "To expel is to throw out and refuse to have back, so the letter named is gone for good."
+    },
+    "pieces": [
+     "STARER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM",
+      "gives": "STARMER",
+      "note": "Keir Starmer, the Labour leader who became British prime minister in 2024"
+     },
+     {
+      "clueFragment": "head of monarchy",
+      "gives": "M",
+      "note": "the first letter of the word monarchy, its head"
+     }
+    ],
+    "walkthrough": "The surface is a joke about a republican prime minister throwing out the crown. The mechanics are quieter: one name with a single letter lifted out of the middle."
+   }
   },
   {
    "id": "22-across",
@@ -462,7 +1122,35 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TROUSSEAU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "TROUSSEAU",
+    "definition": "collection of bride’s clothing",
+    "definitionFit": "A trousseau is the outfit of clothes and linen a woman assembles before her marriage, so the phrase names it precisely.",
+    "indicators": [
+     "Thick-headed"
+    ],
+    "indicatorNotes": {
+     "Thick-headed": "In the surface it is an insult; as an instruction it points at the head of the word 'thick', which is one letter."
+    },
+    "pieces": [
+     "T",
+     "ROUSSEAU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thick-headed",
+      "gives": "T",
+      "note": "the letter standing at the head of THICK"
+     },
+     {
+      "clueFragment": "Genevan philosopher",
+      "gives": "ROUSSEAU",
+      "note": "Jean-Jacques Rousseau was born in Geneva in 1712 and signed himself a citizen of it"
+     }
+    ],
+    "walkthrough": "Because Rousseau called himself a citizen of Geneva, the description is his own words. The insult at the front is aimed at nobody: it is there to hide a single letter."
+   }
   },
   {
    "id": "23-down",
@@ -483,7 +1171,32 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
     ]
    },
    "solution": "SLOMO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SLO-MO",
+    "definition": "reduced speed",
+    "definitionFit": "The cutting-room shorthand for slow motion, the replay run at a fraction of the pace it was shot.",
+    "indicators": [
+     "spinning"
+    ],
+    "indicatorNotes": {
+     "spinning": "A spinning object shows a different face every moment, and letters treated so come to rest in a new order."
+    },
+    "linkWords": [
+     "at"
+    ],
+    "anagram": {
+     "fodder": "LOOMS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Looms",
+      "gives": "LOOMS",
+      "note": "five letters of fodder, and a weaving shed in the surface"
+     }
+    ],
+    "walkthrough": "'Looms' wants to be a verb, something looming out of the fog. It is the weaver's machine, and it is the fodder: a plural noun doing an excellent impression of a threat."
+   }
   },
   {
    "id": "24-across",
@@ -500,7 +1213,35 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DECAF",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "DECAF",
+    "definition": "Java, lacking kick",
+    "definitionFit": "Java is slang for coffee, and the version with its caffeine taken out is the one with no kick left in it.",
+    "indicators": [
+     "West"
+    ],
+    "indicatorNotes": {
+     "West": "On an across entry the letters run westward when read the other way, from the right-hand end back to the left."
+    },
+    "pieces": [
+     "DECAF"
+    ],
+    "subReversals": [
+     {
+      "from": "FACED",
+      "to": "DECAF"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stood up to",
+      "gives": "FACED",
+      "note": "to face someone down is to stand up to them"
+     }
+    ],
+    "walkthrough": "The definition is longer than it looks. 'Java' on its own would be coffee with all its caffeine present, so the comma and everything after it are doing necessary work."
+   }
   },
   {
    "id": "25-down",
@@ -517,7 +1258,29 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CIRCA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CIRCA",
+    "definition": "Around",
+    "definitionFit": "It is the Latin for about, used before an uncertain date, and that is the sense of the English word here — approximately, not encircling.",
+    "indicators": [
+     "5/9ths of"
+    ],
+    "indicatorNotes": {
+     "5/9ths of": "Five ninths of a nine-letter word is its first five letters, counted from the front."
+    },
+    "pieces": [
+     "CIRCA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what biorhythms are",
+      "gives": "CIRCADIAN",
+      "note": "body clocks run on a circadian rhythm, one turn of roughly a day"
+     }
+    ],
+    "walkthrough": "The fraction does arithmetic on a word the clue never prints: you have to supply the adjective for body clocks yourself, and only then start counting."
+   }
   },
   {
    "id": "26-across",
@@ -534,7 +1297,38 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHINO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RHINO",
+    "definition": "Beast",
+    "definitionFit": "The word names any big wild animal, and this is one of them — the definition gives the class and the surface hints at the species.",
+    "indicators": [
+     "deformed"
+    ],
+    "indicatorNotes": {
+     "deformed": "Something deformed has been pushed out of its proper shape, and letters pushed about lose their proper order."
+    },
+    "linkWords": [
+     "with",
+     "that’s"
+    ],
+    "anagram": {
+     "fodder": "I HORN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "horn",
+      "gives": "HORN",
+      "note": "four letters of fodder, printed as they stand"
+     }
+    ],
+    "walkthrough": "The surface paints the animal it defines, which is why the fodder is so hard to see. 'One' is the Roman numeral rather than a count of horns."
+   }
   },
   {
    "id": "27-across",
@@ -551,7 +1345,29 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSTAGRAM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INSTAGRAM",
+    "definition": "popular app",
+    "definitionFit": "The photo-sharing service has a couple of billion users, so calling it popular is understatement rather than opinion.",
+    "indicators": [
+     "developed"
+    ],
+    "indicatorNotes": {
+     "developed": "To develop a site is to build something new on it, so nothing is left standing where it was."
+    },
+    "anagram": {
+     "fodder": "A MIGRANTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A migrant’s",
+      "gives": "AMIGRANTS",
+      "note": "nine letters of fodder, apostrophe and all"
+     }
+    ],
+    "walkthrough": "A migrant's story and a photo-sharing app have nothing to do with each other, which is the disguise. The count is exact, so the only work is spotting that 'developed' is the instruction."
+   }
   },
   {
    "id": "28-across",
@@ -568,7 +1384,41 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATHOLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "RATHOLE",
+    "definition": "squalid digs",
+    "definitionFit": "Digs is British for lodgings, and the answer is the standard insult for a filthy cramped place someone actually lives in.",
+    "indicators": [
+     "uncovered",
+     "in"
+    ],
+    "indicatorNotes": {
+     "uncovered": "Take the cover off a word and the letter at the front comes away with it, leaving the rest exposed.",
+     "in": "One piece goes inside the other rather than alongside it, which is what being in something means."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "R",
+     "ATH",
+     "OLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "ROLE",
+      "note": "an actor's part is a role"
+     },
+     {
+      "clueFragment": "Spa location",
+      "gives": "ATH",
+      "note": "Bath, the Somerset city the Romans built their baths in, with its cover taken off"
+     }
+    ],
+    "walkthrough": "Two ordinary words are used in their less obvious senses at once: 'part' as a stage role, and 'Spa location' as an English city rather than a room in a hotel."
+   }
   },
   {
    "id": "29-across",
@@ -585,7 +1435,28 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GELATO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "GELATO",
+    "definition": "dessert",
+    "definitionFit": "Italian ice cream, churned slower and served warmer than the tub kind, and eaten at the end of a meal.",
+    "indicators": [
+     "Faction of",
+     "recalled"
+    ],
+    "indicatorNotes": {
+     "Faction of": "A faction is one part of a larger body, so only a stretch of what follows is wanted.",
+     "recalled": "To recall something is to call it back, and letters called back arrive in the opposite order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Minnesota legislature",
+      "gives": "OTALEG",
+      "note": "six letters in a row spanning the space between the two words, waiting to be read from the far end"
+     }
+    ],
+    "walkthrough": "State politics is a good place to hide an Italian pudding: nothing in a legislature asks to be read letter by letter, still less read from the wrong end."
+   }
   }
  ]
 } /*JSON-END*/;

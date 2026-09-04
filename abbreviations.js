@@ -91,6 +91,7 @@ const ABBREVIATIONS = {
   "charlie",
   "clubs",
   "cold",
+  "college",
   "colt",
   "conservative",
   "constant",
@@ -509,6 +510,10 @@ const ABBREVIATIONS = {
   "men",
   "other ranks",
   "soldiers"
+ ],
+ "ORG": [
+  "organisation",
+  "organization"
  ],
  "OS": [
   "bone",

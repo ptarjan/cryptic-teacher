@@ -75,6 +75,9 @@ TYPE_PARTS = {
     # and one further again: everyman-4143 13A takes the fourth of stamps for the
     # M of MOISTEN.
     "fourth letter", "fourth letters",
+    # and one further still: 30103 25D takes the fifth of citizens for the Z of
+    # UZBEK, the relative pronoun pointing back at the word to count into.
+    "fifth letter", "fifth letters",
     # "alternate letters" is the every-SECOND case; a setter may count in any
     # step (30077 17D takes every third letter of HOPE TO GOD to spell POD)
     "regular letters",
@@ -872,6 +875,17 @@ INVARIANT_PLURALS = {
 }
 
 
+# Nouns ending in -ING whose stem happens to be a word without the noun ever
+# being a verb form: an AWN is the bristle on an ear of barley, so AWNING
+# passes the stem test below and is still a plain noun fairly defined by a
+# plain noun (30103 6D, "Canopy"). STRING is here for the same reason, and it
+# is in the docstring below as an example the stem test handles — it does not.
+# Same reasoning as NOT_PLURALS above: a warning on one of these invites a
+# definitionNote explaining a mismatch that does not exist.
+NOT_GERUNDS = {"AWNING", "STRING", "HERRING", "SHILLING", "CEILING", "MORNING",
+               "PUDDING"}
+
+
 def is_gerund(ans):
     """Is the answer really an -ING form? MARAUDING is (MARAUD is a word);
     VIKING, STRING and SPRING are not, which is what made this check noisy.
@@ -880,7 +894,7 @@ def is_gerund(ans):
     because the +E test turned its one-letter stem into WE (30052 26A), and no
     English verb is a single letter, so a one-letter stem is always the
     coincidence this check exists to ignore."""
-    if not ans.endswith("ING"):
+    if not ans.endswith("ING") or ans in NOT_GERUNDS:
         return False
     stem = ans[:-3]
     if len(stem) < 2:
