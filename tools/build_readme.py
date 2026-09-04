@@ -74,7 +74,7 @@ LAYOUT = [
     ("annotating", "tools/validate_annotations.py", "proves every annotation actually spells its answer, plus the other rules about what a rung may and may not say"),
     ("annotating", "tools/apply_annotations.py", "writes a run’s annotation JSON into the puzzle file, and validates the result"),
     ("annotating", "tools/annotation_backlog.json", "how many clues of each OLD puzzle predate a required field; a puzzle not listed is allowed none, so new rules bind new puzzles"),
-    ("annotating", "tools/check_annotation_loss.py", "refuses a commit that drops annotation a previous run wrote"),
+    ("annotating", "tools/check_annotation_loss.py", "shouts when an annotation run leaves clues it could not solve, so a weak night can't pass for a good one"),
     ("annotating", "tools/find_answer_leaks.py", "finds a block note that says the answer out loud, a rung before the walkthrough sells it"),
     ("annotating", "tools/find_renarration.py", "flags a walkthrough that only restates the blocks instead of teaching past them"),
     ("annotating", "tools/clue_quality.py", "warns about the clue shapes that lost to human setters in blind grading"),
