@@ -80,12 +80,12 @@ favicon.*, icon-*.png, apple-touch-icon.png  the icon set, all rendered from one
                                              tools/make_icons.py
 
 fetching
-tools/fetch_puzzle.py                        fetch/convert Guardian puzzles,
-                                             --latest/--backfill/--reindex
+tools/fetch_puzzle.py                        fetch/convert the Guardian cryptic, Saturday prize
+                                             and Quiptic, --latest/--backfill/--extend/--reindex
 tools/fetch_independent.py                   the Independent’s daily and Sunday
 tools/fetch_observer.py                      the Observer’s Everyman
-tools/extend_archive.py                      walks the archives backwards to refill the
-                                             backfill queue
+tools/extend_archive.py                      walks the archives backwards to keep the
+                                             annotation queue deeper than the job's best week
 tools/fetch_minutecryptic.js                 Minute Cryptic’s daily hints, as a corpus to be
                                              measured against
 tools/fetch_lexicon.sh                       downloads the Lufz/Exet lexicon the grid filler
