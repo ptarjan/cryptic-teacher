@@ -1,9 +1,9 @@
-"""The one way these tools read the KV namespace.
+"""The one way these tools reach the KV namespace.
 
 Two copies of a wrangler call is two places to fix when wrangler changes, and
 the retry below is exactly the kind of thing that gets added to one of them.
 
-Reads only. Nothing here writes to KV.
+Lists keys and deletes them. Nothing here writes a value.
 """
 import json
 import subprocess
