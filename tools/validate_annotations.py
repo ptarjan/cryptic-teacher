@@ -16,7 +16,7 @@ Checks, for every annotated entry:
   - subAnagrams are letter-for-letter anagrams; subReversals reverse correctly
   - linkedTo targets exist and cover their group
 
-And five checks that apply only to puzzles we WROTE (see is_authored):
+And checks that apply only to puzzles we WROTE (see is_authored):
   - no block may have an empty `gives`: every word of an authored clue is
     definition, wordplay or joinery, never surface padding (check_two_pieces)
   - the walkthrough stays inside MAX_WALKTHROUGH_WORDS when the blocks already
@@ -26,8 +26,13 @@ And five checks that apply only to puzzles we WROTE (see is_authored):
   - and is not made of the fodder's own letters (check_indicator_outside_fodder)
   - a reversal indicator points the way the entry runs (check_reversal_direction)
 
-And one whole-puzzle check:
+And checks that need the whole puzzle in hand:
   - at most MAX_CRYPTIC_DEFINITIONS clues typed "cryptic definition"
+  - a definition's words are not also its wordplay's letters
+  - the blocks hand over exactly the answer's letters, take it apart the way
+    `pieces` does, and are listed in the order the answer reads
+  - a block that claims letters says why it gets them
+  - every convention a block leans on is in the solver's glossary
 
 Usage: python3 tools/validate_annotations.py [--unscoped] [--tighten] [puzzle-number ...]
 With no arguments, validates every puzzle that has at least one annotation.
