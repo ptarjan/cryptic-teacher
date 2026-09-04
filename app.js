@@ -1366,6 +1366,7 @@
     ["last letter", "Last letters: take the final letter(s) of indicated word(s)."],
     ["middle letter", "Middle letters: take just the centre of an indicated word."],
     ["second letter", "Second letters: count into the indicated word(s) and keep only the letter in position two."],
+    ["fifth letter", "Fifth letters: count five letters into the indicated word and keep the one you land on."],
     ["outer letters", "Outer letters: keep only the outside letters of an indicated word."],
     ["cryptic definition", "A cryptic definition: no separable wordplay — the whole clue is one sly description."],
     ["spoonerism", "A spoonerism: swap the opening sounds of two words to get the answer."],
@@ -1386,7 +1387,13 @@
       // claim the page then disproves: both words define, so the definition
       // rung has nothing to ask and there are no blocks either. A blurb that
       // promises work the clue does not contain reads as a lie (Paul).
-      blurb: "No letter mechanics at all — nothing is anagrammed, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.",
+      // "nothing is shuffled" rather than "nothing is anagrammed", because this
+      // blurb is rung 1 and a rung before the walkthrough may not contain the
+      // answer: 30103 28A is a cryptic definition whose answer is ANAGRAM, and
+      // the generic sentence spelled it out before the solver had bought a
+      // single hint. Family blurbs are shown on every clue in the family, so
+      // they cannot use a word that is ever an answer if a synonym will do.
+      blurb: "No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.",
       match: (t) => t.includes("double definition") || t.includes("cryptic definition") },
     { label: "&lit",
       blurb: "The whole clue does double duty: read it once as a definition, then read the very same words again as wordplay.",

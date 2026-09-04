@@ -43,7 +43,10 @@ the list below together):
   fixed step other than every second one — 30077 17D takes every THIRD letter
   of "Hope to God" to spell POD), `second letter(s)` (a letter picked by its
   position — 12420 14D takes the second letter of "master" for the A of AGO,
-  and 30065 6D takes the second letter of each of four words to spell EDAM)
+  and 30065 6D takes the second letter of each of four words to spell EDAM),
+  and the same device counted further in: `third letter(s)`, `fourth
+  letter(s)`, `fifth letter(s)` (30103 25D takes the fifth of "citizens" for
+  the Z of UZBEK)
 - Letter movement: `cycling` (letters rotate from one end of the assembly to
   the other, keeping their order), `substitution` (one indicated letter or
   chunk stands in for another), `palindrome` (the answer reads the same in

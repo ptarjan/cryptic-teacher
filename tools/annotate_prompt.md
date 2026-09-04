@@ -316,7 +316,7 @@ Join parts with ` + ` and name EVERY mechanism the wordplay uses. Each part
 belongs to exactly one family; the family is what the app shows on rung 1, so a
 compound type's family is decided by the FIRST row below that matches it.
 
-**Definitions only** — No letter mechanics at all — nothing is anagrammed, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.
+**Definitions only** — No letter mechanics at all — nothing is shuffled, hidden or spelled out. Either two plain definitions sit side by side, or one sly one describes the answer the long way round.
 
   `cryptic definition` `double definition`
 
@@ -342,10 +342,10 @@ compound type's family is decided by the FIRST row below that matches it.
 
 **Extraction** — The answer's letters are already sitting in the clue in order — the job is working out which ones to pick out.
 
-  `alternate letters` `first letter` `first letters` `fourth letter` `fourth letters`
-  `hidden word` `last letter` `last letters` `middle letter` `middle letters`
-  `outer letters` `prime letters` `regular letters` `second letter` `second letters`
-  `third letter` `third letters`
+  `alternate letters` `fifth letter` `fifth letters` `first letter` `first letters`
+  `fourth letter` `fourth letters` `hidden word` `last letter` `last letters`
+  `middle letter` `middle letters` `outer letters` `prime letters` `regular letters`
+  `second letter` `second letters` `third letter` `third letters`
 
 ### What the validator rejects
 
