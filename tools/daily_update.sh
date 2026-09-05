@@ -160,12 +160,41 @@ EOF
 # turns against an annotation's 40-90, and a third of the spend once cache reads
 # are priced at their tenth. Raising SOLVE_MAX is not what will blow the budget.
 SOLVE_MAX="${SOLVE_MAX:-1}"
-unsolved=$(python3 - "$SOLVE_MAX" <<'EOF'
+# A puzzle gets SOLVE_ATTEMPTS_MAX cold solves in its life, then never again.
+# Selection is by date, so before this cap a puzzle that failed was simply the
+# newest unsolved puzzle again tomorrow, and again the night after — the same
+# grid, the same model, the same rejection, until the paper published a key a
+# week later. everyman-4166 was solved correctly on 26, 27 and 28 August and
+# thrown away all three times, because apply_solution.py's `number` argument was
+# type=int and "everyman-4166" is not an int. Three full solves bought nothing.
+#
+# The cap is 2 rather than 1 because a model that gives up once may not give up
+# twice, and 2 rather than 7 because the reason a solve fails twice is almost
+# never the puzzle. It is us: a crashing applier, a moved prompt file, a CLI
+# that can't authenticate. So giving up raises an alert carrying the rejection
+# itself, and the next attempt is a human deciding to make one.
+SOLVE_ATTEMPTS_MAX="${SOLVE_ATTEMPTS_MAX:-2}"
+# In the main checkout, not $REPO: this script re-execs into a throwaway
+# worktree, and a count kept there is a count that resets whenever the worktree
+# is rebuilt — which is exactly the night the cap needed to hold.
+SOLVE_ATTEMPTS_FILE="${CT_MAIN_CHECKOUT:-$REPO}/.solve_attempts.json"
+unsolved=$(python3 - "$SOLVE_MAX" "$SOLVE_ATTEMPTS_MAX" "$SOLVE_ATTEMPTS_FILE" <<'EOF'
 import json, sys
+limit, cap, path = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3]
 idx = json.load(open("puzzles/index.json"))
+try:
+    tried = json.load(open(path))
+except (FileNotFoundError, ValueError):
+    tried = {}
+# Forget puzzles that have answers now, so a key arriving late — or a re-fetch
+# that genuinely changes the grid — is never blocked by a stale count.
+unsolved_ids = {p["id"] for p in idx["puzzles"] if not p.get("hasSolutions")}
+if any(k not in unsolved_ids for k in tried):
+    tried = {k: v for k, v in tried.items() if k in unsolved_ids}
+    json.dump(tried, open(path, "w"), indent=1, sort_keys=True)
 todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
-               if not p.get("hasSolutions")), reverse=True)
-print(" ".join(i for _, i in todo[:int(sys.argv[1])]))
+               if p["id"] in unsolved_ids and tried.get(p["id"], 0) < cap), reverse=True)
+print(" ".join(i for _, i in todo[:limit]))
 EOF
 )
 
@@ -249,21 +278,62 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
       break
     fi
     fill="${TMPDIR:-/tmp}/cryptic-fill-$num.json"
+    solvelog="${TMPDIR:-/tmp}/cryptic-solve-$num.log"
+    verdict="${TMPDIR:-/tmp}/cryptic-verdict-$num.log"
     rm -f "$fill"
     echo "solving puzzle $num cold with Claude Code... (session ${session:-unknown}%)"
     claude -p "Solve the cryptic crossword in puzzles/$num.js in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly, write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
       --model "$ANNOTATE_MODEL" \
       --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
-      --max-turns 120 2>&1 | tail -40
+      --max-turns 120 >"$solvelog" 2>&1
+    tail -40 "$solvelog"
     # The verdict comes from the checker, not from the model's own report. A
-    # run can exit 0 having given up, and did — the check is what decides.
-    if [ -s "$fill" ] && python3 tools/apply_solution.py "$num" --fill "$fill" --model "$ANNOTATE_MODEL"; then
+    # run can exit 0 having given up, and did — the check is what decides. It is
+    # captured rather than only printed, because the reason a fill was rejected
+    # is the entire content of the give-up alert below.
+    if [ -s "$fill" ]; then
+      python3 tools/apply_solution.py "$num" --fill "$fill" --model "$ANNOTATE_MODEL" >"$verdict" 2>&1
+      applied=$?
+    else
+      echo "the solver finished without writing a fill to $fill at all" >"$verdict"
+      applied=1
+    fi
+    cat "$verdict"
+    if [ "$applied" -eq 0 ]; then
       solved_ok=$((solved_ok + 1))
       pending="$num $pending"
+      python3 - "$num" "$SOLVE_ATTEMPTS_FILE" <<'EOF'
+import json, sys
+num, path = sys.argv[1], sys.argv[2]
+try:
+    d = json.load(open(path))
+except (FileNotFoundError, ValueError):
+    d = {}
+if d.pop(num, None) is not None:
+    json.dump(d, open(path, "w"), indent=1, sort_keys=True)
+EOF
     else
-      echo "solve of $num rejected — nothing written, the paper's answers are due in a few days anyway"
+      attempts=$(python3 - "$num" "$SOLVE_ATTEMPTS_FILE" <<'EOF'
+import json, sys
+num, path = sys.argv[1], sys.argv[2]
+try:
+    d = json.load(open(path))
+except (FileNotFoundError, ValueError):
+    d = {}
+d[num] = d.get(num, 0) + 1
+json.dump(d, open(path, "w"), indent=1, sort_keys=True)
+print(d[num])
+EOF
+)
+      echo "solve of $num rejected — nothing written (attempt $attempts of $SOLVE_ATTEMPTS_MAX)"
+      if [ "${attempts:-0}" -ge "$SOLVE_ATTEMPTS_MAX" ]; then
+        # The lines travel in the alert. A repeated solve failure is a bug in
+        # this repo far more often than a hard crossword, and the reader needs
+        # the applier's complaint and the model's last words to tell which.
+        alert "gave up solving $num after $attempts attempts — it will never be tried again, and the puzzle ships hintless until the paper publishes its key. Clear its entry in .solve_attempts.json to retry. The applier said:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$verdict" | cut -c1-200)"$'\n'"\`\`\`"$'\n'"and the solver's last words were:"$'\n'"\`\`\`"$'\n'"$(tail -6 "$solvelog" | cut -c1-200)"$'\n'"\`\`\`"
+      fi
     fi
-    rm -f "$fill"
+    rm -f "$fill" "$solvelog" "$verdict"
   done
   # Whatever solving cost, the annotation budget is still ANNOTATE_MAX puzzles.
   pending=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')

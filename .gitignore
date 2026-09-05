@@ -13,6 +13,12 @@
 .usage_cache.json
 .alert-state
 .claude
+# How many cold solves each unpublished puzzle has already burned, so a grid
+# that cannot be solved stops being attempted (see SOLVE_ATTEMPTS_MAX in
+# daily_update.sh). Written straight to the main checkout rather than shared by
+# symlink, because a count that lives in the nightly worktree is a count the
+# worktree rebuild throws away.
+.solve_attempts.json
 # Everything the pre-reset backfill leaves behind: its log, its run lock, and the
 # two rates it measures for itself (.prereset_rate, .prereset_yield). One glob so
 # the next thing it learns to measure cannot arrive untracked-but-committable.
