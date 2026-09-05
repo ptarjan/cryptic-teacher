@@ -452,6 +452,13 @@ if [ -n "$annotated_nums" ]; then
   loss=$(python3 tools/check_annotation_loss.py $annotated_nums 2>&1) || \
     alert "tonight's annotation came back short — $loss. Those clues ship with \"auto hints\" and no teaching ladder."
   echo "$loss"
+
+  # How many turns a session is taking, logged every night it annotates. This
+  # was measured by hand twice and the two measurements disagreed; the second
+  # could not reproduce the first at all. A number that only exists when
+  # somebody goes looking is a number that gets quoted long after it stopped
+  # being true, so it is computed here from the transcripts every run.
+  python3 tools/turn_cost.py 2>&1 || true
 fi
 
 # Alert on the backlog not moving, not on a command exiting non-zero. A run that

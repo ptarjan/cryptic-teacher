@@ -11,8 +11,14 @@ line up with whole words of the note, optionally carrying a short inflection, so
 "run-in" is caught inside "a run-in is a quarrel" and OSLO inside "n(O SLO)venian"
 while a short answer is not caught inside an unrelated longer word.
 
-  python3 tools/find_answer_leaks.py            # ranked summary
+  python3 tools/find_answer_leaks.py            # ranked summary, whole corpus
+  python3 tools/find_answer_leaks.py 30104      # just this puzzle, clue by clue
   python3 tools/find_answer_leaks.py --json     # per-clue targets for a rewrite
+
+Name a puzzle rather than grepping the corpus run for its number: annotation
+sessions were piping the whole-corpus summary through `grep -i <num>` roughly
+once a session, which matches the filename and prints the ranking line, not the
+notes that are wrong.
 """
 
 import argparse
@@ -23,7 +29,7 @@ import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from fetch_puzzle import read_puzzle_file  # noqa: E402
+from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
 
 PUZZLES = pathlib.Path(__file__).parent.parent / "puzzles"
 
@@ -53,8 +59,9 @@ def says(text, answer):
     return False
 
 
-def leaks():
-    for path in sorted(PUZZLES.glob("*.js")):
+def leaks(only=()):
+    paths = [resolve_puzzle(n) for n in only] if only else sorted(PUZZLES.glob("*.js"))
+    for path in paths:
         try:
             puzzle = read_puzzle_file(path)
         except Exception:
@@ -79,13 +86,28 @@ def leaks():
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("puzzle", nargs="*",
+                    help="limit to these puzzles; default is the whole corpus")
     ap.add_argument("--json", action="store_true", help="emit per-clue targets")
     args = ap.parse_args()
 
-    found = list(leaks())
+    found = list(leaks(args.puzzle))
     if args.json:
         json.dump(found, sys.stdout, indent=1)
         return 1 if found else 0
+
+    if args.puzzle:
+        # A one-puzzle run is an annotation run checking its own work, and the
+        # corpus ranking below answers a question it did not ask. Say the thing
+        # it needs: which clues, and what the offending note actually says.
+        if not found:
+            print(f"no block note names its answer in {' '.join(args.puzzle)}")
+            return 0
+        for f in found:
+            print(f"{f['file']} {f['entry']} ({f['answer']}, {f['type']})")
+            for n in f["notes"]:
+                print(f"    {n['clueFragment']}: {n['note']}")
+        return 1
 
     by_file = collections.Counter(f["file"] for f in found)
     by_type = collections.Counter(f["type"] for f in found)
