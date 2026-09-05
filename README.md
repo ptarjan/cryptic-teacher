@@ -117,6 +117,10 @@ tools/find_renarration.py                    flags a walkthrough that only resta
                                              instead of teaching past them
 tools/clue_quality.py                        warns about the clue shapes that lost to human
                                              setters in blind grading
+tools/blind_annotate.py                      hides a published key from the annotator, then
+                                             grades what it derived — an explanation that lands
+                                             on the wrong answer is the only proof the wordplay
+                                             wasn’t reverse-engineered
 tools/annotate_model.sh                      sourced: turns $ANNOTATE_MODEL into the right
                                              Co-Authored-By trailer
 tools/app_tables.py                          the clue-family table, read by the tools so there

@@ -78,6 +78,7 @@ LAYOUT = [
     ("annotating", "tools/find_answer_leaks.py", "finds a block note that says the answer out loud, a rung before the walkthrough sells it"),
     ("annotating", "tools/find_renarration.py", "flags a walkthrough that only restates the blocks instead of teaching past them"),
     ("annotating", "tools/clue_quality.py", "warns about the clue shapes that lost to human setters in blind grading"),
+    ("annotating", "tools/blind_annotate.py", "hides a published key from the annotator, then grades what it derived — an explanation that lands on the wrong answer is the only proof the wordplay wasn’t reverse-engineered"),
     ("annotating", "tools/annotate_model.sh", "sourced: turns $ANNOTATE_MODEL into the right Co-Authored-By trailer"),
     ("annotating", "tools/app_tables.py", "the clue-family table, read by the tools so there is no port of the app’s wording to keep in step"),
 
