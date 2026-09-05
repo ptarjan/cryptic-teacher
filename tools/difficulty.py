@@ -15,7 +15,11 @@ than an oversight: the index needs a fixed cohort of timed solves, which only
 the Times Club site records. Checked 2026-08-15 — Fifteensquared blogs all four
 of ours (Guardian daily and prize, Independent, Everyman, Quick Cryptic) in
 prose with no scale, and the one blog that does rate 1-5 for difficulty,
-bigdave44, is Telegraph-only. Don't go looking again.
+bigdave44, is Telegraph-only. The comment threads are not a back door either:
+they are long (87 on Guardian 30,103) and entirely qualitative — "a fraction
+easier than the average Paul", "battled through" — where a Times for the Times
+thread is full of stated minutes. Checked again 2026-09-05, post body and
+comments. Don't go looking again.
 
 So this measures three things that are genuinely in the file, reports each one
 separately so a reader can disagree with the weighting, and bands a puzzle by
@@ -28,27 +32,27 @@ because a number pasted into prose is true on the day it is pasted:
 
   SERIES ORDER  The Quiptic is the Guardian's beginner crossword and the
                 Everyman the Observer's gentlest, both by their own papers'
-                editorial fiat. The index puts them below the dailies by 0.4 sd,
-                p = 0.01 on 44 scored puzzles (2026-08-20). That is the strongest
-                external agreement available here, and it is the claim that
-                matters: it separates puzzles somebody ELSE graded easy.
+                editorial fiat. If the index puts them below the dailies it is
+                separating puzzles somebody ELSE graded easy, which is the
+                strongest external agreement available here. Run it for the
+                margin and the p; it has passed at every corpus size so far.
 
   WEEKDAY       What the SNITCH buys us is the shape of the thing — Mon 72 to
                 Fri 128, strictly monotonic, Friday 78% slower than Monday (see
                 SNITCH_BY_DAY). A day-of-week term is a real effect in a graded
-                paper. It is NOT in this model and our data does not support
-                adding one: 22 scored Guardian cryptics give rho = +0.20,
-                p = 0.38, and lining our weekday means up against the SNITCH's
-                six gives rho = +0.54 on six points, which is p = 0.24 — the
-                right sign, no significance, and our Friday is a dip where
-                theirs is the peak.
+                paper. It is NOT in this model, and the bar for adding one was
+                set in advance: ~100 scored Guardian cryptics. That bar exists
+                precisely so the term is not added on the look where the p
+                happens to fall below 0.05 — this correlation has already
+                wandered from a clear null at n=22 to nominal significance well
+                short of 100, which is what an underpowered statistic does.
+                Print it as often as you like; do not act on it early.
 
-The weekday null is a finding about the Guardian, not a failure of the index:
-the Guardian grades by setter rotation rather than by editorial fiat, so there
-may be no weekday effect to find. Underpowered either way — re-run at ~100
-scored cryptics. Do not fit a term to the 22, and do not substitute the
-unannotated puzzles to pad n: see the Quiptic control group in score() for why
-grid-only scores measure the grid.
+A weekday null would be a finding about the Guardian, not a failure of the
+index: the Guardian grades by setter rotation rather than by editorial fiat, so
+there may be no weekday effect to find. Do not fit a term before the bar, and do
+not substitute the unannotated puzzles to pad n: see the Quiptic control group
+in score() for why grid-only scores measure the grid.
 
 Everything is scored RELATIVE, and that is the whole trick. The first version
 of this file scored the raw numbers absolutely and rated all 35 puzzles
