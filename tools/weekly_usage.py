@@ -84,6 +84,49 @@ PCT_MAX_AGE_HOURS = 6
 READ_ERRORS = (OSError, urllib.error.URLError, ValueError, KeyError, IndexError,
                RuntimeError, subprocess.SubprocessError)
 
+# Where a setup token lives when there is no keychain entry to read one from.
+# `claude setup-token` (the bridge's Discord re-login drives this one) writes a
+# bare sk-ant-oat01-... string here and touches no keychain at all — see
+# household's tools/claude-auth.sh, which is what actually authenticates the
+# `claude` runs this script gates. Only ever read here, never written.
+FALLBACK_TOKEN_FILE = os.path.expanduser("~/github/household/oauth-token")
+
+
+class QuotaUnreadable(RuntimeError):
+    """The only credential available cannot be read for quota.
+
+    Raised — via _payload(), _live_usage_pct() or _live_resets_at() — only
+    when every keychain entry was unusable AND the fallback setup token that
+    stood in for them carries no percentage or reset timestamp to read. That
+    is not the same fact as "logged out": the CLI itself authenticates fine
+    with that token, so a caller that treats "cannot read the quota" as
+    "logged out, skip the work" is wrong twice over — once about the account,
+    and once about what happens next, since the CLI enforces the real limit
+    on its own regardless of what this script can see. gate() is the only
+    place this is caught for anything other than a bound made from a stale
+    cache; see there for what "cannot see it" is allowed to mean.
+    """
+
+
+def _fallback_token():
+    """A setup token: CLAUDE_CODE_OAUTH_TOKEN, else the file it lives in.
+
+    An explicitly exported variable wins — the same preference order the CLI
+    itself applies — over a file that may just be left over from a login
+    months ago. A token carries no whitespace, so stripping it is also the
+    emptiness test. Reading the file is allowed to fail outright: a machine
+    signed in normally through the keychain has no such file, which is the
+    ordinary case, not an error.
+    """
+    env = os.environ.get("CLAUDE_CODE_OAUTH_TOKEN", "").strip()
+    if env:
+        return env
+    try:
+        with open(FALLBACK_TOKEN_FILE) as fh:
+            return fh.read().strip()
+    except OSError:
+        return ""
+
 
 def _now():
     return datetime.datetime.now(datetime.timezone.utc)
@@ -123,31 +166,54 @@ def keychain_services():
     return [f"Claude Code-credentials-{suffix}", "Claude Code-credentials"]
 
 
+def _keychain_lookup(service):
+    """One keychain entry's token and expiry, or (None, None, why-not).
+
+    Split out of access_token() so a blank-keychain scenario — the exact
+    failure this file exists to survive — can be simulated in a test without
+    shelling out to `security` or touching a real login.
+    """
+    raw = subprocess.run(
+        ["security", "find-generic-password", "-s", service, "-w"],
+        capture_output=True, text=True, timeout=20,
+    )
+    if raw.returncode != 0:
+        return None, None, f"{service}: {raw.stderr.strip() or 'not found'}"
+    blob = json.loads(raw.stdout)["claudeAiOauth"]
+    if not blob.get("accessToken"):
+        return None, None, f"{service}: empty accessToken (stale /login)"
+    expires = blob.get("expiresAt")
+    expires_dt = (datetime.datetime.fromtimestamp(expires / 1000,
+                                                   datetime.timezone.utc)
+                  if expires else None)
+    return blob["accessToken"], expires_dt, None
+
+
 def access_token():
-    """The live token, plus when it lapses (None if the blob doesn't say)."""
+    """The live token, when it lapses (None if unknown), and whether it came
+    from the keychain rather than the fallback setup token — the third value
+    callers need to decide what an unreadable quota should mean; see
+    QuotaUnreadable and gate().
+    """
     problems = []
     for service in keychain_services():
-        raw = subprocess.run(
-            ["security", "find-generic-password", "-s", service, "-w"],
-            capture_output=True, text=True, timeout=20,
-        )
-        if raw.returncode != 0:
-            problems.append(f"{service}: {raw.stderr.strip() or 'not found'}")
+        token, expires, problem = _keychain_lookup(service)
+        if problem:
+            problems.append(problem)
             continue
-        blob = json.loads(raw.stdout)["claudeAiOauth"]
-        if not blob.get("accessToken"):
-            problems.append(f"{service}: empty accessToken (stale /login)")
-            continue
-        expires = blob.get("expiresAt")
-        return blob["accessToken"], (
-            datetime.datetime.fromtimestamp(expires / 1000,
-                                            datetime.timezone.utc)
-            if expires else None)
+        return token, expires, False
+    fallback = _fallback_token()
+    if fallback:
+        # A working CLI credential, just not one a keychain reader can see a
+        # percentage in. Handed back rather than treated as another kind of
+        # failure — see QuotaUnreadable, which is what the caller raises
+        # instead of dying here.
+        return fallback, None, True
     raise RuntimeError("no usable OAuth token — " + "; ".join(problems))
 
 
 def _payload():
-    token, expires = access_token()
+    token, expires, fallback = access_token()
     req = urllib.request.Request(USAGE_URL, headers={
         "Authorization": f"Bearer {token}",
         "anthropic-beta": "oauth-2025-04-20",
@@ -155,8 +221,16 @@ def _payload():
     })
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
-            return json.load(resp)
+            return json.load(resp), fallback
     except urllib.error.HTTPError as exc:
+        if fallback:
+            # A setup token has no expiresAt to blame a 401 on, and there is
+            # no /login to suggest — the CLI itself is authenticated fine
+            # with this same token. See QuotaUnreadable.
+            raise QuotaUnreadable(
+                f"quota unreadable with the fallback OAuth token ({exc}); "
+                "proceeding — the CLI enforces the real limit on its own"
+            ) from exc
         # Say which kind of 401 this is. Nothing here can fix an expired token —
         # the CLI refreshes it as a side effect of running — so "log in again"
         # would be wrong advice, and "you are rate limited" wronger still.
@@ -165,6 +239,13 @@ def _payload():
                 f"access token expired {expires.astimezone():%H:%M} and only "
                 "the claude CLI refreshes it; this reads it. Any claude run "
                 "renews it for ~8h") from exc
+        raise
+    except (urllib.error.URLError, ValueError) as exc:
+        if fallback:
+            raise QuotaUnreadable(
+                f"quota unreadable with the fallback OAuth token ({exc}); "
+                "proceeding — the CLI enforces the real limit on its own"
+            ) from exc
         raise
 
 
@@ -190,7 +271,7 @@ def usage_pct(group="weekly"):
 
 
 def _live_usage_pct(group):
-    data = _payload()
+    data, fallback = _payload()
     pcts = [lim["percent"] for lim in data.get("limits") or []
             if lim.get("group") == group and lim.get("percent") is not None]
     # Older shape, kept as a fallback so a schema change degrades to the
@@ -199,6 +280,14 @@ def _live_usage_pct(group):
     if not pcts and legacy is not None:
         pcts = [legacy]
     if not pcts:
+        if fallback:
+            # The exact shape a setup token's own /usage read takes: it
+            # authenticates fine and the response has nothing this script
+            # can turn into a percentage. See QuotaUnreadable.
+            raise QuotaUnreadable(
+                f"no {group} window in a response read with the fallback "
+                "OAuth token; proceeding — the CLI enforces the real limit "
+                "on its own")
         raise RuntimeError(f"no {group} window in response: {sorted(data)}")
     return max(float(p) for p in pcts)
 
@@ -230,13 +319,27 @@ def gate(limit, group="weekly"):
         return "skip" if usage_pct(group) > limit else "spend"
     except READ_ERRORS as exc:
         live_error = exc
+    # A QuotaUnreadable means a working credential that this script simply
+    # cannot read a percentage from — not a logged-out account. Skipping real
+    # work over that is the exact bug this file exists to fix, so absent
+    # concrete evidence of being over the limit (the cached-floor branches
+    # below), the answer is "proceed", never "unknown".
+    unreadable_by_design = isinstance(live_error, QuotaUnreadable)
     cache = _cache_read()
     cached, resets = cache.get(f"{group}.percent"), cache.get(f"{group}.resets_at")
     if not cached or not resets:
+        if unreadable_by_design:
+            print(f"{live_error}, and no cached reading to bound it",
+                  file=sys.stderr)
+            return "spend"
         print(f"cannot read {group} usage and no cached reading to bound it: "
               f"{live_error}", file=sys.stderr)
         return "unknown"
     if datetime.datetime.fromisoformat(resets["value"]) <= _now():
+        if unreadable_by_design:
+            print(f"{live_error}; the cached reading is from a window that "
+                  "has since reset, so it bounds nothing", file=sys.stderr)
+            return "spend"
         print(f"cannot read {group} usage; the cached reading is from a window "
               f"that has since reset, so it bounds nothing: {live_error}",
               file=sys.stderr)
@@ -249,6 +352,10 @@ def gate(limit, group="weekly"):
               f"was {floor:.0f}% and usage only rises within a window, so it is "
               f"at least that now — over the {limit}% limit", file=sys.stderr)
         return "skip"
+    if unreadable_by_design:
+        print(f"{live_error}; the reading from {age_h:.1f}h ago was "
+              f"{floor:.0f}%, under the {limit}% limit", file=sys.stderr)
+        return "spend"
     print(f"cannot read {group} usage; the reading from {age_h:.1f}h ago was "
           f"{floor:.0f}%, under the {limit}% limit, and a floor cannot show it "
           f"has stayed there: {live_error}", file=sys.stderr)
@@ -319,13 +426,17 @@ def resets_in_hours(group="weekly"):
 
 
 def _live_resets_at(group):
-    data = _payload()
+    data, fallback = _payload()
     stamps = [lim["resets_at"] for lim in data.get("limits") or []
               if lim.get("group") == group and lim.get("resets_at")]
     legacy = (data.get(LEGACY_FIELD.get(group, "")) or {}).get("resets_at")
     if not stamps and legacy:
         stamps = [legacy]
     if not stamps:
+        if fallback:
+            raise QuotaUnreadable(
+                f"no {group} resets_at in a response read with the fallback "
+                "OAuth token")
         raise RuntimeError(f"no {group} resets_at in response: {sorted(data)}")
     # The soonest one: whichever window turns over first ends the current week
     # for the purpose of "is it worth spending the remainder now".
@@ -368,10 +479,12 @@ def self_test():
         # the real alert tells a human to go and look for. Swallow them.
         sys.stderr = io.StringIO()
         for label, pct, age, until, want in cases:
-            _cache_read = lambda p=pct, a=age, u=until: {
-                "weekly.percent": {"value": p, "at": (now - a).isoformat()},
-                "weekly.resets_at": {"value": (now + u).isoformat(),
-                                     "at": (now - a).isoformat()}}
+            def _mock_cache(p=pct, a=age, u=until):
+                return {
+                    "weekly.percent": {"value": p, "at": (now - a).isoformat()},
+                    "weekly.resets_at": {"value": (now + u).isoformat(),
+                                         "at": (now - a).isoformat()}}
+            _cache_read = _mock_cache
             got = gate(50)
             if got != want:
                 failures.append(f"{label}: got {got!r}, want {want!r}")
@@ -411,9 +524,11 @@ def reset_self_test():
         _live_resets_at = unreachable
         sys.stderr = io.StringIO()
         for label, offset, want in cases:
-            _cache_read = lambda o=offset: {
-                "weekly.resets_at": {"value": (now + o).isoformat(),
-                                     "at": now.isoformat()}}
+            def _mock_cache(o=offset):
+                return {
+                    "weekly.resets_at": {"value": (now + o).isoformat(),
+                                         "at": now.isoformat()}}
+            _cache_read = _mock_cache
             try:
                 hours, derived = resets_in_hours()
                 got = (round(hours), derived)
@@ -430,6 +545,55 @@ def reset_self_test():
     return 1 if failures else 0
 
 
+def fallback_self_test():
+    """Prove a blank keychain plus a present fallback token decides "proceed".
+
+    This is the bug as it shipped: both keychain entries blank, one env var
+    or file holding a real setup token. access_token() must hand that token
+    back rather than raise "no usable OAuth token", and gate() must answer
+    "spend" for it rather than "unknown" — "cannot see the quota" is not
+    "logged out", and a caller that skips real work on that confusion is
+    exactly the failure this file exists to prevent. See QuotaUnreadable.
+    """
+    global _keychain_lookup, _fallback_token, _live_usage_pct, _cache_read
+    orig = (_keychain_lookup, _fallback_token, _live_usage_pct, _cache_read)
+    err = sys.stderr
+    failures = []
+    try:
+        def _mock_lookup(service):
+            return None, None, f"{service}: empty accessToken (stale /login)"
+        def _mock_fallback():
+            return "sk-ant-oat01-test-token-not-a-real-secret"
+        _keychain_lookup = _mock_lookup
+        _fallback_token = _mock_fallback
+        sys.stderr = io.StringIO()
+
+        token, expires, fallback = access_token()
+        if not (token and fallback and expires is None):
+            failures.append(
+                "access_token() with both keychain entries blank and a "
+                f"fallback token present: got {(bool(token), expires, fallback)!r}"
+                ", want (True, None, True)")
+
+        def unreadable(_group):
+            raise QuotaUnreadable("no usage fields on a setup token")
+        _live_usage_pct = unreadable
+        def _mock_cache():
+            return {}
+        _cache_read = _mock_cache
+        got = gate(50)
+        if got != "spend":
+            failures.append(
+                "gate() with blank keychain + fallback token + no cache: "
+                f"got {got!r}, want 'spend'")
+    finally:
+        _keychain_lookup, _fallback_token, _live_usage_pct, _cache_read = orig
+        sys.stderr = err
+    for f in failures:
+        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
+    return 1 if failures else 0
+
+
 def main():
     group = "weekly"
     if "--group" in sys.argv:
@@ -439,8 +603,8 @@ def main():
                   f"{', '.join(sorted(LEGACY_FIELD))}", file=sys.stderr)
             return 2
     if "--self-test" in sys.argv:
-        ok = self_test() or reset_self_test()
-        print("gate self-test: 7 cases pass" if ok == 0 else "gate self-test FAILED")
+        ok = self_test() or reset_self_test() or fallback_self_test()
+        print("gate self-test: 9 cases pass" if ok == 0 else "gate self-test FAILED")
         return ok
     if "--gate" in sys.argv:
         # A verdict, not a number, and never an empty string: a caller that has
