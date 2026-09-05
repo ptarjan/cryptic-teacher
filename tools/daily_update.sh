@@ -254,7 +254,15 @@ if [ -n "$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; th
   unsolved=""
 fi
 if [ -n "$pending$unsolved" ]; then
-  case "$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT")" in
+  # The gate explains itself on stderr; keep it so the alert can carry the
+  # reason instead of pointing at a log. "can't read the quota" was the same
+  # sentence whether the API was down or the CLI was simply logged out — and
+  # those need opposite responses, since a logged-out CLI means nothing would
+  # have run tonight regardless of what the gate decided.
+  gate_why=$(mktemp)
+  gate_verdict=$(python3 tools/weekly_usage.py --gate "$ANNOTATE_MAX_WEEKLY_PCT" 2>"$gate_why")
+  cat "$gate_why" >&2
+  case "$gate_verdict" in
     spend)
       echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $pending${unsolved:+, solving $unsolved}" ;;
     skip)
@@ -262,10 +270,15 @@ if [ -n "$pending$unsolved" ]; then
       pending=""
       unsolved="" ;;
     *)
-      alert "the weekly usage gate can't read the quota, so tonight's annotation was skipped rather than run ungated. Nothing is broken on the site — the newest puzzle still published, just without hints. See the \"cannot read weekly usage\" line in .update.log."
+      if grep -q "stale /login" "$gate_why"; then
+        alert "Claude Code is logged out on this machine, so tonight's annotation was skipped — and every other model call would have failed too, gate or no gate. Run \`claude\` in a terminal and \`/login\`; nothing else here can fix it. The site is fine, the newest puzzle just published without hints."$'\n'"\`\`\`"$'\n'"$(cut -c1-300 "$gate_why")"$'\n'"\`\`\`"
+      else
+        alert "the weekly usage gate can't read the quota, so tonight's annotation was skipped rather than run ungated. Nothing is broken on the site — the newest puzzle still published, just without hints."$'\n'"\`\`\`"$'\n'"$(cut -c1-300 "$gate_why")"$'\n'"\`\`\`"
+      fi
       pending=""
       unsolved="" ;;
   esac
+  rm -f "$gate_why"
 fi
 
 # The five-hour window is the one this loop actually spends, so it is re-read
