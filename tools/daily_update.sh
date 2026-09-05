@@ -155,8 +155,10 @@ EOF
 # mode we refuse is being wrong and silent, which is why a fill that fails the
 # check writes nothing at all.
 #
-# One a night by default. Solving cold costs far more inference than annotating
-# a solved grid, and there is only ever one unsolved puzzle in the normal week.
+# One a night by default, because there is only ever one unsolved puzzle in the
+# normal week. Not for cost: a cold solve is the CHEAP job here — around 10-15
+# turns against an annotation's 40-90, and a third of the spend once cache reads
+# are priced at their tenth. Raising SOLVE_MAX is not what will blow the budget.
 SOLVE_MAX="${SOLVE_MAX:-1}"
 unsolved=$(python3 - "$SOLVE_MAX" <<'EOF'
 import json, sys
