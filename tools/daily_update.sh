@@ -68,6 +68,12 @@ trap 'sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
 
+# A published key that last night's blind annotation hid and never put back.
+# First thing, before the fetchers: they rewrite puzzle files, and one that
+# merged into a blanked grid would make the loss permanent. No-op on any normal
+# night — see tools/blind_annotate.py.
+python3 tools/blind_annotate.py restore
+
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
 # Three fetchers, run independently on purpose: one source going down should
 # not cost us the other two. Neither failing stops the run — there is usually
@@ -168,12 +174,13 @@ SOLVE_MAX="${SOLVE_MAX:-1}"
 # thrown away all three times, because apply_solution.py's `number` argument was
 # type=int and "everyman-4166" is not an int. Three full solves bought nothing.
 #
-# The cap is 2 rather than 1 because a model that gives up once may not give up
-# twice, and 2 rather than 7 because the reason a solve fails twice is almost
-# never the puzzle. It is us: a crashing applier, a moved prompt file, a CLI
-# that can't authenticate. So giving up raises an alert carrying the rejection
-# itself, and the next attempt is a human deciding to make one.
-SOLVE_ATTEMPTS_MAX="${SOLVE_ATTEMPTS_MAX:-2}"
+# One attempt, not several. A failed solve is rare enough to be worth a human
+# look every time it happens (Paul, 2026-09-05), and the reason one fails is
+# almost never the puzzle — it is us: a crashing applier, a moved prompt file, a
+# CLI that can't authenticate. Retrying those just buys the same rejection at
+# full price. So giving up is immediate, and it raises an alert carrying the
+# rejection itself; the second attempt is a human deciding to make one.
+SOLVE_ATTEMPTS_MAX="${SOLVE_ATTEMPTS_MAX:-1}"
 # In the main checkout, not $REPO: this script re-execs into a throwaway
 # worktree, and a count kept there is a count that resets whenever the worktree
 # is rebuilt — which is exactly the night the cap needed to hold.
@@ -230,6 +237,13 @@ ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
 # commit for a week. One name, one place: change the model and the history
 # follows.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
+# Annotate without being shown the published answers, and grade what the model
+# derives against them afterwards. See tools/blind_annotate.py for why this
+# measures something the sighted path cannot. Off by default: it is a trial, and
+# the cost of a blind night is that any clue the model gets wrong ships with no
+# hints at all. Turn it on for a run of nights, then compare the graded accuracy
+# and the check_annotation_loss.py numbers against the sighted corpus.
+ANNOTATE_BLIND="${ANNOTATE_BLIND:-}"
 . "$REPO/tools/annotate_model.sh"
 if [ -n "$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
@@ -368,10 +382,26 @@ if [ -n "$pending" ]; then
       # solve above gets none on purpose — the paper's answers are unpublished
       # but the blogs are not, and a solve that reads the answers measures
       # nothing.
-      if claude -p "Annotate the cryptic crossword in puzzles/$num.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
+      # Blind mode hides the published key for the duration of this one call,
+      # then restores it and grades what the model derived. Same puzzle, same
+      # single pass, same bill — the comparison is against the sighted runs
+      # already in the corpus, so nothing is ever annotated twice. Web tools
+      # come off for the same reason the cold solve never had them: a solvers'
+      # blog carries the answers, and a blind run that reads one measures
+      # nothing. A puzzle with no key to hide (a prize grid we solved
+      # ourselves) is annotated sighted as usual.
+      ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch"
+      ann_turns=80
+      ann_task="Annotate the cryptic crossword in puzzles/$num.js in this repo."
+      if [ -n "$ANNOTATE_BLIND" ] && python3 tools/blind_annotate.py hide "$num"; then
+        ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
+        ann_turns=120
+        ann_task="Solve AND annotate the cryptic crossword in puzzles/$num.js in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
+      fi
+      if claude -p "$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
         --model "$ANNOTATE_MODEL" \
-        --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
-        --max-turns 80 2>&1 | tee "$run_log"
+        --allowedTools "$ann_tools" \
+        --max-turns "$ann_turns" 2>&1 | tee "$run_log"
       then
         annotated_ok=$((annotated_ok + 1))
         annotated_nums="$annotated_nums $num"
@@ -384,6 +414,10 @@ if [ -n "$pending" ]; then
         break
       fi
     done
+    # After the loop, not inside it: the failure branch above breaks out, and a
+    # key left stashed is a key only git still has. Runs before the validator
+    # and the commit, both of which would otherwise see the blanked grid.
+    python3 tools/blind_annotate.py restore
     rm -f "$run_log"
   else
     stop_reason="claude CLI not on PATH ($PATH)"

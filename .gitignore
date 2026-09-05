@@ -19,6 +19,11 @@
 # symlink, because a count that lives in the nightly worktree is a count the
 # worktree rebuild throws away.
 .solve_attempts.json
+# The published answers a blind annotation is currently hiding, and the only
+# copy of them while it runs (tools/blind_annotate.py). Untracked because it
+# exists for the length of one claude call and is deleted by the grading pass;
+# committed, it would publish the very key the run is pretending not to have.
+.blind/
 # Everything the pre-reset backfill leaves behind: its log, its run lock, and the
 # two rates it measures for itself (.prereset_rate, .prereset_yield). One glob so
 # the next thing it learns to measure cannot arrive untracked-but-committable.
