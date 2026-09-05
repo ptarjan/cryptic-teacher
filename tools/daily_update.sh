@@ -620,4 +620,17 @@ if [ -n "$(git status --porcelain)" ]; then
 else
   echo "nothing to commit"
 fi
+
+# The difficulty index leaves a day-of-week term out of the model until there
+# are enough scored Guardian cryptics to judge it, and that threshold was set
+# while the answer was still unknown. Asking every night is how it gets honoured
+# — a bar nobody is watching is a bar that gets crossed and forgotten. The tool
+# prints nothing until there is a decision to make, so the payload IS the alert.
+bar=$(python3 tools/difficulty.py --weekday-bar 2>&1) ||
+  bar="tools/difficulty.py --weekday-bar failed, so the index is no longer
+watching its own threshold: $bar"
+if [ -n "$bar" ]; then
+  alert "$bar"
+fi
+
 echo "=== done ==="
