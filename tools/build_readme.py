@@ -135,6 +135,7 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/ga_report.py", "the same milestones as Google Analytics counts them, to see what a blocker hides"),
     ("finding out whether any of it is working", "tools/ga_wire_check.py", "watches the wire to confirm GA hits actually leave the browser"),
     ("finding out whether any of it is working", "tools/difficulty.py", "rates a puzzle from what its own file contains, banded against the corpus"),
+    ("finding out whether any of it is working", "tools/turn_cost.py", "how many turns an annotation session takes, from the transcripts — logged nightly so the figure can’t go stale unnoticed"),
     ("finding out whether any of it is working", "tools/make_hint_packets.js", "blind solve-packets, to grade a hint by whether it gets a solver unstuck"),
     ("finding out whether any of it is working", "tools/grade_clues.py", "blind A/B/C/D packets of our clues against real setters’ for the same answers"),
     ("finding out whether any of it is working", "tools/score_grading.py", "joins the blind scores back to provenance: the ours-vs-human head-to-head"),

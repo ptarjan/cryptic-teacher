@@ -18,6 +18,7 @@ repo already had four hand-kept copies of app.js's family table and one of them
 sat wrong for weeks. So the block is generated from the code on every nightly run
 and committed with whatever else the run changed. Edit the tables, not the prose.
 """
+import ast
 import sys
 from pathlib import Path
 
@@ -43,6 +44,31 @@ def wrap(items, width=86, indent="  "):
     if line.strip():
         lines.append(line)
     return "\n".join(lines)
+
+
+def checks():
+    """Every `check_*` in the validator, with its docstring's first sentence.
+
+    Read out of the source with `ast` rather than imported and introspected: the
+    point is that the list cannot drift from the file, and a name added to the
+    module is on this list the next time the prompt is built.
+    """
+    tree = ast.parse((TOOLS / "validate_annotations.py").read_text(encoding="utf-8"))
+    out = []
+    for node in tree.body:
+        if not (isinstance(node, ast.FunctionDef) and node.name.startswith("check_")):
+            continue
+        doc = ast.get_docstring(node)
+        if not doc:
+            # Nothing to say about it is worse than not listing it: a check the
+            # prompt names but cannot explain sends the reader to the source,
+            # which is the whole thing this table exists to prevent.
+            raise SystemExit(f"{node.name} has no docstring — the annotate prompt "
+                             f"generates its check list from them, so give it a "
+                             f"one-line summary")
+        summary = " ".join(doc.strip().split("\n\n")[0].split())
+        out.append((node.name, summary))
+    return out
 
 
 def section():
@@ -103,6 +129,15 @@ def section():
     ]
     out += ["### What the validator rejects", ""]
     out += [bullet(t) for t in limits]
+    out += ["",
+            "### Every check it runs",
+            "",
+            "The whole list, generated from the function names and their docstrings, so",
+            "an ERROR naming a check can be read straight off this table instead of out",
+            "of the source. 75 of 128 annotation sessions were grepping",
+            "`validate_annotations.py` for exactly this.",
+            ""]
+    out += [bullet(f"`{name}` — {summary}") for name, summary in checks()]
     out += ["",
             "Words that are an ERROR anywhere a learner reads — `walkthrough`,",
             "`definitionFit`, block `note`:",

@@ -296,6 +296,17 @@ python3 tools/fetch_puzzle.py --reindex
 node --check puzzles/<ID>.js
 ```
 
+Two audit tools the validator does not run for you. Both take puzzle ids, so name
+yours rather than scanning the corpus and grepping your number out of it:
+
+```
+python3 tools/find_answer_leaks.py <ID>    # a block note that says the answer out loud
+python3 tools/find_renarration.py <ID>     # a walkthrough that only restates the blocks
+```
+
+The word-run matcher behind the first one is `says()` in `find_answer_leaks.py` —
+that is the only place it exists, so do not go looking for it in the validator.
+
 ## Do not commit
 
 The calling script commits, and composes its own message. `git` is not in the
@@ -362,6 +373,62 @@ compound type's family is decided by the FIRST row below that matches it.
 - More than **0** clues whose blocks are not in answer order.
 - The same word used as a definition in more than **3** clues in one puzzle (exempt:
   `&lit`, `double definition`, `cryptic definition`).
+
+### Every check it runs
+
+The whole list, generated from the function names and their docstrings, so
+an ERROR naming a check can be read straight off this table instead of out
+of the source. 75 of 128 annotation sessions were grepping
+`validate_annotations.py` for exactly this.
+
+- `check_two_pieces` — Every word of a clue we wrote must be doing one of three jobs.
+- `check_walkthrough_budget` — When the blocks already spell the answer out, the
+  walkthrough is short.
+- `check_link_words_are_equivalences` — A link word has to stand in for an equals sign
+  (feedback 2026-07-30).
+- `check_indicator_adjacency` — An anagram indicator has to be next to the fodder it
+  operates on.
+- `check_indicator_outside_fodder` — An anagram indicator cannot be made of letters
+  the anagram eats.
+- `check_reversal_direction` — A reversal indicator must point the way the entry runs.
+- `check_definition_fit` — Why the answer MEANS the definition — the non-mechanical
+  half of a clue.
+- `check_no_answer_in_early_rungs` — No field shown before the building blocks may
+  spell out the answer.
+- `check_block_notes_dont_name_the_answer` — The building blocks are a rung early too
+  — the walkthrough is the reveal.
+- `check_indicator_notes` — Why THIS word is the indicator — one sentence per
+  indicator.
+- `check_sound_names_its_source` — A homophone must name the word you say aloud, as a
+  field, not as prose.
+- `check_coverage` — Every content word of the clue must be claimed by the parse.
+- `check_part_of_speech` — The definition must be substitutable for the answer, which
+  means their inflections agree: a plural answer needs a plural definition, an -ing
+  answer an -ing definition (feedback 2026-07-29 — "the part of speech needs to be
+  right"). Only the mechanical, unambiguous endings are checked here; the judgement
+  call lives in STYLE.md and tools/annotate_prompt.md.
+- `check_cryptic_definition_cap` — A puzzle may not lean on cryptic definitions (see
+  MAX_CRYPTIC_DEFINITIONS).
+- `check_cryptic_definition_blocks` — A cryptic definition's blocks must split the
+  clue, and may not spell the answer.
+- `check_definition_not_fodder` — The definition's words may not also be the
+  wordplay's letters.
+- `check_blocks_account_for_answer` — The letters the blocks hand over have to be the
+  answer's letters.
+- `check_blocks_decompose` — If `pieces` takes the answer apart, the blocks must take
+  it apart too.
+- `check_blocks_in_answer_order` — A charade's blocks have to be listed in the order
+  the answer reads.
+- `check_blocks_carry_notes` — A block that claims letters has to say why it gets
+  them.
+- `check_conventions_are_in_the_glossary` — Every convention a clue leans on has to be
+  in the solver's glossary.
+- `check_no_markup` — No HTML anywhere in a puzzle file. Every string here is
+  displayed escaped, so a tag reaches the solver as a tag — which is exactly what the
+  Independent's clues did (Paul, 2026-08-15): "<span>Film part of </span><i> Black
+  Narcissus</i>?" on the page, verbatim. Both papers ship clues as HTML and
+  tools/fetch_puzzle.plain_text flattens them on the way in; this is the guard that
+  says so out loud if a third source, or a hand edit, ever puts one back.
 
 Words that are an ERROR anywhere a learner reads — `walkthrough`,
 `definitionFit`, block `note`:
