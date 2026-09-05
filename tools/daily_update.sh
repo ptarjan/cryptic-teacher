@@ -55,6 +55,15 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/b
 # is silent and non-obvious, and this way it survives being run by hand too.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
+# The keychain can go blank (a stale /login, or the entry simply wiped) while
+# a household setup token still authenticates the `claude` CLI fine — see
+# household/tools/claude-auth.sh for the mechanism it exports. Sourced, not
+# run: a child process's exported variable never reaches this shell. Guarded
+# because this script must still work on a machine without that checkout.
+if [ -f "$HOME/github/household/tools/claude-auth.sh" ]; then
+  . "$HOME/github/household/tools/claude-auth.sh"
+fi
+
 # alert() — puts a failure in Discord instead of only in this log. See alert.sh
 # for why: the seven silent days above are what a log-only failure looks like.
 . "$REPO/tools/alert.sh"
