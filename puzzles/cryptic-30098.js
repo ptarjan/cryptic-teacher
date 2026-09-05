@@ -1393,11 +1393,5 @@ window.CRYPTIC_PUZZLES["cryptic-30098"] = /*JSON-START*/ {
     "definitionFit": "He wrote Oedipus Rex and Antigone in fifth-century Athens, so the general word names him as one instance of the trade."
    }
   }
- ],
- "solutionSource": {
-  "kind": "model",
-  "model": "opus",
-  "date": "2026-08-29",
-  "check": "29 entries, 56 crossings, 0 conflicts"
- }
+ ]
 } /*JSON-END*/;
