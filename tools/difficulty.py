@@ -46,7 +46,10 @@ because a number pasted into prose is true on the day it is pasted:
                 happens to fall below 0.05 — this correlation has already
                 wandered from a clear null at n=22 to nominal significance well
                 short of 100, which is what an underpowered statistic does.
-                Print it as often as you like; do not act on it early.
+                Print it as often as you like; do not act on it early. The bar
+                is WEEKDAY_BAR and the nightly run watches it — `--weekday-bar`
+                is silent until the corpus crosses it, then says so every night
+                until somebody decides, so nobody has to remember this.
 
 A weekday null would be a finding about the Guardian, not a failure of the
 index: the Guardian grades by setter rotation rather than by editorial fiat, so
@@ -133,6 +136,15 @@ WEIGHTS = {"checking": 0.45, "obscurity": 0.30, "device": 0.25}
 SNITCH_BY_DAY = {0: 72, 1: 83, 2: 92, 3: 101, 4: 128, 5: 97}   # Mon..Sat
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 GENTLE_SERIES = {"quiptic", "everyman"}
+
+# How many scored Guardian cryptics before the weekday term gets a decision.
+# Set at 100 while the count was 22 and the correlation a clear null, which is
+# the only honest time to set it: by the time the number is interesting, picking
+# a threshold is picking an answer. `--weekday-bar` is silent below it and the
+# nightly run alerts when it stops being silent, so the decision arrives on its
+# own rather than being remembered. Raising it is allowed and needs a reason
+# written here; "not significant yet" is not one.
+WEEKDAY_BAR = 100
 
 # Per-device hardness, 0 = gives itself away, 1 = you may never be certain.
 # Ordered by how much confirmation the solver gets back ONCE THE ANSWER IS BUILT
@@ -468,6 +480,52 @@ def _perm_p(stat, a, b, trials=20000):
     return (hits + 1) / (trials + 1)
 
 
+def scored_meta():
+    """Every scored puzzle, paired with the puzzle file it was scored from."""
+    scores = all_scores()
+    meta = {}
+    for path in puzzle_files():
+        puz = load(path)
+        if puz["id"] in scores:
+            meta[puz["id"]] = puz
+    return scores, meta
+
+
+def cryptic_weekdays(scores, meta):
+    """(weekday, index) for every scored Guardian cryptic."""
+    return [(datetime.fromtimestamp(meta[p]["date"] / 1000, timezone.utc).weekday(),
+             s["index"]) for p, s in scores.items()
+            if meta[p].get("series", "cryptic") == "cryptic"]
+
+
+def weekday_bar():
+    """Print nothing until the corpus can answer the weekday question.
+
+    Silence is the feature. A line printed every night saying "still not enough
+    cryptics" is furniture by the second week, and the night it changes to
+    something that matters reads exactly like the 200 before it. So this speaks
+    once there is a decision to make, and the nightly run alerts on the fact
+    that it spoke rather than on having run at all.
+    """
+    scores, meta = scored_meta()
+    rows = cryptic_weekdays(scores, meta)
+    if len(rows) < WEEKDAY_BAR:
+        return 0
+
+    wd, ix = [r[0] for r in rows], [r[1] for r in rows]
+    rho, p = _spearman(wd, ix), _perm_p(_spearman, wd, ix)
+    verdict = ("significant, so fit the day-of-week term" if p < 0.05 else
+               "not significant, so the Guardian has no weekday effect to find "
+               "and the index is right to leave it out")
+    print(f"the weekday term is due its decision: {len(rows)} scored Guardian "
+          f"cryptics, past the {WEEKDAY_BAR} set back when the count was 22 and "
+          f"the correlation a null. rho = {rho:+.3f}, p = {p:.3f} — {verdict}. "
+          f"Whichever it is, decide it: this repeats every night until the term "
+          f"is in the model or WEEKDAY_BAR in tools/difficulty.py is raised with "
+          f"a reason next to it.")
+    return 0
+
+
 def validate():
     """Test the index against the only difficulty facts we did not invent.
 
@@ -491,12 +549,7 @@ def validate():
                     rather than editorial fiat — so a null here is a finding
                     about the Guardian, NOT a failure of the index.
     """
-    scores = all_scores()
-    meta = {}
-    for path in puzzle_files():
-        puz = load(path)
-        if puz["id"] in scores:
-            meta[puz["id"]] = puz
+    scores, meta = scored_meta()
     print(f"{len(scores)} puzzle(s) scored (annotated) of {len(list(puzzle_files()))} fetched")
     if len(scores) < 20:
         print("too few to test anything; annotate more first")
@@ -529,9 +582,7 @@ def validate():
     else:
         print(f"\nSERIES ORDER  skipped: {len(gentle)} gentle / {len(hard)} daily scored")
 
-    rows = [(datetime.fromtimestamp(meta[p]["date"] / 1000, timezone.utc).weekday(),
-             s["index"]) for p, s in scores.items()
-            if meta[p].get("series", "cryptic") == "cryptic"]
+    rows = cryptic_weekdays(scores, meta)
     days = sorted({d for d, _ in rows})
     if len(rows) >= 20 and len(days) > 1:
         wd, ix = [r[0] for r in rows], [r[1] for r in rows]
@@ -550,17 +601,20 @@ def validate():
             r = _spearman([means[d] for d in paired], [SNITCH_BY_DAY[d] for d in paired])
             print(f"              our weekday means vs the SNITCH's, over "
                   f"{len(paired)} days: rho = {r:+.3f}")
-        print("              a weekday term stays out of the model until this is "
-              "significant on its own")
+        # Naming the bar and the distance to it stops this readout from being
+        # re-litigated every time the p wanders under 0.05 on the way there.
+        print(f"              a weekday term stays out of the model until "
+              f"{WEEKDAY_BAR} scored cryptics ({max(0, WEEKDAY_BAR - len(rows))} "
+              f"to go), whatever the p does before then")
     return 0
 
 
 def main():
-    if "--validate" in sys.argv:
+    if "--validate" in sys.argv or "--weekday-bar" in sys.argv:
         if not BASELINE.exists():
             print("no baseline — run --rebaseline first", file=sys.stderr)
             return 1
-        return validate()
+        return weekday_bar() if "--weekday-bar" in sys.argv else validate()
     if not LEXICON.exists():
         print("note: tools/data/lexicon.tsv not fetched — scoring without the "
               "obscurity component (bash tools/fetch_lexicon.sh)", file=sys.stderr)
