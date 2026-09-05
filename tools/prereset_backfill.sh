@@ -73,14 +73,9 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/b
 # note in daily_update.sh.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
-# The keychain can go blank (a stale /login, or the entry simply wiped) while
-# a household setup token still authenticates the `claude` CLI fine — see
-# household/tools/claude-auth.sh for the mechanism it exports. Sourced, not
-# run: a child process's exported variable never reaches this shell. Guarded
-# because this script must still work on a machine without that checkout.
-if [ -f "$HOME/github/household/tools/claude-auth.sh" ]; then
-  . "$HOME/github/household/tools/claude-auth.sh"
-fi
+# claude-auth.sh is deliberately not sourced: this runs as a LaunchAgent, which
+# reaches the login keychain directly, and that file's env token would override
+# the keychain with a credential that cannot refresh.
 . "$REPO/tools/alert.sh"
 
 # This run's own output, so the exit trap can report any failure line nobody
