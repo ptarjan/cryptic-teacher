@@ -34,30 +34,14 @@ ignored.
 import argparse
 import datetime
 import json
-import subprocess
 import sys
 from pathlib import Path
 
-NAMESPACE = "85f9de552ea64b229c113df624fb6ca0"   # SAVES, see sync/wrangler.toml
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import kv
+
 PREFIX = "r:"
-
-
-SYNC_DIR = Path(__file__).resolve().parent.parent / "sync"
-
-
-def wrangler(*args):
-    """Wrangler, with its chatter on stderr where it cannot corrupt the JSON.
-
-    Run from sync/, because wrangler caches the Cloudflare account id beside
-    whatever directory it was invoked from and that is the one place set up to
-    keep it out of a public repo."""
-    out = subprocess.run(("npx", "wrangler") + args + ("--remote", "--namespace-id", NAMESPACE),
-                         capture_output=True, text=True, cwd=SYNC_DIR)
-    if out.returncode != 0:
-        # The reason, in the message. A tool that says "failed" and points at a
-        # log it did not name has told you nothing you can act on.
-        raise SystemExit(f"wrangler {' '.join(args)} failed:\n{out.stderr.strip()}")
-    return out.stdout
 
 
 def main():
@@ -69,11 +53,13 @@ def main():
     args = ap.parse_args()
 
     if args.done:
-        wrangler("kv", "key", "delete", args.done)
+        gone = kv.delete_key(args.done)
+        if gone is not True:
+            raise SystemExit(f"could not delete {args.done}: {gone}")
         print(f"deleted {args.done}")
         return 0
 
-    keys = [k["name"] for k in json.loads(wrangler("kv", "key", "list", "--prefix", PREFIX))]
+    keys = [k["name"] for k in kv.list_keys(prefix=PREFIX)]
     if args.since:
         cutoff = (datetime.date.today() - datetime.timedelta(days=args.since)).isoformat()
         keys = [k for k in keys if k.split(":")[1] >= cutoff]
@@ -82,7 +68,7 @@ def main():
         return 0
 
     for key in sorted(keys, reverse=True):
-        r = json.loads(wrangler("kv", "key", "get", key))
+        r = json.loads(kv.get_key(key))
         where = " ".join(x for x in (r.get("puzzle"), r.get("clue"),
                                      f"({r['rung']})" if r.get("rung") else "") if x)
         print(f"\n{r.get('day', '?')}  {where}\n  {r.get('note', '')}\n  {key}")
