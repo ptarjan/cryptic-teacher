@@ -1699,8 +1699,9 @@
     const mechanics = `<p class="mechanism">Mechanism: <strong>${esc(ann.type)}</strong>.
       ${esc(typeBlurb(ann.type))}</p>`;
 
-    // Where the definition lives. For a double definition the news isn't "there
-    // are two" (rung 1 said that) — it's WHERE the clue splits.
+    // Where the definition lives, and the rung the ladder now leads with. For a
+    // double definition the news is not "there are two" — the family rung says
+    // that, and says it later — it is WHERE the clue splits.
     if (isDD && ann.definition2) {
       steps.push({
         key: "definition",
@@ -1936,6 +1937,21 @@
         `<p><b class="wt-part">The trick</b>${esc(ann.walkthrough)}</p>${fit}${note}` +
         `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
+    // Presented in the order people actually solve, which is not the order the
+    // rungs are built in. You find the definition first because a fair clue
+    // splits in two and one half defines; then you look at what is left and find
+    // the indicator; and the indicator is what TELLS you the kind of clue. Asking
+    // the kind first made rung 1 a guess between seven families from a cold read,
+    // and got the reasoning backwards — "should the kind of clue be after you
+    // find the definition and indicators? how do people solve these" (Paul,
+    // 2026-09-06). It usually now arrives already spent (see spentBy), which is
+    // the honest outcome: a solver who has named the definition and the indicator
+    // has worked the family out, and should not be sold it.
+    //
+    // A sort, not a reordered set of pushes: the walkthrough's html asks whether
+    // a blocks rung exists, so every rung has to be built before any is placed.
+    const RUNG_ORDER = ["definition", "indicators", "type", "blocks", "walkthrough"];
+    steps.sort((a, b) => RUNG_ORDER.indexOf(a.key) - RUNG_ORDER.indexOf(b.key));
     return steps;
   }
 
