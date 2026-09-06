@@ -74,8 +74,8 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (PUZZLE_DIR, UA, flatten_clue, merge_annotations,  # noqa: E402
-                          puzzle_files, puzzle_path,
+from fetch_puzzle import (PUZZLE_DIR, UA, flatten_clue, grade_model_fill,  # noqa: E402
+                          merge_annotations, print_grade, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, write_puzzle_file)
 from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span format
                                      # for a different paper's crossword
@@ -405,7 +405,14 @@ def refresh_unsolved():
     pending = []
     for path in puzzle_files():
         p = read_puzzle_file(path)
-        if p.get("series") == "everyman" and not all(e.get("solution") for e in p["entries"]):
+        if p.get("series") != "everyman":
+            continue
+        # A puzzle we solved ourselves has a letter in every square, so the
+        # "any entry missing a solution" test walks straight past it — and it
+        # is the one puzzle whose answers are a guess, so it is the last one
+        # that should stop being checked. everyman-4165 sat model-solved for
+        # weeks behind exactly that gap, with the paper's key long since out.
+        if not all(e.get("solution") for e in p["entries"]) or p.get("solutionSource"):
             pending.append(p["number"])
     filled = 0
     for num in pending:
@@ -419,8 +426,17 @@ def refresh_unsolved():
             continue
         path = puzzle_path("everyman", num)
         puzzle = read_puzzle_file(path)
+        guessed = ({e["id"]: e.get("solution") for e in puzzle["entries"]}
+                   if (puzzle.get("solutionSource") or {}).get("kind") == "model" else None)
         fill_solutions(puzzle["entries"], solution,
                         puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)
+        if guessed is not None:
+            # The paper has spoken, so our fill stops being the answer and
+            # starts being an attempt that can be marked. Same grading the
+            # Guardian gets on re-fetch, from the same function.
+            graded = grade_model_fill(puzzle, guessed)
+            puzzle.pop("solutionSource", None)
+            print_grade(puzzle, graded)
         write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
         print(f"solutions now published for {num}")
         filled += 1

@@ -405,18 +405,46 @@ def merge_annotations(new_puzzle, old_puzzle):
                 e["solution"] = guessed[e["id"]]
         new_puzzle["solutionSource"] = old_puzzle["solutionSource"]
         return None
+    return grade_model_fill(new_puzzle, guessed)
+
+
+def grade_model_fill(puzzle, guessed):
+    """Mark a model's fill against the answers the paper has now published.
+
+    `puzzle` already holds the official solutions; `guessed` maps entry id to
+    what we filled it with before they were out. Returns the misses as
+    (entry id, ours, theirs), which is the ONLY automatic grading a blind solve
+    ever gets — see ANNOTATE_BLIND in tools/daily_update.sh.
+
+    Shared with the Observer's refresh (tools/fetch_observer.py), which reaches
+    the same moment by a different road: the Guardian re-fetches a whole page
+    and merges, Everyman re-reads one hashed field and fills in place. They
+    graded differently for as long as they graded separately — Everyman not at
+    all — so the marking lives here and both call it."""
     wrong = [(e["id"], guessed.get(e["id"]), e["solution"])
-             for e in new_puzzle["entries"] if guessed.get(e["id"]) != e["solution"]]
+             for e in puzzle["entries"] if guessed.get(e["id"]) != e["solution"]]
     # An annotation explains how the clue yields the answer, so an annotation
     # written off a wrong answer is wrong all the way through — definition,
     # blocks, walkthrough. Drop it and let the queue write it again against
     # the real answer, rather than leaving a confident explanation of a word
     # that was never the answer.
     missed = {eid for eid, _, _ in wrong}
-    for e in new_puzzle["entries"]:
+    for e in puzzle["entries"]:
         if e["id"] in missed:
             e["annotation"] = None
     return wrong
+
+
+def print_grade(puzzle, graded):
+    """The grade, on stdout, in the shape tools/daily_update.sh alerts on.
+
+    It greps for BLIND SOLVE GRADED, so this wording is load-bearing: a grade
+    that only reaches .update.log is a measurement nobody reads."""
+    total = len(puzzle["entries"])
+    print(f"BLIND SOLVE GRADED {puzzle['id']}: {total - len(graded)}/{total} correct "
+          f"against the published answers")
+    for eid, mine, theirs in graded:
+        print(f"  miss {eid}: model said {mine}, answer is {theirs}")
 
 
 def puzzle_is_annotated(puzzle):
@@ -527,11 +555,7 @@ def fetch_number(num):
     reindex()
     print(("fetched " if is_new else "refreshed ") + puzzle["id"])
     if graded is not None:
-        total = len(puzzle["entries"])
-        print(f"BLIND SOLVE GRADED {puzzle['id']}: {total - len(graded)}/{total} correct "
-              f"against the published answers")
-        for eid, mine, theirs in graded:
-            print(f"  miss {eid}: model said {mine}, answer is {theirs}")
+        print_grade(puzzle, graded)
     return puzzle, is_new
 
 
