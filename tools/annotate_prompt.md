@@ -18,14 +18,15 @@ One JSON file, `tools/_ann_<ID>.json`, holding a single object keyed by entry id
 {"1-across": { ...annotation... }, "5-across": { ...annotation... }, "12-across": null}
 ```
 
-Then apply it:
+Then apply and check it, which is one command and the only one you need:
 
 ```
-python3 tools/apply_annotations.py <ID>
+python3 tools/annotate_check.py <ID>
 ```
 
 That reads the file, checks the ids against the puzzle, writes the annotations into
-`puzzles/<ID>.js` and runs the validator. Every entry needs a key. A key set to `null`
+`puzzles/<ID>.js`, and reports everything wrong with them at once — see **Verify**
+below, which is the whole loop. Every entry needs a key. A key set to `null`
 says you could not solve that clue, which the rules below allow; leaving a key out is an
 error, because forgetting a clue and giving up on one are not the same thing and the
 file cannot tell them apart on its own.
@@ -242,17 +243,13 @@ Rules:
   `worker` = ANT), which the app teaches in its own right; this is general knowledge that
   only looks general from inside Britain. Do not gloss what a dictionary reader anywhere
   already has — "London", "the Thames", "Shakespeare" need nothing.
-- A block whose `gives` is one to three capitals, and whose `clueFragment` is a word
-  those letters begin or two words they initialise, is read as leaning on a standing
-  convention; the validator warns when `tools/data/abbreviations.json` has no such
-  row. The `note` decides how to clear it. If the letters came from an OPERATION the
-  clue asked for — a first or last letter, outer or odd letters, a deletion, a
-  reversal, a sound — name that operation in the note and it is no longer a
-  convention, because nothing was looked up. If they really are a convention the
-  solver should own forever, add the row to `tools/data/abbreviations.json` and run
-  `python3 tools/build_abbreviations.py`. Fragments led by `a`, `an`, `the`, `of`,
-  `to`, `in`, `on`, `and`, `two` or `is` are never treated as conventions — those are
-  two pieces run together, and want two blocks.
+- A block handing over one to three capitals for a word they abbreviate is read as
+  leaning on a standing convention, and warns if `tools/data/abbreviations.json` has
+  no row for it. The `note` settles which fix applies: if the letters came from an
+  OPERATION the clue asked for — a first or last letter, outer or odd letters, a
+  deletion, a reversal, a sound — say so in the note and it stops being a convention,
+  because nothing was looked up. If it really is one the solver should own forever,
+  add the row and run `python3 tools/build_abbreviations.py`.
 - Show the trap, not just the exit. The obvious wrong reading is the thing the solver
   actually has in their head when they reach for a hint, and a walkthrough that goes
   straight to the right parse never meets them there. Where a clue has one dominant false
@@ -333,47 +330,33 @@ Rules:
 
 ## Verify (mandatory)
 
-`apply_annotations.py` already ran this; run it again after any fix:
+Write `tools/_ann_<ID>.json`, then run ONE command:
 
 ```
-python3 tools/validate_annotations.py <ID>
+python3 tools/annotate_check.py <ID>
 ```
 
-Iterate until it reports `N/N annotated — OK` with no ERROR lines (warnings about block
-fragments are acceptable but worth fixing). Fix by editing `tools/_ann_<ID>.json` and
-re-running `apply_annotations.py` — that file stays put for exactly this.
+It applies the file, validates it, audits it for answer leaks and re-narrated
+walkthroughs, syntax-checks the puzzle and refreshes the index, and prints
+everything wrong in one report. Repeat edit → run until it says `clean`.
 
-Three rules about HOW to run it, because the loop is where the turns go:
+- **One run, one edit pass.** The report already lists every problem. Fix them all in
+  one edit, then run it again. Re-running to confirm a single fix costs a whole turn
+  and tells you nothing the last run did not.
+- **Run it on its own.** No `&&`, no `;`, no `rm` in front, no piping into
+  `grep`/`tail`. A compound command needs an approval this run cannot give, so it
+  aborts having run nothing.
+- **Never open `validate_annotations.py`.** For any line you cannot act on:
 
-- **One run, one edit pass.** Read every `warn:` and `ERROR:` line the run printed
-  before you change anything, fix them all in one edit of `tools/_ann_<ID>.json`, then
-  re-run once. Fixing one warning and re-running to see the next costs a full turn per
-  warning and finds nothing the first run had not already told you.
-- **Run it on its own.** No `&&`, no `;`, no piping it into `grep`/`tail`, no `rm`
-  in front of it. A compound command needs approval this run cannot give, so the
-  whole thing aborts and the validator never runs at all.
-- **Never open `validate_annotations.py`.** Everything it enforces is in the Reference
-  below — every check, every limit, every rejected word. If a message it prints cannot
-  be understood from this file, that is a gap in this file: say so in your final
-  summary so it gets filled, and decide the clue on the message text alone.
+  ```
+  python3 tools/validate_annotations.py --explain <check-name>
+  ```
 
-Then refresh the index:
-
-```
-python3 tools/fetch_puzzle.py --reindex
-node --check puzzles/<ID>.js
-```
-
-Two audit tools the validator does not run for you. Both take puzzle ids, so name
-yours rather than scanning the corpus and grepping your number out of it:
-
-```
-python3 tools/find_answer_leaks.py <ID>    # a block note that says the answer out loud
-python3 tools/find_renarration.py <ID>     # a walkthrough that only restates the blocks
-```
-
-The word-run matcher behind the first one is `says()` in `find_answer_leaks.py` —
-that is the only place it exists, so do not go looking for it in the validator.
+  which prints that check's own source and the comment above it. Names come from the
+  Reference below, or from `--explain` with no argument. It answers for constants and
+  helpers too — `OPERATION_RE`, `convention_used`, `TYPE_PARTS`. One call beats ten
+  greps, and paging through the file is the single most expensive habit these runs
+  have.
 
 ## Do not commit
 
