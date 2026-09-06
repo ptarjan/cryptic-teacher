@@ -2419,8 +2419,15 @@
         spare.length > 1 ? "s" : ""} that isn’t doing that job.` };
     }
     if (hit.length) {
-      return { ...v, right: false, said: `Close — ${hit.length} of ${n} right${
-        spare.length ? `, and ${spare.length} that aren’t` : ""}.` };
+      // "Close" only when it is close. It used to be the verdict on any overlap
+      // at all, so picking two words of a four-word definition — half of it, and
+      // therefore the wrong split — came back as encouragement (Paul,
+      // 2026-09-06). A teacher who calls everything close is not marking
+      // anything, and the solver reads praise for an answer that was wrong.
+      const near = !spare.length && missed.length === 1;
+      return { ...v, right: false, said: `${near ? "So close" : "Not quite"} — ${
+        hit.length} of ${n} right${spare.length ? `, and ${spare.length} that ${
+        spare.length > 1 ? "aren’t" : "isn’t"}` : ""}.` };
     }
     return { ...v, right: false, said: "Not those. Here’s where they actually are." };
   }
