@@ -21,7 +21,11 @@
 # reader to scroll past it — which is the silent failure again, wearing the
 # opposite mask. The log still records every occurrence; only Discord is spared.
 ALERT_CHANNEL="${ALERT_CHANNEL:-1530815234019692624}"   # #cryptic-crosswords
-ALERT_ENV_FILE="${ALERT_ENV_FILE:-$HOME/github/discord-claude/.env}"
+# The bridge checkout sits beside this one, so derive it from this file rather
+# than from $HOME: the two are the same directory on the Mac and different
+# directories in a container, and only one of those spellings finds the file.
+ALERT_ENV_FILE="${ALERT_ENV_FILE:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." \
+  && pwd)/discord-claude/.env}"
 ALERT_STATE_DIR="${ALERT_STATE_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." \
   && pwd)/.alert-state}"
 ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
@@ -54,7 +58,16 @@ alert_run_failures() {
 
 alert() {
   echo "ALERT: $*"
-  [ -r "$ALERT_ENV_FILE" ] || return 0
+  local token
+  # An exported token wins over the file, and a deployment that holds the
+  # secret only in its environment has no .env file at all. This used to
+  # return here on an unreadable file and never look at the environment,
+  # which made the alerting silent exactly where it was most needed.
+  token="${DISCORD_BOT_TOKEN:-}"
+  [ -n "$token" ] ||
+    token=$(grep -m1 '^DISCORD_BOT_TOKEN=' "$ALERT_ENV_FILE" 2>/dev/null |
+            cut -d= -f2-)
+  [ -n "$token" ] || return 0
   local stamp
   stamp="$ALERT_STATE_DIR/$(printf '%s' "$*" | shasum | cut -c1-16)"
   mkdir -p "$ALERT_STATE_DIR" 2>/dev/null || true
@@ -65,9 +78,6 @@ alert() {
     return 0
   fi
   touch "$stamp" 2>/dev/null || true
-  local token
-  token=$(grep -m1 '^DISCORD_BOT_TOKEN=' "$ALERT_ENV_FILE" | cut -d= -f2-)
-  [ -n "$token" ] || return 0
   local wake body
   # The wake marker is not decoration: the bridge drops every bot-authored
   # message, and this one is posted with the bridge's own token, so unmarked it
@@ -84,8 +94,19 @@ alert() {
   [ -n "$wake" ] || wake="(unmarked — could not read the bridge's wake prefix)"
   body=$(python3 -c 'import json,sys; print(json.dumps({"content": sys.argv[1][:1900]}))' \
          "$wake ⚠️ cryptic-teacher: $*") || return 0
-  curl -s -m 15 -o /dev/null \
-    -H "Authorization: Bot $token" -H "Content-Type: application/json" \
-    -d "$body" \
-    "https://discord.com/api/v10/channels/$ALERT_CHANNEL/messages" || true
+  # urllib, not curl: every other tool here already posts this way, and the
+  # one that did not could not run anywhere curl was missing.
+  python3 - "$token" "$ALERT_CHANNEL" "$body" <<'POST' || true
+import sys, urllib.error, urllib.request
+token, channel, body = sys.argv[1], sys.argv[2], sys.argv[3]
+req = urllib.request.Request(
+    f"https://discord.com/api/v10/channels/{channel}/messages",
+    data=body.encode(),
+    headers={"Authorization": f"Bot {token}",
+             "Content-Type": "application/json"})
+try:
+    urllib.request.urlopen(req, timeout=15).read()
+except (urllib.error.URLError, OSError) as exc:
+    print(f"the alert could not be posted to Discord: {exc}", file=sys.stderr)
+POST
 }
