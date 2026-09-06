@@ -61,8 +61,10 @@ import hashlib
 import io
 import json
 import os
+import shutil
 import subprocess
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 
@@ -173,15 +175,46 @@ def _keychain_lookup(service):
     failure this file exists to survive — can be simulated in a test without
     shelling out to `security` or touching a real login.
     """
-    raw = subprocess.run(
-        ["security", "find-generic-password", "-s", service, "-w"],
-        capture_output=True, text=True, timeout=20,
-    )
+    try:
+        raw = subprocess.run(
+            ["security", "find-generic-password", "-s", service, "-w"],
+            capture_output=True, text=True, timeout=20,
+        )
+    except FileNotFoundError:
+        # No `security` binary means no keychain to read, which is a reason
+        # this lookup failed and not a reason the whole chain should stop.
+        # Raising here skipped every remaining credential source, so a Linux
+        # host reported "cannot read the quota" while holding a live token.
+        return None, None, f"{service}: no keychain on this platform"
     if raw.returncode != 0:
         return None, None, f"{service}: {raw.stderr.strip() or 'not found'}"
     blob = json.loads(raw.stdout)["claudeAiOauth"]
     if not blob.get("accessToken"):
         return None, None, f"{service}: empty accessToken (stale /login)"
+    expires = blob.get("expiresAt")
+    expires_dt = (datetime.datetime.fromtimestamp(expires / 1000,
+                                                   datetime.timezone.utc)
+                  if expires else None)
+    return blob["accessToken"], expires_dt, None
+
+
+def _credentials_file_lookup():
+    """The CLI's own credential store, or (None, None, why-not).
+
+    Same shape and same contents as a keychain entry — this is where the CLI
+    writes an OAuth login on a platform with no keychain — so it yields a real
+    expiry and a real usage percentage, unlike the setup token below it.
+    """
+    config_dir = os.environ.get("CLAUDE_CONFIG_DIR") or \
+        os.path.expanduser("~/.claude")
+    path = os.path.join(config_dir, ".credentials.json")
+    try:
+        with open(path) as fh:
+            blob = json.load(fh)["claudeAiOauth"]
+    except (OSError, ValueError, KeyError) as exc:
+        return None, None, f"{path}: {exc}"
+    if not blob.get("accessToken"):
+        return None, None, f"{path}: empty accessToken (stale /login)"
     expires = blob.get("expiresAt")
     expires_dt = (datetime.datetime.fromtimestamp(expires / 1000,
                                                    datetime.timezone.utc)
@@ -201,6 +234,11 @@ def access_token():
         if problem:
             problems.append(problem)
             continue
+        return token, expires, False
+    token, expires, problem = _credentials_file_lookup()
+    if problem:
+        problems.append(problem)
+    else:
         return token, expires, False
     fallback = _fallback_token()
     if fallback:
@@ -555,16 +593,21 @@ def fallback_self_test():
     "logged out", and a caller that skips real work on that confusion is
     exactly the failure this file exists to prevent. See QuotaUnreadable.
     """
-    global _keychain_lookup, _fallback_token, _live_usage_pct, _cache_read
-    orig = (_keychain_lookup, _fallback_token, _live_usage_pct, _cache_read)
+    global _keychain_lookup, _credentials_file_lookup, _fallback_token
+    global _live_usage_pct, _cache_read
+    orig = (_keychain_lookup, _credentials_file_lookup, _fallback_token,
+            _live_usage_pct, _cache_read)
     err = sys.stderr
     failures = []
     try:
         def _mock_lookup(service):
             return None, None, f"{service}: empty accessToken (stale /login)"
+        def _mock_credentials():
+            return None, None, "no credentials file"
         def _mock_fallback():
             return "sk-ant-oat01-test-token-not-a-real-secret"
         _keychain_lookup = _mock_lookup
+        _credentials_file_lookup = _mock_credentials
         _fallback_token = _mock_fallback
         sys.stderr = io.StringIO()
 
@@ -587,8 +630,52 @@ def fallback_self_test():
                 "gate() with blank keychain + fallback token + no cache: "
                 f"got {got!r}, want 'spend'")
     finally:
-        _keychain_lookup, _fallback_token, _live_usage_pct, _cache_read = orig
+        (_keychain_lookup, _credentials_file_lookup, _fallback_token,
+         _live_usage_pct, _cache_read) = orig
         sys.stderr = err
+    for f in failures:
+        print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
+    return 1 if failures else 0
+
+
+def credentials_file_self_test():
+    """Prove a host with no keychain still reaches its own credential store.
+
+    `security` does not exist off macOS, and the lookup used to raise
+    FileNotFoundError out of the loop over keychain_services() — so every
+    later credential source was skipped and a machine holding a live token
+    reported that it could not read the quota. The token here must come back
+    with its real expiry and fallback=False: it is a full credential, not a
+    setup token, and the caller is entitled to a percentage from it.
+    """
+    global _keychain_lookup
+    orig = _keychain_lookup
+    tmp = tempfile.mkdtemp()
+    prev = os.environ.get("CLAUDE_CONFIG_DIR")
+    failures = []
+    try:
+        def _no_security(service):
+            return None, None, f"{service}: no keychain on this platform"
+        _keychain_lookup = _no_security
+        os.environ["CLAUDE_CONFIG_DIR"] = tmp
+        expires_ms = int((_now().timestamp() + 3600) * 1000)
+        with open(os.path.join(tmp, ".credentials.json"), "w") as fh:
+            json.dump({"claudeAiOauth": {
+                "accessToken": "sk-ant-oat01-test-token-not-a-real-secret",
+                "expiresAt": expires_ms}}, fh)
+
+        token, expires, fallback = access_token()
+        if not (token and expires is not None and not fallback):
+            failures.append(
+                "access_token() with no keychain and a credentials file: got "
+                f"{(bool(token), expires, fallback)!r}, want (True, <a date>, False)")
+    finally:
+        _keychain_lookup = orig
+        if prev is None:
+            os.environ.pop("CLAUDE_CONFIG_DIR", None)
+        else:
+            os.environ["CLAUDE_CONFIG_DIR"] = prev
+        shutil.rmtree(tmp, ignore_errors=True)
     for f in failures:
         print(f"SELF-TEST FAILED — {f}", file=sys.stderr)
     return 1 if failures else 0
@@ -603,7 +690,8 @@ def main():
                   f"{', '.join(sorted(LEGACY_FIELD))}", file=sys.stderr)
             return 2
     if "--self-test" in sys.argv:
-        ok = self_test() or reset_self_test() or fallback_self_test()
+        ok = (self_test() or reset_self_test() or fallback_self_test()
+              or credentials_file_self_test())
         print("gate self-test: 9 cases pass" if ok == 0 else "gate self-test FAILED")
         return ok
     if "--gate" in sys.argv:
