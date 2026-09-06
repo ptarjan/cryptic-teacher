@@ -15,7 +15,11 @@
 #      a week, so one per run never drains a backlog; it barely keeps up. Stops
 #      early if a run fails rather than burning the rest of the quota on doomed
 #      attempts.
-#   4. Validates, reindexes, rebuilds the static crawlable pages
+#   4. Reads the bad-hint queue solvers write to from the site, hands the
+#      reports to the same headless model to fix, and alerts a person only
+#      about the ones it could not close. Before the commit, so a fix reaches
+#      the site the same night the report arrived.
+#   5. Validates, reindexes, rebuilds the static crawlable pages
 #      (tools/build_seo_pages.py — one per puzzle, plus the hub, the tutorial
 #      and the sitemap), and commits (and pushes, if a remote is set up).
 #
@@ -257,11 +261,19 @@ ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-50}"
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # Annotate without being shown the published answers, and grade what the model
 # derives against them afterwards. See tools/blind_annotate.py for why this
-# measures something the sighted path cannot. Off by default: it is a trial, and
-# the cost of a blind night is that any clue the model gets wrong ships with no
-# hints at all. Turn it on for a run of nights, then compare the graded accuracy
-# and the check_annotation_loss.py numbers against the sighted corpus.
-ANNOTATE_BLIND="${ANNOTATE_BLIND:-}"
+# measures something the sighted path cannot. The cost of a blind night is that
+# any clue the model gets wrong ships with no hints at all, so this is a trial
+# with an end: run it for a stretch of nights, then compare the graded accuracy
+# and the check_annotation_loss.py numbers against the sighted corpus and decide.
+#
+# The default is the trial's state, and it lives here because the repo is the
+# only place that survives the machine. It was set in the LaunchAgent's
+# EnvironmentVariables and nowhere else, so nothing in this checkout knew the
+# trial existed, and any rewrite of that one file on that one Mac would have
+# switched it off with no alert and no way to tell from the log that a sighted
+# night was not the intended one. An environment variable still wins, so the
+# plist and a one-off `ANNOTATE_BLIND= ` both still work.
+ANNOTATE_BLIND="${ANNOTATE_BLIND:-1}"
 . "$REPO/tools/annotate_model.sh"
 if [ -n "$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
@@ -483,6 +495,69 @@ if [ -n "$stop_reason" ]; then
   fi
 fi
 
+# --- 3c. the bad-hint queue: fix what solvers reported, don't just relay it ---
+# Ahead of the commit on purpose. An alert is a fix that has not happened yet:
+# a solver reports a wrong hint, a human reads about it hours later, and the
+# clue stays wrong until someone sits down with it. Run here, the fix rides
+# tonight's commit, push and deploy, and the report is answered on the site by
+# morning. A human is woken only for what this pass could not close.
+#
+# The payload IS the alert: reports.py prints nothing when the queue is empty,
+# and a failure to read it is worth waking for too — an unreadable queue looks
+# exactly like an empty one from here. Each key costs a wrangler round trip, so
+# --since bounds a bad week; anything older is still in `tools/reports.py` with
+# no argument.
+#
+# Two alerts, not one. A read that failed is not a solver complaining, and
+# saying "solvers reported bad hints" over a wrangler stack trace sends whoever
+# answers it hunting for a clue to fix that nobody reported.
+if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
+  case "$bad_hints" in
+    "no bad-hint reports"*|"") ;;
+    *)
+      attempted=0
+      session=$(python3 tools/weekly_usage.py --group session)
+      if ! command -v claude >/dev/null 2>&1; then
+        echo "bad-hint queue: no claude CLI, so tonight's reports only get an alert"
+      elif [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
+        echo "bad-hint queue: five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — the fix pass waits for the reset"
+      else
+        fixlog="${TMPDIR:-/tmp}/cryptic-reports.log"
+        echo "fixing $(printf '%s' "$bad_hints" | grep -c '^  r:') reported hint(s) with Claude Code... (session ${session:-unknown}%)"
+        claude -p "Solvers of this crossword site reported these hints as wrong or unhelpful. Fix them.
+
+$bad_hints
+
+For each report: read that clue's annotation in its puzzles/<id>.js, decide whether the complaint is about this one clue or about a shape the site repeats, and fix it at the level it belongs to — the annotation, the rendering in app.js, or a rule in tools/validate_annotations.py. A complaint you disagree with is still evidence the page reads wrong; say what you concluded either way. Then run 'python3 tools/validate_annotations.py' and 'node tools/smoke_test.js' and leave both passing. Finally run 'python3 tools/reports.py --done <key>' for each report you actually fixed, using the r: key printed under it, and leave in the queue anything you could not fix. Do not commit — the calling script commits." \
+          --model "$ANNOTATE_MODEL" \
+          --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
+          --max-turns 120 >"$fixlog" 2>&1
+        tail -40 "$fixlog"
+        attempted=1
+      fi
+      # The verdict is the queue, not the model's account of itself. A key is
+      # cleared only by reports.py --done, so whatever still lists after the pass
+      # is exactly what nobody fixed, and that is what the alert carries.
+      if [ "$attempted" = 1 ]; then
+        bad_hints=$(python3 tools/reports.py --since 14 2>&1) || bad_hints="the queue could not be re-read after the fix pass: $bad_hints"
+      fi
+      case "$bad_hints" in
+        "no bad-hint reports"*|"") echo "bad-hint queue: cleared by tonight's fix pass" ;;
+        *) alert "solvers reported bad hints that tonight's run did not close. Each one is a
+sample of a class, not an incident — fix the clue, then measure the shape across
+every walkthrough and make it a rule if it matches cleanly (see the docstring in
+tools/reports.py). What the fix pass did try is in .update.log:
+
+$bad_hints" ;;
+      esac ;;
+  esac
+else
+  alert "the bad-hint queue could not be read, so reports are arriving and
+nobody is seeing them. No solver is quoted below — this is why the read failed:
+
+$bad_hints"
+fi
+
 # --- 4. validate, reindex, commit ---
 python3 tools/fetch_puzzle.py --reindex
 # Tonight's work is judged on tonight's work. This used to validate the whole
@@ -652,30 +727,4 @@ fi
 # to run the tool, which is a report button that works and a report nobody
 # answers. Last, because it is the only step that asks a person for something.
 #
-# The payload IS the alert: reports.py prints nothing when the queue is empty,
-# and a failure to read it is worth waking for too — an unreadable queue looks
-# exactly like an empty one from here. Each key costs a wrangler round trip, so
-# --since bounds a bad week; anything older is still in `tools/reports.py` with
-# no argument.
-#
-# Two alerts, not one. A read that failed is not a solver complaining, and
-# saying "solvers reported bad hints" over a wrangler stack trace sends whoever
-# answers it hunting for a clue to fix that nobody reported.
-if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
-  case "$bad_hints" in
-    "no bad-hint reports"*) ;;
-    "") ;;
-    *) alert "solvers reported bad hints. Each one is a sample of a class, not an
-incident — fix the clue, then measure the shape across every walkthrough and
-make it a rule if it matches cleanly (see the docstring in tools/reports.py):
-
-$bad_hints" ;;
-  esac
-else
-  alert "the bad-hint queue could not be read, so reports are arriving and
-nobody is seeing them. No solver is quoted below — this is why the read failed:
-
-$bad_hints"
-fi
-
 echo "=== done ==="
