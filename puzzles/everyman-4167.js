@@ -1224,7 +1224,7 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
       "note": "what a sow or a bitch does: the whole brood arrives together"
      }
     ],
-    "walkthrough": "One verb in two worlds — the rubbish on the pavement and the puppies in the basket — with nothing but the shared noun holding them together.",
+    "walkthrough": "Read straight it is one person's bad week: they were antisocial, and then they gave birth. Both halves are the same verb standing in two worlds — rubbish dropped on the pavement, and the moment a sow's whole brood arrives at once.",
     "definitionFit": "To litter is to strew rubbish about; an animal's litter is all the young born at one time, so bearing them is littering too."
    }
   },
