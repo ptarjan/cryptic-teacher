@@ -1490,7 +1490,15 @@
     if (!b.gives) return "";
     if ((ann.type || "").toLowerCase().includes("cryptic definition")) return "";
     const answer = wholeWord(ann.answer);
-    return answer && wholeWord(b.gives) === answer ? "" : b.gives;
+    if (answer && wholeWord(b.gives) === answer) return "";
+    // An arrow from a word to its own letters teaches nothing: “goat” → GOAT is
+    // the fragment already printed to the left of it, with the spaces taken out.
+    // Anagram fodder is where this happens — the letters ARE the clue's words,
+    // so there is no step to show — and the note beside it still says what the
+    // fragment is doing there. A block left with neither is dropped by
+    // `blockShows`, and a rung left with no blocks is never charged for.
+    if (wholeWord(b.gives) === wholeWord(b.clueFragment)) return "";
+    return b.gives;
   }
   // The rung exists when something will RENDER in it, not when the data holds a
   // field: a clue whose every block is suppressed and carries no note would
@@ -1776,11 +1784,17 @@
       blocks: "The building blocks",
       walkthrough: "Full walkthrough"
     };
-    const fam = familyOf(ann.type);
+    // Every family the type matches, not just the first. A compound type like
+    // "charade + container" is in two of them, and naming only the head tells
+    // the solver the clue is a pure charade — a claim the rest of the page then
+    // contradicts, and one the quiz on this very rung already refuses, since
+    // familyAsk has always marked the whole set correct.
+    const fams = familiesOf(ann.type);
+    const shown = fams.length ? fams : [familyOf(ann.type)];
     steps.push({
       key: "type",
       label: LABELS.type,
-      html: `<p><strong>${esc(fam.label)}</strong>. ${esc(fam.blurb)}</p>`
+      html: shown.map((f) => `<p><strong>${esc(f.label)}</strong>. ${esc(f.blurb)}</p>`).join("")
     });
 
     // The exact mechanism, held back until the user has already seen the family,
