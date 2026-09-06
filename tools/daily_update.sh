@@ -59,16 +59,20 @@ export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/b
 # is silent and non-obvious, and this way it survives being run by hand too.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
-# A response may not spend its whole output budget thinking. The CLI stops a
-# reply at CLAUDE_CODE_MAX_OUTPUT_TOKENS and the API rejects it for overrunning,
-# so a turn that reasons to the ceiling emits no tool call, makes no progress,
-# and is retried verbatim until the run dies — the cold solve is where that
-# happens, because it has a whole grid to hold at once. Capping the thinking
-# below the output ceiling leaves room for the write that ends the turn.
+# Two limits, and the gap between them is the point. The thinking budget is what
+# actually bounds spend: thinking bills as output, and a turn that reasons past
+# the output ceiling emits no tool call, makes no progress, and is retried
+# verbatim until the run dies — so an uncapped one can spend a whole puzzle's
+# budget on nothing. The ceiling above it is a safety net that a healthy turn
+# never touches; keeping it well clear means a long, productive turn finishes
+# instead of being killed for overrunning.
+# Measured over 1148 responses (2026-08-29..09-06): median 298 output tokens,
+# p90 14,278, and of the 33 responses above 32,000 two thirds ended in no tool
+# call at all. A budget here cuts rumination, not work.
 # Defaults live here, not in the launchd plist: a value only the plist knows is
 # a value the script cannot be run by hand with, and both of these are unset on
 # this machine.
-export CLAUDE_CODE_MAX_OUTPUT_TOKENS="${CLAUDE_CODE_MAX_OUTPUT_TOKENS:-64000}"
+export CLAUDE_CODE_MAX_OUTPUT_TOKENS="${CLAUDE_CODE_MAX_OUTPUT_TOKENS:-128000}"
 export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 
 # claude-auth.sh is deliberately not sourced: this runs as a LaunchAgent, which
