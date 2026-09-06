@@ -195,6 +195,8 @@ tools/daily_update.sh                        daily script: fetch latest, annotat
                                              validate, commit
 tools/nightly_worktree.sh                    sourced first: re-execs a scheduled job in its own
                                              worktree, never the editor’s
+tools/claude_path.sh                         sourced: finds the `claude` CLI wherever this
+                                             machine keeps it, SDK-bundled copy included
 tools/alert.sh                               posts a run’s failures to Discord instead of
                                              burying them in a log
 tools/com.pt.cryptic-teacher.plist           LaunchAgent that runs daily_update.sh at 06:15
@@ -375,6 +377,12 @@ says so wherever it shows them, and the puzzle keeps being re-fetched — so whe
 official key lands it replaces the fill, prints a `BLIND SOLVE GRADED n/30` line, and
 throws away the annotation of any clue we got wrong so the queue rewrites it.
 
+**Where it actually runs here:** both timed jobs are lines in the bridge container's
+`tools/crontab` (the `household` repo) as of 2026-09-06 — 06:15 for this script, `:05`
+hourly for `prereset_backfill.sh`. The container's login is a file under
+`CLAUDE_CONFIG_DIR`, so the keychain rule below does not apply to it. The plists are
+still shipped and still correct for a Mac.
+
 **On macOS, schedule it with the bundled LaunchAgent — not with cron.** The `claude`
 CLI stores its OAuth credentials in the macOS *login* keychain (item
 `Claude Code-credentials`). `cron` runs outside the GUI login session and cannot unlock
@@ -399,8 +407,13 @@ On non-macOS hosts, where credentials live in `~/.claude/.credentials.json` rath
 a keychain, a plain cron entry is fine:
 
 ```
-15 6 * * * /path/to/cryptic-teacher/tools/daily_update.sh >> /path/to/cryptic-teacher/.update.log 2>&1
+15 6 * * * flock -n /tmp/cryptic-daily.lock /path/to/cryptic-teacher/tools/daily_update.sh >> /path/to/cryptic-teacher/.update.log 2>&1
+5 * * * *  flock -n /tmp/cryptic-prereset.lock /path/to/cryptic-teacher/tools/prereset_backfill.sh >> /path/to/cryptic-teacher/.prereset.log 2>&1
 ```
+
+`flock -n` is not optional for the second line. launchd will not start a job while the
+last copy is still running; cron has no such idea, and two backfills overlapping would
+both spend the same quota window.
 
 ## Credits
 

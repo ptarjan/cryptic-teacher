@@ -23,12 +23,14 @@
 #      (tools/build_seo_pages.py — one per puzzle, plus the hub, the tutorial
 #      and the sitemap), and commits (and pushes, if a remote is set up).
 #
-# Install: this runs as the LaunchAgent ~/Library/LaunchAgents/com.pt.cryptic-teacher.plist,
-# NOT as a crontab entry, and must stay that way. The `claude` CLI keeps its
-# OAuth credentials in the *login* keychain; cron runs outside the GUI login
-# session, cannot unlock it, and every run dies with "Not logged in".
-#   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.pt.cryptic-teacher.plist
-#   launchctl kickstart -k gui/$(id -u)/com.pt.cryptic-teacher   # run it now
+# Install: a line in the bridge container's tools/crontab (household repo),
+# 06:15 local. It was a macOS LaunchAgent until 2026-09-06 and the rule was
+# "NOT crontab, and must stay that way" — because the `claude` CLI kept its
+# OAuth credential in the *login* keychain, which cron, running outside the GUI
+# login session, cannot unlock, so every run died with "Not logged in". In the
+# container the credential is a file under CLAUDE_CONFIG_DIR and no keychain is
+# involved, which is what retired the rule. On a Mac it still holds: schedule
+# this with launchctl there, never with crontab.
 #
 # Requirements: python3, git, and the `claude` CLI on PATH for the annotation step.
 
@@ -43,20 +45,9 @@ cd "$REPO" || exit 1
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
-# cron runs with a bare PATH (/usr/bin:/bin), so the `claude` CLI in ~/.local/bin
-# was invisible and every run silently skipped annotation. Keep this list in sync
-# with wherever the CLI actually installs.
-export PATH="$HOME/.local/bin:$HOME/.claude/local:$HOME/.local/node/bin:/usr/local/bin:/opt/homebrew/bin:$PATH"
-# The agent SDK ships its own copy of the CLI, and on a host where nothing
-# installed `claude` separately that copy is the only one there is. Located
-# through the package rather than by path, which is pinned to a Python version
-# this script has no business knowing.
-if ! command -v claude >/dev/null 2>&1; then
-  bundled=$(python3 -c 'import claude_agent_sdk, os; print(os.path.join(os.path.dirname(claude_agent_sdk.__file__), "_bundled"))' 2>/dev/null)
-  if [ -n "$bundled" ] && [ -x "$bundled/claude" ]; then
-    export PATH="$bundled:$PATH"
-  fi
-fi
+# A scheduler runs with a bare PATH (/usr/bin:/bin), so the `claude` CLI is
+# invisible and every run silently skips annotation.
+. "$REPO/tools/claude_path.sh"
 # The CLI keys its keychain item by CLAUDE_CONFIG_DIR: the entry is named
 # "Claude Code-credentials-<first 8 of sha256(configdir)>", and with the variable
 # unset it reads the legacy un-suffixed "Claude Code-credentials" instead. A
