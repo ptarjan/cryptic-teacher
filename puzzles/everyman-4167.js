@@ -974,7 +974,7 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
       "note": "to total a column of figures is to add them up, and it goes in backwards"
      }
     ],
-    "walkthrough": "'Total cheese' is one insult on the surface — utter rubbish — and the setter has split it down the middle: the first word is an instruction, the second is the definition.",
+    "walkthrough": "'Total cheese' is one insult on the surface — utter rubbish — and the setter has split it down the middle. Only the second word defines. The first is not telling you to do anything; it is a synonym standing in for letters, total in the sense a column of figures has.",
     "definitionFit": "The answer is the hard cow's-milk cheese named after a Somerset village, so it is one example of the class the definition names."
    }
   },
