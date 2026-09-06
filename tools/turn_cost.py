@@ -27,11 +27,17 @@ import argparse
 import collections
 import datetime
 import json
+import os
 import pathlib
 import statistics
 import sys
 
-TRANSCRIPTS = sorted(pathlib.Path.home().glob(".claude/projects/*cryptic*/*.jsonl"))
+# The same directory the CLI wrote them to, which is not under $HOME once the
+# run is not the Mac's: this is called with `|| true`, so a wrong path here
+# reports nothing at all rather than failing.
+CLAUDE_DIR = pathlib.Path(os.environ.get("CLAUDE_CONFIG_DIR")
+                          or pathlib.Path.home() / ".claude")
+TRANSCRIPTS = sorted(CLAUDE_DIR.glob("projects/*cryptic*/*.jsonl"))
 MIN_OUTPUT_TOKENS = 20000
 
 
