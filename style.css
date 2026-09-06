@@ -759,9 +759,15 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    animation: the marked clue is travelling at that moment and motion beside
    motion is a race. It is size and a shape — the right verdict is an object on
    the page, in the definition's own tint, not a coloured line of small print. */
-.guess-verdict { margin: 10px 0 0; font-size: 1.05rem; }
+.guess-verdict { margin: 10px 0 2px; font-size: 1.05rem; }
+/* A block that shrinks to its text, NOT an inline-block. The pill was sitting in
+   a line box, so it was aligned on a baseline it did not share with anything and
+   carried a strip of leading under it that belonged to text that was not there —
+   the gap above it and the gap below it were different sizes for no reason the
+   page could show you (Paul, 2026-09-06). A block has no line box and no
+   baseline to answer to, and fit-content keeps it the width of the sentence. */
 .guess-verdict.right {
-  display: inline-block; color: var(--def-fg); font-weight: 700;
+  width: fit-content; color: var(--def-fg); font-weight: 700;
   background: var(--def-bg); padding: 4px 10px; border-radius: 999px;
 }
 /* A miss stays plain and stays quiet: it is a step in the lesson, not an error
