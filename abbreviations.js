@@ -159,6 +159,7 @@ const ABBREVIATIONS = {
  "E": [
   "drug",
   "earl",
+  "earth",
   "east",
   "eastern",
   "ecstasy",
@@ -270,6 +271,7 @@ const ABBREVIATIONS = {
  "I": [
   "current",
   "india",
+  "individual",
   "information",
   "international",
   "iodine",
@@ -649,6 +651,7 @@ const ABBREVIATIONS = {
   "recreational vehicle"
  ],
  "S": [
+  "sabbath",
   "saint",
   "second",
   "seconds",
@@ -663,7 +666,8 @@ const ABBREVIATIONS = {
   "southern",
   "special",
   "succeeded",
-  "sulphur"
+  "sulphur",
+  "sun"
  ],
  "SA": [
   "sex appeal",
