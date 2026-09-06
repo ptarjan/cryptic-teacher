@@ -467,7 +467,7 @@ if [ -n "$pending" ]; then
         ann_turns=120
         ann_task="Solve AND annotate the cryptic crossword in puzzles/$num.js in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
       fi
-      if claude -p "$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
+      if claude -p "$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
         --model "$ANNOTATE_MODEL" \
         --allowedTools "$ann_tools" \
         --max-turns "$ann_turns" 2>&1 | tee "$run_log"
