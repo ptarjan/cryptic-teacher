@@ -19,7 +19,7 @@ def _run(args, timeout):
                           stdin=subprocess.DEVNULL, timeout=timeout)
 
 
-def list_keys(timeout=180):
+def list_keys(prefix=None, timeout=180):
     """Every key name in the namespace, as wrangler's own list of dicts.
 
     An expired OAuth token comes back as `Authentication error [code: 10000]`
@@ -32,14 +32,31 @@ def list_keys(timeout=180):
     wrangler prints a banner before the JSON, so the output is sliced from the
     first bracket rather than parsed whole.
     """
-    out = _run(["kv", "key", "list", "--namespace-id", NAMESPACE, "--remote"], timeout)
+    args = ["kv", "key", "list", "--namespace-id", NAMESPACE, "--remote"]
+    if prefix:
+        args += ["--prefix", prefix]
+    out = _run(args, timeout)
     if "[" not in out.stdout:
         _run(["whoami"], 60)
-        out = _run(["kv", "key", "list", "--namespace-id", NAMESPACE, "--remote"], timeout)
+        out = _run(args, timeout)
     if "[" not in out.stdout:
         raise SystemExit("wrangler gave no key list: "
                          + ((out.stderr or out.stdout).strip()[-500:] or "no output"))
     return json.loads(out.stdout[out.stdout.index("["):out.stdout.rindex("]") + 1])
+
+
+def get_key(name, timeout=120):
+    """One key's value, as text. Same expiry retry as list_keys, for the same
+    reason: a run that lists fine can still meet the hourly expiry partway
+    through reading the keys it just listed."""
+    out = _run(["kv", "key", "get", name, "--namespace-id", NAMESPACE, "--remote"], timeout)
+    if out.returncode != 0:
+        _run(["whoami"], 60)
+        out = _run(["kv", "key", "get", name, "--namespace-id", NAMESPACE, "--remote"], timeout)
+    if out.returncode != 0:
+        raise SystemExit(f"wrangler could not read {name}: "
+                         + ((out.stderr or out.stdout).strip()[-500:] or "no output"))
+    return out.stdout
 
 
 def delete_key(name, timeout=120):
