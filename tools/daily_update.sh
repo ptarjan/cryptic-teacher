@@ -649,7 +649,9 @@ them: $bad_hints"
 case "$bad_hints" in
   "no bad-hint reports"*) ;;
   "") ;;
-  *) alert "solvers reported bad hints:
+  *) alert "solvers reported bad hints. Each one is a sample of a class, not an
+incident — fix the clue, then measure the shape across every walkthrough and
+make it a rule if it matches cleanly (see the docstring in tools/reports.py):
 
 $bad_hints" ;;
 esac
