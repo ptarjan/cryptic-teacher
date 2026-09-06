@@ -484,10 +484,10 @@ function takeRung(btn) {
   assert(stepCount === 1, `choosing rung "${wanted}" revealed ${stepCount} rungs, not just the one`);
   // out of order without renumbering: the rung keeps its ladder number
   assert(shown.includes(wanted.split(" · ")[0] + " · "), "rung keeps its ladder number: " + shown.slice(0, 120));
-  // the definition highlight is the giveaway that a rung leaked. Position 2 IS
+  // the definition highlight is the giveaway that a rung leaked. Position 1 IS
   // the definition rung on every clue, so it should light up exactly then.
   const lit = registry["hint-clue"].innerHTML.includes('mark class="def"');
-  assert(lit === wanted.startsWith("2 · "),
+  assert(lit === wanted.startsWith("1 · "),
     `definition highlight should appear only for the definition rung (took "${wanted}", lit=${lit})`);
 }
 registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order walk
@@ -499,11 +499,25 @@ while (registry["hint-next"].children[0] && registry["hint-next"].children[0].on
   takeRung(registry["hint-next"].children[0]);
   rungs++;
   if (rungs === 1) {
-    // rung 1 gives the FAMILY only — never the precise (often compound) type
+    // Rung 1 is where the definition sits, because that is the first move a
+    // solver makes: a fair clue splits in two and one half defines. The family
+    // used to lead and was a cold guess between seven.
     const first = registry["hint-body"].innerHTML;
-    assert(/Definitions only|&amp;lit|&lit|Rearrangement|Sound|Charade|Alteration|Extraction/.test(first),
-      "first rung names a clue family: " + first);
-    assert(!first.includes("mechanism"), "first rung withholds the precise mechanism: " + first);
+    assert(/Where is the definition\?/.test(first), "rung 1 asks where the definition is: " + first);
+  }
+  // Wherever the family rung lands, it gives the FAMILY only — never the
+  // precise (often compound) type, which is the blocks rung's to give.
+  {
+    // That rung's own section, not everything after it: the blocks rung below
+    // names the precise mechanism and is entitled to, so a match on the rest of
+    // the panel would fail on exactly the ladders that are behaving.
+    const fam = (registry["hint-body"].innerHTML.split('<div class="hint-step')
+      .find((sec) => sec.includes("What kind of clue is this?")) || "");
+    if (fam) {
+    assert(/Definitions only|&amp;lit|&lit|Rearrangement|Sound|Charade|Alteration|Extraction/.test(fam),
+      "the family rung names a clue family: " + fam);
+    assert(!fam.includes("mechanism"), "the family rung withholds the precise mechanism: " + fam);
+    }
   }
   assert(registry["hint-body"].innerHTML.includes("hint-step"), "hint body populated at level " + rungs);
   assert(registry["hint-escape"].innerHTML.includes("Reveal one letter") || registry["hint-meter"].innerHTML.includes("Solved"),
@@ -963,9 +977,18 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
     const row = registry["clue-" + e.id];
     assert(row && row.listeners.click, `clue list shows ${e.number}${e.direction[0]}: ${e.clue}`);
     row.listeners.click[0]();
-    // rung 1 = family, rung 2 = definition, which is where both fields hang
-    takeRung(registry["hint-next"].children[0]);
-    takeRung(registry["hint-next"].children[0]);
+    // Up to the definition rung, which is where linkWords and definitionNote
+    // hang. By NAME, not by taking the first two buttons: that pinned the
+    // ladder's order into a helper about something else, and when the order
+    // changed this helper silently took the indicators rung as well and then
+    // three later tests failed for asserting it was still on offer.
+    for (let i = 0; i < 4; i++) {
+      const btn = registry["hint-next"].children.find((b) => b.onclick && !b.disabled);
+      if (!btn) break;
+      const isDef = /definition/i.test(btn.textContent);
+      takeRung(btn);
+      if (isDef) break;
+    }
   };
 
   const linked = findClue("linkWords");
