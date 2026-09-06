@@ -2567,8 +2567,8 @@ global.realSetTimeout(() => {
   // And the other way out: you stop hunting for the definition because you have
   // just written the answer into the grid. Leaving the question up would be the
   // site quizzing you on a clue you had already beaten, so the rung is handed
-  // over — free, the score being settled — and the solve is celebrated (Paul,
-  // 2026-09-06).
+  // over — free, the score being settled (Paul, 2026-09-06). Quietly: one clue
+  // coming out gets no announcement, only the finished grid does.
   openIt();
   defBtn().onclick();
   assert(panelHTML().includes("guess-clue"), "asked a third time");
@@ -2581,8 +2581,8 @@ global.realSetTimeout(() => {
     "solving the clue takes the question away: " + html);
   assert(html.includes("hint-step"),
     "and hands over the rung it was asking about rather than dropping it: " + html);
-  assert(html.includes("solve-note") && html.includes(found.e.solution),
-    "and says the word you just found: " + html);
+  assert(html.indexOf("class=\"paper\"") < 0,
+    "and throws no paper at a single clue: " + html);
 }
 
 // --- the blocks rung walks every piece, and the panel never takes anything back ---

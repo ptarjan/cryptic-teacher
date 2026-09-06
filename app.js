@@ -1348,10 +1348,6 @@
           showHint(e, guessing.rung);
           guessing = null;
         }
-        // The moment, once, for the panel to notice — not the state of being
-        // solved, which the meter already reports on every render. An answer
-        // that was filled in for us is not a solve and gets nothing.
-        if (!isShown(e, ANSWER_RUNG)) solveNote = { key: entryKey(e), fresh: true };
         beacon("entry");
       }
     });
@@ -2186,13 +2182,9 @@
   // that changed the score. A half-made guess is not progress.
   let guessing = null;   // { key, rung, step, picked: [], placed: [] }
   let lastGuess = null;  // { key, rung, tokens, known, mk: <verdict> }
-  // Set by checkSolvedEntries the instant a clue comes out, cleared by the
-  // panel that prints it. Solving a clue used to change a line of small grey
-  // text from a count to "Solved with no hints at all" and that was the entire
-  // acknowledgement ("there should be a celebration when you solve it", Paul,
-  // 2026-09-06). Same two rules as the whole-grid one below: the transition
-  // only, and it survives being re-rendered rather than being re-fired by it.
-  let solveNote = null;  // { key, fresh }
+  // A single clue coming out gets no announcement of its own: the grid fills a
+  // square at a time and 28 celebrations is 28 interruptions. The whole grid is
+  // the finish, and that one does celebrate — see celebrate().
 
   // The clue's words, wearing whatever is known about them. Buttons while the
   // question is open, the identical markup as plain spans once it has been
@@ -2353,24 +2345,6 @@
   // graded one further down — and the solver is being told to tap words while
   // looking at a set of identical words that do not answer to a tap (Paul,
   // 2026-09-06). The count and the verdict survive; only the duplicate goes.
-  // The clue came out. Says the answer back, because the grid shows it as eight
-  // separate boxes and the word is the thing you just found, and then what it
-  // cost — the same three facts the whole-grid tally reports, for one clue.
-  // Wears `fresh` exactly once, on the render that follows the solve: the
-  // animation and the paper are the celebration, the line is the record, and
-  // the line has to survive the next keystroke redrawing the panel.
-  function solveNoteHTML(e, charged, reveals) {
-    if (!solveNote || !e.solution) return "";
-    const fresh = solveNote.fresh ? " fresh" : "";
-    solveNote.fresh = false;
-    const bits = [];
-    if (charged) bits.push(`${charged} hint${charged === 1 ? "" : "s"}`);
-    if (reveals) bits.push(`${reveals} letter${reveals === 1 ? "" : "s"} revealed`);
-    return `<div class="solve-note${fresh}">${fresh ? confettiHTML(10) : ""}
-      <p class="shout">Got it — <span class="gives">${esc(e.solution)}</span></p>
-      <p class="tally">${bits.length ? bits.join(" · ") : "cold, with no help at all"}</p></div>`;
-  }
-
   function verdictHTML(g, quiet) {
     const fresh = g.fresh ? " fresh" : "";
     g.fresh = false;
@@ -2819,10 +2793,8 @@
 
     const solved = isEntrySolved(e);
     // A report is about the clue it was started on, and moving on abandons it —
-    // the same rule the guess follows, for the same reason. So does the solve
-    // note: coming back to a clue you solved ten minutes ago is not the moment.
+    // the same rule the guess follows, for the same reason.
     if (report && report.key !== key) report = null;
-    if (solveNote && solveNote.key !== key) solveNote = null;
     const reveals = revealsUsed[key] || 0;
     const revealsNote = reveals ? ` · ${reveals} letter${reveals > 1 ? "s" : ""} revealed` : "";
     // The count the score charges, not the number of rungs currently on screen:
@@ -3003,12 +2975,7 @@
 
     setHTML($("hint-meter"), meterHTML + (freeRest ? " · the rest are free now" : ""));
 
-    // At the top, above the rungs: the news goes where the eye already is, and
-    // everything below it is now the explanation of a clue you have got rather
-    // than help with one you have not. It stays for as long as you are on the
-    // clue — taking it away on the next render is the panel shrinking under
-    // the reader, which is the one thing this panel never does.
-    const bodyWrote = setHTML(body, solveNoteHTML(e, charged, reveals) + bodyHTML);
+    const bodyWrote = setHTML(body, bodyHTML);
     setButtons(next, nextSpec);
 
     // The escape hatch lives outside the ladder: available at any level.
