@@ -119,7 +119,12 @@ def main(argv):
     print(f"\nannotate_check {stem}: " + (", ".join(counts) if counts else
                                           "clean, index refreshed — done"))
     if counts:
-        print(f"Fix ALL of these in one edit of tools/{pending.name}, then run "
+        # Two callers: the annotate run, which hands over tools/_ann_<ID>.json,
+        # and the field backfills, which edit the puzzle in place. Naming a file
+        # that is not there is an invitation to go looking for it.
+        where = (f"tools/{pending.name}" if pending.exists()
+                 else f"puzzles/{path.name}")
+        print(f"Fix ALL of these in one edit of {where}, then run "
               f"this command again. Re-running to confirm one fix at a time "
               f"costs a turn per warning and tells you nothing this run did not.")
         print("Any line you cannot act on: "

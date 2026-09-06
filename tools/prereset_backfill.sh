@@ -445,11 +445,11 @@ run_wave() {
       if [ -n "$(git status --porcelain -- "puzzles/${ids[$i]}.js")" ] &&
          python3 tools/validate_annotations.py "${ids[$i]}" >/dev/null 2>&1; then
         echo "  [${ids[$i]}] run failed — keeping what it finished, the file still validates"
-        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to puzzles/${ids[$i]}.js are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/validate_annotations.py ${ids[$i]} until it passes. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
+        printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to puzzles/${ids[$i]}.js are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       else
         echo "  [${ids[$i]}] run failed — discarding its changes"
         git checkout -- "puzzles/${ids[$i]}.js" 2>/dev/null
-        printf '%s\n' "You were cut off by a usage limit, mid-edit, so puzzles/${ids[$i]}.js was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/validate_annotations.py ${ids[$i]} until it passes. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
+        printf '%s\n' "You were cut off by a usage limit, mid-edit, so puzzles/${ids[$i]}.js was rolled back to how it was before you started — check it before you assume anything about its contents. The limit has since cleared. You already did the solving, so write out what you had worked out rather than working it out again, finish the task you were given, and run python3 tools/annotate_check.py ${ids[$i]} until it reports clean. Do not commit." >"/tmp/ct-prereset-${ids[$i]}.resume"
       fi
       WAVE_FAILED_IDS+=("${ids[$i]}")
       failed=$((failed + 1))
@@ -743,7 +743,7 @@ EOF
 
 # Not "Guardian crossword": since 2026-08-05 some of these are the
 # Independent's. The puzzle file records its own series and publisher.
-ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running the validator until it passes. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
+ANNOTATE_PROMPT="Annotate the crossword in puzzles/@.js in this repo. Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py @' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
 # reason daily_update.sh does it: the run should not have to grep for a rule.
@@ -794,7 +794,7 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     indicatorNotes) what="an object keyed by the exact indicator string, ONE sentence each saying why THAT word carries THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
     *) what="the field as tools/annotate_prompt.md describes it" ;;
   esac
-  prompt="In this repo, add the missing \`$field\` to every annotated clue in puzzles/@.js that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/validate_annotations.py @ until it passes. Do not commit — the calling script commits."
+  prompt="In this repo, add the missing \`$field\` to every annotated clue in puzzles/@.js that lacks one. $field is $what. Read tools/annotate_prompt.md and STYLE.md for the voice, and read an existing puzzle that already has the field so yours match. This is ADDITIVE: change nothing else, do not rewrite existing hints, types, indicators or pieces. Run python3 tools/annotate_check.py @ until it reports clean. Do not commit — the calling script commits."
   queue=($nums)
   at=0
   while [ "$at" -lt "${#queue[@]}" ]; do
