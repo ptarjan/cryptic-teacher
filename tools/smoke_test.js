@@ -2344,8 +2344,15 @@ global.realSetTimeout(() => {
   assert(fired === 1, "and celebrated once, not on every keystroke after: " + fired);
   assert(/\d+<\/strong> clues/.test(box.innerHTML) && /hint/.test(box.innerHTML),
     "and it says what was achieved, not just that something was: " + box.innerHTML);
-  registry["celebrate-done"].onclick();
-  assert(box.classList.contains("hidden"), "and it can be dismissed");
+  // Nothing to dismiss, and nothing that can dismiss it: the scoreline is a
+  // fact about the puzzle, not a notification (Paul, 2026-09-06). It has to
+  // survive the renders that follow, which is what a stray keystroke causes.
+  assert(!registry["celebrate-done"], "and there is no Thanks button to clear it away");
+  const settled = box.innerHTML;
+  cellAt(puz.entries[0].position.x, puz.entries[0].position.y)
+    .listeners.mousedown[0]({ preventDefault() {} });
+  assert(!box.classList.contains("hidden") && box.innerHTML === settled,
+    "and it stays, unchanged, when the grid is redrawn under it: " + box.innerHTML);
 
   // --- and the solve was counted, once per thing, not once per keystroke ---
   // A whole grid is hundreds of keystrokes and dozens of finished entries. If
@@ -2372,8 +2379,13 @@ global.realSetTimeout(() => {
   open();
   assert(/Solved <strong>(\d+)\/\1<\/strong>/.test(registry["scorebar"].innerHTML),
     "the reopened puzzle really is the finished one: " + registry["scorebar"].innerHTML);
-  assert(box.classList.contains("hidden"),
-    "re-opening a puzzle you already finished celebrates nothing: " + box.innerHTML);
+  // Re-opening it shows the scoreline again — it is what you did to this
+  // puzzle, and it reads the same next week — but throws no paper. The paper
+  // is the moment; the sentence is the record.
+  assert(!box.classList.contains("hidden") && /<strong>\d+<\/strong> clues/.test(box.innerHTML),
+    "re-opening a puzzle you already finished still shows what you did: " + box.innerHTML);
+  assert(box.innerHTML.indexOf("class=\"paper\"") < 0,
+    "but does not throw paper at you a second time: " + box.innerHTML);
   // The same rule the celebration follows, in the counter: progress that was
   // already in the grid when it opened belongs to the session that made it.
   // Without this a returning solver's every visit would report a finished
@@ -2551,6 +2563,26 @@ global.realSetTimeout(() => {
     "declining to guess is not graded");
   assert(/\b1<\/strong> hint levels used/.test(registry["scorebar"].innerHTML),
     "and costs what the rung has always cost: " + registry["scorebar"].innerHTML);
+
+  // And the other way out: you stop hunting for the definition because you have
+  // just written the answer into the grid. Leaving the question up would be the
+  // site quizzing you on a clue you had already beaten, so the rung is handed
+  // over — free, the score being settled — and the solve is celebrated (Paul,
+  // 2026-09-06).
+  openIt();
+  defBtn().onclick();
+  assert(panelHTML().includes("guess-clue"), "asked a third time");
+  // Typed, not clicked square by square: a click on a crossing cell can pick
+  // the other entry, and moving to another clue abandons the guess by design.
+  // The solver being described here never left the clue.
+  for (let i = 0; i < found.e.length; i++) kd(ev(found.e.solution[i]));
+  html = registry["hint-body"].innerHTML;
+  assert(!isAsking(registry["hint-body"]),
+    "solving the clue takes the question away: " + html);
+  assert(html.includes("hint-step"),
+    "and hands over the rung it was asking about rather than dropping it: " + html);
+  assert(html.includes("solve-note") && html.includes(found.e.solution),
+    "and says the word you just found: " + html);
 }
 
 // --- the blocks rung walks every piece, and the panel never takes anything back ---
