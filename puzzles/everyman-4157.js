@@ -179,7 +179,7 @@ window.CRYPTIC_PUZZLES["everyman-4157"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Read 'rubbish' as a noun and the clue is a complaint about old junk; read it as a verb and it is the instruction. That switch of part of speech is the whole difficulty.",
+    "walkthrough": "Read 'rubbish' as a noun and the clue is a complaint about old junk; read it as a verb and it is the instruction.",
     "definitionFit": "To pen animals is to shut them in a fenced space, which is the sense the answer carries; the writing sense of 'pen' is the decoy."
    }
   },

@@ -633,7 +633,7 @@ window.CRYPTIC_PUZZLES["everyman-4123"] = /*JSON-START*/ {
      "YANKEE",
      "DOODLE"
     ],
-    "walkthrough": "'Drawn' looks like a job for a pencil, matching the scribble beside it, and means pulled instead. That switch is the whole difficulty of the clue.",
+    "walkthrough": "'Drawn' looks like a job for a pencil, matching the scribble beside it, and means pulled instead.",
     "definitionFit": "American icon → YANKEE-DOODLE: the Revolutionary War song and its feather-in-the-cap hero, still a byword for American self-image."
    }
   },

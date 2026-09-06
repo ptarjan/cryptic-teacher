@@ -785,7 +785,7 @@ window.CRYPTIC_PUZZLES["cryptic-30099"] = /*JSON-START*/ {
       "note": "a gag is tied over the mouth to muffle whoever wears it"
      }
     ],
-    "walkthrough": "'In one sense' looks like a concession — in one respect, scarves are amusing — and it is naming a faculty instead. That switch is the whole clue.",
+    "walkthrough": "'In one sense' looks like a concession — in one respect, scarves are amusing — and it is naming a faculty instead.",
     "definitionFit": "funny things to look at → SIGHT GAGS: visual comedy, the pratfall or the custard pie, which works without a word being spoken."
    }
   },

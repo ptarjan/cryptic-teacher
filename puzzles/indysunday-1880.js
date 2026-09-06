@@ -357,7 +357,7 @@ window.CRYPTIC_PUZZLES["indysunday-1880"] = /*JSON-START*/ {
       "note": "something banal is trite — worn out by repetition"
      }
     ],
-    "walkthrough": "'Popping off' is British slang for dying, so the definition reads on the surface like a send-off before somebody nips out for a moment. That misdirection is the whole clue.",
+    "walkthrough": "'Popping off' is British slang for dying, so the definition reads on the surface like a send-off before somebody nips out for a moment.",
     "definitionFit": "The last rites are the prayers a priest gives someone who is dying, so the ceremony really does come immediately before death."
    }
   },

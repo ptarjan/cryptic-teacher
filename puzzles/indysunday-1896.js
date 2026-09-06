@@ -928,7 +928,7 @@ window.CRYPTIC_PUZZLES["indysunday-1896"] = /*JSON-START*/ {
       "note": "six consecutive letters, read the wrong way, spanning the end of one word and the start of the next"
      }
     ],
-    "walkthrough": "'Ruth' is a book of the Hebrew bible, so it reads as more of the definition rather than as the letters doing the work. That is the whole trap.",
+    "walkthrough": "'Ruth' is a book of the Hebrew bible, so it reads as more of the definition rather than as the letters doing the work.",
     "definitionFit": "Hebrew bible -> TANACH: the Tanach is the Jewish scriptures, its name an acronym of the three parts — Torah, Nevi'im and Ketuvim."
    }
   },

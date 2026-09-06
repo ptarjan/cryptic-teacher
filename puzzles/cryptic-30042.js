@@ -1015,7 +1015,7 @@ window.CRYPTIC_PUZZLES["cryptic-30042"] = /*JSON-START*/ {
       "note": "the A from the clue"
      }
     ],
-    "walkthrough": "In an across clue, 'Turning left' means read backwards — the same job 'up' does in a down clue. That is the only instruction here."
+    "walkthrough": "In an across clue, 'Turning left' means read backwards — the same job 'up' does in a down clue."
    }
   },
   {

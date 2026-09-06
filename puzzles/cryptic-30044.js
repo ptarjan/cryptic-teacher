@@ -1196,7 +1196,7 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
       "note": "where your glasses perch"
      }
     ],
-    "walkthrough": "Read 'better' as the gambler rather than the comparative. That one re-reading is the whole clue, and once it flips, the spectacles perching on your nose do the rest."
+    "walkthrough": "Read 'better' as the gambler rather than the comparative. Once it flips, the spectacles perching on your nose do the rest."
    }
   },
   {

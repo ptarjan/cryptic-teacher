@@ -203,7 +203,7 @@ window.CRYPTIC_PUZZLES["cryptic-30053"] = /*JSON-START*/ {
       "note": "the closing letter of speecH"
      }
     ],
-    "walkthrough": "'Long' opens the clue looking like an adjective sizing up the speech, and it is really the verb — to long for something. That switch is the whole difficulty.",
+    "walkthrough": "'Long' opens the clue looking like an adjective sizing up the speech, and it is really the verb — to long for something.",
     "definitionFit": "Long → ACHE: to ache for a thing is to yearn for it, and both verbs carry the sense of a want that hurts."
    }
   },

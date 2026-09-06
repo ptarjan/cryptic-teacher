@@ -962,7 +962,7 @@ window.CRYPTIC_PUZZLES["everyman-4158"] = /*JSON-START*/ {
       "note": "a rani is an Indian queen or princess, the feminine of raja"
      }
     ],
-    "walkthrough": "The English plural would end in -OS, and the crossing letter shows the setter has gone to the opera house for the Italian one instead. That last letter is the whole difficulty.",
+    "walkthrough": "The English plural would end in -OS, and the crossing letter shows the setter has gone to the opera house for the Italian one instead.",
     "definitionFit": "Soprani is the Italian plural of soprano, the highest voices in a choir, so it names singers by their range."
    }
   },

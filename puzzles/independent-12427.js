@@ -1175,7 +1175,7 @@ window.CRYPTIC_PUZZLES["independent-12427"] = /*JSON-START*/ {
       "note": "ER, Elizabeth Regina, is the queen crosswords mean"
      }
     ],
-    "walkthrough": "'Man of the cloth' means a vicar almost everywhere else in English, and here it means a draper. That one swap is the whole clue.",
+    "walkthrough": "'Man of the cloth' means a vicar almost everywhere else in English, and here it means a draper.",
     "definitionFit": "A mercer is a dealer in fine fabric, so the definition is meant with a straight face: the trade, not the clergy."
    }
   },

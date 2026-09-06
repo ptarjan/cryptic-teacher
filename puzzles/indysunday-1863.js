@@ -1156,7 +1156,7 @@ window.CRYPTIC_PUZZLES["indysunday-1863"] = /*JSON-START*/ {
       "note": "H is the road-sign abbreviation for hospital"
      }
     ],
-    "walkthrough": "'People' is the verb, not the noun — to people a place. That single shift is the whole misdirection, and the surface's queue of bored patients keeps it up.",
+    "walkthrough": "'People' is the verb, not the noun — to people a place. The surface's queue of bored patients keeps it up.",
     "definitionFit": "To people a place is to fill it with residents, and to inhabit it is to be those residents: the same act from either end."
    }
   },

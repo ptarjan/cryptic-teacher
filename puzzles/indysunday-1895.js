@@ -594,7 +594,7 @@ window.CRYPTIC_PUZZLES["indysunday-1895"] = /*JSON-START*/ {
       "note": "OP is short for opus, a composer's work"
      }
     ],
-    "walkthrough": "The surface pictures gowned academics handing out assignments, and 'dons' is the verb rather than the noun. That is the whole joke of the clue.",
+    "walkthrough": "The surface pictures gowned academics handing out assignments, and 'dons' is the verb rather than the noun.",
     "definitionFit": "Perfect → UTOPIAN: describing an ideal world, so it means perfect in the impossibly flawless sense rather than finished or complete."
    }
   },

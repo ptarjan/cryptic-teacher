@@ -291,7 +291,7 @@ window.CRYPTIC_PUZZLES["independent-12424"] = /*JSON-START*/ {
       "note": "the flat literal reading — what goes into the pot once the kettle has boiled"
      }
     ],
-    "walkthrough": "'In hot water' works both halves at once: trouble for the burglar, and the teapot for the leaf. That single phrase doing two jobs is the whole joke.",
+    "walkthrough": "'In hot water' works both halves at once: trouble for the burglar, and the teapot for the leaf.",
     "definitionFit": "tea leaf is the Cockney rhyme for thief, and the same two words also name the literal leaf that gets brewed, so the phrase carries both senses."
    }
   },

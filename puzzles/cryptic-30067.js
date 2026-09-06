@@ -442,7 +442,7 @@ window.CRYPTIC_PUZZLES["cryptic-30067"] = /*JSON-START*/ {
       "note": "last letter of workinG"
      }
     ],
-    "walkthrough": "'Frier' looks like a person at the stove and is the pan itself. That single re-reading is the whole clue, which is why it only needs four letters."
+    "walkthrough": "'Frier' looks like a person at the stove and is the pan itself."
    }
   },
   {

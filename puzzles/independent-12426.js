@@ -1486,7 +1486,7 @@ window.CRYPTIC_PUZZLES["independent-12426"] = /*JSON-START*/ {
      }
     ],
     "definitionNote": "'Riding' is a verb and UPON a preposition, so the two do not swap cleanly: the question mark covers the stretch, since you ride by sitting upon the animal.",
-    "walkthrough": "The enumeration says one word and the first definition wants two, up on. Those four letters reading either way is the whole of the joke.",
+    "walkthrough": "The enumeration says one word and the first definition wants two, up on. Those four letters read either way.",
     "definitionFit": "Up on the news means familiar with it, while a rider sits upon a horse: the same four letters, spaced in one sense and closed in the other."
    }
   }

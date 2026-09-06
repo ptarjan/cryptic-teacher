@@ -929,7 +929,7 @@ window.CRYPTIC_PUZZLES["indysunday-1894"] = /*JSON-START*/ {
       "note": "the noise bombing makes, the word itself rather than a word resembling it"
      }
     ],
-    "walkthrough": "'Sound of' is the standard signal for a word said aloud, and here it means the actual noise instead. That is the whole trap.",
+    "walkthrough": "'Sound of' is the standard signal for a word said aloud, and here it means the actual noise instead.",
     "definitionFit": "Former Soviet regions -> OBLASTS: an oblast is an administrative province of Russia and its neighbours, the tier the USSR was governed through."
    }
   },

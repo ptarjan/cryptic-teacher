@@ -307,7 +307,7 @@ window.CRYPTIC_PUZZLES["cryptic-30092"] = /*JSON-START*/ {
       "note": "the two words shrink to three letters, then turn round"
      }
     ],
-    "walkthrough": "'Something to kick' pulls hard towards a ball, and the answer needs the dying idiom instead. That single swap is the whole difficulty of the clue.",
+    "walkthrough": "'Something to kick' pulls hard towards a ball, and the answer needs the dying idiom instead.",
     "definitionFit": "pass → BUS TICKET: a pass is any slip that buys you entry or travel, and the fare paid to ride is one everyday instance."
    }
   },

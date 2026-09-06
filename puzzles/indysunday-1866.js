@@ -1188,7 +1188,7 @@ window.CRYPTIC_PUZZLES["indysunday-1866"] = /*JSON-START*/ {
       "note": "a small hotel is an inn"
      }
     ],
-    "walkthrough": "No word here says 'inside': the geography does it, because a hotel taking on the Plaza has to be in the same city. That is the whole instruction.",
+    "walkthrough": "No word here says 'inside': the geography does it, because a hotel taking on the Plaza has to be in the same city.",
     "definitionFit": "Silly -> NINNY: a ninny is a foolish, feeble creature, the mild playground insult for someone behaving daftly rather than someone genuinely stupid."
    }
   },

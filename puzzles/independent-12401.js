@@ -1553,7 +1553,7 @@ window.CRYPTIC_PUZZLES["independent-12401"] = /*JSON-START*/ {
       "note": "eleven letters of fodder — the whole of the clue except its last two words"
      }
     ],
-    "walkthrough": "'Go live' is broadcasting jargon and 'under' looks like a positional instruction, so the fodder does not read as fodder at all. That disguise is the whole difficulty.",
+    "walkthrough": "'Go live' is broadcasting jargon and 'under' looks like a positional instruction, so the fodder does not read as fodder at all.",
     "definitionFit": "To gorge is to eat far more than you should, which is the verb the answer supplies in a slightly politer register."
    }
   },

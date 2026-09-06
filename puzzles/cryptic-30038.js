@@ -1020,7 +1020,7 @@ window.CRYPTIC_PUZZLES["cryptic-30038"] = /*JSON-START*/ {
       "note": "able = clever, capable"
      }
     ],
-    "walkthrough": "The two halves are clued the wrong way round on purpose, which is what lets 'clever girl' read so naturally. That swap is the only wordplay there is.",
+    "walkthrough": "The two halves are clued the wrong way round on purpose, which is what lets 'clever girl' read so naturally.",
     "definitionFit": "Something missable is easy to overlook, so it is by definition hard to spot — the adjective is built straight from the verb miss."
    }
   },

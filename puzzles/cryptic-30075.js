@@ -614,7 +614,7 @@ window.CRYPTIC_PUZZLES["cryptic-30075"] = /*JSON-START*/ {
       "note": "lying across the join: pasTA STEalthily"
      }
     ],
-    "walkthrough": "'Sample' is a verb here, and it sits beside two food words that keep pulling it towards its noun sense. That is the whole disguise.",
+    "walkthrough": "'Sample' is a verb here, and it sits beside two food words that keep pulling it towards its noun sense.",
     "definitionFit": "To taste a dish is to sample it: both name the act of trying a small amount in order to judge the whole."
    }
   },

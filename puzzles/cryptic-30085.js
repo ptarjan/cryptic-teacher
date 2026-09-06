@@ -1322,7 +1322,7 @@ window.CRYPTIC_PUZZLES["cryptic-30085"] = /*JSON-START*/ {
       "note": "'close to' takes the last letter of home"
      }
     ],
-    "walkthrough": "Noisome has nothing to do with noise: it means foul or offensive, and comes from the same root as annoy. That false friend is the whole difficulty of the clue.",
+    "walkthrough": "Noisome has nothing to do with noise: it means foul or offensive, and comes from the same root as annoy.",
     "definitionFit": "Offensive → NOISOME: noisome describes something, usually a smell, so foul that it offends the senses rather than merely displeasing you."
    }
   },

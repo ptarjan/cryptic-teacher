@@ -482,7 +482,7 @@ window.CRYPTIC_PUZZLES["cryptic-30040"] = /*JSON-START*/ {
       "note": "TRUMP cut short — 'snubbed' as in snub-nosed"
      }
     ],
-    "walkthrough": "'Snubbed' means cut short, as in a snub nose, rather than slighted — and the president loses his last letter for it. That double sense is the whole joke.",
+    "walkthrough": "'Snubbed' means cut short, as in a snub nose, rather than slighted — and the president loses his last letter for it.",
     "definitionFit": "A spectrum is the colourful band of light produced when white light is split apart, as by a prism."
    }
   },

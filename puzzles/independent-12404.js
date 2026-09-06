@@ -110,7 +110,7 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
       "note": "to put something somewhere is to position it"
      }
     ],
-    "walkthrough": "'Position' reads as a noun in the surface — a post held in the party — and the wordplay needs it as a verb instead. That switch is the whole difficulty."
+    "walkthrough": "'Position' reads as a noun in the surface — a post held in the party — and the wordplay needs it as a verb instead."
    }
   },
   {
@@ -1140,7 +1140,7 @@ window.CRYPTIC_PUZZLES["independent-12404"] = /*JSON-START*/ {
       "note": "sick = ill"
      }
     ],
-    "walkthrough": "'Leave' is a noun in the surface — the sick leave you book — and a verb in the wordplay. That change of part of speech is the whole of the difficulty."
+    "walkthrough": "'Leave' is a noun in the surface — the sick leave you book — and a verb in the wordplay."
    }
   },
   {

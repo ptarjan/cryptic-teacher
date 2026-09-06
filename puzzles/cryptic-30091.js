@@ -302,7 +302,7 @@ window.CRYPTIC_PUZZLES["cryptic-30091"] = /*JSON-START*/ {
       "note": "the last letter of daY"
      }
     ],
-    "walkthrough": "'Incline' has to be read as a noun, though the surface offers it as a verb, being inclined to quash something. That switch is the whole disguise.",
+    "walkthrough": "'Incline' has to be read as a noun, though the surface offers it as a verb, being inclined to quash something.",
     "definitionFit": "The answer is the surveyor's word for a slope running upward, which is what a road's incline is: one noun plain, one technical."
    }
   },

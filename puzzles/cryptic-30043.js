@@ -596,7 +596,7 @@ window.CRYPTIC_PUZZLES["cryptic-30043"] = /*JSON-START*/ {
       "note": "lean years offer little profit"
      }
     ],
-    "walkthrough": "'Offering little of profit' looks like an instruction to shorten a word, and it is nothing of the kind: it is a plain definition of LEAN. That false signal is the whole difficulty.",
+    "walkthrough": "'Offering little of profit' looks like an instruction to shorten a word, and it is nothing of the kind: it is a plain definition of LEAN.",
     "definitionFit": "A Chilean is a native of Chile, one specific nationality within South America, so the definition names the answer by geographic example."
    }
   },
