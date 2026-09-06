@@ -633,4 +633,25 @@ if [ -n "$bar" ]; then
   alert "$bar"
 fi
 
+# The bad-hint reports solvers sent. Nothing read this queue until 2026-09-06 —
+# the endpoint stored them correctly and they sat in KV until somebody thought
+# to run the tool, which is a report button that works and a report nobody
+# answers. Last, because it is the only step that asks a person for something.
+#
+# The payload IS the alert: reports.py prints nothing when the queue is empty,
+# and a failure to read it is worth waking for too — an unreadable queue looks
+# exactly like an empty one from here. Each key costs a wrangler round trip, so
+# --since bounds a bad week; anything older is still in `tools/reports.py` with
+# no argument.
+bad_hints=$(python3 tools/reports.py --since 14 2>&1) || bad_hints="tools/reports.py
+could not read the bad-hint queue, so reports are arriving and nobody is seeing
+them: $bad_hints"
+case "$bad_hints" in
+  "no bad-hint reports"*) ;;
+  "") ;;
+  *) alert "solvers reported bad hints:
+
+$bad_hints" ;;
+esac
+
 echo "=== done ==="
