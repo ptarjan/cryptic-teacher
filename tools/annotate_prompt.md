@@ -156,6 +156,10 @@ Rules:
 - For linked entries (a `group` with several ids, e.g. "1-across"/"9-across" where one
   clue reads "See 1"), put the full annotation on the FIRST entry of the group with
   `"coversGroup": true`, and give the other entries `{"linkedTo": "<first-id>"}`.
+  A `linkedTo` entry holds that key and nothing else — every other check skips it, so
+  a `type` or a `walkthrough` beside it is dead weight that will never be read. On the
+  `coversGroup` entry, `answer` is the group's solutions run together with no spaces,
+  in group order, and the blocks must account for all of those letters at once.
 - The `definition` must be SUBSTITUTABLE for the answer: same part of speech, same
   inflection. Say the swap out loud before you settle on it — a plural answer needs a
   plural definition, an `-ing` answer an `-ing` definition, a verb a verb. This is the
@@ -238,6 +242,17 @@ Rules:
   `worker` = ANT), which the app teaches in its own right; this is general knowledge that
   only looks general from inside Britain. Do not gloss what a dictionary reader anywhere
   already has — "London", "the Thames", "Shakespeare" need nothing.
+- A block whose `gives` is one to three capitals, and whose `clueFragment` is a word
+  those letters begin or two words they initialise, is read as leaning on a standing
+  convention; the validator warns when `tools/data/abbreviations.json` has no such
+  row. The `note` decides how to clear it. If the letters came from an OPERATION the
+  clue asked for — a first or last letter, outer or odd letters, a deletion, a
+  reversal, a sound — name that operation in the note and it is no longer a
+  convention, because nothing was looked up. If they really are a convention the
+  solver should own forever, add the row to `tools/data/abbreviations.json` and run
+  `python3 tools/build_abbreviations.py`. Fragments led by `a`, `an`, `the`, `of`,
+  `to`, `in`, `on`, `and`, `two` or `is` are never treated as conventions — those are
+  two pieces run together, and want two blocks.
 - Show the trap, not just the exit. The obvious wrong reading is the thing the solver
   actually has in their head when they reach for a hint, and a walkthrough that goes
   straight to the right parse never meets them there. Where a clue has one dominant false
@@ -326,8 +341,23 @@ python3 tools/validate_annotations.py <ID>
 
 Iterate until it reports `N/N annotated — OK` with no ERROR lines (warnings about block
 fragments are acceptable but worth fixing). Fix by editing `tools/_ann_<ID>.json` and
-re-running `apply_annotations.py` — that file stays put for exactly this. Then refresh
-the index:
+re-running `apply_annotations.py` — that file stays put for exactly this.
+
+Three rules about HOW to run it, because the loop is where the turns go:
+
+- **One run, one edit pass.** Read every `warn:` and `ERROR:` line the run printed
+  before you change anything, fix them all in one edit of `tools/_ann_<ID>.json`, then
+  re-run once. Fixing one warning and re-running to see the next costs a full turn per
+  warning and finds nothing the first run had not already told you.
+- **Run it on its own.** No `&&`, no `;`, no piping it into `grep`/`tail`, no `rm`
+  in front of it. A compound command needs approval this run cannot give, so the
+  whole thing aborts and the validator never runs at all.
+- **Never open `validate_annotations.py`.** Everything it enforces is in the Reference
+  below — every check, every limit, every rejected word. If a message it prints cannot
+  be understood from this file, that is a gap in this file: say so in your final
+  summary so it gets filled, and decide the clue on the message text alone.
+
+Then refresh the index:
 
 ```
 python3 tools/fetch_puzzle.py --reindex
