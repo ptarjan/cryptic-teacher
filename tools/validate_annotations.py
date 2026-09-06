@@ -153,6 +153,26 @@ WALKTHROUGH_PREAMBLE = [
 # the trick stated, not a preamble to it. A check that warns on good sentences
 # gets ignored on the bad ones.
 
+# Closing sentences that grade the walkthrough instead of continuing it. The
+# predicate list is what makes these empty: "the whole difficulty", "the whole
+# joke" are the reader's own reaction handed back, whereas "It is only the first
+# letter going" ends on the same grammar and names a mechanism, so it must not
+# match. Both patterns require a demonstrative subject pointing BACK at the
+# sentence just written; that back-reference is the defect, not the wording.
+WALKTHROUGH_EMPTY_CLOSER = [
+    (r"(That|This|Those|These|Both|It)\b[\w' ’-]{0,45}?\b(is|are)\b[\w' ]{0,10}?"
+     r"\b(whole|entire|only|real)\b(\s+of\s+the)?\s+\w{0,10}\s?"
+     r"(difficulty|clue|trick|trap|point|joke|disguise|misdirection|wordplay|"
+     r"instruction|deception|challenge|game)\b",
+     "a verdict on the sentence before it, not a fact about the clue"),
+    (r"(That|This|Those|These|Both|It)\b[\w' ’-]{0,45}?"
+     r"\b(send|sends|lead|leads|take|takes|carry|carries|push|pushes|steer|"
+     r"steers|walk|walks|march|marches)\b[^.]{0,45}?"
+     r"\b(past|by|away|off|astray|elsewhere)\b",
+     "a restatement that the trap is a trap, which the reader worked out from "
+     "the trap"),
+]
+
 
 # Set by --unscoped: run the authored-only checks on published puzzles as well.
 # This exists so the calibration in every authored check's docstring can be
@@ -222,6 +242,34 @@ def check_walkthrough_opener(tag, ann, warnings):
                 f"{tag}: walkthrough opens with {m.group(0).strip()!r} — {why}. "
                 f"Cut the preamble and start with the trick itself; the app has "
                 f"already labelled the paragraph 'The trick'")
+            return
+
+
+def check_walkthrough_closer(tag, ann, warnings):
+    """The last sentence carries a fact, not a verdict on the sentence before it.
+
+    Two shapes say nothing: "That switch is the whole difficulty" restates the
+    trick just described and grades it, and "Both readings send you straight past
+    the letters" restates that a trap is a trap. Both are the reader's own
+    conclusion handed back to them — 2026-09-06 feedback on everyman-4167 22A was
+    that "the last sentence was just useless".
+
+    Matched only as a whole final sentence and only with an abstract predicate.
+    "It is only the first letter going" and "It is only an equals sign, joining
+    the definition to the two chunks" survive on purpose: they name a mechanism,
+    which is a fact. A warning — the cure is deleting the sentence, and where the
+    walkthrough has room, spending it on the surface joke instead."""
+    wt = (ann.get("walkthrough") or "").strip()
+    sents = [s for s in re.split(r"(?<=[.!?])\s+", wt) if s.strip()]
+    if len(sents) < 2:
+        return
+    for pat, why in WALKTHROUGH_EMPTY_CLOSER:
+        if re.match(pat, sents[-1], re.I):
+            warnings.append(
+                f"{tag}: walkthrough ends on {sents[-1]!r} — {why}. Cut it, or "
+                f"spend the sentence on something the reader does not have yet: "
+                f"what the surface is saying, or why the answer fits the "
+                f"definition")
             return
 
 
@@ -1601,6 +1649,11 @@ def validate_puzzle(puzzle):
 
         check_coverage(tag, ann, clue, warnings)
         check_part_of_speech(tag, ann, warnings)
+        # Not under `authored`. is_authored means WE wrote the clue; the
+        # walkthrough is ours either way, and every hit these two have ever had
+        # was on a published grid. Gated, they would never fire.
+        check_walkthrough_opener(tag, ann, warnings)
+        check_walkthrough_closer(tag, ann, warnings)
         if authored:
             check_two_pieces(tag, ann, errors)
             check_walkthrough_budget(tag, ann, warnings)

@@ -1648,9 +1648,8 @@
     const d = radius * 2 + 34;
     return `<div class="anagram-ring">
       <div class="ana-disc" style="width:${d}px;height:${d}px">${tiles}</div>
-      <p class="muted">The same letters with no order to fall back into. Tap a letter to
-        cross it off once you have placed it, and shuffle when the arrangement
-        stops suggesting anything.</p>
+      <p class="muted">Tap a letter to cross it off once you've used it.
+        Shuffle for a fresh arrangement.</p>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
   }
@@ -2351,7 +2350,7 @@
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
       ${placedHTML(guessing.placed)}
       <p>${ask.prompt}${inClue && !ask.choices
-        ? ` <span class="muted">Tap them in the clue above.</span>` : ""}</p>
+        ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
       <p class="guess-actions">${check}<button id="guess-tell" class="ghost small">Just tell me</button></p></div>`;
   }
@@ -2483,8 +2482,15 @@
     return hintsEarned[key] || (hintsEarned[key] = []);
   }
 
-  function hintStepHTML(step, position) {
-    return `<div class="hint-step"><span class="step-label">${position} · ${esc(step.label)}</span>${step.html}</div>`;
+  // `won` marks a rung that was opened by pointing at the right words rather
+  // than bought. The verdict banner says so at the moment it happens and is then
+  // gone — it is deliberately not persisted — so without this the ladder reads
+  // identically whether you earned five rungs or paid for five, and the one
+  // number the site is for disappears as soon as you scroll (Paul, 2026-09-06).
+  function hintStepHTML(step, position, won) {
+    return `<div class="hint-step${won ? " won" : ""}"><span class="step-label">${
+      position} · ${esc(step.label)}${
+      won ? '<span class="step-won">worked out · free</span>' : ""}</span>${step.html}</div>`;
   }
 
   // Where the answer's words break, read straight off the clue's own
@@ -2815,7 +2821,7 @@
         // clue with it, so what you pointed at and what was actually there can
         // be read side by side against the explanation, for as long as you like.
         if (lastGuess && lastGuess.rung === s.key) bodyHTML += verdictHTML(lastGuess);
-        bodyHTML += hintStepHTML(s, i + 1);
+        bodyHTML += hintStepHTML(s, i + 1, earnedRungs(e).indexOf(s.key) >= 0);
       });
       // The legend is built from what is actually highlighted, for the same
       // reason clueHTML is: it was keyed off the definition rung, so taking the
@@ -2876,8 +2882,13 @@
         // asking you first (Paul, 2026-08-27). What it is recommending is still
         // visible: the lead is the plain button and the sideways moves are
         // ghosts, which is where that has always been said.
-        nextSpec.push({ rung: s.key, cls: j > 0 ? "ghost small" : "",
-          text: `${n} · ${s.label}` });
+        // "Free" rides on the button, not only in the meter above it. Once the
+        // clue is solved its score is settled and the rest of the ladder is
+        // free, but the decision to open one is made at the button, and a button
+        // that reads the same as it did when it charged is not telling you
+        // (Paul, 2026-09-06 — the meter line alone was not enough).
+        nextSpec.push({ rung: s.key, cls: (j > 0 ? "ghost small" : "") + (solved ? " free" : ""),
+          text: `${n} · ${s.label}${solved ? " · free" : ""}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
         nextSpec.push({ cls: "ghost small locked", disabled: true, text: `${n} · ${s.label}`,

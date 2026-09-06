@@ -1050,7 +1050,7 @@ window.CRYPTIC_PUZZLES["everyman-4167"] = /*JSON-START*/ {
       "note": "seven letters in a row, running across the join between the two words"
      }
     ],
-    "walkthrough": "'Mentioned' looks like an instruction to listen, and 'Kind of' reads as one phrase meaning 'a sort of'. Both readings send you straight past the letters lying in plain sight.",
+    "walkthrough": "Read straight, this is a sort of article that somebody brought up — and the only wordplay word in the whole clue is the tiny 'of'. 'Mentioned' is dressed as a homophone signal and is really just more of the hiding place.",
     "definitionFit": "Clement weather is mild and a clement judge is merciful, so the word comes out as kind — gentle where it could be harsh."
    }
   },

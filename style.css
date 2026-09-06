@@ -520,6 +520,13 @@ button:disabled:hover { border-color: var(--line); }
   text-transform: uppercase; letter-spacing: 1px; color: var(--accent);
   display: block; margin-bottom: 4px;
 }
+/* A rung won by pointing at the right words. Green and a left rule, because the
+   label is the only place these differ from a bought rung and one extra word in
+   the same colour disappears into the row of them. */
+.hint-step.won { border-left: 3px solid var(--ok); padding-left: 8px; }
+.step-won {
+  color: var(--ok); margin-left: 8px; letter-spacing: .06em;
+}
 .hint-step p, .hint-step ul { margin: 4px 0; }
 .hint-step ul { padding-left: 20px; }
 .hint-step .gives { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; }
@@ -533,6 +540,10 @@ button:disabled:hover { border-color: var(--line); }
    width of its words: the strip wraps instead. Same rule for the family chips,
    whose labels are the same kind of length. */
 #hint-next button, .guess-choices .gc { flex: 0 0 auto; }
+/* Once the clue is solved the rest of the ladder costs nothing. The decision to
+   open one is made at the button, so the button has to be the thing that says
+   so — the meter line above it was already saying it and was still being missed. */
+#hint-next button.free { border-color: var(--ok); color: var(--ok); }
 #hint-escape { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--line); font-size: .8rem; }
 #hint-escape:empty { display: none; }
 #hint-escape button { color: var(--muted); }
@@ -575,6 +586,21 @@ button:disabled:hover { border-color: var(--line); }
    is merely being read wants its own tighter leading back. */
 .hint-clue.picking { line-height: 2.1; }
 .hint-clue .guess-clue { line-height: inherit; }
+/* The question appears in the panel BELOW while the thing to tap is the clue
+   ABOVE it, so nothing on screen moves at the place the solver has to act. One
+   flash when picking begins, sending the eye up to the line that just became
+   interactive (Paul, 2026-09-06). It fires once because the class goes on the
+   element rather than into the markup setHTML rewrites, so a re-render mid-guess
+   does not restart it. */
+.hint-clue.picking {
+  border-radius: 6px; animation: clue-live .9s ease-out 1;
+}
+@keyframes clue-live {
+  0%   { box-shadow: 0 0 0 0 var(--accent-soft); }
+  35%  { box-shadow: 0 0 0 6px var(--accent-soft); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) { .hint-clue.picking { animation: none; } }
 /* A word you point at wears the colour of the thing you are pointing it out AS:
    green on the definition rung because a definition is green everywhere else on
    the page, pink on the others because that is what an indicator and a wordplay
@@ -600,6 +626,15 @@ button:disabled:hover { border-color: var(--line); }
   padding: 1px 6px; margin: 0 1px;
   background: transparent; border: 1px solid var(--line); border-radius: 4px;
 }
+/* A hairline in --line is the border every inert box on the page wears, so an
+   untapped word read as a box rather than as a target. Only the ones that are
+   actually buttons get the dashed rule in the rung's own colour: .gw is also
+   rendered as a <span> once the guess has been graded, and a graded word must
+   not still look like something to press. */
+button.gw { border-style: dashed; border-color: var(--pick-fg); }
+/* This sentence is the only thing that says WHERE to act, and it was muted grey
+   — the page's styling for an aside. It is the instruction. */
+.tap-hint { color: var(--accent); font-weight: 600; }
 /* Big enough to hit with a thumb without the clue turning into a keypad. */
 @media (pointer: coarse) { .gw { padding: 5px 8px; } }
 .gw.on { background: var(--pick-bg); border-color: var(--pick-fg); color: var(--pick-fg); }
