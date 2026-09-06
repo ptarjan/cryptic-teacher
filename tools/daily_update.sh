@@ -657,17 +657,25 @@ fi
 # exactly like an empty one from here. Each key costs a wrangler round trip, so
 # --since bounds a bad week; anything older is still in `tools/reports.py` with
 # no argument.
-bad_hints=$(python3 tools/reports.py --since 14 2>&1) || bad_hints="tools/reports.py
-could not read the bad-hint queue, so reports are arriving and nobody is seeing
-them: $bad_hints"
-case "$bad_hints" in
-  "no bad-hint reports"*) ;;
-  "") ;;
-  *) alert "solvers reported bad hints. Each one is a sample of a class, not an
+#
+# Two alerts, not one. A read that failed is not a solver complaining, and
+# saying "solvers reported bad hints" over a wrangler stack trace sends whoever
+# answers it hunting for a clue to fix that nobody reported.
+if bad_hints=$(python3 tools/reports.py --since 14 2>&1); then
+  case "$bad_hints" in
+    "no bad-hint reports"*) ;;
+    "") ;;
+    *) alert "solvers reported bad hints. Each one is a sample of a class, not an
 incident — fix the clue, then measure the shape across every walkthrough and
 make it a rule if it matches cleanly (see the docstring in tools/reports.py):
 
 $bad_hints" ;;
-esac
+  esac
+else
+  alert "the bad-hint queue could not be read, so reports are arriving and
+nobody is seeing them. No solver is quoted below — this is why the read failed:
+
+$bad_hints"
+fi
 
 echo "=== done ==="
