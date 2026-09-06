@@ -44,7 +44,13 @@ MIN_OUTPUT_TOKENS = 20000
 def sessions():
     """Yield (started, api_calls, text_turns) for every annotation transcript."""
     for path in TRANSCRIPTS:
-        started, first_user, calls, text_turns, out_tokens = None, None, 0, 0, 0
+        started, first_user, out_tokens = None, None, 0
+        # Keyed by the API's own message id, because the CLI writes one JSONL
+        # line PER CONTENT BLOCK and stamps every one of them with the whole
+        # turn's usage. Counting lines bills a turn once per block, and a line
+        # holding only the text half of a turn that also called a tool looks
+        # exactly like a turn that called nothing.
+        turns = {}
         try:
             with path.open(encoding="utf-8", errors="replace") as fh:
                 for line in fh:
@@ -63,18 +69,22 @@ def sessions():
                         first_user = (content or "") if isinstance(content, str) else ""
                     if rec.get("type") != "assistant":
                         continue
-                    calls += 1
-                    out_tokens += (msg.get("usage") or {}).get("output_tokens") or 0
+                    mid = msg.get("id") or rec.get("uuid")
+                    if mid not in turns:
+                        turns[mid] = False
+                        out_tokens += (msg.get("usage") or {}).get("output_tokens") or 0
                     body = msg.get("content")
-                    if isinstance(body, list) and not any(
+                    if isinstance(body, list) and any(
                             isinstance(c, dict) and c.get("type") == "tool_use" for c in body):
-                        text_turns += 1
+                        turns[mid] = True
         except OSError:
             continue
         if not started or not (first_user or "").strip().startswith("Annotate"):
             continue
         if out_tokens < MIN_OUTPUT_TOKENS:
             continue
+        calls = len(turns)
+        text_turns = sum(1 for acted in turns.values() if not acted)
         yield datetime.datetime.fromisoformat(started.replace("Z", "+00:00")), calls, text_turns
 
 
