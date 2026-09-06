@@ -3667,6 +3667,10 @@ global.realSetTimeout(() => {
     registry["rp-open"].onclick();
     assert(/id="rp-note"/.test(registry["hint-escape"].innerHTML),
       "and opening it gives you the line to write on: " + registry["hint-escape"].innerHTML);
+    // Something you can read your own sentence back in. It accepts 400
+    // characters and used to offer one 280px line for them (Paul, 2026-09-06).
+    assert(/<textarea id="rp-note"[^>]*rows="[3-9]"/.test(registry["hint-escape"].innerHTML),
+      "with room to write in: " + registry["hint-escape"].innerHTML);
 
     // Typing into the page re-renders the panel on every keystroke. A strip that
     // is rewritten while you are writing in it throws the sentence away.
