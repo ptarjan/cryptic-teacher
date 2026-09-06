@@ -554,7 +554,7 @@ window.CRYPTIC_PUZZLES["cryptic-30041"] = /*JSON-START*/ {
       "note": "to vet something is to check it"
      }
     ],
-    "walkthrough": "Three separate moves in seven letters, which is why this one takes a while: 'almost' clips a letter, 'held in' inserts, and only then do the parts stack up."
+    "walkthrough": "'Almost' clips a letter, 'held in' inserts, and only then do the parts stack up."
    }
   },
   {

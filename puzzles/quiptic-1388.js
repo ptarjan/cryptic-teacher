@@ -1311,7 +1311,7 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
       "note": "a plain synonym"
      }
     ],
-    "walkthrough": "As simple as charades come: B for British in front of a race. The definition is the verb, as in bracing a shelf.",
+    "walkthrough": "B for British in front of a race. The definition is the verb, as in bracing a shelf.",
     "definitionFit": "To brace something is to support or strengthen it, as a builder braces a wall — a plain verb synonym."
    }
   },

@@ -477,7 +477,7 @@ window.CRYPTIC_PUZZLES["quiptic-1396"] = /*JSON-START*/ {
       "note": "love is nothing in tennis, written as a nought, and it is the letter that departs"
      }
     ],
-    "walkthrough": "Three instructions in five words: take a word, drop a letter, rearrange the rest. Love for O comes from the tennis score and is one of the most useful conventions there is.",
+    "walkthrough": "Take a word, drop a letter, rearrange the rest. Love for O comes from the tennis score and is one of the most useful conventions there is.",
     "definitionFit": "traps → SNARES: a snare is a wire noose set to catch an animal, and by extension any trap laid for the unwary."
    }
   },

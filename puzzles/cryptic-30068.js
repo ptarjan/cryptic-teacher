@@ -943,7 +943,7 @@ window.CRYPTIC_PUZZLES["cryptic-30068"] = /*JSON-START*/ {
       "note": "Eli, the high priest who raised Samuel"
      }
     ],
-    "walkthrough": "Two mechanisms at once: four letters are shuffled, and the priest is dropped into the middle of the result. Eli is crosswordland's standing high priest, three handy letters.",
+    "walkthrough": "Four letters are shuffled, and the priest is dropped into the middle of the result. Eli is crosswordland's standing high priest, three handy letters.",
     "definitionFit": "To relieve a sentry is to cover for them by taking over the duty — the shift-work sense of the verb, not the easing of pain."
    }
   },

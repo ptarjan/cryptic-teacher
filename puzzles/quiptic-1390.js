@@ -756,7 +756,7 @@ window.CRYPTIC_PUZZLES["quiptic-1390"] = /*JSON-START*/ {
       "note": "hidden across all three words: pariS ART REvolution"
      }
     ],
-    "walkthrough": "A lovely match of surface and answer: Sartre was the great philosopher of Paris cafe society, and he is literally sitting in 'Paris art revolution'.",
+    "walkthrough": "Sartre was the great philosopher of Paris cafe society, and he is literally sitting in 'Paris art revolution'.",
     "definitionFit": "Jean-Paul Sartre, the French existentialist, is a philosopher defined by example — and the Parisian surface is a broad hint at which one."
    }
   },

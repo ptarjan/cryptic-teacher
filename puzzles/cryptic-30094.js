@@ -931,7 +931,7 @@ window.CRYPTIC_PUZZLES["cryptic-30094"] = /*JSON-START*/ {
     "anagram": {
      "fodder": "MAGINE"
     },
-    "walkthrough": "Two instructions stacked on one word: strip the front of 'imagine', then rebuild what is left. 'Resolved' is also what happens to a riddle.",
+    "walkthrough": "Strip the front of 'imagine', then rebuild what is left. 'Resolved' is also what happens to a riddle.",
     "definitionFit": "Both name a baffling thing posed to be worked out, the answer being the grander word for the same object."
    }
   },

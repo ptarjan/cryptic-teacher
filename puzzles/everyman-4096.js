@@ -710,7 +710,7 @@ window.CRYPTIC_PUZZLES["everyman-4096"] = /*JSON-START*/ {
       "note": "the last letter of whistleR"
      }
     ],
-    "walkthrough": "Two instructions are working and only one is loud: 'playing' shuffles, while 'at the end' quietly asks for one letter. A sitar and a tin whistle sound like a band, which is the last place you look for orders.",
+    "walkthrough": "'Playing' shuffles, while 'at the end' quietly asks for one letter. A sitar and a tin whistle sound like a band, which is the last place you look for orders.",
     "definitionFit": "An irritant is anything that rubs you the wrong way — a rash, a noise, a neighbour — so the definition names them by the nuisance they cause."
    }
   },

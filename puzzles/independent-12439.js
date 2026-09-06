@@ -190,7 +190,7 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
       "note": "the R and the S at either end come away"
      }
     ],
-    "walkthrough": "Two steps, and the first is the buried one: the clue never prints the word you are meant to demolish, only a synonym for it.",
+    "walkthrough": "The first step here is the buried one: the clue never prints the word you are meant to demolish, only a synonym for it.",
     "definitionFit": "To enter a figure is to write it into a ledger or register, the bookkeeping sense of the verb rather than walking through a door."
    }
   },
@@ -560,7 +560,7 @@ window.CRYPTIC_PUZZLES["independent-12439"] = /*JSON-START*/ {
       "note": "I is Italy's international vehicle registration letter"
      }
     ],
-    "walkthrough": "Two things happen to one word: it takes a passenger and is then read upwards. On the surface, an uprising in Italy is simply the news.",
+    "walkthrough": "It takes a passenger and is then read upwards. On the surface, an uprising in Italy is simply the news.",
     "definitionFit": "In army usage a detail is a small party told off for a particular duty, a sense of the word that survives mainly in the military and in crosswords."
    }
   },

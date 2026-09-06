@@ -1293,7 +1293,7 @@ window.CRYPTIC_PUZZLES["indysunday-1861"] = /*JSON-START*/ {
       "note": "Francisco Goya painted the Spanish court and, later, the horrors of its war"
      }
     ],
-    "walkthrough": "Two instructions land on one short name: the last letter goes round to the front, and what is left is then read up the column rather than down it.",
+    "walkthrough": "The last letter goes round to the front, and what is left is then read up the column rather than down it.",
     "definitionFit": "Yoga is the system of postures and breathing that people take classes in, so 'exercise' is the everyday word for what it is done as."
    }
   },

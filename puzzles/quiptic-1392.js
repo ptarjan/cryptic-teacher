@@ -793,7 +793,7 @@ window.CRYPTIC_PUZZLES["quiptic-1392"] = /*JSON-START*/ {
       "note": "their starting letters"
      }
     ],
-    "walkthrough": "Three mechanisms in a row: an abbreviation, ANGRY docked of its tail, then two initials. The soprano's tantrum is only surface noise.",
+    "walkthrough": "An abbreviation, ANGRY docked of its tail, then two initials. The soprano's tantrum is only surface noise.",
     "definitionFit": "Sangria is the Spanish punch of red wine and fruit — a drink, defined plainly while the surface stages an operatic strop."
    }
   },

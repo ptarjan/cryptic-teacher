@@ -771,7 +771,7 @@ window.CRYPTIC_PUZZLES["indysunday-1886"] = /*JSON-START*/ {
       "note": "a rector is the priest in charge of a parish, and his six letters roll round until the last two lead"
      }
     ],
-    "walkthrough": "Two unusual instructions in one clue and neither is an anagram: nothing here is jumbled at all, the letters simply start from a different place.",
+    "walkthrough": "Neither of the two instructions here is an anagram: nothing here is jumbled at all, the letters simply start from a different place.",
     "definitionFit": "Wrong -> INCORRECT: the flat synonym for something that does not match the facts, the neutral word a marker writes beside a bad answer."
    }
   },

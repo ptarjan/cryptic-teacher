@@ -1182,7 +1182,7 @@ window.CRYPTIC_PUZZLES["independent-12438"] = /*JSON-START*/ {
       "note": "filO I Added conceals five consecutive letters, waiting to be turned round"
      }
     ],
-    "walkthrough": "Two instructions are stacked on one another here, which is why the hiding place is so hard to see: finding the run of letters is only half the job.",
+    "walkthrough": "Finding the run of letters is only half the job.",
     "definitionFit": "garnish → AIOLI: the garlic mayonnaise spooned alongside fish or vegetables, so 'garnish' names it by the job it does on the plate."
    }
   },

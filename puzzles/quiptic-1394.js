@@ -1059,7 +1059,7 @@ window.CRYPTIC_PUZZLES["quiptic-1394"] = /*JSON-START*/ {
       "note": "apologiSE TO Vatican holds SETOV, which 'over' turns round"
      }
     ],
-    "walkthrough": "Two instructions stacked: take part of the text, then turn what you took round. The run starts in the middle of a word, which is what makes it hard to spot.",
+    "walkthrough": "Take part of the text, then turn what you took round. The run starts in the middle of a word, which is what makes it hard to spot.",
     "definitionFit": "Votes are the individual choices cast in an election, which is what a box of ballots holds — the paper and the decision marked on it."
    }
   },

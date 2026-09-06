@@ -801,7 +801,7 @@ window.CRYPTIC_PUZZLES["quiptic-1393"] = /*JSON-START*/ {
       "note": "'intermittently' — every other letter of FlAg"
      }
     ],
-    "walkthrough": "Three devices stacked up: PR for publicity, then ONE opens to admit FA, the alternate letters of 'flag'.",
+    "walkthrough": "PR for publicity, then ONE opens to admit FA, the alternate letters of 'flag'.",
     "definitionFit": "Profane language is coarse and irreverent — crude in the sense of swearing, not of unrefined oil."
    }
   },

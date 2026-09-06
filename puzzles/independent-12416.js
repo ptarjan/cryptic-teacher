@@ -1287,7 +1287,7 @@ window.CRYPTIC_PUZZLES["independent-12416"] = /*JSON-START*/ {
      "D",
      "EX"
     ],
-    "walkthrough": "Four instructions in five letters, and 'tip' is the giveaway: a dagger's point is a letter here, not a blade.",
+    "walkthrough": "A dagger's point is a letter here, not a blade.",
     "definitionFit": "The index finger is the one you point and indicate with, so 'Finger' names it by dropping the word we normally add."
    }
   },

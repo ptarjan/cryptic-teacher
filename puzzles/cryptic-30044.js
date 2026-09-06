@@ -831,7 +831,7 @@ window.CRYPTIC_PUZZLES["cryptic-30044"] = /*JSON-START*/ {
       "note": "anagram indicator"
      }
     ],
-    "walkthrough": "Two operations stacked on each other: 'nameless' takes the N out before 'demolished' shuffles what remains. Setters do this often, and the fodder never counts until you do the deletion first."
+    "walkthrough": "'Nameless' takes the N out before 'demolished' shuffles what remains. Setters do this often, and the fodder never counts until you do the deletion first."
    }
   },
   {

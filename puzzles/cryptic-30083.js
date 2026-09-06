@@ -1194,7 +1194,7 @@ window.CRYPTIC_PUZZLES["cryptic-30083"] = /*JSON-START*/ {
       "note": "The heart of LOVE, its middle pair, is surrendered — leaving LE."
      }
     ],
-    "walkthrough": "Two operations feed one shuffle: LOVE gives up its middle before anything is rearranged. 'Toyed with' is the anagram flag and the surface's flirtation at once.",
+    "walkthrough": "LOVE gives up its middle before anything is rearranged. 'Toyed with' is the anagram flag and the surface's flirtation at once.",
     "definitionFit": "To hustle is to swindle by fast talk — the pool-hall sense of the word, not the hurrying one."
    }
   },
