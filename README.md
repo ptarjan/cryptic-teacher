@@ -100,6 +100,10 @@ STYLE.md                                     the standing style rules, read whol
                                              annotating run
 APP.md                                       how the app presents an annotation and how it
                                              ships — separate from style
+BACKFILLS.md                                 the sweeps over already-published clues, worth
+                                             doing only with inference to spare; every item is
+                                             already handled going forward, so none of it
+                                             blocks a puzzle
 tools/validate_annotations.py                proves every annotation actually spells its
                                              answer, plus the other rules about what a rung may
                                              and may not say
