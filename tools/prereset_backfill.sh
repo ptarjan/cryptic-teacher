@@ -54,11 +54,11 @@
 # state this job is trying to reach; hammering it after that just produces a
 # log full of identical errors.
 #
-# Install: LaunchAgent ~/Library/LaunchAgents/com.pt.cryptic-teacher-prereset.plist,
-# NOT crontab — same reason as daily_update.sh. The `claude` CLI keeps its OAuth
-# credentials in the *login* keychain, which cron cannot unlock.
-#   launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.pt.cryptic-teacher-prereset.plist
-#   launchctl kickstart -k gui/$(id -u)/com.pt.cryptic-teacher-prereset   # run it now
+# Install: a line in the bridge container's tools/crontab (household repo), at
+# :05 every hour. `flock -n` is what launchd's "no second copy while one runs"
+# used to give for free, and it matters more here than anywhere else in that
+# file: two of these overlapping would both spend the same window. On a Mac use
+# launchctl and not crontab — see daily_update.sh's header for why.
 
 set -uo pipefail
 # A checkout of its own, so an hour of unmetered annotation cannot collide with
@@ -66,7 +66,7 @@ set -uo pipefail
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
-export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/bin:$PATH"
+. "$REPO/tools/claude_path.sh"
 # Without this the CLI reads the legacy un-suffixed keychain entry, which a
 # file-based /login emptied on 2026-07-31, and every run dies on "Failed to
 # authenticate: OAuth session expired and could not be refreshed". See the longer
