@@ -202,6 +202,13 @@ Rules:
   content: no `A lovely/neat/classic/simple ...`, no `As simple as X comes`, no
   `Two/Three instructions ...`, no `This is a ...`. The learner asked what the clue is
   doing, not how it rates.
+  **End on a fact, never on a verdict about the sentence you just wrote.** `That switch
+  is the whole difficulty`, `That is the whole trap`, `Both readings send you straight
+  past the letters` all say the same nothing: the trick you have just described is the
+  trick. The reader worked that out from the first sentence. If the second sentence has
+  nothing new, write one sentence. If there is room, spend it on what the surface is
+  actually saying — `Kind of article mentioned` reads as a sort of article somebody
+  brought up — because the surface joke is the one thing no other rung shows.
   Naming a letter chunk is not automatically re-narration — the test is what the
   sentence is FOR. `OCT is the calendar abbreviation and OPUS the composer's 'work'`
   teaches two conventions the solver keeps forever, and needs the capitals. `The
@@ -395,6 +402,8 @@ of the source. 75 of 128 annotation sessions were grepping
 - `check_two_pieces` — Every word of a clue we wrote must be doing one of three jobs.
 - `check_walkthrough_opener` — The walkthrough opens with the trick, not with an
   appraisal of the trick.
+- `check_walkthrough_closer` — The last sentence carries a fact, not a verdict on the
+  sentence before it.
 - `check_walkthrough_budget` — When the blocks already spell the answer out, the
   walkthrough is short.
 - `check_link_words_are_equivalences` — A link word has to stand in for an equals sign
