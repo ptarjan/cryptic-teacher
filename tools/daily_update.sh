@@ -64,7 +64,7 @@ fi
 # one, so from then until 2026-08-06 every run of this script died on "Failed to
 # authenticate: OAuth session expired and could not be refreshed" and annotated
 # nothing for seven days — while interactive sessions and the Discord bridge
-# (which sets this variable, see com.pt.discord-claude.plist) kept working, so
+# (which sets this variable, see com.pt.household.plist) kept working, so
 # nothing looked broken. Set it here rather than only in the plist: the failure
 # is silent and non-obvious, and this way it survives being run by hand too.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
