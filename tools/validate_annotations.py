@@ -128,6 +128,31 @@ MAX_CRYPTIC_DEFINITIONS = 2
 # set that prompted the feedback ran 44-63 with a median of 54.
 MAX_WALKTHROUGH_WORDS = 45
 
+# Opening formulas that spend the first clause on something other than the clue.
+# Anchored at the start and kept to fixed phrasings on purpose — the same words
+# are unremarkable once the sentence is under way, and a matcher that chased
+# them there would fire on half the corpus. Counts are from the 6,403 published
+# walkthroughs on 2026-09-06, which is what makes these the shapes worth naming
+# rather than every stiff opening anyone can imagine.
+WALKTHROUGH_PREAMBLE = [
+    (r"(An?|The)\s+(lovely|neat|nice|classic|clean|tidy|elegant|simple|pretty|smart|"
+     r"clever|gentle|fiddly|textbook|standard|straightforward)\b[^.]*?:",
+     "an appraisal of the clue, where the reader wants the clue"),
+    (r"As\s+\w+\s+as\s+[^.]*?\bcomes?\b[^.]*?:",
+     "a verdict on how hard it is, which the reader can judge themselves"),
+    # Only when the thing being counted is machinery. "Two instructions stacked:"
+    # announces a structure the next clause is about to show anyway; "Two ordinary
+    # trade words are wearing capital letters:" counts something in the CLUE and is
+    # the trick itself. Both open with a number, so the number is not the tell.
+    (r"(Two|Three|Four|Both)\s+(\w+\s+){0,2}"
+     r"(instruction|mechanism|step|device|operation|stage|move|thing)s?\b[^.]*?:",
+     "a table of contents for a sentence one line long"),
+]
+# "This is a ..." was a fourth pattern and was cut after measuring it: all three
+# corpus hits were contrastive — "This is a rotation, not a reversal" — which is
+# the trick stated, not a preamble to it. A check that warns on good sentences
+# gets ignored on the bad ones.
+
 
 # Set by --unscoped: run the authored-only checks on published puzzles as well.
 # This exists so the calibration in every authored check's docstring can be
@@ -170,6 +195,34 @@ def check_two_pieces(tag, ann, errors):
                 f"allowed in a clue we wrote. Every word must be definition, wordplay "
                 f"or joinery: rewrite the clue without it, or work out which job it is "
                 f"really doing (AUTHORING.md, 'Exactly two pieces')")
+
+
+def check_walkthrough_opener(tag, ann, warnings):
+    """The walkthrough opens with the trick, not with an appraisal of the trick.
+
+    The app prints this paragraph under the label "The trick", so an opening
+    clause spent rating the clue — "A lovely match of surface and answer:",
+    "As simple as charades come:" — puts the label and the first words at odds,
+    and 2026-09-06 feedback was that the sentence "sounds weird". The other
+    shape is a table of contents for a sentence one line long: "Two instructions
+    stacked:" announces a structure the reader can already see.
+
+    Only fixed opening formulas are matched, and only at the very start. That is
+    deliberate: "two" and "simple" are ordinary words in the middle of a
+    walkthrough and this must not chase them there. A warning, not an error —
+    the sentence after the preamble is usually fine, so this asks for a cut, not
+    a rewrite."""
+    wt = (ann.get("walkthrough") or "").strip()
+    if not wt:
+        return
+    for pat, why in WALKTHROUGH_PREAMBLE:
+        m = re.match(pat, wt, re.I)
+        if m:
+            warnings.append(
+                f"{tag}: walkthrough opens with {m.group(0).strip()!r} — {why}. "
+                f"Cut the preamble and start with the trick itself; the app has "
+                f"already labelled the paragraph 'The trick'")
+            return
 
 
 def check_walkthrough_budget(tag, ann, warnings):

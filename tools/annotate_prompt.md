@@ -191,6 +191,17 @@ Rules:
   not know (`ER` = Queen, `worker` = ANT), or why a definition is fair. One or two
   sentences is normal; over 45 words the validator warns (authored puzzles). It must
   never be empty: the app always renders the walkthrough rung.
+  **Open with the thing itself, never with an appraisal of it.** The app prints this
+  paragraph under the label "The trick", so the first words a learner reads should be
+  the trick. `A lovely match of surface and answer: Sartre was the philosopher of
+  Paris cafe society` spends its opening clause admiring the clue; `Sartre was the
+  philosopher of Paris cafe society, and he is sitting inside 'Paris art revolution'`
+  says the same thing and starts with the joke. Same for counting the mechanism before
+  describing it — `Two instructions stacked: take part of the text, then reverse it`
+  is a table of contents for a sentence one line long. Cut the preamble and keep the
+  content: no `A lovely/neat/classic/simple ...`, no `As simple as X comes`, no
+  `Two/Three instructions ...`, no `This is a ...`. The learner asked what the clue is
+  doing, not how it rates.
   Naming a letter chunk is not automatically re-narration — the test is what the
   sentence is FOR. `OCT is the calendar abbreviation and OPUS the composer's 'work'`
   teaches two conventions the solver keeps forever, and needs the capitals. `The
@@ -382,6 +393,8 @@ of the source. 75 of 128 annotation sessions were grepping
 `validate_annotations.py` for exactly this.
 
 - `check_two_pieces` — Every word of a clue we wrote must be doing one of three jobs.
+- `check_walkthrough_opener` — The walkthrough opens with the trick, not with an
+  appraisal of the trick.
 - `check_walkthrough_budget` — When the blocks already spell the answer out, the
   walkthrough is short.
 - `check_link_words_are_equivalences` — A link word has to stand in for an equals sign
