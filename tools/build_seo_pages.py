@@ -324,6 +324,10 @@ def clue_html(e):
             + (f" <span class=\"s-note\">{esc(b.get('note'))}</span>" if b.get("note") else "")
             + "</li>" for b in blocks)
         bits.append(f'<ul class="s-blocks">{rows}</ul>')
+    # The surface first, the same order and for the same reason as the app's
+    # walkthrough rung: what the clue pretends to be about, then what it is doing.
+    if ann.get("surface"):
+        bits.append(f'<p class="s-walk">{esc(ann["surface"])}</p>')
     if ann.get("walkthrough"):
         bits.append(f'<p class="s-walk">{esc(ann["walkthrough"])}</p>')
     if not ann:

@@ -55,6 +55,7 @@ Annotation schema (see `puzzles/cryptic-30066.js` for 28 worked examples):
     {"clueFragment": "exact words from the clue", "gives": "LETTERS", "note": "why"},
     {"clueFragment": "for homophones/spoonerisms", "soundsLike": "WHAT YOU SAY ALOUD", "gives": "HOW IT IS SPELT", "note": "why"}
   ],
+  "surface": "one sentence, 25 words max: what the clue PRETENDS to be about. Omit only when there is no surface apart from the mechanism.",
   "walkthrough": "1-2 sentences, 45 words max: what the blocks CANNOT show. Friendly teaching tone.",
   "definitionFit": "REQUIRED. One sentence, 30 words max: why the ANSWER means the DEFINITION.",
 
@@ -187,7 +188,7 @@ Rules:
 - The `walkthrough` is short, because the blocks already did the work: "when you
   basically give the whole answer in the building blocks you don't need to have the full
   walkthrough". Do not re-narrate fragment → letters. Write only what the blocks cannot
-  show — why the surface misleads, the joke in one clause, a convention the solver may
+  show — why the surface misleads, a convention the solver may
   not know (`ER` = Queen, `worker` = ANT), or why a definition is fair. One or two
   sentences is normal; over 45 words the validator warns (authored puzzles). It must
   never be empty: the app always renders the walkthrough rung.
@@ -209,17 +210,15 @@ Rules:
   nothing new, write one sentence. If there is room, spend it on what the surface is
   actually saying — `Kind of article mentioned` reads as a sort of article somebody
   brought up — because the surface joke is the one thing no other rung shows.
-  **Say what the clue pretends to be about, whenever it pretends anything.** This is the
-  default, not the spare-room option: a solver reported `Behaved antisocially and gave
-  birth` as a hint that "doesn't talk about the surface", because the walkthrough went
-  straight to the two senses of LITTERED and never said the clue reads as one person's
-  bad week. The mechanism is already in the blocks; the picture the setter painted is
-  nowhere else on the ladder. No validator can check this — a 2026-09-06 scan of all
-  6,403 walkthroughs found the phrasing is open-ended and roughly a third of a proxy's
-  hits were clues that legitimately have no separate surface — so it is on you here. The
-  exemption is real though: a double definition, a cryptic definition, an idiom or a
-  self-referential pun has no surface apart from its mechanism, and inventing one for
-  `Flat (4)` is worse than omitting it.
+  **What the clue pretends to be about goes in `surface`, not in here.** A solver
+  reported `Behaved antisocially and gave birth` as a hint that "doesn't talk about the
+  surface", because the walkthrough went straight to the two senses of LITTERED and never
+  said the clue reads as one person's bad week. The mechanism is in the blocks; the
+  picture the setter painted is nowhere else on the ladder. The app labels the two
+  separately — **The joke** over `surface`, **The trick** over `walkthrough` — so a
+  sentence in the wrong field is published under the wrong heading. Omit `surface` only
+  when the clue paints no picture apart from its mechanism; that is a question about the
+  clue, not about its type.
   Naming a letter chunk is not automatically re-narration — the test is what the
   sentence is FOR. `OCT is the calendar abbreviation and OPUS the composer's 'work'`
   teaches two conventions the solver keeps forever, and needs the capitals. `The
@@ -252,6 +251,16 @@ Rules:
   start you show is the solver's, written down once and already resolved, not a
   transcript of yours. Only where such a path exists — most clues have none, and
   inventing one is worse than omitting it.
+- `surface` is one sentence saying what the clue pretends to be about, and it is the
+  first thing the walkthrough rung shows, under **The joke**. Write the picture, not a
+  paraphrase of the words: `Behaved antisocially and gave birth` is one person having a
+  bad week; `Kind of article mentioned` is a sort of article somebody brought up. 25
+  words, no mechanics in it — the letters, the fodder and the containers all belong to
+  the blocks and to `walkthrough`. Omit the field entirely where the clue paints no
+  picture apart from its mechanism — `Flat (4)` says nothing beyond its two senses — and
+  the rung then reads exactly as it always has. The test is the picture, NOT the type:
+  the clue this field was written for, `Behaved antisocially and gave birth`, is a double
+  definition that paints one, and a solver reported the hint for skipping it.
 - `definitionFit` is REQUIRED on every clue: one sentence saying why the ANSWER means the
   DEFINITION. This is the half of a cryptic that isn't mechanical. The blocks spell the
   answer out of the wordplay and the definition rung points at the words, but nothing
