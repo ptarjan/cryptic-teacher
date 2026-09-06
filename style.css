@@ -555,12 +555,16 @@ button:disabled:hover { border-color: var(--line); }
 #hint-escape:empty { display: none; }
 #hint-escape button { color: var(--muted); }
 #hint-escape button:hover { color: var(--fg); }
-/* One line, in the strip, in place of the button that opened it — reporting a
-   bad hint must not cost a panel, a page or an address to write to. */
+/* In the strip, in place of the button that opened it — reporting a bad hint
+   must not cost a panel, a page or an address to write to. But it is still a
+   sentence about what went wrong, so it gets the full width of the strip and
+   three lines to start with, and grows from there (app.js) up to this cap. */
 .rp-note {
-  font: inherit; font-size: .8rem; padding: 5px 7px; margin-right: 6px;
+  display: block; width: 100%; box-sizing: border-box; margin: 6px 0;
+  font: inherit; font-size: .85rem; line-height: 1.45; padding: 8px 10px;
   border: 1px solid var(--line); border-radius: 6px;
-  background: var(--bg); color: var(--fg); width: min(62%, 280px);
+  background: var(--bg); color: var(--fg);
+  resize: vertical; max-height: 240px; overflow: auto;
 }
 #hint-next button { border-color: var(--accent); color: var(--accent); background: transparent; }
 #hint-next button:hover { background: var(--accent-soft); }

@@ -2728,8 +2728,14 @@
       return `<span class="muted">Didn’t send (${esc(report.msg)}).</span> `
         + `<button id="rp-open" class="ghost small">Try again</button>`;
     }
-    return `<input id="rp-note" class="rp-note" maxlength="400" `
-      + `placeholder="What’s wrong with this hint?">`
+    // A box you can see what you wrote in. The 400 characters this accepts were
+    // being typed into one line of a 280px slot, so the start of your own
+    // sentence scrolled out of sight while you finished it ("comically small
+    // when typing", Paul, 2026-09-06). It opens at three lines and grows with
+    // the text; Send is the button, because in a box this shape Enter is a
+    // paragraph break and not a submit.
+    return `<textarea id="rp-note" class="rp-note" rows="3" maxlength="400"`
+      + ` placeholder="What’s wrong with this hint?"></textarea>`
       + `<button id="rp-send" class="ghost small">Send</button>`;
   }
   function sendReport(e) {
@@ -2770,8 +2776,19 @@
     if (send) send.onclick = () => sendReport(currentEntry());
     const note = $("rp-note");
     if (note && note.addEventListener) {
+      // The box follows the text rather than making you scroll inside it. CSS
+      // caps the height; past that it scrolls, which is the point at which you
+      // have written more than the strip can hold.
+      const grow = () => {
+        if (typeof note.scrollHeight !== "number") return;
+        note.style.height = "auto";
+        note.style.height = note.scrollHeight + "px";
+      };
+      note.addEventListener("input", grow);
       note.addEventListener("keydown", (ev) => {
-        if (ev.key === "Enter") sendReport(currentEntry());
+        // Enter breaks a line here. Ctrl/Cmd+Enter still sends, for the hands
+        // that expect it, but the Send button is the way this is meant to go.
+        if (ev.key === "Enter" && (ev.metaKey || ev.ctrlKey)) sendReport(currentEntry());
       });
     }
   }
