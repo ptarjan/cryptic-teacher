@@ -766,6 +766,15 @@ mark.link {
    answer itself, so it is emphasised rather than muted like the footnotes. */
 .def-fit { margin: 8px 0 0; }
 
+/* The rung is called "Full walkthrough" and arrives as three unannounced
+   paragraphs, so a reader cannot tell which question each one answers. These
+   name them. Small and muted: they are signposts to read past, not headings —
+   the sentence after each one is the content. */
+.wt-part {
+  display: block; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1px;
+}
+
 /* ---------- the lesson, at /learn/ ---------- */
 /* Its sections land as h2, which .static-main already styles; these are the
    subsections and the worked examples inside them. */

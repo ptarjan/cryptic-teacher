@@ -1916,7 +1916,7 @@
     // and no confidence in them. It goes LAST, immediately before the answer,
     // because it is the step that turns a spelling into a solve.
     const fit = ann.definitionFit
-      ? `<p class="def-fit"><mark class="def">${esc(ann.definition)}</mark>${
+      ? `<p class="def-fit"><b class="wt-part">Why that's the answer</b><mark class="def">${esc(ann.definition)}</mark>${
           ann.definition2 ? ` and <mark class="def2">${esc(ann.definition2)}</mark>` : ""
         } → <span class="gives">${esc(ann.answer)}</span>: ${esc(ann.definitionFit)}</p>`
       : "";
@@ -1924,11 +1924,18 @@
     // speech — a footnote to the fit, so it sits with it rather than two rungs above.
     const note = ann.definitionNote
       ? `<p class="def-note">${esc(ann.definitionNote)}</p>` : "";
+    // "The trick", not "The surface". The paragraph is mostly the surface joke,
+    // but a standing share of the corpus spends it on the trap or on a
+    // convention instead ("Rivers are the crossword's favourite three-letter
+    // filler"), and a label that promised the surface would be wrong on those.
+    // A label has to be true of what is under it or the reader stops trusting
+    // all of them; "the trick" is true of a joke, a trap and a convention alike.
     steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") || isDD || isCD ? "" : mechanics) +
-        `<p>${esc(ann.walkthrough)}</p>${fit}${note}<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
+        `<p><b class="wt-part">The trick</b>${esc(ann.walkthrough)}</p>${fit}${note}` +
+        `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
     return steps;
   }
