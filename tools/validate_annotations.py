@@ -625,6 +625,9 @@ BACKTRACKS = ("no wait", "no, wait", "hold on", "scratch that", "still wrong",
               "let me try", "let me reconsider", "on second thought",
               "correct parse", "actually:", "ignore that", "wait—", "wait --")
 WALKTHROUGH_HARD_MAX = 60
+# The surface is one sentence of picture. A warning, not an error: it is a new
+# field (2026-09-06) and a long one is still better than a missing one.
+SURFACE_MAX = 25
 
 # `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
 # required on 2026-08-01 (feedback: "in the full walkthrough explain why the
@@ -1672,7 +1675,21 @@ def validate_puzzle(puzzle):
                           f"(max {WALKTHROUGH_HARD_MAX}) — that length is working-out, "
                           f"not an explanation; the blocks already did the mechanics")
         # Notes and definitionFit are published too, so they get the same check.
-        for field, text in ([("walkthrough", walk),
+        # Published under "The joke" on the walkthrough rung, so it is held to the
+        # length it was specified at rather than to the walkthrough's: it is one
+        # sentence of picture, and a paragraph there pushes the trick off the screen.
+        surface = ann.get("surface") or ""
+        if len(surface.split()) > SURFACE_MAX:
+            warnings.append(f"{tag}: surface is {len(surface.split())} words "
+                            f"(max {SURFACE_MAX}) — it is the picture the clue paints, "
+                            f"one sentence; the mechanics belong in walkthrough")
+        # Same words in both fields means one of them is a heading with nothing
+        # under it, and the rung prints them one after the other.
+        if surface and surface.strip().lower() in walk.strip().lower():
+            errors.append(f"{tag}: surface {surface!r} is repeated inside walkthrough — "
+                          f"they are printed as two paragraphs, so say the picture once "
+                          f"in surface and spend walkthrough on what the clue is doing")
+        for field, text in ([("walkthrough", walk), ("surface", surface),
                              ("definitionFit", ann.get("definitionFit") or "")]
                             + [("block note", b.get("note") or "")
                                for b in ann.get("blocks", [])]):

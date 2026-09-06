@@ -1924,17 +1924,25 @@
     // speech — a footnote to the fit, so it sits with it rather than two rungs above.
     const note = ann.definitionNote
       ? `<p class="def-note">${esc(ann.definitionNote)}</p>` : "";
-    // "The trick", not "The surface". The paragraph is mostly the surface joke,
-    // but a standing share of the corpus spends it on the trap or on a
-    // convention instead ("Rivers are the crossword's favourite three-letter
-    // filler"), and a label that promised the surface would be wrong on those.
-    // A label has to be true of what is under it or the reader stops trusting
-    // all of them; "the trick" is true of a joke, a trap and a convention alike.
+    // Two labelled parts, each shown only when it is actually there. What the
+    // clue PRETENDS to say and what it is DOING are different things, and one
+    // label over both was wrong whichever word it used: "The trick" over a
+    // sentence about the surface reads as a mislabel, and "The surface" over a
+    // convention ("Rivers are the crossword's favourite three-letter filler")
+    // would be a lie. Which is present is a fact about the annotation, not a
+    // guess about its prose — a 2026-09-06 scan of all 6,403 walkthroughs
+    // established that no phrase list can tell a surface sentence from a
+    // mechanical one — so `surface` is its own field and the labels follow it.
+    // Clues with no surface apart from their mechanism (double definitions,
+    // cryptic definitions, idioms) correctly have none and show "The trick"
+    // alone, exactly as they do today.
+    const joke = ann.surface
+      ? `<p><b class="wt-part">The joke</b>${esc(ann.surface)}</p>` : "";
     steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") || isDD || isCD ? "" : mechanics) +
-        `<p><b class="wt-part">The trick</b>${esc(ann.walkthrough)}</p>${fit}${note}` +
+        joke + `<p><b class="wt-part">The trick</b>${esc(ann.walkthrough)}</p>${fit}${note}` +
         `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });
     // Presented in the order people actually solve, which is not the order the
