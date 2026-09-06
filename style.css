@@ -259,23 +259,36 @@ button:disabled:hover { border-color: var(--line); }
   border: 1px solid var(--ind-bg); border-radius: 10px;
   background: var(--card); max-width: 62ch;
 }
+/* No dismiss button. The scoreline is a fact about the puzzle, so it stays as
+   long as the grid is full and comes back when you reopen it; the paper is the
+   part that only falls once. A "Thanks" that hides your own result is asking
+   you to clear away the thing you earned (Paul, 2026-09-06). */
 #celebrate .shout { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; }
-#celebrate .tally { margin: 0 0 10px; font-size: .85rem; color: var(--muted); }
+#celebrate .tally { margin: 0; font-size: .85rem; color: var(--muted); }
 #celebrate .tally strong { color: var(--fg); }
-#celebrate button { font-size: .8rem; }
-#celebrate .paper { position: absolute; inset: 0; pointer-events: none; }
-#celebrate .bit {
+
+/* One clue, the same shape one size down, at the top of the hint panel. */
+.solve-note {
+  position: relative; overflow: hidden; margin: 10px 0 4px; padding: 10px 12px;
+  border: 1px solid var(--ind-bg); border-radius: 8px; background: var(--card);
+}
+.solve-note .shout { margin: 0; font-size: 1rem; font-weight: 600; }
+.solve-note .tally { margin: 2px 0 0; font-size: .8rem; color: var(--muted); }
+.solve-note.fresh .shout { animation: gv-right .45s ease-out; }
+
+.paper { position: absolute; inset: 0; pointer-events: none; }
+.bit {
   position: absolute; top: -12px; width: 7px; height: 11px; border-radius: 1px;
   background: var(--ind-bg); opacity: 0; animation: ct-fall 2.4s linear forwards;
 }
-#celebrate .bit:nth-child(3n) { background: var(--def-bg); }
-#celebrate .bit:nth-child(3n + 1) { background: var(--accent-soft); }
+.bit:nth-child(3n) { background: var(--def-bg); }
+.bit:nth-child(3n + 1) { background: var(--accent-soft); }
 @keyframes ct-fall {
   0% { transform: translateY(0) rotate(0deg); opacity: 1; }
   100% { transform: translateY(180px) rotate(540deg); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  #celebrate .paper { display: none; }
+  .paper { display: none; }
 }
 
 .layout { display: flex; gap: 26px; flex-wrap: wrap; align-items: flex-start; }
