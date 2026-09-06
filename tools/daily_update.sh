@@ -76,9 +76,14 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 # budget on nothing. The ceiling above it is a safety net that a healthy turn
 # never touches; keeping it well clear means a long, productive turn finishes
 # instead of being killed for overrunning.
-# Measured over 1148 responses (2026-08-29..09-06): median 298 output tokens,
-# p90 14,278, and of the 33 responses above 32,000 two thirds ended in no tool
-# call at all. A budget here cuts rumination, not work.
+# Measured over 10,823 turns (2026-08-23..09-06), grouped by the API's message
+# id: 554 turns spent 8k-32k output tokens and every one of them ended in a tool
+# call, and of the 101 above 32k, 91 did too. Big turns are working turns. The
+# other 10 are the shape these two limits exist for — output_tokens exactly
+# 64,000, stop_reason max_tokens, no text and no visible thinking: thinking ate
+# the entire ceiling and the turn was truncated before it could act. A cap below
+# the ceiling makes that unreachable. Count by message id, not by line: the CLI
+# writes one line per content block and stamps each with the whole turn's usage.
 # Defaults live here, not in the launchd plist: a value only the plist knows is
 # a value the script cannot be run by hand with, and both of these are unset on
 # this machine.
