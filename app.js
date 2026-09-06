@@ -253,6 +253,19 @@
   // a discount that lives only in a running total cannot survive a reload.
   let hintsEarned = {};
   let hintLevels = {};   // legacy: entryKey -> highest level, migrated on read
+  // entryKey -> how many pieces of the building-blocks rung are on screen.
+  //
+  // A scalar, and allowed to be one where hintsShown is not, because these come
+  // out in a fixed order and only ever forwards: piece 3 cannot arrive before
+  // piece 2, so "how many" says everything "which ones" would. The rungs are the
+  // opposite — the solver picks among them — which is why that one is a set.
+  //
+  // Why it exists at all: the rung used to hand over every piece at once, and
+  // for the 78% of clues built from more than one piece that is not a hint, it
+  // is the answer. A charade's assembly is "read them in order", so the letters
+  // ARE the solve; an anagram's is not, which is why the same rung felt like
+  // work on one clue and like cheating on the next (Paul, 2026-09-06).
+  let blocksAt = {};
   let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
   let solvedWith = {};   // entryKey -> how many rungs were up when first solved
   // { startedAt, lastAt, activeMs, solvedAt, solvedMs } — see sync/merge.js.
@@ -328,7 +341,8 @@
       timing.solvedMs = timing.activeMs || 0;
     }
     store.set(stateKey(), { letters, letterAt, hintsShown, hintsEarned, revealsUsed,
-                            solvedWith, timing, clearedAt: prev.clearedAt || 0, updated: now });
+                            blocksAt, solvedWith, timing,
+                            clearedAt: prev.clearedAt || 0, updated: now });
     syncPushSoon();
   }
   function restoreState() {
@@ -337,6 +351,7 @@
     hintsEarned = (s && s.hintsEarned) || {};
     hintLevels = (s && s.hintLevels) || {};
     revealsUsed = (s && s.revealsUsed) || {};
+    blocksAt = (s && s.blocksAt) || {};
     solvedWith = (s && s.solvedWith) || {};
     timing = (s && s.timing) || {};
     // The save is the whole truth about the grid, so wipe it first. A merge can
@@ -1447,6 +1462,42 @@
     return hits.join(" ") || "";
   }
 
+  // The letters a block may show, "" when it may show none.
+  //
+  // A cryptic definition has no building blocks — having none is what makes it
+  // one — so `gives` is never rendered for it. It used to print the whole clue →
+  // the whole answer, because that is the only "block" a cryptic definition can
+  // have, so hint 3 of 4 read “Might this keep you to time?” → WATCHSTRAP: the
+  // solver paid for a rung and was handed the solve, one rung after rung 2 had
+  // told them there was no separable wordplay here (Paul, 1392 22-across,
+  // 2026-08-10). The validator now refuses a `gives` on a cryptic definition and
+  // demands the clue be split, so this suppression is belt to that braces.
+  //
+  // A block whose letters ARE the whole answer hands over the solve on the rung
+  // before the walkthrough, which is the WATCHSTRAP failure again with a
+  // different type on it: 488 of 2805 annotated clues did this, almost every
+  // hidden word and homophone and most double definitions, because for those
+  // devices one block legitimately resolves to the entire word. Suppressed here
+  // rather than in the annotation, deliberately — the annotation keeps recording
+  // what the block gives, and no wording a future run picks can leak it. What
+  // survives is the fragment, the sounded form and the note.
+  //
+  // One function, because the rung renders these and the pacing counts them. A
+  // second copy of the rule would let the two disagree about what a piece is,
+  // and then piece 2 of the body sits under question 3.
+  const wholeWord = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
+  function blockLetters(ann, b) {
+    if (!b.gives) return "";
+    if ((ann.type || "").toLowerCase().includes("cryptic definition")) return "";
+    const answer = wholeWord(ann.answer);
+    return answer && wholeWord(b.gives) === answer ? "" : b.gives;
+  }
+  // The rung exists when something will RENDER in it, not when the data holds a
+  // field: a clue whose every block is suppressed and carries no note would
+  // otherwise charge a hint for a list of clue fragments the solver can already
+  // see. No clue in the corpus does that, and this is what keeps it that way.
+  const blockShows = (ann, b) => !!(b.note || b.soundsLike || blockLetters(ann, b));
+
   // What an indicator actually INSTRUCTS, and how to recognise its family next
   // time. The rung used to read "these tell you what to do with the rest", which
   // is true of every indicator in every clue ever written — content-free, and a
@@ -1512,6 +1563,29 @@
   }
   const isShown = (e, rung) => shownRungs(e).indexOf(rung) >= 0;
 
+  // The pieces of the blocks rung, in clue order — the order they are read in
+  // and the order the assembly runs in. Every block is one, including the ones
+  // whose letters are suppressed: those still show their fragment, which is the
+  // whole lesson on a hidden word.
+  const blockPieces = (e) => { const a = annOf(e); return (a && a.blocks) || []; };
+  // How many of them are on screen.
+  function piecesShown(e) {
+    const key = entryKey(e);
+    if (blocksAt[key] === undefined) {
+      // Saved before the rung was paced, when taking it handed over everything.
+      // A reload must not take back what the panel has already said.
+      blocksAt[key] = isShown(e, "blocks") ? blockPieces(e).length : 0;
+    }
+    return blocksAt[key];
+  }
+  const piecesLeft = (e) => Math.max(0, blockPieces(e).length - piecesShown(e));
+  // Forwards only, and it is the reveal that moves it — both routes in, being
+  // told and pointing at the right words, land here.
+  function revealPiece(e, at) {
+    blocksAt[entryKey(e)] = Math.max(piecesShown(e), (at || 0) + 1);
+    saveState();
+  }
+
   // Tiers, not a chain, and not a free-for-all either. Inside a tier the order
   // is the solver's business; across tiers it can't be, because a later rung
   // contains the earlier ones' answers — the building blocks name the
@@ -1562,6 +1636,11 @@
 
   function showHint(e, rung) {
     if (isShown(e, rung)) return;
+    // Pinned before the rung goes up, because piecesShown reads isShown to
+    // decide what a pre-pacing save meant: leave it until after and a rung being
+    // opened for the first time looks exactly like an old one, and pours out
+    // every piece at once.
+    if (rung === "blocks" && blocksAt[entryKey(e)] === undefined) blocksAt[entryKey(e)] = 0;
     shownRungs(e).push(rung);
     // WHICH kind of help was reached for, named for the rung. Each rung teaches
     // a different thing — where the definition sits, what the indicators do, how
@@ -1825,34 +1904,10 @@
       });
     }
 
-    // A cryptic definition has no building blocks — having none is what makes it
-    // one — so `gives` is never rendered for it, and the rung is named for the
-    // only honest job it has: splitting a clue that does not split into letters
-    // into the two ideas the setter fused together.
-    //
-    // It used to print the whole clue → the whole answer, because that is the
-    // only "block" a cryptic definition can have. So hint 3 of 4 read
-    // “Might this keep you to time?” → WATCHSTRAP: the solver paid for a rung
-    // and was handed the solve, one rung after rung 2 had told them there was no
-    // separable wordplay here (Paul, 1392 22-across, 2026-08-10). The validator
-    // now refuses a `gives` on a cryptic definition and demands the clue be
-    // split, so this suppression is belt to that braces.
-    // A block whose letters ARE the whole answer hands over the solve on the
-    // rung before the walkthrough, which is the WATCHSTRAP failure again with a
-    // different type on it: 488 of 2805 annotated clues did this, almost every
-    // hidden word and homophone and most double definitions, because for those
-    // devices one block legitimately resolves to the entire word. Suppressing it
-    // here rather than in the annotation is deliberate — the annotation keeps
-    // recording what the block gives, and no wording a future run picks can leak
-    // it. What survives is the fragment, the sounded form and the note.
-    const whole = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
-    const answerLetters = whole(ann.answer);
-    const givesAway = (b) => answerLetters && whole(b.gives) === answerLetters;
-    // The rung exists when something will RENDER in it, not when the data holds
-    // a field: a clue whose every block is suppressed and carries no note would
-    // otherwise charge a hint for a list of clue fragments the solver can already
-    // see. No clue in the corpus does that, and this is what keeps it that way.
-    const shows = (b) => b.note || b.soundsLike || (b.gives && !isCD && !givesAway(b));
+    // On a cryptic definition the rung is named for the only honest job it has:
+    // splitting a clue that does not split into letters into the two ideas the
+    // setter fused together. What each block may show is blockLetters'.
+    const shows = (b) => blockShows(ann, b);
     if (blocks.length && blocks.some(shows)) {
       // Which pieces were conventions rather than deductions.
       //
@@ -1887,7 +1942,7 @@
             + word.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
           : null;
       };
-      const items = blocks.map((b) => {
+      const pieces = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
         // A homophone's whole mechanism is the word you say aloud, and it used
@@ -1896,20 +1951,32 @@
         // the sounded form gets its own arrow, ahead of the letters it turns
         // into, and the validator now refuses a sound clue that has none.
         if (b.soundsLike) s += ` → <span class="gives">${esc(b.soundsLike)}</span> <span class="muted">said aloud</span>`;
-        if (b.gives && !isCD && !givesAway(b)) {
+        const letters = blockLetters(ann, b);
+        if (letters) {
           const href = glossaryHref(b);
-          const gives = `<span class="gives">${esc(b.gives)}</span>`;
+          const gives = `<span class="gives">${esc(letters)}</span>`;
           s += " → " + (href
             ? `<a class="gloss" href="${href}" title="Standard abbreviation — look it up once">${gives}</a>`
             : gives);
         }
         if (b.note) s += ` <span class="muted">— ${esc(b.note)}</span>`;
         return s + "</li>";
-      }).join("");
+      });
+      // The rung is paced: `pieces` is handed over one at a time, and only the
+      // panel knows how many are out yet (renderHintPanel's paceStep). `html`
+      // stays the whole rung so that anything reading a step's content — the
+      // static pages, the Python port — sees the rung entire.
+      //
+      // The ring waits for the last piece. It is a workbench for the assembly,
+      // and offering it while pieces are still in the box invites the solver to
+      // shuffle letters they have not been given yet.
       steps.push({
         key: "blocks",
         label: LABELS.blocks,
-        html: (isDD || isCD ? "" : mechanics) + `<ul>${items}</ul>` +
+        lead: (isDD || isCD ? "" : mechanics),
+        pieces,
+        tail: (t.includes("anagram") ? ringHTML(ann) : ""),
+        html: (isDD || isCD ? "" : mechanics) + `<ul>${pieces.join("")}</ul>` +
           (t.includes("anagram") ? ringHTML(ann) : "")
       });
     }
@@ -2008,12 +2075,14 @@
     return out;
   }
 
-  // The pieces of the charade that can be pointed at: they name a span of the
-  // clue and they yield letters. In clue order, because that is the order the
-  // solver reads them in and the order the assembly runs in.
-  function blockAsks(e) {
-    const ann = annOf(e);
-    return ((ann && ann.blocks) || []).filter((b) => b.clueFragment && b.gives);
+  // Piece `at` of the blocks rung, when it is one that can be pointed at: it has
+  // to name a span of the clue and yield letters. Indexed off blockPieces rather
+  // than off a filtered list of its own, so question n and piece n are the same
+  // piece — two lists would drift the moment a block carried a note and no
+  // letters, and then the body's piece 2 sat under question 3.
+  function blockAskAt(e, at) {
+    const b = blockPieces(e)[at || 0];
+    return b && b.clueFragment && b.gives ? b : null;
   }
 
   // Which words of the clue a rung names. Kept apart from guessAsk because a
@@ -2050,7 +2119,7 @@
     } else if (rung === "indicators") {
       (ann.indicators || []).forEach(add);
     } else if (rung === "blocks") {
-      const b = blockAsks(e)[step || 0];
+      const b = blockAskAt(e, step);
       if (b) add(b.clueFragment);
     }
     return spans;
@@ -2155,10 +2224,11 @@
     } else if (rung === "indicators") {
       prompt = "Which words tell you what to do to the rest?";
     } else if (rung === "blocks") {
-      const asks = blockAsks(e);
-      if (!asks[at]) return null;
-      gives = asks[at].gives;
-      const of = asks.length > 1 ? ` <span class="muted">(${at + 1} of ${asks.length})</span>` : "";
+      const b = blockAskAt(e, at);
+      if (!b) return null;
+      gives = b.gives;
+      const n = blockPieces(e).length;
+      const of = n > 1 ? ` <span class="muted">(${at + 1} of ${n})</span>` : "";
       prompt = `Which words give <span class="gives">${esc(gives)}</span>?${of}`;
     }
     // Everything already named and not part of this answer: the tier-0 rungs
@@ -2171,16 +2241,11 @@
              edge: rungEdges(e, rung, at) };
   }
 
-  // The piece after this one, where there is one. Only the blocks rung runs a
-  // sequence; every other rung is a single question and stops on its own.
-  function nextAsk(e, rung, step) {
-    return rung === "blocks" ? guessAsk(e, rung, (step || 0) + 1) : null;
-  }
 
   // A guess in progress, and the verdict on the one just made. Neither is
   // persisted: what survives a reload is hintsEarned, because that is the part
   // that changed the score. A half-made guess is not progress.
-  let guessing = null;   // { key, rung, step, picked: [], placed: [] }
+  let guessing = null;   // { key, rung, step, picked: [] }
   let lastGuess = null;  // { key, rung, tokens, known, mk: <verdict> }
   // A single clue coming out gets no announcement of its own: the grid fills a
   // square at a time and 28 celebrations is 28 interruptions. The whole grid is
@@ -2353,17 +2418,11 @@
       g.tokens && !quiet ? guessWordsHTML(g.tokens, g.mk, [], g.known, g.rung) : ""}</div>`;
   }
 
-  // Pieces of the charade already placed, kept on the screen while the next one
-  // is asked for. Doing a charade IS watching it assemble; a solver who has just
-  // been told "right" and handed a new question with no record of the last one
-  // has to hold the assembly in their head, which is the thing the rung exists
-  // to teach them not to have to do.
-  function placedHTML(placed) {
-    if (!(placed || []).length) return "";
-    return `<ul class="guess-placed">${placed.map((p) =>
-      `<li><em>${esc(p.words)}</em> → <span class="gives">${esc(p.gives)}</span></li>`
-    ).join("")}</ul>`;
-  }
+  // Doing a charade IS watching it assemble, so the pieces already placed stay
+  // on screen while the next one is asked for. They used to be echoed into the
+  // question as a running list of their own, because the rung was withheld until
+  // the whole sequence was done; now each piece is handed over as it is settled
+  // and the list is the rung itself, sitting directly above.
 
   // One of seven, and the tap IS the answer: there is a single bit to give, so a
   // confirm step would only ask for it twice. Pointing at words keeps its check
@@ -2391,7 +2450,6 @@
     const check = ask.choices ? "" : `<button id="guess-check" class="primary"${
       guessing.picked.length ? "" : " disabled"}>Check my answer</button> `;
     return `<div class="hint-step guess"><span class="step-label">${position} · ${esc(label)}</span>
-      ${placedHTML(guessing.placed)}
       <p>${ask.prompt}${inClue && !ask.choices
         ? ` <span class="tap-hint">Tap them in the clue above.</span>` : ""}</p>
       ${answer}
@@ -2503,24 +2561,21 @@
     const e = currentEntry();
     if (!e || entryKey(e) !== guessing.key) { guessing = null; return; }
     const from = flipCapture();
-    // Right, and there is another piece to place: the rung is not handed over
-    // yet. It is one rung and one price — a charade is not finished until every
-    // piece of it is, and stopping after the first was Paul's report that the
-    // building blocks "made me only pick one of the three pieces". A wrong
-    // answer still ends it and still opens the rung: never a dead end.
-    const more = verdict && verdict.right && nextAsk(e, guessing.rung, guessing.step);
-    if (more) {
-      guessing = { key: guessing.key, rung: guessing.rung, step: guessing.step + 1,
-                   picked: [], placed: guessing.placed.concat([{
-                     gives: ask.gives, words: ask.target.map((i) => ask.tokens[i].text).join(" ") }]) };
-      refreshAll();
-      return;
-    }
     lastGuess = verdict && { key: guessing.key, rung: guessing.rung, fresh: true,
                              tokens: ask.tokens, known: ask.known, mk: verdict };
-    if (verdict && verdict.right && earnedRungs(e).indexOf(guessing.rung) < 0) {
-      earnedRungs(e).push(guessing.rung);
-    }
+    // Earned means every piece taken was pointed at correctly. A rung asked in
+    // pieces must not turn into three chances to have already won it, so a
+    // wrong one — or a "just tell me" — takes it back off the free list. One
+    // rung, one price, one verdict.
+    const won = earnedRungs(e).indexOf(guessing.rung);
+    if (verdict && verdict.right) { if (won < 0) earnedRungs(e).push(guessing.rung); }
+    else if (won >= 0) earnedRungs(e).splice(won, 1);
+    // The piece just settled goes up, and only that one. Pointing at all three
+    // in a row before being shown any of them was the old sequence, and it
+    // handed over a charade entire — see blocksAt. Whether to go on to the next
+    // piece is now the solver's call, and the rung is theirs either way: a
+    // question is never a dead end.
+    if (guessing.rung === "blocks") revealPiece(e, guessing.step);
     showHint(e, guessing.rung);
     guessing = null;
     refreshAll();
@@ -2693,10 +2748,18 @@
         // panel has said is ever taken back; it only ever grows.
         const on = currentEntry();
         if (!on) return;
-        if (GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung)) {
-          guessing = { key: entryKey(on), rung: b.rung, step: 0, picked: [], placed: [] };
+        // Which piece this button is for. Only the blocks rung has more than
+        // one, and only its "next piece" button sets it; everything else asks
+        // its single question at step 0.
+        const at = b.step || 0;
+        if (GUESSABLE[b.rung] && !isEntrySolved(on) && guessAsk(on, b.rung, at)) {
+          guessing = { key: entryKey(on), rung: b.rung, step: at, picked: [] };
         } else {
           showHint(on, b.rung);
+          // A piece with no question in it — no fragment to point at, or no
+          // letters to point at it with — is simply handed over. The rung still
+          // moves forward by exactly one.
+          if (b.rung === "blocks") revealPiece(on, at);
         }
         refreshAll();
       };
@@ -2734,7 +2797,7 @@
     // when typing", Paul, 2026-09-06). It opens at three lines and grows with
     // the text; Send is the button, because in a box this shape Enter is a
     // paragraph break and not a submit.
-    return `<textarea id="rp-note" class="rp-note" rows="3" maxlength="400"`
+    return `<textarea id="rp-note" class="rp-note" rows="2" maxlength="400"`
       + ` placeholder="What’s wrong with this hint?"></textarea>`
       + `<button id="rp-send" class="ghost small">Send</button>`;
   }
@@ -2887,6 +2950,15 @@
       ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
       if (guessing && !ask) guessing = null;
       const tapping = !!(ask && !ask.choices && guessing && holder === e);
+      // The blocks rung as much of it as has been handed over. A solved clue
+      // gets the lot: its score is settled, and the rest of the ladder is free
+      // from that moment, so there is nothing left for the pacing to protect.
+      const paced = (s) => {
+        if (s.key !== "blocks" || !s.pieces) return s;
+        const n = solved ? s.pieces.length : piecesShown(e);
+        return { ...s, html: s.lead + `<ul>${s.pieces.slice(0, n).join("")}</ul>`
+                             + (n >= s.pieces.length ? s.tail : "") };
+      };
       steps.forEach((s, i) => {
         if (!isShown(e, s.key)) return;
         // The verdict reads above the rung it judged: you find out whether you
@@ -2894,7 +2966,7 @@
         // clue with it, so what you pointed at and what was actually there can
         // be read side by side against the explanation, for as long as you like.
         if (lastGuess && lastGuess.rung === s.key) bodyHTML += verdictHTML(lastGuess, tapping);
-        bodyHTML += hintStepHTML(s, i + 1, earnedRungs(e).indexOf(s.key) >= 0);
+        bodyHTML += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0);
       });
       // The legend is built from what is actually highlighted, for the same
       // reason clueHTML is: it was keyed off the definition rung, so taking the
@@ -2946,6 +3018,17 @@
       // read (Paul). Disabled says the same thing and occupies the same room.
       const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
       const open = guessing ? [] : togo.filter(({ s }) => rungAvailable(e, steps, s.key));
+      // The rest of a rung already open, and it leads: finishing what you
+      // started is the recommended move, ahead of buying the next rung. It is
+      // not a new rung and does not cost one — the price was paid when the rung
+      // was taken. Gone once the last piece is out, and never offered on a
+      // solved clue, whose whole ladder is already open and free.
+      const left = !guessing && !solved && isShown(e, "blocks") ? piecesLeft(e) : 0;
+      if (left) {
+        const total = blockPieces(e).length;
+        nextSpec.push({ rung: "blocks", step: total - left,
+          text: `Next piece · ${total - left + 1} of ${total}` });
+      }
       open.forEach(({ s, n }, j) => {
         // Every rung reads as its own question and nothing else. The lead one
         // used to say "Show hint 5 · …", which sold the ladder as a shelf of
@@ -2958,7 +3041,7 @@
         // free, but the decision to open one is made at the button, and a button
         // that reads the same as it did when it charged is not telling you
         // (Paul, 2026-09-06 — the meter line alone was not enough).
-        nextSpec.push({ rung: s.key, cls: (j > 0 ? "ghost small" : "") + (solved ? " free" : ""),
+        nextSpec.push({ rung: s.key, cls: (j || left ? "ghost small" : "") + (solved ? " free" : ""),
           text: `${n} · ${s.label}${solved ? " · free" : ""}` });
       });
       togo.filter((t) => open.indexOf(t) < 0).forEach(({ s, n }) => {
@@ -3533,7 +3616,8 @@
     store.set("ct:last", id);
     if (chosen) pointUrlAtPuzzle(id);
     buildModel();
-    hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
+    hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {};
+    solvedWith = {}; timing = {};
     // Forget the last puzzle's completeness, so the first render of this one
     // only records where it stands. Opening a puzzle you finished last week is
     // not something to celebrate.
@@ -3756,11 +3840,12 @@
       // The clock goes with it. "Clear the grid and all hint history" means a
       // fresh attempt, and an attempt that starts on a grid you have already
       // solved once is not a time anything should be averaging.
-      store.set(stateKey(), { letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {},
+      store.set(stateKey(), { letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {}, blocksAt: {},
                               revealsUsed: {}, solvedWith: {}, timing: {},
                               clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
-      hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; solvedWith = {}; timing = {};
+      hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {};
+      solvedWith = {}; timing = {};
       refreshAll();
       syncPushSoon();
     };

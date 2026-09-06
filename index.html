@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=7a2c35a9">
+<link rel="stylesheet" href="style.css?v=2c24873c">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -196,6 +196,45 @@
 
 <script src="puzzles/index.js?v=f78f1142"></script>
 <script src="abbreviations.js?v=47a28f1e"></script>
-<script src="app.js?v=612dfc34"></script>
+<script src="app.js?v=506a5f6b"></script>
+<script>
+// Reload once when the page in the cache is older than the page on the server.
+//
+// The asset stamps make style.css and app.js impossible to get stale — the URL
+// changes when the file does. index.html is the one file with a fixed URL, and
+// GitHub Pages serves it with max-age=600 and no ETag, which nothing here can
+// override. A browser tab revalidates that on reload; an iOS home-screen app
+// does not, so it can go on booting a months-old index.html that points at the
+// asset versions of the day it was installed, and every fix after that is
+// invisible ("I'm still seeing weird spacing on the yes", Paul, 2026-09-06,
+// three commits after it was fixed).
+//
+// So the page checks its own stamps against the live ones and reloads if they
+// have moved. Once only, and guarded by a sessionStorage flag: a reload that
+// re-reads the same cached copy would otherwise loop forever, which is a worse
+// failure than the staleness. Best-effort throughout — offline, blocked, or
+// unparseable all mean carry on with what we have.
+(function () {
+  var FLAG = "ct:reloaded-for-stamps";
+  if (!window.fetch || !window.sessionStorage) return;
+  try { if (sessionStorage.getItem(FLAG)) { sessionStorage.removeItem(FLAG); return; } } catch (e) { return; }
+  var mine = [].slice.call(document.querySelectorAll("script[src], link[href]"))
+    .map(function (n) { return n.getAttribute("src") || n.getAttribute("href"); })
+    .filter(function (u) { return u && u.indexOf("?v=") > 0; }).sort().join("|");
+  if (!mine) return;
+  fetch(location.pathname + "?_=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.text() : null; })
+    .then(function (html) {
+      if (!html) return;
+      var live = (html.match(/(?:src|href)="([^"]*\?v=[a-f0-9]+)"/g) || [])
+        .map(function (m) { return m.replace(/^(?:src|href)="/, "").replace(/"$/, ""); })
+        .sort().join("|");
+      if (!live || live === mine) return;
+      try { sessionStorage.setItem(FLAG, "1"); } catch (e) { return; }
+      location.reload();
+    })
+    .catch(function () {});
+})();
+</script>
 </body>
 </html>

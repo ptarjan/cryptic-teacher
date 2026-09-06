@@ -558,13 +558,15 @@ button:disabled:hover { border-color: var(--line); }
 /* In the strip, in place of the button that opened it — reporting a bad hint
    must not cost a panel, a page or an address to write to. But it is still a
    sentence about what went wrong, so it gets the full width of the strip and
-   three lines to start with, and grows from there (app.js) up to this cap. */
+   two lines to start with, and grows from there (app.js) up to this cap. Both
+   ends of that have been wrong in a day — one line was "comically small", four
+   was "too big" — so the box is small at rest and only the typing enlarges it. */
 .rp-note {
   display: block; width: 100%; box-sizing: border-box; margin: 6px 0;
   font: inherit; font-size: .85rem; line-height: 1.45; padding: 8px 10px;
   border: 1px solid var(--line); border-radius: 6px;
   background: var(--bg); color: var(--fg);
-  resize: vertical; max-height: 240px; overflow: auto;
+  resize: vertical; max-height: 160px; overflow: auto;
 }
 #hint-next button { border-color: var(--accent); color: var(--accent); background: transparent; }
 #hint-next button:hover { background: var(--accent-soft); }
@@ -741,13 +743,6 @@ button.primary:disabled { background: transparent; color: var(--muted); border-c
    only here to say the element is expected to move. */
 .guess-clue { will-change: transform; }
 @media (prefers-reduced-motion: reduce) { .guess-clue { will-change: auto; } }
-/* The charade assembling. Each piece the solver has placed stays on screen while
-   the next one is asked for, because watching it come together IS the lesson —
-   holding it in your head is the work the rung exists to take off you. */
-.guess-placed { margin: 8px 0 0; padding: 0; list-style: none; font-size: .9rem; }
-.guess-placed li { color: var(--muted); }
-.guess-placed em { font-style: italic; color: var(--fg); }
-.guess-placed .gives { font-weight: 700; color: var(--def-fg); }
 /* Which way it went has to land before the sentence is read: a colour change on
    one line of small text is easy to miss, and on the type rung the sentence is
    the whole verdict — there are no words to mark up underneath it. So right
