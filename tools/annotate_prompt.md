@@ -209,6 +209,17 @@ Rules:
   nothing new, write one sentence. If there is room, spend it on what the surface is
   actually saying — `Kind of article mentioned` reads as a sort of article somebody
   brought up — because the surface joke is the one thing no other rung shows.
+  **Say what the clue pretends to be about, whenever it pretends anything.** This is the
+  default, not the spare-room option: a solver reported `Behaved antisocially and gave
+  birth` as a hint that "doesn't talk about the surface", because the walkthrough went
+  straight to the two senses of LITTERED and never said the clue reads as one person's
+  bad week. The mechanism is already in the blocks; the picture the setter painted is
+  nowhere else on the ladder. No validator can check this — a 2026-09-06 scan of all
+  6,403 walkthroughs found the phrasing is open-ended and roughly a third of a proxy's
+  hits were clues that legitimately have no separate surface — so it is on you here. The
+  exemption is real though: a double definition, a cryptic definition, an idiom or a
+  self-referential pun has no surface apart from its mechanism, and inventing one for
+  `Flat (4)` is worse than omitting it.
   Naming a letter chunk is not automatically re-narration — the test is what the
   sentence is FOR. `OCT is the calendar abbreviation and OPUS the composer's 'work'`
   teaches two conventions the solver keeps forever, and needs the capitals. `The
