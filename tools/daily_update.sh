@@ -46,7 +46,17 @@ cd "$REPO" || exit 1
 # cron runs with a bare PATH (/usr/bin:/bin), so the `claude` CLI in ~/.local/bin
 # was invisible and every run silently skipped annotation. Keep this list in sync
 # with wherever the CLI actually installs.
-export PATH="$HOME/.local/bin:$HOME/.claude/local:/usr/local/bin:/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.claude/local:$HOME/.local/node/bin:/usr/local/bin:/opt/homebrew/bin:$PATH"
+# The agent SDK ships its own copy of the CLI, and on a host where nothing
+# installed `claude` separately that copy is the only one there is. Located
+# through the package rather than by path, which is pinned to a Python version
+# this script has no business knowing.
+if ! command -v claude >/dev/null 2>&1; then
+  bundled=$(python3 -c 'import claude_agent_sdk, os; print(os.path.join(os.path.dirname(claude_agent_sdk.__file__), "_bundled"))' 2>/dev/null)
+  if [ -n "$bundled" ] && [ -x "$bundled/claude" ]; then
+    export PATH="$bundled:$PATH"
+  fi
+fi
 # The CLI keys its keychain item by CLAUDE_CONFIG_DIR: the entry is named
 # "Claude Code-credentials-<first 8 of sha256(configdir)>", and with the variable
 # unset it reads the legacy un-suffixed "Claude Code-credentials" instead. A
@@ -605,7 +615,10 @@ fi
 # already on disk — a page built first would advertise the site card for a day
 # and then quietly change its mind. Only redraws what changed, so this is one
 # Chrome launch on most nights and none at all on a night with no annotation.
-bash tools/make_og.sh --all
+# Checked, because this is the one build step whose failure leaves a page that
+# still renders: the card is just stale, so nothing downstream notices.
+bash tools/make_og.sh --all ||
+  alert "the social cards could not be redrawn, so the newest puzzles are sharing with a stale or missing card. Everything else on the site is fine."
 
 # Rebuild the crawlable pages: one per puzzle, the archive hub, the tutorial and
 # the sitemap. After validation, deliberately — these pages publish the

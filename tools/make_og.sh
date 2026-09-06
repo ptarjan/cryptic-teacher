@@ -16,7 +16,25 @@
 # to force one.
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# Any headless Chrome will do, and which one is installed is a property of the
+# machine, not of this script. The macOS app bundle is only the first guess.
+CHROME="${CHROME:-}"
+if [ -z "$CHROME" ]; then
+  for candidate in \
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    google-chrome chromium chromium-browser
+  do
+    if [ -x "$candidate" ] || command -v "$candidate" >/dev/null 2>&1; then
+      CHROME="$candidate"
+      break
+    fi
+  done
+fi
+if [ -z "$CHROME" ]; then
+  echo "make_og.sh: no headless Chrome found, so no social card was drawn." \
+       "Install one or set CHROME to its path." >&2
+  exit 1
+fi
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
