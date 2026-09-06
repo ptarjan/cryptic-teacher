@@ -25,7 +25,7 @@ ALERT_CHANNEL="${ALERT_CHANNEL:-1530815234019692624}"   # #cryptic-crosswords
 # than from $HOME: the two are the same directory on the Mac and different
 # directories in a container, and only one of those spellings finds the file.
 ALERT_ENV_FILE="${ALERT_ENV_FILE:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." \
-  && pwd)/discord-claude/.env}"
+  && pwd)/household/.env}"
 ALERT_STATE_DIR="${ALERT_STATE_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." \
   && pwd)/.alert-state}"
 ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
@@ -83,7 +83,7 @@ alert() {
   # message, and this one is posted with the bridge's own token, so unmarked it
   # lands in the channel and wakes nothing (which is how these alerts sat unread
   # on 2026-08-07). Self-authored + that exact marker + an allowlisted channel
-  # is what makes it a turn — see cfg.is_wake in discord-claude.
+  # is what makes it a turn — see cfg.is_wake in household.
   #
   # So it is READ from that config, never spelled here. A marker copied by hand
   # is one edit away from a message nothing reads and nothing reports, which is
