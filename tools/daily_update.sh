@@ -102,8 +102,22 @@ fi
 # --- 2. pick up solutions that have since been published (prize puzzles, and
 #     every Everyman — its competition window withholds answers for about a
 #     week, same shape of problem as the Guardian prize below it) ---
-python3 tools/fetch_puzzle.py --refresh-unsolved
-python3 tools/fetch_observer.py --refresh-unsolved
+#     A puzzle we solved ourselves is refreshed too, and the night the paper's
+#     key lands our fill is marked against it: wrong answers lose the
+#     annotations written off them, and the score is alerted rather than left in
+#     .update.log. That grade is the whole measurement behind ANNOTATE_BLIND —
+#     it happens once per puzzle, on a night nobody knows in advance, so it has
+#     to come and find us.
+refreshed=$( { python3 tools/fetch_puzzle.py --refresh-unsolved
+               python3 tools/fetch_observer.py --refresh-unsolved; } 2>&1 | tee /dev/stderr)
+graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
+[ -n "$graded" ] && alert "a puzzle we solved ourselves has been graded against the
+paper's published answers:
+
+$graded
+
+Every miss listed above has had its annotation dropped, so those clues are back
+in tonight's queue and will be rewritten against the real answer."
 
 # --- 2b. refresh the Minute Cryptic reference corpus ---
 # Their hint ladder is the same shape as ours and better written, so we keep a

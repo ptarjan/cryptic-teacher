@@ -1278,11 +1278,5 @@ window.CRYPTIC_PUZZLES["everyman-4165"] = /*JSON-START*/ {
     "definitionFit": "A dynast rules by family line, so a portrait of someone dominant and installed by relatives reads straight as well as cryptically."
    }
   }
- ],
- "solutionSource": {
-  "kind": "model",
-  "model": "opus",
-  "date": "2026-08-19",
-  "check": "28 entries, 56 crossings, 0 conflicts"
- }
+ ]
 } /*JSON-END*/;

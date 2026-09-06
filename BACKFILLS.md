@@ -30,13 +30,3 @@ picture, write one sentence if it does, move any surface sentence already
 sitting in `walkthrough` across.
 
 Cost: ~6,400 clues. Scope it by puzzle so a killed run keeps what it finished.
-
-## 2. `everyman-4165` still has `solutionSource: model`
-
-We solved it ourselves because the paper had not published answers. The answers
-are out now, so the grid can be refetched against the real key and the marker
-dropped — see `tools/fetch_puzzle.py --refresh-unsolved`, which does this for
-puzzles the nightly still knows are unsolved.
-
-Cost: near zero inference, minutes of attention. It is here rather than done
-because nothing is wrong on the site while it waits.
