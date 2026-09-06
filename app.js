@@ -2318,12 +2318,18 @@
   // drawn and never again. Without that, "yes that's the one" pops afresh while
   // you are picking your next clue (Paul, 2026-08-28): an entrance that replays
   // is not an entrance, it is a fidget.
-  function verdictHTML(g) {
+  // `quiet` drops the marked words and keeps the sentence, for when the clue line
+  // above has become the tapping surface for the NEXT question. Otherwise the
+  // panel holds two copies of the same clue — the live one at the top and this
+  // graded one further down — and the solver is being told to tap words while
+  // looking at a set of identical words that do not answer to a tap (Paul,
+  // 2026-09-06). The count and the verdict survive; only the duplicate goes.
+  function verdictHTML(g, quiet) {
     const fresh = g.fresh ? " fresh" : "";
     g.fresh = false;
     return `<div class="guess-result${fresh}"><p class="guess-verdict ${
       g.mk.right ? "right" : "miss"}">${esc(g.mk.said)}</p>${
-      g.tokens ? guessWordsHTML(g.tokens, g.mk, [], g.known, g.rung) : ""}</div>`;
+      g.tokens && !quiet ? guessWordsHTML(g.tokens, g.mk, [], g.known, g.rung) : ""}</div>`;
   }
 
   // Pieces of the charade already placed, kept on the screen while the next one
@@ -2837,13 +2843,19 @@
       // carrying it would mean checking an answer against a different question.
       if (guessing && guessing.key !== key) guessing = null;
       if (lastGuess && lastGuess.key !== key) lastGuess = null;
+      // Computed before the rungs are drawn, not after them: an earlier rung's
+      // verdict has to know whether the clue line above is currently a set of
+      // buttons, and that is only knowable from the question being asked now.
+      ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
+      if (guessing && !ask) guessing = null;
+      const tapping = !!(ask && !ask.choices && guessing && holder === e);
       steps.forEach((s, i) => {
         if (!isShown(e, s.key)) return;
         // The verdict reads above the rung it judged: you find out whether you
         // were right, and then you are told, in that order. It keeps the marked
         // clue with it, so what you pointed at and what was actually there can
         // be read side by side against the explanation, for as long as you like.
-        if (lastGuess && lastGuess.rung === s.key) bodyHTML += verdictHTML(lastGuess);
+        if (lastGuess && lastGuess.rung === s.key) bodyHTML += verdictHTML(lastGuess, tapping);
         bodyHTML += hintStepHTML(s, i + 1, earnedRungs(e).indexOf(s.key) >= 0);
       });
       // The legend is built from what is actually highlighted, for the same
@@ -2865,8 +2877,6 @@
       // being asked to point at the words first. It goes last in the body, under
       // everything they have already bought, because that is where the next
       // thing to do has always been.
-      ask = guessing ? guessAsk(e, guessing.rung, guessing.step) : null;
-      if (guessing && !ask) guessing = null;
       if (ask) {
         const at = steps.map((s) => s.key).indexOf(guessing.rung);
         bodyHTML += guessHTML(ask, at + 1, steps[at].label, holder === e);
