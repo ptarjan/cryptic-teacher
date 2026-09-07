@@ -459,6 +459,12 @@ function takeRung(btn) {
 const CLIMBABLE = (btn) => !!(btn && btn.onclick && !btn.disabled
   && (/^\d+ · /.test(btn.textContent || "") || /^Next piece · /.test(btn.textContent || "")));
 
+// Every button in the ladder row, by label. The row is real elements, so its
+// innerHTML says nothing about what is on screen — asserting against that
+// string is how a pass that appended a button and then overwrote the row read
+// as healthy for a week.
+const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).join(" | ");
+
 // --- pick a rung out of order, but not out of tier ---
 // Two rules pull against each other and both have to hold. Free choice WITHIN a
 // tier: taking any offered rung reveals that rung and nothing else, so wanting
@@ -503,13 +509,23 @@ registry["reset-puzzle"].onclick();   // back to a clean slate for the in-order 
 // --- walk the hint ladder: the ladder is per-clue, so click until it runs out ---
 const hintMark = beacons.length;
 let rungs = 0, clicks = 0;
-while (registry["hint-next"].children[0] && registry["hint-next"].children[0].onclick && clicks < 12) {
+// The lead button, unless it is the way OUT of the clue. fillAnswer() solves the
+// entry outright, so a climb that presses it stops climbing and starts asserting
+// about a finished clue. It only became reachable here once the fill button was
+// appended like every other button; before that it was written straight into the
+// row's innerHTML, which this DOM does not turn into children — so the ladder was
+// being tested against a row that did not contain half of what a browser showed.
+const leadRung = () => {
+  const b = registry["hint-next"].children[0];
+  return b && b.onclick && b.id !== "hx-entry" ? b : null;
+};
+while (leadRung() && clicks < 12) {
   // Rungs are counted, not clicks. The building blocks come out a piece at a
   // time, so finishing that rung takes several presses of a button that is not
   // a rung of its own — it is the rest of one already bought, and counting it
   // would make the ladder look longer than it is.
-  const isRung = /^\d+ · /.test(registry["hint-next"].children[0].textContent || "");
-  takeRung(registry["hint-next"].children[0]);
+  const isRung = /^\d+ · /.test(leadRung().textContent || "");
+  takeRung(leadRung());
   clicks++;
   if (!isRung) continue;
   rungs++;
@@ -555,7 +571,8 @@ assert(!registry["hint-body"].innerHTML.includes("No indicator words"),
   "ladder never shows an empty 'no indicators' rung");
 assert(registry["hint-clue"].innerHTML.includes('mark class="def"'), "definition highlighted");
 // final ladder rung after the walkthrough is Fill in answer (not letter reveals)
-assert(registry["hint-next"].innerHTML.includes("Fill in answer"), "final rung is Fill in answer: " + registry["hint-next"].innerHTML);
+assert(registry["hint-next"].children.some((b) => b.textContent === "Fill in answer"),
+  "final rung is Fill in answer: " + btnNames());
 const hx = registry["hx-entry"];
 assert(hx.onclick, "fill-in-answer button wired");
 hx.onclick();
@@ -851,7 +868,8 @@ const autoBtn = autoRow.children[0];
 autoBtn.onclick();
 assert(registry["puzzle-title"].innerHTML.includes("auto hints"), "auto-hints puzzle opened");
 assert(registry["hint-body"].innerHTML.includes("auto hints") || registry["hint-body"].innerHTML.includes("hasn"), "degraded hint panel message");
-assert(registry["hint-next"].innerHTML.includes("Reveal answer"), "auto-hints puzzle offers Reveal answer");
+assert(registry["hint-next"].children.some((b) => /Reveal answer/.test(b.textContent)),
+  "auto-hints puzzle offers Reveal answer: " + btnNames());
 assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hints puzzle offers letter escape hatch");
 
 // --- picking a puzzle rewrites the address bar, because that is what gets shared ---
@@ -2724,6 +2742,15 @@ global.realSetTimeout(() => {
   assert(/2 of /.test(more.textContent), "and says which piece is next: " + more.textContent);
   assert(rungs()[0] === more, "ahead of the rungs you have not bought: "
     + registry["hint-next"].innerHTML);
+  // And the way out of the clue stands NEXT TO it, not on top of it. The fill
+  // button used to be written into the row with innerHTML while the other
+  // buttons were appended, and an innerHTML write throws away the children
+  // already there — so answering piece 1 left "Fill in answer" alone on screen
+  // and every remaining piece arrived unasked (Paul, 2026-09-06).
+  assert(registry["hint-next"].children.some((b) => b.id === "hx-entry")
+    && registry["hint-next"].children.indexOf(more) >= 0,
+    "the escape hatch is offered beside the next piece, not instead of it: "
+      + registry["hint-next"].children.map((b) => b.textContent).join(" | "));
   more.onclick();
   assert(asking(), "and asks before it tells, like every other step: " + panelHTML());
 
