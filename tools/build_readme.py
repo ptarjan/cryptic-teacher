@@ -125,8 +125,10 @@ LAYOUT = [
     ("scheduling", "tools/nightly_worktree.sh", "sourced first: re-execs a scheduled job in its own worktree, never the editor’s"),
     ("scheduling", "tools/claude_path.sh", "sourced: finds the `claude` CLI wherever this machine keeps it, SDK-bundled copy included"),
     ("scheduling", "tools/alert.sh", "posts a run’s failures to Discord instead of burying them in a log"),
+    ("scheduling", "tools/claude_session.sh", "sourced: session ids, so a run that dies is resumed rather than paid for twice"),
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
+    ("scheduling", "tools/test_annotate_retry.sh", "drives that resume with a fake CLI, so it is not first tried on a night it is needed"),
     ("scheduling", "tools/prereset_plan.py", "how many puzzles the remaining quota will carry before the reset"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
 

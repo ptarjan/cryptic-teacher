@@ -78,6 +78,9 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 # stored one with a credential that cannot refresh.
 . "$REPO/tools/alert.sh"
 
+# session_id / session_exists — the resume mechanism run_claude below is built on.
+. "$REPO/tools/claude_session.sh"
+
 # This run's own output, so the exit trap can report any failure line nobody
 # wrote an alert for. See alert_run_failures in alert.sh.
 # Spelled out rather than `mktemp -t cryptic-prereset`: -t takes a bare prefix on macOS
@@ -355,14 +358,6 @@ requeue_failed() {
   at=0
 }
 
-# Does the CLI still hold that conversation? A --resume naming a transcript that
-# was never written fails on the spot, which would spend the puzzle's one retry
-# on nothing.
-session_exists() {
-  [ -n "$(find "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects" -maxdepth 2 \
-            -name "$1.jsonl" 2>/dev/null | head -1)" ]
-}
-
 # Run one claude task against the repo. Returns non-zero if the run failed.
 #
 # Its output goes to a file named after the puzzle rather than to the log, because
@@ -393,7 +388,7 @@ run_claude() {
     sess=(--resume "$(cat "$sidfile")")
     prompt=$(cat "$resume_at")
   else
-    sid=$(uuidgen | tr '[:upper:]' '[:lower:]')
+    sid=$(session_id) || sid=""
     echo "$sid" >"$sidfile"
     sess=(--session-id "$sid")
   fi

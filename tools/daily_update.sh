@@ -81,6 +81,13 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 export CLAUDE_CODE_MAX_OUTPUT_TOKENS="${CLAUDE_CODE_MAX_OUTPUT_TOKENS:-128000}"
 export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 
+# What the ceiling becomes on the one retry below: high enough to be nobody's
+# limit but the model's. The CLI clamps this to the model's own maximum rather
+# than rejecting it, so a number above that maximum simply means OURS is out of
+# the way, which is all a retry can ask of it — a turn the model itself
+# truncates is a turn writing too much at once, and the retry says so in words.
+ANNOTATE_RETRY_CEILING="${ANNOTATE_RETRY_CEILING:-200000}"
+
 # claude-auth.sh is deliberately not sourced: the CLI finds its own stored
 # login under CLAUDE_CONFIG_DIR, and that file's env token would override the
 # stored one with a credential that cannot refresh.
@@ -88,6 +95,10 @@ export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 # alert() — puts a failure in Discord instead of only in this log. See alert.sh
 # for why: the seven silent days above are what a log-only failure looks like.
 . "$REPO/tools/alert.sh"
+
+# session_id / session_exists — what lets a failed annotation resume instead of
+# being bought a second time.
+. "$REPO/tools/claude_session.sh"
 
 # Keep this run's output where the exit trap can read it back, and report any
 # failure line nobody wrote an alert for. launchd's .update.log holds every run
@@ -466,11 +477,42 @@ if [ -n "$pending" ]; then
         ann_turns=120
         ann_task="Solve AND annotate the cryptic crossword in puzzles/$num.js in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
       fi
-      if claude -p "$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits." \
-        --model "$ANNOTATE_MODEL" \
-        --allowedTools "$ann_tools" \
-        --max-turns "$ann_turns" 2>&1 | tee "$run_log"
-      then
+      # One session id per puzzle, fixed before the first attempt, because a run
+      # that dies has already been paid for: it read the grid, worked out the
+      # wordplay and wrote some of it down, and a fresh -p buys every bit of
+      # that again. --resume replays the transcript and carries on from it.
+      ann_sid=$(session_id) || ann_sid=""
+      ann_sess=(--session-id "$ann_sid")
+      ann_ceiling="$CLAUDE_CODE_MAX_OUTPUT_TOKENS"
+      ann_prompt="$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
+      ann_ok=""
+      ann_retried=0
+      while :; do
+        CLAUDE_CODE_MAX_OUTPUT_TOKENS="$ann_ceiling" \
+          claude -p "$ann_prompt" "${ann_sess[@]}" \
+            --model "$ANNOTATE_MODEL" \
+            --allowedTools "$ann_tools" \
+            --max-turns "$ann_turns" 2>&1 | tee "$run_log" && ann_ok=1
+        [ -n "$ann_ok" ] && break
+        # Exactly one failure earns another attempt, and it is the one that
+        # costs the most: a turn killed for overrunning the output ceiling
+        # emits no tool call, so everything the run spent buys nothing at all.
+        # Retry it ONCE, resuming that same conversation with our ceiling out
+        # of the way and told to write in pieces — raising a number cannot
+        # help a turn the model's own maximum truncates, but splitting the
+        # write can. A usage lockout wants the next window rather than another
+        # attempt now, and an expired login wants a person; both of those fall
+        # through to the alert below unchanged.
+        [ "$ann_retried" = 0 ] || break
+        grep -q "output token maximum" "$run_log" || break
+        session_exists "$ann_sid" || break
+        ann_retried=1
+        ann_ceiling="$ANNOTATE_RETRY_CEILING"
+        ann_sess=(--resume "$ann_sid")
+        ann_prompt="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read puzzles/$num.js to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
+        echo "  $num overran the output ceiling — resuming that same session at $ann_ceiling rather than paying for it twice"
+      done
+      if [ -n "$ann_ok" ]; then
         annotated_ok=$((annotated_ok + 1))
         annotated_nums="$annotated_nums $num"
       else
