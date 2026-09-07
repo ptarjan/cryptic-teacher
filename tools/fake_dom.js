@@ -78,7 +78,12 @@ function boot(opts) {
       // never assigned cannot have been torn down and rebuilt.
       this.writes++;
       this._innerHTML = String(v);
-      if (v === "") { this.children.forEach(unpublish); this.children = []; }
+      // ANY assignment discards the existing children, which is what a real DOM
+      // does and what this stub used to do only for "". A pass that appended a
+      // button and then assigned innerHTML kept both here and kept one in a
+      // browser, so the harness reported a panel the solver never saw.
+      this.children.forEach(unpublish);
+      this.children = [];
     }
     get innerHTML() { return this._innerHTML; }
     appendChild(el) {

@@ -2741,9 +2741,17 @@
     el._shown = key;
     el.innerHTML = "";
     spec.forEach((b) => {
+      // Built like every other button, because nothing in this row may be
+      // written with innerHTML: that throws away the children already appended
+      // in the same pass. This one is offered from the moment the blocks rung
+      // opens, so it is always appended ALONGSIDE "Next piece" and the rungs,
+      // never instead of them.
       if (b.fill) {
-        el.innerHTML = `<button id="hx-entry">${b.text}</button>`;
-        $("hx-entry").onclick = fillAnswer;
+        const hx = document.createElement("button");
+        hx.id = "hx-entry";
+        hx.textContent = b.text;
+        hx.onclick = fillAnswer;
+        el.appendChild(hx);
         return;
       }
       const btn = document.createElement("button");
