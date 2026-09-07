@@ -75,6 +75,12 @@ check "no markers left in the index" "$(grep -c '^<<<<<<< ' puzzles/index.json)"
 check "the index is valid JSON again" \
   "$(python3 -c 'import json;json.load(open("puzzles/index.json"));print("ok")' 2>&1)" "ok"
 check "nothing left uncommitted" "$(git status --porcelain)" ""
+# index.html is not one of the conflicted files, but it carries the content
+# hash of an index.js the rebuild just rewrote. Nothing else here would
+# notice it going stale: the page loads, and only a cache serves the wrong
+# bytes.
+check "the asset stamps match what was rebuilt" \
+  "$(python3 tools/stamp_assets.py --check 2>&1)" "asset stamps up to date"
 
 echo "a conflict no builder owns is left alone:"
 git checkout -q -B upstream2 "$base"

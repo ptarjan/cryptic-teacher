@@ -902,9 +902,13 @@ if [ -n "$(git status --porcelain)" ]; then
     # after a rebase finishes, so it says "in progress" for the rest of the day.
     [ -d "$(git rev-parse --git-path rebase-merge)" ] ||
       [ -d "$(git rev-parse --git-path rebase-apply)" ] || return 1
+    # stamp_assets.py last, and not optional: index.html's ?v= is the content
+    # hash of the very files this rebuild rewrites, so skipping it pushes a page
+    # that points every cache at bytes that no longer exist.
     python3 tools/fetch_puzzle.py --reindex >/dev/null &&
       python3 tools/build_seo_pages.py >/dev/null &&
-      python3 tools/build_readme.py >/dev/null || return 1
+      python3 tools/build_readme.py >/dev/null &&
+      python3 tools/stamp_assets.py >/dev/null || return 1
     # Collect the list before staging any of it. Fed in through a process
     # substitution, `git diff` is still running while the loop stages, and it
     # takes .git/index.lock to refresh the index — every add after the first
@@ -918,6 +922,20 @@ if [ -n "$(git status --porcelain)" ]; then
     done <<CONFLICTED
 $conflicted
 CONFLICTED
+    # The builders also rewrite files the rebase never conflicted in — index.html
+    # carries the ?v= hash of an index.js that just changed. A rebase refuses to
+    # continue with those left unstaged, so stage them under the same rule: a
+    # path only qualifies once a builder has rewritten it, and a rewrite is
+    # exactly what leaves no conflict markers behind.
+    local rebuilt
+    rebuilt=$(git diff --name-only) || return 1
+    while IFS= read -r path; do
+      [ -n "$path" ] || continue
+      [ -f "$path" ] && ! grep -q '^<<<<<<< ' "$path" || return 1
+      git add -- "$path" || return 1
+    done <<REBUILT
+$rebuilt
+REBUILT
     GIT_EDITOR=true git rebase --continue >/dev/null 2>&1
   }
 
