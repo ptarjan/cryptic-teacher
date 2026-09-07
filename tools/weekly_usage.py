@@ -17,9 +17,10 @@ Two windows matter, and they fail differently:
 
 Where the numbers come from: the same place the CLI's /usage screen gets them,
 `GET /api/oauth/usage` with the subscription's OAuth access token. The token
-lives in the *login* keychain, which is also why the daily job is a LaunchAgent
-and not a crontab entry — cron runs outside the GUI login session and cannot
-unlock it. Do not convert either one to cron.
+lives in the *login* keychain on a Mac, which is why the timed jobs cannot be
+scheduled with cron there — cron runs outside the GUI login session and cannot
+unlock it. In the bridge container there is no keychain and the credential is a
+file under CLAUDE_CONFIG_DIR, which is why they are cron lines here.
 
 The keychain item is keyed by CLAUDE_CONFIG_DIR, exactly as the CLI keys it:
 "Claude Code-credentials-<first 8 of sha256(configdir)>". Hard-coding the legacy

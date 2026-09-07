@@ -24,13 +24,13 @@
 #      and the sitemap), and commits (and pushes, if a remote is set up).
 #
 # Install: a line in the bridge container's tools/crontab (household repo),
-# 06:15 local. It was a macOS LaunchAgent until 2026-09-06 and the rule was
-# "NOT crontab, and must stay that way" — because the `claude` CLI kept its
-# OAuth credential in the *login* keychain, which cron, running outside the GUI
-# login session, cannot unlock, so every run died with "Not logged in". In the
-# container the credential is a file under CLAUDE_CONFIG_DIR and no keychain is
-# involved, which is what retired the rule. On a Mac it still holds: schedule
-# this with launchctl there, never with crontab.
+# 06:15 local. That is the only schedule this job has, and a second one is not
+# a fallback — two copies annotate the same backlog out of the same weekly
+# quota. Cron works here because the credential is a file under
+# CLAUDE_CONFIG_DIR. On a Mac it does not: there the `claude` CLI reads the
+# *login* keychain, which cron cannot unlock, and every run dies with "Not
+# logged in" — so scheduling this on a Mac means launchctl, and means deleting
+# the crontab line rather than adding to it.
 #
 # Requirements: python3, git, and the `claude` CLI on PATH for the annotation step.
 
@@ -55,9 +55,9 @@ cd "$REPO" || exit 1
 # one, so from then until 2026-08-06 every run of this script died on "Failed to
 # authenticate: OAuth session expired and could not be refreshed" and annotated
 # nothing for seven days — while interactive sessions and the Discord bridge
-# (which sets this variable, see com.pt.household.plist) kept working, so
-# nothing looked broken. Set it here rather than only in the plist: the failure
-# is silent and non-obvious, and this way it survives being run by hand too.
+# (which sets this variable) kept working, so nothing looked broken. Set it
+# here rather than only in the scheduler's environment: the failure is silent
+# and non-obvious, and this way it survives being run by hand too.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
 # Two limits, and the gap between them is the point. The thinking budget is what
@@ -75,15 +75,15 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 # the entire ceiling and the turn was truncated before it could act. A cap below
 # the ceiling makes that unreachable. Count by message id, not by line: the CLI
 # writes one line per content block and stamps each with the whole turn's usage.
-# Defaults live here, not in the launchd plist: a value only the plist knows is
-# a value the script cannot be run by hand with, and both of these are unset on
-# this machine.
+# Defaults live here, not in the scheduler's environment: a value only the
+# scheduler knows is a value the script cannot be run by hand with, and both of
+# these are unset on this machine.
 export CLAUDE_CODE_MAX_OUTPUT_TOKENS="${CLAUDE_CODE_MAX_OUTPUT_TOKENS:-128000}"
 export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 
-# claude-auth.sh is deliberately not sourced: this runs as a LaunchAgent, which
-# reaches the login keychain directly, and that file's env token would override
-# the keychain with a credential that cannot refresh.
+# claude-auth.sh is deliberately not sourced: the CLI finds its own stored
+# login under CLAUDE_CONFIG_DIR, and that file's env token would override the
+# stored one with a credential that cannot refresh.
 
 # alert() — puts a failure in Discord instead of only in this log. See alert.sh
 # for why: the seven silent days above are what a log-only failure looks like.
@@ -292,12 +292,12 @@ ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # and the check_annotation_loss.py numbers against the sighted corpus and decide.
 #
 # The default is the trial's state, and it lives here because the repo is the
-# only place that survives the machine. It was set in the LaunchAgent's
-# EnvironmentVariables and nowhere else, so nothing in this checkout knew the
-# trial existed, and any rewrite of that one file on that one Mac would have
-# switched it off with no alert and no way to tell from the log that a sighted
-# night was not the intended one. An environment variable still wins, so the
-# plist and a one-off `ANNOTATE_BLIND= ` both still work.
+# only place that survives the machine. Set it anywhere else — a scheduler's
+# environment, one host's dotfiles — and nothing in this checkout knows the
+# trial exists, and a rewrite of that one file switches it off with no alert
+# and no way to tell from the log that a sighted night was not the intended
+# one. An environment variable still wins, so a one-off `ANNOTATE_BLIND= `
+# still works.
 ANNOTATE_BLIND="${ANNOTATE_BLIND:-1}"
 . "$REPO/tools/annotate_model.sh"
 if [ -n "$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
