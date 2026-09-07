@@ -31,7 +31,10 @@ import sys
 from pathlib import Path
 
 PREFIX = "/cryptic-teacher"
-CONF = Path.home() / ".config" / "ga4"
+# $HOME/.config is only XDG's default, and the jobs that run in the bridge
+# container override it: $HOME there is the image overlay, whose .config is
+# root-owned and thrown away at the next rebuild. Ask for the variable first.
+CONF = Path(os.environ.get("XDG_CONFIG_HOME") or Path.home() / ".config") / "ga4"
 KEY = CONF / "cryptic-teacher.json"
 PROP = CONF / "property"
 
