@@ -129,6 +129,8 @@ LAYOUT = [
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
     ("scheduling", "tools/test_annotate_retry.sh", "drives that resume with a fake CLI, so it is not first tried on a night it is needed"),
+    ("scheduling", "tools/annotate_attempts.py", "counts the annotation runs a puzzle has lost, so a failing one stops being bought every night"),
+    ("scheduling", "tools/test_annotate_attempts.sh", "drives that ledger out of daily_update.sh itself: what is charged, what is forgiven, what leaves the queue"),
     ("scheduling", "tools/prereset_plan.py", "how many puzzles the remaining quota will carry before the reset"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
 
@@ -153,6 +155,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
+    ("tables everything else reads", "tools/data/annotate_attempts.json", "which puzzles have already had an annotation run spent on them and lost"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

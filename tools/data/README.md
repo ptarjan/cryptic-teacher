@@ -9,6 +9,7 @@ What is committed here, and what is fetched.
 | `abbreviations.json` | Hand-built table of standard British-cryptic abbreviations (H = hard, R = river…). A starter set, meant to grow — see the `_comment` inside it. |
 | `unclueable.json` | Words a setter rejected as answers, with the reason. `tools/grid_fill.py` vetoes them. |
 | `sample_fill_11.json` | The worked 11x11 fill (see `tools/AUTHORING.md`). |
+| `annotate_attempts.json` | How many annotation runs each puzzle has lost, and the session the last one died in, so a failing puzzle is not re-annotated from scratch every night (`tools/annotate_attempts.py`). Written by the nightly job and committed by it — tracked rather than local like `.solve_attempts.json`, because that job runs in a throwaway worktree and only a tracked file survives its rebuild. |
 
 ## Fetched, never committed
 

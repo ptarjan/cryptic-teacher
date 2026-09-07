@@ -14,7 +14,12 @@
 #      (default 70), re-read between puzzles. The Guardian publishes six puzzles
 #      a week, so one per run never drains a backlog; it barely keeps up. Stops
 #      early if a run fails rather than burning the rest of the quota on doomed
-#      attempts.
+#      attempts. A puzzle that fails, or whose annotation the validator throws
+#      away, is written down (tools/annotate_attempts.py): the next night
+#      resumes the session it died in rather than starting over, and after
+#      ANNOTATE_MAX_ATTEMPTS of them it leaves the queue and a person is told,
+#      because otherwise it is the newest un-annotated puzzle for ever and is
+#      re-bought at full price every single night.
 #   4. Reads the bad-hint queue solvers write to from the site, hands the
 #      reports to the same headless model to fix, and alerts a person only
 #      about the ones it could not close. Before the commit, so a fix reaches
@@ -192,16 +197,70 @@ fi
 # the backfill"). The rate limit below is what stops a big import from being a
 # big bill, and it already did that job.
 ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
-pending=$(python3 - "$ANNOTATE_MAX" <<'EOF'
+# How many nights a puzzle may fail before it leaves the queue for a person to
+# look at. Two, and a night already contains one in-run retry, so this is up to
+# four tries. Exported rather than passed: tools/annotate_attempts.py reads it
+# from the environment, and the default belongs in this file for the same reason
+# every other one does — a value only the scheduler knows is a value this script
+# cannot be run by hand with.
+export ANNOTATE_MAX_ATTEMPTS="${ANNOTATE_MAX_ATTEMPTS:-2}"
+# Puzzles whose annotation has already been bought and lost twice. Selection
+# here is by date and nothing else, so without this a puzzle that fails is the
+# newest un-annotated puzzle again tomorrow, and again the night after — the
+# same grid, from scratch, at a full puzzle's price each time (see
+# tools/annotate_attempts.py). Excluded before the slice below, not skipped
+# inside the loop: that slice is the night's whole budget, and a blocked puzzle
+# holding one of its three places would cost the backlog a real puzzle a night.
+annotate_blocked=$(python3 tools/annotate_attempts.py blocked)
+pending=$(python3 - "$ANNOTATE_MAX" "$annotate_blocked" <<'EOF'
 import json, sys
 idx = json.load(open("puzzles/index.json"))
+blocked = set(sys.argv[2].split())
 # IDs, not numbers: puzzles/<id>.js is what every step below names, so no
 # consumer has to resolve a number two papers could share.
 todo = sorted(((p.get("date") or 0, p["id"]) for p in idx["puzzles"]
-               if not p["annotated"] and p.get("hasSolutions")), reverse=True)
+               if not p["annotated"] and p.get("hasSolutions")
+               and p["id"] not in blocked), reverse=True)
 print(" ".join(i for _, i in todo[:int(sys.argv[1])]))
 EOF
 )
+
+# Charge a lost night to the puzzle — but only when the puzzle is what lost it.
+#
+# A run stopped by a usage lockout or an expired login learned nothing about the
+# grid: the CLI never got far enough to read it. Counting those against the
+# puzzle would blacklist a perfectly good one for a fault that had nothing to do
+# with it, and would do it on exactly the nights this job is already broken, so
+# the whole head of the queue would go dark at once and stay there. The retry
+# loop below draws the same line — it retries an output overrun and lets a
+# lockout fall through to the next window rather than spending another attempt
+# now — and this follows it.
+record_annotate_failure() {   # id, reason, session id of that attempt (may be empty)
+  local id="$1" reason="$2" sid="${3:-}" n
+  case "$reason" in
+    *"usage limit"*|*"limit reached"*|*"rate limit"*|*"five-hour window"*|\
+    *"Not logged in"*|*authenticate*|*OAuth*|*"credit balance"*)
+      echo "  not charging $id for that — it is our fault, not the puzzle's"
+      return 0 ;;
+  esac
+  n=$(python3 tools/annotate_attempts.py record "$id" --reason "$reason" \
+        ${sid:+--session "$sid"})
+  echo "  $id has now failed ${n:-?} of $ANNOTATE_MAX_ATTEMPTS annotation attempts"
+}
+
+# A puzzle leaving the queue is worth waking someone for exactly once. Nightly
+# it would be worth less than nothing: tools/alert.sh's header says why — the
+# pre-reset job repeated one paragraph four times on 2026-08-07, and a channel
+# that cries wolf on the hour teaches its one reader to scroll past everything
+# in it, including the message that matters. So the set that has already been
+# reported is remembered in the ledger and only a change to it speaks up.
+alert_newly_blocked() {
+  local ids
+  ids=$(python3 tools/annotate_attempts.py blocked --if-changed | tr '\n' ' ')
+  ids="${ids% }"
+  [ -n "$ids" ] || return 0
+  alert "these puzzles have failed $ANNOTATE_MAX_ATTEMPTS annotation runs each and are no longer being tried: $ids. They ship with no hints, and nothing will attempt them again until someone does — annotate one by hand, or clear it with \`python3 tools/annotate_attempts.py clear <id>\`. The reason each one gave up is in tools/data/annotate_attempts.json."
+}
 
 # Puzzles the paper hasn't published answers for — Saturday prize crosswords,
 # which withhold them for about a week. They used to be excluded from
@@ -356,6 +415,13 @@ ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-70}"
 annotated_ok=0
 annotated_nums=""
 stop_reason=""
+# id:session for every annotate call this run makes, so a failure noticed after
+# the loop — the validator throwing tonight's work away — can still say which
+# conversation held it. A "$num:$ann_sid" list rather than an associative array:
+# this script has to run under the bash 3.2 macOS ships as well as the
+# container's, and only one of those has `declare -A`.
+ann_sids=""
+ann_session_of() { printf '%s\n' $ann_sids | sed -n "s/^$1://p" | tail -1; }
 
 # --- 3a. solve the unsolved, so step 3b has something to annotate ---
 # Runs before the annotation loop and feeds it: a grid solved tonight joins the
@@ -485,6 +551,22 @@ if [ -n "$pending" ]; then
       ann_sess=(--session-id "$ann_sid")
       ann_ceiling="$CLAUDE_CODE_MAX_OUTPUT_TOKENS"
       ann_prompt="$ann_task Follow the instructions in tools/annotate_prompt.md exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Every clue needs a definitionFit, and every indicator needs an indicatorNotes entry saying why THAT word carries THAT instruction. Do not commit — the calling script commits."
+      # A conversation from a night that failed, if the ledger kept one and the
+      # CLI still holds its transcript. This is the retry below, stretched over
+      # a night instead of a turn, and it is worth the same: the dead run had
+      # already read the grid, solved some of the clues and written part of the
+      # annotation down, and a fresh -p pays for every bit of that a second time.
+      # The prompt is the retry's, in its words, with one difference — a night
+      # can also have ended in the validator throwing the file back to its old
+      # contents, so it must be read as it NOW stands rather than assumed.
+      ann_prior=$(python3 tools/annotate_attempts.py session "$num")
+      if session_exists "$ann_prior"; then
+        ann_sid="$ann_prior"
+        ann_sess=(--resume "$ann_sid")
+        ann_prompt="An earlier run of this task was cut off before it finished. Everything you did before that is intact in this conversation, but the files may have been rolled back since — read puzzles/$num.js to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit the output token limit will be cut off. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
+        echo "  $num still has the session its last attempt died in — resuming that rather than buying it from scratch"
+      fi
+      ann_sids="$ann_sids $num:$ann_sid"
       ann_ok=""
       ann_retried=0
       while :; do
@@ -521,6 +603,13 @@ if [ -n "$pending" ]; then
         # alert is the difference between "go and read a 270k-line log" and
         # knowing whether this needs a /login or just needs tomorrow.
         stop_reason="$num failed: $(grep -v '^[[:space:]]*$' "$run_log" | tail -1 | cut -c1-200)"
+        # And write that down against the puzzle, because tomorrow's queue is
+        # otherwise identical to tonight's: this puzzle is still un-annotated and
+        # still the newest, so it comes back to the head of the list and is
+        # bought again from an empty context. That is what happened to
+        # indysunday-1906 after 2026-09-06, and it escaped a second full run only
+        # because a person annotated it by hand.
+        record_annotate_failure "$num" "$stop_reason" "$ann_sid"
         break
       fi
     done
@@ -641,8 +730,41 @@ if [ -n "$annotated_nums" ] &&
   # This branch used to exit 1 in silence, which is the same shape of failure as
   # the seven authentication days: the log knew, and nobody did.
   alert "annotation validation failed on tonight's own puzzles ($annotated_nums), so the hints were thrown away and nothing published: $(grep ERROR /tmp/ct-validate.txt | head -3 | tr '\n' ' ')"
+  # Every one of those puzzles is now un-annotated again and will be back at the
+  # head of tomorrow's queue, so the run that was just discarded gets bought
+  # again — and a puzzle that trips the validator systematically would repeat
+  # that indefinitely. Charged to the puzzle, because it IS the puzzle: the
+  # validator read tonight's annotation of it and refused it.
+  for num in $annotated_nums; do
+    record_annotate_failure "$num" \
+      "validation rejected tonight's annotation: $(grep -m1 ERROR /tmp/ct-validate.txt | cut -c1-160)" \
+      "$(ann_session_of "$num")"
+  done
+  alert_newly_blocked
   exit 1
 fi
+# Tonight's puzzles passed, so their history is spent and is not worth keeping —
+# except for one case that looks exactly like success from here. The `claude`
+# call exiting 0 is not evidence the puzzle got hints: a run can finish its turns
+# having written nothing, and the validator is happy with a file that has no
+# annotations in it to be wrong. So the index, rebuilt above, is what decides,
+# and a clean exit that annotated nothing is charged like any other lost night.
+for num in $annotated_nums; do
+  if python3 - "$num" <<'EOF'
+import json, sys
+idx = json.load(open("puzzles/index.json"))
+sys.exit(0 if any(p["id"] == sys.argv[1] and p["annotated"]
+                  for p in idx["puzzles"]) else 1)
+EOF
+  then
+    python3 tools/annotate_attempts.py clear "$num"
+  else
+    echo "$num came back from a clean run still un-annotated"
+    record_annotate_failure "$num" "the run exited cleanly but wrote no annotation" \
+      "$(ann_session_of "$num")"
+  fi
+done
+alert_newly_blocked
 # The corpus still gets checked every night, because a live page can be made
 # wrong by a change to the validator or the glossary and nobody would look. It
 # shouts and publishes anyway: the clues it names are already in front of
