@@ -123,13 +123,12 @@ LAYOUT = [
 
     ("scheduling", "tools/daily_update.sh", "daily script: fetch latest, annotate backlog, validate, commit"),
     ("scheduling", "tools/nightly_worktree.sh", "sourced first: re-execs a scheduled job in its own worktree, never the editor’s"),
+    ("scheduling", "tools/claude_path.sh", "sourced: finds the `claude` CLI wherever this machine keeps it, SDK-bundled copy included"),
     ("scheduling", "tools/alert.sh", "posts a run’s failures to Discord instead of burying them in a log"),
-    ("scheduling", "tools/com.pt.cryptic-teacher.plist", "LaunchAgent that runs daily_update.sh at 06:15"),
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
     ("scheduling", "tools/prereset_plan.py", "how many puzzles the remaining quota will carry before the reset"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
-    ("scheduling", "tools/com.pt.cryptic-teacher-prereset.plist", "LaunchAgent that polls prereset_backfill.sh hourly"),
 
     ("finding out whether any of it is working", "tools/reports.py", "reads and clears the bad-hint reports solvers sent in"),
     ("finding out whether any of it is working", "tools/rung_report.py", "where on the ladder solvers give up, from synced hintsShown data"),

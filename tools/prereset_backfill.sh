@@ -55,10 +55,10 @@
 # log full of identical errors.
 #
 # Install: a line in the bridge container's tools/crontab (household repo), at
-# :05 every hour. `flock -n` is what launchd's "no second copy while one runs"
-# used to give for free, and it matters more here than anywhere else in that
-# file: two of these overlapping would both spend the same window. On a Mac use
-# launchctl and not crontab — see daily_update.sh's header for why.
+# :05 every hour, and that line is the only schedule this job has. `flock -n`
+# on it is not decoration: cron has no idea that a copy is already running, and
+# two of these overlapping would both spend the same window. On a Mac it would
+# have to be launchctl instead, never as well — see daily_update.sh's header.
 
 set -uo pipefail
 # A checkout of its own, so an hour of unmetered annotation cannot collide with
@@ -73,9 +73,9 @@ cd "$REPO" || exit 1
 # note in daily_update.sh.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
-# claude-auth.sh is deliberately not sourced: this runs as a LaunchAgent, which
-# reaches the login keychain directly, and that file's env token would override
-# the keychain with a credential that cannot refresh.
+# claude-auth.sh is deliberately not sourced: the CLI finds its own stored
+# login under CLAUDE_CONFIG_DIR, and that file's env token would override the
+# stored one with a credential that cannot refresh.
 . "$REPO/tools/alert.sh"
 
 # This run's own output, so the exit trap can report any failure line nobody
@@ -182,7 +182,7 @@ rm -f /tmp/ct-prereset-*.sid /tmp/ct-prereset-*.resume
 # Anthropic does to the account, and a fitted constant standing in for a
 # queryable fact is always the wrong model. So: ask, and if the answer is "not
 # yet", exit having spent nothing. This job is now a poll, not an appointment —
-# see the plist, which fires it hourly precisely because the answer moves.
+# it is scheduled hourly precisely because the answer moves.
 #
 # Exit 3 means the answer is derived rather than read: the API had turned the
 # window over without re-stamping it, so the number is one window length past
@@ -254,7 +254,7 @@ past_deadline() {
 # spending the same quota has the same effect, which is the point: this job takes
 # only what the week was going to lose anyway, and takes it as late as it can.
 #
-# Standing down means EXITING, not sleeping. The plist fires hourly and re-decides
+# Standing down means EXITING, not sleeping. The next hour's run re-decides
 # with a fresh reading; a process asleep for five hours on a plan made before it
 # slept is the hard-coded 04:00 appointment wearing a different hat.
 #
