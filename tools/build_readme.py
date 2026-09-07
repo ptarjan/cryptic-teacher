@@ -131,6 +131,7 @@ LAYOUT = [
     ("scheduling", "tools/test_annotate_retry.sh", "drives that resume with a fake CLI, so it is not first tried on a night it is needed"),
     ("scheduling", "tools/annotate_attempts.py", "counts the annotation runs a puzzle has lost, so a failing one stops being bought every night"),
     ("scheduling", "tools/test_annotate_attempts.sh", "drives that ledger out of daily_update.sh itself: what is charged, what is forgiven, what leaves the queue"),
+    ("scheduling", "tools/test_push_conflict.sh", "proves the nightly push rebuilds a generated file the remote also rebuilt, and refuses to resolve anything else"),
     ("scheduling", "tools/prereset_plan.py", "how many puzzles the remaining quota will carry before the reset"),
     ("scheduling", "tools/backlog_burndown.py", "the annotation backlog over time, rebuilt from git history, and how long the rest will take at that pace"),
 

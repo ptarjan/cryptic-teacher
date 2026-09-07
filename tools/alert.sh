@@ -103,7 +103,14 @@ req = urllib.request.Request(
     f"https://discord.com/api/v10/channels/{channel}/messages",
     data=body.encode(),
     headers={"Authorization": f"Bot {token}",
-             "Content-Type": "application/json"})
+             "Content-Type": "application/json",
+             # Discord's edge 403s Python-urllib's default User-Agent before the
+             # request ever reaches the API — the token and channel were fine on
+             # 2026-09-07 and the POST still came back Forbidden. Every Discord
+             # client is required to identify itself this way; discord.py sends
+             # one, which is why the bridge never saw this and a raw urllib call
+             # did.
+             "User-Agent": "DiscordBot (https://github.com/ptarjan/cryptic-teacher, 1.0)"})
 try:
     urllib.request.urlopen(req, timeout=15).read()
 except (urllib.error.URLError, OSError) as exc:
