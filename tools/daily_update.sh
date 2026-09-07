@@ -92,7 +92,10 @@ export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 # Keep this run's output where the exit trap can read it back, and report any
 # failure line nobody wrote an alert for. launchd's .update.log holds every run
 # ever, so "grep the log" would re-report last week; this is tonight only.
-RUN_LOG="$(mktemp -t cryptic-daily)"
+# Spelled out rather than `mktemp -t cryptic-daily`: -t takes a bare prefix on macOS
+# but a template that must contain X's on GNU, so the one spelling cannot mean
+# the same thing on both. Every mktemp below is written this way.
+RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-daily.XXXXXX")"
 exec > >(tee -a "$RUN_LOG") 2>&1
 trap 'sleep 1; alert_run_failures "$RUN_LOG"; rm -f "$RUN_LOG"' EXIT
 
@@ -425,7 +428,7 @@ if [ -n "$pending" ]; then
   # app.js and the validator several times a puzzle to find these.
   python3 tools/build_annotate_prompt.py
   if command -v claude >/dev/null 2>&1; then
-    run_log="$(mktemp -t cryptic-annotate)"
+    run_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-annotate.XXXXXX")"
     for num in $pending; do
       session=$(python3 tools/weekly_usage.py --group session)
       if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
@@ -660,7 +663,7 @@ python3 tools/stamp_assets.py --check ||
 # shouting about but isn't a reason to withhold the puzzle itself. Skipped
 # (exit 2) just means tonight's puzzle has no hints yet.
 if command -v node >/dev/null 2>&1; then
-  smoke_log="$(mktemp -t cryptic-smoke)"
+  smoke_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-smoke.XXXXXX")"
   node tools/smoke_test.js 2>&1 | tee "$smoke_log"
   smoke_rc=${PIPESTATUS[0]}
   # A WARNING in a log is not a warning to anyone. This ran for weeks printing

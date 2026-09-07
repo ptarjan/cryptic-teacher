@@ -80,7 +80,10 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
 # This run's own output, so the exit trap can report any failure line nobody
 # wrote an alert for. See alert_run_failures in alert.sh.
-RUN_LOG="$(mktemp -t cryptic-prereset)"
+# Spelled out rather than `mktemp -t cryptic-prereset`: -t takes a bare prefix on macOS
+# but a template that must contain X's on GNU, so the one spelling cannot mean
+# the same thing on both. Every mktemp below is written this way.
+RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
 exec > >(tee -a "$RUN_LOG") 2>&1
 
 # Kept in step with daily_update.sh — Opus since 2026-08-09, benchmarked against
@@ -849,7 +852,7 @@ python3 tools/fetch_puzzle.py --reindex
 python3 tools/build_seo_pages.py
 python3 tools/stamp_assets.py
 if command -v node >/dev/null 2>&1; then
-  smoke_log="$(mktemp -t cryptic-prereset-smoke)"
+  smoke_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset-smoke.XXXXXX")"
   node tools/smoke_test.js 2>&1 | tee "$smoke_log"
   smoke_rc=${PIPESTATUS[0]}
   # A WARNING in a log is not a warning to anyone: this printed failures for weeks
