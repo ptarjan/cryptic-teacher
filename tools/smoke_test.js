@@ -3805,3 +3805,98 @@ global.realSetTimeout(() => {
     }
   }
 }
+
+// --- an indicator is a phrase, and its linking words are not the lesson ---
+// "If the indicator has linking words it doesn't feel fair to lose. Like for
+// spooner if I just choose spooner I should get it" (Paul, 2026-09-06). A third
+// of the corpus's indicators are more than one word — "starts to", "end of",
+// "according to Spooner" — and demanding the exact span marked a solver wrong
+// for finding the thing and drawing its edge one word in. Finding every
+// indicator and pointing at nothing else is what the rung asks, so that is what
+// it marks; the phrase is then named in full, which is the teaching.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const tokensOf = (clue) => {
+    const body = String(clue || "").replace(/\s*\([^()]*\)\s*$/, "");
+    const out = [];
+    const re = /\S+/g;
+    let m;
+    while ((m = re.exec(body))) out.push({ i: m.index, text: m[0] });
+    return out;
+  };
+  // Located without a copy of the app's matcher: one occurrence, whole words.
+  const spanTokens = (clue, frag) => {
+    const at = clue.indexOf(frag);
+    if (at < 0 || clue.indexOf(frag, at + 1) >= 0) return null;
+    const hit = tokensOf(clue).map((t, n) => ({ t, n }))
+      .filter(({ t }) => t.i < at + frag.length && at < t.i + t.text.length);
+    if (!hit.length) return null;
+    const first = hit[0].t, last = hit[hit.length - 1].t;
+    if (first.i !== at || last.i + last.text.length !== at + frag.length) return null;
+    return hit.map(({ n }) => n);
+  };
+  const openClue = (id, e) => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+    if (!li) return false;
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + e.id].listeners.click[0]();
+    return true;
+  };
+  const rungs = () => registry["hint-next"].children;
+  const rung = (re) => rungs().find((b) => re.test(b.textContent || "") && !b.disabled);
+  const asking = () => isAsking(registry["hint-body"]);
+  const pickable = (n) => panelHTML().includes(`id="gw-${n}"`);
+
+  let found = null, tried = 0;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      if (found || tried > 60) break;
+      const inds = ((e.annotation || {}).indicators) || [];
+      if (!inds.length) continue;
+      const spans = inds.map((t) => spanTokens(e.clue, t));
+      // Every phrase locatable, and at least one of them long enough to have a
+      // word to leave out — a one-word indicator cannot pose this question.
+      if (spans.some((s) => !s) || !spans.some((s) => s.length > 1)) continue;
+      tried++;
+      if (!openClue(id, e)) continue;
+      const b = rung(/indicator/i);
+      if (!b) continue;
+      b.onclick();
+      // Words another rung already named are settled scaffolding and not
+      // offered, so a clue whose indicator overlaps its definition is skipped
+      // rather than answered with a button that is not there.
+      if (!asking() || spans.some((s) => !pickable(s[0]))) continue;
+      found = { id, e, spans };
+    }
+    if (found) break;
+  }
+  assert(found, "somewhere in the corpus an indicator is more than one word "
+    + `(tried ${tried} clues whose indicators are all locatable)`);
+  if (found) {
+    found.spans.forEach((s) => registry["gw-" + s[0]].onclick());
+    registry["guess-check"].onclick();
+    const html = panelHTML();
+    assert(html.includes("guess-verdict right"),
+      `${found.id} ${found.e.id}: one word of each indicator is enough: ` + html);
+    assert(html.includes("in full it’s"),
+      "and the whole phrase is what comes back: " + html);
+
+    // The other half of the rule: a phrase with no word picked at all is not
+    // found, however many of the others are. 216 clues have "in" as an entire
+    // indicator, and a rung that let a solver skip one would be free.
+    if (found.spans.length > 1) {
+      openClue(found.id, found.e);
+      rung(/indicator/i).onclick();
+      if (assert(asking(), "the indicators rung asks again on a fresh clue")) {
+        found.spans.slice(0, -1).forEach((s) => registry["gw-" + s[0]].onclick());
+        registry["guess-check"].onclick();
+        assert(!panelHTML().includes("guess-verdict right"),
+          "an indicator with nothing pointed at it is not found: " + panelHTML());
+      }
+    }
+  }
+}
