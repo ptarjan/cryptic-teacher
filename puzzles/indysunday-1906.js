@@ -34,7 +34,43 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "STJAMESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ST JAMES'S",
+    "definition": "clubby area",
+    "definitionFit": "St James's is the stretch of central London around Pall Mall where the old gentlemen's clubs stand, so a clubby area names it exactly.",
+    "indicators": [
+     "kept to"
+    ],
+    "indicatorNotes": {
+     "kept to": "Someone kept to a room stays inside it, so the single letter goes within the piece beside it."
+    },
+    "pieces": [
+     "ST",
+     "J",
+     "A",
+     "MESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "station",
+      "gives": "STA",
+      "note": "STA is the abbreviation for station on maps and timetables"
+     },
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the abbreviation for Judge or Justice in law reports"
+     },
+     {
+      "clueFragment": "canteen",
+      "gives": "MESS",
+      "note": "the mess is where soldiers eat, the services' word for a canteen"
+     }
+    ],
+    "surface": "A judge who has to take his lunch in the station canteen rather than anywhere grander.",
+    "walkthrough": "The area is the patch of central London round Pall Mall where the old gentlemen's clubs sit, so 'clubby' is literal rather than a joke about atmosphere. The possessive on 'canteen's' belongs to the sentence, not to the letters."
+   }
   },
   {
    "id": "1-down",
@@ -55,7 +91,39 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "SETASIDE",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "SET ASIDE",
+    "definition": "Reserve",
+    "definitionFit": "To set money or time aside is to reserve it, keeping it back for a purpose instead of spending it now.",
+    "indicators": [
+     "ultimate in",
+     "houses"
+    ],
+    "indicatorNotes": {
+     "ultimate in": "The ultimate item in a list is the final one, so only the closing letter of the word after it is taken.",
+     "houses": "A house has something living inside it, so the longer word closes round the single letter."
+    },
+    "pieces": [
+     "SE",
+     "T",
+     "ASIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beach",
+      "gives": "SEASIDE",
+      "note": "the seaside is where a beach is, the British word for the coast you go to on holiday"
+     },
+     {
+      "clueFragment": "ultimate in opulent",
+      "gives": "T",
+      "note": "the last letter of OPULENT, taken on its own"
+     }
+    ],
+    "surface": "Booking the very best of the luxury houses along the beach.",
+    "walkthrough": "'Beach houses' wants to be one thing you rent for a fortnight. 'Houses' is really the verb, and the two words either side of it belong to different halves of the clue."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +140,62 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JUXTAPOSE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram + first letter",
+    "answer": "JUXTAPOSE",
+    "definition": "put together",
+    "definitionFit": "To juxtapose two things is to put them together side by side so that the contrast between them shows.",
+    "indicators": [
+     "fresh",
+     "bit of",
+     "stuffing"
+    ],
+    "indicatorNotes": {
+     "fresh": "Fresh means newly made rather than as it came, so the letters beside it are made up again in another order.",
+     "bit of": "A bit of something is a small piece off the front of it, here the opening letter only.",
+     "stuffing": "Stuffing is pushed inside the bird, so this piece goes into the middle of the letters around it."
+    },
+    "linkWords": [
+     "with",
+     "and",
+     "that"
+    ],
+    "pieces": [
+     "JU",
+     "XTAPO",
+     "SE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TPAXO",
+      "gives": "XTAPO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gravy",
+      "gives": "JUS",
+      "note": "jus is the thin gravy of meat juices on a restaurant menu"
+     },
+     {
+      "clueFragment": "bit of turkey",
+      "gives": "T",
+      "note": "the first letter of TURKEY, taken on its own"
+     },
+     {
+      "clueFragment": "Paxo",
+      "gives": "PAXO",
+      "note": "Paxo is the packet sage-and-onion stuffing mix on British Christmas tables"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "surface": "Christmas dinner on a plate: gravy, a fresh bit of turkey and some packet stuffing.",
+    "walkthrough": "The surface is entirely Christmas dinner, and the answer is about setting two things side by side to compare them. 'Stuffing' is the word doing double duty, edible above and an instruction below."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +212,45 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISSTEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MISSTEP",
+    "definition": "Error",
+    "definitionFit": "A misstep is a wrong move — literally a foot put in the wrong place, and by extension an error of judgement.",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "To be upset is to be turned upside down, and in a column of squares that means the letters are written in from the bottom."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "MISS",
+     "TEP"
+    ],
+    "subReversals": [
+     {
+      "from": "PET",
+      "to": "TEP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teacher",
+      "gives": "MISS",
+      "note": "Miss is what British schoolchildren call a woman teacher"
+     },
+     {
+      "clueFragment": "special pupil",
+      "gives": "TEP",
+      "note": "the teacher's pet is the child a teacher favours, arriving the other way up here"
+     }
+    ],
+    "surface": "A teacher put out by the pupil she treats as special.",
+    "walkthrough": "'Upset' reads as the teacher's mood and is only an instruction about direction. The phrase being leaned on is teacher's pet, with 'special' standing in for the possessive half of it."
+   }
   },
   {
    "id": "4-down",
@@ -112,7 +273,50 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "SETONESHEARTON",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "SET ONE'S HEART ON",
+    "definition": "Really fancy",
+    "definitionFit": "To set one's heart on something is to want it badly — 'fancy' in the British sense of desiring a thing rather than of being ornate.",
+    "indicators": [
+     "secured by",
+     "on the counter"
+    ],
+    "indicatorNotes": {
+     "secured by": "What is secured by something is fastened inside it, so this piece is held within the letters around it.",
+     "on the counter": "To counter is to go against, so the money words are read against their direction, from the far end back."
+    },
+    "pieces": [
+     "SETONE",
+     "SHEAR",
+     "TON"
+    ],
+    "subReversals": [
+     {
+      "from": "NOTENOTES",
+      "to": "SETONETON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenner",
+      "gives": "NOTE",
+      "note": "a tenner is a ten-pound note, so the money word wanted is NOTE"
+     },
+     {
+      "clueFragment": "bills",
+      "gives": "NOTES",
+      "note": "bills is the American word for banknotes"
+     },
+     {
+      "clueFragment": "fleece",
+      "gives": "SHEAR",
+      "note": "to fleece a sheep is to shear it"
+     }
+    ],
+    "surface": "Falling for a fleece jacket while the ten-pound notes are counted out on the shop counter.",
+    "walkthrough": "'Fleece' looks like the garment on the rail and is really the verb, what a farmer does to a sheep. The counter of the surface is a shop's; in the wordplay it is the direction the money is read."
+   }
   },
   {
    "id": "5-across",
@@ -133,7 +337,36 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPOTON",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SPOT ON",
+    "definition": "perfect",
+    "definitionFit": "Spot on means exactly right — the British way of saying a guess or a measurement could not be more accurate.",
+    "indicators": [
+     "From behind"
+    ],
+    "indicatorNotes": {
+     "From behind": "Seen from behind, the letters of an across entry are read from the right-hand end back to the left."
+    },
+    "pieces": [
+     "SPOTON"
+    ],
+    "subReversals": [
+     {
+      "from": "NOTOPS",
+      "to": "SPOTON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all bottoms presumably",
+      "gives": "NOTOPS",
+      "note": "if every last thing is a bottom then there are no tops, and those two words are what gets turned round"
+     }
+    ],
+    "surface": "A rear view in which everything on show is a bottom.",
+    "walkthrough": "'Presumably' is the setter's nudge that you are being asked to reason rather than to look up a synonym: work out what is left over once every last thing is a bottom, then read it the other way."
+   }
   },
   {
    "id": "6-down",
@@ -150,7 +383,45 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POPCORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "POPCORN",
+    "definition": "inflated fare",
+    "definitionFit": "Popcorn is fare — food — that is literally inflated, each kernel bursting to many times its own size in the pan.",
+    "indicators": [
+     "initially",
+     "claims"
+    ],
+    "indicatorNotes": {
+     "initially": "What comes initially comes first, so only the opening letter of the word in front of it is used.",
+     "claims": "A claim takes hold of something and keeps it, so these letters close around the piece named next."
+    },
+    "pieces": [
+     "PO",
+     "PC",
+     "OR",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard-up",
+      "gives": "POOR",
+      "note": "someone hard-up has no money — they are poor"
+     },
+     {
+      "clueFragment": "computer",
+      "gives": "PC",
+      "note": "a PC is a personal computer"
+     },
+     {
+      "clueFragment": "network initially",
+      "gives": "N",
+      "note": "the first letter of NETWORK, taken on its own"
+     }
+    ],
+    "surface": "A hard-up network blaming its computer for a fare that has been pushed up.",
+    "walkthrough": "'Fare' is food here, the sense in bill of fare, not the price of a journey — and 'inflated' turns out to be literal rather than a complaint about prices."
+   }
   },
   {
    "id": "7-down",
@@ -167,7 +438,38 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUDOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TUDOR",
+    "definition": "from 16C",
+    "definitionFit": "Tudor means of the sixteenth century in England: the dynasty ruled from 1485 to 1603, so a Tudor house or a Tudor rose is dated by the word.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "TU",
+     "DO",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In France you",
+      "gives": "TU",
+      "note": "tu is the French word for you"
+     },
+     {
+      "clueFragment": "impersonate",
+      "gives": "DO",
+      "note": "to do somebody is to impersonate them, as a comic does a politician"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is rex, Latin for king, the letter that follows a monarch's name"
+     }
+    ],
+    "surface": "In France you do an impression of a sixteenth-century king.",
+    "walkthrough": "The definition is the tail of the clue and it is an adjective for a period, not a person. 'You' is the French pronoun rather than the solver being addressed."
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +486,46 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEPHEW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "NEPHEW",
+    "definition": "Relative",
+    "definitionFit": "A nephew is your brother's or sister's son, so 'relative' is the plain family word for him.",
+    "indicators": [
+     "entertained by"
+    ],
+    "indicatorNotes": {
+     "entertained by": "To entertain a guest is to have them in the house, so these letters are taken inside the word that follows."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "NE",
+     "P",
+     "HE",
+     "W"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novel",
+      "gives": "NEW",
+      "note": "a novel idea is a new one"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano in music, the marking for quiet"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "HE",
+      "note": "a fellow is a man, and the pronoun for a man is he"
+     }
+    ],
+    "surface": "A quiet man and his companion being kept entertained by a book.",
+    "walkthrough": "'Novel' is a book on the surface and the adjective underneath. 'Fellow' is how a two-letter pronoun gets into a clue without the word itself ever appearing."
+   }
   },
   {
    "id": "9-down",
@@ -205,7 +546,35 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "QUESTIONMASTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "QUESTION MASTER",
+    "definition": "Examiner",
+    "definitionFit": "A question master is the person who puts the questions on a quiz show, which makes him an examiner of a genial kind.",
+    "indicators": [
+     "rearranged"
+    ],
+    "indicatorNotes": {
+     "rearranged": "Rearranging keeps every part and changes only the order, which is exactly what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "EQUATIONS TERMS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "equation's terms",
+      "gives": "EQUATIONSTERMS",
+      "note": "anagram fodder, fourteen letters"
+     },
+     {
+      "clueFragment": "rearranged",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A maths examiner moving the terms of an equation about.",
+    "walkthrough": "In algebra you really do rearrange the terms of an equation, so the instruction is hiding inside a sentence that sounds like ordinary schoolwork."
+   }
   },
   {
    "id": "10-across",
@@ -222,7 +591,43 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAXES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TAXES",
+    "definition": "they're a burden every year",
+    "definitionNote": "The definition is a whole predicate rather than a noun: 'they're' agrees with the plural answer, while 'a burden' treats the yearly demand as one single load.",
+    "definitionFit": "Taxes fall due every year and take money you would rather keep, which is what makes them the annual burden.",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Something turned over lands the other way up, so the three letters beside it are read backwards along the row."
+    },
+    "pieces": [
+     "TA",
+     "XES"
+    ],
+    "subReversals": [
+     {
+      "from": "SEX",
+      "to": "XES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You shouldn't have",
+      "gives": "TA",
+      "note": "'you shouldn't have' is what you say on being handed a present, and ta is the British thank-you behind it"
+     },
+     {
+      "clueFragment": "relations",
+      "gives": "XES",
+      "note": "relations in the carnal sense, written in backwards here"
+     }
+    ],
+    "surface": "Advice against inviting the relatives round, since having them to stay is an annual chore.",
+    "walkthrough": "Two everyday phrases are being read against their meaning at once: the relatives you have round become relations of quite another kind, and a modest protest over a gift becomes a two-letter thank-you."
+   }
   },
   {
    "id": "11-across",
@@ -243,7 +648,43 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRUMPEDUP",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TRUMPED-UP",
+    "definition": "Invented",
+    "definitionFit": "A trumped-up charge or excuse is one that has been made up rather than found, which is what 'invented' means here.",
+    "indicators": [
+     "accepted by"
+    ],
+    "indicatorNotes": {
+     "accepted by": "What is accepted is taken in and kept, so the short piece sits inside the word that accepts it."
+    },
+    "pieces": [
+     "TRU",
+     "MP",
+     "E",
+     "DUP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "genuine",
+      "gives": "TRUE",
+      "note": "a genuine article is a true one"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "political party",
+      "gives": "DUP",
+      "note": "the DUP is the Democratic Unionist Party, the main unionist party in Northern Ireland"
+     }
+    ],
+    "surface": "A politician being accepted into a real political party.",
+    "walkthrough": "The surname the surface plays on has nothing to do with the word's history: a trump was a trumpet blast, and to trump something up was to announce it loudly whether or not it was so."
+   }
   },
   {
    "id": "12-across",
@@ -260,7 +701,32 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPARTAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPARTAN",
+    "definition": "Very plain and tough",
+    "definitionFit": "Spartan means bare and austere, from the way ancient Sparta raised its citizens to live plainly and endure hardship.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "SPAR",
+     "TAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supermarket",
+      "gives": "SPAR",
+      "note": "Spar is a chain of small grocery shops found on British high streets"
+     },
+     {
+      "clueFragment": "belt",
+      "gives": "TAN",
+      "note": "to tan somebody's hide is to belt them"
+     }
+    ],
+    "surface": "The plain, hard-wearing conveyor belt at a supermarket checkout.",
+    "walkthrough": "'Belt' is the checkout conveyor on the surface and a beating underneath. The definition is the answer's own history: a city that made a virtue of doing without."
+   }
   },
   {
    "id": "13-across",
@@ -277,7 +743,47 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOURGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SCOURGE",
+    "definition": "Whip",
+    "definitionFit": "A scourge is a whip — the knotted lash used for flogging — long before the word came to mean any general affliction.",
+    "indicators": [
+     "on",
+     "back"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry a piece written on another follows it, so these letters land after the one named next.",
+     "back": "The back of a word is its final letter, so only the closing letter of the name is taken."
+    },
+    "linkWords": [
+     "'s"
+    ],
+    "pieces": [
+     "S",
+     "CO",
+     "URGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reeves's back",
+      "gives": "S",
+      "note": "the last letter of REEVES — Rachel Reeves, the Chancellor of the Exchequer"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is short for company, a firm"
+     },
+     {
+      "clueFragment": "push",
+      "gives": "URGE",
+      "note": "to push somebody to do something is to urge them"
+     }
+    ],
+    "surface": "A party whip giving the Chancellor a firm shove from behind.",
+    "walkthrough": "The Whip of the surface is the MP who keeps a party voting the right way; the answer is the older, literal kind of whip. 'On' in an across clue puts a piece after what follows it, not above."
+   }
   },
   {
    "id": "14-across",
@@ -294,7 +800,35 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "DUO",
+    "definition": "Two",
+    "definitionFit": "A duo is a pair performing together — two of them, which is all the definition asks for.",
+    "indicators": [
+     "wanting"
+    ],
+    "indicatorNotes": {
+     "wanting": "A thing that is wanting is missing, so the letters named after it are absent when the rest is written down."
+    },
+    "pieces": [
+     "DUO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performing circus's flying act",
+      "gives": "DUMBO",
+      "note": "Dumbo is the circus elephant who flies with his ears in the Disney film"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is Bachelor of Medicine, the degree letters a doctor carries"
+     }
+    ],
+    "surface": "The circus's flying act going ahead with no doctor standing by.",
+    "walkthrough": "The flying act is Disney's elephant rather than a trapeze artist, and 'wanting' is the older sense of lacking, not of desiring."
+   }
   },
   {
    "id": "15-across",
@@ -318,7 +852,49 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "POSTITNOTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "POST-IT NOTE",
+    "definition": "Small leaf peeled off",
+    "definitionFit": "A Post-it note is a small sheet — a leaf — of paper with a gummed strip, made to be peeled off a pad and stuck down.",
+    "indicators": [
+     "passed round"
+    ],
+    "indicatorNotes": {
+     "passed round": "Something passed round comes back the other way about, so the assembled letters are read from their far end."
+    },
+    "pieces": [
+     "PO",
+     "S",
+     "TIT",
+     "NOTE"
+    ],
+    "subReversals": [
+     {
+      "from": "ETONTITSOP",
+      "to": "POSTITNOTE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "ETON",
+      "note": "Eton is the English public school crosswords reach for first"
+     },
+     {
+      "clueFragment": "clown's",
+      "gives": "TITS",
+      "note": "a tit is British slang for a fool or clown, and the possessive brings its own letter along"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a composer's work"
+     }
+    ],
+    "surface": "The class clown's homework going round with a small leaf peeled off it.",
+    "walkthrough": "Everything is written down the natural way and then read back to front, which is why the school comes out at the far end. 'Leaf' is a sheet of paper, the sense in leafing through a book."
+   }
   },
   {
    "id": "16-down",
@@ -339,7 +915,48 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOPFLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "TOP-FLIGHT",
+    "definition": "Highest quality",
+    "definitionFit": "Top-flight means in the highest division there is: a flight is a class or grade, as in the top flight of a tournament.",
+    "indicators": [
+     "turned"
+    ],
+    "indicatorNotes": {
+     "turned": "A thing turned is presented the other way about, so the letters gathered before it are read back up the column."
+    },
+    "pieces": [
+     "TOP",
+     "F",
+     "LIGHT"
+    ],
+    "subReversals": [
+     {
+      "from": "FPOT",
+      "to": "TOPF"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is fine, the grade stamped on a pencil"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "POT",
+      "note": "pot is slang for cannabis, the other kind of grass"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "LIGHT",
+      "note": "a pale colour is a light one"
+     }
+    ],
+    "surface": "A patch of fine grass that has turned pale.",
+    "walkthrough": "On the surface the grass is a lawn; in the wordplay it is the smoking kind. The instruction catches both words in front of it rather than only the one it stands next to."
+   }
   },
   {
    "id": "17-down",
@@ -360,7 +977,45 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAYWASTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "LAY WASTE",
+    "definition": "destroy everything",
+    "definitionFit": "To lay waste to a place is to destroy it completely, leaving nothing standing — the phrase armies have used for centuries.",
+    "indicators": [
+     "outside",
+     "quakes"
+    ],
+    "indicatorNotes": {
+     "outside": "The outside of a word is its two ends, so only the first and last letters of the one named survive.",
+     "quakes": "An earthquake shakes everything out of place, and letters shaken like that settle in a different order."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "WE STAY AL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "We stay",
+      "gives": "WESTAY",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "outside for awful",
+      "gives": "AL",
+      "note": "the outer letters of AWFUL, its A and its L"
+     },
+     {
+      "clueFragment": "quakes",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "People staying out of doors while terrible earthquakes go on.",
+    "walkthrough": "'Outside' looks like where the speaker is standing and is really an instruction about letters — the two ends of the word after it. The rest is what an earthquake does to anything loose."
+   }
   },
   {
    "id": "18-across",
@@ -381,7 +1036,54 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "REALTENNIS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container + charade",
+    "answer": "REAL TENNIS",
+    "definition": "game",
+    "definitionFit": "Real tennis is the mediaeval racket game played in an enclosed court, the ancestor of the lawn game and still played today.",
+    "indicators": [
+     "on comeback",
+     "nets"
+    ],
+    "indicatorNotes": {
+     "on comeback": "A comeback is a return the way you came, so the name is written into the row backwards.",
+     "nets": "A net catches what goes into it and keeps it, so these letters close around the pieces named next."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RE",
+     "ALT",
+     "E",
+     "NNIS"
+    ],
+    "subReversals": [
+     {
+      "from": "SINNER",
+      "to": "RENNIS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wimbledon champion on comeback",
+      "gives": "RENNIS",
+      "note": "Jannik Sinner, the Italian who has won Wimbledon, with his surname read back to front"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "Alt is the key at the bottom left of a computer keyboard"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "E",
+      "note": "E is east, one of the four points of the compass"
+     }
+    ],
+    "surface": "A returning Wimbledon champion winning a crucial point.",
+    "walkthrough": "The older indoor game, played off the walls of a covered court, is the one lawn tennis was named after — so putting a Wimbledon champion in the clue points you at the wrong sport on purpose."
+   }
   },
   {
    "id": "19-down",
@@ -402,7 +1104,38 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOOKSEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "LOOK-SEE",
+    "definition": "Butcher's",
+    "definitionFit": "A butcher's is Cockney rhyming slang for a look — butcher's hook — and a look-see is exactly that, a quick look at something.",
+    "indicators": [
+     "cycles",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "cycles": "Letters that cycle move round the loop one place, the one at the end coming to the front and the rest keeping their order.",
+     "behind": "In a down entry what is behind comes after, so this piece is written below the other."
+    },
+    "pieces": [
+     "LOO",
+     "KSEE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outhouse",
+      "gives": "LOO",
+      "note": "the loo is the British word for the lavatory, and an outhouse is one down the garden"
+     },
+     {
+      "clueFragment": "search for",
+      "gives": "KSEE",
+      "note": "to search for something is to seek it, with the final letter brought round to the front"
+     }
+    ],
+    "surface": "A butcher hunting for bicycles round the back of the outhouse.",
+    "walkthrough": "'Butcher's' is rhyming slang — butcher's hook, hook rhyming with look, and the rhyming word dropped as it always is. 'Cycles' is not bicycles at all but the instruction next to it."
+   }
   },
   {
    "id": "20-down",
@@ -419,7 +1152,40 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWAGMAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SWAGMAN",
+    "definition": "Itinerant Aussie",
+    "definitionFit": "A swagman is the Australian tramp of Waltzing Matilda, walking from job to job with his swag — his rolled bundle — on his back.",
+    "indicators": [
+     "held by"
+    ],
+    "indicatorNotes": {
+     "held by": "What is held by something sits inside it, so these letters are enclosed by the word named next."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SW",
+     "AGM",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trumpeter?",
+      "gives": "SWAN",
+      "note": "the trumpeter swan is a large North American bird named for its call"
+     },
+     {
+      "clueFragment": "business meeting",
+      "gives": "AGM",
+      "note": "an AGM is a company's annual general meeting"
+     }
+    ],
+    "surface": "A wandering Australian sitting in on a business meeting called by someone who plays the trumpet.",
+    "walkthrough": "'Trumpeter' reads as a musician and is really a species of bird, which the question mark half admits. Waltzing Matilda is where most people outside Australia meet the answer."
+   }
   },
   {
    "id": "21-across",
@@ -436,7 +1202,28 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "PEA",
+    "definition": "that could be eaten mushy",
+    "definitionNote": "The definition is a description rather than a synonym: it says how the answer can be served instead of offering a word you could swap in for it.",
+    "definitionFit": "Mushy peas, boiled down to a green mash, are a fixture of British chip shops, so a pea is exactly what can be eaten that way.",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Some of a thing is only part of it, so a run of letters inside the words that follow is what you want."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ripe avocado",
+      "gives": "PEA",
+      "note": "three letters in a row, starting inside the first word and finishing inside the second"
+     }
+    ],
+    "surface": "An avocado ripe enough to be eaten mashed.",
+    "walkthrough": "The avocado is there to have you thinking of the wrong green mash. Nothing in a shopping list asks to be read letter by letter, which is the cover a hidden word wants."
+   }
   },
   {
    "id": "22-down",
@@ -453,7 +1240,32 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OFFCUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OFFCUT",
+    "definition": "Scrap",
+    "definitionFit": "An offcut is the piece left over when timber or cloth is trimmed to size, which is a scrap in the plainest sense.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "OFF",
+     "CUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricketing tautology",
+      "gives": "OFF",
+      "note": "the off is one side of a cricket field, the side the batter faces"
+     },
+     {
+      "clueFragment": "such as leg-pull?",
+      "gives": "CUT",
+      "note": "a leg-pull pairs a side of the field with the stroke hit to it — a pull goes to leg, and the stroke played to the off is a cut"
+     }
+    ],
+    "surface": "Somebody having a joke at a cricket match.",
+    "walkthrough": "A leg-pull is a joke on the surface and a piece of cricket grammar underneath: pull and leg name the same side of the field twice over, and you are asked for the pair that does it on the other side."
+   }
   },
   {
    "id": "23-across",
@@ -470,7 +1282,39 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAVOUR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FLAVOUR",
+    "definition": "Relish",
+    "definitionFit": "Relish is the taste or savour of a thing, and a flavour is exactly that — the word for what the tongue picks up.",
+    "indicators": [
+     "taking",
+     "on the outside"
+    ],
+    "indicatorNotes": {
+     "taking": "Taking something is receiving it, so the single letter here does not stand alone but has the other piece brought to it.",
+     "on the outside": "On the outside means round the edge, so the longer word wraps itself about the single letter."
+    },
+    "pieces": [
+     "F",
+     "L",
+     "AVOUR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good turn",
+      "gives": "FAVOUR",
+      "note": "doing somebody a good turn is doing them a favour"
+     },
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "L is the plate a learner driver carries in Britain"
+     }
+    ],
+    "surface": "A learner driver making a good turn from the outside lane.",
+    "walkthrough": "'Relish' is the noun — the taste of a thing — rather than the verb, and 'good turn' is the kindness rather than anything the car is doing."
+   }
   },
   {
    "id": "24-down",
@@ -487,7 +1331,28 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMAZE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "AMAZE",
+    "definition": "hit for six",
+    "definitionFit": "To knock or hit somebody for six is British slang for astonishing them, from the cricket stroke that clears the boundary.",
+    "indicators": [
+     "caught"
+    ],
+    "indicatorNotes": {
+     "caught": "To catch what somebody says is to hear it, so the sound of the words is what matters and not their spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "A former PM's",
+      "soundsLike": "A MAY'S",
+      "gives": "AMAZE",
+      "note": "Theresa May was Prime Minister from 2016 to 2019, and her name with a possessive on the end is what you say aloud"
+     }
+    ],
+    "surface": "A former prime minister caught out at cricket.",
+    "walkthrough": "'Caught' looks like the cricket dismissal and means heard. Being knocked for six is being hit clean out of the ground, which is where the idiom for astonishment comes from."
+   }
   },
   {
    "id": "25-across",
@@ -509,7 +1374,44 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATABLOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "AT A BLOW",
+    "definition": "in one",
+    "definitionFit": "At a blow means in a single stroke, everything achieved at once rather than by degrees.",
+    "indicators": [
+     "on",
+     "last in"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry a piece written on another follows it, so these letters come after the one named next.",
+     "last in": "The last in a word is its closing letter, so only the final letter of the name is used."
+    },
+    "pieces": [
+     "A",
+     "TAB",
+     "LOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last in Augusta",
+      "gives": "A",
+      "note": "the final letter of AUGUSTA, taken on its own"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "TAB",
+      "note": "a tab is the bill you run up at a bar"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "LOW",
+      "note": "down and low are the same direction"
+     }
+    ],
+    "surface": "A bill at Augusta and a drink knocked back in one go.",
+    "walkthrough": "'Down in one' is a drinking phrase on the surface, so the definition looks as though it starts a word earlier than it does: 'down' has been kept back for the wordplay. Augusta is the American golf course."
+   }
   },
   {
    "id": "26-across",
@@ -526,7 +1428,35 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRAPSHOOT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CRAPSHOOT",
+    "definition": "game of dice in US",
+    "definitionFit": "A crapshoot is a game of craps, the American dice game played for money against the house or in the street.",
+    "indicators": [
+     "played"
+    ],
+    "indicatorNotes": {
+     "played": "To play with something is to mess about with it, and letters messed about with do not stay in the order they were given."
+    },
+    "anagram": {
+     "fodder": "POSH ACTOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Posh actor",
+      "gives": "POSHACTOR",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "played",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A well-spoken actor taking a role.",
+    "walkthrough": "Two words of ordinary description turn straight into an American gambling word, and in the States it covers any gamble at all rather than only the dice."
+   }
   },
   {
    "id": "27-across",
@@ -543,7 +1473,46 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAGUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion + first letters",
+    "answer": "MAGUS",
+    "definition": "King at Christmas",
+    "definitionFit": "A magus is one of the Magi, the wise men of the nativity, whom carols and Christmas cards promote to kings.",
+    "indicators": [
+     "starts to",
+     "during",
+     "missing"
+    ],
+    "indicatorNotes": {
+     "starts to": "The start of a word is its first letter, and this takes the starts of the two words that follow it.",
+     "during": "What happens during something happens inside it, so these letters go into the middle of the word around them.",
+     "missing": "What is missing is not there, so the letter named after it comes out before anything is built."
+    },
+    "pieces": [
+     "MA",
+     "GU",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "Mass is the Catholic church service"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son, and this one is taken out of the service"
+     },
+     {
+      "clueFragment": "starts to get upset",
+      "gives": "GU",
+      "note": "the opening letters of GET and UPSET"
+     }
+    ],
+    "surface": "A king growing upset during the Christmas service because his son is not there.",
+    "walkthrough": "The kings at Christmas are the wise men of the nativity — three in the carol, one of them here — and 'starts to' is collecting letters rather than describing a mood."
+   }
   },
   {
    "id": "28-across",
@@ -560,7 +1529,35 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEETER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TEETER",
+    "definition": "rock",
+    "definitionFit": "To teeter is to rock unsteadily, the verb behind teetering on the edge of something.",
+    "indicators": [
+     "dismissing"
+    ],
+    "indicatorNotes": {
+     "dismissing": "To dismiss somebody is to send them away, so the letter named after it leaves the word in front."
+    },
+    "pieces": [
+     "TEETER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone who posted on X",
+      "gives": "TWEETER",
+      "note": "X was called Twitter until 2023, and somebody posting there was a tweeter"
+     },
+     {
+      "clueFragment": "Welsh",
+      "gives": "W",
+      "note": "W is the abbreviation for Welsh"
+     }
+    ],
+    "surface": "Somebody on X being rude about Welsh rock music.",
+    "walkthrough": "'Rock' is the verb, to sway unsteadily, rather than the music the surface is talking about, and 'Welsh' shrinks to a single letter. The site's change of name does the rest."
+   }
   },
   {
    "id": "29-across",
@@ -577,7 +1574,37 @@ window.CRYPTIC_PUZZLES["indysunday-1906"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRUNETTE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRUNETTE",
+    "definition": "Dark",
+    "definitionFit": "A brunette is a woman with dark hair, and the word is used of the colouring itself — dark rather than fair.",
+    "indicators": [
+     "protected by"
+    ],
+    "indicatorNotes": {
+     "protected by": "What protects a thing goes round it, so the longer word closes over the short one."
+    },
+    "pieces": [
+     "BRU",
+     "NET",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monster",
+      "gives": "BRUTE",
+      "note": "a brute is a monster of a man"
+     },
+     {
+      "clueFragment": "web",
+      "gives": "NET",
+      "note": "a spider's web is a net"
+     }
+    ],
+    "surface": "The dark web being guarded by something monstrous.",
+    "walkthrough": "'Dark web' reads as one thing and is doing two separate jobs: the first word is the definition, the second is three letters waiting to be hidden."
+   }
   }
  ]
 } /*JSON-END*/;

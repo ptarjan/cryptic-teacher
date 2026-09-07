@@ -307,6 +307,10 @@ const ABBREVIATIONS = {
  "IX": [
   "nine"
  ],
+ "J": [
+  "judge",
+  "justice"
+ ],
  "K": [
   "kelvin",
   "king",
@@ -801,6 +805,7 @@ const ABBREVIATIONS = {
  "W": [
   "watt",
   "week",
+  "welsh",
   "west",
   "whiskey",
   "wife",
