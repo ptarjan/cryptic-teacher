@@ -199,10 +199,14 @@ tools/claude_path.sh                         sourced: finds the `claude` CLI whe
                                              machine keeps it, SDK-bundled copy included
 tools/alert.sh                               posts a run’s failures to Discord instead of
                                              burying them in a log
+tools/claude_session.sh                      sourced: session ids, so a run that dies is
+                                             resumed rather than paid for twice
 tools/weekly_usage.py                        how much of a Claude quota window is spent, and
                                              when it resets
 tools/prereset_backfill.sh                   burns the tail of the weekly quota on backfills,
                                              ungated
+tools/test_annotate_retry.sh                 drives that resume with a fake CLI, so it is not
+                                             first tried on a night it is needed
 tools/prereset_plan.py                       how many puzzles the remaining quota will carry
                                              before the reset
 tools/backlog_burndown.py                    the annotation backlog over time, rebuilt from git
