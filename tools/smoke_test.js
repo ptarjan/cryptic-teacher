@@ -3269,6 +3269,58 @@ global.realSetTimeout(() => {
       + found.e.clue + "): " + registry["hint-body"].innerHTML);
 }
 
+// --- every ladder names its precise type, including the two that used to be
+// exempt (2026-09-06) ---
+// Double and cryptic definitions skipped the `.mechanism` line because their
+// family label was held to have said it already. Their family is "Definitions
+// only", whose blurb offers BOTH arms and picks neither, so those two types were
+// the only ones the site never named — and a solver read that as the site having
+// mis-typed the clue: "this feels like a double definition not a definition
+// only" (30103 10A). Driven through the real buttons on one clue of each type,
+// because the claim is about what ends up on the screen.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  const pick = (want) => {
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        const a = e.annotation;
+        if (a && !a.linkedTo && (a.type || "").toLowerCase() === want) return { id, e, a };
+      }
+    }
+    return null;
+  };
+  for (const want of ["double definition", "cryptic definition"]) {
+    const found = pick(want);
+    assert(found, "the corpus has a clue typed " + want);
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[found.id].number));
+    const li = registry["picker-list"].children.find(
+      (x) => x.children[0] && x.children[0].innerHTML.includes("№ " + puzzles[found.id].number));
+    assert(li, "picker finds the " + want + " puzzle");
+    li.children[0].onclick();
+    registry["reset-puzzle"].onclick();
+    registry["clue-" + found.e.id].listeners.click[0]();
+    // Climb the whole ladder: the line rides on the blocks rung, or on the
+    // walkthrough when the clue has no blocks rung to carry it.
+    for (let guard = 0; guard < 16; guard++) {
+      const tell = registry["guess-tell"];
+      if (tell && tell.onclick) { const fn = tell.onclick; tell.onclick = null; fn(); continue; }
+      const b = registry["hint-next"].children.find(
+        (x) => x.onclick && !x.disabled && /^\d+ · /.test(x.textContent || ""));
+      if (!b) break;
+      b.onclick();
+    }
+    const body = registry["hint-body"].innerHTML;
+    assert(body.includes('class="mechanism"') && body.includes(want),
+      "the ladder names the mechanism on a " + want + " (" + found.e.clue + "): " + body);
+    // The name, not the generic sentence: on these two types the TYPE_BLURBS
+    // wording only re-says the definition rung, and no rung may restate another.
+    assert(!body.includes("there is no other wordplay")
+        && !body.includes("no separable wordplay — the whole clue"),
+      "and it does not restate the definition rung on a " + want + ": " + body);
+  }
+}
+
 // --- where a definition ENDS is a judgement call (Paul, 2026-08-30) ---
 // "Communication made meaningless by this" (SCRAMBLER): Paul picked
 // "Communication made meaningless" and was marked wrong for leaving off the two

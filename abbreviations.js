@@ -46,6 +46,9 @@ const ABBREVIATIONS = {
   "before noon",
   "morning"
  ],
+ "ARE": [
+  "area"
+ ],
  "ARR": [
   "arrived"
  ],
