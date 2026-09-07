@@ -2251,8 +2251,11 @@
       .reduce((a, k) => a.concat(rungTokens(e, k)), []);
     for (let n = 0; n < at; n++) named.push.apply(named, rungTokens(e, rung, n));
     const known = named.filter((n) => target.indexOf(n) < 0);
+    // The spans, not just their union: which words belong to which indicator is
+    // what lets a pick be graded phrase by phrase.
     return { prompt, target, tokens, known, gives, step: at,
-             edge: rungEdges(e, rung, at) };
+             edge: rungEdges(e, rung, at),
+             spans: rungSpans(e, rung, at).map((s) => s.tokens) };
   }
 
 
@@ -2512,6 +2515,23 @@
       const words = missed.map((x) => ask.tokens[x].text).join(" ");
       return { hit: target, spare, missed: [], right: true,
                said: `Yes — whether “${words}” belongs to the definition is a matter of taste.` };
+    }
+    // An indicator is a phrase, and which of its words carry the instruction is
+    // not the lesson: "according to Spooner", "for Spooner" and "Spooner" all
+    // point at the same thing, and marking a solver down for the linking words
+    // teaches them nothing except that the app is fussy (Paul, 2026-09-06).
+    // Finding every indicator and pointing at nothing else is the whole of what
+    // the rung asks, so that is what it marks, and then says the phrase in full.
+    // Every span still needs a word of its own: 216 clues in the corpus have
+    // "in" as an entire indicator, and a rule that let a phrase be dropped
+    // altogether would hand the rung over for pointing at one of two.
+    if (guessing.rung === "indicators" && !spare.length && ask.spans
+        && ask.spans.every((sp) => sp.some((x) => picked.indexOf(x) >= 0))) {
+      const said = ask.spans.map((sp) => sp.map((x) => ask.tokens[x].text).join(" "));
+      return { hit: target, spare, missed: [], right: true,
+               said: missed.length
+                 ? `Yes — in full it’s “${said.join("” and “")}”.`
+                 : "Yes — that’s exactly it." };
     }
     if (hit.length === n) {
       return { ...v, right: false, said: `You had all ${n}, plus ${spare.length} word${
