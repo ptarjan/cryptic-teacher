@@ -834,6 +834,42 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
             f"fragment straight to the answer has taught none of it")
 
 
+def check_sound_is_not_a_letter_swap(tag, ann, errors, warnings):
+    """A spoonerism trades SOUNDS. A soundsLike made by trading letters is a fake.
+
+    "I have no idea how you get nought to oubt" (quiptic 1398 9A, 2026-09-07).
+    That clue's blocks gave DOUGH and NOUGHT, and a third block then declared
+    the pair sounded like "NOUGH DOUGHT" — a string arrived at by exchanging the
+    two words' first LETTERS and re-spelling nothing else. It is not a word, not
+    a pronunciation and not anything the solver can say aloud, so the rung ended
+    at a piece of gibberish and the reader was left to leap from it to NO DOUBT
+    unaided. Spooner swaps the opening sounds: "doh" and "nawt" become "noh" and
+    "dawt", which are then SPELT NO and DOUBT, and the respelling is the lesson.
+
+    The tell is arithmetic. When a sounded form uses exactly the letters the
+    earlier blocks already gave, only in a different order, no sound was
+    recorded — the annotator shuffled characters between the chunks. The corpus
+    was measured before this landed: 3 hits in 328 sound clues (quiptic-1398 9A
+    "NOUGH DOUGHT", independent-12412 5D "FOG BOE", indysunday-1871 13A "FONE
+    CALL"), all three the same defect, all three fixed in the same commit as
+    two-block exchanges. A sounded form that legitimately restates the earlier
+    blocks — everyman-4134's SOLELY + HE -> "SOLELY HE" — is those letters in
+    the SAME order, and is left alone.
+    """
+    blocks = ann.get("blocks", [])
+    for i, b in enumerate(blocks):
+        said = letters(b.get("soundsLike") or "")
+        if not said:
+            continue
+        prior = "".join(letters(x.get("gives") or "") for x in blocks[:i])
+        if prior and said != prior and sorted(said) == sorted(prior):
+            errors.append(
+                f"{tag}: soundsLike {b['soundsLike']!r} is the earlier blocks' own "
+                f"letters ({prior}) rearranged, so it records a letter swap and not "
+                f"a sound. Give each half of the answer its own block — the word it "
+                f"sounds like before the swap, and the letters it comes out as after")
+
+
 # A real English wordlist, used to tell a genuine inflection from a coincidence:
 # MARAUDING is a gerund (MARAUD is a word) but VIKING is not (VIK is not), and
 # EARPHONES is a plural (EARPHONE is a word). Without it the part-of-speech
@@ -1646,6 +1682,7 @@ def validate_puzzle(puzzle):
 
         check_definition_fit(tag, ann, errors, warnings)
         check_sound_names_its_source(tag, ann, errors, warnings)
+        check_sound_is_not_a_letter_swap(tag, ann, errors, warnings)
         check_indicator_notes(tag, ann, errors, warnings)
         check_no_answer_in_early_rungs(tag, ann, errors, warnings)
         check_block_notes_dont_name_the_answer(tag, ann, errors, warnings)

@@ -82,6 +82,22 @@ had one. It has to be a field, because prose cannot be checked. Where another
 mechanism feeds the sound (a deletion, a charade), that mechanism gets its own
 earlier block; one arrow does one operation.
 
+**A spoonerism swaps sounds, and the annotation has to show sounds.** The
+`soundsLike` on each half is the WORD that half sounds like before the swap, and
+`gives` is the letters it comes out as after: `“Money”` → DOUGH → NO,
+`“Nothing”` → NOUGHT → DOUBT. What is not available is exchanging the two words'
+first letters and calling the result a sound — quiptic 1398 9A declared
+DOUGH + NOUGHT sounded like “NOUGH DOUGHT”, which is not a word, not a
+pronunciation and not sayable, and the rung ended on it: "I have no idea how you
+get nought to oubt" (2026-09-07). Say the two words out loud, swap the noises at
+their fronts, and write down the ordinary spelling of what you hear — the
+respelling IS the lesson, and the vowels drifting a little on the way is worth a
+sentence in the walkthrough. `check_sound_is_not_a_letter_swap()` errors when a
+`soundsLike` is the earlier blocks' own letters rearranged; the corpus had three
+(1398 9A, 12412 5D, 1871 13A), all the same mistake, all now two-block
+exchanges. The two-block exchange is the shape to copy: it is what the other 325
+sound clues already do.
+
 `cryptic definition` is capped at **two per puzzle**, a validator ERROR above
 that (`MAX_CRYPTIC_DEFINITIONS`). It is the only type with no checkable
 mechanism, so reaching for a third means either the clue's wordplay has not been

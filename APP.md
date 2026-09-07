@@ -196,10 +196,22 @@ is why the two are separate files rather than two halves of one.
   all the letter-selection parts). Charade stays its own family — it is the most
   common build and reads nothing like a container or a reversal. The exact type
   appears later, on the building-blocks rung (or the walkthrough if there is no
-  blocks rung), styled `.mechanism`; double and cryptic definitions skip it
-  entirely, since the family label already said it. Every part in `TYPE_PARTS`
-  must be claimed by exactly one family in `FAMILIES` in `app.js` — adding a type
-  part means assigning it a family in the same commit.
+  blocks rung), styled `.mechanism`, and **every clue gets that line** — the
+  smoke test sweeps the corpus for it. Double and cryptic definitions used to be
+  exempt "since the family label already said it", and it does not: their family
+  is **Definitions only**, whose blurb offers both arms ("either two plain
+  definitions sit side by side, or one sly one describes the answer the long way
+  round") and never says which one this clue is. So the single family that most
+  needs the type spelled out was the one family that never spelled it out, and a
+  solver who had climbed the whole ladder of 30103 10A read the site as having
+  mis-typed the clue: "this feels like a double definition not a definition only"
+  (2026-09-06). They now get the type NAME on those two; they do not get its
+  `TYPE_BLURBS` sentence, which for a double or cryptic definition is a restated
+  definition rung, and no rung may restate an earlier one. Generalise this: a
+  rung may be dropped because it is redundant, never because some OTHER rung is
+  assumed to have covered it — go and read what that rung actually says.
+  Every part in `TYPE_PARTS` must be claimed by exactly one family in `FAMILIES`
+  in `app.js` — adding a type part means assigning it a family in the same commit.
 - The ladder never offers information that is useless given what the user
   already knows. Concretely: after the level-5 walkthrough names the answer,
   the final rung is "Fill in answer" — never letter reveals (feedback

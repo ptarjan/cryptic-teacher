@@ -576,19 +576,15 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "Money",
-      "gives": "DOUGH",
-      "note": "Dough is slang for money."
+      "soundsLike": "DOUGH",
+      "gives": "NO",
+      "note": "Dough is slang for money, and it is said \"doh\". Hand that D over to the other word, take the N coming back, and \"doh\" becomes \"noh\"."
      },
      {
       "clueFragment": "Nothing",
-      "gives": "NOUGHT",
-      "note": "A nought is a zero."
-     },
-     {
-      "clueFragment": "for Spooner",
-      "soundsLike": "NOUGH DOUGHT",
-      "gives": "NO DOUBT",
-      "note": "Trade the opening sounds of the two words above, then say what is left aloud and write down what you hear."
+      "soundsLike": "NOUGHT",
+      "gives": "DOUBT",
+      "note": "A nought is a zero, and it is said \"nawt\". It gives up its N, collects the D the other word let go of, and \"dawt\" is spelt with a silent B."
      }
     ],
     "pieces": [
@@ -596,7 +592,7 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
      "DOUBT"
     ],
     "surface": "Somebody asked about money and answering that there is none of it.",
-    "walkthrough": "A Spooner clue is built backwards: assemble the mangled phrase first, swap the two front sounds, and only then listen to it. Both halves here are slang — cash and zero.",
+    "walkthrough": "Spooner trades sounds, not letters, which is why the spellings change out of all recognition: \"doh\" and \"nawt\" swap their opening consonants and come back as two words that share almost no letters with them. Setters allow the vowels to drift a little on the way.",
     "definitionFit": "'No doubt' and 'surely' are both ways of saying a thing is certain, and both work as an adverb dropped into a sentence."
    }
   },

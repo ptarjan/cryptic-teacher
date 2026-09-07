@@ -673,15 +673,16 @@ window.CRYPTIC_PUZZLES["indysunday-1871"] = /*JSON-START*/ {
     ],
     "blocks": [
      {
-      "clueFragment": "dropping down from pine tree",
-      "gives": "CONE FALL",
-      "note": "what drops from a pine is a cone, and a drop downwards is a fall"
+      "clueFragment": "from pine tree",
+      "soundsLike": "CONE",
+      "gives": "PHONE",
+      "note": "what drops from a pine is a cone; it gives its opening K sound away and takes an F in exchange, which English spells PH at the front of a word"
      },
      {
-      "clueFragment": "Spooner's",
-      "soundsLike": "FONE CALL",
-      "gives": "PHONE CALL",
-      "note": "swap the opening sounds of the two words above and this is what the ear hears, spelt the ordinary way"
+      "clueFragment": "dropping down",
+      "soundsLike": "FALL",
+      "gives": "CALL",
+      "note": "a drop downwards is a fall, and it collects the K sound the cone let go of"
      }
     ],
     "walkthrough": "The question mark admits the stretch, since a falling cone is not a set phrase. 'Ring' is the noun a solver reads as jewellery first.",

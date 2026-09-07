@@ -1799,8 +1799,21 @@
 
     // The exact mechanism, held back until the user has already seen the family,
     // the definition and the indicators.
+    //
+    // Double and cryptic definitions used to be exempt from this line entirely,
+    // on the grounds that their family label had already said it. It has not:
+    // their family is "Definitions only", whose blurb offers BOTH arms — "either
+    // two plain definitions sit side by side, or one sly one describes the answer
+    // the long way round" — and never says which arm this clue is. So the one
+    // family that needs the type named is the one family that never named it, and
+    // a solver who had read the whole ladder of 30103 10A came away thinking the
+    // site had mis-typed the clue: "this feels like a double definition not a
+    // definition only" (2026-09-06). They get the NAME, which is the missing
+    // word; they do not get the generic blurb, which on these two types would
+    // only re-say the definition rung ("no separable wordplay" twice over) and no
+    // rung may restate an earlier one.
     const mechanics = `<p class="mechanism">Mechanism: <strong>${esc(ann.type)}</strong>.
-      ${esc(typeBlurb(ann.type))}</p>`;
+      ${isDD || isCD ? "" : esc(typeBlurb(ann.type))}</p>`;
 
     // Where the definition lives, and the rung the ladder now leads with. For a
     // double definition the news is not "there are two" — the family rung says
@@ -1987,10 +2000,10 @@
       steps.push({
         key: "blocks",
         label: LABELS.blocks,
-        lead: (isDD || isCD ? "" : mechanics),
+        lead: mechanics,
         pieces,
         tail: (t.includes("anagram") ? ringHTML(ann) : ""),
-        html: (isDD || isCD ? "" : mechanics) + `<ul>${pieces.join("")}</ul>` +
+        html: mechanics + `<ul>${pieces.join("")}</ul>` +
           (t.includes("anagram") ? ringHTML(ann) : "")
       });
     }
@@ -2032,7 +2045,7 @@
     steps.push({
       key: "walkthrough",
       label: LABELS.walkthrough,
-      html: (steps.some((s) => s.key === "blocks") || isDD || isCD ? "" : mechanics) +
+      html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
         joke + `<p><b class="wt-part">The trick</b>${esc(ann.walkthrough)}</p>${fit}${note}` +
         `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
     });

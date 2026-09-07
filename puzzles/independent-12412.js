@@ -298,19 +298,15 @@ window.CRYPTIC_PUZZLES["independent-12412"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "marshland",
-      "gives": "BOG",
-      "note": "waterlogged marshy ground, the first word of the pair"
+      "soundsLike": "BOG",
+      "gives": "FOG",
+      "note": "waterlogged marshy ground is a bog; it hands its B to the word beside it and takes an F in exchange"
      },
      {
       "clueFragment": "enemy",
-      "gives": "FOE",
-      "note": "an enemy is a foe, the second word of the pair"
-     },
-     {
-      "clueFragment": "Spooner's marshland enemy",
-      "soundsLike": "FOG BOE",
-      "gives": "FOGBOW",
-      "note": "trade the opening consonants of those two words and write down what you hear"
+      "soundsLike": "FOE",
+      "gives": "BOW",
+      "note": "an enemy is a foe, and with the B swapped in it is the one that rhymes with go — the arc a rainbow makes"
      }
     ],
     "walkthrough": "The thing itself is the pale, almost colourless cousin of a rainbow, seen when the sun catches fog: droplets too small to split the light properly.",
