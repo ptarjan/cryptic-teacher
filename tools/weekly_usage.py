@@ -86,14 +86,6 @@ PCT_MAX_AGE_HOURS = 6
 READ_ERRORS = (OSError, urllib.error.URLError, ValueError, KeyError, IndexError,
                RuntimeError, subprocess.SubprocessError)
 
-# Where a setup token lives when there is no keychain entry to read one from.
-# `claude setup-token` (the bridge's Discord re-login drives this one) writes a
-# bare sk-ant-oat01-... string here and touches no keychain at all — see
-# household's tools/claude-auth.sh, which is what actually authenticates the
-# `claude` runs this script gates. Only ever read here, never written.
-FALLBACK_TOKEN_FILE = os.path.expanduser("~/github/household/oauth-token")
-
-
 class QuotaUnreadable(RuntimeError):
     """The only credential available cannot be read for quota.
 
@@ -111,23 +103,16 @@ class QuotaUnreadable(RuntimeError):
 
 
 def _fallback_token():
-    """A setup token: CLAUDE_CODE_OAUTH_TOKEN, else the file it lives in.
+    """A setup token from CLAUDE_CODE_OAUTH_TOKEN, or "".
 
-    An explicitly exported variable wins — the same preference order the CLI
-    itself applies — over a file that may just be left over from a login
-    months ago. A token carries no whitespace, so stripping it is also the
-    emptiness test. Reading the file is allowed to fail outright: a machine
-    signed in normally through the keychain has no such file, which is the
-    ordinary case, not an error.
+    An exported variable is the only place a setup token is read from. There
+    is no file to fall back to: household retired the one it used to mint into
+    its state dir, and treats a file reappearing there as something to delete,
+    because it outranks the CLI's own store at the next boot and would undo a
+    login that succeeded weeks earlier (household config.py, OAUTH_TOKEN_FILE).
+    A token carries no whitespace, so stripping it is also the emptiness test.
     """
-    env = os.environ.get("CLAUDE_CODE_OAUTH_TOKEN", "").strip()
-    if env:
-        return env
-    try:
-        with open(FALLBACK_TOKEN_FILE) as fh:
-            return fh.read().strip()
-    except OSError:
-        return ""
+    return os.environ.get("CLAUDE_CODE_OAUTH_TOKEN", "").strip()
 
 
 def _now():
