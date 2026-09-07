@@ -212,6 +212,9 @@ tools/annotate_attempts.py                   counts the annotation runs a puzzle
 tools/test_annotate_attempts.sh              drives that ledger out of daily_update.sh itself:
                                              what is charged, what is forgiven, what leaves the
                                              queue
+tools/test_push_conflict.sh                  proves the nightly push rebuilds a generated file
+                                             the remote also rebuilt, and refuses to resolve
+                                             anything else
 tools/prereset_plan.py                       how many puzzles the remaining quota will carry
                                              before the reset
 tools/backlog_burndown.py                    the annotation backlog over time, rebuilt from git

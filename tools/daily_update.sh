@@ -495,7 +495,15 @@ EOF
     rm -f "$fill" "$solvelog" "$verdict"
   done
   # Whatever solving cost, the annotation budget is still ANNOTATE_MAX puzzles.
-  pending=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')
+  # Solving prepends its puzzle, so a queue that was already at the cap loses its
+  # last entry here. Name the ones being dropped: the queue line above has
+  # already promised them by id, and a promise withdrawn in silence reads in the
+  # log as a puzzle that failed rather than one that was never begun.
+  kept=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')
+  dropped=$(echo $pending | tr ' ' '\n' | grep -v '^$' | tail -n +"$((ANNOTATE_MAX + 1))" | tr '\n' ' ')
+  [ -n "$dropped" ] &&
+    echo "over the ANNOTATE_MAX=$ANNOTATE_MAX budget once solving was prepended — not annotating tonight: $dropped"
+  pending=$kept
 fi
 
 if [ -n "$pending" ]; then
@@ -874,6 +882,45 @@ if [ -n "$(git status --porcelain)" ]; then
   # space, and both of those used to come out as the wrong filename.
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the daily update committed, and left these behind in its own worktree: $left"
+  # A rebase that stops here is rarely a disagreement. Every file this job writes
+  # that an interactive session writes too is GENERATED — puzzles/index.json,
+  # puzzles/index.js, README.md, sitemap.xml, the per-puzzle pages — so a
+  # conflict in one is two rebuilds of the same inputs, not two opinions, and
+  # resolving it by hand is what stranded the 2026-09-06 and 09-07 runs. Rebuild
+  # from the merged sources instead.
+  #
+  # What makes that safe is not a list of generated filenames, which would drift
+  # the moment a builder learns a new output: a path is only accepted once a
+  # builder has actually rewritten it, and rewriting it is exactly what leaves no
+  # conflict markers behind. A path still carrying markers is owned by no builder
+  # — a real conflict — and the whole rebase is abandoned to the alert above
+  # rather than half-resolved.
+  rebuild_generated_conflicts() {
+    # Nothing to continue unless the rebase stopped mid-pick; a rebase that
+    # refused to start is not a conflict and must not be papered over. The state
+    # directory is the only honest test of that: REBASE_HEAD is left behind
+    # after a rebase finishes, so it says "in progress" for the rest of the day.
+    [ -d "$(git rev-parse --git-path rebase-merge)" ] ||
+      [ -d "$(git rev-parse --git-path rebase-apply)" ] || return 1
+    python3 tools/fetch_puzzle.py --reindex >/dev/null &&
+      python3 tools/build_seo_pages.py >/dev/null &&
+      python3 tools/build_readme.py >/dev/null || return 1
+    # Collect the list before staging any of it. Fed in through a process
+    # substitution, `git diff` is still running while the loop stages, and it
+    # takes .git/index.lock to refresh the index — every add after the first
+    # then dies on "Another git process seems to be running".
+    local conflicted path
+    conflicted=$(git diff --name-only --diff-filter=U) || return 1
+    while IFS= read -r path; do
+      [ -n "$path" ] || continue
+      [ -f "$path" ] && ! grep -q '^<<<<<<< ' "$path" || return 1
+      git add -- "$path" || return 1
+    done <<CONFLICTED
+$conflicted
+CONFLICTED
+    GIT_EDITOR=true git rebase --continue >/dev/null 2>&1
+  }
+
   # Push only if a remote exists (GitHub Pages picks it up from master).
   # --autostash and a rebase first: the remote is routinely ahead of the mini
   # (interactive sessions push to it all day), and this used to be a bare push
@@ -885,7 +932,7 @@ if [ -n "$(git status --porcelain)" ]; then
     # anything unstaged, and the leftover check above reports that case rather
     # than preventing it.
     if git fetch -q origin master &&
-       git rebase -q --autostash origin/master &&
+       { git rebase -q --autostash origin/master || rebuild_generated_conflicts; } &&
        git push -q origin HEAD:master
     then
       # Pushed is not published. GitHub Pages builds afterwards, and a build that
@@ -895,7 +942,12 @@ if [ -n "$(git status --porcelain)" ]; then
       python3 tools/wait_for_deploy.py ||
         alert "tonight's update pushed, but the site never came back with it — GitHub Pages has not published the new build. Check https://github.com/ptarjan/cryptic-teacher/actions."
     else
-      alert "the daily update committed today's puzzle but could not push it, so the site is still showing yesterday's. See the tail of .update.log."
+      # Say which files disagreed, and leave the worktree in a state the next
+      # run can use: nightly_worktree.sh resets --hard, which does not clear a
+      # rebase that is still in progress.
+      stuck=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+      git rebase --abort 2>/dev/null
+      alert "the daily update committed today's puzzle but could not push it, so the site is still showing yesterday's. ${stuck:+The rebase onto origin/master conflicted in: $stuck}See the tail of .update.log."
     fi
   fi
 else
