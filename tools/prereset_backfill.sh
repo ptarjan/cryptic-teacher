@@ -237,7 +237,11 @@ fi
 # epoch second rather than compared as an "HH:MM" string, which used to need a
 # special case for runs that started after midnight-ish and got it subtly wrong.
 STOP_AT=$(python3 -c "import sys,time; print(int(time.time() + float(sys.argv[1])*3600 - 300))" "$budget_hours")
-echo "deadline $(date -r "$STOP_AT" '+%H:%M')"
+# Formatted in python rather than with `date -r`: -r reads an epoch second on
+# macOS and a FILE's mtime on GNU, so the one spelling means two different
+# things and this argument is an epoch second. (The -r above it is a directory,
+# which both agree on.)
+echo "deadline $(python3 -c "import sys,time; print(time.strftime('%H:%M', time.localtime(int(sys.argv[1]))))" "$STOP_AT")"
 past_deadline() {
   [ "$(date +%s)" -ge "$STOP_AT" ]
 }
