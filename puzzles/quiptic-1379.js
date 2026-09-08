@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUMBLE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RUMBLE",
+    "definition": "trouble",
+    "linkWords": [
+     "when",
+     "it means"
+    ],
+    "indicators": [
+     "departs"
+    ],
+    "indicatorNotes": {
+     "departs": "Someone who departs walks out and is gone, so the letter named just before it goes missing from the word it was standing at the front of."
+    },
+    "pieces": [
+     "RUMBLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Complain",
+      "gives": "GRUMBLE",
+      "note": "to grumble is to complain, muttering on about it"
+     },
+     {
+      "clueFragment": "government’s head",
+      "gives": "G",
+      "note": "the head of a word is its opening letter, so this is an operation the clue asks for rather than a shortening to look up"
+     }
+    ],
+    "surface": "Somebody gripes the moment the person in charge walks out, and it can only end badly.",
+    "walkthrough": "A rumble is a pitched gang fight, American street slang from the days of West Side Story, which is what lets a single noun stand for 'trouble'.",
+    "definitionFit": "trouble → RUMBLE: in American street slang a rumble is a gang fight, so the word names one particular brand of trouble."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +79,33 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UFOS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "UFOS",
+    "definition": "Strange sightings",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "occur regularly"
+    ],
+    "indicatorNotes": {
+     "occur regularly": "Something that occurs regularly comes round at a fixed interval, and the interval here is one letter: take one, skip one, all the way through."
+    },
+    "pieces": [
+     "UFOS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gulf Coast",
+      "gives": "UFOS",
+      "note": "walk through the nine letters of these two words and keep every second one, beginning with the second letter of the first word"
+     }
+    ],
+    "surface": "Odd things keep being reported in the skies over the Gulf Coast.",
+    "walkthrough": "'Gulf Coast' is capitalised as a place name, which is the disguise — to the wordplay it is nothing but a row of nine letters to count along.",
+    "definitionFit": "Strange sightings → UFOS: unidentified flying objects are by name the things people see and cannot explain, plural for plural."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +126,34 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLOODCLOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLOOD CLOT",
+    "definition": "a potential killer",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [],
+    "pieces": [
+     "BLOOD",
+     "CLOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "BLOOD",
+      "note": "your own blood is your family — blood relatives, blood being thicker than water"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "CLOT",
+      "note": "clot is mild British slang for an idiot, the sort of thing an exasperated parent says"
+     }
+    ],
+    "surface": "A relative who behaves like an idiot may turn out to be genuinely dangerous.",
+    "walkthrough": "Both halves are insults on the surface and neither is one underneath: 'family' is the kinship sense of blood, and the medical sense is what does the damage.",
+    "definitionFit": "a potential killer → BLOOD CLOT: a clot that breaks free can block an artery in the heart, lung or brain, so it is something that may kill you."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +170,36 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERRANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ERRANT",
+    "definition": "wandering around",
+    "indicators": [
+     "taking on"
+    ],
+    "indicatorNotes": {
+     "taking on": "To take something on is to add it to what you are already carrying, so the second chunk is joined onto the end of the first."
+    },
+    "pieces": [
+     "ERR",
+     "ANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go wrong",
+      "gives": "ERR",
+      "note": "to err is to go wrong — to err is human"
+     },
+     {
+      "clueFragment": "colony worker",
+      "gives": "ANT",
+      "note": "ants live in colonies and it is the workers that do the labour; this is the crossword's standard worker"
+     }
+    ],
+    "surface": "A firm blunders by hiring an insect from the colony, which promptly drifts off the job.",
+    "walkthrough": "'Worker' is the crossword's most reliable ant and 'colony' settles it. The definition wants the knight-errant sense: straying about, not mistaken.",
+    "definitionFit": "wandering around → ERRANT: errant keeps its older sense of roaming or straying, the one preserved in 'knight errant', rather than the modern meaning of mistaken."
+   }
   },
   {
    "id": "5-across",
@@ -106,7 +220,46 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
     ]
    },
    "solution": "FARRIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAR RIGHT",
+    "definition": "Extremists",
+    "definitionNote": "'Extremists' is plural while the answer names a single grouping; the setter is using the collective label for a body of people as though it listed them one by one.",
+    "linkWords": [
+     "get"
+    ],
+    "indicators": [
+     "involved in"
+    ],
+    "indicatorNotes": {
+     "involved in": "To be involved in something is to be caught up inside it, so the letters named first end up buried within the word named last."
+    },
+    "pieces": [
+     "F",
+     "AR",
+     "RIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terror",
+      "gives": "FRIGHT",
+      "note": "a fright is a jolt of terror; the word opens up after its first letter to let two more in"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the indefinite article, taken straight off the page"
+     },
+     {
+      "clueFragment": "republican",
+      "gives": "R",
+      "note": "R = republican, the letter printed beside the party's candidates on an American ballot"
+     }
+    ],
+    "surface": "Extremists rope a Republican into a campaign of political violence.",
+    "walkthrough": "'Terror' is the pivot: a news-page noun on the surface, a plain synonym for fright underneath, and the whole misdirection rests on which of the two you read first.",
+    "definitionFit": "Extremists → FAR RIGHT: the far right is the extreme end of the political spectrum, so the phrase names the people holding those positions."
+   }
   },
   {
    "id": "5-down",
@@ -128,7 +281,35 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
     ]
    },
    "solution": "FASTERTHANLIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FASTER THAN LIGHT",
+    "definition": "at impossible speed",
+    "indicators": [
+     "playing"
+    ],
+    "indicatorNotes": {
+     "playing": "Loose parts are said to play in their housing when they shift about instead of sitting still, and letters told to play will not stay where they were put."
+    },
+    "anagram": {
+     "fodder": "STARTING THE HALF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Starting the half",
+      "gives": "STARTINGTHEHALF",
+      "note": "anagram fodder, 15 letters — exactly the length of the grid entry"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A substitute comes on at the start of the second half and tears about the pitch.",
+    "walkthrough": "The fodder hides because 'Starting the half playing' reads as football team talk. Counting is what unmasks it: fifteen letters offered, fifteen letters wanted.",
+    "definitionFit": "at impossible speed → FASTER THAN LIGHT: relativity forbids anything exceeding light speed, so travelling faster than light is the standard shorthand for a speed nothing can reach."
+   }
   },
   {
    "id": "6-down",
@@ -145,7 +326,34 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "READJUST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "READJUST",
+    "definition": "make further changes",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [],
+    "pieces": [
+     "READ",
+     "JUST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "READ",
+      "note": "to read a subject at university is to study it"
+     },
+     {
+      "clueFragment": "what’s right",
+      "gives": "JUST",
+      "note": "a just verdict is a right one, right in the moral sense"
+     }
+    ],
+    "surface": "Work out what the correct answer is, then go on tinkering with it.",
+    "walkthrough": "'Read' for study is British university usage — you read history at Durham — and 'right' is the fairness sense here, not the direction and not the political side.",
+    "definitionFit": "make further changes → READJUST: the RE- prefix means doing the adjusting over again, so it is a second round of alterations to something already set."
+   }
   },
   {
    "id": "7-down",
@@ -162,7 +370,27 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IONIC",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "IONIC",
+    "definition": "Sort of bond",
+    "definition2": "used in classical architecture",
+    "definitionNote": "'Sort of bond' is a noun phrase where the answer is an adjective: the chemical bond is named by that adjective — an ionic bond — so the phrase points at the word without being able to replace it.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Sort of bond",
+      "note": "chemistry's reading: the link formed when one atom hands an electron to another and the two opposite charges hold together"
+     },
+     {
+      "clueFragment": "used in classical architecture",
+      "note": "the builder's reading: one of the three Greek orders of column, the one whose capital is carved as a pair of scrolls"
+     }
+    ],
+    "surface": "A kind of bond familiar from the columns of ancient Greek temples.",
+    "walkthrough": "Nothing is taken apart here — the two senses simply have nothing to do with each other, one from the chemistry lab and one from the Acropolis, and five letters serve both.",
+    "definitionFit": "An ionic bond is the chemical link between oppositely charged ions; the Ionic order is a classical Greek column style, recognised by its scrolled capitals."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +411,38 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
     ]
    },
    "solution": "HEAVENSENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HEAVEN-SENT",
+    "definition": "miraculous",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "worked on"
+    ],
+    "indicatorNotes": {
+     "worked on": "Dough that has been worked on has been kneaded and pushed into a new shape, so the letters handed over come out rearranged."
+    },
+    "anagram": {
+     "fodder": "AN EVENT SHE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "An event she",
+      "gives": "ANEVENTSHE",
+      "note": "anagram fodder, 10 letters"
+     },
+     {
+      "clueFragment": "worked on",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Whatever she was organising turned out unbelievably well.",
+    "walkthrough": "'An' is doing quiet work: the article belongs to the fodder, and a swallowed little word is where long anagrams usually keep their spare letters.",
+    "definitionFit": "miraculous → HEAVEN-SENT: something heaven-sent arrives as if by divine gift at exactly the right moment, the everyday phrase for a small miracle."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +459,40 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOJOURNS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SOJOURNS",
+    "definition": "brief trips",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "part of"
+    ],
+    "indicatorNotes": {
+     "part of": "A part of something sits within the whole, so the letters just named are placed inside the word that follows."
+    },
+    "pieces": [
+     "SO",
+     "JOUR",
+     "NS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy’s",
+      "gives": "SONS",
+      "note": "a boy is a son, and the apostrophe-s counts as a plain fourth letter; the word then splits open after its first two"
+     },
+     {
+      "clueFragment": "Day in France",
+      "gives": "JOUR",
+      "note": "jour is French for day, the second half of bonjour"
+     }
+    ],
+    "surface": "A day spent in France counts as one of a lad's short journeys.",
+    "walkthrough": "'Brief' looks like an instruction to shorten something, which is the trap; it belongs to the definition, and nothing in this clue is abbreviated.",
+    "definitionFit": "brief trips → SOJOURNS: a sojourn is a short stay somewhere away from home, so the plural covers a series of such visits."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +509,39 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANNEAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "ANNEAL",
+    "definition": "Toughen up",
+    "linkWords": [
+     "by adding"
+    ],
+    "indicators": [
+     "edges"
+    ],
+    "indicatorNotes": {
+     "edges": "The edges of a written word are the two letters standing at either end of it, and everything between them is left behind."
+    },
+    "pieces": [
+     "ANNE",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old queen",
+      "gives": "ANNE",
+      "note": "Anne reigned from 1702 to 1714, the last of the Stuart monarchs"
+     },
+     {
+      "clueFragment": "additional",
+      "gives": "AL",
+      "note": "the first and last letters of this word — an operation the clue asks for, not a standing abbreviation"
+     }
+    ],
+    "surface": "Instructions for strengthening an elderly monarch by fitting her with extra trim.",
+    "walkthrough": "'Old queen' is one of a small cast the crossword keeps on call — Anne, Bess, Cleo — and the letter count is what picks which of them is wanted.",
+    "definitionFit": "Toughen up → ANNEAL: annealing heats metal or glass and cools it slowly so internal stresses relax, leaving the material tougher and less brittle."
+   }
   },
   {
    "id": "11-across",
@@ -238,7 +562,25 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
     ]
    },
    "solution": "DINNERJACKET",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "DINNER JACKET",
+    "definition": "Clothing",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "one providing party music",
+      "note": "On the surface this is a person hired for the evening — the disc jockey, known to everyone by two letters rather than by a job title."
+     },
+     {
+      "clueFragment": "initially",
+      "note": "The setter means the initials of the answer itself: take the first letter of each of its two words and you have the very same pair the disc jockey goes by."
+     }
+    ],
+    "surface": "Formal wear, apparently recommended for whoever is running the music at the party.",
+    "walkthrough": "DJ is the whole joke: a dinner jacket is a DJ, and so is the person spinning the records, so the garment and the guest share a monogram.",
+    "definitionFit": "Clothing → DINNER JACKET: a dinner jacket is the black formal jacket worn with a bow tie for evening dress, the British name for a tuxedo."
+   }
   },
   {
    "id": "12-down",
@@ -255,7 +597,37 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPOVERISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IMPOVERISH",
+    "definition": "bankrupt",
+    "indicators": [],
+    "pieces": [
+     "IMP",
+     "OVER",
+     "ISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rogue",
+      "gives": "IMP",
+      "note": "an imp is a small mischief-maker, a rogue in miniature"
+     },
+     {
+      "clueFragment": "finished up",
+      "gives": "OVER",
+      "note": "when a thing is finished up it is over"
+     },
+     {
+      "clueFragment": "sort of",
+      "gives": "ISH",
+      "note": "-ish is the suffix English tacks on to mean roughly or approximately, and it has become a word in its own right"
+     }
+    ],
+    "surface": "A scoundrel ended up more or less broke.",
+    "walkthrough": "'Up' belongs to 'finished' and to nothing else — in a down clue it looks very much like a turning instruction, and here it is only half of a phrasal verb.",
+    "definitionFit": "bankrupt → IMPOVERISH: 'bankrupt' is the verb here, and to bankrupt someone is to strip them of their money, which is what impoverishing them does."
+   }
   },
   {
    "id": "13-across",
@@ -272,7 +644,39 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "EMIL",
+    "definition": "this fellow",
+    "linkWords": [
+     "to see"
+    ],
+    "indicators": [
+     "Half of"
+    ],
+    "indicatorNotes": {
+     "Half of": "Half of a four-letter word is two of its letters, and the halves wanted here are the back ones, taken from the tail of each word rather than the head."
+    },
+    "pieces": [
+     "EM",
+     "IL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "them",
+      "gives": "EM",
+      "note": "the closing two letters, which is half of this four-letter word"
+     },
+     {
+      "clueFragment": "fail",
+      "gives": "IL",
+      "note": "the back half again — the final two letters of another four-letter word"
+     }
+    ],
+    "surface": "Some of the group cannot manage to spot the man they came for.",
+    "walkthrough": "Emil is a German and Scandinavian boy's name, best known in Britain from Erich Kästner's Emil and the Detectives. 'Fail to see' is split in two, and only 'fail' hands over letters.",
+    "definitionFit": "this fellow → EMIL: the answer is a man's given name, so the definition can only point at a particular male rather than give a synonym."
+   }
   },
   {
    "id": "14-across",
@@ -289,7 +693,40 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TASTIEST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TASTIEST",
+    "definition": "most delicious",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The little word is pure placement: whatever was named before it drops inside whatever is named after it."
+    },
+    "pieces": [
+     "T",
+     "ASTI",
+     "EST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sample",
+      "gives": "TEST",
+      "note": "to sample something is to test it; the word opens up after its first letter"
+     },
+     {
+      "clueFragment": "Wine",
+      "gives": "ASTI",
+      "note": "Asti is the sparkling white from the Piedmont town of that name"
+     }
+    ],
+    "surface": "One wine in the tasting flight beats every other bottle on the table.",
+    "walkthrough": "'Wine' in a cryptic is almost always one particular bottle rather than the drink in general, and the Italian sparkler is the four-letter one worth learning first.",
+    "definitionFit": "most delicious → TASTIEST: tasty means pleasing on the palate, so its superlative names the single best-tasting thing, superlative answering superlative."
+   }
   },
   {
    "id": "15-down",
@@ -306,7 +743,38 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INFATUATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INFATUATE",
+    "definition": "inspire passion",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "dancing": "A dancer is never still, moving from one position to the next, so the letters offered will not be standing where they started."
+    },
+    "anagram": {
+     "fodder": "FAT AUNTIE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fat auntie",
+      "gives": "FATAUNTIE",
+      "note": "anagram fodder, 9 letters — the length of the entry"
+     },
+     {
+      "clueFragment": "dancing",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A large aunt takes to the floor at the party and stirs somebody up.",
+    "walkthrough": "The joke is the distance travelled: a mildly unkind description of a relative at a wedding turns into the verb for helpless romantic obsession.",
+    "definitionFit": "inspire passion → INFATUATE: to infatuate someone is to fill them with an intense and unreasoning passion, the verb sitting behind 'infatuation'."
+   }
   },
   {
    "id": "16-down",
@@ -323,7 +791,45 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLANKTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PLANKTON",
+    "definition": "seafood",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "turning up"
+    ],
+    "indicatorNotes": {
+     "turning up": "A down entry is written from the top downwards, so letters told to turn up are climbing against the grain and are written back to front."
+    },
+    "pieces": [
+     "PLANK",
+     "TON"
+    ],
+    "subReversals": [
+     {
+      "from": "NOT",
+      "to": "TON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Board",
+      "gives": "PLANK",
+      "note": "a board of sawn timber is a plank"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "TON",
+      "note": "the three letters of this word climbing back up the entry the other way"
+     }
+    ],
+    "surface": "The board fails to show up on the day the seafood is served.",
+    "walkthrough": "'Seafood' is doing the loosest sort of work here: this is food found in the sea rather than anything you would find on a menu, which is what makes the definition hard to trust.",
+    "definitionFit": "seafood → PLANKTON: plankton is the drifting mass of tiny organisms whales and fish live on, so it is food from the sea rather than food from a restaurant."
+   }
   },
   {
    "id": "17-across",
@@ -340,7 +846,41 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORTILLA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TORTILLA",
+    "definition": "flatbread",
+    "linkWords": [
+     "when",
+     "to have"
+    ],
+    "indicators": [],
+    "pieces": [
+     "TORT",
+     "ILL",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "TORT",
+      "note": "a tort is a civil wrong, the lawyer's word for a harm you can sue over"
+     },
+     {
+      "clueFragment": "unwell",
+      "gives": "ILL",
+      "note": "ill is unwell"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the indefinite article, lifted straight out of the clue"
+     }
+    ],
+    "surface": "It would be a mistake to eat bread while you are feeling poorly.",
+    "walkthrough": "'Wrong' is the legal noun, not the adjective the surface offers — a wrong done to a person rather than a wrong answer — and it is the piece a solver reaches for last.",
+    "definitionFit": "flatbread → TORTILLA: a tortilla is the thin unleavened Mexican round of corn or wheat flour, one particular member of the flatbread family."
+   }
   },
   {
    "id": "18-across",
@@ -357,7 +897,30 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINE",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "FINE",
+    "definition": "Subtle",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "Taken initially means taken at the very start, so only the opening letter of each word in the run is kept and the rest is dropped."
+    },
+    "pieces": [
+     "FINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film is not exalted",
+      "gives": "FINE",
+      "note": "the opening letters of these four words, read in the order they already stand"
+     }
+    ],
+    "surface": "A picture that nobody thought much of, at least to begin with.",
+    "walkthrough": "'Subtle' is the distinction sense of the answer — a fine distinction is one drawn almost too delicately to see — rather than the weather or the parking penalty.",
+    "definitionFit": "Subtle → FINE: a fine difference is one so delicate it is hard to perceive, which is precisely what subtle means, adjective for adjective."
+   }
   },
   {
    "id": "19-down",
@@ -374,7 +937,38 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VELVET",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "VELVET",
+    "definition": "Soft material",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "added to"
+    ],
+    "indicatorNotes": {
+     "added to": "Whatever has been added to something can be taken off it again, so the word named next comes away from the longer name at the end of the clue."
+    },
+    "pieces": [
+     "VELVET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old group",
+      "gives": "VELVETUNDERGROUND",
+      "note": "Lou Reed's New York rock band of the 1960s, a name two words long"
+     },
+     {
+      "clueFragment": "underground",
+      "gives": "UNDERGROUND",
+      "note": "the second of those two words, handed to you in the clue and therefore the part that has to come off"
+     }
+    ],
+    "surface": "Soft padding is being laid down in the tube tunnels for the benefit of a veteran band.",
+    "walkthrough": "The clue works backwards: it gives you the tail of a famous name and a definition of its head, so the move is subtraction rather than addition.",
+    "definitionFit": "Soft material → VELVET: velvet is a woven fabric with a dense short pile, which is what makes it soft to the touch."
+   }
   },
   {
    "id": "20-across",
@@ -395,7 +989,39 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
     ]
    },
    "solution": "PERSONALBEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PERSONAL BEST",
+    "definition": "you’ve never done it better",
+    "definitionNote": "The definition is a whole sentence rather than a noun phrase: it describes the answer by saying what having one means, so it cannot simply be swapped into a sentence in the answer's place.",
+    "linkWords": [
+     "when"
+    ],
+    "indicators": [
+     "fractured"
+    ],
+    "indicatorNotes": {
+     "fractured": "A fractured bone has broken into pieces that no longer line up, so the letters are to be set down again in some other order."
+    },
+    "anagram": {
+     "fodder": "PLASTER BONES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Plaster bones",
+      "gives": "PLASTERBONES",
+      "note": "anagram fodder, 12 letters"
+     },
+     {
+      "clueFragment": "fractured",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A doctor sets broken bones in plaster, and nobody has ever made a better job of it.",
+    "walkthrough": "A personal best is athletics jargon for the finest performance you have ever recorded, so the hospital scene the surface paints has nothing at all to do with the answer.",
+    "definitionFit": "you’ve never done it better → PERSONAL BEST: an athlete's personal best is their own finest recorded performance, so nothing they have done beats it."
+   }
   },
   {
    "id": "21-down",
@@ -412,7 +1038,36 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPEND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPEND",
+    "definition": "Lay out",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "What comes before something is written in front of it, so the chunk named first is placed ahead of the chunk named second."
+    },
+    "pieces": [
+     "SP",
+     "END"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odds",
+      "gives": "SP",
+      "note": "SP is starting price, the odds a horse goes off at when the race begins — British betting-shop shorthand"
+     },
+     {
+      "clueFragment": "finale",
+      "gives": "END",
+      "note": "the finale of anything is its end"
+     }
+    ],
+    "surface": "The odds are chalked up in good time ahead of the final race.",
+    "walkthrough": "'Lay out' is the money sense — to lay out fifty pounds on a horse — which is exactly the reading the racing surface is trying to make you skip past.",
+    "definitionFit": "Lay out → SPEND: to lay out money is to hand it over in payment, a slightly old-fashioned way of saying spend, verb for verb."
+   }
   },
   {
    "id": "22-down",
@@ -429,7 +1084,27 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TALC",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TALC",
+    "definition": "Drying material",
+    "indicators": [
+     "to some extent"
+    ],
+    "indicatorNotes": {
+     "to some extent": "Only part of what is written is wanted, so a run of letters is taken from somewhere inside the phrase instead of using all of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "crystal clear",
+      "gives": "TALC",
+      "note": "four consecutive letters run across the gap between these two words, ignoring the space"
+     }
+    ],
+    "surface": "A drying powder is being described as almost perfectly see-through.",
+    "walkthrough": "Talc is talcum powder, the mineral milled fine and dusted on damp skin. It genuinely is a soft crystal, which is why 'crystal clear' can hide it without looking odd.",
+    "definitionFit": "Drying material → TALC: talcum powder is ground talc, dusted on to absorb moisture, so the mineral is named for the job it does."
+   }
   },
   {
    "id": "23-across",
@@ -446,7 +1121,42 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIGEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "DIGEST",
+    "definition": "Take in",
+    "indicators": [
+     "the essence of"
+    ],
+    "indicatorNotes": {
+     "the essence of": "The essence of a thing is what sits at its heart, so take the letters standing dead centre and let the outer ones fall away."
+    },
+    "pieces": [
+     "DI",
+     "GE",
+     "ST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fading",
+      "gives": "DI",
+      "note": "the pair at the centre of this six-letter word, with two letters shed from each end"
+     },
+     {
+      "clueFragment": "legend",
+      "gives": "GE",
+      "note": "the middle pair again, taken the same way from the same length of word"
+     },
+     {
+      "clueFragment": "Castro",
+      "gives": "ST",
+      "note": "the heart of the name, its two central letters"
+     }
+    ],
+    "surface": "Absorb what really mattered about the fading Cuban icon.",
+    "walkthrough": "Three six-letter words standing in a row is the signal: one instruction covers all three, and the repetition is what tells you so before you have found any letters.",
+    "definitionFit": "Take in → DIGEST: to digest a report is to take it in and absorb it, the figurative use of what the stomach does with a meal."
+   }
   },
   {
    "id": "24-across",
@@ -463,7 +1173,37 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GIVEAWAY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GIVEAWAY",
+    "definition": "freebie",
+    "indicators": [
+     "to accept"
+    ],
+    "indicatorNotes": {
+     "to accept": "To accept a thing is to take it in and keep it, so the phrase named first opens up and receives the letter named after it."
+    },
+    "pieces": [
+     "GIVE",
+     "A",
+     "WAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eventually agree",
+      "gives": "GIVEWAY",
+      "note": "to give way is to stop holding out and agree in the end; the phrase splits between its two words"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the indefinite article, dropped into the join"
+     }
+    ],
+    "surface": "You hold out for a while and then say yes to something free.",
+    "walkthrough": "Give way is what a road sign orders and what a person under pressure does, and only the second reading survives once you need the phrase to split neatly in two.",
+    "definitionFit": "freebie → GIVEAWAY: a giveaway is something handed over at no charge — the free sample, the promotional gift — which is what 'freebie' names informally."
+   }
   },
   {
    "id": "25-across",
@@ -480,7 +1220,46 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHODUNIT",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "WHODUNIT",
+    "definition": "identifying culprit?",
+    "definitionNote": "This describes what the answer is about rather than offering a synonym for it, and the question mark is the setter admitting as much; the answer is a genre label, not a phrase that can replace those words.",
+    "indicators": [
+     "about",
+     "destroyed"
+    ],
+    "indicatorNotes": {
+     "about": "A scarf worn about the neck goes round the outside, so this word closes the letters before it over the letters after it.",
+     "destroyed": "Something destroyed has been smashed apart, and the fragments can be put back together in any order at all."
+    },
+    "pieces": [
+     "W",
+     "HODUN",
+     "IT"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "HOUND",
+      "gives": "HODUN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intelligence",
+      "gives": "WIT",
+      "note": "wit is intelligence, quickness of mind; the word splits open after its first letter"
+     },
+     {
+      "clueFragment": "hound",
+      "gives": "HODUN",
+      "note": "the five letters of this word shaken into a new order"
+     }
+    ],
+    "surface": "Word reaches the police about a savaged dog, and the question is who is to blame.",
+    "walkthrough": "The question mark earns its place: the answer is a deliberate misspelling of 'who done it', a name for a kind of story rather than a phrase, so a definition can only gesture at it.",
+    "definitionFit": "identifying culprit? → WHODUNIT: a whodunit is a detective story whose entire plot is the identification of the culprit, its name a jokey misspelling of 'who done it'."
+   }
   },
   {
    "id": "26-across",
@@ -501,7 +1280,41 @@ window.CRYPTIC_PUZZLES["quiptic-1379"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEICK",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THE ICK",
+    "definition": "Turn off",
+    "definitionNote": "'Turn off' reads as a verb in the surface but defines a noun: a turn-off, the thing that puts you off someone, which is what the answer names.",
+    "linkWords": [
+     "with this"
+    ],
+    "indicators": [
+     "absorption of"
+    ],
+    "indicatorNotes": {
+     "absorption of": "What is absorbed is taken up and swallowed, so the letter named next vanishes into the middle of the word standing before it."
+    },
+    "pieces": [
+     "TH",
+     "E",
+     "ICK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dense",
+      "gives": "THICK",
+      "note": "a thick person is dense; the word opens after its first two letters"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E = energy, the physicist's symbol from E = mc²"
+     }
+    ],
+    "surface": "Some dull, power-swallowing appliance is the thing you would want to switch off.",
+    "walkthrough": "'The ick' is recent slang: the sudden wave of revulsion that kills an attraction stone dead. Read 'turn off' as the noun, a turn-off, and the definition lines up.",
+    "definitionFit": "Turn off → THE ICK: 'the ick' is current slang for the rush of distaste that ends an attraction to someone, which is exactly what a turn-off is."
+   }
   }
  ]
 } /*JSON-END*/;
