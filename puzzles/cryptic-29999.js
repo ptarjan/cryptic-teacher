@@ -30,7 +30,47 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEHEMIAH",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram + first letter",
+    "answer": "NEHEMIAH",
+    "definition": "One hard man, he was involved with Ezra initially",
+    "indicators": [
+     "was involved",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "was involved": "Somebody involved in a mess is tangled up in it, and letters tangled together do not come out in the order they went in.",
+     "initially": "At the initial stage of a name there is only one letter to be had, and 'initially' asks for exactly that one."
+    },
+    "anagram": {
+     "fodder": "I H MAN HE E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the figure 1 doing duty as a letter"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the hard of a pencil grade, HB and 2H"
+     },
+     {
+      "clueFragment": "man, he",
+      "gives": "MANHE",
+      "note": "five letters handed over as printed, the comma counting for nothing"
+     },
+     {
+      "clueFragment": "Ezra initially",
+      "gives": "E",
+      "note": "the letter the prophet's name begins with"
+     }
+    ],
+    "surface": "A tough character who first got himself mixed up with somebody called Ezra.",
+    "walkthrough": "Nehemiah and Ezra share the pair of Old Testament books that tell how Jerusalem's walls went back up, and every word here describes the man while also handing over a letter.",
+    "definitionFit": "The whole clue reads straight: Nehemiah was the stern governor who rebuilt Jerusalem's walls beside the scribe Ezra."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +87,27 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FELT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FELT",
+    "definition": "Considered",
+    "definition2": "a soft fabric",
+    "blocks": [
+     {
+      "clueFragment": "Considered",
+      "gives": "",
+      "note": "the past tense of 'feel' in its opinion sense rather than its touching sense"
+     },
+     {
+      "clueFragment": "a soft fabric",
+      "gives": "",
+      "note": "the matted woollen cloth used for hats, snooker tables and pen tips"
+     }
+    ],
+    "surface": "Somebody weighing up a piece of soft cloth.",
+    "walkthrough": "'Considered' is feeling with the mind rather than the fingers, which is the sense that keeps the fabric out of sight until the second half of the clue.",
+    "definitionFit": "Two everyday senses of one short word: the past tense of 'feel' meaning judged, and the pressed woollen cloth."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +124,36 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLACET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLACET",
+    "definition": "vote in favour",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In a down entry whatever sits on something else is above it, so the word named first goes on top of the letter named next."
+    },
+    "pieces": [
+     "PLACE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dwelling",
+      "gives": "PLACE",
+      "note": "your place is where you dwell — come round to my place"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammarian's tense"
+     }
+    ],
+    "surface": "Somebody brooding over a tense ballot that went the right way.",
+    "walkthrough": "'Dwelling' looks like the brooding verb the surface wants and is really the noun for a house, and a placet is Latin — 'it pleases' — the word Cambridge and church assemblies use for an aye.",
+    "definitionFit": "A placet is the formal yes recorded in a university or church assembly, so the definition names it by the act it performs."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +170,37 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIESTE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRIESTE",
+    "definition": "a foreign port",
+    "indicators": [
+     "has invaded"
+    ],
+    "indicatorNotes": {
+     "has invaded": "An army that has invaded is inside the country it attacked, so the letter standing before it ends up within the word named earlier."
+    },
+    "pieces": [
+     "TRI",
+     "E",
+     "STE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sad",
+      "gives": "TRISTE",
+      "note": "triste is the French and Spanish word for sad, borrowed into English for a melancholy mood"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is Spain's international vehicle letter, from España — the oval sticker on the back of the car"
+     }
+    ],
+    "surface": "A gloomy bulletin that Spanish forces have taken a harbour somewhere abroad.",
+    "walkthrough": "Trieste is the Italian seaport at the head of the Adriatic, tucked against the Slovenian border, so 'foreign' is written from a British desk.",
+    "definitionFit": "Trieste is a working Adriatic seaport in north-east Italy, so the definition names it by example rather than by any synonym."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +221,36 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
     ]
    },
    "solution": "OUTTAKES",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "OUT-TAKES",
+    "definition": "They don’t make the film",
+    "indicators": [
+     "having been switched"
+    ],
+    "indicatorNotes": {
+     "having been switched": "Switching two things puts each where the other stood, so the back half of a phrase comes round to the front with its own letters undisturbed."
+    },
+    "pieces": [
+     "OUT",
+     "TAKES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dates",
+      "gives": "OUT",
+      "note": "to date somebody is to take them out, and this is the back half of that phrase, sent round to the front"
+     },
+     {
+      "clueFragment": "dates",
+      "gives": "TAKES",
+      "note": "the front half of the same phrase, following on with its letters untouched"
+     }
+    ],
+    "surface": "A film that never got shot because the shooting dates were swapped about.",
+    "walkthrough": "'They don't make the film' has nothing to do with production: making the film is making the final cut, and these are the shots that failed to.",
+    "definitionFit": "Out-takes are the takes dropped in the edit, so the definition puns on 'make the film' as making the finished version."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +267,37 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOURNAMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TOURNAMENT",
+    "definition": "competition",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'in' puts the words just named inside the ones that follow, the plainest insertion instruction there is."
+    },
+    "pieces": [
+     "T",
+     "OURNAME",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explosive",
+      "gives": "TNT",
+      "note": "TNT, trinitrotoluene, is the crossword's standard explosive"
+     },
+     {
+      "clueFragment": "What we are called",
+      "gives": "OURNAME",
+      "note": "what we are called is our name, the two words run together"
+     }
+    ],
+    "surface": "The name we go by, caught up in a fiercely explosive contest.",
+    "walkthrough": "'Explosive' is an adjective in the story and the noun for the stuff itself in the wordplay, and the last word of the clue is the definition standing alone.",
+    "definitionFit": "A tournament is a competition run as a series of matches down to one winner, so the definition is the plain general noun."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +314,38 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STOOGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "STOOGE",
+    "definition": "foil",
+    "indicators": [
+     "should be cooked"
+    ],
+    "indicatorNotes": {
+     "should be cooked": "Cooking changes whatever goes into the pot, so the letters beside it come out in an order they did not go in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "T GOOSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the standard short form of time, as in half-time"
+     },
+     {
+      "clueFragment": "goose",
+      "gives": "GOOSE",
+      "note": "five more letters of fodder, which with the one before them makes six"
+     }
+    ],
+    "surface": "A recipe note about roasting a goose wrapped up in foil.",
+    "walkthrough": "Every word of the surface is kitchen talk, so the definition sits there looking like cooking wrap until the letters come out and it turns into a person.",
+    "definitionFit": "A foil is the plain partner set against a comedian to make him look funny, and a stooge is exactly that hired straight man."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +362,37 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JEWELLER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "JEWELLER",
+    "definition": "Rock purveyor",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "To go about something is to go all the way round it, so the word for the noises closes round the letters named in front of it."
+    },
+    "pieces": [
+     "JE",
+     "WELL",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make rude noises",
+      "gives": "JEER",
+      "note": "to jeer is to make rude noises at somebody"
+     },
+     {
+      "clueFragment": "we will",
+      "gives": "WELL",
+      "note": "we will contracts to we'll, and the apostrophe counts for nothing"
+     }
+    ],
+    "surface": "A dealer in rock that we are all going to heckle.",
+    "walkthrough": "'Rock' is the trade's slang for a big diamond, and the surface leans on the music sense to keep you away from the shop window.",
+    "definitionFit": "Rock is slang for a gemstone, so somebody who purveys rocks is the person selling jewellery over a counter."
+   }
   },
   {
    "id": "9-across",
@@ -174,7 +413,30 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
     ]
    },
    "solution": "UBOLT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "U BOLT",
+    "definition": "Sprinter",
+    "definition2": "bar bent back to grasp nuts",
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sprinter",
+      "gives": "",
+      "note": "the fastest man alive, as an entry list would print him: an initial and a surname"
+     },
+     {
+      "clueFragment": "bar bent back to grasp nuts",
+      "gives": "",
+      "note": "the ironmonger's version: a rod curved into a horseshoe with a thread at each end"
+     }
+    ],
+    "surface": "A sprinter in a pub, leaning back over the counter to grab a handful of nuts.",
+    "walkthrough": "The pub reading of 'bar' and 'nuts' does all the misleading: the bar wanted is a length of metal and the nuts are the threaded kind you tighten with a spanner.",
+    "definitionFit": "Usain Bolt appears on a start list as U. Bolt, and a U-bolt is a rod bent into that letter, threaded at both ends to take nuts."
+   }
   },
   {
    "id": "10-across",
@@ -191,7 +453,27 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KENT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "KENT",
+    "definition": "Scots knew",
+    "definition2": "England’s garden?",
+    "blocks": [
+     {
+      "clueFragment": "Scots knew",
+      "gives": "",
+      "note": "north of the border 'ken' is to know, and this is its past tense"
+     },
+     {
+      "clueFragment": "England’s garden?",
+      "gives": "",
+      "note": "the orchard county south-east of London, nicknamed the Garden of England"
+     }
+    ],
+    "surface": "A question about what the Scots once knew of the garden county down south.",
+    "walkthrough": "The question mark is the setter flagging a nickname rather than a dictionary definition, and the capital letter that would give the county away is hidden by the start of the clue.",
+    "definitionFit": "Kent is the Scots past tense of 'ken', to know, and Kent is also the county long advertised as the Garden of England."
+   }
   },
   {
    "id": "11-across",
@@ -208,7 +490,39 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHESTERTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHESTERTON",
+    "definition": "Author",
+    "indicators": [
+     "could one say"
+    ],
+    "indicatorNotes": {
+     "could one say": "The setter is admitting the word beside it is invented on the spot: somebody who boxes is being renamed after another word for a box."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "CHESTER",
+     "TON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxer",
+      "gives": "CHESTER",
+      "note": "a box is a chest, so one who boxes could be renamed from the other word"
+     },
+     {
+      "clueFragment": "heavyweight",
+      "gives": "TON",
+      "note": "a ton is the heaviest weight in everyday British use, 2,240 pounds of it"
+     }
+    ],
+    "surface": "A writer who might pass for a boxer, and a substantial one at that.",
+    "walkthrough": "Chesterton was a famously enormous man, so 'heavyweight' describes him as neatly as it clues the letters — which is the joke the dash sets up.",
+    "definitionFit": "G.K. Chesterton wrote the Father Brown mysteries, so 'Author' is the plainest possible pointer to the surname."
+   }
   },
   {
    "id": "12-across",
@@ -225,7 +539,39 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KIDULT",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "KIDULT",
+    "definition": "Childish type",
+    "indicators": [
+     "endlessly",
+     "breaking"
+    ],
+    "indicatorNotes": {
+     "endlessly": "A word read endlessly never reaches its end, so the final letter of the one beside it is left off.",
+     "breaking": "Something breaking into a place has got inside it, so the letters just named split open the word that follows."
+    },
+    "pieces": [
+     "KI",
+     "DUL",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equipment",
+      "gives": "KIT",
+      "note": "your kit is the equipment you take to a match"
+     },
+     {
+      "clueFragment": "dim",
+      "gives": "DULL",
+      "note": "a dim person is a dull one, and this word arrives one letter shorter than it is printed"
+     }
+    ],
+    "surface": "A childish sort smashing the gear up and too dim to know better.",
+    "walkthrough": "The word is a portmanteau of kid and adult, barely thirty years old, and the surface's picture of a dim vandal is what stops 'equipment' looking like three letters.",
+    "definitionFit": "A kidult is a grown-up who keeps a child's tastes in toys and cartoons, which is a childish type in person."
+   }
   },
   {
    "id": "13-down",
@@ -242,7 +588,30 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERNEATH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNDERNEATH",
+    "definition": "positioned for concealment?",
+    "indicators": [
+     "ground"
+    ],
+    "indicatorNotes": {
+     "ground": "'Ground' here is the past tense of grind, and anything ground down has lost the shape and the order it arrived in."
+    },
+    "anagram": {
+     "fodder": "HUNT NEARED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hunt neared",
+      "gives": "HUNTNEARED",
+      "note": "ten letters of fodder, exactly the length the grid wants"
+     }
+    ],
+    "surface": "A hunt closing in on the patch of ground where something is hiding.",
+    "walkthrough": "'Hunt neared ground' reads as a chase running its quarry to earth, so the last word of that phrase looks like scenery right up until it turns out to be the instruction.",
+    "definitionFit": "Something underneath is tucked below another thing and out of sight, which is what 'positioned for concealment' describes rather than names."
+   }
   },
   {
    "id": "14-across",
@@ -264,7 +633,28 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
     ]
    },
    "solution": "TAKEAPEW",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TAKE A PEW",
+    "definition": "Invite to relax",
+    "definitionNote": "The answer is the invitation itself rather than a verb for issuing one, so the setter's 'Invite' describes what the phrase does when somebody says it to you.",
+    "definition2": "steal from church?",
+    "blocks": [
+     {
+      "clueFragment": "Invite to relax",
+      "gives": "",
+      "note": "the standard British way of telling a visitor to sit down and make themselves comfortable"
+     },
+     {
+      "clueFragment": "steal from church?",
+      "gives": "",
+      "note": "the same three words read one at a time, as a plan involving a bench and a getaway"
+     }
+    ],
+    "surface": "An offer to make yourself comfortable that sounds like permission to walk off with the furniture.",
+    "walkthrough": "'Take a pew' is ordinary spoken English for sit down, and reading it literally — a pew being a church bench — turns a welcome into a theft.",
+    "definitionFit": "The phrase is the everyday British invitation to sit down; word for word, it also describes carrying a bench out of a church."
+   }
   },
   {
    "id": "15-across",
@@ -281,7 +671,40 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHADOWY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SHADOWY",
+    "definition": "Indistinct",
+    "indicators": [
+     "border"
+    ],
+    "indicatorNotes": {
+     "border": "A border runs right round the outside of a thing, so the word beside it encircles the letters already named."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "SH",
+     "AD",
+     "OWY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garish",
+      "gives": "SHOWY",
+      "note": "a showy waistcoat is a garish one"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "a notice in the paper is an ad, short for advertisement"
+     }
+    ],
+    "surface": "A blurred sign with a loud, gaudy frame round the edge of it.",
+    "walkthrough": "'Indistinct' asks for the plain sense of a word that usually carries a hint of menace, and there is nothing sinister at all about the surface's gaudy frame.",
+    "definitionFit": "Something shadowy is hard to make out, half-lost in shade — the visual sense of indistinct rather than the vague-idea one."
+   }
   },
   {
    "id": "16-down",
@@ -302,7 +725,36 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
     ]
    },
    "solution": "WARPAINT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WAR PAINT",
+    "definition": "cosmetic",
+    "indicators": [
+     "commonly"
+    ],
+    "indicatorNotes": {
+     "commonly": "'Commonly' asks for the common way of saying the word beside it — the form a grammar teacher would strike out of an essay."
+    },
+    "pieces": [
+     "WARP",
+     "AINT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distortion",
+      "gives": "WARP",
+      "note": "the warp in a board is the distortion the rain left in it"
+     },
+     {
+      "clueFragment": "isn’t",
+      "gives": "AINT",
+      "note": "'ain't' is the everyday non-standard version, and the apostrophe goes"
+     }
+    ],
+    "surface": "A claim that distortion is not, as a rule, a matter of mere make-up.",
+    "walkthrough": "War paint is what British English calls make-up laid on thick, borrowed from the paint a warrior puts on before a battle.",
+    "definitionFit": "War paint is the joking name for heavy make-up, so 'cosmetic' names it by what is actually in the jar."
+   }
   },
   {
    "id": "17-across",
@@ -319,7 +771,36 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPERSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "ASPERSE",
+    "definition": "Slander",
+    "indicators": [
+     "heartlessly"
+    ],
+    "indicatorNotes": {
+     "heartlessly": "A word taken heartlessly loses its middle, and here the whole middle goes rather than the single central letter the device usually removes, leaving only the two ends."
+    },
+    "pieces": [
+     "AS",
+     "PERSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audacious",
+      "gives": "AS",
+      "note": "the outside letters of the word, with the seven in the middle thrown away"
+     },
+     {
+      "clueFragment": "in itself",
+      "gives": "PERSE",
+      "note": "per se is the Latin for 'in itself', its two words run together"
+     }
+    ],
+    "surface": "A piece of slander described as cruel and brazen in its own right.",
+    "walkthrough": "The verb hides inside the familiar phrase 'cast aspersions', which is where most solvers have met it without ever meeting it on its own.",
+    "definitionFit": "To asperse somebody is to attack their reputation with false charges, which is what slandering them is; both are verbs of damage by speech."
+   }
   },
   {
    "id": "18-down",
@@ -336,7 +817,37 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SORBONNE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SORBONNE",
+    "definition": "university",
+    "indicators": [
+     "to suppress"
+    ],
+    "indicatorNotes": {
+     "to suppress": "To suppress a thing is to hold it down out of sight, so the word before the instruction closes over the letters that follow it."
+    },
+    "pieces": [
+     "SOR",
+     "BONN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aching",
+      "gives": "SORE",
+      "note": "an aching knee is a sore one"
+     },
+     {
+      "clueFragment": "German city",
+      "gives": "BONN",
+      "note": "Bonn, on the Rhine, was West Germany's capital until 1990"
+     }
+    ],
+    "surface": "Somebody aching to hold a German city down.",
+    "walkthrough": "'Aching to' reads as longing to do something, which is the phrase's ordinary use in English and has nothing to do with the pain the letters actually need.",
+    "definitionFit": "The Sorbonne is the historic heart of the University of Paris, so 'university' points at it by example."
+   }
   },
   {
    "id": "19-down",
@@ -353,7 +864,42 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTOUND",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "ASTOUND",
+    "definition": "Stagger",
+    "indicators": [
+     "replaced by"
+    ],
+    "indicatorNotes": {
+     "replaced by": "'Replaced by' names a swap: what has just been quoted leaves the word, and the thing quoted next stands in the gap it made."
+    },
+    "pieces": [
+     "A",
+     "ST",
+     "OUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "AROUND",
+      "note": "about ten o'clock is around ten o'clock"
+     },
+     {
+      "clueFragment": "‘run out’",
+      "gives": "R",
+      "note": "R is the run on a cricket scorecard, and the clue is sending it out"
+     },
+     {
+      "clueFragment": "‘stumped’",
+      "gives": "ST",
+      "note": "st is how a batter stumped by the wicketkeeper is entered on that same scorecard"
+     }
+    ],
+    "surface": "A scorer amending a cricket dismissal from run out to stumped.",
+    "walkthrough": "Run out and stumped are two ways a cricketer loses their wicket, and the quotation marks are the setter's way of saying the words are being handled as marks on a card rather than as events.",
+    "definitionFit": "To stagger somebody is to knock them sideways with surprise — the figurative sense, not the unsteady walk."
+   }
   },
   {
    "id": "20-across",
@@ -370,7 +916,45 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARTRES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "CHARTRES",
+    "definition": "Cathedral",
+    "indicators": [
+     "resolved",
+     "in the centre"
+    ],
+    "indicatorNotes": {
+     "resolved": "To resolve a thing is to break it into its parts, and letters broken apart are free to come back together in any order.",
+     "in the centre": "The centre is the middle of what has just been assembled, so the letters named next drop into a gap halfway along it."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "anagram": {
+     "fodder": "SEARCH RT"
+    },
+    "pieces": [
+     "CHA",
+     "RT",
+     "RES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "search",
+      "gives": "CHARES",
+      "note": "the six letters of the word rearranged, ready to be split open"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "Rt is how Right is written in Rt Hon, the style given to a cabinet minister"
+     }
+    ],
+    "surface": "A hunt for the cathedral ends happily: it is right there in the middle of town.",
+    "walkthrough": "Chartres is the cathedral town south-west of Paris, famous for its blue glass, and the clue's closing phrase works both as the answer to a lost tourist and as the instruction.",
+    "definitionFit": "The town is known almost entirely for its cathedral, the most celebrated in France, so the definition names the place by its one famous building."
+   }
   },
   {
    "id": "21-down",
@@ -387,7 +971,30 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HEIGHT",
+    "definition": "The peak",
+    "pieces": [
+     "H",
+     "EIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hour",
+      "gives": "H",
+      "note": "h is the standard short form of hour, as on a 24h clock"
+     },
+     {
+      "clueFragment": "dinner time?",
+      "gives": "EIGHT",
+      "note": "the hour people sit down to eat, as in the old film title Dinner at Eight"
+     }
+    ],
+    "surface": "The busiest hour of the evening, somewhere around the time dinner is served.",
+    "walkthrough": "'The peak hour' looks like a single phrase — rush hour — so the definition seems to run on when in fact it stops after two words.",
+    "definitionFit": "The height of a thing is its highest point: the height of summer, the height of fashion, which is what a peak is."
+   }
   },
   {
    "id": "22-across",
@@ -404,7 +1011,33 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SATURN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SATURN",
+    "definition": "God",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "SAT",
+     "URN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posed",
+      "gives": "SAT",
+      "note": "anyone who posed for a portrait sat for it"
+     },
+     {
+      "clueFragment": "big pot of tea",
+      "gives": "URN",
+      "note": "the urn is the catering-sized boiler tea comes out of at a village hall"
+     }
+    ],
+    "surface": "A god sitting for his portrait beside an enormous pot of tea.",
+    "walkthrough": "'Big pot of tea' points hard at a teapot and wants the tea urn instead, the metal drum with a tap on the front at every British fete.",
+    "definitionFit": "Saturn is the Roman god of sowing and harvest, whose festival gave us Saturnalia, so 'God' names him by example."
+   }
   },
   {
    "id": "22-down",
@@ -421,7 +1054,39 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRICT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + homophone",
+    "answer": "STRICT",
+    "definition": "Uncompromising",
+    "indicators": [
+     "ultimately",
+     "on Radio 4"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What comes ultimately comes at the very end, so only the final letter of the word before it is wanted.",
+     "on Radio 4": "Something on the radio is heard and not read, so the word beside it is wanted for its sound; the 4 only finishes the name of the BBC's speech station and carries no instruction."
+    },
+    "pieces": [
+     "S",
+     "TRICT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boss",
+      "gives": "S",
+      "note": "the very last letter of the word"
+     },
+     {
+      "clueFragment": "deceived",
+      "soundsLike": "TRICKED",
+      "gives": "TRICT",
+      "note": "to deceive somebody is to trick them, and that past tense said aloud ends on a hard t"
+     }
+    ],
+    "surface": "A hard-line boss caught telling lies during a Radio 4 interview.",
+    "walkthrough": "'Tricked' spoken has no separate k in it at all: the ck and the -ed run together into one hard ct, and the spelling here records the noise rather than the word.",
+    "definitionFit": "A strict rule or a strict parent allows no bending, which is what uncompromising means; both are adjectives for refusing to give ground."
+   }
   },
   {
    "id": "23-across",
@@ -438,7 +1103,38 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CINEMAGOER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CINEMAGOER",
+    "definition": "Screen addict perhaps",
+    "indicators": [
+     "contorted"
+    ],
+    "indicatorNotes": {
+     "contorted": "A face contorted has its features hauled out of place, and letters hauled out of place land in a new order."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "ONE GRIMACE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "three letters of fodder, the word itself rather than the usual single letter"
+     },
+     {
+      "clueFragment": "grimace",
+      "gives": "GRIMACE",
+      "note": "seven more letters, which with the three before them make the full ten"
+     }
+    ],
+    "surface": "Somebody hooked on screens, their face twisted into a grimace.",
+    "walkthrough": "'One' is fodder here rather than the I or A it usually stands for, which is what keeps the ten letters from falling into place, and 'perhaps' warns that the answer is only one sort of screen addict.",
+    "definitionFit": "A cinemagoer is somebody who goes regularly to films, one instance of a screen addict, which is why the definition carries 'perhaps'."
+   }
   },
   {
    "id": "24-across",
@@ -455,7 +1151,41 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "BOON",
+    "definition": "benefit",
+    "indicators": [
+     "spends"
+    ],
+    "indicatorNotes": {
+     "spends": "To spend a thing is to part with it, so what the clue names next is gone from the letters standing before it."
+    },
+    "pieces": [
+     "BO",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Youngster",
+      "gives": "BOY",
+      "note": "a boy is a youngster, and he arrives here a letter lighter"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the standard short form of year, and it is the letter parted with"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the little word taken exactly as it stands and added at the end"
+     }
+    ],
+    "surface": "A young person spending a year living on state benefit.",
+    "walkthrough": "'On benefit' is the British phrase for drawing state welfare, and the clue quietly splits it in two: one word hands over its own letters and the other is the definition.",
+    "definitionFit": "A boon is a blessing or a help — 'a real boon' — which is 'benefit' in the sense of something that does you good, not a payment."
+   }
   },
   {
    "id": "24-down",
@@ -472,7 +1202,39 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "BOUT",
+    "definition": "contest",
+    "indicators": [
+     "Start to"
+    ],
+    "indicatorNotes": {
+     "Start to": "The start of a word is its opening letter, and that is all the clue takes from the word standing next to it."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "B",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start to bash",
+      "gives": "B",
+      "note": "the letter bash begins with"
+     },
+     {
+      "clueFragment": "away",
+      "gives": "OUT",
+      "note": "somebody away from home is out"
+     }
+    ],
+    "surface": "A fighter starting to bash away in the middle of a contest.",
+    "walkthrough": "'Bash away' reads as one phrasal verb, hammering on and on, and the clue takes a single letter from the first word and the whole of the second.",
+    "definitionFit": "A bout is one fight or round of one — a boxing bout, a wrestling bout — so 'contest' is the plain noun sense."
+   }
   },
   {
    "id": "25-across",
@@ -493,7 +1255,38 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
     ]
    },
    "solution": "HITON",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "HIT ON",
+    "definition": "Suddenly discover",
+    "indicators": [
+     "losing"
+    ],
+    "indicatorNotes": {
+     "losing": "Something losing a thing no longer has it, so the letter named next simply drops out of the word before."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "HITON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "HILTON",
+      "note": "the Hilton is a hotel, one of those chains whose name stands in for the thing itself"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "L is money here: the £ sign is a written L, from the Latin libra"
+     }
+    ],
+    "surface": "A hotel chain shedding money hand over fist.",
+    "walkthrough": "'Hotel' in a cryptic is nearly always the single letter H from the radio alphabet, and this clue wants a whole chain instead.",
+    "definitionFit": "To hit on an idea is to come across it suddenly, the way a solution arrives unlooked for — discovery with the accident built in."
+   }
   },
   {
    "id": "26-across",
@@ -510,7 +1303,42 @@ window.CRYPTIC_PUZZLES["cryptic-29999"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOCTURNE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "NOCTURNE",
+    "definition": "moonlit scene",
+    "indicators": [
+     "in",
+     "moving"
+    ],
+    "indicatorNotes": {
+     "in": "'in' drops the piece just named inside the letters that follow it.",
+     "moving": "Anything moving will not stay put, and letters that will not stay put come out in a different order."
+    },
+    "anagram": {
+     "fodder": "ONCE TURN"
+    },
+    "pieces": [
+     "NOC",
+     "TURN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once moving",
+      "gives": "NOCE",
+      "note": "the four letters of 'once' rearranged, ready to be split open"
+     },
+     {
+      "clueFragment": "Short walk",
+      "gives": "TURN",
+      "note": "a turn round the garden is a short walk"
+     }
+    ],
+    "surface": "A stroll taken through a moonlit view that was once rather affecting.",
+    "walkthrough": "'Once' is fodder rather than a word about time, and 'moving' is an instruction rather than a comment on the view — the wistfulness of the surface is entirely decorative.",
+    "definitionFit": "A nocturne is a painting or a piece of music evoking night, so 'moonlit scene' names the subject the word is built around."
+   }
   }
  ]
 } /*JSON-END*/;
