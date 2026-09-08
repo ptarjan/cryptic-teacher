@@ -126,8 +126,13 @@ YIELD_HISTORY = 12
 YIELD_STALE_DAYS = 14.0
 
 # These runs sit waiting on the API almost the whole time, so a spare one costs a
-# process, not a core. The cap is here to bound the fan-out, not to ration.
-CAP = int(os.environ.get("PARALLEL_MAX", 8))
+# process, not a core. The cap is here to bound the fan-out, not to ration, so it
+# has to sit above the widest wave the arithmetic can honestly ask for: a whole
+# window's quota pulled through the shortest stub the tiling leaves. At 8 it did
+# not. Eight in flight empty a window in 1.7h, the tiling routinely leaves less
+# than that, and every point still on a window at its turnover is gone — so the
+# bound was rationing the one window whose contents cannot be spent later.
+CAP = int(os.environ.get("PARALLEL_MAX", 14))
 
 # A guard against a corrupted yield, not a policy. The policy is the window count
 # itself: at the measured yield a completely unspent week asks for eight windows,
@@ -264,18 +269,20 @@ def observe_yield(weekly_climb, session_climb):
     return _blend(session_yield(), sample, YIELD_FILE)
 
 
-def stub_worth(hours, y):
+def stub_worth(hours, y, cap=None):
     """What a part-window of `hours` returns: a WHOLE window if it can be drained.
 
     A five-hour window is a quota, not a schedule. At full width the quota goes
-    in DRAIN_HOURS, so any stub longer than that is worth the whole window and a
-    shorter one is worth what full width can pull through it. Pro-rating a stub
-    by hours/5 is what makes the last piece of a week look worthless.
+    in 100 / (CAP * SESSION_PTS_PER_RUN_HOUR) hours, so any stub longer than
+    that is worth the whole window and a shorter one is worth what full width
+    can pull through it. Pro-rating a stub by hours/5 is what makes the last
+    piece of a week look worthless.
     """
-    return min(100.0, max(0.0, hours) * CAP * SESSION_PTS_PER_RUN_HOUR) / 100.0 * y
+    cap = CAP if cap is None else cap
+    return min(100.0, max(0.0, hours) * cap * SESSION_PTS_PER_RUN_HOUR) / 100.0 * y
 
 
-def reachable(hours_until_reset, s_pct=None, s_hours=None, y=None):
+def reachable(hours_until_reset, s_pct=None, s_hours=None, y=None, cap=None):
     """Weekly points still reachable before the WEEKLY reset, at this phase.
 
     The five-hour windows do not divide the hours until the weekly reset,
@@ -292,6 +299,7 @@ def reachable(hours_until_reset, s_pct=None, s_hours=None, y=None):
       - the trailing stub, at stub_worth().
     """
     y = planning_yield() if y is None else y
+    cap = CAP if cap is None else cap
     if s_pct is None:
         s_pct = weekly_usage.usage_pct("session")
     if s_hours is None:
@@ -306,10 +314,10 @@ def reachable(hours_until_reset, s_pct=None, s_hours=None, y=None):
     left = max(0.0, hours_until_reset)
     open_hours = min(s_hours, left)
     room = max(0.0, 100.0 - s_pct)
-    got = min(room, open_hours * CAP * SESSION_PTS_PER_RUN_HOUR) / 100.0 * y
+    got = min(room, open_hours * cap * SESSION_PTS_PER_RUN_HOUR) / 100.0 * y
     rest = left - open_hours
     whole = int(rest // SESSION_HOURS)
-    got += whole * y + stub_worth(rest - whole * SESSION_HOURS, y)
+    got += whole * y + stub_worth(rest - whole * SESSION_HOURS, y, cap)
     return min(got, 100.0)
 
 
@@ -377,7 +385,7 @@ def width(pct_left, hours_left, r=None, y=None):
 SESSION_PTS_PER_RUN_HOUR = 7.5
 
 
-def fill_width(s_pct=None, s_hours=None, weekly_hours=None):
+def fill_width(s_pct=None, s_hours=None, weekly_hours=None, cap=None):
     """Runs in flight needed to empty the CURRENT five-hour window in time.
 
     In time for WHICHEVER COMES FIRST, its own turnover or the weekly reset. The
@@ -400,10 +408,11 @@ def fill_width(s_pct=None, s_hours=None, weekly_hours=None):
         s_hours = weekly_usage.resets_in_hours("session")[0]
     if weekly_hours is not None and s_hours is not None:
         s_hours = min(s_hours, weekly_hours)
+    cap = CAP if cap is None else cap
     room = 100.0 - s_pct
     if room <= 0 or s_hours is None or s_hours <= 0:
         return 1
-    return max(1, min(CAP, math.ceil(room / (s_hours * SESSION_PTS_PER_RUN_HOUR))))
+    return max(1, min(cap, math.ceil(room / (s_hours * SESSION_PTS_PER_RUN_HOUR))))
 
 
 def session_rate(width_=1, r=None, y=None):
@@ -436,7 +445,7 @@ def endgame_min(reserve_pct, width_=1, r=None, y=None):
 
 
 def behind(hours_until_reset, pct, y=None, reserve_pct=0.0, s_pct=None,
-           s_hours=None):
+           s_hours=None, cap=None):
     """Is this the last moment at which the remainder is still reachable?
 
     Two answers, and spending starts on either. start_hours() counts in whole
@@ -449,7 +458,7 @@ def behind(hours_until_reset, pct, y=None, reserve_pct=0.0, s_pct=None,
     keep = max(0.05, 1.0 - reserve_pct / 100.0)
     if hours_until_reset <= start_hours(pct, reserve_pct, y):
         return True
-    return reachable(hours_until_reset, s_pct, s_hours, y) * keep <= pct
+    return reachable(hours_until_reset, s_pct, s_hours, y, cap) * keep <= pct
 
 
 def pct_left():
@@ -508,8 +517,11 @@ def self_test():
         (30, 69, 0, True),      # ...and here it is: from now the window goes whole
         (4, 1, 25, True),       # the last window; no reserve can change that
     ]
+    # The tiling tables are threaded a cap of 8 rather than reading CAP: what
+    # they check is that a stub is priced as a quota and not as a schedule, and
+    # that answer must not change the next time the fan-out bound moves.
     stubs = [
-        # hours of stub -> weekly points it can still return, at Y
+        # hours of stub -> weekly points it can still return, at Y and 8 wide
         (0.0, 0.0),         # no time at all
         (1.0, 0.6 * Y),     # full width pulls 60 session points through an hour
         (2.0, Y),           # past the drain time a stub is a whole window...
@@ -571,18 +583,18 @@ def self_test():
                   f"{got} (want {want})", file=sys.stderr)
             bad += 1
     for hours, want in stubs:
-        got = stub_worth(hours, Y)
+        got = stub_worth(hours, Y, cap=8)
         if abs(got - want) > 1e-9:
             print(f"FAIL stub of {hours}h: {got:.2f} (want {want:.2f})", file=sys.stderr)
             bad += 1
     for left, s_pct, s_hours, want in tilings:
-        got = reachable(left, s_pct, s_hours, Y)
+        got = reachable(left, s_pct, s_hours, Y, cap=8)
         if abs(got - want) > 0.01:
             print(f"FAIL reachable in {left}h at session {s_pct}% "
                   f"turning over in {s_hours}h: {got:.2f} (want {want})", file=sys.stderr)
             bad += 1
     for hours, pct, s_pct, s_hours, want in phases:
-        got = behind(hours, pct, Y, s_pct=s_pct, s_hours=s_hours)
+        got = behind(hours, pct, Y, s_pct=s_pct, s_hours=s_hours, cap=8)
         if got != want:
             print(f"FAIL behind at {hours}h, {pct}% left, session {s_pct}% "
                   f"turning over in {s_hours}h: {got} (want {want})", file=sys.stderr)
