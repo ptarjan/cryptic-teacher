@@ -423,6 +423,15 @@ stop_reason=""
 ann_sids=""
 ann_session_of() { printf '%s\n' $ann_sids | sed -n "s/^$1://p" | tail -1; }
 
+# Both meters before any of tonight's spend, so the run can price a five-hour
+# window on its way out. What a window is worth is the number the pre-reset burn
+# starts on, and until now it was only ever measured DURING a burn — once a
+# week, on the night it was already too late to move the start. It moved by a
+# factor of 1.7 between two of those on 2026-09-08 and nothing here noticed for
+# six days. An empty reading just makes the pair unusable below.
+spend_weekly_before=$(python3 tools/weekly_usage.py --group weekly 2>/dev/null)
+spend_session_before=$(python3 tools/weekly_usage.py --group session 2>/dev/null)
+
 # --- 3a. solve the unsolved, so step 3b has something to annotate ---
 # Runs before the annotation loop and feeds it: a grid solved tonight joins the
 # front of tonight's queue, because it is by definition the newest puzzle and
@@ -720,6 +729,22 @@ else
 nobody is seeing them. No solver is quoted below — this is why the read failed:
 
 $bad_hints"
+fi
+
+# Price the window off everything claude spent above. The planner refuses the
+# pair unless both meters really moved, so a quiet night, a five-hour turnover
+# mid-run (session falls) and a weekly reset (weekly falls) all read as no
+# measurement rather than as a wrong one.
+if [ -n "$spend_weekly_before" ] && [ -n "$spend_session_before" ]; then
+  spend_weekly_after=$(python3 tools/weekly_usage.py --group weekly 2>/dev/null)
+  spend_session_after=$(python3 tools/weekly_usage.py --group session 2>/dev/null)
+  if [ -n "$spend_weekly_after" ] && [ -n "$spend_session_after" ]; then
+    priced=$(python3 tools/prereset_plan.py --observe-yield \
+      "$((spend_weekly_after - spend_weekly_before))" \
+      "$((spend_session_after - spend_session_before))" 2>/dev/null)
+    echo "five-hour window now priced at ${priced:-unknown} weekly points" \
+      "(planning on $(python3 tools/prereset_plan.py --planning-yield 2>/dev/null))"
+  fi
 fi
 
 # --- 4. validate, reindex, commit ---
