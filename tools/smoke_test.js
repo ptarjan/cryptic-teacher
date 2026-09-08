@@ -2256,9 +2256,11 @@ registry["reset-puzzle"].onclick();
   const fetches = src.match(/fetch\(.*/g) || [];
   assert(/syncOn\(\)/.test(src) && fetches.filter((f) => f.includes('"/s/"')).length === 1,
     "there is exactly one place that sends a crossword, and it is gated on sync being on");
-  // And the page as a whole leaves nothing else: the only other thing it ever
-  // sends is a sentence the reader typed on purpose about a bad hint.
-  assert(fetches.every((f) => f.includes('"/s/"') || f.includes('"/r"')),
+  // And the page as a whole leaves nothing else: a sentence the reader typed on
+  // purpose about a bad hint, and a push subscription — an address, not a
+  // crossword, and it only leaves when a paper is ticked.
+  assert(fetches.every((f) => f.includes('"/s/"') || f.includes('"/r"')
+      || f.includes('"/n"')),
     "nothing else leaves the page: " + fetches.join(" | "));
   // The counter is the only other thing that reaches the network, and what it
   // can carry is one name from the shared list — no grid, no code, no id. Two
@@ -2267,6 +2269,24 @@ registry["reset-puzzle"].onclick();
     "there is exactly one place that reports an event");
   assert(/sendBeacon\(\s*SYNC_ENDPOINT[^;]*new Blob\(\[name\]/.test(src),
     "and the whole of what it sends is the event name");
+
+  // One VAPID pair, two runtimes. The page and the Worker cannot share a file,
+  // so the public key is written in both; if the copies drift, every push is
+  // signed by a key the browser rejects and the only symptom is a silent 403.
+  const wrangler = fs.readFileSync(path.join(ROOT, "sync/wrangler.toml"), "utf8");
+  const appKey = (src.match(/VAPID_PUBLIC_KEY = "([A-Za-z0-9_-]+)"/) || [])[1];
+  const workerKey = (wrangler.match(/^VAPID_PUBLIC_KEY = "([A-Za-z0-9_-]+)"/m) || [])[1];
+  assert(appKey && appKey === workerKey,
+    "app.js and sync/wrangler.toml carry the same VAPID public key");
+
+  // A service worker's URL is its identity: the browser keys the registration on
+  // it and re-fetches that same URL to update. A stamped sw.js?v=<hash> would
+  // register a second worker while the first kept the subscription, so sw.js is
+  // never stamped and never listed as an asset.
+  const stamp = fs.readFileSync(path.join(ROOT, "tools/stamp_assets.py"), "utf8");
+  assert(!/["']sw\.js["']/.test(stamp), "sw.js is not a stamped asset");
+  assert(/serviceWorker\.register\("sw\.js"\)/.test(src),
+    "and the page registers it at its bare URL");
 
   registry["btn-sync"].onclick();
   assert(!registry["sync-panel"].classList.contains("hidden"), "the sync panel opens");
