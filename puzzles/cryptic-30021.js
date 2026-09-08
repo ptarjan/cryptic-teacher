@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOMETOWN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HOMETOWN",
+    "definition": "Paris, for him",
+    "indicators": [
+     "changed"
+    ],
+    "indicatorNotes": {
+     "changed": "Something changed is no longer arranged the way it was, so the letters beside it are handed over in the wrong order."
+    },
+    "anagram": {
+     "fodder": "HOWMONET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "How Monet",
+      "gives": "HOMETOWN",
+      "note": "These eight letters are exactly the ones required, reordered."
+     }
+    ],
+    "surface": "The Impressionist painter is credited with transforming the look of Paris itself.",
+    "walkthrough": "Monet was born in Paris in 1840, which is the fact the last three words rest on. The surface wants them as more of what he changed.",
+    "definitionFit": "Monet was born in Paris, so for him the city is the place he came from — the town he calls home."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +70,40 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOWLER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HOWLER",
+    "definition": "Stupid mistake",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "protecting"
+    ],
+    "indicatorNotes": {
+     "protecting": "You protect something by putting yourself around it, so the word doing the protecting closes over the letters that follow."
+    },
+    "pieces": [
+     "H",
+     "OWL",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "'that woman' is her — the pronoun used straight."
+     },
+     {
+      "clueFragment": "member of parliament",
+      "gives": "OWL",
+      "note": "A group of owls is called a parliament, so one member of it is a single bird."
+     }
+    ],
+    "surface": "A woman is shielding an MP who has blundered.",
+    "walkthrough": "'Member of parliament' is not an MP: a parliament is the collective noun for owls, the way a murder belongs to crows.",
+    "definitionFit": "A howler is a blunder so glaring it makes people laugh out loud — a stupid mistake rather than a small slip."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +124,24 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
     ]
    },
    "solution": "MASSAGEPARLOURS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "MASSAGE PARLOURS",
+    "definition": "Places where rubbers are readily available?",
+    "blocks": [
+     {
+      "clueFragment": "Places where",
+      "note": "The answer is premises you can walk into, so the clue is pointing at a kind of business rather than at an object."
+     },
+     {
+      "clueFragment": "rubbers are readily available",
+      "note": "The surface offers a stationer's, where a rubber is an eraser; the setter means a rubber as someone who rubs — a masseur or masseuse on the staff."
+     }
+    ],
+    "surface": "A remark about where you can easily pick up erasers.",
+    "walkthrough": "The question mark is the setter admitting the definition is a joke rather than a dictionary entry, and 'readily available' carries the innuendo these premises have picked up.",
+    "definitionFit": "A rubber is one who rubs, so the whole clue defines the premises by the staff on hand there."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +158,33 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TREAD",
+    "definition": "grooved rubber on a tyre",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "T",
+     "READ"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the standard shorthand for time, as on a countdown clock."
+     },
+     {
+      "clueFragment": "study",
+      "gives": "READ",
+      "note": "To read a subject at university is to study it."
+     }
+    ],
+    "surface": "Somebody has set aside a moment to examine the rubber on a car tyre.",
+    "walkthrough": "'Time to study' reads as one phrase about revision, which is what keeps the split hidden and pushes the definition out to five words at the end.",
+    "definitionFit": "The tread is the patterned rubber on a tyre that grips the road, and the grooves are the pattern."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +201,30 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHIPPET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WHIPPET",
+    "definition": "Dog",
+    "pieces": [
+     "WHIP",
+     "PET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat,",
+      "gives": "WHIP",
+      "note": "The cat here is the cat-o'-nine-tails, the naval lash."
+     },
+     {
+      "clueFragment": "cat?",
+      "gives": "PET",
+      "note": "A cat kept at home is a pet, and the question mark admits it is only one example of one."
+     }
+    ],
+    "surface": "Three animals reeled off as if somebody were listing what they keep at home.",
+    "walkthrough": "The same three letters are asked to mean two unrelated things in a row, and the comma between them makes the pair look like a list of animals.",
+    "definitionFit": "A whippet is a breed of dog, so the definition names the category the answer is one instance of."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +241,30 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAWNS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPAWNS",
+    "definition": "Creates",
+    "pieces": [
+     "S",
+     "PAWNS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-label abbreviation for small."
+     },
+     {
+      "clueFragment": "chess pieces",
+      "gives": "PAWNS",
+      "note": "The pawns are the eight foot soldiers on the front row of a chess board."
+     }
+    ],
+    "surface": "Someone is turning out a set of miniature chess pieces.",
+    "walkthrough": "'Small chess pieces' reads as one item in a catalogue, so the definition is easy to miss sitting on its own at the front.",
+    "definitionFit": "To spawn is to produce offspring in quantity, and by extension to create anything in numbers — the figurative sense, not the fish one."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +281,40 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAVILIONS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PAVILIONS",
+    "definition": "exhibition buildings",
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "pieces": [
+     "PA",
+     "VI",
+     "LIONS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "PA",
+      "note": "PA is the familiar short form of father."
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals."
+     },
+     {
+      "clueFragment": "big cats",
+      "gives": "LIONS",
+      "note": "Lions are the big cats of the African plains."
+     }
+    ],
+    "surface": "A father arrives at a trade fair with half a dozen lions in tow.",
+    "walkthrough": "Roman numerals are the setter's favourite way of turning a number into letters, and VI for six is the one to keep at the front of your mind.",
+    "definitionFit": "Pavilions are the separate display buildings put up on a showground for a world's fair or expo."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +335,30 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
     ]
    },
    "solution": "WALKINGDELEGATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WALKING DELEGATE",
+    "definition": "US union official",
+    "indicators": [
+     "shocked"
+    ],
+    "indicatorNotes": {
+     "shocked": "A person who is shocked is jolted out of their composure, and the letters beside it are likewise jolted out of their places."
+    },
+    "anagram": {
+     "fodder": "ALLEGEDTWEAKING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Alleged tweaking",
+      "gives": "WALKINGDELEGATE",
+      "note": "The fifteen letters of these two words supply every letter needed, in a new order."
+     }
+    ],
+    "surface": "A report of alleged fiddling has appalled an American labour man.",
+    "walkthrough": "'Alleged tweaking shocked' reads as a news sentence with a subject and a verb, so nothing in it announces itself as fodder.",
+    "definitionFit": "A walking delegate is the American union officer who walks from workplace to workplace checking that agreements are being kept."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +375,37 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPECTATE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPECTATE",
+    "definition": "Watch",
+    "indicators": [
+     "nursing"
+    ],
+    "indicatorNotes": {
+     "nursing": "To nurse something is to hold it in your arms, so whatever nurses closes around the piece named next."
+    },
+    "pieces": [
+     "S",
+     "PEC",
+     "TATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virginia, perhaps",
+      "gives": "STATE",
+      "note": "Virginia is one of the American states, and 'perhaps' flags it as an example standing in for the general word."
+     },
+     {
+      "clueFragment": "muscle",
+      "gives": "PEC",
+      "note": "A pec is the pectoral muscle across the chest."
+     }
+    ],
+    "surface": "Someone is keeping an eye on Virginia while she tends a pulled muscle.",
+    "walkthrough": "The capital V makes Virginia look like a woman being nursed, which is the reading the setter is banking on before you reach for the map.",
+    "definitionFit": "To spectate is to watch an event as an onlooker, and both words are verbs in the same instructing form."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +422,36 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WISTERIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "WISTERIA",
+    "definition": "Flowering plant",
+    "indicators": [
+     "left out"
+    ],
+    "indicatorNotes": {
+     "left out": "Both words work: 'left' is the standard abbreviation L, and 'out' says that letter is the one taken away."
+    },
+    "pieces": [
+     "W",
+     "ISTERIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the standard abbreviation for with."
+     },
+     {
+      "clueFragment": "bacterial infection’s left out",
+      "gives": "ISTERIA",
+      "note": "The bacterial infection is listeria, and it arrives here minus its L."
+     }
+    ],
+    "surface": "A garden plant is described as having escaped a bacterial infection.",
+    "walkthrough": "'with' looks like joinery holding the sentence together and is really the first letter of the answer, which is the whole difficulty of the front of this clue.",
+    "definitionFit": "Wisteria is the climbing shrub that hangs in mauve racemes over porches, so the definition names its category."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +468,43 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SVELTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "SVELTE",
+    "definition": "slender",
+    "indicators": [
+     "Unusual",
+     "boxes"
+    ],
+    "indicatorNotes": {
+     "Unusual": "Something unusual is not in its expected state, so the word after it does not stay in the order it is given.",
+     "boxes": "To box something is to shut it in a container, so the letters just made close around the piece that follows."
+    },
+    "anagram": {
+     "fodder": "STEELV"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "STEEL",
+      "gives": "SELTE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unusual steel",
+      "gives": "SELTE",
+      "note": "The five letters of steel, reordered to leave a gap after the S."
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very."
+     }
+    ],
+    "surface": "Some oddly made steel boxes are said to be extremely narrow.",
+    "walkthrough": "'boxes' is a verb, not a piece of furniture: the steel does the boxing, and 'very' is what gets shut inside.",
+    "definitionFit": "Svelte describes a figure that is slim and elegant with it, so 'slender' is the plain adjective it stands in for."
+   }
   },
   {
    "id": "11-down",
@@ -225,7 +521,36 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GNAT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "GNAT",
+    "definition": "Biting insect",
+    "indicators": [
+     "back"
+    ],
+    "indicatorNotes": {
+     "back": "'back' asks for the letters in the opposite order to the one the clue hands them over in."
+    },
+    "pieces": [
+     "GNAT"
+    ],
+    "subReversals": [
+     {
+      "from": "TANG",
+      "to": "GNAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bite",
+      "gives": "TANG",
+      "note": "The bite of a strong cheese or a cold wind is its tang."
+     }
+    ],
+    "surface": "An insect that bites is invited to return the favour.",
+    "walkthrough": "'Bite' is the sharpness of a strong cheese or a cold wind rather than a nip, and the clue is short enough that spotting which word is the definition is most of the work.",
+    "definitionFit": "A gnat is the small biting fly that swarms over water at dusk, so the definition names it by what it does."
+   }
   },
   {
    "id": "12-across",
@@ -242,7 +567,33 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ELAND",
+    "definition": "Antelope",
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "E",
+     "LAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European."
+     },
+     {
+      "clueFragment": "country",
+      "gives": "LAND",
+      "note": "A land is a country, as in native land."
+     }
+    ],
+    "surface": "An antelope is said to have come from somewhere in Europe.",
+    "walkthrough": "Eland are African, so 'from European country' cannot be a fact about the animal — which is the signal that it is doing another job entirely.",
+    "definitionFit": "The eland is the largest of the African antelopes, so the definition names the family it belongs to."
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +610,36 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANELLIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PANELLIST",
+    "definition": "guest on game show",
+    "indicators": [
+     "ignoring"
+    ],
+    "indicatorNotes": {
+     "ignoring": "To ignore something is to act as though it were not there, so the letter named after it never joins the build."
+    },
+    "pieces": [
+     "PAN",
+     "ELLIST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "PAN",
+      "note": "To pan a film or a play is to criticise it savagely."
+     },
+     {
+      "clueFragment": "member of orchestra ignoring Conservative",
+      "gives": "ELLIST",
+      "note": "The orchestra member is a cellist, and C is the crossword shorthand for Conservative, so the C goes."
+     }
+    ],
+    "surface": "Somebody is told to lay into an orchestral player who snubbed a Tory on a quiz.",
+    "walkthrough": "The question mark is doing real work: a game show is only one place the answer turns up, so the setter is flagging a definition by example.",
+    "definitionFit": "A panellist is one of the guests who sit on the panel of a quiz or discussion show, which the question mark marks as one typical case."
+   }
   },
   {
    "id": "14-across",
@@ -276,7 +656,39 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEXTET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "SEXTET",
+    "definition": "musical group",
+    "linkWords": [
+     "seen in"
+    ],
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "'regularly' means at even intervals, so you take every second letter of the word rather than all of them."
+    },
+    "pieces": [
+     "SEXT",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Send explicit message to",
+      "gives": "SEXT",
+      "note": "To sext someone is to send them a sexually explicit text."
+     },
+     {
+      "clueFragment": "gent",
+      "gives": "ET",
+      "note": "Take the second and fourth letters of the word: g-e-n-t."
+     }
+    ],
+    "surface": "Someone is being told to text something racy to a man they keep seeing at rehearsals.",
+    "walkthrough": "A sextet is six players and the answer is six letters, which is a coincidence worth enjoying and no help at all; 'sext' as a verb is new enough that it still ambushes solvers.",
+    "definitionFit": "A sextet is a group of six musicians or the piece they play, so the definition names its category."
+   }
   },
   {
    "id": "15-down",
@@ -297,7 +709,33 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRADEOFFS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRADE-OFFS",
+    "definition": "compromises",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Model"
+    ],
+    "indicatorNotes": {
+     "Model": "To model clay is to work it into a new shape, and that is what happens to the letters standing next to it."
+    },
+    "anagram": {
+     "fodder": "TFORDSAFE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "T Ford safe",
+      "gives": "TRADEOFFS",
+      "note": "These nine letters supply everything needed, rearranged."
+     }
+    ],
+    "surface": "A vintage Model T Ford is being recommended as a safe buy.",
+    "walkthrough": "'Model T Ford' is such a fixed phrase that it reads as one object, and that is precisely why you never think to count its letters.",
+    "definitionFit": "A trade-off is a compromise in which you give up one thing to gain another, and both words are plural here."
+   }
   },
   {
    "id": "16-across",
@@ -314,7 +752,36 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THOUGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "THOUGHT",
+    "definition": "idea",
+    "indicators": [
+     "start to"
+    ],
+    "indicatorNotes": {
+     "start to": "A start is where a word begins, so this points at the opening letter of the word that follows it."
+    },
+    "pieces": [
+     "THOUGH",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nevertheless",
+      "gives": "THOUGH",
+      "note": "'though' tacked on the end of a sentence means the same as nevertheless."
+     },
+     {
+      "clueFragment": "test",
+      "gives": "T",
+      "note": "The opening letter of the word, as the instruction before it asks."
+     }
+    ],
+    "surface": "Somebody is getting on with a test in spite of everything.",
+    "walkthrough": "The comma makes 'Nevertheless' look like a discourse marker introducing the rest of the sentence, when it is six of the seven letters.",
+    "definitionFit": "A thought is an idea — the everyday noun for something that has occurred to you."
+   }
   },
   {
    "id": "17-down",
@@ -331,7 +798,31 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLYPAPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLYPAPER",
+    "definition": "that can catch pests",
+    "definitionNote": "The definition is a relative clause rather than a noun: read it as 'something that can catch pests', with the answer supplying the noun it hangs off.",
+    "pieces": [
+     "FLY",
+     "PAPER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cunning",
+      "gives": "FLY",
+      "note": "'fly' is old British slang for sly or artful — 'he's a fly one'."
+     },
+     {
+      "clueFragment": "tabloid, perhaps",
+      "gives": "PAPER",
+      "note": "A tabloid is one kind of newspaper, which 'perhaps' flags as an example."
+     }
+    ],
+    "surface": "A crafty tabloid is credited with rounding up vermin.",
+    "walkthrough": "The insect sense of 'fly' never appears in the clue even though it is the whole point of the answer, and the slang sense that does appear is the one solvers forget.",
+    "definitionFit": "Flypaper is the sticky strip hung from a ceiling to trap flies, so the pests it catches are the insects the first half of the wordplay names."
+   }
   },
   {
    "id": "18-across",
@@ -348,7 +839,27 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEAKAGE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LEAKAGE",
+    "definition": "emission",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "Something covering another thing lies over the top of it, so the words in front conceal what is being defined."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bleak agenda",
+      "gives": "LEAKAGE",
+      "note": "The letters run consecutively across the join between the two words, starting one letter in."
+     }
+    ],
+    "surface": "A grim list of meeting items has an item about emissions buried in it.",
+    "walkthrough": "A concealed answer is hardest to see when the words hiding it make sense together, and a bleak agenda covering emissions reads like a news headline.",
+    "definitionFit": "Leakage is the stuff that escapes from a container, and an emission is likewise the stuff given off — both name the substance rather than the act."
+   }
   },
   {
    "id": "19-down",
@@ -365,7 +876,30 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EATS",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "EATS",
+    "definition": "corrodes",
+    "indicators": [
+     "Cycling"
+    ],
+    "indicatorNotes": {
+     "Cycling": "Cycling sends letters round a loop: the one at the front comes off and rejoins at the back, everything else keeping its order."
+    },
+    "pieces": [
+     "EATS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saddle",
+      "gives": "SEAT",
+      "note": "A saddle is what you sit on — a seat."
+     }
+    ],
+    "surface": "The saddle on a bicycle is quietly rusting away.",
+    "walkthrough": "Acid eats through metal, which is the sense of 'corrodes' being used; the cycling of the surface and the cycling of the letters are the same word doing both jobs.",
+    "definitionFit": "Something that eats away at metal corrodes it — 'eats' in the transitive sense of gnawing through a material."
+   }
   },
   {
    "id": "20-across",
@@ -382,7 +916,30 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUSTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CUSTER",
+    "definition": "American cavalry commander",
+    "indicators": [
+     "organised"
+    ],
+    "indicatorNotes": {
+     "organised": "Something organised has been put into an order by somebody, and a new order is exactly what the letters come back in."
+    },
+    "anagram": {
+     "fodder": "TRUCES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "truces",
+      "gives": "CUSTER",
+      "note": "The six letters of the word, rearranged."
+     }
+    ],
+    "surface": "An officer has brokered a series of ceasefires.",
+    "walkthrough": "Arranging truces is exactly the sort of thing a cavalry commander does, which is why the indicator sits so quietly inside the surface.",
+    "definitionFit": "George Custer was the US cavalry officer wiped out at the Little Bighorn in 1876, so the definition names him by his job."
+   }
   },
   {
    "id": "20-down",
@@ -399,7 +956,50 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORTEGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + last letter",
+    "answer": "CORTEGE",
+    "definition": "Train",
+    "indicators": [
+     "leader",
+     "back in"
+    ],
+    "indicatorNotes": {
+     "leader": "A leader stands at the front of the line, so it calls for the first letter of the word it belongs to.",
+     "back in": "The back of a word is its far end, so this asks for the final letter of the word that follows."
+    },
+    "pieces": [
+     "COR",
+     "T",
+     "EG",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "COR",
+      "note": "'Cor!' is the British exclamation of surprise, used where someone else would say 'My!'"
+     },
+     {
+      "clueFragment": "team’s",
+      "gives": "T",
+      "note": "The first letter of the word, which the instruction after it asks for."
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the standard shorthand for 'for example'."
+     },
+     {
+      "clueFragment": "office",
+      "gives": "E",
+      "note": "The last letter of the word."
+     }
+    ],
+    "surface": "Instructions to coach the captain and get him back behind his desk.",
+    "walkthrough": "'Train' is not the railway one: a cortege is the procession that follows a hearse, and a train of mourners is the same picture. 'My' as COR is the device solvers say they always miss.",
+    "definitionFit": "A train is a following procession — a bride's train, a train of attendants — and a funeral one is precisely what the answer names."
+   }
   },
   {
    "id": "21-down",
@@ -416,7 +1016,33 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADVENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADVENT",
+    "definition": "liturgical season",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "AD",
+     "VENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commercial",
+      "gives": "AD",
+      "note": "A commercial is an advert, shortened to AD."
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "VENT",
+      "note": "A vent is an opening cut to let air through."
+     }
+    ],
+    "surface": "An advertising slot is coming free in the weeks before Christmas.",
+    "walkthrough": "Advent is the four Sundays before Christmas and the point where the church year begins — the same weeks the commercial world starts selling.",
+    "definitionFit": "Advent is the season of the church calendar leading up to Christmas, so the definition places it by its liturgical use."
+   }
   },
   {
    "id": "22-across",
@@ -433,7 +1059,38 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLYESTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "POLYESTER",
+    "definition": "some non-traditional material",
+    "indicators": [
+     "loudly"
+    ],
+    "indicatorNotes": {
+     "loudly": "Saying a word loudly is saying it aloud, so you write down what the clue's words sound like rather than how they are spelt."
+    },
+    "pieces": [
+     "POLY",
+     "ESTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parrot",
+      "soundsLike": "POLLY",
+      "gives": "POLY",
+      "note": "Polly is the name every storybook parrot is given, and it is spelt differently here."
+     },
+     {
+      "clueFragment": "part of the bible",
+      "soundsLike": "ESTHER",
+      "gives": "ESTER",
+      "note": "Esther is a book of the Old Testament, and the H drops out when you write down the sound."
+     }
+    ],
+    "surface": "Someone is being told to repeat a scripture reading at the top of their voice.",
+    "walkthrough": "'Parrot' is a verb in the surface — to parrot is to repeat — and the wordplay wants the bird's own name instead.",
+    "definitionFit": "Polyester is the synthetic fabric that replaced wool and cotton in cheap clothing, which is what makes it non-traditional material."
+   }
   },
   {
    "id": "23-across",
@@ -450,7 +1107,27 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPEND",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "UPEND",
+    "definition": "Greatly affect",
+    "indicators": [
+     "hosts"
+    ],
+    "indicatorNotes": {
+     "hosts": "A host has guests staying inside the house, so the word doing the hosting has the answer lodged within it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "stupendous",
+      "gives": "UPEND",
+      "note": "Five consecutive letters sit inside this word, beginning at its third."
+     }
+    ],
+    "surface": "Hosts who put on a remarkable evening are being praised.",
+    "walkthrough": "'hosts' looks like the plural noun the adjective in front is describing, and it is a verb: the single word 'stupendous' is doing the hosting.",
+    "definitionFit": "To upend someone's plans is to turn them upside down and so affect them greatly — the figurative sense, not the literal tipping over of furniture."
+   }
   },
   {
    "id": "23-down",
@@ -467,7 +1144,37 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNFIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "UNFIT",
+    "definition": "Inappropriate",
+    "indicators": [
+     "blocked by"
+    ],
+    "indicatorNotes": {
+     "blocked by": "Being blocked by something means it has got in your way, and here it gets in the way by sitting in the middle of the letters."
+    },
+    "pieces": [
+     "UN",
+     "F",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single person",
+      "gives": "UNIT",
+      "note": "A unit is a single item counted on its own, a person included."
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female."
+     }
+    ],
+    "surface": "One person on their own has been blocked by a woman.",
+    "walkthrough": "The whole surface reads as a dating-app grievance, and 'blocked by' is the word carrying it — which is also the word doing the inserting.",
+    "definitionFit": "Unfit for purpose means inappropriate: the sense of being unsuitable for a job, not the sense of being out of condition."
+   }
   },
   {
    "id": "24-across",
@@ -484,7 +1191,38 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POUFFE",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "POUFFE",
+    "definition": "Seat",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "primarily": "'primarily' means first and foremost, so it calls for the first letter of each word it governs."
+    },
+    "pieces": [
+     "P",
+     "O",
+     "U",
+     "F",
+     "F",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parliament offered up for favours enacted",
+      "gives": "POUFFE",
+      "note": "Take the opening letter of each of these six words in turn."
+     }
+    ],
+    "surface": "An MP's seat is being traded away in return for favours already done.",
+    "walkthrough": "'Seat in parliament' is the fiction the whole clue is built on; only the first word of it is the definition, and a pouffe is the padded footstool you drop onto at home.",
+    "definitionFit": "A pouffe is a firm padded cushion used as a low seat or footstool, so 'Seat' is the plain category word."
+   }
   },
   {
    "id": "25-across",
@@ -505,7 +1243,30 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
     ]
    },
    "solution": "SELFHATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SELF-HATE",
+    "definition": "Intense dislike of one",
+    "indicators": [
+     "training"
+    ],
+    "indicatorNotes": {
+     "training": "Training something is putting it through its paces until it does something new, and the letters beside it come back in a new arrangement."
+    },
+    "anagram": {
+     "fodder": "THEFLEAS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "the fleas",
+      "gives": "SELFHATE",
+      "note": "The eight letters of these two words are exactly the ones needed, reordered."
+     }
+    ],
+    "surface": "Somebody cannot stand the person who runs the flea circus.",
+    "walkthrough": "The definition runs on past 'dislike' to take in 'one', and that word is the self the loathing is aimed at.",
+    "definitionFit": "Self-hate is intense dislike turned on oneself, and 'of one' is what narrows the definition from general loathing to that."
+   }
   },
   {
    "id": "26-across",
@@ -522,7 +1283,37 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RESIST",
+    "definition": "Fight",
+    "indicators": [
+     "interrupting"
+    ],
+    "indicatorNotes": {
+     "interrupting": "An interruption cuts in partway through, so the word before it lands in the middle of the letters rather than beside them."
+    },
+    "pieces": [
+     "RES",
+     "IS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "A break from work is a rest."
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "The word is taken exactly as it stands in the clue."
+     }
+    ],
+    "surface": "A quarrel is getting in the way of somebody's tea break.",
+    "walkthrough": "'is' looks like the verb joining a definition to its wordplay, and instead it is the two letters that get pushed into the middle.",
+    "definitionFit": "To resist is to fight against something — 'Fight' in the sense of putting up opposition rather than throwing punches."
+   }
   },
   {
    "id": "27-across",
@@ -539,7 +1330,42 @@ window.CRYPTIC_PUZZLES["cryptic-30021"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENTIENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SENTIENT",
+    "definition": "Evidently live",
+    "indicators": [
+     "heartless"
+    ],
+    "indicatorNotes": {
+     "heartless": "Something heartless has lost its heart, so the middle letter of the word in front of it is taken out."
+    },
+    "pieces": [
+     "SENT",
+     "IE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "SENT",
+      "note": "A programme that is broadcast has been sent out."
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, the standard shorthand for 'that is'."
+     },
+     {
+      "clueFragment": "not heartless",
+      "gives": "NT",
+      "note": "NOT with its central letter removed."
+     }
+    ],
+    "surface": "A live broadcast is being called cold and unfeeling.",
+    "walkthrough": "'heartless' pulls double duty: it is the instruction, and it is the opposite of what the answer describes, since a sentient thing is one that feels.",
+    "definitionFit": "A sentient creature is evidently alive: it feels and perceives, which is the visible evidence of life the definition points at."
+   }
   }
  ]
 } /*JSON-END*/;
