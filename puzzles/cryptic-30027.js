@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESTFUL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "RESTFUL",
+    "definition": "Relaxing",
+    "indicators": [
+     "nearly"
+    ],
+    "indicatorNotes": {
+     "nearly": "Nearly there is not quite there, so the word governed by it stops one letter short of its own ending."
+    },
+    "pieces": [
+     "REST",
+     "FUL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interval",
+      "gives": "REST",
+      "note": "the break between two acts is the interval, and a pause of any kind is a rest"
+     },
+     {
+      "clueFragment": "complete",
+      "gives": "FUL",
+      "note": "complete means full, and the last of those four letters never gets written"
+     }
+    ],
+    "surface": "Somebody unwinding while the interval is almost over.",
+    "walkthrough": "'nearly complete' describes the interval in the surface — the break all but finished — while in the wordplay it is an instruction aimed at one word.",
+    "definitionFit": "Relaxing → RESTFUL: an adjective for what leaves you rested, said of an afternoon or a room rather than of the person in it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +76,42 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROBUST",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "ROBUST",
+    "definition": "Strong",
+    "indicators": [
+     "knocked over"
+    ],
+    "indicatorNotes": {
+     "knocked over": "A thing knocked over lands the wrong way up, so the two letters beside it are written out from the back."
+    },
+    "pieces": [
+     "RO",
+     "BUST"
+    ],
+    "subReversals": [
+     {
+      "from": "OR",
+      "to": "RO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or, when knocked over",
+      "gives": "RO",
+      "note": "the clue's own 'or', its two letters turned end for end"
+     },
+     {
+      "clueFragment": "broken",
+      "gives": "BUST",
+      "note": "a bust washing machine is a broken one"
+     }
+    ],
+    "surface": "Something sturdy that only gives way once it has been knocked over.",
+    "walkthrough": "'or' looks like the smallest word in the sentence, there only to hold 'Strong' and 'broken' together, and it is the entire first piece.",
+    "definitionFit": "Strong → ROBUST: strong in the sturdy, able-to-take-punishment sense, used of machines, health and arguments rather than of muscles."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +128,27 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAIGON",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SAIGON",
+    "definition": "Miss this musical",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Miss",
+      "gives": "",
+      "note": "not the verb 'fail to catch', which is how the surface reads it: this is the courtesy title, and it is the first word of a show's name"
+     },
+     {
+      "clueFragment": "this musical",
+      "gives": "",
+      "note": "'this' points at the answer itself — set it after that title and you have the name of a Boublil and Schonberg show"
+     }
+    ],
+    "surface": "Advice to give a show a miss.",
+    "walkthrough": "'Miss' reads as a verb, an instruction to skip the evening, and it is a title instead. Nothing here defines the answer: the clue asks you to finish a name.",
+    "definitionFit": "the whole clue → SAIGON: the city is the second half of the title 'Miss Saigon', so the answer is completed by the clue's first word rather than defined."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +169,31 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
     ]
    },
    "solution": "FALSETEETH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FALSE TEETH",
+    "definition": "that may be out at night",
+    "definitionNote": "The definition describes rather than names: it says what the things do — come out overnight — instead of offering a phrase you could swap in.",
+    "pieces": [
+     "FALSE",
+     "TEETH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irregular",
+      "gives": "FALSE",
+      "note": "an irregular is a soldier outside the regular army, not the genuine article, which is the sense wanted"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "TEETH",
+      "note": "a law with teeth has force behind it — teeth are what let a thing bite"
+     }
+    ],
+    "surface": "An unofficial armed band that only comes out after dark.",
+    "walkthrough": "'Irregular force' reads as guerrillas, one phrase, and the two words are separate pieces. Dentures spend the night in a glass, which is the 'out at night' meant.",
+    "definitionFit": "that may be out at night → FALSE TEETH: dentures are taken out at bedtime and left in a glass overnight, so 'out' is literal removal."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +210,27 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LARGO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "LARGO",
+    "definition": "Piece of music",
+    "indicators": [
+     "introduces"
+    ],
+    "indicatorNotes": {
+     "introduces": "To introduce a thing is to bring it inside, and these letters have already been brought inside the two words in front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "popular gospeller",
+      "gives": "LARGO",
+      "note": "five consecutive letters running over the gap between the two words, starting four letters into the first"
+     }
+    ],
+    "surface": "A well-liked preacher opening proceedings with a tune.",
+    "walkthrough": "'introduces' is the only instruction, and it sits at the end where a solver has stopped looking for one. A largo is a movement played slowly and broadly.",
+    "definitionFit": "Piece of music → LARGO: the tempo marking used as the name of the movement itself, the slow broad one in a concerto or a sonata."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +247,33 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLAZIER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GLAZIER",
+    "definition": "Workman",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "G",
+     "LAZIER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the standard short form of good, the grade on a school report"
+     },
+     {
+      "clueFragment": "but not so hard-working",
+      "gives": "LAZIER",
+      "note": "someone who works less hard than the next man is lazier"
+     }
+    ],
+    "surface": "A tradesman rated decent enough but not the keenest on site.",
+    "walkthrough": "'Workman is good' opens like a sentence about somebody's character, so the definition looks longer than it is: it stops at the first word and 'is' only joins it on.",
+    "definitionFit": "Workman → GLAZIER: definition by example — a glazier is one particular trade, the man who cuts and fits window glass, not a synonym for workman."
+   }
   },
   {
    "id": "5-down",
@@ -140,7 +294,34 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
     ]
    },
    "solution": "GETSREADY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GETS READY",
+    "definition": "prepares",
+    "indicators": [
+     "moving"
+    ],
+    "indicatorNotes": {
+     "moving": "What is moving will not stay where it was put, and letters that will not stay put end up in new places."
+    },
+    "linkWords": [
+     "for",
+     "and"
+    ],
+    "anagram": {
+     "fodder": "GREETS DAY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Greets day",
+      "gives": "GREETSDAY",
+      "note": "nine letters of fodder, exactly the length wanted"
+     }
+    ],
+    "surface": "Someone welcoming the morning before setting off somewhere.",
+    "walkthrough": "'day for moving' reads as an appointment being shifted to another date, so the instruction hides inside the picture. The definition then arrives after 'and', where a second verb about the day is expected.",
+    "definitionFit": "prepares → GETS READY: the everyday phrasal version of preparing yourself, and both sit in the third person singular so the swap works."
+   }
   },
   {
    "id": "6-down",
@@ -161,7 +342,37 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
     ]
    },
    "solution": "AFEW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "A FEW",
+    "definition": "not many",
+    "indicators": [
+     "heard"
+    ],
+    "indicatorNotes": {
+     "heard": "What is heard reaches you as a noise, so what you write down is the spelling of the sound and not of the word that made it."
+    },
+    "pieces": [
+     "A",
+     "FEW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own opening letter, taken exactly as it stands"
+     },
+     {
+      "clueFragment": "sigh of relief heard",
+      "soundsLike": "PHEW",
+      "gives": "FEW",
+      "note": "the sigh of relief you let out is phew, and that noise is spelt another way here"
+     }
+    ],
+    "surface": "One breath of relief, overheard — and not many more than that.",
+    "walkthrough": "Ph and f are the same noise, so the whole distance between the sigh and the letters is spelling. The clue's own 'A' is a piece of the answer, not joinery.",
+    "definitionFit": "not many → A FEW: the small-number idiom, which keeps its article — which is why the enumeration reads (1,3)."
+   }
   },
   {
    "id": "7-down",
@@ -183,7 +394,27 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
     ]
    },
    "solution": "INTHERED",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "IN THE RED",
+    "definition": "Being so placed is nothing to your credit",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "so placed",
+      "gives": "",
+      "note": "the surface offers a position in a queue or a league table; the position meant is one in a set of accounts"
+     },
+     {
+      "clueFragment": "nothing to your credit",
+      "gives": "",
+      "note": "not 'nothing to be proud of', which is how it reads: credit is the bookkeeping column, and having nothing in it is the state described"
+     }
+    ],
+    "surface": "A dig at somebody whose position does them no honour at all.",
+    "walkthrough": "'nothing to your credit' reads as a verdict on a character and means the credit column of an account. Red ink was how a bookkeeper wrote a debit balance, and the phrase kept the colour.",
+    "definitionFit": "the whole clue → IN THE RED: being in the red is being overdrawn, nothing on the credit side, from the red ink once used for debit balances."
+   }
   },
   {
    "id": "8-down",
@@ -200,7 +431,35 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUDENESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RUDENESS",
+    "definition": "Bad manners",
+    "definitionNote": "'Bad manners' is a plural-only idiom for the single quality the answer names, so a plural phrase defines a mass noun.",
+    "indicators": [
+     "playing"
+    ],
+    "indicatorNotes": {
+     "playing": "Playing here is play in the sense of messing about with a thing, and letters messed about with come out in some other order."
+    },
+    "linkWords": [
+     "of",
+     "in"
+    ],
+    "anagram": {
+     "fodder": "E UNDRESS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "English in undress",
+      "gives": "EUNDRESS",
+      "note": "E is the standard short form of English, joined to the seven letters beside it to make eight"
+     }
+    ],
+    "surface": "The English are accused of larking about half-dressed.",
+    "walkthrough": "'in' looks like an insertion instruction and is only holding the fodder together — every letter on both sides of it goes into the shuffle.",
+    "definitionFit": "Bad manners → RUDENESS: the quality that bad manners consist of, discourtesy in general rather than any single ill-mannered act."
+   }
   },
   {
    "id": "9-across",
@@ -217,7 +476,39 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRILL",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "BRILL",
+    "definition": "Fish",
+    "indicators": [
+     "finally",
+     "caught in"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally comes at the end of things, so what is taken is the last letter of the word in front of it.",
+     "caught in": "Something caught in a thing is stuck inside it, so the letter just found lands in the middle of the word that follows."
+    },
+    "pieces": [
+     "B",
+     "R",
+     "ILL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beak",
+      "gives": "BILL",
+      "note": "a bird's beak is its bill"
+     },
+     {
+      "clueFragment": "kingfisher finally",
+      "gives": "R",
+      "note": "the last letter of kingfisher, produced by the operation rather than looked up as a short form"
+     }
+    ],
+    "surface": "A kingfisher with its catch wedged in its beak.",
+    "walkthrough": "'Fish kingfisher' reads as one phrase, the bird that fishes, so the definition looks two words long when it is only the first.",
+    "definitionFit": "Fish → BRILL: definition by example — the brill is a European flatfish, a close relation of the turbot, rather than a synonym for fish."
+   }
   },
   {
    "id": "10-across",
@@ -234,7 +525,27 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETREATED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RETREATED",
+    "definition": "Shrank",
+    "definition2": "offered another freebie?",
+    "blocks": [
+     {
+      "clueFragment": "Shrank",
+      "gives": "",
+      "note": "drew back — what an army does when it gives ground, and what anybody does from a bad smell"
+     },
+     {
+      "clueFragment": "offered another freebie?",
+      "gives": "",
+      "note": "to treat someone is to stand them something for nothing, and the question mark asks you to read that verb with a hyphen and a second helping"
+     }
+    ],
+    "surface": "Somebody backed away after being handed one more thing for nothing.",
+    "walkthrough": "The two senses are not even pronounced alike: the second wants a hyphen and a stress on the first syllable, which is why 'offered another freebie' looks nothing like a definition.",
+    "definitionFit": "Shrank → RETREATED: pulled back, as troops or a shy person do; and 'offered another freebie' → RE-TREATED, treated to something free all over again."
+   }
   },
   {
    "id": "11-across",
@@ -251,7 +562,45 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOREBOARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCOREBOARD",
+    "definition": "Here’s the state of play",
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "S",
+     "CORE",
+     "BOAR",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "s is the clothes-label short form of small"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "CORE",
+      "note": "the heart of the matter is its core"
+     },
+     {
+      "clueFragment": "pig",
+      "gives": "BOAR",
+      "note": "a boar is the male pig"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the standard short form of died, the one on gravestones and in family trees"
+     }
+    ],
+    "surface": "A bulletin from the farm: the pig with the weak heart has died.",
+    "walkthrough": "The colon makes the rest of the clue read as the state of play being reported, which is what hides a four-piece build behind it.",
+    "definitionFit": "Here’s the state of play → SCOREBOARD: the board is where you look to see how a game stands, so the definition points at the place you read it."
+   }
   },
   {
    "id": "12-across",
@@ -268,7 +617,30 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEAN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LEAN",
+    "definition": "Incline",
+    "definition2": "thin",
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incline",
+      "gives": "",
+      "note": "the verb: to tip away from the upright, as a tower does and as a person against a wall does"
+     },
+     {
+      "clueFragment": "thin",
+      "gives": "",
+      "note": "the adjective used of meat with no fat on it, and of a build with nothing to spare"
+     }
+    ],
+    "surface": "Somebody who tends towards thinness.",
+    "walkthrough": "'Incline to be' reads as one phrase meaning tend to, so the whole clue looks like a single remark about a build, and the join between the two definitions falls inside it.",
+    "definitionFit": "Incline → LEAN: to tip from the upright; and 'thin' → LEAN, the adjective for meat without fat or a spare, rangy figure."
+   }
   },
   {
    "id": "13-down",
@@ -285,7 +657,36 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTENDANCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ATTENDANCE",
+    "definition": "gate",
+    "pieces": [
+     "AT",
+     "TEN",
+     "DANCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Towards",
+      "gives": "AT",
+      "note": "aiming at a thing and aiming towards it come to the same"
+     },
+     {
+      "clueFragment": "end of evening",
+      "gives": "TEN",
+      "note": "ten o'clock at night, when the evening is drawing to a close — not a letter taken from the word"
+     },
+     {
+      "clueFragment": "jig around",
+      "gives": "DANCE",
+      "note": "to jig around is to dance"
+     }
+    ],
+    "surface": "Late in the evening there is dancing by the gate.",
+    "walkthrough": "'end of evening' looks like an instruction to take a final letter and is a time of night instead. Gate is the British word for the crowd through a turnstile, counted in heads or in money.",
+    "definitionFit": "gate → ATTENDANCE: at a British football or cricket ground the gate is the number of people who came through the turnstiles, so it is the crowd figure itself."
+   }
   },
   {
    "id": "14-across",
@@ -302,7 +703,33 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BENEFACTRESS",
+    "definition": "patron",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Out here is out of true and out of order, so the letters in front of it are no longer in the arrangement they arrived in."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "FREE CABS SENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Free cabs sent",
+      "gives": "FREECABSSENT",
+      "note": "twelve letters of fodder, exactly the width of the light"
+     }
+    ],
+    "surface": "A taxi firm sending free rides out at somebody else's expense.",
+    "walkthrough": "'Free' looks like the anagram signal standing in front of its fodder, and it is fodder itself; the instruction is the single word after 'sent'.",
+    "definitionFit": "patron → BENEFACTRESS: a woman who funds or supports a person or a cause, so a patron, with the answer merely specifying which sex."
+   }
   },
   {
    "id": "15-down",
@@ -319,7 +746,47 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMANATION",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters + reversal + charade",
+    "answer": "EMANATION",
+    "definition": "Effusion",
+    "indicators": [
+     "regularly",
+     "upset"
+    ],
+    "indicatorNotes": {
+     "regularly": "Taken regularly is taken at a fixed interval, and the interval here is every other letter of the word beside it.",
+     "upset": "Upset in a down clue tips the letters back up the column, so they are read the other way round."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "EMA",
+     "NATION"
+    ],
+    "subReversals": [
+     {
+      "from": "AME",
+      "to": "EMA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "armies regularly upset",
+      "gives": "EMA",
+      "note": "the first, third and fifth letters of armies, then set down running the other way"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "NATION",
+      "note": "a nation is a people, the whole population of a country taken together"
+     }
+    ],
+    "surface": "Something seeping out of armies that keep upsetting the locals.",
+    "walkthrough": "Nothing here looks like an instruction: the clue is one sentence about armies annoying people, and both 'regularly' and 'upset' are doing mechanical work inside that picture.",
+    "definitionFit": "Effusion → EMANATION: something that flows or streams out from a source — a smell, a light, a warmth — which is what an effusion is."
+   }
   },
   {
    "id": "16-down",
@@ -336,7 +803,46 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UBERGEEK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letter",
+    "answer": "UBERGEEK",
+    "definition": "computer obsessive",
+    "indicators": [
+     "not",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "not": "'Not' is the removal: the word in front has to do without the letter named just after it.",
+     "initially": "Initially means at the beginning, so only the first letter of the word before it is taken."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "UBER",
+     "GEEK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taxi",
+      "gives": "UBER",
+      "note": "Uber is the ride-hailing app people summon instead of hailing a cab"
+     },
+     {
+      "clueFragment": "from Greece",
+      "gives": "GREEK",
+      "note": "somebody from Greece is a Greek"
+     },
+     {
+      "clueFragment": "realistic initially",
+      "gives": "R",
+      "note": "the first letter of realistic, and the one that comes off the word above"
+     }
+    ],
+    "surface": "A cab all the way from Greece, which hardly sounds realistic, ordered by someone who lives at a screen.",
+    "walkthrough": "'Taxi from Greece' reads as one journey, and its two halves belong to different pieces. The uber- in front is also German for over, which is what makes the compound mean an extreme one.",
+    "definitionFit": "computer obsessive → UBERGEEK: a geek is someone absorbed in computers, and the uber- prefix pushes that absorption to the far end of the scale."
+   }
   },
   {
    "id": "17-down",
@@ -353,7 +859,30 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENCHANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PENCHANT",
+    "definition": "Liking",
+    "pieces": [
+     "PEN",
+     "CHANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to write",
+      "gives": "PEN",
+      "note": "to pen a letter is to write it"
+     },
+     {
+      "clueFragment": "a melody",
+      "gives": "CHANT",
+      "note": "a chant is a melody of the plainest kind, one line sung over and over"
+     }
+    ],
+    "surface": "A fondness for composing tunes.",
+    "walkthrough": "'Liking to write' reads as one appetite, somebody who enjoys writing, so the definition looks longer than the single word it is.",
+    "definitionFit": "Liking → PENCHANT: a penchant for a thing is a settled liking or leaning towards it, a shade stronger than a preference."
+   }
   },
   {
    "id": "18-across",
@@ -370,7 +899,30 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BREATHALYSER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BREATHALYSER",
+    "definition": "Device held by police",
+    "indicators": [
+     "trembling"
+    ],
+    "indicatorNotes": {
+     "trembling": "Something trembling will not hold still, and letters that cannot hold still do not stay in the order printed."
+    },
+    "anagram": {
+     "fodder": "THE BARREL SAY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "the barrel say",
+      "gives": "THEBARRELSAY",
+      "note": "twelve letters of fodder, exactly the width of the light"
+     }
+    ],
+    "surface": "An officer holding a gun whose barrel is shaking.",
+    "walkthrough": "'say' looks like the 'for example' marker attached to 'barrel' and it is three of the twelve letters, which is what keeps the fodder out of sight.",
+    "definitionFit": "Device held by police → BREATHALYSER: the roadside instrument an officer holds out for a driver to blow into, which measures the alcohol in the breath."
+   }
   },
   {
    "id": "19-down",
@@ -387,7 +939,39 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAMBDA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAMBDA",
+    "definition": "Letter",
+    "indicators": [
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "supporting": "What supports a thing sits underneath it, and in a down entry underneath means later along the answer."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "LAMB",
+     "DA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one simply innocent",
+      "gives": "LAMB",
+      "note": "the proverbially innocent one, as in 'innocent as a lamb'"
+     },
+     {
+      "clueFragment": "prosecutor",
+      "gives": "DA",
+      "note": "DA is the district attorney, the lawyer who prosecutes in an American court"
+     }
+    ],
+    "surface": "A note from the prosecution about somebody plainly innocent.",
+    "walkthrough": "'Letter from prosecutor' reads as something arriving in the post, and 'Letter' alone is the definition — a Greek one. Lambda is the eleventh of that alphabet, written as a small pointed arch.",
+    "definitionFit": "Letter → LAMBDA: definition by example — lambda is the eleventh letter of the Greek alphabet, one letter rather than a synonym for the word."
+   }
   },
   {
    "id": "20-down",
@@ -404,7 +988,30 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDEED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INDEED",
+    "definition": "Definitely",
+    "indicators": [
+     "being replaced"
+    ],
+    "indicatorNotes": {
+     "being replaced": "To replace a thing is to put it back down somewhere, and letters put back down do not have to go where they came from."
+    },
+    "anagram": {
+     "fodder": "DENIED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "denied",
+      "gives": "DENIED",
+      "note": "six letters of fodder, exactly the length wanted"
+     }
+    ],
+    "surface": "One denial swapped out for another.",
+    "walkthrough": "'Definitely denied' reads as one phrase, a flat refusal, so the definition looks two words long when it is only the first.",
+    "definitionFit": "Definitely → INDEED: the emphasiser you add to agree flatly with something, 'indeed it is' standing in for 'definitely it is'."
+   }
   },
   {
    "id": "21-across",
@@ -421,7 +1028,38 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUCK",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RUCK",
+    "definition": "Mass of people",
+    "indicators": [
+     "to leave"
+    ],
+    "indicatorNotes": {
+     "to leave": "What leaves goes away and does not come back, so the letter named just before it is gone from the word."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "RUCK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lorry",
+      "gives": "TRUCK",
+      "note": "a lorry is a truck"
+     },
+     {
+      "clueFragment": "the first",
+      "gives": "T",
+      "note": "the first letter of that word, and the one that goes"
+     }
+    ],
+    "surface": "A crowd packed into a lorry, with the one at the front getting off.",
+    "walkthrough": "'the first to leave' reads as a person stepping down from the crowd and names a letter instead. The ruck is also the heap of players over the ball in rugby, the same idea of an undifferentiated mass.",
+    "definitionFit": "Mass of people → RUCK: the undistinguished crowd, as in 'the common ruck', the ordinary many that somebody rises out of."
+   }
   },
   {
    "id": "22-across",
@@ -442,7 +1080,45 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
     ]
    },
    "solution": "PASSEDPAWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PASSED PAWN",
+    "definition": "One in line to become queen",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue one thing set on another follows it along the row, so the knight lands after the hand."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "PASSED",
+     "PAW",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was accepted",
+      "gives": "PASSED",
+      "note": "a motion that was accepted at a meeting was passed"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "PAW",
+      "note": "a paw is a hand in the joking sense — 'get your paws off'"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for the knight, since K is taken by the king"
+     }
+    ],
+    "surface": "A woman next in line to the throne was approved, with a knight standing by.",
+    "walkthrough": "'One in line to become queen' reads as royal succession and belongs to a chessboard: a pawn that reaches the far rank is promoted, and almost always to a queen.",
+    "definitionFit": "One in line to become queen → PASSED PAWN: a pawn with no enemy pawn left to stop it, so it has a clear run to promotion."
+   }
   },
   {
    "id": "23-down",
@@ -463,7 +1139,30 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
     ]
    },
    "solution": "SITUP",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SIT-UP",
+    "definition": "An exercise",
+    "definition2": "don’t go to bed",
+    "linkWords": [
+     "for you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An exercise",
+      "gives": "",
+      "note": "the gym movement: lying flat on the floor and raising your trunk without help from your arms"
+     },
+     {
+      "clueFragment": "don’t go to bed",
+      "gives": "",
+      "note": "to stay up rather than turn in — what somebody does who waits up for a latecomer"
+     }
+    ],
+    "surface": "A bit of exercise prescribed, and an instruction to stay awake.",
+    "walkthrough": "The dash reads as a pause in one piece of advice and is the seam between two definitions. The hyphen the answer prints belongs only to the first of them.",
+    "definitionFit": "An exercise → SIT-UP: the abdominal exercise done lying on the floor; and 'don’t go to bed' → SIT UP, to stay up instead of turning in."
+   }
   },
   {
    "id": "24-down",
@@ -480,7 +1179,48 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLAH",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "BLAH",
+    "definition": "Balderdash, lies and hooey from the start",
+    "indicators": [
+     "from the start"
+    ],
+    "indicatorNotes": {
+     "from the start": "The start of a word is its opening letter, and each word in front of this phrase gives up that letter and no more."
+    },
+    "pieces": [
+     "B",
+     "L",
+     "A",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Balderdash",
+      "gives": "B",
+      "note": "the opening letter of balderdash, the old-fashioned word for nonsense"
+     },
+     {
+      "clueFragment": "lies",
+      "gives": "L",
+      "note": "the opening letter of lies"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "A",
+      "note": "the little joining word gives up its letter as well, which is what makes the run come out"
+     },
+     {
+      "clueFragment": "hooey",
+      "gives": "H",
+      "note": "the opening letter of hooey, American slang for the same nonsense"
+     }
+    ],
+    "surface": "Somebody reeling off every word they know for nonsense.",
+    "walkthrough": "'and' is fodder too, and that is what keeps the run of initials hidden: solvers skip the joining words when scanning for first letters.",
+    "definitionFit": "the whole clue → BLAH: read straight it is a list of words for empty talk, which is exactly what blah is, while the same words spell it out."
+   }
   },
   {
    "id": "25-across",
@@ -501,7 +1241,33 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
     ]
    },
    "solution": "EMAILLIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EMAIL LIST",
+    "definition": "marketing tool",
+    "indicators": [
+     "wrong"
+    ],
+    "indicatorNotes": {
+     "wrong": "Wrong means not as it should be, and letters not as they should be are letters standing in the wrong order."
+    },
+    "linkWords": [
+     "for this"
+    ],
+    "anagram": {
+     "fodder": "TIME IS ALL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Time is all",
+      "gives": "TIMEISALL",
+      "note": "nine letters of fodder, with the little verb counted in among them"
+     }
+    ],
+    "surface": "Someone complaining that the timing of the whole thing is off.",
+    "walkthrough": "'Time is all wrong' reads as one complaint about timing, and every word of it but the last is fodder, the verb included.",
+    "definitionFit": "marketing tool → EMAIL LIST: the file of addresses a business sends its offers to, one of the standard instruments of direct marketing."
+   }
   },
   {
    "id": "26-across",
@@ -518,7 +1284,27 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOBLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "NOBLE",
+    "definition": "For one, count",
+    "definition2": "boxing as such an art?",
+    "blocks": [
+     {
+      "clueFragment": "For one, count",
+      "gives": "",
+      "note": "'for one' means 'for example', so a count is offered as one instance of the rank wanted rather than as a synonym for it"
+     },
+     {
+      "clueFragment": "boxing as such an art?",
+      "gives": "",
+      "note": "boxing has a nickname of the shape 'the — art', and the missing word there is the one the first half is after"
+     }
+    ],
+    "surface": "A judge at the ringside treating boxing as an art form.",
+    "walkthrough": "'count boxing' reads as scoring a bout, which is where the surface sends you. 'As such' is the stitch between two definitions, one of a rank and one of an adjective.",
+    "definitionFit": "For one, count → NOBLE: a count is one rank of nobleman, an example rather than a synonym; and boxing's nickname, the noble art, supplies the adjective."
+   }
   },
   {
    "id": "27-across",
@@ -535,7 +1321,41 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KITCHEN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "KITCHEN",
+    "definition": "for here?",
+    "definitionNote": "'here' points at a place instead of naming it, so an adverb is standing in for a noun; the question mark is the setter owning up to it.",
+    "indicators": [
+     "round"
+    ],
+    "indicatorNotes": {
+     "round": "What goes round a thing encloses it, so the word beside it wraps itself about the letters already found."
+    },
+    "linkWords": [
+     "fetch"
+    ],
+    "pieces": [
+     "K",
+     "ITCH",
+     "EN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "range",
+      "gives": "KEN",
+      "note": "beyond your ken is beyond your range of knowledge"
+     },
+     {
+      "clueFragment": "Be keen to",
+      "gives": "ITCH",
+      "note": "to itch to do something is to be keen to do it"
+     }
+    ],
+    "surface": "Being eager to fetch the cooker round to where it belongs.",
+    "walkthrough": "'range' is the cooker in the surface and a range of knowledge in the wordplay, and the answer is the room a cooker stands in, so both senses are live at once.",
+    "definitionFit": "for here? → KITCHEN: the question mark carries the joke — the room named is the very room the wordplay's 'range' would be standing in."
+   }
   },
   {
    "id": "28-across",
@@ -552,7 +1372,30 @@ window.CRYPTIC_PUZZLES["cryptic-30027"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIEBALD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PIEBALD",
+    "definition": "Horse",
+    "pieces": [
+     "PIE",
+     "BALD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat baked in pastry",
+      "gives": "PIE",
+      "note": "meat under a pastry lid is a pie"
+     },
+     {
+      "clueFragment": "plain",
+      "gives": "BALD",
+      "note": "a bald statement is a plain one, with nothing added to soften it"
+     }
+    ],
+    "surface": "Horse meat in a pastry case, served plain.",
+    "walkthrough": "'Horse meat' reads as one thing, the scandal food, and the definition is 'Horse' by itself. The colouring is named after the magpie, pied and black and white.",
+    "definitionFit": "Horse → PIEBALD: a piebald is a horse marked in irregular patches of black and white, the word serving as the name of the animal itself."
+   }
   }
  ]
 } /*JSON-END*/;
