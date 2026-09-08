@@ -35,7 +35,45 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "OUTOFSIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + anagram",
+    "answer": "OUT OF SIGHT",
+    "definition": "Revealed by this fog breaking up? Hardly",
+    "indicators": [
+     "breaking up"
+    ],
+    "indicatorNotes": {
+     "breaking up": "Fog breaking up is fog coming apart into scattered patches, and letters told to come apart land in a new order."
+    },
+    "anagram": {
+     "fodder": "OUT THIS FOG"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "THIS FOG",
+      "gives": "OFSIGHT"
+     }
+    ],
+    "pieces": [
+     "OUT",
+     "OFSIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revealed",
+      "gives": "OUT",
+      "note": "a secret that has been revealed is out"
+     },
+     {
+      "clueFragment": "this fog",
+      "gives": "THISFOG",
+      "note": "seven letters of fodder, taken as they stand"
+     }
+    ],
+    "surface": "Fog thinning over a landscape, and the question of whether it has shown you anything yet.",
+    "walkthrough": "Every word works twice: the sentence asks whether the lifting fog has revealed anything and answers its own question, while the same words hand over OUT and seven letters to reorder.",
+    "definitionFit": "Read straight, the clue says the thing is hardly revealed even as the fog breaks up, which is what being out of sight amounts to."
+   }
   },
   {
    "id": "2-down",
@@ -52,7 +90,51 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KASPAROV",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "KASPAROV",
+    "definition": "Master on board",
+    "indicators": [
+     "climbing",
+     "stops"
+    ],
+    "indicatorNotes": {
+     "climbing": "Something climbing a down entry is written from the bottom upwards, so the wood named here goes into the grid back to front.",
+     "stops": "To stop a hole is to plug it, so the piece named next is driven into the middle of what is already there."
+    },
+    "pieces": [
+     "KA",
+     "SPAR",
+     "O",
+     "V"
+    ],
+    "subReversals": [
+     {
+      "from": "OAK",
+      "to": "KAO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wooden",
+      "gives": "KAO",
+      "note": "oak is the wood, and it climbs the entry rather than descending it"
+     },
+     {
+      "clueFragment": "mast",
+      "gives": "SPAR",
+      "note": "a spar is the pole a sail is set on"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "V",
+      "note": "v for versus, the way a fixture list writes two sides playing each other"
+     }
+    ],
+    "surface": "A ship's master swarming up the wooden mast, and somebody's game being brought to a halt.",
+    "walkthrough": "The board is a chessboard, not a deck: 'Master on board' is the entire definition, and every nautical word after it — climbing, mast, spar — is there to keep you at sea.",
+    "definitionFit": "Garry Kasparov was world chess champion, so 'master on board' picks him out as the master at the board rather than a ship's officer."
+   }
   },
   {
    "id": "3-down",
@@ -69,7 +151,39 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADOPTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "ADOPTS",
+    "definition": "Assumes",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Anything done regularly happens at a fixed interval, so letters are taken at every second position instead of all of them."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ADO",
+     "PTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "ADO",
+      "note": "much ado about nothing: ado is fuss and trouble"
+     },
+     {
+      "clueFragment": "Potus",
+      "gives": "PTS",
+      "note": "the first, third and fifth letters, counted off in twos"
+     }
+    ],
+    "surface": "Trouble turning up on schedule wherever the American president goes next.",
+    "walkthrough": "POTUS is the standing acronym for the President of the United States, which is what lets the surface read as a news headline instead of a set of letters to count through.",
+    "definitionFit": "To adopt a name, a pose or a habit is to assume it — both verbs mean taking something on rather than supposing it."
+   }
   },
   {
    "id": "4-down",
@@ -86,7 +200,31 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOOR",
+    "definition": "lout",
+    "indicators": [],
+    "pieces": [
+     "BOO",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I don’t like that",
+      "gives": "BOO",
+      "note": "the noise a crowd makes when it does not like what it is watching"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for a Republican in American politics"
+     }
+    ],
+    "surface": "A heckler writing off a Republican politician as an oaf.",
+    "walkthrough": "'I don't like that' is not a synonym but a piece of theatre: the crowd's own noise of disapproval, spelled the way a novel would print it.",
+    "definitionFit": "A boor is a coarse, ill-mannered man, which is what 'lout' names, though lout leans more on thuggishness and boor on rudeness."
+   }
   },
   {
    "id": "5-down",
@@ -107,7 +245,45 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "INEXTREMIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IN EXTREMIS",
+    "definition": "dying",
+    "indicators": [
+     "almost"
+    ],
+    "indicatorNotes": {
+     "almost": "A word given almost in full stops one letter short, so the word just before it arrives without its last letter."
+    },
+    "linkWords": [
+     "gets"
+    ],
+    "pieces": [
+     "I",
+     "NEXT",
+     "REMIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "NEXT",
+      "note": "the following item is the next one"
+     },
+     {
+      "clueFragment": "careless",
+      "gives": "REMIS",
+      "note": "careless work is remiss, here one letter short"
+     }
+    ],
+    "surface": "A follower growing sloppy, and very nearly paying for it.",
+    "walkthrough": "In extremis is the Latin that both the church and the law use for the point of death, which is why a plain English participle can define a phrase in another language.",
+    "definitionFit": "In extremis means at the point of death, so 'dying' translates it; the phrase also survives in the weaker sense of a desperate last resort."
+   }
   },
   {
    "id": "6-down",
@@ -128,7 +304,43 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRANDNEW",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "BRAND-NEW",
+    "definition": "Mint",
+    "indicators": [
+     "added"
+    ],
+    "indicatorNotes": {
+     "added": "What is added to a brew goes down into it, so these letters are dropped inside the word rather than tacked on the end."
+    },
+    "pieces": [
+     "BR",
+     "AND",
+     "N",
+     "EW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "BREW",
+      "note": "a brew is a pot of tea, and it opens up to take the rest"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and does the same joining job as with"
+     },
+     {
+      "clueFragment": "a touch of nutmeg",
+      "gives": "N",
+      "note": "a touch of a word is the first letter of it"
+     }
+    ],
+    "surface": "A pot of herbal tea being improved with a scrape of nutmeg.",
+    "walkthrough": "'Mint' is the trap: it sits in front of 'tea' looking like the herb, and it is the definition, from the condition of a coin fresh off the press.",
+    "definitionFit": "Something in mint condition has never been used or handled, which is exactly what brand-new claims."
+   }
   },
   {
    "id": "7-down",
@@ -145,7 +357,42 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIPPOS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "HIPPOS",
+    "definition": "‘Animals’",
+    "indicators": [
+     "beginning to"
+    ],
+    "indicatorNotes": {
+     "beginning to": "A word only beginning is a word not finished, so nothing but its opening letter is taken."
+    },
+    "pieces": [
+     "HIP",
+     "PO",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "HIP",
+      "note": "what is in is what is hip — fashionable"
+     },
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "PO is the abbreviation on every British high street"
+     },
+     {
+      "clueFragment": "sweat",
+      "gives": "S",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "surface": "Animals loose in the post office, and somebody starting to perspire about it.",
+    "walkthrough": "The quotation marks flag the first word as a definition by example rather than a synonym, and 'in' is the first piece of wordplay, not the preposition the sentence appears to need.",
+    "definitionFit": "The answer is one kind of animal among thousands, so the definition works only by example — which is what the quotation marks are owning up to."
+   }
   },
   {
    "id": "8-down",
@@ -162,7 +409,33 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOUS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "NOUS",
+    "definition": "Sense",
+    "indicators": [
+     "largely"
+    ],
+    "indicatorNotes": {
+     "largely": "Largely means for the most part and not the whole of it, so the phrase gives up its final letter."
+    },
+    "linkWords": [
+     "it could be"
+    ],
+    "pieces": [
+     "NOUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pointless",
+      "gives": "NOUSE",
+      "note": "something pointless is no use, written as two words run together"
+     }
+    ],
+    "surface": "Somebody dismissing a thing as having no point to it whatever.",
+    "walkthrough": "Nous came into English from the Greek for mind and means practical common sense. The wordplay only opens once 'pointless' is read as the phrase 'no use' rather than as an adjective.",
+    "definitionFit": "Nous is the down-to-earth kind of sense — gumption, knowing what to do — so 'sense' names it in its everyday British use."
+   }
   },
   {
    "id": "9-across",
@@ -184,7 +457,38 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "UPANDDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UP-AND-DOWN",
+    "definition": "Not on the level?",
+    "indicators": [
+     "tricked"
+    ],
+    "indicatorNotes": {
+     "tricked": "Someone tricked has been turned about by another hand, and these letters likewise end up in an arrangement nobody put them in."
+    },
+    "linkWords": [
+     "over"
+    ],
+    "anagram": {
+     "fodder": "DUNNO PAW D"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dunno, Paw",
+      "gives": "DUNNOPAW",
+      "note": "eight letters of fodder, taken as they stand"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "the Roman numeral for five hundred, joined to the fodder"
+     }
+    ],
+    "surface": "A boy mumbling 'dunno' at his father, who has just been swindled out of five hundred.",
+    "walkthrough": "The question mark is doing real work: 'not on the level' reads as dishonest in the surface, which is the sense the swindle sets up, and it means literally not flat.",
+    "definitionFit": "Something up-and-down is not level, and the phrase carries the further sense of erratic — the reading the crooked surface is nudging you towards."
+   }
   },
   {
    "id": "10-across",
@@ -201,7 +505,46 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHINO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RHINO",
+    "definition": "Neighbour of 7",
+    "indicators": [],
+    "linkWords": [
+     "at"
+    ],
+    "pieces": [
+     "R",
+     "H",
+     "IN",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is right, as on a map or in a stage direction"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "H",
+      "note": "H marks the home team in a printed fixture list"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "whatever everyone is wearing this season is what is in"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "the letter shaped like a zero stands for nothing"
+     }
+    ],
+    "surface": "A neighbour answering his front door with no clothes on.",
+    "walkthrough": "'Wearing' looks like a container instruction telling you to slot one piece inside another, and it is a plain synonym here — four small pieces laid end to end, nothing nested.",
+    "definitionFit": "The animal at 7 down shares the African plains and the zoo enclosure next door with this one, so the cross-reference defines by neighbourhood rather than by meaning."
+   }
   },
   {
    "id": "11-across",
@@ -222,7 +565,28 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONPAPER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ON PAPER",
+    "definition": "How many like to solve crosswords",
+    "definition2": "in theory",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "How many like to solve crosswords",
+      "gives": "ONPAPER",
+      "note": "with a pen and the printed grid, rather than on a screen"
+     },
+     {
+      "clueFragment": "in theory",
+      "gives": "ONPAPER",
+      "note": "how a plan looks before anybody tries to carry it out"
+     }
+    ],
+    "surface": "A survey question about how crossword solvers prefer to tackle the puzzle.",
+    "walkthrough": "The join between the two definitions is invisible because 'in theory' finishes the question so naturally that it reads as part of it rather than as a second meaning.",
+    "definitionFit": "Solvers work on paper rather than on a screen, and a scheme that works on paper is one that works in theory but may not survive contact with reality."
+   }
   },
   {
    "id": "12-across",
@@ -239,7 +603,50 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "XENOPUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "XENOPUS",
+    "definition": "frog genus",
+    "indicators": [
+     "When reviewing",
+     "about"
+    ],
+    "indicatorNotes": {
+     "When reviewing": "Reviewing is looking back over something, so the piece it introduces is read from its end to its start.",
+     "about": "About means round, so the letter it governs is wrapped by the pieces either side of it instead of being parked at one end."
+    },
+    "pieces": [
+     "XE",
+     "N",
+     "OPUS"
+    ],
+    "subReversals": [
+     {
+      "from": "EX",
+      "to": "XE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I used to love her",
+      "gives": "XE",
+      "note": "the woman you used to love is your ex, taken backwards"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OPUS",
+      "note": "an opus is a composer's or a writer's work"
+     }
+    ],
+    "surface": "A critic looking back over the output of a woman he was once in love with.",
+    "walkthrough": "Xenopus is the African clawed frog, the laboratory animal that made much of twentieth-century embryology possible. Nothing in the surface sounds like taxonomy, which is the point of writing it as a critic's reminiscence.",
+    "definitionFit": "Xenopus is the genus that African clawed frogs belong to, so the definition names a rank in the scientific classification rather than offering a synonym."
+   }
   },
   {
    "id": "13-across",
@@ -256,7 +663,25 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SERFS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "SERFS",
+    "definition": "They’re not free to work",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "They’re not free",
+      "note": "The surface pushes 'free' towards costing nothing: labour somebody would have to be paid for, rather than labour anyone is at liberty to withhold."
+     },
+     {
+      "clueFragment": "to work",
+      "note": "The setter's sense. These are people with no say over whether they work, for whom, or on whose land — the freedom in question is legal, not financial."
+     }
+    ],
+    "surface": "Workers who will not do the job for nothing.",
+    "walkthrough": "There is no wordplay to unpick: the whole clue is one description, and the solve is spotting that 'free' means at liberty rather than unpaid, so the sentence is describing a legal status.",
+    "definitionFit": "Serfs were bound to a lord's land and could not leave it or hire themselves out elsewhere, so they were literally not free to work where they chose."
+   }
   },
   {
    "id": "14-across",
@@ -277,7 +702,30 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "BERINGSEA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BERING SEA",
+    "definition": "N Pacific location",
+    "indicators": [
+     "Breeding"
+    ],
+    "indicatorNotes": {
+     "Breeding": "Breeding throws two sets of characteristics together into a new one, so what comes out of it is made of the same material in a different combination."
+    },
+    "anagram": {
+     "fodder": "GREBES IN A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "grebes in a",
+      "gives": "GREBESINA",
+      "note": "nine letters of fodder, taken as they stand"
+     }
+    ],
+    "surface": "Grebes nesting somewhere on a stretch of cold northern water.",
+    "walkthrough": "Water birds and a sea belong to the same picture, and that is what hides the anagram: 'breeding grebes' reads as a description of the place rather than an instruction about its letters.",
+    "definitionFit": "The Bering Sea lies between Siberia and Alaska at the northern limit of the Pacific, so the definition fixes it geographically instead of defining a word."
+   }
   },
   {
    "id": "14-down",
@@ -298,7 +746,49 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "BASKETCASE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "BASKET CASE",
+    "definition": "not a reliable type",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "In is the plainest container instruction there is: everything named before it goes inside the word that follows."
+    },
+    "pieces": [
+     "B",
+     "AS",
+     "K",
+     "ETC",
+     "ASE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "BASE",
+      "note": "a bed is the base a thing rests on — a bed of concrete, a bed of gravel"
+     },
+     {
+      "clueFragment": "Like",
+      "gives": "AS",
+      "note": "as does the same job as like in a comparison"
+     },
+     {
+      "clueFragment": "Kelvin",
+      "gives": "K",
+      "note": "K is the kelvin, the SI unit of temperature"
+     },
+     {
+      "clueFragment": "and the others",
+      "gives": "ETC",
+      "note": "etc is short for et cetera, Latin for and the rest"
+     }
+    ],
+    "surface": "Kelvin and his friends tucked up in bed, one of them not to be counted on.",
+    "walkthrough": "'Like Kelvin' invites you to picture a bloke, and the wordplay wants the temperature unit's symbol instead — the whole sleeping arrangement is decoration around a single letter.",
+    "definitionFit": "A basket case is someone who cannot cope, so 'not a reliable type' names the person; the phrase began as brutal military slang for a maimed soldier."
+   }
   },
   {
    "id": "15-down",
@@ -320,7 +810,28 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANYOLDIRON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ANY OLD IRON",
+    "definition": "Scrap",
+    "definition2": "music hall staple",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Scrap",
+      "gives": "ANYOLDIRON",
+      "note": "the rag-and-bone trade's name for whatever waste metal is worth collecting"
+     },
+     {
+      "clueFragment": "music hall staple",
+      "gives": "ANYOLDIRON",
+      "note": "a song from 1911 that every hall in the country could get an audience singing"
+     }
+    ],
+    "surface": "Somebody proposing to scrap the act every music hall used to rely on.",
+    "walkthrough": "'Any Old Iron' was Harry Champion's 1911 music hall song, still sung at British singalongs, and its title was lifted straight from the scrap dealer's street cry.",
+    "definitionFit": "The rag-and-bone man's cry meant waste metal for sale, which is the first sense, and the same phrase titles the music hall song that made it famous."
+   }
   },
   {
    "id": "16-across",
@@ -345,7 +856,34 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "GIVEITSOMEWELLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GIVE IT SOME WELLY",
+    "definition": "put the boot in",
+    "indicators": [
+     "Reform"
+    ],
+    "indicatorNotes": {
+     "Reform": "To reform a thing is to shape it again, and letters reformed are the same letters given a new shape."
+    },
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "anagram": {
+     "fodder": "YES I WILL GET MOVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Yes, I will get move",
+      "gives": "YESIWILLGETMOVE",
+      "note": "fifteen letters of fodder, taken as they stand"
+     }
+    ],
+    "surface": "A defector agreeing to a move to Reform and promising to kick his old party while he is at it.",
+    "walkthrough": "'Reform' is capitalised so that it reads as the political party, and that capital is the whole misdirection — it is an instruction about letters, not a destination.",
+    "definitionFit": "Welly is British for a wellington boot and by extension for force, so giving something some welly and putting the boot in are both kicking hard."
+   }
   },
   {
    "id": "17-down",
@@ -362,7 +900,35 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INHERENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "INHERENT",
+    "definition": "natural",
+    "indicators": [
+     "contracted"
+    ],
+    "indicatorNotes": {
+     "contracted": "A contracted word is written short with an apostrophe standing in for what has gone, which costs this one its middle letter."
+    },
+    "pieces": [
+     "INHERE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where you may find me",
+      "gives": "INHERE",
+      "note": "the speaker is in here, wherever here happens to be"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "note": "contracted to n't, the way it is in can't and won't"
+     }
+    ],
+    "walkthrough": "The definition is the single word at the end, and it does the least work in the sentence: everything before it is a set of directions dressed up as somebody speaking.",
+    "definitionFit": "An inherent quality belongs to a thing by its own nature, so 'natural' matches it as an adjective in the sense of innate rather than unspoilt."
+   }
   },
   {
    "id": "18-down",
@@ -379,7 +945,39 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LATRINES",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "LATRINES",
+    "definition": "Where do soldiers go?",
+    "indicators": [
+     "at the front",
+     "during"
+    ],
+    "indicatorNotes": {
+     "at the front": "The front of a word is its opening letter, and the front is also where soldiers serve, which is what makes this instruction so easy to walk past.",
+     "during": "Whatever happens during something happens inside it, so these letters are set within the word that follows."
+    },
+    "pieces": [
+     "L",
+     "ATR",
+     "INES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "occupations",
+      "gives": "LINES",
+      "note": "a line of work is an occupation — and an army holds lines too"
+     },
+     {
+      "clueFragment": "Are they required",
+      "gives": "ATR",
+      "note": "the opening letters of the three words"
+     }
+    ],
+    "surface": "Questions from somebody planning an army camp: where the men go, and what the front line needs.",
+    "walkthrough": "Definition and wordplay both end in question marks, so nothing marks the seam between them: the first question is the definition and the second is pure instruction.",
+    "definitionFit": "Latrines are the trench or camp toilets an army digs for itself, so 'where do soldiers go' is a euphemism standing in as a definition."
+   }
   },
   {
    "id": "19-across",
@@ -396,7 +994,48 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOOTHLESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "TOOTHLESS",
+    "definition": "ineffective",
+    "indicators": [
+     "round",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "round": "Going round a thing is going about it on every side, so the word before closes over the letter that comes next.",
+     "initially": "Initially means at the start, so only the opening letter of the word in front of it is taken."
+    },
+    "linkWords": [
+     "being"
+    ],
+    "pieces": [
+     "TOOT",
+     "H",
+     "LES",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moves casually",
+      "gives": "TOOTLES",
+      "note": "to tootle is to travel in an unhurried way, as in tootling down the lane"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is hotel in the NATO alphabet"
+     },
+     {
+      "clueFragment": "speed",
+      "gives": "S",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "surface": "A leisurely amble around a hotel, with speed nowhere in the picture.",
+    "walkthrough": "Nothing in the surface suggests teeth: the hotel and the speed build a picture of somebody dawdling, and 'being' is joinery holding that picture against the definition.",
+    "definitionFit": "Toothless means unable to bite, and so, of a law or a watchdog or a threat, unable to have any effect at all."
+   }
   },
   {
    "id": "20-down",
@@ -413,7 +1052,37 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OWNERS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "OWNERS",
+    "definition": "They have",
+    "indicators": [
+     "admitting"
+    ],
+    "indicatorNotes": {
+     "admitting": "To admit somebody is to let them in, so the word before opens up and takes the other letter inside it."
+    },
+    "pieces": [
+     "OW",
+     "N",
+     "ERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debtors",
+      "gives": "OWERS",
+      "note": "people who owe are owers, the noun the crossword builds straight off the verb"
+     },
+     {
+      "clueFragment": "a point",
+      "gives": "N",
+      "note": "N for north, one of the four points of the compass"
+     }
+    ],
+    "surface": "An argument about money in which the people in debt turn out to be right.",
+    "walkthrough": "'They have a point' reads as one phrase conceding an argument, and the definition stops two words in — the point is a compass bearing and belongs to the wordplay.",
+    "definitionFit": "Owners are the people who have things, so 'they have' defines them by the bare fact of possession, which is all the word claims."
+   }
   },
   {
    "id": "21-across",
@@ -430,7 +1099,45 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOTEL",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters + middle letter",
+    "answer": "MOTEL",
+    "definition": "accommodation",
+    "indicators": [
+     "into",
+     "empty"
+    ],
+    "indicatorNotes": {
+     "into": "What goes into a thing ends up inside it, so the pieces named before land within the letters that follow.",
+     "empty": "An empty word keeps only its walls, the first letter and the last, with everything between them gone."
+    },
+    "pieces": [
+     "M",
+     "OT",
+     "E",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "empty Montreal",
+      "gives": "ML",
+      "note": "the city's name with its insides removed, leaving the outer pair"
+     },
+     {
+      "clueFragment": "Books",
+      "gives": "OT",
+      "note": "the Old Testament, the books of the Bible in crossword shorthand"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "E",
+      "note": "the heart of the word sweet is its middle letter"
+     }
+    ],
+    "surface": "Somebody booking their sweetheart a room in a deserted Montreal.",
+    "walkthrough": "'Books' looks like the verb the sentence needs and is a noun in the wordplay, the Old Testament — the booking the surface describes never happens at all.",
+    "definitionFit": "A motel is roadside accommodation, rooms built for travellers arriving by car, so the definition names the plain category it belongs to."
+   }
   },
   {
    "id": "21-down",
@@ -447,7 +1154,44 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANTIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "MANTIS",
+    "definition": "Insect",
+    "indicators": [
+     "trapped under",
+     "foot"
+    ],
+    "indicatorNotes": {
+     "trapped under": "Trapped under something is held below it, and below in a down entry means later in the answer.",
+     "foot": "The foot of a word is its bottom end, which in a down entry is its final letter."
+    },
+    "pieces": [
+     "M",
+     "ANT",
+     "IS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom’s",
+      "gives": "M",
+      "note": "the last letter of the name, standing at its foot"
+     },
+     {
+      "clueFragment": "a different one",
+      "gives": "ANT",
+      "note": "a different insect from the one being defined"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word itself, lifted straight into the answer"
+     }
+    ],
+    "surface": "An insect caught under Tom's shoe, and not the one you would expect to find there.",
+    "walkthrough": "The bracketed aside is the fairest thing in the clue: it warns you outright that the second creature is wordplay rather than the answer, a courtesy setters rarely extend.",
+    "definitionFit": "A mantis is the insect that waits with its forelegs folded as though praying, so 'insect' is the plain category and does nothing more than name it."
+   }
   },
   {
    "id": "22-across",
@@ -464,7 +1208,47 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANTRIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TANTRIC",
+    "definition": "Type of sex",
+    "definitionNote": "The answer is an adjective and the definition a noun phrase: the setter names the kind of sex and leaves you to supply the noun the adjective belongs in front of.",
+    "indicators": [
+     "to join in"
+    ],
+    "indicatorNotes": {
+     "to join in": "Joining in means going in among the others, so the letter it introduces is dropped inside the word already assembled."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "T",
+     "ANT",
+     "R",
+     "IC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is Thailand's international vehicle code"
+     },
+     {
+      "clueFragment": "grotesque",
+      "gives": "ANTIC",
+      "note": "an antic is a grotesque gesture or caper"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is runs on a cricket scorecard"
+     }
+    ],
+    "surface": "A lurid holiday story out of Thailand, with somebody hurrying to get involved.",
+    "walkthrough": "The dash makes 'grotesque' look like the end of a description of Thailand, when it is a noun the wordplay needs whole before a cricketer's letter is pushed into it.",
+    "definitionFit": "Tantric names the slow ritual practice drawn from the Tantras, Hindu and Buddhist scriptures, so 'type of sex' points at a tradition rather than an act."
+   }
   },
   {
    "id": "22-down",
@@ -481,7 +1265,44 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOSH",
-   "annotation": null
+   "annotation": {
+    "type": "outer letters + reversal",
+    "answer": "TOSH",
+    "definition": "rubbish",
+    "indicators": [
+     "Both gutted",
+     "Flipping"
+    ],
+    "indicatorNotes": {
+     "Both gutted": "Gutted means the insides have been taken out, and 'both' says to do it to each of the two words that follow, leaving their outsides.",
+     "Flipping": "Flipping a thing turns it over, so what has been gathered is read the other way round — and it doubles as the mild swearword the surface wants."
+    },
+    "pieces": [
+     "TO",
+     "SH"
+    ],
+    "subReversals": [
+     {
+      "from": "HSOT",
+      "to": "TOSH"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he’s",
+      "gives": "HS",
+      "note": "the outer letters, with the middle one taken out"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OT",
+      "note": "the outer letters again, the same operation on the next word"
+     }
+    ],
+    "surface": "Two supporters distraught at a batsman being given out, and somebody insisting it was never a dismissal.",
+    "walkthrough": "'Gutted' works twice over: it is the surface's slang for bitterly disappointed and the instruction to hollow a word out, and 'both' is what tells you the hollowing happens twice.",
+    "definitionFit": "Tosh is British slang for nonsense, so an exclamation of 'rubbish!' is the same dismissal in a different register."
+   }
   },
   {
    "id": "23-across",
@@ -498,7 +1319,47 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANKINI",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "MANKINI",
+    "definition": "beachwear",
+    "indicators": [
+     "covering",
+     "rejected"
+    ],
+    "indicatorNotes": {
+     "covering": "A garment covering something has that thing underneath it, so these letters wrap round the piece that follows.",
+     "rejected": "What is rejected is thrown out, so the three letters named just before it are removed from the word they sit in."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "M",
+     "ANK",
+     "INI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skirt",
+      "gives": "MINI",
+      "note": "a mini is the short skirt of the sixties"
+     },
+     {
+      "clueFragment": "nether regions",
+      "gives": "ANKLES",
+      "note": "the ankles are the lowest region of the body"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LES",
+      "note": "les is one of the French words for the, and it is taken away"
+     }
+    ],
+    "surface": "A skirt that covers the lower body, turned down by the French in favour of something for the beach.",
+    "walkthrough": "A mankini is the sling swimsuit Borat made famous in 2006, so 'beachwear' is being tactful rather than descriptive — and the French here are two syllables of a body part, not a nation.",
+    "definitionFit": "The mankini is a men's sling swimsuit, so 'beachwear' gives the broad category and stays deliberately bland, since naming the garment would give the joke away."
+   }
   },
   {
    "id": "23-down",
@@ -515,7 +1376,35 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUTT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MUTT",
+    "definition": "My best friend",
+    "indicators": [],
+    "linkWords": [
+     "’s",
+     "to"
+    ],
+    "pieces": [
+     "MU",
+     "TT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "gives": "MU",
+      "note": "mu is the twelfth letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "Times",
+      "gives": "TT",
+      "note": "t is time, and a pair of them is times"
+     }
+    ],
+    "surface": "A letter to the newspaper, apparently written by the writer's closest friend.",
+    "walkthrough": "The dog is proverbially man's best friend, which is the whole definition, and 'Times' is capitalised to point at the newspaper rather than at multiplication.",
+    "definitionFit": "A mutt is a mongrel dog, and the dog is proverbially man's best friend, so the definition works through that proverb rather than any dictionary sense."
+   }
   },
   {
    "id": "24-across",
@@ -532,7 +1421,37 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIREN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SIREN",
+    "definition": "warning",
+    "indicators": [
+     "hidden"
+    ],
+    "indicatorNotes": {
+     "hidden": "Something hidden is tucked away inside something else, so these two letters sit within the word beside them."
+    },
+    "pieces": [
+     "SI",
+     "RE",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "SIN",
+      "note": "a wrong is a sin"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, as at the head of a memo"
+     }
+    ],
+    "surface": "Some wrongdoing kept quiet, and the warning that ought to come with it.",
+    "walkthrough": "'Hidden' is not the extraction instruction it usually is — nothing is spelled out along the clue's own letters here, it is simply saying that one piece goes inside another.",
+    "definitionFit": "A siren is the wailing alarm that warns of a raid or an emergency, so 'warning' names what the thing exists to do."
+   }
   },
   {
    "id": "25-across",
@@ -554,7 +1473,45 @@ window.CRYPTIC_PUZZLES["cryptic-30026"] = /*JSON-START*/ {
     ]
    },
    "solution": "SETFIRETO",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SET FIRE TO",
+    "definition": "light",
+    "indicators": [
+     "sealing",
+     "over"
+    ],
+    "indicatorNotes": {
+     "sealing": "To seal something is to close it up around whatever is inside, so the phrase before shuts over the letters that follow.",
+     "over": "Turned over is upside down, so the word this follows goes in the other way round."
+    },
+    "pieces": [
+     "SE",
+     "TFIR",
+     "ETO"
+    ],
+    "subReversals": [
+     {
+      "from": "RIFT",
+      "to": "TFIR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do something about",
+      "gives": "SEETO",
+      "note": "to see to a thing is to deal with it"
+     },
+     {
+      "clueFragment": "gap",
+      "gives": "TFIR",
+      "note": "a rift is a gap, written the other way round"
+     }
+    ],
+    "surface": "A handyman being told to deal with the draughty gap above the light.",
+    "walkthrough": "'Light' is the definition and it is a verb — the surface has it as the lamp on the ceiling, which is why the last word looks like part of the job description.",
+    "definitionFit": "To light something is to set fire to it, so the definition matches as a verb in the everyday sense of lighting a fire or a cigarette."
+   }
   }
  ]
 } /*JSON-END*/;
