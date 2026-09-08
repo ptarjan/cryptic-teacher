@@ -7,11 +7,14 @@
 const ABBREVIATIONS = {
  "A": [
   "about",
+  "academician",
   "academy",
+  "acceleration",
   "ace",
   "active",
-  "advanced",
   "adult",
+  "advanced",
+  "afternoon",
   "alpha",
   "alto",
   "amateur",
@@ -19,10 +22,12 @@ const ABBREVIATIONS = {
   "american",
   "anonymous",
   "answer",
+  "are",
   "area",
   "article",
   "australia",
   "australian",
+  "austria",
   "one"
  ],
  "AB": [
@@ -36,13 +41,20 @@ const ABBREVIATIONS = {
   "current"
  ],
  "AD": [
+  "advert",
   "advertisement",
   "promotion"
  ],
+ "ADM": [
+  "admiral"
+ ],
  "AL": [
+  "alabama",
   "aluminium"
  ],
  "AM": [
+  "amateur",
+  "american",
   "before noon",
   "morning"
  ],
@@ -61,11 +73,13 @@ const ABBREVIATIONS = {
  ],
  "B": [
   "bachelor",
+  "bass",
   "belgium",
   "billion",
   "billions",
   "bishop",
   "black",
+  "bold",
   "book",
   "born",
   "bowled",
@@ -81,18 +95,25 @@ const ABBREVIATIONS = {
   "before christ",
   "long ago"
  ],
+ "BI": [
+  "bismuth"
+ ],
  "BR": [
+  "british",
   "brother"
  ],
  "C": [
   "about",
   "canine",
+  "cape",
   "carbon",
   "catholic",
   "caught",
   "century",
+  "chapter",
   "charlie",
   "clubs",
+  "cocaine",
   "cold",
   "college",
   "colt",
@@ -104,6 +125,7 @@ const ABBREVIATIONS = {
  ],
  "CA": [
   "about",
+  "calcium",
   "california",
   "circa"
  ],
@@ -121,10 +143,12 @@ const ABBREVIATIONS = {
   "central heating",
   "check",
   "child",
+  "children",
   "church",
   "companion of honour"
  ],
  "CO": [
+  "colombia",
   "commanding officer",
   "company",
   "firm"
@@ -136,11 +160,16 @@ const ABBREVIATIONS = {
  "D": [
   "date",
   "daughter",
+  "daughters",
   "day",
   "dead",
+  "democrat",
+  "departs",
+  "diameter",
   "diamonds",
   "died",
   "director",
+  "drive",
   "duke",
   "dutch",
   "five hundred",
@@ -149,6 +178,9 @@ const ABBREVIATIONS = {
  "DC": [
   "capital",
   "direct current"
+ ],
+ "DEM": [
+  "democrat"
  ],
  "DI": [
   "detective",
@@ -166,16 +198,22 @@ const ABBREVIATIONS = {
   "east",
   "eastern",
   "ecstasy",
+  "electronic",
   "energy",
   "england",
   "english",
   "european",
   "note"
  ],
+ "EA": [
+  "each"
+ ],
  "ED": [
   "edited",
+  "edition",
   "editor",
-  "education"
+  "education",
+  "edward"
  ],
  "EG": [
   "for example",
@@ -196,6 +234,9 @@ const ABBREVIATIONS = {
   "europeans",
   "europium"
  ],
+ "EV": [
+  "electric vehicle"
+ ],
  "EX": [
   "former",
   "old flame",
@@ -210,17 +251,25 @@ const ABBREVIATIONS = {
   "forte",
   "foxtrot",
   "franc",
+  "france",
   "function",
   "loud"
  ],
  "FE": [
   "iron"
  ],
+ "FR": [
+  "french"
+ ],
+ "FRO": [
+  "from"
+ ],
  "FT": [
   "feet",
   "foot"
  ],
  "G": [
+  "gallons",
   "german",
   "golf",
   "good",
@@ -232,6 +281,12 @@ const ABBREVIATIONS = {
  ],
  "GB": [
   "britain"
+ ],
+ "GE": [
+  "georgia"
+ ],
+ "GER": [
+  "german"
  ],
  "GI": [
   "american soldier",
@@ -245,6 +300,7 @@ const ABBREVIATIONS = {
   "doctor"
  ],
  "GR": [
+  "greek",
   "gross"
  ],
  "H": [
@@ -262,17 +318,26 @@ const ABBREVIATIONS = {
  ],
  "HE": [
   "helium",
+  "high explosive",
   "his excellency"
+ ],
+ "HM": [
+  "his majesty"
+ ],
+ "HO": [
+  "house"
  ],
  "HQ": [
   "base",
   "headquarters"
  ],
  "HR": [
-  "hour"
+  "hour",
+  "human resources"
  ],
  "I": [
   "current",
+  "independent",
   "india",
   "individual",
   "information",
@@ -295,6 +360,12 @@ const ABBREVIATIONS = {
   "inside",
   "trendy"
  ],
+ "INT": [
+  "international"
+ ],
+ "IR": [
+  "irish"
+ ],
  "IS": [
   "island"
  ],
@@ -311,11 +382,14 @@ const ABBREVIATIONS = {
   "nine"
  ],
  "J": [
+  "jack",
   "judge",
+  "juliet",
   "justice"
  ],
  "K": [
   "kelvin",
+  "kilometres",
   "king",
   "potassium",
   "thousand"
@@ -338,8 +412,10 @@ const ABBREVIATIONS = {
   "lecturer",
   "left",
   "liberal",
+  "lima",
   "line",
   "litre",
+  "live",
   "long",
   "pound"
  ],
@@ -355,7 +431,11 @@ const ABBREVIATIONS = {
   "left hand"
  ],
  "LIT": [
-  "literary"
+  "literary",
+  "literature"
+ ],
+ "LO": [
+  "look"
  ],
  "LP": [
   "album",
@@ -367,19 +447,23 @@ const ABBREVIATIONS = {
  ],
  "M": [
   "maiden",
+  "maidens",
   "male",
   "mark",
   "married",
+  "masculine",
   "mass",
   "master",
   "member",
   "meter",
   "metre",
   "metres",
+  "mike",
   "mile",
   "miles",
   "million",
   "millions",
+  "minute",
   "money",
   "monsieur",
   "month",
@@ -439,6 +523,7 @@ const ABBREVIATIONS = {
   "knight",
   "name",
   "new",
+  "newton",
   "noon",
   "north",
   "northern",
@@ -459,6 +544,12 @@ const ABBREVIATIONS = {
  "NE": [
   "north eastern",
   "northeast"
+ ],
+ "NH": [
+  "new hampshire"
+ ],
+ "NI": [
+  "northern ireland"
  ],
  "NO": [
   "number",
@@ -491,7 +582,8 @@ const ABBREVIATIONS = {
  "OB": [
   "died",
   "obiit",
-  "old boy"
+  "old boy",
+  "outside broadcast"
  ],
  "OC": [
   "officer commanding"
@@ -540,6 +632,7 @@ const ABBREVIATIONS = {
   "power",
   "president",
   "pressure",
+  "priest",
   "prince",
   "quiet"
  ],
@@ -557,7 +650,8 @@ const ABBREVIATIONS = {
  "PE": [
   "exercise",
   "games",
-  "gym"
+  "gym",
+  "physical exercise"
  ],
  "PH": [
   "acidity"
@@ -572,6 +666,9 @@ const ABBREVIATIONS = {
  "PO": [
   "loo",
   "post office"
+ ],
+ "POP": [
+  "popular"
  ],
  "PR": [
   "publicity",
@@ -600,18 +697,22 @@ const ABBREVIATIONS = {
   "silk"
  ],
  "QU": [
-  "queen"
+  "queen",
+  "question"
  ],
  "R": [
   "king",
   "queen",
+  "rand",
   "rare",
   "recipe",
+  "rector",
   "republican",
   "resistance",
   "right",
   "river",
   "romeo",
+  "royal",
   "run",
   "runs",
   "take"
@@ -637,8 +738,12 @@ const ABBREVIATIONS = {
  "REL": [
   "relative"
  ],
+ "REP": [
+  "republican"
+ ],
  "RES": [
-  "reserve"
+  "reserve",
+  "resolution"
  ],
  "RIP": [
   "buried",
@@ -652,7 +757,8 @@ const ABBREVIATIONS = {
   "run out"
  ],
  "RU": [
-  "rugby"
+  "rugby",
+  "rugby union"
  ],
  "RV": [
   "recreational vehicle"
@@ -660,6 +766,7 @@ const ABBREVIATIONS = {
  "S": [
   "sabbath",
   "saint",
+  "satisfactory",
   "second",
   "seconds",
   "section",
@@ -668,20 +775,25 @@ const ABBREVIATIONS = {
   "small",
   "society",
   "son",
+  "sons",
   "soprano",
   "south",
   "southern",
+  "spades",
   "special",
+  "square",
   "succeeded",
   "sulphur",
-  "sun"
+  "sun",
+  "sweden"
  ],
  "SA": [
   "sex appeal",
   "south africa"
  ],
  "SC": [
-  "self catering"
+  "self catering",
+  "special constable"
  ],
  "SCH": [
   "school"
@@ -716,7 +828,8 @@ const ABBREVIATIONS = {
  "ST": [
   "saint",
   "stone",
-  "street"
+  "street",
+  "stumped"
  ],
  "STA": [
   "station"
@@ -734,6 +847,7 @@ const ABBREVIATIONS = {
   "temperature",
   "tenor",
   "tense",
+  "tension",
   "tesla",
   "thailand",
   "time",
@@ -753,11 +867,17 @@ const ABBREVIATIONS = {
  "TE": [
   "note"
  ],
+ "TER": [
+  "territory"
+ ],
  "TT": [
   "dry",
   "race",
   "teetotal",
   "tourist trophy"
+ ],
+ "TU": [
+  "trade union"
  ],
  "TV": [
   "box",
@@ -793,10 +913,13 @@ const ABBREVIATIONS = {
   "five",
   "vanadium",
   "verse",
+  "version",
   "versus",
   "very",
   "victor",
+  "victory",
   "volt",
+  "volts",
   "volume"
  ],
  "VI": [
@@ -815,9 +938,15 @@ const ABBREVIATIONS = {
   "with",
   "women"
  ],
+ "WA": [
+  "washington"
+ ],
  "WC": [
   "loo",
   "toilet"
+ ],
+ "WR": [
+  "western region"
  ],
  "X": [
   "cross",
@@ -840,6 +969,7 @@ const ABBREVIATIONS = {
   "yankee",
   "yard",
   "year",
+  "years",
   "yen"
  ],
  "Z": [

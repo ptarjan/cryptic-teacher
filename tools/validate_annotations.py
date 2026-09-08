@@ -1296,9 +1296,12 @@ def check_blocks_account_for_answer(entries, errors, warnings):
     pieces T/RIG/GER, blocks T + R + IG. The blocks are what the app renders —
     they are what the learner reads — and nothing was comparing them to anything.
 
-    CALIBRATION (2026-08-08, 489 in-scope clues): 2 warn. 30045 10A (MEME, where
-    "repeated" doubles a single ME block) is the honest exception this stays a
-    warning for; 30079 15D is a substitution and is now out of scope.
+    CALIBRATION (2026-09-07): 1 warns. 12423 16A (MIDDLE OF NOWHERE) is the
+    honest exception this stays a warning for — the answer describes the
+    operation, so the only letters any fragment hands over are the H, and there
+    is nothing further to decompose. Its type is bare "middle letter", which is
+    a substring of the 40-odd compound types that DO have to add up, so it
+    cannot be exempted by name without blinding the check on all of them.
     """
     hits = []
     for e in entries:
@@ -1338,11 +1341,11 @@ def check_blocks_decompose(entries, errors, warnings):
     is free: the annotation already contains both halves and nothing checked
     that they agree.
 
-    CALIBRATION (2026-08-08): 5 of 398 clues with 2+ pieces, one per puzzle, and
-    all five are genuine under-decomposition in this repo's own annotations
-    (30039 27A SODDEN, 30045 17A MUG UP, 30072 14D TOM CRUISE, 30078 18D
-    TRIFLING, 1388 21A LINED). Warned, not errored, so the backlog surfaces
-    without failing a build that was already green.
+    CALIBRATION (2026-09-07): 0 of 398 clues with 2+ pieces. The five this check
+    was written on, plus everyman-4124 23A ATOM and 12402 15A TEST BED, were all
+    genuine under-decomposition and are now split one block per piece. Warned,
+    not errored, because the judgement of what counts as a piece is the
+    annotator's; the corpus being clean is not a reason to close the gate.
     """
     hits = []
     for e in entries:
