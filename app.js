@@ -1229,6 +1229,10 @@
     // travel. Reduced motion gets the jump instead, as it does everywhere else.
     const still = window.matchMedia &&
       matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Ours, not the reader's — see markOwnScroll() below the keyboard rules, so
+    // the scroll listener that puts the keyboard away on a real scroll ignores
+    // the one this line is about to fire.
+    markOwnScroll();
     window.scrollTo({ top: Math.max(0, top), behavior: still ? "auto" : "smooth" });
   }
   // settleBy and watchUntil are the whole guard: a resize matters only while a tap
@@ -1425,6 +1429,61 @@
     if (typeof navigator !== "undefined" && navigator.maxTouchPoints && !keyboardUp()) return;
     focusKbd();
   }
+
+  // A real scroll should put the soft keyboard away. On a phone it eats half the
+  // screen while any input is focused, and scrolling is exactly what you do to
+  // read the clue, the ladder or the grid out from under it (Paul, 2026-09-08).
+  //
+  // Every focusable text field is covered, not just the grid's #kbd — the picker
+  // search box and the sync join-code field raise the same keyboard and deserve
+  // the same courtesy.
+  //
+  // Two things must NOT trigger this. First, placeHintPanel()'s own
+  // window.scrollTo() moves the reader without their asking, and it must never
+  // blur what they were typing — that would drop the very keyboard a hint tap is
+  // about to need again. Sniffing touch or scroll distance cannot tell our
+  // scroll apart from a genuine flick; only knowing we started one can, so every
+  // call the app makes to move the page marks a guard window and this listener
+  // stays quiet until it passes. Long enough to cover a smooth-scroll animation
+  // in flight, short enough that a reader who then keeps scrolling for a real
+  // reason is not kept waiting.
+  //
+  // Second, a desktop scroll wheel: there is no soft keyboard to reclaim the
+  // screen there, and losing focus mid-type under a mouse would just be
+  // maddening. Gated on the same touch signal as the rest of this file.
+  //
+  // The threshold is what keeps a 1-2px jitter — or Safari's URL bar collapsing
+  // as an ordinary scroll gets going — from counting. It measures from where the
+  // page was when this input's focus last drew a scroll event, not from the last
+  // event alone, so a real scroll that arrives in many small ticks still crosses
+  // it as soon as it has genuinely moved, while a bounce that returns to where it
+  // started never does.
+  const SCROLL_BLUR_GUARD_MS = 1000;
+  const SCROLL_BLUR_PX = 24;
+  const SCROLL_BLUR_IDS = ["kbd", "picker-search", "sync-join-code"];
+  // A flag on a timer, not a Date.now() deadline: a smooth scroll can still be
+  // travelling when the browser fires its last 'scroll' event for it, and the app
+  // has no other signal for "has our own animation finished" than waiting the
+  // guard back out.
+  let ownScroll = false, ownScrollTimer = null;
+  let scrollBlurBaseline = null;
+  function markOwnScroll() {
+    ownScroll = true;
+    if (ownScrollTimer) clearTimeout(ownScrollTimer);
+    ownScrollTimer = setTimeout(() => { ownScroll = false; ownScrollTimer = null; }, SCROLL_BLUR_GUARD_MS);
+  }
+  function onPageScroll() {
+    if (typeof navigator === "undefined" || !navigator.maxTouchPoints) return;
+    const el = document.activeElement;
+    if (!el || SCROLL_BLUR_IDS.indexOf(el.id) === -1) { scrollBlurBaseline = null; return; }
+    if (ownScroll) return;
+    const y = window.pageYOffset || 0;
+    if (scrollBlurBaseline === null) { scrollBlurBaseline = y; return; }
+    // Blur only, never anything that touches value or app state: the keyboard
+    // leaves, whatever was already typed stays exactly where it was.
+    if (Math.abs(y - scrollBlurBaseline) >= SCROLL_BLUR_PX) { scrollBlurBaseline = null; el.blur(); }
+  }
+  if (document.addEventListener) document.addEventListener("scroll", onPageScroll);
 
   // ---------- checking / revealing ----------
   function canCheck() { return hasSolutions(); }
