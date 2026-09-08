@@ -1061,3 +1061,20 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   background: var(--bg); color: var(--fg);
 }
 #sync-panel p { margin: 8px 0; }
+
+/* One paper per row, and the whole row is the label: a checkbox on its own is a
+   13px target on a phone, and the word beside it is what a thumb actually lands
+   on. The pill is the picker's series badge, so a paper looks the same wherever
+   it is named. */
+#notify-list { list-style: none; margin: 10px 0; padding: 0; }
+#notify-list li { border-top: 1px solid var(--line); }
+#notify-list li.small-note { border-top: none; padding: 6px 4px; }
+#notify-list label { display: flex; align-items: center; gap: 10px; padding: 9px 4px; cursor: pointer; }
+#notify-list input {
+  width: 17px; height: 17px; margin: 0; accent-color: var(--accent);
+  /* The page declares no color-scheme, so a browser paints its form controls in
+     light-mode colours — a white box sitting on the dark card. This is the only
+     native control the app has, so it carries the declaration itself. */
+  color-scheme: light dark;
+}
+#notify-panel p { margin: 8px 0; }

@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=2c24873c">
+<link rel="stylesheet" href="style.css?v=828d291c">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -57,6 +57,7 @@
     <button id="btn-picker" class="ghost" title="Choose a puzzle">Puzzles ▾</button>
     <a class="ghost" href="learn/">How cryptic clues work</a>
     <button id="btn-sync" class="ghost" title="Carry your progress to another device">Sync ▾</button>
+    <button id="btn-notify" class="ghost" title="Be told when a new puzzle is ready">Notify ▾</button>
   </div>
 </header>
 
@@ -87,6 +88,23 @@
     <p><button id="sync-stop" class="tool danger">Stop syncing this device</button></p>
   </div>
   <p class="muted small-note" id="sync-status" role="status" aria-live="polite"></p>
+</div>
+
+<!-- The papers are not listed here: app.js fills the list from SERIES_BADGE,
+     which is the one table of papers this client has. A second copy in the
+     markup is the copy that would still name five papers the night a sixth
+     arrives. -->
+<div id="notify-panel" class="panel hidden" role="dialog" aria-label="Notifications about new puzzles">
+  <div class="panel-head">
+    <strong>Tell me about new puzzles</strong>
+    <button class="ghost small" id="btn-notify-close">✕</button>
+  </div>
+  <p class="muted small-note">Tick a paper and this browser is notified when its next puzzle is
+     annotated and ready to solve — not when it is merely fetched.</p>
+  <ul id="notify-list"></ul>
+  <p class="muted small-note">This device only. There is no account here, so ticking a paper on your
+     phone does nothing to your laptop.</p>
+  <p class="muted small-note" id="notify-status" role="status" aria-live="polite"></p>
 </div>
 
 <div id="picker-panel" class="panel hidden" role="dialog" aria-label="Choose a puzzle">
@@ -196,7 +214,7 @@
 
 <script src="puzzles/index.js?v=587aadb4"></script>
 <script src="abbreviations.js?v=f882d502"></script>
-<script src="app.js?v=a395a72e"></script>
+<script src="app.js?v=e6902ed2"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
