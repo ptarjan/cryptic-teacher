@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATHENA",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "ATHENA",
+    "definition": "Goddess",
+    "indicators": [
+     "packing",
+     "case"
+    ],
+    "indicatorNotes": {
+     "packing": "Packing something means carrying it around inside your luggage, so one word travels within another.",
+     "case": "A case is the shell a thing sits in, so what is kept is the shell of the word — the letter at each end."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "A",
+     "THEN",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "AA",
+      "note": "the country begins and ends with the same letter, which makes a tidy shell"
+     },
+     {
+      "clueFragment": "at one time",
+      "gives": "THEN",
+      "note": "'at one time' = then, back in the day"
+     }
+    ],
+    "surface": "A goddess who once travelled across America with her case packed.",
+    "walkthrough": "'Case' is the suitcase the surface is packing and a word's outer shell in the wordplay — packaging words are how setters ask for first-and-last letters, and America is a generous one.",
+    "definitionFit": "ATHENA is the Greek goddess of wisdom and war, so 'Goddess' is the category she belongs to rather than a synonym."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +82,37 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAGRITTE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MAGRITTE",
+    "definition": "artist",
+    "indicators": [
+     "consumed by"
+    ],
+    "indicatorNotes": {
+     "consumed by": "To be consumed is to be swallowed whole, so the shorter word disappears inside the longer one."
+    },
+    "pieces": [
+     "MA",
+     "GRIT",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "familiar",
+      "gives": "MATE",
+      "note": "a familiar is a friend, and a mate is what you call one"
+     },
+     {
+      "clueFragment": "Bottle",
+      "gives": "GRIT",
+      "note": "in British slang bottle is nerve, and so is grit"
+     }
+    ],
+    "surface": "A painter's bottle being drunk by an old friend.",
+    "walkthrough": "'Bottle' is British slang for nerve, with no drink in it, and 'familiar' is a noun here — the mate the surface is sitting with.",
+    "definitionFit": "MAGRITTE painted the bowler hats and the pipe labelled 'this is not a pipe', so 'artist' is the class he is being placed in."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +129,36 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIVERA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RIVERA",
+    "definition": "Artist",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "'After' means later in the line, so the piece it introduces is written second, behind what is already down."
+    },
+    "pieces": [
+     "RIVE",
+     "RA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "split",
+      "gives": "RIVE",
+      "note": "to rive is to split or tear apart"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA = Royal Academician, the crossword's stock painter"
+     }
+    ],
+    "surface": "One painter trailing another after a break-up.",
+    "walkthrough": "The word 'artist' appears twice and means something different each time: the first is what you are hunting for, the second is the Royal Academician setters use for any painter at all.",
+    "definitionFit": "Diego RIVERA covered Mexico's public buildings in murals, so 'Artist' names the category he sits in."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +175,39 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOGARTH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HOGARTH",
+    "definition": "artist",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "HOG",
+     "ART",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bacon",
+      "gives": "HOG",
+      "note": "bacon comes off a hog"
+     },
+     {
+      "clueFragment": "paintings",
+      "gives": "ART",
+      "note": "paintings are art"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the grade stamped on a hard pencil"
+     }
+    ],
+    "surface": "Francis Bacon's canvases proving hard going for a fellow painter.",
+    "walkthrough": "Capitalised, Bacon is Francis Bacon the painter on the surface and a pig underneath — the sort of proper-noun disguise this grid uses again and again.",
+    "definitionFit": "William HOGARTH engraved A Rake's Progress and Gin Lane, so the definition places him in the general class of artists."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +224,50 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHALES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + middle letter",
+    "answer": "WHALES",
+    "definition": "pod",
+    "definitionNote": "'Pod' is singular and names a group, while the answer is plural: the setter is defining the animals by the collective noun for a school of them.",
+    "indicators": [
+     "keeping",
+     "essentially"
+    ],
+    "indicatorNotes": {
+     "keeping": "To keep something is to hold on to it, so the small piece stays held inside the word that keeps it.",
+     "essentially": "The essence of a word is what sits at its heart, so this takes the middle letter and nothing else."
+    },
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "pieces": [
+     "W",
+     "HAL",
+     "E",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W = wife, a standard abbreviation"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "HALS",
+      "note": "Frans Hals, the Dutch portraitist who painted the Laughing Cavalier"
+     },
+     {
+      "clueFragment": "pea, essentially",
+      "gives": "E",
+      "note": "the middle letter of pEa"
+     }
+    ],
+    "surface": "A wife and a painter minding one pea in its pod.",
+    "walkthrough": "The definition is a collective noun rather than a synonym — the group standing in for the creatures that make it up — which is why 'in pod' reads as part of the vegetable picture.",
+    "definitionFit": "A pod is the collective noun for WHALES travelling together, so they are defined by the group they swim in."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +284,27 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERONESE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "VERONESE",
+    "definition": "Artist",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is being literal: the letters are sitting inside the words that follow, already in the right order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "clover, one senses",
+      "gives": "VERONESE",
+      "note": "eight letters in a row, starting four letters into the first word, crossing a comma and two gaps"
+     }
+    ],
+    "surface": "A painter living in luxury, or so somebody suspects.",
+    "walkthrough": "'In clover' is an idiom for living comfortably, which is exactly why it never reads as an instruction, and 'one senses' rounds off the picture instead of hinting at concealment.",
+    "definitionFit": "Paolo VERONESE filled Venetian walls with enormous banquet scenes, so 'Artist' is the category the clue drops him into."
+   }
   },
   {
    "id": "7-across",
@@ -136,7 +325,47 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
     ]
    },
    "solution": "STEAMIRON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "STEAM IRON",
+    "definition": "Smoother",
+    "indicators": [
+     "after",
+     "initially",
+     "loading"
+    ],
+    "indicatorNotes": {
+     "after": "'After' fixes the order: what follows the word goes behind the piece already named.",
+     "initially": "'Initially' means at the very start, so only the opening letter of the word beside it is taken.",
+     "loading": "A gun is loaded by pushing something down inside it, which is where these letters end up."
+    },
+    "pieces": [
+     "STE",
+     "A",
+     "MIRO",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "type of gun",
+      "gives": "STEN",
+      "note": "the Sten was the British army's cheap wartime submachine gun"
+     },
+     {
+      "clueFragment": "ammo initially",
+      "gives": "A",
+      "note": "the first letter of Ammo"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "MIRO",
+      "note": "Joan Miró, the Catalan painter of floating shapes"
+     }
+    ],
+    "surface": "An artist packing ammunition into a gun.",
+    "walkthrough": "'Smoother' is a noun — the thing that does the smoothing — rather than the comparative adjective it looks like, and the Sten is standard crossword hardware.",
+    "definitionFit": "A STEAM IRON is a smoother in the plainest sense: you push it over cloth to take the creases out."
+   }
   },
   {
    "id": "8-across",
@@ -159,7 +388,24 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHEEL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "WHEEL",
+    "definition": "Turner",
+    "blocks": [
+     {
+      "clueFragment": "Turner",
+      "note": "the surface offers J.M.W. Turner, one more painter in a grid stuffed with them"
+     },
+     {
+      "clueFragment": "on The Hay Wain?",
+      "note": "Constable's painting shows a farm wagon standing in a ford — look at what it rolls along on"
+     }
+    ],
+    "surface": "One famous English painter apparently turning up in another's masterpiece.",
+    "walkthrough": "Nothing here separates into wordplay: the capital T sells you a painter's name where the clue means a thing that goes round, and a hay wain rides on four of them.",
+    "definitionFit": "A WHEEL is a turner in the literal sense — an object whose whole purpose is to rotate — with no metaphor involved."
+   }
   },
   {
    "id": "9-across",
@@ -176,7 +422,42 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RETRIEVAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RETRIEVAL",
+    "definition": "Rescuing",
+    "indicators": [
+     "at sea",
+     "saved"
+    ],
+    "indicatorNotes": {
+     "at sea": "Anything at sea is adrift with nothing holding its position, which is what happens to these letters.",
+     "saved": "'Saved' here means kept rather than pulled from the water, so the extra letter is retained in the mix."
+    },
+    "anagram": {
+     "fodder": "RELATIVE R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "RELATIVE",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "R = Romeo in the NATO alphabet"
+     },
+     {
+      "clueFragment": "at sea",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A family member adrift in the water and a man called Romeo brought safely home.",
+    "walkthrough": "Romeo is the NATO alphabet's R, not the lover, and 'at sea' works both ways at once — the shipwreck in the picture, and the instruction that the letters have come loose.",
+    "definitionFit": "RETRIEVAL is the act of getting something back, which is what rescuing amounts to when the thing recovered is a person."
+   }
   },
   {
    "id": "10-across",
@@ -193,7 +474,39 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLOOP",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SLOOP",
+    "definition": "Sailing boat",
+    "indicators": [
+     "capsized"
+    ],
+    "indicatorNotes": {
+     "capsized": "A capsized boat has gone right over, so the letters are read from the far end back."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SLOOP"
+    ],
+    "subReversals": [
+     {
+      "from": "POOLS",
+      "to": "SLOOP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lottery",
+      "gives": "POOLS",
+      "note": "the pools are Britain's weekly bet on football results, a lottery in all but name; 'capsized' turns the word round"
+     }
+    ],
+    "surface": "A boat going over while the week's lottery is drawn.",
+    "walkthrough": "The trap is reading 'lottery' as the national draw with the numbered balls; the pools came first, and it is that older word the clue turns over.",
+    "definitionFit": "A SLOOP is a single-masted sailing boat, so the definition names it by its category rather than any special feature."
+   }
   },
   {
    "id": "11-down",
@@ -210,7 +523,38 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "POLO",
+    "definition": "Sport",
+    "indicators": [
+     "has lost"
+    ],
+    "indicatorNotes": {
+     "has lost": "What is lost is gone from what remains, so those three letters are simply missing from the name."
+    },
+    "linkWords": [
+     "in which"
+    ],
+    "pieces": [
+     "POLO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "TIEPOLO",
+      "note": "Giovanni Battista Tiepolo, the Venetian who frescoed ceilings across eighteenth-century Europe"
+     },
+     {
+      "clueFragment": "tie",
+      "gives": "",
+      "note": "the three letters T, I and E are what goes, and they happen to sit at the very front"
+     }
+    ],
+    "surface": "A painter knocked out of a cup tie in some sport.",
+    "walkthrough": "'Sport in which' looks like the start of a container — something tucked inside the game — and it is only joinery holding the sentence up. 'Tie' is a cup match on the surface and three letters underneath.",
+    "definitionFit": "POLO is the stick-and-ball game played on horseback, so 'Sport' is the category name standing in for it."
+   }
   },
   {
    "id": "12-across",
@@ -227,7 +571,41 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANTRA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container + first letter",
+    "answer": "MANTRA",
+    "definition": "chant that’s sacred",
+    "indicators": [
+     "not entirely",
+     "impressed by",
+     "intro of"
+    ],
+    "indicatorNotes": {
+     "not entirely": "'Not entirely' stops you short of the finish, so the name arrives one letter shy of complete.",
+     "impressed by": "To be impressed by something is to have it stamped into you, which is how the single letter gets inside.",
+     "intro of": "An intro is the opening, so nothing but the first letter of the word after it is used."
+    },
+    "pieces": [
+     "MAN",
+     "T",
+     "RA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist not entirely",
+      "gives": "MANRA",
+      "note": "Man Ray, the American surrealist, docked of his last letter"
+     },
+     {
+      "clueFragment": "intro of traditional",
+      "gives": "T",
+      "note": "the first letter of Traditional"
+     }
+    ],
+    "surface": "A painter half-persuaded by the opening of an old sacred chant.",
+    "walkthrough": "The last two letters look like the Royal Academician this grid leans on again and again; they are the tail of a photographer's surname instead.",
+    "definitionFit": "A MANTRA is a sacred formula chanted in Hindu and Buddhist practice, so the definition reads straight with nothing bent."
+   }
   },
   {
    "id": "13-across",
@@ -248,7 +626,41 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOOLSHED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TOOL SHED",
+    "definition": "here",
+    "definitionNote": "'Here' is an adverb pointing at a place while the answer names one, and the question mark carries the setter's gesture at where all this clutter is kept.",
+    "indicators": [
+     "screws"
+    ],
+    "indicatorNotes": {
+     "screws": "To screw something up is to twist it out of shape, and twisted letters no longer sit in the order they were handed to you."
+    },
+    "anagram": {
+     "fodder": "TOLD HOES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Told hoes",
+      "gives": "TOLDHOES",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "(or hose)",
+      "gives": "",
+      "note": "swap the last two letters and the same eight are offered a second time"
+     },
+     {
+      "clueFragment": "or those old",
+      "gives": "",
+      "note": "a third arrangement of the identical eight letters, with the setter enjoying himself"
+     }
+    ],
+    "surface": "Somebody reeling off a list of old garden gear and rusty fixings.",
+    "walkthrough": "The same eight letters are handed over three times in one sentence, and 'screws' finishes the shopping list while quietly issuing the instruction.",
+    "definitionFit": "Hoes, hose and old screws are exactly what a TOOL SHED holds, so 'here' points at the building they are all kept in."
+   }
   },
   {
    "id": "14-across",
@@ -265,7 +677,39 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KLEENEX",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "KLEENEX",
+    "definition": "Tissue",
+    "indicators": [
+     "cut"
+    ],
+    "indicatorNotes": {
+     "cut": "Something cut is shortened, so the word arrives with its final letter trimmed off."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "KLEE",
+     "NEX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "KLEE",
+      "note": "Paul Klee, the Swiss-German painter of the Twittering Machine"
+     },
+     {
+      "clueFragment": "cut then",
+      "gives": "NEX",
+      "note": "'then' in the sense of next, with the last letter taken off"
+     }
+    ],
+    "surface": "A tissue snipped up beside a working painter.",
+    "walkthrough": "'Cut' looks as though it belongs to the tissue and belongs to 'then' instead, which is standing in for the word NEXT. The definition works because a brand name has become the everyday noun.",
+    "definitionFit": "KLEENEX is a trademark that turned into the ordinary word for a paper tissue, so the definition names the thing by its best-known brand."
+   }
   },
   {
    "id": "15-down",
@@ -282,7 +726,30 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDSEER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LANDSEER",
+    "definition": "Artist",
+    "pieces": [
+     "LAND",
+     "SEER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excited",
+      "gives": "LAND",
+      "note": "after weeks at sea the one sight that gets a crew shouting is the shore"
+     },
+     {
+      "clueFragment": "ship’s lookout",
+      "gives": "SEER",
+      "note": "a seer is one who sees, which is the whole of a lookout's job"
+     }
+    ],
+    "surface": "A man at the masthead yelling about what he can see.",
+    "walkthrough": "A lookout who has just sighted the coast is a land-seer, and that is the whole of the wordplay — no letters move. Edwin Landseer painted the Victorians' stags and modelled the Trafalgar Square lions.",
+    "definitionFit": "Edwin LANDSEER was the Victorians' favourite animal painter, so 'Artist' names the class he belongs to."
+   }
   },
   {
    "id": "16-down",
@@ -299,7 +766,35 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EMIN",
+    "definition": "Artist",
+    "indicators": [
+     "unframed"
+    ],
+    "indicatorNotes": {
+     "unframed": "A picture out of its frame has lost the border round the edge, so the first and last letters go."
+    },
+    "pieces": [
+     "EMIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign",
+      "gives": "GEMINI",
+      "note": "the zodiac sign of the twins"
+     },
+     {
+      "clueFragment": "unframed",
+      "gives": "",
+      "note": "the frame here is the G at one end and the I at the other"
+     }
+    ],
+    "surface": "An artist's signature hung on the wall without a frame.",
+    "walkthrough": "'Sign' is the zodiac rather than a signature, and 'unframed' is a picture-gallery word doing a letter's job. Tracey Emin's unmade bed and neon texts are the work behind the name.",
+    "definitionFit": "Tracey EMIN is one of the Young British Artists, so 'Artist' is the category rather than any description of what she makes."
+   }
   },
   {
    "id": "17-across",
@@ -316,7 +811,48 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GORMLEY",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "GORMLEY",
+    "definition": "artist",
+    "indicators": [
+     "nailed",
+     "back"
+    ],
+    "indicatorNotes": {
+     "nailed": "Nailing a plank drives it into whatever it is fixed to, so those letters end up buried inside the other word.",
+     "back": "In an across entry, back is right to left, so the timber's letters are read the other way."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "GOR",
+     "MLE",
+     "Y"
+    ],
+    "subReversals": [
+     {
+      "from": "ELM",
+      "to": "MLE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloody",
+      "gives": "GORY",
+      "note": "bloody = gory"
+     },
+     {
+      "clueFragment": "Wood",
+      "gives": "ELM",
+      "note": "the elm is a timber tree; 'back' turns its three letters round"
+     }
+    ],
+    "surface": "A short-tempered painter hammering a plank back into place.",
+    "walkthrough": "'Bloody' is the swearword in the surface and plain gore in the wordplay. Antony Gormley made the Angel of the North, the giant steel figure beside the road at Gateshead.",
+    "definitionFit": "GORMLEY is a sculptor, and 'artist' covers sculptors as readily as painters — a category name for a maker of art of any kind."
+   }
   },
   {
    "id": "18-down",
@@ -337,7 +873,42 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
     ]
    },
    "solution": "MORETHAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "MORE THAN",
+    "definition": "over",
+    "indicators": [
+     "turned",
+     "originally"
+    ],
+    "indicatorNotes": {
+     "turned": "Something turned has been spun into a new arrangement, so the letters do not stay as they were given.",
+     "originally": "'Originally' means at the outset, so only the opening letter of the name beside it is taken."
+    },
+    "anagram": {
+     "fodder": "MANET OR H"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Manet or",
+      "gives": "MANETOR",
+      "note": "anagram fodder — the painter's name plus the little word joining him to the next"
+     },
+     {
+      "clueFragment": "Hockney originally",
+      "gives": "H",
+      "note": "the first letter of Hockney"
+     },
+     {
+      "clueFragment": "turned",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Two painters' names being flipped over on a gallery label.",
+    "walkthrough": "'Or' looks like a choice between two painters and supplies two of the eight letters, and the definition is the single last word, which reads as half of 'turned over'.",
+    "definitionFit": "'Over' in the counting sense — over fifty, over budget — is exactly MORE THAN, and the two swap in freely."
+   }
   },
   {
    "id": "19-down",
@@ -354,7 +925,42 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MORISOT",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "MORISOT",
+    "definition": "artist",
+    "indicators": [
+     "claims",
+     "briefly"
+    ],
+    "indicatorNotes": {
+     "claims": "To claim something is to take it in as your own, so the shorter piece is held inside the longer word.",
+     "briefly": "'Briefly' means cut short, so the word gives up its final letter before it goes anywhere."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "MO",
+     "RIS",
+     "OT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Questionable",
+      "gives": "MOOT",
+      "note": "a moot point is a questionable one, still open to argument"
+     },
+     {
+      "clueFragment": "come up briefly",
+      "gives": "RIS",
+      "note": "to come up is to rise, and the E drops off the end"
+     }
+    ],
+    "surface": "Dubious allegations surfacing briefly about a painter.",
+    "walkthrough": "'Come up' is not a reversal instruction, even in a down clue — it is the word RISE, trimmed. Berthe Morisot was the leading woman among the Impressionists.",
+    "definitionFit": "Berthe MORISOT showed at nearly every Impressionist exhibition, so 'artist' is the category the clue puts her in."
+   }
   },
   {
    "id": "20-across",
@@ -371,7 +977,39 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGELICO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANGELICO",
+    "definition": "Artist",
+    "indicators": [
+     "torn to pieces"
+    ],
+    "indicatorNotes": {
+     "torn to pieces": "Something torn to pieces is in bits, and bits can be put back together in any order at all."
+    },
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "anagram": {
+     "fodder": "CAGE LION"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cage with lion",
+      "gives": "CAGELION",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "torn to pieces",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A painter shut in a cage with a lion and torn apart.",
+    "walkthrough": "'In cage' reads as an insertion — someone tucked inside — when the cage is supplying letters rather than holding any. Fra Angelico was a Dominican friar as well as a painter.",
+    "definitionFit": "Fra ANGELICO painted altarpieces and frescoes in fifteenth-century Florence, so 'Artist' is the class he is named by."
+   }
   },
   {
    "id": "21-down",
@@ -388,7 +1026,39 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDEAR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "ENDEAR",
+    "definition": "charm",
+    "indicators": [
+     "Brow wiped",
+     "stealing"
+    ],
+    "indicatorNotes": {
+     "Brow wiped": "The brow is the top of a face, and the top of a down entry is its first letter, so wiping it takes the head off the word.",
+     "stealing": "To steal something is to take it in and keep it, so the single letter is tucked away inside."
+    },
+    "pieces": [
+     "ENDE",
+     "A",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brow wiped of female, say",
+      "gives": "ENDER",
+      "note": "female is one example of a gender, and 'say' turns the example into the category; then the leading G is wiped away"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally"
+     }
+    ],
+    "surface": "A woman's forehead being mopped dry while a lucky charm goes missing.",
+    "walkthrough": "'Female, say' works upwards from an example to the class it belongs to, which is the reverse of the usual definition-by-example. 'Brow' is positional, and a down clue's brow is where it starts.",
+    "definitionFit": "To ENDEAR someone is to make them liked, which is 'charm' as a verb — the winning-over sense, not the amulet the surface dangles."
+   }
   },
   {
    "id": "22-across",
@@ -405,7 +1075,51 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FERMAT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "FERMAT",
+    "definition": "theorist",
+    "indicators": [
+     "recalled"
+    ],
+    "indicatorNotes": {
+     "recalled": "To recall is to call back, and in an across entry back means the letters run right to left."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "FER",
+     "MA",
+     "T"
+    ],
+    "subReversals": [
+     {
+      "from": "REF",
+      "to": "FER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whistler",
+      "gives": "REF",
+      "note": "the official who blows the whistle at a match; 'recalled' turns the three letters round"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is the familiar word for mother"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "t is the short form of time, as on a stopwatch"
+     }
+    ],
+    "surface": "Whistler thinking back to his mother, who had no patience with some theorist.",
+    "walkthrough": "Whistler's Mother is the painting the surface is trading on, while the whistler in the wordplay blows for offside. Pierre de Fermat did his number theory as a spare-time lawyer.",
+    "definitionFit": "FERMAT proved and conjectured his way through number theory, so 'theorist' names him by the work rather than by any title he held."
+   }
   },
   {
    "id": "22-down",
@@ -422,7 +1136,40 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FETISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "FETISH",
+    "definition": "obsession",
+    "indicators": [
+     "dancing"
+    ],
+    "indicatorNotes": {
+     "dancing": "Letters that are dancing are moving about the floor and will not be standing where they started."
+    },
+    "anagram": {
+     "fodder": "F IS THE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Foxtrot",
+      "gives": "F",
+      "note": "F is Foxtrot in the NATO alphabet"
+     },
+     {
+      "clueFragment": "is the",
+      "gives": "ISTHE",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "dancing",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "The foxtrot being the one dance everybody is mad about.",
+    "walkthrough": "Foxtrot is the NATO alphabet's F, so the dance hands over a single letter, and the two words a solver would skip straight past are the ones on the move.",
+    "definitionFit": "A FETISH is a fixation somebody cannot leave alone, which is 'obsession' in its everyday sense."
+   }
   },
   {
    "id": "23-down",
@@ -439,7 +1186,33 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANALLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANALLY",
+    "definition": "In a particular way",
+    "linkWords": [
+     "what"
+    ],
+    "pieces": [
+     "AN",
+     "ALLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lone ranger",
+      "gives": "AN",
+      "note": "he is one man riding by himself, and the article for one is spelt this way in front of a vowel"
+     },
+     {
+      "clueFragment": "might need",
+      "gives": "ALLY",
+      "note": "what somebody out on their own is short of is a friend on their side"
+     }
+    ],
+    "surface": "A ranger riding alone who could do with some company.",
+    "walkthrough": "Answer the question aloud and the two words run together into a single adverb: AN + ALLY. 'Particular' is the fussy, detail-obsessed sense, not 'specific'.",
+    "definitionFit": "Someone ANAL is obsessively particular about detail, so doing a thing ANALLY is doing it in exactly that fussy manner."
+   }
   },
   {
    "id": "24-across",
@@ -456,7 +1229,30 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASIDE",
+    "definition": "Whisper",
+    "pieces": [
+     "A",
+     "SIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first",
+      "gives": "A",
+      "note": "the first of anything is its A — the A-list, the A-team, the A-road"
+     },
+     {
+      "clueFragment": "song on record",
+      "gives": "SIDE",
+      "note": "a record has two of these and the songs sit on them"
+     }
+    ],
+    "surface": "The opening track on somebody's record.",
+    "walkthrough": "'Whisper' is a noun here — the remark, not the act of murmuring — and the lead track of a single goes on the A-side.",
+    "definitionFit": "An ASIDE is a remark dropped quietly so that only some hear it, which is a whisper in the theatrical sense."
+   }
   },
   {
    "id": "25-across",
@@ -473,7 +1269,30 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIETITIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DIETITIAN",
+    "definition": "food expert",
+    "pieces": [
+     "DIE",
+     "TITIAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it’s time to check out",
+      "gives": "DIE",
+      "note": "to check out is to leave for good"
+     },
+     {
+      "clueFragment": "Artist",
+      "gives": "TITIAN",
+      "note": "Titian, the Venetian master whose name is also a shade of red hair"
+     }
+    ],
+    "surface": "A painter being told to go and take a look at some food expert.",
+    "walkthrough": "The wordplay is an order shouted at a painter, which is why the pieces arrive in the clue back to front. 'Check out' means take a look on the surface and something far more final underneath.",
+    "definitionFit": "A DIETITIAN is trained to advise on what people should eat, so 'food expert' describes the profession rather than naming it."
+   }
   },
   {
    "id": "26-across",
@@ -490,7 +1309,36 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEGAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DEGAS",
+    "definition": "Artist",
+    "indicators": [
+     "in a manner of speaking"
+    ],
+    "indicatorNotes": {
+     "in a manner of speaking": "The phrase owns up to the looseness: the name is being read as an invented verb rather than used strictly."
+    },
+    "pieces": [
+     "DE",
+     "GAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "burst",
+      "gives": "DE",
+      "note": "DE- is the prefix that undoes a thing, as in defrost or derail"
+     },
+     {
+      "clueFragment": "bubble",
+      "gives": "GAS",
+      "note": "a bubble is a pocket of it, and bursting lets that out"
+     }
+    ],
+    "surface": "A painter poking at a bubble until it pops.",
+    "walkthrough": "To de-gas something is to take the gas out of it, which is what popping a bubble does. The painter's name is said nothing like the verb hiding inside it — day-GAH, not the two flat syllables.",
+    "definitionFit": "Edgar DEGAS painted the ballet dancers and racecourses of Paris, so 'Artist' is the category rather than a description."
+   }
   },
   {
    "id": "27-across",
@@ -507,7 +1355,33 @@ window.CRYPTIC_PUZZLES["cryptic-30006"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONSTABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONSTABLE",
+    "definition": "artist",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "CON",
+     "STABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artifice",
+      "gives": "CON",
+      "note": "a con is a trick — artifice in its dishonest sense"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "STABLE",
+      "note": "something stable does not move, which is what still means here"
+     }
+    ],
+    "surface": "Trickery still going on in the art world.",
+    "walkthrough": "'Still' is the adjective meaning motionless, not the adverb meaning yet, and that swap hides six of the nine letters. John Constable painted The Hay Wain, which 8 across is standing on.",
+    "definitionFit": "John CONSTABLE painted the Suffolk countryside he grew up in, so 'artist' is the general class he is named by."
+   }
   }
  ]
 } /*JSON-END*/;
