@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOTHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "BOTHER",
+    "definition": "Put out",
+    "indicators": [
+     "at front"
+    ],
+    "indicatorNotes": {
+     "at front": "Whatever is at front stands ahead of everything else, so only the letter in that leading position is taken."
+    },
+    "pieces": [
+     "B",
+     "OTHER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bin",
+      "gives": "B",
+      "note": "the letter standing at the front of this word, which is all the clue asks for"
+     },
+     {
+      "clueFragment": "one of two",
+      "gives": "OTHER",
+      "note": "when there are two of something, the one that is not this one is the other"
+     }
+    ],
+    "surface": "Somebody putting the bin out at the front of the house, one of the pair they keep.",
+    "walkthrough": "'Put out' sits inside the bin-day picture and means inconvenienced instead, which is why it never reads as a separate definition.",
+    "definitionFit": "To BOTHER someone is to put them out — to trouble or inconvenience them, as in 'don't put yourself out'."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +76,39 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BONDAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BONDAGE",
+    "definition": "kinky sex",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "After puts a piece behind the one named beside it, so the date ends up following rather than leading."
+    },
+    "pieces": [
+     "BOND",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chemistry",
+      "gives": "BOND",
+      "note": "the chemistry between two people is the bond they have"
+     },
+     {
+      "clueFragment": "Date",
+      "gives": "AGE",
+      "note": "a date in history is an age, a stretch of time rather than an evening out"
+     }
+    ],
+    "surface": "A date arranged after a chemistry lesson, and something racier later on.",
+    "walkthrough": "Two ordinary nouns are asked for in their least ordinary senses: the chemistry is the kind two people have, not the subject on the timetable.",
+    "definitionFit": "BONDAGE is the tying-up practice, so 'kinky sex' points at the fetish sense rather than the word's older meaning of servitude."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +125,37 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIMER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TIMER",
+    "definition": "Watch",
+    "indicators": [
+     "deposited in"
+    ],
+    "indicatorNotes": {
+     "deposited in": "To deposit something in a place is to leave it inside, so the money finishes up within the other word rather than beside it."
+    },
+    "pieces": [
+     "TI",
+     "M",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "TIER",
+      "note": "a bank of seats or of screens is a tier, things ranged in rows"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "m is the standing short form for money in wordplay"
+     }
+    ],
+    "surface": "Somebody keeps an eye on cash being paid into a bank.",
+    "walkthrough": "'Bank' is not the building the surface builds but a bank of things ranged in rows, which is the only reading that lets money be put inside it.",
+    "definitionFit": "A TIMER is the kitchen or stopwatch device that measures time, and 'Watch' is the noun for a thing that keeps time."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +172,25 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENLARGE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ENLARGE",
+    "definition": "Blow up",
+    "definition2": "balloon",
+    "blocks": [
+     {
+      "clueFragment": "Blow up",
+      "note": "the photographer's phrase for printing an image bigger than the negative"
+     },
+     {
+      "clueFragment": "balloon",
+      "note": "used as a verb, not a noun: to balloon is to swell outwards"
+     }
+    ],
+    "surface": "Inflating a balloon at a party.",
+    "walkthrough": "Both halves are verbs, and with no indicator anywhere the only clue to where the seam falls is that the sentence is three words long.",
+    "definitionFit": "'Blow up' is the photographic sense of making bigger, and to 'balloon' is to swell out — both are ENLARGE as a verb."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +207,30 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KEYPAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KEYPAD",
+    "definition": "where one might get depressed",
+    "pieces": [
+     "KEY",
+     "PAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Main",
+      "gives": "KEY",
+      "note": "the key issue is the main one, the word doing duty as an adjective"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "PAD",
+      "note": "a pad is slang for the place somebody lives"
+     }
+    ],
+    "surface": "A grand main house that leaves its visitors gloomy.",
+    "walkthrough": "'Depressed' is mechanical rather than emotional: a key is depressed when a finger pushes it down, and the definition only works on that sense.",
+    "definitionFit": "A KEYPAD is the little block of keys on a phone or a door lock, and each of those keys is depressed when it is pressed."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +247,36 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMBRACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "EMBRACE",
+    "definition": "cuddle",
+    "indicators": [
+     "naked"
+    ],
+    "indicatorNotes": {
+     "naked": "Naked means with the outer covering taken off, so the word loses the letters wrapped round its outside."
+    },
+    "pieces": [
+     "EM",
+     "BRACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Semi",
+      "gives": "EM",
+      "note": "strip the letters off each end of this word and its middle pair is what is left standing"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "BRACE",
+      "note": "a brace is a pair — a brace of pheasants is two of them"
+     }
+    ],
+    "surface": "A half-dressed pair having a cuddle.",
+    "walkthrough": "'Semi-naked' looks like one adjective describing the couple, and it is really a noun with an instruction hyphenated onto it.",
+    "definitionFit": "To EMBRACE someone is to hold them in your arms, the physical hug rather than the 'embrace an idea' sense."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +297,57 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
     ]
    },
    "solution": "PINOTNOIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter + reversal",
+    "answer": "PINOT NOIR",
+    "definition": "wine",
+    "indicators": [
+     "in",
+     "at the back",
+     "knocking back"
+    ],
+    "indicatorNotes": {
+     "in": "This is the word that puts one thing inside another rather than next to it, so the over goes within the drink.",
+     "at the back": "What stands at the back of a word is its final letter, and that single letter is the whole contribution.",
+     "knocking back": "Knocking a drink back is downing it in one go, and here the letters go down the other way, read from their far end."
+    },
+    "pieces": [
+     "PINOT",
+     "N",
+     "OIR"
+    ],
+    "subReversals": [
+     {
+      "from": "RIO",
+      "to": "OIR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "PINT",
+      "note": "the standard British glass of beer, and it opens and closes this piece"
+     },
+     {
+      "clueFragment": "Over",
+      "gives": "O",
+      "note": "in cricket an over is written as a single O on the scorecard"
+     },
+     {
+      "clueFragment": "garden",
+      "gives": "N",
+      "note": "the letter at the back of this word"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "OIR",
+      "note": "Rio de Janeiro is a great Brazilian port, and those three letters arrive turned round"
+     }
+    ],
+    "surface": "At the far end of a beer garden, somebody is downing a glass of port.",
+    "walkthrough": "'Beer garden' is one picture in the surface and two separate pieces in the wordplay, and the port is a Brazilian harbour rather than a drink.",
+    "definitionFit": "PINOT NOIR is the black grape of Burgundy and the red made from it, so 'wine' defines it by naming its class."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +364,39 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DARLING",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "DARLING",
+    "definition": "Love",
+    "indicators": [
+     "opening",
+     "written in"
+    ],
+    "indicatorNotes": {
+     "opening": "An opening is the way in at the start of something, so the letter the word begins on is what is handed over.",
+     "written in": "To write something in is to put it inside what is already on the page, not alongside it."
+    },
+    "pieces": [
+     "DAR",
+     "L",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bold",
+      "gives": "DARING",
+      "note": "a bold person is daring, and these six letters take the insertion"
+     },
+     {
+      "clueFragment": "letter’s",
+      "gives": "L",
+      "note": "the first letter of the word letter, cut off because the clue asks for its opening"
+     }
+    ],
+    "surface": "The first line of a love letter set in bold type.",
+    "walkthrough": "'Love' is not the emotion but the way you address somebody, and the surface glues it to 'letter' so that it never looks detachable.",
+    "definitionFit": "'Love' as a form of address — calling somebody love — is exactly what DARLING is, an endearment rather than the feeling."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +413,36 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUMPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BUMPER",
+    "definition": "Large",
+    "indicators": [
+     "cut"
+    ],
+    "indicatorNotes": {
+     "cut": "A cut version of anything is shorter than the original, so the word arrives with its final letter gone."
+    },
+    "pieces": [
+     "BUM",
+     "PER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottom",
+      "gives": "BUM",
+      "note": "the backside, in the everyday British word for it"
+     },
+     {
+      "clueFragment": "showing cheek",
+      "gives": "PERT",
+      "note": "somebody showing cheek is pert, and it is this word that gets shortened"
+     }
+    ],
+    "surface": "A big backside, sliced, and somebody being cheeky about it.",
+    "walkthrough": "'Large' as an adjective wants a noun attached — a bumper crop, a bumper harvest — so it reads as part of the picture rather than as the definition.",
+    "definitionFit": "BUMPER means unusually large or plentiful, the adjective used of a bumper crop or a bumper edition."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +463,47 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANIMALHUSBANDRY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "ANIMAL HUSBANDRY",
+    "definition": "Perhaps, Labour on holding",
+    "indicators": [
+     "finally",
+     "running"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally points at what comes last of all, so only the closing letter of the word before it is taken.",
+     "running": "Letters described as running are on the move rather than standing still, so they arrive in a different order."
+    },
+    "anagram": {
+     "fodder": "A L ANDY BURNHAM IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "one letter joining the fodder just as it stands"
+     },
+     {
+      "clueFragment": "poll, finally",
+      "gives": "L",
+      "note": "the last letter of polL"
+     },
+     {
+      "clueFragment": "Andy Burnham is",
+      "gives": "ANDYBURNHAMIS",
+      "note": "anagram fodder, thirteen letters"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Talk of Andy Burnham standing in a Labour leadership contest.",
+    "walkthrough": "A 'holding' is a smallholding, a farm, so the definition is farm work — and Andy Burnham is the Labour mayor of Greater Manchester the surface is about.",
+    "definitionFit": "ANIMAL HUSBANDRY is the rearing of livestock, one example of the labour done on a farm holding, with 'Perhaps' flagging the example."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +520,37 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAIRER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FAIRER",
+    "definition": "lighter",
+    "indicators": [
+     "pressing"
+    ],
+    "indicatorNotes": {
+     "pressing": "To press something in is to push it into place inside, so the single letter is forced between the others."
+    },
+    "pieces": [
+     "F",
+     "A",
+     "IRER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person sparking up",
+      "gives": "FIRER",
+      "note": "somebody who sets a thing alight is a firer, and this word takes the insertion"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the single letter that gets pushed in"
+     }
+    ],
+    "surface": "Somebody lighting a cigarette and pressing down on a lighter.",
+    "walkthrough": "'Lighter' is the comparative of light, not the thing in your pocket that makes the flame, and the little word 'a' is fodder rather than grammar.",
+    "definitionFit": "FAIRER is what fair hair or fair skin becomes in comparison, fair here meaning pale, which is the sense 'lighter' carries."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +567,37 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLANTAIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PLANTAIN",
+    "definition": "banana",
+    "indicators": [
+     "transported via"
+    ],
+    "indicatorNotes": {
+     "transported via": "To be transported via something is to travel by way of it, which here means passing right through its middle."
+    },
+    "pieces": [
+     "PL",
+     "ANT",
+     "AIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "straight",
+      "gives": "PLAIN",
+      "note": "plain speaking is straight speaking, honest and direct"
+     },
+     {
+      "clueFragment": "Insect",
+      "gives": "ANT",
+      "note": "the crossword's standard insect, three letters and always at work"
+     }
+    ],
+    "surface": "An insect hitching a ride on a straight banana.",
+    "walkthrough": "'Straight' is the sense used of talk rather than of lines, and 'banana' defines by family without the 'perhaps' a setter often adds.",
+    "definitionFit": "A PLANTAIN is the starchy cooking banana of the tropics, so 'banana' defines it by naming the kind of fruit it is."
+   }
   },
   {
    "id": "12-across",
@@ -242,7 +614,43 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MENSWEAR",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MENSWEAR",
+    "definition": "clothing range",
+    "indicators": [
+     "restricting"
+    ],
+    "indicatorNotes": {
+     "restricting": "Restricting something hems it in from both sides, so the space is caught between the two letters."
+    },
+    "pieces": [
+     "M",
+     "EN",
+     "S",
+     "WEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "M&S",
+      "gives": "MS",
+      "note": "the two initials of the high-street chain, the ampersand between them contributing nothing"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "in printing an en is a space one letter wide"
+     },
+     {
+      "clueFragment": "to show",
+      "gives": "WEAR",
+      "note": "to wear an expression is to show it"
+     }
+    ],
+    "surface": "Marks & Spencer squeezing its floor space to display a clothing line.",
+    "walkthrough": "M&S is Marks & Spencer, the British high-street chain, and 'space' is the printer's measure rather than room on a shop floor.",
+    "definitionFit": "MENSWEAR is the department or line of clothes made for men, which is what a 'clothing range' names."
+   }
   },
   {
    "id": "13-down",
@@ -259,7 +667,36 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPOONBILL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPOONBILL",
+    "definition": "Bird",
+    "pieces": [
+     "SPOON",
+     "B",
+     "ILL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to cuddle",
+      "gives": "SPOON",
+      "note": "to spoon is to lie curled up against somebody, an old word for cuddling"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "b is the standing short form for bachelor"
+     },
+     {
+      "clueFragment": "in bed",
+      "gives": "ILL",
+      "note": "somebody kept in bed is ill"
+     }
+    ],
+    "surface": "A bird curled up beside an unmarried man in bed.",
+    "walkthrough": "'In bed' is a definition rather than an instruction about where anything goes, and the question mark marks the jump from lying in bed to being unwell.",
+    "definitionFit": "The SPOONBILL is a white wading bird named for the flat spoon-shaped beak it sweeps through water, so 'Bird' names its class."
+   }
   },
   {
    "id": "14-across",
@@ -276,7 +713,37 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENOUGH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ENOUGH",
+    "definition": "Stop speaking",
+    "definitionNote": "The definition is an order — 'stop speaking!' — where the answer is a single exclamation, so the two agree as things you shout rather than as parts of speech.",
+    "indicators": [
+     "virtually"
+    ],
+    "indicatorNotes": {
+     "virtually": "Virtually means not quite all the way there, so the word turns up one letter short of complete."
+    },
+    "pieces": [
+     "E",
+     "NOUGH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e is the usual single letter for English"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "NOUGHT",
+      "note": "nought is nothing, zero, and it is this word that comes up short"
+     }
+    ],
+    "surface": "An order to stop talking English, with almost nothing said.",
+    "walkthrough": "The dash is doing the setter's work, separating an exclamation from the two pieces that build it while the whole line still reads as one snapped sentence.",
+    "definitionFit": "Shouted on its own, ENOUGH tells somebody to stop speaking — the interjection, not the quantifier meaning sufficient."
+   }
   },
   {
    "id": "15-across",
@@ -297,7 +764,39 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
     ]
    },
    "solution": "LAYOFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LAY-OFF",
+    "definition": "sack",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "LAY",
+     "O",
+     "FF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have sex with",
+      "gives": "LAY",
+      "note": "to lay somebody is the coarse verb for going to bed with them"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o is the standing short form for old"
+     },
+     {
+      "clueFragment": "females",
+      "gives": "FF",
+      "note": "f is female, doubled because the clue asks for more than one"
+     }
+    ],
+    "surface": "Bedding older women inside a sack.",
+    "walkthrough": "In Britain getting 'the sack' is being dismissed from a job, and the hyphen in the enumeration is the only sign the answer comes in two words.",
+    "definitionFit": "A LAY-OFF is a dismissal from a job, and 'sack' is the informal British word for exactly that."
+   }
   },
   {
    "id": "16-down",
@@ -314,7 +813,48 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARREARS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters + last letter",
+    "answer": "ARREARS",
+    "definition": "debt",
+    "definitionNote": "Arrears is one of those nouns that only lives in the plural — money owed is always arrears — so a singular 'debt' cannot agree with it and does not have to.",
+    "linkWords": [
+     "on"
+    ],
+    "indicators": [
+     "regularly",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "regularly": "Regularly means at an even spacing, so letters are taken every other one instead of all of them.",
+     "ultimately": "Ultimately means last of all, so the closing letter of the word beside it is the whole contribution."
+    },
+    "pieces": [
+     "AR",
+     "R",
+     "EARS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pair",
+      "gives": "AR",
+      "note": "the second and fourth letters of the word, taken at even spacing"
+     },
+     {
+      "clueFragment": "bender",
+      "gives": "R",
+      "note": "the last letter of bendeR"
+     },
+     {
+      "clueFragment": "they pick up",
+      "gives": "EARS",
+      "note": "ears are what pick sounds up"
+     }
+    ],
+    "surface": "Two people out on a drinking spree overhear something at the end of the night.",
+    "walkthrough": "A 'bender' is British for a long drinking session, and the pair of drinkers hides the fact that 'Pair' is a word to be sampled rather than a description of them.",
+    "definitionFit": "Payments you have failed to make pile up as ARREARS, the standing term for money overdue on a rent or a loan."
+   }
   },
   {
    "id": "17-down",
@@ -331,7 +871,25 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLANNEL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FLANNEL",
+    "definition": "Wash face with this",
+    "definition2": "soft soap",
+    "blocks": [
+     {
+      "clueFragment": "Wash face with this",
+      "note": "the small square cloth kept by a British basin, what an American would call a washcloth"
+     },
+     {
+      "clueFragment": "soft soap",
+      "note": "soft soap is flattery laid on to get round somebody, and the same word is the verb for talking it"
+     }
+    ],
+    "surface": "Washing your face with a mild bar of soap.",
+    "walkthrough": "The cloth on the basin and the waffle you talk when you are covering for something are one word, and 'soft soap' keeps the bathroom picture going while it changes sense.",
+    "definitionFit": "A FLANNEL is the cloth Britons wash their face with, and to flannel is to soft-soap — flattering or waffling your way out of trouble."
+   }
   },
   {
    "id": "18-across",
@@ -348,7 +906,39 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BACKREST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BACKREST",
+    "definition": "Supporter on seat",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "getting behind"
+    ],
+    "indicatorNotes": {
+     "getting behind": "Getting behind something is taking up position at its rear, so this piece follows rather than leads."
+    },
+    "pieces": [
+     "BACK",
+     "REST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defender",
+      "gives": "BACK",
+      "note": "in football a defender is a back — full-back, centre-back, wing-back"
+     },
+     {
+      "clueFragment": "stand",
+      "gives": "REST",
+      "note": "a stand is a thing something else sits on, and a rest is the same object under another name"
+     }
+    ],
+    "surface": "A fan in his seat in the stadium roaring on a defender.",
+    "walkthrough": "The stadium keeps both wordplay words in disguise: 'stand' is a piece of furniture and 'defender' a position on the pitch, neither of them part of the crowd.",
+    "definitionFit": "A BACKREST is the part of a chair that holds your back up, so 'Supporter on seat' describes it by the job it does."
+   }
   },
   {
    "id": "18-down",
@@ -365,7 +955,36 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BATTLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BATTLE",
+    "definition": "campaign",
+    "indicators": [
+     "doesn’t finish"
+    ],
+    "indicatorNotes": {
+     "doesn’t finish": "Something that does not finish stops before its end, so the name is written without its last letter."
+    },
+    "pieces": [
+     "B",
+     "ATTLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "b is the usual single letter for British"
+     },
+     {
+      "clueFragment": "PM",
+      "gives": "ATTLEE",
+      "note": "Clement Attlee, the Labour prime minister who beat Churchill in 1945 and founded the National Health Service"
+     }
+    ],
+    "surface": "A British prime minister giving up before his campaign is over.",
+    "walkthrough": "'British PM' reads as one phrase and is two separate instructions, which is what keeps the surname out of sight — nothing in the clue says a name is wanted.",
+    "definitionFit": "A BATTLE is a sustained fight for something — a battle against illness, a battle for votes — which is what a campaign is."
+   }
   },
   {
    "id": "19-down",
@@ -382,7 +1001,39 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONDOLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONDOLE",
+    "definition": "Sympathise",
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "C",
+     "ON",
+     "DOLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the radio alphabet, alongside Alpha and Bravo"
+     },
+     {
+      "clueFragment": "not off",
+      "gives": "ON",
+      "note": "a switch that is not off is on"
+     },
+     {
+      "clueFragment": "jobseeker’s allowance",
+      "gives": "DOLE",
+      "note": "the dole is the British name for unemployment benefit, drawn week by week"
+     }
+    ],
+    "surface": "Charlie is still signing on for his jobseeker's allowance.",
+    "walkthrough": "'Not off' is a whole piece on its own, an instruction-shaped phrase that turns out to be a plain synonym — the trick setters use for the two-letter words.",
+    "definitionFit": "To CONDOLE with somebody is to express sympathy for their loss, the verb that survives today mostly inside the noun 'condolences'."
+   }
   },
   {
    "id": "20-down",
@@ -399,7 +1050,45 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPARROW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SPARROW",
+    "definition": "Bird",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "pinching top spot off"
+    ],
+    "indicatorNotes": {
+     "pinching top spot off": "Pinching is stealing, and the top spot of a word in a down entry is where its first letter stands, so that letter is taken away."
+    },
+    "pieces": [
+     "SPA",
+     "R",
+     "ROW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bath",
+      "gives": "SPA",
+      "note": "a spa is a bath resort, the place people go to sit in the water"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "r is the rook in chess notation, as in the score of any game"
+     },
+     {
+      "clueFragment": "family member",
+      "gives": "ROW",
+      "note": "a rook belongs to the crow family, and the crow it shares that family with gives up the letter at its top"
+     }
+    ],
+    "surface": "A rook at the bird bath stealing the best perch from one of its own family.",
+    "walkthrough": "'Rook' works twice over: it is the chess piece supplying a letter, and it is the corvid whose family tells you which bird is being robbed.",
+    "definitionFit": "A SPARROW is the small brown bird that hops about British gardens and hedgerows, so 'Bird' names it by its class."
+   }
   },
   {
    "id": "21-across",
@@ -416,7 +1105,41 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRANSACT",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion + outer letters",
+    "answer": "TRANSACT",
+    "definition": "Handle",
+    "indicators": [
+     "shortened",
+     "concealed by",
+     "jacket"
+    ],
+    "indicatorNotes": {
+     "shortened": "Shortened says the word arrives cut down, and what it loses is the letter at its end.",
+     "concealed by": "To be concealed by something is to be hidden inside it, so these letters sit within the ones on either side.",
+     "jacket": "A jacket is the covering that goes round the outside, so only the first and last letters of the word are kept."
+    },
+    "pieces": [
+     "T",
+     "RANSAC",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jacket from tracksuit",
+      "gives": "TT",
+      "note": "the two outside letters of tracksuit, the ones that wrap all the rest"
+     },
+     {
+      "clueFragment": "rifle",
+      "gives": "RANSACK",
+      "note": "to rifle a drawer is to ransack it, going through it for anything worth taking"
+     }
+    ],
+    "surface": "Somebody hides a sawn-off rifle inside the jacket of a tracksuit.",
+    "walkthrough": "The gun in the surface is not in the wordplay at all: 'rifle' is the verb, what a burglar does to a chest of drawers.",
+    "definitionFit": "To TRANSACT business is to handle it, the formal verb for carrying a piece of business through to its end."
+   }
   },
   {
    "id": "22-across",
@@ -433,7 +1156,40 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORWAY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NORWAY",
+    "definition": "country",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "taking on"
+    ],
+    "indicatorNotes": {
+     "taking on": "Taking something on is receiving it into yourself, so the letter is admitted inside rather than added at the end."
+    },
+    "pieces": [
+     "NO",
+     "R",
+     "WAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get lost",
+      "gives": "NOWAY",
+      "note": "'no way' is the flat refusal you give somebody you want rid of"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "r is the cricket scorer's mark for a run"
+     }
+    ],
+    "surface": "A runner out in the countryside takes on a route and goes astray.",
+    "walkthrough": "'Get lost' is the brush-off — what you snap at somebody you want rid of — rather than the wandering the surface offers.",
+    "definitionFit": "NORWAY is the Scandinavian country, so 'country' defines it by naming the class it belongs to."
+   }
   },
   {
    "id": "23-down",
@@ -450,7 +1206,30 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RATES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RATES",
+    "definition": "Admires",
+    "indicators": [
+     "topless"
+    ],
+    "indicatorNotes": {
+     "topless": "Topless means with nothing on top, and the top of a word in a down entry is its first letter, which is the one that goes."
+    },
+    "pieces": [
+     "RATES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chests",
+      "gives": "CRATES",
+      "note": "crates are chests, the wooden boxes things get packed in"
+     }
+    ],
+    "surface": "Somebody admires a row of bare chests.",
+    "walkthrough": "'Chests' are packing boxes rather than bodies, and 'topless' is an instruction dressed up as part of the same picture.",
+    "definitionFit": "To RATE somebody is to think highly of them — 'I rate her' is the informal British way of saying you admire her."
+   }
   },
   {
    "id": "24-across",
@@ -471,7 +1250,47 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
     ]
    },
    "solution": "NATIONALLOTTERY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "NATIONAL LOTTERY",
+    "definition": "balls up in this drawing",
+    "indicators": [
+     "Botched",
+     "briefly"
+    ],
+    "indicatorNotes": {
+     "Botched": "A botched job has come out wrong, and letters that come out wrong are letters standing in the wrong order.",
+     "briefly": "Briefly asks for the word beside it told in short, which here means dropping the letter it ends on."
+    },
+    "anagram": {
+     "fodder": "TATTOO LIN NEARLY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tattoo",
+      "gives": "TATTOO",
+      "note": "anagram fodder, six letters taken as they stand"
+     },
+     {
+      "clueFragment": "line, briefly",
+      "gives": "LIN",
+      "note": "the word line cut short, its final letter dropped before the shuffle"
+     },
+     {
+      "clueFragment": "nearly",
+      "gives": "NEARLY",
+      "note": "anagram fodder, six more letters straight off the page"
+     },
+     {
+      "clueFragment": "Botched",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A badly done tattoo of a line, and balls that almost go wrong in a picture.",
+    "walkthrough": "'Balls up' reads as a phrase for a mess and belongs to the definition, where the balls are the numbered ones that come up when the draw is made.",
+    "definitionFit": "The NATIONAL LOTTERY is Britain's state-licensed prize draw, and its numbered balls genuinely do come up in the drawing."
+   }
   },
   {
    "id": "25-across",
@@ -488,7 +1307,45 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLELY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SOLELY",
+    "definition": "Only",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "close to"
+    ],
+    "indicatorNotes": {
+     "close to": "The close of a word is where it ends, so this hands over the single letter jetty finishes on."
+    },
+    "pieces": [
+     "SOLE",
+     "L",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SOLE",
+      "note": "a sole is the flatfish served in every seaside restaurant"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "l is the map-maker's short form for lake"
+     },
+     {
+      "clueFragment": "jetty",
+      "gives": "Y",
+      "note": "the last letter of jettY"
+     }
+    ],
+    "surface": "Fishing beside a lake near the end of the jetty.",
+    "walkthrough": "Nothing here announces itself as an instruction: 'close to jetty' reads as a position on the water and is the only piece of machinery in the sentence.",
+    "definitionFit": "SOLELY means exclusively, done by one thing and nothing else, which is the adverb sense of 'Only'."
+   }
   },
   {
    "id": "26-across",
@@ -505,7 +1362,48 @@ window.CRYPTIC_PUZZLES["cryptic-30035"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEESAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SEESAW",
+    "definition": "swing",
+    "indicators": [
+     "retired"
+    ],
+    "indicatorNotes": {
+     "retired": "To retire is to go back the way you came, so the word before it is read from its far end."
+    },
+    "pieces": [
+     "SEE",
+     "SA",
+     "W"
+    ],
+    "subReversals": [
+     {
+      "from": "AS",
+      "to": "SA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make out",
+      "gives": "SEE",
+      "note": "to make something out is to see it, catching sight of it at a distance"
+     },
+     {
+      "clueFragment": "while",
+      "gives": "SA",
+      "note": "while means as, and those two letters arrive turned about"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "w is the short form for women, as on a lavatory door"
+     }
+    ],
+    "surface": "Somebody making out while a group of retired women play on a swing.",
+    "walkthrough": "'Make out' is the seeing sense rather than the kissing one the surface is enjoying, and 'while' is a two-letter word before it is anything else.",
+    "definitionFit": "To SEESAW is to swing back and forth, the verb used of prices or opinion polls that keep reversing direction."
+   }
   }
  ]
 } /*JSON-END*/;
