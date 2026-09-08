@@ -34,7 +34,24 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
     ]
    },
    "solution": "POSITIVESIGNS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "POSITIVE SIGNS",
+    "definition": "Sure indications, two of which are apparent in this puzzle",
+    "blocks": [
+     {
+      "clueFragment": "Sure indications",
+      "note": "read straight, this is the doctor's or the forecaster's phrase for evidence that things are going the right way"
+     },
+     {
+      "clueFragment": "two of which are apparent in this puzzle",
+      "note": "the setter means it literally: the black squares draw two plus shapes, and the word PLUS is written inside two of the answers as well"
+     }
+    ],
+    "surface": "Someone pointing out that the encouraging omens are there for anyone who looks.",
+    "walkthrough": "The black squares of this grid make two plus shapes, and PLUS is spelled out inside two answers, so the clue is counting the setter's own handiwork.",
+    "definitionFit": "A plus sign is a positive sign, and 'sure indications' is the everyday phrase for omens you can rely on — both senses live in the same two words."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +68,39 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPPRESSOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "OPPRESSOR",
+    "definition": "tyrant",
+    "indicators": [
+     "cancelling"
+    ],
+    "indicatorNotes": {
+     "cancelling": "To cancel is to strike out, so whatever is named next gets struck from the word standing before it."
+    },
+    "linkWords": [
+     "on"
+    ],
+    "pieces": [
+     "OP",
+     "PRESSOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "OP is the short form of opus, a work — the abbreviation printed before a composer's numbers"
+     },
+     {
+      "clueFragment": "academic cancelling of",
+      "gives": "PRESSOR",
+      "note": "the academic is a PROFESSOR, and the O and the F that 'of' names are struck out of it"
+     }
+    ],
+    "surface": "An academic writing up the way a tyrant was got rid of.",
+    "walkthrough": "'Work on academic' reads as one phrase, pressure applied to a scholar, when 'work' is standing alone as OP — the opus number printed on a piece of music.",
+    "definitionFit": "An OPPRESSOR is one who holds a people down by force, which is what a tyrant does to those he rules."
+   }
   },
   {
    "id": "3-down",
@@ -72,7 +121,35 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
     ]
    },
    "solution": "INSUM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN SUM",
+    "definition": "By way of review",
+    "indicators": [
+     "changes"
+    ],
+    "indicatorNotes": {
+     "changes": "A thing that changes does not stay as it was, so the five letters beside it come out in a different order."
+    },
+    "anagram": {
+     "fodder": "MINUS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "minus",
+      "gives": "MINUS",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "changes",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "An accountant summing up now that the deductions have shifted.",
+    "walkthrough": "The theme word is doing the hiding: 'minus' looks like an accountant's term in a sentence about figures, and it is five letters waiting to be shuffled.",
+    "definitionFit": "IN SUM introduces a summing-up — 'in sum, we were wrong' — which is the phrase a reviewer uses to gather everything into one verdict."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +166,37 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDUS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "INDUS",
+    "definition": "River",
+    "indicators": [
+     "subtracting",
+     "at the end"
+    ],
+    "indicatorNotes": {
+     "subtracting": "Subtracting is taking away, so what it names comes off the word rather than being added to it.",
+     "at the end": "'At the end' says where the doomed letters were sitting: the last three, not the first."
+    },
+    "pieces": [
+     "INDUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trade",
+      "gives": "INDUSTRY",
+      "note": "trade in the wide sense of commerce and manufacture, the long word to be trimmed"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TRY",
+      "note": "to tax someone is to try them, the way a tiresome child tries your patience"
+     }
+    ],
+    "surface": "Riverside commerce with the duty taken off at the end of the year.",
+    "walkthrough": "'River trade' reads as one thing, cargo moving on the water, and only 'River' is the definition. The rest turns on tax meaning try — trying behaviour taxes your patience.",
+    "definitionFit": "The INDUS is the great river of Pakistan that gave India its name, so 'River' defines it by the class it belongs to."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +213,46 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXCURSIVE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + homophone",
+    "answer": "EXCURSIVE",
+    "definition": "digressing",
+    "indicators": [
+     "kinky",
+     "audibly"
+    ],
+    "indicatorNotes": {
+     "kinky": "A kink is a twist, and letters described as twisted are letters bent out of the order they arrived in.",
+     "audibly": "'Audibly' asks you to hear the words rather than read them, so what goes in the grid is what they sound like."
+    },
+    "linkWords": [
+     "In"
+    ],
+    "anagram": {
+     "fodder": "SEX VICE UR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "sex and vice",
+      "gives": "SEXVICE",
+      "note": "anagram fodder, seven letters; the 'and' only joins them"
+     },
+     {
+      "clueFragment": "you are",
+      "soundsLike": "YOU ARE",
+      "gives": "UR",
+      "note": "said aloud, those two words are simply the names of two letters, and the pair joins the shuffle"
+     },
+     {
+      "clueFragment": "kinky",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Telling somebody that their talk of kinky sex and vice is wandering off the subject.",
+    "walkthrough": "U and R come from hearing 'you are' rather than reading it, which is worth keeping: those two letters are otherwise almost impossible to clue.",
+    "definitionFit": "EXCURSIVE describes talk that keeps making excursions away from its subject, which is what a digressing speaker does."
+   }
   },
   {
    "id": "6-down",
@@ -123,7 +269,43 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPOLITIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IMPOLITIC",
+    "definition": "foolish",
+    "indicators": [
+     "Mostly",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "Mostly": "'Mostly' means all but a little, and the little left behind is the final letter of the word it governs.",
+     "mostly": "The second one does the same job on the next word, docking its last letter before the two pieces are laid end to end."
+    },
+    "pieces": [
+     "IMPOLIT",
+     "IC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rude",
+      "gives": "IMPOLIT",
+      "note": "rude is IMPOLITE, and most of that is everything but the E"
+     },
+     {
+      "clueFragment": "unfriendly",
+      "gives": "IC",
+      "note": "unfriendly is ICY, and most of ICY is its first two letters"
+     },
+     {
+      "clueFragment": "totally",
+      "gives": "",
+      "note": "surface only, and the setter's joke as well: two mostlys laid end to end come to a totally"
+     }
+    ],
+    "surface": "A verdict on somebody who is rude, cold and stupid with it.",
+    "walkthrough": "'Foolish' is doing all the defining on its own, and the word in front of it belongs to the insult in the surface. IMPOLITIC is the political sort of foolish: ill-judged rather than dim.",
+    "definitionFit": "IMPOLITIC means ill-judged — the foolishness of a move that will cost you, not stupidity of mind."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +322,38 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOUNS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "NOUNS",
+    "definition": "Parts of speech",
+    "indicators": [
+     "pieces"
+    ],
+    "indicatorNotes": {
+     "pieces": "Something in pieces has been broken apart, and the bits never go back in the order they came out."
+    },
+    "linkWords": [
+     "using"
+    ],
+    "anagram": {
+     "fodder": "NO SUN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "negative",
+      "gives": "NO",
+      "note": "the plainest negative in the language, and the one crosswords reach for first"
+     },
+     {
+      "clueFragment": "from Sun",
+      "gives": "SUN",
+      "note": "anagram fodder, three letters"
+     }
+    ],
+    "surface": "Grammar assembled out of the gloomy fragments printed in a tabloid.",
+    "walkthrough": "'Negative pieces' looks like one phrase, dispiriting articles in a newspaper, and it is two separate instructions — while the Sun here is only three letters long.",
+    "definitionFit": "NOUNS belong to the set of word classes grammarians call the parts of speech, so the definition names them by their category, in the plural."
+   }
   },
   {
    "id": "8-down",
@@ -161,7 +374,40 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROUGHESTIMATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROUGH ESTIMATE",
+    "definition": "More or less inaccurate guess",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "To upset something is to tip it over and spill it, and letters spilled do not land in the order they were stacked."
+    },
+    "anagram": {
+     "fodder": "THIS TEAM ROUGE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "this team",
+      "gives": "THISTEAM",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "in red",
+      "gives": "ROUGE",
+      "note": "red is rouge — the French word, familiar in English as the name of the red make-up"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A wild guess at how badly the team in red were beaten.",
+    "walkthrough": "'This team in red' looks like a football side you are meant to identify, Liverpool or Arsenal, and nothing needs naming: red is simply rouge.",
+    "definitionFit": "A ROUGH ESTIMATE is a figure arrived at approximately, so 'more or less inaccurate' is fair — near enough, and knowingly not exact."
+   }
   },
   {
    "id": "9-down",
@@ -178,7 +424,30 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REASSESSMENTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REASSESSMENTS",
+    "definition": "Remarks",
+    "definition2": "revisions, up or down",
+    "linkWords": [
+     "that may require"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remarks",
+      "gives": "",
+      "note": "read it as re-marks: an examiner going through the same pile of papers a second time"
+     },
+     {
+      "clueFragment": "revisions, up or down",
+      "gives": "",
+      "note": "a forecast or a valuation revised in either direction"
+     }
+    ],
+    "surface": "Comments on a report that might have to be written again.",
+    "walkthrough": "The hyphen you cannot see is the joke: 'Remarks' is re-marks, and marks are assessments, so marking again is doing them again.",
+    "definitionFit": "Marks are assessments, so re-marking a script is doing them over; and a figure revised up or down has been judged afresh."
+   }
   },
   {
    "id": "10-across",
@@ -195,7 +464,40 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPPOSED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "OPPOSED",
+    "definition": "Against",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is the instruction to bury one piece inside another instead of setting it alongside."
+    },
+    "linkWords": [
+     "being"
+    ],
+    "pieces": [
+     "OP",
+     "POS",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "written opinion",
+      "gives": "OPED",
+      "note": "an op-ed is the newspaper page opposite the editorial, where signed opinion pieces run"
+     },
+     {
+      "clueFragment": "briefly affirmative",
+      "gives": "POS",
+      "note": "affirmative is POSITIVE, and 'briefly' docks it to its first three letters"
+     }
+    ],
+    "surface": "Somebody coming out against a cautiously upbeat newspaper column.",
+    "walkthrough": "'Against being briefly affirmative' reads as one continuous grumble about half-hearted praise, and the definition is the first word by itself.",
+    "definitionFit": "To be OPPOSED to something is to be against it — the same relation, put as a participle where the clue offers a preposition."
+   }
   },
   {
    "id": "11-across",
@@ -218,7 +520,43 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAPSULE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CAPSULE",
+    "definition": "medicine",
+    "indicators": [
+     "change"
+    ],
+    "indicatorNotes": {
+     "change": "'Change' belongs to the French tag in the surface, and taken as an instruction it says these letters will not stay as they are."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "PLUS CA E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Plus ça",
+      "gives": "PLUSCA",
+      "note": "anagram fodder, six letters; the cedilla is not a letter and drops away"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standing abbreviation for European"
+     },
+     {
+      "clueFragment": "change",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "The French shrug that the more things change, the more they stay the same.",
+    "walkthrough": "Plus ça change is the opening of the French tag about nothing really changing, and the setter has used a quotation as fodder with its own verb as the instruction.",
+    "definitionFit": "A CAPSULE is the small soluble case a dose is packed into, so 'medicine' defines it by what it carries rather than what it is."
+   }
   },
   {
    "id": "12-across",
@@ -235,7 +573,44 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLEAM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GLEAM",
+    "definition": "Shine",
+    "indicators": [
+     "fluctuating"
+    ],
+    "indicatorNotes": {
+     "fluctuating": "Something fluctuating will not hold still, and letters that will not hold still do not keep their order."
+    },
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "anagram": {
+     "fodder": "GAME L"
+    },
+    "blocks": [
+     {
+      "clueFragment": "half-century",
+      "gives": "L",
+      "note": "a century is C, a hundred in Roman numerals, and half of it is fifty — L; in cricket a half-century is a batter's fifty runs"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "GAME",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "fluctuating",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A batter's fifty lighting up a match that keeps swinging one way then the other.",
+    "walkthrough": "'Shine with half-century' reads as one cricketing phrase, a fifty catching the light, and the definition is the first word standing on its own.",
+    "definitionFit": "A GLEAM is a brief shine of light, and as a verb to gleam is simply to shine."
+   }
   },
   {
    "id": "13-across",
@@ -252,7 +627,43 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SURPLUSES",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SURPLUSES",
+    "definition": "excesses",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' puts one word round the outside of another, the way arms go about a waist."
+    },
+    "pieces": [
+     "SUR",
+     "PLUS",
+     "E",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Positive",
+      "gives": "SURE",
+      "note": "positive in the sense of certain — 'I'm positive' — gives SURE"
+     },
+     {
+      "clueFragment": "asset’s",
+      "gives": "PLUS",
+      "note": "an asset is a plus, something on the credit side; the possessive belongs to the surface"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standing abbreviation for small, as on a clothing label"
+     }
+    ],
+    "surface": "An accountant reporting that a modest asset has left money over.",
+    "walkthrough": "'Positive' is the theme word doing double duty: in the surface it sits with the assets, in the wordplay it is nothing but a synonym for sure.",
+    "definitionFit": "A SURPLUS is what is left when there is more than was needed, so 'excesses' names the plural of exactly that."
+   }
   },
   {
    "id": "14-across",
@@ -269,7 +680,32 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EASEL",
+    "definition": "something that artist can work on",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "EASE",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soften",
+      "gives": "EASE",
+      "note": "to ease a rule or a pain is to soften it"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standing abbreviation for line"
+     }
+    ],
+    "surface": "An instruction to a painter to soften that line.",
+    "walkthrough": "'Soften line' reads as advice to a painter, which is the misdirection: they are two separate pieces, and the artist belongs only to the definition.",
+    "definitionFit": "An EASEL is the frame a painter stands a canvas on, so it is literally the thing an artist works at."
+   }
   },
   {
    "id": "15-down",
@@ -290,7 +726,45 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
     ]
    },
    "solution": "LATESHIFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "LATE SHIFT",
+    "definition": "Some overnight",
+    "indicators": [
+     "turning up"
+    ],
+    "indicatorNotes": {
+     "turning up": "In a down entry 'up' points back towards the start, so the letters just named are written in from the bottom."
+    },
+    "linkWords": [
+     "for this"
+    ],
+    "pieces": [
+     "LATE",
+     "SHIFT"
+    ],
+    "subReversals": [
+     {
+      "from": "ETAL",
+      "to": "LATE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and others",
+      "gives": "LATE",
+      "note": "'and others' after a name in a list is et al, and those four letters are then read the other way"
+     },
+     {
+      "clueFragment": "quickly go",
+      "gives": "SHIFT",
+      "note": "to shift is to move fast — 'shift it!' shouted at somebody dawdling"
+     }
+    ],
+    "surface": "Staff who come in overnight for this job and others, then leave in a hurry.",
+    "walkthrough": "Et al is the Latin tag that follows a name in a reference list, standing for 'and others', and here it is four letters to be read upwards.",
+    "definitionFit": "A LATE SHIFT is the working stretch that runs on into the night, so 'Some overnight' picks out the part of the night that gets worked."
+   }
   },
   {
    "id": "16-across",
@@ -307,7 +781,42 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAINTLIKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "SAINTLIKE",
+    "definition": "as good as Paul (or Brendan)?",
+    "indicators": [
+     "beginning"
+    ],
+    "indicatorNotes": {
+     "beginning": "'Beginning' asks for the opening letter alone of the word standing in front of it."
+    },
+    "pieces": [
+     "S",
+     "AINT",
+     "LIKE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter’s",
+      "gives": "S",
+      "note": "the opening letter of the word Setter"
+     },
+     {
+      "clueFragment": "isn’t",
+      "gives": "AINT",
+      "note": "ain't is the colloquial form of isn't, and its apostrophe gets no square in the grid"
+     },
+     {
+      "clueFragment": "fancy",
+      "gives": "LIKE",
+      "note": "to fancy something is to like it"
+     }
+    ],
+    "surface": "One Guardian setter wondering aloud whether he is as virtuous as another.",
+    "walkthrough": "Paul and Brendan are both Guardian setters and both saints, which is the joke, and 'fancy' looks like an anagram indicator when it is a straight synonym.",
+    "definitionFit": "SAINTLIKE means having the goodness of a saint, and St Paul and St Brendan are named as examples rather than as the quality itself."
+   }
   },
   {
    "id": "16-down",
@@ -324,7 +833,35 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUBSUMING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SUBSUMING",
+    "definition": "Adding",
+    "indicators": [
+     "fix"
+    ],
+    "indicatorNotes": {
+     "fix": "To fix something is to put it right by rearranging its parts, and that is what happens to the nine letters after it."
+    },
+    "anagram": {
+     "fodder": "MINUS BUGS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "minus bugs",
+      "gives": "MINUSBUGS",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "fix",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A software patch that gets rid of the bugs.",
+    "walkthrough": "'Fix minus bugs' reads as a patch with the faults taken out, so 'minus' looks like an instruction to delete something when both words are plain fodder.",
+    "definitionFit": "SUBSUMING is taking something in under a wider heading — adding it to a category rather than merely piling it on top."
+   }
   },
   {
    "id": "17-down",
@@ -341,7 +878,39 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISOLATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ISOLATION",
+    "definition": "in which person’s unaccompanied",
+    "definitionNote": "The setter defines by description rather than by synonym: these words are a relative clause naming the state a lone person is in, not a noun you could swap straight into a sentence.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "I",
+     "SOLATI",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "one is I, the Roman numeral"
+     },
+     {
+      "clueFragment": "sequence of notes",
+      "gives": "SOLATI",
+      "note": "so, la and ti are three consecutive notes of the sol-fa scale, taken in that order"
+     },
+     {
+      "clueFragment": "being performed",
+      "gives": "ON",
+      "note": "a show being performed is on"
+     }
+    ],
+    "surface": "A single passage of music played by somebody with no accompanist.",
+    "walkthrough": "'One sequence of notes' reads as a single tune, which is the misdirection: 'One' stands alone, and the notes are sol-fa syllables rather than music.",
+    "definitionFit": "ISOLATION is the state of being cut off from other people, which is precisely where a person with nobody alongside them is."
+   }
   },
   {
    "id": "18-across",
@@ -358,7 +927,45 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TURNTABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "TURNTABLE",
+    "definition": "Revolutionary device",
+    "indicators": [
+     "out of order",
+     "nearly"
+    ],
+    "indicatorNotes": {
+     "out of order": "Something out of order is not in the sequence it should be, and that is what becomes of the letters beside it.",
+     "nearly": "'Nearly' means you stop just short, so the last letter of the word it governs never arrives."
+    },
+    "linkWords": [
+     "for playing"
+    ],
+    "anagram": {
+     "fodder": "TRUANT BLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "truant",
+      "gives": "TRUANT",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "BLE",
+      "note": "a colour that ran BLED, and stopping short of the end leaves three of those letters"
+     },
+     {
+      "clueFragment": "out of order",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A rebel's gadget for bunking off school, broken and only just going.",
+    "walkthrough": "'Revolutionary' wants to be a rebel and is literal instead — a device that revolves — while 'ran' is dye running in the wash, which is bleeding.",
+    "definitionFit": "A TURNTABLE is the platter that spins a record, so 'Revolutionary device' describes it by the single thing it does: turn."
+   }
   },
   {
    "id": "19-across",
@@ -375,7 +982,27 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CROSS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CROSS",
+    "definition": "Go over",
+    "definition2": "something obvious left",
+    "blocks": [
+     {
+      "clueFragment": "Go over",
+      "gives": "",
+      "note": "to pass from one side of something to the other"
+     },
+     {
+      "clueFragment": "something obvious left",
+      "gives": "",
+      "note": "the mark somebody puts on a page in place of a signature — plain to see, and still there on the paper afterwards"
+     }
+    ],
+    "surface": "An instruction to check the obvious thing somebody has left behind.",
+    "walkthrough": "The theme is what makes the second sense fair: this shape is a plus sign, and two of them are drawn in the black squares of the grid.",
+    "definitionFit": "CROSS is the verb for going over something and the noun for the mark left by a person who cannot sign their name — visible at a glance."
+   }
   },
   {
    "id": "20-across",
@@ -392,7 +1019,40 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MINUSCULE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MINUSCULE",
+    "definition": "not easy to see",
+    "indicators": [
+     "awful"
+    ],
+    "indicatorNotes": {
+     "awful": "Calling the clue awful says its letters are in a state they should not be in, and they get re-laid."
+    },
+    "anagram": {
+     "fodder": "MINUS CLUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Indication to remove",
+      "gives": "MINUS",
+      "note": "the sign written in front of a number to say take it away"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "awful",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "An editor demanding that a dreadful, murky clue be cut.",
+    "walkthrough": "The setter is describing his own trade — an awful clue nobody can see the point of — and the opening three words name the minus sign this puzzle keeps returning to.",
+    "definitionFit": "MINUSCULE means very small indeed, and something that small is exactly what is not easy to see."
+   }
   },
   {
    "id": "21-down",
@@ -409,7 +1069,27 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORTH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NORTH",
+    "definition": "position of negative pole",
+    "indicators": [
+     "Somewhat"
+    ],
+    "indicatorNotes": {
+     "Somewhat": "'Somewhat' means to some extent, so what is wanted is part of the word beside it — a run of letters inside, not the whole thing."
+    },
+    "blocks": [
+     {
+      "clueFragment": "unorthodox",
+      "gives": "NORTH",
+      "note": "five letters in a row, starting one letter in and stopping four short of the end"
+     }
+    ],
+    "surface": "An unconventional view of where a magnet's minus end sits.",
+    "walkthrough": "'Unorthodox' looks like an anagram indicator and is the hiding place instead, with the short word in front of it doing all the instructing.",
+    "definitionFit": "NORTH is a compass position, and the earth's pole up there attracts a magnet's north end, so it behaves as a south — the negative one."
+   }
   },
   {
    "id": "22-down",
@@ -426,7 +1106,27 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXTRA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EXTRA",
+    "definition": "Positive contribution",
+    "indicators": [
+     "taken out of"
+    ],
+    "indicatorNotes": {
+     "taken out of": "'Taken out of' says the letters are lifted straight from what follows rather than built up, so you read across the words for them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "context randomly",
+      "gives": "EXTRA",
+      "note": "five letters in a row, running from the middle of the first word over the gap into the second"
+     }
+    ],
+    "surface": "A helpful remark quoted out of context and at random.",
+    "walkthrough": "'Randomly' looks like an anagram indicator and is carrier text holding two of the letters, while 'taken out of context' is the setter describing his own extraction.",
+    "definitionFit": "An EXTRA is something added beyond what was owed, a bonus — the plus side of a contribution rather than the part that was due."
+   }
   },
   {
    "id": "23-across",
@@ -443,7 +1143,36 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "PEACE",
+    "definition": "Calm",
+    "indicators": [
+     "tips from"
+    ],
+    "indicatorNotes": {
+     "tips from": "Tips are the two extreme ends of a thing, so the outermost letters of the word are the ones taken."
+    },
+    "pieces": [
+     "PE",
+     "ACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "positive",
+      "gives": "PE",
+      "note": "the first and last letters of the word positive"
+     },
+     {
+      "clueFragment": "pro",
+      "gives": "ACE",
+      "note": "a pro is an expert, and an expert is an ace"
+     }
+    ],
+    "surface": "Advice on staying calm handed down by an upbeat professional.",
+    "walkthrough": "'Positive pro' reads as one description of a cheerful expert, and the two words take entirely different treatments: one is trimmed to its ends, the other swapped for a synonym.",
+    "definitionFit": "PEACE is calm in the sense of quiet and freedom from disturbance — the state itself, not a manner of behaving."
+   }
   },
   {
    "id": "23-down",
@@ -460,7 +1189,32 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLUSH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLUSH",
+    "definition": "Luxurious",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "PLUS",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "PLUS",
+      "note": "'and' and 'plus' do the same job: joining one thing to another"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the standing abbreviation for hot, the letter on the tap"
+     }
+    ],
+    "surface": "A hotel room described as luxurious and warm.",
+    "walkthrough": "A three-word clue with no indicator at all is working entirely by substitution, and a whole four-letter chunk coming from 'and' is what makes it hard to see.",
+    "definitionFit": "PLUSH means richly comfortable — a plush hotel — from the deep-piled velvet fabric of that name."
+   }
   },
   {
    "id": "24-across",
@@ -477,7 +1231,28 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERMINI",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TERMINI",
+    "definition": "Final points",
+    "definition2": "one of which is negative in its conclusion",
+    "definitionNote": "The second definition describes rather than substitutes: it points at the pair of connections on an electrical device, one of them marked with a minus, instead of offering a noun for the answer.",
+    "blocks": [
+     {
+      "clueFragment": "Final points",
+      "gives": "",
+      "note": "the ends of a line, where a railway or a bus route stops"
+     },
+     {
+      "clueFragment": "one of which is negative in its conclusion",
+      "gives": "",
+      "note": "the two connections on a battery, one marked + and one −, and the singular form of the word ends letter for letter in MINUS"
+     }
+    ],
+    "surface": "A closing summary whose last item turns out to be a negative one.",
+    "walkthrough": "A battery's two ends are its terminals, one of them the minus, and the singular of this word finishes on those very letters — Brendan pointing at his theme inside his own answer.",
+    "definitionFit": "TERMINI are end points: of a railway line, or of an electrical device, where the pair are marked positive and negative."
+   }
   },
   {
    "id": "25-across",
@@ -494,7 +1269,42 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOURIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "TOURIST",
+    "definition": "Visitor",
+    "indicators": [
+     "interrupting",
+     "perturbed"
+    ],
+    "indicatorNotes": {
+     "interrupting": "To interrupt is to break into something already under way, so this piece goes inside the other rather than beside it.",
+     "perturbed": "Somebody perturbed has been unsettled, and letters that have been unsettled do not stay in their old order."
+    },
+    "anagram": {
+     "fodder": "TUTOR IS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tutor",
+      "gives": "TUTOR",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "two letters that break into the middle of the shuffled word"
+     },
+     {
+      "clueFragment": "perturbed",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A flustered tutor whose lesson keeps being broken into.",
+    "walkthrough": "'Is' looks like a link word joining a definition to its wordplay, and that is the whole disguise: here it is two letters of the answer.",
+    "definitionFit": "A TOURIST is somebody visiting a place for pleasure, so 'Visitor' is the plain synonym with the holiday sense left implied."
+   }
   },
   {
    "id": "26-across",
@@ -511,7 +1321,24 @@ window.CRYPTIC_PUZZLES["cryptic-30010"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHOTOGRAPHING",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PHOTOGRAPHING",
+    "definition": "Shooting with negative, then positive, results",
+    "blocks": [
+     {
+      "clueFragment": "Shooting",
+      "note": "the surface hears gunfire, or at best a film crew on location"
+     },
+     {
+      "clueFragment": "with negative, then positive, results",
+      "note": "on film the exposure develops into a negative first, and the print made from that is called a positive — the order the setter is describing"
+     }
+    ],
+    "surface": "A shoot that goes badly at first and then comes good.",
+    "walkthrough": "Shooting is what a photographer calls it too, and the negative-then-positive sequence is the darkroom's rather than a run of luck.",
+    "definitionFit": "Shooting is the photographer's own word for taking pictures, and film yields a negative that is then printed as a positive — the whole clue describes the process."
+   }
   }
  ]
 } /*JSON-END*/;
