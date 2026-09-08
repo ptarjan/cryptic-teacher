@@ -115,7 +115,12 @@ EXHAUSTED="${EXHAUSTED:-97}"
 # remainder is still meant to be spent, so an empty room gets the reserve too.
 # See bridge_busy and the note in after_wave.
 SESSION_RESERVE_PCT="${SESSION_RESERVE_PCT:-25}"
-BRIDGE_DIR="${BRIDGE_DIR:-$HOME/.claude/projects/-Users-pt}"
+# Transcripts live under the CLI's config dir, which is exported above and is
+# NOT $HOME/.claude in the container: $HOME is /data/home there and the config
+# dir is the /data/claude volume. Spelled $HOME this pointed at a directory that
+# has never existed, every poll read the room as occupied, and the reserve was
+# held back all day for nobody.
+BRIDGE_DIR="${BRIDGE_DIR:-$CLAUDE_CONFIG_DIR/projects/-Users-pt}"
 BRIDGE_IDLE_MIN="${BRIDGE_IDLE_MIN:-60}"
 # The reserve is DEFERRED, never forfeited. A five-hour window that turns over
 # with room left on it has thrown that room away for good, so in the last of its

@@ -536,6 +536,16 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   assert(race.status === 0,
     "tools/test_notify_race.js: a paper ticked while another is saving is queued, "
     + "not dropped and then unticked\n" + (race.stdout || "") + (race.stderr || ""));
+
+  /* Shell paths the pre-reset burn resolves at runtime. Shelled out because
+     they are bash, and checked here because nothing else runs on a schedule
+     that would notice: both were wrong for two days and the failure of one was
+     to silence the alert about the other. */
+  const paths = require("child_process").spawnSync(
+    "bash", [path.join(ROOT, "tools/test_prereset_paths.sh")], { encoding: "utf8" });
+  assert(paths.status === 0,
+    "tools/test_prereset_paths.sh: the burn finds the bridge transcripts and "
+    + "wake.sh from its worktree\n" + (paths.stdout || "") + (paths.stderr || ""));
 }
 
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---

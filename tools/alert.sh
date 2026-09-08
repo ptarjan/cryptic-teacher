@@ -21,11 +21,17 @@
 # reader to scroll past it — which is the silent failure again, wearing the
 # opposite mask. The log still records every occurrence; only Discord is spared.
 ALERT_CHANNEL="${ALERT_CHANNEL:-1530815234019692624}"   # #cryptic-crosswords
-# The bridge checkout sits beside this one, so derive it from this file rather
-# than from $HOME: the two are the same directory on the Mac and different
-# directories in a container, and only one of those spellings finds the file.
-ALERT_ENV_FILE="${ALERT_ENV_FILE:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." \
-  && pwd)/household/.env}"
+# The bridge checkout sits beside the MAIN checkout of this repo, so derive it
+# from the repository rather than from this file or from $HOME. Not $HOME: it is
+# the checkout's parent on the Mac and a different directory in the container.
+# Not this file's own grandparent either — sourced from a nightly worktree that
+# is two levels under CT_WORKTREE_ROOT, that named a household beside the
+# worktrees, so every alert this job raised printed "no wake.sh" into the log it
+# exists to stop anyone having to read. A worktree's git-common-dir is the main
+# checkout's .git from either place.
+ALERT_ENV_FILE="${ALERT_ENV_FILE:-$(dirname "$(dirname "$(git \
+  -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute \
+  --git-common-dir 2>/dev/null || echo "$(dirname "${BASH_SOURCE[0]}")/../.git")")")/household/.env}"
 ALERT_STATE_DIR="${ALERT_STATE_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." \
   && pwd)/.alert-state}"
 ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
