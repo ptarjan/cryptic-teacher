@@ -424,6 +424,109 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   new Set((global.CRYPTIC_INDEX.puzzles || []).map((p) => p.series || "cryptic"))
     .forEach((s) => assert(badged.includes(s),
       `series '${s}' has a badge in app.js's SERIES_BADGE`));
+
+  /* --- a push notification says WHICH PAPER, and there is still one table ---
+
+     On the site a row wears a badge, so "Cryptic crossword No 30,106" is
+     obviously the Guardian's. On a lock screen there is no badge and three of
+     the five series arrive anonymous, which is what this fixes.
+
+     sync/worker.js can import neither app.js nor tools/series.py, so the
+     temptation is a second list of papers in the Worker — the list that would
+     still say five the night a sixth arrives. Instead the paper is carried in
+     puzzles/index.json, which the fan-out already fetches, written there by
+     tools/fetch_puzzle.py out of tools/series.py. That makes the index and
+     SERIES_BADGE two views of the same fact, written from opposite ends, so
+     what is checked here is that they name the same set of series. */
+  const papers = global.CRYPTIC_INDEX.papers || {};
+  assert(Object.keys(papers).length > 3,
+    "puzzles/index.json carries a `papers` table: " + JSON.stringify(papers));
+  assert(Object.keys(papers).sort().join(",") === badged.slice().sort().join(","),
+    "index.json's `papers` and app.js's SERIES_BADGE name the same series: "
+    + Object.keys(papers).sort().join(",") + " vs " + badged.slice().sort().join(","));
+
+  const CTNotify = require("../sync/notify.js");
+  const sample = {};
+  (global.CRYPTIC_INDEX.puzzles || []).forEach((p) => { sample[p.series] = sample[p.series] || p; });
+  Object.keys(sample).forEach((s) => {
+    const t = CTNotify.title(sample[s], papers);
+    assert(t.includes(papers[s]), `a ${s} notification names its paper: ${t}`);
+    // "Independent Independent cryptic crossword" — the Independent's two
+    // series already carry the paper in their names, so prefixing is wrong for
+    // them and right for the Guardian's three.
+    assert(!/\b(\w+) \1\b/.test(t), `and names it once: ${t}`);
+  });
+  assert(CTNotify.title({ series: "cryptic", name: "Cryptic crossword No 30,106" }, papers)
+    === "Guardian Cryptic crossword No 30,106", "the Guardian's daily says Guardian");
+  assert(CTNotify.title({ series: "indysunday", name: "Independent on Sunday cryptic crossword No 1,906" },
+                        papers) === "Independent on Sunday cryptic crossword No 1,906",
+    "a name that already opens with its paper is left alone");
+  // An index deployed before `papers` existed. The notification is worse, not
+  // missing: a title nobody gets is not an improvement on an unattributed one.
+  assert(CTNotify.title({ series: "cryptic", name: "Cryptic crossword No 30,106" }, {})
+    === "Cryptic crossword No 30,106", "and an index with no papers table still notifies");
+}
+
+/* --- quiet hours: held until the hour this device asked for, then sent once ---
+
+   Tested as arithmetic and never as a push. The subscription in KV is a real
+   phone on somebody's bedside table, so "does the hold work" cannot be answered
+   by running the fan-out; it can be answered completely by the two numbers the
+   fan-out compares. */
+{
+  const CTNotify = require("../sync/notify.js");
+  const tz = "America/Edmonton";
+  const threeAM = Date.parse("2026-09-08T09:00:00Z");  // 03:00 there, in September
+  const nineAM = Date.parse("2026-09-08T15:00:00Z");   // 09:00 there
+
+  assert(CTNotify.parseAfter("07:00") === 420, "07:00 is 420 minutes into the day");
+  assert(CTNotify.parseAfter("7:00") === null && CTNotify.parseAfter("24:00") === null
+    && CTNotify.parseAfter(420) === null && CTNotify.parseAfter(null) === null,
+    "and anything that is not a 24-hour clock time is not a time");
+  assert(CTNotify.minutesOfDay(tz, threeAM) === 180,
+    "the zone decides the local clock, not the server's: " + CTNotify.minutesOfDay(tz, threeAM));
+
+  assert(!CTNotify.due(420, tz, threeAM),
+    "a puzzle annotated at 3am local is HELD — the annotation run finishes in the small hours");
+  assert(CTNotify.due(420, tz, nineAM), "and goes out on the first run after seven");
+  // A floor, not a window: the panel asks for the earliest time of day, so a
+  // puzzle that lands at half eleven at night is not held until tomorrow.
+  assert(CTNotify.due(420, tz, Date.parse("2026-09-09T05:30:00Z")),
+    "an evening puzzle is not held overnight");
+
+  // Every unknown resolves to "send". A hold has to be asked for explicitly:
+  // the failure mode of guessing the other way is a notification that never
+  // arrives and never says why.
+  assert(CTNotify.due(null, tz, threeAM),
+    "a subscription saved before quiet hours existed is not held at all");
+  assert(CTNotify.due(420, "", threeAM) && CTNotify.due(420, "Mars/Olympus", threeAM),
+    "nor is one whose zone this runtime cannot read");
+  assert(CTNotify.due(0, tz, threeAM), "and midnight means no quiet hours at all");
+  assert(CTNotify.zone(tz) === tz, "a real zone is stored as it came");
+  assert(!CTNotify.zone("Mars/Olympus") && !CTNotify.zone("") && !CTNotify.zone("../../etc"),
+    "and a zone Intl does not know is not stored at all");
+
+  // The page has to send BOTH. "07:00" without a zone is seven o'clock nowhere.
+  assert(/after: notifyAfter\(\), tz: notifyZone\(\)/.test(appSrc),
+    "putNotify carries the chosen time and the device's zone alongside the papers");
+  assert(/Intl\.DateTimeFormat\(\)\.resolvedOptions\(\)\.timeZone/.test(appSrc),
+    "and the zone is the browser's own IANA name, not an offset");
+
+  /* The arithmetic above is the easy half. The half that loses a notification
+     is the bookkeeping around it — n:seen is written BEFORE the fan-out, so a
+     held puzzle has already been announced to the world and exists nowhere but
+     its subscriber's own queue. That is behaviour, not a shape source can be
+     read for, so it is a real run of scheduled() against a fake KV.
+
+     Shelled out because sync/worker.js is a Worker module and cannot be
+     require()d from here. Its output is printed on failure and swallowed on
+     success: it has its own ok/FAIL lines, and duplicating a passing suite
+     inside a passing suite is noise. */
+  const hold = require("child_process").spawnSync(
+    process.execPath, [path.join(ROOT, "tools/test_push_hold.js")], { encoding: "utf8" });
+  assert(hold.status === 0,
+    "tools/test_push_hold.js: the cron holds an out-of-hours puzzle and delivers it "
+    + "exactly once\n" + (hold.stdout || "") + (hold.stderr || ""));
 }
 
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
@@ -2445,6 +2548,35 @@ registry["reset-puzzle"].onclick();
   assert(!/["']sw\.js["']/.test(stamp), "sw.js is not a stamped asset");
   assert(/serviceWorker\.register\("sw\.js"\)/.test(src),
     "and the page registers it at its bare URL");
+
+  /* The quiet-hours control, in the panel that already asks which papers.
+     Seven in the morning is the shipped default and is written into the markup
+     as well as into app.js: a device that never opens this panel still gets the
+     hold, because refreshNotify() re-asserts on every load. */
+  const notifyHTML = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  assert(/<input type="time" id="notify-after" value="07:00">/.test(notifyHTML),
+    "the notify panel offers a time of day, defaulting to 07:00");
+  assert(/NOTIFY_AFTER_DEFAULT = "07:00"/.test(src),
+    "and app.js defaults to the same 07:00 when nothing is stored");
+  // The setting is a setting: without this the sync scan uploads "ct:notify-after"
+  // as though it were a half-finished crossword called "notify-after".
+  assert(/SYNC_RESERVED = \{[^}]*"notify-after": 1/.test(src),
+    "ct:notify-after is reserved from the sync scan");
+
+  // Changing the time with no paper ticked must not unsubscribe the device:
+  // saveNotify([]) IS the unsubscribe, so "not before eight" would read as
+  // "never" and the panel would silently empty itself.
+  storage["ct:notify"] = JSON.stringify([]);
+  delete storage["ct:notify-after"];
+  registry["notify-after"].value = "08:30";
+  (registry["notify-after"].listeners.change || []).forEach((fn) =>
+    fn({ target: registry["notify-after"] }));
+  assert(storage["ct:notify-after"] === JSON.stringify("08:30"),
+    "the chosen time is stored: " + storage["ct:notify-after"]);
+  assert(storage["ct:notify"] === JSON.stringify([]),
+    "and changing it with nothing ticked leaves the papers alone");
+  delete storage["ct:notify"];
+  delete storage["ct:notify-after"];
 
   registry["btn-sync"].onclick();
   assert(!registry["sync-panel"].classList.contains("hidden"), "the sync panel opens");

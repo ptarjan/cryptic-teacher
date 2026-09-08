@@ -26,7 +26,7 @@
   const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   // Reserved localStorage names, so scanning for saves cannot pick up settings.
   // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
-  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, notify: 1 };
+  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, notify: 1, "notify-after": 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
   /* ---------- counting solves, not solvers ----------
@@ -549,6 +549,30 @@
      is a setting and never a save — hence `notify` in SYNC_RESERVED, without
      which the scan above would upload it as though it were a grid. */
   const NOTIFY_KEY = "ct:notify";
+  /* The earliest time of day this device is willing to be woken, held next to
+     the papers and sent with them.
+
+     Seven in the morning by default, because the annotation run finishes in the
+     small hours and the first notification Paul ever got out of this arrived in
+     the middle of the night. A device that never opens the panel still gets the
+     default: refreshNotify() re-asserts on every load, so the hold arrives with
+     the next page view rather than waiting for someone to go looking for it. */
+  const NOTIFY_AFTER_KEY = "ct:notify-after";
+  const NOTIFY_AFTER_DEFAULT = "07:00";
+  const notifyAfter = () => {
+    const saved = store.get(NOTIFY_AFTER_KEY, null);
+    return /^([01]\d|2[0-3]):[0-5]\d$/.test(saved) ? saved : NOTIFY_AFTER_DEFAULT;
+  };
+  /* The zone travels with the time, because the Worker is the one that decides.
+     "07:00" on its own means seven o'clock wherever Cloudflare happened to run
+     the cron, which is nowhere anybody lives. */
+  const notifyZone = () => {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    } catch (e) {
+      return "";
+    }
+  };
   // The public half of the VAPID pair whose private half signs every push in
   // sync/wrangler.toml. A push service checks a subscription against the key
   // that signed for it, so the two are one pair: replacing either means
@@ -603,11 +627,19 @@
   function renderNotifyPanel() {
     const list = $("notify-list");
     if (!list) return;
+    const when = $("notify-when");
     if (iosNeedsHomeScreen()) {
       list.innerHTML = `<li class="muted small-note">On an iPhone or iPad, notifications reach a
         site only once it is on your Home Screen — share this page, “Add to Home Screen”, and
         tick your papers in there.</li>`;
+      // Nothing here can be notified yet, so a time to be notified AT is a
+      // control that promises something the browser will not do.
+      if (when) when.classList.add("hidden");
       return;
+    }
+    if (when) {
+      when.classList.remove("hidden");
+      $("notify-after").value = notifyAfter();
     }
     const on = new Set(notifySeries());
     list.innerHTML = Object.keys(SERIES_BADGE).map((s) =>
@@ -641,7 +673,12 @@
   function putNotify(sub, series) {
     return fetch(SYNC_ENDPOINT.replace(/\/$/, "") + "/n", {
       method: "PUT", headers: { "content-type": "application/json" },
-      body: JSON.stringify(Object.assign({}, sub.toJSON(), { series })),
+      // The quiet hours are read here rather than passed in, so every caller —
+      // a tick, a change of time, the silent refresh on load — sends the same
+      // three things and there is no path that saves papers without them.
+      body: JSON.stringify(Object.assign({}, sub.toJSON(), {
+        series, after: notifyAfter(), tz: notifyZone(),
+      })),
     }).then((r) => r.json().catch(() => null).then((body) => {
       if (!r.ok || !body || body.error) throw new Error((body && body.error) || "HTTP " + r.status);
       return body.series || [];
@@ -4308,6 +4345,17 @@
       // Ordered off SERIES_BADGE, so what goes on the wire does not depend on
       // which box was tapped first.
       saveNotify(Object.keys(SERIES_BADGE).filter((s) => on.has(s)));
+    });
+    /* The time is stored first and asserted second, so a browser with no papers
+       ticked still remembers it — saveNotify([]) is the unsubscribe, and running
+       it here would turn "not before eight" into "never". */
+    $("notify-after").addEventListener("change", (ev) => {
+      const value = (ev.target && ev.target.value) || "";
+      if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(value)) { renderNotifyPanel(); return; }
+      store.set(NOTIFY_AFTER_KEY, value);
+      const series = notifySeries();
+      if (!series.length) { notifyNote("Saved — tick a paper to hear about one."); return; }
+      saveNotify(series);
     });
     $("sync-start").onclick = () => {
       store.set("ct:sync", newSyncCode());
