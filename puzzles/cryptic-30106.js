@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUNAWAY",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "RUNAWAY",
+    "definition": "Out-of-control",
+    "indicators": [
+     "first",
+     "to occupy"
+    ],
+    "indicatorNotes": {
+     "first": "It asks for the opening letter of the word in front of it, the letter that word starts on.",
+     "to occupy": "To occupy a space is to sit inside it, so the single letter takes up residence within the longer piece."
+    },
+    "pieces": [
+     "RUN",
+     "A",
+     "WAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "landing zone",
+      "gives": "RUNWAY",
+      "note": "the strip of tarmac an aircraft comes down on, taken whole before anything is let in"
+     },
+     {
+      "clueFragment": "aircraft’s first",
+      "gives": "A",
+      "note": "the opening letter of the word aircraft, cut off because the clue asks for its first"
+     }
+    ],
+    "surface": "A plane nobody can steer is coming down and takes over the landing strip.",
+    "walkthrough": "'Out-of-control' reads as part of the aircraft's plight and is quietly the definition, which leaves the rest of the sentence as a strip of tarmac with one letter parked on it.",
+    "definitionFit": "A runaway horse, train or lorry is one nobody can stop, so the adjective sits straight in for 'out-of-control'."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +79,39 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROCOCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ROCOCO",
+    "definition": "theatrical style",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "R",
+     "O",
+     "COCO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "the letter a cricket scorebook uses for runs"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "an over is the six balls a bowler sends down, and the scorebook writes it as one letter"
+     },
+     {
+      "clueFragment": "clown",
+      "gives": "COCO",
+      "note": "Coco the Clown was Britain's best-known circus clown for decades, and his name is the long piece here"
+     }
+    ],
+    "surface": "A clown is run over, and the accident is played for all the theatre it is worth.",
+    "walkthrough": "Cricket supplies both short pieces, R for runs and O for an over, and it supplies the surface too — which is why 'Runs over' reads as one verb rather than two abbreviations.",
+    "definitionFit": "Rococo is the frilled, gilded eighteenth-century manner in art and decoration, and 'theatrical' catches its showiness: a style defined by a style."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +128,33 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NORMAN",
+    "definition": "French person",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "NORMA",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opera",
+      "gives": "NORMA",
+      "note": "Bellini's Norma is one of the standards of the operatic repertoire, and the clue wants its title"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "the compass point in its one-letter form, as printed on a map"
+     }
+    ],
+    "surface": "A French singer has joined the northern opera company.",
+    "walkthrough": "Opera North is a real company, based in Leeds, and that is what makes the two words look like one name instead of two separate pieces of wordplay.",
+    "definitionFit": "A Norman comes from Normandy, so the definition names a French person by region — one instance of the nationality rather than the nationality itself."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +171,33 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WITCHCRAFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WITCHCRAFT",
+    "definition": "Bad spelling",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "WITCH",
+     "CRAFT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broomstick",
+      "gives": "WITCH",
+      "note": "in every storybook a broomstick has exactly one rider, and the rider is the first piece"
+     },
+     {
+      "clueFragment": "broomstick",
+      "gives": "CRAFT",
+      "note": "craft also means a vessel you travel in, which is what a broomstick is to the person on it"
+     }
+    ],
+    "surface": "Somebody has misspelled the word broomstick.",
+    "walkthrough": "'Spelling' is the trap: not the arrangement of letters but the casting of spells, and 'Bad' is what makes those spells the black sort. The question mark admits the broomstick is being read whimsically.",
+    "definitionFit": "Witchcraft is spell-casting of the malevolent kind, so 'Bad spelling' reads it in the sorcery sense rather than the classroom one."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +214,33 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YUKON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "YUKON",
+    "definition": "Canadian territory",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "YUK",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s disgusting",
+      "gives": "YUK",
+      "note": "the noise you make at something revolting, spelt the British way"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on, and setters use that equivalence constantly"
+     }
+    ],
+    "surface": "A complaint that something repulsive is going on up in the Canadian north.",
+    "walkthrough": "'It's disgusting' looks like reported speech and is a two-letter noise plus a switch position. The Yukon is one of Canada's three territories, up beside Alaska, rather than one of its provinces.",
+    "definitionFit": "The Yukon is a territory of Canada, not a province, which is exactly the distinction the definition is leaning on."
+   }
   },
   {
    "id": "5-across",
@@ -115,7 +257,44 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHEELIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "WHEELIE",
+    "definition": "Simple stunt",
+    "indicators": [
+     "attached to",
+     "regularly kicked out"
+    ],
+    "indicatorNotes": {
+     "attached to": "It says the piece just built is fastened straight on to the next one, with nothing coming between them.",
+     "regularly kicked out": "Kick letters out at regular intervals and the ones left standing are every second one."
+    },
+    "pieces": [
+     "W",
+     "HEEL",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "the short form you write in notes and addresses, as in w/ and w/o"
+     },
+     {
+      "clueFragment": "part of foot",
+      "gives": "HEEL",
+      "note": "the back part of a foot, the bit a shoe is built up under"
+     },
+     {
+      "clueFragment": "bike",
+      "gives": "IE",
+      "note": "the second and fourth letters of the word, the two left standing when the others are booted out"
+     }
+    ],
+    "surface": "An easy trick performed with one foot on a bike that keeps throwing its rider off.",
+    "walkthrough": "'Bike' looks like part of the definition, since the stunt is done on one; it is fodder, and everything defining happens in the clue's first two words.",
+    "definitionFit": "A wheelie is about the simplest trick there is on a bike — front wheel up, back wheel rolling — so 'simple stunt' names it plainly."
+   }
   },
   {
    "id": "5-down",
@@ -132,7 +311,41 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WESTERNER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "WESTERNER",
+    "definition": "American",
+    "indicators": [
+     "Nearly"
+    ],
+    "indicatorNotes": {
+     "Nearly": "Something done nearly stops just short of the end, so the word beside it turns up without its final letter."
+    },
+    "pieces": [
+     "WE",
+     "STERNER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "WED",
+      "note": "the ordinary three-letter word for married, taken whole before anything is lost"
+     },
+     {
+      "clueFragment": "Nearly",
+      "gives": "",
+      "note": "the D on the end of the previous piece drops off, leaving two letters"
+     },
+     {
+      "clueFragment": "more severe",
+      "gives": "STERNER",
+      "note": "stern means severe, and the comparative just adds -er"
+     }
+    ],
+    "surface": "A marriage that almost happened, and a sterner sort of American.",
+    "walkthrough": "The question mark is doing real work: this is a definition by example, and plenty of the people the answer covers have never been near America.",
+    "definitionFit": "A Westerner is anyone from the West, and an American is the readiest example of one — which is the looseness the question mark concedes."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +362,39 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVIL",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "EVIL",
+    "definition": "sin",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "On return"
+    ],
+    "indicatorNotes": {
+     "On return": "Anything on its return comes back along the way it went, so the word beside it is read from its far end."
+    },
+    "pieces": [
+     "EVIL"
+    ],
+    "subReversals": [
+     {
+      "from": "LIVE",
+      "to": "EVIL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "LIVE",
+      "note": "four letters that only have to be read the other way round"
+     }
+    ],
+    "surface": "Somebody comes home to find a couple living in sin.",
+    "walkthrough": "'Live in sin' is the phrase the surface leans on, and the clue quietly splits it down the middle: one half is a word to turn round, the other is the definition.",
+    "definitionFit": "Evil is moral wrong taken as a whole, and 'sin' is the same idea in religious dress — both nouns for the bad thing itself."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +411,37 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIGAMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LIGAMENT",
+    "definition": "tissue",
+    "indicators": [
+     "wrapped in"
+    ],
+    "indicatorNotes": {
+     "wrapped in": "Wrap one thing in another and it finishes up inside, which is where the meat goes here."
+    },
+    "pieces": [
+     "LI",
+     "GAME",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cotton",
+      "gives": "LINT",
+      "note": "lint is the soft fluff cotton sheds, and it opens and closes the wordplay"
+     },
+     {
+      "clueFragment": "Venison, perhaps",
+      "gives": "GAME",
+      "note": "venison is one kind of game, the meat of hunted animals, with 'perhaps' flagging the example"
+     }
+    ],
+    "surface": "A haunch of venison comes wrapped in cotton cloth.",
+    "walkthrough": "'Tissue' wants to be the cotton's partner, the paper kind on the kitchen roll; it is the body's sort, the fibrous stuff that ties a joint together.",
+    "definitionFit": "A ligament is connective tissue, the fibrous strap holding one bone to another, so 'tissue' names it by its biological class."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +458,30 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARLOBES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EARLOBES",
+    "definition": "stud locations",
+    "pieces": [
+     "EARL",
+     "OBES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nobleman",
+      "gives": "EARL",
+      "note": "the British peerage rank between viscount and marquess"
+     },
+     {
+      "clueFragment": "honours",
+      "gives": "OBES",
+      "note": "an OBE is the Order of the British Empire, handed out in the twice-yearly honours lists, and more than one makes OBEs"
+     }
+    ],
+    "surface": "A nobleman pays tribute to the country's horse-breeding farms.",
+    "walkthrough": "A stud in the surface is the place thoroughbreds are bred; the studs meant are the small earrings, and the question mark admits people wear those elsewhere too.",
+    "definitionFit": "Earlobes are where a stud earring is pushed through and fastened, so the definition names them by what gets fixed there."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +498,27 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARAT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CARAT",
+    "definition": "measure of gold",
+    "indicators": [
+     "to hide"
+    ],
+    "indicatorNotes": {
+     "to hide": "To hide a thing is to tuck it out of sight inside something else, and the words before it are the something else."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Oscar attempts",
+      "gives": "CARAT",
+      "note": "run the two words together and five consecutive letters, starting two letters in, are the ones wanted"
+     }
+    ],
+    "surface": "Oscar is trying to conceal how much gold there is.",
+    "walkthrough": "For gold a carat measures purity in twenty-fourths — 24-carat is the pure stuff — while the near-identical carat for gemstones measures weight, and 'of gold' picks the right one.",
+    "definitionFit": "A carat states how many twenty-fourths of an alloy are pure gold, so it is literally a measure of gold rather than of a jewel."
+   }
   },
   {
    "id": "10-across",
@@ -217,7 +535,36 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KISSINGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KISSINGER",
+    "definition": "Controversial US politician",
+    "indicators": [
+     "Cockney"
+    ],
+    "indicatorNotes": {
+     "Cockney": "East End speech drops the aitch from the front of a word, so the word it labels arrives short of its first letter."
+    },
+    "pieces": [
+     "KISSING",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snogging",
+      "gives": "KISSING",
+      "note": "snogging is British slang for kissing at length"
+     },
+     {
+      "clueFragment": "that Cockney woman",
+      "gives": "ER",
+      "note": "the word is 'her', and dropped-aitch speech leaves only the two letters that follow"
+     }
+    ],
+    "surface": "A controversial American politician is caught kissing a local woman.",
+    "walkthrough": "Henry Kissinger ran American foreign policy for Nixon and Ford, and 'controversial' is the definition doing a lot of quiet work — Cambodia and Chile are still argued over.",
+    "definitionFit": "Kissinger was US Secretary of State and national security adviser, and few American politicians of the century are fought over harder."
+   }
   },
   {
    "id": "11-across",
@@ -238,7 +585,33 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
     ]
    },
    "solution": "COATHANGER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "COAT HANGER",
+    "definition": "item in wardrobe",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Surprisingly"
+    ],
+    "indicatorNotes": {
+     "Surprisingly": "A surprise is what you were not expecting, and these letters do not turn up in the order you were expecting either."
+    },
+    "anagram": {
+     "fodder": "NOT A CHARGE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "not a charge",
+      "gives": "NOTACHARGE",
+      "note": "ten letters of fodder, exactly the length the grid wants"
+     }
+    ],
+    "surface": "To everybody's surprise, nothing was charged for it.",
+    "walkthrough": "The fodder is the whole phrase, little words included, which is where a solver who counts only the letters of 'charge' comes unstuck.",
+    "definitionFit": "A coat hanger is the shaped wire or wood a jacket hangs from, and any wardrobe is full of them — hardware rather than clothing."
+   }
   },
   {
    "id": "12-across",
@@ -255,7 +628,38 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMMO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "AMMO",
+    "definition": "bullets etc",
+    "indicators": [
+     "After revolution",
+     "stores"
+    ],
+    "indicatorNotes": {
+     "After revolution": "A revolution turns a thing full circle, so what is found has to be read the other way round.",
+     "stores": "To store something is to keep it inside, so the word beside it holds the letters wanted within itself."
+    },
+    "pieces": [
+     "AMMO"
+    ],
+    "subReversals": [
+     {
+      "from": "OMMA",
+      "to": "AMMO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commandant",
+      "gives": "OMMA",
+      "note": "four consecutive letters sitting inside the word, starting at its second letter"
+     }
+    ],
+    "surface": "After the uprising, the commandant's stores still hold the bullets.",
+    "walkthrough": "'Revolution' is doing two jobs at once — an uprising in the surface, a turn of the letters in the wordplay — and 'stores' looks like a noun while working as a verb.",
+    "definitionFit": "Ammo is the everyday shortening of ammunition, and 'etc' widens it past bullets to shells and cartridges."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +680,45 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRESSAGENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "PRESS AGENT",
+    "definition": "promoter",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "inspiring"
+    ],
+    "indicatorNotes": {
+     "inspiring": "To inspire is to breathe in, so what follows is drawn inside the letters already standing."
+    },
+    "pieces": [
+     "PRES",
+     "SAGE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "PRES",
+      "note": "the office in its usual short form, as printed on a nameplate"
+     },
+     {
+      "clueFragment": "wise man",
+      "gives": "SAGE",
+      "note": "a sage is a wise man, and these four letters are the ones breathed in"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "the New Testament, a shelf of books that setters cut to two letters"
+     }
+    ],
+    "surface": "The president's reading is an inspiration to a wise old man.",
+    "walkthrough": "'Books' with no title attached is nearly always the Bible in a cryptic — NT for the New Testament, OT for the Old — and it is worth learning both.",
+    "definitionFit": "A press agent is hired to get a client into the newspapers, which is promotion, so 'promoter' names the job rather than the trade."
+   }
   },
   {
    "id": "14-across",
@@ -297,7 +739,24 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
     ]
    },
    "solution": "DRIVINGRANGE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "DRIVING RANGE",
+    "definition": "How far one can travel with a Tesla in place of Golf?",
+    "blocks": [
+     {
+      "clueFragment": "How far one can travel with a Tesla",
+      "note": "an electric car is sold on this number: the miles it will do before the battery needs charging"
+     },
+     {
+      "clueFragment": "in place of Golf",
+      "note": "put the electric car where the Volkswagen was and the other reading surfaces — a place laid out for golfers, where balls are hit down a strip"
+     }
+    ],
+    "surface": "Somebody works out the mileage they would get if a Tesla replaced the family Volkswagen.",
+    "walkthrough": "Golf has its capital G because it is the Volkswagen, and the swap is the joke: put the electric car in and the phrase stops meaning a practice ground and starts meaning miles per charge.",
+    "definitionFit": "A driving range is where golfers hit practice balls, and an electric car's driving range is how far it goes on one charge."
+   }
   },
   {
    "id": "15-down",
@@ -318,7 +777,30 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
     ]
    },
    "solution": "VICESQUAD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VICE SQUAD",
+    "definition": "investigative team",
+    "indicators": [
+     "bemused"
+    ],
+    "indicatorNotes": {
+     "bemused": "Somebody bemused is thoroughly muddled, and the letters handed over beside the word come out muddled too."
+    },
+    "anagram": {
+     "fodder": "CAVE SQUID"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cave with squid",
+      "gives": "CAVESQUID",
+      "note": "nine letters of fodder; the 'with' only joins the two words together"
+     }
+    ],
+    "surface": "A squid sits bemused in a cave.",
+    "walkthrough": "'Bemused' reads as the squid's expression and is the only instruction in the sentence — everything in front of it is letters, and everything after it defines.",
+    "definitionFit": "A vice squad is the police unit put on prostitution, gambling and drugs, so 'investigative team' describes it rather than naming it."
+   }
   },
   {
    "id": "16-down",
@@ -335,7 +817,39 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABERRANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABERRANT",
+    "definition": "Deviant",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "ABE",
+     "R",
+     "RANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "president",
+      "gives": "ABE",
+      "note": "Abraham Lincoln, shortened the way headline writers shorten him"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "the party's initial, the same letter American papers print after a congressman's name"
+     },
+     {
+      "clueFragment": "tirade",
+      "gives": "RANT",
+      "note": "a rant is a tirade delivered at volume"
+     }
+    ],
+    "surface": "A president of odd habits, a Republican, is off on a tirade.",
+    "walkthrough": "Lincoln was the first Republican president, which is what makes the first three pieces read as one description of one man rather than three separate scraps.",
+    "definitionFit": "Aberrant means straying from the normal course, which is what 'deviant' says — both adjectives about departure from the norm."
+   }
   },
   {
    "id": "17-down",
@@ -356,7 +870,30 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
     ]
    },
    "solution": "INERTGAS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "INERT GAS",
+    "definition": "Perhaps neon",
+    "indicators": [
+     "lit up"
+    ],
+    "indicatorNotes": {
+     "lit up": "To be lit up is to be drunk, and somebody in that state cannot keep anything in the order it was given."
+    },
+    "anagram": {
+     "fodder": "TANGIERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tangiers",
+      "gives": "TANGIERS",
+      "note": "eight letters of fodder, the Moroccan port supplying every one of them"
+     }
+    ],
+    "surface": "Neon signs light up the streets of Tangiers after dark.",
+    "walkthrough": "'Lit up' does two jobs: neon tubes in the surface, and an old slang word for drunk in the wordplay. Neon is one of six such gases, with helium and argon.",
+    "definitionFit": "Neon is one of the gases that barely react with anything, so 'Perhaps neon' defines by example, with 'perhaps' owning up to it."
+   }
   },
   {
    "id": "18-across",
@@ -373,7 +910,30 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BENEFACTRESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BENEFACTRESS",
+    "definition": "Patron",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "Milk that has gone off is no longer in its proper state, and neither are the letters in front of the word."
+    },
+    "anagram": {
+     "fodder": "BEATS FENCERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "beats fencers",
+      "gives": "BEATSFENCERS",
+      "note": "twelve letters of fodder, drawn from both words and used entire"
+     }
+    ],
+    "surface": "A patron sees off a troop of fencers in a fight.",
+    "walkthrough": "'Beats fencers off' reads as a single action, so the eye takes the last word as part of the fight rather than as the instruction, leaving one word at the front to define.",
+    "definitionFit": "A benefactress is a woman who pays for a person or an institution to keep going, which is what a patron does."
+   }
   },
   {
    "id": "19-down",
@@ -390,7 +950,45 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PISTOL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PISTOL",
+    "definition": "Arm",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "uprising"
+    ],
+    "indicatorNotes": {
+     "uprising": "In a down entry a rising runs back towards the top of the grid, so the letters before it are read the other way."
+    },
+    "pieces": [
+     "PI",
+     "STOL"
+    ],
+    "subReversals": [
+     {
+      "from": "LOTS",
+      "to": "STOL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "private investigator",
+      "gives": "PI",
+      "note": "the two initials a private eye goes by in every detective story"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "STOL",
+      "note": "many is 'lots', and those four letters climb back up the entry"
+     }
+    ],
+    "surface": "Hand a private detective a weapon, with plenty of people rising in revolt.",
+    "walkthrough": "'Arm' is a verb in the surface — to arm somebody is to hand them a weapon — and a noun in the definition, which is the switch the whole clue rests on.",
+    "definitionFit": "A pistol is a small firearm, and 'arm' is the collective noun for a weapon, as in small arms and arms dealer."
+   }
   },
   {
    "id": "20-down",
@@ -407,7 +1005,40 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENERGY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "ENERGY",
+    "definition": "intensity",
+    "linkWords": [
+     "showing"
+    ],
+    "indicators": [
+     "Refreshed",
+     "at last"
+    ],
+    "indicatorNotes": {
+     "Refreshed": "To refresh a thing is to make it new again, and the letters beside it come back new-made in a different order.",
+     "at last": "It points at the final letter of the word in front of it, the one the word finishes on."
+    },
+    "anagram": {
+     "fodder": "GREEN Y"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Green",
+      "gives": "GREEN",
+      "note": "five letters of fodder, from the party's name"
+     },
+     {
+      "clueFragment": "party at last",
+      "gives": "Y",
+      "note": "the last letter of the word party, joined on after the others have settled"
+     }
+    ],
+    "surface": "The Green party is finally showing some fire.",
+    "walkthrough": "'Refreshed' looks like a comment on the party's mood and is the instruction, while 'party' is not part of the fodder at all — it contributes a single letter from its end.",
+    "definitionFit": "Energy is the vigour something is done with, and 'intensity' is that same force of feeling — the sense in 'she argued with energy'."
+   }
   },
   {
    "id": "21-across",
@@ -424,7 +1055,38 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RARE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RARE",
+    "definition": "unusual",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "Two-thirds of"
+    ],
+    "indicatorNotes": {
+     "Two-thirds of": "Two-thirds of a six-letter word is four letters, and the third dropped here is the one at the front."
+    },
+    "pieces": [
+     "RARE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zimbabwean capital",
+      "gives": "HARARE",
+      "note": "Harare is the capital city of Zimbabwe, six letters before anything goes"
+     },
+     {
+      "clueFragment": "Two-thirds of",
+      "gives": "",
+      "note": "the opening HA falls away, leaving the last four letters standing"
+     }
+    ],
+    "surface": "Most of Zimbabwe's capital city is out of the ordinary.",
+    "walkthrough": "'Capital' is the city, not money and not a big letter, and the fraction is counted in letters rather than in anything the surface is talking about.",
+    "definitionFit": "Something rare is seldom met with, which is 'unusual' in its plainest sense: the two adjectives swap without a wobble."
+   }
   },
   {
    "id": "22-across",
@@ -441,7 +1103,33 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASPIRATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASPIRATION",
+    "definition": "Eager desire",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "corrupt"
+    ],
+    "indicatorNotes": {
+     "corrupt": "Corrupt a file or a text and the characters no longer sit where they should."
+    },
+    "anagram": {
+     "fodder": "PARISIAN TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Parisian to",
+      "gives": "PARISIANTO",
+      "note": "ten letters of fodder, and the little word at the end is part of them"
+     }
+    ],
+    "surface": "A Parisian's longing to lead other people astray.",
+    "walkthrough": "'Of Parisian' looks like it wants a French word — DE, UN, the usual suspects — and it wants nothing of the kind: the whole phrase is simply letters, small words included.",
+    "definitionFit": "An aspiration is something you long for and work towards, so 'Eager desire' is desire with the striving built into it."
+   }
   },
   {
    "id": "23-down",
@@ -458,7 +1146,35 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSET",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "INSET",
+    "definition": "It should be seen as part of the bigger picture",
+    "indicators": [
+     "abandoning"
+    ],
+    "indicatorNotes": {
+     "abandoning": "To abandon a thing is to walk out on it, so the letter named simply leaves the word that held it."
+    },
+    "pieces": [
+     "INSET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket, perhaps",
+      "gives": "INSECT",
+      "note": "a cricket is one kind of insect, with 'perhaps' flagging that it is an example"
+     },
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "clubs is C at the bridge table, and that C is the letter walking out"
+     }
+    ],
+    "surface": "Cricket clubs are folding, which matters when you look at the wider view.",
+    "walkthrough": "Both halves of the trap are sporting: the cricket is the insect rather than the game, and 'Clubs' is the card suit rather than anybody's sports club.",
+    "definitionFit": "An inset is the small picture printed inside a larger one — the corner map, the boxed photograph — so it really is part of the bigger picture."
+   }
   },
   {
    "id": "24-down",
@@ -475,7 +1191,36 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KNOB",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "KNOB",
+    "definition": "Handle",
+    "indicators": [
+     "up"
+    ],
+    "indicatorNotes": {
+     "up": "In a down entry up runs back towards the top of the grid, so the word before it is read in reverse."
+    },
+    "pieces": [
+     "KNOB"
+    ],
+    "subReversals": [
+     {
+      "from": "BONK",
+      "to": "KNOB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screw",
+      "gives": "BONK",
+      "note": "British slang for sex, and 'screw' is the coarser word for the same thing"
+     }
+    ],
+    "surface": "Somebody is asked to handle a blunder.",
+    "walkthrough": "'Screw-up' reads as one word meaning a mess, and the clue wants it as two: a verb to turn round, and the instruction telling you to turn it.",
+    "definitionFit": "A knob is the round handle on a door or a drawer, so 'Handle' is the plain noun it stands in for."
+   }
   },
   {
    "id": "25-across",
@@ -492,7 +1237,33 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARGONAUTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ARGONAUTS",
+    "definition": "heroic sailors",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "rum"
+    ],
+    "indicatorNotes": {
+     "rum": "Rum is an old British adjective meaning odd or peculiar, so the letters it labels come out peculiar."
+    },
+    "anagram": {
+     "fodder": "ANGOSTURA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Angostura",
+      "gives": "ANGOSTURA",
+      "note": "nine letters of fodder, off the bitters bottle behind the bar"
+     }
+    ],
+    "surface": "Angostura and rum, the drink you would pour for heroes home from the sea.",
+    "walkthrough": "'Rum' is a spirit in the surface and an adjective meaning odd in the wordplay, and the sailors are Jason's crew, who went after the Golden Fleece in the Argo.",
+    "definitionFit": "The Argonauts crewed the Argo for Jason, and Greek myth counts every one of them a hero, so 'heroic sailors' names the whole company."
+   }
   },
   {
    "id": "26-across",
@@ -509,7 +1280,35 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ENTER",
+    "definition": "Go into",
+    "indicators": [
+     "with shaved head"
+    ],
+    "indicatorNotes": {
+     "with shaved head": "A shaved head loses what sits on top, so the word gives up the letter it begins with."
+    },
+    "pieces": [
+     "ENTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "middle of America",
+      "gives": "CENTER",
+      "note": "the middle, spelt the way America spells it, which is what 'of America' is asking for"
+     },
+     {
+      "clueFragment": "with shaved head",
+      "gives": "",
+      "note": "the opening C is shaved off, leaving five letters"
+     }
+    ],
+    "surface": "Cross into the heart of America with a freshly shaved head.",
+    "walkthrough": "'Middle of America' looks like an instruction to pull letters out of the middle of the word AMERICA; it is asking instead for a word meaning middle, in the American spelling.",
+    "definitionFit": "To enter a room is to go into it — the same movement, with the two-word phrasal version standing in for the single verb."
+   }
   },
   {
    "id": "27-across",
@@ -530,7 +1329,45 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
     ]
    },
    "solution": "TESTBED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TEST BED",
+    "definition": "a place to experiment",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "at last"
+    ],
+    "indicatorNotes": {
+     "at last": "It calls for the final letter of the word in front of it and nothing else of that word."
+    },
+    "pieces": [
+     "TEST",
+     "BE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "International match",
+      "gives": "TEST",
+      "note": "a Test is an international fixture at cricket or rugby, the one country plays against country"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to live is to be, so the verb hands over two letters"
+     },
+     {
+      "clueFragment": "feed at last",
+      "gives": "D",
+      "note": "the final letter of the word feed"
+     }
+    ],
+    "surface": "The international was covered with a live feed right at the end.",
+    "walkthrough": "'Live feed' reads as broadcasting and is two unrelated pieces of wordplay, while the definition is the whole tail of the sentence rather than a single word.",
+    "definitionFit": "A test bed is the rig an engine, a system or an idea is tried out on, so it is literally a place where things are experimented with."
+   }
   },
   {
    "id": "28-across",
@@ -547,7 +1384,30 @@ window.CRYPTIC_PUZZLES["cryptic-30106"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOTALLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOTALLY",
+    "definition": "dead",
+    "pieces": [
+     "TOT",
+     "ALLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shot",
+      "gives": "TOT",
+      "note": "a tot is a small measure of spirits, the shot poured in a British pub"
+     },
+     {
+      "clueFragment": "colleague",
+      "gives": "ALLY",
+      "note": "an ally is somebody on your side, which is what a colleague is at work"
+     }
+    ],
+    "surface": "A workmate has been shot dead.",
+    "walkthrough": "'Dead' is not the corpse the surface offers: it is the intensifier of 'dead right' and 'dead certain', so the definition is an adverb meaning completely.",
+    "definitionFit": "Dead used as an intensifier — dead right, dead easy — means completely, and the answer is that adverb in its ordinary form."
+   }
   }
  ]
 } /*JSON-END*/;
