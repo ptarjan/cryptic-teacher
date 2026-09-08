@@ -1187,3 +1187,14 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   color-scheme: light dark;
 }
 #notify-panel p { margin: 8px 0; }
+
+/* The earliest hour of the day this device will be woken. Sits under the papers
+   as one row: it is a single answer about all of them, not a per-paper setting.
+   Same color-scheme declaration as the checkboxes above, and for the same
+   reason — a native time field otherwise renders light on the dark card. */
+.notify-when { display: flex; align-items: center; gap: 10px; }
+.notify-when input {
+  padding: 6px 8px; border: 1px solid var(--line); border-radius: 5px;
+  background: var(--bg); color: var(--fg); font: inherit;
+  color-scheme: light dark;
+}
