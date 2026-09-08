@@ -37,7 +37,9 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "TORTURED",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "17-down"
+   }
   },
   {
    "id": "2-down",
@@ -57,7 +59,9 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     "-": []
    },
    "solution": "HERO",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "26-down"
+   }
   },
   {
    "id": "3-down",
@@ -80,7 +84,9 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "WITHME",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "15-down"
+   }
   },
   {
    "id": "4-down",
@@ -97,7 +103,39 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMIABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMIABLE",
+    "definition": "nice",
+    "linkWords": [
+     "to be"
+    ],
+    "pieces": [
+     "AM",
+     "I",
+     "ABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have",
+      "gives": "AM",
+      "note": "the same question asked with a different verb: 'have I got…?' restates as 'am I…?'"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun crosses over into the answer unchanged"
+     },
+     {
+      "clueFragment": "got it in me",
+      "gives": "ABLE",
+      "note": "to have it in you to do something is to be able to do it"
+     }
+    ],
+    "surface": "Somebody wondering out loud whether they have it in them to be pleasant.",
+    "walkthrough": "The clue is its own answer said differently: read the seven letters as three words and they ask exactly what the sentence asks. The quotation marks round 'nice' flag the definition and carry no instruction.",
+    "definitionFit": "'Nice' and the answer are both adjectives for good-natured, the answer being the warmer word for someone easy to get along with."
+   }
   },
   {
    "id": "5-down",
@@ -114,7 +152,35 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OPTS",
+    "definition": "Chooses",
+    "indicators": [
+     "shady"
+    ],
+    "indicatorNotes": {
+     "shady": "'Shady' is the dodgy sense here — a shady character is never quite what they seem, and these letters are not in the order they seem either."
+    },
+    "anagram": {
+     "fodder": "SPOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "spot",
+      "gives": "SPOT",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "shady",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A cool corner out of the sun.",
+    "walkthrough": "'Shady spot' is one idea in the surface and two jobs in the wordplay, the adjective shuffling what the noun supplies. Four-letter anagrams hide well because there is nothing to count.",
+    "definitionFit": "'Chooses' is a plain present-tense synonym: the answer is the verb for someone picking one course over the others open to them."
+   }
   },
   {
    "id": "6-down",
@@ -131,7 +197,45 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECONVICTS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RECONVICTS",
+    "definition": "Once more assigns blame",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "REC",
+     "ON",
+     "VI",
+     "CTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space to play",
+      "gives": "REC",
+      "note": "the rec is the recreation ground at the edge of a British town, the patch of grass everyone plays on"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the word goes in as it stands, both its letters"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "the Roman numeral for six"
+     },
+     {
+      "clueFragment": "courts",
+      "gives": "CTS",
+      "note": "ct is the standard short form of court, and there are six of them here"
+     }
+    ],
+    "surface": "A row over who is to blame for the loss of playing space alongside six courts.",
+    "walkthrough": "The definition runs to four words, which is why the wordplay seems to start late. 'Rec' is British street vocabulary rather than a crossword convention: it is the council playing field.",
+    "definitionFit": "'Once more assigns blame' is what a court does when it finds the same person guilty a second time — a second finding of guilt."
+   }
   },
   {
    "id": "7-down",
@@ -152,7 +256,43 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "ISWEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "I SWEAR",
+    "definition": "Honest to God",
+    "indicators": [
+     "within"
+    ],
+    "indicatorNotes": {
+     "within": "'Within' does two jobs at once: read as with-in it hands over a letter and also says that the letter goes inside."
+    },
+    "pieces": [
+     "I",
+     "S",
+     "W",
+     "EAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun taken at face value"
+     },
+     {
+      "clueFragment": "burn",
+      "gives": "SEAR",
+      "note": "to sear is to scorch"
+     },
+     {
+      "clueFragment": "within",
+      "gives": "W",
+      "note": "w is the standard short form of 'with', and 'with' is sitting at the front of this word"
+     }
+    ],
+    "surface": "Someone protesting their sincerity and saying they are burning up inside.",
+    "walkthrough": "The enumeration is the tip-off: (1,5) means the first word is a single letter, so a pronoun is wanted before anything else. A set phrase is being defined by another set phrase.",
+    "definitionFit": "'Honest to God' is the oath a speaker tacks on to insist they are telling the truth, and the answer is that same protest in two words."
+   }
   },
   {
    "id": "8-across",
@@ -169,7 +309,45 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLECISM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOLECISM",
+    "definition": "Mistake",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "'After' is positional rather than temporal: the letter it introduces goes behind everything the rest of the wordplay builds."
+    },
+    "linkWords": [
+     "to put"
+    ],
+    "pieces": [
+     "SOLE",
+     "CIS",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only",
+      "gives": "SOLE",
+      "note": "the sole reason for something is the only one"
+     },
+     {
+      "clueFragment": "matching gender observed at birth",
+      "gives": "CIS",
+      "note": "cis is the modern prefix for a person whose gender matches the one recorded when they were born"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m is the standard abbreviation for male"
+     }
+    ],
+    "surface": "Fussing over whether tacking 'male' onto a word about gender at birth is a blunder.",
+    "walkthrough": "The instruction to put one piece after another is buried in the middle of the sentence, so the wordplay reads out of order. A solecism is a slip in grammar or in manners.",
+    "definitionFit": "'Mistake' is the general noun and the answer is one particular kind: a blunder in grammar or usage, or by extension a breach of good manners."
+   }
   },
   {
    "id": "9-across",
@@ -193,7 +371,9 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "POETS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "17-down"
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +396,27 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OTHO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "OTHO",
+    "definition": "Emperor",
+    "indicators": [
+     "having cameo in"
+    ],
+    "indicatorNotes": {
+     "having cameo in": "A cameo is a brief appearance inside somebody else's film, which is what these letters are making inside the title."
+    },
+    "blocks": [
+     {
+      "clueFragment": "They Shoot Horses, Don’t They?",
+      "gives": "OTHO",
+      "note": "four letters in a row, starting part way through the second word and finishing just inside the third"
+     }
+    ],
+    "surface": "A Roman emperor turning up in a bit part in the film They Shoot Horses, Don't They?",
+    "walkthrough": "A film title is perfect cover: capital letters everywhere and no reason to read across the gap between two words. Otho ruled Rome for three months during the year of four emperors.",
+    "definitionFit": "'Emperor' names the class by example: the answer was one of the four who held Rome in AD 69, so the definition gives his office rather than a synonym."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +433,33 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEADSTONES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HEADSTONES",
+    "definition": "markers",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "HEAD",
+     "STONES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teacher",
+      "gives": "HEAD",
+      "note": "the head is the teacher who runs a British school"
+     },
+     {
+      "clueFragment": "prepares fruit",
+      "gives": "STONES",
+      "note": "to stone cherries or plums is to take the pits out before cooking them"
+     }
+    ],
+    "surface": "A teacher getting fruit ready, apparently for the people who do the marking.",
+    "walkthrough": "'Markers' wants to be pens, or the examiners a teacher works with; it is neither. Both halves of the answer are ordinary words wearing school uniform in the surface.",
+    "definitionFit": "'Markers' are objects put up to mark a spot, and the answer is the slab that marks a grave — a marker in the most literal sense."
+   }
   },
   {
    "id": "12-across",
@@ -250,7 +476,40 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRUDGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "GRUDGE",
+    "definition": "Dislike",
+    "indicators": [
+     "leads"
+    ],
+    "indicatorNotes": {
+     "leads": "A lead is the front of a thing, so what follows gives up only the opening letter of each of its words."
+    },
+    "linkWords": [
+     "of",
+     "to"
+    ],
+    "pieces": [
+     "GRU",
+     "DGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "despicable supervillain",
+      "gives": "GRU",
+      "note": "Gru is the villain of the Despicable Me films, and 'despicable' is what names him"
+     },
+     {
+      "clueFragment": "dangerous game ending",
+      "gives": "DGE",
+      "note": "the opening letter of each of the three words"
+     }
+    ],
+    "surface": "A cartoon villain's loathing carried into the closing round of a dangerous game.",
+    "walkthrough": "'Despicable' looks like a plain adjective and is really half a film title, which is how you know which cartoon villain is wanted. 'Ending' is one of the words being initialled, not an instruction.",
+    "definitionFit": "'Dislike' as a noun is a settled resentment held against somebody, which is the long-nursed ill will the answer names."
+   }
   },
   {
    "id": "13-down",
@@ -272,7 +531,9 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "DEPARTMENT",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "17-down"
+   }
   },
   {
    "id": "14-across",
@@ -289,7 +550,37 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAYOVERS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LAYOVERS",
+    "definition": "Brief stops",
+    "indicators": [
+     "taking"
+    ],
+    "indicatorNotes": {
+     "taking": "Something taking a thing has it in its keeping, so the longer word closes round the shorter one."
+    },
+    "pieces": [
+     "L",
+     "AY",
+     "OVERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeos",
+      "gives": "LOVERS",
+      "note": "a Romeo is a lover, and the plural carries over"
+     },
+     {
+      "clueFragment": "forever",
+      "gives": "AY",
+      "note": "ay is the old word for ever, as in 'for ay'"
+     }
+    ],
+    "surface": "Something short putting a stop to Romeos who are taking an age about it.",
+    "walkthrough": "'Brief stops' looks like a verb with an object and is two words of definition. AY for ever is old poetic vocabulary worth keeping: 'for ay' means for always.",
+    "definitionFit": "'Brief stops' are the short breaks in a journey, which is what a traveller calls a night spent between two flights."
+   }
   },
   {
    "id": "15-down",
@@ -312,7 +603,39 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "YOU",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "YOU BELONG WITH ME",
+    "definition": "a hit among 28",
+    "indicators": [
+     "aside"
+    ],
+    "indicatorNotes": {
+     "aside": "Something shoved aside ends up out of position, and out of position is where all fifteen of these letters end up."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "anagram": {
+     "fodder": "ELBOWING YOUTH ME"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Elbowing youth",
+      "gives": "ELBOWINGYOUTH",
+      "note": "anagram fodder, thirteen letters"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "a setter refers to themselves as me, and those two letters join the shuffle"
+     }
+    ],
+    "surface": "A pushy performer shouldering younger rivals out of the way on the way to a hit.",
+    "walkthrough": "'Elbowing' is the trap: jostling is exactly what an anagram does to letters, and here the word is fodder rather than instruction. The little word after 'youth' is what does the shuffling.",
+    "definitionFit": "'A hit among 28' is a chart single loved by Taylor Swift's fans, and the answer is the title of one of her earliest."
+   }
   },
   {
    "id": "16-across",
@@ -333,7 +656,45 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADAPTTO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letters",
+    "answer": "ADAPT TO",
+    "definition": "Make provision for",
+    "indicators": [
+     "tips",
+     "frisky"
+    ],
+    "indicatorNotes": {
+     "tips": "A tip is the point at the front of a thing, so each of the two words before it surrenders its leading letter only.",
+     "frisky": "A frisky animal will not stand still, and letters that will not stand still do not stay in the order they were handed over."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "PT A TOAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "poison tentacle tips",
+      "gives": "PT",
+      "note": "the leading letter of each of these two words"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is taken as a letter and joins the shuffle"
+     },
+     {
+      "clueFragment": "toad",
+      "gives": "TOAD",
+      "note": "anagram fodder, four letters"
+     }
+    ],
+    "surface": "Getting ready for the poison at the tips of a lively toad's tentacles.",
+    "walkthrough": "Toads have no tentacles, and that impossibility is the tell that the words are here for their letters rather than their picture. The definition is three words long, all of them before the wordplay starts.",
+    "definitionFit": "'Make provision for' is arranging yourself in advance to cope with something, and the answer is the everyday verb phrase for fitting yourself to a new circumstance."
+   }
   },
   {
    "id": "17-down",
@@ -357,7 +718,46 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "THE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "THE TORTURED POETS DEPARTMENT",
+    "definition": "collection favoured by 28",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "THE",
+     "TORTURED",
+     "POETS",
+     "DEPARTMENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where",
+      "gives": "THE",
+      "note": "a title that names a place carries the article along with it"
+     },
+     {
+      "clueFragment": "are put on the rack",
+      "gives": "TORTURED",
+      "note": "the rack was the machine that stretched a prisoner, so anyone put on it is being tortured"
+     },
+     {
+      "clueFragment": "Angelou and Auden",
+      "gives": "POETS",
+      "note": "Maya Angelou and W. H. Auden are named for their trade rather than for themselves"
+     },
+     {
+      "clueFragment": "Where",
+      "gives": "DEPARTMENT",
+      "note": "a department is the part of an organisation where one kind of job gets done"
+     }
+    ],
+    "surface": "Two celebrated writers stretched on a rack, apparently to furnish somebody's collection.",
+    "walkthrough": "'Collection' is a record album and 28 are the fans who bought it, and that cross-reference is the only signal that a pop title is wanted rather than an ordinary phrase.",
+    "definitionFit": "'Collection favoured by 28' is a gathered set of songs — an album — and this one is the 2024 release Taylor Swift's fans sent to number one."
+   }
   },
   {
    "id": "18-across",
@@ -380,7 +780,51 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUICKIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + homophone",
+    "answer": "QUICKIE",
+    "definition": "Brief Encounter",
+    "indicators": [
+     "at start of",
+     "said"
+    ],
+    "indicatorNotes": {
+     "at start of": "'At start of' takes the opening letter of the word behind it and leaves the rest of that word alone.",
+     "said": "'Said' asks for the sound of the word rather than its spelling, and one letter of the alphabet is pronounced exactly like it."
+    },
+    "pieces": [
+     "Q",
+     "U",
+     "ICK",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at start of quarantine",
+      "gives": "Q",
+      "note": "the opening letter of the word that follows"
+     },
+     {
+      "clueFragment": "you said",
+      "soundsLike": "YOU",
+      "gives": "U",
+      "note": "the pronoun spoken aloud is the name of a single letter"
+     },
+     {
+      "clueFragment": "That’s horrible",
+      "gives": "ICK",
+      "note": "ick is the noise of disgust"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is Latin id est, which is what 'that is' translates"
+     }
+    ],
+    "surface": "A romance at the beginning of lockdown, and somebody's flat verdict that it was horrible.",
+    "walkthrough": "Brief Encounter is the David Lean film of a restrained affair on a station platform, and the setter borrows its capitals for a definition of something a good deal less restrained.",
+    "definitionFit": "'Brief Encounter' names a short-lived meeting, and the answer is the colloquial noun for exactly that, usually with a hurried romantic sense attached."
+   }
   },
   {
    "id": "19-down",
@@ -401,7 +845,33 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "ICEDOVER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ICED OVER",
+    "definition": "grew cold",
+    "linkWords": [
+     "at"
+    ],
+    "pieces": [
+     "ICE",
+     "DOVER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reserve",
+      "gives": "ICE",
+      "note": "the noun for a manner that gives nothing away is the same word as the frozen stuff"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "DOVER",
+      "note": "the Channel crossing town, the busiest passenger port in England"
+     }
+    ],
+    "surface": "A reserve of something standing at a harbour as the temperature dropped.",
+    "walkthrough": "The join falls inside the port's name, so the D you want belongs to Dover rather than to the past tense the answer seems to end its first word with.",
+    "definitionFit": "'Grew cold' describes a surface freezing across, which is what a pond or a windscreen has done by morning after a hard night."
+   }
   },
   {
    "id": "20-down",
@@ -418,7 +888,36 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ONANISM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ONANISM",
+    "definition": "that makes one go blind?",
+    "definitionNote": "The definition is a relative clause rather than a noun: it names the answer by the schoolyard warning attached to it instead of offering a word you could swap in.",
+    "indicators": [
+     "Windy"
+    ],
+    "indicatorNotes": {
+     "Windy": "'Windy' is the winding sense here — a road that twists rather than a gale — and letters told to wind do not run straight."
+    },
+    "anagram": {
+     "fodder": "MANSION"
+    },
+    "blocks": [
+     {
+      "clueFragment": "mansion",
+      "gives": "MANSION",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "Windy",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A draughty great house that supposedly sends its visitors blind.",
+    "walkthrough": "'Windy' reads as draughty in the surface and works as the shuffling instruction. The definition is the old folk warning rather than a synonym, and the question mark is the setter owning up to it.",
+    "definitionFit": "The answer is the practice Victorian scaremongering promised would ruin your eyesight, so the definition points at it through its myth rather than its meaning."
+   }
   },
   {
    "id": "21-across",
@@ -435,7 +934,45 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABERDEEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ABERDEEN",
+    "definition": "Barking Scot",
+    "indicators": [
+     "scraggly"
+    ],
+    "indicatorNotes": {
+     "scraggly": "A scraggly beard grows every which way, and five letters told to be scraggly will not keep the order they came in."
+    },
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "ABERD",
+     "EEN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BEARD",
+      "gives": "ABERD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beard",
+      "gives": "BEARD",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "even for a poet",
+      "gives": "EEN",
+      "note": "verse writes 'even' as e'en, and the apostrophe does not survive into the grid"
+     }
+    ],
+    "surface": "A Scotsman shouting the odds, straggly-bearded, wild-looking even by poets' standards.",
+    "walkthrough": "'Barking' wants to be the shuffling instruction — barking mad is exactly that sort of word — and it is part of the definition instead, describing a dog rather than a lunatic.",
+    "definitionFit": "'Barking Scot' is a breed of dog: the Scottish terrier used to be called after the granite city in the north-east, which is what the answer names."
+   }
   },
   {
    "id": "22-down",
@@ -458,7 +995,9 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "BELONG",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "15-down"
+   }
   },
   {
    "id": "23-across",
@@ -475,7 +1014,37 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TASSEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TASSEL",
+    "definition": "threads",
+    "definitionNote": "'Threads' is plural where the answer is singular: the setter defines the whole object by the bundle of hanging strands it is made of.",
+    "indicators": [
+     "takes on"
+    ],
+    "indicatorNotes": {
+     "takes on": "Taking something on is adding it to what you already have, so the second piece is tacked onto the end of the first."
+    },
+    "pieces": [
+     "TASS",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Source of Russian news",
+      "gives": "TASS",
+      "note": "Tass was the Soviet Union's state news agency"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "'the' in Spanish is el"
+     }
+    ],
+    "surface": "A Russian news agency taking the Spanish to task over their clothes.",
+    "walkthrough": "'Threads' is slang for clothes in the surface and means the hanging strands in the answer. Tass is a crossword fixture long after the union whose news it carried stopped existing.",
+    "definitionFit": "'Threads' names what the thing is made of: a hanging bunch of cords bound at one end, used to finish a cushion or a curtain."
+   }
   },
   {
    "id": "23-down",
@@ -492,7 +1061,30 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THESIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THESIS",
+    "definition": "line of argument",
+    "pieces": [
+     "THE",
+     "SIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "THE",
+      "note": "the article is used as itself"
+     },
+     {
+      "clueFragment": "spies’",
+      "gives": "SIS",
+      "note": "SIS is the Secret Intelligence Service, the British agency the newspapers call MI6"
+     }
+    ],
+    "surface": "The case the spies are putting forward.",
+    "walkthrough": "The possessive apostrophe belongs to the surface alone; the wordplay wants the two words in front of it and nothing else. SIS is what MI6 calls itself.",
+    "definitionFit": "A 'line of argument' is the proposition somebody sets out to defend, which is the sense the answer carries in debate long before it ever means a dissertation."
+   }
   },
   {
    "id": "24-across",
@@ -513,7 +1105,33 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "SLIMCHANCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SLIM CHANCE",
+    "definition": "Long shot",
+    "linkWords": [
+     "but here’s"
+    ],
+    "pieces": [
+     "SLIM",
+     "CHANCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to diet",
+      "gives": "SLIM",
+      "note": "to slim is to diet"
+     },
+     {
+      "clueFragment": "an opportunity",
+      "gives": "CHANCE",
+      "note": "a chance is an opportunity"
+     }
+    ],
+    "surface": "A doubtful proposition sold as the perfect moment to start losing weight.",
+    "walkthrough": "The two halves are clued back to front: an opportunity to diet is a chance to slim, and the words go into the grid the other way round. Both sides of the clue describe a bet nobody expects to come off.",
+    "definitionFit": "A 'long shot' is a bet with almost no prospect of winning, and the answer is that same low probability said the other way about."
+   }
   },
   {
    "id": "25-down",
@@ -530,7 +1148,37 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUSK",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HUSK",
+    "definition": "protection",
+    "indicators": [
+     "accepts"
+    ],
+    "indicatorNotes": {
+     "accepts": "Something that accepts a thing takes it inside, so the first piece opens up and the second goes in."
+    },
+    "pieces": [
+     "H",
+     "US",
+     "K"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hong Kong",
+      "gives": "HK",
+      "note": "the initial of each of the two words of the territory's name"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US for American"
+     }
+    ],
+    "surface": "Hong Kong agreeing to American security guarantees.",
+    "walkthrough": "A two-letter piece opening up to take another inside it is the move worth learning here: a container can split something that looks far too short to split. A husk is protection of the botanical kind, the dry case round a seed.",
+    "definitionFit": "'Protection' is the job rather than the thing: a dry outer casing is what shields the seed or the grain sitting inside it."
+   }
   },
   {
    "id": "26-across",
@@ -547,7 +1195,48 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGOG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "AGOG",
+    "definition": "In suspense?",
+    "indicators": [
+     "Half",
+     "always turning round"
+    ],
+    "indicatorNotes": {
+     "Half": "'Half' asks for a portion of the word rather than all of it, and the word here is short enough that half of it is two letters.",
+     "always turning round": "'Always' is what makes this apply twice: every piece is read the other way about, not just the one standing next to the instruction."
+    },
+    "pieces": [
+     "AG",
+     "OG"
+    ],
+    "subReversals": [
+     {
+      "from": "GA",
+      "to": "AG"
+     },
+     {
+      "from": "GO",
+      "to": "OG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Half excited",
+      "gives": "AG",
+      "note": "someone wildly keen on something has gone gaga; take half of that word and turn it round"
+     },
+     {
+      "clueFragment": "Try",
+      "gives": "OG",
+      "note": "a try is a go, and it is written the other way about too"
+     }
+    ],
+    "surface": "A restless spectator being asked how keen they are and told to keep turning round.",
+    "walkthrough": "'Always' is the load-bearing word: without it the reversal would only reach the piece beside it. Gaga for wildly enthusiastic — going gaga over someone — is the sense being halved.",
+    "definitionFit": "'In suspense?' is the state of eager waiting, keyed up for something about to happen, which is exactly what the answer describes."
+   }
   },
   {
    "id": "26-down",
@@ -569,7 +1258,39 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANTI",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "ANTI-HERO",
+    "definition": "Morally flawed protagonist",
+    "indicators": [
+     "messed up"
+    ],
+    "indicatorNotes": {
+     "messed up": "Something messed up has been left in disarray, and letters in disarray are not in the order they were handed over."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "ANOTHER I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "for 28",
+      "gives": "",
+      "note": "no letters here: it points at the theme, the answer being a song title as well as a kind of character"
+     },
+     {
+      "clueFragment": "another I",
+      "gives": "ANOTHERI",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "A reviewer grumbling that yet another morally flawed lead has been badly written.",
+    "walkthrough": "Quotation marks flag a definition, not an instruction. The cross-reference is the theme: as well as naming a type of character, this is one of the star's biggest singles.",
+    "definitionFit": "A 'morally flawed protagonist' is the lead character you cannot quite admire, and the answer is the standard critical label for that figure."
+   }
   },
   {
    "id": "27-across",
@@ -586,7 +1307,27 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NINES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NINES",
+    "definition": "squares",
+    "indicators": [
+     "concealing"
+    ],
+    "indicatorNotes": {
+     "concealing": "Concealing means keeping something out of sight inside, and inside is where the letters are — unbroken, in the word in front of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Canniness",
+      "gives": "NINES",
+      "note": "five letters in a row inside this single word, starting part way through it"
+     }
+    ],
+    "surface": "Shrewdness that keeps something out of sight.",
+    "walkthrough": "'Squares' is the mathematical sense, a number multiplied by itself, and not the shape or the unfashionable people. One long word does the hiding rather than the usual join between two.",
+    "definitionFit": "'Squares' are the numbers you get by multiplying something by itself, and the answer is the plural of the one that three produces."
+   }
   },
   {
    "id": "28-across",
@@ -603,7 +1344,45 @@ window.CRYPTIC_PUZZLES["cryptic-30016"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SWIFTIES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "SWIFTIES",
+    "definition": "These knocked back",
+    "indicators": [
+     "drunk"
+    ],
+    "indicatorNotes": {
+     "drunk": "A drunk is unsteady on their feet, and letters that cannot stand up straight will not stay in the order they are given."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "SWI",
+     "FTIES"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SETIF",
+      "gives": "FTIES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Westminster",
+      "gives": "SWI",
+      "note": "the postal district covering Westminster is SW1, and the figure one doubles as the letter I"
+     },
+     {
+      "clueFragment": "set if",
+      "gives": "SETIF",
+      "note": "anagram fodder, five letters"
+     }
+    ],
+    "surface": "Drinks going down fast among the Westminster crowd once they have had a few.",
+    "walkthrough": "The definition is the pub sense — a swiftie is a drink downed in one — while the three clues that point at 28 want the other sense entirely, Taylor Swift's fans. SW1 is the postcode round Parliament.",
+    "definitionFit": "'These knocked back' are quick drinks downed in one, the slang sense the answer carries in a bar, quite apart from the pop fans the theme is after."
+   }
   }
  ]
 } /*JSON-END*/;
