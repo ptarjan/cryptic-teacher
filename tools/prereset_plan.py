@@ -195,6 +195,35 @@ def width(pct_left, hours_left, r=None, y=None):
     return max(1, min(CAP, math.ceil(goal / (hours * r * SAFETY))))
 
 
+# Points of the five-hour meter that one run in flight burns per hour, measured
+# off that meter directly. Not derived from .prereset_rate and .prereset_yield:
+# those are blended estimates in WEEKLY points, and a rate that reads high sizes
+# every wave down, which is the one direction a job that exists to spend the
+# remainder must never fail in.
+SESSION_PTS_PER_RUN_HOUR = 7.5
+
+
+def fill_width(s_pct=None, s_hours=None):
+    """Runs in flight needed to empty the CURRENT five-hour window before it resets.
+
+    width() paces the WEEK: it gives each window one window's worth of weekly
+    yield and lets the clock take five hours over it. That is right while more
+    windows remain than the remainder needs. It is wrong the moment fewer do,
+    because a five-hour window that turns over with room on it is gone for
+    nothing, and then the only question is whether this one empties in time.
+    """
+    if s_pct is None:
+        s_pct = weekly_usage.usage_pct("session")
+    if s_hours is None:
+        # (hours, estimated?) — the estimate is fine here: it only ever sizes a
+        # wave, and a wave sized against a slightly wrong turnover is still spent.
+        s_hours = weekly_usage.resets_in_hours("session")[0]
+    room = 100.0 - s_pct
+    if room <= 0 or s_hours is None or s_hours <= 0:
+        return 1
+    return max(1, min(CAP, math.ceil(room / (s_hours * SESSION_PTS_PER_RUN_HOUR))))
+
+
 def session_rate(width_=1, r=None, y=None):
     """Five-hour meter points burned per hour at this width.
 
@@ -277,6 +306,14 @@ def self_test():
         (25, 1, 120),       # one at a time cannot drain 25 points; guard, not plan
         (0, 4, 25),         # no reserve to hand back: never zero, never negative
     ]
+    fills = [
+        # five-hour meter %, hours left in the window -> runs needed to empty it
+        (14, 3.3, 4),       # the 2026-09-08 shape: paced width said 1 all window
+        (0, 5.0, 3),        # a fresh window, filled from the start
+        (90, 2.0, 1),       # nearly full already: one at a time finishes it
+        (100, 1.0, 1),      # no room left: never widen for a window that is done
+        (50, 0.0, 1),       # the turnover is here; a wider wave cannot land
+    ]
     yields = [
         # weekly climb, session climb -> is the wave worth dividing?
         (3, 38, True),      # a real wave, the shape every honest reading has
@@ -286,6 +323,12 @@ def self_test():
         (0, 38, False),     # weekly did not move: nothing to attribute
     ]
     bad = 0
+    for s_pct, s_hours, want in fills:
+        got = fill_width(s_pct, s_hours)
+        if got != want:
+            print(f"FAIL fill {s_pct}% five-hour with {s_hours}h left: "
+                  f"{got} (want {want})", file=sys.stderr)
+            bad += 1
     for weekly, session, want in yields:
         got = yield_sample_ok(weekly, session)
         if got != want:
@@ -317,7 +360,7 @@ def self_test():
             bad += 1
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
-    n = len(starts) + len(widths) + len(schedule) + len(endgames)
+    n = len(starts) + len(widths) + len(schedule) + len(endgames) + len(fills)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -349,7 +392,13 @@ def main():
         return 0
     if "--width" in sys.argv:
         hours = float(sys.argv[sys.argv.index("--width") + 1])
-        print(width(pct_left(), hours))
+        paced = width(pct_left(), hours)
+        # A floor, never a ceiling. Pacing may ask for more runs than filling the
+        # window needs; it may not ask for a window to turn over with room on it
+        # once the windows themselves are the scarce thing.
+        if behind(hours, pct_left()):
+            paced = max(paced, fill_width())
+        print(paced)
         return 0
     if "--behind" in sys.argv:
         # "yes"/"no" on stdout rather than an exit status: a traceback also exits
