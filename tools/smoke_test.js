@@ -2446,6 +2446,16 @@ registry["reset-puzzle"].onclick();
   assert(/serviceWorker\.register\("sw\.js"\)/.test(src),
     "and the page registers it at its bare URL");
 
+  // The bridge ignores a message its own bot wrote unless it carries the wake
+  // marker, so an alert posted straight to Discord is a failure report that
+  // starts nothing. tools/wake.sh owns that marker; this file must go through
+  // it rather than hold a second copy of the bridge's rules.
+  const alerts = fs.readFileSync(path.join(ROOT, "tools/alert.sh"), "utf8");
+  assert(/"\$wake_sh" -c "\$ALERT_CHANNEL"/.test(alerts),
+    "tools/alert.sh sends its alerts through the bridge's wake.sh");
+  assert(!/discord\.com\/api/.test(alerts),
+    "and posts to Discord nowhere itself");
+
   registry["btn-sync"].onclick();
   assert(!registry["sync-panel"].classList.contains("hidden"), "the sync panel opens");
   assert(registry["sync-off"] && !registry["sync-off"].classList.contains("hidden"),
