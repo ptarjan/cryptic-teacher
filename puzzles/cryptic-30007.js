@@ -30,7 +30,27 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONTRACT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CONTRACT",
+    "definition": "Pick up",
+    "definition2": "bargain",
+    "blocks": [
+     {
+      "clueFragment": "Pick up",
+      "gives": "",
+      "note": "to catch an illness — you pick up a cold rather than being handed one"
+     },
+     {
+      "clueFragment": "bargain",
+      "gives": "",
+      "note": "an agreement struck and signed between two parties"
+     }
+    ],
+    "surface": "Somebody grabbing a cheap deal they have spotted.",
+    "walkthrough": "Two words and nothing to shuffle, hide or reverse, so the enumeration is the only confirmation on offer. 'Pick up' is the illness sense rather than the shopping one the surface wants.",
+    "definitionFit": "To contract a disease is to pick it up, and a contract is a bargain struck: the same word working once as a verb and once as a noun."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +67,30 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORE",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ORE",
+    "definition": "rock",
+    "indicators": [
+     "Occasionally"
+    ],
+    "indicatorNotes": {
+     "Occasionally": "Something done occasionally happens every so often instead of all the way through, so only every second letter of the word beside it is picked up."
+    },
+    "pieces": [
+     "ORE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coarse",
+      "gives": "ORE",
+      "note": "the second, fourth and sixth letters of the word, taken in the order they stand"
+     }
+    ],
+    "surface": "Rock that is rough in places.",
+    "walkthrough": "'Occasionally' reads as a description of the rock and is the only instruction in the clue — three words, and one of them is quietly telling you to skip letters.",
+    "definitionFit": "Ore is rock with metal worth extracting in it, so 'rock' names the broad category the answer is one kind of."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +107,46 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TENCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TENCH",
+    "definition": "Swimmer",
+    "indicators": [
+     "at the end"
+    ],
+    "indicatorNotes": {
+     "at the end": "What sits at the end of a word is its final letter, so only that one letter of the word just named joins the assembly."
+    },
+    "linkWords": [
+     "getting",
+     "with"
+    ],
+    "pieces": [
+     "TEN",
+     "C",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "the number a count of fingers reaches"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "c = cold, the letter on the tap"
+     },
+     {
+      "clueFragment": "bath at the end",
+      "gives": "H",
+      "note": "the final letter of the word bath"
+     }
+    ],
+    "surface": "A swimmer collecting a number and finishing with a cold bath.",
+    "walkthrough": "'Swimmer' is the crossword's standard cover for any fish and never narrows anything down, so the letters have to be built first and the creature recognised afterwards.",
+    "definitionFit": "Definition by category: a tench is a stocky freshwater fish of ponds and slow rivers, and fish swim."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +163,37 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALLOCATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALLOCATION",
+    "definition": "Share",
+    "indicators": [],
+    "pieces": [
+     "A",
+     "L",
+     "LOCATION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own article, taken at face value as one letter"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "l = large, the size printed on the label"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "LOCATION",
+      "note": "a location is the place where something sits"
+     }
+    ],
+    "surface": "Somebody being handed a share of a big property.",
+    "walkthrough": "Four words that read as one phrase about property, with no indicator anywhere to say a join is happening — 'large' is the clothing size L, and spotting that is the way in.",
+    "definitionFit": "An allocation is the portion assigned to you, so 'Share' matches it noun for noun: the amount handed out rather than the act of dividing."
+   }
   },
   {
    "id": "5-down",
@@ -102,7 +214,45 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ]
    },
    "solution": "TIPTOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TIP-TOP",
+    "definition": "excellent",
+    "indicators": [
+     "Rolling"
+    ],
+    "indicatorNotes": {
+     "Rolling": "Something rolling is going over and over, so the pieces beside it end up lying the opposite way round to how they were clued."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "TIP",
+     "TOP"
+    ],
+    "subReversals": [
+     {
+      "from": "POTPIT",
+      "to": "TIPTOP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marijuana",
+      "gives": "POT",
+      "note": "pot is the long-standing slang for the drug"
+     },
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a mine dug down into the ground"
+     }
+    ],
+    "surface": "Someone rolling a joint and declaring their own mine the best there is.",
+    "walkthrough": "'Rolling' belongs to the joint on the surface and to the letters in the wordplay, and the two pieces are turned as one lump rather than separately.",
+    "definitionFit": "Tip-top is the informal British superlative for first-rate — in tip-top condition — which is exactly the force of 'excellent'."
+   }
   },
   {
    "id": "6-across",
@@ -119,7 +269,38 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUMICE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + first letters",
+    "answer": "PUMICE",
+    "definition": "smoother",
+    "indicators": [
+     "Manx",
+     "principally"
+    ],
+    "indicatorNotes": {
+     "Manx": "The Manx is the tailless breed of cat from the Isle of Man, so a Manx one here is a cat's name with its tail — the last letter — gone.",
+     "principally": "A principal letter is the one a word leads with, so the initials of the words that follow are all that is taken."
+    },
+    "pieces": [
+     "PUM",
+     "ICE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat",
+      "gives": "PUM",
+      "note": "a puma is a big cat, and this one has lost its tail — the final A comes off"
+     },
+     {
+      "clueFragment": "is clearly even",
+      "gives": "ICE",
+      "note": "the opening letters of those three words, read in the order they come"
+     }
+    ],
+    "surface": "One cat plainly being even smoother than the rest.",
+    "walkthrough": "'Even smoother' spends the whole clue persuading you that the last word is a comparative adjective, when it is a noun: a thing used to smooth something down.",
+    "definitionFit": "A smoother is something that smooths, and a block of pumice — light volcanic rock — is exactly what you rub a rough surface down with."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +317,36 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PLOT",
+    "definition": "Plan",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Something turned over ends up the opposite way up, so the pieces just assembled are read back the other way."
+    },
+    "pieces": [
+     "PL",
+     "OT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "the clue's own word, taken as its two letters"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "lp = record, the twelve-inch long player"
+     }
+    ],
+    "surface": "A plan to tape over something already recorded.",
+    "walkthrough": "'Record over' is one idea on the surface — taping across an old recording — and splits in the middle for the wordplay, with the tiny word 'to' handing over letters rather than joining anything.",
+    "definitionFit": "A plot is a plan, usually a secret or scheming one, so the definition is the neutral word for what the answer does with a hint of conspiracy."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +367,52 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ]
    },
    "solution": "MODALVERB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + first letter",
+    "answer": "MODAL VERB",
+    "definition": "May, for example",
+    "indicators": [
+     "composed",
+     "introduction from"
+    ],
+    "indicatorNotes": {
+     "composed": "Composing is setting material out in an order of your own choosing, which is what happens to the letters standing next to it.",
+     "introduction from": "An introduction is what comes at the front, so only the opening letter of the name that follows is taken."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "MOD",
+     "ALVERB"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RAVEL B",
+      "gives": "ALVERB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Style of music",
+      "gives": "MOD",
+      "note": "mod was a British youth movement with a sound of its own, sharp suits and scooters"
+     },
+     {
+      "clueFragment": "Ravel",
+      "gives": "RAVEL",
+      "note": "the French composer's name, five letters waiting to be reordered"
+     },
+     {
+      "clueFragment": "Brian",
+      "gives": "B",
+      "note": "the opening letter of the guitarist's first name"
+     }
+    ],
+    "surface": "Ravel writing a piece that opens with a borrowing from Brian May of Queen.",
+    "walkthrough": "Brian May is Queen's guitarist, so the surface reads as two musicians and 'May' looks like half of a name. The definition needs it back as the small word that starts a sentence.",
+    "definitionFit": "Definition by example: 'may' is one of the modal verbs — can, must, should, might — the helpers that mark possibility or obligation."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +429,43 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONCENTRATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CONCENTRATE",
+    "definition": "Focus",
+    "indicators": [
+     "found in"
+    ],
+    "indicatorNotes": {
+     "found in": "Letters found in something are sitting inside it, so the pieces named before this land within the word named after."
+    },
+    "pieces": [
+     "C",
+     "ON",
+     "CENT",
+     "RATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "box",
+      "gives": "CRATE",
+      "note": "a crate is the wooden box things are packed in"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the clue's own word, lifted whole"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "CENT",
+      "note": "a cent is the small coin of the dollar and the euro"
+     }
+    ],
+    "surface": "Keeping your mind on the cash somebody found in a packing case.",
+    "walkthrough": "'Focus on' reads as a single phrase, so the definition looks a word longer than it is — and the insertion lands after a single letter of the box rather than at any word boundary.",
+    "definitionFit": "To concentrate is to focus your attention, verb for verb, rather than the other sense of boiling a liquid down."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +482,40 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FENNEL",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "FENNEL",
+    "definition": "bulbs",
+    "definitionNote": "Fennel is a mass noun — you buy fennel, never 'a fennel' — so the setter's plural points at the vegetable by the form it is sold in rather than agreeing in number with the answer.",
+    "indicators": [
+     "to carry",
+     "case of"
+    ],
+    "indicatorNotes": {
+     "to carry": "To carry something is to hold it as you go, so the word doing the carrying closes round the letters it holds.",
+     "case of": "A case encloses a thing at both ends, so what is taken from the word named is its outermost letter at each end."
+    },
+    "pieces": [
+     "FE",
+     "NN",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use handle",
+      "gives": "FEEL",
+      "note": "to use your hands on something, to handle it, is to feel it"
+     },
+     {
+      "clueFragment": "neon",
+      "gives": "NN",
+      "note": "the outside letters of the gas's name, its first and its last"
+     }
+    ],
+    "surface": "Using a handle to carry a boxful of neon lights.",
+    "walkthrough": "The greengrocer's bulb and the electrician's bulb are the same word, which is what lets 'neon bulbs' read as one thing while the definition takes only the second half of it.",
+    "definitionFit": "Fennel is the aniseed-flavoured vegetable sold as a fat white bulb, so the definition points at the plant by the part you buy."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +532,42 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRODDING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PRODDING",
+    "definition": "Digging",
+    "indicators": [
+     "dropping"
+    ],
+    "indicatorNotes": {
+     "dropping": "Something dropped falls away and is gone, so the letter named after this leaves the word standing before it."
+    },
+    "pieces": [
+     "PRO",
+     "D",
+     "DING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of — the pros and cons are the fors and againsts"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "d = diamonds, the suit as written on a bridge scorecard"
+     },
+     {
+      "clueFragment": "cheating, dropping ring",
+      "gives": "DING",
+      "note": "cheating is DOING — to do somebody is to swindle them — and the ring, an O, drops out of it"
+     }
+    ],
+    "surface": "Miners after diamonds, and somebody cheating by palming a ring.",
+    "walkthrough": "'Digging' is the poking sense — a dig in the ribs — not the excavation the surface has set up. A ring for the letter O is worth banking: a circle on the page is that letter.",
+    "definitionFit": "Prodding is jabbing at something repeatedly with a stick or a finger, which is the sense 'Digging' carries when you dig someone in the ribs."
+   }
   },
   {
    "id": "11-across",
@@ -232,7 +591,34 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASTHECROW",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "AS THE CROW FLIES",
+    "definition": "going straight",
+    "indicators": [
+     "Train"
+    ],
+    "indicatorNotes": {
+     "Train": "To train something is to work it into a shape it did not have — a rose trained along a wall — so the words beside it are worked into a new order."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "THIEF WAS CLOSER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "thief was closer",
+      "gives": "THIEFWASCLOSER",
+      "note": "fourteen letters of fodder, exactly the count the enumeration asks for"
+     }
+    ],
+    "surface": "A train robber who was getting nearer to giving up crime.",
+    "walkthrough": "'Train' looks like the thing the thief robbed and is the instruction instead, while 'going straight' looks like the reformed-criminal idiom and turns out to be a route. The answer runs on into 13 across.",
+    "definitionFit": "Going straight here means travelling in a straight line: the phrase measures distance by the direct route a bird takes, ignoring roads."
+   }
   },
   {
    "id": "12-down",
@@ -253,7 +639,45 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOLARPLEXUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOLAR PLEXUS",
+    "definition": "a bundle of nerves",
+    "indicators": [
+     "at the start"
+    ],
+    "indicatorNotes": {
+     "at the start": "Being at the start means standing in front of everything else, so the piece just named leads the assembly instead of following the two clued before it."
+    },
+    "linkWords": [
+     "one’s"
+    ],
+    "pieces": [
+     "SOLAR",
+     "P",
+     "LEXUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "using the sun",
+      "gives": "SOLAR",
+      "note": "solar means of the sun, as solar panels are"
+     },
+     {
+      "clueFragment": "Power",
+      "gives": "P",
+      "note": "p = power, the symbol in the physics formula"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "LEXUS",
+      "note": "Lexus is Toyota's luxury car marque"
+     }
+    ],
+    "surface": "A car running on sunshine, with a driver who is jittery from the off.",
+    "walkthrough": "'A bundle of nerves' is the anxious-person idiom on the surface and a flat anatomical description in the answer — the solar plexus really is a knot of nerves behind the stomach.",
+    "definitionFit": "The solar plexus is a genuine network of nerves below the breastbone, so the definition is literal where the everyday idiom about nerves is figurative."
+   }
   },
   {
    "id": "13-across",
@@ -273,7 +697,9 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "FLIES",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "11-across"
+   }
   },
   {
    "id": "14-down",
@@ -294,7 +720,37 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ]
    },
    "solution": "BIGHEARTED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BIG-HEARTED",
+    "definition": "Generous",
+    "indicators": [
+     "interrupting"
+    ],
+    "indicatorNotes": {
+     "interrupting": "To interrupt is to cut in part way through, so the letters named before it land inside the word named after, not at either end."
+    },
+    "pieces": [
+     "BIGHEA",
+     "RTE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show-off",
+      "gives": "BIGHEAD",
+      "note": "a bighead is somebody with a swollen opinion of themselves"
+     },
+     {
+      "clueFragment": "Irish broadcaster",
+      "gives": "RTE",
+      "note": "RTÉ — Raidió Teilifís Éireann — is Ireland's state radio and television service, the counterpart of the BBC"
+     }
+    ],
+    "surface": "A generous Irish presenter cutting across somebody in mid-boast.",
+    "walkthrough": "'Show-off' reads as a verb in the surface and has to be taken as the noun, and the three letters cutting into it are Irish general knowledge rather than a crossword convention.",
+    "definitionFit": "Big-hearted describes somebody free with their kindness and their money, which is what 'Generous' says — adjective for adjective."
+   }
   },
   {
    "id": "15-across",
@@ -315,7 +771,46 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEANTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LEAN-TO",
+    "definition": "shed",
+    "indicators": [
+     "entertaining"
+    ],
+    "indicatorNotes": {
+     "entertaining": "To entertain guests is to have them inside the house, so the word doing the entertaining takes the other letters in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "LE",
+     "A",
+     "NT",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "LEO",
+      "note": "the zodiac divides into twelve houses, and this is the lion's"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "a = adult, the old film certificate"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT = New Testament, the second half of the Bible"
+     }
+    ],
+    "surface": "A house whose adult reading is kept out in the shed.",
+    "walkthrough": "'House' is the astrological sense, which is how it comes down to three letters. The question mark is working too: the answer is one particular kind of shed rather than a synonym for shed.",
+    "definitionFit": "A lean-to is the single-pitch structure propped against a wall, so 'shed?' defines it by example — that kind of shed and no other."
+   }
   },
   {
    "id": "16-down",
@@ -332,7 +827,52 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANCHORITE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ANCHORITE",
+    "definition": "Recluse",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "'Without' in its older sense means outside rather than lacking, so the word before it stands around the letters that follow."
+    },
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "A",
+     "N",
+     "CHOR",
+     "IT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own article, taken as a single letter"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n = new, as in the small print on a relaunched product"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "CHORE",
+      "note": "a chore is a job that has to be got through"
+     },
+     {
+      "clueFragment": "computers etc",
+      "gives": "IT",
+      "note": "IT = information technology, the department that looks after the computers"
+     }
+    ],
+    "surface": "A hermit taking a new job that keeps well clear of technology.",
+    "walkthrough": "'Without' is the trap: it reads as 'lacking' and means 'outside', which is the opposite instruction — the job wraps round the technology instead of losing it.",
+    "definitionFit": "An anchorite is a religious hermit walled into a cell away from the world, so 'Recluse' is the everyday word for the same person."
+   }
   },
   {
    "id": "17-across",
@@ -349,7 +889,42 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SILENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SILENT",
+    "definition": "Mum",
+    "indicators": [
+     "back"
+    ],
+    "indicatorNotes": {
+     "back": "This is an across entry, so a piece sent back is written from right to left and its two letters change places."
+    },
+    "pieces": [
+     "SI",
+     "LENT"
+    ],
+    "subReversals": [
+     {
+      "from": "IS",
+      "to": "SI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is back",
+      "gives": "SI",
+      "note": "the clue's own second word, turned round"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "LENT",
+      "note": "Lent is the church's forty-day fast before Easter"
+     }
+    ],
+    "surface": "Mum getting home again in no time at all.",
+    "walkthrough": "Both content words swap meaning at once: 'Mum' is the keeping-quiet sense of mum's the word rather than anybody's mother, and 'fast' is the going-without sense rather than the speed one.",
+    "definitionFit": "To keep mum is to say nothing at all, so 'Mum' and the answer are the same adjective — not speaking."
+   }
   },
   {
    "id": "18-across",
@@ -372,7 +947,27 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECKON",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "RECKON",
+    "definition": "Count",
+    "indicators": [
+     "bottles"
+    ],
+    "indicatorNotes": {
+     "bottles": "Bottling something shuts it up inside the glass, so what is wanted is sealed in among the words rather than clued separately."
+    },
+    "blocks": [
+     {
+      "clueFragment": "miniature CK One",
+      "gives": "RECKON",
+      "note": "six letters running consecutively from part way through the first word and across two gaps"
+     }
+    ],
+    "surface": "Counting up the miniature bottles of a designer fragrance.",
+    "walkthrough": "CK One is Calvin Klein's unisex scent, and the brand name is what makes the perfume picture hold together while 'bottles' quietly says that something is being contained.",
+    "definitionFit": "To reckon a total is to count it up — the arithmetic sense the answer carries, ahead of the 'suppose' one most people think of first."
+   }
   },
   {
    "id": "19-across",
@@ -389,7 +984,46 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHOBIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "PHOBIA",
+    "definition": "Fear",
+    "indicators": [
+     "upset",
+     "wasting"
+    ],
+    "indicatorNotes": {
+     "upset": "Something upset has been knocked over and its contents spilled out of their arrangement, which is what happens to these letters.",
+     "wasting": "What is wasted is used up and gone, so whatever is named after it disappears from the letters rather than joining them."
+    },
+    "linkWords": [
+     "is",
+     "with"
+    ],
+    "anagram": {
+     "fodder": "BO HIPA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "boss",
+      "gives": "BO",
+      "note": "both of the word's s's drop out, leaving only the two letters it opens with as fodder"
+     },
+     {
+      "clueFragment": "his PA",
+      "gives": "HIPA",
+      "note": "the personal assistant read as two letters, and the s in 'his' goes the same way"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "",
+      "note": "s = second, and the plural asks for every s in those nine letters — there are three"
+     }
+    ],
+    "surface": "A boss annoyed that his assistant is frittering time away.",
+    "walkthrough": "'Wasting seconds' reads as time thrown away and is really an instruction to bin three letters, with the plural doing the counting. 'Fear' alone is the definition, though it reads as part of the office mood.",
+    "definitionFit": "A phobia is fear pushed past reason and fixed on one thing, so 'Fear' names the family the answer belongs to rather than matching it exactly."
+   }
   },
   {
    "id": "20-down",
@@ -406,7 +1040,39 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WEIGHT",
+    "definition": "Importance",
+    "indicators": [
+     "joining"
+    ],
+    "indicatorNotes": {
+     "joining": "Joining says the two pieces are set down side by side, one after the other, rather than one going inside the other."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "W",
+     "EIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "w = wife, the genealogist's shortening"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "EIGHT",
+      "note": "an eight is the long rowing boat and the eight people who row it"
+     }
+    ],
+    "surface": "A wife signing up to row with the local boat club.",
+    "walkthrough": "The eight is British rowing's standard racing boat — the one Oxford and Cambridge use — so the question mark is admitting that a crew is only sometimes that number.",
+    "definitionFit": "Weight in the figurative sense is what an argument carries when it matters, which is what 'Importance' names — noun for noun."
+   }
   },
   {
    "id": "21-across",
@@ -428,7 +1094,46 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLOOD",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + first letter",
+    "answer": "BLOOD RELATIVES",
+    "definition": "Parents maybe",
+    "indicators": [
+     "head"
+    ],
+    "indicatorNotes": {
+     "head": "The head of a word is the letter it begins with, so only the opening letter of the word just named comes into play."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "BLOOD",
+     "RELATIVE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "initiate",
+      "gives": "BLOOD",
+      "note": "to blood a recruit is to give them their first taste of the real thing"
+     },
+     {
+      "clueFragment": "corresponding",
+      "gives": "RELATIVE",
+      "note": "relative means measured against something else, so a relative figure is the corresponding one"
+     },
+     {
+      "clueFragment": "school’s",
+      "gives": "S",
+      "note": "the first letter of that word, taken on its own"
+     }
+    ],
+    "surface": "Parents starting a letter-writing exchange with the headteacher.",
+    "walkthrough": "In the surface a school's head is the headteacher and 'corresponding' is writing letters; the wordplay wants the first letter of the one and a quite different sense of the other. The answer runs on into 22 across.",
+    "definitionFit": "Blood relatives are the people you share ancestry with, and 'maybe' flags parents as the nearest example rather than a synonym."
+   }
   },
   {
    "id": "22-across",
@@ -448,7 +1153,9 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "RELATIVES",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "21-across"
+   }
   },
   {
    "id": "23-down",
@@ -465,7 +1172,40 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDIOM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IDIOM",
+    "definition": "Turn of phrase",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "ID",
+     "I",
+     "OM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papers",
+      "gives": "ID",
+      "note": "your ID is the papers that prove who you are"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the clue's own letter, standing for itself"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "OM = the Order of Merit, a British honour in the monarch's personal gift"
+     }
+    ],
+    "surface": "A phrase that keeps cropping up in the newspapers I have delivered.",
+    "walkthrough": "'Papers I order' reads as a newsagent's list, which is where the definition looks as though it ought to stretch. The Order of Merit is limited to twenty-four living members and is a favourite of setters.",
+    "definitionFit": "An idiom is a set phrase whose meaning is not the sum of its words — raining cats and dogs — which is what 'Turn of phrase' names."
+   }
   },
   {
    "id": "24-down",
@@ -482,7 +1222,39 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIMP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "PIMP",
+    "definition": "Solicitor",
+    "indicators": [
+     "regularly"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken regularly come at a fixed interval, and the interval here is every other one, beginning with the first."
+    },
+    "linkWords": [
+     "by"
+    ],
+    "pieces": [
+     "PI",
+     "MP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paid",
+      "gives": "PI",
+      "note": "the first and third letters of the word, taken at every other step"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP = Member of Parliament, the British legislator"
+     }
+    ],
+    "surface": "A lawyer drawing regular payments from a politician.",
+    "walkthrough": "Britain's legal system has solicitors and barristers, and the surface leans on that entirely; the answer only needs the plain verb sitting inside the word.",
+    "definitionFit": "A pimp solicits custom on somebody else's behalf, so the definition is the literal reading of the word rather than the British lawyer."
+   }
   },
   {
    "id": "25-across",
@@ -499,7 +1271,31 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXCITING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXCITING",
+    "definition": "Breathtaking",
+    "indicators": [],
+    "pieces": [
+     "EX",
+     "CITING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old flame",
+      "gives": "EX",
+      "note": "your ex is the old flame, the standard two letters"
+     },
+     {
+      "clueFragment": "calling",
+      "gives": "CITING",
+      "note": "to cite a case is to call it in evidence"
+     }
+    ],
+    "surface": "An old flame ringing up out of the blue.",
+    "walkthrough": "'Calling' is the courtroom sense — citing an authority is calling on it — and no word in the clue signals the join, so the telephone picture covers the whole thing.",
+    "definitionFit": "Something breathtaking is exciting enough to leave you gasping, so the definition is the strong end of the same adjective."
+   }
   },
   {
    "id": "26-across",
@@ -516,7 +1312,36 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAILOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TAILOR",
+    "definition": "One that follows tinker",
+    "indicators": [
+     "follows"
+    ],
+    "indicatorNotes": {
+     "follows": "Coming after something is what following means, so the little word named here is set down behind the piece already clued."
+    },
+    "pieces": [
+     "TAIL",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "TAIL",
+      "note": "to tail somebody is to dog their footsteps, keeping behind them"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the clue's own two letters, taken as they stand"
+     }
+    ],
+    "surface": "Something that trails after a tinker, or after a dog.",
+    "walkthrough": "The counting rhyme is the key: 'Tinker, tailor, soldier, sailor' is what British children chant over cherry stones, so 'follows tinker' means next in that line rather than walking behind anyone.",
+    "definitionFit": "In the old rhyme 'Tinker, tailor, soldier, sailor', the word that comes straight after tinker is the one wanted, so the definition points at a position rather than a trade."
+   }
   },
   {
    "id": "27-down",
@@ -533,7 +1358,28 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OAR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "OAR",
+    "definition": "Row",
+    "indicators": [
+     "on Radio"
+    ],
+    "indicatorNotes": {
+     "on Radio": "What comes over the radio is heard and not seen, so the word pointed at is wanted for its sound rather than its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Radio 2",
+      "soundsLike": "ORE",
+      "gives": "OAR",
+      "note": "the 2 is a cross-reference: the answer at 2 down is rock with metal in it, and it is that word you say aloud"
+     }
+    ],
+    "surface": "A row breaking out on BBC Radio 2.",
+    "walkthrough": "Radio 2 is a real BBC station, which is what holds the surface still while the 2 is doing quite another job — pointing at the answer already sitting in the grid at 2 down.",
+    "definitionFit": "An oar is the blade you row with, and the word works as a verb too: to oar a boat is to row it."
+   }
   },
   {
    "id": "28-across",
@@ -550,7 +1396,37 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASLEEP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ASLEEP",
+    "definition": "Hibernating",
+    "indicators": [
+     "taking"
+    ],
+    "indicatorNotes": {
+     "taking": "To take something in is to have it within you, so the word that does the taking closes round the letters that follow."
+    },
+    "pieces": [
+     "AS",
+     "LEE",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "the asp is the small Egyptian viper of Cleopatra's story"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, the one out of the wind"
+     }
+    ],
+    "surface": "A snake curling up somewhere sheltered for the winter.",
+    "walkthrough": "Hibernation is nothing but a long winter sleep, so definition and surface picture describe the same animal doing the same thing. LEE comes from sailing: the lee shore is the side away from the weather.",
+    "definitionFit": "To hibernate is to pass the winter asleep, so the definition names exactly the state the answer describes, in a seasonal setting."
+   }
   },
   {
    "id": "29-across",
@@ -567,7 +1443,40 @@ window.CRYPTIC_PUZZLES["cryptic-30007"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIDEMARK",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "TIDEMARK",
+    "definition": "where the drink got to",
+    "indicators": [
+     "oddly",
+     "last to"
+    ],
+    "indicatorNotes": {
+     "oddly": "Something done oddly is done in a way it should not be, and letters set down that way are not in their proper order.",
+     "last to": "The last to arrive is the one at the back, so what is taken from the word that follows is its final letter."
+    },
+    "linkWords": [
+     "is this"
+    ],
+    "anagram": {
+     "fodder": "MAITRE D K"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Maître d’",
+      "gives": "MAITRED",
+      "note": "seven letters of fodder, with the accent set aside as decoration"
+     },
+     {
+      "clueFragment": "ask",
+      "gives": "K",
+      "note": "the final letter of that word, on its own"
+     }
+    ],
+    "surface": "A head waiter who is oddly the last person to ask what became of your drink.",
+    "walkthrough": "'Oddly' looks like a comment on the waiter's manner and is the instruction to disturb the letters just given; the circumflex on the î is no obstacle, since it is only an I with a hat on.",
+    "definitionFit": "A tidemark is the ring left round a glass or a bath by liquid that has gone down, so it is literally where the drink got to."
+   }
   }
  ]
 } /*JSON-END*/;
