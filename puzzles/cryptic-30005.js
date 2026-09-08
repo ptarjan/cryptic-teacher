@@ -35,7 +35,48 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOTACHANCE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + deletion",
+    "answer": "NOT A CHANCE",
+    "definition": "There is no way",
+    "indicators": [
+     "holding",
+     "with no tip"
+    ],
+    "indicatorNotes": {
+     "holding": "A hand that holds something encloses it, so the cut word closes round the letter named beside it.",
+     "with no tip": "A tip is the pointed end, and a weapon's point is the letter it starts with — that one is gone."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "NOT",
+     "A",
+     "CH",
+     "ANCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make a cut",
+      "gives": "NOTCH",
+      "note": "to notch something is to make a cut in it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the bare article, taken from in front of the weapon and slipped inside"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "ANCE",
+      "note": "the weapon is a LANCE, minus the L at its point"
+     }
+    ],
+    "surface": "You cannot slash at anybody while the weapon in your grip has had its point taken off.",
+    "walkthrough": "'A weapon' reads as one phrase and the setter uses it as two: the article goes inside the cut, and what is left over is a lance.",
+    "definitionFit": "'Not a chance' is the flat refusal you snap at an impossible suggestion, which is what 'there is no way' says at greater length."
+   }
   },
   {
    "id": "1-down",
@@ -58,7 +99,40 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOUN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NOUN",
+    "definition": "Part of speech",
+    "indicators": [
+     "accepting"
+    ],
+    "indicatorNotes": {
+     "accepting": "To accept something is to take it in, so the word before this opens up and lets the next letter sit inside."
+    },
+    "linkWords": [
+     "given by"
+    ],
+    "pieces": [
+     "N",
+     "O",
+     "UN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Sound of Music extra",
+      "gives": "NUN",
+      "note": "the abbey scenes in that film are crowded with them, so an extra on that set is one"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "O is Oscar in the radio alphabet"
+     }
+    ],
+    "surface": "A bit-part player from the Sound of Music collecting an Academy Award.",
+    "walkthrough": "Oscar is the gold statuette in the surface and the radio alphabet's O in the wordplay, and the film title keeps both readings looking like showbusiness.",
+    "definitionFit": "A noun is one of the classes grammar sorts words into, so the definition names it by membership of that set rather than by what it does."
+   }
   },
   {
    "id": "2-down",
@@ -75,7 +149,45 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIDY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TIDY",
+    "definition": "Spruce",
+    "indicators": [
+     "shot up"
+    ],
+    "indicatorNotes": {
+     "shot up": "Shooting up is movement from the bottom towards the top, and a down entry read upwards runs from its last letter back to its first."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "TI",
+     "DY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yard",
+      "gives": "YD",
+      "note": "YD is the short form of a yard on any tape measure"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the word goes in as it stands, two letters straight off the page"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "YDIT",
+      "to": "TIDY"
+     }
+    ],
+    "surface": "A young conifer planted in a yard that has suddenly put on height.",
+    "walkthrough": "Spruce is the tree in the picture and an adjective in the answer — smart and well turned out. The dash works as a semicolon, keeping 'it' apart from the yard it seems to belong to.",
+    "definitionFit": "To be spruce is to be neat and trim, the same orderliness applied to how a person looks rather than to a room."
+   }
   },
   {
    "id": "3-down",
@@ -96,7 +208,40 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "CARTEBLANCHE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CARTE BLANCHE",
+    "definition": "complete freedom",
+    "indicators": [
+     "travels",
+     "across"
+    ],
+    "indicatorNotes": {
+     "travels": "What travels does not stay where it was put, and these letters end up somewhere else entirely.",
+     "across": "Travelling across a country takes that country in on the way, so its letter joins the ones being moved."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "THECABLECAR N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "The cable car",
+      "gives": "THECABLECAR",
+      "note": "eleven of the twelve letters, article and all"
+     },
+     {
+      "clueFragment": "Norway",
+      "gives": "N",
+      "note": "N is Norway's international vehicle code, and it supplies the twelfth letter"
+     }
+    ],
+    "surface": "A cable car crossing the Norwegian mountains, going wherever it pleases.",
+    "walkthrough": "'The' looks like the article introducing the cable car and is three of the letters you need, which is why the count seems short until you include it.",
+    "definitionFit": "Carte blanche is the blank sheet you sign and hand over for someone else to fill in, so in English it names permission with no limits attached."
+   }
   },
   {
    "id": "4-down",
@@ -113,7 +258,33 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTSIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANTSIER",
+    "definition": "more nervous",
+    "indicators": [
+     "Swimming"
+    ],
+    "indicatorNotes": {
+     "Swimming": "Something swimming is adrift in liquid and free to turn any way it likes, which is what happens to the letters beside it."
+    },
+    "linkWords": [
+     "becoming"
+    ],
+    "anagram": {
+     "fodder": "IN TEARS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in tears",
+      "gives": "INTEARS",
+      "note": "seven letters to be rearranged, the little word included"
+     }
+    ],
+    "surface": "Somebody weeping and growing steadily more jittery about it.",
+    "walkthrough": "Antsy comes from having ants in your pants, so the comparative looks odd written down and is perfectly ordinary said aloud. 'In tears' is fodder, not a state anyone is in.",
+    "definitionFit": "Antsy means fidgety and on edge, so its comparative covers anyone growing more nervous than they already were."
+   }
   },
   {
    "id": "5-down",
@@ -130,7 +301,54 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHORIZO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + deletion",
+    "answer": "CHORIZO",
+    "definition": "Sausage",
+    "indicators": [
+     "served up",
+     "after",
+     "ended early"
+    ],
+    "indicatorNotes": {
+     "served up": "Serving something up sends it upwards to the table, and upwards in a down entry means reading the letters from the bottom.",
+     "after": "'After' means later in the answer, so the piece it introduces is the one that goes in front.",
+     "ended early": "A word ended early stops before its final letter, which is dropped rather than moved."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "CHOR",
+     "IZO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work ended early",
+      "gives": "CHOR",
+      "note": "a CHORE is a piece of work, stopped one letter short"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "OZ",
+      "note": "OZ is the everyday nickname for Australia, spelled the way Aus is said"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is one, the Roman numeral"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "OZI",
+      "to": "IZO"
+     }
+    ],
+    "surface": "A spicy sausage brought over from Australia and handed round once the shift finished early.",
+    "walkthrough": "The sausage is Spanish, so naming Australia in the same breath is deliberate misdirection: the country is only in the clue for its two-letter nickname.",
+    "definitionFit": "A chorizo is the paprika-spiced pork sausage of Spain, so 'sausage' defines it by class and leaves the wordplay to say which one."
+   }
   },
   {
    "id": "6-across",
@@ -147,7 +365,37 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHUB",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CHUB",
+    "definition": "fish",
+    "indicators": [
+     "eating"
+    ],
+    "indicatorNotes": {
+     "eating": "What gets eaten ends up inside the eater, so the short word closes round the letter that follows it."
+    },
+    "pieces": [
+     "C",
+     "H",
+     "UB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little one",
+      "gives": "CUB",
+      "note": "a cub is a little one — any young animal"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the tap marked hot, a standard abbreviation"
+     }
+    ],
+    "surface": "A small child getting through a plate of hot fish.",
+    "walkthrough": "The definition is the last and least interesting word in the sentence, which is how it hides. A chub is a fat, blunt-headed fish of the carp family, common in English rivers.",
+    "definitionFit": "A chub is a thickset freshwater fish of the carp family, so 'fish' defines it by class, with nothing in it to narrow which one."
+   }
   },
   {
    "id": "7-down",
@@ -164,7 +412,50 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HODGEPODGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + last letter",
+    "answer": "HODGEPODGE",
+    "definition": "mixture",
+    "indicators": [
+     "prepared",
+     "last of"
+    ],
+    "indicatorNotes": {
+     "prepared": "Preparing food means chopping it and combining it, so what it touches comes out in a different arrangement.",
+     "last of": "'Last of' takes the final letter of the word it points at and nothing else."
+    },
+    "pieces": [
+     "H",
+     "ODGE",
+     "PODGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "H",
+      "note": "H is hot on a tap, a standard abbreviation"
+     },
+     {
+      "clueFragment": "dog prepared with last of vegetable",
+      "gives": "ODGE",
+      "note": "DOG and the E that ends VEGETABLE, rearranged"
+     },
+     {
+      "clueFragment": "fat",
+      "gives": "PODGE",
+      "note": "podge is plumpness, the soft stuff on a podgy person"
+     }
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DOGE",
+      "gives": "ODGE"
+     }
+    ],
+    "surface": "A hot dog being knocked together with the last of the vegetables and some fat.",
+    "walkthrough": "'Hot dog' looks like the snack and is two separate pieces of wordplay, one of them a single letter — keeping those two words joined is the surface's whole job.",
+    "definitionFit": "A hodgepodge is a jumble of unrelated odds and ends, so 'mixture' names it as a mess rather than as anything deliberately blended."
+   }
   },
   {
    "id": "8-down",
@@ -186,7 +477,47 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "BYANYMEANS",
-   "annotation": null
+   "annotation": {
+    "type": "container + cycling + last letter",
+    "answer": "BY ANY MEANS",
+    "definition": "Somehow",
+    "indicators": [
+     "across",
+     "east side",
+     "cycling"
+    ],
+    "indicatorNotes": {
+     "across": "Something lying across a thing covers it, so the first word spreads over the letters named after it.",
+     "east side": "East is the right-hand edge of any map, so the east side of a word is the letter it ends on.",
+     "cycling": "Cycling sends letters round a loop: the one at the front goes to the back and the rest keep their order."
+    },
+    "pieces": [
+     "B",
+     "Y",
+     "ANYM",
+     "EANS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heads",
+      "gives": "BEANS",
+      "note": "a bean is slang for a head, as in 'off his bean'"
+     },
+     {
+      "clueFragment": "city’s east side",
+      "gives": "Y",
+      "note": "the right-hand end of CITY is the letter it finishes on"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "ANYM",
+      "note": "MANY with its first letter sent round to the back"
+     }
+    ],
+    "surface": "A cyclist somehow crossing the east side of a city in a crowd of others.",
+    "walkthrough": "The vague adverb the clue opens with reads like an apology for a loose sentence, and it is the definition. 'Heads' looks like a verb going somewhere and is a plural noun standing still.",
+    "definitionFit": "'By any means' is the phrase for doing a thing however it can be done, and 'somehow' says the same with the method left unspecified."
+   }
   },
   {
    "id": "9-across",
@@ -203,7 +534,39 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERSTOOD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNDERSTOOD",
+    "definition": "Roger",
+    "linkWords": [
+     "written by"
+    ],
+    "pieces": [
+     "UN",
+     "DER",
+     "STOOD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French",
+      "gives": "UN",
+      "note": "UN is the French indefinite article"
+     },
+     {
+      "clueFragment": "German articles",
+      "gives": "DER",
+      "note": "DER is the masculine definite article in German"
+     },
+     {
+      "clueFragment": "Rose",
+      "gives": "STOOD",
+      "note": "rose in the sense of got to his feet"
+     }
+    ],
+    "surface": "A pair of grammar pieces written up by two people called Rose and Roger.",
+    "walkthrough": "Roger is a name in the surface and radio shorthand in the answer, the reply that confirms a message got through. Two capitalised first names are all that hold the sentence together.",
+    "definitionFit": "'Roger' is the radio operator's acknowledgement of a message received, so it stands in for exactly the word it means."
+   }
   },
   {
    "id": "10-across",
@@ -220,7 +583,28 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDDA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EDDA",
+    "definition": "old tales",
+    "definitionNote": "The Edda is a single collection of Norse poems, so the plural 'tales' names the stories inside it rather than the book itself.",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part rather than the whole, so what is wanted is a run of letters sitting inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "included Dahl’s",
+      "gives": "EDDA",
+      "note": "four letters in a row, starting near the end of the first word and crossing the gap into the name"
+     }
+    ],
+    "surface": "An anthology that takes in a few of Roald Dahl's earlier stories.",
+    "walkthrough": "'Included' looks like the hiding instruction and is carrier text holding half the letters, while the small word in front does all the instructing. The Edda are the Old Norse poems the Icelandic sagas grew out of.",
+    "definitionFit": "The Edda is the pair of Icelandic books carrying the Norse myths, so 'old tales' points at the stories they hold."
+   }
   },
   {
    "id": "11-down",
@@ -241,7 +625,50 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "SITTINGDUCKS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "SITTING DUCKS",
+    "definition": "Defenceless targets",
+    "indicators": [
+     "including",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "including": "What is included is taken inside, so the trap word opens and admits the letters named next into its middle.",
+     "initially": "'Initially' asks for the state of a word at its start, which here is just the letter it opens with."
+    },
+    "pieces": [
+     "S",
+     "IT",
+     "TING",
+     "DUCKS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police trap",
+      "gives": "STING",
+      "note": "a sting is the operation police set up to catch someone"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is one, the Roman numeral"
+     },
+     {
+      "clueFragment": "that initially",
+      "gives": "T",
+      "note": "the opening letter of THAT, taken as the word stands"
+     },
+     {
+      "clueFragment": "escapes",
+      "gives": "DUCKS",
+      "note": "to duck a thing is to escape it by dodging"
+     }
+    ],
+    "surface": "Police set a trap and one of the people they were after slips out of it straight away.",
+    "walkthrough": "'One that' reads as a person in the surface and is two separate letters in the wordplay, which is what makes the sting look like a whole story instead of a five-letter word.",
+    "definitionFit": "A sitting duck is a bird on the water that cannot get airborne, so the phrase names anyone who can be picked off without a fight."
+   }
   },
   {
    "id": "12-across",
@@ -258,7 +685,30 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEFINITIVELY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DEFINITIVELY",
+    "definition": "Clearly",
+    "indicators": [
+     "criminal"
+    ],
+    "indicatorNotes": {
+     "criminal": "A criminal is bent, and letters described as bent do not keep the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "IDENTIFY EVIL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "identify evil",
+      "gives": "IDENTIFYEVIL",
+      "note": "twelve letters, the whole of the fodder and the whole of the middle of the clue"
+     }
+    ],
+    "surface": "An instruction to name the wrongdoer and leave no doubt about it.",
+    "walkthrough": "Three words, and the middle two are the letters: 'criminal' arrives last, reading as the thing to be identified while doing the instructing.",
+    "definitionFit": "Something settled definitively is settled beyond argument, and 'clearly' carries that same sense of leaving no room for doubt."
+   }
   },
   {
    "id": "13-down",
@@ -279,7 +729,48 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "SWEETIEPIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "SWEETIE-PIE",
+    "definition": "love",
+    "indicators": [
+     "Start of",
+     "tackling"
+    ],
+    "indicatorNotes": {
+     "Start of": "'Start of' takes the word after it at its very beginning, one letter and no more.",
+     "tackling": "To tackle a thing is to get your arms round it, so the longer word wraps itself over the letters that follow."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "S",
+     "WEE",
+     "TIE",
+     "PIE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start of short",
+      "gives": "S",
+      "note": "the opening letter of SHORT"
+     },
+     {
+      "clueFragment": "emotional film",
+      "gives": "WEEPIE",
+      "note": "a weepie is a film made to bring the tears on"
+     },
+     {
+      "clueFragment": "connection",
+      "gives": "TIE",
+      "note": "a tie is a connection between two people or things"
+     }
+    ],
+    "surface": "The opening of a brief tearjerker about a relationship and romance.",
+    "walkthrough": "'Love' arrives at the end reading as one more thing the film is about, and it is the definition — the affectionate name for a person rather than the feeling.",
+    "definitionFit": "A sweetie-pie is what you call someone you dote on, and 'love' is the same term of endearment used as a noun for the person."
+   }
   },
   {
    "id": "14-down",
@@ -301,7 +792,39 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "FREEFORALL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FREE-FOR-ALL",
+    "definition": "Struggle",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "FREE",
+     "FORALL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wordplay",
+      "gives": "FREE",
+      "note": "in wordplay, letters called free are ones you may move anywhere you like"
+     },
+     {
+      "clueFragment": "for ‘floral’",
+      "gives": "FORALL",
+      "note": "the six letters of FLORAL in another order, which is what such an instruction would produce"
+     }
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FLORAL",
+      "gives": "FORALL"
+     }
+    ],
+    "surface": "Somebody wrestling with how to clue the word 'floral'.",
+    "walkthrough": "This one runs backwards: the answer is not built from the quoted word, it is the instruction that would clue the quoted word. Setters call that a reverse anagram.",
+    "definitionFit": "A free-for-all is a disorderly brawl that anyone may join in, so 'struggle' names it as a fight rather than as an effort."
+   }
   },
   {
    "id": "15-across",
@@ -318,7 +841,38 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WARBLER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WARBLER",
+    "definition": "Small bird",
+    "indicators": [
+     "at sea"
+    ],
+    "indicatorNotes": {
+     "at sea": "Anything at sea is adrift with no fixed position, so the letters in front of it settle in a new order."
+    },
+    "linkWords": [
+     "found in"
+    ],
+    "anagram": {
+     "fodder": "W BARREL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "W is whiskey in the radio alphabet — the spelling with the E is the giveaway"
+     },
+     {
+      "clueFragment": "barrel",
+      "gives": "BARREL",
+      "note": "the other six letters of the fodder, handed over intact"
+     }
+    ],
+    "surface": "A little bird discovered inside a whiskey cask floating out on the water.",
+    "walkthrough": "'Found in' looks like the marker for a concealed answer, and nothing runs consecutively inside 'whiskey barrel' — it is joinery, and the instruction is the two words at the end.",
+    "definitionFit": "A warbler is any of the small songbirds named for their warbling, so the definition places it by size and class at once."
+   }
   },
   {
    "id": "16-across",
@@ -335,7 +889,45 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTCOME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + container",
+    "answer": "OUTCOME",
+    "definition": "effect",
+    "indicators": [
+     "Discovered",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Discovered": "Discovered means stripped of its cover, so the word loses the letter at each end and only the middle stays showing.",
+     "about": "Something placed about a thing surrounds it, so the book word closes over the letter named next."
+    },
+    "pieces": [
+     "OU",
+     "T",
+     "C",
+     "OME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discovered your",
+      "gives": "OU",
+      "note": "YOUR with its cover off: the Y and the R at the ends are gone"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome is a book, especially a heavy one"
+     },
+     {
+      "clueFragment": "origin of Coriolis",
+      "gives": "C",
+      "note": "the letter the name starts from"
+     }
+    ],
+    "surface": "Someone has turned up your book about where the Coriolis effect came from.",
+    "walkthrough": "'Discovered' is the trap: it reads as found, and it means uncovered — a word robbed of its outer letters. The physics is scenery, and lends a single initial.",
+    "definitionFit": "An outcome is what a thing results in, and 'effect' is the same relation seen from the other end: what was produced, not the producing."
+   }
   },
   {
    "id": "17-across",
@@ -352,7 +944,39 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETERNAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ETERNAL",
+    "definition": "endless",
+    "indicators": [
+     "wanting"
+    ],
+    "indicatorNotes": {
+     "wanting": "To be wanting a thing is to be without it, so whatever is named next is missing from the longer word."
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "E",
+     "TERNAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outside",
+      "gives": "EXTERNAL",
+      "note": "external is the adjective meaning outside"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "a kiss is written X at the foot of a letter, and that X is the one taken out"
+     }
+    ],
+    "surface": "A person shut outside, longing for a kiss that would never have to stop.",
+    "walkthrough": "'Endless' sits where a deletion instruction usually sits and is the definition instead. The letter that actually goes is nowhere near either end.",
+    "definitionFit": "Eternal means having no end, so 'endless' is a plain synonym — the everyday word for the same absence of a stopping point."
+   }
   },
   {
    "id": "18-down",
@@ -369,7 +993,31 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LARDONS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LARDONS",
+    "definition": "some bacon",
+    "definitionNote": "Bacon is a mass noun and lardons are countable strips cut from it, so the definition names the stuff where the answer names the pieces.",
+    "indicators": [
+     "cooking"
+    ],
+    "indicatorNotes": {
+     "cooking": "Cooking turns ingredients into something other than what went in, and here the letters come out in a new arrangement."
+    },
+    "anagram": {
+     "fodder": "RONALDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ronald’s",
+      "gives": "RONALDS",
+      "note": "the name and its S together, seven letters to be rearranged"
+     }
+    ],
+    "surface": "Ronald at the stove with a pan of bacon on the go.",
+    "walkthrough": "The apostrophe reads as a possessive and is only there to lend its S to the fodder, which is why the name looks a letter short of what the count needs.",
+    "definitionFit": "Lardons are the small strips of fat bacon a French recipe has you fry off, so 'some bacon' names them by what they are cut from."
+   }
   },
   {
    "id": "19-across",
@@ -386,7 +1034,40 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NONAGON",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NONAGON",
+    "definition": "shape",
+    "indicators": [
+     "keeping"
+    ],
+    "indicatorNotes": {
+     "keeping": "Keeping a thing means holding on to it inside, so the first word shuts round the letters that follow."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "NO",
+     "NAG",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "12",
+      "gives": "NOON",
+      "note": "twelve on the clock is noon"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "NAG",
+      "note": "a nag is a worn-out horse"
+     }
+    ],
+    "surface": "Somebody's midday routine keeping a horse fit.",
+    "walkthrough": "A bare number in a Guardian clue usually cross-refers to another entry, and that is the false trail here: this 12 is the hour on a clock face.",
+    "definitionFit": "A nonagon is the nine-sided figure, so 'shape' defines it by class in geometry's plainest possible word."
+   }
   },
   {
    "id": "19-down",
@@ -403,7 +1084,30 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEONATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NEONATE",
+    "definition": "baby",
+    "pieces": [
+     "NEON",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gas",
+      "gives": "NEON",
+      "note": "neon is the gas in the tube of a bright sign"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "ATE",
+      "note": "what ate at somebody upset them — the past tense of eat in that sense"
+     }
+    ],
+    "surface": "Wind troubling a very small baby.",
+    "walkthrough": "'Upset' sits where a turnaround instruction would sit in a down clue and is a straight synonym: what ate at you is what upset you.",
+    "definitionFit": "A neonate is a newborn in medical language, so 'baby' is the everyday word for the same person at the same age."
+   }
   },
   {
    "id": "20-across",
@@ -425,7 +1129,30 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "INOTHERWORDS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IN OTHER WORDS",
+    "definition": "That is",
+    "indicators": [
+     "broadcast"
+    ],
+    "indicatorNotes": {
+     "broadcast": "Broadcasting is the farmer's word for scattering seed by hand, so what it touches lands anywhere at all."
+    },
+    "anagram": {
+     "fodder": "HORRID NEWS TO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "horrid news to",
+      "gives": "HORRIDNEWSTO",
+      "note": "twelve letters, and the small word at the end is two of them"
+     }
+    ],
+    "surface": "A newsreader handed a grim bulletin to put out on air.",
+    "walkthrough": "'To' looks like the join between the news and the broadcasting of it, which is why the count comes up two short for anyone who leaves it out.",
+    "definitionFit": "'In other words' announces a restatement, which is the job 'that is' does — the English of i.e., said the long way round."
+   }
   },
   {
    "id": "21-down",
@@ -442,7 +1169,27 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TREE",
+    "definition": "Something growing",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The plainest hiding word there is: what is in the street is inside the word too, letter for letter and in order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "TREE",
+      "note": "four letters in a row, starting one letter in and stopping one short of the end"
+     }
+    ],
+    "surface": "A plant coming up somewhere along a road.",
+    "walkthrough": "One small word carries the whole instruction, and it is so ordinary that most solvers read straight past it hunting for a mechanism elsewhere in five words.",
+    "definitionFit": "The definition names the answer by class and no further: a tree is the thing you point at when you say something is growing there."
+   }
   },
   {
    "id": "22-down",
@@ -459,7 +1206,33 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PSST",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "PSST",
+    "definition": "pay attention",
+    "indicators": [
+     "Leaders of"
+    ],
+    "indicatorNotes": {
+     "Leaders of": "A leader stands at the front of the column, so what is wanted is the front letter of each word that follows."
+    },
+    "pieces": [
+     "P",
+     "S",
+     "S",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "private schools start to",
+      "gives": "PSST",
+      "note": "the opening letters of four consecutive words"
+     }
+    ],
+    "surface": "Fee-paying heads beginning to take notice of something.",
+    "walkthrough": "The initials run through four words, and two of them are words the eye skips: 'start' and 'to' read as part of the definition and are fodder.",
+    "definitionFit": "'Psst' is the hiss you make to get somebody to look your way, so the definition gives what it means rather than what it says."
+   }
   },
   {
    "id": "23-across",
@@ -476,7 +1249,35 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEAK",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PEAK",
+    "definition": "Summit",
+    "indicators": [
+     "shunning"
+    ],
+    "indicatorNotes": {
+     "shunning": "To shun a thing is to have nothing to do with it, so whatever is named next is left out of the answer."
+    },
+    "pieces": [
+     "PEAK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talks",
+      "gives": "SPEAKS",
+      "note": "'talks' as a verb is SPEAKS"
+     },
+     {
+      "clueFragment": "both sides",
+      "gives": "",
+      "note": "the outermost letter at each end of that six-letter verb, an S either way, is what goes"
+     }
+    ],
+    "surface": "A summit meeting where the two parties are refusing to speak to each other.",
+    "walkthrough": "'Summit talks' is the phrase the surface wants you to take as one thing, and the definition has finished after the first word of it.",
+    "definitionFit": "A peak is the topmost point of a mountain, and 'summit' is that same point named by the climber rather than by the map."
+   }
   },
   {
    "id": "24-across",
@@ -497,7 +1298,24 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
     ]
    },
    "solution": "VOCALCORDS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "VOCAL CORDS",
+    "definition": "Parts of speech?",
+    "blocks": [
+     {
+      "clueFragment": "Parts",
+      "note": "the grammarian's sense comes first: the categories a schoolchild lists off, noun and verb and adjective"
+     },
+     {
+      "clueFragment": "of speech?",
+      "note": "the question mark withdraws that reading and asks for parts of the body instead — the two folds in the larynx that vibrate when you talk"
+     }
+    ],
+    "surface": "A grammar lesson asking you to name the categories that words fall into.",
+    "walkthrough": "1 down uses the same phrase in the grammar sense in the same grid, so the setter has clued it both ways: here it is anatomy, and there it is not.",
+    "definitionFit": "Speech is made by air setting two folds of tissue in the larynx vibrating, so they are literally the parts that produce it."
+   }
   },
   {
    "id": "25-across",
@@ -514,7 +1332,48 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EELS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "EELS",
+    "definition": "slender swimmers",
+    "indicators": [
+     "back",
+     "across"
+    ],
+    "indicatorNotes": {
+     "back": "A backward look reverses direction, and an across entry read backwards runs right to left.",
+     "across": "Lying across a thing covers it, so the turned-round word spreads over the letter it is given to hold."
+    },
+    "linkWords": [
+     "to find"
+    ],
+    "pieces": [
+     "EE",
+     "L",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "SEE",
+      "note": "to look is to see"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the standard map abbreviation for a lake"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "SEE",
+      "to": "EES"
+     }
+    ],
+    "surface": "Glancing back over a lake and spotting something long and thin in the water.",
+    "walkthrough": "'Look back across lake' paints one glance over the water and every word in it is an instruction — the definition does not begin until 'slender'.",
+    "definitionFit": "Eels are long, thin fish, so 'slender swimmers' describes them by shape and habit without naming the species."
+   }
   },
   {
    "id": "26-across",
@@ -531,7 +1390,45 @@ window.CRYPTIC_PUZZLES["cryptic-30005"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSESSMENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "ASSESSMENT",
+    "definition": "test",
+    "indicators": [
+     "to tackle",
+     "beginning of"
+    ],
+    "indicatorNotes": {
+     "to tackle": "Tackling something means getting your arms round it, so the word in front closes over the letter that follows.",
+     "beginning of": "'Beginning of' asks for the point a word starts at, which is its first letter and nothing more."
+    },
+    "pieces": [
+     "ASSES",
+     "S",
+     "M",
+     "ENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack and Jenny",
+      "gives": "ASSES",
+      "note": "a jack is a male donkey and a jenny a female one, so the plural covers the pair"
+     },
+     {
+      "clueFragment": "excited",
+      "gives": "SENT",
+      "note": "sent is old slang for carried away, the state a jazz record leaves you in"
+     },
+     {
+      "clueFragment": "beginning of maths",
+      "gives": "M",
+      "note": "the first letter of MATHS"
+     }
+    ],
+    "surface": "Two donkeys getting worked up as they take on the start of a maths exam.",
+    "walkthrough": "Jack and Jenny read as a couple's names, and neither is a person: both belong to the same animal, which is the whole of what makes the surface hold together.",
+    "definitionFit": "An assessment is a formal judging of how somebody has done, and 'test' is the school word for the exercise set to arrive at one."
+   }
   }
  ]
 } /*JSON-END*/;
