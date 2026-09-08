@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOAP",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letter",
+    "answer": "SOAP",
+    "definition": "cleaner",
+    "indicators": [
+     "essentially",
+     "tackled by"
+    ],
+    "indicatorNotes": {
+     "essentially": "The essence of a word sits at its very core, so a five-letter word is asked for its single middle letter.",
+     "tackled by": "A tackle closes right round the player being tackled, so whatever does the tackling wraps itself about the letter."
+    },
+    "pieces": [
+     "S",
+     "O",
+     "AP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drain",
+      "gives": "SAP",
+      "note": "to sap something is to drain it of strength, and the word opens up to take a letter"
+     },
+     {
+      "clueFragment": "Block",
+      "gives": "O",
+      "note": "the letter at the centre of blOck"
+     }
+    ],
+    "surface": "Something blocking a drain, and the stuff poured down the pipe to shift it.",
+    "walkthrough": "'Block' looks like the thing stuck in the pipe and is really a word being cut down to one letter, while 'drain' is a verb rather than the pipe itself.",
+    "definitionFit": "cleaner → SOAP: the plainest sense of the word, the household agent that lathers up and takes dirt off."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +83,40 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
     ]
    },
    "solution": "BENTOBOX",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BENTO BOX",
+    "definition": "Packed lunch",
+    "indicators": [],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "BENT",
+     "O",
+     "BOX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dodgy",
+      "gives": "BENT",
+      "note": "someone bent is crooked or dishonest, as in a bent copper"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o is the standard short form of old"
+     },
+     {
+      "clueFragment": "Spar",
+      "gives": "BOX",
+      "note": "to spar is to box, trading practice punches"
+     }
+    ],
+    "surface": "A dubious lunch bought from a corner shop that has seen better days.",
+    "walkthrough": "Spar is a chain of British convenience stores, which is what the capital letter is there to suggest; the word is really doing service as the boxers' verb.",
+    "definitionFit": "Packed lunch → BENTO BOX: the Japanese compartmented lunch container, rice and fish packed into its trays, is a packed lunch exactly."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +133,37 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BABY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BABY",
+    "definition": "Honey",
+    "indicators": [
+     "swallowed by"
+    ],
+    "indicatorNotes": {
+     "swallowed by": "Anything swallowed disappears inside the swallower, so the letter ends up in the middle of the word that eats it."
+    },
+    "pieces": [
+     "BA",
+     "B",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "BAY",
+      "note": "a bay is a reddish-brown horse"
+     },
+     {
+      "clueFragment": "bee",
+      "gives": "B",
+      "note": "the insect is the name of the letter said aloud, so it stands for that single character"
+     }
+    ],
+    "surface": "A bee getting itself swallowed by a grazing horse.",
+    "walkthrough": "'Honey' is a term of endearment rather than the stuff bees make, and putting the insect right next to it keeps the hive in mind.",
+    "definitionFit": "Honey → BABY: both are what you call someone you dote on, interchangeable as forms of address between fond adults."
+   }
   },
   {
    "id": "4-down",
@@ -85,7 +180,45 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CURATORS",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "CURATORS",
+    "definition": "Aussie groundsmen",
+    "indicators": [
+     "stuck up",
+     "to feed"
+    ],
+    "indicatorNotes": {
+     "stuck up": "Up a down entry means written from the bottom towards the top, so the schedule is entered the wrong way round.",
+     "to feed": "You feed something into a machine by pushing it inside, so these letters go into the middle of the other word."
+    },
+    "pieces": [
+     "CUR",
+     "ATOR",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "ROTA",
+      "to": "ATOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dogs",
+      "gives": "CURS",
+      "note": "a cur is a mongrel, the crossword's usual disparaging dog"
+     },
+     {
+      "clueFragment": "schedule",
+      "gives": "ATOR",
+      "note": "a rota is a duty schedule, and it climbs the entry instead of descending it"
+     }
+    ],
+    "surface": "Australian ground staff pinning up a feeding rota for the dogs.",
+    "walkthrough": "In Australia the person who prepares and tends a cricket square is called the curator, and that job title is the whole definition rather than an art-gallery joke.",
+    "definitionFit": "Aussie groundsmen → CURATORS: in Australia the staff who prepare a cricket ground carry the job title curator, not groundsman."
+   }
   },
   {
    "id": "5-down",
@@ -108,7 +241,39 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STREET",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "STREET",
+    "definition": "Where you might see Neighbours",
+    "indicators": [
+     "not finishing"
+    ],
+    "indicatorNotes": {
+     "not finishing": "A word that does not finish stops short of its own last character, so the final letter never gets written."
+    },
+    "linkWords": [
+     "on"
+    ],
+    "pieces": [
+     "STREE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actress not finishing",
+      "gives": "STREE",
+      "note": "Meryl Streep is the actress, halted before her closing letter"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the standard short form of time"
+     }
+    ],
+    "surface": "An actress from the Australian soap turning up somewhere, and not quite finishing on time.",
+    "walkthrough": "The italics make Neighbours a programme, and the show is set in Ramsay Street; with a small n the same word means the people living either side of you.",
+    "definitionFit": "Where you might see Neighbours → STREET: the soap is set in one, and a street is literally where the people next door live."
+   }
   },
   {
    "id": "6-down",
@@ -125,7 +290,43 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASTENDERS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "EASTENDERS",
+    "definition": "1",
+    "indicators": [
+     "to stop"
+    ],
+    "indicatorNotes": {
+     "to stop": "To stop a gap is to plug it, so the piece named goes down into the middle of the word beside it."
+    },
+    "pieces": [
+     "EAST",
+     "END",
+     "ER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival",
+      "gives": "EASTER",
+      "note": "Easter is the festival, and it splits open to take another piece"
+     },
+     {
+      "clueFragment": "tip",
+      "gives": "END",
+      "note": "the tip of a thing is its end"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "s is the genealogist's short form of succeeded"
+     }
+    ],
+    "surface": "A gratuity offered to bring a festival to a halt, and the bribe working.",
+    "walkthrough": "The bare '1' sends you to 1-down, whose answer names a whole television genre, so the definition here is an example of that genre rather than a synonym for anything.",
+    "definitionFit": "1 → EASTENDERS: the answer at 1-down is the word for a television serial, and this long-running BBC one is an instance of it."
+   }
   },
   {
    "id": "7-down",
@@ -142,7 +343,39 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POWDER",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "POWDER",
+    "definition": "Snow",
+    "indicators": [
+     "finally",
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "finally": "The letter a word finally arrives at is its last, so only that closing character is taken.",
+     "cutting": "Cutting into something opens it up, so the letter is driven between the others rather than added on the end."
+    },
+    "pieces": [
+     "POW",
+     "D",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teeth",
+      "gives": "POWER",
+      "note": "a law with teeth is a law with power behind it"
+     },
+     {
+      "clueFragment": "leopard finally",
+      "gives": "D",
+      "note": "the last letter of leoparD"
+     }
+    ],
+    "surface": "A snow leopard cutting its teeth.",
+    "walkthrough": "'Snow leopard' is a single animal until you split it: the first word defines and the second is only there to hand over one letter.",
+    "definitionFit": "Snow → POWDER: on the piste, powder is the fresh dry unpacked snow that skiers go looking for."
+   }
   },
   {
    "id": "8-down",
@@ -165,7 +398,36 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "STAY",
+    "definition": "Supporter",
+    "indicators": [
+     "beginning to"
+    ],
+    "indicatorNotes": {
+     "beginning to": "The beginning of a word is the letter it opens with, so only that first character comes across."
+    },
+    "pieces": [
+     "S",
+     "TAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sing",
+      "gives": "S",
+      "note": "the opening letter of sing"
+     },
+     {
+      "clueFragment": "Flower of Scotland",
+      "gives": "TAY",
+      "note": "the Tay is Scotland's longest river, and a river is a thing that flows"
+     }
+    ],
+    "surface": "A supporter in the crowd striking up the Scottish anthem.",
+    "walkthrough": "'Flower' is the crossword's oldest pun — not a bloom but a flow-er, a thing that flows — and the italics on the anthem's title keep you singing rather than looking at rivers.",
+    "definitionFit": "Supporter → STAY: a stay is the rope or brace that holds a mast up, and stays are the stiffening in a corset."
+   }
   },
   {
    "id": "9-across",
@@ -182,7 +444,42 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPERA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OPERA",
+    "definition": "Car men",
+    "indicators": [
+     "possibly",
+     "welding"
+    ],
+    "indicatorNotes": {
+     "possibly": "'Possibly' warns that what precedes is one instance of the answer's category rather than a synonym for the whole of it.",
+     "welding": "Welding fuses separate pieces into a single object, so the chunks are run together in the order given."
+    },
+    "linkWords": [
+     "needing"
+    ],
+    "pieces": [
+     "O",
+     "PER",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is a circle, and a circle is the shape of that letter"
+     },
+     {
+      "clueFragment": "AA",
+      "gives": "PERA",
+      "note": "the first of the two letters is read as the word a, which means per — five pounds a head is five pounds per head — while the second stays as it is"
+     }
+    ],
+    "surface": "Mechanics with a welding job on their hands calling out the motoring breakdown service.",
+    "walkthrough": "Bizet's Carmen is both the trap and the point: two words on the page, one work in the ear. The AA is a breakdown service only in the surface story.",
+    "definitionFit": "Car men → OPERA: run together it is Bizet's Carmen, and 'possibly' flags that one named work is standing in for the art form."
+   }
   },
   {
    "id": "10-across",
@@ -199,7 +496,31 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ULTRASOFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ULTRASOFT",
+    "definition": "very forgiving",
+    "indicators": [],
+    "pieces": [
+     "ULTRAS",
+     "OFT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hardcore fans",
+      "gives": "ULTRAS",
+      "note": "ultras are football's most fervent supporters, the ones who organise the chanting"
+     },
+     {
+      "clueFragment": "frequently",
+      "gives": "OFT",
+      "note": "oft is the poetic short form of often"
+     }
+    ],
+    "surface": "Football's most fanatical supporters turning out to be remarkably easy-going.",
+    "walkthrough": "The definition is the last two words, and they go on sounding like more talk about football supporters, so the sentence never seems to change subject. An S changes sides between the two readings.",
+    "definitionFit": "very forgiving → ULTRASOFT: 'soft' in the sense of lenient, as in soft on offenders, with 'ultra' doing the work of 'very'."
+   }
   },
   {
    "id": "11-across",
@@ -220,7 +541,38 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
     ]
    },
    "solution": "PATTYCAKE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PATTY-CAKE",
+    "definition": "Yankees’ game",
+    "indicators": [
+     "Misuse of"
+    ],
+    "indicatorNotes": {
+     "Misuse of": "Misusing something is handling it wrongly, and letters handled wrongly come out in the wrong order."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "TACKY TAPE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "tacky tape",
+      "gives": "TACKYTAPE",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "Misuse of",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Sticky tape being put to a use it was never meant for at a baseball game.",
+    "walkthrough": "The Yankees are Americans in general rather than the New York club, and the game is the hand-clapping nursery rhyme that British children chant as pat-a-cake.",
+    "definitionFit": "Yankees’ game → PATTY-CAKE: patty-cake is the American name for the children's clapping game, so 'Yankees'' marks which side of the Atlantic the name comes from."
+   }
   },
   {
    "id": "12-across",
@@ -237,7 +589,31 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEDDY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TEDDY",
+    "definition": "Stuffed thing",
+    "definition2": "underwear",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuffed thing",
+      "gives": "TEDDY",
+      "note": "the soft bear a child takes to bed, named after President Roosevelt"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "TEDDY",
+      "note": "the one-piece camisole-and-knickers undergarment"
+     }
+    ],
+    "surface": "Something padded turning up in somebody's underwear drawer.",
+    "walkthrough": "One word covers a nursery toy and a piece of lingerie, and the clue runs the two senses into a single phrase so that the join between them disappears.",
+    "definitionFit": "A teddy is both the plush bear named after Theodore Roosevelt and a woman's one-piece camisole-and-knickers undergarment."
+   }
   },
   {
    "id": "13-across",
@@ -254,7 +630,44 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOBACCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + alternate letters",
+    "answer": "TOBACCO",
+    "definition": "plant",
+    "indicators": [
+     "brought back",
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "brought back": "Bringing a word back turns it round, so in an across entry its letters are written from right to left.",
+     "oddly": "Reading a word oddly keeps the letters in the odd positions and throws the even ones away."
+    },
+    "pieces": [
+     "TOBAC",
+     "CO"
+    ],
+    "subReversals": [
+     {
+      "from": "CABOT",
+      "to": "TOBAC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Explorer",
+      "gives": "TOBAC",
+      "note": "John Cabot, the navigator who sailed west from Bristol, written backwards"
+     },
+     {
+      "clueFragment": "oddly cool",
+      "gives": "CO",
+      "note": "the first and third letters of CoOl"
+     }
+    ],
+    "surface": "An explorer returning home with an oddly chilly plant.",
+    "walkthrough": "Cabot claimed Newfoundland for Henry VII in 1497; the leaf that actually crossed the Atlantic came back with later voyagers, which is the quiet joke in the surface.",
+    "definitionFit": "plant → TOBACCO: the broad-leaved crop grown for its dried and cured leaves is a plant in the plain botanical sense."
+   }
   },
   {
    "id": "13-down",
@@ -271,7 +684,36 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TELLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TELLY",
+    "definition": "set",
+    "indicators": [
+     "on the back of"
+    ],
+    "indicatorNotes": {
+     "on the back of": "The back of a word is where its final letter sits, so that closing character is all that comes across."
+    },
+    "pieces": [
+     "TELL",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giveaway",
+      "gives": "TELL",
+      "note": "a tell is the unconscious sign that gives a poker player away"
+     },
+     {
+      "clueFragment": "Monopoly",
+      "gives": "Y",
+      "note": "the last letter of monopolY"
+     }
+    ],
+    "surface": "A free gift advertised on the back of a Monopoly box.",
+    "walkthrough": "'Set' sits at the end looking like part of the board-game picture, a Monopoly set, and it is the definition: the box in the corner of the living room.",
+    "definitionFit": "set → TELLY: a television receiver is 'the set', and telly is the everyday British word for that same box."
+   }
   },
   {
    "id": "14-down",
@@ -288,7 +730,51 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORONATION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CORONATION",
+    "definition": "investment",
+    "indicators": [
+     "making a return"
+    ],
+    "indicatorNotes": {
+     "making a return": "Something making a return comes back the way it went, so those letters are written in the opposite order."
+    },
+    "linkWords": [
+     "on"
+    ],
+    "pieces": [
+     "CO",
+     "RO",
+     "NATION"
+    ],
+    "subReversals": [
+     {
+      "from": "OR",
+      "to": "RO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Businessmen",
+      "gives": "CO",
+      "note": "the word has to be split in two: business gives a company, co for short"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "RO",
+      "note": "the second half of that same word is OR, the army's other ranks, and those two letters come back the other way"
+     },
+     {
+      "clueFragment": "people’s",
+      "gives": "NATION",
+      "note": "a nation is a people considered as a single body"
+     }
+    ],
+    "surface": "City investors collecting a healthy return on money the public put in.",
+    "walkthrough": "'Investment' is not the financial kind: to invest someone is to install them in office with the robes and regalia. The single word 'Businessmen' has to be read as two.",
+    "definitionFit": "investment → CORONATION: the older sense of invest, to clothe someone in the robes of office, makes the crowning ceremony an investment."
+   }
   },
   {
    "id": "15-across",
@@ -305,7 +791,39 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TANGRAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TANGRAM",
+    "definition": "puzzle",
+    "indicators": [
+     "leading"
+    ],
+    "indicatorNotes": {
+     "leading": "Whatever leads goes in front, so the dynasty's letters are placed ahead of the ones that follow."
+    },
+    "linkWords": [
+     "produces"
+    ],
+    "pieces": [
+     "TANG",
+     "RAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dynasty’s",
+      "gives": "TANG",
+      "note": "the Tang ruled China for three centuries"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "RAM",
+      "note": "a ram is the male sheep"
+     }
+    ],
+    "surface": "The leading man of the glossy American soap leaving everybody baffled.",
+    "walkthrough": "A Chinese dynasty and an eighties soap share a word, and the capital D belongs equally to both, so nothing in the sentence points east.",
+    "definitionFit": "puzzle → TANGRAM: the Chinese dissection puzzle whose seven flat pieces are rearranged into silhouettes is one particular kind of puzzle."
+   }
   },
   {
    "id": "16-down",
@@ -322,7 +840,28 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MESSY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MESSY",
+    "definition": "Confused",
+    "indicators": [
+     "on the radio"
+    ],
+    "indicatorNotes": {
+     "on the radio": "A name heard on the radio reaches you as sound alone, so you write down what it sounds like rather than how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "footballer",
+      "soundsLike": "MESSI",
+      "gives": "MESSY",
+      "note": "Lionel Messi, the Argentinian forward, said aloud"
+     }
+    ],
+    "surface": "A confused footballer being discussed by commentators on the radio.",
+    "walkthrough": "Only the spelling moves: the Argentinian's name ends in an I where the adjective ends in a Y, so to the ear the two are identical.",
+    "definitionFit": "Confused → MESSY: a messy situation is a muddled and disordered one, so 'confused' names the state of things rather than a state of mind."
+   }
   },
   {
    "id": "17-across",
@@ -339,7 +878,42 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUXOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "LUXOR",
+    "definition": "City",
+    "indicators": [
+     "the end for"
+    ],
+    "indicatorNotes": {
+     "the end for": "The end of a name is its final letter, so only the last character of the town is used."
+    },
+    "pieces": [
+     "LUX",
+     "O",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1",
+      "gives": "LUX",
+      "note": "the answer to 1-down is SOAP, and Lux is the long-running brand of it"
+     },
+     {
+      "clueFragment": "0",
+      "gives": "O",
+      "note": "a written nought is the letter it looks like"
+     },
+     {
+      "clueFragment": "the end for Manchester",
+      "gives": "R",
+      "note": "the last letter of ManchesteR"
+     }
+    ],
+    "surface": "A one-nil scoreline going Manchester City's way.",
+    "walkthrough": "Manchester City is a football club until the two words come apart: 'City' is the definition and Manchester is being asked only for its final letter.",
+    "definitionFit": "City → LUXOR: the Egyptian city on the Nile, built over the ruins of ancient Thebes, is a city in the plainest sense."
+   }
   },
   {
    "id": "18-across",
@@ -362,7 +936,38 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUD",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + deletion",
+    "answer": "SUD",
+    "definition": "a bit of froth",
+    "indicators": [
+     "Comeback of",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "Comeback of": "A comeback is a return along the way you came, so the letters are read back to front.",
+     "mostly": "Mostly means most of a thing and not all of it, so the word gives up its final letter."
+    },
+    "pieces": [
+     "SUD"
+    ],
+    "subReversals": [
+     {
+      "from": "DUS",
+      "to": "SUD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twilight mostly",
+      "gives": "DUS",
+      "note": "twilight is dusk, and 'mostly' leaves the closing K behind"
+     }
+    ],
+    "surface": "The vampire film franchise making a return and being written off as lightweight.",
+    "walkthrough": "In italics Twilight is the film series; in plain English it is dusk, and that is the reading the wordplay needs. Setters treat the singular of suds as a fair word.",
+    "definitionFit": "a bit of froth → SUD: the singular of suds, one bubble of the soapy foam that a wash raises."
+   }
   },
   {
    "id": "19-down",
@@ -379,7 +984,40 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOWNSIDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DOWNSIDE",
+    "definition": "Negative",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "Upsetting something tips its contents out in a heap, and letters tipped out land in a fresh order."
+    },
+    "anagram": {
+     "fodder": "D SID OWEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "d is the credits' short form of director"
+     },
+     {
+      "clueFragment": "Sid Owen",
+      "gives": "SIDOWEN",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A film director losing his temper with the actor Sid Owen.",
+    "walkthrough": "Sid Owen played Ricky Butcher in EastEnders for two decades, which is why his name turns up in a soap-themed grid, and the clue reads as a row on set.",
+    "definitionFit": "Negative → DOWNSIDE: the downside of a plan is its negative, the drawback you weigh against the advantages."
+   }
   },
   {
    "id": "20-across",
@@ -396,7 +1034,39 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVENS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "EVENS",
+    "definition": "quits",
+    "indicators": [
+     "broken by",
+     "at the start"
+    ],
+    "indicatorNotes": {
+     "broken by": "Breaking into something opens it in the middle, so the letter is pushed between the ones already there.",
+     "at the start": "The start of a name is the letter it opens with, so only that first character is taken."
+    },
+    "pieces": [
+     "EVE",
+     "N",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sinner’s",
+      "gives": "EVES",
+      "note": "Eve was the one who took the fruit in Genesis, and her apostrophe-s comes along with her"
+     },
+     {
+      "clueFragment": "Norrie",
+      "gives": "N",
+      "note": "the first letter of Norrie"
+     }
+    ],
+    "surface": "A tennis player broken early on by Norrie and then walking off the court.",
+    "walkthrough": "Jannik Sinner and Cameron Norrie are both on the men's tour, which is what keeps the capital S looking like a surname instead of the woman in Eden.",
+    "definitionFit": "quits → EVENS: to be quits is to owe nothing either way, and evens is that same level state, the bookmaker's word for a 50-50 chance."
+   }
   },
   {
    "id": "21-down",
@@ -413,7 +1083,39 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELDORADO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letters",
+    "answer": "ELDORADO",
+    "definition": "fabulous place",
+    "indicators": [
+     "finishes"
+    ],
+    "indicatorNotes": {
+     "finishes": "Where a name finishes is its last letter, and two names finishing give two closing letters in order."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "EL",
+     "DORADO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jackie Corkhill finishes",
+      "gives": "EL",
+      "note": "the closing letters of jackiE and corkhilL; she was a regular in Brookside, the Liverpool soap"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "DORADO",
+      "note": "the dorado is the dolphinfish of warm seas"
+     }
+    ],
+    "surface": "Jackie Corkhill polishing off the last of the fish in a marvellous spot.",
+    "walkthrough": "El Dorado was the golden city the conquistadors hunted through South America and never found. It was also a short-lived BBC soap, which is the company this clue's character keeps.",
+    "definitionFit": "fabulous place → ELDORADO: the legendary city of gold exists only in fable, which is what 'fabulous' means before it means wonderful."
+   }
   },
   {
    "id": "22-across",
@@ -434,7 +1136,43 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
     ]
    },
    "solution": "YFRONTS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "Y-FRONTS",
+    "definition": "pants",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' puts one thing inside another, so the letters before it are dropped into the middle of what follows."
+    },
+    "pieces": [
+     "Y",
+     "FR",
+     "ON",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old juvenile training",
+      "gives": "YTS",
+      "note": "the Youth Training Scheme, the British programme that took school-leavers through the 1980s and was wound up in 1990"
+     },
+     {
+      "clueFragment": "Father",
+      "gives": "FR",
+      "note": "Fr is how a priest's title is written in front of his name"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     }
+    ],
+    "surface": "A priest employed on a defunct government scheme for training young people.",
+    "walkthrough": "A whole institution is compressed into three letters here, and 'old' is the setter's way of saying the scheme no longer exists rather than a word about age.",
+    "definitionFit": "pants → Y-FRONTS: pants is the British word for underpants, and Y-fronts are the men's briefs with the Y-shaped seam at the front."
+   }
   },
   {
    "id": "23-down",
@@ -451,7 +1189,38 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHUMBA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "RHUMBA",
+    "definition": "steps",
+    "definitionNote": "'Steps' is plural where the answer is one dance; a dance is routinely named by the steps that make it up, so the plural stands for the single routine.",
+    "indicators": [
+     "endless",
+     "winding"
+    ],
+    "indicatorNotes": {
+     "endless": "A word made endless loses the letter at its end, so the last one goes before anything else happens.",
+     "winding": "A winding road never runs straight, and letters made to wind arrive out of the order they were given in."
+    },
+    "anagram": {
+     "fodder": "HAMBUR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hamburg’s endless",
+      "gives": "HAMBUR",
+      "note": "the German port with its final letter dropped, six letters of fodder"
+     },
+     {
+      "clueFragment": "winding",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "An endless spiral staircase somewhere in Hamburg.",
+    "walkthrough": "'Winding steps' reads as one phrase, a spiral staircase, and the two words belong to different halves of the clue: one shuffles the letters, the other defines them.",
+    "definitionFit": "steps → RHUMBA: the Cuban ballroom dance, all hip movement and little travel, is named here by the steps a dancer performs."
+   }
   },
   {
    "id": "24-down",
@@ -468,7 +1237,43 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SADDLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SADDLE",
+    "definition": "Seat",
+    "indicators": [
+     "flying"
+    ],
+    "indicatorNotes": {
+     "flying": "Things sent flying scatter and land anyhow, which is what becomes of these letters."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "DEALS D"
+    },
+    "blocks": [
+     {
+      "clueFragment": "deals",
+      "gives": "DEALS",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "Delta",
+      "gives": "D",
+      "note": "Delta is D in the radio alphabet"
+     },
+     {
+      "clueFragment": "flying",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Cheap airline seats going on sale with Delta.",
+    "walkthrough": "Delta is an airline in the surface and a single letter in the wordplay, and that swap is what the clue turns on; the seat is a horse's or a bicycle's.",
+    "definitionFit": "Seat → SADDLE: the seat a rider sits on, whether strapped to a horse's back or bolted to a bicycle frame."
+   }
   },
   {
    "id": "25-across",
@@ -485,7 +1290,38 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WASHDAY",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "WASHDAY",
+    "definition": "when things may be on the line",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so those two openings change places."
+    },
+    "pieces": [
+     "WASH",
+     "DAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cash",
+      "soundsLike": "DOSH",
+      "gives": "WASH",
+      "note": "dosh is British slang for money; it hands over its opening D and takes the W coming back the other way"
+     },
+     {
+      "clueFragment": "balance",
+      "soundsLike": "WEIGH",
+      "gives": "DAY",
+      "note": "to weigh a thing is to balance it; it gives up its W and collects the D that has just been let go"
+     }
+    ],
+    "surface": "Spooner totting up how much money he has left.",
+    "walkthrough": "Say 'dosh' and 'weigh' out loud, trade the noises at their fronts, and the laundry comes out — the second half has to be written as the ordinary spelling of the sound.",
+    "definitionFit": "when things may be on the line → WASHDAY: the day the household wash is done, when the laundry is literally pegged out on a line."
+   }
   },
   {
    "id": "26-across",
@@ -502,7 +1338,37 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOUST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "JOUST",
+    "definition": "contest",
+    "indicators": [
+     "stops"
+    ],
+    "indicatorNotes": {
+     "stops": "To stop a gap is to plug it, so the letter is pushed into the middle of the word beside it."
+    },
+    "pieces": [
+     "J",
+     "O",
+     "UST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fair",
+      "gives": "JUST",
+      "note": "a just decision is a fair one"
+     },
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "nothing is written as a nought, which is that letter's shape"
+     }
+    ],
+    "surface": "Nothing standing in the way of a fair fight.",
+    "walkthrough": "'Nothing stops fair' reads as a single phrase about there being no obstacle, and all three words are wordplay. The contest is the one knights fought with lances.",
+    "definitionFit": "contest → JOUST: the lance-to-lance charge between two mounted knights is a contest, and the word still covers any head-to-head duel."
+   }
   },
   {
    "id": "26-down",
@@ -519,7 +1385,39 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOEY",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "JOEY",
+    "definition": "Young Australian",
+    "indicators": [
+     "catching",
+     "opener"
+    ],
+    "indicatorNotes": {
+     "catching": "Catching something holds it inside your grasp, so the letter is trapped in the middle of the word.",
+     "opener": "The opener of a word is the letter that opens it, so only that first character is used."
+    },
+    "pieces": [
+     "JO",
+     "E",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delight",
+      "gives": "JOY",
+      "note": "joy is delight, and it opens up to take a letter"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "the first letter of English"
+     }
+    ],
+    "surface": "An Australian fielder's glee at catching England's opening batsman.",
+    "walkthrough": "Every word of the cricket picture is complete — a catch, an opener, an Australian celebrating — and the answer is a kangaroo's young.",
+    "definitionFit": "Young Australian → JOEY: the young of a kangaroo or other marsupial, Australian by species rather than by nationality."
+   }
   },
   {
    "id": "27-across",
@@ -536,7 +1434,42 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISBARRED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DISBARRED",
+    "definition": "Expelled",
+    "indicators": [
+     "outside"
+    ],
+    "indicatorNotes": {
+     "outside": "What stands outside goes round the outside, so the pub is enclosed by the two pieces on either side of it."
+    },
+    "pieces": [
+     "DIS",
+     "BAR",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inspectors",
+      "gives": "DIS",
+      "note": "DI is the police rank detective inspector, and the clue asks for more than one"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "the bar is the counter a pub serves its drinks over"
+     },
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "an embarrassed face goes red"
+     }
+    ],
+    "surface": "Detectives going red in the face outside a pub.",
+    "walkthrough": "The pub in the middle is the same bar a barrister is called to, which is why being stripped of it amounts to expulsion from the profession.",
+    "definitionFit": "Expelled → DISBARRED: a barrister struck off is expelled from the bar, so the general word covers this one particular expulsion."
+   }
   },
   {
    "id": "28-down",
@@ -553,7 +1486,31 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACTS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ACTS",
+    "definition": "book",
+    "definitionNote": "The answer ends in S but names one thing: the Acts of the Apostles is a single book, so a singular definition is right.",
+    "indicators": [
+     "Defaced"
+    ],
+    "indicatorNotes": {
+     "Defaced": "Take the face off a word and its front letter goes, which is the reading 'de-faced' is asking for."
+    },
+    "pieces": [
+     "ACTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "FACTS",
+      "note": "facts are information, and this is the word about to lose its face"
+     }
+    ],
+    "surface": "A reference book that somebody has scribbled all over.",
+    "walkthrough": "Acts of the Apostles is a New Testament book, so 'book' defines by example. 'Defaced' works twice over: a vandalised volume in the surface, a beheaded word in the wordplay.",
+    "definitionFit": "book → ACTS: the Acts of the Apostles is one of the books of the New Testament, named here by its category."
+   }
   },
   {
    "id": "29-down",
@@ -570,7 +1527,31 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DISH",
+    "definition": "Prepared food",
+    "definition2": "heart-throb",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepared food",
+      "gives": "DISH",
+      "note": "a course as it reaches the table, cooked and plated"
+     },
+     {
+      "clueFragment": "heart-throb",
+      "gives": "DISH",
+      "note": "slang for a strikingly good-looking person"
+     }
+    ],
+    "surface": "Somebody cooking a meal for the object of their affections.",
+    "walkthrough": "Food on the table and food for the eye: the same word covers a plated course and a person worth staring at, and 'for' pretends to be a preposition of purpose.",
+    "definitionFit": "A dish is both a prepared course served at table and, in slang, a person good-looking enough to stop traffic."
+   }
   },
   {
    "id": "30-across",
@@ -587,7 +1568,40 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMBROILED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EMBROILED",
+    "definition": "involved",
+    "indicators": [],
+    "linkWords": [
+     "get"
+    ],
+    "pieces": [
+     "EM",
+     "BR",
+     "OILED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dorothy’s aunt",
+      "gives": "EM",
+      "note": "Auntie Em brought Dorothy up on the Kansas farm in The Wizard of Oz"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "BR",
+      "note": "Br is the standard short form of British"
+     },
+     {
+      "clueFragment": "drunk",
+      "gives": "OILED",
+      "note": "someone well oiled has had far too much to drink"
+     }
+    ],
+    "surface": "Dorothy's aunt getting mixed up with a drunken Brit.",
+    "walkthrough": "Well-oiled is British slang for thoroughly drunk, and Auntie Em is Dorothy's guardian on the Kansas farm; the clue introduces two people who have never met.",
+    "definitionFit": "involved → EMBROILED: to be embroiled is to be caught up in a quarrel or a mess, the sense of 'involved' that carries trouble with it."
+   }
   },
   {
    "id": "31-across",
@@ -604,7 +1618,42 @@ window.CRYPTIC_PUZZLES["cryptic-30024"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIDES",
-   "annotation": null
+   "annotation": {
+    "type": "container + fourth letter",
+    "answer": "TIDES",
+    "definition": "Main movements",
+    "indicators": [
+     "4th",
+     "introduced by"
+    ],
+    "indicatorNotes": {
+     "4th": "The 4th of a name is the letter standing in fourth place when you count from the front of it.",
+     "introduced by": "To introduce something is to bring it inside, so the strings take the letter into the middle of themselves."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "TI",
+     "D",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strings",
+      "gives": "TIES",
+      "note": "ties are strings for fastening, as on an apron"
+     },
+     {
+      "clueFragment": "Mendelssohn’s 4th",
+      "gives": "D",
+      "note": "the fourth letter of menDelssohn"
+     }
+    ],
+    "surface": "The principal movements of Mendelssohn's Fourth Symphony, opened by the string section.",
+    "walkthrough": "'Main' is the old word for the open sea, as in the Spanish Main, so the movements are the sea's. Mendelssohn's Fourth is the Italian Symphony, which keeps you in the concert hall.",
+    "definitionFit": "Main movements → TIDES: 'main' is the poetic name for the open sea, and the tides are the regular movements of it."
+   }
   }
  ]
 } /*JSON-END*/;
