@@ -35,7 +35,34 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "STARBURST",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "double definition",
+    "answer": "STARBURST GALAXY",
+    "definition": "Out-of-this-world 23",
+    "definition2": "system rapidly forming",
+    "indicators": [
+     "coming together"
+    ],
+    "indicatorNotes": {
+     "coming together": "Two things joined into one phrase: the pair of names named by the first half are laid end to end and read as a single answer."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Out-of-this-world 23",
+      "gives": "",
+      "note": "the puzzle's theme, sweets sold under astronomical names, and this entry wants two of them side by side"
+     },
+     {
+      "clueFragment": "system rapidly forming",
+      "gives": "",
+      "note": "astronomers' phrase for a star system making new stars far faster than the usual rate"
+     }
+    ],
+    "surface": "Matter out in space clumping together as a new system takes shape.",
+    "walkthrough": "23 down is CANDY, so 'out-of-this-world 23' asks for a sweet with a space name — here two of them, and the pair turns out to be a real term in astronomy.",
+    "definitionFit": "Starburst and Galaxy are both sweets named after space, and a starburst galaxy is one turning gas into stars at a furious rate."
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +79,39 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHIVA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SHIVA",
+    "definition": "supreme Being",
+    "indicators": [
+     "has doffed cap"
+    ],
+    "indicatorNotes": {
+     "has doffed cap": "Doffing a cap is lifting it off your head, so the word it applies to loses the letter sitting on top of it."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SH",
+     "IVA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say no more",
+      "gives": "SH",
+      "note": "the noise you make telling somebody to be quiet, written down as two letters"
+     },
+     {
+      "clueFragment": "narcissist",
+      "gives": "DIVA",
+      "note": "a diva is somebody entirely wrapped up in herself"
+     }
+    ],
+    "surface": "A vain man baring his head, told to stop talking about himself.",
+    "walkthrough": "The capital B on 'Being' is the only signal that a god is wanted rather than a person, and 'Say no more' is doing service as two letters instead of the idiom it looks like.",
+    "definitionFit": "Shiva is not one god among many but the supreme being of Shaivism, the destroyer and renewer at the head of the Hindu pantheon."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +128,39 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWKWARD",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "AWKWARD",
+    "definition": "Difficult",
+    "indicators": [
+     "or not",
+     "opening"
+    ],
+    "indicatorNotes": {
+     "or not": "'Or not' cancels the two letters it spells: the word in front of it has to manage without its O and its R.",
+     "opening": "A present being opened has a gap in it, and that gap is where the letters named alongside are dropped."
+    },
+    "pieces": [
+     "A",
+     "WK",
+     "WARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "present",
+      "gives": "AWARD",
+      "note": "an award is a present in the sense of something formally handed over"
+     },
+     {
+      "clueFragment": "work, or not",
+      "gives": "WK",
+      "note": "WORK told to do without OR keeps only its first and last letters"
+     }
+    ],
+    "surface": "Hard work, or maybe not, unwrapping a gift.",
+    "walkthrough": "'Difficult work' reads as one phrase, which is what hides the seam: only the first word is the definition, and the second is about to lose two letters.",
+    "definitionFit": "Awkward means difficult to handle or deal with — an awkward customer is a difficult one, the same everyday sense."
+   }
   },
   {
    "id": "3-down",
@@ -86,7 +177,39 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAWDY",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "BAWDY",
+    "definition": "Explicit",
+    "indicators": [
+     "case of",
+     "in"
+    ],
+    "indicatorNotes": {
+     "case of": "A case is what encloses a thing, so what is wanted from the word after it is its outside — the letters at either end.",
+     "in": "'In' puts one piece within another: the letters just taken go inside the word that follows."
+    },
+    "pieces": [
+     "BA",
+     "WD",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "BAY",
+      "note": "the bay is an evergreen whose leaves go into a stew, and a crossword regular"
+     },
+     {
+      "clueFragment": "case of wood",
+      "gives": "WD",
+      "note": "the case of WOOD is its shell: the first letter and the last, with the middle discarded"
+     }
+    ],
+    "surface": "A crate of timber wedged up in a tree.",
+    "walkthrough": "'Case of wood' sounds like a packing crate and is really an order to take two letters off the ends of a word. Everything else in the clue is one short synonym.",
+    "definitionFit": "Bawdy means coarsely and openly sexual, so 'Explicit' matches it in the sense of leaving nothing decently unsaid."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +226,46 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHYMING",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "RHYMING",
+    "definition": "similar in sound",
+    "indicators": [
+     "about",
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "about": "Something placed about a thing is wrapped round it, so the word before goes outside the letter named after it.",
+     "oddly": "Oddly points at the odd-numbered letters — take the first and the third and leave the rest behind."
+    },
+    "pieces": [
+     "R",
+     "HYM",
+     "I",
+     "N",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "gives": "HYMN",
+      "note": "a hymn is a song, the churchgoing sort"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is the letter I in the radio alphabet, alongside Alpha and Bravo"
+     },
+     {
+      "clueFragment": "in raga oddly",
+      "gives": "RG",
+      "note": "the first and third letters of 'raga', the other two left out"
+     }
+    ],
+    "surface": "A song about India that sounds oddly like a raga.",
+    "walkthrough": "'Oddly' looks like a comment on how odd the resemblance is, and is really the instruction that thins 'raga' down to two letters. One container sits inside another here.",
+    "definitionFit": "Rhyming words match in sound at their ends, so 'similar in sound' describes exactly the relation the word names."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +287,40 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOTHEREAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TO THE REAR",
+    "definition": "on the backside?",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [],
+    "pieces": [
+     "TOT",
+     "HER",
+     "EAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "she has",
+      "gives": "HER",
+      "note": "what she has is hers, and the possessive form of 'she' is these three letters"
+     },
+     {
+      "clueFragment": "corn",
+      "gives": "EAR",
+      "note": "corn grows in ears, one to a stalk"
+     }
+    ],
+    "surface": "A child, and a corn she has on her backside.",
+    "walkthrough": "The three pieces straddle the gaps in the answer instead of sitting inside them, so nothing you build lines up with anything you write.",
+    "definitionFit": "To the rear means at the back of something, and 'on the backside' puts the same position in blunter, bodily terms."
+   }
   },
   {
    "id": "6-across",
@@ -142,7 +337,31 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HASH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HASH",
+    "definition": "Weed",
+    "definition2": "pig’s ear?",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Weed",
+      "gives": "",
+      "note": "the smokeable kind, cannabis resin pressed into blocks"
+     },
+     {
+      "clueFragment": "pig’s ear?",
+      "gives": "",
+      "note": "to make a pig's ear of a job is British for botching it completely"
+     }
+    ],
+    "surface": "Weed growing in a pig's ear.",
+    "walkthrough": "Drug slang and kitchen slang sit a preposition apart: the smoker's block of resin, and the mess you make of a job — make a pig's ear of it, make a hash of it.",
+    "definitionFit": "Hash is cannabis resin, and a hash is also a botch — the same word British idiom pairs with a pig's ear."
+   }
   },
   {
    "id": "6-down",
@@ -163,7 +382,51 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "HANGOUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "HANG-OUT",
+    "definition": "haunt",
+    "linkWords": [
+     "For"
+    ],
+    "indicators": [
+     "an anagram of",
+     "entering"
+    ],
+    "indicatorNotes": {
+     "an anagram of": "The setter names the device outright: the letters of the word he has just quoted are to be re-sorted before anything else happens.",
+     "entering": "Somebody entering a building goes inside it, so the piece named before it is placed within the shuffled letters."
+    },
+    "anagram": {
+     "fodder": "HAUNT GO"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "HAUNT",
+      "gives": "HANUT"
+     }
+    ],
+    "pieces": [
+     "HAN",
+     "GO",
+     "UT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that",
+      "gives": "HAUNT",
+      "note": "'that' points back at the word in quotation marks, five letters waiting to be shuffled"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "GO",
+      "note": "a go is an attempt at something"
+     }
+    ],
+    "surface": "A setter daring you to solve it by rearranging the word he has just handed you.",
+    "walkthrough": "The clue says exactly what to do and is still hard, because the letters being shuffled are the definition's own — meaning and material come out of the same five letters.",
+    "definitionFit": "A hang-out is the place somebody is always to be found, which is precisely what a haunt is, in slangier clothes."
+   }
   },
   {
    "id": "7-down",
@@ -184,7 +447,34 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPACEDUST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPACE DUST",
+    "definition": "out-of-this-world 23",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [],
+    "pieces": [
+     "SPACE",
+     "DUST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capacity",
+      "gives": "SPACE",
+      "note": "capacity is how much room there is, measured as an amount"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "DUST",
+      "note": "what remains of a body in the end, as the funeral service has it"
+     }
+    ],
+    "surface": "There is still room for something not of this earth.",
+    "walkthrough": "Both wordplay words are nouns pretending to be a verb and its subject — capacity remains. 23 down is CANDY, and the theme is sweets named after space.",
+    "definitionFit": "Space Dust is a brand of crackling sherbet, a candy — 23 down — whose name is literally out of this world."
+   }
   },
   {
    "id": "8-across",
@@ -205,7 +495,40 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "MILKYWAY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MILKY WAY",
+    "definition": "out-of-this-world 23",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [],
+    "pieces": [
+     "MILK",
+     "Y",
+     "WAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use",
+      "gives": "MILK",
+      "note": "to milk a situation is to use it for all it is worth"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra's unknown quantities are X, Y and Z"
+     },
+     {
+      "clueFragment": "technique",
+      "gives": "WAY",
+      "note": "a way of doing something is the technique you use"
+     }
+    ],
+    "surface": "Applying a technique nobody has heard of.",
+    "walkthrough": "'Use' is the verb meaning exploit rather than employ. The bar takes its name from the galaxy overhead, which is what earns it a place in this puzzle.",
+    "definitionFit": "A Milky Way is a chocolate bar — a candy, which is 23 down — and it is named for the galaxy we live in."
+   }
   },
   {
    "id": "9-across",
@@ -222,7 +545,42 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TONGAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TONGAN",
+    "definition": "islander",
+    "indicators": [
+     "Recovered"
+    ],
+    "indicatorNotes": {
+     "Recovered": "To recover a thing is to get it back, and 'back' is the instruction — the pieces are read from their far end. A loose signal, and the looseness is the setter's."
+    },
+    "pieces": [
+     "TON",
+     "GAN"
+    ],
+    "subReversals": [
+     {
+      "from": "NAGNOT",
+      "to": "TONGAN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "NAG",
+      "note": "to nag is to trouble somebody on and on"
+     },
+     {
+      "clueFragment": "far from",
+      "gives": "NOT",
+      "note": "'far from ready' means not ready, so the phrase stands in for a plain negative"
+     }
+    ],
+    "surface": "An islander back on their feet and no trouble to anybody.",
+    "walkthrough": "'Far from' hides a whole word — it means 'not', which is half the wordplay. Tonga is a kingdom of some 170 islands in the South Pacific.",
+    "definitionFit": "A Tongan is a native of Tonga, an island kingdom in the South Pacific, so 'islander' defines by example."
+   }
   },
   {
    "id": "10-across",
@@ -242,7 +600,9 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "GALAXY",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "1-across"
+   }
   },
   {
    "id": "11-across",
@@ -263,7 +623,30 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "ICEDOVER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ICED OVER",
+    "definition": "froze",
+    "indicators": [
+     "after breaking up"
+    ],
+    "indicatorNotes": {
+     "after breaking up": "A marriage breaking up scatters what was joined, and these letters do the same — they will not stay in the order given."
+    },
+    "anagram": {
+     "fodder": "DIVORCEE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Divorcee",
+      "gives": "DIVORCEE",
+      "note": "anagram fodder, eight letters — exactly the enumeration"
+     }
+    ],
+    "surface": "A divorcee turning cold on the world once the marriage has ended.",
+    "walkthrough": "The clue is one sad little story, and that is what stops the first word from looking like eight loose letters waiting to be shuffled.",
+    "definitionFit": "Water that has iced over has frozen at the surface, so 'froze' is the same event in the same tense."
+   }
   },
   {
    "id": "12-across",
@@ -280,7 +663,45 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TARDIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TARDIS",
+    "definition": "time machine",
+    "indicators": [
+     "sent back"
+    ],
+    "indicatorNotes": {
+     "sent back": "Something sent back travels the way it came, so in an across entry the assembled pieces are read from right to left."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "TAR",
+     "DIS"
+    ],
+    "subReversals": [
+     {
+      "from": "SIDRAT",
+      "to": "TARDIS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicious",
+      "gives": "SID",
+      "note": "Sid Vicious played bass for the Sex Pistols, and the surname is the half printed here"
+     },
+     {
+      "clueFragment": "swine",
+      "gives": "RAT",
+      "note": "call somebody a rat and you have called them a swine"
+     }
+    ],
+    "surface": "A savage pig posted back through the centuries.",
+    "walkthrough": "'Vicious' looks like an adjective describing the swine and is really a surname. The Tardis is the police box the Doctor travels in on Doctor Who.",
+    "definitionFit": "The Tardis is the blue police box that carries the Doctor through time, so 'time machine' names it by exactly what it does."
+   }
   },
   {
    "id": "13-down",
@@ -301,7 +722,52 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "AZUREBLUE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "AZURE BLUE",
+    "definition": "shade",
+    "indicators": [
+     "below",
+     "capital of",
+     "in"
+    ],
+    "indicatorNotes": {
+     "below": "In a down entry, below means further down the column, so the piece it marks is parked at the foot of the answer.",
+     "capital of": "A country's capital is its chief city, and the same joke makes it the chief letter of the country's name.",
+     "in": "'In' is the whole instruction: the letter it introduces is dropped inside the letters already assembled."
+    },
+    "pieces": [
+     "A",
+     "Z",
+     "URE",
+     "BLUE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own first word, taken at face value"
+     },
+     {
+      "clueFragment": "capital of Zimbabwe",
+      "gives": "Z",
+      "note": "not Harare but the letter the country's name starts with"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "URE",
+      "note": "the Ure runs through the Yorkshire dale named after it, and setters use it constantly"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "BLUE",
+      "note": "feeling down is feeling low, and there is a colour word for that mood"
+     }
+    ],
+    "surface": "A river running below the Zimbabwean capital, deep in shadow.",
+    "walkthrough": "'Capital of Zimbabwe' invites you to think of Harare and wants one letter; 'down' is a mood rather than a direction, though a direction is what the next word does with it.",
+    "definitionFit": "Azure blue is the clear deep blue of a cloudless sky, so 'shade' names it as one particular tint among many."
+   }
   },
   {
    "id": "14-down",
@@ -318,7 +784,30 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHORTAGES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SHORTAGES",
+    "definition": "insufficient amounts",
+    "indicators": [
+     "sent abroad"
+    ],
+    "indicatorNotes": {
+     "sent abroad": "Things sent abroad are scattered somewhere else entirely, and these letters land in an order of their own."
+    },
+    "anagram": {
+     "fodder": "RAGS THOSE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rags, those",
+      "gives": "RAGSTHOSE",
+      "note": "anagram fodder, nine letters, matching the enumeration"
+     }
+    ],
+    "surface": "Old clothes shipped overseas, and never enough of them to go round.",
+    "walkthrough": "'Those' reads as a pointing word rather than as five more letters, and it is the piece the whole anagram depends on.",
+    "definitionFit": "A shortage is a want of something needed, so 'insufficient amounts' spells out the same idea, plural for plural."
+   }
   },
   {
    "id": "15-across",
@@ -339,7 +828,39 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "GREATAUK",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "GREAT AUK",
+    "definition": "that would never take off",
+    "definitionNote": "The definition is a description, not a noun: a relative clause pointing at a bird that could not fly, so it cannot simply be swapped into a sentence.",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "A report passes on what was said, so what follows is written from the sound of the words rather than from their spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dreary",
+      "gives": "GREY",
+      "note": "a dreary day is a grey one, the weather sense"
+     },
+     {
+      "clueFragment": "lecture",
+      "gives": "TALK",
+      "note": "a lecture is a talk delivered to an audience"
+     },
+     {
+      "clueFragment": "Dreary lecture, reportedly",
+      "soundsLike": "GREY TALK",
+      "gives": "GREATAUK",
+      "note": "said aloud, those two words run together and the break between them shifts one letter to the left"
+     }
+    ],
+    "surface": "A lecture so dull, by all accounts, that it was never going anywhere.",
+    "walkthrough": "Where the gap falls is the whole joke: say the two words and the break slides, turning dull conversation into a bird. The great auk was a flightless North Atlantic seabird, extinct by 1852.",
+    "definitionFit": "The great auk was flightless, so a description of something that could never leave the ground names the bird exactly."
+   }
   },
   {
    "id": "16-across",
@@ -360,7 +881,33 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUMPROOM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "PUMP ROOM",
+    "definition": "is spring here?",
+    "definitionNote": "The definition is put as a question rather than a noun phrase: it asks where you would find a spring, and the answer is the building put up around one.",
+    "indicators": [],
+    "pieces": [
+     "PUMP",
+     "ROOM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question",
+      "gives": "PUMP",
+      "note": "to pump somebody is to press them for information"
+     },
+     {
+      "clueFragment": "having caught cold",
+      "soundsLike": "RHEUM",
+      "gives": "ROOM",
+      "note": "rheum is the watery stuff a head cold produces, and it is said exactly like the four letters written here"
+     }
+    ],
+    "surface": "Somebody streaming with a cold, questioned about whether spring has arrived.",
+    "walkthrough": "'Caught cold' reads as the idiom for being taken by surprise and is really handing you a doctor's word for the sniffles, to be said aloud. Bath's Pump Room served water from the spring beneath it.",
+    "definitionFit": "A pump room is the hall at a spa where water from the spring is pumped up and drunk, so the spring is indeed there."
+   }
   },
   {
    "id": "17-down",
@@ -382,7 +929,49 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "POPPING",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "container + anagram",
+    "answer": "POPPING CANDY",
+    "definition": "Sweet thing",
+    "indicators": [
+     "impressed by",
+     "when excited"
+    ],
+    "indicatorNotes": {
+     "impressed by": "To impress is to press one thing into another, so what follows is pressed into the middle of the letters that came before.",
+     "when excited": "Excited means agitated, jumping about, and letters in that state will not stay in the order the clue gives them."
+    },
+    "anagram": {
+     "fodder": "POPPY DANCING"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "DANCING",
+      "gives": "INGCAND"
+     }
+    ],
+    "pieces": [
+     "POPP",
+     "INGCAND",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "POPPY",
+      "note": "the red field flower of the cornfields and the war graves"
+     },
+     {
+      "clueFragment": "dancing",
+      "gives": "INGCAND",
+      "note": "the seven letters of 'dancing' in a fresh order"
+     }
+    ],
+    "surface": "A charming girl, and a flower won over by an excited dance.",
+    "walkthrough": "The flower is split almost at its end, which is why it stays out of sight: only its last letter is left over on the far side of the seven shuffled ones.",
+    "definitionFit": "Popping candy is the sherbet that crackles on the tongue, so 'Sweet thing' names it by the confectionery sense of sweet."
+   }
   },
   {
    "id": "18-down",
@@ -403,7 +992,31 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARSBAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MARS BAR",
+    "definition": "Out-of-this-world 23",
+    "indicators": [],
+    "pieces": [
+     "MARS",
+     "BAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warps",
+      "gives": "MARS",
+      "note": "to mar a thing is to spoil it, which is what warping does to a shape"
+     },
+     {
+      "clueFragment": "beam",
+      "gives": "BAR",
+      "note": "a beam is a length of timber or metal laid across a gap"
+     }
+    ],
+    "surface": "Something unearthly bending a beam out of true.",
+    "walkthrough": "'Warps beam' reads as one action with its object and is two separate synonyms. The bar shares its name with the planet, which is all the theme asks of it.",
+    "definitionFit": "A Mars bar is a candy — 23 down — and it carries the name of a planet, which makes it out of this world."
+   }
   },
   {
    "id": "19-across",
@@ -420,7 +1033,37 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESITS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "RESITS",
+    "definition": "Extra tests",
+    "indicators": [
+     "turning tail"
+    ],
+    "indicatorNotes": {
+     "turning tail": "Turning tail is running away, and read literally it turns the tail of a word round — the last two letters change places."
+    },
+    "pieces": [
+     "RESI",
+     "TS"
+    ],
+    "subReversals": [
+     {
+      "from": "ST",
+      "to": "TS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "restrain oneself",
+      "gives": "RESIST",
+      "note": "to resist is to hold yourself back from something you want"
+     }
+    ],
+    "surface": "Advice before more exams: keep a grip on yourself, then run.",
+    "walkthrough": "Two letters move and no more, which is the smallest turn a clue can ask for and the easiest to miss when the word already looks nearly right.",
+    "definitionFit": "A resit is the exam you take again after failing it, so 'Extra tests' matches it, plural for plural."
+   }
   },
   {
    "id": "20-down",
@@ -440,7 +1083,9 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "SAUCERS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "24-across"
+   }
   },
   {
    "id": "21-across",
@@ -457,7 +1102,37 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMPSTER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DEMPSTER",
+    "definition": "Old scandalmonger",
+    "indicators": [
+     "keeping"
+    ],
+    "indicatorNotes": {
+     "keeping": "Keeping something means holding on to it inside, so the word beside it closes round the letters named next."
+    },
+    "pieces": [
+     "DE",
+     "MPS",
+     "TER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in check",
+      "gives": "DETER",
+      "note": "to hold somebody in check is to deter them"
+     },
+     {
+      "clueFragment": "politicians",
+      "gives": "MPS",
+      "note": "MPs are Members of Parliament, the elected members of the Commons"
+     }
+    ],
+    "surface": "A veteran gossip columnist with the politicians under control.",
+    "walkthrough": "Nigel Dempster wrote the Daily Mail's gossip column for a quarter of a century, and 'Old' is the clue's way of saying he is no longer with us.",
+    "definitionFit": "Nigel Dempster was Fleet Street's best-known gossip columnist, trading in scandal, and 'Old' marks him as the late one."
+   }
   },
   {
    "id": "22-across",
@@ -474,7 +1149,37 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAUNCH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LAUNCH",
+    "definition": "fire",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Around means encircling, so the word in front of it wraps itself about the letter that comes next."
+    },
+    "pieces": [
+     "L",
+     "A",
+     "UNCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eat",
+      "gives": "LUNCH",
+      "note": "to lunch is to eat, the verb of the midday meal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own indefinite article, taken as a single letter"
+     }
+    ],
+    "surface": "Eating around a campfire.",
+    "walkthrough": "Two ordinary words change job at once: 'fire' is a verb here and 'a' is a letter rather than an article.",
+    "definitionFit": "To launch a rocket is to fire it, the sense of setting something off rather than sliding a boat into the water."
+   }
   },
   {
    "id": "22-down",
@@ -491,7 +1196,35 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOTTO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LOTTO",
+    "definition": "Chance to win big",
+    "indicators": [
+     "blown"
+    ],
+    "indicatorNotes": {
+     "blown": "Blown away is gone for good, so the letter named just before it is missing from the finished word."
+    },
+    "pieces": [
+     "LOTTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wasted",
+      "gives": "BLOTTO",
+      "note": "blotto is British slang for hopelessly drunk"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "B",
+      "note": "the lead of a word is the letter at its head, and the drunken word above starts with this one"
+     }
+    ],
+    "surface": "A jackpot squandered and the lead thrown away.",
+    "walkthrough": "'Wasted' is the drinker's sense rather than the squanderer's, and 'lead' means a first letter rather than a position in a race.",
+    "definitionFit": "Lotto is the numbers draw people play for a jackpot, so 'Chance to win big' describes the game by what it offers."
+   }
   },
   {
    "id": "23-down",
@@ -511,7 +1244,9 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "CANDY",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "17-down"
+   }
   },
   {
    "id": "24-across",
@@ -533,7 +1268,29 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLYING",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "double definition",
+    "answer": "FLYING SAUCERS",
+    "definition": "Out-of-this-world 23",
+    "definition2": "smashing stuff in the kitchen?",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Out-of-this-world 23",
+      "gives": "",
+      "note": "the sherbet-filled rice-paper discs from the corner shop, named after the UFO"
+     },
+     {
+      "clueFragment": "smashing stuff in the kitchen?",
+      "gives": "",
+      "note": "crockery hurled across the room in a domestic row does not stay in one piece"
+     }
+    ],
+    "surface": "Something unearthly in a kitchen where the china is already being thrown.",
+    "walkthrough": "The question mark marks the second half as a joke rather than a dictionary sense: read one word at a time, it describes airborne crockery in a domestic row.",
+    "definitionFit": "Flying saucers are sherbet sweets named for the UFO, and saucers genuinely flying are smashing stuff — china in mid-air."
+   }
   },
   {
    "id": "25-across",
@@ -550,7 +1307,31 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BITTERNS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BITTERNS",
+    "definition": "Some birds",
+    "indicators": [],
+    "pieces": [
+     "BIT",
+     "TERNS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pecked",
+      "gives": "BIT",
+      "note": "a bird that pecked you bit you"
+     },
+     {
+      "clueFragment": "others",
+      "gives": "TERNS",
+      "note": "'others' borrows the birds from the definition and asks for a different sort — the slim sea ones that hover and dive"
+     }
+    ],
+    "surface": "A garden scuffle in which one lot of birds goes for the rest.",
+    "walkthrough": "'Others' cannot stand alone: it reaches back into the definition for the word 'birds' and asks for another species, so one word serves two parts of the clue at once.",
+    "definitionFit": "Bitterns are the booming brown herons of the reed beds, so 'Some birds' defines by example — a particular few of a large class."
+   }
   },
   {
    "id": "26-across",
@@ -567,7 +1348,30 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BERG",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "BERG",
+    "definition": "Austrian maestro",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "piece"
+    ],
+    "indicatorNotes": {
+     "piece": "A piece of something is a fragment broken off it, so what is wanted is an unbroken run of letters out of the words beside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "uber-Germanic",
+      "gives": "BERG",
+      "note": "four letters in a row here, straddling the hyphen"
+     }
+    ],
+    "surface": "An Austrian conductor playing a very German piece of music.",
+    "walkthrough": "'Piece' reads as a piece of music, which is exactly where the surface wants your mind. Alban Berg wrote Wozzeck and studied under Schoenberg in Vienna.",
+    "definitionFit": "Alban Berg was the Viennese composer of Wozzeck and Lulu, so 'Austrian maestro' names him by nationality and trade."
+   }
   },
   {
    "id": "27-across",
@@ -584,7 +1388,28 @@ window.CRYPTIC_PUZZLES["cryptic-29995"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SERIOUSLY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SERIOUSLY",
+    "definition": "Very much",
+    "definition2": "for the love of God!",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Very much",
+      "gives": "",
+      "note": "as in doubting a thing very much — the adverb meaning to a great degree"
+     },
+     {
+      "clueFragment": "for the love of God!",
+      "gives": "",
+      "note": "the exasperated cry of somebody whose patience has just run out"
+     }
+    ],
+    "surface": "Something done wholeheartedly out of love for God.",
+    "walkthrough": "The clue reads as piety and means impatience: 'for the love of God!' is what people say at the end of their tether, and the answer is the one-word version of it.",
+    "definitionFit": "One word covers both: the adverb meaning to a great degree, and the single-word groan of exasperation thrown at somebody trying your patience."
+   }
   }
  ]
 } /*JSON-END*/;
