@@ -34,7 +34,50 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
     ]
    },
    "solution": "BONARLAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BONAR LAW",
+    "definition": "Andrew, once at Number 10",
+    "definitionFit": "The definition names a man by his first name and his address: the Conservative who took Number 10 in 1922, the only prime minister born outside the British Isles.",
+    "indicators": [
+     "comeback",
+     "after"
+    ],
+    "indicatorNotes": {
+     "comeback": "A comeback is a return along the road you came by, so the word beside it is written out back to front.",
+     "after": "'after' puts the piece it introduces later in the line, so the turned-round word settles behind the takings."
+    },
+    "pieces": [
+     "BO",
+     "NAR",
+     "LAW"
+    ],
+    "subReversals": [
+     {
+      "from": "RAN",
+      "to": "NAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "box office",
+      "gives": "BO",
+      "note": "the trade's short form for box office, as in 'BO takings'"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "NAR",
+      "note": "managed a shop or a stable = RAN, then turned round"
+     },
+     {
+      "clueFragment": "passed bill",
+      "gives": "LAW",
+      "note": "a bill becomes this once Parliament has passed it"
+     }
+    ],
+    "surface": "Someone called Andrew who used to run the country makes a comeback once the box-office takings have settled the bill.",
+    "walkthrough": "Number 10 is 10 Downing Street, the prime minister's London house, so 'once at Number 10' means a past occupant — and this grid is full of them, some whole and some split across two answers."
+   }
   },
   {
    "id": "2-down",
@@ -51,7 +94,39 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLAD",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "GLAD",
+    "definition": "Happy",
+    "definitionFit": "A plain synonym: both are adjectives meaning pleased, though the answer is the warmer one you use when agreeing to do somebody a favour.",
+    "indicators": [
+     "swallowing",
+     "drop of"
+    ],
+    "indicatorNotes": {
+     "swallowing": "Swallowing something takes it inside you, so the word before it closes around what comes next.",
+     "drop of": "A drop is the smallest amount you can take of anything, and of a word that is one letter."
+    },
+    "pieces": [
+     "G",
+     "L",
+     "AD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to gallivant",
+      "gives": "GAD",
+      "note": "to gad about is to gallivant — roam around looking for fun"
+     },
+     {
+      "clueFragment": "drop of LSD",
+      "gives": "L",
+      "note": "one letter taken off the front of the drug's three"
+     }
+    ],
+    "surface": "A party-goer out on the town swallows a tab of acid.",
+    "walkthrough": "LSD is lysergic acid diethylamide; in older crosswords the same three letters are pounds, shillings and pence, so a drop of LSD can be chemistry or money."
+   }
   },
   {
    "id": "3-down",
@@ -74,7 +149,30 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIFLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TRIFLE",
+    "definition": "Zuppa inglese",
+    "definition2": "niente",
+    "linkWords": [
+     "non è"
+    ],
+    "definitionFit": "Zuppa inglese is Italy's sponge-and-custard pudding, named 'English soup' after ours; and niente, nothing, gives the other sense — a mere nothing.",
+    "blocks": [
+     {
+      "clueFragment": "Zuppa inglese",
+      "gives": "",
+      "note": "the Italian dessert: layered sponge soaked in liqueur under custard"
+     },
+     {
+      "clueFragment": "niente",
+      "gives": "",
+      "note": "Italian for nothing, and a thing of no consequence in English too"
+     }
+    ],
+    "surface": "An Italian dismisses the local pudding as nothing at all.",
+    "walkthrough": "The whole clue is Italian: 'non è niente' means 'it isn't nothing', and the setter's wink is that a trifle is very nearly nothing — but not quite."
+   }
   },
   {
    "id": "4-down",
@@ -91,7 +189,39 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANNING",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "CANNING",
+    "definition": "Firing",
+    "definitionFit": "'Firing' is the sacking sense: to can an employee is slang for dismissing them, and both words are the -ing form of that act.",
+    "indicators": [
+     "last of",
+     "in"
+    ],
+    "indicatorNotes": {
+     "last of": "'Last of' asks for the final letter of the word it points at rather than for the word itself.",
+     "in": "'in' is the plain instruction to drop one piece inside another, and what follows it is the container."
+    },
+    "pieces": [
+     "CAN",
+     "N",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hiding",
+      "gives": "CANING",
+      "note": "a hiding is a beating, and a beating with a stick is a caning"
+     },
+     {
+      "clueFragment": "last of women",
+      "gives": "N",
+      "note": "the final letter of 'women'"
+     }
+    ],
+    "surface": "The last of the women in hiding is dismissed, and the sentence runs on into the next clue.",
+    "walkthrough": "A hiding in the schoolroom sense is a thrashing, not a place of concealment, and nobody in the surface is concealed at all. George Canning was prime minister for 119 days in 1827."
+   }
   },
   {
    "id": "5-down",
@@ -108,7 +238,33 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THAT",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "THAT",
+    "definition": "which",
+    "definitionFit": "Both are relative pronouns and swap freely in a defining clause — 'the arrest which followed' says the same either way.",
+    "indicators": [
+     "leads"
+    ],
+    "indicatorNotes": {
+     "leads": "'leads' asks for the letter heading each word, the way a headline strips a phrase down to initials."
+    },
+    "pieces": [
+     "T",
+     "H",
+     "A",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to her arrest and transportation",
+      "gives": "THAT",
+      "note": "the opening letters of 'to', 'her', 'arrest' and 'transportation', with 'and' only holding the phrase up"
+     }
+    ],
+    "surface": "A woman is arrested and shipped off to the colonies.",
+    "walkthrough": "The row of dots carries straight on from 4 down, so the sentence you are reading began in the clue above. Transportation is the old punishment of shipping convicts to Australia."
+   }
   },
   {
    "id": "6-down",
@@ -125,7 +281,30 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAVOURITES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FAVOURITES",
+    "definition": "Chosen ones",
+    "definitionFit": "Plain synonym in the plural: the chosen ones are the people or horses picked out above the rest, the ones expected to come first.",
+    "indicators": [
+     "regrettably"
+    ],
+    "indicatorNotes": {
+     "regrettably": "'Regrettably' is a sigh at how things have turned out, and things turning out badly have not stayed in the order they were given."
+    },
+    "anagram": {
+     "fodder": "SOUR AT FIVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "sour at five",
+      "gives": "SOURATFIVE",
+      "note": "anagram fodder, ten letters — exactly the length wanted"
+     }
+    ],
+    "surface": "The ones picked out have all turned sour by five o'clock, which is a shame.",
+    "walkthrough": "Ten letters of fodder sitting in plain sight are the hardest sort to spot, because 'sour at five' reads as a remark about wine rather than as a bag of letters."
+   }
   },
   {
    "id": "7-down",
@@ -142,7 +321,40 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEAPO",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CHEAPO",
+    "definition": "budget",
+    "definitionFit": "'Budget' as an adjective — a budget airline, a budget hotel — means done on the cheap, which is what the answer says with a sneer.",
+    "indicators": [
+     "overwhelms"
+    ],
+    "indicatorNotes": {
+     "overwhelms": "To overwhelm something is to close right over it, so the outer word engulfs the two letters named next."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "C",
+     "HE",
+     "APO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That which raises pitch",
+      "gives": "CAPO",
+      "note": "the clamp a guitarist fits across the fretboard to raise the pitch of every string"
+     },
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "an ambassador is addressed as His or Her Excellency, HE for short"
+     }
+    ],
+    "surface": "Whatever it is that lifts the pitch drowns out the ambassador at a cut-price event.",
+    "walkthrough": "'Pitch' has a football sense and a musical one, and only the guitar reading yields letters. HE for an ambassador is worth pocketing: it turns up constantly."
+   }
   },
   {
    "id": "8-across",
@@ -163,7 +375,46 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOALAREA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "GOAL AREA",
+    "definition": "poacher’s hunting ground?",
+    "definitionFit": "In football a poacher is a striker who feeds on scraps close in, and his hunting ground is the marked rectangle in front of the keeper.",
+    "indicators": [
+     "put on",
+     "spread"
+    ],
+    "indicatorNotes": {
+     "put on": "'Put on' stacks one piece on top of the next, which is how a charade announces the order of its parts.",
+     "spread": "A spread lays things out anyhow across a table, so the letters beside it end up in a fresh arrangement."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "GOA A REAL"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "A REAL",
+      "gives": "LAREA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian resort",
+      "gives": "GOA",
+      "note": "the beach state on India's west coast, a byword for a holiday"
+     },
+     {
+      "clueFragment": "a real",
+      "gives": "AREAL",
+      "note": "anagram fodder, five letters"
+     }
+    ],
+    "surface": "An Indian holiday spot lays on a proper feast for a man who shoots game illegally.",
+    "walkthrough": "A poacher has two lives here — the countryside thief of the surface, and the striker who scores from a yard out — and only the second one takes up the enumeration's two words."
+   }
   },
   {
    "id": "9-across",
@@ -180,7 +431,27 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEATH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "HEATH",
+    "definition": "Scrub",
+    "definitionFit": "'Scrub' is rough, low, uncultivated growth, and the answer names open sandy waste covered in exactly that — gorse, ling and little else.",
+    "indicators": [
+     "part of"
+    ],
+    "indicatorNotes": {
+     "part of": "'Part of' promises you a piece of the words beside it, and the piece wanted is an unbroken run of their letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "moustache at hairdresser",
+      "gives": "HEATH",
+      "note": "the run starts inside 'moustache' and finishes one letter into 'hairdresser', crossing both gaps"
+     }
+    ],
+    "surface": "Somebody at the barber's is having part of his moustache trimmed off.",
+    "walkthrough": "'Scrub' looks like a verb — cancel it, wipe it out — and it is a noun, rough open country. Edward Heath was prime minister from 1970 to 1974."
+   }
   },
   {
    "id": "10-across",
@@ -197,7 +468,37 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BALD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BALD",
+    "definition": "smooth as a baby’s bottom",
+    "definitionFit": "The idiom for skin with nothing on it at all is exactly the state of a hairless head, so the simile stands in for the adjective.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'in' puts the letter named before it inside the word named after it, the simplest insertion there is."
+    },
+    "pieces": [
+     "BA",
+     "L",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spa",
+      "gives": "BAD",
+      "note": "Bad is German for bath, which is why German spa towns are called Bad-something"
+     },
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left, as on a pair of boots"
+     }
+    ],
+    "surface": "A session at the spa leaves the skin as smooth as a baby's bottom.",
+    "walkthrough": "Stanley Baldwin, prime minister three separate times, turns up when this answer is set beside 15 down — several of the grid's answers pair off like that."
+   }
   },
   {
    "id": "11-across",
@@ -214,7 +515,42 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FUNCTIONAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FUNCTIONAL",
+    "definition": "working",
+    "definitionFit": "'Working' describes a thing that does its job — a machine in order, a design that performs — and the answer is the adjective for that state.",
+    "indicators": [
+     "not quite"
+    ],
+    "indicatorNotes": {
+     "not quite": "'Not quite' stops you just short of the whole word, so its final letter never arrives."
+    },
+    "pieces": [
+     "F",
+     "UNCTION",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Following",
+      "gives": "F",
+      "note": "f = following in a reference, as in 'see p. 4f'"
+     },
+     {
+      "clueFragment": "rubdown with oil",
+      "gives": "UNCTION",
+      "note": "unction is the ceremonial anointing with oil, as in extreme unction"
+     },
+     {
+      "clueFragment": "everything not quite",
+      "gives": "AL",
+      "note": "everything is ALL, and stopping short of the end loses the second L"
+     }
+    ],
+    "surface": "After the oil rub, everything is not quite working as it should.",
+    "walkthrough": "Unction is a church word — the anointing at a coronation or a deathbed — and the surface quietly turns it into a massage parlour."
+   }
   },
   {
    "id": "12-across",
@@ -231,7 +567,38 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLEAVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CLEAVE",
+    "definition": "split",
+    "definitionFit": "To split something is to cut it apart along a line, which is the answer's older sense — what a butcher's heavy blade does to a carcass.",
+    "indicators": [
+     "following",
+     "first"
+    ],
+    "indicatorNotes": {
+     "following": "'Following' means coming after, so the piece it labels takes its place behind the letter already down.",
+     "first": "'first' after a possessive asks for the opening letter of the name, not for the name itself."
+    },
+    "pieces": [
+     "C",
+     "LEAVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cameron’s first",
+      "gives": "C",
+      "note": "the opening letter of the surname"
+     },
+     {
+      "clueFragment": "Quit",
+      "gives": "LEAVE",
+      "note": "to quit a job or a room is to leave it"
+     }
+    ],
+    "surface": "Somebody walks out in the wake of Cameron's first falling-out.",
+    "walkthrough": "The answer is its own opposite: it means to split apart and also to cling faithfully to. David Cameron, prime minister from 2010 to 2016, joins the grid's line of them."
+   }
   },
   {
    "id": "13-down",
@@ -248,7 +615,27 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABSTENTION",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ABSTENTION",
+    "definition": "Refusal to choose",
+    "definition2": "teetotaller’s way out",
+    "definitionFit": "In a vote it is refusing to come down on either side; for a non-drinker it is the same act aimed at the bottle.",
+    "blocks": [
+     {
+      "clueFragment": "Refusal to choose",
+      "gives": "",
+      "note": "the voting sense: sitting on your hands when the ayes and noes are called"
+     },
+     {
+      "clueFragment": "teetotaller’s way out",
+      "gives": "",
+      "note": "the drinker's sense: the escape route for anyone who will not take a glass"
+     }
+    ],
+    "surface": "A teetotaller finds a polite exit from the round at the bar.",
+    "walkthrough": "Both halves are the same noun in different clothes, one from the ballot and one from the bar, so nothing in the clue needs to spell anything out."
+   }
   },
   {
    "id": "14-across",
@@ -265,7 +652,39 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEWSROOM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "NEWSROOM",
+    "definition": "those who produce history’s first draft",
+    "definitionNote": "The definition is plural and the answer singular: the room stands for the journalists working in it, the usual way a place comes to name its staff.",
+    "definitionFit": "Journalism is traditionally called history's first rough draft, so the ones producing it are a paper's editorial floor and everybody on it.",
+    "indicators": [
+     "developed"
+    ],
+    "indicatorNotes": {
+     "developed": "'Developed' is what happens to a plan that changes shape as it goes, and letters changing shape come out in another order."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "OWNERS OM"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Owners",
+      "gives": "OWNERS",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "mantra",
+      "gives": "OM",
+      "note": "om is the syllable chanted in meditation, the mantra of the surface"
+     }
+    ],
+    "surface": "The owners of a paper have worked up a new company mantra for the staff.",
+    "walkthrough": "Proprietors do not write the paper, which is what lets 'Owners developed mantra' read as a boardroom memo instead of as eight letters waiting to be shuffled."
+   }
   },
   {
    "id": "15-down",
@@ -282,7 +701,38 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "WIN",
+    "definition": "victory",
+    "definitionFit": "'Victory' is the noun for coming out on top of a contest, and the answer is the everyday sporting word for the same result.",
+    "indicators": [
+     "finale",
+     "to follow"
+    ],
+    "indicatorNotes": {
+     "finale": "A finale is the last thing to happen, so it asks for the last letter of the word in front of it.",
+     "to follow": "'To follow' sends that letter to the back of the assembly instead of the front."
+    },
+    "pieces": [
+     "WI",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test team’s",
+      "gives": "WI",
+      "note": "WI is the West Indies, one of the sides that plays Test cricket"
+     },
+     {
+      "clueFragment": "Competition’s finale",
+      "gives": "N",
+      "note": "the last letter of 'competition'"
+     }
+    ],
+    "surface": "The closing stage of a tournament comes after the touring side's success.",
+    "walkthrough": "Test cricket is the five-day international format and the West Indies are one of the dozen nations who play it, which is the outside knowledge this clue leans on."
+   }
   },
   {
    "id": "16-across",
@@ -299,7 +749,48 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWESOME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "AWESOME",
+    "definition": "wonderful",
+    "definitionFit": "'Wonderful' and the answer are interchangeable adjectives of praise; the answer is the modern enthusiastic one, weakened from a sense of inspiring dread.",
+    "indicators": [
+     "At last"
+    ],
+    "indicatorNotes": {
+     "At last": "'At last' takes the letter standing at the end of the word beside it, the one that arrives last of all."
+    },
+    "pieces": [
+     "AW",
+     "E",
+     "SO",
+     "ME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How lovely!",
+      "gives": "AW",
+      "note": "the noise people make over something sweet"
+     },
+     {
+      "clueFragment": "Cute! At last",
+      "gives": "E",
+      "note": "the final letter of 'Cute'"
+     },
+     {
+      "clueFragment": "it follows that",
+      "gives": "SO",
+      "note": "'so' is the word that introduces what follows from what went before"
+     },
+     {
+      "clueFragment": "setter’s",
+      "gives": "ME",
+      "note": "the setter calls himself ME, a standing crossword habit"
+     }
+    ],
+    "surface": "A string of coos over something adorable ends with a compliment to the person who set the puzzle.",
+    "walkthrough": "Setters refer to themselves as 'me' or 'I' whenever they step into their own clues, and that is the convention to learn here; the exclamation marks do no work at all."
+   }
   },
   {
    "id": "17-down",
@@ -316,7 +807,38 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "MOO",
+    "definition": "Bellow",
+    "definitionFit": "A bellow is the long deep noise a cow makes, so the word for that animal's call answers a general word for a loud low cry.",
+    "indicators": [
+     "return",
+     "part of"
+    ],
+    "indicatorNotes": {
+     "return": "A return is a going back the way you came, so the letters are read from their far end towards the near one.",
+     "part of": "'Part of' asks for a piece of the word beside it — a run of its letters, never its meaning."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "subReversals": [
+     {
+      "from": "OOM",
+      "to": "MOO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of Bloomsbury",
+      "gives": "OOM",
+      "note": "three consecutive letters near the front of the district's name, waiting to be turned round"
+     }
+    ],
+    "surface": "Saul Bellow is back on the shelves in a corner of literary Bloomsbury.",
+    "walkthrough": "Saul Bellow the novelist is the surface's man and Bloomsbury is both a London district and a publishing house, and neither has anything to do with a cowshed."
+   }
   },
   {
    "id": "18-across",
@@ -333,7 +855,42 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSTILS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "INSTILS",
+    "definition": "Promotes",
+    "definitionFit": "To promote an idea is to work it into people gradually, and the answer is the verb for introducing a value drop by drop.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'in' places the letters just named inside the ones named next, splitting them open partway."
+    },
+    "pieces": [
+     "IN",
+     "STI",
+     "LS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one written as the figure 1, which doubles as the letter"
+     },
+     {
+      "clueFragment": "library in Edinburgh",
+      "gives": "NLS",
+      "note": "the National Library of Scotland, the copyright library on Edinburgh's George IV Bridge"
+     },
+     {
+      "clueFragment": "risk of unprotected sex",
+      "gives": "STI",
+      "note": "a sexually transmitted infection, STI on every clinic leaflet"
+     }
+    ],
+    "surface": "A public-health warning about unsafe sex is posted in an Edinburgh reading room.",
+    "walkthrough": "Reading 'library in Edinburgh' as three letters rather than as a building is where the whole clue turns, and the clinic vocabulary keeps you looking somewhere else."
+   }
   },
   {
    "id": "19-down",
@@ -354,7 +911,51 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIZTRUSS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + anagram",
+    "answer": "LIZ TRUSS",
+    "definition": "Would-be Iron Lady",
+    "definitionFit": "The Iron Lady was Margaret Thatcher, and the definition names the later prime minister who cast herself as her heir — the would-be version.",
+    "indicators": [
+     "badly",
+     "reverses",
+     "after"
+    ],
+    "indicatorNotes": {
+     "badly": "'Badly' is how a thing is done when it comes out wrong, and letters done wrong come out in the wrong order.",
+     "reverses": "A reversing car goes back along its own tracks, so the marque's letters are read from the end.",
+     "after": "'after' places the piece named before it behind the other one, so the shuffled letters finish second."
+    },
+    "anagram": {
+     "fodder": "LIZ RUSTS"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "RUSTS",
+      "gives": "TRUSS"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ZIL",
+      "to": "LIZ"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soviet limo",
+      "gives": "LIZ",
+      "note": "ZIL was the Moscow marque that built the state limousines for the Politburo, and it is turned round"
+     },
+     {
+      "clueFragment": "rusts",
+      "gives": "RUSTS",
+      "note": "anagram fodder, five letters"
+     }
+    ],
+    "surface": "An aspiring Thatcher goes rusty behind a reversing Soviet limousine.",
+    "walkthrough": "ZIL limousines carried the Soviet leadership, which is the general knowledge this clue is built on. Liz Truss held office for 49 days in 2022, the shortest premiership on record."
+   }
   },
   {
    "id": "20-down",
@@ -371,7 +972,41 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAMBER",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "CHAMBER",
+    "definition": "vault",
+    "definitionFit": "A vault is an arched room, usually underground, and the answer is the general word for such an enclosed room — a burial one, or the heart's.",
+    "indicators": [
+     "Put",
+     "head (or tail)",
+     "in"
+    ],
+    "indicatorNotes": {
+     "Put": "'Put' opens an instruction to place something somewhere, and the rest of the clue says where it goes.",
+     "head (or tail)": "The joke is that the cross-referenced answer starts and ends with the same letter, so either end hands you the same one.",
+     "in": "'in' is the insertion half of that instruction: the letter just taken goes inside the word that follows."
+    },
+    "pieces": [
+     "C",
+     "H",
+     "AMBER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "CAMBER",
+      "note": "the camber of a road is the bank or slope built into a bend"
+     },
+     {
+      "clueFragment": "9’s head (or tail)",
+      "gives": "H",
+      "note": "9 across begins and ends on the same letter, so head and tail come to the same thing"
+     }
+    ],
+    "surface": "Something is dropped, head or tail up, into a strongroom at the bank.",
+    "walkthrough": "Chamberlain arrives when this is read with 26 down, another of the grid's prime ministers split in two, and 'bank' has to become the tilt of a road before any of it works."
+   }
   },
   {
    "id": "21-across",
@@ -388,7 +1023,37 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEHEMOTH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEHEMOTH",
+    "definition": "It’s monstrous",
+    "definitionNote": "The definition is a whole sentence rather than a noun: the answer is the monstrous thing itself, and 'It's monstrous' points at it by describing it.",
+    "definitionFit": "The name comes from the giant beast of the Book of Job, so anything monstrous in sheer size can be given the word.",
+    "indicators": [
+     "preceding"
+    ],
+    "indicatorNotes": {
+     "preceding": "'Preceding' says the piece just built goes in front of the piece named next."
+    },
+    "pieces": [
+     "BEHE",
+     "MOTH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if that man is",
+      "gives": "BEHE",
+      "note": "put into the subjunctive, 'if that man is' becomes 'be he', the old form kept alive in 'be he friend or foe'"
+     },
+     {
+      "clueFragment": "one drawn to light",
+      "gives": "MOTH",
+      "note": "the creature that cannot leave a lamp alone"
+     }
+    ],
+    "surface": "It is an outrage, apparently, that he should be standing ahead of the creature circling the lamp.",
+    "walkthrough": "Hearing 'if that man is' as 'be he' takes the subjunctive, a form English has almost lost outside phrases like 'be that as it may'."
+   }
   },
   {
    "id": "22-down",
@@ -405,7 +1070,45 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EGOIST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "EGOIST",
+    "definition": "One as vain as 19?",
+    "definitionFit": "It defines by example, offering 19 down as a specimen: the noun means a person wholly wrapped up in themselves.",
+    "indicators": [
+     "Last"
+    ],
+    "indicatorNotes": {
+     "Last": "'Last' asks for the closing letter of the word beside it rather than for its meaning."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "E",
+     "GO",
+     "IST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrive",
+      "gives": "E",
+      "note": "the closing letter of 'arrive'"
+     },
+     {
+      "clueFragment": "depart",
+      "gives": "GO",
+      "note": "to depart is to go"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first written as a numeral is 1st, and the letters of that are read straight off"
+     }
+    ],
+    "surface": "The guest who turns up last and leaves first is as vain as a certain politician.",
+    "walkthrough": "'1st' for first is the move to learn here: setters take the numeral's tail whenever they want those three letters. The cross-reference is a joke at a politician's expense."
+   }
   },
   {
    "id": "23-across",
@@ -422,7 +1125,37 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESIZE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "RESIZE",
+    "definition": "Make bigger or smaller",
+    "definitionFit": "Changing a thing's dimensions in either direction is what the verb does — it is the button you press when a photo is wrong for the page.",
+    "indicators": [
+     "on the radio"
+    ],
+    "indicatorNotes": {
+     "on the radio": "'On the radio' means you hear the word rather than see it, so its sound matters and its spelling does not."
+    },
+    "pieces": [
+     "RES",
+     "IZE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resolution?",
+      "gives": "RES",
+      "note": "res is the standard short form of resolution, as in screen res"
+     },
+     {
+      "clueFragment": "Checks out",
+      "soundsLike": "EYES",
+      "gives": "IZE",
+      "note": "to eye something up is to check it out, and that verb said aloud is written here with a z"
+     }
+    ],
+    "surface": "Someone confirms over the airwaves that a screen resolution checks out.",
+    "walkthrough": "Resolution is a screen setting, a New Year vow and a formal motion; the clue wants only the photographer's sense, shortened the way a camera menu shortens it."
+   }
   },
   {
    "id": "23-down",
@@ -439,7 +1172,36 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROSARY",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "ROSARY",
+    "definition": "prayers",
+    "definitionNote": "'Prayers' is plural and the answer singular: the word names a whole fixed sequence of prayers taken together, so the plural describes what one of them holds.",
+    "definitionFit": "The word names the sequence of prayers Catholics count off on a string of beads, so it covers the whole devotion at once.",
+    "indicators": [
+     "reflection",
+     "choked"
+    ],
+    "indicatorNotes": {
+     "reflection": "A reflection gives you the same thing the other way round, so the run of letters is read backwards.",
+     "choked": "Something choked has been swallowed and held inside, which is where these letters are — buried across two words."
+    },
+    "subReversals": [
+     {
+      "from": "YRASOR",
+      "to": "ROSARY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Martyr – a sorry",
+      "gives": "YRASOR",
+      "note": "the run starts four letters into 'Martyr' and stops two short of the end of 'sorry', straddling the dash"
+     }
+    ],
+    "surface": "A martyr's story makes sorry reading and the prayers stick in the throat.",
+    "walkthrough": "A hidden answer that also has to be turned round is the hardest sort to see, because the letters read as nonsense until you try them backwards; the martyr is pure surface."
+   }
   },
   {
    "id": "24-across",
@@ -456,7 +1218,43 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOOTHCOMBS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "TOOTHCOMBS",
+    "definition": "picks",
+    "definitionFit": "A pick is the long-toothed comb used to lift Afro hair, so the plural noun names the same implements from the other end of the trade.",
+    "indicators": [
+     "first",
+     "bent"
+    ],
+    "indicatorNotes": {
+     "first": "'first' takes the opening letter of the word in front of it, here the little article itself.",
+     "bent": "Something bent has been pushed out of its proper shape, and letters out of shape come out in another order."
+    },
+    "anagram": {
+     "fodder": "T HOT COMBOS"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "HOT COMBOS",
+      "gives": "OOTHCOMBS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The first",
+      "gives": "T",
+      "note": "the opening letter of 'The'"
+     },
+     {
+      "clueFragment": "hot combos",
+      "gives": "HOTCOMBOS",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "The earliest of the hot jazz combos have bent their plectrums out of shape.",
+    "walkthrough": "A combo is a small jazz or dance band, which is what holds the surface together; the answer is what you go through hair with when you mean to miss nothing."
+   }
   },
   {
    "id": "25-down",
@@ -473,7 +1271,39 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CHER",
+    "definition": "Dear",
+    "definitionFit": "'Dear' is the English of the French adjective the answer spells — the word at the top of a letter written in French.",
+    "indicators": [
+     "leader"
+    ],
+    "indicatorNotes": {
+     "leader": "'leader' asks for the front letter of the word it refers back to, which here is a word already used in the clue."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "CHE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara is the crossword's standing revolutionary"
+     },
+     {
+      "clueFragment": "its leader",
+      "gives": "R",
+      "note": "'its' points back at the word 'revolutionary', whose front letter is taken"
+     }
+    ],
+    "surface": "A beloved revolutionary is named alongside whoever leads him.",
+    "walkthrough": "'Its leader' sends you back to a word the clue has already used, which is a trick worth knowing: the pronoun points at the text rather than at anything in the story."
+   }
   },
   {
    "id": "26-across",
@@ -490,7 +1320,38 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LYRE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LYRE",
+    "definition": "Harp",
+    "definitionFit": "A harp defines it by kind: both are frames of strings plucked with the fingers, the answer being the small U-shaped one carried by Greek poets.",
+    "indicators": [
+     "after",
+     "loses heart"
+    ],
+    "indicatorNotes": {
+     "after": "'after' tells you the piece named before it goes second, behind the one named next.",
+     "loses heart": "Losing heart takes out the middle of the word, since the heart of anything is what sits at its centre."
+    },
+    "pieces": [
+     "LY",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lady loses heart",
+      "gives": "LY",
+      "note": "take the middle two letters out of 'lady' and the outer two close up"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about, as at the head of a memo"
+     }
+    ],
+    "surface": "Somebody keeps harping on about a heartbroken woman.",
+    "walkthrough": "'Harp on' is one phrase in the surface and two separate jobs in the parse: the definition takes 'Harp' and the wordplay takes 'on' by itself."
+   }
   },
   {
    "id": "26-down",
@@ -507,7 +1368,41 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LAIN",
+    "definition": "Set down",
+    "definitionFit": "Both describe having come to rest in a place: the answer is the past participle of 'lie', as in 'the dust had settled where it fell'.",
+    "indicators": [
+     "without",
+     "first"
+    ],
+    "indicatorNotes": {
+     "without": "'Without' here means lacking, so the letter it names is taken out of the word rather than wrapped around it.",
+     "first": "'first' picks the opening letter of the word beside it, and that is the letter to be removed."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "LA",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "gives": "LATIN",
+      "note": "the language of Rome, and the one crosswords mean when they leave it unnamed"
+     },
+     {
+      "clueFragment": "first thought",
+      "gives": "T",
+      "note": "the opening letter of 'thought' is the piece taken away"
+     }
+    ],
+    "surface": "Something is written down in a foreign language without a moment's thought.",
+    "walkthrough": "Chamberlain appears when this answer is read after 20 down, another prime minister split across the grid, and 'without' is doing subtraction here rather than enclosure."
+   }
   },
   {
    "id": "27-across",
@@ -524,7 +1419,33 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STONE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "STONE",
+    "definition": "Symbol of intention to marry",
+    "definitionFit": "The gem in an engagement ring is the visible sign a couple mean to marry, so the word wanted is the rock rather than the ring.",
+    "indicators": [
+     "sent back by"
+    ],
+    "indicatorNotes": {
+     "sent back by": "'Sent back by' does two jobs at once: the letters come out of the long hyphenated phrase, and they arrive in reverse."
+    },
+    "subReversals": [
+     {
+      "from": "ENOTS",
+      "to": "STONE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the-love-that-dare-not-speak-its-name",
+      "gives": "ENOTS",
+      "note": "five consecutive letters straddle two hyphens in the middle of the phrase, and they run the wrong way"
+     }
+    ],
+    "surface": "An engagement present is returned by a lover whose kind of love could not be named aloud.",
+    "walkthrough": "The phrase is Lord Alfred Douglas's line about homosexual love, quoted at Oscar Wilde's trial, and the setter has hyphenated it into one long word for letters to hide in."
+   }
   },
   {
    "id": "28-across",
@@ -541,7 +1462,43 @@ window.CRYPTIC_PUZZLES["cryptic-30001"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EARLIEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "EARLIEST",
+    "definition": "First",
+    "definitionFit": "'First' in its time sense, coming before all the others, matches the superlative; 'first' meaning best is the sense the answer never has.",
+    "indicators": [
+     "novel",
+     "includes"
+    ],
+    "indicatorNotes": {
+     "novel": "A novel arrangement is a new one, so the letters beside it are set out in an order they have not been in before.",
+     "includes": "'Includes' says the shuffled letters close around the next piece rather than sitting alongside it."
+    },
+    "anagram": {
+     "fodder": "RATE LIES"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "RATE",
+      "gives": "EART"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "things that are untrue",
+      "gives": "LIES",
+      "note": "untrue things are lies"
+     }
+    ],
+    "surface": "A top-class novel is said to contain a number of falsehoods.",
+    "walkthrough": "'First-rate' is one word in the surface and has to be broken at the hyphen, the definition taking 'First' and the wordplay taking 'rate' — with no warning that it splits."
+   }
   }
  ]
 } /*JSON-END*/;
