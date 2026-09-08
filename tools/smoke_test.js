@@ -1545,8 +1545,8 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
 // app carries no copy of the lesson at all.
 {
   const home = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-  assert(/<a class="ghost" href="learn\/">/.test(home),
-    "the header links to the lesson at /learn/");
+  assert(/<a class="ghost" href="learn\/" aria-label="How cryptic clues work">/.test(home),
+    "the header links to the lesson at /learn/, and keeps its name once the phone-width row shortens the visible label");
   assert(!home.includes('id="tutorial"') && !home.includes("tutorial.js"),
     "index.html carries no in-page copy of the lesson");
 }
