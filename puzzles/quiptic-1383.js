@@ -30,7 +30,39 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROVIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PROVIDE",
+    "definition": "Supply",
+    "indicators": [
+     "a lot of"
+    ],
+    "indicatorNotes": {
+     "a lot of": "'A lot of' something is most of it and not the whole of it, so the word it points at arrives with its tail missing."
+    },
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one paid",
+      "gives": "PRO",
+      "note": "someone paid to do what others do for love is a pro"
+     },
+     {
+      "clueFragment": "footage",
+      "gives": "VIDE",
+      "note": "footage is VIDEO, and only most of that word is wanted, so the final letter drops off"
+     }
+    ],
+    "pieces": [
+     "PRO",
+     "VIDE"
+    ],
+    "surface": "Money handed over to buy a decent stretch of film.",
+    "walkthrough": "'Supply' reads as the money in the sentence and is really the definition, standing alone before any wordplay starts. The paid one is the professional of sport and music, not an employee.",
+    "definitionFit": "'Supply' and the answer are the same verb: to furnish someone with what they need, interchangeable in almost any sentence."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +79,25 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REGULAR",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REGULAR",
+    "definition": "Medium-sized",
+    "definition2": "person often at local",
+    "blocks": [
+     {
+      "clueFragment": "Medium-sized",
+      "note": "the sizing sense — neither small nor large, the middle option on a menu board"
+     },
+     {
+      "clueFragment": "person often at local",
+      "note": "the noun: a pub's habitual customer, the one whose drink the bar staff already know"
+     }
+    ],
+    "surface": "A man of average build who is in the neighbourhood pub most evenings.",
+    "walkthrough": "Both halves define and neither hands over a letter. A 'local' in Britain is the pub nearest your home, and the people who drink there night after night are known by this very word.",
+    "definitionFit": "'Medium-sized' is the everyday sizing sense of the word; 'person often at local' is the pub sense — one word, two ordinary meanings."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +114,45 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAGUE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "VAGUE",
+    "definition": "unclear",
+    "indicators": [
+     "after leaving"
+    ],
+    "indicatorNotes": {
+     "after leaving": "What is there after something leaves is the remainder, so the letters named last walk out of the word they were sitting in."
+    },
+    "linkWords": [
+     "given",
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "the two-letter postal code for the American state"
+     },
+     {
+      "clueFragment": "estimate",
+      "gives": "GUESS",
+      "note": "an estimate is a guess"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS stands for steamship and prefixes a vessel's name; these two letters are the ones that depart"
+     }
+    ],
+    "pieces": [
+     "VA",
+     "GUE"
+    ],
+    "surface": "A rough valuation offered once the boat has sailed.",
+    "walkthrough": "The deletion happens inside the word for estimate rather than at either end of it: the two ship letters sit together at the back and simply go. Three letters of the five come from a word about guessing.",
+    "definitionFit": "'Unclear' is the adjective for something whose outline or meaning cannot be made out, and the answer is its everyday synonym."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +169,25 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEPOSIT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DEPOSIT",
+    "definition": "Drop",
+    "definition2": "thing needed by a UK election candidate",
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "note": "the verb: to set something down, or let it fall"
+     },
+     {
+      "clueFragment": "thing needed by a UK election candidate",
+      "note": "the noun: the sum a would-be MP hands over with the nomination papers"
+     }
+    ],
+    "surface": "Something a hopeful parliamentary candidate must not lose on polling day.",
+    "walkthrough": "Anyone standing for the UK Parliament must put down £500 with their nomination papers and gets it back only by taking 5% of the vote, which is why 'losing your deposit' is the standard humiliation on election night.",
+    "definitionFit": "'Drop' is the plain verb for setting something down; the candidate's is the noun for a stake paid over and held — both live senses of one word."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +204,58 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAGHDAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "BAGHDAD",
+    "definition": "Middle East capital",
+    "indicators": [
+     "Start to"
+    ],
+    "indicatorNotes": {
+     "Start to": "'Start to' points at where a word begins, so only the opening character of the word behind it is taken."
+    },
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Start to bring",
+      "gives": "B",
+      "note": "the opening letter of the verb, and nothing else of it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article stands for itself"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "the standing abbreviation, as on a school report"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "the standing abbreviation, used on forms and family trees"
+     },
+     {
+      "clueFragment": "father",
+      "gives": "DAD",
+      "note": "the familiar word for a father"
+     }
+    ],
+    "pieces": [
+     "B",
+     "A",
+     "G",
+     "H",
+     "DAD"
+    ],
+    "surface": "Someone introducing a decent husband and his father.",
+    "walkthrough": "Four of the seven letters never look like letters at all: 'good' and 'husband' are standing one-letter abbreviations, and 'a' supplies itself, which is how a whole domestic sentence collapses into a city.",
+    "definitionFit": "The answer is the capital city of Iraq, so the definition places it by region and status rather than offering any synonym."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +272,43 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGEING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "AGEING",
+    "definition": "Getting on",
+    "indicators": [
+     "captivates"
+    ],
+    "indicatorNotes": {
+     "captivates": "To captivate is to hold somebody spellbound, and holding is the job here: what comes next is held inside what came before."
+    },
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article stands for itself"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "a gee-gee is the nursery and racecourse word for a horse, written as its two initials"
+     },
+     {
+      "clueFragment": "a German",
+      "gives": "EIN",
+      "note": "'a' in German is ein, and it goes between the pair of Gs"
+     }
+    ],
+    "pieces": [
+     "A",
+     "G",
+     "EIN",
+     "G"
+    ],
+    "surface": "Mounting a horse so gracefully that a German onlooker is enchanted.",
+    "walkthrough": "'Getting on' wants to mean climbing into the saddle, which is the reading the horse plants; it is the British idiom for growing old. GG comes from 'gee-gee', the word children use for a horse.",
+    "definitionFit": "'Getting on' is the idiom for growing old — 'he's getting on a bit' — and it matches the answer as a present participle."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +329,39 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
     ]
    },
    "solution": "HIGHFIVES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HIGH FIVES",
+    "definition": "triumphal gestures",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "In a down entry 'over' is a position rather than a preposition: the piece before it sits above the piece after it."
+    },
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Towering",
+      "gives": "HIGH",
+      "note": "a towering building is a high one"
+     },
+     {
+      "clueFragment": "court-based sport",
+      "gives": "FIVES",
+      "note": "fives is a handball game struck against the walls of a court, still played at English public schools"
+     }
+    ],
+    "pieces": [
+     "HIGH",
+     "FIVES"
+    ],
+    "surface": "A tall figure looming above a game played in a walled court.",
+    "walkthrough": "Fives is named for the five fingers you hit the ball with, so the sport and the celebration are both about a raised hand — the surface picture and the answer share a joke the letters never mention.",
+    "definitionFit": "'Triumphal gestures' names the raised-palm slap two people trade after a win, in the plural the answer needs."
+   }
   },
   {
    "id": "8-down",
@@ -153,7 +378,51 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACRYLIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "ACRYLIC",
+    "definition": "artificial material",
+    "indicators": [
+     "tailored"
+    ],
+    "indicatorNotes": {
+     "tailored": "Tailoring cuts cloth apart and sews it back in a different shape, which is what happens to the name standing beside it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "the grammatical article, which is itself a single letter"
+     },
+     {
+      "clueFragment": "Cyril",
+      "gives": "CRYLI",
+      "note": "the five letters of the name, re-sewn into a new order"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "the standing abbreviation, as on a tap or a weather map"
+     }
+    ],
+    "pieces": [
+     "A",
+     "CRYLI",
+     "C"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CYRIL",
+      "gives": "CRYLI"
+     }
+    ],
+    "surface": "A newspaper piece about a man named Cyril, cut to fit the page.",
+    "walkthrough": "'Article' is the grammatical kind, not the newspaper kind the surface is selling, and it gives up one letter. The material is what jumpers and craft paints are made of.",
+    "definitionFit": "The answer names the synthetic fibre and resin made from acrylic acid, so 'artificial material' defines it by class: man-made rather than grown."
+   }
   },
   {
    "id": "9-down",
@@ -176,7 +445,44 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
     ]
    },
    "solution": "ASALASTRESORT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "AS A LAST RESORT",
+    "definition": "when all else has failed",
+    "indicators": [
+     "manipulating",
+     "in support of"
+    ],
+    "indicatorNotes": {
+     "manipulating": "Manipulating something is handling it until it takes the shape you want, and the two words behind it are handled letter by letter.",
+     "in support of": "In a down entry a supporting piece props up what stands on it, so it goes underneath — at the end of the answer."
+    },
+    "blocks": [
+     {
+      "clueFragment": "rates alas",
+      "gives": "ASALASTRE",
+      "note": "the nine letters of these two words in a new order"
+     },
+     {
+      "clueFragment": "Type",
+      "gives": "SORT",
+      "note": "a type of thing is a sort of thing"
+     }
+    ],
+    "pieces": [
+     "ASALASTRE",
+     "SORT"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RATESALAS",
+      "gives": "ASALASTRE"
+     }
+    ],
+    "surface": "A trader lamenting the fixing of interest rates.",
+    "walkthrough": "'Alas' sounds like a sigh at the rate-fixing and is really four letters of raw material. The shuffle stops in the middle of the final word, so the gaps you hear in the phrase are not the gaps the wordplay uses.",
+    "definitionFit": "'When all else has failed' is the situation the phrase names: the option you fall back on once every better one is gone."
+   }
   },
   {
    "id": "10-across",
@@ -193,7 +499,27 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGOG",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "AGOG",
+    "definition": "Very eager",
+    "indicators": [
+     "group among"
+    ],
+    "indicatorNotes": {
+     "group among": "A group sitting among other things is a run of letters sitting inside other words, unbroken and in the order given."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Chicago gangsters",
+      "gives": "AGOG",
+      "note": "four letters in a row, starting late in the first word and finishing just inside the second"
+     }
+    ],
+    "surface": "Prohibition-era Chicago and the gangs that ran it.",
+    "walkthrough": "The capital C makes Chicago read as scene-setting rather than as raw material, and the run steps over the space between the two words. Agog is being wide-eyed with anticipation.",
+    "definitionFit": "'Very eager' is the plain adjectival sense: all eyes and ears with excitement about what is coming."
+   }
   },
   {
    "id": "11-across",
@@ -210,7 +536,40 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PASSENGERS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PASSENGERS",
+    "definition": "Those on board",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The smallest word in the clue is the instruction: what stands before it is placed inside what follows it."
+    },
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bleeping devices",
+      "gives": "PAGERS",
+      "note": "a pager is the pocket bleeper that tells a doctor to ring in"
+     },
+     {
+      "clueFragment": "four directions",
+      "gives": "SSEN",
+      "note": "south, south, east and north, each written as its compass initial"
+     }
+    ],
+    "pieces": [
+     "PA",
+     "SSEN",
+     "GERS"
+    ],
+    "surface": "Directions being handed out among a heap of bleeping gadgets.",
+    "walkthrough": "The clue says four directions, not four different ones, so south gets used twice — a fair count that still feels like a cheat the first time you meet it. 'Given' is doing no work but joining the halves.",
+    "definitionFit": "'Those on board' names the people being carried rather than the crew carrying them, which is exactly the distinction the answer draws."
+   }
   },
   {
    "id": "12-across",
@@ -227,7 +586,28 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALTERS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ALTERS",
+    "definition": "Modifies",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "'We hear' says the wordplay describes a sound, so what the clue names is spelled one way and written down another."
+    },
+    "blocks": [
+     {
+      "clueFragment": "flat-topped places in church",
+      "soundsLike": "ALTARS",
+      "gives": "ALTERS",
+      "note": "the flat-topped table at the east end of a church is an altar; say the plural aloud and the vowel gives you no clue how to spell it"
+     }
+    ],
+    "surface": "Word going round that the flat-topped tables in a church are being changed.",
+    "walkthrough": "Only one letter separates the two spellings, which is what makes this homophone nearly invisible — the middle vowel is the whole of the difference. 'In church' belongs to the sounded word, not to the definition.",
+    "definitionFit": "'Modifies' is the third-person verb for making changes to something, matching the answer in person and number."
+   }
   },
   {
    "id": "13-across",
@@ -244,7 +624,47 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDFILL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "LANDFILL",
+    "definition": "disposal of waste material",
+    "indicators": [
+     "Possibly",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "Possibly": "'Possibly' says the two words after it are only one possible arrangement of their letters, so another arrangement is wanted.",
+     "behind": "What is behind something comes after it, so the reordered letters follow the single letter named next."
+    },
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "the map abbreviation, as in L. Superior"
+     },
+     {
+      "clueFragment": "find all",
+      "gives": "ANDFILL",
+      "note": "the seven letters of these two words in a new order"
+     }
+    ],
+    "pieces": [
+     "L",
+     "ANDFILL"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FINDALL",
+      "gives": "ANDFILL"
+     }
+    ],
+    "surface": "A search party told to look for everything downstream of a lake.",
+    "walkthrough": "'Possibly' is the entire instruction, and it reads as ordinary hedging in the sentence rather than as an order to rearrange. The definition names a process, not a place: burying rubbish, rather than the tip it goes to.",
+    "definitionFit": "The answer is the practice of getting rid of rubbish by burying it in the ground, which is what 'disposal of waste material' describes."
+   }
   },
   {
    "id": "14-across",
@@ -261,7 +681,33 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRAMATIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DRAMATIST",
+    "definition": "one creating scenes",
+    "indicators": [
+     "sadly"
+    ],
+    "indicatorNotes": {
+     "sadly": "'Sadly' reads as regret in the sentence, but an anagram indicator only has to say something is not as it should be, and letters in a sorry state need putting right."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A dim start",
+      "gives": "DRAMATIST",
+      "note": "the nine letters of these three words in a new order"
+     }
+    ],
+    "anagram": {
+     "fodder": "A DIM START"
+    },
+    "surface": "A disappointing opening to somebody's venture.",
+    "walkthrough": "'Creating scenes' is the theatre sense, not the tantrum sense, though the trade covers both. The fodder reads as a verdict on the clue itself, which is precisely what hides it.",
+    "definitionFit": "'One creating scenes' names the person who writes the scenes of a play, with the question mark acknowledging that it also describes someone making a fuss."
+   }
   },
   {
    "id": "15-down",
@@ -278,7 +724,46 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEDITATED",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "MEDITATED",
+    "definition": "Contemplated",
+    "indicators": [
+     "appearing in"
+    ],
+    "indicatorNotes": {
+     "appearing in": "Appearing in something means showing up inside it, so the letter named before it is planted within the word that follows."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV etc.",
+      "gives": "MEDIA",
+      "note": "television, radio and the press together are the media"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "Ford's Model T, the standing crossword sense of the word model"
+     },
+     {
+      "clueFragment": "on-screen priest",
+      "gives": "TED",
+      "note": "Father Ted was the priest of the Channel 4 sitcom of the same name"
+     }
+    ],
+    "pieces": [
+     "MEDI",
+     "T",
+     "A",
+     "TED"
+    ],
+    "surface": "A fashion model turning up in the TV listings alongside a television priest.",
+    "walkthrough": "'Model' is not a person here but Ford's Model T, an abbreviation setters lean on constantly. Father Ted, a 1990s comedy about priests marooned on a fictional Irish island, supplies the last three letters.",
+    "definitionFit": "'Contemplated' is the past tense of turning something over in the mind at length, and the answer is that same past tense."
+   }
   },
   {
    "id": "16-across",
@@ -295,7 +780,42 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVICT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "EVICT",
+    "definition": "Expel",
+    "indicators": [
+     "occupying"
+    ],
+    "indicatorNotes": {
+     "occupying": "To occupy a space is to sit inside it, so the number takes up residence between the letters on either side."
+    },
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "the standing abbreviation, as on a school timetable"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "six in Roman numerals"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "the short form used in street names and case citations"
+     }
+    ],
+    "pieces": [
+     "E",
+     "VI",
+     "CT"
+    ],
+    "surface": "Six people being thrown out of an English courtroom.",
+    "walkthrough": "'Occupying' is the joke: the surface has people occupying a court and the wordplay has letters occupying letters. Roman numerals are worth owning as a set, because VI hides inside ordinary words better than any of the others.",
+    "definitionFit": "To expel is to force someone out, and the answer is the legal species of that: removing an occupier from a property by court order."
+   }
   },
   {
    "id": "17-across",
@@ -312,7 +832,37 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASIDE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ASIDE",
+    "definition": "private comment",
+    "indicators": [
+     "concealing"
+    ],
+    "indicatorNotes": {
+     "concealing": "Concealing something means keeping it out of sight inside, so the letter named next vanishes into the word before it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Assistant",
+      "gives": "AIDE",
+      "note": "an aide is an assistant to someone senior"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "the standing abbreviation for the unit of time"
+     }
+    ],
+    "pieces": [
+     "A",
+     "S",
+     "IDE"
+    ],
+    "surface": "An assistant keeping quiet about somebody's second confidential remark.",
+    "walkthrough": "In the theatre this is the line an actor delivers to the audience while the other characters pretend not to hear, which is what makes 'private comment' an exact definition rather than a loose one.",
+    "definitionFit": "The answer is the stage word for a remark meant to reach only some of those present, so 'private comment' is the theatre's own sense."
+   }
   },
   {
    "id": "18-down",
@@ -329,7 +879,40 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCALLOP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCALLOP",
+    "definition": "shellfish",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Something placed about another thing is wrapped round it, so the first word's letters open up to admit the second's."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concession",
+      "gives": "SOP",
+      "note": "a sop is a small concession thrown to somebody to keep them quiet"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "CALL",
+      "note": "to call something is to name it"
+     }
+    ],
+    "pieces": [
+     "S",
+     "CALL",
+     "OP"
+    ],
+    "surface": "A minor concession made about someone's reputation.",
+    "walkthrough": "'About' reads first as 'concerning', which is the whole disguise, and it is the instruction to wrap. A sop was originally bread soaked in liquid, thrown to Cerberus to get safely past him.",
+    "definitionFit": "The answer is the fan-shelled bivalve on a fishmonger's slab, so 'shellfish' defines it by naming the family it belongs to."
+   }
   },
   {
    "id": "19-across",
@@ -346,7 +929,33 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRECISION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PRECISION",
+    "definition": "accuracy",
+    "indicators": [
+     "work"
+    ],
+    "indicatorNotes": {
+     "work": "To work a material is to knead and press it into a different shape, which is what the letters in front of it undergo."
+    },
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copiers in",
+      "gives": "PRECISION",
+      "note": "the nine letters of these two words in a new order"
+     }
+    ],
+    "anagram": {
+     "fodder": "COPIERS IN"
+    },
+    "surface": "Office photocopiers doing their job faithfully.",
+    "walkthrough": "'In' looks like a preposition parking the copiers somewhere and is really two of the nine letters, which is why the fodder is so hard to see. 'Work' is the instruction, disguised as the place they stand.",
+    "definitionFit": "'Accuracy' is the abstract noun for exactness, and the answer is its near synonym: exactness carried to a fine degree."
+   }
   },
   {
    "id": "20-down",
@@ -363,7 +972,40 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLAUDIA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CLAUDIA",
+    "definition": "woman",
+    "indicators": [
+     "among"
+    ],
+    "indicatorNotes": {
+     "among": "To be among a group is to stand in the middle of it, so the praise slots between the letters of the agency."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US agents",
+      "gives": "CIA",
+      "note": "the Central Intelligence Agency, America's foreign intelligence service"
+     },
+     {
+      "clueFragment": "Praise",
+      "gives": "LAUD",
+      "note": "to laud someone is to praise them"
+     }
+    ],
+    "pieces": [
+     "C",
+     "LAUD",
+     "IA"
+    ],
+    "surface": "Compliments circulating inside American intelligence.",
+    "walkthrough": "'Woman' almost always signals a first name, and the surface gives no hint which one, so the letters have to settle it alone. LAUD survives mostly in 'laudable' and in hymns.",
+    "definitionFit": "'Woman' defines by example: the answer is a woman's given name, so the definition names the class and the wordplay picks the member."
+   }
   },
   {
    "id": "21-down",
@@ -384,7 +1026,46 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONETIME",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ONE-TIME",
+    "definition": "Former",
+    "indicators": [
+     "put in"
+    ],
+    "indicatorNotes": {
+     "put in": "'Put in' is a plain instruction to insert: the letter it follows goes inside the word that comes after."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "a single individual is one"
+     },
+     {
+      "clueFragment": "competitive fixture",
+      "gives": "TIE",
+      "note": "a tie is a match in a knockout competition, as in a cup tie"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "the standing abbreviation, as in a salary quoted at £1m"
+     }
+    ],
+    "pieces": [
+     "ONE",
+     "TI",
+     "M",
+     "E"
+    ],
+    "surface": "A solitary man who put his money on a big match.",
+    "walkthrough": "'Former' looks like it wants a noun — a former of things — and it is the adjective, as in a one-time champion. A cup tie is a British knockout football fixture, drawn out of a hat rather than scheduled.",
+    "definitionFit": "'Former' is the adjective for something that held a role earlier and holds it no longer, which is exactly what the hyphenated answer means."
+   }
   },
   {
    "id": "22-down",
@@ -401,7 +1082,42 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSEUR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "POSEUR",
+    "definition": "pretentious figure",
+    "indicators": [
+     "agitating"
+    ],
+    "indicatorNotes": {
+     "agitating": "Agitating a mixture stirs it until nothing is where it started, so the word beside it comes out reordered."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Petty Officer",
+      "gives": "PO",
+      "note": "the naval rank's standard initials"
+     },
+     {
+      "clueFragment": "rues",
+      "gives": "SEUR",
+      "note": "the four letters of this word in a new order"
+     }
+    ],
+    "pieces": [
+     "PO",
+     "SEUR"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "RUES",
+      "gives": "SEUR"
+     }
+    ],
+    "surface": "A naval officer grumbling and getting on everyone's nerves.",
+    "walkthrough": "'Agitating' reads as what the officer is doing to the people around him, which is the surface's whole trick. Petty officer is the Royal Navy rank between able seaman and chief petty officer.",
+    "definitionFit": "'Pretentious figure' describes someone who strikes attitudes to impress, which is the affectation the answer names rather than any single pose."
+   }
   },
   {
    "id": "23-across",
@@ -418,7 +1134,54 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAUTIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "CAUTIOUS",
+    "definition": "wary",
+    "indicators": [
+     "in",
+     "facing"
+    ],
+    "indicatorNotes": {
+     "in": "'In' places what stands before it inside what follows, so two letters are dropped into the middle of the state's short form.",
+     "facing": "To face something is to stand in front of it, so everything built so far is set before the letters named next."
+    },
+    "linkWords": [
+     "making one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Connecticut",
+      "gives": "CT",
+      "note": "the two-letter postal code for the state"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the article stands for itself"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "the standing abbreviation, as in a university's initials"
+     },
+     {
+      "clueFragment": "financial debts",
+      "gives": "IOUS",
+      "note": "an IOU is a signed note admitting a debt, and several of them are IOUs"
+     }
+    ],
+    "pieces": [
+     "C",
+     "A",
+     "U",
+     "T",
+     "IOUS"
+    ],
+    "surface": "An American student at a Connecticut university staring down a pile of debt.",
+    "walkthrough": "The state's postal code splits open to take two letters, so 'in' is doing real work rather than describing where the university sits. IOU is 'I owe you' written as three letters, and it pluralises like a word.",
+    "definitionFit": "'Wary' is the adjective for being on guard against risk, and the answer is its close synonym: careful because something might go wrong."
+   }
   },
   {
    "id": "24-across",
@@ -435,7 +1198,47 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANSWER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ANSWER",
+    "definition": "response",
+    "indicators": [
+     "Doctor",
+     "describing",
+     "beginning of"
+    ],
+    "indicatorNotes": {
+     "Doctor": "To doctor something is to tamper with it, so the word standing next to it comes out with its letters rearranged.",
+     "describing": "In its geometric sense, to describe a circle round something is to draw it around, so the rearranged letters go outside what follows.",
+     "beginning of": "'Beginning of' asks for the opening letter of the word it points at and none of the rest."
+    },
+    "blocks": [
+     {
+      "clueFragment": "warns",
+      "gives": "ANSWR",
+      "note": "the five letters of this word in a new order"
+     },
+     {
+      "clueFragment": "beginning of emergency",
+      "gives": "E",
+      "note": "the opening letter of that word, and nothing more of it"
+     }
+    ],
+    "pieces": [
+     "ANSW",
+     "E",
+     "R"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WARNS",
+      "gives": "ANSWR"
+     }
+    ],
+    "surface": "A doctor issuing warnings about how an emergency should be handled.",
+    "walkthrough": "'Doctor' is the instruction rather than the person, and the medical surface works hard to keep you from reading it that way. The single letter lands second from last, not at either end.",
+    "definitionFit": "'Response' is what you give when you are asked or addressed, and the answer is the everyday noun for exactly that."
+   }
   },
   {
    "id": "25-down",
@@ -452,7 +1255,27 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCANT",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SCANT",
+    "definition": "Barely sufficient",
+    "indicators": [
+     "stuff kept in"
+    ],
+    "indicatorNotes": {
+     "stuff kept in": "Stuff kept in something is stored out of sight inside it, and what is stored here is a run of letters rather than provisions."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tuscan trattoria",
+      "gives": "SCANT",
+      "note": "five letters in a row, starting part way through the first word and finishing at the head of the second"
+     }
+    ],
+    "surface": "Ingredients kept in the store cupboard of a Tuscan restaurant.",
+    "walkthrough": "Two Italian-sounding words in a row make the letters look like scenery, and the run steps across the gap between them. 'Stuff kept in' is the only instruction in the whole clue.",
+    "definitionFit": "'Barely sufficient' is the adjectival sense: an amount that is only just enough, the way the word is used of supplies or of regard."
+   }
   },
   {
    "id": "26-across",
@@ -473,7 +1296,48 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
     ]
    },
    "solution": "CLOTHEARED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "CLOTH-EARED",
+    "definition": "inattentive",
+    "indicators": [
+     "upset",
+     "about"
+    ],
+    "indicatorNotes": {
+     "upset": "Something upset has been knocked over and its contents scattered, so the letters before it no longer hold the order they were given.",
+     "about": "Placed about something means wrapped round it, so the scattered letters close over the word that follows."
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A DC here",
+      "gives": "CHEARED",
+      "note": "the seven letters of these three words in a new order"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot of people is a group of them"
+     }
+    ],
+    "pieces": [
+     "C",
+     "LOT",
+     "HEARED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ADCHERE",
+      "gives": "CHEARED"
+     }
+    ],
+    "surface": "Somebody in Washington thoroughly annoyed about a particular crowd.",
+    "walkthrough": "DC is the district Washington stands in, which is what makes the first three words read as a place rather than as seven letters. The insult is British and blunt: it says a person might as well have cloth over their ears.",
+    "definitionFit": "'Inattentive' is the polite version of a British insult meaning unable or unwilling to hear, so it defines somebody who is simply not listening."
+   }
   },
   {
    "id": "27-across",
@@ -490,7 +1354,40 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ARID",
+    "definition": "dry",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Going around something means enclosing it, so the word before it opens up and the letter after it drops inside."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help required",
+      "gives": "AID",
+      "note": "help sent where it is needed is aid, and 'required' only holds the surface sentence upright"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "the standing map abbreviation, as in R. Thames"
+     }
+    ],
+    "pieces": [
+     "A",
+     "R",
+     "ID"
+    ],
+    "surface": "Relief supplies being brought in along a river.",
+    "walkthrough": "'Getting dry' sounds like a towel after a swim and is the climate sense, the one that describes a desert. Aid is the disaster-relief word the surface leans on to make its picture.",
+    "definitionFit": "'Dry' in the rainfall sense — too little water for much to grow — is the sense the answer carries, not the opposite of wet to the touch."
+   }
   },
   {
    "id": "28-across",
@@ -507,7 +1404,45 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPIDERY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "SPIDERY",
+    "definition": "characteristic of some writing",
+    "indicators": [
+     "about",
+     "unusually"
+    ],
+    "indicatorNotes": {
+     "about": "Placed about something means wrapped round it, so the short word for looking opens to take what follows.",
+     "unusually": "'Unusually' says the word beside it is not in its usual order, which is all an instruction to reorder needs to say."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "SPY",
+      "note": "to spy something is to catch sight of it"
+     },
+     {
+      "clueFragment": "dire",
+      "gives": "IDER",
+      "note": "the four letters of this word in a new order"
+     }
+    ],
+    "pieces": [
+     "SP",
+     "IDER",
+     "Y"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DIRE",
+      "gives": "IDER"
+     }
+    ],
+    "surface": "Taking a look at something unusually awful.",
+    "walkthrough": "'Look about' reads as glancing round the room and is really two separate instructions inside three letters. Handwriting earns this description when the strokes are thin and straggling, like legs.",
+    "definitionFit": "The answer describes handwriting made of thin, sprawling strokes, so the definition points at how a script looks rather than at the creature it borrows its name from."
+   }
   },
   {
    "id": "29-across",
@@ -524,7 +1459,34 @@ window.CRYPTIC_PUZZLES["quiptic-1383"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CANTEEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CANTEEN",
+    "definition": "place to eat at work",
+    "linkWords": [
+     "taken by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drinks holder",
+      "gives": "CAN",
+      "note": "a can is what a drink comes in"
+     },
+     {
+      "clueFragment": "adolescent",
+      "gives": "TEEN",
+      "note": "a teen is an adolescent"
+     }
+    ],
+    "pieces": [
+     "CAN",
+     "TEEN"
+    ],
+    "surface": "A teenager helping himself to somebody else's can of drink.",
+    "walkthrough": "'Taken by' reads as theft and is only joinery holding the two pieces together. The same word names a soldier's water flask and a boxed set of cutlery, so the drinks holder in the surface is closer to the answer than it looks.",
+    "definitionFit": "'Place to eat at work' is the works or barracks dining room — the institutional sense, not a restaurant anyone can walk into."
+   }
   }
  ]
 } /*JSON-END*/;
