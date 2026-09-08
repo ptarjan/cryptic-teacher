@@ -218,7 +218,14 @@ button:disabled:hover { border-color: var(--line); }
    See ringHTML() in app.js for why it is a circle and not a search box. */
 .anagram-ring { margin: 10px 0 2px; display: flex; flex-direction: column; align-items: center; }
 .anagram-ring p { margin: 2px 0 6px; text-align: center; max-width: 34em; }
-.ana-disc { position: relative; }
+/* cursor:text is the only hint that clicking empty space here does something —
+   it focuses #ana-kbd (see app.js), which is how typing gets in. */
+.ana-disc { position: relative; cursor: text; }
+/* The visible focus ring the letters area needs to feel like a text field.
+   Not :focus-within — #ana-kbd is not a DOM descendant of the disc (see its
+   comment in index.html for why it has to live outside #hint-body), so the
+   class is set by ringHTML() itself off document.activeElement instead. */
+.ana-disc.ana-focus { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 50%; }
 .ana-tile {
   position: absolute; transform: translate(-50%, -50%);
   min-width: 1.9em; padding: 4px 6px; margin: 0;
@@ -230,6 +237,23 @@ button:disabled:hover { border-color: var(--line); }
 /* Struck, not removed: what you have placed is still part of the count, and a
    tile that vanished would leave a gap the eye reads as a missing letter. */
 .ana-tile.struck { opacity: .38; text-decoration: line-through; font-weight: 400; }
+/* A deleted tile's stand-in while it fades — see ghostRingTile() in app.js.
+   Fixed and pointer-events:none so it can never be mistaken for a live tile. */
+.ana-ghost { position: fixed; display: flex; align-items: center; justify-content: center; z-index: 50; }
+@media (prefers-reduced-motion: reduce) {
+  /* Belt and braces: JS already skips every ring animation when this is set
+     (reduceMotion() in app.js), so this only catches a transform left inline
+     by code that forgot to check. */
+  .ana-tile, .ana-ghost { transition: none !important; }
+}
+/* Off-screen and inert like #kbd, and for the same reason: a real input is the
+   only way to take a hardware keyboard directly and raise a phone's on-screen
+   one, and it must never be where a stray tap can land instead of on a tile
+   or the disc's own click handler. */
+#ana-kbd {
+  position: fixed; opacity: 0; left: 0; top: 50%; width: 1px; height: 1px;
+  border: none; padding: 0; pointer-events: none;
+}
 
 /* Difficulty. Outlined rather than filled so it reads as a note about the
    puzzle and doesn't compete with the hint badges next to it, which say
