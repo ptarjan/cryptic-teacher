@@ -316,6 +316,12 @@ def clue_html(e):
         bits.append(f'<p class="s-def">Definition: <strong>{esc(ann["definition"])}</strong>'
                     + (f' &middot; <span class="s-type">{esc(kind)}</span>' if kind else "")
                     + "</p>")
+    # One sentence on why the ANSWER means the DEFINITION — app.js's "Why
+    # that's the answer" rung, minus the answer/definition repeated back at
+    # the reader (both are already on the page a line up). Written work sat
+    # unindexed for ~500 puzzles until this rendered it here too.
+    if ann.get("definitionFit"):
+        bits.append(f'<p class="s-fit">{esc(ann["definitionFit"])}</p>')
     blocks = ann.get("blocks") or []
     if blocks:
         rows = "".join(
@@ -324,6 +330,15 @@ def clue_html(e):
             + (f" <span class=\"s-note\">{esc(b.get('note'))}</span>" if b.get("note") else "")
             + "</li>" for b in blocks)
         bits.append(f'<ul class="s-blocks">{rows}</ul>')
+    # Keyed by the indicator word, so — unlike blocks — order isn't guaranteed
+    # to match the clue text; skip any indicator left without a written note
+    # rather than print an empty one.
+    ind_notes = {k: v for k, v in (ann.get("indicatorNotes") or {}).items() if v}
+    if ind_notes:
+        rows = "".join(
+            f'<li><span class="s-ind">{esc(k)}</span> &mdash; {esc(v)}</li>'
+            for k, v in ind_notes.items())
+        bits.append(f'<ul class="s-ind-notes">{rows}</ul>')
     # The surface first, the same order and for the same reason as the app's
     # walkthrough rung: what the clue pretends to be about, then what it is doing.
     if ann.get("surface"):
