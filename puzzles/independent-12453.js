@@ -30,7 +30,37 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUBBLY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BUBBLY",
+    "definition": "high on gas",
+    "definitionFit": "high on gas -> BUBBLY: a drink loaded with dissolved gas is bubbly, and so is a person in irrepressibly high spirits.",
+    "indicators": [
+     "nurses"
+    ],
+    "indicatorNotes": {
+     "nurses": "A nurse cradles a baby in both arms, so the word that nurses closes right round the letters handed to it."
+    },
+    "pieces": [
+     "BU",
+     "BBL",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "BUY",
+      "note": "to get something is to buy it, and this word parts after its first two letters"
+     },
+     {
+      "clueFragment": "behind surgery",
+      "gives": "BBL",
+      "note": "a BBL is a Brazilian butt lift, the cosmetic operation performed on the behind"
+     }
+    ],
+    "surface": "Nurses out behind the doctor's surgery, giddy on laughing gas.",
+    "walkthrough": "'Surgery' in the surface is the British word for a GP's premises; the wordplay wants an operation instead, and that operation is known by its three initials."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +77,41 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROADEST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BROADEST",
+    "definition": "extreme latitude",
+    "definitionNote": "The clue offers a noun phrase where the answer is a superlative adjective: 'latitude' supplies the sense of breadth and 'extreme' asks for the most of it.",
+    "definitionFit": "extreme latitude -> BROADEST: latitude is breadth or scope, so the widest allowance anyone could be given is the broadest.",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "holds"
+    ],
+    "indicatorNotes": {
+     "holds": "To hold a thing is to keep it in your grasp, so one word here closes round another rather than sitting beside it."
+    },
+    "pieces": [
+     "B",
+     "ROAD",
+     "EST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "BEST",
+      "note": "to trump a rival is to best them, and the word opens up after its first letter"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "ROAD",
+      "note": "the course a journey takes is the road it runs along"
+     }
+    ],
+    "surface": "Trump staying on course while being allowed an enormously free hand.",
+    "walkthrough": "The capital T points at a president and does nothing else; 'trump' is the ordinary verb meaning to beat, and 'course' is a road rather than a direction of travel."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +128,28 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEEKEEPER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BEEKEEPER",
+    "definition": "manager of busy team",
+    "definitionFit": "manager of busy team -> BEEKEEPER: bees are proverbially busy and a hive works as one, so their keeper is the person managing the lot of them.",
+    "indicators": [
+     "shouted"
+    ],
+    "indicatorNotes": {
+     "shouted": "A shout arrives as noise from across a pitch, so the words are taken down by ear and spelt however the sound falls."
+    },
+    "blocks": [
+     {
+      "clueFragment": "\"Get in goal!\"",
+      "soundsLike": "BE KEEPER",
+      "gives": "BEEKEEPER",
+      "note": "telling a player to get in goal is telling them to be keeper, which is what every team calls that position"
+     }
+    ],
+    "surface": "A manager bawling at a player to pull the gloves on and go in goal.",
+    "walkthrough": "The shout and the answer are the same noise chopped in different places: two words become one, and the E that ends the first is heard again at the start of the second."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +166,42 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIRA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "LIRA",
+    "definition": "money",
+    "definitionFit": "money -> LIRA: the lira was Italy's currency until the euro arrived, and it is still one of the coins a crossword means by plain 'money'.",
+    "indicators": [
+     "raises"
+    ],
+    "indicatorNotes": {
+     "raises": "Raising a letter in a down entry lifts it above its neighbour, so the pair it belongs to ends up written the other way round."
+    },
+    "pieces": [
+     "LI",
+     "RA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spreader of fake news",
+      "gives": "LI",
+      "note": "somebody who spreads fake news is a liar, and the first two letters of that word stay put"
+     },
+     {
+      "clueFragment": "raises Republican",
+      "gives": "RA",
+      "note": "Republican is R, and lifting it up the entry puts it above the A it followed in liar"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "AR",
+      "to": "RA"
+     }
+    ],
+    "surface": "A propagandist talking up Republican campaign funds.",
+    "walkthrough": "'Raises' looks like it should turn the whole word round, and it lifts a single letter one place instead. The letter doing the moving is the Republican R."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +218,31 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CALCULUS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CALCULUS",
+    "definition": "Tricky maths",
+    "definition2": "a pain to pass",
+    "definitionFit": "Calculus is the maths of rates of change, and a calculus is also a stone formed in the body, of which a kidney one is famously painful to pass.",
+    "linkWords": [
+     "that could be"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Tricky maths",
+      "gives": "",
+      "note": "the branch of mathematics that handles rates of change and areas under curves, and the one sixth-formers dread"
+     },
+     {
+      "clueFragment": "a pain to pass",
+      "gives": "",
+      "note": "the medical sense: a hard deposit that forms in the kidney or the bladder and has to come out the hard way"
+     }
+    ],
+    "surface": "A student grumbling that the maths paper is impossible to get through.",
+    "walkthrough": "'Pass' carries the exam sense on the surface and the medical one underneath, and the word itself is Latin for a pebble, from the counting stones an abacus used."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +259,41 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSUMES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ASSUMES",
+    "definition": "prejudicial",
+    "definitionNote": "The definition is an adjective where the answer is a verb: someone being prejudicial in this sense prejudges, taking a thing as settled before the evidence is in.",
+    "definitionFit": "prejudicial -> ASSUMES: to assume is to take something as true in advance, which is prejudging rather than weighing what is there.",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "interrupting"
+    ],
+    "indicatorNotes": {
+     "interrupting": "To interrupt is to cut in on someone mid-sentence, so these letters land inside the word rather than before or after it."
+    },
+    "pieces": [
+     "ASS",
+     "UM",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idiots",
+      "gives": "ASSES",
+      "note": "an idiot is an ass, and the plural opens up in the middle"
+     },
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "UM",
+      "note": "um is the noise somebody makes when they have no answer ready"
+     }
+    ],
+    "surface": "Butting in on fools is unfair, says a speaker not certain of it.",
+    "walkthrough": "'I'm not sure' looks like the setter hedging and is really the noise of hesitation written down. A phrase meaning doubt aloud is usually two or three letters in a cryptic."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +314,28 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
     ]
    },
    "solution": "CARDREADER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CARD READER",
+    "definition": "One used to pay",
+    "definition2": "charge for reassuring driving instructor",
+    "definitionFit": "A card reader is the terminal you tap to pay; divided a letter earlier it is a car dreader, which is the nervous pupil needing a calm instructor.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "One used to pay",
+      "gives": "",
+      "note": "the machine on the shop counter that takes a debit or credit card and asks for the PIN"
+     },
+     {
+      "clueFragment": "charge for reassuring driving instructor",
+      "gives": "",
+      "note": "a charge is a person in somebody's care, and the learner in that car is the one dreading it"
+     }
+    ],
+    "surface": "Somebody who used to pay for a soothing driving instructor.",
+    "walkthrough": "The second definition only works once the letters are divided one place to the left, which is why nothing in it sounds like a payment terminal. The pupil dreads the car."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +352,34 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOATH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOATH",
+    "definition": "Unenthusiastic",
+    "definitionFit": "Unenthusiastic -> LOATH: loath means unwilling, and 'loath to admit it' is exactly the shrug of somebody with no appetite for doing it.",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [],
+    "pieces": [
+     "L",
+     "OATH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing size large, printed on every label"
+     },
+     {
+      "clueFragment": "word",
+      "gives": "OATH",
+      "note": "an oath is a word in two senses, the curse and the solemn promise"
+     }
+    ],
+    "surface": "Somebody remarking that 'unenthusiastic' is a long word.",
+    "walkthrough": "The quotation marks turn the clue into a comment about a word, so 'large word' reads as a note on its length instead of two pieces waiting to be joined."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +396,30 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAMPLE",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "SAMPLE",
+    "definition": "Taste",
+    "definitionFit": "Taste -> SAMPLE: to sample a beer is to take a little of it to taste, the same verb doing the same job in a more formal register.",
+    "indicators": [
+     "first drops of"
+    ],
+    "indicatorNotes": {
+     "first drops of": "The first drop of a drink is the very start of it, so only the opening letter of each word that follows is poured out."
+    },
+    "pieces": [
+     "SAMPLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stella Artois, making Peroni look elegant",
+      "gives": "SAMPLE",
+      "note": "the opening letters of the six words, taken in the order they stand"
+     }
+    ],
+    "surface": "The first sips of a Stella Artois flattering the Peroni beside it.",
+    "walkthrough": "Both lagers are real brands and the whole sentence is a drinker's verdict on them, which is what keeps the instruction disguised as the act of tasting."
+   }
   },
   {
    "id": "9-down",
@@ -187,7 +436,35 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRICT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STRICT",
+    "definition": "No-nonsense",
+    "definitionFit": "No-nonsense -> STRICT: a strict teacher takes no nonsense, so the adjective covers anyone who holds to the rules without give.",
+    "indicators": [
+     "abandoning"
+    ],
+    "indicatorNotes": {
+     "abandoning": "To abandon a place is to walk out of it, so the two letters named in front leave the word that follows them."
+    },
+    "pieces": [
+     "STRICT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "precinct",
+      "gives": "DISTRICT",
+      "note": "an American police precinct is a district, the patch a station covers"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector, the rank in every British police drama"
+     }
+    ],
+    "surface": "A detective walking out on the precinct they work for.",
+    "walkthrough": "'Precinct' is the American police word and DI the British rank, so a five-word clue manages to cross two different cop shows."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +481,33 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERRATES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OVERRATES",
+    "definition": "values without moderation",
+    "definitionFit": "values without moderation -> OVERRATES: to overrate a thing is to put a value on it beyond what it deserves, with 'over-' carrying the immoderation.",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "Reform"
+    ],
+    "indicatorNotes": {
+     "Reform": "To reform something is to form it again in a new shape, and letters formed again come out in an order they were not given in."
+    },
+    "anagram": {
+     "fodder": "VOTERS ARE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "voters are",
+      "gives": "VOTERSARE",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "Reform UK's voters being given a great deal more credit than they deserve.",
+    "walkthrough": "Reform is a British political party, which is what the capital R is doing; as an instruction the word means form again, and the fodder is sitting right beside it."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +524,33 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REALM",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "REALM",
+    "definition": "dominion",
+    "definitionFit": "dominion -> REALM: a realm is the territory a monarch holds sway over, which is what a dominion is, both words naming the land rather than the power.",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "Ignoring the odds"
+    ],
+    "indicatorNotes": {
+     "Ignoring the odds": "The odd letters are the first, third and fifth, and ignoring those leaves the even ones to be read off in order."
+    },
+    "pieces": [
+     "REALM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arsenal limp",
+      "gives": "REALM",
+      "note": "run the two words together and keep the second letter and every other one after it"
+     }
+    ],
+    "surface": "Arsenal limping through a match nobody gave them a chance in.",
+    "walkthrough": "Arsenal are a London football club, so the capital A passes for a name in a sentence about betting; the only odds in play are letter positions."
+   }
   },
   {
    "id": "12-across",
@@ -238,7 +567,31 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "DEER",
+    "definition": "A few bucks",
+    "definitionFit": "A few bucks -> DEER: a buck is a male deer, so a few of them are deer, the definition naming the animal by one kind of it.",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "for auditors"
+    ],
+    "indicatorNotes": {
+     "for auditors": "An auditor is a listener, the word sharing its root with audio, so what counts is the noise a word makes."
+    },
+    "blocks": [
+     {
+      "clueFragment": "expensive",
+      "soundsLike": "DEAR",
+      "gives": "DEER",
+      "note": "expensive is dear, and that word said aloud is spelt another way in the grid"
+     }
+    ],
+    "surface": "Accountants who reckon a few dollars is a lot of money.",
+    "walkthrough": "'Bucks' is dollars in the surface and male animals in the definition, while 'auditors' are accountants there and listeners here. Every word is working two jobs."
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +612,37 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
     ]
    },
    "solution": "AIRMARSHAL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "AIR MARSHAL",
+    "definition": "Officer",
+    "definitionFit": "Officer -> AIR MARSHAL: an air marshal is a senior Royal Air Force rank, so the definition names the class and the answer supplies one instance of it.",
+    "indicators": [
+     "uncovered",
+     "in disguise"
+    ],
+    "indicatorNotes": {
+     "uncovered": "What covers a word is the letter at each end of it, so uncovering the name takes the first and the last away.",
+     "in disguise": "Someone in disguise is not recognisable, and letters put in disguise arrive in an order you would not know them by."
+    },
+    "anagram": {
+     "fodder": "AMAL HARRIS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "uncovered Kamala",
+      "gives": "AMAL",
+      "note": "the opening K and the closing A come off the forename, leaving the four letters between them"
+     },
+     {
+      "clueFragment": "Harris",
+      "gives": "HARRIS",
+      "note": "the surname joins the fodder whole, six letters more"
+     }
+    ],
+    "surface": "An officer spotting the former US vice-president travelling incognito.",
+    "walkthrough": "'Uncovered' reaches back to the forename alone while 'in disguise' shuffles both names, and the picture of somebody travelling incognito carries the two instructions between them."
+   }
   },
   {
    "id": "14-down",
@@ -276,7 +659,56 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PICCALILLI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + reversal",
+    "answer": "PICCALILLI",
+    "definition": "Sauce",
+    "definitionFit": "Sauce -> PICCALILLI: a mustard-yellow British pickle of chopped vegetables in a sharp sauce, set on the table beside cold meat and pork pies.",
+    "indicators": [
+     "primarily",
+     "served up"
+    ],
+    "indicatorNotes": {
+     "primarily": "What comes primarily comes first, so only the opening letter of the word beside it is taken.",
+     "served up": "In a down entry, up points back towards the start, so the word this governs is written from its last letter to its first."
+    },
+    "pieces": [
+     "PIC",
+     "C",
+     "ALI",
+     "LLI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "PIC",
+      "note": "a still is a single photograph lifted from a film, and a photograph is a pic"
+     },
+     {
+      "clueFragment": "primarily considered",
+      "gives": "C",
+      "note": "the opening letter of considered"
+     },
+     {
+      "clueFragment": "the greatest",
+      "gives": "ALI",
+      "note": "Muhammad Ali called himself the Greatest and the boxing world agreed with him"
+     },
+     {
+      "clueFragment": "poorly",
+      "gives": "LLI",
+      "note": "somebody poorly is ill, and that word arrives climbing the entry"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ILL",
+      "to": "LLI"
+     }
+    ],
+    "surface": "A sauce still reckoned the finest, let down by careless serving.",
+    "walkthrough": "Four pieces, and three of them are conventions the surface keeps out of sight: the photographic 'still', the boxer who is always the Greatest, and 'poorly' as plain ill."
+   }
   },
   {
    "id": "15-across",
@@ -293,7 +725,31 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOPHIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SOPHIST",
+    "definition": "one argues",
+    "definitionNote": "The definition drops its relative pronoun: 'one [who] argues' names a person, and the answer is that noun rather than the verb it ends on.",
+    "definitionFit": "one argues -> SOPHIST: a sophist is a clever, plausible arguer, after the Greek teachers of rhetoric whose reasoning persuaded without being sound.",
+    "indicators": [
+     "abroad"
+    ],
+    "indicatorNotes": {
+     "abroad": "A thing abroad is away from where it belongs, and these letters are not where they belong either."
+    },
+    "anagram": {
+     "fodder": "ITS POSH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "It's posh",
+      "gives": "ITSPOSH",
+      "note": "anagram fodder, seven letters once the apostrophe is dropped"
+     }
+    ],
+    "surface": "Somebody insisting that things are altogether smarter overseas.",
+    "walkthrough": "Everything before the comma is fodder, which is unusual: the S of the contraction counts as a letter, and 'abroad' is the only instruction in a sentence about being away."
+   }
   },
   {
    "id": "16-across",
@@ -310,7 +766,31 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAMPI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCAMPI",
+    "definition": "tails out of a restaurant",
+    "definitionFit": "tails out of a restaurant -> SCAMPI: scampi are the peeled tails of Dublin Bay prawns, breadcrumbed and fried, a fixture of British pub and restaurant menus.",
+    "indicators": [],
+    "pieces": [
+     "SCAM",
+     "PI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fraud",
+      "gives": "SCAM",
+      "note": "a fraud is a scam"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "PI",
+      "note": "PI is a private investigator, the American private eye"
+     }
+    ],
+    "surface": "A fraud squad detective tailing a suspect out of a restaurant.",
+    "walkthrough": "'Tails' is a verb in the surface and a plural noun in the definition, and the detective shrinks to two letters instead of doing any following at all."
+   }
   },
   {
    "id": "17-down",
@@ -331,7 +811,36 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
     ]
    },
    "solution": "POLEVAULT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "POLE VAULT",
+    "definition": "try to pass the bar",
+    "definitionFit": "try to pass the bar -> POLE VAULT: the whole attempt is to clear a bar set overhead, which is the one thing the event asks of the athlete.",
+    "indicators": [
+     "leading"
+    ],
+    "indicatorNotes": {
+     "leading": "Whoever leads goes in front, so the staff is written before the treasury rather than after it."
+    },
+    "pieces": [
+     "POLE",
+     "VAULT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "POLE",
+      "note": "a staff you lean on or carry is a pole"
+     },
+     {
+      "clueFragment": "Treasury",
+      "gives": "VAULT",
+      "note": "the strongroom where a treasury keeps what it holds"
+     }
+    ],
+    "surface": "The staff running the Treasury having a go at qualifying as lawyers.",
+    "walkthrough": "Passing the bar is a lawyer's qualification in the surface and a height to be cleared in the answer, and 'staff' is the object you hold rather than the people you employ."
+   }
   },
   {
    "id": "18-down",
@@ -348,7 +857,48 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEADBEAT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + last letter",
+    "answer": "DEADBEAT",
+    "definition": "Lazy person",
+    "definitionFit": "Lazy person -> DEADBEAT: a deadbeat is an idler who lives off others and settles nothing, American slang that British papers now use without blinking.",
+    "linkWords": [
+     "'s"
+    ],
+    "indicators": [
+     "plugged by",
+     "finally"
+    ],
+    "indicatorNotes": {
+     "plugged by": "To plug a gap is to fill it, so the letter doing the plugging drops into a space opened inside the word.",
+     "finally": "The final letter of a name is the last one, and that single letter is all the name contributes."
+    },
+    "pieces": [
+     "D",
+     "E",
+     "AD",
+     "BEAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pop",
+      "gives": "DAD",
+      "note": "pop is the affectionate word for a father, and it opens after its first letter"
+     },
+     {
+      "clueFragment": "Adele finally",
+      "gives": "E",
+      "note": "the last letter of the singer's name"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "BEAT",
+      "note": "to hit something is to beat it"
+     }
+    ],
+    "surface": "A slacker's pop single finally getting a plug from Adele.",
+    "walkthrough": "'Pop' is the father rather than the music, and 'plugged' is the publicist's word on the surface and an instruction about a gap underneath."
+   }
   },
   {
    "id": "19-across",
@@ -365,7 +915,40 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRACES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRACES",
+    "definition": "sets of two",
+    "definitionFit": "sets of two -> BRACES: a brace is a pair, as in a brace of pheasants or a brace of goals, so the plural covers any number of such pairs.",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "bags"
+    ],
+    "indicatorNotes": {
+     "bags": "To bag something is to drop it into a bag, so what stands beside this word ends up inside it."
+    },
+    "pieces": [
+     "B",
+     "RACE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "gives": "BS",
+      "note": "rubbish is BS, the printable short form of the two-word dismissal, and the pair comes apart here"
+     },
+     {
+      "clueFragment": "tear",
+      "gives": "RACE",
+      "note": "to tear down the road is to race along it"
+     }
+    ],
+    "surface": "Bin bags splitting open as they are carried out two at a time.",
+    "walkthrough": "Every word of the surface belongs to bin day and not one of them survives the parse: 'bags' is an instruction, and 'tear' is speed rather than damage."
+   }
   },
   {
    "id": "20-down",
@@ -392,7 +975,31 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
     ]
    },
    "solution": "SETFREE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SET FREE",
+    "definition": "released",
+    "definitionFit": "released -> SET FREE: to set a prisoner or an animal free is to release it, the two-word idiom sitting in the same past tense as the single verb.",
+    "indicators": [],
+    "pieces": [
+     "SET",
+     "FREE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrote a crossword",
+      "gives": "SET",
+      "note": "whoever writes a crossword sets it, and the puzzle is said to be set"
+     },
+     {
+      "clueFragment": "Independent",
+      "gives": "FREE",
+      "note": "an independent country or an independent thinker is a free one"
+     }
+    ],
+    "surface": "The paper's crossword compiler being let go.",
+    "walkthrough": "The italics point at the newspaper this puzzle appears in, which is the joke; the word itself is doing its ordinary work of meaning unattached to anyone."
+   }
   },
   {
    "id": "21-across",
@@ -409,7 +1016,53 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AREOLAE",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "AREOLAE",
+    "definition": "Rings",
+    "definitionFit": "Rings -> AREOLAE: an areola is the circle of darker skin round a nipple, and areolae is its Latin plural, used of any small coloured ring.",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "stopping",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "stopping": "A train stopping at a station comes to rest inside it, so these letters halt within the word around them.",
+     "ultimately": "What comes ultimately comes last, so the final letter of the word in front is the only one taken."
+    },
+    "pieces": [
+     "ARE",
+     "OL",
+     "A",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "District",
+      "gives": "AREA",
+      "note": "a district is an area, and the word opens after three letters"
+     },
+     {
+      "clueFragment": "Circle",
+      "gives": "O",
+      "note": "a circle drawn on the page is an O"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the standard short form of line"
+     },
+     {
+      "clueFragment": "Line ultimately",
+      "gives": "E",
+      "note": "the last letter of the second Line"
+     }
+    ],
+    "surface": "A stalled Circle Line train bringing the District Line to a halt as well.",
+    "walkthrough": "The Circle and the District are London Underground lines and the surface is a commuter's morning; the wordplay wants a circle, a line and a district as plain nouns."
+   }
   },
   {
    "id": "21-down",
@@ -426,7 +1079,42 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACCEPT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ACCEPT",
+    "definition": "Believe",
+    "definitionFit": "Believe -> ACCEPT: to accept a claim is to take it as true, which is believing it rather than merely putting up with it.",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "What is written about a thing goes round it, so the letters that follow are wrapped inside the word before them."
+    },
+    "pieces": [
+     "AC",
+     "CEP",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of play",
+      "gives": "ACT",
+      "note": "a play is divided into acts, and this one splits after two letters"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England, the established church there"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "surface": "Being asked to take on trust a scene from a play about the church's power.",
+    "walkthrough": "'About' is doing positional work in a sentence that wants it to mean concerning, and the church and the power are single letters rather than words."
+   }
   },
   {
    "id": "22-down",
@@ -443,7 +1131,57 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APLOMB",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "APLOMB",
+    "definition": "confidence",
+    "definitionFit": "confidence -> APLOMB: aplomb is confidence carried with poise, the borrowed French word for self-possession under pressure rather than mere self-belief.",
+    "linkWords": [
+     "shows"
+    ],
+    "indicators": [
+     "by"
+    ],
+    "indicatorNotes": {
+     "by": "A thing placed by another is placed beside it, so these pieces are laid side by side in the order the clue gives them."
+    },
+    "pieces": [
+     "A",
+     "P",
+     "LO",
+     "M",
+     "B"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the first word of the clue is handed over as the letter it is"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano in music, the mark telling a player to be quiet"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is the old word for look, kept alive by lo and behold"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is male on any form with a tick-box"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is bachelor, as in BA and BSc"
+     }
+    ],
+    "surface": "An unmarried man's quiet glance giving away how sure of himself he is.",
+    "walkthrough": "Five pieces come out of six words, and four of them are single-letter conventions worth owning: piano for quiet, M for male, B for bachelor, with the archaic 'lo' between them."
+   }
   },
   {
    "id": "23-across",
@@ -460,7 +1198,43 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PARALYTICS",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "PARALYTICS",
+    "definition": "They can't easily move",
+    "definitionNote": "The definition is a description rather than a synonym: it says what the people named cannot do instead of offering a word you could swap in for them.",
+    "definitionFit": "They can't easily move -> PARALYTICS: paralytics are people whose limbs are paralysed, so movement is exactly what is denied them.",
+    "indicators": [
+     "making"
+    ],
+    "indicatorNotes": {
+     "making": "To make one thing into another is to put the second in the first's place, so the letters named after it take over from the letters named before."
+    },
+    "pieces": [
+     "PARALY",
+     "T",
+     "ICS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sports event",
+      "gives": "PARALYMPICS",
+      "note": "the games staged after each Olympics for athletes with disabilities"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament, the letters that follow a British politician's name"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammarian's short form of tense"
+     }
+    ],
+    "surface": "A sports event that leaves a politician on edge.",
+    "walkthrough": "'Tense' is the politician's mood in the surface and the grammarian's noun in the wordplay, and the games take their name from running parallel to the Olympics."
+   }
   },
   {
    "id": "24-down",
@@ -477,7 +1251,36 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUING",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RUING",
+    "definition": "Sorry for",
+    "definitionNote": "The definition is a predicate phrase where the answer is a participle: being sorry for something is what ruing it amounts to.",
+    "definitionFit": "Sorry for -> RUING: to rue a thing is to regret it, so somebody ruing a decision is somebody sorry for having made it.",
+    "indicators": [
+     "to expel"
+    ],
+    "indicatorNotes": {
+     "to expel": "A student expelled from a school is thrown out of it, and this letter is thrown out of the word in the same way."
+    },
+    "pieces": [
+     "RUING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decision",
+      "gives": "RULING",
+      "note": "a decision handed down by a judge or a referee is a ruling"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is the learner plate a British driving student carries"
+     }
+    ],
+    "surface": "A school regretting its decision to throw a pupil out.",
+    "walkthrough": "Expelling a student is the surface picture and the instruction at the same time, which is what makes 'to expel' read so naturally; the L is a plate rather than a person."
+   }
   },
   {
    "id": "25-across",
@@ -494,7 +1297,37 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVID",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AVID",
+    "definition": "Eager",
+    "definitionFit": "Eager -> AVID: an avid reader is an eager one, the adjective covering appetite for a thing rather than mere willingness.",
+    "indicators": [
+     "leader",
+     "carved out of"
+    ],
+    "indicatorNotes": {
+     "leader": "The leader of a word is the letter at its head, the one out in front of all the others.",
+     "carved out of": "To carve a shape out of a block is to cut material away, so the letter named is cut from what comes after."
+    },
+    "pieces": [
+     "AVID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunk of marble?",
+      "gives": "DAVID",
+      "note": "Michelangelo cut his David from one block of Carrara marble"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "D",
+      "note": "the front letter of that statue's name"
+     }
+    ],
+    "surface": "A keen leader immortalised in a block of marble.",
+    "walkthrough": "'Hunk of marble' is one particular statue, and the question mark is the warning that a general phrase is standing in for a single famous example."
+   }
   },
   {
    "id": "26-down",
@@ -511,7 +1344,38 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOME",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "SOME",
+    "definition": "Not a lot",
+    "definitionFit": "Not a lot -> SOME: some is the quantity word for a moderate amount, more than none and short of many, as in 'we had some, not a lot'.",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "covered",
+     "up"
+    ],
+    "indicatorNotes": {
+     "covered": "What is covered lies concealed under something else, so these letters are sitting in the words exactly as printed.",
+     "up": "A down entry runs downwards, so up takes the letters back towards the start and they are found here in the opposite order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Kate Moss",
+      "gives": "EMOS",
+      "note": "four letters in a row, starting inside the first name and finishing inside the second"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "EMOS",
+      "to": "SOME"
+     }
+    ],
+    "surface": "The model wearing very little indeed.",
+    "walkthrough": "The name is doing nothing but holding letters, and the picture of a supermodel with not a lot covered up is what stops anybody reading the phrase one letter at a time."
+   }
   },
   {
    "id": "27-across",
@@ -528,7 +1392,37 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORIEL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "ORIEL",
+    "definition": "you can see through it",
+    "definitionNote": "The definition describes the answer instead of replacing it: it says what the thing lets you do rather than offering a noun you could swap in.",
+    "definitionFit": "you can see through it -> ORIEL: an oriel is a bay window jutting out from an upper floor on a bracket, and a window is glass to look through.",
+    "indicators": [
+     "exposed"
+    ],
+    "indicatorNotes": {
+     "exposed": "Exposing a thing strips off whatever covers it, and what covers a word is the letter standing at each end."
+    },
+    "pieces": [
+     "ORIE",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservatives exposed",
+      "gives": "ORIE",
+      "note": "the Conservatives are the Tories, and the T and the S at the two ends come off"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal on a ballot paper"
+     }
+    ],
+    "surface": "The Tories showing up a Liberal whose story nobody is buying.",
+    "walkthrough": "'You can see through it' works twice over: a transparent excuse in the surface, and a pane of glass in the answer. Tories is the everyday name for the Conservative party."
+   }
   },
   {
    "id": "28-across",
@@ -545,7 +1439,46 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPRODUCE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade + reversal",
+    "answer": "REPRODUCE",
+    "definition": "copy",
+    "definitionFit": "copy -> REPRODUCE: to reproduce a document or a painting is to make a copy of it, the verb a printer or a gallery would use.",
+    "indicators": [
+     "heartless",
+     "short",
+     "sent back"
+    ],
+    "indicatorNotes": {
+     "heartless": "A heartless word has lost the letter at its centre, which is what leaves it with no heart.",
+     "short": "A word cut short stops before it reaches its final letter.",
+     "sent back": "In an across entry, sending letters back has them read from the right-hand end towards the left."
+    },
+    "pieces": [
+     "REP",
+     "RODUCE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American neighbours, one heartless",
+      "gives": "ECUDOR",
+      "note": "Ecuador and Peru share a border, and Ecuador is the one giving up the A at its centre"
+     },
+     {
+      "clueFragment": "one short",
+      "gives": "PER",
+      "note": "Peru is the other, docked of its last letter"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ECUDORPER",
+      "to": "REPRODUCE"
+     }
+    ],
+    "surface": "Two neighbouring countries sending a reporter's copy back, one of them cold and one of them curt.",
+    "walkthrough": "'Copy' is a newsroom word in the surface and a plain verb in the definition, and 'neighbours' is the fair warning that the two countries have to share a border."
+   }
   },
   {
    "id": "29-across",
@@ -562,7 +1495,48 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAGPIPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BAGPIPER",
+    "definition": "tattoo artist",
+    "definitionFit": "tattoo artist -> BAGPIPER: a military tattoo is an evening display of marching bands, and the Edinburgh one is led by pipers, so a piper is one of its performers.",
+    "indicators": [
+     "lying about"
+    ],
+    "indicatorNotes": {
+     "lying about": "Something left lying about has been dropped any way up, so this word is read from its far end."
+    },
+    "pieces": [
+     "BAG",
+     "PI",
+     "PER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sack",
+      "gives": "BAG",
+      "note": "a sack is a bag"
+     },
+     {
+      "clueFragment": "irrational",
+      "gives": "PI",
+      "note": "pi, the ratio of a circle's circumference to its diameter, is the standard example of an irrational number"
+     },
+     {
+      "clueFragment": "salesperson",
+      "gives": "PER",
+      "note": "a salesperson is a rep, and this one arrives the other way round"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "REP",
+      "to": "PER"
+     }
+    ],
+    "surface": "Dismissing an unreasonable salesman who tells lies about a tattooist.",
+    "walkthrough": "A tattoo here is the military display of pipes and drums rather than the ink, the Edinburgh one being the famous example, and 'irrational' is a number rather than a temper."
+   }
   },
   {
    "id": "30-across",
@@ -579,7 +1553,35 @@ window.CRYPTIC_PUZZLES["independent-12453"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEXTET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SEXTET",
+    "definition": "Three couples",
+    "definitionNote": "The definition counts the members where the answer names the group: three couples are the six people that a sextet is made of.",
+    "definitionFit": "Three couples -> SEXTET: a sextet is a group of six, musicians or dancers or anyone else, which is what three pairs come to.",
+    "linkWords": [
+     "on"
+    ],
+    "indicators": [],
+    "pieces": [
+     "SEXT",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "send rude messages",
+      "gives": "SEXT",
+      "note": "to sext is to send a sexually explicit text message"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "Spielberg's ET, the film about the stranded alien"
+     }
+    ],
+    "surface": "Three couples swapping filthy texts all through a film.",
+    "walkthrough": "Both halves are recent enough to feel like slang: 'sext' reached the dictionaries in the 2000s, and the film's title is the two initials of extra-terrestrial."
+   }
   }
  ]
 } /*JSON-END*/;
