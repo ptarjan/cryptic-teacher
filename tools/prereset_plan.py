@@ -177,6 +177,21 @@ def window_hours(pct_left, y=None):
     return windows(pct_left, y) * SESSION_HOURS
 
 
+def start_hours(pct_left, reserve_pct=0.0, y=None):
+    """How close to the reset spending must begin, given what each window keeps.
+
+    window_hours() assumes every window it opens is spent to the last point.
+    That is only true once the reserve has been dropped: while it is held each
+    window delivers (100 - reserve)% of what it is worth, so the same remainder
+    needs proportionally more windows and the job has to start proportionally
+    earlier. A reserve is affordable exactly when it was paid for in windows up
+    front — held from a start time that did not budget for it, it is not a
+    courtesy, it is the week landing short by whatever was held back.
+    """
+    keep = max(0.05, 1.0 - reserve_pct / 100.0)
+    return window_hours(pct_left / keep, y)
+
+
 def width(pct_left, hours_left, r=None, y=None):
     """How many annotation runs to keep in flight for the next wave.
 
@@ -253,14 +268,14 @@ def endgame_min(reserve_pct, width_=1, r=None, y=None):
     return int(max(ENDGAME_FLOOR, min(ENDGAME_CEIL, mins)))
 
 
-def behind(hours_until_reset, pct, y=None):
+def behind(hours_until_reset, pct, y=None, reserve_pct=0.0):
     """Is the remainder too big to still fit in the windows that are left?
 
     The whole no-pre-spend rule is this one comparison, so it lives here with the
     rest of the arithmetic and gets self-tested, rather than being an awk line in
     the shell that nobody can exercise without spending a night of inference.
     """
-    return hours_until_reset <= window_hours(pct, y)
+    return hours_until_reset <= start_hours(pct, reserve_pct, y)
 
 
 def pct_left():
@@ -306,6 +321,16 @@ def self_test():
         (25, 1, 120),       # one at a time cannot drain 25 points; guard, not plan
         (0, 4, 25),         # no reserve to hand back: never zero, never negative
     ]
+    reserves = [
+        # hours until reset, pct_left, reserve pct -> should we be spending?
+        # The reserve buys its own windows: 69% at 75% of each window needs
+        # eight of them where 69% at all of it needs six.
+        (68, 69, 25, False),    # Monday, either way: eight windows still fit
+        (40, 69, 25, True),     # the reserve edge — start here or it is unpaid
+        (35, 69, 0, False),     # the full-spend edge is still five hours off...
+        (30, 69, 0, True),      # ...and here it is: from now the window goes whole
+        (4, 1, 25, True),       # the last window; no reserve can change that
+    ]
     fills = [
         # five-hour meter %, hours left in the window -> runs needed to empty it
         (14, 3.3, 4),       # the 2026-09-08 shape: paced width said 1 all window
@@ -327,6 +352,12 @@ def self_test():
         got = fill_width(s_pct, s_hours)
         if got != want:
             print(f"FAIL fill {s_pct}% five-hour with {s_hours}h left: "
+                  f"{got} (want {want})", file=sys.stderr)
+            bad += 1
+    for hours, pct, res, want in reserves:
+        got = behind(hours, pct, Y, res)
+        if got != want:
+            print(f"FAIL behind at {hours}h, {pct}% left, {res}% reserved: "
                   f"{got} (want {want})", file=sys.stderr)
             bad += 1
     for weekly, session, want in yields:
@@ -360,7 +391,7 @@ def self_test():
             bad += 1
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
-    n = len(starts) + len(widths) + len(schedule) + len(endgames) + len(fills)
+    n = len(starts) + len(widths) + len(schedule) + len(endgames) + len(fills) + len(reserves)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -404,14 +435,20 @@ def main():
         # "yes"/"no" on stdout rather than an exit status: a traceback also exits
         # non-zero, and the caller must not read a crash as "stop spending" on the
         # one night the remainder exists to be spent.
-        hours = float(sys.argv[sys.argv.index("--behind") + 1])
-        print("yes" if behind(hours, pct_left()) else "no")
+        at = sys.argv.index("--behind")
+        args = sys.argv[at + 1:at + 3]
+        hours = float(args[0])
+        res = float(args[1]) if len(args) > 1 and not args[1].startswith("-") else 0.0
+        print("yes" if behind(hours, pct_left(), reserve_pct=res) else "no")
         return 0
     if "--windows" in sys.argv:
         print(windows(pct_left()))
         return 0
     if "--window-hours" in sys.argv:
-        print(f"{window_hours(pct_left()):.1f}")
+        at = sys.argv.index("--window-hours")
+        args = sys.argv[at + 1:at + 2]
+        res = float(args[0]) if args and not args[0].startswith("-") else 0.0
+        print(f"{start_hours(pct_left(), res):.1f}")
         return 0
     left = pct_left()
     print(f"{left:.0f}% of the weekly window is unspent; at {session_yield():.1f} points "
