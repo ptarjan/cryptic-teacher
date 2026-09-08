@@ -177,18 +177,30 @@ tools/e2e_analytics.py                       drives a real browser through a sol
                                              every event lands in KV
 tools/wait_for_deploy.py                     blocks until Pages is serving the pushed commit,
                                              so nobody is told to reload early
+tools/test_webpush.js                        runs the RFC 8291 test vector through
+                                             sync/webpush.js, so the encryption is checked
+                                             against something other than itself
 tools/tutorial.html                          source of the learn/ lesson
 tools/og_card.html                           source and type for og.png, the site’s one social
                                              card
 
-syncing between devices, with no login and no accounts
-sync/worker.js                               the Cloudflare Worker: stores and merges saves and
-                                             events in KV
+syncing between devices and telling them about new puzzles, with no login and no accounts
+sync/worker.js                               the Cloudflare Worker: merges saves and events in
+                                             KV, and pushes each new puzzle to whoever asked
+                                             for its paper
 sync/merge.js                                union rules, so two devices combine instead of
                                              asking which one wins
 sync/events.js                               the exhaustive list of milestones the app and the
                                              Worker may report
-sync/wrangler.toml                           the Worker’s deploy config and KV binding
+sync/wrangler.toml                           the Worker’s deploy config, KV binding, VAPID
+                                             public key and the cron that watches for new
+                                             puzzles
+sync/webpush.js                              web push encryption and sender identity (RFC 8291,
+                                             RFC 8292), written out so the Worker needs no
+                                             dependency
+sw.js                                        the service worker: it exists so a push has
+                                             somewhere to be delivered, and deliberately caches
+                                             nothing
 
 scheduling
 tools/daily_update.sh                        daily script: fetch latest, annotate backlog,
