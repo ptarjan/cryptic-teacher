@@ -47,6 +47,7 @@ Reads only, except the --observe flags, which write .prereset_rate/.prereset_yie
 import math
 import os
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -85,6 +86,7 @@ def state_dir():
 STATE = state_dir()
 RATE_FILE = STATE / ".prereset_rate"
 YIELD_FILE = STATE / ".prereset_yield"
+YIELD_LOG = STATE / ".prereset_yield_log"
 
 SESSION_HOURS = 5.0
 
@@ -114,6 +116,14 @@ SEED_RATE = 1.1
 # two windows where six were needed and left 46% of the week to expire. The
 # denominator has to be big enough that a rounding error is not the reading.
 MIN_YIELD_SAMPLE = 10
+
+# Measured yields kept, and how long one stays worth believing. Both are about
+# the ACCOUNTING behind the meters, which is not ours to read: what a window is
+# worth has moved once already without anything changing on this side, so a
+# reading is evidence about the fortnight it was taken in and not about the job.
+# Twelve is a burn's worth of waves plus the burn before it.
+YIELD_HISTORY = 12
+YIELD_STALE_DAYS = 14.0
 
 # These runs sit waiting on the API almost the whole time, so a spare one costs a
 # process, not a core. The cap is here to bound the fan-out, not to ration.
@@ -154,6 +164,64 @@ def session_yield():
     return _read(YIELD_FILE, SEED_YIELD)
 
 
+def yield_log():
+    """Every measured yield still on file, oldest first, as (unix time, points)."""
+    rows = []
+    try:
+        for line in YIELD_LOG.read_text().splitlines():
+            when, sample = line.split()[:2]
+            rows.append((float(when), float(sample)))
+    except (OSError, ValueError):
+        return []
+    return rows
+
+
+def log_yield(sample):
+    """Record one measurement, keeping the last YIELD_HISTORY of them.
+
+    The blend alone cannot say whether the last four readings agreed, and that
+    is the question planning turns on. Kept as a file rather than a running
+    statistic because a spread is only visible in the samples themselves.
+    """
+    rows = yield_log() + [(time.time(), sample)]
+    try:
+        YIELD_LOG.write_text(
+            "".join(f"{t:.0f} {y:.3f}\n" for t, y in rows[-YIELD_HISTORY:]))
+    except OSError:
+        pass
+
+
+def pessimistic_yield(samples, blended, now):
+    """What to PLAN with, given every recent measurement and the blend.
+
+    Pure, so the self-test can hand it a history instead of a filesystem.
+
+    The blend is what a window most likely returns; this is what it might. They
+    differ because the accounting behind the meters is not ours to read and has
+    moved without notice: three saturated windows on 2026-09-01 measured 15-16
+    weekly points each, the same job on 2026-09-08 measured 9, and nothing on
+    this side changed. Planning on the likely number cost a third of a week.
+
+    Which way to be wrong is not symmetric. Starting too early costs nothing —
+    the gate stands down whenever it is ahead of the edge, and the windows it
+    opened were going to expire unspent — while starting too late cannot be
+    recovered at any width, because a five-hour window cannot be made worth more
+    than one five-hour window. So plan on the worst recent reading rather than
+    the average of them, and never above the blend.
+
+    A reading nobody has refreshed in YIELD_STALE_DAYS is not evidence about
+    this week. With none left there is nothing to be pessimistic WITH, so fall
+    back to the lower of the blend and the seed.
+    """
+    fresh = [y for when, y in samples if now - when <= YIELD_STALE_DAYS * 86400]
+    return min(min(fresh), blended) if fresh else min(blended, SEED_YIELD)
+
+
+def planning_yield():
+    """The yield every start decision uses. See pessimistic_yield."""
+    return pessimistic_yield(yield_log(), session_yield(), time.time())
+
+
 def _blend(old, new, path):
     """Halve toward the new reading rather than replacing.
 
@@ -191,12 +259,21 @@ def observe_yield(weekly_climb, session_climb):
     """
     if not yield_sample_ok(weekly_climb, session_climb):
         return session_yield()
-    return _blend(session_yield(), 100.0 * weekly_climb / session_climb, YIELD_FILE)
+    sample = 100.0 * weekly_climb / session_climb
+    log_yield(sample)
+    return _blend(session_yield(), sample, YIELD_FILE)
 
 
 def windows(pct_left, y=None):
-    """Five-hour windows needed to spend what is left of the week."""
-    y = session_yield() if y is None else y
+    """Five-hour windows needed to spend what is left of the week.
+
+    Counted at the PLANNING yield, not the blended one: this number is only ever
+    asked in order to decide when to start, and the cost of asking for a window
+    that turns out not to have been needed is that it stands down. Everything
+    that sizes a wave rather than starting one stays on the blend, where reading
+    low would narrow the wave and leave the window short.
+    """
+    y = planning_yield() if y is None else y
     return max(0, min(MAX_WINDOWS, math.ceil(pct_left / max(y, 1e-6))))
 
 
@@ -367,6 +444,16 @@ def self_test():
         (30, 69, 0, True),      # ...and here it is: from now the window goes whole
         (4, 1, 25, True),       # the last window; no reserve can change that
     ]
+    plans = [
+        # (days ago, measured yield)..., blend -> what to plan with
+        # The 2026-09-08 shift: three windows agreeing at 15-16 do not outvote
+        # one recent 9, because being early is free and being late is the week.
+        ([(0.5, 9.0), (7, 15.1), (7, 16.0)], 12.0, 9.0),
+        ([(0.5, 15.0)], 9.0, 9.0),          # never above the blend
+        ([(30, 15.0)], 12.0, SEED_YIELD),   # every reading stale: back to the seed
+        ([], 12.0, SEED_YIELD),             # nothing measured yet
+        ([], 6.0, 6.0),                     # a blend under the seed is still the cap
+    ]
     fills = [
         # five-hour meter %, hours left in the window -> runs needed to empty it
         (14, 3.3, 4),       # the 2026-09-08 shape: paced width said 1 all window
@@ -394,6 +481,14 @@ def self_test():
         got = behind(hours, pct, Y, res)
         if got != want:
             print(f"FAIL behind at {hours}h, {pct}% left, {res}% reserved: "
+                  f"{got} (want {want})", file=sys.stderr)
+            bad += 1
+    now = time.time()
+    for samples, blended, want in plans:
+        aged = [(now - days * 86400, y) for days, y in samples]
+        got = pessimistic_yield(aged, blended, now)
+        if abs(got - want) > 1e-9:
+            print(f"FAIL planning yield from {samples} blended {blended}: "
                   f"{got} (want {want})", file=sys.stderr)
             bad += 1
     for weekly, session, want in yields:
@@ -427,7 +522,8 @@ def self_test():
             bad += 1
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
-    n = len(starts) + len(widths) + len(schedule) + len(endgames) + len(fills) + len(reserves)
+    n = (len(starts) + len(widths) + len(schedule) + len(endgames) + len(fills)
+         + len(reserves) + len(plans))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -452,6 +548,9 @@ def main():
         return 0
     if "--yield" in sys.argv:
         print(f"{session_yield():.3f}")
+        return 0
+    if "--planning-yield" in sys.argv:
+        print(f"{planning_yield():.3f}")
         return 0
     if "--endgame-min" in sys.argv:
         at = sys.argv.index("--endgame-min")
@@ -490,9 +589,12 @@ def main():
         print(f"{start_hours(pct_left(), res):.1f}")
         return 0
     left = pct_left()
-    print(f"{left:.0f}% of the weekly window is unspent; at {session_yield():.1f} points "
-          f"per five-hour window that needs {windows(left)} of them, so start "
-          f"{window_hours(left):.0f}h out at width {width(left, window_hours(left))}")
+    seen = len(yield_log())
+    print(f"{left:.0f}% of the weekly window is unspent; measured at "
+          f"{session_yield():.1f} points per five-hour window and planned at "
+          f"{planning_yield():.1f} (worst of {seen} reading(s)), that needs "
+          f"{windows(left)} of them, so start {window_hours(left):.0f}h out "
+          f"at width {width(left, window_hours(left))}")
     return 0
 
 
