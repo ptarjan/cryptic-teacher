@@ -34,7 +34,47 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHATFOR",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "WHAT FOR",
+    "definition": "Why",
+    "indicators": [
+     "to open",
+     "unclosed"
+    ],
+    "indicatorNotes": {
+     "to open": "Whatever opens makes a space in the middle of itself, and that space is where the loose letter is dropped.",
+     "unclosed": "Something unclosed has lost the piece that shuts it, so the word gives up the letter on its end."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "W",
+     "H",
+     "ATFOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where a gap is",
+      "gives": "WATFORD",
+      "note": "the Watford Gap is the low pass in Northamptonshire that road and rail have always taken between southern England and the Midlands"
+     },
+     {
+      "clueFragment": "unclosed",
+      "gives": "D",
+      "note": "the D on the end of that place name is the letter it loses"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil grade for hard, and it slides in behind the first letter"
+     }
+    ],
+    "surface": "A jammed door: why will it not open when a gap has been left unclosed?",
+    "walkthrough": "'Where a gap is' reads as part of the stuck door and names a place on the M1 instead; 'unclosed' is an instruction to lose a letter, not a description of the gap.",
+    "definitionFit": "Why → WHAT FOR: 'what for' is the spoken form of why — what did you do that for? — asking the purpose behind an action."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +91,37 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHOOPS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WHOOPS",
+    "definition": "that went a bit wrong",
+    "definitionNote": "The answer is an exclamation, so nothing can be swapped in for it grammatically; the clue describes the moment you would say it rather than offering a synonym.",
+    "indicators": [
+     "oversees"
+    ],
+    "indicatorNotes": {
+     "oversees": "To oversee is to sit above, and in a down clue whatever sits above is entered first."
+    },
+    "pieces": [
+     "WHO",
+     "OPS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "WHO",
+      "note": "the BBC's time-travelling Doctor answers to Who, the crossword's standard doctor"
+     },
+     {
+      "clueFragment": "surgical procedures",
+      "gives": "OPS",
+      "note": "operations are ops on any hospital list"
+     }
+    ],
+    "surface": "A consultant keeps an eye on the theatre list while the operations fail to go to plan.",
+    "walkthrough": "'Oversees' is doing positional work while looking like supervision, and the doctor is a television character rather than a medic.",
+    "definitionFit": "that went a bit wrong → WHOOPS: the noise you make on dropping something, a spoken flinch at a small mishap rather than a word for the mishap."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +138,37 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANGLER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ANGLER",
+    "definition": "Riverside waiter",
+    "indicators": [
+     "perhaps",
+     "with shaved head"
+    ],
+    "indicatorNotes": {
+     "perhaps": "'Perhaps' marks an example: the thing named is one particular case of the wider word wanted.",
+     "with shaved head": "A shaved head loses what is on top, and the top of a word is the letter it starts with."
+    },
+    "pieces": [
+     "ANGLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earring perhaps",
+      "gives": "DANGLER",
+      "note": "an earring is one thing that dangles, so a dangler"
+     },
+     {
+      "clueFragment": "with shaved head",
+      "gives": "D",
+      "note": "the head of that seven-letter word is its first letter, and the shaving takes it off"
+     }
+    ],
+    "surface": "A waiter working by the river, wearing an earring, with his head shaved.",
+    "walkthrough": "'Waiter' is not restaurant staff but somebody who waits, and what he is waiting for is a bite.",
+    "definitionFit": "Riverside waiter → ANGLER: an angler stands at the water's edge doing nothing but waiting for a fish, so 'waiter' is literal rather than a job."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +185,41 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FINGERMARK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FINGERMARK",
+    "definition": "Smear",
+    "indicators": [],
+    "linkWords": [
+     "with",
+     "onto"
+    ],
+    "pieces": [
+     "FIN",
+     "GERM",
+     "ARK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bit of fish",
+      "gives": "FIN",
+      "note": "a fin is one part of a fish"
+     },
+     {
+      "clueFragment": "virus",
+      "gives": "GERM",
+      "note": "germ is the everyday word for a virus or microbe"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "ARK",
+      "note": "Noah's ark is the crossword's stock vessel"
+     }
+    ],
+    "surface": "Somebody wiping fish and germs onto the side of a boat.",
+    "walkthrough": "'Smear' is a noun here, not the verb the surface wants, and three ordinary words simply stack up left to right.",
+    "definitionFit": "Smear → FINGERMARK: a smear is any greasy mark left on a surface, and the one a finger leaves on glass is exactly that."
+   }
   },
   {
    "id": "4-down",
@@ -105,7 +239,9 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "ROBOT",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "19-down"
+   }
   },
   {
    "id": "5-across",
@@ -122,7 +258,42 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GARAGED",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "GARAGED",
+    "definition": "shut up",
+    "indicators": [
+     "pushed over"
+    ],
+    "indicatorNotes": {
+     "pushed over": "Something pushed over topples and comes to rest the other way round, so those letters read backwards."
+    },
+    "pieces": [
+     "GAR",
+     "AGED"
+    ],
+    "subReversals": [
+     {
+      "from": "RAG",
+      "to": "GAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kid",
+      "gives": "GAR",
+      "note": "to kid somebody is to rag them, and those three letters are then turned round"
+     },
+     {
+      "clueFragment": "veteran",
+      "gives": "AGED",
+      "note": "a veteran is aged, long in service"
+     }
+    ],
+    "surface": "A child is knocked over and an old soldier tells him to be quiet.",
+    "walkthrough": "'Shut up' looks like an order for silence and means a car put away under cover for the night.",
+    "definitionFit": "shut up → GARAGED: a car that has been garaged is shut up out of the weather, and the definition matches the answer's past tense."
+   }
   },
   {
    "id": "5-down",
@@ -139,7 +310,48 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRENADIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "GRENADIER",
+    "definition": "Guard",
+    "indicators": [
+     "visits",
+     "novel"
+    ],
+    "indicatorNotes": {
+     "visits": "A visitor goes inside the house rather than standing beside it, so this piece lands within the letters it meets.",
+     "novel": "Novel means newly made, and letters made new cannot be left in the order the clue printed them."
+    },
+    "anagram": {
+     "fodder": "READING RE"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "READING",
+      "gives": "GNADIER"
+     }
+    ],
+    "pieces": [
+     "G",
+     "RE",
+     "NADIER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reading",
+      "gives": "GNADIER",
+      "note": "the seven letters rearranged, then opened up after the first to take the visitor"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "'on' in the sense of about or concerning is RE, as at the head of a memo"
+     }
+    ],
+    "surface": "A guard on duty drops in on somebody who is reading a new book.",
+    "walkthrough": "'Reading' is fodder rather than a pastime, and the Grenadier Guards are the senior regiment of the Household Division — the bearskins outside Buckingham Palace.",
+    "definitionFit": "Guard → GRENADIER: a grenadier is a guardsman of that regiment, so the plain word names him as one particular kind."
+   }
   },
   {
    "id": "6-down",
@@ -156,7 +368,31 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAKE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RAKE",
+    "definition": "Romeo",
+    "definition2": "drag",
+    "indicators": [],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo",
+      "gives": "",
+      "note": "first definition: a man with a reputation, Shakespeare's lover standing in for the type"
+     },
+     {
+      "clueFragment": "drag",
+      "gives": "",
+      "note": "second definition: the garden implement, named for the thing you do with it"
+     }
+    ],
+    "surface": "Romeo turning up at the party in women's clothes.",
+    "walkthrough": "'In drag' paints a fancy-dress picture, and the word wanted is the toothed tool you haul across soil — the same word as the man of loose morals.",
+    "definitionFit": "Romeo → RAKE and drag → RAKE: a rake is a dissolute womaniser, and also the implement you drag over soil or fallen leaves."
+   }
   },
   {
    "id": "7-down",
@@ -176,7 +412,9 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "GIVEAWAY",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "24-down"
+   }
   },
   {
    "id": "8-down",
@@ -193,7 +431,41 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DENTURES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "DENTURES",
+    "definition": "trap set",
+    "definitionNote": "'Set' is singular where the answer is plural, but false teeth are spoken of both ways — the set and the teeth in it are the same object.",
+    "indicators": [
+     "proving elusive in"
+    ],
+    "indicatorNotes": {
+     "proving elusive in": "Whatever proves elusive is not there to be found, so those letters go missing from the word that follows."
+    },
+    "pieces": [
+     "DENTURES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daring feats",
+      "gives": "ADVENTURES",
+      "note": "daring feats are adventures"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's opening A is the first letter to disappear from it"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V is victory, as in Churchill's two-finger sign"
+     }
+    ],
+    "surface": "A daredevil's stunts keep failing to bring him a win, and something has been laid for him.",
+    "walkthrough": "'Trap' is British slang for the mouth — shut your trap — so the set being clued is a set of teeth rather than a snare.",
+    "definitionFit": "trap set → DENTURES: dentures are a full set of false teeth, and the trap is the mouth they are fitted into."
+   }
   },
   {
    "id": "9-across",
@@ -210,7 +482,28 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORGAN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ORGAN",
+    "definition": "For example, brain",
+    "definition2": "that’s stopped",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "For example, brain",
+      "gives": "",
+      "note": "first definition: the brain is named as one instance of the wider word"
+     },
+     {
+      "clueFragment": "that’s stopped",
+      "gives": "",
+      "note": "second definition: an instrument fitted with stops, which the surface reads as one that has ceased"
+     }
+    ],
+    "surface": "Somebody's brain has packed up altogether.",
+    "walkthrough": "A pipe organ's notes are chosen by pulling out its stops, so being 'stopped' here has nothing to do with stopping.",
+    "definitionFit": "For example, brain → ORGAN: the brain is one organ among the body's many, and the second sense is the instrument whose pipes are opened by stops."
+   }
   },
   {
    "id": "10-across",
@@ -231,7 +524,34 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "BREAKEVEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BREAK EVEN",
+    "definition": "Neither profit nor gain",
+    "indicators": [],
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "BREAK",
+     "EVEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "BREAK",
+      "note": "a break is a holiday, a week away"
+     },
+     {
+      "clueFragment": "flat",
+      "gives": "EVEN",
+      "note": "a flat surface is an even one"
+     }
+    ],
+    "surface": "A holiday flat that makes its owner no money at all.",
+    "walkthrough": "'Holiday flat' is one thing in the surface — a rental by the sea — and two unrelated words in the wordplay.",
+    "definitionFit": "Neither profit nor gain → BREAK EVEN: to break even is to come out exactly level, taking back what you laid out and nothing more."
+   }
   },
   {
    "id": "11-across",
@@ -252,7 +572,38 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRESENTDAY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PRESENT-DAY",
+    "definition": "anything but neanderthal",
+    "indicators": [
+     "18"
+    ],
+    "indicatorNotes": {
+     "18": "The answer at 18 across is an order as well as a noun — reform the party — so its first word is the instruction to remake the letters."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "anagram": {
+     "fodder": "PARTY NEEDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "18",
+      "gives": "PARTY",
+      "note": "the second word of the answer at 18 across, handed over as five letters"
+     },
+     {
+      "clueFragment": "needs",
+      "gives": "NEEDS",
+      "note": "the clue's own word joins the shuffle with all five of its letters"
+     }
+    ],
+    "surface": "A political party being told to drag itself into the modern age.",
+    "walkthrough": "The number does two jobs: 18's second word is the fodder and its first word is the shuffling instruction, which is why nothing else here looks like a signal.",
+    "definitionFit": "anything but neanderthal → PRESENT-DAY: neanderthal stands for the hopelessly primitive, so its opposite is whatever belongs to now."
+   }
   },
   {
    "id": "12-across",
@@ -269,7 +620,27 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BAKU",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "BAKU",
+    "definition": "capital",
+    "indicators": [
+     "Defended by"
+    ],
+    "indicatorNotes": {
+     "Defended by": "Whatever is defended is held safe inside its defenders, which is where these letters are sitting."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cuba, Kuwaiti",
+      "gives": "BAKU",
+      "note": "four consecutive letters bridge the comma between those two words"
+     }
+    ],
+    "surface": "Two oil states holding a line together, one of them named for its capital.",
+    "walkthrough": "'Kuwaiti capital' wants to be the definition and sends you to Kuwait City; only 'capital' is the definition, and the country is fodder. The capital wanted is Azerbaijan's, on the Caspian.",
+    "definitionFit": "capital → BAKU: Baku is the capital of Azerbaijan, so the bare word defines it as one particular city."
+   }
   },
   {
    "id": "13-down",
@@ -290,7 +661,57 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "BANYANTREE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + charade",
+    "answer": "BANYAN TREE",
+    "definition": "Asian wood",
+    "indicators": [
+     "supply",
+     "cut by"
+    ],
+    "indicatorNotes": {
+     "supply": "Supply is the adverb of supple here — done with a bend in it — so the letters beside it will not hold their shape.",
+     "cut by": "Something cut by a blade is opened at the point the blade goes in, and the next piece goes into that gap."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "NEARBY ANT E"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "NEARBY",
+      "gives": "BANYRE"
+     }
+    ],
+    "pieces": [
+     "BANY",
+     "ANT",
+     "RE",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nearby",
+      "gives": "BANYRE",
+      "note": "the six letters rearranged, then split four and two to make room"
+     },
+     {
+      "clueFragment": "carpenter, say",
+      "gives": "ANT",
+      "note": "the carpenter ant is one kind of ant, and 'say' marks it as an example"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "surface": "A carpenter cutting up a local supply of European and Asian timber.",
+    "walkthrough": "'Supply' is not the noun the surface wants but the adverb of supple, one of the sneakiest anagram signals going, and 'carpenter' is naming an insect.",
+    "definitionFit": "Asian wood → BANYAN TREE: the banyan is the huge aerial-rooted fig of India and south-east Asia, and 'wood' here is growing timber."
+   }
   },
   {
    "id": "14-across",
@@ -311,7 +732,60 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "MADEIRACAKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "MADEIRA CAKE",
+    "definition": "Sponge",
+    "indicators": [
+     "back in",
+     "earlier"
+    ],
+    "indicatorNotes": {
+     "back in": "The back of a word is the letter it ends on, and that single letter is all that is taken.",
+     "earlier": "'Earlier' sends these pieces to the front, ahead of everything the clue has already handed over."
+    },
+    "linkWords": [
+     "with",
+     "having"
+    ],
+    "pieces": [
+     "MADE",
+     "I",
+     "R",
+     "A",
+     "CAKE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "created",
+      "gives": "MADE",
+      "note": "created and made are the same past tense"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is one in Roman numerals"
+     },
+     {
+      "clueFragment": "shower",
+      "gives": "R",
+      "note": "the letter at the back of SHOWER, taken on its own"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a' comes through as itself"
+     },
+     {
+      "clueFragment": "bar of soap",
+      "gives": "CAKE",
+      "note": "soap is sold in cakes, which is what a bar of it is"
+     }
+    ],
+    "surface": "Someone in the shower with a bar of soap, and a sponge they prepared earlier.",
+    "walkthrough": "'Having created one earlier' is the British children's-television catchphrase — here's one I made earlier — put to work as an instruction about where the pieces go.",
+    "definitionFit": "Sponge → MADEIRA CAKE: madeira cake is a plain lemony sponge loaf, so the general word for the crumb names one particular cake."
+   }
   },
   {
    "id": "15-down",
@@ -328,7 +802,38 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEPRAVITY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DEPRAVITY",
+    "definition": "Absence of moral rectitude",
+    "indicators": [
+     "18"
+    ],
+    "indicatorNotes": {
+     "18": "Read as an instruction, the answer at 18 across tells you to reform a party, and reforming is what happens to these letters."
+    },
+    "linkWords": [
+     "with which"
+    ],
+    "anagram": {
+     "fodder": "PARTY VIED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "18",
+      "gives": "PARTY",
+      "note": "the second word of the answer at 18 across, lending its five letters"
+     },
+     {
+      "clueFragment": "vied",
+      "gives": "VIED",
+      "note": "four more letters straight from the clue"
+     }
+    ],
+    "surface": "A political party in open competition with moral squalor.",
+    "walkthrough": "'Vied' looks like the verb holding the sentence together and is really four more letters for the pot.",
+    "definitionFit": "Absence of moral rectitude → DEPRAVITY: depravity is settled moral corruption rather than a lapse, the state of having no rectitude left."
+   }
   },
   {
    "id": "16-down",
@@ -349,7 +854,36 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "BRUSHOFF",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "BRUSH-OFF",
+    "definition": "Slight",
+    "indicators": [
+     "at first"
+    ],
+    "indicatorNotes": {
+     "at first": "'At first' keeps only the opening letter of the word beside it and throws the rest away."
+    },
+    "pieces": [
+     "B",
+     "RUSHOFF"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boo-boo at first",
+      "gives": "B",
+      "note": "the first letter of BOO-BOO and nothing more"
+     },
+     {
+      "clueFragment": "skedaddle",
+      "gives": "RUSHOFF",
+      "note": "to skedaddle is to rush off in a hurry"
+     }
+    ],
+    "surface": "Someone makes a small blunder and immediately bolts.",
+    "walkthrough": "'Slight' is the noun — a snub — rather than the adjective the surface wants, and 'boo-boo' is in the clue for its B alone.",
+    "definitionFit": "Slight → BRUSH-OFF: a brush-off is a curt dismissal, which is what a slight is when the word is used as a noun for a snub."
+   }
   },
   {
    "id": "17-down",
@@ -366,7 +900,44 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFLUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "AFLUTTER",
+    "definition": "Nervous",
+    "indicators": [
+     "after",
+     "stuffing knocked out"
+    ],
+    "indicatorNotes": {
+     "after": "What comes after something is entered behind it, so this piece belongs at the end rather than the front.",
+     "stuffing knocked out": "The stuffing of a word is the letters in its middle, and knocking them out leaves only the outside."
+    },
+    "pieces": [
+     "A",
+     "FL",
+     "UTTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a' is taken as it stands"
+     },
+     {
+      "clueFragment": "fall",
+      "gives": "FL",
+      "note": "FALL loses the two letters in its middle and keeps its outer pair"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "UTTER",
+      "note": "to say something is to utter it"
+     }
+    ],
+    "surface": "Somebody left jittery by a tumble that knocked the stuffing out of them.",
+    "walkthrough": "'Stuffing knocked out' reads as what a hard fall does to a person, and it is an instruction to gut a word.",
+    "definitionFit": "Nervous → AFLUTTER: to be aflutter is to be in a state of nervous agitation, the heart going like a bird's wings."
+   }
   },
   {
    "id": "18-across",
@@ -387,7 +958,55 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "REFORMPARTY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "REFORM PARTY",
+    "definition": "and now this!",
+    "definitionNote": "The exclamation is all that the wordplay leaves over, and it points at the answer by topicality alone; the clue's real description of it — for Leave, and extreme — sits inside the wordplay itself.",
+    "indicators": [
+     "that’s extreme"
+    ],
+    "indicatorNotes": {
+     "that’s extreme": "Calling the two letters extreme drives them to the outside, leaving the gap between them for another word."
+    },
+    "pieces": [
+     "RE",
+     "FOR",
+     "M",
+     "PART",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerned with",
+      "gives": "RE",
+      "note": "RE is the 'concerning' at the head of a memo"
+     },
+     {
+      "clueFragment": "supporting",
+      "gives": "FOR",
+      "note": "to be for something is to support it"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "M",
+      "note": "the front letter of MY, pushed out to the edge"
+     },
+     {
+      "clueFragment": "Leave",
+      "gives": "PART",
+      "note": "to part is to leave, and the capital L belongs to the Brexit campaign of the surface"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "Y",
+      "note": "the back letter of MY, closing the sandwich"
+     }
+    ],
+    "surface": "A newsreader introducing yet another story about hardline Brexit campaigners.",
+    "walkthrough": "The words that spell the answer also describe it — an outfit for Leave, and extreme with it — which leaves only the exclamation at the end to point you anywhere.",
+    "definitionFit": "and now this! → REFORM PARTY: the bulletin's handover to the next item, aimed at the party then supplying them, Nigel Farage's Leave-born Reform UK."
+   }
   },
   {
    "id": "19-down",
@@ -411,7 +1030,31 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "IMNOTA",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "I'M NOT A ROBOT",
+    "definition": "It really is me",
+    "indicators": [
+     "at sea"
+    ],
+    "indicatorNotes": {
+     "at sea": "Anything at sea is adrift with no fixed position, and neither have the letters beside it."
+    },
+    "anagram": {
+     "fodder": "IN MOTORBOAT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in motorboat",
+      "gives": "INMOTORBOAT",
+      "note": "eleven letters taken from the clue exactly as they stand, ready to be rearranged"
+     }
+    ],
+    "surface": "Somebody shouting from a motorboat that it really is them out there.",
+    "walkthrough": "You are hunting for a person and the answer is a sentence — the wording beside the tickbox every website makes you confirm before it lets you in. It runs on into 4 down.",
+    "definitionFit": "It really is me → I'M NOT A ROBOT: the CAPTCHA box asks you to declare your humanity, which is the claim 'it really is me' makes."
+   }
   },
   {
    "id": "20-down",
@@ -428,7 +1071,32 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEEKY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHEEKY",
+    "definition": "Forward",
+    "definition2": "one’s behind",
+    "definitionNote": "The second definition is a noun phrase where the answer is an adjective: a behind is the thing that has cheeks, so the answer describes it rather than replacing it.",
+    "indicators": [],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forward",
+      "gives": "",
+      "note": "first definition: forward in the sense of pushy, not of facing the front"
+     },
+     {
+      "clueFragment": "one’s behind",
+      "gives": "",
+      "note": "second definition: the part of the body made of two cheeks"
+     }
+    ],
+    "surface": "A pushy person, with the suggestion that the pushiest thing about them is at the back.",
+    "walkthrough": "The bottom is the one part of us made of cheeks, so a word for impudence doubles as a description of it. The dash makes both halves read as a single grumble about somebody.",
+    "definitionFit": "Forward → CHEEKY and one's behind → CHEEKY: forward means impudent, and a backside is cheeky in the plainest anatomical sense."
+   }
   },
   {
    "id": "21-across",
@@ -445,7 +1113,34 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SOUP",
+    "definition": "liquid lunch?",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "SO",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ergo",
+      "gives": "SO",
+      "note": "ergo is Latin for therefore, and so is the English"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "UP",
+      "note": "when the meal is up it is ready and on the table"
+     }
+    ],
+    "surface": "Somebody deciding that lunch today will be taken in liquid form.",
+    "walkthrough": "A liquid lunch normally means drinking through the middle of the day; this one is only the first course.",
+    "definitionFit": "liquid lunch? → SOUP: soup is the lunch you drink from a bowl, so the phrase is literal rather than the drinker's joke it usually is."
+   }
   },
   {
    "id": "22-across",
@@ -466,7 +1161,47 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "WATERNYMPH",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "WATER NYMPH",
+    "definition": "spirit",
+    "indicators": [
+     "orbital"
+    ],
+    "indicatorNotes": {
+     "orbital": "Something orbital goes all the way round, so this word is bent about the letters it meets."
+    },
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "pieces": [
+     "WA",
+     "TERN",
+     "Y",
+     "MPH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "course",
+      "gives": "WAY",
+      "note": "a way is a course or route, and it opens up to take a passenger"
+     },
+     {
+      "clueFragment": "Flier",
+      "gives": "TERN",
+      "note": "the tern is a seabird, the crossword's usual flier"
+     },
+     {
+      "clueFragment": "a measure of speed",
+      "gives": "MPH",
+      "note": "miles per hour, the measure on every British road sign"
+     }
+    ],
+    "surface": "A bird circling overhead, clocked for speed and admired for its spirit.",
+    "walkthrough": "'Flier' is a bird rather than an aviator or a leaflet, and 'orbital course' is two jobs in two words: a word meaning route, and the instruction bending it round.",
+    "definitionFit": "spirit → WATER NYMPH: in Greek myth a water nymph is the spirit that lives in a stream or spring, so 'spirit' names her class."
+   }
   },
   {
    "id": "23-down",
@@ -483,7 +1218,35 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EIGHT",
+    "definition": "Cube",
+    "indicators": [
+     "skimmed"
+    ],
+    "indicatorNotes": {
+     "skimmed": "To skim is to take off whatever is riding on top, and in a down entry the top is the first letter."
+    },
+    "pieces": [
+     "EIGHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elevation",
+      "gives": "HEIGHT",
+      "note": "elevation is height, how far up something stands"
+     },
+     {
+      "clueFragment": "skimmed",
+      "gives": "H",
+      "note": "the letter sitting on top of that word is the one taken off"
+     }
+    ],
+    "surface": "A solid cube with a slice taken off the top of it.",
+    "walkthrough": "'Cube' is the mathematician's noun, not the shape the surface draws: two multiplied by itself three times.",
+    "definitionFit": "Cube → EIGHT: eight is a cube number, two cubed, so 'cube' names it the way 'square' names nine."
+   }
   },
   {
    "id": "24-down",
@@ -505,7 +1268,32 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "DEAD",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "DEAD GIVEAWAY",
+    "definition": "Easy clue",
+    "indicators": [],
+    "pieces": [
+     "DEAD",
+     "GIVEAWAY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Funeral director’s",
+      "gives": "DEAD",
+      "note": "an undertaker's whole business is with the dead"
+     },
+     {
+      "clueFragment": "special offer",
+      "gives": "GIVEAWAY",
+      "note": "a giveaway is a promotion that costs the customer nothing"
+     }
+    ],
+    "surface": "An undertaker running a promotion, which is a queasy thought.",
+    "walkthrough": "The quoted phrase is offered as a little clue inside the big one, and it solves to a phrase meaning something that betrays a secret at once. It runs on into 7 down.",
+    "definitionFit": "Easy clue → DEAD GIVEAWAY: a dead giveaway hands over what it was meant to conceal, which is what a clue this easy does."
+   }
   },
   {
    "id": "25-across",
@@ -527,7 +1315,35 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONTHEWING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ON THE WING",
+    "definition": "Flying",
+    "indicators": [
+     "negotiable"
+    ],
+    "indicatorNotes": {
+     "negotiable": "Whatever is negotiable can be altered by agreement, so these letters will not stand as printed."
+    },
+    "anagram": {
+     "fodder": "WEIGHT NON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "weight",
+      "gives": "WEIGHT",
+      "note": "six letters straight from the clue"
+     },
+     {
+      "clueFragment": "non",
+      "gives": "NON",
+      "note": "the front half of the hyphenated word joins the fodder, leaving the back half to do the shuffling"
+     }
+    ],
+    "surface": "An airline's baggage limit that nobody is going to argue their way past.",
+    "walkthrough": "The hyphen is the trick: 'non-negotiable' is not one word but three letters of fodder followed by their own anagram signal.",
+    "definitionFit": "Flying → ON THE WING: a bird on the wing is one in flight, the phrase standing in for 'flying' wherever wings are involved."
+   }
   },
   {
    "id": "26-across",
@@ -544,7 +1360,31 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RHONE",
+    "definition": "European river",
+    "indicators": [],
+    "pieces": [
+     "R",
+     "HONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is runs on a cricket scorecard"
+     },
+     {
+      "clueFragment": "where white castle initially located",
+      "gives": "HONE",
+      "note": "chess names every square by a letter and a number, and White's castle — the rook — begins the game on h1"
+     }
+    ],
+    "surface": "A river running past the spot where a white castle first stood.",
+    "walkthrough": "'Initially' looks like an instruction to take a first letter and means at the start of the game instead; the square's name is then written out, letter and number.",
+    "definitionFit": "European river → RHONE: the Rhône runs from the Swiss Alps through Lyon to the Mediterranean, so the plain phrase names one particular river."
+   }
   },
   {
    "id": "27-across",
@@ -561,7 +1401,40 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FARADAY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FARADAY",
+    "definition": "Scientist",
+    "indicators": [
+     "broken by"
+    ],
+    "indicatorNotes": {
+     "broken by": "What is broken has been forced open, and whatever forced it ends up sitting in the break."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "FA",
+     "RADA",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "FAY",
+      "note": "a fay is a fairy, the spirit of the old ballads"
+     },
+     {
+      "clueFragment": "school of players",
+      "gives": "RADA",
+      "note": "RADA is the Royal Academy of Dramatic Art, the London school where British actors train"
+     }
+    ],
+    "surface": "A scientist's morale broken by a troupe of actors.",
+    "walkthrough": "'Players' are actors rather than sportsmen, which is what makes the school a drama school, and the definition names one man by his trade.",
+    "definitionFit": "Scientist → FARADAY: Michael Faraday, who discovered electromagnetic induction, is one particular scientist, so the word defines him by example."
+   }
   },
   {
    "id": "28-across",
@@ -578,7 +1451,39 @@ window.CRYPTIC_PUZZLES["cryptic-30029"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THERAPY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THERAPY",
+    "definition": "counselling",
+    "indicators": [
+     "18"
+    ],
+    "indicatorNotes": {
+     "18": "The answer at 18 across doubles as an order — reform the party — and that order is what is carried out on these letters."
+    },
+    "linkWords": [
+     "and",
+     "gets"
+    ],
+    "anagram": {
+     "fodder": "PARTY HE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "18",
+      "gives": "PARTY",
+      "note": "the second word of the answer at 18 across, lending five letters"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "two more letters taken from the clue as they stand"
+     }
+    ],
+    "surface": "A man and his party both ending up in the counselling room.",
+    "walkthrough": "18 supplies the letters and the order to disturb them at the same time, and 'he' quietly adds two more of its own.",
+    "definitionFit": "counselling → THERAPY: the talking treatment somebody is referred for, the general word covering the course rather than a single session."
+   }
   }
  ]
 } /*JSON-END*/;
