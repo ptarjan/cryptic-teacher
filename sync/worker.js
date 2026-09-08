@@ -12,6 +12,7 @@
    only ever add. */
 import CTMerge from "./merge.js";
 import CTEvents from "./events.js";
+import CTNotify from "./notify.js";
 import { send, GONE } from "./webpush.js";
 
 // No 0/O/1/I/L — this gets read off one screen and typed into another, by hand.
@@ -40,6 +41,10 @@ const PUSH_HOSTS = [".googleapis.com", ".mozilla.com", ".apple.com", ".windows.c
 // backwards through the archive, so without a window every night's catch-up
 // would push a decade of Guardians at whoever subscribed that morning.
 const ANNOUNCE_DAYS = 14;
+// A puzzle waiting for the morning is held per subscriber, and the cap is there
+// only so a device that stops being opened cannot grow an unbounded record. A
+// fortnight of every paper at once does not reach it.
+const MAX_HELD = 20;
 
 const cors = (origin) => ({
   "access-control-allow-origin": origin || "*",
@@ -86,6 +91,13 @@ function badSubscription(sub) {
     return "series must be an array of at most " + MAX_SERIES + " names";
   if (!sub.series.every((s) => typeof s === "string" && /^[a-z][a-z0-9]{1,19}$/.test(s)))
     return "a series name is not one lowercase word";
+  // Both optional, and both are rejected rather than ignored when they are
+  // malformed: a phone that thinks it asked for a quiet night and is woken at
+  // three anyway has no way of finding out that the field never landed.
+  if (sub.after && CTNotify.parseAfter(sub.after) === null)
+    return "after must be a time of day like \"07:00\"";
+  if (sub.tz && !CTNotify.zone(sub.tz))
+    return "tz must be an IANA zone name this runtime knows, like \"America/Edmonton\"";
   return "";
 }
 
@@ -171,7 +183,17 @@ export default {
        did not tick has nothing it can say and cannot stay silent either.
 
        PUT with an empty `series` is how it is turned off, so the page has one
-       code path for "these are my papers" and no separate unsubscribe. */
+       code path for "these are my papers" and no separate unsubscribe.
+
+       `after` and `tz` are the quiet hours, and they travel together because
+       neither means anything alone: "07:00" on a server in UTC is not seven in
+       the morning anywhere the solver is. Stored as minutes past local midnight
+       plus the zone, so the cron compares two numbers.
+
+       Both are optional. A subscription without them is not held at all — see
+       CTNotify.due() for why every unknown resolves that way — which is exactly
+       how every subscription taken out before this existed keeps behaving until
+       its device next loads the page and re-asserts with a time. */
     if (url.pathname === "/n" && request.method === "PUT") {
       if (Number(request.headers.get("content-length") || 0) > MAX_SUB)
         return json({ error: "too big" }, 413, origin);
@@ -192,12 +214,24 @@ export default {
         await env.SAVES.delete(key);
         return json({ ok: true, series: [] }, 200, origin);
       }
+      const after = CTNotify.parseAfter(sub.after);
+      const tz = CTNotify.zone(sub.tz);
+      const stored = await env.SAVES.get(key, "json");
+      // `until` is this record's own retirement date, written down because KV
+      // will not tell you how much of a TTL is left. The cron re-writes the
+      // record when it starts or clears a hold, and without this that write
+      // would silently renew the 180 days on a device nobody opens any more.
+      const until = Math.floor(Date.now() / 1000) + PUSH_TTL;
       await env.SAVES.put(key, JSON.stringify({
         endpoint: sub.endpoint,
         keys: { p256dh: sub.keys.p256dh, auth: sub.keys.auth },
-        series,
-      }), { expirationTtl: PUSH_TTL });
-      return json({ ok: true, series }, 200, origin);
+        series, after, tz, until,
+        // Anything already waiting for the morning stays waiting. This is the
+        // same device asserting the same address, so dropping the queue here
+        // would lose a puzzle to a page load.
+        held: (stored && Array.isArray(stored.held)) ? stored.held : [],
+      }), { expiration: until });
+      return json({ ok: true, series, after, tz }, 200, origin);
     }
 
     const m = url.pathname.match(/^\/s\/([^/]+)$/);
@@ -253,34 +287,89 @@ export default {
      The state is the set of annotated ids at the previous run, so a puzzle is
      announced the first time it becomes annotated and never again. It is written
      BEFORE anything is sent: a push service having a bad afternoon must not turn
-     into the same notification every twenty minutes once it comes back. */
+     into the same notification every twenty minutes once it comes back.
+
+     "Announced" is not "delivered", though, because n:seen is one global set
+     while a quiet night is per subscriber. A puzzle that is news but out of
+     hours for this device moves onto that device's own `held` list, and every
+     run drains that list before it looks at tonight's. So n:seen answers "has
+     the world been told about this puzzle" and `held` answers "does this phone
+     still have it coming" — which is what stops a puzzle annotated at three in
+     the morning from being marked seen and never sent.
+
+     Delivery is AT MOST ONCE per subscriber, deliberately, and both pieces of
+     state are written before the push that empties them. A run that dies
+     mid-fan-out therefore loses a notification; the other ordering loses none
+     and re-sends everything every twenty minutes until the push service
+     recovers, which is the failure a phone actually notices. */
   async scheduled(event, env) {
     const res = await fetch(INDEX_URL, { headers: { "cache-control": "no-cache" } });
     if (!res.ok) throw new Error(`index.json: HTTP ${res.status}`);
-    const puzzles = (await res.json()).puzzles.filter((p) => p.annotated);
+    const index = await res.json();
+    // Which paper each series belongs to, put in the index by
+    // tools/fetch_puzzle.py out of tools/series.py. Absent from an index
+    // deployed before that existed, and CTNotify.title() then leaves the
+    // puzzle's own name alone rather than inventing a paper for it.
+    const papers = index.papers || {};
+    const puzzles = index.puzzles.filter((p) => p.annotated);
+    const byId = new Map(puzzles.map((p) => [p.id, p]));
 
     const seen = await env.SAVES.get("n:seen", "json");
     await env.SAVES.put("n:seen", JSON.stringify(puzzles.map((p) => p.id)));
     if (!seen) return;   // First run of a fresh namespace: the corpus is not news.
 
     const known = new Set(seen);
-    const cutoff = Date.now() - ANNOUNCE_DAYS * 24 * 60 * 60 * 1000;
+    const now = Date.now();
+    const cutoff = now - ANNOUNCE_DAYS * 24 * 60 * 60 * 1000;
     const fresh = puzzles.filter((p) => !known.has(p.id) && p.date >= cutoff);
-    if (!fresh.length) return;
+
+    // No early return on an empty `fresh`: the run that delivers a held puzzle
+    // at seven in the morning is by definition a run with no news of its own.
+    const { keys } = await env.SAVES.list({ prefix: "n:s:" });
+    if (!keys.length) return;
 
     const vapid = {
       jwk: JSON.parse(env.VAPID_PRIVATE_JWK),
       publicKey: env.VAPID_PUBLIC_KEY,
       subject: env.VAPID_SUBJECT,
     };
-    const { keys } = await env.SAVES.list({ prefix: "n:s:" });
     for (const k of keys) {
       const sub = await env.SAVES.get(k.name, "json");
       if (!sub) continue;
-      for (const p of fresh) {
-        if (!sub.series.includes(p.series)) continue;
+
+      /* Everything this device has coming: what was held, oldest first, then
+         what is new tonight. Both are re-read out of the index and re-checked
+         against the CURRENT tickboxes, so a paper un-ticked while one of its
+         puzzles was waiting does not arrive anyway — a push must show a
+         notification, and one for a paper nobody wants has nothing to say. */
+      const queue = (Array.isArray(sub.held) ? sub.held : []).concat(fresh.map((p) => p.id));
+      const want = new Set(sub.series);
+      const owed = [];
+      for (const id of queue) {
+        const p = byId.get(id);
+        if (p && want.has(p.series) && owed.indexOf(id) < 0) owed.push(id);
+      }
+
+      const sendNow = CTNotify.due(sub.after, sub.tz, now);
+      const held = sendNow ? [] : owed.slice(-MAX_HELD);
+      // Written only when the queue actually changes, which in the ordinary
+      // case — nothing held, nothing to hold — is never. Rewriting every
+      // record every twenty minutes would be a write per subscriber per run
+      // that changes nothing.
+      if (JSON.stringify(held) !== JSON.stringify(sub.held || [])) {
+        // The record's own retirement date, kept rather than renewed: KV will
+        // not say how much TTL is left, so without this a device nobody opens
+        // any more would have its 180 days pushed back by every hold.
+        const until = Number(sub.until) || Math.floor(now / 1000) + PUSH_TTL;
+        await env.SAVES.put(k.name, JSON.stringify(Object.assign({}, sub, { held, until })),
+                            { expiration: until });
+      }
+      if (!sendNow) continue;
+
+      for (const id of owed) {
+        const p = byId.get(id);
         const status = await send(sub, JSON.stringify({
-          title: p.name,
+          title: CTNotify.title(p, papers),
           body: [p.setter && `Set by ${p.setter}`,
                  p.difficulty && p.difficulty.band].filter(Boolean).join(" \u00b7 "),
           url: PUZZLE_URL + p.id,

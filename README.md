@@ -180,6 +180,9 @@ tools/wait_for_deploy.py                     blocks until Pages is serving the p
 tools/test_webpush.js                        runs the RFC 8291 test vector through
                                              sync/webpush.js, so the encryption is checked
                                              against something other than itself
+tools/test_push_hold.js                      runs the cron fan-out over a fake night, so a
+                                             puzzle held until morning is proved to arrive
+                                             exactly once
 tools/tutorial.html                          source of the learn/ lesson
 tools/og_card.html                           source and type for og.png, the site’s one social
                                              card
@@ -198,6 +201,9 @@ sync/wrangler.toml                           the Worker’s deploy config, KV bi
 sync/webpush.js                              web push encryption and sender identity (RFC 8291,
                                              RFC 8292), written out so the Worker needs no
                                              dependency
+sync/notify.js                               what a notification is called and whether this
+                                             device wants it yet — the two decisions the
+                                             fan-out makes before it encrypts anything
 sw.js                                        the service worker: it exists so a push has
                                              somewhere to be delivered, and deliberately caches
                                              nothing

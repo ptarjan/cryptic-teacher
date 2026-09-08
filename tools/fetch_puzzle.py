@@ -518,7 +518,15 @@ def reindex():
     # cryptic stays the puzzle the site opens on.
     puzzles.sort(key=lambda p: (p.get("date") or 0, p["series"] == "cryptic", p["number"]),
                  reverse=True)
-    index = {"latest": puzzles[0]["id"] if puzzles else None, "puzzles": puzzles}
+    # Which paper each series belongs to, carried here rather than looked up.
+    # sync/worker.js has to name the paper in a push notification — "Cryptic
+    # crossword No 30,106" never says Guardian — and a Worker cannot import
+    # tools/series.py or app.js. One line per series in the file it already
+    # fetches beats a second table of papers that would go stale.
+    papers = {s: series_meta.publisher(s)
+              for s in sorted({p["series"] for p in puzzles})}
+    index = {"latest": puzzles[0]["id"] if puzzles else None,
+             "papers": papers, "puzzles": puzzles}
     (PUZZLE_DIR / "index.json").write_text(
         json.dumps(index, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (PUZZLE_DIR / "index.js").write_text(
