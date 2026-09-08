@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANAMA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PANAMA",
+    "definition": "country",
+    "indicators": [
+     "from the east"
+    ],
+    "indicatorNotes": {
+     "from the east": "Anything coming from the east is travelling westwards, and in an across entry westwards means the letters are picked up from their far end."
+    },
+    "pieces": [
+     "PA",
+     "NAMA"
+    ],
+    "subReversals": [
+     {
+      "from": "AMAN",
+      "to": "NAMA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is the crossword's standard dad"
+     },
+     {
+      "clueFragment": "a fellow",
+      "gives": "NAMA",
+      "note": "a fellow is A MAN, and those four letters arrive the other way round"
+     }
+    ],
+    "surface": "Dad and another chap arriving from somewhere out east.",
+    "walkthrough": "Two ordinary words of the surface, 'a' and 'fellow', have to be taken together as letters before the reversal has anything to work on, which is what keeps the join invisible.",
+    "definitionFit": "Panama is the Central American republic joining the two halves of the continent, so 'country' names it by plain category."
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +87,31 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
     ]
    },
    "solution": "PIET",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "PIET MONDRIAN",
+    "definition": "Dutch artist",
+    "indicators": [
+     "works"
+    ],
+    "indicatorNotes": {
+     "works": "Read as a verb rather than the noun the sentence wants: to work a material is to knead it into a different shape."
+    },
+    "anagram": {
+     "fodder": "PAINTED MINOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "painted minor",
+      "gives": "PAINTEDMINOR",
+      "note": "anagram fodder, twelve letters, exactly the length of the two entries together"
+     }
+    ],
+    "surface": "A Dutch painter's lesser canvases, the ones that never made the main gallery.",
+    "walkthrough": "'Minor works' is such a natural phrase about a painter that the last word stops looking like an instruction. Mondrian is the man behind the black-ruled grids filled with red, blue and yellow.",
+    "definitionFit": "Piet Mondrian was the Dutch painter of those grids, so 'Dutch artist' names him by nationality and trade."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +128,43 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NERVOUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "NERVOUS",
+    "definition": "edgy",
+    "indicators": [
+     "full of"
+    ],
+    "indicatorNotes": {
+     "full of": "Whatever you are full of is inside you, so the French word opens up and takes the other pieces into its middle."
+    },
+    "pieces": [
+     "N",
+     "ER",
+     "V",
+     "OUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We in Paris",
+      "gives": "NOUS",
+      "note": "nous is French for 'we', which is what 'in Paris' asks for"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the noise of hesitating, a crossword staple"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "v = very, as in 'v. good'"
+     }
+    ],
+    "surface": "The French, hesitant and jumpy about something.",
+    "walkthrough": "NOUS is also an English word, meaning common sense, and that is the reading the surface would rather you took. 'In Paris' is the standard signal that a French word is wanted.",
+    "definitionFit": "Edgy and nervous both describe someone apprehensive and easily startled — the 'on edge' sense, not the fashionably daring one."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +184,9 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "MONDRIAN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "1-down"
+   }
   },
   {
    "id": "4-across",
@@ -106,7 +203,34 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPORTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IMPORTER",
+    "definition": "Trader",
+    "indicators": [],
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "IM",
+     "PORTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "personal claim to be",
+      "gives": "IM",
+      "note": "saying I'M is claiming, in the first person, to be something"
+     },
+     {
+      "clueFragment": "old-fashioned baggage-carrier",
+      "gives": "PORTER",
+      "note": "a porter carried travellers' bags at stations and hotels, a job largely gone"
+     }
+    ],
+    "surface": "A dealer insisting he is really nothing more than a bygone luggage-hauler.",
+    "walkthrough": "Apostrophes count for nothing in a grid, so 'personal claim' can hand over two letters that look like no word at all, and the possessive in the first word is doing the work of 'is'.",
+    "definitionFit": "An importer buys goods in from abroad to sell on, so 'trader' is the wider category the answer sits inside."
+   }
   },
   {
    "id": "5-down",
@@ -123,7 +247,52 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAISONNETTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "MAISONNETTE",
+    "definition": "apartment",
+    "indicators": [
+     "accommodating"
+    ],
+    "indicatorNotes": {
+     "accommodating": "To accommodate people is to house them within your own walls, so the first word takes everything after it inside."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MA",
+     "I",
+     "SON",
+     "NET",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chum",
+      "gives": "MATE",
+      "note": "a mate is a chum, and this one splits down the middle"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the Roman numeral I"
+     },
+     {
+      "clueFragment": "relation",
+      "gives": "SON",
+      "note": "a son is a relation"
+     },
+     {
+      "clueFragment": "not gross",
+      "gives": "NET",
+      "note": "pay before deductions is gross, and what is left after them is net"
+     }
+    ],
+    "surface": "A friend putting up one relative, in a flat, with nothing coarse going on.",
+    "walkthrough": "'Not gross' is the accountant's sense, gross pay less deductions, while the surface wants it to mean nothing disgusting. Three separate pieces go inside a four-letter word, which is more than a container usually swallows.",
+    "definitionFit": "A maisonnette is a self-contained flat on two floors with its own front door, so 'apartment' is the plain synonym."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +309,35 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERDO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "OVERDO",
+    "definition": "ham",
+    "indicators": [
+     "Some",
+     "served up"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part of what follows rather than the whole of it, so a run of letters is sitting there already.",
+     "served up": "Food gets served up, and in a down entry 'up' means the run is read from the bottom of the answer towards the top."
+    },
+    "subReversals": [
+     {
+      "from": "ODREVO",
+      "to": "OVERDO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food revoltingly",
+      "gives": "ODREVO",
+      "note": "six consecutive letters straddling the gap between the two words, and they run the wrong way"
+     }
+    ],
+    "surface": "A plateful served up so badly it turns the stomach.",
+    "walkthrough": "'Ham' is the actor's verb — to ham a part is to lay it on far too thick — rather than the meat the food surface keeps offering.",
+    "definitionFit": "To ham is to overact, piling on more than the part needs, which is doing a thing to excess."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +354,37 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERENCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "TERENCE",
+    "definition": "dramatist",
+    "indicators": [
+     "Unconventional",
+     "hosting"
+    ],
+    "indicatorNotes": {
+     "Unconventional": "Something unconventional refuses to keep to the accepted arrangement, so the word beside it will not stay in the order given.",
+     "hosting": "A host takes a guest into their own house, so the shuffled letters close around the single letter that follows."
+    },
+    "anagram": {
+     "fodder": "CENTRE E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "centre",
+      "gives": "CENTRE",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "e = European, the guest taken in"
+     }
+    ],
+    "surface": "An offbeat arts centre putting on a play from the continent.",
+    "walkthrough": "'Centre' almost always means the middle letters of something, and here it is simply six letters to shuffle. Terence was the Roman comic playwright whose plots Molière and Shakespeare later mined.",
+    "definitionFit": "Terence wrote comedies for the Roman stage in the second century BC, so 'dramatist' names him by his trade."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +401,43 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPLETION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "REPLETION",
+    "definition": "possible reason for lack of appetite",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Sitting between the two halves of the wordplay, it puts what follows inside what came before, while the surface reads it as 'roughly'."
+    },
+    "pieces": [
+     "REP",
+     "LET",
+     "I",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agent",
+      "gives": "REP",
+      "note": "a rep is a sales agent, short for representative"
+     },
+     {
+      "clueFragment": "revealed",
+      "gives": "LETON",
+      "note": "to let on is to reveal something, and these letters part company in the middle"
+     },
+     {
+      "clueFragment": "lunchtime?",
+      "gives": "I",
+      "note": "one o'clock is lunchtime, and one is the numeral I"
+     }
+    ],
+    "surface": "An agent unmasked over the lunch hour, which would put anyone off their food.",
+    "walkthrough": "The dashes invite you to read the middle phrase as an aside, when it is carrying both the insertion instruction and the hour on the clock.",
+    "definitionFit": "Repletion is the state of being completely full after eating, which is why nothing further is wanted — the definition describes the condition rather than naming it."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +454,46 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ERRANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ERRANT",
+    "definition": "misbehaving",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "E",
+     "RR",
+     "A",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e = English"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "RR",
+      "note": "a bishop is addressed as the Right Reverend, shortened to RR"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own indefinite article, used as it stands"
+     },
+     {
+      "clueFragment": "set of holy books",
+      "gives": "NT",
+      "note": "the New Testament, NT, is a collection of holy books"
+     }
+    ],
+    "surface": "An English bishop and a stack of scripture, all behaving badly.",
+    "walkthrough": "Bishops reach crosswords two ways — B for the chess piece, RR for the churchman's title — and the clerical surface gives no hint which is wanted.",
+    "definitionFit": "An errant pupil or husband is one straying from the rules, which is misbehaving; the older sense is simply wandering, as in knight errant."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +510,47 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIRETRAP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + first letter",
+    "answer": "FIRETRAP",
+    "definition": "dangerous building",
+    "indicators": [
+     "collapsing",
+     "around",
+     "start to"
+    ],
+    "indicatorNotes": {
+     "collapsing": "A collapsing structure loses the arrangement it was built in, so the word beside it comes apart and goes back differently.",
+     "around": "What goes around something encloses it, so the shuffled letters have to be built with the numeral inside them.",
+     "start to": "'Start to' asks only for the opening letter of the word that follows, not for the word itself."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "RAFTER I P"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Rafter",
+      "gives": "RAFTER",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one is the numeral I, taken inside the shuffle"
+     },
+     {
+      "clueFragment": "start to panic",
+      "gives": "P",
+      "note": "the first letter of panic"
+     }
+    ],
+    "surface": "A roof beam giving way overhead, and the first flutter of panic.",
+    "walkthrough": "'Rafter' belongs to the roof in the surface and is really six letters to rearrange, which is easy to miss because a collapsing rafter is exactly the picture the answer warns about.",
+    "definitionFit": "A firetrap is a building so badly built or so blocked up that a fire in it would trap the people inside."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +567,33 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORRESPONDENCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CORRESPONDENCE",
+    "definition": "agreement",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Out of order is what is meant: the letters in front of it have left the places they were given."
+    },
+    "linkWords": [
+     "to establish"
+    ],
+    "anagram": {
+     "fodder": "CONCEDER PERSON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Conceder, person",
+      "gives": "CONCEDERPERSON",
+      "note": "anagram fodder, fourteen letters"
+     }
+    ],
+    "surface": "Someone who gives ground, and someone gone out to settle a deal.",
+    "walkthrough": "'Conceder' is barely a word, and an awkward noun like that is usually the setter admitting he needs the letters rather than the meaning.",
+    "definitionFit": "Correspondence is the state of two things tallying with each other, so 'agreement' is that sense rather than the letters-in-the-post one."
+   }
   },
   {
    "id": "12-down",
@@ -242,7 +610,32 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUPERSCRIPT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SUPERSCRIPT",
+    "definition": "showing power",
+    "definitionNote": "The answer is a noun and the definition a phrase describing what it does; the question mark is the setter admitting that a superscript is the raised figure showing a power rather than the showing itself.",
+    "indicators": [],
+    "pieces": [
+     "SUPER",
+     "SCRIPT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wonderful",
+      "gives": "SUPER",
+      "note": "super = wonderful, the everyday adjective"
+     },
+     {
+      "clueFragment": "piece of writing",
+      "gives": "SCRIPT",
+      "note": "a script is a written text"
+     }
+    ],
+    "surface": "Praise for a brilliant bit of writing that shows real force.",
+    "walkthrough": "'Power' is the mathematician's power, the small raised 3 in x³, and not strength of any kind — the surface spends its whole length pushing the other reading.",
+    "definitionFit": "In x³ the raised 3 is a superscript, and lifting a figure like that is exactly how algebra writes a power."
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +652,41 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASCARPONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MASCARPONE",
+    "definition": "type of cheese",
+    "indicators": [],
+    "linkWords": [
+     "getting",
+     "served with"
+    ],
+    "pieces": [
+     "MAS",
+     "CARP",
+     "ONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum’s",
+      "gives": "MAS",
+      "note": "ma is mum, and the clue's own apostrophe-s comes along with her"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "CARP",
+      "note": "the carp is the pond fish crosswords reach for first"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "the word one, spelt out in full"
+     }
+    ],
+    "surface": "Mum dishing up fish for one.",
+    "walkthrough": "The possessive is the trick: 'Mum's' is not mum-has but mum plus an S, and setters use that trick every time a two-letter word needs a third letter.",
+    "definitionFit": "Mascarpone is the soft Italian cream cheese layered into tiramisu, so 'type of cheese' places it by category."
+   }
   },
   {
    "id": "13-down",
@@ -276,7 +703,46 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILLSTONE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MILLSTONE",
+    "definition": "unwanted burden",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "M",
+     "ILL",
+     "ST",
+     "ONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "in cricket scoring M marks a maiden, an over with no runs scored off it"
+     },
+     {
+      "clueFragment": "not well",
+      "gives": "ILL",
+      "note": "not well = ill"
+     },
+     {
+      "clueFragment": "holy person",
+      "gives": "ST",
+      "note": "a saint is written St in front of a name"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "the word one, spelt out in full"
+     }
+    ],
+    "surface": "A poorly young woman and a saint, saddled with something nobody wants.",
+    "walkthrough": "Both 'maiden' and 'holy person' want abbreviations rather than words, which is how a sentence that reads like a sickbed turns into a four-piece charade.",
+    "definitionFit": "A millstone round the neck is the biblical image for an obligation you cannot put down, so the answer means the burden itself."
+   }
   },
   {
    "id": "14-across",
@@ -293,7 +759,27 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CEDI",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "CEDI",
+    "definition": "Money",
+    "indicators": [
+     "concealed by"
+    ],
+    "indicatorNotes": {
+     "concealed by": "To be concealed by something is to lie inside it, so the letters are already sitting in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "finance director",
+      "gives": "CEDI",
+      "note": "four letters in a row, starting near the end of the first word and crossing the gap"
+     }
+    ],
+    "surface": "A finance director hiding money.",
+    "walkthrough": "Job titles make good hiding places because a solver reads them as one lump rather than letter by letter, and African currencies are standard crossword money — rand, naira, kwacha.",
+    "definitionFit": "The cedi is Ghana's currency, so 'Money' defines it the way it defines any national unit — by category."
+   }
   },
   {
    "id": "15-down",
@@ -310,7 +796,37 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHENILLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "CHENILLE",
+    "definition": "Material",
+    "indicators": [
+     "bad",
+     "for covering"
+    ],
+    "indicatorNotes": {
+     "bad": "Something in a bad state has lost its proper order, so the word beside it is to be rebuilt.",
+     "for covering": "What covers goes on the outside, so the rebuilt letters wrap round the piece named next to them."
+    },
+    "anagram": {
+     "fodder": "HENCE ILL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hence",
+      "gives": "HENCE",
+      "note": "anagram fodder, five letters"
+     },
+     {
+      "clueFragment": "lousy",
+      "gives": "ILL",
+      "note": "lousy = ill, in the feeling-rotten sense"
+     }
+    ],
+    "surface": "Shoddy fabric, no good even for throwing over something.",
+    "walkthrough": "'Bad – hence lousy' reads as one continuous grumble, which hides the fact that its three words are doing three different jobs. Chenille is French for caterpillar, which is what the furry yarn looks like.",
+    "definitionFit": "Chenille is a velvety fabric woven from that tufted yarn, so 'Material' names it by its class."
+   }
   },
   {
    "id": "16-across",
@@ -327,7 +843,31 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAPP",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LAPP",
+    "definition": "European",
+    "indicators": [
+     "said"
+    ],
+    "indicatorNotes": {
+     "said": "'Said' asks for what the words sound like when spoken aloud, not for how they are written down."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of race",
+      "soundsLike": "LAP",
+      "gives": "LAPP",
+      "note": "one circuit of the track is a lap, and that same sound is written here with a second P"
+     }
+    ],
+    "surface": "One leg of a race described as European.",
+    "walkthrough": "'Race' does the misdirecting on its own: it is the athletics sense in the wordplay and the ethnic sense in the answer. A Lapp — Sami is now the preferred name — herds reindeer in the far north of Scandinavia.",
+    "definitionFit": "A Lapp is one of the Sami people of northern Norway, Sweden and Finland, so the definition works by example: a Lapp is a European."
+   }
   },
   {
    "id": "17-down",
@@ -344,7 +884,37 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PORTENT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PORTENT",
+    "definition": "Sign",
+    "indicators": [
+     "includes"
+    ],
+    "indicatorNotes": {
+     "includes": "What includes something holds it within, so the nautical word opens and takes the numeral into its middle."
+    },
+    "pieces": [
+     "POR",
+     "TEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left-hand side of a ship"
+     },
+     {
+      "clueFragment": "X",
+      "gives": "TEN",
+      "note": "X is the Roman numeral for ten, here spelt out in letters"
+     }
+    ],
+    "surface": "A note left behind, signed off with a kiss.",
+    "walkthrough": "X is worth three readings in a crossword — ten, a kiss and a cross — and only the numeral fits. 'Sign left' reads as one instruction and is in fact the definition and a piece of wordplay side by side.",
+    "definitionFit": "A portent is an omen: a thing taken as a sign of what is coming."
+   }
   },
   {
    "id": "18-across",
@@ -361,7 +931,30 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROTOHUMAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PROTOHUMAN",
+    "definition": "being not quite one of us",
+    "indicators": [
+     "terrible"
+    ],
+    "indicatorNotes": {
+     "terrible": "A terrible state is a disordered one, so the letters in front of it come apart and are put back another way."
+    },
+    "anagram": {
+     "fodder": "OH NO A TRUMP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Oh no, a Trump",
+      "gives": "OHNOATRUMP",
+      "note": "anagram fodder, ten letters including the exclamation"
+     }
+    ],
+    "surface": "Dismay at the arrival of yet another Trump.",
+    "walkthrough": "'Being' looks like grammatical glue holding the sentence together and is the noun the definition turns on: a creature. Protohumans are the hominids that came before our own species.",
+    "definitionFit": "A protohuman is an early hominid ancestor — recognisably a being, but not yet a member of the species we belong to."
+   }
   },
   {
    "id": "19-down",
@@ -378,7 +971,40 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MONITOR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MONITOR",
+    "definition": "Lizard",
+    "indicators": [
+     "impeded by"
+    ],
+    "indicatorNotes": {
+     "impeded by": "What impedes you stands in your way, so the fool is planted in the middle of the ground rather than beside it."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MO",
+     "NIT",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "open country",
+      "gives": "MOOR",
+      "note": "a moor is open uncultivated upland"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "NIT",
+      "note": "nit is British slang for a fool"
+     }
+    ],
+    "surface": "A lizard out on the moors, held up by some fool.",
+    "walkthrough": "'In' is doing nothing but joining the definition to the wordplay, while 'impeded by' carries the whole instruction — the surface makes them read as one continuous phrase.",
+    "definitionFit": "The monitors are a family of big tropical lizards, the Komodo dragon among them, so 'Lizard' names the group the answer belongs to."
+   }
   },
   {
    "id": "20-down",
@@ -395,7 +1021,43 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INMATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "INMATE",
+    "definition": "who should not be let loose",
+    "definitionNote": "The answer is a noun and the definition a relative clause: the setter describes the person instead of naming them, and the question mark admits the looseness.",
+    "indicators": [
+     "occupying"
+    ],
+    "indicatorNotes": {
+     "occupying": "To occupy a place is to sit inside it, so the male letter takes up residence between the two pieces named after it."
+    },
+    "pieces": [
+     "IN",
+     "M",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "somebody at home is in"
+     },
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "m = male, as on a form"
+     },
+     {
+      "clueFragment": "troublemaker",
+      "gives": "ATE",
+      "note": "Ate is the Greek goddess of ruin and reckless mischief"
+     }
+    ],
+    "surface": "A man at home who is nothing but trouble.",
+    "walkthrough": "Ate, the Greek goddess of ruin, is who a setter reaches for when three letters are wanted, and the surface hides her behind an ordinary word for a nuisance.",
+    "definitionFit": "An inmate is someone confined in a prison or an institution, so the definition describes them by the fact of being kept in."
+   }
   },
   {
    "id": "21-across",
@@ -416,7 +1078,41 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPRINGCLEANING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPRING-CLEANING",
+    "definition": "housework",
+    "indicators": [],
+    "linkWords": [
+     "having",
+     "for"
+    ],
+    "pieces": [
+     "SPRING",
+     "C",
+     "LEANING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jump",
+      "gives": "SPRING",
+      "note": "to spring is to jump"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c stands for circa, about, as in dates"
+     },
+     {
+      "clueFragment": "inclination",
+      "gives": "LEANING",
+      "note": "an inclination is a leaning, a tendency towards something"
+     }
+    ],
+    "surface": "Somebody bounding about the place, oddly keen on chores.",
+    "walkthrough": "'Jump about' reads as one phrase and splits between two pieces, with 'about' turning out to be the circa of dates rather than any kind of movement.",
+    "definitionFit": "Spring-cleaning is the once-a-year top-to-bottom clean of a house, so it is housework of the most thorough sort."
+   }
   },
   {
    "id": "22-down",
@@ -433,7 +1129,36 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOTH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GOTH",
+    "definition": "Invader",
+    "indicators": [
+     "somewhat heartless"
+    ],
+    "indicatorNotes": {
+     "somewhat heartless": "Heartless takes the middle out, and 'somewhat' is the warning that more than one central letter is going."
+    },
+    "pieces": [
+     "GO",
+     "TH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giant",
+      "gives": "GOLIATH",
+      "note": "the Philistine giant David felled with a sling"
+     },
+     {
+      "clueFragment": "heartless",
+      "gives": "LIA",
+      "note": "the three letters at the giant's centre are the ones taken out"
+     }
+    ],
+    "surface": "An invading giant, somewhat lacking in heart.",
+    "walkthrough": "Goliath is the giant every setter uses, and 'somewhat' is the licence for cutting three letters where 'heartless' alone would take one. The Goths sacked Rome in 410.",
+    "definitionFit": "The Goths were the Germanic people who overran Roman territory, so 'Invader' names one of them."
+   }
   },
   {
    "id": "23-across",
@@ -450,7 +1175,50 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPERATIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "OPERATIC",
+    "definition": "Like stage performance",
+    "indicators": [
+     "not"
+    ],
+    "indicatorNotes": {
+     "not": "It cancels the letter named straight after it, so that letter never reaches the grid at all."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "O",
+     "P",
+     "ERATIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o = old"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musician's mark for piano, meaning played softly"
+     },
+     {
+      "clueFragment": "unpredictable",
+      "gives": "ERRATIC",
+      "note": "unpredictable = erratic, and this word is about to lose a letter"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "right is R, and this is the letter that comes out of the word above"
+     }
+    ],
+    "surface": "A theatrical evening with a battered old piano that cannot be relied on.",
+    "walkthrough": "The surface offers one picture, an old piano, where the wordplay wants two separate single letters. 'Not right' then passes as a complaint about the playing while it is really the deletion instruction.",
+    "definitionFit": "Operatic means of or in the manner of opera, the sung drama staged in theatres, so the adjective is fairly clued as being like a stage performance."
+   }
   },
   {
    "id": "24-across",
@@ -467,7 +1235,39 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLOTTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "BLOTTO",
+    "definition": "hammered",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "It asks for the opening letter alone of the city named just in front of it, and for nothing more of the word."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "B",
+     "LOTTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Birmingham’s first",
+      "gives": "B",
+      "note": "the first letter of Birmingham"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "LOTTO",
+      "note": "lotto is the numbers game, bingo's close cousin"
+     }
+    ],
+    "surface": "Birmingham losing their opening match of the season badly.",
+    "walkthrough": "'Hammered' in a sentence about football means thrashed, and the answer needs the other slang sense, too drunk to stand.",
+    "definitionFit": "Blotto is old slang for helplessly drunk, which is what 'hammered' means in its newer slang sense — one drinking word defining another."
+   }
   },
   {
    "id": "25-across",
@@ -484,7 +1284,37 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTREATY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ENTREATY",
+    "definition": "Request",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The smallest word in the clue is the whole instruction: what came before it goes inside the word that follows."
+    },
+    "pieces": [
+     "ENTR",
+     "EAT",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foyer?",
+      "gives": "ENTRY",
+      "note": "a foyer is the entry of a building, and the question mark flags that it is one example of one"
+     },
+     {
+      "clueFragment": "put away",
+      "gives": "EAT",
+      "note": "to put away three courses is to eat them"
+     }
+    ],
+    "surface": "A written plea tucked out of sight in the entrance hall.",
+    "walkthrough": "'Put away' is the eating sense rather than the storing sense the foyer suggests, and it is the surface's tidiness that keeps you from hearing it.",
+    "definitionFit": "An entreaty is an earnest, pleading request, so the definition is the plain noun with the urgency left out."
+   }
   },
   {
    "id": "26-across",
@@ -501,7 +1331,40 @@ window.CRYPTIC_PUZZLES["cryptic-29998"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEARTH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HEARTH",
+    "definition": "Home",
+    "indicators": [
+     "at the back"
+    ],
+    "indicatorNotes": {
+     "at the back": "It fixes the order of assembly: the land goes behind the single letter rather than in front of it."
+    },
+    "linkWords": [
+     "is",
+     "with"
+    ],
+    "pieces": [
+     "H",
+     "EARTH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "h = hotel in the phonetic alphabet"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "EARTH",
+      "note": "earth = land, the ground itself"
+     }
+    ],
+    "surface": "Calling the family house a hotel with a bit of land behind it.",
+    "walkthrough": "Hotel is H in the NATO alphabet — alpha, bravo, charlie, delta — which is a whole table of single letters worth learning at once.",
+    "definitionFit": "The hearth is the fireplace, and by long metaphor the fireside stands for the home itself, as in 'hearth and home'."
+   }
   }
  ]
 } /*JSON-END*/;
