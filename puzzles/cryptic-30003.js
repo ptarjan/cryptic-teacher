@@ -34,7 +34,31 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLIPFLOP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLIP-FLOP",
+    "definition": "Wearing this",
+    "indicators": [],
+    "pieces": [
+     "FLIP",
+     "FLOP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somersault",
+      "gives": "FLIP",
+      "note": "a flip is a somersault, the gymnast's word for turning right over in the air"
+     },
+     {
+      "clueFragment": "a failure",
+      "gives": "FLOP",
+      "note": "a flop is a thing that fails — the show that closes in a week"
+     }
+    ],
+    "surface": "Turning a somersault in the wrong footwear and coming badly unstuck.",
+    "walkthrough": "The definition is the two words at the front, and 'this' does all the pointing: the clue never names a shoe, it only says the answer is worn.",
+    "definitionFit": "Flip-flops are the rubber sandals held on by a thong between the toes, so 'wearing this' identifies the answer as a thing you put on."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +92,34 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PITTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PITTA",
+    "definition": "Bread",
+    "indicators": [],
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "PIT",
+     "TA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a mine, the coal sort with a winding gear over it"
+     },
+     {
+      "clueFragment": "thank you",
+      "gives": "TA",
+      "note": "ta is the everyday British thanks, said far more often than written"
+     }
+    ],
+    "surface": "Claiming the loaf as your own and being polite about getting it.",
+    "walkthrough": "'Is mine' reads as a possessive claim, and 'mine' in the wordplay is a noun — the hole in the ground, not the pronoun.",
+    "definitionFit": "Pitta is the flat pocket bread of Greek and Middle Eastern cooking, so the definition names the answer by the class it belongs to."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +140,51 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "LONERANGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LONE RANGER",
+    "definition": "Wild West law enforcer",
+    "indicators": [
+     "separating"
+    ],
+    "indicatorNotes": {
+     "separating": "To separate two things is to stand between them, so the number named here takes its place in the gap between the pair of letters."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "L",
+     "ONE",
+     "R",
+     "ANGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two hands",
+      "gives": "L",
+      "note": "the two hands are left and right, and this is the left one"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "the number written out in full rather than left as a figure"
+     },
+     {
+      "clueFragment": "two hands",
+      "gives": "R",
+      "note": "the right hand, the second of the same pair"
+     },
+     {
+      "clueFragment": "fury",
+      "gives": "ANGER",
+      "note": "anger is fury"
+     }
+    ],
+    "surface": "A frontier marshal angrily prising two people's hands apart.",
+    "walkthrough": "Hands abbreviate to L and R the way they are stamped inside a pair of gloves, and the surface picture of a peacemaker is what stops you seeing letters.",
+    "definitionFit": "The Lone Ranger is the masked ex-Texas Ranger of American radio and television westerns, so the definition names him by the job he does out there."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +201,45 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUMICE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PUMICE",
+    "definition": "Abrasive",
+    "indicators": [
+     "turned"
+    ],
+    "indicatorNotes": {
+     "turned": "A thing that has been turned now faces the other way, so the little word beside it is written from its last letter back to its first."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "PU",
+     "MICE"
+    ],
+    "subReversals": [
+     {
+      "from": "UP",
+      "to": "PU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "PU",
+      "note": "the two letters of 'up' written the other way round"
+     },
+     {
+      "clueFragment": "computer peripherals",
+      "gives": "MICE",
+      "note": "the things that sit beside a keyboard, plural of mouse"
+     }
+    ],
+    "surface": "A rough character who arrived carrying the office keyboards and mice.",
+    "walkthrough": "'Turned up' looks like one phrase meaning arrived, and it is two things: the first word is the instruction and the second is what it acts on.",
+    "definitionFit": "An abrasive is any substance used to rub a surface down, and pumice — the frothy volcanic stone on the bathroom shelf — is the domestic one."
+   }
   },
   {
    "id": "6-across",
@@ -123,7 +256,46 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MUGGLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MUGGLE",
+    "definition": "he can’t magically fix",
+    "definitionNote": "The definition is a whole clause rather than a noun: the answer is the 'he' being described, somebody with no magic to mend anything with.",
+    "indicators": [
+     "broken"
+    ],
+    "indicatorNotes": {
+     "broken": "A broken thing has come apart and been put back together wrong, which is what happens to the three letters sitting next to it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "MUG",
+     "GLE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "LEG",
+      "gives": "GLE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Simpleton",
+      "gives": "MUG",
+      "note": "a mug is a gullible fool, the one who falls for it every time"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "GLE",
+      "note": "anagram fodder, three letters"
+     }
+    ],
+    "surface": "A dim character hobbling about on a leg that no spell of his is going to mend.",
+    "walkthrough": "Muggle is the Harry Potter books' word for anyone born without magic, and 'broken' works twice over: it describes the leg in the picture and shuffles it in the wordplay.",
+    "definitionFit": "In those books a Muggle is a person born with no magic at all, so being unable to fix anything by spell is the whole of what defines them."
+   }
   },
   {
    "id": "6-down",
@@ -140,7 +312,28 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MARE",
+    "definition": "Horse",
+    "definition2": "appears on the moon",
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse",
+      "note": "the female of the species, the one in the paddock with a foal beside her"
+     },
+     {
+      "clueFragment": "appears on the moon",
+      "note": "astronomers' name for the dark basalt plains you can see with the naked eye"
+     }
+    ],
+    "surface": "A horse somehow visible up on the surface of the moon.",
+    "walkthrough": "Latin mare means sea, and the moon's dark patches were christened seas by early observers — Mare Tranquillitatis and the rest — so one spelling covers a horse and a lunar plain.",
+    "definitionFit": "A mare is a female horse, and the same four letters name the dark plains on the moon that early astronomers took for water."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +350,30 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENERATOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GENERATOR",
+    "definition": "source of energy",
+    "indicators": [
+     "Shivering"
+    ],
+    "indicatorNotes": {
+     "Shivering": "Something shivering cannot hold still, and letters that will not hold still do not stay in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "GOT NEARER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "got nearer",
+      "gives": "GOTNEARER",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "Someone trembling with cold edging closer to the fire.",
+    "walkthrough": "'Got nearer' is the picture of creeping towards warmth and the letters themselves at once, and the cold in 'shivering' is what makes you read it as description.",
+    "definitionFit": "A generator turns motion into electricity, so it is literally where the power in a circuit comes from rather than merely a supply of it."
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +394,34 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEDZEPPELIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LED ZEPPELIN",
+    "definition": "Band",
+    "indicators": [],
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "LED",
+     "ZEPPELIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "gives": "LED",
+      "note": "the light-emitting diode in every torch and gadget, three letters"
+     },
+     {
+      "clueFragment": "aircraft",
+      "gives": "ZEPPELIN",
+      "note": "the rigid airship built by Count von Zeppelin, an aircraft in earnest"
+     }
+    ],
+    "surface": "A stripe of light thrown down by a small plane.",
+    "walkthrough": "'Light aircraft' is a phrase in its own right and the clue splits it straight down the middle, so the trap is reading three words where there are only two pieces.",
+    "definitionFit": "Led Zeppelin were the English rock group of the seventies, so 'Band' defines the answer by naming the class one particular band belongs to."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +442,40 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPOTON",
-   "annotation": null
+   "annotation": {
+    "type": "container + homophone",
+    "answer": "SPOT ON",
+    "definition": "Exactly",
+    "indicators": [
+     "say",
+     "coming in"
+    ],
+    "indicatorNotes": {
+     "say": "'Say' asks for the spoken name of a thing rather than its spelling, and the drink named beside it is exactly how one letter is pronounced.",
+     "coming in": "Something coming in is arriving inside rather than alongside, so what precedes it is planted in the middle of the longer word."
+    },
+    "pieces": [
+     "SPO",
+     "T",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something to eat with",
+      "gives": "SPOON",
+      "note": "what you eat with rather than what you eat — the implement, not the food"
+     },
+     {
+      "clueFragment": "tea",
+      "soundsLike": "TEA",
+      "gives": "T",
+      "note": "said aloud, the name of this single letter is the word for the drink"
+     }
+    ],
+    "surface": "Asking whether anything edible is arriving with the tea, and being told there is.",
+    "walkthrough": "The question mark flags the pun on 'tea': the drink in the picture, the name of a letter in the wordplay. 'Something to eat with' is the implement, not the cake.",
+    "definitionFit": "'Spot on' is the everyday British way of saying dead right, so it stands in for 'exactly' as a flat expression of agreement."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +492,30 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARINADE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MARINADE",
+    "definition": "a liquid mixture over some food",
+    "indicators": [
+     "Pelting"
+    ],
+    "indicatorNotes": {
+     "Pelting": "Rain that pelts is thrown down hard and scattered where it lands, and letters scattered like that come to rest in a new order."
+    },
+    "anagram": {
+     "fodder": "RAIN MADE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rain made",
+      "gives": "RAINMADE",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "A downpour heavy enough to soak everything laid out for the picnic.",
+    "walkthrough": "The clue runs as one unbroken sentence about a ruined picnic, so 'pelting' reads as a description of the rain rather than the instruction it is.",
+    "definitionFit": "A marinade is the seasoned liquid you steep meat or fish in before cooking, which is a liquid mixture poured over food."
+   }
   },
   {
    "id": "11-across",
@@ -237,7 +536,24 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "RELAYRACE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "RELAY RACE",
+    "definition": "contest",
+    "blocks": [
+     {
+      "clueFragment": "One may start this",
+      "note": "reads as the official with the pistol, the person whose job is getting an event under way"
+     },
+     {
+      "clueFragment": "but one won’t finish",
+      "note": "the setter means an ordinary competitor both times: whoever runs the first leg hands the baton on and stops"
+     }
+    ],
+    "surface": "A competition somebody sets going and then never sees the end of.",
+    "walkthrough": "Read straight, this sounds like a complaint about an event nobody sees through; the two 'one's are teammates, and handing over is the point rather than a failure.",
+    "definitionFit": "A relay race is a contest between teams whose members run in turn, so 'contest' defines it by the broader class it belongs to."
+   }
   },
   {
    "id": "12-down",
@@ -254,7 +570,34 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTERTAINER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENTERTAINER",
+    "definition": "job in showbiz",
+    "definitionNote": "'Job in showbiz' names an occupation while the answer is the person who does it — the setter is treating the trade and the tradesman as one thing.",
+    "indicators": [
+     "Somehow"
+    ],
+    "indicatorNotes": {
+     "Somehow": "This word refuses to say by what means, and an instruction that will not name its method is telling you the letters arrive in an order of their own."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "RETRAIN TEEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "retrain teen",
+      "gives": "RETRAINTEEN",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "surface": "Putting a teenager through a retraining scheme aimed at a career on the stage.",
+    "walkthrough": "The fodder hides in plain sight as a careers-advice sentence, and 'teen' is the last word you would suspect of being letters rather than a person.",
+    "definitionFit": "An entertainer is anyone who performs for a paying audience — singer, comic, conjuror — so the definition points at the trade rather than any one act."
+   }
   },
   {
    "id": "13-across",
@@ -271,7 +614,42 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FREED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "FREED",
+    "definition": "out of jail",
+    "indicators": [
+     "returns"
+    ],
+    "indicatorNotes": {
+     "returns": "A thing that returns comes back along the way it went, so the animal named before it is written from its last letter to its first."
+    },
+    "pieces": [
+     "F",
+     "REED"
+    ],
+    "subReversals": [
+     {
+      "from": "DEER",
+      "to": "REED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the grade stamped on a pencil for fine"
+     },
+     {
+      "clueFragment": "supplier of venison",
+      "gives": "REED",
+      "note": "venison is deer meat, and this deer is facing the other way"
+     }
+    ],
+    "surface": "The venison dealer comes back to trade once his fine has been paid.",
+    "walkthrough": "'Fine' opens the clue like a word of approval and is a single letter off a pencil. The comma is the only sign that the definition starts where it does.",
+    "definitionFit": "To be freed is to be let out of confinement, and 'out of jail' is that release at its most literal — the state afterwards, not the act."
+   }
   },
   {
    "id": "14-down",
@@ -292,7 +670,33 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "ELSALVADOR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EL SALVADOR",
+    "definition": "the country",
+    "indicators": [
+     "moved"
+    ],
+    "indicatorNotes": {
+     "moved": "Something moved is no longer where it was put, and letters shifted out of their places come back in a different arrangement."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "SALAD LOVER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Salad lover",
+      "gives": "SALADLOVER",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A devotee of salads giving up the town and going to live among fields.",
+    "walkthrough": "'Moved to the country' is one ordinary phrase about leaving the city, and it hides both the instruction and the point where the definition begins.",
+    "definitionFit": "El Salvador is a small Central American republic, so 'the country' defines it only by category — the whole class standing in for one member."
+   }
   },
   {
    "id": "15-across",
@@ -309,7 +713,31 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TALENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TALENT",
+    "definition": "a special gift",
+    "indicators": [],
+    "pieces": [
+     "TALE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, one of the two Testaments a crossword means by 'books'"
+     }
+    ],
+    "surface": "A book of stories handed over as a particularly thoughtful present.",
+    "walkthrough": "A talent was once a weight of silver, and the parable of the talents is how a unit of money came to mean an inborn ability — which is why books and gifts sit so easily in one sentence.",
+    "definitionFit": "A talent is an ability you were born with rather than one you earned, which is exactly what makes 'gift' the everyday word for it."
+   }
   },
   {
    "id": "16-down",
@@ -326,7 +754,24 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDSLIPS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "LANDSLIPS",
+    "definition": "they may fall off a cliff",
+    "blocks": [
+     {
+      "clueFragment": "Naturally",
+      "note": "the surface hears 'of course', the shrug you put in front of something everybody already agrees with"
+     },
+     {
+      "clueFragment": "they may fall off a cliff",
+      "note": "read one way it is walkers or objects going over the edge; the setter means the edge itself coming away, and by natural causes"
+     }
+    ],
+    "surface": "An offhand remark that of course things go over the edge of a cliff.",
+    "walkthrough": "'Naturally' carries the whole clue: not 'obviously' but 'by natural process, with nobody pushing'. A landslip is the British word for a landslide.",
+    "definitionFit": "A landslip is a mass of earth and rock breaking away and sliding downhill, so the thing falling off the cliff is the cliff itself."
+   }
   },
   {
    "id": "17-across",
@@ -347,7 +792,34 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLYTIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLY-TIP",
+    "definition": "illegally dispose of it",
+    "indicators": [],
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "FLY",
+     "TIP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insect",
+      "gives": "FLY",
+      "note": "the commonest insect of all, and conveniently three letters"
+     },
+     {
+      "clueFragment": "End",
+      "gives": "TIP",
+      "note": "the tip of a thing is its end, its furthest point"
+     }
+    ],
+    "surface": "The back end of an insect, and an instruction to get rid of it on the quiet.",
+    "walkthrough": "Read the answer as a possessive and the first two words are the wordplay outright — the tip of a fly — with the colon standing in for an equals sign.",
+    "definitionFit": "To fly-tip is to dump waste illegally, the British term for leaving rubbish in a lay-by or a field rather than taking it to a refuse site."
+   }
   },
   {
    "id": "18-across",
@@ -364,7 +836,25 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RENDER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "RENDER",
+    "definition": "Hand over",
+    "definition2": "a first thin coat",
+    "blocks": [
+     {
+      "clueFragment": "Hand over",
+      "note": "the verb for giving something up, as in the biblical instruction to give Caesar his due"
+     },
+     {
+      "clueFragment": "a first thin coat",
+      "note": "the builder's word for the layer of mortar spread straight onto brickwork"
+     }
+    ],
+    "surface": "Passing across the first light layer of plaster.",
+    "walkthrough": "Both senses come from the French rendre, to give back: one gives up a possession, the other gives a wall its finish. 'First' matters — the later coats have their own names.",
+    "definitionFit": "To render is to hand something over or give it up, and in building the render is the thin first coat of mortar laid on a wall."
+   }
   },
   {
    "id": "19-across",
@@ -381,7 +871,25 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARREL",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BARREL",
+    "definition": "Large quantity of beer",
+    "definition2": "over which one is powerless",
+    "blocks": [
+     {
+      "clueFragment": "Large quantity of beer",
+      "note": "the cask brewers still sell by, thirty-six gallons of it"
+     },
+     {
+      "clueFragment": "over which one is powerless",
+      "note": "this half points at an idiom rather than a synonym: held over one of these, you have no way to resist"
+     }
+    ],
+    "surface": "So much ale in the cask that nobody could do a thing about it.",
+    "walkthrough": "'Over a barrel' is the idiom the second half aims at — someone bent over one for a flogging could not fight back — and beer is still sold by the barrel.",
+    "definitionFit": "A barrel is the cask beer is sold by, and the idiom 'over a barrel' means helpless, so the second half names it through the phrase it lives in."
+   }
   },
   {
    "id": "20-down",
@@ -402,7 +910,37 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
     ]
    },
    "solution": "HOTTUB",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HOT TUB",
+    "definition": "bath",
+    "indicators": [
+     "installs"
+    ],
+    "indicatorNotes": {
+     "installs": "To install something is to fit it into the fabric of a place, so the letters named next are set into the middle of the word before them."
+    },
+    "pieces": [
+     "H",
+     "OTT",
+     "UB"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Centre",
+      "gives": "HUB",
+      "note": "the hub is the centre of a wheel, and of anything else that radiates"
+     },
+     {
+      "clueFragment": "unwarranted",
+      "gives": "OTT",
+      "note": "OTT is short for over the top — excessive, more than the case warrants"
+     }
+    ],
+    "surface": "A leisure centre putting in a bath that nobody had asked for.",
+    "walkthrough": "'Centre installs' reads as a sports centre doing building work and 'unwarranted' as somebody's complaint about the spending; both are wordplay.",
+    "definitionFit": "A hot tub is the heated outdoor bath people sit around in, so 'bath' names it plainly — just not the enamel indoor kind you picture first."
+   }
   },
   {
    "id": "21-across",
@@ -419,7 +957,34 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARSH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MARSH",
+    "definition": "waterlogged area",
+    "indicators": [],
+    "linkWords": [
+     "On"
+    ],
+    "pieces": [
+     "MARS",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "planet",
+      "gives": "MARS",
+      "note": "the fourth planet out from the sun, the red one"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the letter on the hot tap"
+     }
+    ],
+    "surface": "Somewhere out on another planet, hot and soaking wet.",
+    "walkthrough": "'Hot' looks like a temperature in a sentence about a planet's terrain and is really the single letter stamped on a bathroom tap.",
+    "definitionFit": "A marsh is low ground permanently soaked and soft underfoot, which is what a waterlogged area is."
+   }
   },
   {
    "id": "22-across",
@@ -436,7 +1001,33 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WOLVERINE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "WOLVERINE",
+    "definition": "a glutton",
+    "indicators": [
+     "Drunken"
+    ],
+    "indicatorNotes": {
+     "Drunken": "A drunk cannot hold a straight line, and letters that will not hold their line arrive in a different order from the one you were given."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "WINE LOVER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "wine lover",
+      "gives": "WINELOVER",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "A wine buff who has had far too much and eats like a pig.",
+    "walkthrough": "'Drunken' describes the wine lover in the picture and instructs you in the wordplay, and one word doing both jobs is what keeps the fodder out of sight.",
+    "definitionFit": "The wolverine's older English name is the glutton — Gulo gulo, the greedy northern weasel — so this is a second name, not a remark about appetite."
+   }
   },
   {
    "id": "23-down",
@@ -453,7 +1044,36 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUMBA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RUMBA",
+    "definition": "A Cuban export",
+    "indicators": [
+     "going by"
+    ],
+    "indicatorNotes": {
+     "going by": "To go by a thing is to pass along its side, so the two letters that follow settle next to the piece already in place."
+    },
+    "pieces": [
+     "RUM",
+     "BA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong drink",
+      "gives": "RUM",
+      "note": "the spirit distilled from sugar cane"
+     },
+     {
+      "clueFragment": "airline",
+      "gives": "BA",
+      "note": "BA is British Airways, the crossword's default carrier"
+     }
+    ],
+    "surface": "Somebody flying out of Havana with duty-free bottles in the bag.",
+    "walkthrough": "'A Cuban export' does the misdirecting: the island's famous exports are cigars and rum, and the rum has been put to work in the wordplay instead.",
+    "definitionFit": "The rumba is the ballroom dance that came out of Cuba, so 'a Cuban export' names the answer by where it travelled from."
+   }
   },
   {
    "id": "24-down",
@@ -470,7 +1090,31 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEWS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "MEWS",
+    "definition": "old stables",
+    "indicators": [
+     "aloud"
+    ],
+    "indicatorNotes": {
+     "aloud": "Aloud asks for the sound of a word rather than its spelling, so what goes into the grid is a different word said the same way."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ponder",
+      "soundsLike": "MUSE",
+      "gives": "MEWS",
+      "note": "to muse is to ponder, and the spelling changes when you write down what you hear"
+     }
+    ],
+    "surface": "Thinking out loud in a cobbled yard behind the houses.",
+    "walkthrough": "'Ponder aloud' looks like one action, musing out loud, and the second word is the instruction. Mews survive all over London because the horses went and the buildings stayed.",
+    "definitionFit": "A mews is a row of stables built behind a London terrace, later turned into houses — the word came from the royal hawk cages the stables replaced."
+   }
   },
   {
    "id": "25-across",
@@ -487,7 +1131,45 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCIDENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "INCIDENT",
+    "definition": "disturbance",
+    "indicators": [
+     "first off"
+    ],
+    "indicatorNotes": {
+     "first off": "This phrase takes away the letter at the front of the word beside it, so what is left begins one letter later."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "IN",
+     "CID",
+     "ENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "As part of",
+      "gives": "IN",
+      "note": "to be part of something is to be in it"
+     },
+     {
+      "clueFragment": "detective force",
+      "gives": "CID",
+      "note": "the CID is the Criminal Investigation Department, the British police's plain-clothes detectives"
+     },
+     {
+      "clueFragment": "sent",
+      "gives": "ENT",
+      "note": "the word 'sent' with its opening letter taken away"
+     }
+    ],
+    "surface": "A detective dispatched the moment trouble gets reported.",
+    "walkthrough": "'Sent first off' reads as being despatched straight away, and the phrase is really the word plus an instruction to dock its opening letter.",
+    "definitionFit": "An incident is any disturbance that breaks the ordinary run of things — the neutral word police and reporters both use for public trouble."
+   }
   },
   {
    "id": "26-across",
@@ -504,7 +1186,39 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DAMAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DAMAGE",
+    "definition": "a likely result of crash",
+    "indicators": [
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "perhaps": "This word concedes the equation runs one way only — growing weaker is one of the things the piece beside it covers, not the whole of it."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "DAM",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barrier",
+      "gives": "DAM",
+      "note": "a dam is the barrier thrown across a river"
+     },
+     {
+      "clueFragment": "become weaker",
+      "gives": "AGE",
+      "note": "to age is to grow older, and growing weaker is the part of that the clue picks out"
+     }
+    ],
+    "surface": "A wall bound to weaken eventually, and what a collision would leave of it.",
+    "walkthrough": "Everything before the last comma is wordplay, and the grammar disguises that: 'barrier to become weaker' reads as a purpose rather than two pieces laid end to end.",
+    "definitionFit": "Damage is the harm a collision leaves behind, so the definition reaches the answer through its cause instead of offering a synonym."
+   }
   },
   {
    "id": "27-down",
@@ -521,7 +1235,30 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GOO",
+    "definition": "Sticky stuff",
+    "indicators": [
+     "not entirely"
+    ],
+    "indicatorNotes": {
+     "not entirely": "This says the word is there but not all of it, and what gets left off is the letter at the end."
+    },
+    "pieces": [
+     "GOO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satisfactory",
+      "gives": "GOO",
+      "note": "the four-letter word for a satisfactory result, here with its last letter left off"
+     }
+    ],
+    "surface": "Something adhesive that falls just short of being good enough.",
+    "walkthrough": "'Not entirely satisfactory' is such a natural phrase — the mildest of complaints — that it reads as one verdict rather than a word plus an instruction.",
+    "definitionFit": "Goo is the informal word for any thick sticky substance, the stuff that clings to your fingers and will not shake off."
+   }
   },
   {
    "id": "28-across",
@@ -538,7 +1275,34 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRISES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CRISES",
+    "definition": "Crucial moments",
+    "indicators": [],
+    "linkWords": [
+     "for which"
+    ],
+    "pieces": [
+     "C",
+     "RISES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "C is Charlie in the radio alphabet"
+     },
+     {
+      "clueFragment": "gets up",
+      "gives": "RISES",
+      "note": "to get up is to rise"
+     }
+    ],
+    "surface": "Emergencies serious enough to get a man called Charlie out of bed.",
+    "walkthrough": "Charlie is C in the NATO alphabet, the list that also gives Oscar and Victor, and the capital letter is there to sell you a man rather than a letter.",
+    "definitionFit": "A crisis is the turning point at which a situation must go one way or the other, so 'crucial moments' is the plural of exactly that."
+   }
   },
   {
    "id": "29-across",
@@ -555,7 +1319,45 @@ window.CRYPTIC_PUZZLES["cryptic-30003"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BERGAMOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BERGAMOT",
+    "definition": "Essential oil",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue this word means resting against the far side of what follows, so the pieces named first end up to the right of it."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "BERG",
+     "A",
+     "MOT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mass of ice",
+      "gives": "BERG",
+      "note": "a berg is the floating mass, short for iceberg"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the bare article, taken straight off the page"
+     },
+     {
+      "clueFragment": "car test",
+      "gives": "MOT",
+      "note": "the MOT is the annual roadworthiness test every older British car has to pass"
+     }
+    ],
+    "surface": "An indispensable lubricant needed to test a car out on the ice.",
+    "walkthrough": "'Essential oil' is a set phrase for a plant extract, and the surface asks you to hear it as an oil that is essential — necessary — instead.",
+    "definitionFit": "Bergamot is the citrus oil pressed from a Mediterranean orange and used to scent Earl Grey tea, so it is one of the essential oils by name."
+   }
   }
  ]
 } /*JSON-END*/;
