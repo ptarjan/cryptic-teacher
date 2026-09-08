@@ -35,7 +35,31 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCIENCE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "SCIENCE FICTION",
+    "definition": "Type of novel",
+    "indicators": [
+     "cracked"
+    ],
+    "indicatorNotes": {
+     "cracked": "Something cracked has broken apart, and pieces that have broken apart do not stay in the order they were laid out in."
+    },
+    "anagram": {
+     "fodder": "ICE NOT SCENIC IF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ice, not scenic if",
+      "gives": "ICENOTSCENICIF",
+      "note": "anagram fodder, 14 letters, comma and all"
+     }
+    ],
+    "surface": "A novel set on ice that is nothing much to look at and has started to break up.",
+    "walkthrough": "Fourteen letters of fodder is a lot to shuffle, so count them against the enumeration before you start. The comma after 'ice' is punctuation, and a setter is free to ignore it.",
+    "definitionFit": "'Type of novel' asks for the name of a genre, and the answer is the genre of imagined technology, space travel and futures that have not happened."
+   }
   },
   {
    "id": "1-down",
@@ -57,7 +81,34 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ]
    },
    "solution": "SERIOUS",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "SERIOUS ATTEMPT",
+    "definition": "Determined effort",
+    "indicators": [
+     "massage"
+    ],
+    "indicatorNotes": {
+     "massage": "To massage figures is to work them over until they come out looking different, which is what happens to these letters."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "TO MEET UPSTAIRS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to meet upstairs",
+      "gives": "TOMEETUPSTAIRS",
+      "note": "anagram fodder, 14 letters"
+     }
+    ],
+    "surface": "Two people arranging to meet upstairs for a massage.",
+    "walkthrough": "'Upstairs' in a down clue looks like an instruction to run letters up the grid towards the top. It is fodder, and every word after the definition goes into the mix.",
+    "definitionFit": "A determined effort is a try made in earnest: the first word of the answer carries 'determined', the second carries 'effort', both as plain synonyms."
+   }
   },
   {
    "id": "2-down",
@@ -74,7 +125,48 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INELEGANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "INELEGANT",
+    "definition": "Unsophisticated",
+    "indicators": [
+     "enthralled by"
+    ],
+    "indicatorNotes": {
+     "enthralled by": "To be enthralled is to be held captive, so the captive word sits inside the words that are holding it."
+    },
+    "pieces": [
+     "IN",
+     "E",
+     "LEG",
+     "ANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "in = fashionable, trendy"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a member is a limb"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker of crosswords is the ant"
+     }
+    ],
+    "surface": "An unpolished club member being captivated by a fashionable European colleague.",
+    "walkthrough": "'Worker' is the ant of a thousand crosswords and 'member' is a limb rather than a person. Two disguises worth owning, because setters reach for both every week.",
+    "definitionFit": "Plain synonym: 'unsophisticated' and the answer both describe a person or thing that lacks polish, grace and social finish."
+   }
   },
   {
    "id": "3-down",
@@ -91,7 +183,28 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEEDS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "NEEDS",
+    "definition": "demands",
+    "indicators": [
+     "outspoken"
+    ],
+    "indicatorNotes": {
+     "outspoken": "Outspoken splits into 'out spoken' — said aloud — so this word is handed to you by its sound rather than its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Press’s",
+      "soundsLike": "KNEADS",
+      "gives": "NEEDS",
+      "note": "to press dough is to knead it, so 'presses' is 'kneads', whose opening K is silent"
+     }
+    ],
+    "surface": "The newspapers being blunt about what they want.",
+    "walkthrough": "The apostrophe-s is a verb ending, not a possessive: 'press's' is 'presses'. Bakers press dough under another name, and that name starts with a letter you never hear.",
+    "definitionFit": "'Demands' is the plural noun here — the things somebody must have — and the answer is the everyday word for requirements of that kind."
+   }
   },
   {
    "id": "4-down",
@@ -108,7 +221,44 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EPIDERMIS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters + first letter",
+    "answer": "EPIDERMIS",
+    "definition": "Skin",
+    "indicators": [
+     "oddly",
+     "starting to",
+     "unfortunately"
+    ],
+    "indicatorNotes": {
+     "oddly": "Taken oddly means taken at the odd positions — first, third and so on — so only half the word's letters are handed over.",
+     "starting to": "A word that is only starting has not got past its opening letter, and that letter is the one you take.",
+     "unfortunately": "Something that has gone unfortunately has gone wrong, and letters that have gone wrong are letters out of their proper order."
+    },
+    "anagram": {
+     "fodder": "RS DEEPIM I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rash oddly",
+      "gives": "RS",
+      "note": "the odd letters of R-a-S-h"
+     },
+     {
+      "clueFragment": "deep, I’m",
+      "gives": "DEEPIM",
+      "note": "these six letters as they stand, apostrophe ignored"
+     },
+     {
+      "clueFragment": "starting to itch",
+      "gives": "I",
+      "note": "the first letter of itch"
+     }
+    ],
+    "surface": "Someone's deep rash has begun to itch, and it is not going well.",
+    "walkthrough": "'Skin rash' wants to be the definition and only the first word is. Three separate scraps of wordplay then feed the shuffle, which is why the letter count matters more than the reading.",
+    "definitionFit": "Skin is the everyday word for the body's outer covering, and the answer is the anatomist's name for that same outermost layer."
+   }
   },
   {
    "id": "5-across",
@@ -128,7 +278,9 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "FICTION",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "1-across"
+   }
   },
   {
    "id": "5-down",
@@ -145,7 +297,43 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FRIED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "FRIED",
+    "definition": "Type of food",
+    "definitionNote": "The answer is an adjective while 'type of food' is a noun phrase; a menu names a category this way, calling a dish by the method that cooked it.",
+    "indicators": [
+     "starter"
+    ],
+    "indicatorNotes": {
+     "starter": "A starter is whatever comes first, so the letter taken is the one that starts the word beside it."
+    },
+    "pieces": [
+     "FR",
+     "IE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "(French)",
+      "gives": "FR",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. = that is"
+     },
+     {
+      "clueFragment": "delicious starter",
+      "gives": "D",
+      "note": "the first letter of delicious"
+     }
+    ],
+    "surface": "A French dish that is a delicious way to begin a meal.",
+    "walkthrough": "'That is' is Latin i.e. in disguise, one of the small workhorses of this language. The brackets round 'French' are the setter flagging an abbreviation rather than making an aside.",
+    "definitionFit": "'Type of food' points at a whole class of dishes named by how they were cooked, which is the sense the answer carries on any menu."
+   }
   },
   {
    "id": "6-down",
@@ -162,7 +350,47 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEAPNESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CHEAPNESS",
+    "definition": "that 12 might like",
+    "definitionNote": "This is a cross-reference rather than a synonym: 12 across's answer names a person, and this answer is the quality that person would welcome.",
+    "indicators": [
+     "swallowing"
+    ],
+    "indicatorNotes": {
+     "swallowing": "Swallowing takes something down inside you, so whatever gets swallowed ends up in the middle of the word doing the swallowing."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "CH",
+     "E",
+     "AP",
+     "NESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guy",
+      "gives": "CHAP",
+      "note": "a chap is a guy, a bloke"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy, the crossword drug of choice"
+     },
+     {
+      "clueFragment": "cape",
+      "gives": "NESS",
+      "note": "a ness is a headland — Sheerness, Orford Ness"
+     }
+    ],
+    "surface": "A man in a cape gulping down a pill.",
+    "walkthrough": "The cape in the surface is the superhero kind, and in the wordplay it is coastline: a ness is a headland, which is how British setters clue 'cape' without leaving the country.",
+    "definitionFit": "12's answer is someone settling a bill, and low prices are what such a person hopes for — the answer is the noun for goods costing little."
+   }
   },
   {
    "id": "7-down",
@@ -179,7 +407,44 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITALY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "ITALY",
+    "definition": "I",
+    "indicators": [
+     "not"
+    ],
+    "indicatorNotes": {
+     "not": "'Not' is doing subtraction here: whatever follows it is taken back out of what has just been put together."
+    },
+    "linkWords": [
+     "can show"
+    ],
+    "pieces": [
+     "I",
+     "TALY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "score",
+      "gives": "TALLY",
+      "note": "a running score is a tally"
+     },
+     {
+      "clueFragment": "150",
+      "gives": "",
+      "note": "read it aloud as 'one fifty' — that is one L, since L is the Roman fifty, and one L comes out"
+     }
+    ],
+    "surface": "Somebody offering to produce a scoreline: one, not a hundred and fifty.",
+    "walkthrough": "'150' is not a numeral to convert but a number to say out loud. One fifty is one L, and a single L is exactly what has to leave.",
+    "definitionFit": "'I' is the international vehicle registration letter carried by cars from this country, so the plate stands in for the country — definition by abbreviation."
+   }
   },
   {
    "id": "8-down",
@@ -207,7 +472,35 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ]
    },
    "solution": "NATURAL",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "NATURAL NUMBERS",
+    "definition": "Maybe Cocaine’s",
+    "definitionNote": "'Cocaine' is a single example offered with 'maybe', while the answer is plural: the clue points at a whole class by naming one member of it.",
+    "linkWords": [
+     "indicative of"
+    ],
+    "pieces": [
+     "NATURAL",
+     "NUMBERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "normal",
+      "gives": "NATURAL",
+      "note": "normal = as nature made it, unforced"
+     },
+     {
+      "clueFragment": "songs",
+      "gives": "NUMBERS",
+      "note": "in showbusiness a song is a number — 'a lively number'"
+     }
+    ],
+    "surface": "Perhaps the song Cocaine tells you something about ordinary music.",
+    "walkthrough": "Cocaine is set in italics because it is a title — the JJ Cale song Clapton made famous — and it is a song grown from a plant, which is the whole of the joke.",
+    "definitionFit": "The italics make Cocaine a song title; a song is a number, and this one comes from a plant rather than a lab, so it qualifies by example."
+   }
   },
   {
    "id": "9-across",
@@ -224,7 +517,36 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REEVE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REEVE",
+    "definition": "magistrate",
+    "indicators": [
+     "meeting"
+    ],
+    "indicatorNotes": {
+     "meeting": "Two things that meet are set side by side, so these pieces are simply laid end to end in the order given."
+    },
+    "pieces": [
+     "RE",
+     "EVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ray",
+      "gives": "RE",
+      "note": "ray is the second note of the sol-fa scale, and setters spell it RE"
+     },
+     {
+      "clueFragment": "first lady",
+      "gives": "EVE",
+      "note": "the first lady of Genesis"
+     }
+    ],
+    "surface": "Ray is introduced to the first lady, who sits as a magistrate.",
+    "walkthrough": "Doh, ray, me: the sol-fa scale is a standing source of two-letter chunks, and 'first lady' is the oldest one there is rather than a president's wife.",
+    "definitionFit": "The word names the medieval English officer who kept order in a manor, town or shire, so 'magistrate' fits in its older administrative sense."
+   }
   },
   {
    "id": "10-across",
@@ -241,7 +563,45 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITINERANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ITINERANT",
+    "definition": "Vagrant",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "'Before' fixes the order: what has been named ahead of it goes in front of what is named after it."
+    },
+    "linkWords": [
+     "makes"
+    ],
+    "pieces": [
+     "I",
+     "TINE",
+     "RANT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "TINE",
+      "note": "a tine is the point of a fork or an antler"
+     },
+     {
+      "clueFragment": "shouting",
+      "gives": "RANT",
+      "note": "to rant is to shout on and on"
+     }
+    ],
+    "surface": "A drifter gets one argument in before the shouting starts.",
+    "walkthrough": "'Point' looks like a compass letter — N, S, E or W, a setter's usual meaning — and it is a prong instead, which is four letters rather than one.",
+    "definitionFit": "A vagrant is somebody with no fixed home who moves from place to place, and the answer is the noun for exactly such a wanderer."
+   }
   },
   {
    "id": "11-across",
@@ -258,7 +618,39 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERSPEND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERSPEND",
+    "definition": "exhaust",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "OVER",
+     "SP",
+     "END"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concluded",
+      "gives": "OVER",
+      "note": "when something is concluded it is over"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "SP",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "a finish is an end"
+     }
+    ],
+    "surface": "A special race concluded with a finish that left the runners drained.",
+    "walkthrough": "Two of the three pieces mean 'end' — 'concluded' and 'finish' — which is what makes the clue read as one idea instead of three instructions in a row.",
+    "definitionFit": "To exhaust a fund is to use it all up and then some, and the answer is the verb for running through money past the point where any is left."
+   }
   },
   {
    "id": "12-across",
@@ -275,7 +667,37 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAYER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PAYER",
+    "definition": "settler",
+    "indicators": [
+     "boring"
+    ],
+    "indicatorNotes": {
+     "boring": "To bore into something is to drill into its middle, so the drilling word ends up inside the drilled one."
+    },
+    "pieces": [
+     "PA",
+     "YE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mean",
+      "gives": "PAR",
+      "note": "par is the mean, the average, the standard figure"
+     },
+     {
+      "clueFragment": "The old",
+      "gives": "YE",
+      "note": "ye is the old way of writing 'the', as in Ye Olde Tea Shoppe"
+     }
+    ],
+    "surface": "A dull, stingy old colonist.",
+    "walkthrough": "'Settler' looks like a colonist and 'mean' like stingy. Both are the wrong sense, and the surface is built so that the two wrong senses agree with each other.",
+    "definitionFit": "To settle a bill is to pay it, so 'settler' names the person doing the paying — a sense that survives mainly in accounts and in crosswords."
+   }
   },
   {
    "id": "13-across",
@@ -292,7 +714,30 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMASH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SMASH",
+    "definition": "Ruin",
+    "pieces": [
+     "S",
+     "MASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruins",
+      "gives": "S",
+      "note": "once 'Ruin' has been taken as the definition, the S left on the end of that word is the wordplay's first letter"
+     },
+     {
+      "clueFragment": "potatoes",
+      "gives": "MASH",
+      "note": "mash is what boiled potatoes become"
+     }
+    ],
+    "surface": "A question about what ruins a potato.",
+    "walkthrough": "The word 'Ruins' is split down the middle: 'Ruin' is the definition and its final S joins the wordplay. Setters do that with a verb ending whenever the surface will carry it.",
+    "definitionFit": "To ruin something is to wreck it, and the answer is the blunter verb for the same act — breaking a thing apart beyond repair."
+   }
   },
   {
    "id": "14-down",
@@ -309,7 +754,46 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HYPERICUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "HYPERICUM",
+    "definition": "flowering plant",
+    "indicators": [
+     "noisily"
+    ],
+    "indicatorNotes": {
+     "noisily": "Something done noisily is done out loud, so this piece reaches you as a sound and has to be respelt before it fits."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "HYPER",
+     "I",
+     "CUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overexcited",
+      "gives": "HYPER",
+      "note": "hyper = overexcited"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the person setting the clue calls himself I"
+     },
+     {
+      "clueFragment": "approach",
+      "soundsLike": "COME",
+      "gives": "CUM",
+      "note": "to approach is to come, and that noise is spelt this way in words borrowed from Latin"
+     }
+    ],
+    "surface": "An overexcited red setter bounding noisily up to someone.",
+    "walkthrough": "'Setter' is a gun dog on the surface and the clue's own author underneath. The plant is St John's wort, far better known by that name than by this one.",
+    "definitionFit": "The answer is the botanical genus name of St John's wort, so 'flowering plant' is the general class the genus sits in."
+   }
   },
   {
    "id": "15-across",
@@ -326,7 +810,36 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASTERFUL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MASTERFUL",
+    "definition": "Expert",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "Mostly means all but the last bit, so the word it governs turns up with its final letter left off."
+    },
+    "pieces": [
+     "MASTER",
+     "FUL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship’s captain",
+      "gives": "MASTER",
+      "note": "the master of a ship is her captain"
+     },
+     {
+      "clueFragment": "occupied",
+      "gives": "FUL",
+      "note": "FULL means occupied, and it arrives a letter short"
+     }
+    ],
+    "surface": "A ship's captain who is busy most of the time.",
+    "walkthrough": "'Mostly' sits in front of the word it cuts rather than behind it, so it reads as part of the captain's timetable instead of as an instruction to trim.",
+    "definitionFit": "'Expert' is an adjective here — skilled, in command of the craft — and the answer is the adjective for doing a thing with complete authority."
+   }
   },
   {
    "id": "16-down",
@@ -343,7 +856,30 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOWROOMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHOWROOMS",
+    "definition": "Places that display",
+    "pieces": [
+     "SHOW",
+     "ROOMS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "SHOW",
+      "note": "a musical is a show"
+     },
+     {
+      "clueFragment": "boards",
+      "gives": "ROOMS",
+      "note": "to board somewhere is to room there, to lodge"
+     }
+    ],
+    "surface": "Somewhere with placards up advertising a musical.",
+    "walkthrough": "'Boards' looks like the theatre's own word — treading the boards — which keeps it inside the musical's world. It is the lodging verb instead.",
+    "definitionFit": "'Places that display' is a plain plural definition: the spaces a dealer lays stock out in for customers to walk round and look at."
+   }
   },
   {
    "id": "17-down",
@@ -360,7 +896,46 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORBIDDEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "FORBIDDEN",
+    "definition": "debarred",
+    "indicators": [
+     "blocked"
+    ],
+    "indicatorNotes": {
+     "blocked": "A blocked pipe has something stuck part-way along it, and that is where the blocking letter goes."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "FOR",
+     "BID",
+     "D",
+     "EN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "FOR",
+      "note": "to be for something is to be in favour of it"
+     },
+     {
+      "clueFragment": "ex-president",
+      "gives": "BIDEN",
+      "note": "Joe Biden, US president until January 2025"
+     },
+     {
+      "clueFragment": "(Democrat)",
+      "gives": "D",
+      "note": "standard abbreviation"
+     }
+    ],
+    "surface": "A former US president, a Democrat, blocked and barred from something.",
+    "walkthrough": "'Blocked and debarred' reads as a single phrase, so the definition looks two words longer than it is. Only the last word of the clue defines.",
+    "definitionFit": "To be debarred from something is to be shut out of it by rule, which is what the answer says as an adjective: not allowed."
+   }
   },
   {
    "id": "18-across",
@@ -377,7 +952,34 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTIPASTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANTIPASTO",
+    "definition": "a starter",
+    "linkWords": [
+     "It’s"
+    ],
+    "pieces": [
+     "ANTI",
+     "PAST",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liking the present",
+      "gives": "ANTIPAST",
+      "note": "somebody keen on now is set against what has gone: ANTI the PAST"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a tennis score of nothing, written as a nought"
+     }
+    ],
+    "surface": "'Do you like the present, love?' — somebody asking about a gift.",
+    "walkthrough": "'Present' is a parcel in the surface and an era in the wordplay, and 'love' is a term of endearment right up to the moment it turns into a nought.",
+    "definitionFit": "A starter is the first course of a meal, and the answer is the Italian name for exactly that course."
+   }
   },
   {
    "id": "18-down",
@@ -397,7 +999,9 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "ATTEMPT",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "1-down"
+   }
   },
   {
    "id": "19-across",
@@ -414,7 +1018,38 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIREN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SIREN",
+    "definition": "Alarm",
+    "indicators": [
+     "accompanying",
+     "trim"
+    ],
+    "indicatorNotes": {
+     "accompanying": "One thing accompanying another travels alongside it, so this letter is simply placed next to what follows.",
+     "trim": "To trim something is to cut a bit off its end, so the name arrives with its final letter gone."
+    },
+    "pieces": [
+     "S",
+     "IREN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "trim Papas’ woman",
+      "gives": "IREN",
+      "note": "the first name of Irene Papas, cut short by a letter"
+     }
+    ],
+    "surface": "A son out walking with a trim woman of the Papas family.",
+    "walkthrough": "Irene Papas was the Greek actress of Zorba the Greek and The Guns of Navarone. A surname pointing at a first name is a standard way of getting a common word out of a famous person.",
+    "definitionFit": "An alarm is the warning noise a device makes, and the answer names that wailing device on an ambulance roof or a factory wall."
+   }
   },
   {
    "id": "20-down",
@@ -434,7 +1069,9 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "NUMBERS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "8-down"
+   }
   },
   {
    "id": "21-across",
@@ -451,7 +1088,34 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTOR",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "TUTOR",
+    "definition": "Coach",
+    "indicators": [
+     "at the beginning"
+    ],
+    "indicatorNotes": {
+     "at the beginning": "The phrase is about where to look rather than what to think: the opening letter of every word it governs."
+    },
+    "pieces": [
+     "T",
+     "U",
+     "T",
+     "O",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tyres unable to operate reliably",
+      "gives": "TUTOR",
+      "note": "the initial letters of these five words, taken in order"
+     }
+    ],
+    "surface": "The tyres on a coach that will not work properly when it first sets off.",
+    "walkthrough": "'Coach' does two jobs: the bus the tyres belong to, and the person who teaches. It is the only word in the clue not lending a letter, which is what makes it the definition.",
+    "definitionFit": "To coach someone is to instruct them one to one, and the answer is the noun for the person who does that private teaching."
+   }
   },
   {
    "id": "22-down",
@@ -468,7 +1132,27 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TERSE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TERSE",
+    "definition": "brief",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part rather than the whole, so what is wanted is a run of letters inside the words, not their meaning."
+    },
+    "blocks": [
+     {
+      "clueFragment": "barristers examine",
+      "gives": "TERSE",
+      "note": "five consecutive letters straddle the gap between the two words"
+     }
+    ],
+    "surface": "Barristers going over a brief between them.",
+    "walkthrough": "'Brief' is the barrister's bundle of papers on the surface and an adjective underneath, so both readings of the clue stay inside one profession.",
+    "definitionFit": "Brief means short, and the answer is the adjective for speech pared to the minimum — few words, and a little curt with it."
+   }
   },
   {
    "id": "23-across",
@@ -485,7 +1169,47 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TARANTISM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "TARANTISM",
+    "definition": "uncontrolled dancing",
+    "indicators": [
+     "Lacking",
+     "embraces"
+    ],
+    "indicatorNotes": {
+     "Lacking": "To lack something is to be without it, so the named letter is simply missing from the word that lacks it.",
+     "embraces": "An embrace closes round a person, so the word doing the embracing wraps itself round the other one."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "TA",
+     "RANT",
+     "ISM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chinese philosophy",
+      "gives": "TAOISM",
+      "note": "Taoism is the Chinese philosophy of the Way"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "",
+      "note": "love is nothing in tennis, so the letter taken out is the O"
+     },
+     {
+      "clueFragment": "yelling",
+      "gives": "RANT",
+      "note": "a rant is sustained yelling"
+     }
+    ],
+    "surface": "A loveless Chinese philosophy taking in a good deal of yelling and wild dancing.",
+    "walkthrough": "Tarantism was the dancing mania of southern Italy, blamed on the tarantula's bite and treated by dancing it out of the system. The tarantella comes from the same story.",
+    "definitionFit": "The answer names that epidemic dancing mania, so 'uncontrolled dancing' describes the condition itself rather than standing in as a synonym."
+   }
   },
   {
    "id": "23-down",
@@ -502,7 +1226,36 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "TRIAL",
+    "definition": "Test",
+    "indicators": [
+     "introduction of"
+    ],
+    "indicatorNotes": {
+     "introduction of": "An introduction comes at the front, so what is taken is the opening letter of the word being introduced."
+    },
+    "pieces": [
+     "T",
+     "RIAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "introduction of tandoori",
+      "gives": "T",
+      "note": "the first letter of tandoori"
+     },
+     {
+      "clueFragment": "bread in the Middle East",
+      "gives": "RIAL",
+      "note": "bread is slang for money, and the rial is the currency of Iran and Oman"
+     }
+    ],
+    "surface": "The bread that comes out of a tandoori oven, of the kind eaten in the Middle East.",
+    "walkthrough": "'Bread' is money, not the naan a tandoori oven promises. Both food words in the surface are there to keep you thinking about dinner.",
+    "definitionFit": "'Test' matches the answer's sense of a controlled try-out — a new drug or a vehicle put through its paces — and not the courtroom sense it also carries."
+   }
   },
   {
    "id": "24-down",
@@ -519,7 +1272,40 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NADIR",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "NADIR",
+    "definition": "Bottom",
+    "indicators": [
+     "part of",
+     "turned up"
+    ],
+    "indicatorNotes": {
+     "part of": "'Part of' asks for a piece of the words themselves, so the letters come straight out of the text rather than out of the meaning.",
+     "turned up": "This is a down entry, so 'up' means reading from the foot of the answer towards the top — the letters arrive the other way about."
+    },
+    "subReversals": [
+     {
+      "from": "RIDAN",
+      "to": "NADIR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horrid android’s",
+      "gives": "RIDAN",
+      "note": "five letters in a row straddle the join between these two words"
+     },
+     {
+      "clueFragment": "turned up",
+      "gives": "",
+      "note": "reversal indicator: those five letters are read back the other way"
+     }
+    ],
+    "surface": "The lower half of a horrible robot, tipped upside down.",
+    "walkthrough": "'Bottom part of horrid android' reads as one description of a robot's lower half, which is how 'part of' slips past as an instruction rather than as description.",
+    "definitionFit": "Bottom is the lowest point of a thing, and the answer is the astronomer's word for the point directly beneath you — the opposite of the zenith."
+   }
   },
   {
    "id": "25-across",
@@ -536,7 +1322,33 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARACAIBO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MARACAIBO",
+    "definition": "city and lake",
+    "linkWords": [
+     "associated with"
+    ],
+    "pieces": [
+     "MARACA",
+     "IBO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instrument",
+      "gives": "MARACA",
+      "note": "a maraca is the gourd rattle shaken in Latin American bands"
+     },
+     {
+      "clueFragment": "West African",
+      "gives": "IBO",
+      "note": "the Ibo are a people of southern Nigeria"
+     }
+    ],
+    "surface": "A musical instrument with some West African connection.",
+    "walkthrough": "Maracaibo is Venezuela's second city, standing on the great lake of the same name, so 'city and lake' is one word doing two jobs rather than two answers.",
+    "definitionFit": "The name belongs to both a Venezuelan city and the vast lake beside it, so one word answers 'city and lake' at once."
+   }
   },
   {
    "id": "26-across",
@@ -553,7 +1365,28 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DODGE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DODGE",
+    "definition": "Move out of the way",
+    "definition2": "car",
+    "linkWords": [
+     "of"
+    ],
+    "surface": "Stepping smartly aside to avoid a car.",
+    "blocks": [
+     {
+      "clueFragment": "Move out of the way",
+      "note": "the verb: to swerve aside to avoid something"
+     },
+     {
+      "clueFragment": "car",
+      "note": "a make of American car, the second definition"
+     }
+    ],
+    "walkthrough": "The clue reads as one continuous action — a person avoiding a vehicle — and it is two separate definitions with nothing but 'of' holding them together.",
+    "definitionFit": "The verb means to move sharply aside to avoid something; the same word is an American car marque, so 'car' defines by naming one make."
+   }
   },
   {
    "id": "27-across",
@@ -575,7 +1408,49 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ]
    },
    "solution": "THERMAL",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + container",
+    "answer": "THERMAL SPRINGS",
+    "definition": "hot baths",
+    "indicators": [
+     "wearing",
+     "at first"
+    ],
+    "indicatorNotes": {
+     "wearing": "You put clothes on around yourself, so the piece that is wearing something finishes up inside it.",
+     "at first": "'At first' is about position and not about letters: the piece it follows is placed at the front of the answer."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "THERMALS",
+     "P",
+     "R",
+     "INGS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underwear",
+      "gives": "THERMALS",
+      "note": "thermals are the insulating long johns and vests worn against the cold"
+     },
+     {
+      "clueFragment": "Sounds",
+      "gives": "PINGS",
+      "note": "pings are small sharp sounds"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "surface": "It sounds right to keep your underwear on, at least at first, in the hot baths.",
+    "walkthrough": "'Sounds' wants to be a homophone instruction, the commonest trap in the language of these clues. It is a plural noun instead — the small noises a machine makes.",
+    "definitionFit": "'Hot baths' describes naturally heated pools people bathe in, which is what these are: water warmed underground and rising to the surface."
+   }
   },
   {
    "id": "28-across",
@@ -595,7 +1470,9 @@ window.CRYPTIC_PUZZLES["cryptic-30018"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "SPRINGS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "27-across"
+   }
   }
  ]
 } /*JSON-END*/;
