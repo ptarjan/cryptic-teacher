@@ -37,7 +37,44 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLUEFOOTEDBOOBY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLUE-FOOTED BOOBY",
+    "definition": "Bird",
+    "indicators": [
+     "first",
+     "on"
+    ],
+    "indicatorNotes": {
+     "first": "'First' is about the queue rather than about letters: the piece it follows takes the front of the assembly.",
+     "on": "This is a down entry, so one thing on another is sitting above it, and what comes before goes over what comes after."
+    },
+    "pieces": [
+     "BLUE",
+     "FOOTED",
+     "BOOBY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down",
+      "gives": "BLUE",
+      "note": "someone feeling down is feeling blue"
+     },
+     {
+      "clueFragment": "settled",
+      "gives": "FOOTED",
+      "note": "to foot a bill is to settle it"
+     },
+     {
+      "clueFragment": "a kind of trap",
+      "gives": "BOOBY",
+      "note": "the trap that springs on the unwary is named after a word for a fool"
+     }
+    ],
+    "surface": "A bird that has settled down for the night on top of some kind of snare.",
+    "walkthrough": "'Settled down' reads as one phrase and is two separate definitions, one for each of the first two words, with the second of them clued before the first. The bird is the Galapagos seabird with the turquoise feet.",
+    "definitionFit": "'Bird' names the class the answer belongs to: a large tropical seabird, clued by its family rather than by any of its own words."
+   }
   },
   {
    "id": "2-down",
@@ -54,7 +91,54 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWENTIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + reversal + container",
+    "answer": "TWENTIES",
+    "definition": "the decade",
+    "indicators": [
+     "coming up",
+     "in",
+     "development"
+    ],
+    "indicatorNotes": {
+     "coming up": "This is a down entry, so something coming up is read from the foot towards the top, and its letters arrive the other way about.",
+     "in": "'In' puts one thing inside another, so the short piece lands in the middle of the longer one instead of beside it.",
+     "development": "A development is a site where the ground has been dug up and put back differently, which is what happens to these letters."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "NEWEST IT"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "NEWEST",
+      "gives": "TWENES"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "IT",
+      "to": "TI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newest development",
+      "gives": "TWENES",
+      "note": "the six letters of NEWEST re-sorted, and then opened up to take something"
+     },
+     {
+      "clueFragment": "It’s coming up",
+      "gives": "TI",
+      "note": "IT read upwards; the apostrophe-s is only the verb holding the sentence together"
+     }
+    ],
+    "surface": "A brand-new building development going up, billed as the one to watch this decade.",
+    "walkthrough": "'Development' looks like a builder's estate and works as the shuffling instruction. Count before you start: NEWEST is six letters of the eight, and the other two come up out of the small word at the front.",
+    "definitionFit": "'The decade' points at a ten-year span named by its numbers — the third decade of any century, which is the span the answer names."
+   }
   },
   {
    "id": "3-down",
@@ -71,7 +155,28 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRACE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BRACE",
+    "definition": "Support",
+    "definition2": "couple",
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "the noun: a strut or prop put in to hold something steady"
+     },
+     {
+      "clueFragment": "couple",
+      "note": "the field-sports count for two of something — 'a couple of pheasants'"
+     }
+    ],
+    "surface": "Backing being offered to a married couple.",
+    "walkthrough": "'For' is doing nothing but joining the halves; each of the two content words defines on its own. British game shooting still counts birds in twos this way, which is where the second sense survives.",
+    "definitionFit": "'Support' is the prop that holds a thing steady; 'couple' is the shooting count for a pair of birds — two plain noun senses of one word."
+   }
   },
   {
    "id": "4-down",
@@ -92,7 +197,33 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
     ]
    },
    "solution": "BADSHAPE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BAD SHAPE",
+    "definition": "poor condition?",
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "BAD",
+     "SHAPE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heaps",
+      "gives": "BAD",
+      "note": "the clue is being solved backwards: this is the word for the state those five letters have been left in"
+     },
+     {
+      "clueFragment": "Heaps",
+      "gives": "SHAPE",
+      "note": "the same five letters, sorted into a different order"
+     }
+    ],
+    "surface": "Piles of junk that have plainly seen better days.",
+    "walkthrough": "The answer is not built out of the clue — it is a clue for the clue. Read the two words you write in as an instruction, five letters and the state they are in, and they spell the word the setter gave you.",
+    "definitionFit": "'Poor condition' is the state of something run down or damaged, and the answer is the everyday idiom for being in exactly that state."
+   }
   },
   {
    "id": "5-down",
@@ -109,7 +240,33 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FEMALE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FEMALE",
+    "definition": "woman",
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "FE",
+     "MALE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iron",
+      "gives": "FE",
+      "note": "the chemist's symbol for iron, from the Latin ferrum"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MALE",
+      "note": "a man is a male"
+     }
+    ],
+    "surface": "The superhero Iron Man, and whether the part could be played by a woman.",
+    "walkthrough": "'Iron man' reads as one thing — the superhero, or the endurance triathlon — and the split falls right down the middle of it. Fe is iron on any periodic table.",
+    "definitionFit": "'Woman' and the answer are both nouns for a person of that sex, the answer being the broader, more clinical word that covers any species."
+   }
   },
   {
    "id": "6-down",
@@ -126,7 +283,37 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CATAMARAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CATAMARAN",
+    "definition": "Boat",
+    "indicators": [
+     "go round"
+    ],
+    "indicatorNotes": {
+     "go round": "Something that goes round another thing encircles it, so the word doing the going closes round what follows."
+    },
+    "pieces": [
+     "C",
+     "ATAMAR",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to have sufficient power to",
+      "gives": "CAN",
+      "note": "to have the power to do a thing is to can do it"
+     },
+     {
+      "clueFragment": "a river",
+      "gives": "ATAMAR",
+      "note": "A plus the Tamar, the river that divides Devon from Cornwall"
+     }
+    ],
+    "surface": "A boat with engine enough to work its way round a river.",
+    "walkthrough": "The 'a' in front of the river belongs to the wordplay, not to the river's name, and the word that goes round splits after a single letter. The twin-hulled craft itself takes its name from Tamil.",
+    "definitionFit": "'Boat' is the general class: the answer names one particular design, a twin-hulled craft, so the definition is the category it sits in."
+   }
   },
   {
    "id": "7-down",
@@ -143,7 +330,42 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOVIET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SOVIET",
+    "definition": "communist",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "What comes finally is what comes last, so only the closing letter of the word beside it is handed over."
+    },
+    "pieces": [
+     "SO",
+     "VIE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Then",
+      "gives": "SO",
+      "note": "'so' and 'then' both introduce what follows from what came before"
+     },
+     {
+      "clueFragment": "life in France",
+      "gives": "VIE",
+      "note": "'la vie' is French for life"
+     },
+     {
+      "clueFragment": "finally went",
+      "gives": "T",
+      "note": "the last letter of went"
+     }
+    ],
+    "surface": "Life in France eventually going over to communism.",
+    "walkthrough": "'In France' is the setter asking for a French word rather than naming a place, a signal worth owning. 'Finally' then cuts the last word of the clue down to a single letter.",
+    "definitionFit": "'Communist' works as an adjective here: everything belonging to the old USSR was called this, and that state was the communist one."
+   }
   },
   {
    "id": "8-down",
@@ -164,7 +386,39 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
     ]
    },
    "solution": "DANGEROUSGROUND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DANGEROUS GROUND",
+    "definition": "could be a minefield",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "DANGEROUS",
+     "G",
+     "ROUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like some liaisons",
+      "gives": "DANGEROUS",
+      "note": "Laclos's novel, and the film made of it, pair this adjective with liaisons"
+     },
+     {
+      "clueFragment": "golf",
+      "gives": "G",
+      "note": "golf is G in the radio alphabet"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "ROUND",
+      "note": "a round is the set of drinks you buy for the whole table"
+     }
+    ],
+    "surface": "Certain love affairs, a game of golf and a few drinks, all of them tricky territory.",
+    "walkthrough": "'Golf and drinks' reads as one afternoon out and is two separate scraps of wordplay. Les Liaisons Dangereuses is the eighteenth-century French novel that supplies the first word.",
+    "definitionFit": "A minefield is ground you cross at your peril, so the definition works by naming the most literal example there is of what the answer describes."
+   }
   },
   {
    "id": "9-across",
@@ -185,7 +439,30 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOWERCASE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LOWER-CASE",
+    "definition": "capital? No",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Letters that are out are out of order: here the word means wrong rather than removed, and nothing leaves the clue."
+    },
+    "anagram": {
+     "fodder": "SO WE CLEAR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "So we clear",
+      "gives": "SOWECLEAR",
+      "note": "anagram fodder, nine letters"
+     }
+    ],
+    "surface": "A suggestion that we empty out the capital city, met with a flat refusal.",
+    "walkthrough": "'Clear out' reads as one phrasal verb, and that hides the join: three words of letters, then the instruction. The 'No' at the end reverses the definition, not the wordplay.",
+    "definitionFit": "'Capital' is the printer's word for a big letter, so capital denied names the small letters the rest of a page is set in."
+   }
   },
   {
    "id": "10-across",
@@ -202,7 +479,27 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGORA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "AGORA",
+    "definition": "doing his shopping here?",
+    "indicators": [
+     "selectively"
+    ],
+    "indicatorNotes": {
+     "selectively": "To take something selectively is to take only part of it, and the part wanted is a run of letters rather than a meaning."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pythagoras",
+      "gives": "AGORA",
+      "note": "five letters sit consecutively inside the mathematician's name"
+     }
+    ],
+    "surface": "Pythagoras being choosy about where he does his shopping.",
+    "walkthrough": "The Greek market square doubled as the town's meeting place, which is why a philosopher can be put shopping in one. 'Selectively' is the only word in the clue that is an instruction.",
+    "definitionFit": "The answer is the open marketplace of an ancient Greek town, so the definition points at the place by naming what you would go there to do."
+   }
   },
   {
    "id": "11-across",
@@ -219,7 +516,47 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EUNUCHS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters + anagram",
+    "answer": "EUNUCHS",
+    "definition": "ineffectual people",
+    "indicators": [
+     "regularly",
+     "hopeless"
+    ],
+    "indicatorNotes": {
+     "regularly": "Letters taken regularly are taken at a steady interval — every second one here — so half the word is left behind.",
+     "hopeless": "A hopeless state is a state of disorder, and letters in disorder no longer sit where they were put."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "EUN",
+     "UCHS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SUCH",
+      "gives": "UCHS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Return regularly",
+      "gives": "EUN",
+      "note": "the second, fourth and sixth letters of rEtUrN"
+     },
+     {
+      "clueFragment": "such hopeless",
+      "gives": "UCHS",
+      "note": "the four letters of 'such' in a new order"
+     }
+    ],
+    "surface": "A regular return to the company of such hopeless, useless people.",
+    "walkthrough": "'Return' looks like the turnaround instruction every solver reaches for first, and it is a word to take letters out of instead. 'Hopeless' does the shuffling — an instruction disguised as more abuse.",
+    "definitionFit": "The answer names castrated men, and the word is used figuratively of anyone left with no power to act, which is what 'ineffectual people' asks for."
+   }
   },
   {
    "id": "12-across",
@@ -236,7 +573,40 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMAZING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMAZING",
+    "definition": "sensational",
+    "linkWords": [
+     "with",
+     "that’s"
+    ],
+    "pieces": [
+     "A",
+     "MA",
+     "ZING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own first word, taken as it stands"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is the nursery word for mother"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "ZING",
+      "note": "zing is energy, life, zest"
+     }
+    ],
+    "surface": "A mother who still has plenty of energy about her.",
+    "walkthrough": "'A' at the start of a clue looks like grammar and is a letter of the answer. Setters use that trick often, because the eye skips small words on its way to the interesting ones.",
+    "definitionFit": "'Sensational' is the adjective for something that startles and delights, and the answer is the everyday word for producing that same reaction."
+   }
   },
   {
    "id": "13-across",
@@ -253,7 +623,30 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OBIT",
+    "definition": "tribute",
+    "pieces": [
+     "O",
+     "BIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is nothing in tennis, written as a nought"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "BIT",
+      "note": "a little of something is a bit of it"
+     }
+    ],
+    "surface": "A small, loving tribute paid to somebody.",
+    "walkthrough": "'Love' as a nought comes from tennis scoring, a convention setters use most weeks. The three words here read as one idea and are three separate jobs: two pieces and a definition.",
+    "definitionFit": "'Tribute' is what a newspaper's death notice amounts to — a short published account of a life — so the definition names its purpose rather than its form."
+   }
   },
   {
    "id": "14-across",
@@ -270,7 +663,30 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MALEFACTOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MALEFACTOR",
+    "definition": "Outlaw",
+    "pieces": [
+     "MALE",
+     "FACTOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Y-chromosome?",
+      "gives": "MALE",
+      "note": "the Y is the chromosome that decides which sex an embryo becomes"
+     },
+     {
+      "clueFragment": "the Y-chromosome?",
+      "gives": "FACTOR",
+      "note": "in genetics a factor is the element that determines an outcome"
+     }
+    ],
+    "surface": "A proposal that the Y-chromosome ought to be banned.",
+    "walkthrough": "'Outlaw' looks like a verb telling you to ban something and is the noun, a wrongdoer, that defines. The three words after it are one phrase in the surface and two words of the answer underneath.",
+    "definitionFit": "An outlaw is somebody who breaks the law, and the answer is the formal, courtroom noun for exactly such a person."
+   }
   },
   {
    "id": "15-down",
@@ -287,7 +703,28 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SANCTIONS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SANCTIONS",
+    "definition": "Permits",
+    "definition2": "penalties",
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permits",
+      "note": "the verb: officially allows something to happen"
+     },
+     {
+      "clueFragment": "penalties",
+      "note": "the plural noun: the measures one state imposes to punish another"
+     }
+    ],
+    "surface": "The two sides of an official rulebook: what is allowed, and what is punished.",
+    "walkthrough": "One word means both to allow and to punish, which makes it a contronym — a word that is its own opposite. The clue works by setting the two senses side by side and letting 'and' pretend they agree.",
+    "definitionFit": "'Permits' is the verb for officially allowing something; 'penalties' is the plural noun for measures imposed to punish — one word carrying both senses."
+   }
   },
   {
    "id": "16-across",
@@ -304,7 +741,39 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TESTATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TESTATE",
+    "definition": "Having decided what to do with",
+    "indicators": [
+     "the last of"
+    ],
+    "indicatorNotes": {
+     "the last of": "The last of a word is its final letter, so what is wanted is the closing letter of whatever follows the phrase."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "T",
+     "ESTATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the last of equipment",
+      "gives": "T",
+      "note": "the final letter of equipment"
+     },
+     {
+      "clueFragment": "possessions",
+      "gives": "ESTATE",
+      "note": "everything a person owns is their estate"
+     }
+    ],
+    "surface": "Somebody settling what should happen to the last of their gear and everything else they own.",
+    "walkthrough": "The definition breaks off in mid-sentence — decided what to do with what? — and the clue lets the last word finish the phrase while that word is busy handing over letters as well.",
+    "definitionFit": "The answer describes someone who has died leaving a valid will, so 'having decided what to do with' names the act that the will records."
+   }
   },
   {
    "id": "17-across",
@@ -321,7 +790,33 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLATEAU",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLATEAU",
+    "definition": "level",
+    "linkWords": [
+     "gets"
+    ],
+    "pieces": [
+     "PLATE",
+     "AU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serving",
+      "gives": "PLATE",
+      "note": "a serving of food arrives on a plate, and setters use the one for the other"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "gold is Au on the periodic table, from the Latin aurum"
+     }
+    ],
+    "surface": "A helping of food judged to be of gold standard.",
+    "walkthrough": "'Level' is a noun here rather than an adjective: not 'even' but a flat stretch, which is what the answer names in geography — high ground that has stopped climbing.",
+    "definitionFit": "'Level' as a noun is a flat stretch or a settled height, and the answer is the word for ground, or a graph, that has gone flat."
+   }
   },
   {
    "id": "17-down",
@@ -338,7 +833,44 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUNCTURE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "PUNCTURE",
+    "definition": "Flat",
+    "indicators": [
+     "on",
+     "broken"
+    ],
+    "indicatorNotes": {
+     "on": "This is a down entry, so one piece on another sits above it, and the piece named first takes the top of the answer.",
+     "broken": "Something broken has come apart, and letters that have come apart are free to be put back in a different order."
+    },
+    "pieces": [
+     "PUN",
+     "CTURE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TRUCE",
+      "gives": "CTURE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "PUN",
+      "note": "a pun is a joke made out of a word's two senses"
+     },
+     {
+      "clueFragment": "broken truce",
+      "gives": "CTURE",
+      "note": "the five letters of truce, re-sorted"
+     }
+    ],
+    "surface": "A flat joke made while an uneasy truce falls apart.",
+    "walkthrough": "'Flat' is the definition and reads as the first word of a description of the joke, which is where the parse goes wrong. It is the driver's noun for what a tyre gets.",
+    "definitionFit": "A flat is what a driver calls a tyre that has lost its air, and the answer is the hole that let the air out."
+   }
   },
   {
    "id": "18-down",
@@ -355,7 +887,46 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMULATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "EMULATED",
+    "definition": "Followed suit",
+    "indicators": [
+     "inappropriately"
+    ],
+    "indicatorNotes": {
+     "inappropriately": "Something done inappropriately is done the wrong way, and letters put the wrong way are letters out of their proper order."
+    },
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "pieces": [
+     "EMU",
+     "LATED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DEALT",
+      "gives": "LATED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian native",
+      "gives": "EMU",
+      "note": "the big flightless bird of the outback"
+     },
+     {
+      "clueFragment": "dealt inappropriately",
+      "gives": "LATED",
+      "note": "the five letters of dealt, re-sorted"
+     }
+    ],
+    "surface": "Someone followed suit at cards, then handled an Australian native badly.",
+    "walkthrough": "'Dealt' looks like part of the card game the first two words set up, and it is the letters to be shuffled. 'Australian native' is a bird rather than a person, a swerve the surface keeps quiet about.",
+    "definitionFit": "To follow suit is to do what somebody else has just done, and the answer is the past tense of the verb for copying another's example."
+   }
   },
   {
    "id": "19-across",
@@ -372,7 +943,37 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DETACHMENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "DETACHMENT",
+    "definition": "being cool",
+    "indicators": [
+     "Casually",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Casually": "Something done casually is done without care for order, so the letters land where they fall rather than where they started.",
+     "about": "'About' here means round: the shuffled letters close round the piece named after it."
+    },
+    "anagram": {
+     "fodder": "CHATTED MEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Casually chatted",
+      "gives": "DETACHT",
+      "note": "the seven letters of chatted, re-sorted and then opened up to take something"
+     },
+     {
+      "clueFragment": "blokes",
+      "gives": "MEN",
+      "note": "blokes are men"
+     }
+    ],
+    "surface": "Idle chat about some men who are keeping their cool.",
+    "walkthrough": "The quotation marks round the last two words are the setter flagging a slang sense, not a title and not a sound: the answer is the noun for keeping your head while everyone else loses theirs.",
+    "definitionFit": "'Being cool' is staying unruffled, and the answer is the noun for that state — standing far enough back from a thing that it cannot touch you."
+   }
   },
   {
    "id": "20-down",
@@ -389,7 +990,40 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWITCH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TWITCH",
+    "definition": "Little movement",
+    "indicators": [
+     "drinking"
+    ],
+    "indicatorNotes": {
+     "drinking": "Drinking takes something down inside you, so whatever is drunk finishes up in the middle of the word that swallows it."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "T",
+     "W",
+     "ITCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "TITCH",
+      "note": "a titch is British slang for a very small person, so it does for a child"
+     },
+     {
+      "clueFragment": "whisky",
+      "gives": "W",
+      "note": "whisky is W in the radio alphabet"
+     }
+    ],
+    "surface": "A small child caught taking a swig of whisky.",
+    "walkthrough": "Titch is British playground slang for someone very small, borrowed from the music-hall comedian Little Tich. The whisky is the radio operator's alphabet rather than the drink the surface pours.",
+    "definitionFit": "A little movement is a small involuntary jerk, and the answer is the word for that flicker of a muscle that nobody meant to make."
+   }
   },
   {
    "id": "21-down",
@@ -406,7 +1040,40 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARSHY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MARSHY",
+    "definition": "As the Fens are",
+    "indicators": [
+     "kept"
+    ],
+    "indicatorNotes": {
+     "kept": "To keep something is to hold on to it, so the word being kept sits inside the one that is holding it."
+    },
+    "linkWords": [
+     "where"
+    ],
+    "pieces": [
+     "MAR",
+     "SH",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contrary girl’s",
+      "gives": "MARY",
+      "note": "the nursery rhyme's gardener, whose label is 'quite contrary'"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "the noise you make when you are asking for silence"
+     }
+    ],
+    "surface": "The Fens described as the place where an awkward girl was kept quiet.",
+    "walkthrough": "'Contrary' is not an instruction to turn anything round: it is half of 'Mary, Mary, quite contrary' and it names the girl. The Fens are the flat, drained wetlands of eastern England.",
+    "definitionFit": "'As the Fens are' asks for the adjective describing that low, waterlogged country, and the answer is the plain word for boggy ground."
+   }
   },
   {
    "id": "22-across",
@@ -423,7 +1090,26 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JUNG",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "JUNG",
+    "definition": "Young German",
+    "definition2": "friend of 23",
+    "definitionNote": "The first definition is not in English at all — it is the German adjective — while the second points at a person, so the two halves define the same four letters in different languages.",
+    "blocks": [
+     {
+      "clueFragment": "Young German",
+      "note": "the German for 'young': the clue wants the foreign word itself, not a description of a person"
+     },
+     {
+      "clueFragment": "friend of 23",
+      "note": "23 down's answer is the founder of psychoanalysis, and this is the Swiss colleague who worked alongside him"
+     }
+    ],
+    "surface": "A young German who is a friend of the man at 23.",
+    "walkthrough": "Carl Jung worked with Freud until the two of them fell out in 1913, and his surname happens to be the German word for young. The clue sets those two facts side by side and adds nothing.",
+    "definitionFit": "The surname is also the German adjective meaning 'young', and it belongs to the Swiss psychiatrist who was 23's friend and colleague — one sense a word, one a man."
+   }
   },
   {
    "id": "23-down",
@@ -440,7 +1126,40 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FREUD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FREUD",
+    "definition": "a therapist",
+    "indicators": [
+     "beset by"
+    ],
+    "indicatorNotes": {
+     "beset by": "To be beset by something is to have it closing in from every side, so the letter ends up surrounded by what besets it."
+    },
+    "linkWords": [
+     "gets"
+    ],
+    "pieces": [
+     "F",
+     "R",
+     "EUD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trouble between Capulets and Montagues",
+      "gives": "FEUD",
+      "note": "the long-running quarrel between the two families in Romeo and Juliet"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the radio alphabet"
+     }
+    ],
+    "surface": "Romeo, hemmed in by the family quarrel, going to see a therapist.",
+    "walkthrough": "'Romeo' is the radio alphabet's letter and the play's hero at the same time, which is how the whole surface stays inside Verona. The therapist it delivers is Vienna's.",
+    "definitionFit": "'A therapist' defines by example: the answer names the Viennese doctor who invented psychoanalysis, so he is one instance of the class named."
+   }
   },
   {
    "id": "24-across",
@@ -457,7 +1176,40 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OLIVIER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "OLIVIER",
+    "definition": "award",
+    "indicators": [
+     "bagging"
+    ],
+    "indicatorNotes": {
+     "bagging": "To bag a thing is to put it in a bag, so what gets bagged goes inside the word that bagged it."
+    },
+    "linkWords": [
+     "after"
+    ],
+    "pieces": [
+     "OLIV",
+     "I",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who wanted more",
+      "gives": "OLIVER",
+      "note": "Dickens's workhouse boy, who asked for more gruel"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "surface": "Somebody still wanting more, having already collected one prize.",
+    "walkthrough": "'One' turns up twice and means something different each time: a hungry boy, then a Roman numeral. The Oliviers are Britain's annual theatre awards, called after Laurence Olivier.",
+    "definitionFit": "'Award' defines by example: the answer names the British theatre prize given out each year, which borrows the surname of a famous actor."
+   }
   },
   {
    "id": "25-across",
@@ -474,7 +1226,30 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TORNADO",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "TORNADO",
+    "definition": "Road not negotiable in this",
+    "indicators": [
+     "negotiable"
+    ],
+    "indicatorNotes": {
+     "negotiable": "Something negotiable is open to being reworked until both sides are satisfied, so the letters it governs are open to rearrangement."
+    },
+    "anagram": {
+     "fodder": "ROAD NOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Road not",
+      "gives": "ROADNOT",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "A road nobody would want to try driving down in weather like this.",
+    "walkthrough": "Every word is doing both jobs at once: the sentence describes the thing and spells it out of the same letters, so there is no separate definition to hunt for. 'In this' points back at the whole clue.",
+    "definitionFit": "The whole clue reads straight as a description — a road is not passable in one of these — so the sentence defines the thing it also spells."
+   }
   },
   {
    "id": "26-across",
@@ -491,7 +1266,25 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BACON",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BACON",
+    "definition": "What one may save to rescue",
+    "definition2": "artist",
+    "blocks": [
+     {
+      "clueFragment": "What one may save to rescue",
+      "note": "there is an idiom about saving somebody from trouble that names a breakfast food, and the food is the word wanted"
+     },
+     {
+      "clueFragment": "artist",
+      "note": "a twentieth-century British painter, best known for his screaming popes, carries the same surname"
+     }
+    ],
+    "surface": "Whatever you might put aside in order to rescue an artist.",
+    "walkthrough": "'Save' has two senses fighting on the surface — putting money by, and pulling somebody out of trouble — and only the second is in play. Francis Bacon is the painter of the screaming popes.",
+    "definitionFit": "The first half is the idiom for rescuing somebody from trouble; the second names a British painter who shares the word as a surname."
+   }
   },
   {
    "id": "27-across",
@@ -508,7 +1301,44 @@ window.CRYPTIC_PUZZLES["cryptic-30017"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERCULEAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "HERCULEAN",
+    "definition": "Powerful",
+    "indicators": [
+     "touched on",
+     "annihilation"
+    ],
+    "indicatorNotes": {
+     "touched on": "Two things that touch are set hard against each other, so this piece is laid straight up against what follows it.",
+     "annihilation": "Annihilation leaves nothing standing where it stood, so the letters it governs are scattered and put back somewhere else."
+    },
+    "pieces": [
+     "HE",
+     "RCULEAN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "NUCLEAR",
+      "gives": "RCULEAN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "an ambassador is His Excellency, HE in despatches"
+     },
+     {
+      "clueFragment": "nuclear annihilation",
+      "gives": "RCULEAN",
+      "note": "the seven letters of nuclear, re-sorted"
+     }
+    ],
+    "surface": "A powerful ambassador raising the subject of nuclear annihilation.",
+    "walkthrough": "'Powerful ambassador' reads as one description of a diplomat and only the first word defines. The answer takes its force from Hercules and his twelve labours, so it means strong beyond ordinary human scale.",
+    "definitionFit": "'Powerful' is the plain adjective and the answer is its heroic superlative: strength on the scale of the Greek strongman's twelve labours."
+   }
   }
  ]
 } /*JSON-END*/;
