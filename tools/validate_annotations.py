@@ -1280,11 +1280,20 @@ def check_definition_not_fodder(entries, errors, warnings):
 UNBALANCED_TYPES = ("deletion", "substitution", "cryptic definition",
                     "double definition", "homophone", "spoonerism", "&lit")
 
-# Per puzzle, not per clue. One under-decomposed clue is a judgement call a real
-# annotator makes; several is a run that stopped doing the work. Across the 671
-# annotated clues here the worst puzzle has exactly one of each.
-MAX_UNBALANCED = 2
-MAX_UNDECOMPOSED = 2
+# A clue whose whole mechanism is "middle letter" hands over that letter and
+# nothing else, so when the answer is longer than it the answer is DESCRIBING the
+# extraction rather than being built from it — 12423 16A, MIDDLE OF NOWHERE.
+# Matched exactly, unlike the list above: the 42 compound types that merely
+# CONTAIN "middle letter" ("charade + middle letter", 111 clues between them) do
+# have to add up, so a substring match here would blind the check on all of them.
+UNBALANCED_EXACT_TYPES = ("middle letter",)
+
+# The three block-shape checks below took a per-puzzle allowance of 2 until the
+# corpus was drained of every hit (2026-09-07). None of them has a false positive
+# left, so none of them has a reason to let one through: a tolerance that exists
+# only because the corpus was dirty keeps forgiving the same defect on every
+# puzzle fetched after the corpus was cleaned. Nine clues shipped a charade named
+# but not performed while the allowance stood at two per puzzle.
 
 
 def check_blocks_account_for_answer(entries, errors, warnings):
@@ -1296,19 +1305,19 @@ def check_blocks_account_for_answer(entries, errors, warnings):
     pieces T/RIG/GER, blocks T + R + IG. The blocks are what the app renders —
     they are what the learner reads — and nothing was comparing them to anything.
 
-    CALIBRATION (2026-09-07): 1 warns. 12423 16A (MIDDLE OF NOWHERE) is the
-    honest exception this stays a warning for — the answer describes the
-    operation, so the only letters any fragment hands over are the H, and there
-    is nothing further to decompose. Its type is bare "middle letter", which is
-    a substring of the 40-odd compound types that DO have to add up, so it
-    cannot be exempted by name without blinding the check on all of them.
+    CALIBRATION (2026-09-07): 0 of 671. The single hit, 12423 16A (MIDDLE OF
+    NOWHERE), is not a defect and is not a tolerance either: the answer describes
+    where the H sits rather than being built out of letters, which is a property
+    of its type, so UNBALANCED_EXACT_TYPES exempts that type and the gate shuts
+    behind it. Any hit is now an error.
     """
     hits = []
     for e in entries:
         ann = e.get("annotation") or {}
         if not ann or "linkedTo" in ann:
             continue
-        if any(x in (ann.get("type") or "") for x in UNBALANCED_TYPES):
+        atype = (ann.get("type") or "").strip()
+        if any(x in atype for x in UNBALANCED_TYPES) or atype in UNBALANCED_EXACT_TYPES:
             continue
         from collections import Counter
         got = "".join(letters(b.get("gives")) for b in ann.get("blocks", []))
@@ -1325,11 +1334,11 @@ def check_blocks_account_for_answer(entries, errors, warnings):
                 + (f" (missing {missing!r})" if missing else "")
                 + " — the blocks are what the learner actually reads, so they have "
                   "to be the parse, not a sketch of one")
-    if len(hits) > MAX_UNBALANCED:
+    if hits:
         errors.append(
-            f"puzzle: {len(hits)} clues ({', '.join(hits)}) have blocks whose letters "
-            f"are not the answer's — at most {MAX_UNBALANCED} allowed. Letters that "
-            f"don't add up mean the wordplay was described rather than worked out")
+            f"puzzle: {len(hits)} clue(s) ({', '.join(hits)}) have blocks whose letters "
+            f"are not the answer's. Letters that don't add up mean the wordplay was "
+            f"described rather than worked out")
 
 
 def check_blocks_decompose(entries, errors, warnings):
@@ -1341,11 +1350,13 @@ def check_blocks_decompose(entries, errors, warnings):
     is free: the annotation already contains both halves and nothing checked
     that they agree.
 
-    CALIBRATION (2026-09-07): 0 of 398 clues with 2+ pieces. The five this check
-    was written on, plus everyman-4124 23A ATOM and 12402 15A TEST BED, were all
-    genuine under-decomposition and are now split one block per piece. Warned,
-    not errored, because the judgement of what counts as a piece is the
-    annotator's; the corpus being clean is not a reason to close the gate.
+    CALIBRATION (2026-09-07): 0 of 398 clues with 2+ pieces, and errors on any
+    hit. The nine this check found were every one of them real, including the two
+    that looked like judgement calls: ATOM was fixed the other way round, because
+    its wordplay yields the single string "A TO M" and nothing clues the TO, so
+    the block was right and `pieces` was the thing describing a parse it had not
+    done. There is no case here where the annotator is entitled to both fields
+    disagreeing — one of the two is wrong, and which one is the annotator's call.
     """
     hits = []
     for e in entries:
@@ -1371,17 +1382,10 @@ def check_blocks_decompose(entries, errors, warnings):
                 f"{tag}: pieces are {'+'.join(ann['pieces'])} but there is one block "
                 f"handing over the whole answer — split it, one block per piece. "
                 f"Naming a charade is not doing the charade")
-    if len(hits) > MAX_UNDECOMPOSED:
+    if hits:
         errors.append(
-            f"puzzle: {len(hits)} clues ({', '.join(hits)}) name a multi-piece parse "
-            f"and then give the answer in one block — at most {MAX_UNDECOMPOSED}")
-
-
-# Zero, unlike its neighbours, because the backlog it found was cleared in the
-# same commit that added the check (2026-08-09) and the fix is mechanical — there
-# is one ordering of the blocks that spells the answer, so there is nothing to
-# weigh up. A check whose corpus is clean should start its gate closed.
-MAX_MISORDERED = 0
+            f"puzzle: {len(hits)} clue(s) ({', '.join(hits)}) name a multi-piece parse "
+            f"and then give the answer in one block")
 
 
 def check_blocks_in_answer_order(entries, errors, warnings):
@@ -1410,9 +1414,9 @@ def check_blocks_in_answer_order(entries, errors, warnings):
 
     CALIBRATION (2026-08-09): 10 of 127 pure charades, every one a genuine
     misordering (1388 23A, 30039 24A, 30041 28D, 30042 8D, 30043 7D, 30044 19D,
-    30078 25A, 30079 8D/11A/22A). Warned so the backlog surfaces without failing
-    a build that was already green; errors past MAX_MISORDERED, because a run
-    that does it repeatedly is listing blocks off the clue rather than the parse.
+    30078 25A, 30079 8D/11A/22A), all fixed in the commit that added the check.
+    Each clue still warns with its own letters, and any hit fails the puzzle: the
+    fix is mechanical, since exactly one ordering of the blocks spells the answer.
     """
     hits = []
     for e in entries:
@@ -1437,10 +1441,10 @@ def check_blocks_in_answer_order(entries, errors, warnings):
             f"letters, wrong order. The app renders blocks top to bottom, so "
             f"list them in answer order and let each clueFragment point back at "
             f"wherever it sits in the clue")
-    if len(hits) > MAX_MISORDERED:
+    if hits:
         errors.append(
-            f"puzzle: {len(hits)} charades ({', '.join(hits)}) list their blocks in "
-            f"clue order rather than answer order — at most {MAX_MISORDERED}")
+            f"puzzle: {len(hits)} charade(s) ({', '.join(hits)}) list their blocks in "
+            f"clue order rather than answer order")
 
 
 def check_blocks_carry_notes(entries, warnings):
