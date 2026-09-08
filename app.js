@@ -3485,6 +3485,19 @@
     return pickerPapers;
   }
 
+  // A paper chip's colour needs the series KEY ("indysunday"), but the chip
+  // itself is labelled and searched by the word SERIES_BADGE hands out ("indy
+  // sunday") — so look the key back up in the one table that already maps
+  // them, rather than keeping a second table of which paper is which.
+  let seriesKeyByLabel = null;
+  function seriesKeyForLabel(label) {
+    if (!seriesKeyByLabel) {
+      seriesKeyByLabel = {};
+      Object.keys(SERIES_BADGE).forEach((k) => { seriesKeyByLabel[SERIES_BADGE[k][0]] = k; });
+    }
+    return seriesKeyByLabel[label] || "";
+  }
+
   function pickerRows(q) {
     // Every term has to match somewhere, so "imogen 2026" narrows rather than
     // widens — the useful behaviour when the list is long enough to need a
@@ -3546,7 +3559,7 @@
           isOn(w)}">${esc(w)}</button>`;
       }).join("") + "</span>";
     setHTML($("picker-filters"),
-      group("Papers", pickerPaperList(), () => "series")
+      group("Papers", pickerPaperList(), (w) => "series series-" + esc(seriesKeyForLabel(w)))
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b)));
     chips.forEach((w, i) => {
       const el = $("pf-" + i);
