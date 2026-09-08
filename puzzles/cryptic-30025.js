@@ -30,7 +30,41 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "AGED",
+    "definition": "Old",
+    "indicators": [
+     "endlessly",
+     "showing up"
+    ],
+    "indicatorNotes": {
+     "endlessly": "A name given endlessly never gets to its finish, so the painter arrives without his last letter.",
+     "showing up": "This entry runs down the grid, so anything coming up it is written from the foot of the column towards the top."
+    },
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "AGED"
+    ],
+    "subReversals": [
+     {
+      "from": "DEGA",
+      "to": "AGED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modern artist",
+      "gives": "DEGA",
+      "note": "Degas painted the Paris ballet, and here his name stops one letter short"
+     }
+    ],
+    "surface": "Two schools of painting set against each other, with one of them forever turning up.",
+    "walkthrough": "'Old' looks like the opening of a phrase — old master, old or modern — and it is the entire definition on its own; everything after it belongs to Degas.",
+    "definitionFit": "Something aged has grown old with time, so the definition is the plain adjective rather than any sense of maturing on purpose."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +81,30 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KANGAROO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "KANGAROO",
+    "definition": "Kind of court",
+    "definition2": "proceeds by leaps and bounds",
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of court",
+      "gives": "",
+      "note": "the sham tribunal that hears a case it has no authority over and convicts anyway"
+     },
+     {
+      "clueFragment": "proceeds by leaps and bounds",
+      "gives": "",
+      "note": "the Australian marsupial's own way of getting about, with the bounds meant literally"
+     }
+    ],
+    "surface": "A courtroom getting through its business at indecent speed.",
+    "walkthrough": "Two of A A Milne's creations, Kanga and Roo, are sitting inside this one animal, which is the grid's joke rather than the clue's: the puzzle is stocked with authors and the characters they made.",
+    "definitionFit": "A kangaroo court is a sham tribunal that convicts in a hurry, and the animal itself travels in bounds — one sense attributive, one literal."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +121,50 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIRANDELLO",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram + deletion",
+    "answer": "PIRANDELLO",
+    "definition": "Italian playwright",
+    "indicators": [
+     "mostly",
+     "about",
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "mostly": "A word wanted mostly is a word wanted bar its finish, so the term for a storyline turns up a letter light.",
+     "about": "To put one thing about another is to wrap it round, so the trimmed word opens up and the rest of the letters sit inside it.",
+     "oddly": "Here the sense is peculiarly, not every-other-letter: a country delivered peculiarly is its letters out of their proper order."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "IRELAND",
+      "gives": "IRANDEL"
+     }
+    ],
+    "pieces": [
+     "P",
+     "IRANDEL",
+     "LO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "storyline",
+      "gives": "PLO",
+      "note": "a plot is a storyline, docked of its final letter and then split to make room"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "IRANDEL",
+      "note": "the seven letters of the country, resettled"
+     }
+    ],
+    "surface": "A programme note on an Italian dramatist who borrowed his plot loosely from Ireland.",
+    "walkthrough": "'Oddly' is the trap: taken as an instruction to read alternate letters it would hand you four letters of Ireland and no way forward. He wrote Six Characters in Search of an Author, which is what the rest of this grid is doing.",
+    "definitionFit": "Luigi Pirandello was Italy's great modernist dramatist and a Nobel laureate, so the definition names him by nationality and trade."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +181,34 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STERNE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STERNE",
+    "definition": "Irish novelist",
+    "indicators": [],
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "STERN",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serious",
+      "gives": "STERN",
+      "note": "a stern look is a serious, unsmiling one"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard single-letter shortening of English"
+     }
+    ],
+    "surface": "A publisher arguing about whether a solemn writer counts as English or Irish.",
+    "walkthrough": "'English' sits right next to a nationality in the definition, which is what makes it so easy to read as part of the argument rather than as one letter of the answer.",
+    "definitionFit": "Laurence Sterne, born in Clonmel and author of Tristram Shandy, is one particular Irish novelist rather than a synonym for the phrase."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +225,51 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORTHODOX",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ORTHODOX",
+    "definition": "usual",
+    "indicators": [
+     "largely",
+     "wrong"
+    ],
+    "indicatorNotes": {
+     "largely": "A name taken largely is a name taken not quite in full, so its final letter never reaches the fodder.",
+     "wrong": "A wrong steer is bad directions, and letters handed over wrongly are letters standing in places that are not theirs."
+    },
+    "linkWords": [
+     "’s",
+     "as"
+    ],
+    "anagram": {
+     "fodder": "DOROTH OX"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "DOROTH",
+      "gives": "ORTHOD"
+     }
+    ],
+    "pieces": [
+     "ORTHOD",
+     "OX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dorothy",
+      "gives": "ORTHOD",
+      "note": "the name bar its last letter, its six survivors put in new places"
+     },
+     {
+      "clueFragment": "steer",
+      "gives": "OX",
+      "note": "a steer is a young ox, the beast rather than the direction"
+     }
+    ],
+    "surface": "Dorothy giving directions again and getting them wrong, exactly as she always does.",
+    "walkthrough": "'Wrong steer' reads as one phrase meaning bad advice, which is where the surface wants you to stop; the steer is the animal in the field and supplies two letters of its own.",
+    "definitionFit": "Orthodox opinion is the established, accepted line, so 'usual' means standard practice here rather than merely frequent."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +286,37 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMMA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EMMA",
+    "definition": "Novel",
+    "indicators": [
+     "putting off",
+     "at first"
+    ],
+    "indicatorNotes": {
+     "putting off": "Putting something off is getting rid of it, so the letter named next is discarded rather than joined on.",
+     "at first": "This fixes where the loss falls: the letter that goes is the one standing at the front."
+    },
+    "pieces": [
+     "EMMA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of proof",
+      "gives": "LEMMA",
+      "note": "a lemma is a small proved step used inside a larger proof"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the plate a learner driver carries, and the crossword's letter for one"
+     }
+    ],
+    "surface": "A fresh step in a proof that scares the beginner off before he has started.",
+    "walkthrough": "'Novel' reads as an adjective attached to 'part of proof' and is in fact the whole definition, standing alone. The novel is Jane Austen's, and her surname is at 23 down.",
+    "definitionFit": "Emma is Austen's 1815 novel, so the definition names the class that one particular title belongs to."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +333,40 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALPINE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALPINE",
+    "definition": "plant",
+    "indicators": [],
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "A",
+     "L",
+     "PINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own opening word, taken as the single letter it is"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the size printed on a clothing label for large"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "PINE",
+      "note": "the pine is one tree among many, so the clue names it by its class"
+     }
+    ],
+    "surface": "A choice at the nursery between something big and leafy and something small.",
+    "walkthrough": "Alpines are the low cushion plants sold for rock gardens, which is what lets a singular noun define a word most people only meet as an adjective.",
+    "definitionFit": "An alpine is a rock-garden plant native to high stony ground — the noun use, and the one gardeners use every day."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +383,41 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BERG",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "BERG",
+    "definition": "Floating object",
+    "indicators": [
+     "almost",
+     "turned over"
+    ],
+    "indicatorNotes": {
+     "almost": "A word given almost in full is a word one letter short, so the bird loses its tail before anything else happens.",
+     "turned over": "Turned over is upside down, and in a down entry that means the letters are read from the bottom of the column upwards."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "BERG"
+    ],
+    "subReversals": [
+     {
+      "from": "GREB",
+      "to": "BERG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waterbird",
+      "gives": "GREB",
+      "note": "a grebe is a diving waterbird, here minus its final letter"
+     }
+    ],
+    "surface": "A waterbird on a cold lake, all but tipped upside down by something floating there.",
+    "walkthrough": "The definition stays deliberately vague — a floating object, not ice — so nothing sends you north until the letters are already in place.",
+    "definitionFit": "A berg is an iceberg, the floating object shipping fears; English borrowed the German word for mountain and kept only half of it."
+   }
   },
   {
    "id": "9-across",
@@ -166,7 +434,48 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLADIATOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "GLADIATOR",
+    "definition": "Old fighter",
+    "indicators": [
+     "reversed"
+    ],
+    "indicatorNotes": {
+     "reversed": "The word after it runs the other way, right to left along this across entry, so the timetable arrives from its last letter first."
+    },
+    "pieces": [
+     "GLAD",
+     "I",
+     "ATOR"
+    ],
+    "subReversals": [
+     {
+      "from": "ROTA",
+      "to": "ATOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy",
+      "gives": "GLAD",
+      "note": "glad is the plain synonym for happy"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the clue's own I, handed over as one letter"
+     },
+     {
+      "clueFragment": "schedule",
+      "gives": "ATOR",
+      "note": "a rota is the schedule of who works when, turned round here"
+     }
+    ],
+    "surface": "An ageing boxer pleased that somebody has turned his training timetable round.",
+    "walkthrough": "A rota is the British word for a duty roster, the list of who is on when, and 'schedule' names it exactly — the only piece of the wordplay the surface is not hiding.",
+    "definitionFit": "A gladiator fought in the Roman arena, so 'Old fighter' puts the fighting in antiquity rather than naming a veteran boxer."
+   }
   },
   {
    "id": "10-across",
@@ -183,7 +492,40 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MILNE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MILNE",
+    "definition": "children’s author",
+    "indicators": [
+     "penning"
+    ],
+    "indicatorNotes": {
+     "penning": "To pen livestock is to shut them in an enclosure, so the letter named next is closed inside the word before it."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "MI",
+     "L",
+     "NE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The writer’s",
+      "gives": "MINE",
+      "note": "what belongs to the writer of the clue is mine"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     }
+    ],
+    "surface": "A journalist trying his hand at a line for younger readers.",
+    "walkthrough": "'The writer' in a clue is the setter himself, so 'the writer's' means mine — a convention worth owning, since it turns up whenever a clue talks about itself.",
+    "definitionFit": "A A Milne wrote Winnie-the-Pooh, so the answer is one children's author rather than a synonym for the phrase."
+   }
   },
   {
    "id": "11-across",
@@ -200,7 +542,51 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOGMA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DOGMA",
+    "definition": "Blind faith",
+    "indicators": [
+     "Just the opposite"
+    ],
+    "indicatorNotes": {
+     "Just the opposite": "The three pieces are wanted in the other order, read from the last one back to the first."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "DOG",
+     "M",
+     "A"
+    ],
+    "subReversals": [
+     {
+      "from": "AMGOD",
+      "to": "DOGMA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the indefinite article, taken as it stands"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the form-filling abbreviation for male"
+     },
+     {
+      "clueFragment": "deity",
+      "gives": "GOD",
+      "note": "a deity is a god"
+     }
+    ],
+    "surface": "Somebody scorning unquestioning belief in a male god.",
+    "walkthrough": "'Just the opposite' looks like it is arguing with the sentence — a goddess, then — when all it asks is that the three pieces be read the other way round.",
+    "definitionFit": "Dogma is doctrine accepted on authority and never tested, which is what blind faith names: belief held with the eyes shut."
+   }
   },
   {
    "id": "12-across",
@@ -217,7 +603,37 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REHEARING",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "REHEARING",
+    "definition": "Trying afresh",
+    "indicators": [
+     "gets absorbed in"
+    ],
+    "indicatorNotes": {
+     "gets absorbed in": "What is absorbed into something has gone right inside it, so the letters before this phrase sit in the middle of the word after it."
+    },
+    "pieces": [
+     "RE",
+     "HE",
+     "ARING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parental task",
+      "gives": "REARING",
+      "note": "rearing is the parental job of bringing a child up"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he is the male pronoun, two letters of it"
+     }
+    ],
+    "surface": "A father wrapped up in the work of bringing up his children.",
+    "walkthrough": "'Trying' is courtroom language: a case is tried, it is heard, and if something went wrong it is heard again. The surface keeps you in the nursery instead.",
+    "definitionFit": "A rehearing is a second hearing of a case, so trying it afresh is precisely what a court is doing."
+   }
   },
   {
    "id": "13-across",
@@ -234,7 +650,36 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABRIDGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABRIDGE",
+    "definition": "cut",
+    "indicators": [
+     "Prior to"
+    ],
+    "indicatorNotes": {
+     "Prior to": "Standing prior to something is standing in front of it, so the letter named at the end of the clue goes ahead of the card game."
+    },
+    "pieces": [
+     "A",
+     "BRIDGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article near the end of the clue, worth one letter"
+     },
+     {
+      "clueFragment": "game of cards",
+      "gives": "BRIDGE",
+      "note": "bridge is the card game, four players and a dummy"
+     }
+    ],
+    "surface": "Something taken off the top before the cards come out.",
+    "walkthrough": "The pieces sit the wrong way round in the sentence and 'Prior to' is what puts them right, which is why a three-word clue needs an instruction at all.",
+    "definitionFit": "To abridge a book is to cut it down to a shorter version, so 'cut' is the editorial verb rather than a wound or a share."
+   }
   },
   {
    "id": "13-down",
@@ -251,7 +696,31 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTIC",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ATTIC",
+    "definition": "Like part of ancient Greece",
+    "definition2": "accessible by flights",
+    "definitionNote": "The first half wants the adjective Attic, of Attica; the second describes a room and so wants the answer as a noun, which is what the question mark is covering.",
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like part of ancient Greece",
+      "gives": "",
+      "note": "the adjective belonging to Attica, the district round Athens, and to its dialect"
+     },
+     {
+      "clueFragment": "accessible by flights",
+      "gives": "",
+      "note": "flights of stairs rather than aeroplanes, and the room the last of them reaches"
+     }
+    ],
+    "surface": "A corner of the classical world you could apparently reach by air.",
+    "walkthrough": "Flights of stairs, not flights to Athens — and the region round Athens is Attica, whose adjective is the same word as the room under the roof.",
+    "definitionFit": "Attic is the adjective for Attica, the district round Athens, and an attic is the room reached by the last flight of stairs."
+   }
   },
   {
    "id": "14-across",
@@ -268,7 +737,30 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DICKENS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DICKENS",
+    "definition": "Author",
+    "definition2": "expression of surprise",
+    "linkWords": [
+     "named in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author",
+      "gives": "",
+      "note": "the Victorian novelist who created Oliver, the boy whose surname is the answer at 26 across"
+     },
+     {
+      "clueFragment": "expression of surprise",
+      "gives": "",
+      "note": "'what the ...!' — a stand-in for the devil, in use since Shakespeare's day"
+     }
+    ],
+    "surface": "A writer getting a mention in somebody's startled exclamation.",
+    "walkthrough": "'What the dickens!' is Elizabethan swearing: dickens stood in for the devil centuries before the novelist was born, so the two halves of this clue have nothing to do with each other.",
+    "definitionFit": "Charles Dickens is the author, and 'the dickens' is the polite substitute for the devil that fills out an exclamation of surprise."
+   }
   },
   {
    "id": "15-down",
@@ -285,7 +777,39 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARACTERS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "CHARACTERS",
+    "definition": "People",
+    "indicators": [
+     "initially",
+     "in"
+    ],
+    "indicatorNotes": {
+     "initially": "Words given initially are represented by nothing but the letters they start with, one apiece.",
+     "in": "This drops the pair just named inside the word that follows, splitting it rather than sitting beside it."
+    },
+    "pieces": [
+     "CHAR",
+     "AC",
+     "TERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "books",
+      "gives": "CHARTERS",
+      "note": "to book a coach or a plane is to charter it, and the verb opens up to take the pair inside"
+     },
+     {
+      "clueFragment": "as created",
+      "gives": "AC",
+      "note": "the opening letter of each of these two words"
+     }
+    ],
+    "surface": "People as they were first invented, on the page rather than in life.",
+    "walkthrough": "'Books' looks like the place these people are and is really a verb — to book transport is to charter it. Six of the answers here are characters sharing the grid with their authors, which is Pirandello's play turned into a puzzle.",
+    "definitionFit": "Characters are the people a story invents, so the definition is the plain plural synonym once you read them as inhabitants of a book."
+   }
   },
   {
    "id": "16-down",
@@ -302,7 +826,30 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEIN",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STEIN",
+    "definition": "Author",
+    "definition2": "a mug, used to drink a lot",
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author",
+      "gives": "",
+      "note": "Gertrude, the American modernist of the Paris salons who wrote Tender Buttons"
+     },
+     {
+      "clueFragment": "a mug, used to drink a lot",
+      "gives": "",
+      "note": "the tall lidded German beer mug — 'used to' meaning employed for, not formerly"
+     }
+    ],
+    "surface": "Gossip about a writer: a fool, and once a heavy drinker.",
+    "walkthrough": "Both halves of the second definition shift sense: 'mug' is the vessel rather than the idiot, and 'used to' means employed for rather than formerly.",
+    "definitionFit": "Gertrude Stein is the author, and a stein is the big lidded earthenware beer mug of German drinking halls, built to hold a lot."
+   }
   },
   {
    "id": "17-across",
@@ -319,7 +866,40 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TROLL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TROLL",
+    "definition": "offensive poster",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The single letter named before it goes inside the word that follows, which is all this little word ever asks."
+    },
+    "linkWords": [
+     "producing"
+    ],
+    "pieces": [
+     "T",
+     "R",
+     "OLL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "TOLL",
+      "note": "a toll is the charge for using a bridge or a road"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard letter for a Republican on an American ballot"
+     }
+    ],
+    "surface": "A Republican running things and putting out an insulting poster.",
+    "walkthrough": "'In charge' reads as one phrase, the man running the show; the words split instead, one saying where a letter goes and the other supplying a fee.",
+    "definitionFit": "A troll posts deliberately offensive messages online, so 'poster' is the internet sense of one who posts, not something pasted on a wall."
+   }
   },
   {
    "id": "18-across",
@@ -336,7 +916,41 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIX",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SIX",
+    "definition": "long shot",
+    "indicators": [
+     "Backed"
+    ],
+    "indicatorNotes": {
+     "Backed": "Something backed has been made to run backwards, and in an across entry that means reading it from right to left."
+    },
+    "pieces": [
+     "SIX"
+    ],
+    "subReversals": [
+     {
+      "from": "XIS",
+      "to": "SIX"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "XI",
+      "note": "a cricket or football team is an eleven, written XI in Roman numerals"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the possessive s is fodder here, not just grammar"
+     }
+    ],
+    "surface": "A punter putting money on a team's unlikely chance.",
+    "walkthrough": "'Backed' and 'long shot' both belong in the betting shop, which is where the surface keeps you, and only one of them is doing any work. In cricket a six clears the boundary on the full — the longest hit in the game.",
+    "definitionFit": "A six is cricket's biggest stroke, hit clear over the rope without bouncing, so 'long shot' measures distance rather than odds."
+   }
   },
   {
    "id": "18-down",
@@ -353,7 +967,30 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLUTION",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SOLUTION",
+    "definition": "Process yielding mixed results",
+    "definition2": "what you seek",
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Process yielding mixed results",
+      "gives": "",
+      "note": "the chemist's sense: dissolve one substance in another and a mixture is what comes out"
+     },
+     {
+      "clueFragment": "what you seek",
+      "gives": "",
+      "note": "the thing a solver is after, which turns the clue round to face the person reading it"
+     }
+    ],
+    "surface": "A method that keeps turning out inconsistent outcomes.",
+    "walkthrough": "'Mixed results' is chemical rather than disappointing: dissolving one substance in another yields a mixture. The second half is pointing at this very grid, and at the play the theme comes from.",
+    "definitionFit": "A solution is both the mixture that dissolving produces and the answer a solver is hunting for — one word, two settled senses."
+   }
   },
   {
    "id": "19-across",
@@ -370,7 +1007,30 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALICE",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram",
+    "answer": "ALICE",
+    "definition": "Celia’s name-change?",
+    "indicators": [
+     "name-change"
+    ],
+    "indicatorNotes": {
+     "name-change": "Changing a name here is not choosing a fresh one but shifting the letters she already has into a different arrangement."
+    },
+    "anagram": {
+     "fodder": "CELIA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Celia",
+      "gives": "CELIA",
+      "note": "five letters handed over exactly as they stand, to be resettled"
+     }
+    ],
+    "surface": "A woman filing the paperwork to be known by a different name.",
+    "walkthrough": "Every word works twice: read straight the sentence says what Celia's name turns into, and read as wordplay the same five letters are all you are given. Her author is at 21 across.",
+    "definitionFit": "The whole clue defines the answer: change the name Celia and out comes another girl's name built from the very same letters."
+   }
   },
   {
    "id": "20-down",
@@ -387,7 +1047,33 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INITIATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INITIATE",
+    "definition": "Launch",
+    "indicators": [],
+    "pieces": [
+     "IN",
+     "IT",
+     "I",
+     "ATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minimal review of restaurant",
+      "gives": "INIT",
+      "note": "the terse verdict opens by putting the diner on the premises: in it"
+     },
+     {
+      "clueFragment": "minimal review of restaurant",
+      "gives": "IATE",
+      "note": "and finishes with the only other fact he reports: I ate"
+     }
+    ],
+    "surface": "A paper starting up a stripped-down restaurant column.",
+    "walkthrough": "Nothing here is a synonym for anything. The letters are read as a four-word sentence a diner might file, with the gaps in different places.",
+    "definitionFit": "To initiate something is to launch it, setting a scheme or a process going for the first time."
+   }
   },
   {
    "id": "21-across",
@@ -404,7 +1090,24 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CARROLL",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CARROLL",
+    "definition": "Lewis, Oxford don and writer",
+    "blocks": [
+     {
+      "clueFragment": "Lewis",
+      "note": "the surface offers this as a surname, and the Oxford man of that name — the Narnia one — is exactly who you are meant to reach for"
+     },
+     {
+      "clueFragment": "Oxford don and writer",
+      "note": "read the setter's way, the name is a forename, and this describes the mathematics tutor at Christ Church who published under it"
+     }
+    ],
+    "surface": "A line from a reference book about an Oxford academic who also published books.",
+    "walkthrough": "C S Lewis is the trap — an Oxford don, a writer, and the wrong man. Charles Dodgson lectured in mathematics at Christ Church and wrote as Lewis Carroll, whose Alice is at 19 across.",
+    "definitionFit": "Lewis Carroll was the pen name of Charles Dodgson, Oxford mathematics don and author of the Alice books, so the clue simply describes him."
+   }
   },
   {
    "id": "22-down",
@@ -421,7 +1124,31 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPORT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REPORT",
+    "definition": "Write for newspaper",
+    "indicators": [],
+    "pieces": [
+     "RE",
+     "PORT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is the 'concerning' at the head of a memo, and the standard two letters for about"
+     },
+     {
+      "clueFragment": "position of left wing",
+      "gives": "PORT",
+      "note": "port is the left-hand side of a ship, so a left wing is stationed to port"
+     }
+    ],
+    "surface": "A journalist sent to write up where the left winger is playing.",
+    "walkthrough": "'About' looks like an instruction to wrap one piece round another and is a piece itself. Port is left only at sea, which is the knowledge the clue is quietly charging you for.",
+    "definitionFit": "To report is to write something up for a paper — the newsroom's working verb, not the general sense of telling someone something."
+   }
   },
   {
    "id": "23-across",
@@ -438,7 +1165,37 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARABIAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ARABIAN",
+    "definition": "from part of Asia",
+    "indicators": [
+     "Befuddled",
+     "taking in"
+    ],
+    "indicatorNotes": {
+     "Befuddled": "A befuddled head is a muddled one, and letters described as muddled will not stay in the order they are given.",
+     "taking in": "To take something in is to admit it inside, so the two little words are swallowed by the letters around them."
+    },
+    "anagram": {
+     "fodder": "BRAIN A A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "brain",
+      "gives": "BRAIN",
+      "note": "five letters handed over as they stand, for resettling"
+     },
+     {
+      "clueFragment": "article after article",
+      "gives": "AA",
+      "note": "a is the indefinite article, and the clue asks for it twice over"
+     }
+    ],
+    "surface": "A muddled head trying to take in one newspaper article after another.",
+    "walkthrough": "Both articles are the word 'a', which is easy to walk past while the surface has you reading journalism; the muddled head supplies everything else.",
+    "definitionFit": "Arabia is the great peninsula of south-west Asia, and the answer is the adjective for anything coming from it."
+   }
   },
   {
    "id": "23-down",
@@ -455,7 +1212,28 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AUSTEN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "AUSTEN",
+    "definition": "English author",
+    "indicators": [
+     "sharing pronouncement with"
+    ],
+    "indicatorNotes": {
+     "sharing pronouncement with": "A pronouncement is something said out loud, so two names that share one are two names said alike however they are spelled."
+    },
+    "blocks": [
+     {
+      "clueFragment": "state capital",
+      "soundsLike": "AUSTIN",
+      "gives": "AUSTEN",
+      "note": "Austin is the capital of Texas, and it is said exactly as the surname is"
+     }
+    ],
+    "surface": "A novelist who turns out to be a namesake of an American state capital.",
+    "walkthrough": "Austin is Texas's capital rather than its biggest city, which is the fact the clue leans on, and the two words differ only in a vowel nobody sounds. Emma, at 6 down, is hers.",
+    "definitionFit": "Jane Austen wrote Pride and Prejudice, so the definition names one English author rather than describing a word's meaning."
+   }
   },
   {
    "id": "24-across",
@@ -472,7 +1250,43 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPARATUS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "APPARATUS",
+    "definition": "structure",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "What is described as being in something is planted inside it, splitting the word that receives it rather than following it."
+    },
+    "pieces": [
+     "AP",
+     "PARA",
+     "T",
+     "US"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suitable",
+      "gives": "APT",
+      "note": "apt means suitable, and it opens between its second and third letters"
+     },
+     {
+      "clueFragment": "Short piece of text",
+      "gives": "PARA",
+      "note": "para is the everyday shortening of paragraph"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US stands for the United States and so for American"
+     }
+    ],
+    "surface": "A caption fixed inside some appropriate piece of American architecture.",
+    "walkthrough": "'Suitable American structure' reads as one description of a building, and the three words are doing three different jobs — two of them fodder and one of them the definition.",
+    "definitionFit": "An apparatus is an organised structure of parts working together, whether laboratory glassware or the apparatus of state."
+   }
   },
   {
    "id": "24-down",
@@ -489,7 +1303,36 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASHY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASHY",
+    "definition": "pale",
+    "indicators": [
+     "Just the opposite"
+    ],
+    "indicatorNotes": {
+     "Just the opposite": "The two words in front of it swap jobs: the one you would take for the definition is the fodder, and the one you would take for fodder is the meaning."
+    },
+    "pieces": [
+     "A",
+     "SHY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's opening word, worth its own letter"
+     },
+     {
+      "clueFragment": "cast",
+      "gives": "SHY",
+      "note": "to shy a stone is to cast it — the fairground sense of throwing"
+     }
+    ],
+    "surface": "A remark about somebody's washed-out complexion, immediately contradicted.",
+    "walkthrough": "'A pale cast' is a phrase in its own right — Hamlet's pale cast of thought — so it reads as one thing, and the tag afterwards is what breaks it into a verb and a definition.",
+    "definitionFit": "Ashy is the grey-white of cold ash, so 'pale' here is the drained, bloodless kind rather than merely light in colour."
+   }
   },
   {
    "id": "25-down",
@@ -506,7 +1349,28 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAYS",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RAYS",
+    "definition": "Fish",
+    "indicators": [
+     "so to speak"
+    ],
+    "indicatorNotes": {
+     "so to speak": "The tag points at the ear: the farming word is wanted for the noise it makes, not for the way it is spelled."
+    },
+    "blocks": [
+     {
+      "clueFragment": "farm",
+      "soundsLike": "RAISE",
+      "gives": "RAYS",
+      "note": "to raise cattle is to farm them, and that word said aloud is written another way"
+     }
+    ],
+    "surface": "An instruction to go into fish farming.",
+    "walkthrough": "Fish farming is a real industry, which is why the surface holds together and why nothing looks like a sound clue until the tag at the end is taken literally.",
+    "definitionFit": "Rays are the flat cartilaginous fish, skates and their relatives, so a plural definition answers a plural answer."
+   }
   },
   {
    "id": "26-across",
@@ -523,7 +1387,40 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TWIST",
+    "definition": "Squeeze",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Being in something means being within it, so the suit's letter goes between the letters of the word that follows."
+    },
+    "linkWords": [
+     "using"
+    ],
+    "pieces": [
+     "TWI",
+     "S",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dummy",
+      "gives": "TWIT",
+      "note": "a twit is a fool, which is one of the senses of dummy"
+     },
+     {
+      "clueFragment": "spades",
+      "gives": "S",
+      "note": "S is the suit's initial, as written on a bridge score sheet"
+     }
+    ],
+    "surface": "A bridge hand where the squeeze is played on spades in the dummy.",
+    "walkthrough": "Squeeze, spades and dummy are all bridge terms — the dummy is the hand laid face up on the table — and only the fool sense of dummy is any use. Oliver keeps Dickens company at 14 across.",
+    "definitionFit": "To twist something is to wring it, so 'squeeze' is the wringing sense you apply to a wet cloth rather than an embrace."
+   }
   },
   {
    "id": "27-down",
@@ -540,7 +1437,32 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TESS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TESS",
+    "definition": "Tragic heroine",
+    "indicators": [
+     "quaintly",
+     "concludes"
+    ],
+    "indicatorNotes": {
+     "quaintly": "It flags the dated word for a woman poet, which nobody would write now, as the one to put down.",
+     "concludes": "What concludes a word is its ending, so only the closing letters of it survive."
+    },
+    "pieces": [
+     "TESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as Dickinson, say",
+      "gives": "POETESS",
+      "note": "Emily Dickinson is offered as one example of the breed, in the old-fashioned form of the word"
+     }
+    ],
+    "surface": "Emily Dickinson quaintly having the last word on a tragic heroine.",
+    "walkthrough": "A woman poet was once called a poetess, and the tail of that word is Thomas Hardy's doomed milkmaid — whose author is at 28 across, wearing a comedian's name.",
+    "definitionFit": "Tess Durbeyfield is the heroine of Hardy's Tess of the d'Urbervilles, hanged at the end of it, so the definition names her by her role."
+   }
   },
   {
    "id": "28-across",
@@ -557,7 +1479,27 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HARDY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HARDY",
+    "definition": "Robust",
+    "definition2": "half of comic duo",
+    "blocks": [
+     {
+      "clueFragment": "Robust",
+      "gives": "",
+      "note": "tough enough to come through cold or rough handling, the way a shrub is"
+     },
+     {
+      "clueFragment": "half of comic duo",
+      "gives": "",
+      "note": "Oliver, the large half of the silent-era double act with Stan Laurel"
+     }
+    ],
+    "surface": "The sturdier member of a comedy double act.",
+    "walkthrough": "Oliver Hardy was the large half of Laurel and Hardy; Thomas Hardy wrote the tragic heroine at 27 down, so the grid is using the surname twice without saying so.",
+    "definitionFit": "Hardy means tough enough to survive rough conditions, and Oliver Hardy was one half of a famous pair — a synonym and a name in one word."
+   }
   },
   {
    "id": "29-across",
@@ -574,7 +1516,28 @@ window.CRYPTIC_PUZZLES["cryptic-30025"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERRATES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "OVERRATES",
+    "definition": "Assesses excessively",
+    "definition2": "Test data?",
+    "definitionNote": "The second definition needs the answer split into two words, over rates, and read as a plural noun rather than as the verb the first definition asks for.",
+    "blocks": [
+     {
+      "clueFragment": "Assesses excessively",
+      "gives": "",
+      "note": "marks something higher than it deserves"
+     },
+     {
+      "clueFragment": "Test data?",
+      "gives": "",
+      "note": "a five-day cricket Test throws up statistics, and one of them is counted in six-ball overs per hour"
+     }
+    ],
+    "surface": "Somebody marking a set of exam results far too kindly.",
+    "walkthrough": "A Test is a five-day international cricket match, and a side's over rate — how many six-ball overs it gets through in an hour — is the statistic captains are fined over.",
+    "definitionFit": "To overrate is to assess something too highly, while the same letters respaced name cricket's tally of overs bowled per hour."
+   }
   }
  ]
 } /*JSON-END*/;
