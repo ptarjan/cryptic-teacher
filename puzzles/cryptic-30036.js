@@ -31,7 +31,9 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOROUGH",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "26-across"
+   }
   },
   {
    "id": "1-down",
@@ -48,7 +50,28 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOTTLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BOTTLE",
+    "definition": "Pluck",
+    "definition2": "item from the wine rack",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Pluck",
+      "gives": "BOTTLE",
+      "note": "pluck is nerve, and British slang has a word for nerve that a frightened person is said to lose"
+     },
+     {
+      "clueFragment": "item from the wine rack",
+      "gives": "BOTTLE",
+      "note": "what a wine rack is built to hold, one per slot"
+     }
+    ],
+    "surface": "An instruction to pick something out of the wine rack for the evening.",
+    "walkthrough": "'Pluck' reads as the imperative verb of the surface — reach out and pick one — but the answer wants it as a noun, the courage a person can lose.",
+    "definitionFit": "Bottle is British slang for nerve, as in losing your bottle, and the second sense is the plainest thing a wine rack holds."
+   }
   },
   {
    "id": "2-down",
@@ -65,7 +88,37 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELICT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RELICT",
+    "definition": "Survivor",
+    "indicators": [
+     "having caught"
+    ],
+    "indicatorNotes": {
+     "having caught": "catching something means taking it in, so what is caught ends up held inside the word beside it"
+    },
+    "pieces": [
+     "RELI",
+     "C",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brightened up again",
+      "gives": "RELIT",
+      "note": "a lamp brightened once more has been re-lit"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the letter on the cold tap and the standard abbreviation for it"
+     }
+    ],
+    "surface": "A person cheered up all over again, having gone and caught a cold in the process.",
+    "walkthrough": "A relict is a widow, or a plant or animal left over from an age that has otherwise vanished — a survival rather than a survivor in the everyday sense.",
+    "definitionFit": "A relict is what remains when the rest has gone: a widow, or a species stranded from an earlier age."
+   }
   },
   {
    "id": "3-down",
@@ -82,7 +135,45 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNPOLISHED",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "UNPOLISHED",
+    "definition": "Rough",
+    "indicators": [
+     "in",
+     "rogue"
+    ],
+    "indicatorNotes": {
+     "in": "the plain instruction to drop one word inside the letters beside it",
+     "rogue": "a rogue element is one that has broken ranks, so the word next to it will not stay in the order given"
+    },
+    "pieces": [
+     "UN",
+     "POLISH",
+     "ED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "NUDE",
+      "gives": "UNED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nude rogue",
+      "gives": "UNED",
+      "note": "the four letters of nude, reshuffled into a shell with a gap in the middle"
+     },
+     {
+      "clueFragment": "tongue",
+      "gives": "POLISH",
+      "note": "a tongue is a language, and this one is spoken in Warsaw"
+     }
+    ],
+    "surface": "A naked scoundrel with a coarse, rough tongue in his head.",
+    "walkthrough": "'Rough tongue' wants to be one phrase, a coarse mouth on somebody. It splits: only 'Rough' is the definition, and 'tongue' is the language sense.",
+    "definitionFit": "Something unpolished has had no finishing work done to it, so its surface stays rough — the word covers manners as readily as wood."
+   }
   },
   {
    "id": "4-down",
@@ -104,7 +195,43 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "HORSE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + outer letters",
+    "answer": "HORSE OPERA",
+    "definition": "Western",
+    "indicators": [
+     "discontented",
+     "supply"
+    ],
+    "indicatorNotes": {
+     "discontented": "read it as dis-contented: the contents are taken out and only the letters at the two ends survive",
+     "supply": "not the noun about deliveries but the adverb from supple, done limberly, so the letters bend into a new shape"
+    },
+    "anagram": {
+     "fodder": "SA HERE POOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Samoa discontented",
+      "gives": "SA",
+      "note": "strip the middle out of the island's name and the outer pair is left"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "HERE",
+      "note": "four letters of fodder, taken straight off the page"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "POOR",
+      "note": "four more letters of fodder, taken as they stand"
+     }
+    ],
+    "surface": "Grumbling on a Pacific island where the supplies have been arriving in a poor state.",
+    "walkthrough": "'Western Samoa' looks like one country and splits in two: the definition is 'Western' on its own, and only Samoa goes into the mixer.",
+    "definitionFit": "A horse opera is the old trade name for a cowboy picture, so 'Western' is the film-genre noun rather than a compass direction."
+   }
   },
   {
    "id": "5-across",
@@ -121,7 +248,27 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINATRA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SINATRA",
+    "definition": "Frank",
+    "indicators": [
+     "digested"
+    ],
+    "indicatorNotes": {
+     "digested": "something digested has been swallowed and is now inside, which is where these letters are sitting"
+    },
+    "blocks": [
+     {
+      "clueFragment": "discussions in a trade-off",
+      "gives": "SINATRA",
+      "note": "seven consecutive letters run across the word boundaries of that phrase"
+     }
+    ],
+    "surface": "Plain speaking in the middle of a hard bargaining session.",
+    "walkthrough": "'Frank discussions' is a phrase you have heard a hundred times, which is exactly what stops you reading 'Frank' as somebody's first name.",
+    "definitionFit": "Sinatra is named by his forename alone — a definition by example that leans on the singer being famous enough to need no surname."
+   }
   },
   {
    "id": "5-down",
@@ -142,7 +289,31 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCOOBYDOO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SCOOBY DOO",
+    "definition": "Animated solver",
+    "definition2": "clue",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Animated solver",
+      "gives": "SCOOBY DOO",
+      "note": "the cartoon Great Dane whose whole job is unmasking the villain each week"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "SCOOBY DOO",
+      "note": "London rhyming slang, normally clipped to its first word: 'I haven't got a...'"
+     }
+    ],
+    "surface": "A cartoon character stuck on a puzzle and wanting a hint.",
+    "walkthrough": "Rhyming slang is the seam: the dog's name rhymes with 'clue', so the phrase is both the character and the thing a stuck solver hasn't got.",
+    "definitionFit": "Both halves name one cartoon dog: he solves a mystery every episode, and his name is rhyming slang for a clue."
+   }
   },
   {
    "id": "6-down",
@@ -159,7 +330,43 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOEL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "NOEL",
+    "definition": "Christmas!",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "cut, cut"
+    ],
+    "indicatorNotes": {
+     "cut, cut": "said twice because the trimming happens twice, one letter off the end each time"
+    },
+    "pieces": [
+     "NOEL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "movie",
+      "gives": "NOELLE",
+      "note": "the 2019 Disney film about Santa's daughter, which is the festive one meant here"
+     },
+     {
+      "clueFragment": "cut, cut",
+      "gives": "LE",
+      "note": "the two letters that come off the end, one per cut"
+     },
+     {
+      "clueFragment": "Christmas",
+      "gives": "",
+      "note": "no letters of its own: it narrows down which film, and the setter then puts the same word to work at the end as the definition"
+     }
+    ],
+    "surface": "A festive film trimmed and trimmed again to fit the Christmas schedules.",
+    "walkthrough": "The doubled word is a doubled instruction: 'cut' twice takes two letters off. The film is Noelle, a 2019 Disney comedy, and the exclamation mark marks the definition.",
+    "definitionFit": "Noel is Christmas itself — the French word for the feast, sung in carols and printed on cards every December."
+   }
   },
   {
    "id": "7-down",
@@ -176,7 +383,37 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THEREOUT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THEREOUT",
+    "definition": "from that place",
+    "indicators": [
+     "steals"
+    ],
+    "indicatorNotes": {
+     "steals": "to steal something is to take it, and what a thief takes he tucks away inside"
+    },
+    "pieces": [
+     "T",
+     "HERE",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hawker",
+      "gives": "TOUT",
+      "note": "a tout is the man on the pavement selling tickets he should not have"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "HERE",
+      "note": "present as in attendance — the word you call out at a register"
+     }
+    ],
+    "surface": "A street seller helping himself to the gift somebody left lying about.",
+    "walkthrough": "'Present' offers three senses — a gift, a tense, being in attendance — and the surface pushes hard on the gift. Thereout is an old word, more Chaucer than conversation.",
+    "definitionFit": "Thereout means out of that place, a survivor of the there- family alongside therein and thereof, all still alive in legal drafting."
+   }
   },
   {
    "id": "8-down",
@@ -193,7 +430,43 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALTITUDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "ALTITUDE",
+    "definition": "level up",
+    "definitionNote": "The surface reads 'level up' as an order to straighten a hat; the answer needs it as a noun phrase, a level that is up in the air.",
+    "indicators": [
+     "cap",
+     "badly"
+    ],
+    "indicatorNotes": {
+     "cap": "a cap sits on top of a head, and the top of a written word is the letter it begins with",
+     "badly": "something done badly comes out wrong, and letters that come out wrong come out in the wrong order"
+    },
+    "anagram": {
+     "fodder": "A U TILTED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's first word, taken as a single letter of fodder"
+     },
+     {
+      "clueFragment": "cap in use",
+      "gives": "U",
+      "note": "the letter sitting at the top of use — an operation, not an abbreviation"
+     },
+     {
+      "clueFragment": "tilted",
+      "gives": "TILTED",
+      "note": "six letters of fodder, taken straight off the page"
+     }
+    ],
+    "surface": "A hat sitting crooked on somebody's head and badly in need of straightening.",
+    "walkthrough": "The surface has you reaching up to straighten a hat, so 'level up' passes as the end of that sentence rather than as a height a pilot would report.",
+    "definitionFit": "Altitude is height above the ground — the level a thing has got up to, which is the sense used in the cockpit."
+   }
   },
   {
    "id": "9-across",
@@ -210,7 +483,39 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TULIP",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letters",
+    "answer": "TULIP",
+    "definition": "bulb",
+    "indicators": [
+     "about",
+     "essentially"
+    ],
+    "indicatorNotes": {
+     "about": "something placed about a thing is wrapped round it, so the short pair goes in the middle",
+     "essentially": "the essence of a word is its middle, so this asks for the letters at the heart of it"
+    },
+    "pieces": [
+     "T",
+     "UL",
+     "IP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clue",
+      "gives": "TIP",
+      "note": "a tip is a hint — what you give somebody who is stuck"
+     },
+     {
+      "clueFragment": "essentially",
+      "gives": "UL",
+      "note": "the two letters at the heart of the word the definition has just used"
+     }
+    ],
+    "surface": "A hint concerning a light bulb, more or less.",
+    "walkthrough": "'Bulb' is doing two jobs at once: it is the definition and it is also the word the middle letters are dug out of. The question mark is Paul owning up to it.",
+    "definitionFit": "A tulip is a bulb by example — one of the plants a gardener buys dry in autumn rather than as a packet of seed."
+   }
   },
   {
    "id": "10-across",
@@ -227,7 +532,44 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROOSEVELT",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "ROOSEVELT",
+    "definition": "US president",
+    "indicators": [
+     "missing",
+     "in"
+    ],
+    "indicatorNotes": {
+     "missing": "what is missing has been taken away, so the two letters named beside it come out of the longer word",
+     "in": "the bare instruction to sit one chunk of letters inside another"
+    },
+    "pieces": [
+     "ROO",
+     "SEVEL",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A few",
+      "gives": "SEVERAL",
+      "note": "several is the everyday word for a handful of something"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, the crossword's standard artist, and these are the two letters removed"
+     },
+     {
+      "clueFragment": "essence",
+      "gives": "ROOT",
+      "note": "the root of a matter is its essence — get to the root of it"
+     }
+    ],
+    "surface": "A few people short at a gallery, with the painter himself nowhere to be seen.",
+    "walkthrough": "'Missing' is an instruction, not scene-setting: the artist is being subtracted. RA, the Royal Academician, is the two-letter artist the crossword uses everywhere.",
+    "definitionFit": "Roosevelt names two US presidents, Theodore and Franklin, so the definition points at a surname rather than at one man."
+   }
   },
   {
    "id": "11-across",
@@ -248,7 +590,37 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOCALDERBY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LOCAL DERBY",
+    "definition": "Sheff U v Sheff W, say",
+    "indicators": [],
+    "pieces": [
+     "LO",
+     "CALDER",
+     "BY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo! is the old word for behold, as in lo and behold"
+     },
+     {
+      "clueFragment": "Yorkshire flower",
+      "gives": "CALDER",
+      "note": "a flower is a thing that flows, and the Calder runs through West Yorkshire"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means beside: a house by the river is near it"
+     }
+    ],
+    "surface": "Some Yorkshire bloom growing close to the two Sheffield football grounds.",
+    "walkthrough": "'See Yorkshire flower' reads as an invitation to go and look at a bloom, and nothing in it is about plants. Sheff U and Sheff W are Sheffield United and Sheffield Wednesday.",
+    "definitionFit": "A local derby is a match between two clubs from the same town, which is what United against Wednesday is in Sheffield."
+   }
   },
   {
    "id": "12-across",
@@ -270,7 +642,38 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "MEAT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "&lit + anagram + last letter",
+    "answer": "MEAT STEW",
+    "definition": "Last of ham we taste mixed up – in this?",
+    "indicators": [
+     "Last of",
+     "mixed up"
+    ],
+    "indicatorNotes": {
+     "Last of": "points at the final letter of the word that follows and takes no more of it",
+     "mixed up": "things mixed up are left in no particular order, which is what happens to these letters"
+    },
+    "anagram": {
+     "fodder": "M WE TASTE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Last of ham",
+      "gives": "M",
+      "note": "the final letter of ham"
+     },
+     {
+      "clueFragment": "we taste",
+      "gives": "WETASTE",
+      "note": "seven letters of fodder, taken as they stand"
+     }
+    ],
+    "surface": "The end of the ham and everything else worth eating, all stirred together in one pot.",
+    "walkthrough": "The sentence is the definition and the wordplay at once: read it one way and it shuffles letters, read it again and it describes what goes in the pot.",
+    "definitionFit": "Read straight, the clue describes the dish: the last of the ham and whatever else we taste, mixed up together in one pot."
+   }
   },
   {
    "id": "13-down",
@@ -291,7 +694,53 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "PRINCEIGOR",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram + charade",
+    "answer": "PRINCE IGOR",
+    "definition": "23 down",
+    "indicators": [
+     "in support of",
+     "describing",
+     "comic"
+    ],
+    "indicatorNotes": {
+     "in support of": "supporting something means holding it up from underneath, so in a down clue these letters go below the rest",
+     "describing": "to describe a circle is to draw one round something, so one chunk of letters encloses another",
+     "comic": "comic here is odd and laughable rather than funny-ha-ha, and letters treated as a joke will not stay put"
+    },
+    "pieces": [
+     "P",
+     "RINCE",
+     "IG",
+     "OR"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "NICER",
+      "gives": "RINCE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stinker",
+      "gives": "PIG",
+      "note": "a pig of a job is a stinker of one"
+     },
+     {
+      "clueFragment": "nicer comic",
+      "gives": "RINCE",
+      "note": "the five letters of nicer, rearranged"
+     },
+     {
+      "clueFragment": "That said",
+      "gives": "OR",
+      "note": "'or' in the sense of then again, the concession a speaker makes when they say that said"
+     }
+    ],
+    "surface": "Something kinder offered in defence of a thoroughly horrible person.",
+    "walkthrough": "'Comic 23 down' wants to be one phrase naming a genre, and the definition stops at the cross-reference: Borodin's opera is a grim tale of a captured prince, not a comedy.",
+    "definitionFit": "23 down is OPERA, and this is Borodin's, so the definition names the art form while the wordplay supplies which one."
+   }
   },
   {
    "id": "14-across",
@@ -312,7 +761,36 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOLIDGROUND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SOLID GROUND",
+    "definition": "Land",
+    "indicators": [
+     "in trouble"
+    ],
+    "indicatorNotes": {
+     "in trouble": "letters in trouble have been knocked out of their order, and the word for what was done to them is the second half of what you write in"
+    },
+    "pieces": [
+     "SOLID",
+     "GROUND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "idols",
+      "gives": "SOLID",
+      "note": "the same five letters in a different order"
+     },
+     {
+      "clueFragment": "in trouble",
+      "gives": "GROUND",
+      "note": "what you just did to those five letters — you put them through the mill — and the clue asks you to write that down"
+     }
+    ],
+    "surface": "False gods getting themselves into difficulty.",
+    "walkthrough": "A reverse anagram: the second word is not shuffled letters, it is the past participle of grind, naming the operation that turns the first word into 'idols'.",
+    "definitionFit": "Solid ground is land as opposed to sea or air — what you are glad to be standing on again after a rough crossing."
+   }
   },
   {
    "id": "15-down",
@@ -333,7 +811,30 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOSINGBET",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LOSING BET",
+    "definition": "Chance gone",
+    "indicators": [
+     "wasted"
+    ],
+    "indicatorNotes": {
+     "wasted": "wasted carries the squandered sense and the drunk sense at once, and neither leaves anything in order"
+    },
+    "anagram": {
+     "fodder": "LOTS BEING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "lots being",
+      "gives": "LOTSBEING",
+      "note": "nine letters of fodder, taken straight from the clue"
+     }
+    ],
+    "surface": "Someone squandering their opportunities and a good deal else besides.",
+    "walkthrough": "'Lots' looks like a quantity word doing surface duty and 'being' like grammatical glue. Both are fodder, which is how the letter count comes out exactly.",
+    "definitionFit": "A chance gone is an opportunity that has come to nothing, which is what a bet turns into once it starts losing."
+   }
   },
   {
    "id": "16-down",
@@ -354,7 +855,45 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "AWSHUCKS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "AW SHUCKS",
+    "definition": "Expression of embarrassment",
+    "indicators": [
+     "burying",
+     "head"
+    ],
+    "indicatorNotes": {
+     "burying": "bury a thing and it ends up under the surface, so these letters go inside the pair around them",
+     "head": "the head of a word is its front, so this takes the opening letter of the word that follows"
+    },
+    "pieces": [
+     "A",
+     "W",
+     "SHUCK",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "while",
+      "gives": "AS",
+      "note": "as means while — 'as I was leaving' is 'while I was leaving'"
+     },
+     {
+      "clueFragment": "head in whelk",
+      "gives": "W",
+      "note": "the letter at the front of whelk, picked out rather than looked up"
+     },
+     {
+      "clueFragment": "shell",
+      "gives": "SHUCK",
+      "note": "to shuck is to shell: what you do to oysters and to corn"
+     }
+    ],
+    "surface": "A red-faced person hiding their head inside a whelk's shell.",
+    "walkthrough": "'Whelk shell' looks like one object and is two separate jobs: the whelk hands over its first letter, and 'shell' is wanted as the verb.",
+    "definitionFit": "Aw shucks is what a bashful American says when praised, to the point that an aw-shucks grin means an embarrassed one."
+   }
   },
   {
    "id": "17-down",
@@ -371,7 +910,39 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRAINER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "STRAINER",
+    "definition": "Riddle",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "takes only the opening letter of the name in front of it and discards the rest"
+    },
+    "pieces": [
+     "S",
+     "TRAINER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sphinx’s first",
+      "gives": "S",
+      "note": "the opening letter of Sphinx, picked out by position"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "TRAINER",
+      "note": "a trainer teaches — the one who takes you through the drills"
+     }
+    ],
+    "surface": "A puzzle handed down by whoever first taught the Sphinx its trade.",
+    "walkthrough": "'Riddle' is the sieve, not the puzzle, which is why the Sphinx is standing there as a decoy with its famous question.",
+    "definitionFit": "A riddle is a coarse sieve for sifting gravel or ash, so it names the same job as the kitchen implement that separates solids from liquid."
+   }
   },
   {
    "id": "18-across",
@@ -388,7 +959,28 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WITHERSPOON",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "WITHERSPOON",
+    "definition": "US actress",
+    "indicators": [
+     "in speech"
+    ],
+    "indicatorNotes": {
+     "in speech": "tells you the wordplay describes a sound rather than a spelling, so write down what you hear"
+    },
+    "blocks": [
+     {
+      "clueFragment": "how might she cause a stir",
+      "soundsLike": "WITH HER SPOON",
+      "gives": "WITHERSPOON",
+      "note": "stirring is done with a spoon, and hers is the one the question is asking about"
+     }
+    ],
+    "surface": "Wondering how a Hollywood star might get everybody talking.",
+    "walkthrough": "'Cause a stir' is the idiom for making a fuss and also the literal act of stirring. Said at speed, the aitch of 'her' drops and the three words run together.",
+    "definitionFit": "Reese Witherspoon is the American actress the surname points at, a definition by example dressed up as a general category."
+   }
   },
   {
    "id": "19-down",
@@ -405,7 +997,37 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PETITE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PETITE",
+    "definition": "Little",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "the bare instruction to place one word inside the other, with no dressing up"
+    },
+    "pieces": [
+     "PE",
+     "TIT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leak",
+      "gives": "PEE",
+      "note": "to pee is to leak, in the nursery sense of both"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "a tit is a small garden bird: blue tit, great tit, coal tit"
+     }
+    ],
+    "surface": "A small bird caught in a dripping pipe.",
+    "walkthrough": "'Little bird' reads as one phrase, the one that tells you things. It splits, and only 'Little' is the definition.",
+    "definitionFit": "Petite means small and neatly made, used of a person's build and borrowed straight from French, where it is simply the feminine of small."
+   }
   },
   {
    "id": "20-down",
@@ -422,7 +1044,40 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STASIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "STASIS",
+    "definition": "blockage",
+    "linkWords": [
+     "applied to",
+     "in"
+    ],
+    "indicators": [
+     "opening"
+    ],
+    "indicatorNotes": {
+     "opening": "the opening of a word is the letter it starts with, one letter and no more"
+    },
+    "pieces": [
+     "STASI",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force once",
+      "gives": "STASI",
+      "note": "the Stasi were East Germany's secret police, dissolved along with the country in 1990"
+     },
+     {
+      "clueFragment": "sink",
+      "gives": "S",
+      "note": "the letter sink starts with, taken by position"
+     }
+    ],
+    "surface": "Pressure put on the plughole to shift whatever is stuck down there.",
+    "walkthrough": "'Force once' is a police force that no longer exists, and 'once' is the clue's only warning that the word is historical rather than current.",
+    "definitionFit": "Stasis is a standstill — in medicine the stopping of flow in a vessel, which is exactly what a blockage produces."
+   }
   },
   {
    "id": "21-across",
@@ -439,7 +1094,37 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEAP",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HEAP",
+    "definition": "jalopy",
+    "indicators": [
+     "chassis on"
+    ],
+    "indicatorNotes": {
+     "chassis on": "a chassis is the frame everything else is mounted on, so the word beside it becomes an outside with room in the middle"
+    },
+    "pieces": [
+     "HE",
+     "A",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Groovy",
+      "gives": "HEP",
+      "note": "hep was the jazz-club word for what a later decade called hip: in the know, fashionable"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own indefinite article, taken as one letter rather than looked up"
+     }
+    ],
+    "surface": "An old banger with a fashionable body sitting on it.",
+    "walkthrough": "'Groovy' and 'hep' are the same slang a couple of decades apart, hep coming first out of the jazz clubs. A heap is a car well past its best.",
+    "definitionFit": "A jalopy is a battered old car and a heap is the same insult, the name coming from how little holds the thing together."
+   }
   },
   {
    "id": "22-across",
@@ -456,7 +1141,55 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNOOZEFEST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter + container",
+    "answer": "SNOOZEFEST",
+    "definition": "drag",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "outrageous",
+     "initially",
+     "dressing"
+    ],
+    "indicatorNotes": {
+     "outrageous": "outrageous behaviour respects no order, and these letters respect none either",
+     "initially": "asks for the letter the preceding word starts with and nothing else",
+     "dressing": "dressing goes on the outside of whatever it dresses, so the shuffled letters wrap round the short word"
+    },
+    "pieces": [
+     "SNO",
+     "OZ",
+     "EFEST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SENSEOFT",
+      "gives": "SNOEFEST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sense of",
+      "gives": "SENSEOF",
+      "note": "seven letters of fodder, taken as they stand"
+     },
+     {
+      "clueFragment": "theatre initially",
+      "gives": "T",
+      "note": "the first letter of theatre, joined to the fodder before the shuffle"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "OZ",
+      "note": "Oz is what Australians call Australia, and the crossword's shorthand for it"
+     }
+    ],
+    "surface": "A wildly theatrical Australian got up in a frock.",
+    "walkthrough": "'In drag' is the definition hiding inside the costume joke — a drag is a bore, and 'in' is doing nothing but joining.",
+    "definitionFit": "A snoozefest is something so dull it sends you to sleep, which is what people mean when they call a thing a drag."
+   }
   },
   {
    "id": "23-down",
@@ -476,7 +1209,9 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "OPERA",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "4-down"
+   }
   },
   {
    "id": "24-down",
@@ -496,7 +1231,9 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "STEW",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "12-across"
+   }
   },
   {
    "id": "25-across",
@@ -519,7 +1256,28 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONSTABLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CONSTABLE",
+    "definition": "Boy in Blue",
+    "definition2": "artist",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Boy in Blue",
+      "gives": "CONSTABLE",
+      "note": "the boys in blue are the British police, and this is the rank at the bottom of the ladder"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "CONSTABLE",
+      "note": "the Suffolk landscape painter of The Hay Wain, 1776 to 1837"
+     }
+    ],
+    "surface": "A painting called Boy in Blue, and the man who painted it.",
+    "walkthrough": "The italics dress 'Boy in Blue' as a picture title, and the picture they nudge you towards is The Blue Boy — which belongs to the other painter, the one at 26 across.",
+    "definitionFit": "Both senses: a constable is the junior police rank, and John Constable painted the English landscapes in every gallery."
+   }
   },
   {
    "id": "26-across",
@@ -537,7 +1295,32 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAINS",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "GAINSBOROUGH",
+    "definition": "…",
+    "indicators": [],
+    "pieces": [
+     "GAINS",
+     "BOROUGH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gets",
+      "gives": "GAINS",
+      "note": "if you get something you gain it, and the surface keeps the verb in the third person"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "BOROUGH",
+      "note": "a quarter of a city is a district of it, and a borough is a district with its own council"
+     }
+    ],
+    "surface": "The painter from the clue before coming into a quarter share of something.",
+    "walkthrough": "The leading ellipsis borrows its definition from 25 across, where 'artist' does double duty — and the joke is that The Blue Boy hanging over that clue is this painter's work, not the other one's.",
+    "definitionFit": "The ellipsis carries 'artist' over from 25 across, and Gainsborough is the second painter, the one who actually painted The Blue Boy."
+   }
   },
   {
    "id": "27-across",
@@ -558,7 +1341,37 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCREWIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCREW IT",
+    "definition": "I give up!",
+    "indicators": [
+     "getting stuffed in"
+    ],
+    "indicatorNotes": {
+     "getting stuffed in": "to be stuffed in is to be forced inside, which is where the shorter word ends up"
+    },
+    "pieces": [
+     "S",
+     "CREW",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flop",
+      "gives": "SIT",
+      "note": "to flop into a chair is to sit down in it heavily"
+     },
+     {
+      "clueFragment": "Team",
+      "gives": "CREW",
+      "note": "a crew is a team: a rowing eight, a film unit, a ship's company"
+     }
+    ],
+    "surface": "A side being thrashed, and a supporter who has finally had enough.",
+    "walkthrough": "'Flop' looks like the noun, a show that failed, which suits a team getting stuffed. The clue wants the verb instead: to flop down.",
+    "definitionFit": "'Screw it' is what you say when you abandon the attempt — the exclamation of giving up, not an instruction to a carpenter."
+   }
   },
   {
    "id": "28-across",
@@ -575,7 +1388,38 @@ window.CRYPTIC_PUZZLES["cryptic-30036"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIRLESS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AIRLESS",
+    "definition": "Close",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "in East London"
+    ],
+    "indicatorNotes": {
+     "in East London": "a Cockney accent drops the aitch at the front of a word, so that letter goes unsounded and unwritten"
+    },
+    "pieces": [
+     "AIRLESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mexican dog",
+      "gives": "HAIRLESS",
+      "note": "the Mexican Hairless, or Xoloitzcuintli, is a breed bred without a coat"
+     },
+     {
+      "clueFragment": "in East London",
+      "gives": "H",
+      "note": "the aitch a Cockney speaker drops from the front of the word"
+     }
+    ],
+    "surface": "A hairless Mexican dog somewhere in the East End.",
+    "walkthrough": "'Close' is the weather sense — stuffy, no air moving — rather than the opposite of far. The Mexican Hairless is a real breed, and East London is where its aitch goes missing.",
+    "definitionFit": "Close describes a room or a day with no air moving in it, the muggy sense used of August weather and of stuffy rooms."
+   }
   }
  ]
 } /*JSON-END*/;
