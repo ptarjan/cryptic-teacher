@@ -96,11 +96,20 @@ exec > >(tee -a "$RUN_LOG") 2>&1
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 . "$REPO/tools/annotate_model.sh"
 MODEL="$ANNOTATE_MODEL"
+# How much of each FIVE-hour window is kept back for whoever else is on this
+# account — but only while they are actually using it, and only while the week
+# can still afford it. See reserve_affordable, bridge_busy and after_wave.
+SESSION_RESERVE_PCT="${SESSION_RESERVE_PCT:-25}"
 # How close to the reset counts as "the end of the week" — five hours for every
 # five-hour window the remainder needs, so a nearly-spent week gets one and a
 # wholly unspent one gets eight. Zero when there is nothing left, which keeps the
 # gate shut: no positive number of hours until reset is ever within zero.
-WINDOW_HOURS="${WINDOW_HOURS:-$(python3 tools/prereset_plan.py --window-hours 2>/dev/null || echo 5)}"
+#
+# Asked WITH the reserve, so the start time budgets for it: a window that keeps
+# a quarter back delivers three quarters, the remainder needs a third more
+# windows than it looks like, and the job starts that much earlier to have them.
+# Starting at the full-spend edge and reserving anyway is just landing short.
+WINDOW_HOURS="${WINDOW_HOURS:-$(python3 tools/prereset_plan.py --window-hours "$SESSION_RESERVE_PCT" 2>/dev/null || echo 5)}"
 FORCE_HOURS="${FORCE_HOURS:-1}"
 # Above this the weekly window really is gone and a failing run means it. Below
 # it, a failure is the FIVE-hour window instead, which clears by itself.
@@ -110,11 +119,6 @@ FORCE_HOURS="${FORCE_HOURS:-1}"
 # involved, only a plan limit with no paid overflow to fall through to. So which
 # limit was hit is read off the seven-day number here, never off the message.
 EXHAUSTED="${EXHAUSTED:-97}"
-# How much of each FIVE-hour window is kept back for whoever else is on this
-# account — but only while they are actually using it. The whole weekly
-# remainder is still meant to be spent, so an empty room gets the reserve too.
-# See bridge_busy and the note in after_wave.
-SESSION_RESERVE_PCT="${SESSION_RESERVE_PCT:-25}"
 # Transcripts live under the CLI's config dir, which is exported above and is
 # NOT $HOME/.claude in the container: $HOME is /data/home there and the config
 # dir is the /data/claude volume. Spelled $HOME this pointed at a directory that
@@ -274,11 +278,26 @@ still_behind() {
   # and set -u turns the unreadable-API path into an unbound-variable abort.
   local hours verdict=""
   hours=$(python3 tools/weekly_usage.py --resets-in 2>/dev/null)
-  [ -n "$hours" ] && verdict=$(python3 tools/prereset_plan.py --behind "$hours" 2>/dev/null)
+  [ -n "$hours" ] && verdict=$(python3 tools/prereset_plan.py --behind "$hours" "$SESSION_RESERVE_PCT" 2>/dev/null)
   # Only an explicit "no" stops the run. A reading we failed to take is not a
   # reason to stop: the deadline still bounds us, and reading an unreachable API
   # as "we are ahead" strands the whole remainder on the night it exists for.
   [ "$verdict" != "no" ]
+}
+# Is the reserve still Paul's to have? Only while the week can pay for it. The
+# job starts early enough to buy the reserve its own windows (see WINDOW_HOURS),
+# so while it is ahead of the FULL-spend edge there is a window in hand to make
+# the held-back points back out of. Past that edge there is not: every point
+# kept back then expires with the window it was kept back from, and the last
+# night of a week is worth more to Paul spent than it is available.
+reserve_affordable() {
+  local hours verdict=""
+  hours=$(python3 tools/weekly_usage.py --resets-in 2>/dev/null)
+  [ -n "$hours" ] && verdict=$(python3 tools/prereset_plan.py --behind "$hours" 2>/dev/null)
+  # A reading we failed to take reads as "cannot afford it". The failure that
+  # costs quota is holding a reserve on the last night; the failure that costs
+  # an hour of bridge is holding none on an early one, and only one is forever.
+  [ "$verdict" = "no" ]
 }
 stand_down() {
   echo "back on schedule — what is left fits in the windows that remain; standing down"
@@ -335,6 +354,7 @@ wave_width() {
   # choice: a single run moves the meter about two points, so a reserve drained
   # that slowly is a reserve that expires half-full.
   if awk -v s="$2" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
+     && reserve_affordable \
      && ! in_endgame "$(session_left_min)"; then w=1; fi
   echo "$w"
 }
@@ -504,6 +524,11 @@ after_wave() {
   # naps until it turns over. The reserve is wide because the meter is only read
   # after a wave lands — see wave_width for the other half of that.
   #
+  # And it is his only while the week can still pay for it. Once the remainder
+  # no longer fits in the windows that are left at full spend, there is nothing
+  # to make a held-back point back out of and the courtesy becomes the week
+  # landing short — so past that edge the window goes whole, whoever is on it.
+  #
   # Handing it back is a LOAN, not a gift. Quota left on a window when it turns
   # over is gone for nothing, so the nap below wakes for the window's last
   # SESSION_ENDGAME_MIN minutes and spends the reserve then regardless of who is
@@ -519,6 +544,7 @@ after_wave() {
   # a loan that is not going to be repaid until the window resets anyway.
   if [ "$failed" -eq 0 ] \
      && awk -v s="$now_s" -v r="$SESSION_RESERVE_PCT" 'BEGIN{exit !(s >= 100 - r)}' \
+     && reserve_affordable \
      && bridge_busy; then
     if in_endgame "$left_min"; then
       echo "  five-hour window at ${now_s}% with ${left_min}m left on it — spending the reserve anyway rather than letting it expire"
