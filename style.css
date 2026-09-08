@@ -21,8 +21,19 @@
   --badge-cov-fg: #0f4d6f;
   --badge-none-bg: #e7e3db;  /* we haven't; solutions only */
   --badge-none-fg: #5b564d;
-  --badge-series-bg: #e9def5; /* which crossword this is */
+  --badge-series-bg: #e9def5; /* which crossword this is — the default, cryptic */
   --badge-series-fg: #543a75;
+  /* The other four papers, so the picker's paper legend reads as five papers
+     rather than one colour repeated five times. Muted like the rest of the
+     badge palette, not the mastheads' actual colours. */
+  --paper-quiptic-bg: #dfe6f0;
+  --paper-quiptic-fg: #2c4f70;
+  --paper-independent-bg: #dfe6d2;
+  --paper-independent-fg: #445c28;
+  --paper-indysunday-bg: #d7e8e6;
+  --paper-indysunday-fg: #1f5c56;
+  --paper-everyman-bg: #f0e0cf;
+  --paper-everyman-fg: #7a4a24;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -46,6 +57,14 @@
     --badge-none-fg: #a6a49c;
     --badge-series-bg: #3a2b4d;
     --badge-series-fg: #dcc4f2;
+    --paper-quiptic-bg: #263542;
+    --paper-quiptic-fg: #a9c4dd;
+    --paper-independent-bg: #333d24;
+    --paper-independent-fg: #c2d2a0;
+    --paper-indysunday-bg: #1e3a37;
+    --paper-indysunday-fg: #93cdc5;
+    --paper-everyman-bg: #4a3624;
+    --paper-everyman-fg: #e0b98a;
   }
 }
 
@@ -185,6 +204,13 @@ button:disabled:hover { border-color: var(--line); }
 .badge.full   { background: var(--badge-cov-bg);    color: var(--badge-cov-fg); }
 .badge.auto   { background: var(--badge-none-bg);   color: var(--badge-none-fg); }
 .badge.series { background: var(--badge-series-bg); color: var(--badge-series-fg); }
+/* Cryptic is the default and keeps the plain series colour above; the other
+   four papers get their own so the picker's paper legend — the one place all
+   five sit in a row together — reads at a glance instead of by label alone. */
+.badge.series-quiptic     { background: var(--paper-quiptic-bg);     color: var(--paper-quiptic-fg); }
+.badge.series-independent { background: var(--paper-independent-bg); color: var(--paper-independent-fg); }
+.badge.series-indysunday  { background: var(--paper-indysunday-bg);  color: var(--paper-indysunday-fg); }
+.badge.series-everyman    { background: var(--paper-everyman-bg);    color: var(--paper-everyman-fg); }
 
 /* The anagram ring: fodder laid out with no first letter and no last one, so
    there is no reading order for the eye to fall back into. Absolute placement
