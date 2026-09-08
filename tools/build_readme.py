@@ -110,6 +110,7 @@ LAYOUT = [
     ("building and checking the site", "tools/e2e_analytics.py", "drives a real browser through a solve and checks every event lands in KV"),
     ("building and checking the site", "tools/wait_for_deploy.py", "blocks until Pages is serving the pushed commit, so nobody is told to reload early"),
     ("building and checking the site", "tools/test_webpush.js", "runs the RFC 8291 test vector through sync/webpush.js, so the encryption is checked against something other than itself"),
+    ("building and checking the site", "tools/test_push_hold.js", "runs the cron fan-out over a fake night, so a puzzle held until morning is proved to arrive exactly once"),
     ("building and checking the site", "tools/tutorial.html", "source of the learn/ lesson"),
     ("building and checking the site", "tools/og_card.html", "source and type for og.png, the site’s one social card"),
 
@@ -123,6 +124,8 @@ LAYOUT = [
      "sync/wrangler.toml", "the Worker’s deploy config, KV binding, VAPID public key and the cron that watches for new puzzles"),
     ("syncing between devices and telling them about new puzzles, with no login and no accounts",
      "sync/webpush.js", "web push encryption and sender identity (RFC 8291, RFC 8292), written out so the Worker needs no dependency"),
+    ("syncing between devices and telling them about new puzzles, with no login and no accounts",
+     "sync/notify.js", "what a notification is called and whether this device wants it yet — the two decisions the fan-out makes before it encrypts anything"),
     ("syncing between devices and telling them about new puzzles, with no login and no accounts",
      "sw.js", "the service worker: it exists so a push has somewhere to be delivered, and deliberately caches nothing"),
 
