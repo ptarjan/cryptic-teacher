@@ -35,7 +35,40 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "FIVEASIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "FIVE A SIDE",
+    "definition": "this game format",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "What is reported reaches you by word of mouth, so you write down the sound of the words rather than their spelling."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "FIVE",
+     "ASIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quins",
+      "gives": "FIVE",
+      "note": "quins are quintuplets, five babies born at one go"
+     },
+     {
+      "clueFragment": "getting slaughtered",
+      "soundsLike": "A-CIDE",
+      "gives": "ASIDE",
+      "note": "the ending -cide means a killing, as in insecticide or regicide; said aloud, 'a-cide' is written out with an s"
+     }
+    ],
+    "surface": "Harlequins, the rugby club, are getting a hammering by all accounts.",
+    "walkthrough": "'Quins' is Harlequins in the surface and quintuplets in the wordplay. What is being sounded out is not a word at all but the suffix -cide, which is why the spelling comes out so far from the noise.",
+    "definitionFit": "this game format → FIVE A SIDE: football with five players per team, a named format of the game rather than a description of one match."
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +85,41 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOCUS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FOCUS",
+    "definition": "Aim",
+    "indicators": [
+     "shrink",
+     "by half"
+    ],
+    "indicatorNotes": {
+     "shrink": "To shrink a thing is to leave it smaller than you found it, and a word left smaller here keeps only its opening letters.",
+     "by half": "Cut by half, a word keeps half the letters it had: two of four, three of six."
+    },
+    "linkWords": [
+     "is to"
+    ],
+    "pieces": [
+     "FO",
+     "CUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fort",
+      "gives": "FO",
+      "note": "half of a four-letter word is two letters, taken from the front"
+     },
+     {
+      "clueFragment": "Custer",
+      "gives": "CUS",
+      "note": "half of the general's six-letter name, again from the front"
+     }
+    ],
+    "surface": "A cost-cutting plan to halve the size of an army fort.",
+    "walkthrough": "Custer is the US cavalry general of Little Bighorn, so 'Fort Custer' reads as one real garrison rather than as two words each waiting to be cut in two.",
+    "definitionFit": "Aim → FOCUS: both name the point you direct effort at — 'our aim this year' and 'our focus this year' swap freely."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +136,43 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERBALS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "VERBALS",
+    "definition": "argument",
+    "definitionNote": "'Verbals' is a plural-only slang noun — a row is 'a bit of verbals' — so the singular 'argument' is the natural gloss even though the answer ends in s.",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Turned over, a thing lands the other way up, so the letters collected so far are written out from the back."
+    },
+    "pieces": [
+     "VER",
+     "BALS"
+    ],
+    "subReversals": [
+     {
+      "from": "SLABREV",
+      "to": "VERBALS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Block",
+      "gives": "SLAB",
+      "note": "a slab is a thick flat block of stone or concrete"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "REV",
+      "note": "Rev is the standard short form for a reverend"
+     }
+    ],
+    "surface": "A clergyman is being blocked over some quarrel.",
+    "walkthrough": "'Over' turns both pieces at once, not just the one it sits beside. British slang keeps 'the verbals' for the words traded in a row, which is why the answer is plural and its definition is not.",
+    "definitionFit": "argument → VERBALS: British slang for the words traded in a row, the shouted half of a fight rather than the physical one."
+   }
   },
   {
    "id": "3-down",
@@ -91,7 +194,47 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATOB",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "A TO B",
+    "definition": "Common direction of travel",
+    "indicators": [
+     "fronts"
+    ],
+    "indicatorNotes": {
+     "fronts": "A word's front is the letter it starts with, so 'fronts' collects the opening letter of each word standing before it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "A",
+      "note": "the opening letter of the first word in the run"
+     },
+     {
+      "clueFragment": "they",
+      "gives": "T",
+      "note": "the opening letter of the second"
+     },
+     {
+      "clueFragment": "open",
+      "gives": "O",
+      "note": "the opening letter of the third"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "B",
+      "note": "the opening letter of the fourth"
+     }
+    ],
+    "pieces": [
+     "A",
+     "TO",
+     "B"
+    ],
+    "surface": "Once the border posts are opened, everybody heads the same way.",
+    "walkthrough": "The enumeration is the way in: three words of one, two and one letters is a shape almost nothing but this phrase fits, and 'fronts' is the only instruction in the clue.",
+    "definitionFit": "Common direction of travel → A TO B: 'getting from A to B' is the everyday phrase for a journey, A and B standing for start and finish."
+   }
   },
   {
    "id": "4-down",
@@ -108,7 +251,30 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITEM",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ITEM",
+    "definition": "Thing",
+    "definition2": "loving couple",
+    "linkWords": [
+     "that makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thing",
+      "gives": "",
+      "note": "an entry on a list, an object named one at a time"
+     },
+     {
+      "clueFragment": "loving couple",
+      "gives": "",
+      "note": "the gossip-column sense: two people who are going out together"
+     }
+    ],
+    "surface": "Some object that brings two people together romantically, with the sentence running on into 5 down.",
+    "walkthrough": "The ellipsis carries the sentence into 5 down, and it also hides the join between the two senses: nothing in the clue signals where one definition stops and the next starts.",
+    "definitionFit": "Thing → ITEM: a single entry on a list; and 'loving couple' → ITEM in the gossip sense, two people said to be an item because they are together."
+   }
   },
   {
    "id": "5-down",
@@ -129,7 +295,30 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "ENIDBLYTON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENID BLYTON",
+    "definition": "author",
+    "indicators": [
+     "irritated"
+    ],
+    "indicatorNotes": {
+     "irritated": "Someone irritated has been rubbed the wrong way and put out of sorts, and letters put out of sorts come back in a different order."
+    },
+    "anagram": {
+     "fodder": "BY INDOLENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "by indolent",
+      "gives": "BYINDOLENT",
+      "note": "ten letters of fodder, exactly the length wanted, with the little joining word part of the pile"
+     }
+    ],
+    "surface": "Somebody is being annoyed by a lazy writer.",
+    "walkthrough": "Enid Blyton wrote the Famous Five and Noddy for British children, and she was the opposite of indolent — six hundred-odd books. The clue opens mid-sentence because it runs on from 4 down.",
+    "definitionFit": "author → ENID BLYTON: definition by example — she is one particular writer, not a synonym for the word."
+   }
   },
   {
    "id": "6-across",
@@ -150,7 +339,45 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "RIPUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RIP UP",
+    "definition": "Take apart",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "R",
+     "I",
+     "P",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is resistance in physics, the R of Ohm's law"
+     },
+     {
+      "clueFragment": "very little",
+      "gives": "I",
+      "note": "the least you can have of anything is one, and one is I"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "P",
+      "note": "p is pence, so the two letters together read as 1p"
+     },
+     {
+      "clueFragment": "raised",
+      "gives": "UP",
+      "note": "anything raised is up, and here that is the word itself rather than an instruction"
+     }
+    ],
+    "surface": "A resistance movement has raised barely any money and is being dismantled.",
+    "walkthrough": "'Raised' looks like the reversal instruction this grid is full of, and it is simply the word up. Setters write very little money as 1p, which on the page is an I beside a p.",
+    "definitionFit": "Take apart → RIP UP: to rip something up is to tear it into pieces, the destructive sense of taking a thing apart rather than dismantling it neatly."
+   }
   },
   {
    "id": "6-down",
@@ -171,7 +398,31 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROSETINTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ROSE-TINTED",
+    "definition": "with optimism",
+    "definitionNote": "The answer is an adjective and the definition is a phrase saying what colours it: a rose-tinted memory is one seen with optimism, so the setter defines by the effect rather than by a matching adjective.",
+    "pieces": [
+     "ROSE",
+     "TINTED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Got up",
+      "gives": "ROSE",
+      "note": "'got up' is past tense, so it wants the past tense of rise"
+     },
+     {
+      "clueFragment": "coloured",
+      "gives": "TINTED",
+      "note": "a tinted window is a coloured one, and both words are past participles"
+     }
+    ],
+    "surface": "Someone got out of bed glowing with cheerfulness about the day.",
+    "walkthrough": "Rose-tinted spectacles are the ones that make everything look better than it is, and the phrase has broken free of the spectacles to describe any determinedly cheerful view.",
+    "definitionFit": "with optimism → ROSE-TINTED: from rose-tinted spectacles, so a rose-tinted account is one coloured by hope rather than seen plainly."
+   }
   },
   {
    "id": "7-down",
@@ -188,7 +439,34 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRODUCT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PRODUCT",
+    "definition": "content",
+    "linkWords": [
+     "on",
+     "to provide"
+    ],
+    "pieces": [
+     "PRO",
+     "DUCT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One paid",
+      "gives": "PRO",
+      "note": "a pro is paid for playing, as against an amateur"
+     },
+     {
+      "clueFragment": "channel",
+      "gives": "DUCT",
+      "note": "a duct is a channel carrying air, water or cable"
+     }
+    ],
+    "surface": "A professional is paid by a television channel to make things for it to show.",
+    "walkthrough": "Broadcasters really do call what they make 'product', so the definition belongs to the same industry the surface is painting, which is what makes the join invisible.",
+    "definitionFit": "content → PRODUCT: the trade's own word for what a studio or publisher makes and sells — a series is product before anyone calls it art."
+   }
   },
   {
    "id": "8-down",
@@ -209,7 +487,30 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "POSTHASTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "POST-HASTE",
+    "definition": "ASAP",
+    "pieces": [
+     "POST",
+     "HASTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Issue",
+      "gives": "POST",
+      "note": "to post a notice is to issue it publicly"
+     },
+     {
+      "clueFragment": "dispatch",
+      "gives": "HASTE",
+      "note": "dispatch as a noun is promptness — a job done 'with dispatch' is done quickly"
+     }
+    ],
+    "surface": "An order to get a dispatch sent out as fast as possible.",
+    "walkthrough": "Both wordplay words are quietly changing job: 'issue' from noun to verb, and 'dispatch' from the message the surface has you picturing to plain speed.",
+    "definitionFit": "ASAP → POST-HASTE: from the old instruction written on urgent letters, 'haste, post, haste', and now the ordinary idiom for as soon as possible."
+   }
   },
   {
    "id": "9-across",
@@ -230,7 +531,46 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "CARBONEMISSIONS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "CARBON EMISSIONS",
+    "definition": "damaging output",
+    "indicators": [
+     "secures"
+    ],
+    "indicatorNotes": {
+     "secures": "To secure something is to have it held safely inside you, so what follows is locked into what has been built already."
+    },
+    "linkWords": [
+     "to show"
+    ],
+    "pieces": [
+     "CARBON",
+     "E",
+     "MISSION",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transport",
+      "gives": "CAR",
+      "note": "the everyday means of transport, three letters of it"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "BONES",
+      "note": "Bones is the standing nickname for a ship's doctor"
+     },
+     {
+      "clueFragment": "undertaking",
+      "gives": "MISSION",
+      "note": "a mission is an undertaking somebody is charged with"
+     }
+    ],
+    "surface": "A doctor pins down a promise of a lift somewhere.",
+    "walkthrough": "'Doctor' is so reliably an anagram signal that it hides in plain sight here as a plain noun, and the insertion goes into a word the charade has only just finished building.",
+    "definitionFit": "damaging output → CARBON EMISSIONS: the standard term for the greenhouse gas released by burning fuel, which is exactly what the surface's car puts out."
+   }
   },
   {
    "id": "10-across",
@@ -247,7 +587,37 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCAT",
+    "definition": "Muck",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' names a destination: the letters just taken go inside the word that follows, splitting it."
+    },
+    "pieces": [
+     "S",
+     "CA",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "st is the postal short form of street"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is circa, the Latin for about, the one you see before a date"
+     }
+    ],
+    "surface": "Children messing about somewhere down the road.",
+    "walkthrough": "'Muck about' wants to be read as one phrase, and the definition is 'Muck' on its own. Scat is the naturalist's word for the droppings an animal leaves behind.",
+    "definitionFit": "Muck → SCAT: the field naturalist's term for animal droppings, so it is muck in the literal dung sense rather than dirt in general."
+   }
   },
   {
    "id": "11-across",
@@ -269,7 +639,30 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "ABITMUCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "A BIT MUCH",
+    "definition": "overboard",
+    "indicators": [
+     "Casting"
+    ],
+    "indicatorNotes": {
+     "Casting": "To cast is to throw, and letters thrown land in whatever order they land in."
+    },
+    "anagram": {
+     "fodder": "CHUM BAIT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "chum bait",
+      "gives": "CHUMBAIT",
+      "note": "eight letters of fodder — and chum really is a fishing bait, minced-up fish"
+     }
+    ],
+    "surface": "An angler is chucking chopped fish into the sea to bring the catch in.",
+    "walkthrough": "Every word here does two jobs at once: chum and bait are a real fishing scene and the letters, while 'casting' is what an angler does and the instruction to shuffle them.",
+    "definitionFit": "overboard → A BIT MUCH: to go overboard is to take a thing too far, and 'a bit much' is the understated British verdict on exactly that excess."
+   }
   },
   {
    "id": "12-down",
@@ -286,7 +679,31 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCOURAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DISCOURAGE",
+    "definition": "Put off",
+    "pieces": [
+     "DISC",
+     "OUR",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recording",
+      "gives": "DISC",
+      "note": "a disc is a recording, the crossword's usual one"
+     },
+     {
+      "clueFragment": "what we’re living though",
+      "gives": "OURAGE",
+      "note": "the era you are alive in is your age, so the one we share is our age"
+     }
+    ],
+    "surface": "Somebody keeps putting off the job of recording the times we are living through.",
+    "walkthrough": "The printed clue says 'though' where it means through; read it that way and the phrase is our age, the era we are all alive in.",
+    "definitionFit": "Put off → DISCOURAGE: to discourage someone is to put them off doing a thing — the same phrasal verb, not the postponing sense of 'put off'."
+   }
   },
   {
    "id": "13-down",
@@ -307,7 +724,43 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "BONDMARKET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BOND MARKET",
+    "definition": "something that intimidates governments",
+    "indicators": [
+     "capturing"
+    ],
+    "indicatorNotes": {
+     "capturing": "A captor keeps its prisoner inside, so the word before it closes round the word after it."
+    },
+    "pieces": [
+     "BOND",
+     "M",
+     "ARK",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British agent",
+      "gives": "BOND",
+      "note": "James Bond is the British agent of the films, 007"
+     },
+     {
+      "clueFragment": "satisfied",
+      "gives": "MET",
+      "note": "a demand that has been satisfied has been met"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "ARK",
+      "note": "the ark is the biblical vessel, three letters long"
+     }
+    ],
+    "surface": "A contented secret agent seizes a ship, and governments are rattled.",
+    "walkthrough": "Governments borrow by issuing bonds, so the traders who price them can force a chancellor's hand — the exclamation mark is the setter enjoying that fact.",
+    "definitionFit": "something that intimidates governments → BOND MARKET: states borrow there, so when traders demand higher yields a government's budget has to give way."
+   }
   },
   {
    "id": "14-across",
@@ -324,7 +777,37 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TESTIMONY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "TESTIMONY",
+    "definition": "declaration that’s provided in court",
+    "pieces": [
+     "TEST",
+     "I",
+     "MONY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Examine",
+      "gives": "TEST",
+      "note": "to test something is to examine it"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physicist's symbol for electric current"
+     },
+     {
+      "clueFragment": "wealth",
+      "soundsLike": "MONEY",
+      "gives": "MONY",
+      "note": "wealth is money, and what the setter wants is the sound of that word, which comes out an e short"
+     }
+    ],
+    "surface": "A court going through somebody's declaration of what they are currently worth.",
+    "walkthrough": "'Declaration' works twice: it belongs to the definition, and it is also the signal to say 'money' out loud rather than spell it. Only the noise is borrowed, so the e never arrives.",
+    "definitionFit": "declaration that’s provided in court → TESTIMONY: the formal name for evidence given on oath by a witness, spoken from the box."
+   }
   },
   {
    "id": "14-down",
@@ -345,7 +828,39 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "THESTATES",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "THE STATES",
+    "definition": "America",
+    "indicators": [
+     "sticks",
+     "in"
+    ],
+    "indicatorNotes": {
+     "sticks": "To stick one thing in another is to shove it bodily inside, which is what happens to the three letters that follow.",
+     "in": "'In' names where they go: inside the word that comes after it, splitting it in two."
+    },
+    "pieces": [
+     "THES",
+     "TAT",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papers",
+      "gives": "THESES",
+      "note": "theses are the long papers written for a doctorate"
+     },
+     {
+      "clueFragment": "poor material",
+      "gives": "TAT",
+      "note": "tat is British for cheap shoddy goods, the junk-shop kind"
+     }
+    ],
+    "surface": "Someone is padding out their academic papers with rubbish.",
+    "walkthrough": "'America' opens the clue looking like the subject of a sentence, a country doing something, rather than like the definition. Papers in the academic sense are theses.",
+    "definitionFit": "America → THE STATES: the everyday British name for the USA, short for the United States and always carrying the article."
+   }
   },
   {
    "id": "15-across",
@@ -362,7 +877,39 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOTES",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "NOTES",
+    "definition": "short communications",
+    "indicators": [
+     "return"
+    ],
+    "indicatorNotes": {
+     "return": "To return is to come back the way you went, so the letters are read back along the row."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "NOTES"
+    ],
+    "subReversals": [
+     {
+      "from": "SETON",
+      "to": "NOTES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resolved",
+      "gives": "SETON",
+      "note": "someone set on doing a thing is resolved to do it"
+     }
+    ],
+    "surface": "A decision to send back some brief messages.",
+    "walkthrough": "'Resolved to return' reads as a single decision — to go home again — and the parse cuts it in two, with 'set on' standing for resolved and 'return' giving the instruction.",
+    "definitionFit": "short communications → NOTES: a note is the briefest written message there is, a line on paper rather than a letter."
+   }
   },
   {
    "id": "16-across",
@@ -379,7 +926,38 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETHIC",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ETHIC",
+    "definition": "a matter of principle",
+    "indicators": [
+     "dropped"
+    ],
+    "indicatorNotes": {
+     "dropped": "A letter dropped falls out of the word it was in, and what is left closes up over the gap."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "ETHIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Traditional",
+      "gives": "ETHNIC",
+      "note": "ethnic dress or ethnic music is traditional to a people"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n is the standard short form of name, and it is the letter that goes"
+     }
+    ],
+    "surface": "A long-standing name is being dropped, and somebody insists that was a point of principle.",
+    "walkthrough": "'Name dropped' reads as name-dropping, the celebrity habit, when it is a plain instruction to lose a letter.",
+    "definitionFit": "a matter of principle → ETHIC: an ethic is a governing principle somebody holds to, as in the work ethic, rather than the study of right and wrong."
+   }
   },
   {
    "id": "17-down",
@@ -396,7 +974,42 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEIFERS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HEIFERS",
+    "definition": "livestock",
+    "indicators": [
+     "carrying",
+     "50% of"
+    ],
+    "indicatorNotes": {
+     "carrying": "What carries something has it on board and inside, so the word before closes round what comes next.",
+     "50% of": "Half of a word is half its letters, and the half kept here is the front one."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "HEI",
+     "FE",
+     "RS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They’ll come into estate",
+      "gives": "HEIRS",
+      "note": "heirs are the people who will come into an estate when it is left to them"
+     },
+     {
+      "clueFragment": "feed",
+      "gives": "FE",
+      "note": "half of that word's four letters, the front two kept and the back two left behind"
+     }
+    ],
+    "surface": "The people in line to inherit are lugging half the cattle feed about.",
+    "walkthrough": "An estate carrying something reads as a car with the boot loaded, which is the picture the clue is banking on; the estate here is the one you inherit.",
+    "definitionFit": "livestock → HEIFERS: definition by example — heifers are young cows that have not yet calved, one particular kind of farm animal."
+   }
   },
   {
    "id": "18-across",
@@ -417,7 +1030,30 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "DROVEHOME",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DROVE HOME",
+    "definition": "Made clear",
+    "indicators": [
+     "improperly"
+    ],
+    "indicatorNotes": {
+     "improperly": "Done improperly, a thing is done out of the correct order, and letters out of their correct order are the whole of an anagram."
+    },
+    "anagram": {
+     "fodder": "HERO MOVED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "hero moved",
+      "gives": "HEROMOVED",
+      "note": "nine letters of fodder, exactly the length of the light"
+     }
+    ],
+    "surface": "A report that a hero was shifted somewhere in an underhand way.",
+    "walkthrough": "The colon does the joining, so the definition is the two words in front of it. To drive a point home is to make it land, and both halves of the clue are in the past tense.",
+    "definitionFit": "Made clear → DROVE HOME: to drive a point home is to make it land unmistakably, and both are past tense, so the swap works in a sentence."
+   }
   },
   {
    "id": "19-down",
@@ -434,7 +1070,33 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUTDRAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OUTDRAW",
+    "definition": "Beat in a gunfight",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "OUT",
+     "DRAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banned",
+      "gives": "OUT",
+      "note": "something banned is out — ruled out, not allowed"
+     },
+     {
+      "clueFragment": "move",
+      "gives": "DRAW",
+      "note": "to draw is to move: a train draws in, a runner draws level"
+     }
+    ],
+    "surface": "A duel decided by a move the rules do not allow.",
+    "walkthrough": "The question mark is the setter admitting that 'move' for draw is loose, and the surface's illegal move in a shoot-out is where that looseness hides.",
+    "definitionFit": "Beat in a gunfight → OUTDRAW: to outdraw someone is to clear your gun from the holster first, which in a western settles the argument."
+   }
   },
   {
    "id": "20-across",
@@ -451,7 +1113,40 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIBUNAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TRIBUNAL",
+    "definition": "Enquiry",
+    "indicators": [
+     "included in"
+    ],
+    "indicatorNotes": {
+     "included in": "What is included in something sits within it, so the food ends up inside the word beside it."
+    },
+    "linkWords": [
+     "identifies"
+    ],
+    "pieces": [
+     "TRI",
+     "BUN",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sample",
+      "gives": "TRIAL",
+      "note": "a trial of a new product is a sample run of it"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "BUN",
+      "note": "a bun is food, a small sweet bread roll"
+     }
+    ],
+    "surface": "An investigation turns up food hidden inside a specimen.",
+    "walkthrough": "A trial is a courtroom in the answer's world and a sample everywhere else, and the clue hands you the second sense while the answer belongs firmly to the first.",
+    "definitionFit": "Enquiry → TRIBUNAL: a panel appointed to hear evidence and rule on it, which is what a public enquiry into something is."
+   }
   },
   {
    "id": "21-across",
@@ -472,7 +1167,27 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "ETAL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ET AL",
+    "definition": "the others",
+    "indicators": [
+     "involves"
+    ],
+    "indicatorNotes": {
+     "involves": "What a thing involves is caught up inside it, so the letters wanted are already sitting in the word before."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Retaliation",
+      "gives": "ETAL",
+      "note": "four consecutive letters inside this single word, starting at its second"
+     }
+    ],
+    "surface": "A revenge attack that sweeps up everybody else as well.",
+    "walkthrough": "The Latin et alii means 'and others' with no article, so 'the others' is a shade loose, and the hiding place is unusually short — one word rather than the customary three.",
+    "definitionFit": "the others → ET AL: the abbreviation of Latin et alii, tacked onto a list of names to stand for the rest of them."
+   }
   },
   {
    "id": "22-down",
@@ -489,7 +1204,30 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LAYER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LAYER",
+    "definition": "film",
+    "indicators": [
+     "Sort of"
+    ],
+    "indicatorNotes": {
+     "Sort of": "Sorting is putting things into a new order, so 'sort of' asks for that to be done to the letters that follow."
+    },
+    "anagram": {
+     "fodder": "EARLY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "early",
+      "gives": "EARLY",
+      "note": "five letters of fodder, exactly the length wanted"
+     }
+    ],
+    "surface": "Some category of early cinema.",
+    "walkthrough": "'Early film' reads as one phrase, silent pictures, and the film wanted is the other kind entirely — the thin covering on a pond or a lens.",
+    "definitionFit": "film → LAYER: a film of dust or oil is a thin layer of it, the covering sense of the word rather than the cinema one."
+   }
   },
   {
    "id": "23-down",
@@ -510,7 +1248,33 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "IFSO",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "IF SO",
+    "definition": "on that basis",
+    "indicators": [
+     "Occasional"
+    ],
+    "indicatorNotes": {
+     "Occasional": "What is occasional happens every now and then rather than continuously, so you take letters at intervals instead of the lot."
+    },
+    "linkWords": [
+     "is required"
+    ],
+    "pieces": [
+     "IFSO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infusion",
+      "gives": "IFSO",
+      "note": "every other letter of the word, starting with the first"
+     }
+    ],
+    "surface": "A herbal tea that only gets made now and then.",
+    "walkthrough": "One word carries the whole of the wordplay, which is why nothing in the clue looks like fodder until 'Occasional' turns out to be an instruction rather than a description of the tea.",
+    "definitionFit": "on that basis → IF SO: 'if so' means 'if that is the case', which is what somebody means by 'on that basis' when they accept a premise."
+   }
   },
   {
    "id": "24-down",
@@ -527,7 +1291,27 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALGA",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ALGA",
+    "definition": "Simple form of life",
+    "indicators": [
+     "spotted in"
+    ],
+    "indicatorNotes": {
+     "spotted in": "To spot a thing is to catch sight of it where it already sits, so the letters are there in the words untouched."
+    },
+    "blocks": [
+     {
+      "clueFragment": "spiral galaxy",
+      "gives": "ALGA",
+      "note": "four letters running straight across the join between the two words"
+     }
+    ],
+    "surface": "Astronomers finding life somewhere out in a distant galaxy.",
+    "walkthrough": "The join between two words is the classic hiding place, and 'spiral galaxy' is a real astronomical term, so nothing about the phrase looks assembled for the purpose.",
+    "definitionFit": "Simple form of life → ALGA: a single alga is one of the simplest plant-like organisms there is, with no roots, stems or leaves."
+   }
   },
   {
    "id": "25-across",
@@ -551,7 +1335,30 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEBACKOFALORRY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "THE BACK OF A LORRY",
+    "definition": "the source of hot stuff",
+    "indicators": [
+     "Terribly"
+    ],
+    "indicatorNotes": {
+     "Terribly": "Done terribly, a thing comes out badly wrong, and letters that come out wrong are letters in the wrong order."
+    },
+    "anagram": {
+     "fodder": "FAT YORK BACHELOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "fat York bachelor",
+      "gives": "FATYORKBACHELOR",
+      "note": "fifteen letters of fodder, the full width of the grid"
+     }
+    ],
+    "surface": "A stout unmarried Yorkshireman is said to be where the hot stuff comes from.",
+    "walkthrough": "Goods that fell 'off the back of a lorry' are stolen, and 'hot' is the same underworld shorthand for stolen — two bits of British slang meeting in one definition.",
+    "definitionFit": "the source of hot stuff → THE BACK OF A LORRY: stolen goods are 'hot', and are said to have come off the back of a lorry."
+   }
   },
   {
    "id": "26-across",
@@ -568,7 +1375,36 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUSIE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "SUSIE",
+    "definition": "this woman",
+    "indicators": [
+     "hold back"
+    ],
+    "indicatorNotes": {
+     "hold back": "To hold a thing is to have it inside you, and holding it back turns it round to face the other way."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "subReversals": [
+     {
+      "from": "EISUS",
+      "to": "SUSIE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defence is useless",
+      "gives": "EISUS",
+      "note": "five consecutive letters running across all three words, starting inside the first"
+     }
+    ],
+    "surface": "A warning that nothing anyone can do will stop the woman who is coming.",
+    "walkthrough": "Nothing in the clue looks like fodder, which is what makes a hidden reversal hard: the letters run backwards over two word joins, and 'hold back' is the only instruction there is.",
+    "definitionFit": "this woman → SUSIE: the definition points at nothing but a woman's given name, the familiar short form of Susan."
+   }
   },
   {
    "id": "27-across",
@@ -589,7 +1425,39 @@ window.CRYPTIC_PUZZLES["cryptic-30028"] = /*JSON-START*/ {
     ]
    },
    "solution": "TROJANWAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "TROJAN WAR",
+    "definition": "Extended conflict",
+    "indicators": [
+     "almost completely"
+    ],
+    "indicatorNotes": {
+     "almost completely": "Almost completely is not quite all of it, so the word arrives one letter short of its full length."
+    },
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "TROJAN",
+     "WAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grafter",
+      "gives": "TROJAN",
+      "note": "graft is British for hard work, and someone who works like a trojan never stops"
+     },
+     {
+      "clueFragment": "apprehensive",
+      "gives": "WAR",
+      "note": "wary is apprehensive, and the y at its end is the letter that never arrives"
+     }
+    ],
+    "surface": "A long feud has left a hard worker almost entirely on edge.",
+    "walkthrough": "The definition is the ten-year siege of Troy, and neither half of the answer comes from anything Greek — one is hard work and the other is nerves.",
+    "definitionFit": "Extended conflict → TROJAN WAR: definition by example — the siege of Troy lasted ten years and is the archetype of a war that drags on."
+   }
   }
  ]
 } /*JSON-END*/;
