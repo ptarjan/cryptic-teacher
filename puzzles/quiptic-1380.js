@@ -30,7 +30,40 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACTING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ACTING",
+    "definition": "not really in the post",
+    "linkWords": [
+     "with",
+     "though"
+    ],
+    "pieces": [
+     "AC",
+     "TIN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Account",
+      "gives": "AC",
+      "note": "ac is the standing abbreviation for an account, as on a bank statement"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is old British slang for cash"
+     },
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "a grand is a thousand pounds, shortened to its first letter"
+     }
+    ],
+    "surface": "A brisk tot-up of somebody's finances, with a payment apparently still sitting in the mail.",
+    "walkthrough": "'In the post' reads as the mail and means holding a job, and 'not really' is the word that turns the job into a temporary stand-in.",
+    "definitionFit": "Someone acting head or acting captain fills the post only for now, deputising rather than truly holding it."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +80,42 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "XENOPHOBIA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "XENOPHOBIA",
+    "definition": "anti-foreigner sentiment",
+    "indicators": [
+     "Vandalised",
+     "beginning to"
+    ],
+    "indicatorNotes": {
+     "Vandalised": "Vandals wreck what they get hold of, and a wrecked word keeps none of its letters where the setter put them.",
+     "beginning to": "What stands at the beginning of a word is its opening letter, so just one character comes from the word that follows."
+    },
+    "anagram": {
+     "fodder": "PHONEBOX I A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "phone-box",
+      "gives": "PHONEBOX",
+      "note": "anagram fodder, eight letters; the hyphen counts for nothing"
+     },
+     {
+      "clueFragment": "one’s",
+      "gives": "I",
+      "note": "one written as the single figure I, the way a lone person is"
+     },
+     {
+      "clueFragment": "beginning to anticipate",
+      "gives": "A",
+      "note": "the first letter of anticipate"
+     }
+    ],
+    "surface": "A smashed-up phone box, and somebody starting to see what is coming next.",
+    "walkthrough": "Hearing 'one's' as the letter I is what makes the arithmetic work: the phone-box supplies eight letters and the sentiment needs ten.",
+    "definitionFit": "Xenophobia is Greek for fear of the stranger, and English uses it for settled hostility towards foreigners rather than for any private phobia."
+   }
   },
   {
    "id": "3-down",
@@ -68,7 +136,37 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
     ]
    },
    "solution": "SQUADCAR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SQUAD CAR",
+    "definition": "Police vehicle",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Going around something means passing outside it on both sides, so the word named first splits open and encloses the next one."
+    },
+    "pieces": [
+     "S",
+     "QUAD",
+     "CAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "evidence of damage seen",
+      "gives": "SCAR",
+      "note": "a scar is the mark left where damage can still be seen"
+     },
+     {
+      "clueFragment": "one in four?",
+      "gives": "QUAD",
+      "note": "a quad is one of four children born together"
+     }
+    ],
+    "surface": "A battered motor is looked over, as though damage showed on one vehicle in every four.",
+    "walkthrough": "The colon is doing the work of an equals sign, and 'one in four' is a person rather than a proportion — quads arrive four at a time.",
+    "definitionFit": "A squad car is the patrol car a police squad rides in, so the phrase names it by the job it does."
+   }
   },
   {
    "id": "4-across",
@@ -85,7 +183,39 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WRENCH",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "WRENCH",
+    "definition": "a hard thing to bear",
+    "indicators": [
+     "embracing",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "embracing": "To embrace is to fold your arms right round somebody, so the word doing the embracing closes over the letter named next.",
+     "ultimately": "Whatever comes ultimately in a word is its final letter, taken here from the word standing just before it."
+    },
+    "pieces": [
+     "W",
+     "R",
+     "ENCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damsel",
+      "gives": "WENCH",
+      "note": "a wench is an old word for a girl or serving-woman"
+     },
+     {
+      "clueFragment": "another, ultimately",
+      "gives": "R",
+      "note": "the last letter of anotheR"
+     }
+    ],
+    "surface": "Two young women in an embrace, with something painful said to be waiting for them.",
+    "walkthrough": "'Bear' is the pivot: it means endure rather than carry, so the answer is the pang of a hard parting and not the tool in the toolbox.",
+    "definitionFit": "A wrench is the pang of a painful separation — 'leaving was a wrench' — which is exactly something hard to bear."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +232,45 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WITHDRAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "WITHDRAW",
+    "definition": "Retract",
+    "indicators": [
+     "origin of"
+    ],
+    "indicatorNotes": {
+     "origin of": "The origin of a word is the point it starts from, so only the opening letter of what comes next is used."
+    },
+    "linkWords": [
+     "on"
+    ],
+    "pieces": [
+     "WIT",
+     "H",
+     "DRAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intelligence",
+      "gives": "WIT",
+      "note": "wit is quickness of mind, intelligence"
+     },
+     {
+      "clueFragment": "origin of huge",
+      "gives": "H",
+      "note": "the first letter of huge"
+     },
+     {
+      "clueFragment": "lottery",
+      "gives": "DRAW",
+      "note": "a lottery is a draw, the pulling out of winning numbers"
+     }
+    ],
+    "surface": "Secret intelligence and an enormous prize draw, with somebody told to take it all back.",
+    "walkthrough": "In a down clue 'on' means sitting on top of, so the pieces stack down the column in the order the clue names them.",
+    "definitionFit": "To withdraw a remark is to retract it, take it back — the verb of statements rather than of money or troops."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +287,30 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENORMITY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENORMITY",
+    "definition": "a great crime",
+    "indicators": [
+     "somehow"
+    ],
+    "indicatorNotes": {
+     "somehow": "The word admits the route from one to the other is unstated, and letters that travel by no stated route arrive in a fresh order."
+    },
+    "anagram": {
+     "fodder": "MINOR YET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Minor yet",
+      "gives": "MINORYET",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "An offence being brushed aside as small when it was anything but.",
+    "walkthrough": "Enormity is the most misused word in the language: it means monstrous wickedness, not great size, and 'Minor' is teasing that very confusion.",
+    "definitionFit": "Enormity is an outrage or atrocity — moral monstrousness rather than mere hugeness — so a great crime is its strict sense."
+   }
   },
   {
    "id": "6-across",
@@ -140,7 +331,44 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEDQUILT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "BED-QUILT",
+    "definition": "coverage at night",
+    "definitionNote": "'Coverage' is an abstract noun while the answer is a solid object; the setter is using it for the thing that provides the covering.",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' in a clue means round the outside, so the word before it opens up and takes the piece named after it inside."
+    },
+    "pieces": [
+     "BED",
+     "QUI",
+     "L",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teaching degree?",
+      "gives": "BED",
+      "note": "a BEd is a Bachelor of Education, the usual British teaching qualification"
+     },
+     {
+      "clueFragment": "Resign",
+      "gives": "QUIT",
+      "note": "to quit a post is to resign from it"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is the learner plate a British driver displays, and crosswords use it for any student"
+     }
+    ],
+    "surface": "A teacher walks out over a student, and the conversation turns to what happens after dark.",
+    "walkthrough": "The question mark flags 'Teaching degree' as one example among several, which is the setter admitting that the letters come from a particular qualification.",
+    "definitionFit": "A bed-quilt is the padded cover spread over a bed, so it is what does the covering when you are asleep."
+   }
   },
   {
    "id": "7-down",
@@ -157,7 +385,35 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRIS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "IRIS",
+    "definition": "Flag",
+    "indicators": [
+     "getting trimmed"
+    ],
+    "indicatorNotes": {
+     "getting trimmed": "Trimming takes a bit off the end of something, so the last letter is snipped from the word before it."
+    },
+    "pieces": [
+     "IRIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of European country",
+      "gives": "IRISH",
+      "note": "belonging to Ireland = Irish"
+     },
+     {
+      "clueFragment": "getting trimmed",
+      "gives": "IRIS",
+      "note": "that word loses its final H"
+     }
+    ],
+    "surface": "A national flag described as being cut down to size.",
+    "walkthrough": "Flag is a genuine plant name — the yellow flag that grows at the water's edge is a wild iris — so a flower is being defined by a flower's other name.",
+    "definitionFit": "Flag is the common English name of the wild iris, so the definition is one plant name standing in for another."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +430,27 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOYS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TOYS",
+    "definition": "trifles",
+    "indicators": [
+     "Component of"
+    ],
+    "indicatorNotes": {
+     "Component of": "A component sits inside the thing it belongs to, which is where these letters are — already lying in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "extravagant oyster",
+      "gives": "TOYS",
+      "note": "the end of the first word runs straight on into the start of the second, with no break in the letters"
+     }
+    ],
+    "surface": "The ingredient list for a lavish dessert, oysters and all.",
+    "walkthrough": "'Trifles' is doing the defining as a noun meaning things of no consequence, while the surface has you tasting pudding.",
+    "definitionFit": "Trifles are things of no importance, and toys carries that dismissive sense — a plaything, something nobody need take seriously."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +467,40 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TROPIC",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TROPIC",
+    "definition": "line on map",
+    "indicators": [
+     "admitting"
+    ],
+    "indicatorNotes": {
+     "admitting": "To admit a visitor is to let them in, so the word doing the admitting takes the next letter inside itself."
+    },
+    "linkWords": [
+     "forms"
+    ],
+    "pieces": [
+     "T",
+     "R",
+     "OPIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discussion item",
+      "gives": "TOPIC",
+      "note": "a topic is an item up for discussion"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map-maker's abbreviation for river"
+     }
+    ],
+    "surface": "An agenda point that lets a river into the conversation.",
+    "walkthrough": "Cancer and Capricorn are the two of them printed across every globe, which is what makes a singular definition fair here.",
+    "definitionFit": "A tropic is one of the two latitude circles ruled across an atlas page, so it is literally a line drawn on a map."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +517,47 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOCALITY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + last letter",
+    "answer": "LOCALITY",
+    "definition": "the area",
+    "indicators": [
+     "finally",
+     "introducing"
+    ],
+    "indicatorNotes": {
+     "finally": "What comes finally in a word is its closing letter, and that single character is all the preceding word contributes.",
+     "introducing": "Introducing something means bringing it inside, so the two letters named next are planted within the pieces already assembled."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "LOCAL",
+     "IT",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "LOCAL",
+      "note": "your local is the neighbourhood pub in Britain"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "used literally, the word's own two letters"
+     },
+     {
+      "clueFragment": "brewery finally",
+      "gives": "Y",
+      "note": "the last letter of brewery"
+     }
+    ],
+    "surface": "A pub and the brewery behind it bring something new to the neighbourhood.",
+    "walkthrough": "'The local' is what a British drinker calls their nearest pub, and the clue needs you to hear that noun rather than the adjective.",
+    "definitionFit": "A locality is a district or neighbourhood — the slightly formal word estate agents and police reports keep alive for the area around you."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +574,36 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMOGRAPHIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DEMOGRAPHIC",
+    "definition": "part of the population",
+    "indicators": [
+     "followed by"
+    ],
+    "indicatorNotes": {
+     "followed by": "Saying one thing is followed by another fixes their order, so the piece named first is written down first."
+    },
+    "pieces": [
+     "DEMO",
+     "GRAPHIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protest",
+      "gives": "DEMO",
+      "note": "a demo is a demonstration, a public protest"
+     },
+     {
+      "clueFragment": "explicit",
+      "gives": "GRAPHIC",
+      "note": "graphic detail is explicit detail"
+     }
+    ],
+    "surface": "A march through the streets, and then something described in unsparing detail.",
+    "walkthrough": "'Explicit' is aiming you at rude pictures, and the answer is the flat marketing noun for a slice of people picked out by age or income.",
+    "definitionFit": "A demographic is a segment of a population sharing some characteristic, the sense advertisers use when they talk about reaching one."
+   }
   },
   {
    "id": "12-down",
@@ -242,7 +620,44 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADMINISTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "ADMINISTER",
+    "definition": "Run",
+    "indicators": [
+     "at first",
+     "followed by"
+    ],
+    "indicatorNotes": {
+     "at first": "Taken at its first, a word gives up only the letter it starts with and nothing else.",
+     "followed by": "The phrase puts the pieces in sequence, so whatever it introduces is written after what came before it."
+    },
+    "pieces": [
+     "A",
+     "D",
+     "MINISTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally, the word's own letter"
+     },
+     {
+      "clueFragment": "diocese, at first",
+      "gives": "D",
+      "note": "the first letter of diocese"
+     },
+     {
+      "clueFragment": "member of clergy",
+      "gives": "MINISTER",
+      "note": "a minister is an ordained member of the clergy"
+     }
+    ],
+    "surface": "Running a diocese, with a clergyman apparently trailing along behind.",
+    "walkthrough": "'Run' looks like part of the church business the surface describes, and it is the definition: manage, not move quickly.",
+    "definitionFit": "To administer a department is to run it, handling its day-to-day management — the transitive verb matching 'Run' in the same voice."
+   }
   },
   {
    "id": "13-down",
@@ -263,7 +678,41 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
     ]
    },
    "solution": "GAMESHOW",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "GAME SHOW",
+    "definition": "TV programme",
+    "indicators": [
+     "excited",
+     "to support"
+    ],
+    "indicatorNotes": {
+     "excited": "An excited crowd will not stand in the order it was put in, and neither will these letters.",
+     "to support": "In a down clue, supporting something means standing underneath it, so this batch goes below the letter already named."
+    },
+    "anagram": {
+     "fodder": "G WAS HOME"
+    },
+    "pieces": [
+     "G",
+     "AMESHOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good, as on a school report"
+     },
+     {
+      "clueFragment": "Was home, excited",
+      "gives": "AMESHOW",
+      "note": "the seven letters of WAS HOME in a new order"
+     }
+    ],
+    "surface": "Somebody was in and thrilled about it, and the sentence ends up recommending an evening's viewing.",
+    "walkthrough": "The question mark marks the definition as one example of the category rather than the whole of it, which is the setter being honest about a loose fit.",
+    "definitionFit": "A game show is a television format built round contestants competing for prizes, so it is one kind of TV programme rather than a synonym for the phrase."
+   }
   },
   {
    "id": "14-down",
@@ -280,7 +729,42 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INUNDATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "INUNDATE",
+    "definition": "swamp",
+    "indicators": [
+     "to go round"
+    ],
+    "indicatorNotes": {
+     "to go round": "Going round something means passing outside it, so the pieces already assembled close over the word named next."
+    },
+    "pieces": [
+     "IN",
+     "UN",
+     "DATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "what is popular is in, in fashion"
+     },
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is the French for a"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "DATE",
+      "note": "a date is a fixed time in the calendar"
+     }
+    ],
+    "surface": "A fashionable season for touring a French marsh.",
+    "walkthrough": "French words are fair game in British cryptics, and 'a French' is the standard way of asking for one; the definition is the verb, to flood.",
+    "definitionFit": "To inundate is to flood or overwhelm, and swamp as a verb means precisely that — swamped with letters, inundated with them."
+   }
   },
   {
    "id": "15-across",
@@ -297,7 +781,33 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTONYM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANTONYM",
+    "definition": "Opposite",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "ANTONY",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caesar",
+      "gives": "ANTONY",
+      "note": "Mark Antony was Julius Caesar's ally and then the man set against his heirs"
+     },
+     {
+      "clueFragment": "J?",
+      "gives": "M",
+      "note": "the clue writes Caesar as a register would, surname then initial, so the rival gets his initial too — M for Mark"
+     }
+    ],
+    "surface": "A history quiz question: who stood on the other side from Julius Caesar?",
+    "walkthrough": "'Caesar, J' is the surname-then-initial form the joke depends on: his opponent set down the same way is Antony, M, which is also an ordinary English word.",
+    "definitionFit": "An antonym is a word of contrary meaning — hot to cold — so the noun 'Opposite' is its everyday equivalent."
+   }
   },
   {
    "id": "16-down",
@@ -314,7 +824,41 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSEDIVE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "NOSEDIVE",
+    "definition": "Decline instantly",
+    "indicators": [
+     "worried",
+     "over"
+    ],
+    "indicatorNotes": {
+     "worried": "A dog worries a bone by shaking it about, and letters shaken about come out in a different arrangement.",
+     "over": "In a down clue, over means higher up the column, so the piece named before it is entered above the other."
+    },
+    "anagram": {
+     "fodder": "ONES DIVE"
+    },
+    "pieces": [
+     "NOSE",
+     "DIVE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one’s worried",
+      "gives": "NOSE",
+      "note": "the four letters of ONE'S in a new order"
+     },
+     {
+      "clueFragment": "dodgy bar",
+      "gives": "DIVE",
+      "note": "a dive is a seedy drinking den"
+     }
+    ],
+    "surface": "Somebody turns an offer down flat, anxious about a shabby drinking den.",
+    "walkthrough": "'Decline' pulls hard towards refusing an invitation and means falling steeply here, which is the whole of the misdirection.",
+    "definitionFit": "To nosedive is to plunge suddenly, the aircraft's nose-first drop borrowed for prices and reputations, so the decline is instant by definition."
+   }
   },
   {
    "id": "17-across",
@@ -331,7 +875,48 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARGAIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BARGAIN",
+    "definition": "a good buy",
+    "indicators": [
+     "initially",
+     "gripped by"
+    ],
+    "indicatorNotes": {
+     "initially": "A word taken initially yields the letter it opens with, so one character comes from the noun before it.",
+     "gripped by": "To be gripped is to be held fast inside something's grasp, so that letter lands within the pieces named afterwards."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "B",
+     "A",
+     "R",
+     "GAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "b is the standard abbreviation for book"
+     },
+     {
+      "clueFragment": "Reader initially",
+      "gives": "R",
+      "note": "the first letter of Reader"
+     },
+     {
+      "clueFragment": "once more",
+      "gives": "AGAIN",
+      "note": "once more = again"
+     }
+    ],
+    "surface": "Someone reading is caught up in a book for a second time, and it was cheap at the price.",
+    "walkthrough": "The insertion lands inside a two-piece assembly rather than inside one word, which is why the seam is so hard to see; the dash marks where the definition starts.",
+    "definitionFit": "A bargain is something bought for less than it is worth, so a good buy names it from the buyer's side of the counter."
+   }
   },
   {
    "id": "18-across",
@@ -348,7 +933,30 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINGAPOREAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SINGAPOREAN",
+    "definition": "resident of city-state",
+    "indicators": [
+     "troubled"
+    ],
+    "indicatorNotes": {
+     "troubled": "Someone troubled is unsettled, and unsettled letters do not stay in the order the clue handed them over in."
+    },
+    "anagram": {
+     "fodder": "PERSON AGAIN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Person again",
+      "gives": "PERSONAGAIN",
+      "note": "anagram fodder, eleven letters"
+     }
+    ],
+    "surface": "Somebody is bothered all over again.",
+    "walkthrough": "'Again' is passing itself off as an ordinary adverb, which is what keeps the fodder from looking like fodder — those five letters are working, not commenting.",
+    "definitionFit": "Singapore is a city that is also a sovereign country, so one of its nationals is exactly a resident of a city-state."
+   }
   },
   {
    "id": "19-down",
@@ -365,7 +973,42 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODOURS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "ODOURS",
+    "definition": "stinks",
+    "indicators": [
+     "upsetting"
+    ],
+    "indicatorNotes": {
+     "upsetting": "To upset a thing is to tip it over, and a word tipped over in a down clue is read back up the column."
+    },
+    "pieces": [
+     "OD",
+     "OURS"
+    ],
+    "subReversals": [
+     {
+      "from": "DO",
+      "to": "OD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party, upsetting",
+      "gives": "OD",
+      "note": "a do is a party, entered the other way up"
+     },
+     {
+      "clueFragment": "for us",
+      "gives": "OURS",
+      "note": "what belongs to us is ours"
+     }
+    ],
+    "surface": "A party that has gone badly wrong for the people throwing it.",
+    "walkthrough": "'Do' for a party is standard crossword vocabulary — a works do, a birthday do — and 'upsetting' is positional here rather than emotional.",
+    "definitionFit": "Stinks as a plural noun means bad smells, and odours is the neutral word for the same things, doing duty for the rude one."
+   }
   },
   {
    "id": "20-down",
@@ -382,7 +1025,27 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMMO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "AMMO",
+    "definition": "Material to support attack",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The smallest of signposts: it says the letters are inside the word that follows, not made from it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "backgammon",
+      "gives": "AMMO",
+      "note": "four consecutive letters sit in the word, starting from its fifth"
+     }
+    ],
+    "surface": "A board game, and the supplies an attacking player needs.",
+    "walkthrough": "Backgammon is doing double duty — a game in the surface, a hiding place in the wordplay — and that one-letter 'in' is the only signpost you get.",
+    "definitionFit": "Ammo is the clipped everyday form of ammunition, the material an attack is supplied with, and it carries the figurative sense too."
+   }
   },
   {
    "id": "21-down",
@@ -399,7 +1062,36 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLUE",
-   "annotation": null
+   "annotation": {
+    "type": "outer letters",
+    "answer": "GLUE",
+    "definition": "adhesive",
+    "indicators": [
+     "Limits to"
+    ],
+    "indicatorNotes": {
+     "Limits to": "The limits of a word are its two edges, so the opening and closing letters of each word named next are taken."
+    },
+    "pieces": [
+     "GL",
+     "UE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "general",
+      "gives": "GL",
+      "note": "the two edges of g-enera-l"
+     },
+     {
+      "clueFragment": "use",
+      "gives": "UE",
+      "note": "the two edges of u-s-e"
+     }
+    ],
+    "surface": "Restrictions written into what everybody is allowed to use.",
+    "walkthrough": "'Limits to general use' reads as small print on a licence, and that entirely plausible sentence is what hides an instruction inside it.",
+    "definitionFit": "Adhesive is the class name for anything that sticks things together, and glue is the everyday member of that class."
+   }
   },
   {
    "id": "22-across",
@@ -416,7 +1108,38 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MELODIST",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MELODIST",
+    "definition": "Song-writer",
+    "indicators": [
+     "getting confused"
+    ],
+    "indicatorNotes": {
+     "getting confused": "Something confused is muddled up, and muddled letters settle into an order nobody chose."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "SELDOM IT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "seldom",
+      "gives": "SELDOM",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "two more letters joined to the fodder"
+     }
+    ],
+    "surface": "A composer who is hardly ever mistaken for anything else.",
+    "walkthrough": "'Getting confused with it' reads as praise for a distinctive musician, and it is the instruction plus the last two letters it works on.",
+    "definitionFit": "A melodist is a writer of melodies, the tunes that carry songs, so the job title and the definition name the same trade."
+   }
   },
   {
    "id": "23-across",
@@ -433,7 +1156,39 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOSHUA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "JOSHUA",
+    "definition": "Religious writer",
+    "indicators": [
+     "leaders of"
+    ],
+    "indicatorNotes": {
+     "leaders of": "The leader of a word is the letter at its head, so the fronts of the two names that follow are what get used."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "JOSH",
+     "UA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ridicule",
+      "gives": "JOSH",
+      "note": "to josh somebody is to tease or make fun of them"
+     },
+     {
+      "clueFragment": "leaders of Unitarian Adventists",
+      "gives": "UA",
+      "note": "the first letters of those two words"
+     }
+    ],
+    "surface": "A religious author pokes fun at the heads of two church groups.",
+    "walkthrough": "The Old Testament book carries his name, and by the old convention that a book's title names its author he counts as its writer.",
+    "definitionFit": "Joshua is a book of the Hebrew Bible traditionally credited to the man it is named after, so the definition works by that attribution."
+   }
   },
   {
    "id": "24-across",
@@ -450,7 +1205,36 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERVIEW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERVIEW",
+    "definition": "summary",
+    "pieces": [
+     "OVER",
+     "VIE",
+     "W"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Completed",
+      "gives": "OVER",
+      "note": "when something is over it is finished"
+     },
+     {
+      "clueFragment": "challenge",
+      "gives": "VIE",
+      "note": "to vie is to compete, to challenge for something"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "w/ is the standard shorthand for with"
+     }
+    ],
+    "surface": "A challenge has been finished, and written up in brief.",
+    "walkthrough": "The smoothest word in the sentence is the one carrying a letter: 'with' looks like joinery holding two halves together and is a piece of the build.",
+    "definitionFit": "An overview is a broad account with the detail left out, which is what a summary gives you — the whole thing seen from above."
+   }
   },
   {
    "id": "25-across",
@@ -467,7 +1251,38 @@ window.CRYPTIC_PUZZLES["quiptic-1380"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROWSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "BROWSE",
+    "definition": "look over the shelves",
+    "indicators": [
+     "before",
+     "end of"
+    ],
+    "indicatorNotes": {
+     "before": "Standing before something means coming in front of it, which fixes which of the two pieces is written first.",
+     "end of": "The end of a word is its closing letter, and that single character is all this takes from the word after it."
+    },
+    "pieces": [
+     "BROWS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Items often furrowed",
+      "gives": "BROWS",
+      "note": "brows are what you furrow when you frown"
+     },
+     {
+      "clueFragment": "end of intense",
+      "gives": "E",
+      "note": "the last letter of intense"
+     }
+    ],
+    "surface": "A deep frown, held right up to the end of an intense stare.",
+    "walkthrough": "The question mark admits that shelves are only one place you can do this, which is what lets a whole phrase stand as the definition.",
+    "definitionFit": "To browse is to scan goods or books at leisure with nothing particular in mind, and drifting along a shelf is the everyday instance of it."
+   }
   }
  ]
 } /*JSON-END*/;
