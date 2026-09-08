@@ -45,5 +45,16 @@ got="$(bash -c 'unset ALERT_ENV_FILE; . "$1"; echo "$ALERT_ENV_FILE"' \
 check "alert.sh finds the bridge beside the checkout, not beside the worktrees" \
   "$got" "$tmp/github/household/.env"
 
+# The measured constants belong to the CHECKOUT. The burn measures them in a
+# nightly worktree and the start gate reads them in the checkout hours earlier,
+# so a planner that keeps them beside itself writes where nothing reads and
+# reads where nothing wrote — which is how the 2026-09-08 burn started a third
+# of a week late on a seed the worktree had already measured away from.
+cp "$ROOT/tools/prereset_plan.py" "$ROOT/tools/weekly_usage.py" \
+  "$tmp/worktrees/nightly/tools/"
+got="$(cd "$tmp/worktrees/nightly" && python3 tools/prereset_plan.py --state-dir)"
+check "measured state resolves to the checkout, not the worktree" \
+  "$got" "$tmp/github/repo"
+
 [ "$fails" = 0 ] && echo "PRERESET PATHS PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))
