@@ -2474,6 +2474,119 @@ global.realSetTimeout(() => {
       + reported(reopen).join(","));
 }
 
+// --- a single clue's own solve gets a gentle nod, once, only when typed ---
+// "Celebrate gently when a clue is solved" (Paul, 2026-09-08), refined the same
+// day into two tiers: any solve settles a tint on its cells, and a solve with
+// no hints taken and no letters revealed also earns a small gold marker that
+// STAYS on the clue row after the flash fades — the thing worth highlighting
+// is the fact, not the moment. See celebrateSolve()/noHintsSolve() in app.js;
+// noHintsSolve reuses hintsCharged()/revealsUsed, the exact figures the
+// scorebar's own "n with no hints" tally already reads, so there is no second,
+// driftable definition of "clean" and nothing new to persist — solvedWith and
+// revealsUsed were already saved for scoring before this existed.
+//
+// Reuses the one running instance rather than a second boot(): a mid-file
+// boot() was tried here first and left the ORIGINAL instance's picker unable
+// to find "Definition" a couple of thousand lines later (a run-of-words test
+// this file already had) — some piece of shared state does not survive a
+// second app existing at once, and chasing that down is a bigger fix than
+// this feature warrants. Every other test on this fixture puzzle gets a clean
+// slate the same way: open it and click reset-puzzle.
+{
+  const id = "cryptic-30066";
+  const openFresh = () => {
+    registry["btn-picker"].onclick();
+    typeInPicker(String(numberOf(id)));
+    registry["picker-list"].children
+      .find((li) => li.children[0] && li.children[0].innerHTML.includes("№ " + numberOf(id)))
+      .children[0].onclick();
+  };
+  openFresh();
+  registry["reset-puzzle"].onclick();
+  const key = (k) => kd(ev(k));
+  const puz = global.window.CRYPTIC_PUZZLES[id];
+  const cols = puz.dimensions.cols;
+  const cellsOf = (e) => {
+    const out = [];
+    for (let i = 0; i < e.length; i++) {
+      const x = e.direction === "across" ? e.position.x + i : e.position.x;
+      const y = e.direction === "across" ? e.position.y : e.position.y + i;
+      out.push(registry["grid"].children[y * cols + x]);
+    }
+    return out;
+  };
+  const select = (e) => registry["clue-" + e.id].listeners.click[0]();
+
+  const candidates = (puz.entries || []).filter((e) => e.solution && e.length >= 2);
+  assert(candidates.length >= 3, "cryptic-30066 has at least three typeable entries");
+  const [cleanE, otherE, revealedE] = candidates;
+
+  // --- tier 1: solved by typing, no hints taken — the clean tier ---
+  select(cleanE);
+  const cells = cellsOf(cleanE);
+  cleanE.solution.slice(0, -1).split("").forEach((c) => key(c));
+  assert(!cells.some((c) => c.classList.contains("solved-flash")),
+    "an entry one letter short of solved gets no flash yet");
+  key(cleanE.solution[cleanE.solution.length - 1]);
+  assert(cells.every((c) => c.classList.contains("solved-flash")),
+    "every cell of the just-solved entry carries the settling flash");
+  assert(cells.every((c) => c.classList.contains("clean")),
+    "solved with no hints and no reveals gets the gold tier, distinct from the green one");
+  assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
+    "the clue row picks up the persistent no-hints marker");
+
+  // The flash is transient...
+  global.flushTimers(500);
+  assert(!cells.some((c) => c.classList.contains("solved-flash") || c.classList.contains("clean")),
+    "the flash classes clear themselves once the settle is over");
+  // ...but the marker on the row is a standing fact about how it was solved,
+  // not a leftover of the animation — it must still be there with no flash.
+  assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
+    "the no-hints marker outlives the flash");
+
+  // --- fires once: a later re-render of the board must not replay it ---
+  select(otherE);
+  key(otherE.solution[0]);
+  assert(!cells.some((c) => c.classList.contains("solved-flash")),
+    "typing into a different entry re-renders the board but does not replay " +
+    "the flash on an entry that was already solved");
+
+  // --- a revealed answer is not a solve: neither tier, on a fresh entry ---
+  // Every clue in this puzzle is annotated, so "Fill in answer" only appears
+  // once the blocks rung is up (or the ladder is exhausted) — climb it the
+  // same way the sync-reply test above does, answering any question asked
+  // along the way rather than guessing at it.
+  select(revealedE);
+  let climbGuard = 12;
+  while (!registry["hx-entry"] && climbGuard--) {
+    const btn = registry["hint-next"].children.find((b) => !b.disabled);
+    if (!btn) break;
+    btn.onclick();
+    if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
+  }
+  const hx = registry["hx-entry"];
+  if (assert(hx && hx.onclick, "fill-in-answer becomes reachable once the ladder is climbed")) {
+    hx.onclick();
+    const rcells = cellsOf(revealedE);
+    assert(!rcells.some((c) => c.classList.contains("solved-flash") || c.classList.contains("clean")),
+      "revealing the whole answer gets no flash, of either tier");
+    assert(!registry["clue-" + revealedE.id].classList.contains("no-hints"),
+      "and no gold marker either — a reveal is not a clean solve");
+  }
+
+  // --- the no-hints marker survives a restore, not just a re-render ---
+  // Closing the puzzle in the picker and reopening it goes through the same
+  // save/restore path a reload does; the row is rebuilt from scratch, so this
+  // is the marker coming back from solvedWith/revealsUsed rather than from
+  // anything the flash itself touched.
+  global.flushTimers(200);
+  openFresh();  // no reset this time — this is the restore path under test
+  assert(registry["clue-" + cleanE.id].classList.contains("no-hints"),
+    "the no-hints marker survives closing and reopening the puzzle");
+  assert(!registry["clue-" + revealedE.id].classList.contains("no-hints"),
+    "and a revealed entry still carries no marker after that same restore");
+}
+
 // --- a misspelled event name is invisible forever, so it fails here ---
 // The list in sync/events.js is the whole contract: app.js may only report a
 // name on it and the Worker only stores names on it. Both ends are checked
