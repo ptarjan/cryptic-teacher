@@ -30,7 +30,43 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIUMPHED",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "TRIUMPHED",
+    "definition": "succeeded",
+    "indicators": [
+     "assumed"
+    ],
+    "indicatorNotes": {
+     "assumed": "To assume something is to take it on and absorb it, so the word doing the assuming closes over the letter named beside it."
+    },
+    "pieces": [
+     "TR",
+     "I",
+     "UMP",
+     "HED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "TRUMP",
+      "note": "the surname of the sitting US president, five letters straight off the front page"
+     },
+     {
+      "clueFragment": "Current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current and the crossword's standard way of clueing it"
+     },
+     {
+      "clueFragment": "he had",
+      "gives": "HED",
+      "note": "he had contracts to he'd, and the grid has no room for an apostrophe"
+     }
+    ],
+    "surface": "A head of state taking it as read that a man had already got where he wanted to be.",
+    "walkthrough": "'Current President' reads as one phrase naming whoever is in office now, which is the whole of the misdirection: the two words belong to different pieces.",
+    "definitionFit": "succeeded → TRIUMPHED: both are past-tense verbs for coming out on top, though 'succeeded' covers merely managing it where the answer claims an outright win."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +83,45 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TITANIUM",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "TITANIUM",
+    "definition": "metal",
+    "indicators": [
+     "covering",
+     "molten"
+    ],
+    "indicatorNotes": {
+     "covering": "A cover goes over a thing on every side, so the word doing the covering wraps right round what comes next.",
+     "molten": "Metal gone molten has lost its shape completely, and letters in that state will not hold the order they were handed over in."
+    },
+    "pieces": [
+     "T",
+     "ITANI",
+     "UM"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ITINA",
+      "gives": "ITANI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corporation",
+      "gives": "TUM",
+      "note": "a corporation is an old word for a paunch, the belly a well-fed alderman carries in front of him"
+     },
+     {
+      "clueFragment": "it in a",
+      "gives": "ITANI",
+      "note": "five small words' worth of letters, run together and melted into a new order"
+     }
+    ],
+    "surface": "A firm quietly hiding something small by dropping it into a bath of molten metal.",
+    "walkthrough": "'Corporation' is planted to look like a company and it is the Victorian sense, a man's belly — the same joke Dickens would have made.",
+    "definitionFit": "metal → TITANIUM: definition by example, since titanium is one metal among dozens and the plain noun is standing in for the particular element."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +138,37 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INKED",
-   "annotation": null
+   "annotation": {
+    "type": "prime letters",
+    "answer": "INKED",
+    "definition": "tattooed",
+    "indicators": [
+     "in prime locations"
+    ],
+    "indicatorNotes": {
+     "in prime locations": "The locations wanted are the prime-numbered ones: number the letters straight through and keep those standing at 2, 3, 5, 7 and 11."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "I",
+     "N",
+     "K",
+     "E",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Find keen lads",
+      "gives": "INKED",
+      "note": "twelve letters run together, with the ones at prime positions picked off in order"
+     }
+    ],
+    "surface": "Advice on where to look for the keenest lads, all of them covered in tattoos.",
+    "walkthrough": "Prime numbers are a rare device and the giveaway is that 'prime locations' is estate-agent talk for the best spots, doing surface duty at the same time.",
+    "definitionFit": "tattooed → INKED: ink is what a tattooist works in, so the past participle has become the ordinary word for having had the work done."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +189,52 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "MANILAENVELOPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MANILA ENVELOPE",
+    "definition": "Bill might arrive in this",
+    "indicators": [
+     "before",
+     "worried"
+    ],
+    "indicatorNotes": {
+     "before": "What stands before something else is written first, so the capital's six letters open the answer and the rest follows.",
+     "worried": "To worry a thing is to shake it about the way a dog worries a rag, and letters shaken like that come back out of order."
+    },
+    "linkWords": [
+     "about"
+    ],
+    "pieces": [
+     "MANILA",
+     "ENVELOPE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ELEVENOP",
+      "gives": "ENVELOPE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital",
+      "gives": "MANILA",
+      "note": "the capital of the Philippines"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "ELEVEN",
+      "note": "the number spelled out in full, handing over its six letters to be shuffled"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is a work — opus — the label printed on every piece of classical music"
+     }
+    ],
+    "surface": "Somebody fretting over a bill that might reach them in a far-off capital before eleven o'clock.",
+    "walkthrough": "'Capital before eleven' reads as an appointment in a city, and 'about' is a plain joining word here rather than an instruction to go round anything.",
+    "definitionFit": "Bill might arrive in this → MANILA ENVELOPE: the buff office envelope, named for the Manila hemp it was first made from, is what an invoice comes in."
+   }
   },
   {
    "id": "4-down",
@@ -108,7 +257,36 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HACKSAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HACKSAW",
+    "definition": "Means to cut",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "This entry runs down the grid, so a piece sitting on another is the one written above it and takes the front of the answer."
+    },
+    "pieces": [
+     "HACK",
+     "SAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journalist",
+      "gives": "HACK",
+      "note": "a hack is a jobbing reporter, and it is not a compliment"
+     },
+     {
+      "clueFragment": "Maxim",
+      "gives": "SAW",
+      "note": "a saw is an old proverb — Shakespeare's 'wise saws and modern instances' — and the capital M is the magazine on the surface"
+     }
+    ],
+    "surface": "A way of cutting down to size a journalist who writes for a lads' magazine.",
+    "walkthrough": "The italics are the trap: they make Maxim a title, and the word wanted is the ordinary noun for a pithy old saying.",
+    "definitionFit": "Means to cut → HACKSAW: the phrase names an instrument, and a hacksaw is the fine-toothed blade kept for cutting through metal and pipe."
+   }
   },
   {
    "id": "5-down",
@@ -125,7 +303,35 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DENUDES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DENUDES",
+    "definition": "strips",
+    "indicators": [
+     "comic"
+    ],
+    "indicatorNotes": {
+     "comic": "Comic is doing service as 'funny' in the sense of odd, and letters called odd have stopped standing in their proper order."
+    },
+    "anagram": {
+     "fodder": "DUNDEES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Dundee’s",
+      "gives": "DUNDEES",
+      "note": "anagram fodder, seven letters, the apostrophe ignored as punctuation always is"
+     },
+     {
+      "clueFragment": "comic",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "The comic strips that come out of Dundee, home of the Beano and the Dandy.",
+    "walkthrough": "DC Thomson has published the Beano and the Dandy from Dundee for a century, so 'Dundee's comic strips' reads as one solid phrase — and only 'strips' is the definition.",
+    "definitionFit": "strips → DENUDES: third-person verbs both, for taking the covering off something, whether that is a person, a hillside or a papered wall."
+   }
   },
   {
    "id": "6-across",
@@ -142,7 +348,36 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters",
+    "answer": "SMUT",
+    "definition": "Soot",
+    "indicators": [
+     "oddly disappears"
+    ],
+    "indicatorNotes": {
+     "oddly disappears": "The odd ones are the letters going missing, so strike out the first, third and fifth and read off whatever survives."
+    },
+    "pieces": [
+     "S",
+     "MUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size in a shirt collar and the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "amount",
+      "gives": "MUT",
+      "note": "a, o and n stand at positions one, three and five; take them out and three letters remain"
+     }
+    ],
+    "surface": "Soot, with a tiny quantity of it going missing here and there.",
+    "walkthrough": "A smut is a single flake of soot, the sort that settles on washing near a chimney; the word's other sense, dirty talk, is what 15 down leans on.",
+    "definitionFit": "Soot → SMUT: a smut is a flake of soot or the black mark it leaves, so the two nouns name the same speck of chimney dirt."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +398,51 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "MASSMEDIA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MASS MEDIA",
+    "definition": "TV, radio etc",
+    "indicators": [
+     "to work"
+    ],
+    "indicatorNotes": {
+     "to work": "Working a thing means kneading it about, the way a baker works dough, and letters worked over like that end up in a new arrangement."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MA",
+     "SS",
+     "MEDIA"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "AIMED",
+      "gives": "MEDIA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "MA",
+      "note": "Master of Arts, the letters a graduate puts after their name"
+     },
+     {
+      "clueFragment": "22",
+      "gives": "SS",
+      "note": "22 across is a steamship, and SS is the pair of letters painted before such a vessel's name"
+     },
+     {
+      "clueFragment": "aimed",
+      "gives": "MEDIA",
+      "note": "five letters handed over to be rearranged"
+     }
+    ],
+    "surface": "A graduate with ambitions to land a job in broadcasting.",
+    "walkthrough": "The 22 sends you across the grid: solve that entry first and it hands back two letters, which is why a cross-reference is worth doing early.",
+    "definitionFit": "TV, radio etc → MASS MEDIA: the plural noun covers the channels that reach a whole population at once, of which broadcasting is the everyday example."
+   }
   },
   {
    "id": "8-down",
@@ -184,7 +463,42 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "TODATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "TO DATE",
+    "definition": "Thus far",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What happens ultimately happens last, so only the final letter of the word beside it is being offered."
+    },
+    "pieces": [
+     "T",
+     "O",
+     "DATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "T",
+      "note": "the last letter of not"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "DATE",
+      "note": "the sticky brown fruit of the palm"
+     }
+    ],
+    "surface": "Someone reporting that the answer is still no, and addressing a friend as 'old fruit'.",
+    "walkthrough": "'Old fruit' is dated British chumminess, roughly 'old chap', and the surface leans on it hard while the wordplay quietly splits the phrase in two.",
+    "definitionFit": "Thus far → TO DATE: both adverbial phrases mean up to the present moment, and either can end a sentence about how much has happened so far."
+   }
   },
   {
    "id": "9-down",
@@ -207,7 +521,38 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUTONAPEDESTAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PUT ON A PEDESTAL",
+    "definition": "hero-worship",
+    "indicators": [
+     "Fix"
+    ],
+    "indicatorNotes": {
+     "Fix": "Fixing something means pulling it apart and putting the parts back another way, which is exactly what happens to these fourteen letters."
+    },
+    "linkWords": [
+     "illustrating"
+    ],
+    "anagram": {
+     "fodder": "UP TO DATE PANELS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "up 8 panels",
+      "gives": "UPTODATEPANELS",
+      "note": "8 down is TO DATE, so this reads as up-to-date panels — fourteen letters in all"
+     },
+     {
+      "clueFragment": "Fix",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "An instruction to repair some modern display boards showing somebody being idolised.",
+    "walkthrough": "'Fix up' wants to be read as one phrasal verb, and that is what buries the cross-reference: the 'up' belongs with the 8, not with the fixing.",
+    "definitionFit": "hero-worship → PUT ON A PEDESTAL: to hero-worship someone is to set them above ordinary judgement, which is what the idiom's raised plinth pictures."
+   }
   },
   {
    "id": "10-across",
@@ -224,7 +569,42 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOKEN",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letters",
+    "answer": "TOKEN",
+    "definition": "Representation",
+    "indicators": [
+     "finally",
+     "invested in"
+    ],
+    "indicatorNotes": {
+     "finally": "Finally asks for the ends of the words in front of it, so each one gives up its closing letter and nothing else.",
+     "invested in": "Money invested in something is put inside it, and these letters go bodily into the middle of the piece that follows."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "T",
+     "OK",
+     "EN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "X",
+      "gives": "TEN",
+      "note": "X is the Roman numeral for ten, spelled out in letters here"
+     },
+     {
+      "clueFragment": "crypto Musk",
+      "gives": "OK",
+      "note": "the closing letters of crypto and of Musk, taken in that order"
+     }
+    ],
+    "surface": "Elon Musk sinking the last of his money into a cryptocurrency on his own platform.",
+    "walkthrough": "X does three jobs on the surface — Musk's platform, the unknown quantity, the kiss — and the wordplay wants none of them, only the Roman numeral.",
+    "definitionFit": "Representation → TOKEN: a token stands in for something else, a bus fare or a promise, which is what a representation does; the crypto sense is the newest branch."
+   }
   },
   {
    "id": "11-across",
@@ -241,7 +621,30 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CONCUSSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONCUSSED",
+    "definition": "Stunned",
+    "pieces": [
+     "CON",
+     "CUSSED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict, the crossword's usual prisoner"
+     },
+     {
+      "clueFragment": "swore",
+      "gives": "CUSSED",
+      "note": "to cuss is to swear, so its past tense is six letters long"
+     }
+    ],
+    "surface": "A prisoner still reeling from a knock on the head, letting fly with language.",
+    "walkthrough": "CON for prisoner is the most-worked abbreviation in the British cryptic, and 'cuss' is the American softening of 'curse' that setters here borrow freely.",
+    "definitionFit": "Stunned → CONCUSSED: both past participles describe somebody knocked senseless by a blow, concussed being the medical version of the same daze."
+   }
   },
   {
    "id": "12-across",
@@ -258,7 +661,45 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NODULES",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "NODULES",
+    "definition": "knobs",
+    "indicators": [
+     "installing",
+     "after turning"
+    ],
+    "indicatorNotes": {
+     "installing": "Installing a thing means fitting it inside whatever will hold it, so this piece drops into the middle of the one before.",
+     "after turning": "The game is turned round before it goes in, so its letters are written out from the back end forwards."
+    },
+    "pieces": [
+     "N",
+     "ODUL",
+     "ES"
+    ],
+    "subReversals": [
+     {
+      "from": "LUDO",
+      "to": "ODUL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nintendo console",
+      "gives": "NES",
+      "note": "the Nintendo Entertainment System, the 1980s machine everybody called by its initials"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "ODUL",
+      "note": "ludo, the counters-and-dice race game, written backwards"
+     }
+    ],
+    "surface": "A Nintendo machine with a game slotted into it and its control knobs given a twist.",
+    "walkthrough": "'Nintendo console' looks like one indivisible phrase naming a box under the telly, and what the clue wants is the machine's own initials.",
+    "definitionFit": "knobs → NODULES: both plural nouns for small rounded lumps standing up from a surface, nodules being the word a doctor or a geologist reaches for."
+   }
   },
   {
    "id": "13-across",
@@ -275,7 +716,36 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOORMAT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "DOORMAT",
+    "definition": "One looked down on",
+    "indicators": [
+     "leader abandoning"
+    ],
+    "indicatorNotes": {
+     "leader abandoning": "A word's leader is the letter at its head, and here that letter is the one walking out, so what remains begins one letter in."
+    },
+    "pieces": [
+     "DO",
+     "ORMAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party — 'a bit of a do' — and it is the crossword's standard one"
+     },
+     {
+      "clueFragment": "make-up",
+      "gives": "ORMAT",
+      "note": "the make-up of a thing is its FORMAT, which here gives up its opening F"
+     }
+    ],
+    "surface": "Contempt for a party leader who has stopped bothering with make-up.",
+    "walkthrough": "'Party leader' reads as one phrase naming a politician, and the two words belong to different pieces of wordplay: the party is the knees-up.",
+    "definitionFit": "One looked down on → DOORMAT: it lies at the threshold and is literally looked down on, and the same word names a person everybody walks over."
+   }
   },
   {
    "id": "14-across",
@@ -299,7 +769,71 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "UNITEDWESTAND",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + anagram + last letter",
+    "answer": "UNITED WE STAND DIVIDED WE FALL",
+    "definition": "Slogan",
+    "indicators": [
+     "before",
+     "silly",
+     "conclusion"
+    ],
+    "indicatorNotes": {
+     "before": "What comes before something else is written ahead of it, so the gap's letters land in front of the shuffled ones.",
+     "silly": "Something silly has no sense left in the way it is arranged, and letters called silly will not be standing in the order they arrived in.",
+     "conclusion": "A word's conclusion is where it stops, so only the last letter of the one beside it is being handed over."
+    },
+    "pieces": [
+     "UNITED",
+     "WEST",
+     "AND",
+     "DIVIDE",
+     "DWEFAL",
+     "L"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FLAWED",
+      "gives": "DWEFAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "UNITED",
+      "note": "an adjective here: a party or a country that acts as one has joined into a single body"
+     },
+     {
+      "clueFragment": "used by Kanye",
+      "gives": "WEST",
+      "note": "the surname Kanye goes by"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "lifted straight out of the clue, letter for letter"
+     },
+     {
+      "clueFragment": "GAP",
+      "gives": "DIVIDE",
+      "note": "a gap between two camps is what a newspaper calls a rift, and the capitals are the shop on the surface"
+     },
+     {
+      "clueFragment": "flawed",
+      "gives": "DWEFAL",
+      "note": "six letters handed over to be shaken up"
+     },
+     {
+      "clueFragment": "deal’s",
+      "gives": "L",
+      "note": "the letter the word deal stops on"
+     }
+    ],
+    "surface": "Kanye West's clothing tie-up with Gap, and the daft, botched way that deal came to an end.",
+    "walkthrough": "The two entries tell the story in order: the first is the collaboration, the second the collapse. Kanye supplies his surname, not his music.",
+    "definitionFit": "Slogan → UNITED WE STAND, DIVIDED WE FALL: the proverb has been a rallying motto since the American Revolution and is the state motto of Kentucky."
+   }
   },
   {
    "id": "15-down",
@@ -316,7 +850,36 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDECENCY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "INDECENCY",
+    "definition": "6",
+    "indicators": [
+     "before"
+    ],
+    "indicatorNotes": {
+     "before": "Whatever goes before goes first, so the two letters meaning at home are written ahead of the longer piece."
+    },
+    "pieces": [
+     "IN",
+     "DECENCY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "somebody at home is in, the way a caller finds them"
+     },
+     {
+      "clueFragment": "Good taste",
+      "gives": "DECENCY",
+      "note": "not taste in food or furniture but in the moral sense, the propriety that keeps people from giving offence"
+     }
+    ],
+    "surface": "Good manners, and getting back to the house before six o'clock.",
+    "walkthrough": "The 6 is a cross-reference and not a time: solve 6 across and you are holding the definition, which is what the question mark is apologising for.",
+    "definitionFit": "6 → INDECENCY: 6 across is SMUT, and indecency is the abstract noun for the same thing, material that offends against public decency."
+   }
   },
   {
    "id": "16-down",
@@ -333,7 +896,38 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLORIDLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + outer letters",
+    "answer": "FLORIDLY",
+    "definition": "in a rococo style",
+    "indicators": [
+     "after detailing",
+     "walls of"
+    ],
+    "indicatorNotes": {
+     "after detailing": "De-tailing a word is docking its tail, so the state named beside it arrives with its final letter cut off.",
+     "walls of": "The walls of a building are its outermost surfaces, so take the first and last letters of the word that follows and nothing between."
+    },
+    "pieces": [
+     "FLORID",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State of Mar-a-Lago",
+      "gives": "FLORID",
+      "note": "Mar-a-Lago is Trump's Palm Beach club, so the state is Florida, arriving here one letter short"
+     },
+     {
+      "clueFragment": "lavatory",
+      "gives": "LY",
+      "note": "the two outermost letters of lavatory, one from each end"
+     }
+    ],
+    "surface": "The state a Florida resort is in once it has been stripped back and its lavatory done out in gilt curlicues.",
+    "walkthrough": "'State' reads as condition and means the US state, and 'detailing' reads as car valeting when it is de-tailing, docking a final letter.",
+    "definitionFit": "in a rococo style → FLORIDLY: the adverb means ornately, in a manner loaded with flourish, which is exactly how rococo decoration is applied."
+   }
   },
   {
    "id": "17-across",
@@ -356,7 +950,9 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "DIVIDEDWEFALL",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "14-across"
+   }
   },
   {
    "id": "18-down",
@@ -373,7 +969,44 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISTURB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters + reversal",
+    "answer": "DISTURB",
+    "definition": "Worry",
+    "indicators": [
+     "occasionally",
+     "up"
+    ],
+    "indicatorNotes": {
+     "occasionally": "Something done occasionally happens every so often rather than every time, so only every second letter of the word beside it is picked up.",
+     "up": "This entry is written from the top downwards, so a piece told to go up is read from its bottom end back to its top."
+    },
+    "pieces": [
+     "DIS",
+     "TURB"
+    ],
+    "subReversals": [
+     {
+      "from": "BRUT",
+      "to": "TURB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ad-libs",
+      "gives": "DIS",
+      "note": "the second, fourth and sixth letters of the word, the hyphen counting for nothing"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "TURB",
+      "note": "brut is the dry style printed on a champagne label, and here it is climbing the grid"
+     }
+    ],
+    "surface": "An improviser's off-the-cuff lines drying up every now and again.",
+    "walkthrough": "'Dry up' is one phrase on the surface, the thing that happens to a performer who loses their lines, and the wordplay takes the two words apart.",
+    "definitionFit": "Worry → DISTURB: as verbs both mean to unsettle somebody's peace of mind, and 'do not disturb' asks the same thing as 'do not trouble'."
+   }
   },
   {
    "id": "19-down",
@@ -390,7 +1023,31 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISSENT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "DISSENT",
+    "definition": "Object",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "What we hear is the sound and not the spelling, so the answer is written the way a different word is said aloud."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stock",
+      "soundsLike": "DESCENT",
+      "gives": "DISSENT",
+      "note": "stock in the sense of ancestry — 'of good stock' — is descent, and said aloud it comes out spelled another way"
+     }
+    ],
+    "surface": "An objection raised about goods sitting in the storeroom.",
+    "walkthrough": "'In stock' wants to be one phrase about a warehouse; the wordplay needs 'stock' alone, and in the breeding sense rather than the inventory one.",
+    "definitionFit": "Object → DISSENT: both verbs mean registering that you do not agree, with dissent carrying the formal note of a minority voting the other way."
+   }
   },
   {
    "id": "20-down",
@@ -407,7 +1064,42 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHIMSY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "WHIMSY",
+    "definition": "fantasy",
+    "indicators": [
+     "consumes"
+    ],
+    "indicatorNotes": {
+     "consumes": "Whatever a word consumes it swallows whole, so the pieces named after it end up held inside it."
+    },
+    "pieces": [
+     "WH",
+     "IMS",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question of motive",
+      "gives": "WHY",
+      "note": "the question you ask when what you want is a motive"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one, the crossword's usual way of writing it"
+     },
+     {
+      "clueFragment": "writing",
+      "gives": "MS",
+      "note": "MS is a manuscript, a piece of writing before anyone sets it in type"
+     }
+    ],
+    "surface": "A detective's question about motive swallowing up a novelist of fantasy.",
+    "walkthrough": "'One writing' reads as a person who writes, which is the trap — it is two separate scraps, a numeral and an abbreviation, laid end to end.",
+    "definitionFit": "fantasy → WHIMSY: whimsy is playful fancy, the light end of fantasy, invention followed for its own oddity rather than a whole imagined world."
+   }
   },
   {
    "id": "21-across",
@@ -424,7 +1116,38 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HECKLES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "HECKLES",
+    "definition": "barracks",
+    "indicators": [
+     "French disappearing",
+     "behind"
+    ],
+    "indicatorNotes": {
+     "French disappearing": "French is FR in wordplay, and disappearing says those two letters are the ones taken out of the word beside it.",
+     "behind": "This entry runs left to right, so a piece placed behind another comes after it and fills the tail of the answer."
+    },
+    "pieces": [
+     "H",
+     "ECKLES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the standard abbreviation, the letter on the road sign"
+     },
+     {
+      "clueFragment": "Spots",
+      "gives": "ECKLES",
+      "note": "the spots are FRECKLES, and the two letters standing for French come away from the front"
+     }
+    ],
+    "surface": "Spots on a French visitor fading from view behind the barracks by the hospital.",
+    "walkthrough": "'Barracks' is placed to read as army buildings next to the hospital, and it is a verb: to barrack is British and Australian for jeering at a player or speaker.",
+    "definitionFit": "barracks → HECKLES: to barrack somebody is to shout them down from the crowd, and both verbs are the third-person singular of that same nuisance."
+   }
   },
   {
    "id": "22-across",
@@ -441,7 +1164,40 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEAMER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STEAMER",
+    "definition": "Ship",
+    "indicators": [
+     "eats"
+    ],
+    "indicatorNotes": {
+     "eats": "What a word eats it takes inside itself, so the letters named next sit in the middle of it rather than alongside."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "STE",
+     "AM",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pilot",
+      "gives": "STEER",
+      "note": "to pilot a boat is to steer it — the verb, not the man on the bridge"
+     },
+     {
+      "clueFragment": "before noon",
+      "gives": "AM",
+      "note": "the hours before noon are the am ones on a clock face"
+     }
+    ],
+    "surface": "A ship's pilot having a bite to eat before midday.",
+    "walkthrough": "'Ship's pilot' reads as one job title and then splits: 'Ship' is the definition on its own, and the apostrophe-s does the work of an equals sign.",
+    "definitionFit": "Ship → STEAMER: definition by example — a steamer is one kind of ship, the steam-driven sort, so the general noun stands for the particular."
+   }
   },
   {
    "id": "23-down",
@@ -464,7 +1220,49 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIMIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "MIMIC",
+    "definition": "Mirror",
+    "indicators": [
+     "Case of",
+     "on",
+     "going over"
+    ],
+    "indicatorNotes": {
+     "Case of": "A case is what encloses a thing, so what is wanted is the outside letters of the word and not its contents.",
+     "on": "This entry runs down the grid, so a piece sitting on another is written above it.",
+     "going over": "Going over something is passing above it, so whatever this piece goes over is written underneath it."
+    },
+    "linkWords": [
+     "makes"
+    ],
+    "pieces": [
+     "MI",
+     "MI",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maserati",
+      "gives": "MI",
+      "note": "the first and last letters of Maserati"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1 is Britain's first motorway, and in a grid of capitals its numeral is read as a letter I"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     }
+    ],
+    "surface": "A Maserati flying up the motorway past a hundred, caught in the rear-view mirror.",
+    "walkthrough": "The italics make Mirror the newspaper, which is the whole misdirection — it is the plain verb. Reading the M1's digit as a capital I is the step to spot.",
+    "definitionFit": "Mirror → MIMIC: both are verbs for copying somebody's movements straight back at them, one from the glass and one from the impressionist."
+   }
   },
   {
    "id": "24-across",
@@ -481,7 +1279,36 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MENOPAUSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "MENOPAUSE",
+    "definition": "The change",
+    "indicators": [
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A word sent on vacation has been emptied of its occupants, so the middle letters go and only the two ends stay behind."
+    },
+    "pieces": [
+     "ME",
+     "NOPAUSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made",
+      "gives": "ME",
+      "note": "the outside letters of made, with the middle two cleared out"
+     },
+     {
+      "clueFragment": "without delay",
+      "gives": "NOPAUSE",
+      "note": "doing a thing without delay is doing it with no pause"
+     }
+    ],
+    "surface": "Alterations carried out while the family is away on holiday, and done straight away.",
+    "walkthrough": "'The change' is the euphemism a doctor's waiting room would use, and the trailing dots hand the word 'change' straight on to 25 across, where it does a different job.",
+    "definitionFit": "The change → MENOPAUSE: 'the change', or 'the change of life', is the long-standing British euphemism for it, so the two nouns name one event."
+   }
   },
   {
    "id": "25-across",
@@ -498,7 +1325,35 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAMED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TAMED",
+    "definition": "now under control",
+    "indicators": [
+     "change"
+    ],
+    "indicatorNotes": {
+     "change": "Letters told to change do not keep the arrangement they came in, and this is the same word 24 across used as its definition."
+    },
+    "anagram": {
+     "fodder": "MADE T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "made on time",
+      "gives": "MADET",
+      "note": "the four letters of made plus T, the standard abbreviation for time — five to rearrange"
+     },
+     {
+      "clueFragment": "change",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "An alteration delivered on schedule, with everything now running smoothly.",
+    "walkthrough": "The dots carry 'change' over from 24 across, where it was the definition; here the very same word is the instruction to rearrange.",
+    "definitionFit": "now under control → TAMED: a tamed animal, river or temper has been brought to heel, and the past participle carries the 'now' of a finished change."
+   }
   },
   {
    "id": "26-across",
@@ -519,7 +1374,37 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "YOYO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "YO-YO",
+    "definition": "Type of dieting",
+    "indicators": [
+     "endlessly"
+    ],
+    "indicatorNotes": {
+     "endlessly": "A word taken endlessly has had its end removed, so the final letter of the one beside it is dropped before anything else happens."
+    },
+    "pieces": [
+     "YO",
+     "YO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you endlessly",
+      "gives": "YO",
+      "note": "the word you with its last letter taken off"
+     },
+     {
+      "clueFragment": "repeated",
+      "gives": "YO",
+      "note": "the same two letters come round a second time"
+     }
+    ],
+    "surface": "The kind of dieting somebody keeps going back to, over and over again.",
+    "walkthrough": "Yo-yo dieting is weight lost and regained in cycles, named for the toy that comes straight back up the string the moment you drop it.",
+    "definitionFit": "Type of dieting → YO-YO: the word attaches to dieting to name the up-and-down pattern, losing the same weight and putting it back on repeatedly.",
+    "definitionNote": "YO-YO is a noun and 'Type of dieting' asks for the modifier in 'yo-yo dieting'; setters allow this because the toy's name is what supplies the sense."
+   }
   },
   {
    "id": "27-across",
@@ -540,7 +1425,54 @@ window.CRYPTIC_PUZZLES["cryptic-30032"] = /*JSON-START*/ {
     ]
    },
    "solution": "BATTLECRY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "BATTLE-CRY",
+    "definition": "Geronimo",
+    "indicators": [
+     "new",
+     "to accommodate"
+    ],
+    "indicatorNotes": {
+     "new": "Something made new has been put together again out of the same parts, and letters rebuilt that way come out in a different order.",
+     "to accommodate": "To accommodate a guest is to find room for them inside, so the letter named next is fitted into the middle of what precedes it."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "B",
+     "ATT",
+     "L",
+     "ECRY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CATTERY",
+      "gives": "ATTECRY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "B",
+      "note": "B is the standard abbreviation for book"
+     },
+     {
+      "clueFragment": "cattery",
+      "gives": "ATTECRY",
+      "note": "seven letters rebuilt into a shell with a gap left in the middle of it"
+     },
+     {
+      "clueFragment": "Lambert",
+      "gives": "L",
+      "note": "the lambert is the old unit of brightness, and its symbol is a single L"
+     }
+    ],
+    "surface": "Reserving space in a newly built cattery for two arrivals called Lambert and Geronimo.",
+    "walkthrough": "The question mark flags a definition by example. Only one of the two names defines anything — the other is a unit of measurement dressed up as a pet.",
+    "definitionFit": "Geronimo → BATTLE-CRY: 'Geronimo!' is what American paratroopers yelled leaving the aircraft, so the Apache leader's name became one particular battle-cry."
+   }
   }
  ]
 } /*JSON-END*/;
