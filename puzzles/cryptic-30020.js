@@ -34,7 +34,37 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOUPKITCHENS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "SOUP KITCHENS",
+    "definition": "support for the poor",
+    "indicators": [
+     "Ultimately",
+     "off"
+    ],
+    "indicatorNotes": {
+     "Ultimately": "Taken ultimately, a name is reduced to the single letter it finishes on rather than the whole of it.",
+     "off": "Milk goes off when it turns bad, and letters that have gone off will not stay in the order they are given."
+    },
+    "anagram": {
+     "fodder": "E HOPKINSCUTS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Katie",
+      "gives": "E",
+      "note": "The final letter of Katie joins the shuffle."
+     },
+     {
+      "clueFragment": "Hopkins cuts",
+      "gives": "HOPKINSCUTS",
+      "note": "Eleven letters of fodder, taken with the E."
+     }
+    ],
+    "surface": "A newspaper columnist is being blamed for slashing the help available to people with nothing.",
+    "walkthrough": "Katie Hopkins is a British newspaper columnist notorious for hard-hearted remarks about the poor, so the sentence reads as a headline about welfare cuts.",
+    "definitionFit": "A soup kitchen hands out free meals to people who cannot afford food, so a row of them is support for the poor."
+   }
   },
   {
    "id": "1-down",
@@ -55,7 +85,31 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
     ]
    },
    "solution": "SCREENOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCREEN OUT",
+    "definition": "Filter",
+    "indicators": [],
+    "pieces": [
+     "SCREEN",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air",
+      "gives": "SCREEN",
+      "note": "To air a programme is to screen it — both are broadcasters' verbs."
+     },
+     {
+      "clueFragment": "not at home",
+      "gives": "OUT",
+      "note": "Someone not at home is out."
+     }
+    ],
+    "surface": "Purifying the air in a house while nobody is in it.",
+    "walkthrough": "'Air' wants to be the stuff being filtered, the object of the sentence; the wordplay needs it as the verb a television schedule uses.",
+    "definitionFit": "To screen something out is to filter it: a screen sifts what may pass and holds the rest back."
+   }
   },
   {
    "id": "2-down",
@@ -72,7 +126,38 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERDOG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "UNDERDOG",
+    "definition": "one’s likely to lose",
+    "indicators": [
+     "before",
+     "start of"
+    ],
+    "indicatorNotes": {
+     "before": "What stands before something stands ahead of it, so this chunk is written down first.",
+     "start of": "The start of a word is the single letter it opens on, not the whole word."
+    },
+    "pieces": [
+     "UNDERDO",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail to warm up sufficiently",
+      "gives": "UNDERDO",
+      "note": "To do food is to cook it, so to cook it too little is to underdo it."
+     },
+     {
+      "clueFragment": "game",
+      "gives": "G",
+      "note": "Only the initial letter of the word is wanted."
+     }
+    ],
+    "surface": "A player skimps on the warm-up and walks out onto the pitch cold.",
+    "walkthrough": "'Warm up' is doing two jobs: the surface has an athlete stretching, the wordplay has food that has not been cooked enough.",
+    "definitionFit": "An underdog is the competitor everyone expects to be beaten, named by their prospects rather than by their form."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +174,42 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KORAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "KORAN",
+    "definition": "religious work",
+    "indicators": [
+     "Before"
+    ],
+    "indicatorNotes": {
+     "Before": "A thing set before another stands in front of it, so this chunk leads the assembly."
+    },
+    "pieces": [
+     "KO",
+     "RA",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put on the canvas",
+      "gives": "KO",
+      "note": "A boxer put on the canvas has been knocked out, which the record books write as KO."
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "An artist may be a Royal Academician, RA after the name."
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new."
+     }
+    ],
+    "surface": "A painter is flattened in front of his easel before starting a fresh commission.",
+    "walkthrough": "The canvas is two canvases — the painter's cloth in the surface, the floor of the ring in the wordplay — and 'artist' pulls hard towards the first.",
+    "definitionFit": "The Koran is the scripture of Islam, and 'work' is the crossword's usual way of naming a book or composition without saying which kind."
+   }
   },
   {
    "id": "4-down",
@@ -110,7 +230,31 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOUCHDOWN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOUCH DOWN",
+    "definition": "Come in",
+    "indicators": [],
+    "pieces": [
+     "TOUCH",
+     "DOWN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feel",
+      "gives": "TOUCH",
+      "note": "To feel something is to touch it."
+     },
+     {
+      "clueFragment": "sad",
+      "gives": "DOWN",
+      "note": "Someone sad is down, low in spirits."
+     }
+    ],
+    "surface": "A miserable friend is standing on the doorstep and being waved inside.",
+    "walkthrough": "An aircraft told to come in is being brought onto the runway, which is the sense the definition needs; the surface offers hospitality instead.",
+    "definitionFit": "A plane comes in when it lands, and to touch down is exactly that moment of the wheels reaching the ground."
+   }
   },
   {
    "id": "5-down",
@@ -127,7 +271,41 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIDING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HIDING",
+    "definition": "Beating",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "getting cut",
+     "before"
+    ],
+    "indicatorNotes": {
+     "getting cut": "A word getting cut comes up short, losing the letter it ended on.",
+     "before": "Standing before the other piece means standing ahead of it, so these letters come first."
+    },
+    "pieces": [
+     "HI",
+     "DING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punch",
+      "gives": "HI",
+      "note": "A punch is a hit, and the cut takes its last letter away."
+     },
+     {
+      "clueFragment": "sound of the bell",
+      "gives": "DING",
+      "note": "A bell goes ding."
+     }
+    ],
+    "surface": "A boxer takes a punch and is cut open just as the round ends.",
+    "walkthrough": "Every word belongs to the ring — the punch, the cut, the bell — and the definition lives there too, so nothing in the sentence looks like an instruction.",
+    "definitionFit": "A hiding is a thrashing, as in giving someone a hiding, so it matches 'Beating' as one noun for another."
+   }
   },
   {
    "id": "6-down",
@@ -144,7 +322,39 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEATH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NEATH",
+    "definition": "Rugby Union club",
+    "linkWords": [
+     "having"
+    ],
+    "indicators": [],
+    "pieces": [
+     "NEAT",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "straight",
+      "gives": "NEAT",
+      "note": "A drink taken straight is taken neat, with nothing added to it."
+     },
+     {
+      "clueFragment": "rugby",
+      "gives": "",
+      "note": "The setter uses the word twice; here it only says which posts are meant, and hands over no letters."
+     },
+     {
+      "clueFragment": "posts?",
+      "gives": "H",
+      "note": "A set of posts is two uprights joined by a crossbar — the shape of the letter."
+     }
+    ],
+    "surface": "A rugby club is admired for the perfectly upright posts at either end of its pitch.",
+    "walkthrough": "Neath is a town in south Wales whose side is one of the oldest in Welsh rugby, so the definition is a place name serving as a team.",
+    "definitionFit": "Neath RFC is a long-established Welsh rugby union club, so the answer is one particular club standing under the general description."
+   }
   },
   {
    "id": "7-down",
@@ -161,7 +371,48 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EGGCUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "EGGCUP",
+    "definition": "it might retain output from battery for consumer",
+    "indicators": [
+     "maintains"
+    ],
+    "indicatorNotes": {
+     "maintains": "To maintain a thing is to keep hold of it, so these letters close around the piece named next."
+    },
+    "pieces": [
+     "EG",
+     "G",
+     "CU",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps",
+      "gives": "EG",
+      "note": "'Perhaps' flags an example, which is written eg."
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good, as on a school report."
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Copper's chemical symbol is Cu."
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physicist's symbol for power."
+     }
+    ],
+    "surface": "A police officer keeps a firm grip on power and on whatever the battery is putting out for the customer.",
+    "walkthrough": "'Copper' is a policeman on the surface and the metal in the wordplay, and 'battery' pulls the same trick with electricity and hen sheds.",
+    "definitionFit": "An eggcup holds a boiled egg upright at the table, and eggs are what battery hens produce for whoever eats them."
+   }
   },
   {
    "id": "8-down",
@@ -182,7 +433,52 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
     ]
    },
    "solution": "ODDSON",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + deletion + charade",
+    "answer": "ODDS-ON",
+    "definition": "Pretty certain",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "set-up",
+     "not"
+    ],
+    "indicatorNotes": {
+     "set-up": "In a down clue, something set up has been stood on end, so its letters are read from the bottom.",
+     "not": "Saying a thing is not something takes that named letter out of the word in front."
+    },
+    "pieces": [
+     "OD",
+     "DSON"
+    ],
+    "subReversals": [
+     {
+      "from": "DO",
+      "to": "OD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "con",
+      "gives": "OD",
+      "note": "A con is a do — a swindle — stood on its head."
+     },
+     {
+      "clueFragment": "sucker",
+      "gives": "DSON",
+      "note": "A Dyson is the British vacuum cleaner that sucks, one letter lighter."
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the radio alphabet, and that is the letter removed."
+     }
+    ],
+    "surface": "A confidence trick is exposed, and the mug caught up in it turns out not to be American.",
+    "walkthrough": "Dyson is the British make of vacuum cleaner, which is the joke buried in 'sucker', and the radio alphabet supplies the Yankee that has to go.",
+    "definitionFit": "A bet quoted odds-on is judged more likely to happen than not, and the phrase carries over to anything you would confidently expect."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +495,35 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GORED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GORED",
+    "definition": "Pierced",
+    "linkWords": [
+     "from",
+     "and"
+    ],
+    "indicators": [],
+    "pieces": [
+     "GO",
+     "RED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stab",
+      "gives": "GO",
+      "note": "A stab at something is a go at it, an attempt."
+     },
+     {
+      "clueFragment": "stained with blood",
+      "gives": "RED",
+      "note": "Blood stains what it touches red."
+     }
+    ],
+    "surface": "A stabbing has left the victim and everything round them covered in blood.",
+    "walkthrough": "'Stab' is the attempt rather than the knife — as in having a stab at it — and that everyday sense is the one the violent surface hides.",
+    "definitionFit": "Gored is what a bull's horn does to whoever it catches, so it is pierced with a point driven right through."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +540,36 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROUNDHAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ROUNDHAND",
+    "definition": "Way to write",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "Coming after the other piece puts these letters behind it rather than in front of it."
+    },
+    "pieces": [
+     "ROUND",
+     "HAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game of golf",
+      "gives": "ROUND",
+      "note": "A game of golf is a round."
+     },
+     {
+      "clueFragment": "cards",
+      "gives": "HAND",
+      "note": "The cards you are dealt are your hand."
+     }
+    ],
+    "surface": "Somebody deals a hand of cards in the clubhouse once the golf is over.",
+    "walkthrough": "The surface keeps everything at the golf club, where a round and a hand are both unremarkable, and nothing points at penmanship until the first two words.",
+    "definitionFit": "Roundhand is a style of penmanship with rounded, evenly formed letters, so it is literally a way to write."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +586,48 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEVRON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "CHEVRON",
+    "definition": "one might give away rank",
+    "indicators": [
+     "moving"
+    ],
+    "indicatorNotes": {
+     "moving": "Letters that are moving have left their places, so they arrive in a different order."
+    },
+    "pieces": [
+     "CH",
+     "EVRO",
+     "N"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "OVER",
+      "gives": "EVRO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "CH",
+      "note": "Ch. is the old chess notation for check."
+     },
+     {
+      "clueFragment": "over",
+      "gives": "EVRO",
+      "note": "The four letters of over, shifted into a new order."
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "A knight is N on the chessboard."
+     }
+    ],
+    "surface": "A chess player escapes check by moving over the knight and betrays their standing in the game.",
+    "walkthrough": "Chess supplies both short pieces — ch. for check, N for the knight — and 'rank' is a row of the board on the surface and a soldier's stripe in the answer.",
+    "definitionFit": "A chevron is the V-shaped stripe worn on a sleeve, and counting them tells anyone what rank the wearer holds."
+   }
   },
   {
    "id": "12-across",
@@ -250,7 +644,44 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUNCHES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HUNCHES",
+    "definition": "curls up",
+    "linkWords": [
+     "that’s"
+    ],
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "A piece marked out is taken away from the letters rather than added to them."
+    },
+    "pieces": [
+     "H",
+     "UNCHES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hotel",
+      "gives": "H",
+      "note": "Hotel is H in the radio alphabet."
+     },
+     {
+      "clueFragment": "food around midday",
+      "gives": "UNCHES",
+      "note": "Lunches are the meals eaten around midday, with the L gone."
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "Left is L, and that is the letter dropped."
+     }
+    ],
+    "surface": "A hotel serves lunch at noon and something has been left off the plate.",
+    "walkthrough": "The seam is hidden by the comma: 'that's left out' reads as food nobody wanted, and it is the instruction to lose a letter.",
+    "definitionFit": "Someone who hunches curls their shoulders up and forward, so 'curls up' describes the same movement of the body."
+   }
   },
   {
    "id": "13-across",
@@ -267,7 +698,51 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHOTOSHOOT",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal + charade",
+    "answer": "PHOTOSHOOT",
+    "definition": "studio session",
+    "indicators": [
+     "making comeback",
+     "around"
+    ],
+    "indicatorNotes": {
+     "making comeback": "A comeback is a return along the way it came, so these letters are read the other way round.",
+     "around": "Going around something means closing over it, so the piece named next sits inside."
+    },
+    "pieces": [
+     "P",
+     "HOT",
+     "OSH",
+     "OOT"
+    ],
+    "subReversals": [
+     {
+      "from": "TOO",
+      "to": "OOT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Spice Girl",
+      "gives": "POSH",
+      "note": "Victoria Beckham was Posh Spice, and she opens up to take the next piece in."
+     },
+     {
+      "clueFragment": "fiery",
+      "gives": "HOT",
+      "note": "Something fiery is hot."
+     },
+     {
+      "clueFragment": "over",
+      "gives": "OOT",
+      "note": "Over in the sense of excessively is 'too', turned back to front."
+     }
+    ],
+    "surface": "A Spice Girl returns to the limelight for a heated session in front of the cameras.",
+    "walkthrough": "Posh Spice is Victoria Beckham; the harder word is 'over', standing in for 'too' in the sense it carries in over-eager.",
+    "definitionFit": "A photoshoot is the booked session in which a photographer works through a set of pictures, usually in a studio."
+   }
   },
   {
    "id": "14-down",
@@ -284,7 +759,37 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEADWATER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "HEADWATER",
+    "definition": "spring",
+    "indicators": [
+     "Not initially",
+     "swimming"
+    ],
+    "indicatorNotes": {
+     "Not initially": "'Not initially' strikes out the letter the next word begins on.",
+     "swimming": "Letters swimming have drifted loose and wash up in an order of their own."
+    },
+    "anagram": {
+     "fodder": "ADWEATHER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "bad weather",
+      "gives": "ADWEATHER",
+      "note": "Without the B it opens on, the phrase leaves exactly nine letters to be rearranged."
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "B",
+      "note": "B is the initial letter that goes."
+     }
+    ],
+    "surface": "The weather was fine enough at first for a swim, back in the spring.",
+    "walkthrough": "'Spring' reads as the season right through the sentence, and the definition needs it as a place where water comes out of the ground.",
+    "definitionFit": "A headwater is the stream at a river's source, which is what a spring is — water rising at the top of the system."
+   }
   },
   {
    "id": "15-across",
@@ -301,7 +806,35 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "CHIN",
+    "definition": "punch",
+    "indicators": [
+     "having thrown"
+    ],
+    "indicatorNotes": {
+     "having thrown": "Something thrown away is gone, so the letter named after it is no longer in the word."
+    },
+    "pieces": [
+     "CHIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Restrain",
+      "gives": "CHIN",
+      "note": "To restrain is to chain, and the A has been thrown out of it."
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "The single letter A is what leaves."
+     }
+    ],
+    "surface": "One fighter is being held back after landing a blow.",
+    "walkthrough": "To chin someone is British slang for hitting them on the jaw, so the definition is a verb and 'Restrain' at the front is the wordplay, not the meaning.",
+    "definitionFit": "To chin a person is to punch them on the jaw, the slang verb matching 'punch' used the same way."
+   }
   },
   {
    "id": "16-down",
@@ -318,7 +851,43 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEARTBEAT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "HEARTBEAT",
+    "definition": "a flash",
+    "indicators": [
+     "during"
+    ],
+    "indicatorNotes": {
+     "during": "What happens during something happens inside it, so this letter drops in among the others."
+    },
+    "pieces": [
+     "HEA",
+     "R",
+     "T",
+     "BEAT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passion",
+      "gives": "HEAT",
+      "note": "Passion is heat, the metaphor English reaches for with strong feeling."
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the radio alphabet."
+     },
+     {
+      "clueFragment": "done in",
+      "gives": "BEAT",
+      "note": "Someone done in is beat — worn out."
+     }
+    ],
+    "surface": "Romeo, caught up in a passionate affair, is worn out in no time at all.",
+    "walkthrough": "Romeo is R in the radio alphabet, and 'done in' wants 'beat' in its slang sense of exhausted rather than the murderous one the surface hints at.",
+    "definitionFit": "'In a heartbeat' is the idiom for doing something instantly, so a heartbeat stands for the flash of time it takes."
+   }
   },
   {
    "id": "17-down",
@@ -335,7 +904,39 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAINLINE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "MAINLINE",
+    "definition": "a major route",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "docked"
+    ],
+    "indicatorNotes": {
+     "docked": "A docked tail is a shortened one, so the word loses the letter at its end."
+    },
+    "pieces": [
+     "MAIN",
+     "LINE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ocean",
+      "gives": "MAIN",
+      "note": "The main is an old word for the open sea, as in the Spanish Main."
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "LINE",
+      "note": "A vessel is a liner, minus its final letter."
+     }
+    ],
+    "surface": "A ship has tied up at the quay after crossing the ocean.",
+    "walkthrough": "'Docked' does both jobs at once, berthing the ship in the surface and shortening the liner in the wordplay, while 'ocean' asks for the poets' word for the sea.",
+    "definitionFit": "A mainline is the principal railway route between big cities, as against the branch lines that feed into it."
+   }
   },
   {
    "id": "18-across",
@@ -352,7 +953,42 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JUTS",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "JUTS",
+    "definition": "sticks out",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "admits",
+     "backside"
+    ],
+    "indicatorNotes": {
+     "admits": "To admit something is to let it in, so these letters open up and take the next piece inside.",
+     "backside": "The backside of a word is the letter sitting at the very end of it."
+    },
+    "pieces": [
+     "JU",
+     "T",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saucy thing",
+      "gives": "JUS",
+      "note": "A jus is a thin sauce, so it is a saucy thing indeed."
+     },
+     {
+      "clueFragment": "miniskirt",
+      "gives": "T",
+      "note": "The letter the word ends on."
+     }
+    ],
+    "surface": "Someone risqué is showing off the back of a very short skirt.",
+    "walkthrough": "'Saucy thing' plays as a flirt in the surface and as cookery in the wordplay — a jus is the pan juices poured over the meat.",
+    "definitionFit": "To jut is to project outwards from a surface, which is what sticking out means, and both are third-person verbs here."
+   }
   },
   {
    "id": "18-down",
@@ -369,7 +1005,40 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JOSEPH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "JOSEPH",
+    "definition": "Biblical figure",
+    "linkWords": [
+     "formed from"
+    ],
+    "indicators": [
+     "inspiring"
+    ],
+    "indicatorNotes": {
+     "inspiring": "To inspire is to breathe in, so the word draws the piece named next inside itself."
+    },
+    "pieces": [
+     "JOS",
+     "EP",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rib",
+      "gives": "JOSH",
+      "note": "To rib someone is to josh them, teasing rather than wounding."
+     },
+     {
+      "clueFragment": "epistle",
+      "gives": "EP",
+      "note": "Ep. is the standard short form of epistle."
+     }
+    ],
+    "surface": "A Bible character is made out of a rib while an apostle's letter is read aloud.",
+    "walkthrough": "The rib is Adam's on the surface, which points hard at Eve; in the wordplay it is a verb, and to rib is to tease.",
+    "definitionFit": "Joseph is a Bible name twice over — Jacob's son with the coat, and the carpenter of the nativity — so either one answers to 'Biblical figure'."
+   }
   },
   {
    "id": "19-across",
@@ -390,7 +1059,52 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
     ]
    },
    "solution": "FANNYADAMS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "FANNY ADAMS",
+    "definition": "Nothing",
+    "linkWords": [
+     "from"
+    ],
+    "indicators": [
+     "desperate",
+     "to pick up"
+    ],
+    "indicatorNotes": {
+     "desperate": "People in a desperate state are all over the place, and so are the letters standing beside the word.",
+     "to pick up": "Picking a thing up gathers it in, so the letter named next joins the ones being shuffled."
+    },
+    "pieces": [
+     "FAN",
+     "NYADAMS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ASMANYD",
+      "gives": "NYADAMS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover",
+      "gives": "FAN",
+      "note": "A lover of a singer or a team is a fan."
+     },
+     {
+      "clueFragment": "as many",
+      "gives": "ASMANY",
+      "note": "Six letters of the shuffle, before the date joins them."
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D is the everyday abbreviation for date."
+     }
+    ],
+    "surface": "A hopeful suitor gets no reply at all from the person they are trying to arrange an evening with.",
+    "walkthrough": "'Sweet Fanny Adams' is British slang for nothing whatever, and it began as a grim Victorian joke about tinned meat named after a murder victim.",
+    "definitionFit": "Fanny Adams, usually with 'sweet' in front, means nothing at all — the polite version of a much ruder phrase with the same initials."
+   }
   },
   {
    "id": "20-down",
@@ -407,7 +1121,40 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCROTA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SCROTA",
+    "definition": "They hold balls",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "opening of",
+     "racing"
+    ],
+    "indicatorNotes": {
+     "opening of": "The opening of a word is the single letter it starts on.",
+     "racing": "Letters racing are running about, and they cross the line in a different order."
+    },
+    "anagram": {
+     "fodder": "R ASCOT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Royal",
+      "gives": "R",
+      "note": "The initial letter of the word."
+     },
+     {
+      "clueFragment": "Ascot",
+      "gives": "ASCOT",
+      "note": "Five letters of fodder, taken with the R."
+     }
+    ],
+    "surface": "The first race of the week is under way at Royal Ascot.",
+    "walkthrough": "Royal Ascot is Britain's grandest and most formal race meeting, so 'opening of Royal Ascot' reads as the first day of it rather than as one letter.",
+    "definitionFit": "Scrota is the plural of scrotum, the sac that holds the testicles, so the plural definition points at more than one owner."
+   }
   },
   {
    "id": "21-down",
@@ -424,7 +1171,40 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLANET",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PLANET",
+    "definition": "Body",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "during"
+    ],
+    "indicatorNotes": {
+     "during": "A thing done during a session is done in the middle of it, so these letters sit inside."
+    },
+    "pieces": [
+     "P",
+     "LANE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "training",
+      "gives": "PT",
+      "note": "PT is physical training, what British schools call the gym lesson."
+     },
+     {
+      "clueFragment": "zone for running",
+      "gives": "LANE",
+      "note": "A runner's own zone on the track is their lane."
+     }
+    ],
+    "surface": "An athlete keeps strictly to their own lane during a training session.",
+    "walkthrough": "'Body' is not the athlete's body the surface is describing but a heavenly one, which is the only word in the clue that leaves the running track.",
+    "definitionFit": "A planet is a heavenly body, and 'body' alone is the astronomer's ordinary word for anything of that kind in orbit."
+   }
   },
   {
    "id": "22-across",
@@ -445,7 +1225,37 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
     ]
    },
    "solution": "SODSLAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SOD'S LAW",
+    "definition": "Typical",
+    "definitionNote": "The definition is the exclamation 'Typical!' rather than a noun matching the answer: the setter is defining the phrase by the word a British speaker says at the moment it strikes.",
+    "indicators": [
+     "getting trimmed"
+    ],
+    "indicatorNotes": {
+     "getting trimmed": "A hedge getting trimmed comes back shorter, and so does this word — the letter on the end goes."
+    },
+    "pieces": [
+     "SODS",
+     "LAW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bits of grass",
+      "gives": "SODS",
+      "note": "Squares of turf cut out of a field are sods."
+     },
+     {
+      "clueFragment": "garden",
+      "gives": "LAW",
+      "note": "The grassy part of a garden is the lawn, with its final letter cut off."
+     }
+    ],
+    "surface": "Somebody is out cutting turf and tidying the edges of the garden.",
+    "walkthrough": "Sod's law is the British name for Murphy's law — whatever can go wrong will — and 'Typical!' is what people actually say when it does.",
+    "definitionFit": "Sod's law is invoked at exactly the moment someone groans 'Typical!', so the exclamation names the principle by the reaction it produces."
+   }
   },
   {
    "id": "23-down",
@@ -462,7 +1272,42 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DISCO",
+    "definition": "Party",
+    "indicators": [
+     "following"
+    ],
+    "indicatorNotes": {
+     "following": "What follows another piece is written after it, so this letter takes the later place."
+    },
+    "pieces": [
+     "DIS",
+     "C",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "DIS",
+      "note": "To dis someone is to criticise or disrespect them."
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative."
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old."
+     }
+    ],
+    "surface": "A veteran Tory grandee is being attacked by his own side.",
+    "walkthrough": "'Conservative Party' looks like one phrase and the split falls between its two words — the party at the end is the dancing kind.",
+    "definitionFit": "A disco is a party where records are played for dancing, so 'party' is the social sense rather than the political one the surface offers."
+   }
   },
   {
    "id": "24-across",
@@ -479,7 +1324,44 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MONITOR",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "MONITOR",
+    "definition": "Check",
+    "indicators": [
+     "in",
+     "No"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is the plainest container instruction there is: what is in something sits inside it.",
+     "No": "Saying no to a thing refuses it entry, so the letter it names is not in the word."
+    },
+    "pieces": [
+     "MO",
+     "NIT",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "MOOR",
+      "note": "A car is a motor, and the T has gone from it."
+     },
+     {
+      "clueFragment": "dipstick",
+      "gives": "NIT",
+      "note": "A dipstick is British slang for a fool, and so is a nit."
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time, and that is the letter refused."
+     }
+    ],
+    "surface": "A driver in a hurry checks the oil level before setting off.",
+    "walkthrough": "'Dipstick' is the oil gauge in the surface and an idiot in the wordplay, which is a piece of slang a garage sentence can hide completely.",
+    "definitionFit": "To monitor something is to keep a check on it, watching it steadily to see how it changes."
+   }
   },
   {
    "id": "24-down",
@@ -496,7 +1378,36 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MELBA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MELBA",
+    "definition": "Old singer",
+    "indicators": [
+     "supporting"
+    ],
+    "indicatorNotes": {
+     "supporting": "In a down clue whatever is supporting the rest sits underneath it, so this letter comes last."
+    },
+    "pieces": [
+     "MELB",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spice Girl",
+      "gives": "MELB",
+      "note": "Melanie Brown of the Spice Girls was billed as Mel B."
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the standard abbreviation for ace."
+     }
+    ],
+    "surface": "A great singer of the old days is reduced to opening for a Spice Girl.",
+    "walkthrough": "Peach Melba and Melba toast are both named after Dame Nellie, which is how well known the singer the definition wants once was.",
+    "definitionFit": "Nellie Melba was the reigning operatic soprano either side of 1900, so 'Old singer' places her by period rather than by voice."
+   }
   },
   {
    "id": "25-across",
@@ -513,7 +1424,30 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSTNATAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POSTNATAL",
+    "definition": "after infant pulled out",
+    "indicators": [
+     "rearranged"
+    ],
+    "indicatorNotes": {
+     "rearranged": "Something rearranged keeps all its parts and changes their arrangement, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "LASTPANTO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Last panto",
+      "gives": "POSTNATAL",
+      "note": "These nine letters are exactly the ones required, in a different order."
+     }
+    ],
+    "surface": "The final pantomime of the season has been reorganised since a child dropped out of the cast.",
+    "walkthrough": "'Pulled out' reads as a young performer leaving the show, and the definition needs it as a delivery — the baby is out and the clock starts.",
+    "definitionFit": "Postnatal means belonging to the time after a birth, which is the stretch that begins once the infant has been delivered."
+   }
   },
   {
    "id": "26-across",
@@ -530,7 +1464,48 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INEPT",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "INEPT",
+    "definition": "Awkward",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "about",
+     "boring"
+    ],
+    "indicatorNotes": {
+     "about": "Turning about faces a word the other way, so its letters are read from the end back.",
+     "boring": "To bore is to drive a hole into something, so these letters end up inside the other piece."
+    },
+    "pieces": [
+     "I",
+     "NEP",
+     "T"
+    ],
+    "subReversals": [
+     {
+      "from": "PEN",
+      "to": "NEP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "'It' is the old euphemism, as in a film star having it."
+     },
+     {
+      "clueFragment": "write",
+      "gives": "NEP",
+      "note": "To write is to pen, turned about."
+     }
+    ],
+    "surface": "A clumsy novelist keeps writing about sex that bores everybody.",
+    "walkthrough": "'Boring' looks like a verdict on the writing and is an instruction instead — one word bores its way into another.",
+    "definitionFit": "Someone inept is clumsy and unskilled, awkward in the sense of being no good at the task rather than of feeling embarrassed."
+   }
   },
   {
    "id": "27-across",
@@ -551,7 +1526,38 @@ window.CRYPTIC_PUZZLES["cryptic-30020"] = /*JSON-START*/ {
     ]
    },
    "solution": "FOSTERPARENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FOSTER PARENT",
+    "definition": "Guardian",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "editing"
+    ],
+    "indicatorNotes": {
+     "editing": "Editing a piece of copy moves its parts about, so the letters come out in a fresh order."
+    },
+    "anagram": {
+     "fodder": "F SENTAREPORT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the standard abbreviation for fellow."
+     },
+     {
+      "clueFragment": "sent a report",
+      "gives": "SENTAREPORT",
+      "note": "Eleven letters of fodder, taken with the F."
+     }
+    ],
+    "surface": "A man at the newspaper has filed his copy and the subeditors are working it over.",
+    "walkthrough": "The capital G does the misdirecting: 'Guardian' reads as the paper the clue was printed in, and it means someone with legal care of a child.",
+    "definitionFit": "A foster parent takes a child who is not theirs into their home and care, which is the job a guardian does."
+   }
   }
  ]
 } /*JSON-END*/;
