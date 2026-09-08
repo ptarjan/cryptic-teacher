@@ -29,6 +29,10 @@ def list_keys(prefix=None, timeout=180):
     do the refresh, so one of those and a second attempt turns the whole class
     of hourly expiry into nothing. A second failure is a real one.
 
+    Success is the exit status, never a bracket in the output: a failed call
+    prints an account table and a log path, and a bracket found in those is a
+    bracket that skips the retry above and reaches json.loads as garbage.
+
     wrangler prints a banner before the JSON, so the output is sliced from the
     first bracket rather than parsed whole.
     """
@@ -36,13 +40,17 @@ def list_keys(prefix=None, timeout=180):
     if prefix:
         args += ["--prefix", prefix]
     out = _run(args, timeout)
-    if "[" not in out.stdout:
+    if out.returncode != 0:
         _run(["whoami"], 60)
         out = _run(args, timeout)
-    if "[" not in out.stdout:
+    if out.returncode != 0:
         raise SystemExit("wrangler gave no key list: "
                          + ((out.stderr or out.stdout).strip()[-500:] or "no output"))
-    return json.loads(out.stdout[out.stdout.index("["):out.stdout.rindex("]") + 1])
+    try:
+        return json.loads(out.stdout[out.stdout.index("["):out.stdout.rindex("]") + 1])
+    except ValueError as e:
+        raise SystemExit(f"wrangler's key list did not parse ({e}): "
+                         + (out.stdout.strip()[-500:] or "no output"))
 
 
 def get_key(name, timeout=120):
