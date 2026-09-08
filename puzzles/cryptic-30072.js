@@ -683,8 +683,13 @@ window.CRYPTIC_PUZZLES["cryptic-30072"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "a spot of 1dn?",
-      "gives": "TOM CRUISE",
-      "note": "'tom' is old slang for a prostitute, and to 'cruise' is to drive around looking for custom — a bit of kerb crawling (1 down)"
+      "gives": "TOM",
+      "note": "'tom' is old slang for a prostitute — the one being crawled towards"
+     },
+     {
+      "clueFragment": "a spot of 1dn?",
+      "gives": "CRUISE",
+      "note": "and the same cross-reference again for the verb: to cruise is to drive slowly around looking for custom"
      }
     ],
     "walkthrough": "The actor's name reads as a little kerb crawling: a tom on the cruise. The cross-reference to 1 down is the whole engine of the clue."

@@ -461,6 +461,11 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
       "clueFragment": "setter",
       "gives": "ME",
       "note": "the setter referring to himself"
+     },
+     {
+      "clueFragment": "repeated",
+      "gives": "ME",
+      "note": "and again — 'repeated' is the whole of the second half, so the same two letters are written twice"
      }
     ],
     "walkthrough": "'Setter' pointing at the setter himself is classic crossword self-reference: ME, said twice. A meme is exactly an idea that spreads."
@@ -759,8 +764,13 @@ window.CRYPTIC_PUZZLES["cryptic-30045"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "facelift?",
-      "gives": "MUGUP",
-      "note": "read it in two halves: mug = face, lifted = up"
+      "gives": "MUG",
+      "note": "read the one word in two halves: the first of them, 'face', is slang for MUG"
+     },
+     {
+      "clueFragment": "lift",
+      "gives": "UP",
+      "note": "and something lifted has gone up — the question mark licenses splitting the one word in two"
      }
     ],
     "walkthrough": "To mug up is British slang for cramming a subject. The question mark licenses splitting 'facelift' in two: a mug is slang for a face, and something lifted goes up."

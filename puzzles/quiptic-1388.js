@@ -1040,20 +1040,30 @@ window.CRYPTIC_PUZZLES["quiptic-1388"] = /*JSON-START*/ {
     "type": "charade",
     "answer": "LINED",
     "definition": "showing signs of age?",
-    "indicators": [],
+    "indicators": [
+     "say"
+    ],
     "pieces": [
      "LINE",
      "D"
     ],
     "blocks": [
      {
-      "clueFragment": "End of quatrain, say",
-      "gives": "LINED",
-      "note": "a quatrain's four lines are labelled a to d in a rhyme scheme, and its last line takes the final letter of that scheme"
+      "clueFragment": "quatrain",
+      "gives": "LINE",
+      "note": "a quatrain is four lines, so what it is made of is a LINE"
+     },
+     {
+      "clueFragment": "End of",
+      "gives": "D",
+      "note": "rhyme schemes label those four lines a, b, c, d, so the end one is d — 'say' concedes this is one example of such labelling"
      }
     ],
     "walkthrough": "The trick is naming a quatrain's fourth line 'line d', as rhyme schemes label verses a to d — 'say' concedes it is one example of such labelling.",
-    "definitionFit": "A lined face is wrinkled — creases being the classic mark of growing old."
+    "definitionFit": "A lined face is wrinkled — creases being the classic mark of growing old.",
+    "indicatorNotes": {
+     "say": "'say' means 'for example' — the a-b-c-d rhyme scheme is one way of naming the four parts of a quatrain, not the only one"
+    }
    }
   },
   {

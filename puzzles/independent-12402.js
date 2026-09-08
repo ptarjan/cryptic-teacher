@@ -757,10 +757,16 @@ window.CRYPTIC_PUZZLES["independent-12402"] = /*JSON-START*/ {
     ],
     "blocks": [
      {
-      "clueFragment": "top unruly youth once",
-      "soundsLike": "BEST TED",
-      "gives": "TEST BED",
-      "note": "top is best, and a Ted was a Teddy boy, the drape-jacketed British youth of the 1950s; swap the opening sounds of that pair"
+      "clueFragment": "top",
+      "soundsLike": "BEST",
+      "gives": "TEST",
+      "note": "top is best; Spooner sends its B across to the other word and takes that word's T in exchange"
+     },
+     {
+      "clueFragment": "unruly youth once",
+      "soundsLike": "TED",
+      "gives": "BED",
+      "note": "a Ted was a Teddy boy, the drape-jacketed British youth of the 1950s — its T went the other way, leaving B"
      }
     ],
     "walkthrough": "Spooner clues are solved backwards. You hunt for the phrase the entry turns into when its two opening sounds trade places, and only the definition tells you where to start.",

@@ -782,8 +782,13 @@ window.CRYPTIC_PUZZLES["cryptic-30078"] = /*JSON-START*/ {
     "blocks": [
      {
       "clueFragment": "throw, cast and pitch?",
-      "gives": "TRIFLING",
-      "note": "throw, cast and pitch all mean FLING; the answer prefixes that verb with the three-letter word for 'three'"
+      "gives": "TRI",
+      "note": "count them: three synonyms, and TRI is the prefix for three"
+     },
+     {
+      "clueFragment": "throw, cast and pitch?",
+      "gives": "FLING",
+      "note": "then read the same list for what it means: all three of them are a FLING"
      }
     ],
     "pieces": [

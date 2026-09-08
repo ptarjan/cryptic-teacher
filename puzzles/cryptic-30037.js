@@ -209,6 +209,11 @@ window.CRYPTIC_PUZZLES["cryptic-30037"] = /*JSON-START*/ {
       "clueFragment": "Bane",
       "gives": "BEAN",
       "note": "the same four letters in a different order — the clue prints the jumbled version and wants the tidy one"
+     },
+     {
+      "clueFragment": "Bane",
+      "gives": "SALAD",
+      "note": "the same word a second time, for the other half: you need a word meaning 'mixed' that turns BEAN into 'Bane', and the answer supplies it — a salad is a mixture, so the answer is its own anagram indicator"
      }
     ],
     "walkthrough": "The clue never says shuffle, because the answer says it: a salad is a mixture, so 'BEAN, mixed' is exactly the word the clue opens with. Setters call this reverse wordplay."

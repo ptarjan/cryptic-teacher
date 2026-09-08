@@ -1141,9 +1141,7 @@ window.CRYPTIC_PUZZLES["everyman-4124"] = /*JSON-START*/ {
      "seen in"
     ],
     "pieces": [
-     "A",
-     "TO",
-     "M"
+     "A TO M"
     ],
     "blocks": [
      {

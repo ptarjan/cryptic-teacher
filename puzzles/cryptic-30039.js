@@ -1167,20 +1167,30 @@ window.CRYPTIC_PUZZLES["cryptic-30039"] = /*JSON-START*/ {
     "type": "charade",
     "answer": "SODDEN",
     "definition": "very wet",
-    "indicators": [],
+    "indicators": [
+     "Two types"
+    ],
     "pieces": [
      "SOD",
      "DEN"
     ],
     "blocks": [
      {
-      "clueFragment": "Two types of earth",
-      "gives": "SODDEN",
-      "note": "SOD (a piece of turf) + DEN (a fox's home, called an 'earth')"
+      "clueFragment": "earth",
+      "gives": "SOD",
+      "note": "a sod is a piece of turf — earth you can lift"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "DEN",
+      "note": "and the second type: a fox's home is called an earth. 'Two types' is the instruction to read the one word both ways"
      }
     ],
     "walkthrough": "A fox's lair is called an earth — that is the sense solvers miss, and the clue needs 'earth' to mean two different things at once.",
-    "definitionFit": "Sodden describes ground or fabric soaked completely through with water, drenched well beyond merely damp."
+    "definitionFit": "Sodden describes ground or fabric soaked completely through with water, drenched well beyond merely damp.",
+    "indicatorNotes": {
+     "Two types": "the instruction to read the single word 'earth' in two different senses and write both down"
+    }
    }
   }
  ]
