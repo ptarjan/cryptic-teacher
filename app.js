@@ -816,6 +816,11 @@
       li.querySelector(".checkers").innerHTML = solved ? "" : checkerDots(e);
       li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e));
       li.classList.toggle("solved", solved);
+      // The gold star is a standing fact about how this clue was solved, not a
+      // moment — it must be right on every render, including a fresh boot that
+      // never ran celebrateSolve() at all (feedback in the same request that
+      // asked for the flash: "should PERSIST... not just flash").
+      li.classList.toggle("no-hints", solved && noHintsSolve(e));
     });
   }
 
@@ -1183,7 +1188,7 @@
     if (!c) return;
     beacon("letter");
     c.letter = ch; c.wrong = false; c.revealed = false;
-    checkSolvedEntries();
+    checkSolvedEntries(true);
     advanceToGap();
     refreshAll(); saveState();
   }
@@ -1304,6 +1309,42 @@
     list.forEach((c) => { if (c.el) c.el.classList.add("pulse"); });
     setTimeout(() => list.forEach((c) => { if (c.el) c.el.classList.remove("pulse"); }), 600);
   }
+
+  // A tint that settles away on the cells you just finished — the small nod a
+  // silent lock-in was missing ("celebrate gently when a clue is solved", Paul,
+  // 2026-09-08). Only typeLetter's call into checkSolvedEntries passes viaType,
+  // so this never fires from revealLetter or fillAnswer: a revealed answer is
+  // not a solve. class add/remove, same shape as pulseCells above, so a
+  // reduced-motion visitor still gets the held tint the CSS falls back to.
+  //
+  // Solved with no hints and no letter reveals gets the gold ("clean") tier
+  // instead of the green one — same duration, same easing, colour only (Paul,
+  // 2026-09-08). noHintsSolve() reads solvedWith/revealsUsed, both of which
+  // were already persisted for scoring before this existed, so the distinction
+  // needs no new storage and survives a reload the same way the score does.
+  function celebrateSolve(e) {
+    const clean = noHintsSolve(e);
+    const cs = entryCells(e);
+    cs.forEach((c) => {
+      if (!c.el) return;
+      c.el.classList.add("solved-flash");
+      if (clean) c.el.classList.add("clean");
+    });
+    setTimeout(() => cs.forEach((c) => {
+      if (c.el) c.el.classList.remove("solved-flash", "clean");
+    }), 450);
+  }
+
+  // True once an entry is solved for the price of nothing: no rung was charged
+  // against it (hintsCharged, frozen in solvedWith the moment it solved) and no
+  // letter was revealed on it (revealsUsed, the escape hatch). Both are the
+  // exact figures the scorebar's own "n with no hints" tally already reads
+  // (renderScore below) — reused rather than a second definition of "clean"
+  // that could drift from the one the scorebar reports.
+  function noHintsSolve(e) {
+    if (!isEntrySolved(e)) return false;
+    return hintsCharged(e) === 0 && !(revealsUsed[entryKey(e)] > 0);
+  }
   function entryCells(e) { const out = []; for (let i = 0; i < e.length; i++) out.push(cellAt(e, i)); return out; }
 
   function revealCell(c) { c.letter = c.sol; c.wrong = false; c.revealed = true; }
@@ -1349,7 +1390,11 @@
     return group.length > 0 && group.every(isEntrySolved);
   }
 
-  function checkSolvedEntries() {
+  // viaType marks the one call (typeLetter) that represents an actual solve;
+  // revealLetter and fillAnswer call this too, to keep solvedWith/scoring
+  // exactly as it was, but must not trigger celebrateSolve() — revealing the
+  // rest of an answer is not the moment being celebrated.
+  function checkSolvedEntries(viaType) {
     entries.forEach((e) => {
       if (isEntrySolved(e) && solvedWith[e.id] === undefined) {
         solvedWith[e.id] = Math.max(0, shownRungs(e).length - earnedRungs(e).length);
@@ -1364,6 +1409,7 @@
           guessing = null;
         }
         beacon("entry");
+        if (viaType) celebrateSolve(e);
       }
     });
   }

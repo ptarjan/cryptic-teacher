@@ -303,6 +303,16 @@ button:disabled:hover { border-color: var(--line); }
 .clue-list li.active { background: var(--accent-soft); outline: 1px solid var(--accent); }
 .clue-list li.solved { opacity: .55; }
 .clue-list li.solved .clue-text::after { content: " ✓"; color: var(--ok); }
+/* A clue solved with no hints and no letter reveals keeps a quiet gold star
+   instead of the plain check — a persistent marker, not another animation, so
+   it is still there next time the list renders (reload, restore, any
+   refreshClues()) rather than only for the moment it was earned. `--sel` is
+   the same gold used for the current square in the letter-pattern strip; reused
+   rather than inventing a colour, since both mean "this one, specifically".
+   See noHintsSolve() in app.js — a revealed answer never gets this, because
+   revealing always shows a rung or costs a letter, so it can never price at
+   zero. */
+.clue-list li.solved.no-hints .clue-text::after { content: " ★"; color: var(--sel); }
 .clue-num { font-weight: 700; min-width: 1.7em; text-align: right; }
 /* Checking letters (app.js checkerDots): one dot per crossing square, filled
    when you already have that letter. Sized to be read by scanning the column
@@ -463,6 +473,33 @@ button:disabled:hover { border-color: var(--line); }
 }
 .cell.pulse { animation: cell-pulse .6s ease-out; }
 @media (prefers-reduced-motion: reduce) { .cell.pulse { animation: none; } }
+
+/* A clue's own solve gets a quiet tint that settles away — smaller than the
+   whole-puzzle #celebrate above, on purpose: that one throws paper because the
+   grid finishing IS the finish, and a single clue coming out is not (see the
+   note on #celebrate). Green (--ok) rather than the check pulse's --accent, so
+   the two reads never blur into each other. Fires once, from the moment
+   typing completes an entry — never on re-render, restore, or a revealed
+   answer — see celebrateSolve() in app.js. Box-shadow only, so it cannot shift
+   layout or touch focus.
+
+   Solving with no hints and no letter reveals gets the same shape, same
+   duration, in gold (--sel, the letter-strip's "this one" colour) instead of
+   green — a second tier distinguished by which colour it is, never by being
+   longer or louder (Paul, 2026-09-08: "still gentle... distinct by kind rather
+   than by being louder or longer"). `.clean` only sets which colour the shared
+   keyframe reads. */
+@keyframes cell-solve {
+  from { box-shadow: inset 0 0 0 3px var(--solve-tint, var(--ok)); }
+  to   { box-shadow: inset 0 0 0 0 transparent; }
+}
+.cell.solved-flash { animation: cell-solve .45s ease-out; }
+.cell.solved-flash.clean { --solve-tint: var(--sel); }
+@media (prefers-reduced-motion: reduce) {
+  /* No motion, but still a state change: a held tint for the same span the
+     animation would have run, cleared by the same JS timeout. */
+  .cell.solved-flash { animation: none; box-shadow: inset 0 0 0 3px var(--solve-tint, var(--ok)); }
+}
 
 /* ---------- hint panel ---------- */
 #hint-panel {
