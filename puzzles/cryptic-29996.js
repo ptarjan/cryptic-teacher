@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANYBODY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ANYBODY",
+    "definition": "Who will volunteer",
+    "definitionNote": "The definition is put as a question rather than as a synonym: the answer is the word that answers it, the pronoun for no particular person.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "A",
+     "NY",
+     "BODY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own single letter, taken exactly as it stands"
+     },
+     {
+      "clueFragment": "big city",
+      "gives": "NY",
+      "note": "NY is New York, the big city a setter reaches for when two letters are wanted"
+     },
+     {
+      "clueFragment": "matter",
+      "gives": "BODY",
+      "note": "matter as opposed to spirit — the physical stuff a thing is made of"
+     }
+    ],
+    "surface": "A show of hands being called for over some piece of metropolitan business.",
+    "walkthrough": "A call for a volunteer is answered by naming no one in particular, which is how a question can do a definition's job here.",
+    "definitionFit": "'Who will volunteer?' is answered by naming nobody in particular, and ANYBODY is exactly that pronoun — any person at all, chosen by none."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +82,45 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NIAGARA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + middle letters",
+    "answer": "NIAGARA",
+    "definition": "Falls",
+    "definitionNote": "'Falls' is plural and the answer is one place name, because the cataract itself is always spoken of in the plural.",
+    "indicators": [
+     "climbing",
+     "out of bounds"
+    ],
+    "indicatorNotes": {
+     "climbing": "Climbing goes upwards, and in a down entry that means these letters are read from the bottom of the answer towards the top.",
+     "out of bounds": "The bounds of a word are the letters at either end, and they are sent out, leaving only what sat between them."
+    },
+    "subReversals": [
+     {
+      "from": "AGAIN",
+      "to": "NIAGA"
+     }
+    ],
+    "pieces": [
+     "NIAGA",
+     "RA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "NIAGA",
+      "note": "to do a thing over is to do it again, and that word is written upwards here"
+     },
+     {
+      "clueFragment": "crag",
+      "gives": "RA",
+      "note": "the pair left when the first and last letters of this word go"
+     }
+    ],
+    "surface": "A climber going over a cliff face somewhere off the permitted route.",
+    "walkthrough": "'Falls over' reads as one phrase about a tumble; the definition stops at the first word and 'over' is a piece of the wordplay.",
+    "definitionFit": "Niagara is the great waterfall on the border between Canada and the United States, so 'Falls' defines it by the class of thing it is."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +137,27 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BANKNOTES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "BANKNOTES",
+    "definition": "Cash that folds",
+    "indicators": [
+     "inside"
+    ],
+    "indicatorNotes": {
+     "inside": "Inside means already sitting within, so a run of consecutive letters is lying untouched in the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "turban knot essentially",
+      "gives": "BANKNOTES",
+      "note": "nine letters in a row, starting partway through the first word and running across two gaps"
+     }
+    ],
+    "surface": "Money folded away inside the knot of a turban.",
+    "walkthrough": "A long hidden run is the easiest kind to walk past, because the eye reads 'turban knot' as one object and never spells it out letter by letter.",
+    "definitionFit": "Banknotes are the paper half of money, the cash that literally folds into a wallet, as against the coins that do not."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +174,39 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEVOTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + second letters",
+    "answer": "DEVOTE",
+    "definition": "Commit",
+    "indicators": [
+     "seconds"
+    ],
+    "indicatorNotes": {
+     "seconds": "A word's second is the letter standing in second place, and one is taken from each of the two words named after it."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "DE",
+     "VOTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advising Gen",
+      "gives": "DE",
+      "note": "the letter standing second in each of these two words, in the order given"
+     },
+     {
+      "clueFragment": "X?",
+      "gives": "VOTE",
+      "note": "the X pencilled on a ballot paper is a choice cast, and the question mark flags that this is one use of the letter"
+     }
+    ],
+    "surface": "Someone spending their spare seconds handing out advice to Generation X.",
+    "walkthrough": "'Gen X' reads as one label for a generation and then splits in two, the Gen lending a letter and the X sending you off to a polling booth.",
+    "definitionFit": "To devote time to a cause is to commit it there, and the two verbs take the same objects — commit an hour, devote an hour."
+   }
   },
   {
    "id": "5-across",
@@ -103,7 +228,48 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOCANDO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal + outer letters",
+    "answer": "NO CAN DO",
+    "definition": "impossible",
+    "definitionNote": "The definition is an adjective and the answer a spoken phrase: the setter swaps a word for the flat refusal that means the same.",
+    "indicators": [
+     "In retrospect",
+     "both sides of"
+    ],
+    "indicatorNotes": {
+     "In retrospect": "Looking back over what has just been said, so in an across entry the letters are written out the other way, right to left.",
+     "both sides of": "The sides of a word are its first and last letters, and both of them are wanted with nothing from the middle."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "subReversals": [
+     {
+      "from": "ON",
+      "to": "NO"
+     }
+    ],
+    "pieces": [
+     "NO",
+     "CANDO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working",
+      "gives": "NO",
+      "note": "a machine that is working is on, and that little word is set down backwards"
+     },
+     {
+      "clueFragment": "both sides of casino",
+      "gives": "CANDO",
+      "note": "the outer letters of the word are C and O, and calling for both of them — C and O — writes the joining word into the middle"
+     }
+    ],
+    "surface": "Someone who has been playing both ends of a casino thinking better of it afterwards.",
+    "walkthrough": "'Both sides' looks as though it can only ever hand over two letters, and the pair named as a pair carries an extra three between them.",
+    "definitionFit": "NO CAN DO is the flat spoken refusal — it cannot be done — so the phrase stands in for 'impossible' as a whole idiom."
+   }
   },
   {
    "id": "6-down",
@@ -120,7 +286,38 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OLEANDER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "OLEANDER",
+    "definition": "it’s poisonous if ingested",
+    "definitionNote": "The definition is a description, not a noun: the setter says what the thing does to you rather than naming the shrub it belongs to.",
+    "indicators": [
+     "Refined",
+     "contains"
+    ],
+    "indicatorNotes": {
+     "Refined": "Refining ore breaks it down and casts it again, so the words beside it will not stay in the order they are printed.",
+     "contains": "What a thing contains sits within it, so the letter named next goes into the middle of the shuffled letters."
+    },
+    "anagram": {
+     "fodder": "LEAD ORE N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "lead ore",
+      "gives": "LEADORE",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "n = note, the standard abbreviation, taken inside the shuffle"
+     }
+    ],
+    "surface": "A smelter turning out refined lead ore with something lethal mixed into it.",
+    "walkthrough": "Lead is poisonous too, which is what holds the surface together and makes it easy to attach the definition to the metal instead of a plant.",
+    "definitionFit": "Oleander is a common garden shrub whose every part is toxic to eat, so the clue defines it by its one notorious property."
+   }
   },
   {
    "id": "7-down",
@@ -137,7 +334,38 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALBUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALBUM",
+    "definition": "Record",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "A",
+     "L",
+     "BUM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "a = American, the standard abbreviation"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l = left, as in stage directions or on a map"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "BUM",
+      "note": "bum is the everyday British word for the backside, which is what a behind is"
+     }
+    ],
+    "surface": "An American who has been left behind somewhere.",
+    "walkthrough": "The whole sentence reads as a note about somebody abandoned abroad, and its last word is the rude one — a setter's favourite, because 'behind' hides it so politely.",
+    "definitionFit": "An album is a record in the sense of a released collection of songs, the disc a band puts out rather than a written account of events."
+   }
   },
   {
    "id": "8-down",
@@ -154,7 +382,33 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DETAINS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DETAINS",
+    "definition": "Stays",
+    "indicators": [
+     "ground"
+    ],
+    "indicatorNotes": {
+     "ground": "Grinding a thing reduces it to loose material, and letters ground down go back together in some new arrangement."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "INSTEAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "instead",
+      "gives": "INSTEAD",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "Staying on the ground as a substitute for whatever was planned.",
+    "walkthrough": "'Stays' is the transitive verb here — to stay something is to hold it back — which is why a word about remaining can describe an act done to someone else.",
+    "definitionFit": "To stay someone is to hold them where they are, the older transitive sense alive in 'a stay of execution', which is what DETAINS does."
+   }
   },
   {
    "id": "9-down",
@@ -177,7 +431,9 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "OFTHEQUESTION",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "12-across"
+   }
   },
   {
    "id": "10-across",
@@ -198,7 +454,44 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "SATNAV",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + alternate letters + reversal",
+    "answer": "SAT-NAV",
+    "definition": "This might help vehicle that’s regularly going the wrong way",
+    "indicators": [
+     "regularly",
+     "going the wrong way"
+    ],
+    "indicatorNotes": {
+     "regularly": "Taken at regular intervals — the first, third and fifth letters of the word beside it, and none of the ones between.",
+     "going the wrong way": "The wrong way is the reverse of the right one, so in an across entry the pieces are written out from right to left."
+    },
+    "subReversals": [
+     {
+      "from": "VANTAS",
+      "to": "SATNAV"
+     }
+    ],
+    "pieces": [
+     "SAT",
+     "NAV"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "VAN",
+      "note": "a van is one, and it arrives back to front"
+     },
+     {
+      "clueFragment": "that’s regularly",
+      "gives": "TAS",
+      "note": "letters one, three and five of this word, the apostrophe ignored"
+     }
+    ],
+    "surface": "A driver who keeps taking wrong turnings and could do with some help.",
+    "walkthrough": "Every word is working twice over: the sentence describes what the gadget is for while the same words hand over a vehicle and three letters to turn round.",
+    "definitionFit": "A sat-nav is precisely the thing that helps a driver forever heading the wrong way, so the whole sentence reads straight as its description."
+   }
   },
   {
    "id": "11-across",
@@ -219,7 +512,37 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLEABITE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FLEA-BITE",
+    "definition": "minor inconvenience",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "Without is used in its old sense of outside — as in 'without the city walls' — so the piece before it wraps round the one before that."
+    },
+    "pieces": [
+     "FLE",
+     "ABIT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get away",
+      "gives": "FLEE",
+      "note": "to flee is to get away, and the word opens up before its last letter"
+     },
+     {
+      "clueFragment": "Rather",
+      "gives": "ABIT",
+      "note": "'rather cold' and 'a bit cold' say the same thing, so the phrase goes in whole"
+     }
+    ],
+    "surface": "Preferring to slip off rather than put up with a small annoyance.",
+    "walkthrough": "The everyday 'without' meaning lacking is the trap: here the word is the archaic preposition for outside, and it carries the clue's only instruction.",
+    "definitionFit": "A flea-bite itches for a moment and does no real harm, so the phrase stands for any inconvenience too small to be worth minding."
+   }
   },
   {
    "id": "12-across",
@@ -241,7 +564,55 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "OUT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "OUT OF THE QUESTION",
+    "definition": "5",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "with",
+     "has"
+    ],
+    "pieces": [
+     "OUT",
+     "O",
+     "FT",
+     "HE",
+     "QUESTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abroad",
+      "gives": "OUT",
+      "note": "somebody abroad is away, and out is the plain word for it"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o = old, the standard abbreviation"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times, the pink-paper City daily and the crossword's stock newspaper"
+     },
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "an ambassador is styled His or Her Excellency, shortened to HE on the envelope"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "QUESTION",
+      "note": "the issue before a meeting is the question before it"
+     }
+    ],
+    "surface": "An envoy overseas with a back number of a newspaper, and a matter he wants raised.",
+    "walkthrough": "The definition is the bare number 5, which sends you to another clue for the meaning — a Guardian habit worth knowing, and easy to read as part of the sentence.",
+    "definitionFit": "5 across is the flat refusal that means it cannot be done, and this phrase says the same: a thing ruled out before anyone discusses it."
+   }
   },
   {
    "id": "13-across",
@@ -258,7 +629,30 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARNET",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BARNET",
+    "definition": "Bob maybe",
+    "definition2": "N. London borough",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "Bob maybe",
+      "note": "a bob is one particular cut, and 'maybe' flags it as an example of the wider thing rather than the thing itself"
+     },
+     {
+      "clueFragment": "N. London borough",
+      "note": "one of the local authorities at the top of London, out past Finchley and Hendon"
+     }
+    ],
+    "surface": "A man called Bob who lives somewhere in north London.",
+    "walkthrough": "Barnet Fair is Cockney rhyming slang for hair, cut down to its first word the way rhyming slang always is, and the borough of that name is a real place.",
+    "definitionFit": "In rhyming slang a barnet is a head of hair, and a bob is one style of it; Barnet is also a genuine borough of north London."
+   }
   },
   {
    "id": "14-across",
@@ -275,7 +669,45 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HANDMAID",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "HANDMAID",
+    "definition": "Attendant",
+    "indicators": [
+     "possessing",
+     "at the outset"
+    ],
+    "indicatorNotes": {
+     "possessing": "What you possess you have about you, so the piece named first opens up and takes the next one into its middle.",
+     "at the outset": "At the outset means at the very start, so this piece goes to the front of the answer rather than where the clue names it."
+    },
+    "pieces": [
+     "HAND",
+     "M",
+     "AI",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penmanship",
+      "gives": "HAND",
+      "note": "your hand is your handwriting — a fair hand, an illegible hand"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MD",
+      "note": "MD is the doctor's degree, and the two letters part company to make room"
+     },
+     {
+      "clueFragment": "perfect",
+      "gives": "AI",
+      "note": "A1 means first-rate, and in a grid the 1 is written as the letter I"
+     }
+    ],
+    "surface": "A doctor who turns out to have beautiful handwriting.",
+    "walkthrough": "Doctors' handwriting is the joke the surface runs on. 'At the outset' is not part of that description at all — it is the instruction sending the penmanship to the front.",
+    "definitionFit": "A handmaid is a female personal servant, so 'Attendant' names her by the job itself: one who attends on somebody else."
+   }
   },
   {
    "id": "15-across",
@@ -292,7 +724,39 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WALTZ",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "WALTZ",
+    "definition": "music",
+    "indicators": [
+     "joining"
+    ],
+    "indicatorNotes": {
+     "joining": "Joining says the two pieces simply run together end to end, one written straight after the other."
+    },
+    "linkWords": [
+     "to make"
+    ],
+    "pieces": [
+     "WALT",
+     "Z"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disney",
+      "gives": "WALT",
+      "note": "Disney's own first name, the man rather than the studio"
+     },
+     {
+      "clueFragment": "Unknown",
+      "gives": "Z",
+      "note": "algebra's unknown quantity is x, y or z, and only one of the three fits here"
+     }
+    ],
+    "surface": "A stranger teaming up with Disney to record something.",
+    "walkthrough": "'Unknown' is algebra's word rather than a mystery guest, and the two pieces arrive in the answer in the opposite order from the one the clue names them in.",
+    "definitionFit": "A waltz is a piece in three-four time as well as the dance done to it, so 'music' names the tune rather than the steps."
+   }
   },
   {
    "id": "16-across",
@@ -309,7 +773,49 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SQUEAMISH",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SQUEAMISH",
+    "definition": "easily shocked",
+    "indicators": [
+     "revolutionary",
+     "invades"
+    ],
+    "indicatorNotes": {
+     "revolutionary": "A revolution turns a thing full circle, so the name beside it is written out the other way round.",
+     "invades": "An invader forces a way in, so those letters end up inside the word already assembled rather than beside it."
+    },
+    "linkWords": [
+     "when",
+     "being"
+    ],
+    "subReversals": [
+     {
+      "from": "MAE",
+      "to": "EAM"
+     }
+    ],
+    "pieces": [
+     "SQU",
+     "EAM",
+     "ISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crush",
+      "gives": "SQUISH",
+      "note": "to squish a thing is to crush it, and this word splits after three letters"
+     },
+     {
+      "clueFragment": "West",
+      "gives": "EAM",
+      "note": "Mae West, the Hollywood star, lends her first name, and it turns round on the way in"
+     }
+    ],
+    "surface": "A revolutionary invading the West and crushing it.",
+    "walkthrough": "'West' is a person rather than a direction — Mae West, the 1930s film star — and the political surface is what keeps you reading it as territory.",
+    "definitionFit": "Someone squeamish is turned queasy by blood or cruelty, so 'easily shocked' describes the same low threshold for anything unpleasant."
+   }
   },
   {
    "id": "17-down",
@@ -330,7 +836,48 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "MUCKRAKER",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "MUCK-RAKER",
+    "definition": "Scandalmonger",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "covers",
+     "up"
+    ],
+    "indicatorNotes": {
+     "covers": "A cover goes over a thing and round it, so this word closes over the letters named after it.",
+     "up": "In a down entry up means read from the bottom towards the top, so those letters run in the opposite direction."
+    },
+    "subReversals": [
+     {
+      "from": "ARK",
+      "to": "KRA"
+     }
+    ],
+    "pieces": [
+     "MUC",
+     "KRA",
+     "KER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "best mate",
+      "gives": "MUCKER",
+      "note": "a mucker is British slang for a pal, and the word opens after three letters"
+     },
+     {
+      "clueFragment": "chest",
+      "gives": "KRA",
+      "note": "an ark is a chest — the Ark of the Covenant was a box — and it is written upwards"
+     }
+    ],
+    "surface": "A gossip columnist's closest friend keeping his chest covered up.",
+    "walkthrough": "Both halves of the surface change job at once: 'chest' is a box rather than a body part, and 'covers ... up' is two separate instructions with a word between them.",
+    "definitionFit": "A muckraker digs up dirt about people and sells it, which is the trade a scandalmonger follows."
+   }
   },
   {
    "id": "18-down",
@@ -347,7 +894,47 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDLENESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + last letters + container",
+    "answer": "IDLENESS",
+    "definition": "Vegetating",
+    "indicators": [
+     "finally",
+     "visiting",
+     "on vacation"
+    ],
+    "indicatorNotes": {
+     "finally": "At the finish — the last letter of each word named before it, and nothing else from either.",
+     "visiting": "A visitor goes inside the house, so these letters sit within the piece named after them.",
+     "on vacation": "A place on vacation stands empty, so this word keeps only the letters at its two ends and loses everything between."
+    },
+    "pieces": [
+     "IDLE",
+     "N",
+     "ES",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comic Eric",
+      "gives": "IDLE",
+      "note": "Eric Idle of Monty Python, one of two comic Erics the clue could mean"
+     },
+     {
+      "clueFragment": "Naxos on vacation",
+      "gives": "NS",
+      "note": "the Greek island emptied out, keeping only the letter at each end"
+     },
+     {
+      "clueFragment": "Morecambe is finally",
+      "gives": "ES",
+      "note": "the last letter of each of these two words, in the order given"
+     }
+    ],
+    "surface": "Eric Morecambe holidaying on a Greek island and doing nothing much at all.",
+    "walkthrough": "Two Erics collide: the surface hands you Morecambe, the great British comic of the seventies, while the wordplay wants Idle — and Morecambe keeps only his last letter.",
+    "definitionFit": "Vegetating is doing nothing whatever, and idleness is the state of doing nothing, so the gerund and the noun name the same condition."
+   }
   },
   {
    "id": "19-across",
@@ -364,7 +951,43 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUBSIDIES",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "SUBSIDIES",
+    "definition": "Financial assistance",
+    "definitionNote": "The definition is a mass noun and the answer a plural: the help is counted as one lump of money rather than as the separate grants that make it up.",
+    "indicators": [
+     "securing",
+     "a little"
+    ],
+    "indicatorNotes": {
+     "securing": "To secure a thing is to hold it fast, so the word beside it closes round the letter named next.",
+     "a little": "A little of a word is not the whole of it — here only the letter it begins with."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "SUBSID",
+     "I",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "founders",
+      "gives": "SUBSIDES",
+      "note": "a boat that founders subsides — goes down — and the word opens before its last two letters"
+     },
+     {
+      "clueFragment": "investment",
+      "gives": "I",
+      "note": "the opening letter of the word and no more of it"
+     }
+    ],
+    "surface": "Backers putting up a modest sum to keep something afloat.",
+    "walkthrough": "'Founders' looks like the people who started the business and is really the verb — a ship that founders sinks — which is the whole difficulty in reading the first three words.",
+    "definitionFit": "Subsidies are sums paid out to keep a service or an industry going, so 'financial assistance' is the category they belong to."
+   }
   },
   {
    "id": "20-down",
@@ -381,7 +1004,58 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNICORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "UNICORN",
+    "definition": "symbol of Scotland",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Round about — the letters named before it end up on either side of everything that follows."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "pieces": [
+     "U",
+     "N",
+     "I",
+     "CO",
+     "R",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyone can see this",
+      "gives": "U",
+      "note": "a film classified U is universal, passed for viewers of any age"
+     },
+     {
+      "clueFragment": "news",
+      "gives": "NN",
+      "note": "n = new, and the plural asks for a second one, which is what leaves a gap between them"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "i = independent, as printed beside a candidate's name on a ballot"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "co = company, the abbreviation in half the firm names on a high street"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "r = run, the cricket scorer's abbreviation"
+     }
+    ],
+    "surface": "A story everyone can read about an independent firm and the way it is run.",
+    "walkthrough": "Turning 'news' into two N's is the cheeky step: new is N, and the plural asks for more than one of them. The beast is Scotland's, chained on the royal arms.",
+    "definitionFit": "The unicorn is Scotland's heraldic animal, facing England's lion on the royal arms, so the definition names it by what it stands for."
+   }
   },
   {
    "id": "21-across",
@@ -398,7 +1072,42 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOPE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "SCOPE",
+    "definition": "range",
+    "indicators": [
+     "close to"
+    ],
+    "indicatorNotes": {
+     "close to": "The close of a word is its end, so only the final letter of the word named after it is taken."
+    },
+    "pieces": [
+     "S",
+     "COP",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "s = small, as on the label in a shirt"
+     },
+     {
+      "clueFragment": "PC",
+      "gives": "COP",
+      "note": "a PC is a police constable, and a cop is the same officer in slang"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "E",
+      "note": "the last letter of the word"
+     }
+    ],
+    "surface": "A cheap little computer, priced to shift.",
+    "walkthrough": "'PC' reads as the machine on your desk and means the constable on the beat, and 'Small PC' looks like one description when it is two separate pieces.",
+    "definitionFit": "The scope of a law or a job is how far it reaches, which is what a range is — the extent something covers."
+   }
   },
   {
    "id": "22-down",
@@ -415,7 +1124,33 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLEMIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "POLEMIC",
+    "definition": "argument",
+    "indicators": [
+     "12"
+    ],
+    "indicatorNotes": {
+     "12": "The number sends you to 12 across, which supplies the word 'out', and letters that are out are no longer in the order they were given."
+    },
+    "linkWords": [
+     "to make"
+    ],
+    "anagram": {
+     "fodder": "COMPILE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Compile",
+      "gives": "COMPILE",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "An instruction to put the answer at 12 together and start a row with it.",
+    "walkthrough": "A cross-reference usually hands over letters; this one hands over the instruction instead, because the answer it points at is itself a word meaning out of order.",
+    "definitionFit": "A polemic is a fierce written attack on a position, so 'argument' names it in the sense of a case pressed against something."
+   }
   },
   {
    "id": "23-down",
@@ -435,7 +1170,9 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "SHEETS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "27-across"
+   }
   },
   {
    "id": "24-across",
@@ -452,7 +1189,42 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIRULENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VIRULENT",
+    "definition": "Particularly noxious",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry a piece placed on another follows it, so the books come after the word for order rather than before it."
+    },
+    "pieces": [
+     "VI",
+     "RULE",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "six written in Roman numerals"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "RULE",
+      "note": "a rule is an order handed down, and the two nouns swap freely"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "the New Testament, the crossword's usual books alongside the OT"
+     }
+    ],
+    "surface": "Half a dozen books waiting on an order at a shop.",
+    "walkthrough": "'Six books' reads as one quantity on an invoice, which is what keeps a Roman numeral and the Bible's second half from separating in your head.",
+    "definitionFit": "A virulent disease or a virulent attack is poisonous in the extreme, so 'particularly noxious' catches both the sense and the force of the word."
+   }
   },
   {
    "id": "25-down",
@@ -469,7 +1241,31 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNDER",
+    "definition": "below",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "UN",
+     "DER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two European articles",
+      "gives": "UN",
+      "note": "un is French for 'a', the first of the pair"
+     },
+     {
+      "clueFragment": "European articles",
+      "gives": "DER",
+      "note": "der is German for 'the', the second of the pair"
+     }
+    ],
+    "walkthrough": "Continental languages keep a setter supplied with short words, and 'articles' is the signal to reach for a foreign 'a' or 'the' rather than an English one.",
+    "definitionFit": "Under and below are everyday synonyms for a position lower than something else, and either word fits the same sentence unchanged."
+   }
   },
   {
    "id": "26-across",
@@ -486,7 +1282,41 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HURDLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters + last letters",
+    "answer": "HURDLE",
+    "definition": "difficulty",
+    "indicators": [
+     "discovered",
+     "characters bringing up the rear"
+    ],
+    "indicatorNotes": {
+     "discovered": "Taking the cover off a word leaves what was underneath, so the first and last letters go and the middle stays.",
+     "characters bringing up the rear": "The character bringing up the rear is the one at the back, so it is the final letter of each word that is wanted."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "HUR",
+     "DLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uhura",
+      "gives": "HUR",
+      "note": "the Star Trek communications officer's name with the letter at each end taken off"
+     },
+     {
+      "clueFragment": "red will die",
+      "gives": "DLE",
+      "note": "the last letter of each of these three words, read in order"
+     }
+    ],
+    "surface": "The Star Trek crewmen in red shirts, the ones who never make it to the end of the episode.",
+    "walkthrough": "Red shirts are the old Star Trek joke — the anonymous crewman beamed down in a red tunic is the one who dies — and Uhura wore red on the bridge herself.",
+    "definitionFit": "A hurdle is a barrier to be got over, so it stands for any difficulty in the way — the figurative use of the racing obstacle."
+   }
   },
   {
    "id": "27-across",
@@ -508,7 +1338,40 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "ICE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "ICE SHEETS",
+    "definition": "They’re melting",
+    "definitionNote": "The definition is a statement about the answer rather than a synonym for it: the setter points at what these things are doing instead of naming them.",
+    "indicators": [
+     "variety of"
+    ],
+    "indicatorNotes": {
+     "variety of": "A variety is another form of the same thing, so the letters beside it come back arranged a different way."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "CHEESES IT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cheeses",
+      "gives": "CHEESES",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "two more letters for the shuffle, lifted from the clue as they stand"
+     }
+    ],
+    "surface": "A cheeseboard left out too long, the whole selection going soft.",
+    "walkthrough": "'Variety of cheeses' is such a natural phrase that the instruction hides inside it, and 'with it' sounds like the rest of the same menu.",
+    "definitionFit": "The polar ice sheets, the vast caps over Greenland and Antarctica, are the things famously melting, so the clue defines them by the news about them."
+   }
   },
   {
    "id": "28-across",
@@ -529,7 +1392,43 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOODLEOO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TOODLE-OO",
+    "definition": "saying farewell",
+    "indicators": [
+     "to hold"
+    ],
+    "indicatorNotes": {
+     "to hold": "To hold a thing is to keep it within you, so the word before opens up and takes the sign into its middle."
+    },
+    "pieces": [
+     "TOO",
+     "D",
+     "LEO",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Also",
+      "gives": "TOO",
+      "note": "also and too are the same word in different registers"
+     },
+     {
+      "clueFragment": "manage",
+      "gives": "DO",
+      "note": "to do is to manage — 'that will do' — and the word splits in two"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "LEO",
+      "note": "Leo the lion is one of the twelve signs of the zodiac"
+     }
+    ],
+    "surface": "Someone managing to hold up a placard as well, on the way out.",
+    "walkthrough": "'Sign' has a dozen crossword meanings and the zodiac is the one setters reach for most, while 'to hold' carries the only instruction in the sentence.",
+    "definitionFit": "Toodle-oo is a jaunty British goodbye, dated now but still heard, so the whole phrase stands in for a wave at the door."
+   }
   },
   {
    "id": "29-across",
@@ -546,7 +1445,36 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESKIMO",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + charade",
+    "answer": "ESKIMO",
+    "definition": "language",
+    "indicators": [
+     "Originally"
+    ],
+    "indicatorNotes": {
+     "Originally": "The origin of a word is the letter it starts from, and the run of words after this one gives up one letter each."
+    },
+    "pieces": [
+     "ESKIM",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone sees knitting is my",
+      "gives": "ESKIM",
+      "note": "the opening letter of each of these five words in turn"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nothing in tennis, and nothing is written as O"
+     }
+    ],
+    "surface": "Someone declaring that knitting is how they show affection.",
+    "walkthrough": "Five initials in a row are hard to see when the words make a sentence that means something, and 'love language' is a modern phrase the surface leans on.",
+    "definitionFit": "Eskimo names the language of the Arctic peoples — a term now usually avoided in favour of Inuit, but the one dictionaries still file the language under."
+   }
   },
   {
    "id": "30-across",
@@ -563,7 +1491,33 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENGROSS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ENGROSS",
+    "definition": "completely engage",
+    "indicators": [
+     "Occasionally"
+    ],
+    "indicatorNotes": {
+     "Occasionally": "Something done occasionally happens every so often rather than all the time — take every second letter and leave the rest behind."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "ENGROSS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teenagers obsess",
+      "gives": "ENGROSS",
+      "note": "every second letter across both words, beginning with the second letter of the first"
+     }
+    ],
+    "surface": "Teenagers now and then getting fixated on something.",
+    "walkthrough": "The two words have to be read as one continuous run, because the count carries straight over the space between them — which is what makes this kind of clue hard to spot.",
+    "definitionFit": "To engross someone is to take up the whole of their attention, so 'completely engage' spells out the verb with its intensity included."
+   }
   },
   {
    "id": "31-across",
@@ -580,7 +1534,47 @@ window.CRYPTIC_PUZZLES["cryptic-29996"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTRICH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OSTRICH",
+    "definition": "Huge egg supplier",
+    "indicators": [
+     "in Germany",
+     "involved"
+    ],
+    "indicatorNotes": {
+     "in Germany": "Said in Germany means said in German, so two of the words that follow are wanted in that language rather than in English.",
+     "involved": "Getting something involved brings it in among the rest, so the letter named lands inside the pieces already assembled."
+    },
+    "linkWords": [
+     "must get"
+    ],
+    "pieces": [
+     "OST",
+     "R",
+     "ICH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "east of Berlin",
+      "gives": "OST",
+      "note": "east as they say it in Berlin"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "r = right, the standard abbreviation"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "ICH",
+      "note": "the German for 'I', which is what the clue's own pronoun turns into"
+     }
+    ],
+    "surface": "A German supplier of enormous eggs, somewhere east of Berlin.",
+    "walkthrough": "'In Germany' is doing translation work on two separate words a long way apart, and the dashes make the middle of the clue read as an aside about geography.",
+    "definitionFit": "An ostrich lays the largest egg of any living bird, so 'Huge egg supplier' identifies it by the one thing it is famous for producing."
+   }
   }
  ]
 } /*JSON-END*/;
