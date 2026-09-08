@@ -58,16 +58,6 @@ alert_run_failures() {
 
 alert() {
   echo "ALERT: $*"
-  local token
-  # An exported token wins over the file, and a deployment that holds the
-  # secret only in its environment has no .env file at all. This used to
-  # return here on an unreadable file and never look at the environment,
-  # which made the alerting silent exactly where it was most needed.
-  token="${DISCORD_BOT_TOKEN:-}"
-  [ -n "$token" ] ||
-    token=$(grep -m1 '^DISCORD_BOT_TOKEN=' "$ALERT_ENV_FILE" 2>/dev/null |
-            cut -d= -f2-)
-  [ -n "$token" ] || return 0
   local stamp
   stamp="$ALERT_STATE_DIR/$(printf '%s' "$*" | shasum | cut -c1-16)"
   mkdir -p "$ALERT_STATE_DIR" 2>/dev/null || true
@@ -77,43 +67,22 @@ alert() {
     echo "(identical alert sent within ${ALERT_REPEAT_HOURS}h — not repeating)"
     return 0
   fi
-  touch "$stamp" 2>/dev/null || true
-  local wake body
-  # The wake marker is not decoration: the bridge drops every bot-authored
-  # message, and this one is posted with the bridge's own token, so unmarked it
-  # lands in the channel and wakes nothing (which is how these alerts sat unread
-  # on 2026-08-07). Self-authored + that exact marker + an allowlisted channel
-  # is what makes it a turn — see cfg.is_wake in household.
-  #
-  # So it is READ from that config, never spelled here. A marker copied by hand
-  # is one edit away from a message nothing reads and nothing reports, which is
-  # the same silent failure this whole file exists to prevent. If it can't be
-  # read the alert still goes out: a human seeing it beats nobody seeing it.
-  wake=$(cd "$(dirname "$ALERT_ENV_FILE")" 2>/dev/null &&
-         python3 -c 'import config; print(config.WAKE_PREFIX)' 2>/dev/null)
-  [ -n "$wake" ] || wake="(unmarked — could not read the bridge's wake prefix)"
-  body=$(python3 -c 'import json,sys; print(json.dumps({"content": sys.argv[1][:1900]}))' \
-         "$wake ⚠️ cryptic-teacher: $*") || return 0
-  # urllib, not curl: every other tool here already posts this way, and the
-  # one that did not could not run anywhere curl was missing.
-  python3 - "$token" "$ALERT_CHANNEL" "$body" <<'POST' || true
-import sys, urllib.error, urllib.request
-token, channel, body = sys.argv[1], sys.argv[2], sys.argv[3]
-req = urllib.request.Request(
-    f"https://discord.com/api/v10/channels/{channel}/messages",
-    data=body.encode(),
-    headers={"Authorization": f"Bot {token}",
-             "Content-Type": "application/json",
-             # Discord's edge 403s Python-urllib's default User-Agent before the
-             # request ever reaches the API — the token and channel were fine on
-             # 2026-09-07 and the POST still came back Forbidden. Every Discord
-             # client is required to identify itself this way; discord.py sends
-             # one, which is why the bridge never saw this and a raw urllib call
-             # did.
-             "User-Agent": "DiscordBot (https://github.com/ptarjan/cryptic-teacher, 1.0)"})
-try:
-    urllib.request.urlopen(req, timeout=15).read()
-except (urllib.error.URLError, OSError) as exc:
-    print(f"the alert could not be posted to Discord: {exc}", file=sys.stderr)
-POST
+  # The bridge drops every bot-authored message, so an alert posted straight to
+  # Discord lands in the channel and wakes nobody. wake.sh is the bridge's own
+  # door for exactly this: it owns the marker, the token and the channel check,
+  # and it is tested against the config that reads them. This file asks it to
+  # speak rather than keeping a second copy of any of that.
+  local wake_sh
+  wake_sh="$(dirname "$ALERT_ENV_FILE")/tools/wake.sh"
+  if [ ! -x "$wake_sh" ]; then
+    echo "the alert could not be sent: no wake.sh at $wake_sh"
+    return 0
+  fi
+  # Stamped only once it is out, so a failed send is retried by the next run
+  # rather than suppressed as a duplicate of a message nobody ever saw.
+  if "$wake_sh" -c "$ALERT_CHANNEL" "⚠️ cryptic-teacher: $*"; then
+    touch "$stamp" 2>/dev/null || true
+  else
+    echo "the alert could not be sent: wake.sh failed"
+  fi
 }
