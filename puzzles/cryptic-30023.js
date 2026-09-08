@@ -30,7 +30,36 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BUDAPEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BUDAPEST",
+    "definition": "European 2",
+    "definitionFit": "Budapest is a city in Europe, and the 2 sends you to 2 down for the noun, so the definition reads 'European city'.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "’s",
+     "in"
+    ],
+    "pieces": [
+     "BUD",
+     "APEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American friend",
+      "gives": "BUD",
+      "note": "bud is American for pal — 'hey, bud' — so the nationality is telling you which slang to use"
+     },
+     {
+      "clueFragment": "a nuisance",
+      "gives": "APEST",
+      "note": "a pest is a nuisance, and the clue's own 'a' comes along in front of it"
+     }
+    ],
+    "surface": "A friend over from the States is being a pain somewhere in Europe.",
+    "walkthrough": "Wes Anderson's films run right through this grid, and The Grand Budapest Hotel takes a word each from here, 7 down and 22 down. The '2' is a cross-reference, not a number to convert."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +76,42 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CITY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "CITY",
+    "definition": "football team",
+    "definitionFit": "Clubs named for their town are called City by their fans — Manchester City, Leicester City — so the word names a team by example.",
+    "indicators": [
+     "off"
+    ],
+    "indicatorNotes": {
+     "off": "'went off' sounds like an alarm going, but 'off' is a removal instruction: the word WENT is what goes away."
+    },
+    "pieces": [
+     "C",
+     "I",
+     "TY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is 100 in Roman numerals"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "I is 1 in Roman numerals"
+     },
+     {
+      "clueFragment": "20 went",
+      "gives": "TY",
+      "note": "write 20 out as TWENTY, take WENT out of the middle of it and the ends close up"
+     }
+    ],
+    "surface": "A numbered device goes off, and a football team is somehow involved.",
+    "walkthrough": "One string of digits, three different treatments: two Roman numerals and then a number spelled out in English so it can be robbed. Asteroid City is the Wes Anderson film this half belongs to."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +128,46 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WANDER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "WANDER",
+    "definition": "ramble",
+    "definitionFit": "To wander is to ramble — to go about without a route in mind, the walking sense of both verbs rather than the talking one.",
+    "indicators": [
+     "once",
+     "departs"
+    ],
+    "indicatorNotes": {
+     "once": "'once' marks the cypher as belonging to a former reign — a King George signed with it, not the monarch on today's post boxes.",
+     "departs": "departing is leaving, so the royal pair named just before it walks out of the longer word."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "W",
+     "ANDER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "w = wife, the standard abbreviation"
+     },
+     {
+      "clueFragment": "King George",
+      "gives": "GR",
+      "note": "Georgius Rex, the cypher a King George signs and stamps with"
+     },
+     {
+      "clueFragment": "more majestic",
+      "gives": "ANDER",
+      "note": "GRANDER is more majestic, and once the cypher walks out this is what stands"
+     }
+    ],
+    "surface": "A wife left grander than before now that King George has gone, taking herself off for a walk.",
+    "walkthrough": "WANDER and 17 down together spell Wes Anderson, whose films are the theme of the grid. 'Once' is the setter playing fair: GR is a cypher from an earlier reign."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +184,47 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STARING",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "STARING",
+    "definition": "Looking",
+    "definitionFit": "Staring is looking, held still and too long — the -ing form matches, and both name an eye fixed on something.",
+    "indicators": [
+     "perhaps",
+     "edge of"
+    ],
+    "indicatorNotes": {
+     "perhaps": "'perhaps' warns that our sun is only an instance of the word wanted, not a synonym for it.",
+     "edge of": "an edge is where a thing stops, so this hands over the outermost letter of the word beside it and nothing else."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "STAR",
+     "IN",
+     "G"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our sun",
+      "gives": "STAR",
+      "note": "the sun is a star, one among billions"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the clue's own 'in' is written down as it stands"
+     },
+     {
+      "clueFragment": "galaxy",
+      "gives": "G",
+      "note": "the letter at the front edge of galaxy"
+     }
+    ],
+    "surface": "An astronomer scanning the rim of the galaxy for a star like our own.",
+    "walkthrough": "Every word belongs to astronomy, which is what hides the join: 'our sun, perhaps' asks for the category the sun belongs to, not for the sun."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +241,33 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACRE",
-   "annotation": null
+   "annotation": {
+    "type": "middle letters",
+    "answer": "ACRE",
+    "definition": "Measure",
+    "definitionFit": "An acre is a unit of land area — 'Measure' as the noun for a unit, the way a furlong or a bushel is one.",
+    "indicators": [
+     "soul"
+    ],
+    "indicatorNotes": {
+     "soul": "the soul of a thing is what sits deepest inside it, so this asks for the letters at the centre and throws the ends away."
+    },
+    "linkWords": [
+     "the"
+    ],
+    "pieces": [
+     "ACRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holy",
+      "gives": "ACRE",
+      "note": "SACRED means holy, and its innermost four letters are what survive"
+     }
+    ],
+    "surface": "Somebody measuring a soul, as though you could put a tape round one.",
+    "walkthrough": "Nothing announces a word to work on: 'holy' has to be turned into SACRED before the instruction can bite, and that unstated step is where the clue hides."
+   }
   },
   {
    "id": "6-down",
@@ -119,7 +288,40 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEXLIMITED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SEX-LIMITED",
+    "definition": "like male pattern baldness",
+    "definitionFit": "A sex-limited trait is expressed in one sex only, and that pattern of hair loss shows in men, so the example defines the term.",
+    "indicators": [
+     "Reform"
+    ],
+    "indicatorNotes": {
+     "Reform": "a reform breaks an institution up and puts it back together in a different arrangement, which is what happens to the letters beside it."
+    },
+    "anagram": {
+     "fodder": "X LIED ITEMS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "To secure vote",
+      "gives": "X",
+      "note": "a vote is the cross you pencil on a ballot paper, and securing one gets you that X"
+     },
+     {
+      "clueFragment": "lied with items",
+      "gives": "LIEDITEMS",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "Reform",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A political party accused of lying about odds and ends, hair loss among them, to win a vote.",
+    "walkthrough": "Reform is a British political party, which is why the capital letter passes as a name in the sentence while it is quietly the instruction underneath."
+   }
   },
   {
    "id": "7-down",
@@ -136,7 +338,38 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRANDE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GRANDE",
+    "definition": "Singer",
+    "definitionFit": "Ariana Grande is a pop singer, so the surname defines by example — one performer standing in for the category.",
+    "indicators": [
+     "terrible"
+    ],
+    "indicatorNotes": {
+     "terrible": "something terrible is in a bad way, and a word in a bad way does not hold the order it was given in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "DANGER"
+    },
+    "blocks": [
+     {
+      "clueFragment": "danger",
+      "gives": "DANGER",
+      "note": "anagram fodder, six letters"
+     },
+     {
+      "clueFragment": "terrible",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A performer caught up in something frightening.",
+    "walkthrough": "Surname-only definitions are worth expecting from this paper. The theme is Wes Anderson, and this entry sits with 1 down and 22 down to cover The Grand Budapest Hotel."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +386,51 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JUBILANT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + container",
+    "answer": "JUBILANT",
+    "definition": "on top of the world",
+    "definitionFit": "Someone on top of the world is elated, and jubilant names that same unmixed high spirits — an idiom matched by a single adjective.",
+    "indicators": [
+     "new",
+     "houses"
+    ],
+    "indicatorNotes": {
+     "new": "made new is made over: the word in front of it is rebuilt from the same letters in a different order.",
+     "houses": "to house something is to give it a room inside you, so the rebuilt letters close around what follows."
+    },
+    "pieces": [
+     "J",
+     "UBIL",
+     "AN",
+     "T"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BUILT",
+      "gives": "UBILT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the jack in a pack of cards"
+     },
+     {
+      "clueFragment": "built",
+      "gives": "BUILT",
+      "note": "anagram fodder, five letters, and it splits open to take a guest"
+     },
+     {
+      "clueFragment": "a number",
+      "gives": "AN",
+      "note": "the clue's 'a' plus n, the standard abbreviation for number"
+     }
+    ],
+    "surface": "Jack of the nursery rhyme puts up new houses, numbered, somewhere near the top of the world.",
+    "walkthrough": "'The house that Jack built' is the rhyme the surface is leaning on, and it costs you the parsing: 'houses' is a verb here, not a row of buildings."
+   }
   },
   {
    "id": "9-across",
@@ -170,7 +447,35 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLEAR",
+    "definition": "Obvious",
+    "definitionFit": "Clear means obvious — 'it's clear he's lying' — the sense of plain to anyone, not the sense of see-through.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "C",
+     "LEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "LEAR",
+      "note": "Shakespeare's King Lear, the king setters reach for first"
+     }
+    ],
+    "surface": "Somebody called Charlie has a king — a playing card, perhaps.",
+    "walkthrough": "Both halves are conventions rather than synonyms, one from the NATO alphabet and one from Shakespeare. 'Charlie's King' also reads as Charles III, which is the misdirection."
+   }
   },
   {
    "id": "10-across",
@@ -187,7 +492,37 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "MANY",
+    "definition": "stacks",
+    "definitionFit": "'Stacks' is the informal quantifier — stacks of room, stacks of time — and many is the plain word for that same abundance.",
+    "definitionNote": "'Stacks' is a plural noun where the answer is a quantifier, but the two swap freely in speech: stacks of people, many people.",
+    "indicators": [
+     "Removing"
+    ],
+    "indicatorNotes": {
+     "Removing": "removing is the bare instruction to take something out, and putting it first makes it read as carpentry rather than as an order."
+    },
+    "pieces": [
+     "M",
+     "ANY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from wood",
+      "gives": "MAHOGANY",
+      "note": "mahogany is the wood being worked on"
+     },
+     {
+      "clueFragment": "a corner",
+      "gives": "AHOG",
+      "note": "to hog something is to corner it — you corner a market by hogging it — so this is A + HOG, lifted out of the middle"
+     }
+    ],
+    "surface": "A carpenter taking the corner off a piece of timber.",
+    "walkthrough": "'Corner' is a verb here, not a shape: cornering a market is hogging it, and that is the word being pulled out of the plank."
+   }
   },
   {
    "id": "11-across",
@@ -204,7 +539,44 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DARJEELING",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "DARJEELING",
+    "definition": "leaves",
+    "definitionFit": "Darjeeling is a black tea from the Indian hills, and a tea is named for the leaves it is made of — what you spoon into the pot.",
+    "definitionNote": "'Leaves' is plural where the answer is a mass noun naming one variety; the setter defines the tea by the thing it consists of.",
+    "indicators": [
+     "served in"
+    ],
+    "indicatorNotes": {
+     "served in": "serving something in a dish puts it inside the dish, so the pieces named before go within the word after."
+    },
+    "pieces": [
+     "DAR",
+     "J",
+     "EEL",
+     "ING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wild",
+      "gives": "DARING",
+      "note": "daring is wild in the reckless sense — this is the word that opens up"
+     },
+     {
+      "clueFragment": "Japanese",
+      "gives": "J",
+      "note": "J is the international code letter for Japan"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "the eel, three letters and two vowels, is the crossword's default fish"
+     }
+    ],
+    "surface": "A fish dish from Japan arriving on a bed of wild greens.",
+    "walkthrough": "The Darjeeling Limited is one of the Wes Anderson films threaded through this grid — and the tea itself comes from the Indian hills, nowhere near Japan."
+   }
   },
   {
    "id": "12-across",
@@ -221,7 +593,54 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEMOIR",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + reversal",
+    "answer": "MEMOIR",
+    "definition": "account",
+    "definitionFit": "A memoir is an account of a life, 'account' in the sense of a written telling of events rather than a bank one.",
+    "indicators": [
+     "In",
+     "rejecting"
+    ],
+    "indicatorNotes": {
+     "In": "the clue opens with 'In' as though setting a year, and it is really the instruction to put what follows inside the number.",
+     "rejecting": "to reject something is to throw it back, so the port's letters arrive in the opposite order."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "M",
+     "E",
+     "M",
+     "OIR"
+    ],
+    "subReversals": [
+     {
+      "from": "RIO",
+      "to": "OIR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "2000",
+      "gives": "MM",
+      "note": "2000 in Roman numerals is a pair of Ms"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is Spain's international vehicle code, from España"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "OIR",
+      "note": "Rio de Janeiro is the port, thrown back the way it came"
+     }
+    ],
+    "surface": "Spain in the millennium year, turning down a harbour town's version of events.",
+    "walkthrough": "'Port' looks like the drink the Iberian surface has been setting up, and it is the harbour — a Brazilian one at that."
+   }
   },
   {
    "id": "13-down",
@@ -238,7 +657,45 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERTHROWS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OVERTHROWS",
+    "definition": "extras",
+    "definitionFit": "In cricket, extras are runs not scored off the bat, and overthrows — runs taken when a fielder's return goes astray — are entered as exactly that.",
+    "indicators": [
+     "involving"
+    ],
+    "indicatorNotes": {
+     "involving": "involving someone is drawing them into the middle of the business, so the letter it introduces sits inside the rest."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "OVERT",
+     "H",
+     "ROWS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public",
+      "gives": "OVERT",
+      "note": "overt means done in the open, in public view"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h = husband, the standard abbreviation"
+     },
+     {
+      "clueFragment": "arguments",
+      "gives": "ROWS",
+      "note": "a row is an argument, the word rhyming with 'cow'"
+     }
+    ],
+    "surface": "A public quarrel that has dragged the husband into it.",
+    "walkthrough": "The quotation marks around 'extras' are the setter admitting the word is doing specialist work — cricket, where a marital row is nowhere in sight."
+   }
   },
   {
    "id": "14-across",
@@ -255,7 +712,30 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOVEMBER",
-   "annotation": null
+   "annotation": {
+    "type": "middle letter",
+    "answer": "NOVEMBER",
+    "definition": "Time period",
+    "definitionFit": "November is a month, and a month is a period of time — the definition names the category the answer is a member of.",
+    "indicators": [
+     "at the heart of"
+    ],
+    "indicatorNotes": {
+     "at the heart of": "the heart of two things is the point midway between them, which here means midway along the alphabet from one letter to the other."
+    },
+    "pieces": [
+     "NOVEMBER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo and Juliet",
+      "gives": "NOVEMBER",
+      "note": "Romeo and Juliet are R and J in the NATO alphabet, and the letter sitting midway between J and R has its own name in that same alphabet"
+     }
+    ],
+    "surface": "A stretch of time somewhere in the middle of Shakespeare's tragedy.",
+    "walkthrough": "Shakespeare is the false trail: 'Romeo and Juliet?' looks like the play, and the question mark is the only signal that the pair are letters rather than lovers."
+   }
   },
   {
    "id": "15-down",
@@ -272,7 +752,43 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VAN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "VAN",
+    "definition": "vehicle",
+    "definitionFit": "A van is a vehicle, in the plain delivery sense rather than the vanguard sense that shares the spelling.",
+    "indicators": [
+     "ignores",
+     "reversing"
+    ],
+    "indicatorNotes": {
+     "ignores": "to ignore something is to leave it out, so the letters it names are the ones not written down.",
+     "reversing": "the young bloke's three letters arrive back to front, which is the only way they match the tail of the longer word."
+    },
+    "pieces": [
+     "VAN"
+    ],
+    "subReversals": [
+     {
+      "from": "LAD",
+      "to": "DAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hooligan",
+      "gives": "VANDAL",
+      "note": "a vandal is a hooligan — the word the deletion works on"
+     },
+     {
+      "clueFragment": "young bloke",
+      "gives": "DAL",
+      "note": "a lad is a young bloke, and turned round he is the three letters that go"
+     }
+    ],
+    "surface": "A hooligan taking no notice of a young man backing a vehicle out.",
+    "walkthrough": "The whole thing reads as a scene in a car park, where 'reversing vehicle' is one phrase; the split the solver needs comes a word earlier than the eye wants it."
+   }
   },
   {
    "id": "16-across",
@@ -289,7 +805,52 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATHEIST",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + middle letters",
+    "answer": "ATHEIST",
+    "definition": "I don’t believe",
+    "definitionFit": "An atheist holds that there is no god, and the clue defines the person by putting their denial into their own mouth.",
+    "definitionNote": "The definition is a line the answer would say rather than a synonym for it: a first-person sentence standing in for the person who says it.",
+    "indicators": [
+     "found in",
+     "nucleus of"
+    ],
+    "indicatorNotes": {
+     "found in": "being found in something is being inside it, so the pieces named before this go within what comes after.",
+     "nucleus of": "a nucleus is the dense centre, so this keeps the letters at the middle of the word and drops the rest."
+    },
+    "pieces": [
+     "A",
+     "T",
+     "HE",
+     "IS",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the clue's own 'a' is written down as it stands"
+     },
+     {
+      "clueFragment": "nucleus of matter",
+      "gives": "TT",
+      "note": "the two letters at the very centre of matter, which then split apart to make room"
+     },
+     {
+      "clueFragment": "helium",
+      "gives": "HE",
+      "note": "He is helium's symbol on the periodic table"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's 'is' goes straight down while still working as the sentence's verb"
+     }
+    ],
+    "surface": "Someone flatly refusing to accept a claim about where helium sits inside an atom.",
+    "walkthrough": "A helium nucleus is exactly what an alpha particle is, so the physics in the surface is very nearly true — which is what lets the sentence read as one thought instead of two."
+   }
   },
   {
    "id": "17-down",
@@ -306,7 +867,42 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SON",
+    "definition": "Issue",
+    "definitionFit": "'Issue' is the legal word for offspring — 'died without issue' — and a son is issue of that kind.",
+    "indicators": [
+     "Uplifting"
+    ],
+    "indicatorNotes": {
+     "Uplifting": "an uplift in a down clue carries the letters back up the grid, so they are read from the bottom of the entry."
+    },
+    "pieces": [
+     "SO",
+     "N"
+    ],
+    "subReversals": [
+     {
+      "from": "NOS",
+      "to": "SON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n = new, the standard abbreviation"
+     },
+     {
+      "clueFragment": "Big",
+      "gives": "OS",
+      "note": "OS is outsize, the label sewn into big clothing"
+     }
+    ],
+    "surface": "A cheering copy of the Big Issue bought on a street corner.",
+    "walkthrough": "The Big Issue is the magazine sold on British high streets by homeless vendors, and that is the whole picture. Read as offspring, SON joins 3 down to make Wes Anderson."
+   }
   },
   {
    "id": "18-across",
@@ -323,7 +919,51 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSTEAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "INSTEAD",
+    "definition": "Rather",
+    "definitionFit": "Rather and instead both mean 'in place of that' — she stayed home instead, she stayed home rather — the substitution sense of each.",
+    "indicators": [
+     "hot"
+    ],
+    "indicatorNotes": {
+     "hot": "heat is being applied to the word beside it: something hot runs and loses its shape, and these letters do not set in the order given."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "IN",
+     "S",
+     "TEAD"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DATE",
+      "gives": "TEAD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At home",
+      "gives": "IN",
+      "note": "being in is being at home — 'is she in?'"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "s = special, as in special constable"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "TEAD",
+      "note": "the four letters of DATE, run together in another order"
+     }
+    ],
+    "surface": "An invitation: are you at home for something special, a hot date perhaps?",
+    "walkthrough": "The exclamation mark makes 'Rather!' read as enthusiastic agreement, which is the sense the definition does not want. It wants the quiet one: in place of something else."
+   }
   },
   {
    "id": "19-down",
@@ -340,7 +980,50 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGNOSTIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + first letter",
+    "answer": "AGNOSTIC",
+    "definition": "Sceptic",
+    "definitionFit": "An agnostic holds that nothing can be known about God, so 'sceptic' fits in its everyday sense of a doubter rather than its philosophical one.",
+    "indicators": [
+     "odd",
+     "over",
+     "the origin of"
+    ],
+    "indicatorNotes": {
+     "odd": "odd means strange, and a strange version of a word is one whose letters have gone out of true.",
+     "over": "going over a thing is covering it, so the rearranged letters wrap round the single letter that follows.",
+     "the origin of": "the origin of a word is where it begins, so this hands over its first letter and nothing more."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "A",
+     "G",
+     "NOSTIC"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ACTIONS",
+      "gives": "ANOSTIC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actions",
+      "gives": "ANOSTIC",
+      "note": "the seven letters of ACTIONS, put back in a different order"
+     },
+     {
+      "clueFragment": "God",
+      "gives": "G",
+      "note": "the first letter of God, taken on its own"
+     }
+    ],
+    "surface": "A doubter's strange behaviour, and the question of where the idea of God began.",
+    "walkthrough": "'Odd actions' reads as a description of the man himself, which is where the anagram hides: the word doing the shuffling is the one that sounds most like character."
+   }
   },
   {
    "id": "20-down",
@@ -357,7 +1040,27 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARTISAN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ARTISAN",
+    "definition": "skilled worker",
+    "definitionFit": "An artisan is a skilled manual worker, a maker of things by hand — a word now met mostly on bread packaging.",
+    "indicators": [
+     "As seen"
+    ],
+    "indicatorNotes": {
+     "As seen": "'as seen' says the letters are already on the page to be looked at rather than built, so the job is reading across the words."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bogart is a naturally",
+      "gives": "ARTISAN",
+      "note": "seven consecutive letters run across these four words, beginning inside the actor's surname"
+     }
+    ],
+    "surface": "Humphrey Bogart described as a born craftsman.",
+    "walkthrough": "Hidden answers hate being started inside a name — the eye reads 'Bogart' as a person and never as a run of letters, which buys the setter the first three."
+   }
   },
   {
    "id": "21-across",
@@ -374,7 +1077,52 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WHITENER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram + reversal",
+    "answer": "WHITENER",
+    "definition": "artificial milk",
+    "definitionFit": "Whitener is the powder stirred into coffee when there is no milk, so 'artificial milk' names it by the thing it stands in for.",
+    "indicators": [
+     "shake",
+     "retired",
+     "after"
+    ],
+    "indicatorNotes": {
+     "shake": "shaking a thing rattles its parts loose, so the word beside it comes out in another order.",
+     "retired": "someone retired has gone back, and the Frenchman's letters are written in the opposite direction.",
+     "after": "'after' puts the retired name behind the shaken letters rather than in front of them."
+    },
+    "pieces": [
+     "WHIT",
+     "ENER"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WITH",
+      "gives": "WHIT"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "RENE",
+      "to": "ENER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "WHIT",
+      "note": "the four letters of WITH, shaken into a new order"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "ENER",
+      "note": "René is the setters' stock Frenchman, here written backwards"
+     }
+    ],
+    "surface": "A retired Frenchman after a milkshake made with something out of a jar.",
+    "walkthrough": "The fodder is 'with', a word so small and so grammatical that the eye passes over it as joinery instead of as material to be shuffled."
+   }
   },
   {
    "id": "22-down",
@@ -391,7 +1139,27 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOTELS",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "HOTELS",
+    "definition": "housing",
+    "definitionFit": "Hotels put people up for the night, so 'housing' names them by the service they provide rather than by what they are.",
+    "definitionNote": "'Housing' is a mass noun for accommodation while the answer is a countable plural; the setter is defining the buildings by what they collectively do.",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "HOTELS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "H-h",
+      "gives": "HOTELS",
+      "note": "in the NATO alphabet H is spoken as HOTEL, and the setter has written the letter twice — a capital and a lower case — so more than one is being asked for"
+     }
+    ],
+    "surface": "Somebody stuttering over the word 'housing'.",
+    "walkthrough": "The stammer is a disguise for a doubled letter: NATO's alphabet gives H a word of its own, and having two of them is what makes the answer plural. The Grand Budapest Hotel is the film."
+   }
   },
   {
    "id": "23-across",
@@ -408,7 +1176,35 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDING",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ENDING",
+    "definition": "Finish",
+    "definitionFit": "The ending of a book or a film is its finish — both are nouns for the last part of a thing, not for the act of stopping it.",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "'out' following a word marks that word as the one to take away, the way 'count me out' leaves you absent."
+    },
+    "pieces": [
+     "ENDING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mailing",
+      "gives": "SENDING",
+      "note": "to mail something is to send it — the word the letter comes off"
+     },
+     {
+      "clueFragment": "17",
+      "gives": "S",
+      "note": "17 down is a son, and s = son is the standard abbreviation, so a single letter is what leaves"
+     }
+    ],
+    "surface": "The last of a mailout goes into the post.",
+    "walkthrough": "Cross-references usually hand you a whole word to slot in. Here 17 down's answer shrinks to its one-letter abbreviation first, and only then is it taken away."
+   }
   },
   {
    "id": "23-down",
@@ -425,7 +1221,42 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EIGHTH",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "EIGHTH",
+    "definition": "position",
+    "definitionFit": "Eighth is where you come in a race or a queue, so 'position' names a place in an order — the question mark flagging one instance of it.",
+    "indicators": [
+     "describes",
+     "to abolish leader"
+    ],
+    "indicatorNotes": {
+     "describes": "geometry's sense of the word: to describe a circle is to draw it round something, so this puts one piece outside the other.",
+     "to abolish leader": "abolishing the leader takes the front letter off the word it acts on, and the body carries on without its head."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "E",
+     "IGHT",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "'eh?' is what you say when you have not caught something — 'what?' written as a noise"
+     },
+     {
+      "clueFragment": "authority",
+      "gives": "IGHT",
+      "note": "a right is an authority, an entitlement, and its leading letter is abolished"
+     }
+    ],
+    "surface": "A question about the sort of power that can do away with the top job.",
+    "walkthrough": "'Describes' looks like the word introducing a definition and is the container instruction instead, which is why the clue seems to have no wordplay in it at all."
+   }
   },
   {
    "id": "24-across",
@@ -446,7 +1277,56 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
     ]
    },
    "solution": "STIRFRYING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + last letter",
+    "answer": "STIR-FRYING",
+    "definition": "Cooking",
+    "definitionFit": "Stir-frying is cooking food fast in a very hot pan, so the general word defines by naming the family this method belongs to.",
+    "indicators": [
+     "mash",
+     "the ultimate in",
+     "filled"
+    ],
+    "indicatorNotes": {
+     "mash": "mashing food breaks it up and mixes it, so the word beside it is pulped into a new order.",
+     "the ultimate in": "the ultimate one is the last one, so this takes the final letter of the word that follows.",
+     "filled": "a filled doughnut has something pushed into the middle of it, which is where the single letter goes."
+    },
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "STIRF",
+     "R",
+     "Y",
+     "ING"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FIRST",
+      "gives": "STIRF"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first",
+      "gives": "STIRF",
+      "note": "the five letters of FIRST, mashed into another order"
+     },
+     {
+      "clueFragment": "doughnut",
+      "gives": "RING",
+      "note": "a doughnut is a ring of dough, and it opens after its first letter"
+     },
+     {
+      "clueFragment": "the ultimate in jelly",
+      "gives": "Y",
+      "note": "the last letter of jelly"
+     }
+    ],
+    "surface": "A recipe barked across a kitchen: mash first, then deal with the jam doughnut.",
+    "walkthrough": "'Mash first' reads as step one of the recipe, and that is the trap: 'first' is the material and 'mash' is the instruction to jumble it."
+   }
   },
   {
    "id": "25-down",
@@ -464,7 +1344,51 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUSH",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade + alternate letters + first letter",
+    "answer": "RUSHMORE",
+    "definition": "Mount",
+    "definitionFit": "Mount Rushmore is the South Dakota cliff carved with four presidents' heads, and the answer is the name that word introduces.",
+    "definitionNote": "'Mount' is not a synonym for the answer: it is the first word of a proper name, and the entry supplies the rest of it.",
+    "indicators": [
+     "regularly",
+     "header from"
+    ],
+    "indicatorNotes": {
+     "regularly": "taking a word regularly means picking its letters at a steady interval — here every second one, starting with the second.",
+     "header from": "a header is the top of a thing, so it hands over the first letter of the name after it, while heading is also what footballers do."
+    },
+    "pieces": [
+     "RUSH",
+     "M",
+     "ORE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former Liverpool striker",
+      "gives": "RUSH",
+      "note": "Ian Rush, the club's record goalscorer, from the 1980s"
+     },
+     {
+      "clueFragment": "Mason",
+      "gives": "M",
+      "note": "the head of Mason, its first letter"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ORE",
+      "note": "every second letter of wOrRiEd, the rest falling away"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "",
+      "note": "surface only — 'worried about' is the sentence's own phrase and adds no letters"
+     }
+    ],
+    "surface": "A footballer fretting over a header from Mason Mount.",
+    "walkthrough": "Mason Mount is an England midfielder, so his name passes as one more player in a football sentence. Rushmore is another of the Wes Anderson films buried in this grid."
+   }
   },
   {
    "id": "26-across",
@@ -481,7 +1405,37 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIST",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MIST",
+    "definition": "Film",
+    "definitionFit": "A mist is a thin film of water hanging in the air — 'film' in the sense of a fine layer, which the surface dresses up as cinema.",
+    "indicators": [
+     "hosted by"
+    ],
+    "indicatorNotes": {
+     "hosted by": "a host takes a guest inside the house, so the letter before this sits within the letters after it."
+    },
+    "pieces": [
+     "MI",
+     "S",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cambridge University",
+      "gives": "MIT",
+      "note": "MIT stands in Cambridge, Massachusetts — the university in the other Cambridge"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "s = society, the standard abbreviation"
+     }
+    ],
+    "surface": "A film society meeting in rooms lent by a Cambridge college.",
+    "walkthrough": "Cambridge sends a British solver to the Cam and the colleges; the university wanted is MIT, in Cambridge, Massachusetts."
+   }
   },
   {
    "id": "26-down",
@@ -499,7 +1453,9 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MORE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "25-down"
+   }
   },
   {
    "id": "27-across",
@@ -516,7 +1472,46 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEWES",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "LEWES",
+    "definition": "Sussex town",
+    "definitionFit": "Lewes is the county town of East Sussex, so the definition points at it as one instance of the county's towns.",
+    "indicators": [
+     "keep",
+     "in",
+     "close to"
+    ],
+    "indicatorNotes": {
+     "keep": "keeping livestock is penning them, so the animal named after this word is shut inside the letters either side.",
+     "in": "'in' completes the penning: the sheep go within the other letters rather than alongside them.",
+     "close to": "the close of a word is its final letter, so this takes only the S that farms ends on."
+    },
+    "pieces": [
+     "L",
+     "EWE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is 50 in Roman numerals"
+     },
+     {
+      "clueFragment": "sheep",
+      "gives": "EWE",
+      "note": "a ewe is a female sheep, and setters keep a flock of them"
+     },
+     {
+      "clueFragment": "close to farms",
+      "gives": "S",
+      "note": "the last letter of farms"
+     }
+    ],
+    "surface": "Sheep penned at the edge of the farms outside a Sussex town.",
+    "walkthrough": "Lewes is the county town of East Sussex, said 'LOO-iss', and the flocks in the clue are the ones grazing the Downs above it."
+   }
   },
   {
    "id": "28-across",
@@ -533,7 +1528,35 @@ window.CRYPTIC_PUZZLES["cryptic-30023"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTEROID",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASTEROID",
+    "definition": "rock",
+    "definitionFit": "An asteroid is a lump of rock orbiting the sun, and 'rock' is the plain informal word astronomers themselves use for one.",
+    "indicators": [
+     "played"
+    ],
+    "indicatorNotes": {
+     "played": "playing a piece of music is performing an arrangement of it, and the letters named are heard here in a different arrangement."
+    },
+    "anagram": {
+     "fodder": "RADIO SET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Radio set",
+      "gives": "RADIOSET",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "played",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A radio playing rock music.",
+    "walkthrough": "Every word of the surface belongs to music and the answer is a lump of space debris. Asteroid City is one more Wes Anderson film in a grid full of them."
+   }
   }
  ]
 } /*JSON-END*/;
