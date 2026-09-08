@@ -30,7 +30,37 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHARMACY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PHARMACY",
+    "definition": "Drug supplier",
+    "indicators": [
+     "to hide"
+    ],
+    "indicatorNotes": {
+     "to hide": "Hiding a thing means putting it out of sight inside something bigger, and that is where these letters are meant to go."
+    },
+    "pieces": [
+     "P",
+     "HARM",
+     "ACY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quick",
+      "gives": "PACY",
+      "note": "'pacy' is the adjective for something that moves at a fast pace"
+     },
+     {
+      "clueFragment": "damage",
+      "gives": "HARM",
+      "note": "plain synonym: the damage done to a person is the harm done to them"
+     }
+    ],
+    "surface": "A dealer moving fast to cover up the injury they have caused.",
+    "walkthrough": "The surface sells you a criminal dealer concealing an injury, while the supplier wanted is the legitimate shop on the high street. 'Quick' has to become the less obvious synonym before there is room for anything inside it.",
+    "definitionFit": "'Drug supplier' → PHARMACY: the shop licensed to dispense medicines, so it supplies drugs in the legal, medical sense rather than the criminal one."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +77,36 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PICKLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PICKLE",
+    "definition": "difficulty",
+    "indicators": [
+     "goes over"
+    ],
+    "indicatorNotes": {
+     "goes over": "In a down entry, being over something means sitting higher up the column, so the piece named first ends up on top."
+    },
+    "pieces": [
+     "P",
+     "ICKLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Papa",
+      "gives": "P",
+      "note": "Papa is the radio alphabet's word for this letter"
+     },
+     {
+      "clueFragment": "child’s little",
+      "gives": "ICKLE",
+      "note": "'ickle' is nursery talk — how a small child says the word little"
+     }
+    ],
+    "surface": "A father bending over his small child's minor trouble.",
+    "walkthrough": "Radio alphabets are a setter's standby for single letters — Papa, Oscar, Tango — and 'ickle' comes from the nursery, so both halves ask you to hear a register rather than a meaning.",
+    "definitionFit": "'difficulty' → PICKLE: to be in a pickle is idiomatic English for being in an awkward fix, so the noun means a predicament."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +123,30 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGEISM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "AGEISM",
+    "definition": "discrimination",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part of what follows rather than all of it, which is how a setter points at letters lying inside the words."
+    },
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language is magnificent",
+      "gives": "AGEISM",
+      "note": "six consecutive letters, running from inside the first word, across the whole of the second and into the third"
+     }
+    ],
+    "surface": "Someone praising a particular tongue as a splendid thing.",
+    "walkthrough": "'Some' is doing the work: it asks for a portion of what follows instead of describing it, and the praise in the surface keeps your eye on the meaning rather than on where one word ends and the next begins.",
+    "definitionFit": "'discrimination' is the wide category and AGEISM one variety of it, so the definition is deliberately broader than the answer."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +163,33 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAKESHIFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MAKESHIFT",
+    "definition": "only temporary",
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "MAKE",
+     "SHIFT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Force",
+      "gives": "MAKE",
+      "note": "to force someone into doing a thing is to make them do it"
+     },
+     {
+      "clueFragment": "to move",
+      "gives": "SHIFT",
+      "note": "shift is the everyday verb for moving something out of the way"
+     }
+    ],
+    "surface": "An order to get something out of the way, just for now.",
+    "walkthrough": "'Force' reads as a noun in the surface — a police force, a physical force — and the wordplay needs the verb instead.",
+    "definitionFit": "'only temporary' → MAKESHIFT: a makeshift arrangement is improvised to serve until the real thing arrives, so it is temporary by design."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +210,31 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHILLCABINET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHILL CABINET",
+    "definition": "will keep things fresh",
+    "definitionNote": "The answer is a noun but the definition is a verb phrase: the setter names the object by the job it does rather than by a synonym, which is how shop fittings are usually described.",
+    "pieces": [
+     "CHILL",
+     "CABINET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relaxed",
+      "gives": "CHILL",
+      "note": "'chill' is the informal adjective for laid-back and unbothered"
+     },
+     {
+      "clueFragment": "government unit",
+      "gives": "CABINET",
+      "note": "the committee of senior ministers that runs a British government"
+     }
+    ],
+    "surface": "A laid-back government department that promises to bring in new ideas.",
+    "walkthrough": "Both halves hide in plain sight as politics, and they only turn into shop fittings once you stop reading 'fresh' as 'new'.",
+    "definitionFit": "'will keep things fresh' → CHILL CABINET: the refrigerated open display case in a British supermarket, whose whole purpose is keeping food cold."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +251,28 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LUSHES",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "LUSHES",
+    "definition": "Boozers",
+    "indicators": [
+     "some say"
+    ],
+    "indicatorNotes": {
+     "some say": "'Say' points at speech, and the phrase tells you to trust how a word sounds in some mouths rather than how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "quite attractive",
+      "soundsLike": "LUSCIOUS",
+      "gives": "LUSHES",
+      "note": "'luscious' means richly attractive, and spoken at speed its ending flattens into a plural noise written quite differently"
+     }
+    ],
+    "surface": "A verdict passed on the pub regulars: fairly good-looking, if you ask around.",
+    "walkthrough": "Say 'luscious' quickly and the whole join appears — the compliment in the surface and the insult in the definition are the same sound.",
+    "definitionFit": "'Boozers' → LUSHES: a lush is a habitual heavy drinker, and the plural noun answers the plural noun in the clue."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +289,39 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + middle letters",
+    "answer": "UPPER",
+    "definition": "Superior",
+    "indicators": [
+     "essentially"
+    ],
+    "indicatorNotes": {
+     "essentially": "'Essentially' means at the essence, the heart of a thing, so it asks for the letters in the centre of a word and not those at its edges."
+    },
+    "linkWords": [
+     "but"
+    ],
+    "pieces": [
+     "UP",
+     "PER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupid",
+      "gives": "UP",
+      "note": "the two letters sitting at the dead centre of this six-letter word"
+     },
+     {
+      "clueFragment": "experts",
+      "gives": "PER",
+      "note": "the three letters at the centre of this seven-letter word, in the order they stand"
+     }
+    ],
+    "surface": "A dismissal of some specialists as basically dim, however grand they look.",
+    "walkthrough": "'Essentially' is doing positional work rather than describing anybody: the setter's sense is 'at the very heart of', which points into words instead of at them.",
+    "definitionFit": "'Superior' → UPPER: higher in position or rank — an upper floor, the upper hand — rather than better in quality."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +338,30 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HACIENDA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HACIENDA",
+    "definition": "big property in Mexico",
+    "indicators": [
+     "Criminal"
+    ],
+    "indicatorNotes": {
+     "Criminal": "'Criminal' describes something crooked and out of order, and letters that are out of order are letters you may rearrange."
+    },
+    "anagram": {
+     "fodder": "HAD A NICE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "had a nice",
+      "gives": "HADANICE",
+      "note": "anagram fodder — the eight letters to be re-ordered"
+     }
+    ],
+    "surface": "A crook turns out to own a handsome large house in Mexico.",
+    "walkthrough": "'Criminal' reads as the noun the sentence is about, which is exactly what stops it looking like an instruction; the fodder is sitting in plain sight right after it.",
+    "definitionFit": "'big property in Mexico' → HACIENDA: the Spanish word for a large estate and its main house, used throughout Mexico and Latin America."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +378,31 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRIMMER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STRIMMER",
+    "definition": "that’s useful around the garden",
+    "definitionNote": "The definition is a relative clause describing what the object does, not a noun that could stand in its place; setters often define a tool by its job.",
+    "pieces": [
+     "S",
+     "TRIMMER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "the standard abbreviation for son, as used in family trees and name lists"
+     },
+     {
+      "clueFragment": "in better shape",
+      "gives": "TRIMMER",
+      "note": "someone trim is fit and neat, so being in better shape makes them trimmer"
+     }
+    ],
+    "surface": "A son who has got fitter and now earns his keep outdoors.",
+    "walkthrough": "The comma after 'Son' makes it look like someone being addressed, which hides the fact that the word is worth a single letter.",
+    "definitionFit": "'that’s useful around the garden' → STRIMMER: the British name for a string trimmer, the whirling-nylon-line tool that cuts grass along edges."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +423,36 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHECKSIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHECKS IN",
+    "definition": "Registers",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "'After' places the thing named before it at the back, so the offence follows the other piece instead of leading."
+    },
+    "pieces": [
+     "CHECK",
+     "SIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attack on king?",
+      "gives": "CHECK",
+      "note": "in chess, an attack that puts the king in danger is announced with this one word"
+     },
+     {
+      "clueFragment": "offence",
+      "gives": "SIN",
+      "note": "an offence against a moral or religious code"
+     }
+    ],
+    "surface": "Someone's crime is recorded in the wake of an attack on the king.",
+    "walkthrough": "'King' pushes you towards royalty when the answer wants chess, and the question mark is the setter admitting that the attack named is only one particular kind.",
+    "definitionFit": "'Registers' → CHECKS IN: arriving at a hotel desk or airport counter and being entered on the list is exactly registering your arrival."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +469,38 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPACER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPACER",
+    "definition": "it will create division",
+    "definitionNote": "The answer is a noun while the definition is a clause describing its effect; the setter names the object by what it does rather than by a synonym.",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' means round the outside of, so whatever it introduces is wrapped up inside the other piece."
+    },
+    "pieces": [
+     "SPA",
+     "CE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fight",
+      "gives": "SPAR",
+      "note": "to spar is to fight, especially the trial kind boxers do in training"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "the Church of England, shortened the way a setter always shortens it"
+     }
+    ],
+    "surface": "A row over the church that ends up splitting the parish.",
+    "walkthrough": "'Division' is the trap: the surface offers a congregation breaking into factions, and the answer is a small piece of hardware that holds two parts apart.",
+    "definitionFit": "'it will create division' → SPACER: the washer or block put between two parts to keep a gap open, so it makes a division."
+   }
   },
   {
    "id": "11-down",
@@ -229,7 +521,24 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "ESCAPEARTIST",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ESCAPE ARTIST",
+    "definition": "One struggling to become free professionally?",
+    "blocks": [
+     {
+      "clueFragment": "One struggling to become free",
+      "note": "read straight, this is a prisoner or a debtor fighting their way out of a bind"
+     },
+     {
+      "clueFragment": "professionally",
+      "note": "the word that turns the struggle into a paid act: getting loose is the performance, not a misfortune"
+     }
+    ],
+    "surface": "A worker fighting to break out of some professional entanglement — a contract, perhaps, or a job.",
+    "walkthrough": "Struggling to get free is a predicament for most people and a living for a very few, and the question mark warns that the whole sentence is the definition, with no wordplay hiding inside it.",
+    "definitionFit": "The whole clue is the definition: an ESCAPE ARTIST is the performer whose act is getting out of chains and locked boxes for a living."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +555,38 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LOSES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "LOSES",
+    "definition": "suffers defeat",
+    "indicators": [
+     "down"
+    ],
+    "indicatorNotes": {
+     "down": "'Down' is the till-counting sense, short by a stated amount, so the amount named next is missing from what you started with."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "LOSES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finishes",
+      "gives": "CLOSES",
+      "note": "to close a thing is to finish it, and the six letters arrive whole before anything happens to them"
+     },
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "the Roman numeral for a hundred, and it is the letter that goes"
+     }
+    ],
+    "surface": "A trader ends the day a hundred short and takes a beating.",
+    "walkthrough": "Roman numerals are the setter's standing shorthand for numbers — C for a hundred, M for a thousand — and 'down' is the only word telling you this one leaves rather than joins.",
+    "definitionFit": "'suffers defeat' → LOSES: to lose is precisely to be beaten, and both are third-person singular verbs, so one swaps straight in for the other."
+   }
   },
   {
    "id": "13-across",
@@ -267,7 +607,30 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "LASERBEAM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LASER BEAM",
+    "definition": "Something that might cut",
+    "indicators": [
+     "apart"
+    ],
+    "indicatorNotes": {
+     "apart": "'Apart' means in separate pieces, and once letters are in pieces the order they were handed over in no longer holds."
+    },
+    "anagram": {
+     "fodder": "AMBER SEAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "amber seal",
+      "gives": "AMBERSEAL",
+      "note": "anagram fodder — nine letters to be re-ordered"
+     }
+    ],
+    "surface": "A tool for prising open a seal made of amber.",
+    "walkthrough": "'Apart' sits at the end of the sentence where a solver expects the definition, and the vague 'Something that might cut' sits at the front where the fodder usually starts.",
+    "definitionFit": "'Something that might cut' → LASER BEAM: focused laser light is used industrially to slice metal and cloth, so it is a genuine cutter."
+   }
   },
   {
    "id": "14-across",
@@ -290,7 +653,30 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "FITASAFIDDLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "FIT AS A FIDDLE",
+    "definition": "in excellent condition",
+    "indicators": [
+     "Excited"
+    ],
+    "indicatorNotes": {
+     "Excited": "'Excited' describes something stirred up and jumping about, and letters in that state will not stay in the order they were given."
+    },
+    "anagram": {
+     "fodder": "IF DATA FIELDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "if data field’s",
+      "gives": "IFDATAFIELDS",
+      "note": "anagram fodder — twelve letters, counting the S of the apostrophe-s"
+     }
+    ],
+    "surface": "Someone delighted that a database field is working perfectly.",
+    "walkthrough": "The apostrophe-s belongs to the fodder rather than to the grammar, and the letters only reach twelve once you count it — the sort of counting a long anagram lives on.",
+    "definitionFit": "'in excellent condition' → FIT AS A FIDDLE: the old simile takes a well-tuned violin as its picture of perfect health and repair."
+   }
   },
   {
    "id": "15-down",
@@ -311,7 +697,33 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "INREVERSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IN REVERSE",
+    "definition": "going backwards",
+    "linkWords": [
+     "means we’re"
+    ],
+    "pieces": [
+     "IN",
+     "REVERSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "IN",
+      "note": "someone at home is in — the plainest sense of the word"
+     },
+     {
+      "clueFragment": "defeat",
+      "gives": "REVERSE",
+      "note": "a defeat is a turn of fortune against you, the noun sporting and military reports prefer"
+     }
+    ],
+    "surface": "A home loss in the league, and a season sliding the wrong way.",
+    "walkthrough": "'Home defeat' is one idea to a football fan and two separate words to the wordplay, which is where the clue gets its grip.",
+    "definitionFit": "'going backwards' → IN REVERSE: a car in reverse travels backwards, and the phrase covers any motion run the wrong way."
+   }
   },
   {
    "id": "16-down",
@@ -328,7 +740,26 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMASHING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SMASHING",
+    "definition": "Tremendous",
+    "definition2": "destruction",
+    "definitionNote": "One sense is an adjective and the other a verbal noun, so the two definitions do not agree with each other in part of speech; the answer serves happily as both.",
+    "blocks": [
+     {
+      "clueFragment": "Tremendous",
+      "note": "informal British praise: first-rate, wonderful, a word for good weather and good news"
+     },
+     {
+      "clueFragment": "destruction",
+      "note": "the act of breaking things up, taken as a noun"
+     }
+    ],
+    "surface": "A report of wreckage on an impressive scale.",
+    "walkthrough": "'Tremendous' is the British informal use — smashing weather, a smashing time — which sits a long way from the wreckage the other half of the clue means.",
+    "definitionFit": "'Tremendous' is the informal British 'excellent'; 'destruction' is the literal breaking of things. SMASHING covers both, one as praise and one as a plain verbal noun."
+   }
   },
   {
    "id": "17-down",
@@ -345,7 +776,40 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "QUAGMIRE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "QUAGMIRE",
+    "definition": "Swamp",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' means round the outside, so the piece it introduces is wrapped in the other rather than added on the end."
+    },
+    "pieces": [
+     "QU",
+     "AGM",
+     "IRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lots of paper",
+      "gives": "QUIRE",
+      "note": "a quire is twenty-four sheets of paper, a stationer's measure"
+     },
+     {
+      "clueFragment": "company meeting",
+      "gives": "AGM",
+      "note": "the annual general meeting a company holds for its shareholders, always written as three letters"
+     }
+    ],
+    "surface": "An office drowning in paperwork ahead of the shareholders' annual meeting.",
+    "walkthrough": "'Swamp' reads as a verb in the surface — to be buried under paperwork — and the definition needs the noun instead, a patch of boggy ground.",
+    "definitionFit": "'Swamp' → QUAGMIRE: soft waterlogged ground you sink into, which is one kind of swamp, and the word doubles for any hopeless mess."
+   }
   },
   {
    "id": "18-across",
@@ -362,7 +826,34 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOUNTAINEERS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition + outer letters",
+    "answer": "MOUNTAINEERS",
+    "definition": "They hope to conquer extremely attritional places for example",
+    "indicators": [
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "extremely": "'Extremely' points at the extremes of a word — the letters standing at its two far ends — rather than at anything in between."
+    },
+    "blocks": [
+     {
+      "clueFragment": "attritional places",
+      "note": "the outer pair of each of these two words, read in order, spells ALPS"
+     },
+     {
+      "clueFragment": "They hope to conquer",
+      "note": "the surface offers an army taking ground; the conquest meant is a climb to a summit"
+     },
+     {
+      "clueFragment": "for example",
+      "note": "a warning that what the letters spell is one instance of the terrain, not the definition itself"
+     }
+    ],
+    "surface": "A bleak assessment of who is trying to win some brutally wearing ground.",
+    "walkthrough": "ALPS is an extra rather than the whole: the letters name one range, and 'for example' asks you to widen that to mountains in general before the definition lands.",
+    "definitionFit": "The clue is one long definition: people who hope to conquer the Alps, and by extension any mountains, are MOUNTAINEERS."
+   }
   },
   {
    "id": "19-down",
@@ -379,7 +870,37 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDURE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "ENDURE",
+    "definition": "Stick",
+    "indicators": [
+     "broken",
+     "without"
+    ],
+    "indicatorNotes": {
+     "broken": "Something broken has come apart into pieces, and letters in pieces can be put back in a different order.",
+     "without": "'Without' here means lacking rather than outside — the letters it names are absent from what gets shuffled."
+    },
+    "anagram": {
+     "fodder": "REUNED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "reunited",
+      "gives": "REUNITED",
+      "note": "the word is handed over whole first, all eight letters of it"
+     },
+     {
+      "clueFragment": "without it",
+      "gives": "REUNED",
+      "note": "'it' names an I and a T, and both come out, leaving six letters to shuffle"
+     }
+    ],
+    "surface": "A snapped stick, glued back together with one bit missing.",
+    "walkthrough": "'Stick' looks like the noun the surface is built on and is really the definition, in the sense of sticking something out. The deletion has to happen before the shuffle.",
+    "definitionFit": "'Stick' → ENDURE: to stick something is to put up with it — 'I can't stick him' — so the verb means to bear."
+   }
   },
   {
    "id": "20-down",
@@ -396,7 +917,46 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAMERA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "CAMERA",
+    "definition": "recording device",
+    "indicators": [
+     "includes"
+    ],
+    "indicatorNotes": {
+     "includes": "'Includes' says one thing contains another, so the piece named next goes inside rather than alongside."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "CA",
+     "ME",
+     "R",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Motor",
+      "gives": "CAR",
+      "note": "a motor is a car in everyday British speech"
+     },
+     {
+      "clueFragment": "compiler",
+      "gives": "ME",
+      "note": "the compiler is the person who built the crossword, so the word wanted is what they call themself"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter is taken straight off the page"
+     }
+    ],
+    "surface": "A car with a compiler and a recording device inside it.",
+    "walkthrough": "'A recording device' looks like one phrase and has to be cut in two, with the 'a' doing wordplay and only the last two words defining. 'Compiler' is the setter's standard way of pointing at themself.",
+    "definitionFit": "'recording device' → CAMERA: a camera records whatever is in front of it onto film or a sensor, which is recording in the plainest sense."
+   }
   },
   {
    "id": "21-across",
@@ -413,7 +973,39 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIGHTSEER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SIGHTSEER",
+    "definition": "Tourist",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across entry, X 'on' Y is read as Y then X, the way the pieces would stack if the row were stood upright."
+    },
+    "linkWords": [
+     "puts"
+    ],
+    "pieces": [
+     "SIGHT",
+     "SEER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spot",
+      "gives": "SIGHT",
+      "note": "to spot something is to sight it — to catch it with the eye"
+     },
+     {
+      "clueFragment": "forecaster",
+      "gives": "SEER",
+      "note": "a seer foretells what is coming, the old word for a prophet"
+     }
+    ],
+    "surface": "A tourist putting the weather forecaster on the spot with an awkward question.",
+    "walkthrough": "'Put on the spot' is a single idiom in the surface, and the clue needs it prised into separate pieces, one of them the ordinary verb 'spot'.",
+    "definitionFit": "'Tourist' → SIGHTSEER: a sightseer is a visitor going round the sights, which is what most tourists have come to do."
+   }
   },
   {
    "id": "22-down",
@@ -430,7 +1022,40 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAINT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TAINT",
+    "definition": "Disgrace",
+    "indicators": [
+     "adding"
+    ],
+    "indicatorNotes": {
+     "adding": "Adding one thing to another normally just joins them, and the setter is stretching it here to mean putting one inside the other."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "T",
+     "AI",
+     "NT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explosive material",
+      "gives": "TNT",
+      "note": "the standard shorthand for trinitrotoluene, the explosive"
+     },
+     {
+      "clueFragment": "AI",
+      "gives": "AI",
+      "note": "the two letters are lifted straight off the page"
+     }
+    ],
+    "surface": "A scandal about putting artificial intelligence into weapons.",
+    "walkthrough": "Setters use 'AI' both ways — as the initials of artificial intelligence and as two bare letters — and here nothing at all is translated.",
+    "definitionFit": "'Disgrace' → TAINT: a taint is the mark of disgrace that clings to a name, both being nouns for a stain on a reputation."
+   }
   },
   {
    "id": "23-across",
@@ -452,7 +1077,46 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "VANDA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "V AND A",
+    "definition": "Institution displaying objects",
+    "indicators": [
+     "ends"
+    ],
+    "indicatorNotes": {
+     "ends": "'Ends' asks for the letters standing at the two edges of a word, the first and the last, with nothing from between them."
+    },
+    "linkWords": [
+     "from",
+     "of"
+    ],
+    "pieces": [
+     "V",
+     "AND",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Venezuela",
+      "gives": "V",
+      "note": "the opening letter of the country's name"
+     },
+     {
+      "clueFragment": "both",
+      "gives": "AND",
+      "note": "'both' is one plus the other, and the enumeration shows that the joining word is spelt out in the middle"
+     },
+     {
+      "clueFragment": "Venezuela",
+      "gives": "A",
+      "note": "the closing letter of the same name"
+     }
+    ],
+    "surface": "A gallery showing exhibits gathered from every corner of Venezuela.",
+    "walkthrough": "The enumeration (1,3,1) is doing the teaching here: it tells you the ampersand in the museum's usual shorthand has to be written out as a word.",
+    "definitionFit": "'Institution displaying objects' → the V AND A: the Victoria and Albert Museum in London, the national collection of art, design and decorative objects."
+   }
   },
   {
    "id": "24-across",
@@ -474,7 +1138,36 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "IDIDIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "I DID IT",
+    "definition": "Confess",
+    "definitionNote": "The answer is the sentence a confession consists of rather than a verb that could replace 'confess' in one; the setter defines the phrase by the act of saying it.",
+    "linkWords": [
+     "to creating",
+     "with"
+    ],
+    "pieces": [
+     "ID",
+     "ID",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two sets of papers",
+      "gives": "IDID",
+      "note": "papers here are identity documents, and 'two sets' asks for that pair of letters written out twice"
+     },
+     {
+      "clueFragment": "information technology",
+      "gives": "IT",
+      "note": "the standard short form of information technology, as in an IT department"
+     }
+    ],
+    "surface": "An admission of having produced two sets of paperwork with the help of computers.",
+    "walkthrough": "'Papers' means identity documents rather than newspapers, and the enumeration cuts the six letters in a completely different place from the wordplay, which is what hides the join.",
+    "definitionFit": "'Confess' → I DID IT: the phrase is the confession itself, the three words a guilty party says when admitting responsibility."
+   }
   },
   {
    "id": "25-across",
@@ -495,7 +1188,30 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "VINROUGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VIN ROUGE",
+    "definition": "French wine",
+    "indicators": [
+     "Cook"
+    ],
+    "indicatorNotes": {
+     "Cook": "Cooking works ingredients into something with a new shape, which is why a setter uses it for letters that come out arranged differently."
+    },
+    "anagram": {
+     "fodder": "OUR VEG IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "our veg in",
+      "gives": "OURVEGIN",
+      "note": "anagram fodder — eight letters to be re-ordered"
+     }
+    ],
+    "surface": "A recipe instruction: cook our vegetables in wine from France.",
+    "walkthrough": "'in' is fodder rather than a preposition, and that is the hardest letter-pair in the clue to see, because the surface needs the word as ordinary grammar.",
+    "definitionFit": "'French wine' → VIN ROUGE: literally 'red wine' in French, the phrase an English speaker borrows for an everyday bottle of red."
+   }
   },
   {
    "id": "26-across",
@@ -512,7 +1228,42 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GUESTS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GUESTS",
+    "definition": "invitees",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "'About' means encircling, so the letter it introduces is planted inside the other word rather than tacked on the end."
+    },
+    "pieces": [
+     "GUES",
+     "T",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speculate",
+      "gives": "GUESS",
+      "note": "to speculate about something is to guess at it"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "the standard single-letter shorthand for time, as in a physics formula"
+     },
+     {
+      "clueFragment": "turn up",
+      "gives": "",
+      "note": "surface only — it paints the invited crowd arriving and hands over no letters"
+     }
+    ],
+    "surface": "Wondering aloud what time the invited crowd will arrive.",
+    "walkthrough": "'Speculate about' reads as one phrase in the surface and has to be split, with 'about' switching from a preposition into an instruction.",
+    "definitionFit": "'invitees' → GUESTS: guests are exactly the people who have been invited, and both are plural nouns for the same set."
+   }
   },
   {
    "id": "27-across",
@@ -533,7 +1284,37 @@ window.CRYPTIC_PUZZLES["quiptic-1381"] = /*JSON-START*/ {
     ]
    },
    "solution": "ETCETERA",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + deletion",
+    "answer": "ET CETERA",
+    "definition": "this",
+    "definitionNote": "The definition is the bare word 'this', pointing back at the entry itself: the clue says the letters just built are its short form, so what is wanted is the phrase they stand for.",
+    "indicators": [
+     "initially",
+     "short version of"
+    ],
+    "indicatorNotes": {
+     "initially": "'Initially' asks for what a word starts with, so each of the words before it gives up only its opening letter.",
+     "short version of": "'Short version of' runs an abbreviation backwards: the letters just made are the clipped form, and the phrase behind them at full length is what goes in the grid."
+    },
+    "linkWords": [
+     "offering"
+    ],
+    "pieces": [
+     "ET",
+     "CETERA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early telegraph cables",
+      "gives": "ETC",
+      "note": "the opening letter of each of the three words, taken in the order they come"
+     }
+    ],
+    "surface": "Early telegraph wires could at first send only a shortened version of a message.",
+    "walkthrough": "The wordplay builds a short form and leaves you to supply the phrase behind it — the Latin that ETC has always stood for, spelt out in full.",
+    "definitionFit": "'this' → ET CETERA: the clue points at its own answer, saying ETC abbreviates it, and ET CETERA is Latin for 'and the rest'."
+   }
   }
  ]
 } /*JSON-END*/;
