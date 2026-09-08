@@ -30,7 +30,47 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EDWINA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + middle letters",
+    "answer": "EDWINA",
+    "definition": "Curry perhaps",
+    "indicators": [
+     "Terrible",
+     "interrupts",
+     "middle of"
+    ],
+    "indicatorNotes": {
+     "Terrible": "A terrible version of something is a botched one, and letters botched like that do not stay in the order the clue lists them.",
+     "interrupts": "To interrupt is to cut in partway through, so the disturbed letters land inside the other piece rather than beside it.",
+     "middle of": "Only the heart of the word is wanted: the letters at each end are dropped and the two in the centre stay."
+    },
+    "pieces": [
+     "E",
+     "DWIN",
+     "A"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WIND",
+      "gives": "DWIN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "middle of meal",
+      "gives": "EA",
+      "note": "MEAL loses the letter at each end, and the two left in the centre open up to take the other piece"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "DWIN",
+      "note": "the four letters of WIND, re-laid in a fresh order"
+     }
+    ],
+    "surface": "A gale blowing through the middle of somebody's dinner, with a curry proposed instead.",
+    "walkthrough": "'Curry perhaps?' is not food at all — it is a surname, and the answer is the forename that belongs with it. Edwina Currie was a Conservative minister in the Thatcher years.",
+    "definitionFit": "'Curry perhaps?' points at Edwina Currie, a British MP of the 1980s: the answer is the forename that goes with that near-identical surname."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +87,43 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HANOVERIAN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "HANOVERIAN",
+    "definition": "from a royal house",
+    "indicators": [
+     "ejecting",
+     "say"
+    ],
+    "indicatorNotes": {
+     "ejecting": "To eject something is to throw it out of where it was sitting, so the letter named leaves the word beside it.",
+     "say": "'Say' marks an example rather than a definition, so one particular man stands in for the ordinary first name he happens to have."
+    },
+    "pieces": [
+     "HANOVER",
+     "IAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The morning after",
+      "gives": "HANGOVER",
+      "note": "the morning after a heavy night is the hangover it leaves you with"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g = good, as on a school report, and it is the letter thrown out of the word above"
+     },
+     {
+      "clueFragment": "Hislop, say",
+      "gives": "IAN",
+      "note": "Ian Hislop edits Private Eye and has captained a team on Have I Got News for You since 1990"
+     }
+    ],
+    "surface": "The day after a satirist was thrown out of a palace.",
+    "walkthrough": "The House of Hanover was the German line that gave Britain its four Georges, so the definition wants a person belonging to that house rather than the house itself.",
+    "definitionFit": "A Hanoverian is somebody of the House of Hanover, so 'from a royal house' describes exactly what the answer says about a person."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +140,54 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TINNITUS",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container + charade",
+    "answer": "TINNITUS",
+    "definition": "complaint in hearing",
+    "indicators": [
+     "Overturned",
+     "about"
+    ],
+    "indicatorNotes": {
+     "Overturned": "Something overturned has been stood on its head, so the piece beside it is written out from its last letter to its first.",
+     "about": "A thing placed about another wraps round it, so the turned piece opens up and the smaller letters go inside."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "TI",
+     "N",
+     "NIT",
+     "US"
+    ],
+    "subReversals": [
+     {
+      "from": "SUIT",
+      "to": "TIUS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overturned legal action",
+      "gives": "TIUS",
+      "note": "a suit is an action brought in court, entered here from its last letter back to its first"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n = new, the abbreviation stamped on any relaunched product"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "NIT",
+      "note": "a nit is a fool in British usage, as in nitwit"
+     }
+    ],
+    "surface": "A lawsuit thrown out of court, with a foolish man's grievance heard instead.",
+    "walkthrough": "'Complaint in hearing' looks like an instruction to listen for a sound-alike, and it is the definition: a complaint of the ears, meaning an ailment rather than a grumble.",
+    "definitionFit": "Tinnitus is the ringing in the ears that has no source outside them, so it is literally a medical complaint of the hearing."
+   }
   },
   {
    "id": "4-across",
@@ -81,7 +204,44 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIKADO",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "MIKADO",
+    "definition": "Japanese emperor",
+    "indicators": [
+     "follows",
+     "about"
+    ],
+    "indicatorNotes": {
+     "follows": "One piece that follows another is written after it, so the fuss comes second in the build rather than first.",
+     "about": "Turned about, a title faces the other way and its letters are entered from the end back to the beginning."
+    },
+    "pieces": [
+     "MIK",
+     "ADO"
+    ],
+    "subReversals": [
+     {
+      "from": "KIM",
+      "to": "MIK"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kipling novel about",
+      "gives": "MIK",
+      "note": "Kim is Kipling's novel of a boy spying on the North-West Frontier, entered backwards"
+     },
+     {
+      "clueFragment": "Fuss",
+      "gives": "ADO",
+      "note": "much ado about nothing — an ado is a fuss"
+     }
+    ],
+    "surface": "A row breaking out over a Kipling novel that features Japan's emperor.",
+    "walkthrough": "Gilbert and Sullivan made the word familiar as an opera title, but mikado is a real style for the emperor of Japan. 'About' belongs to the machinery, not to the picture.",
+    "definitionFit": "Mikado is the old ceremonial title of Japan's emperor, so the definition names the office the answer is the word for."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +258,42 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISMATCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MISMATCH",
+    "definition": "Discrepancy",
+    "indicators": [
+     "holding up"
+    ],
+    "indicatorNotes": {
+     "holding up": "In a down entry whatever does the holding sits underneath what it supports, so the little word goes below the letter for the man."
+    },
+    "pieces": [
+     "M",
+     "IS",
+     "MATCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m = male, the abbreviation on every form you fill in"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own word, taken as it stands and propped up from below"
+     },
+     {
+      "clueFragment": "striker",
+      "gives": "MATCH",
+      "note": "a match is the thing you strike to make a flame"
+     }
+    ],
+    "surface": "A discrepancy in the paperwork delaying a male footballer.",
+    "walkthrough": "'Male striker' looks like one footballer and is really two separate pieces of the build — and the striker is the thing you strike, not a player.",
+    "definitionFit": "A mismatch is a pair of things that fail to agree, which is what a discrepancy is — one noun for the other."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +310,38 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KUROSAWA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "KUROSAWA",
+    "definition": "Japanese film-maker",
+    "indicators": [
+     "angry"
+    ],
+    "indicatorNotes": {
+     "angry": "Somebody angry has lost their composure, and letters that lose theirs will not stay in the arrangement the clue hands them over in."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "OK USA RAW"
+    },
+    "blocks": [
+     {
+      "clueFragment": "OK, USA",
+      "gives": "OKUSA",
+      "note": "five letters of fodder"
+     },
+     {
+      "clueFragment": "raw",
+      "gives": "RAW",
+      "note": "three more, making the eight the enumeration asks for"
+     }
+    ],
+    "surface": "The United States giving grudging approval while furious about something served raw.",
+    "walkthrough": "The surface is all grumbling about food, and there is no hint in it that a director's name is being spelled out. Akira Kurosawa made Rashomon and Seven Samurai.",
+    "definitionFit": "Akira Kurosawa was Japan's most internationally famous director, so the definition names him by nationality and trade instead of by name."
+   }
   },
   {
    "id": "6-across",
@@ -146,7 +372,28 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VARIABLE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "VARIABLE",
+    "definition": "Eg x, y or z",
+    "definition2": "having a range of possible values",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Eg x, y or z",
+      "gives": "VARIABLE",
+      "note": "the letters algebra reaches for when a quantity has not been fixed yet"
+     },
+     {
+      "clueFragment": "having a range of possible values",
+      "gives": "VARIABLE",
+      "note": "a quantity free to take any value across a range, rather than one settled number"
+     }
+    ],
+    "surface": "A maths lesson explaining what the letters in an equation stand for.",
+    "walkthrough": "Both halves are mathematical, which is what makes the seam so hard to find: the first names three examples, the second describes the class those examples belong to.",
+    "definitionFit": "One sense is the algebraic symbol standing for an unfixed quantity; the other is the adjective for anything able to take different values."
+   }
   },
   {
    "id": "7-down",
@@ -163,7 +410,31 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BASH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BASH",
+    "definition": "Crash",
+    "definition2": "party",
+    "linkWords": [
+     "into"
+    ],
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Crash",
+      "gives": "BASH",
+      "note": "to drive hard into something, with the noise that goes with it"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "BASH",
+      "note": "a big informal party, as in a fiftieth birthday do"
+     }
+    ],
+    "surface": "Somebody blundering uninvited into a party.",
+    "walkthrough": "'Into' is joinery and nothing more, which is why the three words read as a single action rather than as two senses standing side by side.",
+    "definitionFit": "One sense is a heavy blow or collision; the other is the informal British word for a large party, and the two meanings are unrelated."
+   }
   },
   {
    "id": "8-down",
@@ -180,7 +451,33 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ETNA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ETNA",
+    "definition": "volcano",
+    "indicators": [
+     "Regularly observed"
+    ],
+    "indicatorNotes": {
+     "Regularly observed": "Watching something regularly means taking it at fixed intervals, and the interval here is one letter in every two."
+    },
+    "pieces": [
+     "E",
+     "T",
+     "N",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neptunian",
+      "gives": "ETNA",
+      "note": "start at the second letter and take every second one after it, right through the word"
+     }
+    ],
+    "surface": "An astronomer keeping a regular watch on a volcano out at Neptune.",
+    "walkthrough": "Neptune has no volcano of this kind, so the picture is science fiction and the real work is counting letters. Etna is the great cone on Sicily.",
+    "definitionFit": "Etna is the huge active volcano in Sicily, so the bare word names the answer by the category it belongs to."
+   }
   },
   {
    "id": "9-across",
@@ -197,7 +494,35 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SARNIE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "SARNIE",
+    "definition": "Snack",
+    "indicators": [
+     "somewhat",
+     "making a comeback"
+    ],
+    "indicatorNotes": {
+     "somewhat": "Only a part of what has just been said is meant, and the part wanted is an unbroken run of letters inside those words.",
+     "making a comeback": "Something making a comeback returns the way it went, so in an across entry the run has to be read from right to left."
+    },
+    "subReversals": [
+     {
+      "from": "EINRAS",
+      "to": "SARNIE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wherein raspberries",
+      "gives": "EINRAS",
+      "note": "six letters standing in a row across the join between the two words, pointing the wrong way"
+     }
+    ],
+    "surface": "Raspberries coming back into fashion as something to nibble on.",
+    "walkthrough": "Nothing has been rearranged here: the letters are already sitting in the clue, facing backwards. A sarnie is what much of Britain informally calls a sandwich.",
+    "definitionFit": "A sarnie is British slang for a sandwich, which is the snack meant — the same everyday thing in a chattier register."
+   }
   },
   {
    "id": "10-across",
@@ -218,7 +543,31 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
     ]
    },
    "solution": "ROUNDSON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ROUNDS ON",
+    "definition": "Angrily attacks",
+    "indicators": [],
+    "pieces": [
+     "ROUND",
+     "SON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plump",
+      "gives": "ROUND",
+      "note": "a round figure is a plump one"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is somebody's male child"
+     }
+    ],
+    "surface": "A tirade aimed at a chubby youngster.",
+    "walkthrough": "To round on somebody is to turn and lay into them with words rather than fists, which is why the definition says angrily rather than violently.",
+    "definitionFit": "To round on somebody is to turn and attack them verbally, so 'Angrily attacks' matches both the aggression and the third-person form."
+   }
   },
   {
    "id": "11-across",
@@ -235,7 +584,30 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSUAGEMENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ASSUAGEMENT",
+    "definition": "relief",
+    "indicators": [
+     "Awful"
+    ],
+    "indicatorNotes": {
+     "Awful": "Something awful has gone badly wrong, and letters that have gone wrong are no longer in the order they were handed to you."
+    },
+    "anagram": {
+     "fodder": "MAGNATE USES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "magnate uses",
+      "gives": "MAGNATEUSES",
+      "note": "eleven letters of fodder, exactly the length the enumeration asks for"
+     }
+    ],
+    "surface": "A dreadful tycoon helping himself to a relief fund.",
+    "walkthrough": "'Uses' is where the mechanism hides: it reads as the verb of the sentence about the magnate, and it is really four more letters of fodder.",
+    "definitionFit": "Assuagement is the easing of pain, grief or hunger, which is what relief names — two abstract nouns for the same softening."
+   }
   },
   {
    "id": "12-down",
@@ -252,7 +624,43 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPATRIATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EXPATRIATE",
+    "definition": "exile",
+    "indicators": [
+     "confused"
+    ],
+    "indicatorNotes": {
+     "confused": "A confused thing has its parts muddled together, so the letters beside it are re-laid in an order the clue never gives."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "E PIRATE TAX"
+    },
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e = English, the standard single letter, joining the fodder"
+     },
+     {
+      "clueFragment": "pirate",
+      "gives": "PIRATE",
+      "note": "six letters of fodder"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TAX",
+      "note": "three more, making ten in all"
+     }
+    ],
+    "surface": "A bewildered English pirate tangled up with the taxman.",
+    "walkthrough": "'Tax exile' is the trap: the two words look like one familiar phrase, and only the second of them belongs to the definition — the first is fodder.",
+    "definitionFit": "An expatriate lives outside their own country, so 'exile' is a noun for the same person, though an exile is more often driven out."
+   }
   },
   {
    "id": "13-down",
@@ -269,7 +677,38 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NONSENSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NONSENSE",
+    "definition": "Rubbish",
+    "indicators": [
+     "almost",
+     "accepts"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost a word is not quite all of it, so the last letter is left off before the piece is used.",
+     "accepts": "To accept a thing is to take it on, and the joining is loose here — the second piece is simply added on rather than let inside."
+    },
+    "pieces": [
+     "NON",
+     "SENSE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "almost nobody",
+      "gives": "NON",
+      "note": "the four-letter word for not anybody, one letter short"
+     },
+     {
+      "clueFragment": "collection of points",
+      "gives": "SENSE",
+      "note": "S, E and N are all compass points, and five of them stand here in a row"
+     }
+    ],
+    "surface": "A worthless tally of points that hardly anybody will accept.",
+    "walkthrough": "'Rubbish collection' reads as one phrase about bins, and the definition stops after the first word. Compass points standing in for letters are a staple worth banking: N, S, E and W.",
+    "definitionFit": "Nonsense is talk with no sense in it, and 'rubbish' is the everyday British dismissal for exactly that — not the refuse the surface suggests."
+   }
   },
   {
    "id": "14-down",
@@ -286,7 +725,38 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GENERATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "GENERATE",
+    "definition": "Create",
+    "indicators": [
+     "on",
+     "vacuous"
+    ],
+    "indicatorNotes": {
+     "on": "This is a down entry, so a piece sitting on another is written above it and comes first as the answer reads downwards.",
+     "vacuous": "A vacuous word has had its insides emptied out, leaving only the letter at each end."
+    },
+    "pieces": [
+     "GENERA",
+     "TE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "classes in biology",
+      "gives": "GENERA",
+      "note": "the groupings a biologist sorts species into, sitting between family and species"
+     },
+     {
+      "clueFragment": "theme",
+      "gives": "TE",
+      "note": "the word emptied of its middle, keeping only its first and last letters"
+     }
+    ],
+    "surface": "A biology lesson on classification hung on a rather empty topic.",
+    "walkthrough": "'Classes' is loose: class is a rank of its own in biological classification, and the groupings the wordplay wants sit several rungs below it.",
+    "definitionFit": "To generate something is to bring it into existence, which is what 'Create' asks for — verb for verb, with no shade of difference."
+   }
   },
   {
    "id": "15-across",
@@ -303,7 +773,39 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COWSLIP",
-   "annotation": null
+   "annotation": {
+    "type": "last letters + container",
+    "answer": "COWSLIP",
+    "definition": "variety of primula",
+    "indicators": [
+     "ultimately",
+     "plugging"
+    ],
+    "indicatorNotes": {
+     "ultimately": "What comes ultimately comes at the very end, so the closing letter of each word named is what gets taken.",
+     "plugging": "A plug goes into a hole, so those letters are pushed inside the other piece rather than added on beside it."
+    },
+    "pieces": [
+     "C",
+     "OWS",
+     "LIP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trim",
+      "gives": "CLIP",
+      "note": "to clip a hedge is to trim it"
+     },
+     {
+      "clueFragment": "Outdo Kew Gardens, ultimately",
+      "gives": "OWS",
+      "note": "the closing letters of those three words, taken in the order they stand"
+     }
+    ],
+    "surface": "A flower neatly grown to outshine even Kew Gardens.",
+    "walkthrough": "'Variety of' looks like an instruction to shuffle and is part of the definition instead — a botanical variety, not a mixed-up one. Kew is London's national botanic garden.",
+    "definitionFit": "The cowslip is a wild Primula of meadows and banks, so 'variety of primula' names the genus and asks for one species of it."
+   }
   },
   {
    "id": "16-down",
@@ -325,7 +827,52 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
     ]
    },
    "solution": "LOCKONTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter + anagram",
+    "answer": "LOCK ON TO",
+    "definition": "Track automatically",
+    "indicators": [
+     "changed",
+     "after",
+     "start to"
+    ],
+    "indicatorNotes": {
+     "changed": "Letters told they are changed do not stay as they were, so the three beside this word come out in a different arrangement.",
+     "after": "What comes after something is written behind it, so the disturbed letters are added at the end of what precedes them.",
+     "start to": "The start of a word is its opening letter, and that single letter is all the clue takes from the name."
+    },
+    "pieces": [
+     "LOCK",
+     "O",
+     "NTO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "NOT",
+      "gives": "NTO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secure",
+      "gives": "LOCK",
+      "note": "to lock a door is to make it secure"
+     },
+     {
+      "clueFragment": "start to Olympics",
+      "gives": "O",
+      "note": "the opening letter of the word, taken on its own"
+     },
+     {
+      "clueFragment": "not changed",
+      "gives": "NOT",
+      "note": "three letters of fodder, waiting to be re-laid"
+     }
+    ],
+    "surface": "Nothing altered since the Games got safely under way.",
+    "walkthrough": "'Not changed' is the joke: the word 'not' is precisely the thing that changes, while 'changed' is an instruction rather than part of the description.",
+    "definitionFit": "To lock on to something is what radar does when it fixes on a target and follows it unaided, which is tracking automatically."
+   }
   },
   {
    "id": "17-across",
@@ -346,7 +893,27 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
     ]
    },
    "solution": "INSTORE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "IN STORE",
+    "definition": "Imminent",
+    "indicators": [
+     "selection of"
+    ],
+    "indicatorNotes": {
+     "selection of": "A selection of something is a part taken out of it, and the part wanted here is a run of letters standing together."
+    },
+    "blocks": [
+     {
+      "clueFragment": "trains to Retford",
+      "gives": "INSTORE",
+      "note": "seven letters in a row, running across the ends of these three words"
+     }
+    ],
+    "surface": "A departure board listing the next services to Retford.",
+    "walkthrough": "Retford is a small Nottinghamshire town, in the clue only because its opening letters complete the run. The railway picture has nothing to do with the definition.",
+    "definitionFit": "Something in store for you is waiting to happen, so 'Imminent' catches the sense of an event already on its way."
+   }
   },
   {
    "id": "18-across",
@@ -368,7 +935,30 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
     ]
    },
    "solution": "CUTANDPASTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CUT AND PASTE",
+    "definition": "word-processing technique",
+    "indicators": [
+     "corrupt"
+    ],
+    "indicatorNotes": {
+     "corrupt": "A corrupted file has its contents scrambled, and the same thing happens to the letters standing next to the word."
+    },
+    "anagram": {
+     "fodder": "UPDATES CANT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Updates can’t",
+      "gives": "UPDATESCANT",
+      "note": "eleven letters of fodder once the apostrophe is set aside"
+     }
+    ],
+    "surface": "Software updates that stubbornly refuse to install.",
+    "walkthrough": "'Corrupt' does double duty in the picture — corrupted updates are exactly what the surface describes, which is why it never reads as an instruction.",
+    "definitionFit": "Cut and paste is the standard editing move in a word processor: lift the text out and drop it in somewhere else."
+   }
   },
   {
    "id": "19-down",
@@ -385,7 +975,37 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRIVET",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "PRIVET",
+    "definition": "Shrub",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The little word puts one piece inside the other rather than beside it, and that placement is the whole instruction."
+    },
+    "pieces": [
+     "P",
+     "RIVE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "PT",
+      "note": "pt is the everyday shortening of part, as in Pt 1 of a series"
+     },
+     {
+      "clueFragment": "split",
+      "gives": "RIVE",
+      "note": "to rive something is to split it apart, the verb behind 'riven'"
+     }
+    ],
+    "surface": "A garden shrub that has split partway down.",
+    "walkthrough": "RIVE is worth banking: it means to tear or split, and it survives mainly in crosswords, old poetry and the word riven.",
+    "definitionFit": "Privet is the dense-leaved shrub grown for suburban hedging, so 'Shrub' defines it by the plain category it belongs to."
+   }
   },
   {
    "id": "20-down",
@@ -402,7 +1022,39 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOVA",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "NOVA",
+    "definition": "Increasingly bright star",
+    "indicators": [
+     "wears",
+     "off and on"
+    ],
+    "indicatorNotes": {
+     "wears": "Somebody wearing a garment is inside it, so the letter for the man goes within the letters taken from the wool.",
+     "off and on": "Something happening off and on happens at every other turn, so every second letter is taken and the rest dropped."
+    },
+    "pieces": [
+     "NO",
+     "V",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "angora, off and on",
+      "gives": "NOA",
+      "note": "every second letter of the wool, counting from the second"
+     },
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "v = Victor in the phonetic alphabet used over the radio"
+     }
+    ],
+    "surface": "A rising star called Victor who wears angora from time to time.",
+    "walkthrough": "'Star' points at Hollywood in the picture and at astronomy in the definition — a star that flares up in brightness rather than one who is famous.",
+    "definitionFit": "A nova is a star that suddenly brightens by many magnitudes, so the definition describes the flare-up astronomers named it for."
+   }
   },
   {
    "id": "21-down",
@@ -419,7 +1071,36 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GASP",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GASP",
+    "definition": "breathe with effort",
+    "indicators": [
+     "Finally"
+    ],
+    "indicatorNotes": {
+     "Finally": "Taken finally, a word gives up only its closing letter, and the rest of it plays no part in the build."
+    },
+    "pieces": [
+     "G",
+     "ASP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finally evading",
+      "gives": "G",
+      "note": "the closing letter of the second word"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "an asp is the small viper of Cleopatra's story"
+     }
+    ],
+    "surface": "Somebody struggling for breath after narrowly dodging a snake.",
+    "walkthrough": "'Finally evading snake' reads as a narrow escape, and the comma is the only sign that 'finally' is an instruction rather than part of the story.",
+    "definitionFit": "To gasp is to draw breath sharply and with difficulty, which is the laboured breathing the definition describes — verb for verb."
+   }
   },
   {
    "id": "22-across",
@@ -436,7 +1117,42 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORATORIO",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "ORATORIO",
+    "definition": "Composition",
+    "indicators": [
+     "taken on by",
+     "without introduction"
+    ],
+    "indicatorNotes": {
+     "taken on by": "To take somebody on is to take them in, so the smaller piece is admitted inside the larger rather than tacked onto it.",
+     "without introduction": "An introduction is the opening of a thing, and a name deprived of one loses the letter it begins with."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "ORAT",
+     "OR",
+     "IO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nelson without introduction",
+      "gives": "ORATIO",
+      "note": "the admiral's first name was Horatio, docked here of its opening letter"
+     },
+     {
+      "clueFragment": "other ranks",
+      "gives": "OR",
+      "note": "OR is the British army's own term for soldiers below commissioned rank"
+     }
+    ],
+    "surface": "Nelson taking on a company of ordinary soldiers without so much as an introduction.",
+    "walkthrough": "Nelson is here for his first name rather than his fame, which is why the surface can talk about the navy while the wordplay quietly spells a Georgian Christian name.",
+    "definitionFit": "An oratorio is a large sacred work for choir, soloists and orchestra, so 'Composition' names it by its broad musical category."
+   }
   },
   {
    "id": "23-across",
@@ -453,7 +1169,48 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIENNA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + container",
+    "answer": "VIENNA",
+    "definition": "capital",
+    "indicators": [
+     "sides from",
+     "outside"
+    ],
+    "indicatorNotes": {
+     "sides from": "The sides of a word are the letters at its two edges, so everything between them is thrown away.",
+     "outside": "One piece standing outside another has that other within it, so the single letter is enclosed by the pair just taken."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "VIE",
+     "N",
+     "N",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compete",
+      "gives": "VIE",
+      "note": "to vie with somebody is to compete with them"
+     },
+     {
+      "clueFragment": "sides from Nigeria",
+      "gives": "NA",
+      "note": "the first and last letters of the country, its middle discarded"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "n = northern, as on a compass rose or a postcode"
+     }
+    ],
+    "surface": "Teams from Nigeria playing a match just outside a capital city in the north.",
+    "walkthrough": "'Sides' is the football sense in the picture and the edges-of-a-word sense in the wordplay, and 'northern' belongs to the letters rather than to the capital.",
+    "definitionFit": "Vienna is the capital of Austria, so the bare word 'capital' asks for one particular city and the wordplay pins down which."
+   }
   },
   {
    "id": "24-across",
@@ -470,7 +1227,45 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPETITE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "APPETITE",
+    "definition": "desire for food",
+    "indicators": [
+     "round"
+    ],
+    "indicatorNotes": {
+     "round": "Turned round, a short word is written from its end back to its start, which is all the instruction amounts to."
+    },
+    "linkWords": [
+     "given"
+    ],
+    "pieces": [
+     "AP",
+     "PETITE"
+    ],
+    "subReversals": [
+     {
+      "from": "PA",
+      "to": "AP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pop round",
+      "gives": "AP",
+      "note": "pop is a father, and the two letters naming him are turned back to front"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "PETITE",
+      "note": "petite, borrowed from French, describes a small and neat build"
+     }
+    ],
+    "surface": "Being asked to pop round, since you have a small hunger to satisfy.",
+    "walkthrough": "'Pop round' reads as an invitation to call in, and neither word means what the surface wants — one of them is a father, the other an instruction.",
+    "definitionFit": "An appetite is the hunger you feel before eating, so 'desire for food' is the plain definition of it, noun for noun."
+   }
   },
   {
    "id": "25-across",
@@ -487,7 +1282,28 @@ window.CRYPTIC_PUZZLES["quiptic-1382"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REVERE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "REVERE",
+    "definition": "Venerate",
+    "definition2": "American patriot Paul",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Venerate",
+      "gives": "REVERE",
+      "note": "to hold in deep respect, the verb used of saints and heroes"
+     },
+     {
+      "clueFragment": "American patriot Paul",
+      "gives": "REVERE",
+      "note": "the Boston silversmith who rode through the night in 1775 to warn that the British were coming"
+     }
+    ],
+    "surface": "Honouring one of the heroes of the American Revolution.",
+    "walkthrough": "The clue reads as a single instruction to honour a named man, and the seam falls after the first word: one half is the verb, the other is his surname.",
+    "definitionFit": "One sense is the verb for holding something in awe; the other is Paul Revere, whose surname happens to be spelled the same way."
+   }
   }
  ]
 } /*JSON-END*/;
