@@ -116,13 +116,14 @@ def section():
         f"puzzle is an ERROR; the second one already warns.",
         f"A `walkthrough` over **{V.WALKTHROUGH_HARD_MAX}** words is an ERROR, over "
         f"**{V.MAX_WALKTHROUGH_WORDS}** a warning (authored puzzles).",
-        f"More than **{V.MAX_UNBALANCED}** clues per puzzle whose type is one of "
+        "**Any** clue whose blocks hand over letters that are not the answer's. "
+        "Exempt, because their blocks claim no letters or give them away: "
         + ", ".join(f"`{t}`" for t in V.UNBALANCED_TYPES)
-        + " — these are the types whose blocks need not add up to the answer, so "
-          "they are the easy way out.",
-        f"More than **{V.MAX_UNDECOMPOSED}** clues whose blocks hand over the whole "
-        f"answer in one lump instead of taking it apart the way `pieces` does.",
-        f"More than **{V.MAX_MISORDERED}** clues whose blocks are not in answer order.",
+        + " — which is exactly what makes reaching for one of those types the easy "
+          "way out of a clue you have not parsed.",
+        "**Any** clue whose blocks hand over the whole answer in one lump instead of "
+        "taking it apart the way `pieces` does.",
+        "**Any** clue whose blocks are not in answer order.",
         f"The same word used as a definition in more than **{V.MAX_DEFINITION_REUSE}** "
         f"clues in one puzzle (exempt: "
         + ", ".join(f"`{t}`" for t in V.DEFINITION_REUSE_EXEMPT) + ").",

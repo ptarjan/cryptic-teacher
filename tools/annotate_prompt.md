@@ -415,13 +415,14 @@ compound type's family is decided by the FIRST row below that matches it.
   already warns.
 - A `walkthrough` over **60** words is an ERROR, over **45** a warning (authored
   puzzles).
-- More than **2** clues per puzzle whose type is one of `deletion`, `substitution`,
-  `cryptic definition`, `double definition`, `homophone`, `spoonerism`, `&lit` — these
-  are the types whose blocks need not add up to the answer, so they are the easy way
-  out.
-- More than **2** clues whose blocks hand over the whole answer in one lump instead of
-  taking it apart the way `pieces` does.
-- More than **0** clues whose blocks are not in answer order.
+- **Any** clue whose blocks hand over letters that are not the answer's. Exempt,
+  because their blocks claim no letters or give them away: `deletion`, `substitution`,
+  `cryptic definition`, `double definition`, `homophone`, `spoonerism`, `&lit` — which
+  is exactly what makes reaching for one of those types the easy way out of a clue you
+  have not parsed.
+- **Any** clue whose blocks hand over the whole answer in one lump instead of taking
+  it apart the way `pieces` does.
+- **Any** clue whose blocks are not in answer order.
 - The same word used as a definition in more than **3** clues in one puzzle (exempt:
   `&lit`, `double definition`, `cryptic definition`).
 
@@ -456,6 +457,8 @@ of the source. 75 of 128 annotation sessions were grepping
   indicator.
 - `check_sound_names_its_source` — A homophone must name the word you say aloud, as a
   field, not as prose.
+- `check_sound_is_not_a_letter_swap` — A spoonerism trades SOUNDS. A soundsLike made
+  by trading letters is a fake.
 - `check_coverage` — Every content word of the clue must be claimed by the parse.
 - `check_part_of_speech` — The definition must be substitutable for the answer, which
   means their inflections agree: a plural answer needs a plural definition, an -ing
