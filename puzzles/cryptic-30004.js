@@ -30,7 +30,45 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TITFER",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "TITFER",
+    "definition": "Panama",
+    "indicators": [
+     "about",
+     "backing"
+    ],
+    "indicatorNotes": {
+     "about": "Something placed about a thing is wrapped round it, so the row closes over the letters that follow.",
+     "backing": "A newspaper's backing is its support in the surface; as an instruction it asks for those two letters read from the back."
+    },
+    "pieces": [
+     "TI",
+     "TF",
+     "ER"
+    ],
+    "subReversals": [
+     {
+      "from": "FT",
+      "to": "TF"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "TIER",
+      "note": "a row of seats in a stand is a tier"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "note": "the Financial Times, Britain's pink business paper, signs itself FT"
+     }
+    ],
+    "surface": "A quarrel about a paper coming out in favour of Panama.",
+    "walkthrough": "'Row' is the line of seats, not the argument the surface wants, and Panama is a hat: a titfer is Cockney rhyming slang, from tit for tat.",
+    "definitionFit": "A Panama is one particular straw hat and a titfer is slang for any hat, so the definition works by naming an example."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +85,27 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THEATRE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "THEATRE",
+    "definition": "play enacted here",
+    "indicators": [
+     "From"
+    ],
+    "indicatorNotes": {
+     "From": "Saying the answer comes from these words points at the words themselves, and the letters are already sitting in them in order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Goethe, a tremendous",
+      "gives": "THEATRE",
+      "note": "the letters run on unbroken across the comma and the two spaces"
+     }
+    ],
+    "surface": "A grand production of Goethe, played with enormous energy.",
+    "walkthrough": "German drama in the surface and an English word underneath it: the run starts in the middle of Goethe's name, which is where nobody looks first.",
+    "definitionFit": "A theatre is the building a play is performed in, so the definition names it by what happens inside rather than by any synonym."
+   }
   },
   {
    "id": "2-down",
@@ -70,7 +128,38 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
     ]
    },
    "solution": "TOTIE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + alternate letters",
+    "answer": "TO TIE THE KNOT",
+    "definition": "to get hitched",
+    "indicators": [
+     "odds",
+     "in order"
+    ],
+    "indicatorNotes": {
+     "odds": "Odds are the odd-numbered ones, so the first, third and fifth letters of the word beside it are taken and the rest dropped.",
+     "in order": "Putting something in order means arranging it, and letters arranged afresh come out in a sequence they were not handed to you in."
+    },
+    "anagram": {
+     "fodder": "ITHENTOOK TET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I then took",
+      "gives": "ITHENTOOK",
+      "note": "nine of the twelve letters, taken exactly as they stand"
+     },
+     {
+      "clueFragment": "odds on twenty",
+      "gives": "TET",
+      "note": "the first, third and fifth letters of t-w-e-n-t-y"
+     }
+    ],
+    "surface": "Someone betting on number twenty at long odds, hoping the winnings will pay for a wedding.",
+    "walkthrough": "'Odds' is the bookmaker's word the surface needs and the letter-picking instruction the wordplay needs, and 'in order' reads as purpose while meaning arrangement.",
+    "definitionFit": "To tie the knot is the idiom for marrying and 'get hitched' is the same idea in slang, both standing for going through with the wedding."
+   }
   },
   {
    "id": "3-down",
@@ -87,7 +176,46 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELECTOR",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "ELECTOR",
+    "definition": "One chooses",
+    "definitionNote": "The definition is a clause where the answer is a noun: read it as 'one who chooses', a shorthand setters allow themselves because the surface needs a sentence.",
+    "indicators": [
+     "in",
+     "reversal"
+    ],
+    "indicatorNotes": {
+     "in": "Treatment given in something happens inside it, so these letters land within the word beside them rather than next to it.",
+     "reversal": "A reversal turns a thing back to front, and what gets read from its last letter to its first here is the role."
+    },
+    "pieces": [
+     "EL",
+     "ECT",
+     "OR"
+    ],
+    "subReversals": [
+     {
+      "from": "ROLE",
+      "to": "ELOR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "role",
+      "gives": "ROLE",
+      "note": "the word as it stands, waiting to be turned round"
+     },
+     {
+      "clueFragment": "shock treatment",
+      "gives": "ECT",
+      "note": "electroconvulsive therapy, the psychiatric treatment that passes a current through the brain, is written ECT"
+     }
+    ],
+    "surface": "Somebody volunteering for electric shock therapy when the roles get swapped round.",
+    "walkthrough": "'Role reversal' is one idea in the surface and a pair of instructions underneath it, and ECT is a genuine medical abbreviation rather than a crossword invention.",
+    "definitionFit": "An elector is one who chooses in the narrow sense of casting a vote, so the word covers anybody entitled to choose at an election."
+   }
   },
   {
    "id": "4-across",
@@ -104,7 +232,42 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STUPID",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "STUPID",
+    "definition": "Silly",
+    "indicators": [
+     "must be rejected"
+    ],
+    "indicatorNotes": {
+     "must be rejected": "Something rejected is thrown back, and a word thrown back is read from its last letter to its first."
+    },
+    "pieces": [
+     "STUP",
+     "ID"
+    ],
+    "subReversals": [
+     {
+      "from": "PUTS",
+      "to": "STUP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "positions",
+      "gives": "PUTS",
+      "note": "to position something is to put it somewhere, so the verb matches in the third person"
+     },
+     {
+      "clueFragment": "I would",
+      "gives": "ID",
+      "note": "I would shortens to I'd in speech, and the apostrophe goes"
+     }
+    ],
+    "surface": "Someone agreeing that ridiculous stances ought to be thrown out.",
+    "walkthrough": "'Positions' reads as opinions or postures in the surface and is a plain verb in the wordplay, and the dash covers the switch to a speaker.",
+    "definitionFit": "Stupid answers to silly in the sense of lacking sense, not the softer silly of a silly hat or a silly mistake."
+   }
   },
   {
    "id": "5-down",
@@ -126,7 +289,9 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEKNOT",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "2-down"
+   }
   },
   {
    "id": "6-down",
@@ -143,7 +308,30 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENALTIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PENALTIES",
+    "definition": "sanctions",
+    "indicators": [
+     "suffering"
+    ],
+    "indicatorNotes": {
+     "suffering": "A country suffering is in a bad way, and letters in a bad way have come out of the arrangement they were given."
+    },
+    "anagram": {
+     "fodder": "PALESTINE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Palestine",
+      "gives": "PALESTINE",
+      "note": "all nine letters of the name, rebuilt into a different word"
+     }
+    ],
+    "surface": "A news headline about a territory living under imposed sanctions.",
+    "walkthrough": "The fodder and the definition sit side by side with a single word between them, and the headline reads so naturally that the signal to shuffle disappears into it.",
+    "definitionFit": "A sanction in the political sense is a punishment imposed from outside, and penalties are exactly that — punishments handed down."
+   }
   },
   {
    "id": "7-down",
@@ -160,7 +348,39 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DESIREE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "DESIREE",
+    "definition": "potato",
+    "indicators": [
+     "start"
+    ],
+    "indicatorNotes": {
+     "start": "The start of a word is the letter it opens with, and only that one letter joins what has gone before."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "DESIRE",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Want",
+      "gives": "DESIRE",
+      "note": "to want something is to desire it"
+     },
+     {
+      "clueFragment": "eating",
+      "gives": "E",
+      "note": "the first letter of the word, taken off the front and nothing else with it"
+     }
+    ],
+    "surface": "Somebody too impatient to wait for the meal to begin.",
+    "walkthrough": "Desiree is a red-skinned potato variety sold in every British greengrocer, which is how 'potato' can define what looks like a woman's name.",
+    "definitionFit": "Desiree is a named variety of potato, so 'potato' defines by category: the answer is one particular kind of the thing named."
+   }
   },
   {
    "id": "8-down",
@@ -177,7 +397,44 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOTLEY",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade + last letter",
+    "answer": "MOTLEY",
+    "definition": "Disparate",
+    "indicators": [
+     "with a twist in the tail",
+     "End of"
+    ],
+    "indicatorNotes": {
+     "with a twist in the tail": "A twist in the tail turns the end round, so the last two letters of the word before swap places.",
+     "End of": "The end of a word is the letter it finishes on, which is all that is taken from the word that follows."
+    },
+    "pieces": [
+     "MOTLE",
+     "Y"
+    ],
+    "subReversals": [
+     {
+      "from": "EL",
+      "to": "LE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motel",
+      "gives": "MOTEL",
+      "note": "the word as it stands, before its last two letters are turned"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "Y",
+      "note": "the letter this word finishes on"
+     }
+    ],
+    "surface": "A cheap roadside motel and a tale with a surprise ending.",
+    "walkthrough": "'A twist in the tail' is what every good short story has, and the setter means it letter by letter; the exclamation mark is the tell that 'End of story!' is working too.",
+    "definitionFit": "Motley means made of clashing, ill-assorted parts — a motley crew — which is what disparate says about a collection of unlike things."
+   }
   },
   {
    "id": "9-across",
@@ -199,7 +456,51 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
     ]
    },
    "solution": "FEATHERONESNEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "FEATHER ONE'S NEST",
+    "definition": "to get personal benefit",
+    "indicators": [
+     "imperfect"
+    ],
+    "indicatorNotes": {
+     "imperfect": "Something imperfect is not as it should be, and letters not as they should be are out of their proper order."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "FEAT",
+     "HERON",
+     "ESNEST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TENSES",
+      "gives": "ESNEST"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exploit",
+      "gives": "FEAT",
+      "note": "an exploit is a feat"
+     },
+     {
+      "clueFragment": "flyer",
+      "gives": "HERON",
+      "note": "a long-legged river bird, and a flyer like any other"
+     },
+     {
+      "clueFragment": "tenses",
+      "gives": "ESNEST",
+      "note": "the six letters of TENSES rebuilt"
+     }
+    ],
+    "surface": "Taking advantage of a leaflet whose grammar has all the tenses wrong.",
+    "walkthrough": "The imperfect is itself a tense, which is what makes 'imperfect tenses' read as grammar rather than as an instruction, and 'exploit' looks like the verb the sentence needs.",
+    "definitionFit": "To feather one's nest is to line it comfortably at somebody else's expense, so it means enriching yourself — benefit that is personal and usually improper."
+   }
   },
   {
    "id": "10-across",
@@ -216,7 +517,30 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATTEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ATTEST",
+    "definition": "to give evidence",
+    "pieces": [
+     "AT",
+     "TEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "may be here",
+      "gives": "AT",
+      "note": "the small word that says where somebody is"
+     },
+     {
+      "clueFragment": "Bowler",
+      "gives": "TEST",
+      "note": "a Test is an international cricket match played over five days, the level a top bowler works at"
+     }
+    ],
+    "surface": "A man in a bowler hat turning up at court as a witness.",
+    "walkthrough": "'Bowler' is the hat the surface has you picturing in a courtroom and the cricketer the wordplay wants, and 'here' is a whole word doing the work of two letters.",
+    "definitionFit": "To attest is to bear witness formally, which is what a witness does in the box: give evidence on oath."
+   }
   },
   {
    "id": "11-across",
@@ -233,7 +557,48 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LANDLORD",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "LANDLORD",
+    "definition": "Proprietor",
+    "indicators": [
+     "in",
+     "comeback"
+    ],
+    "indicatorNotes": {
+     "in": "A joiner slotted in goes inside, so the word beside it opens up and takes those letters within it.",
+     "comeback": "A comeback is a return along the way you came, so those letters are read from their far end back to their start."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "L",
+     "AND",
+     "LORD"
+    ],
+    "subReversals": [
+     {
+      "from": "DROLL",
+      "to": "LLORD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funny",
+      "gives": "DROLL",
+      "note": "droll is funny in the dry, understated way"
+     },
+     {
+      "clueFragment": "joiner",
+      "gives": "AND",
+      "note": "the conjunction that joins two clauses together"
+     }
+    ],
+    "surface": "A proprietor and a carpenter swapping witty retorts.",
+    "walkthrough": "'Joiner' is the carpenter in the surface and the grammarian's word in the wordplay — a conjunction joins two clauses, and AND is the plainest one there is.",
+    "definitionFit": "A landlord is the proprietor of a pub or of property let to tenants, so 'proprietor' is the general word for what he owns and runs."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +619,39 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
     ]
    },
    "solution": "HENPARTY",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "HEN PARTY",
+    "definition": "preparatory celebration",
+    "indicators": [
+     "on vacation",
+     "during"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A word on vacation has been emptied out, so only the letters at its two ends are left standing.",
+     "during": "Something that happens during an event happens inside it, so these letters sit within the word beside them."
+    },
+    "pieces": [
+     "HE",
+     "NP",
+     "ARTY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jovial",
+      "gives": "HEARTY",
+      "note": "a hearty welcome is a jovial one"
+     },
+     {
+      "clueFragment": "Nightcap",
+      "gives": "NP",
+      "note": "the two ends of the word, with everything between them gone"
+     }
+    ],
+    "surface": "A last drink before bed, taken in the middle of a cheerful party.",
+    "walkthrough": "A hen party is the bride's night out before a British wedding, and 'nightcap' does two jobs: the drink in the surface, and a word to be hollowed out.",
+    "definitionFit": "A hen party is the celebration held for a bride before her wedding, so 'preparatory' points at what it comes before rather than at anything it prepares."
+   }
   },
   {
    "id": "13-down",
@@ -271,7 +668,33 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLENTIFUL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PLENTIFUL",
+    "definition": "more than enough",
+    "indicators": [
+     "forms"
+    ],
+    "indicatorNotes": {
+     "forms": "Forms is the verb here: the letters beside it are made to form something, which they can only do by moving."
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "anagram": {
+     "fodder": "FILLUPTEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fill up ten",
+      "gives": "FILLUPTEN",
+      "note": "nine letters, the little words counted in"
+     }
+    ],
+    "surface": "Being handed ten forms to complete and deciding that is quite enough bureaucracy.",
+    "walkthrough": "'Fill up' looks like the instruction printed on the paperwork and 'forms' looks like the paperwork itself; the two swap jobs, one becoming fodder and the other the signal to rearrange.",
+    "definitionFit": "Plentiful means present in more than sufficient quantity, so 'more than enough' catches the sense exactly: abundance rather than mere sufficiency."
+   }
   },
   {
    "id": "14-across",
@@ -288,7 +711,40 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOILET",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TOILET",
+    "definition": "John",
+    "indicators": [
+     "outwardly"
+    ],
+    "indicatorNotes": {
+     "outwardly": "What is outward is on the outside, so the phrase this points at wraps round the letter named before it."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "TO",
+     "I",
+     "LET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for hire",
+      "gives": "TOLET",
+      "note": "TO LET is what the sign says on a British property offered for hire"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "surface": "A man named John who looks, from the outside, as though he can be hired.",
+    "walkthrough": "John is American slang for the lavatory, which is why the clue can open with what reads as somebody's first name and still be a definition.",
+    "definitionFit": "John is the American colloquial word for a lavatory, so the definition is slang for the answer, dressed up as a man's name."
+   }
   },
   {
    "id": "15-across",
@@ -305,7 +761,33 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABSENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ABSENT",
+    "definition": "not here",
+    "linkWords": [
+     "so"
+    ],
+    "pieces": [
+     "AB",
+     "SENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First couple of letters",
+      "gives": "AB",
+      "note": "the opening pair taken from the alphabet itself, in the order they come"
+     },
+     {
+      "clueFragment": "dispatched",
+      "gives": "SENT",
+      "note": "a parcel dispatched has been sent"
+     }
+    ],
+    "surface": "A note explaining that the first of the post has already gone out.",
+    "walkthrough": "The letters wanted belong to no word in the clue but to the alphabet, which is why picking initials out of the clue itself gets you nowhere.",
+    "definitionFit": "Absent means not present, and 'not here' says the same the short way — the state of somebody who has failed to turn up."
+   }
   },
   {
    "id": "16-down",
@@ -322,7 +804,30 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BROTHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BROTHER",
+    "definition": "Relative",
+    "pieces": [
+     "BROTH",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "souper",
+      "gives": "BROTH",
+      "note": "the soup itself, of the thin clear kind"
+     },
+     {
+      "clueFragment": "souper",
+      "gives": "ER",
+      "note": "the ending that turns a thing into the person who deals in it, as a bake becomes a baker"
+     }
+    ],
+    "surface": "A relation described, oddly, as a maker of soup.",
+    "walkthrough": "'Souper' is not a word, and the question mark admits it: the setter has coined an agent noun for somebody who makes soup, then spelled it a different way.",
+    "definitionFit": "A brother is a male sibling, so 'relative' defines by the wider family category the answer belongs to."
+   }
   },
   {
    "id": "17-down",
@@ -339,7 +844,33 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRESTLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TRESTLE",
+    "definition": "support",
+    "indicators": [
+     "Prepared"
+    ],
+    "indicatorNotes": {
+     "Prepared": "Preparing something means working it into a new state, and letters worked over like that do not come out as they went in."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "LETTERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "letters",
+      "gives": "LETTERS",
+      "note": "the seven letters of the word itself, ready to be rearranged"
+     }
+    ],
+    "surface": "A bundle of carefully prepared references vouching for somebody.",
+    "walkthrough": "'Letters of support' is a real phrase, which is what makes it hard to see that 'support' has been cut off the end of it and set to work as the definition.",
+    "definitionFit": "A trestle is the braced frame a table top rests on, so 'support' names the answer by function: the thing that holds another thing up."
+   }
   },
   {
    "id": "18-across",
@@ -356,7 +887,30 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPARSITY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "SPARSITY",
+    "definition": "being in short supply",
+    "indicators": [
+     "Sounds like",
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "Sounds like": "This asks for the noise the words make rather than their spelling, so what gets written down is not what was handed over.",
+     "perhaps": "Perhaps flags an example rather than a synonym: the place named is one of the kind wanted, not the kind itself."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bath perhaps",
+      "soundsLike": "SPA CITY",
+      "gives": "SPARSITY",
+      "note": "Bath, in south-west England, is built on hot springs and gave its name to bathing, so it is one city among the spa towns"
+     }
+    ],
+    "surface": "A remark that Bath, of all places, is running short of something.",
+    "walkthrough": "In a British accent the R at the join is not sounded, so two words run together into one, and a city on the map turns into a shortage.",
+    "definitionFit": "Sparsity is the noun for how thinly something is spread, so whatever is in short supply is present only sparsely."
+   }
   },
   {
    "id": "18-down",
@@ -373,7 +927,37 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRIFE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "STRIFE",
+    "definition": "conflict",
+    "indicators": [
+     "last",
+     "can generate"
+    ],
+    "indicatorNotes": {
+     "last": "The last of a word is the letter it ends on, and only that one is taken from what follows.",
+     "can generate": "What a thing can generate is something new made out of it, and a new word is made out of old letters by moving them."
+    },
+    "anagram": {
+     "fodder": "FIRST E"
+    },
+    "blocks": [
+     {
+      "clueFragment": "First",
+      "gives": "FIRST",
+      "note": "the whole word, all five letters, not the initial of anything"
+     },
+     {
+      "clueFragment": "to arrive",
+      "gives": "E",
+      "note": "the letter this word ends on"
+     }
+    ],
+    "surface": "Whoever turns up first and whoever turns up last making trouble between them.",
+    "walkthrough": "'First and last' looks like one instruction to take two letters, and only the second half of it is one: 'first' is five letters of fodder just as it is written.",
+    "definitionFit": "Strife is open conflict between people — quarrelling and fighting rather than a mere difference of opinion — which is the sense 'conflict' carries here."
+   }
   },
   {
    "id": "19-down",
@@ -390,7 +974,40 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABASHED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ABASHED",
+    "definition": "Embarrassed",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A degree hung in a place sits inside it, so these two letters go within the words beside them."
+    },
+    "linkWords": [
+     "to display"
+    ],
+    "pieces": [
+     "A",
+     "BA",
+     "SHED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an outhouse",
+      "gives": "ASHED",
+      "note": "an outhouse is a shed, and the article in front supplies the A"
+     },
+     {
+      "clueFragment": "university degree",
+      "gives": "BA",
+      "note": "a Bachelor of Arts is a BA"
+     }
+    ],
+    "surface": "Somebody too shy to hang their degree certificate anywhere but the garden shed.",
+    "walkthrough": "The surface frames a certificate and hides it in an outhouse, and 'an' is not scenery: the A in front of the shed is a letter the answer needs.",
+    "definitionFit": "Abashed means embarrassed in the particular sense of being shamed out of your confidence, which is the reading 'embarrassed' takes here."
+   }
   },
   {
    "id": "20-down",
@@ -407,7 +1024,39 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TWEENIE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TWEENIE",
+    "definition": "a youngster",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "TWEE",
+     "N",
+     "IE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cute",
+      "gives": "TWEE",
+      "note": "twee is cute to the point of being sickly"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, meaning that is"
+     }
+    ],
+    "surface": "A sweet little name given to a small child.",
+    "walkthrough": "'That is' is an everyday phrase in the surface and the abbreviation i.e. in the wordplay, which is the join a solver looks straight past.",
+    "definitionFit": "A tweenie is a child between infancy and the teens, roughly eight to twelve, so 'a youngster' names the answer by the age group it covers."
+   }
   },
   {
    "id": "21-across",
@@ -424,7 +1073,41 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOOTWEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "FOOTWEAR",
+    "definition": "Oxford or Derby",
+    "definitionNote": "An Oxford and a Derby are each one style of shoe while the answer is a collective noun covering the lot, so the setter is defining by example without the usual question mark.",
+    "indicators": [
+     "stated"
+    ],
+    "indicatorNotes": {
+     "stated": "Stated means said out loud, so the word before it is written down as it sounds rather than as the clue spells it."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "FOOT",
+     "WEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Settle",
+      "gives": "FOOT",
+      "note": "to foot the bill is to settle it"
+     },
+     {
+      "clueFragment": "where",
+      "soundsLike": "WHERE",
+      "gives": "WEAR",
+      "note": "said aloud the two are one noise, and only the spelling changes"
+     }
+    ],
+    "surface": "An instruction to pay the bill in the town named — Oxford, or else Derby.",
+    "walkthrough": "Oxford and Derby are lace-up shoe styles as well as English cities, and the surface keeps them looking like two places on a map.",
+    "definitionFit": "An Oxford and a Derby are two styles of lace-up shoe, so the definition points at the answer by giving a pair of examples of it."
+   }
   },
   {
    "id": "22-across",
@@ -441,7 +1124,30 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTLER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANTLER",
+    "definition": "horn",
+    "indicators": [
+     "to play"
+    ],
+    "indicatorNotes": {
+     "to play": "To play with a thing is to knock it about, and letters knocked about will not stay in the order they were given."
+    },
+    "anagram": {
+     "fodder": "LEARNT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Learnt",
+      "gives": "LEARNT",
+      "note": "six letters, exactly the six the answer needs"
+     }
+    ],
+    "surface": "Somebody who has taught themselves to play the French horn.",
+    "walkthrough": "The horn is not the one the surface plays but the one a stag carries, and 'learnt to play' reads as a single achievement rather than as fodder plus a signal.",
+    "definitionFit": "An antler is the branched horn of a deer, so 'horn' defines by the general kind — headgear on a stag rather than anything you blow."
+   }
   },
   {
    "id": "23-down",
@@ -458,7 +1164,48 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TILDE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "TILDE",
+    "definition": "mañana, got that, but not tomorrow",
+    "definitionNote": "This is not a synonym but an instruction to look at the Spanish word rather than read it: what you get from mañana is the mark on the page, not the meaning tomorrow.",
+    "indicators": [
+     "Finally",
+     "in",
+     "crash"
+    ],
+    "indicatorNotes": {
+     "Finally": "Finally means at the end, so what is taken from the word after it is the letter it finishes with.",
+     "in": "This puts the single letter inside the group beside it instead of alongside them.",
+     "crash": "A crash leaves the pieces of a thing lying where they fell, so these letters are rebuilt in a different arrangement."
+    },
+    "pieces": [
+     "TI",
+     "L",
+     "DE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DIET",
+      "gives": "TIDE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "TIDE",
+      "note": "the four letters of DIET rearranged"
+     },
+     {
+      "clueFragment": "Finally enrol",
+      "gives": "L",
+      "note": "the letter enrol ends on"
+     }
+    ],
+    "surface": "Signing up at the last minute for a crash diet, then putting it off until the day after.",
+    "walkthrough": "The definition asks you to look at the Spanish word rather than translate it: what mañana has and 'tomorrow' has not is the squiggle over its n.",
+    "definitionFit": "A tilde is the wavy mark written over the n in mañana, so the definition names the symbol on the page rather than what the word means."
+   }
   },
   {
    "id": "24-across",
@@ -482,7 +1229,30 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
     ]
    },
    "solution": "THEFATOFTHELAND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "THE FAT OF THE LAND",
+    "definition": "Best in everything",
+    "definition2": "big Brits",
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Best in everything",
+      "gives": "THEFATOFTHELAND",
+      "note": "the idiom for the choicest of what a country has to offer — you live off it"
+     },
+     {
+      "clueFragment": "big Brits",
+      "gives": "THEFATOFTHELAND",
+      "note": "read literally instead of as an idiom: heavy people, and the country they live in"
+     }
+    ],
+    "surface": "A headline claiming that heavier Britons are doing better than everybody else.",
+    "walkthrough": "Both readings turn on 'fat': in the idiom it is the richest part of what a country produces, and in the joke it is the people.",
+    "definitionFit": "Living off the fat of the land is having the best of everything a place offers; read literally, the fat of Britain is its heavier inhabitants."
+   }
   },
   {
    "id": "25-across",
@@ -499,7 +1269,40 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RELIEF",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RELIEF",
+    "definition": "Ease",
+    "indicators": [
+     "accepts"
+    ],
+    "indicatorNotes": {
+     "accepts": "A judge who accepts something takes it in, so the word before opens up and the next one goes inside it."
+    },
+    "linkWords": [
+     "with which"
+    ],
+    "pieces": [
+     "RE",
+     "LIE",
+     "F"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "REF",
+      "note": "a referee judges a match, and shortens to REF"
+     },
+     {
+      "clueFragment": "falsehood",
+      "gives": "LIE",
+      "note": "a falsehood told on purpose is a lie"
+     }
+    ],
+    "surface": "A judge in court quietly letting an untruth go by.",
+    "walkthrough": "The judge is not a courtroom one: a referee is the official who judges a game, and 'ease' is a noun here rather than the verb it looks like.",
+    "definitionFit": "Relief is the ease that arrives when something unpleasant stops — the noun for that lifting of strain, not comfort in general."
+   }
   },
   {
    "id": "26-across",
@@ -516,7 +1319,30 @@ window.CRYPTIC_PUZZLES["cryptic-30004"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADHERE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADHERE",
+    "definition": "Stick",
+    "pieces": [
+     "AD",
+     "HERE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poster",
+      "gives": "AD",
+      "note": "a poster is an advertisement, AD for short"
+     },
+     {
+      "clueFragment": "but not over there",
+      "gives": "HERE",
+      "note": "the opposite of over there is right here"
+     }
+    ],
+    "surface": "An instruction to put the poster up on this wall and not on that one.",
+    "walkthrough": "'Stick' is the verb meaning to glue rather than a stick of wood, and the exclamation mark makes the whole thing sound like somebody pointing at a wall.",
+    "definitionFit": "To adhere is to stick fast to a surface — glue's sense of the word, though the answer covers sticking to a rule as well."
+   }
   }
  ]
 } /*JSON-END*/;
