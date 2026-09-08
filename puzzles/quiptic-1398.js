@@ -195,7 +195,7 @@ window.CRYPTIC_PUZZLES["quiptic-1398"] = /*JSON-START*/ {
      }
     ],
     "surface": "Somebody's cheeks going redder and redder as a rude remark keeps butting in.",
-    "walkthrough": "'More impolite' sits where a definition usually sits, at the front, and it is the wordplay. The definition is the reddening at the far end of the sentence.",
+    "walkthrough": "'More impolite' sits where a definition usually sits, at the front, and it is the wordplay. The definition is the reddening at the far end of the sentence. RUDER is split open and I'D climbs into the gap, so this is a container, not a charade.",
     "definitionFit": "Ruddy is the everyday word for a red, healthy face, so the comparative means exactly more crimson than before."
    }
   },
