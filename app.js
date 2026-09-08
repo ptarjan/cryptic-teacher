@@ -26,7 +26,7 @@
   const SYNC_ENDPOINT = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev";
   // Reserved localStorage names, so scanning for saves cannot pick up settings.
   // Every key this app writes is "ct:<something>"; the rest are puzzle ids.
-  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1 };
+  const SYNC_RESERVED = { last: 1, sync: 1, seen: 1, notify: 1 };
   const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTVWXYZ"; // no 0/O/1/I/L to mistype
 
   /* ---------- counting solves, not solvers ----------
@@ -535,6 +535,174 @@
     $("sync-on").classList.toggle("hidden", !code);
     $("sync-off").classList.toggle("hidden", !!code);
     syncNote(code ? "" : "Not syncing — this machine only.");
+  }
+
+  /* ---------- being told when the next one is up ----------
+     Which papers this browser wants to hear about, held here and asserted to
+     sync/worker.js, which pushes when a puzzle first appears ANNOTATED — the
+     hint ladder is the thing worth being woken for, and a puzzle is fetched
+     hours before it has one.
+
+     Per DEVICE, and it cannot be anything else: the subscription a browser
+     hands out IS the address, there is no account to hang it off, and the sync
+     code deliberately names a pile of crosswords rather than a person. So this
+     is a setting and never a save — hence `notify` in SYNC_RESERVED, without
+     which the scan above would upload it as though it were a grid. */
+  const NOTIFY_KEY = "ct:notify";
+  // The public half of the VAPID pair whose private half signs every push in
+  // sync/wrangler.toml. A push service checks a subscription against the key
+  // that signed for it, so the two are one pair: replacing either means
+  // replacing both, and every subscription taken out under the old one is dead.
+  const VAPID_PUBLIC_KEY = "BBaYG5WN1oquOhkTinUjxhbyxNcNM-0VrN_XJ83tnxwH1LoboNch3QIvUFHL7ogMvHjiT1RSCac1hw-4uiASvlY";
+
+  // subscribe() wants that key as bytes. It is published as base64url — base64
+  // with -_ for +/ and the padding dropped — so both are put back before atob.
+  function vapidKeyBytes() {
+    const b64 = (VAPID_PUBLIC_KEY + "===".slice((VAPID_PUBLIC_KEY.length + 3) % 4))
+      .replace(/-/g, "+").replace(/_/g, "/");
+    const raw = atob(b64);
+    const bytes = new Uint8Array(raw.length);
+    for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+    return bytes;
+  }
+
+  // The same rule the Sync button follows: a control that explains it cannot
+  // work is worse than no control. No endpoint to register with, or a browser
+  // without any one of these three, and the button is not offered at all.
+  const notifyAvailable = () => !!(SYNC_ENDPOINT && navigator.serviceWorker &&
+    window.PushManager && typeof Notification !== "undefined");
+
+  /* Web push on an iPhone or iPad works only for a site added to the Home
+     Screen. Everything notifyAvailable() looks for is present in the browser
+     there and subscribing simply fails, so this is the one case where the panel
+     opens on a sentence instead of tickboxes — the sentence being the only
+     thing that fixes it. iPadOS calls itself a Macintosh, and a Mac has neither
+     touch points nor navigator.standalone, so touch is what separates them. */
+  function iosNeedsHomeScreen() {
+    const ua = navigator.userAgent || "";
+    const ios = /iPad|iPhone|iPod/.test(ua) ||
+      (/Macintosh/.test(ua) && (navigator.maxTouchPoints || 0) > 1);
+    return ios && navigator.standalone !== true;
+  }
+
+  // Read back through SERIES_BADGE, so a paper that leaves that table stops
+  // being ticked here rather than being asserted to the Worker forever.
+  const notifySeries = () => {
+    const saved = store.get(NOTIFY_KEY, null);
+    return Array.isArray(saved) ? saved.filter((s) => SERIES_BADGE[s]) : [];
+  };
+
+  function notifyNote(msg) {
+    const el = $("notify-status");
+    if (el) el.textContent = msg;
+  }
+
+  // The list of papers is SERIES_BADGE and nothing else, for the reason the
+  // table's own comment gives: it is what keeps the papers complete as they are
+  // added, and a second list is the one that would not be.
+  function renderNotifyPanel() {
+    const list = $("notify-list");
+    if (!list) return;
+    if (iosNeedsHomeScreen()) {
+      list.innerHTML = `<li class="muted small-note">On an iPhone or iPad, notifications reach a
+        site only once it is on your Home Screen — share this page, “Add to Home Screen”, and
+        tick your papers in there.</li>`;
+      return;
+    }
+    const on = new Set(notifySeries());
+    list.innerHTML = Object.keys(SERIES_BADGE).map((s) =>
+      `<li><label><input type="checkbox" data-series="${s}"${on.has(s) ? " checked" : ""}>`
+      + `${seriesChip(s)}</label></li>`).join("");
+  }
+
+  // This browser's subscription, made if it has not got one. register() is
+  // idempotent and getSubscription() answers out of what the browser already
+  // holds, so the first tick and the silent refresh below are the same call.
+  function pushSubscription() {
+    // sw.js is registered UNSTAMPED and must stay out of stamp_assets.py's
+    // ASSETS: the URL is the worker's identity, so a hash on it registers a
+    // second worker beside the one already holding this device's subscription.
+    return navigator.serviceWorker.register("sw.js")
+      .then((reg) => reg.pushManager.getSubscription()
+        .then((sub) => sub || reg.pushManager.subscribe({
+          userVisibleOnly: true, applicationServerKey: vapidKeyBytes(),
+        })));
+  }
+
+  /* The whole conversation with the Worker: these papers, at this address.
+
+     An empty list is how it is turned off, so there is one code path and no
+     separate unsubscribe — "tell me about nothing" and "forget this device" are
+     the same request, and two of them would be two states to hold in step.
+
+     The Worker says which part of the subscription it would not take, and that
+     sentence goes on the screen: it can only ever be a bug on this side, and
+     "couldn't save" would send whoever hits it looking at their wifi. */
+  function putNotify(sub, series) {
+    return fetch(SYNC_ENDPOINT.replace(/\/$/, "") + "/n", {
+      method: "PUT", headers: { "content-type": "application/json" },
+      body: JSON.stringify(Object.assign({}, sub.toJSON(), { series })),
+    }).then((r) => r.json().catch(() => null).then((body) => {
+      if (!r.ok || !body || body.error) throw new Error((body && body.error) || "HTTP " + r.status);
+      return body.series || [];
+    }));
+  }
+
+  // Ticking saves, so there is no save button to leave unpressed — and one save
+  // at a time, because two boxes tapped in a second would otherwise race and the
+  // slower answer would be the one stored.
+  let notifyBusy = false;
+  function saveNotify(next) {
+    if (notifyBusy) return;
+    notifyBusy = true;
+    // Redrawn from the store however it ends, so the boxes show what the Worker
+    // will actually act on. A tick left standing over a save that failed is the
+    // panel promising a notification nobody is going to send.
+    const done = (msg) => { notifyBusy = false; renderNotifyPanel(); notifyNote(msg); };
+    notifyNote(next.length ? "Saving…" : "Turning these off…");
+    /* Permission is asked for on the first tick and never on load: a prompt
+       nobody asked for is how a site gets permanently blocked. And "denied" is
+       final — the browser will not ask again however often we do — so the panel
+       says where to undo it rather than leaving a box that looks live. */
+    Promise.resolve(next.length && Notification.permission === "default"
+        ? Notification.requestPermission() : Notification.permission)
+      .then((perm) => {
+        if (next.length && perm !== "granted") {
+          done(perm === "denied"
+            ? "This browser blocks notifications for the site and will not ask again — turn them "
+              + "back on in its settings for this site."
+            : "Notifications weren’t allowed, so nothing is turned on.");
+          return null;
+        }
+        return pushSubscription();
+      })
+      .then((sub) => sub && putNotify(sub, next).then((series) => {
+        if (series.length) { store.set(NOTIFY_KEY, series); done("Saved."); return; }
+        store.del(NOTIFY_KEY);
+        // Nothing on the server points at this browser now, so the address it is
+        // still holding is dead weight: dropping it means the next tick asks for
+        // a fresh one instead of reviving one that may already have been retired.
+        return sub.unsubscribe().catch(() => {})
+          .then(() => done("Off — nothing will be sent to this device."));
+      }))
+      .catch((err) => done("Didn’t save (" + ((err && err.message) || err) + ")."));
+  }
+
+  /* Re-assert the subscription on load, in the background.
+
+     The Worker keeps one for 180 days and this is the only thing that winds that
+     clock, so a device still being opened never expires while one that has
+     stopped drops off by itself. It is the repair, too: a browser may retire a
+     subscription and mint a new one whenever it likes, and the address left
+     behind is otherwise found out only by pushing at it and failing.
+
+     Silent either way. Nobody asked for it, nothing on screen is about it, and
+     a load that cannot reach the Worker has the next load to try again. */
+  function refreshNotify() {
+    if (!notifyAvailable() || iosNeedsHomeScreen()) return;
+    const series = notifySeries();
+    if (!series.length || Notification.permission !== "granted") return;
+    pushSubscription().then((sub) => putNotify(sub, series)).catch(() => {});
   }
 
   function forEachCell(fn) {
@@ -3315,7 +3483,14 @@
   };
 
   function seriesBadge(p) {
-    const badge = SERIES_BADGE[p.series || "cryptic"];
+    return seriesChip(p.series || "cryptic");
+  }
+
+  // The pill for one series key. The picker rows and the notify list both name
+  // papers, and a paper a solver has learnt to recognise in one of them has to
+  // look the same in the other.
+  function seriesChip(series) {
+    const badge = SERIES_BADGE[series];
     if (!badge) return "";  // guarded by the smoke test; never the normal path
     return `<span class="badge series" title="${badge[1]}">${badge[0]}</span>`;
   }
@@ -3835,6 +4010,28 @@
       if (want) { renderSyncPanel(); if (syncOn()) syncPull(); }
     };
     $("btn-sync-close").onclick = () => $("sync-panel").classList.add("hidden");
+
+    // ---- notifications ----
+    if (!notifyAvailable()) $("btn-notify").classList.add("hidden");
+    $("btn-notify").onclick = () => {
+      const el = $("notify-panel");
+      const want = el.classList.contains("hidden");
+      el.classList.toggle("hidden", !want);
+      if (want) { renderNotifyPanel(); notifyNote(""); }
+    };
+    $("btn-notify-close").onclick = () => $("notify-panel").classList.add("hidden");
+    // Bound to the list and not to the boxes, because renderNotifyPanel() throws
+    // the boxes away and builds new ones after every save.
+    $("notify-list").addEventListener("change", (ev) => {
+      const box = ev.target;
+      const series = box && box.dataset ? box.dataset.series : null;
+      if (!series) return;
+      const on = new Set(notifySeries());
+      if (box.checked) on.add(series); else on.delete(series);
+      // Ordered off SERIES_BADGE, so what goes on the wire does not depend on
+      // which box was tapped first.
+      saveNotify(Object.keys(SERIES_BADGE).filter((s) => on.has(s)));
+    });
     $("sync-start").onclick = () => {
       store.set("ct:sync", newSyncCode());
       renderSyncPanel();
@@ -3999,6 +4196,9 @@
       // applyEnvelope redraws. The started puzzles are only needed by the
       // picker, which is shut.
       if (syncOn()) syncPull();
+      // Same reasoning: a round trip that keeps the Worker's copy of this
+      // device alive, run behind a grid that is already on screen.
+      refreshNotify();
       loadStartedPuzzles(() => {
         if (!$("picker-panel").classList.contains("hidden")) renderPicker();
       });
