@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JACKDAW",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "JACKDAW",
+    "definition": "Jewel thief",
+    "indicators": [
+     "did you say?"
+    ],
+    "indicatorNotes": {
+     "did you say?": "Asking whether you said it puts the wordplay in your mouth: what counts is the noise two words make run together, not how either is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "raised",
+      "gives": "JACKED",
+      "note": "to jack something up is to raise it"
+     },
+     {
+      "clueFragment": "feeling of dread",
+      "gives": "AWE",
+      "note": "awe is the mixture of wonder and dread that something overwhelming produces"
+     },
+     {
+      "clueFragment": "did you say?",
+      "soundsLike": "JACKED AWE",
+      "gives": "JACKDAW",
+      "note": "said as one, the two words fall across a different join and come out as seven letters"
+     }
+    ],
+    "surface": "Somebody checking they heard right about a jewel thief who left everyone frightened.",
+    "walkthrough": "The bird is famous for carrying off anything bright and shiny, which is what lets a species answer to a charge of theft. Nothing is spelt out here; the whole clue is a noise.",
+    "definitionFit": "Jewel thief → JACKDAW: the bird has a reputation for stealing glittering objects for its nest, so the human crime is pinned on it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +78,28 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JERKY",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "JERKY",
+    "definition": "Marked by convulsions",
+    "definition2": "that must be cured",
+    "definitionNote": "The first definition is a plain adjective and the second describes a foodstuff, so the answer changes part of speech between the two halves of the clue.",
+    "blocks": [
+     {
+      "clueFragment": "Marked by convulsions",
+      "gives": "",
+      "note": "the adjective for movement that arrives in sudden uncontrolled tugs"
+     },
+     {
+      "clueFragment": "that must be cured",
+      "gives": "",
+      "note": "strips of meat salted and dried until they will keep without a fridge"
+     }
+    ],
+    "surface": "A twitchy patient whose condition needs treating.",
+    "walkthrough": "'Cured' is the hinge: it means treated by a doctor in the surface and salted and dried in the answer, which is what turns strips of beef into a snack.",
+    "definitionFit": "Jerky movement is a series of jerks, and jerky the food is meat that has to be cured and dried before it will keep."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +116,30 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIANTI",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHIANTI",
+    "definition": "drink",
+    "pieces": [
+     "CHI",
+     "ANTI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "True self",
+      "gives": "CHI",
+      "note": "chi is the life force of Chinese philosophy, the energy held to be a person's innermost self"
+     },
+     {
+      "clueFragment": "critical of",
+      "gives": "ANTI",
+      "note": "anti means set against something, which is what being critical of it comes to"
+     }
+    ],
+    "surface": "Someone being true to themselves and disapproving of the drinking.",
+    "walkthrough": "Chi is worth banking: crosswords use those three letters for life force, spirit or inner energy whenever a clue turns mystical. The definition is the last word alone.",
+    "definitionFit": "drink → CHIANTI: the dry red wine of Tuscany, so the definition names the class and the answer supplies one example of it."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +156,27 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DASH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DASH",
+    "definition": "Shatter",
+    "definition2": "bolt",
+    "blocks": [
+     {
+      "clueFragment": "Shatter",
+      "gives": "",
+      "note": "to smash a thing to pieces, the verb used of hopes that come to nothing"
+     },
+     {
+      "clueFragment": "bolt",
+      "gives": "",
+      "note": "the verb rather than the door fitting: to run off suddenly"
+     }
+    ],
+    "surface": "A bolt being smashed apart.",
+    "walkthrough": "'Bolt' looks like the noun on a door, which is what makes the two words read as one instruction; the answer needs it as a verb, to run for it.",
+    "definitionFit": "To dash something is to smash it — dashed hopes, dashed to pieces — and to dash is also to bolt, to leave at speed."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +198,24 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
     ]
    },
    "solution": "WHATSYOURPOISON",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "WHAT'S YOUR POISON",
+    "definition": "How would you like to go – for a drink?",
+    "blocks": [
+     {
+      "clueFragment": "How would you like to go",
+      "note": "The surface offers this as a question about travel arrangements; the setter means it as a question about how you would choose to die."
+     },
+     {
+      "clueFragment": "for a drink?",
+      "note": "The second reading is the one heard across a bar, where the same question is only asking which bottle to reach for."
+     }
+    ],
+    "surface": "One friend asking another how they fancy getting to the pub.",
+    "walkthrough": "The dash is where the clue changes register: everything before it belongs to an execution and everything after it to a night out, and the phrase serves both.",
+    "definitionFit": "The phrase is a barman's dated way of asking what to pour, and it takes 'poison' literally enough to double as a question about dying."
+   }
   },
   {
    "id": "5-across",
@@ -120,7 +232,28 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STUFFED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STUFFED",
+    "definition": "Taken to the cleaners",
+    "definition2": "as are duvets and mattresses",
+    "definitionNote": "The second definition works by example rather than by synonym: it names two things the word is true of instead of offering another word for it.",
+    "blocks": [
+     {
+      "clueFragment": "Taken to the cleaners",
+      "gives": "",
+      "note": "the idiom for being comprehensively beaten, cheated or fleeced"
+     },
+     {
+      "clueFragment": "as are duvets and mattresses",
+      "gives": "",
+      "note": "both are packed full of filling, which is the literal sense of the word"
+     }
+    ],
+    "surface": "Bedding on its way to the laundry.",
+    "walkthrough": "'Taken to the cleaners' is idiom rather than laundry — it means comprehensively beaten or fleeced — and the duvets are there to make the phrase sound like a delivery note.",
+    "definitionFit": "Taken to the cleaners means thoroughly beaten or robbed; duvets and mattresses are stuffed in the literal sense, packed full of filling."
+   }
   },
   {
    "id": "5-down",
@@ -143,7 +276,42 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEENAPLESANDDIE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "SEE NAPLES AND DIE",
+    "definition": "If it’s the last thing you do, visit the home of pizza",
+    "indicators": [
+     "No time for it",
+     "unfortunately"
+    ],
+    "indicatorNotes": {
+     "No time for it": "Having no time for something is refusing to give it house room, and time is T, so that letter is refused a place among the rest.",
+     "unfortunately": "An unfortunate arrangement is one that has gone wrong, so the letters it governs are not lying in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "NEEDPASAINLEEDS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "need pasta in Leeds",
+      "gives": "NEEDPASTAINLEEDS",
+      "note": "anagram fodder, sixteen letters"
+     },
+     {
+      "clueFragment": "No time for it",
+      "gives": "",
+      "note": "time is T, and this one is unwanted, so sixteen letters come down to fifteen"
+     },
+     {
+      "clueFragment": "unfortunately",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Advice to go to Italy, and a grumble that there is no time to hunt down pasta in Leeds.",
+    "walkthrough": "The saying is an old traveller's boast about the bay: see it once and nothing afterwards can matter. 'The home of pizza' is the city itself rather than the country.",
+    "definitionFit": "The proverb tells you to see the bay before you die, and the definition gives the same instruction the other way round, as a last request."
+   }
   },
   {
    "id": "6-down",
@@ -160,7 +328,39 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERPARTS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNDERPARTS",
+    "definition": "lunchbox, say?",
+    "definitionNote": "'Lunchbox' is a singular slang word for what the answer names in the plural, and it defines by example: one nickname for the region rather than a synonym.",
+    "indicators": [
+     "festering"
+    ],
+    "indicatorNotes": {
+     "festering": "Something festering is rotting where it lies, and letters left to rot do not keep the order they were given in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "ERRANT SPUD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Errant spud",
+      "gives": "ERRANTSPUD",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "festering",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A stray potato going bad at the bottom of somebody's packed lunch.",
+    "walkthrough": "'Lunchbox' is British tabloid slang for a man's genitals, coined at the sprinter Linford Christie's expense in the 1990s and never quite retired since.",
+    "definitionFit": "lunchbox, say? → UNDERPARTS: the decorous term for the body's lower regions, of which the slang word is one cheerfully rude example."
+   }
   },
   {
    "id": "7-down",
@@ -177,7 +377,45 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FROGLET",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "FROGLET",
+    "definition": "Small jumper",
+    "indicators": [
+     "on top of",
+     "jackets"
+    ],
+    "indicatorNotes": {
+     "on top of": "In a down entry these words say one piece sits above another, and the very same words hand over the top letter of the word behind them.",
+     "jackets": "To jacket a thing is to put a coat round it, so this word closes over what sits between its two halves."
+    },
+    "pieces": [
+     "FRO",
+     "G",
+     "L",
+     "ET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "FRO",
+      "note": "to and fro: fro is the old word for back, and it survives nowhere else"
+     },
+     {
+      "clueFragment": "purchase",
+      "gives": "GET",
+      "note": "to purchase something is to get it"
+     },
+     {
+      "clueFragment": "littl’un",
+      "gives": "L",
+      "note": "the first letter of that word is all 'top of' asks for"
+     }
+    ],
+    "surface": "A small pullover worn back to front over a little one, with coats bought to go over the top.",
+    "walkthrough": "'Jumper' is a woolly garment all through the surface and a thing that jumps in the definition, and that is the whole distance between the clothes shop and the pond.",
+    "definitionFit": "Small jumper → FROGLET: the -let ending makes it a young frog, and a frog is the standard example of a creature that gets about by jumping."
+   }
   },
   {
    "id": "8-down",
@@ -194,7 +432,47 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUDGEON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "DUDGEON",
+    "definition": "Resentment",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "bottling up",
+     "initially"
+    ],
+    "indicatorNotes": {
+     "bottling up": "Bottling something up keeps it shut inside, which is where the letter goes — in among what has already been put together.",
+     "initially": "'Initially' asks for the state a word is in at the start, which on the page comes down to its opening letter."
+    },
+    "pieces": [
+     "DUD",
+     "G",
+     "EON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "DUDE",
+      "note": "a dude is a chap"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the little word is taken at face value and tacked straight on the end"
+     },
+     {
+      "clueFragment": "grievances",
+      "gives": "G",
+      "note": "the letter this word begins with, nothing looked up"
+     }
+    ],
+    "surface": "A man who swallows his complaints from the very beginning.",
+    "walkthrough": "'In high dudgeon' is the only phrase this noun survives in, so the definition is a word most solvers have met a hundred times without ever meeting it alone.",
+    "definitionFit": "Resentment → DUDGEON: the offended, indignant sort of resentment, a noun that now travels almost solely in the phrase 'in high dudgeon'."
+   }
   },
   {
    "id": "9-across",
@@ -211,7 +489,30 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REINSTATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REINSTATE",
+    "definition": "Take back",
+    "pieces": [
+     "REIN",
+     "STATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "control",
+      "gives": "REIN",
+      "note": "to rein something is to control it, from the strap that steers a horse"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state something is to say it"
+     }
+    ],
+    "surface": "A political slogan about taking back control.",
+    "walkthrough": "'Take back control' was a referendum slogan, which is what makes the three words read as one phrase; the definition stops after two of them and the rest is wordplay.",
+    "definitionFit": "Take back → REINSTATE: taking back a sacked employee or a scrapped rule is putting it in place again, the verb for restoring someone to a post."
+   }
   },
   {
    "id": "10-across",
@@ -228,7 +529,45 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DROID",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "DROID",
+    "definition": "Robot",
+    "indicators": [
+     "corners",
+     "in reverse"
+    ],
+    "indicatorNotes": {
+     "corners": "To corner someone is to trap them with no way past, so this word closes round what it has caught.",
+     "in reverse": "'In reverse' means read the other way about, and this is an across entry, so those letters arrive right to left."
+    },
+    "pieces": [
+     "D",
+     "RO",
+     "ID"
+    ],
+    "subReversals": [
+     {
+      "from": "OR",
+      "to": "RO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managed",
+      "gives": "DID",
+      "note": "managed to do it comes to the same thing as did it"
+     },
+     {
+      "clueFragment": "by contrast",
+      "gives": "OR",
+      "note": "the word that offers the alternative, the one you reach for when setting one thing against another"
+     }
+    ],
+    "surface": "A machine that took the bends better going backwards.",
+    "walkthrough": "'In reverse' looks as though it belongs to the driving, and it is an instruction; what gets turned round is a two-letter word, which is why so little seems to happen.",
+    "definitionFit": "Robot → DROID: the Star Wars clipping of android, now the general word for a humanoid robot in and out of the films."
+   }
   },
   {
    "id": "11-across",
@@ -245,7 +584,40 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YANG",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "YANG",
+    "definition": "Force of a male",
+    "indicators": [
+     "repelled",
+     "to some extent"
+    ],
+    "indicatorNotes": {
+     "repelled": "Something repelled has been driven back the way it came, so the letters run right to left along this across entry.",
+     "to some extent": "'To some extent' says you want only part of what is in front of you, and the part wanted is a run of letters inside the words themselves."
+    },
+    "subReversals": [
+     {
+      "from": "GNAY",
+      "to": "YANG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sovereign a youth",
+      "gives": "GNAY",
+      "note": "four letters in a row straddle the two gaps between these words"
+     },
+     {
+      "clueFragment": "repelled",
+      "gives": "",
+      "note": "reversal indicator: that run is read back the other way"
+     }
+    ],
+    "surface": "A young man fending off the power of a king.",
+    "walkthrough": "Yin's opposite is the male, bright and active principle of Chinese thought, which is what the definition is describing rather than any king's authority.",
+    "definitionFit": "Force of a male → YANG: in Chinese philosophy this is the masculine, active principle, set against the feminine yin."
+   }
   },
   {
    "id": "12-across",
@@ -262,7 +634,46 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESPADRILLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion + first letter",
+    "answer": "ESPADRILLE",
+    "definition": "one of those going on foot",
+    "indicators": [
+     "in",
+     "kicking out",
+     "first of"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is the placement instruction: the primate is not beside the car but inside it, and so are its letters.",
+     "kicking out": "Kicking something out throws it off the premises, and the letter named next is thrown out of the word it was sitting in.",
+     "first of": "'First of' takes the single letter a word opens with and leaves the whole of the rest of it behind."
+    },
+    "pieces": [
+     "ESPA",
+     "DRILL",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Renault",
+      "gives": "ESPACE",
+      "note": "the Espace is Renault's people carrier, a name the marque has used for forty years"
+     },
+     {
+      "clueFragment": "first of churchgoers",
+      "gives": "",
+      "note": "the C that word opens with is the letter kicked out, leaving five behind"
+     },
+     {
+      "clueFragment": "Primate",
+      "gives": "DRILL",
+      "note": "the drill is a short-tailed West African monkey, a close relative of the mandrill"
+     }
+    ],
+    "surface": "A monkey riding in a car and shoving the first of the congregation out of it.",
+    "walkthrough": "'Primate' points hard at an archbishop in a clue already full of churchgoers, and the wordplay wants the monkey instead.",
+    "definitionFit": "one of those going on foot → ESPADRILLE: the canvas shoe with a plaited rope sole, so what goes on foot is a shoe rather than a walker."
+   }
   },
   {
    "id": "13-down",
@@ -283,7 +694,42 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
     ]
    },
    "solution": "CASTADRIFT",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + anagram + last letter",
+    "answer": "CAST ADRIFT",
+    "definition": "Said craft at sea, lost ultimately – like that?",
+    "indicators": [
+     "at sea",
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "at sea": "Being at sea is being all over the place with no bearings, which is exactly the state the letters in front of it have been left in.",
+     "ultimately": "'Ultimately' means in the end, so what is wanted from the word before it is the letter standing at its end."
+    },
+    "anagram": {
+     "fodder": "SAID CRAFT T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Said craft",
+      "gives": "SAIDCRAFT",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "lost ultimately",
+      "gives": "T",
+      "note": "the last letter of losT joins the nine"
+     },
+     {
+      "clueFragment": "at sea",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A boat reported missing somewhere out on the water.",
+    "walkthrough": "Every word does both jobs: the sentence describes a vessel that has drifted away and the same words hand over the letters, which is what 'like that?' points back at.",
+    "definitionFit": "The whole clue reads straight — a craft at sea and finally lost is in exactly this condition — so the sentence defines the state it also spells."
+   }
   },
   {
    "id": "14-across",
@@ -300,7 +746,37 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIRAGO",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VIRAGO",
+    "definition": "dragon",
+    "indicators": [
+     "visited by"
+    ],
+    "indicatorNotes": {
+     "visited by": "A visitor comes inside the house rather than standing at the gate, so what visits goes in among the letters instead of beside them."
+    },
+    "pieces": [
+     "VIR",
+     "A",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "VIRGO",
+      "note": "the Maiden is the zodiac sign, the constellation drawn as a young woman"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article itself, dropped in whole"
+     }
+    ],
+    "surface": "A young woman receiving a visit from a dragon.",
+    "walkthrough": "'Dragon' is the definition and it is not the beast: a dragon is a fierce and domineering woman, which is what lets the fairy-tale surface run so smoothly.",
+    "definitionFit": "dragon → VIRAGO: both name a fierce, overbearing woman, the answer being the formal literary word where 'dragon' is the everyday insult."
+   }
   },
   {
    "id": "15-across",
@@ -321,7 +797,34 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEANTON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LEANT ON",
+    "definition": "support",
+    "definitionNote": "'Support' is given in the plain form while the answer is past tense; the enumeration is what tells you to supply the tense yourself.",
+    "linkWords": [
+     "needed for"
+    ],
+    "pieces": [
+     "LEAN",
+     "TON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modest",
+      "gives": "LEAN",
+      "note": "lean means spare or meagre, as in lean times — a modest amount of something"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "TON",
+      "note": "a ton is a unit of weight"
+     }
+    ],
+    "surface": "A small weight is all it takes to prop the thing up.",
+    "walkthrough": "The enumeration is the whole difficulty: two ordinary words go in and the answer splits the same letters one place further along, into two quite different ones.",
+    "definitionFit": "support → LEANT ON: to lean on a thing is to rest your weight against it and let it hold you up, which is taking support from it."
+   }
   },
   {
    "id": "16-across",
@@ -338,7 +841,30 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POINTER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "POINTER",
+    "definition": "Clue",
+    "definition2": "dog",
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clue",
+      "gives": "",
+      "note": "a hint that points you towards the thing you are hunting for"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "",
+      "note": "the gun dog that stands rigid with its nose aimed at hidden game"
+     }
+    ],
+    "surface": "A hint towards which breed is meant.",
+    "walkthrough": "Three clues in this grid read 'clue for dog' with a different word in front, and each answer is a breed that doubles as somebody's part in the crossword.",
+    "definitionFit": "A pointer is a hint that points you towards the answer, and a pointer is the gun dog that freezes with its nose aimed at the game."
+   }
   },
   {
    "id": "16-down",
@@ -355,7 +881,39 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PUBLISH",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "PUBLISH",
+    "definition": "Print",
+    "indicators": [
+     "not quite",
+     "covered up by"
+    ],
+    "indicatorNotes": {
+     "not quite": "'Not quite' the whole word stops just short of the end of it, so the final letter never arrives.",
+     "covered up by": "Being covered up by something means having it lie right over you, so the outer word closes round these letters."
+    },
+    "pieces": [
+     "PU",
+     "BLI",
+     "SH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "press",
+      "gives": "PUSH",
+      "note": "to press a thing is to push it"
+     },
+     {
+      "clueFragment": "error not quite",
+      "gives": "BLI",
+      "note": "a blip is a small error, and it turns up here a letter short"
+     }
+    ],
+    "surface": "A printing mistake hushed up by the newspapers.",
+    "walkthrough": "'Press' is the newspaper trade all through the surface and the plain verb to push in the wordplay, which is what makes one sentence out of two halves.",
+    "definitionFit": "Print → PUBLISH: both are verbs for putting words out into the world, though a publisher issues the book while a printer only manufactures it."
+   }
   },
   {
    "id": "17-down",
@@ -376,7 +934,30 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
     ]
    },
    "solution": "IRONMAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IRON MAN",
+    "definition": "film?",
+    "pieces": [
+     "IRON",
+     "MAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "IRON",
+      "note": "the first two letters of that word are Fe, the chemical symbol for iron, taken from Latin ferrum"
+     },
+     {
+      "clueFragment": "Female",
+      "gives": "MAN",
+      "note": "what is left of the word once those two letters go is male, and a male is a man"
+     }
+    ],
+    "surface": "A film with a woman at the heart of it.",
+    "walkthrough": "The wordplay is one word long. Split 'Female' after two letters and a chemical symbol stands next to an ordinary noun, which is why the enumeration (4,3) looks impossible at first.",
+    "definitionFit": "film? → IRON MAN: the 2008 Marvel film, so the definition names the class and the question mark admits this is one film among thousands."
+   }
   },
   {
    "id": "18-across",
@@ -393,7 +974,30 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SETTER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SETTER",
+    "definition": "Writer of clue",
+    "definition2": "dog",
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer of clue",
+      "gives": "",
+      "note": "the trade name for whoever composes a crossword, used by the papers themselves"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "",
+      "note": "the long-haired gun dog that drops to a crouch when it scents birds"
+     }
+    ],
+    "surface": "Whoever wrote a clue about a dog.",
+    "walkthrough": "Paul is naming himself here: the word for whoever composes a crossword is also the long-haired gun dog, Irish or English or Gordon, that stands stock still on a scent.",
+    "definitionFit": "The setter is the person who writes the clues in a crossword, and a setter is also a breed of gun dog trained to freeze when it finds birds."
+   }
   },
   {
    "id": "19-down",
@@ -410,7 +1014,38 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENAMOUR",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ENAMOUR",
+    "definition": "Cast a spell on",
+    "indicators": [
+     "we ‘ear?"
+    ],
+    "indicatorNotes": {
+     "we ‘ear?": "Hearing is the whole point, and the dropped aitch tells you which accent to hear it in before you write anything down."
+    },
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the article stays exactly as the clue prints it"
+     },
+     {
+      "clueFragment": "item of ‘ardware",
+      "gives": "AMMER",
+      "note": "hardware runs to hammers, and the setter's apostrophe has already knocked the aitch off this one"
+     },
+     {
+      "clueFragment": "we ‘ear?",
+      "soundsLike": "AN ’AMMER",
+      "gives": "ENAMOUR",
+      "note": "said as one, the article and the tool run together into seven quite different letters"
+     }
+    ],
+    "surface": "A spell being cast over a piece of hardware, by all accounts.",
+    "walkthrough": "The dropped aitches are printed rather than left to you: 'ardware is the setter putting the accent on the page, and the sound is the only route from tools to romance.",
+    "definitionFit": "Cast a spell on → ENAMOUR: to enamour someone is to make them fall in love, which is charming them in the older, magical sense of that verb."
+   }
   },
   {
    "id": "20-across",
@@ -427,7 +1062,30 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLOODHOUND",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BLOODHOUND",
+    "definition": "Solver of clue",
+    "definition2": "dog",
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solver of clue",
+      "gives": "",
+      "note": "the dogged tracker of a person, who follows a trail until it gives out"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "",
+      "note": "the breed with the drooping ears and the celebrated nose, used to follow a scent"
+     }
+    ],
+    "surface": "Whoever finally works a clue about a dog out.",
+    "walkthrough": "Third of the trio — clue, writer of clue, solver of clue — and the longest breed of the three, the one police forces use to follow a scent across country.",
+    "definitionFit": "A bloodhound is the tracking dog with the celebrated nose, and the word is used of any dogged investigator who follows a trail to the end."
+   }
   },
   {
    "id": "21-across",
@@ -444,7 +1102,28 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAWN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PAWN",
+    "definition": "Poodle",
+    "indicators": [
+     "by one’s ears?"
+    ],
+    "indicatorNotes": {
+     "by one’s ears?": "Taking a word by the ears is judging it by the noise it makes, so what gets written down matches the sound and not the spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "smut",
+      "soundsLike": "PORN",
+      "gives": "PAWN",
+      "note": "smut is porn, and in an English accent that drops its r that word is exactly the noise wanted here"
+     }
+    ],
+    "surface": "A poodle with something filthy right by its ears.",
+    "walkthrough": "'Poodle' is the dog theme's decoy: it means somebody's lapdog in the political sense, which is what got Tony Blair called George Bush's poodle.",
+    "definitionFit": "Poodle → PAWN: a poodle is somebody's obedient creature and a pawn is the piece a stronger player pushes about, so both are another's instrument."
+   }
   },
   {
    "id": "22-down",
@@ -461,7 +1140,39 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NASTY",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + outer letters",
+    "answer": "NASTY",
+    "definition": "Vile",
+    "indicators": [
+     "missing",
+     "on vacation",
+     "at first"
+    ],
+    "indicatorNotes": {
+     "missing": "What is missing has been taken away, so the letters named next are the ones the longer word has to do without.",
+     "on vacation": "A word on vacation has been emptied out: everyone has left the middle and only the letters at the two ends are still standing there.",
+     "at first": "'At first' says where the loss falls — at the front of the word rather than anywhere else along it."
+    },
+    "pieces": [
+     "NASTY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family",
+      "gives": "DYNASTY",
+      "note": "a dynasty is a ruling family, one generation handing on to the next"
+     },
+     {
+      "clueFragment": "daddy on vacation",
+      "gives": "DY",
+      "note": "empty that word out and its first and last letters are left holding the ends"
+     }
+    ],
+    "surface": "A vile family away on holiday with the father not there.",
+    "walkthrough": "'On vacation' is a hard-working crossword idiom — it empties a word rather than sending it away — and what it empties out here is what then has to go missing.",
+    "definitionFit": "Vile → NASTY: both are plain adjectives for something disgusting or spiteful, the answer being the everyday word where 'vile' is the stronger one."
+   }
   },
   {
    "id": "23-down",
@@ -478,7 +1189,37 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STUD",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "STUD",
+    "definition": "Beefcake",
+    "indicators": [
+     "to wipe",
+     "bottom"
+    ],
+    "indicatorNotes": {
+     "to wipe": "To wipe something is to rub it out altogether, so the letter pointed at is deleted rather than shifted elsewhere.",
+     "bottom": "This is a down entry, so the bottom of the word is the letter standing at the foot of the column."
+    },
+    "pieces": [
+     "STUD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learning",
+      "gives": "STUDY",
+      "note": "learning is study, the noun for what a student puts in"
+     },
+     {
+      "clueFragment": "bottom",
+      "gives": "",
+      "note": "the letter at the foot of that word is the Y, and it is the one wiped away"
+     }
+    ],
+    "surface": "A hunk learning to clean up after himself.",
+    "walkthrough": "'Beefcake' is 1950s magazine slang for photographs of muscular men, the male answer to cheesecake, and it long ago came to mean the man himself.",
+    "definitionFit": "Beefcake → STUD: both are slang for a conspicuously muscular and attractive man, the answer borrowed from the horse kept for breeding."
+   }
   },
   {
    "id": "24-across",
@@ -495,7 +1236,35 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IAMBI",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "IAMBI",
+    "definition": "a few feet?",
+    "indicators": [
+     "though shorter"
+    ],
+    "indicatorNotes": {
+     "though shorter": "Being shorter than what the giant actually said means the boast arrives with its final letter clipped off."
+    },
+    "pieces": [
+     "IAMBI"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What giant might say",
+      "gives": "IAMBIG",
+      "note": "the plainest boast a giant could make about himself, run together as six letters"
+     },
+     {
+      "clueFragment": "though shorter",
+      "gives": "",
+      "note": "one letter comes off the end of that boast"
+     }
+    ],
+    "surface": "A giant announcing his size, only not at full length.",
+    "walkthrough": "Feet are the units a line of verse is measured in, and the answer is the Latin plural of the commonest one — the te-TUM beat of 'again' or 'delay'.",
+    "definitionFit": "a few feet? → IAMBI: an iamb is a metrical foot in poetry, so a few of them are feet in the prosodic sense rather than the bodily one."
+   }
   },
   {
    "id": "25-across",
@@ -512,7 +1281,35 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEDITIOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "SEDITIOUS",
+    "definition": "Rabble-rousing",
+    "indicators": [
+     "bombs"
+    ],
+    "indicatorNotes": {
+     "bombs": "A show that bombs falls apart in front of the audience, and letters that fall apart do not land in the order they started in."
+    },
+    "anagram": {
+     "fodder": "IDIOTS USE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "idiots use",
+      "gives": "IDIOTSUSE",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "bombs",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Fools with explosives, stirring up trouble.",
+    "walkthrough": "'Bombs' sits at the end of the clue where a solver expects the definition, and it is the instruction; the definition is the very first word instead.",
+    "definitionFit": "Rabble-rousing → SEDITIOUS: both are adjectives for speech that stirs people up against the authorities, the answer being the word the law uses."
+   }
   },
   {
    "id": "26-across",
@@ -529,7 +1326,37 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HONITON",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HONITON",
+    "definition": "Devon town",
+    "indicators": [
+     "passing through"
+    ],
+    "indicatorNotes": {
+     "passing through": "Whatever passes through a place goes in one side and out the other, so this piece ends up inside the letters rather than alongside them."
+    },
+    "pieces": [
+     "H",
+     "ON",
+     "ITON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "come across",
+      "gives": "HITON",
+      "note": "to hit on an idea is to come across it"
+     },
+     {
+      "clueFragment": "On",
+      "gives": "ON",
+      "note": "the clue's first word goes in as it stands, both its letters"
+     }
+    ],
+    "surface": "Stopping off in a Devon town while travelling through.",
+    "walkthrough": "Honiton is the small market town in east Devon on the old road to Exeter, known for two centuries for its handmade lace.",
+    "definitionFit": "Devon town → HONITON: a real market town in east Devon, so the definition names the class and the answer supplies one instance of it."
+   }
   },
   {
    "id": "27-across",
@@ -546,7 +1373,30 @@ window.CRYPTIC_PUZZLES["cryptic-30014"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELDERLY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ELDERLY",
+    "definition": "Wrinkled",
+    "pieces": [
+     "ELDER",
+     "LY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a tree",
+      "gives": "ELDER",
+      "note": "the elder is the hedgerow tree that gives us elderflower and elderberry"
+     },
+     {
+      "clueFragment": "in the manner of",
+      "gives": "LY",
+      "note": "-ly is the ending English tacks on to mean in the manner of, as in slowly or kindly"
+     }
+    ],
+    "surface": "Something creased like the bark of a tree.",
+    "walkthrough": "The clue reads back to front: the ending is named first and the tree second, so the assembly runs the opposite way to the sentence you are given.",
+    "definitionFit": "Wrinkled → ELDERLY: not a synonym but the sign of the thing, since lined skin is what the polite adjective for old is pointing at here."
+   }
   }
  ]
 } /*JSON-END*/;
