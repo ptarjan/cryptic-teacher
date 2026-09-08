@@ -1131,6 +1131,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
   // it sits on — and only while it sits on the rung that hands the fodder over.
   // It also must never deal the answer itself: a shuffle that happens to land on
   // the solve gives the clue away by luck, a rung before the walkthrough.
+  let ringSample = null;  // first clue seen with a drawn ring, reused below to test typing
   {
     const bare = (s) => (s || "").replace(/[^A-Za-z]/g, "").toUpperCase();
     const anas = [];
@@ -1160,6 +1161,7 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
           continue;
         }
         if (!html.includes("anagram-ring")) break;  // no blocks rung on this clue
+        if (!ringSample) ringSample = r;
         const tiles = [...html.matchAll(/data-ana="\d+"[^>]*>([A-Z])</g)].map((m) => m[1]);
         assert(tiles.slice().sort().join("") === r.f.split("").sort().join(""),
           `${r.id} ${r.e.id}: the ring holds the fodder (${tiles.join("")} vs ${r.f})`);
@@ -1170,6 +1172,61 @@ assert(registry["hint-escape"].innerHTML.includes("Reveal one letter"), "auto-hi
       }
     }
     assert(drawn > 300, "anagram rings drawn across the corpus: " + drawn);
+  }
+
+  // --- typing edits the ring: a letter adds a tile, Backspace removes the
+  // last one, anything else does nothing ---
+  //
+  // The ring used to only ever show the clue's own fodder, dealt by dealRing()
+  // and re-shuffled by the ana-shuffle button. Paul asked to add and delete
+  // letters by typing ("I should be able to delete and add by typing them"),
+  // which app.js implements as addRingLetter()/removeLastRingLetter() editing
+  // `ring.letters`/`ring.order` directly, wired to #ana-kbd's keydown handler.
+  // That is pure state and is exactly what this block checks. The FLIP
+  // animation wired alongside it (playRingFlip in app.js) is not checkable
+  // here: fake_dom's getBoundingClientRect() always reports a zero box (no
+  // real layout runs under Node), so every measured delta is zero and a test
+  // asserting "the transform passed through a nonzero value" would be
+  // asserting about the stub, not the app — it is exercised manually instead.
+  {
+    assert(ringSample, "an anagram ring sample was captured to test typing against");
+    openClue(ringSample);
+    for (let i = 0; i < 8; i++) {
+      const btn = registry["hint-next"].children[0];
+      if (!CLIMBABLE(btn)) break;
+      takeRung(btn);
+      if (registry["hint-body"].innerHTML.includes("anagram-ring")) break;
+    }
+    const tilesOf = () =>
+      [...registry["hint-body"].innerHTML.matchAll(/data-ana="\d+"[^>]*>([A-Z])</g)].map((m) => m[1]);
+    const before = tilesOf();
+    assert(before.length >= 4, "ring sample has tiles before any typing: " + before.join(""));
+
+    const kd = registry["ana-kbd"].listeners.keydown[0];
+    assert(kd, "#ana-kbd keydown handler wired");
+    const keyEv = (k) => ({ key: k, preventDefault() {} });
+
+    kd(keyEv("z"));
+    const afterAdd = tilesOf();
+    assert(afterAdd.length === before.length + 1,
+      `a letter key appends a tile (${before.length} -> ${afterAdd.length}): ${afterAdd.join("")}`);
+    assert(afterAdd[afterAdd.length - 1] === "Z",
+      "the typed letter is drawn as the new tile: " + afterAdd.join(""));
+
+    kd(keyEv("5"));
+    assert(tilesOf().length === afterAdd.length,
+      "a digit key does nothing to the ring: " + tilesOf().join(""));
+
+    kd(keyEv("Backspace"));
+    const afterBackspace = tilesOf();
+    assert(afterBackspace.length === before.length,
+      `Backspace removes the last tile (${afterAdd.length} -> ${afterBackspace.length}): ${afterBackspace.join("")}`);
+    assert(afterBackspace.slice().sort().join("") === before.slice().sort().join(""),
+      "Backspace removed exactly the typed letter, leaving the original fodder: " + afterBackspace.join(""));
+
+    // Backspace past empty must not throw or go negative.
+    for (let i = 0; i < before.length + 2; i++) kd(keyEv("Backspace"));
+    assert(tilesOf().length === 0, "Backspace never takes the ring below zero tiles: " + tilesOf().join(""));
   }
 
   // --- a rung's name may ask its question, never answer it ---

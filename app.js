@@ -1717,6 +1717,15 @@
     return order;  // repeated letters can make every deal a forbidden one
   }
 
+  // True once the hidden #ana-kbd input has real DOM focus — read straight off
+  // document.activeElement rather than tracked in a variable, because #ana-kbd
+  // lives outside the hint panel (see its wiring below) and so survives every
+  // redraw the ring itself goes through; activeElement is therefore always the
+  // live answer, even the instant after a keystroke has just rebuilt the disc.
+  function ringKbdFocused() {
+    return !!(document.activeElement && document.activeElement.id === "ana-kbd");
+  }
+
   function ringHTML(ann) {
     const fodder = ((ann.anagram || {}).fodder || "").toUpperCase().replace(/[^A-Z]/g, "");
     // Keyed off the annotation rather than the clue id: ladderSteps() is a pure
@@ -1727,28 +1736,153 @@
     // Three letters have six arrangements and you can see all of them at once,
     // so a ring is furniture rather than help.
     if (fodder.length < 4) return "";
-    const letters = fodder.split("");
     if (!ring || ring.key !== key) {
+      const letters = fodder.split("");
       const forbidden = [fodder, ann.answer];
       ring = { key, letters, forbidden, order: dealRing(letters, forbidden), struck: {} };
     }
+    // Letters and order are read off `ring` from here on, not off the fresh
+    // fodder split above: typing into the ring (addRingLetter/removeLastRingLetter)
+    // edits `ring.letters` directly, and a re-render must draw what is there now,
+    // not re-deal the clue's original fodder out from under an edit in progress.
+    const n = ring.letters.length;
     // The ring grows with the fodder so the tiles never overlap; the disc is
     // sized off the same radius so the box is never taller than its contents.
-    const radius = Math.max(46, Math.round((letters.length * 30) / (2 * Math.PI)));
+    const radius = Math.max(46, Math.round((n * 30) / (2 * Math.PI)));
     const tiles = ring.order.map((idx, pos) => {
-      const a = (pos / letters.length) * 2 * Math.PI - Math.PI / 2;
+      const a = (pos / n) * 2 * Math.PI - Math.PI / 2;
       return `<button type="button" class="ana-tile${ring.struck[idx] ? " struck" : ""}"
         data-ana="${idx}" aria-pressed="${ring.struck[idx] ? "true" : "false"}"
         style="left:calc(50% + ${Math.round(Math.cos(a) * radius)}px);
-               top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${letters[idx]}</button>`;
+               top:calc(50% + ${Math.round(Math.sin(a) * radius)}px)">${ring.letters[idx]}</button>`;
     }).join("");
     const d = radius * 2 + 34;
+    // ana-focus is a plain function of activeElement at render time, not of a
+    // focus/blur listener toggling a class: the disc is thrown away and rebuilt
+    // on every keystroke (a new tile has to be drawn), so anything the DOM
+    // itself would have set on the old disc is gone with it. Deriving the class
+    // fresh on every render is what makes the ring survive its own redraws.
     return `<div class="anagram-ring">
-      <div class="ana-disc" style="width:${d}px;height:${d}px">${tiles}</div>
-      <p class="muted">Tap a letter to cross it off once you've used it.
-        Shuffle for a fresh arrangement.</p>
+      <div class="ana-disc${ringKbdFocused() ? " ana-focus" : ""}" style="width:${d}px;height:${d}px">${tiles}</div>
+      <p class="muted">Tap a letter to cross it off once you've used it. Click the ring and type
+        to add a letter, Backspace to remove the last. Shuffle for a fresh arrangement.</p>
       <button type="button" id="ana-shuffle" class="ghost small">Shuffle</button>
     </div>`;
+  }
+
+  // ---------- animating the ring ----------
+  //
+  // A shuffle used to just redraw: the letters blinked into a new order and the
+  // eye had nothing to follow, which is the one thing a physical set of tiles
+  // gives you for free. FLIP fixes that without a library — measure every
+  // tile's rect before the redraw, let the redraw happen, then for each tile
+  // that still exists work out how far it moved and play that distance
+  // backwards as a transform, so the tile appears to still be at its old spot
+  // and animates from there back to zero. A tile with no old rect is new (typed
+  // in) and gets a pop-in instead; a tile that has no new rect was deleted
+  // (Backspace) and gets a fading ghost planted at its last known position,
+  // since the real element is already gone by the time this runs.
+  function reduceMotion() {
+    return !!(typeof window !== "undefined" && window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+
+  function ringTileRects() {
+    const rects = {};
+    const panel = $("hint-panel");
+    panel.querySelectorAll("button.ana-tile").forEach((b) => {
+      rects[b.getAttribute("data-ana")] = b.getBoundingClientRect();
+    });
+    return rects;
+  }
+
+  function playRingFlip(prevRects) {
+    if (reduceMotion()) return;
+    const panel = $("hint-panel");
+    panel.querySelectorAll("button.ana-tile").forEach((b) => {
+      const prev = prevRects[b.getAttribute("data-ana")];
+      if (prev) {
+        const now = b.getBoundingClientRect();
+        const dx = prev.left - now.left, dy = prev.top - now.top;
+        if (Math.abs(dx) < .5 && Math.abs(dy) < .5) return;
+        b.style.transition = "none";
+        b.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
+        b.getBoundingClientRect();  // force layout so the jump above is not itself animated
+        requestAnimationFrame(() => {
+          b.style.transition = "transform .22s ease-out";
+          b.style.transform = "translate(-50%, -50%)";
+        });
+      } else {
+        // Freshly typed: pop in rather than sliding from nowhere.
+        b.style.transition = "none";
+        b.style.opacity = "0";
+        b.style.transform = "translate(-50%, -50%) scale(.3)";
+        b.getBoundingClientRect();
+        requestAnimationFrame(() => {
+          b.style.transition = "transform .22s ease-out, opacity .22s ease-out";
+          b.style.opacity = "1";
+          b.style.transform = "translate(-50%, -50%) scale(1)";
+        });
+      }
+    });
+  }
+
+  // Backspace removes a tile that is already gone from the DOM by the time
+  // playRingFlip runs, so there is nothing left to animate out — a ghost stands
+  // in for it, planted at its last real position and faded there.
+  function ghostRingTile(rect, text) {
+    if (reduceMotion() || !rect || !document.body) return;
+    const ghost = document.createElement("div");
+    ghost.className = "ana-tile ana-ghost";
+    ghost.textContent = text;
+    ghost.style.position = "fixed";
+    ghost.style.left = rect.left + "px";
+    ghost.style.top = rect.top + "px";
+    ghost.style.width = rect.width + "px";
+    ghost.style.height = rect.height + "px";
+    ghost.style.margin = "0";
+    ghost.style.transform = "none";
+    ghost.style.opacity = "1";
+    ghost.style.pointerEvents = "none";
+    document.body.appendChild(ghost);
+    requestAnimationFrame(() => {
+      ghost.style.transition = "transform .2s ease-in, opacity .2s ease-in";
+      ghost.style.transform = "translateY(-8px) scale(.5)";
+      ghost.style.opacity = "0";
+    });
+    setTimeout(() => ghost.remove(), 260);
+  }
+
+  // ---------- typing into the ring ----------
+  //
+  // Tapping struck a letter off; typing edits the set itself. A letter key
+  // appends a tile, Backspace deletes the most recently added one — plain
+  // array push/pop on `ring.letters`, with `ring.order` (the shuffled draw
+  // order the tiles are actually drawn in) kept in step so a mid-shuffle edit
+  // does not scramble indices out from under struck-off tiles that survive it.
+  function addRingLetter(ch) {
+    if (!ring) return;
+    const prevRects = ringTileRects();
+    const idx = ring.letters.length;
+    ring.letters.push(ch);
+    ring.order.push(idx);
+    renderHintPanel();
+    playRingFlip(prevRects);
+  }
+
+  function removeLastRingLetter() {
+    if (!ring || !ring.letters.length) return;
+    const prevRects = ringTileRects();
+    const idx = ring.letters.length - 1;
+    const removedRect = prevRects[String(idx)];
+    const removedText = ring.letters[idx];
+    ring.letters.pop();
+    const pos = ring.order.indexOf(idx);
+    if (pos >= 0) ring.order.splice(pos, 1);
+    delete ring.struck[idx];
+    renderHintPanel();
+    playRingFlip(prevRects);
+    ghostRingTile(removedRect, removedText);
   }
 
   function ladderSteps(ann, clue) {
@@ -3197,14 +3331,35 @@
     panel.querySelectorAll("button.ana-tile").forEach((b) => {
       b.onclick = () => {
         const i = b.getAttribute("data-ana");
-        if (ring) { ring.struck[i] = !ring.struck[i]; renderHintPanel(); }
+        if (ring) {
+          ring.struck[i] = !ring.struck[i];
+          // A tap on a tile is also "I might type next" — #ana-kbd is focused
+          // first so the ring's focus ring is already drawn on the redraw that
+          // follows, the same order addRingLetter/removeLastRingLetter use.
+          const ak = $("ana-kbd");
+          if (ak) ak.focus({ preventScroll: true });
+          renderHintPanel();
+        }
       };
     });
     const shuffle = document.getElementById("ana-shuffle");
     // Struck letters survive a shuffle: they are the ones already on the grid,
     // and dealing again is a fresh look at what is LEFT.
     if (shuffle && ring) shuffle.onclick = () => {
+      const prevRects = ringTileRects();
       ring.order = dealRing(ring.letters, ring.forbidden);
+      renderHintPanel();
+      playRingFlip(prevRects);
+    };
+    // Clicking the disc itself (not a tile) is how a mouse/touch user starts
+    // typing: focus #ana-kbd — a real input, so it takes a hardware keyboard
+    // directly and raises a soft one on a phone — then redraw so the focus
+    // ring (ringKbdFocused() in ringHTML) appears immediately rather than on
+    // whatever render happens to come next.
+    const disc = panel.querySelector(".ana-disc");
+    if (disc && ring) disc.onclick = () => {
+      const ak = $("ana-kbd");
+      if (ak) ak.focus({ preventScroll: true });
       renderHintPanel();
     };
   }
@@ -3924,6 +4079,30 @@
       if (v) typeLetter(v[v.length - 1]);
       ev.target.value = "";
     });
+
+    // The anagram ring's own hidden input, wired once here rather than inside
+    // renderHintPanel(): #ana-kbd is a static element (see index.html) that
+    // survives every ring redraw, so it only ever needs one set of listeners,
+    // the same way #kbd's are wired once for the life of the page.
+    $("ana-kbd").addEventListener("keydown", (ev) => {
+      const k = ev.key;
+      if (/^[a-zA-Z]$/.test(k)) { addRingLetter(k.toUpperCase()); ev.preventDefault(); }
+      else if (k === "Backspace") { removeLastRingLetter(); ev.preventDefault(); }
+      // Anything else (Tab, Escape, arrows...) is left alone — this is a real
+      // input and those keys already do the right thing on one.
+    });
+    // Same mobile fallback as #kbd: some on-screen keyboards report every key
+    // as "Unidentified" and only the resulting `input` event is trustworthy.
+    $("ana-kbd").addEventListener("input", (ev) => {
+      const v = letterOf(ev.target.value);
+      if (v) addRingLetter(v[v.length - 1]);
+      ev.target.value = "";
+    });
+    // Losing focus has to redraw too, or the outline ringHTML() drew off
+    // activeElement would sit there until some unrelated render happened to
+    // clear it.
+    $("ana-kbd").addEventListener("blur", () => { if (ring) renderHintPanel(); });
+
     // THE ONE PLACE THAT SUMMONS A KEYBOARD: the letter strip, the row of boxes
     // for the answer. Tapping the squares you are about to fill in is the only
     // tap on the page that says "I am going to type" — everything else on the
