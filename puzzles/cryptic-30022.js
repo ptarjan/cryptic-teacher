@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRETENCE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PRETENCE",
+    "definition": "Cover",
+    "indicators": [
+     "fancy"
+    ],
+    "indicatorNotes": {
+     "fancy": "'Fancy' is the adjective for something got up ornately, and letters dressed up that way do not stay in the plain order the clue prints them."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "TEN CREPE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "a figure is a numeral, and ten is the one the setter wants"
+     },
+     {
+      "clueFragment": "crepe",
+      "gives": "CREPE",
+      "note": "five more letters lifted straight out of the clue to join them"
+     }
+    ],
+    "surface": "A figure wrapped in expensive crepe cloth, covered up by the fabric.",
+    "walkthrough": "'Figure' is a body shape on the surface and a number underneath, and 'Cover' is the noun, not the verb the dressmaking picture wants.",
+    "definitionFit": "A pretence is a cover — the false front someone puts up to hide behind, the sense in 'cover story'."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +78,30 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEEP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEEP",
+    "definition": "electronic alert",
+    "pieces": [
+     "BE",
+     "EP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to live is to be"
+     },
+     {
+      "clueFragment": "recording’s",
+      "gives": "EP",
+      "note": "an EP is a recording, the extended-play disc that sits between a single and an album; the ’s is only 'is'"
+     }
+    ],
+    "surface": "A gig captured live, electronic warning tone and all.",
+    "walkthrough": "'Live' reads as the adjective of live music and is the verb here. EP for a recording is worth keeping — setters reach for it whenever music is mentioned.",
+    "definitionFit": "A beep is the short electronic note a machine sounds to warn you, so 'electronic alert' is its plain description."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +118,42 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COWBOY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "COWBOY",
+    "definition": "Devious worker",
+    "indicators": [
+     "getting a rise"
+    ],
+    "indicatorNotes": {
+     "getting a rise": "Something getting a rise is travelling upwards, and in a down entry a word written upwards is read from the bottom, so its letters arrive back to front."
+    },
+    "pieces": [
+     "COW",
+     "BOY"
+    ],
+    "subReversals": [
+     {
+      "from": "YOB",
+      "to": "BOY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bully",
+      "gives": "COW",
+      "note": "to cow someone is to bully them into submission"
+     },
+     {
+      "clueFragment": "lout",
+      "gives": "BOY",
+      "note": "a yob is a lout, and this entry climbs, so YOB is read upwards"
+     }
+    ],
+    "surface": "A bully and a lout together, trying to get a rise out of somebody.",
+    "walkthrough": "In British usage a cowboy is a shoddy, dishonest tradesman — the cowboy builder who takes the money and botches the job — and none of the Wild West is in play.",
+    "definitionFit": "Cowboy is British slang for a dishonest or incompetent tradesman, which is what 'devious worker' names."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +170,39 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPASTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IMPASTO",
+    "definition": "Laying it on thick",
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "IM",
+     "PAST",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One’s",
+      "gives": "IM",
+      "note": "'one' speaking of itself says I'm"
+     },
+     {
+      "clueFragment": "too old",
+      "gives": "PAST",
+      "note": "someone past it is too old for whatever follows"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nothing in tennis scoring, and nothing is written as O"
+     }
+    ],
+    "surface": "Somebody being written off as too old for romance, and saying so with relish.",
+    "walkthrough": "The definition is the painter's technique, not the exaggeration the quoted grumble suggests. Love for O comes off a tennis scoreboard, where love is a score of nothing.",
+    "definitionFit": "Impasto is paint applied in ridges thick enough to stand off the canvas, so 'laying it on thick' is literally what the technique is."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +219,29 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREK",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "TREK",
+    "definition": "arduous walk",
+    "indicators": [
+     "about",
+     "covering"
+    ],
+    "indicatorNotes": {
+     "about": "'About' means turned round, as in an about turn, so the letters are read the opposite way from how the clue prints them.",
+     "covering": "One thing covering another conceals it, and these words are lying over the answer's letters rather than saying them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hiker told",
+      "gives": "TREK",
+      "note": "four consecutive letters straddle the gap between these two words, running the other way"
+     }
+    ],
+    "surface": "Someone warning a hiker about the punishing walk ahead.",
+    "walkthrough": "'Told' invites you to hunt for a sound-alike; it is there so that four letters can run backwards across the join between two ordinary words.",
+    "definitionFit": "A trek is a long hard journey made on foot — the effort is built into the word, which is why nobody calls a stroll one."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +258,34 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFTERTASTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AFTERTASTE",
+    "definition": "Lingering sensation",
+    "linkWords": [
+     "of",
+     "getting"
+    ],
+    "pieces": [
+     "AFTER",
+     "TASTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "AFTER",
+      "note": "behind = after, in the sense of following something"
+     },
+     {
+      "clueFragment": "smack",
+      "gives": "TASTE",
+      "note": "a smack of something is a trace of its flavour — 'a smack of garlic'"
+     }
+    ],
+    "surface": "The sting that lingers after a slap on the backside.",
+    "walkthrough": "Smack is the trap: the surface hears a slap, while the word also means a faint flavour, which is the reading the answer needs.",
+    "definitionFit": "An aftertaste is the flavour that stays in the mouth once the food has gone, which is a sensation that lingers."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +302,37 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VESSEL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "VESSEL",
+    "definition": "junk",
+    "indicators": [
+     "heaving",
+     "abandoned"
+    ],
+    "indicatorNotes": {
+     "heaving": "A heaving deck pitches everything on it about, so the letters it describes will not be lying in the order given.",
+     "abandoned": "What is abandoned is left behind, so the letter named beside it is dropped before anything else happens."
+    },
+    "anagram": {
+     "fodder": "SELVES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h = husband, and this is the letter that walks out"
+     },
+     {
+      "clueFragment": "Shelves",
+      "gives": "SELVES",
+      "note": "SHELVES without that H leaves six letters to be rearranged"
+     }
+    ],
+    "surface": "Shelves buckling under a load, and the junk a departed husband left behind.",
+    "walkthrough": "'Junk' is the trap — not the surface's rubbish but the Chinese sailing ship, which is why the setter adds a question mark.",
+    "definitionFit": "A junk is a Chinese sailing ship, so the definition works by example: one particular kind of the thing the answer names."
+   }
   },
   {
    "id": "8-across",
@@ -153,7 +353,27 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
     ]
    },
    "solution": "FREEFORM",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "FREE-FORM",
+    "definition": "Unstructured",
+    "indicators": [
+     "feature of"
+    ],
+    "indicatorNotes": {
+     "feature of": "A feature of something is a part sitting inside it, so the words that follow are holding the answer's letters in an unbroken run."
+    },
+    "blocks": [
+     {
+      "clueFragment": "shelf reef or massif",
+      "gives": "FREEFORM",
+      "note": "eight letters run on in order across these three landforms, crossing both gaps"
+     }
+    ],
+    "surface": "A geologist reeling off landforms: shelf, reef, massif.",
+    "walkthrough": "Three landforms in a row read as a list, and a list is the easiest thing to skim — which is exactly how eight consecutive letters go unnoticed.",
+    "definitionFit": "Free-form means shaped to no set pattern, the way a free-form jazz solo follows no plan, which is what unstructured says."
+   }
   },
   {
    "id": "9-across",
@@ -170,7 +390,35 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUFFE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "RUFFE",
+    "definition": "freshwater fish",
+    "indicators": [
+     "dumped"
+    ],
+    "indicatorNotes": {
+     "dumped": "To dump something is to get rid of it, so the letter named just before goes out of the longer word."
+    },
+    "pieces": [
+     "RUFFE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agitate",
+      "gives": "RUFFLE",
+      "note": "to ruffle is to agitate — to disturb the smoothness of something"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "L",
+      "note": "l = live, as marked on an electrical wire; this is the letter thrown away"
+     }
+    ],
+    "surface": "A live catch stirred up and then thrown back in the water.",
+    "walkthrough": "L for live comes off a wire, not out of the water, so the surface's living fish is a decoy. The ruffe itself is a small spiny perch of European rivers.",
+    "definitionFit": "The ruffe is a small spiny perch found in European rivers and canals, so 'freshwater fish' is its straight dictionary description."
+   }
   },
   {
    "id": "10-across",
@@ -187,7 +435,27 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATOP",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ATOP",
+    "definition": "going under? The opposite",
+    "indicators": [
+     "houses"
+    ],
+    "indicatorNotes": {
+     "houses": "To house something is to keep it inside, so these two words are holding the answer's letters within them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Great opera",
+      "gives": "ATOP",
+      "note": "four letters sit consecutively across the gap between the two words"
+     }
+    ],
+    "surface": "Grand opera houses in danger of sinking.",
+    "walkthrough": "'The opposite' flips the definition, so the answer means over rather than under. 'Houses' looks like the noun in 'opera houses' and is doing a verb's work.",
+    "definitionFit": "Atop means on top of, the exact reverse of under, which is what the setter's 'The opposite' tells you to take."
+   }
   },
   {
    "id": "11-across",
@@ -208,7 +476,33 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLANKVERSE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BLANK VERSE",
+    "definition": "‘To be, or not to be’, say",
+    "indicators": [
+     "rendering"
+    ],
+    "indicatorNotes": {
+     "rendering": "A rendering is a fresh version of the same material, so the letters are re-set rather than left in the order handed over."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "KENS VERBAL"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Ken’s verbal",
+      "gives": "KENSVERBAL",
+      "note": "anagram fodder, ten letters, the S of the apostrophe included"
+     }
+    ],
+    "surface": "Ken delivering the Hamlet soliloquy aloud in his own style.",
+    "walkthrough": "'Verbal rendering' pulls hard towards a sound-alike and 'say' towards an example; only the second is doing a job, marking Hamlet's line as one specimen of the form.",
+    "definitionFit": "'To be, or not to be' is unrhymed iambic pentameter, so it defines the answer as an example of the form rather than a synonym for it."
+   }
   },
   {
    "id": "12-across",
@@ -225,7 +519,30 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SNOBBY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SNOBBY",
+    "definition": "Condescending",
+    "pieces": [
+     "S",
+     "NOBBY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "s = southern, the compass abbreviation"
+     },
+     {
+      "clueFragment": "outdated name given to Clark",
+      "gives": "NOBBY",
+      "note": "Nobby is the traditional British nickname attached to anyone surnamed Clark, the way Chalky goes with White"
+     }
+    ],
+    "surface": "An old-fashioned nickname handed out to a man called Clark.",
+    "walkthrough": "Nobby for Clark belongs to the British habit of automatic surname nicknames — Dusty Miller, Chalky White — now heard mostly in old service slang.",
+    "definitionFit": "Snobby is looking down on people from a supposed social height, which is the everyday sense of condescending."
+   }
   },
   {
    "id": "13-down",
@@ -242,7 +559,53 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOTTICELLI",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "BOTTICELLI",
+    "definition": "the artist",
+    "indicators": [
+     "to introduce",
+     "into",
+     "construction of"
+    ],
+    "indicatorNotes": {
+     "to introduce": "To introduce something is to bring it in, so the pieces named before this word are put inside rather than beside.",
+     "into": "'Into' names where that insertion lands — within the letters of the word that follows, not next to them.",
+     "construction of": "A construction is something built out of parts, so the name after it is re-laid brick by brick instead of kept as it stands."
+    },
+    "pieces": [
+     "B",
+     "OTT",
+     "ICE",
+     "LLI"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BILL",
+      "gives": "BLLI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excessive",
+      "gives": "OTT",
+      "note": "OTT is over the top — excessive"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "ICE",
+      "note": "ice is thieves' slang for diamonds"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "BLLI",
+      "note": "the four letters of BILL rebuilt, and the pair above drop in after the first of them"
+     }
+    ],
+    "surface": "Diamonds being set into some lavish thing built for a man named Bill.",
+    "walkthrough": "OTT for excessive spells out over the top, and ICE for diamonds is the slang; both are pieces a setter expects you to keep ready, and the question mark admits the painter is one artist among many.",
+    "definitionFit": "Botticelli painted the Birth of Venus, so 'the artist' names him by example — one member of the trade, flagged by the question mark."
+   }
   },
   {
    "id": "14-across",
@@ -259,7 +622,45 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THROTTLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + outer letters",
+    "answer": "THROTTLE",
+    "definition": "silence",
+    "indicators": [
+     "vacuous",
+     "fills"
+    ],
+    "indicatorNotes": {
+     "vacuous": "Vacuous means empty in the middle, so the word it describes gives up its insides and keeps only its two ends.",
+     "fills": "What fills a thing goes inside it, so everything built up before this word drops into the middle of the word after it."
+    },
+    "pieces": [
+     "TH",
+     "ROT",
+     "TL",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "the word itself, used literally — and it is the thing being filled"
+     },
+     {
+      "clueFragment": "Rubbish",
+      "gives": "ROT",
+      "note": "rot = rubbish, in the sense of nonsense talked"
+     },
+     {
+      "clueFragment": "vacuous tutorial",
+      "gives": "TL",
+      "note": "TutoriaL hollowed out keeps its first and last letters only"
+     }
+    ],
+    "surface": "Nonsense from an empty tutorial filling up what ought to be quiet.",
+    "walkthrough": "'Fills the silence' reads as one phrase, so the split between 'fills' and 'the' is invisible, and the definition is the verb — to throttle a voice is to silence it.",
+    "definitionFit": "To throttle is to choke off, and a throttled sound stops, so 'silence' as a verb swaps straight in."
+   }
   },
   {
    "id": "15-down",
@@ -279,7 +680,9 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "RUN",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "17-down"
+   }
   },
   {
    "id": "16-across",
@@ -296,7 +699,38 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECTIFY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RECTIFY",
+    "definition": "right",
+    "indicators": [
+     "upset"
+    ],
+    "indicatorNotes": {
+     "upset": "Upset means knocked over and spilled, and letters spilled out of a word do not land in the order they started in."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "CITY REF"
+    },
+    "blocks": [
+     {
+      "clueFragment": "City’s",
+      "gives": "CITY",
+      "note": "the four letters of the word itself; the ’s is only 'is'"
+     },
+     {
+      "clueFragment": "ref",
+      "gives": "REF",
+      "note": "three more letters taken straight from the clue"
+     }
+    ],
+    "surface": "Supporters of City furious with the referee, and asking whether they have a point.",
+    "walkthrough": "'Right?' at the end reads as the surface appealing for agreement, which hides its real job as the definition — and it is the verb, to put right.",
+    "definitionFit": "To rectify is to put something right, the verb sense of 'right' as in righting a wrong."
+   }
   },
   {
    "id": "17-down",
@@ -318,7 +752,34 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
     ]
    },
    "solution": "FUN",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "FUN RUN",
+    "definition": "sporting charity event",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "FUN",
+     "RUN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pleasure",
+      "gives": "FUN",
+      "note": "fun = pleasure"
+     },
+     {
+      "clueFragment": "manage",
+      "gives": "RUN",
+      "note": "to run a business is to manage it"
+     }
+    ],
+    "surface": "Enjoying yourself while managing a charity sports day.",
+    "walkthrough": "'Manage' is the business sense of run — running a company — and the event is the mass amateur jog people enter in fancy dress, where nobody records a time.",
+    "definitionFit": "A fun run is a non-competitive mass jog staged to raise money, so 'sporting charity event' describes it literally."
+   }
   },
   {
    "id": "18-across",
@@ -339,7 +800,40 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONESTAR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ONE-STAR",
+    "definition": "not highly rated",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' puts one thing within another, so the piece named before it sits inside the letters of the word that follows."
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "pieces": [
+     "O",
+     "NEST",
+     "AR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "OAR",
+      "note": "an oar is what you row with, so the tool stands in for the verb"
+     },
+     {
+      "clueFragment": "Martin’s residence",
+      "gives": "NEST",
+      "note": "a martin is a bird — house martins build under the eaves"
+     }
+    ],
+    "surface": "Martin's house on a terrace that reviewers think little of.",
+    "walkthrough": "Martin is a bird, not a neighbour, and 'row' is a line of houses on the surface while the wordplay wants the rowing.",
+    "definitionFit": "A one-star hotel or review sits at the bottom of the rating scale, so 'not highly rated' is what the phrase means."
+   }
   },
   {
    "id": "19-down",
@@ -356,7 +850,50 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANECDOTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion + container",
+    "answer": "ANECDOTE",
+    "definition": "account",
+    "indicators": [
+     "(not I)",
+     "appropriating"
+    ],
+    "indicatorNotes": {
+     "(not I)": "The bracketed 'not' excludes the letter it names, so the I comes out of the word standing in front of it.",
+     "appropriating": "To appropriate something is to take it in and keep it, so what is named next is swallowed inside what has been built."
+    },
+    "pieces": [
+     "A",
+     "NEC",
+     "DOT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "used literally, the letter A"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "NIECE",
+      "note": "a niece is a relative"
+     },
+     {
+      "clueFragment": "(not I)",
+      "gives": "",
+      "note": "the I named in brackets comes out, leaving four letters to close round the next piece"
+     },
+     {
+      "clueFragment": "little Dorothy’s",
+      "gives": "DOT",
+      "note": "Dot is the everyday shortening of Dorothy, which is what 'little' asks for"
+     }
+    ],
+    "surface": "A relative helping themselves to little Dorothy's savings.",
+    "walkthrough": "'Account' is money on the surface and a told story underneath — the sense in 'by all accounts' — while the bracketed 'not I' reads as the relative protesting innocence.",
+    "definitionFit": "An anecdote is a short account of something that happened, 'account' in the telling sense rather than the banking one."
+   }
   },
   {
    "id": "20-down",
@@ -373,7 +910,30 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ODDNESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ODDNESS",
+    "definition": "peculiarity",
+    "pieces": [
+     "ODD",
+     "NESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spare",
+      "gives": "ODD",
+      "note": "an odd sock or an odd hour is a spare one, left over"
+     },
+     {
+      "clueFragment": "cape’s",
+      "gives": "NESS",
+      "note": "a ness is a headland or cape; the ’s is only joinery"
+     }
+    ],
+    "surface": "A spare cape, and whatever is strange about it.",
+    "walkthrough": "Ness for a headland survives mainly in British place names — Sheerness, Dungeness — and setters use it constantly. 'Spare' meaning left over is the other step.",
+    "definitionFit": "Oddness is the state of being strange, and a peculiarity is that same quality in something — both name a departure from the normal."
+   }
   },
   {
    "id": "21-across",
@@ -390,7 +950,30 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSIGNED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASSIGNED",
+    "definition": "Transferred",
+    "pieces": [
+     "AS",
+     "SIGNED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the manner",
+      "gives": "AS",
+      "note": "'as' means in the manner of — 'as a soldier would'"
+     },
+     {
+      "clueFragment": "indicated",
+      "gives": "SIGNED",
+      "note": "to sign to someone is to indicate something to them"
+     }
+    ],
+    "surface": "Property handed over exactly the way the instructions specified.",
+    "walkthrough": "The whole thing reads as a single instruction, which is what hides the join between 'manner' and 'indicated'. Signed for indicated is the sense in 'signed to him to stop'.",
+    "definitionFit": "To assign something is to transfer it to someone else — the legal sense, as when a lease is assigned to a new tenant."
+   }
   },
   {
    "id": "22-down",
@@ -407,7 +990,36 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEXISM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SEXISM",
+    "definition": "discrimination",
+    "pieces": [
+     "SEX",
+     "IS",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It",
+      "gives": "SEX",
+      "note": "'it' is the coy old euphemism, as in 'she's got It'"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word itself, taken as it stands"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m = male, the standard abbreviation"
+     }
+    ],
+    "surface": "Someone insisting that discrimination is a male speciality.",
+    "walkthrough": "The clue is an argument you can agree or disagree with, and that keeps you reading it as a sentence instead of as a sum of three short pieces.",
+    "definitionFit": "Sexism is discrimination on grounds of sex, so the definition is the general noun with the ground left for the wordplay to supply."
+   }
   },
   {
    "id": "23-across",
@@ -434,7 +1046,40 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VIEWER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "VIEWER",
+    "definition": "Observer",
+    "indicators": [
+     "to comprehend"
+    ],
+    "indicatorNotes": {
+     "to comprehend": "To comprehend is to take in and hold, the sense inside 'comprehensive', so the next piece goes within the one before it."
+    },
+    "linkWords": [
+     "gets"
+    ],
+    "pieces": [
+     "VIE",
+     "WE",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One struggling",
+      "gives": "VIER",
+      "note": "to vie is to struggle against a rival, so one who vies is a vier; it opens up to take the insertion"
+     },
+     {
+      "clueFragment": "the Guardian",
+      "gives": "WE",
+      "note": "a newspaper talking about itself says 'we', and the paper here is the one printing the puzzle"
+     }
+    ],
+    "surface": "A reader who cannot make sense of one newspaper switching to another.",
+    "walkthrough": "Both titles are set in italics, which sells the newsagent's shelf completely: underneath, the Guardian is only the first-person 'we' any paper uses of itself, and Observer is a plain synonym.",
+    "definitionFit": "A viewer observes — someone watching television is an observer of it, which is the general word for anyone looking on."
+   }
   },
   {
    "id": "23-down",
@@ -451,7 +1096,47 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VOYAGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + outer letters",
+    "answer": "VOYAGE",
+    "definition": "passage",
+    "indicators": [
+     "worked",
+     "in",
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "worked": "Metal that has been worked has been beaten into a different shape, and the name beside this word is reshaped the same way.",
+     "in": "'In' drops the reshaped letters inside the piece that follows rather than setting them alongside it.",
+     "extremely": "'Extremely' points at the far ends of the word after it, so only its first and last letters are taken."
+    },
+    "pieces": [
+     "V",
+     "OYAG",
+     "E"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GOYA",
+      "gives": "OYAG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely venerable",
+      "gives": "VE",
+      "note": "the extremes of VenerablE — its opening and closing letters"
+     },
+     {
+      "clueFragment": "Goya",
+      "gives": "OYAG",
+      "note": "the painter's four letters reshuffled, then set down between those two"
+     }
+    ],
+    "surface": "Goya at work during an extremely distinguished period.",
+    "walkthrough": "Goya reads as a painter doing a painter's job, which is why his name looks like a subject rather than four loose letters waiting to be moved.",
+    "definitionFit": "A voyage is a passage by sea — 'passage' in the sense of a crossing made, as in booking passage to New York."
+   }
   },
   {
    "id": "24-across",
@@ -468,7 +1153,52 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXPECTANCY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + charade",
+    "answer": "EXPECTANCY",
+    "definition": "Anticipation",
+    "indicators": [
+     "useless",
+     "name-dropping"
+    ],
+    "indicatorNotes": {
+     "useless": "Something called useless is no good as it stands, and letters written off that way get re-set into another order.",
+     "name-dropping": "'Dropping' announces a removal and 'name' says which letter goes — the single letter that stands for it."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "EXPECT",
+     "ANCY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "EXCEPT",
+      "gives": "EXPECT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "except",
+      "gives": "EXPECT",
+      "note": "the six letters of EXCEPT re-set, the C and the P trading places"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "n = name, and this is the letter dropped from what follows"
+     },
+     {
+      "clueFragment": "former First Lady",
+      "gives": "ANCY",
+      "note": "Nancy Reagan was First Lady in the 1980s, and her name arrives minus that initial"
+     }
+    ],
+    "surface": "Anticipation counting for nothing unless you can drop a former First Lady's name.",
+    "walkthrough": "'Except' looks like a link word carving something out of the clue, and it is the fodder itself — the one word the letters actually come from.",
+    "definitionFit": "Expectancy is the state of expecting something to come, which is what anticipation names: the waiting, not the thing waited for."
+   }
   },
   {
    "id": "25-down",
@@ -490,7 +1220,39 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
     ]
    },
    "solution": "TURN",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "spoonerism",
+    "answer": "TURN BACK",
+    "definition": "retreat",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "The Reverend Spooner was famous for exchanging the opening sounds of two words, so the pair named next swap the noises at their fronts."
+    },
+    "pieces": [
+     "TURN",
+     "BACK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rivulet",
+      "soundsLike": "BURN",
+      "gives": "TURN",
+      "note": "a burn is a small stream in Scotland and the north of England; said aloud it hands its opening B over and takes a T in exchange"
+     },
+     {
+      "clueFragment": "Sailing Course",
+      "soundsLike": "TACK",
+      "gives": "BACK",
+      "note": "a tack is the line a sailing boat holds between changes of direction; its opening T is the sound that goes the other way"
+     }
+    ],
+    "surface": "The Reverend Spooner naming a stream and the line a boat is sailing.",
+    "walkthrough": "Say BURN TACK aloud and move the two front noises across, and the pair comes out as an ordinary phrase — the capital letters on Rivulet and Sailing Course are pure surface dressing.",
+    "definitionFit": "To turn back is to retreat — to give up the advance and go the way you came, which is what a retreat is in plain terms."
+   }
   },
   {
    "id": "26-across",
@@ -507,7 +1269,40 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BODY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BODY",
+    "definition": "Stiff",
+    "indicators": [
+     "inside"
+    ],
+    "indicatorNotes": {
+     "inside": "'Inside' says where the letter just named goes: into the middle of the word before it, not on the end."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "BO",
+     "D",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wow",
+      "gives": "BOY",
+      "note": "'Boy!' is an exclamation of astonishment, doing the same job as 'wow'"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d = died, as written on a gravestone or in a genealogy"
+     }
+    ],
+    "surface": "Astonishment at someone having died indoors.",
+    "walkthrough": "'Stiff' is the slang noun for a corpse, not the adjective the comma invites, and the exclamation mark keeps you hearing 'wow' as feeling rather than as three letters.",
+    "definitionFit": "A stiff is slang for a corpse, and a body is exactly that — the dead one rather than the living."
+   }
   },
   {
    "id": "26-down",
@@ -527,7 +1322,9 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "BACK",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "25-down"
+   }
   },
   {
    "id": "27-across",
@@ -544,7 +1341,49 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "SOLAR",
+    "definition": "energy source",
+    "definitionNote": "The answer is an adjective and 'energy source' is a noun phrase; the setter is leaning on the everyday shorthand in which solar stands for solar power.",
+    "indicators": [
+     "diverted"
+    ],
+    "indicatorNotes": {
+     "diverted": "A diverted river is sent a different way, and letters diverted likewise leave the course the clue set them on."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "anagram": {
+     "fodder": "ALSO R"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "ALSO",
+      "gives": "SOLA"
+     }
+    ],
+    "pieces": [
+     "SOLA",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Also",
+      "gives": "SOLA",
+      "note": "the four letters of ALSO re-ordered"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "r = river, the standard map abbreviation"
+     }
+    ],
+    "surface": "A river rerouted to generate power.",
+    "walkthrough": "Hydro is the power the surface promises and the answer is the other renewable, which is the whole misdirection; the river shrinks to a single map abbreviation.",
+    "definitionFit": "Solar means of the sun, and the sun is the energy source meant — the adjective standing in for solar power the way it does in everyday speech."
+   }
   },
   {
    "id": "28-across",
@@ -561,7 +1400,46 @@ window.CRYPTIC_PUZZLES["cryptic-30022"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAGACITY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SAGACITY",
+    "definition": "Wisdom",
+    "indicators": [
+     "imposing"
+    ],
+    "indicatorNotes": {
+     "imposing": "To impose one thing on another is to lay it over the top, so the piece it names goes in front of everything that follows."
+    },
+    "linkWords": [
+     "of",
+     "on"
+    ],
+    "pieces": [
+     "SAG",
+     "A",
+     "CITY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flag",
+      "gives": "SAG",
+      "note": "to flag is to droop or sag, the way energy does late in the day"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "used literally"
+     },
+     {
+      "clueFragment": "large community",
+      "gives": "CITY",
+      "note": "a city is a large community"
+     }
+    ],
+    "surface": "A flag planted over a large town, as a show of authority.",
+    "walkthrough": "Flag is the verb here in its drooping sense, not the cloth the surface runs up a pole, and the answer's meaning has nothing to do with either.",
+    "definitionFit": "Sagacity is shrewd practical judgement, so it means wisdom in the sense of knowing what to do rather than of book learning."
+   }
   }
  ]
 } /*JSON-END*/;
