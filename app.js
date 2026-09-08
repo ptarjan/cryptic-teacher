@@ -688,14 +688,35 @@
   // Ticking saves, so there is no save button to leave unpressed — and one save
   // at a time, because two boxes tapped in a second would otherwise race and the
   // slower answer would be the one stored.
+  //
+  // The second tick is QUEUED, never dropped. Dropping it lost the tick, and
+  // then the first save's redraw repainted that box from the store and unticked
+  // it — so on a slow connection one paper came back unticked and the others
+  // did not (Paul, Windows Chrome, 2026-09-08).
+  //
+  // notifyWant is what the panel has been ASKED for; the store is what the
+  // Worker has agreed to. Between a tick and its answer the two differ, and a
+  // tick made in that window must be counted from the former: counted from the
+  // store it silently undoes the tick before it.
   let notifyBusy = false;
+  let notifyWant = null;
+  const notifyWanted = () => notifyWant || notifySeries();
   function saveNotify(next) {
+    notifyWant = next;
     if (notifyBusy) return;
     notifyBusy = true;
     // Redrawn from the store however it ends, so the boxes show what the Worker
     // will actually act on. A tick left standing over a save that failed is the
-    // panel promising a notification nobody is going to send.
-    const done = (msg) => { notifyBusy = false; renderNotifyPanel(); notifyNote(msg); };
+    // panel promising a notification nobody is going to send. Unless something
+    // was ticked while this was in flight: then the newest set goes out instead,
+    // and the redraw waits for an answer about what is actually on screen.
+    const done = (msg) => {
+      notifyBusy = false;
+      if (String(notifyWant) !== String(next)) { saveNotify(notifyWant); return; }
+      notifyWant = null;
+      renderNotifyPanel();
+      notifyNote(msg);
+    };
     notifyNote(next.length ? "Saving…" : "Turning these off…");
     /* Permission is asked for on the first tick and never on load: a prompt
        nobody asked for is how a site gets permanently blocked. And "denied" is
@@ -4340,7 +4361,7 @@
       const box = ev.target;
       const series = box && box.dataset ? box.dataset.series : null;
       if (!series) return;
-      const on = new Set(notifySeries());
+      const on = new Set(notifyWanted());
       if (box.checked) on.add(series); else on.delete(series);
       // Ordered off SERIES_BADGE, so what goes on the wire does not depend on
       // which box was tapped first.
@@ -4353,7 +4374,7 @@
       const value = (ev.target && ev.target.value) || "";
       if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(value)) { renderNotifyPanel(); return; }
       store.set(NOTIFY_AFTER_KEY, value);
-      const series = notifySeries();
+      const series = notifyWanted();
       if (!series.length) { notifyNote("Saved — tick a paper to hear about one."); return; }
       saveNotify(series);
     });
