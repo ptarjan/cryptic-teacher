@@ -30,7 +30,46 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACCOUNT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ACCOUNT",
+    "definition": "Bill",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "keeps"
+    ],
+    "indicatorNotes": {
+     "keeps": "To keep someone company is to stay wrapped around them, so 'keeps' asks one word to hold the others inside it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "AUNT",
+      "note": "an aunt is a relative, and she is the word doing the keeping"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "co = company, as in the name of a firm"
+     }
+    ],
+    "pieces": [
+     "A",
+     "C",
+     "CO",
+     "UNT"
+    ],
+    "surface": "Someone's aunt is sitting with a man called Charlie so that he is not left on his own.",
+    "walkthrough": "'Company' does two jobs at once: it is the CO the wordplay wants, and it is what makes 'keeps Charlie company' read as a kindness rather than an instruction.",
+    "definitionFit": "A bill and an account are the same demand for money — the restaurant's bill is the account you settle."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +86,42 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APROPOS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "APROPOS",
+    "definition": "fitting",
+    "indicators": [
+     "breaks"
+    ],
+    "indicatorNotes": {
+     "breaks": "A prop breaking through a line ends up in the middle of it, so 'breaks' puts one word inside another."
+    },
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own A starts the assembly"
+     },
+     {
+      "clueFragment": "rugby player",
+      "gives": "PROP",
+      "note": "a prop is the front-row forward who props up the scrum"
+     },
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS = outsize, the label on very large clothing"
+     }
+    ],
+    "pieces": [
+     "A",
+     "PROP",
+     "OS"
+    ],
+    "surface": "An enormous forward smashes a fixture, the sort of damage a heavy pack leaves behind.",
+    "walkthrough": "'Fitting' is the trap's other half: in the surface it is a plumber's fixture, a thing a big man can break, and the answer needs it as an adjective.",
+    "definitionFit": "Fitting is the adjective sense — a remark that is fitting suits the moment exactly, nothing to do with plumbing."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +143,49 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "CHAMPAGNE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + container",
+    "answer": "CHAMPAGNE SOCIALIST",
+    "definition": "Rich red",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "variety of",
+     "inside"
+    ],
+    "indicatorNotes": {
+     "variety of": "A variety of a thing is that thing in a different arrangement, which is what these letters are asked for.",
+     "inside": "'Inside' says the party word is not tacked on the end but buried in the middle of the shuffled letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "canapes might",
+      "gives": "CANAPESMIGHT",
+      "note": "anagram fodder, 12 letters"
+     },
+     {
+      "clueFragment": "do",
+      "gives": "SOCIAL",
+      "note": "a do is a social — the British word for a party you get invited to"
+     }
+    ],
+    "pieces": [
+     "CHAMPAGNE",
+     "SOCIAL",
+     "IST"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "CANAPESMIGHT",
+      "gives": "CHAMPAGNEIST"
+     }
+    ],
+    "surface": "A deep red wine and a few little canapés would do nicely for people entertaining at home.",
+    "walkthrough": "The definition is a jibe rather than a description: someone who votes left and lives well. 'Do' is the British word for a party, which lets 'might do inside' read as catering.",
+    "definitionFit": "The sneering name for a wealthy person with left-wing politics — 'red' for the politics, 'rich' for the lifestyle."
+   }
   },
   {
    "id": "3-down",
@@ -86,7 +202,35 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "USHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "USHER",
+    "definition": "Guide",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "You, me",
+      "gives": "US",
+      "note": "you and me together are us"
+     },
+     {
+      "clueFragment": "that Girl",
+      "gives": "HER",
+      "note": "the girl being pointed at is her"
+     }
+    ],
+    "pieces": [
+     "US",
+     "HER"
+    ],
+    "surface": "A Girl Guide is being pointed out to two people standing together.",
+    "walkthrough": "'Girl Guide' is the trap: the capital G makes the two words look like one thing, and the definition is only the second of them.",
+    "definitionFit": "To guide someone to their seat is exactly what the answer's verb means — the wedding sense of showing people where to go."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +247,42 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TELEVISES",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "TELEVISES",
+    "definition": "Shows",
+    "indicators": [
+     "making"
+    ],
+    "indicatorNotes": {
+     "making": "'Making' is one thing turning into another: the letter standing for American is made into the jeans brand."
+    },
+    "blocks": [
+     {
+      "clueFragment": "guys",
+      "gives": "TEASES",
+      "note": "to guy someone is to tease them, mocking them for sport"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American, and there is one A sitting in the middle of the previous word"
+     },
+     {
+      "clueFragment": "jeans",
+      "gives": "LEVI",
+      "note": "Levi's are the American jeans; the wordplay takes the name without its S"
+     }
+    ],
+    "pieces": [
+     "TE",
+     "LEVI",
+     "SES"
+    ],
+    "surface": "Programmes about men on a production line turning out denim in America.",
+    "walkthrough": "'Guys' looks like a plain noun and is a verb — to guy is to mock — which is why the swap is so hard to spot.",
+    "definitionFit": "A broadcaster shows a match by televising it: the two verbs stand in for each other directly, both in the third person."
+   }
   },
   {
    "id": "5-across",
@@ -120,7 +299,42 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WALLABY",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letters",
+    "answer": "WALLABY",
+    "definition": "Aussie rugby international",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "to tackle",
+     "biggest units"
+    ],
+    "indicatorNotes": {
+     "to tackle": "A rugby tackle wraps your arms right round the man, so 'to tackle' asks one word to go round another.",
+     "biggest units": "The biggest version of a letter is its capital, so a name's biggest units are the initials printed large."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "WALLY",
+      "note": "a wally is a fool in British slang"
+     },
+     {
+      "clueFragment": "All Blacks’",
+      "gives": "AB",
+      "note": "the two capitals in the name of New Zealand's rugby side, taken as they stand"
+     }
+    ],
+    "pieces": [
+     "WALL",
+     "AB",
+     "Y"
+    ],
+    "surface": "An Australian player throws himself at the heaviest men in the New Zealand pack.",
+    "walkthrough": "The clue reads as one pack of forwards taking on another, and the men it names are New Zealanders while the answer is an Australian — the definition sits right at the front.",
+    "definitionFit": "The Wallabies are Australia's national rugby union team, so the answer names one of their players — the team nickname used of a single man."
+   }
   },
   {
    "id": "5-down",
@@ -137,7 +351,45 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WAFER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "WAFER",
+    "definition": "biscuit",
+    "indicators": [
+     "Returning",
+     "enriched"
+    ],
+    "indicatorNotes": {
+     "Returning": "Something returning comes back the way it went, so the letters beside it are read the other way about.",
+     "enriched": "Food enriched with iron has the iron put into it, so 'enriched' asks for the metal's symbol to go inside."
+    },
+    "blocks": [
+     {
+      "clueFragment": "uncooked",
+      "gives": "RAW",
+      "note": "raw food is uncooked, and these three letters are then read backwards"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "FE",
+      "note": "Fe is iron's chemical symbol"
+     }
+    ],
+    "pieces": [
+     "WA",
+     "FE",
+     "R"
+    ],
+    "subReversals": [
+     {
+      "from": "RAW",
+      "to": "WAR"
+     }
+    ],
+    "surface": "A diner sends back something from the tea tray for being underdone, iron supplement and all.",
+    "walkthrough": "Breakfast cereals really are iron-enriched, which is what lets the surface pose as a nutrition label instead of an instruction.",
+    "definitionFit": "A wafer is a very thin crisp biscuit, the sort served beside ice cream — a plain synonym in the baking sense."
+   }
   },
   {
    "id": "6-down",
@@ -160,7 +412,45 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEFTRIGHT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "first letter + last letter + middle letter",
+    "answer": "LEFT RIGHT AND CENTRE",
+    "definition": "everywhere",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "These parts of 26",
+      "gives": "LEFT",
+      "note": "read the answer as an instruction: the left-hand end of the five letters at 26 is its H"
+     },
+     {
+      "clueFragment": "These parts of 26",
+      "gives": "RIGHT",
+      "note": "the right-hand end of those same five letters is the E they finish on"
+     },
+     {
+      "clueFragment": "will get her",
+      "gives": "AND",
+      "note": "the phrase needs its joining word, and the picks are collected in the order it names them"
+     },
+     {
+      "clueFragment": "will get her",
+      "gives": "CENTRE",
+      "note": "the middle of the five is the R, so the three picks come out as H, E and R"
+     }
+    ],
+    "pieces": [
+     "LEFT",
+     "RIGHT",
+     "AND",
+     "CENTRE"
+    ],
+    "surface": "The bits of a horse, it is promised, will carry a rider anywhere she wants to go.",
+    "walkthrough": "The answer is the instruction rather than its result: it says which letters of 26's entry to pick, and the three of them spell HER. A horse really would get her everywhere.",
+    "definitionFit": "The idiom means all over the place — things coming at you from every side at once — so the whole phrase stands in for 'everywhere'."
+   }
   },
   {
    "id": "7-down",
@@ -177,7 +467,43 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APRIL",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "APRIL",
+    "definition": "days immediately following March",
+    "definitionNote": "The answer is one month and the definition is plural days: the setter names the stretch of time by the days in it rather than by the month's name.",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "Case of",
+     "getting into"
+    ],
+    "indicatorNotes": {
+     "Case of": "A case is what encloses something, so 'case of' takes the outside letters of the word and nothing within.",
+     "getting into": "Getting into trouble puts you right in the middle of it, which is where these two letters go."
+    },
+    "blocks": [
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to be in trouble, and this word is split to take the insert"
+     },
+     {
+      "clueFragment": "Case of protestor",
+      "gives": "PR",
+      "note": "the first and last letters of protestor, the case around the rest"
+     }
+    ],
+    "pieces": [
+     "A",
+     "PR",
+     "IL"
+    ],
+    "surface": "A demonstrator lands in hot water in the weeks just after a big protest march.",
+    "walkthrough": "'March' is capitalised as a protest march and works as the month, which is the hinge the whole surface hangs on.",
+    "definitionFit": "The month that follows March in the calendar, defined by its days rather than named outright."
+   }
   },
   {
    "id": "8-down",
@@ -194,7 +520,42 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YIELDED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + first letter",
+    "answer": "YIELDED",
+    "definition": "Bore",
+    "linkWords": [
+     "seeing"
+    ],
+    "indicators": [
+     "almost all",
+     "sadly",
+     "at the start"
+    ],
+    "indicatorNotes": {
+     "almost all": "'Almost all' of a word is every letter but the last, so one letter goes before the shuffling starts.",
+     "sadly": "Eyelids drooping sadly are not holding their shape, and letters that are sad in this sense will not hold their order.",
+     "at the start": "'At the start' points at the opening letter of the word before it, taking one letter rather than the whole."
+    },
+    "blocks": [
+     {
+      "clueFragment": "almost all eyelids",
+      "gives": "EYELID",
+      "note": "eyelids without its final letter, six letters of fodder"
+     },
+     {
+      "clueFragment": "drooping at the start",
+      "gives": "D",
+      "note": "the opening letter of drooping joins the fodder"
+     }
+    ],
+    "anagram": {
+     "fodder": "EYELID D"
+    },
+    "surface": "Someone is worn down watching a room full of tired eyes slowly close.",
+    "walkthrough": "'Bore' wants to be the noun, a tedious person, and it is the past tense of a verb instead — the reading the answer's -ED ending settles.",
+    "definitionFit": "A tree that bore fruit yielded it: both are past tenses of producing a crop, which is the verb sense hiding behind 'bore'."
+   }
   },
   {
    "id": "9-across",
@@ -211,7 +572,39 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REACH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "REACH",
+    "definition": "Stretch",
+    "linkWords": [
+     "and"
+    ],
+    "indicators": [
+     "after cycling"
+    ],
+    "indicatorNotes": {
+     "after cycling": "Cycling sends letters round like a wheel, so the word is wanted as it stands once its last letter has come round to the front."
+    },
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scorer's abbreviation for a run"
+     },
+     {
+      "clueFragment": "feel pain",
+      "gives": "EACH",
+      "note": "to ache is to feel pain, and its final letter comes round to the front"
+     }
+    ],
+    "pieces": [
+     "R",
+     "EACH"
+    ],
+    "surface": "A training routine — stretch, run, and the pains that arrive once the ride is over.",
+    "walkthrough": "'Cycling' is not a sport here but an instruction, and the surface leans on that hard: every other word in the clue is exercise.",
+    "definitionFit": "Stretch and the answer trade places as noun or verb: a stretch of river is one, and to stretch out for something is to do the other."
+   }
   },
   {
    "id": "10-across",
@@ -238,7 +631,36 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "LIFEFORCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LIFE-FORCE",
+    "definition": "QI",
+    "linkWords": [
+     "getting",
+     "on"
+    ],
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "Person",
+      "gives": "LIFE",
+      "note": "in insurance and in headlines a life is a person: the crash claimed five lives"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "FORCE",
+      "note": "to force a door is to break it open"
+     }
+    ],
+    "pieces": [
+     "LIFE",
+     "FORCE"
+    ],
+    "surface": "A contestant gets a lucky break on a television quiz.",
+    "walkthrough": "QI is a British comedy quiz programme, which is what the italics want you to see; the same two letters are the Chinese word the definition needs.",
+    "definitionFit": "Qi is the Chinese name for the vital energy said to flow through a living body, and the answer is the plain English phrase for it."
+   }
   },
   {
    "id": "11-across",
@@ -259,7 +681,38 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "PAPEROVER",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "PAPER OVER",
+    "definition": "hide",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "Liam",
+      "gives": "PAPER",
+      "note": "Liam read backwards is MAIL, and the Mail is a British national newspaper"
+     },
+     {
+      "clueFragment": "This could make",
+      "gives": "OVER",
+      "note": "the clue asks which operation produces that name, and turning a thing over is what reverses it"
+     }
+    ],
+    "pieces": [
+     "PAPER",
+     "OVER"
+    ],
+    "subReversals": [
+     {
+      "from": "MAIL",
+      "to": "LIAM"
+     }
+    ],
+    "surface": "Something has frightened a boy called Liam into hiding.",
+    "walkthrough": "'Liam' looks like anagram fodder and is the finished product: the answer names an operation on a newspaper's title, and the clue shows you only what that operation produced.",
+    "definitionFit": "Covering a crack with wallpaper instead of mending it is the image behind the phrase, and it means to conceal a fault — to hide it."
+   }
   },
   {
    "id": "12-across",
@@ -276,7 +729,32 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RULED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RULED",
+    "definition": "Determined",
+    "indicators": [],
+    "indicatorNotes": {},
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union, the game as it is abbreviated on fixture lists"
+     },
+     {
+      "clueFragment": "was up",
+      "gives": "LED",
+      "note": "a side that was up in a match led it"
+     }
+    ],
+    "pieces": [
+     "RU",
+     "LED"
+    ],
+    "surface": "Someone works out that the contest is lost and the game is over.",
+    "walkthrough": "'The game was up' is the idiom the surface leans on, meaning the end has come, and the wordplay needs 'game' and 'was up' read as two separate things.",
+    "definitionFit": "A judge who ruled on a point determined it — the past tense of handing down a decision, not the sense of being strong-willed."
+   }
   },
   {
    "id": "13-across",
@@ -293,7 +771,33 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIGNS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "SIGNS",
+    "definition": "Marks",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "regularly discounted"
+    ],
+    "indicatorNotes": {
+     "regularly discounted": "Discounting at a regular interval throws away every second letter, leaving the first, third, fifth and so on."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Suit (gent’s)",
+      "gives": "SIGNS",
+      "note": "the odd-numbered letters of SUIT GENTS, counting the brackets out"
+     }
+    ],
+    "pieces": [
+     "SIGNS"
+    ],
+    "surface": "A gentleman's suit is on sale at a cut price in a high-street shop.",
+    "walkthrough": "'Marks' in the surface is Marks & Spencer, the British chain where a suit might be discounted, and the definition needs it as plain marks instead.",
+    "definitionFit": "Signs are marks: the marks on a page or in the sky are the things you read a meaning from, and both words are plural."
+   }
   },
   {
    "id": "14-down",
@@ -313,7 +817,9 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "SOCIALIST",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "2-down"
+   }
   },
   {
    "id": "15-across",
@@ -330,7 +836,51 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAGGERED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "STAGGERED",
+    "definition": "Stunned",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "with animation"
+    ],
+    "indicatorNotes": {
+     "with animation": "Something done with animation is done with lively movement, and letters moved about that lively will not stay in the order given."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Bambi became this",
+      "gives": "STAG",
+      "note": "the fawn of the film grows into a stag by the end of it"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is the standard abbreviation for grand"
+     },
+     {
+      "clueFragment": "deer",
+      "gives": "ERED",
+      "note": "the four letters of DEER rearranged"
+     }
+    ],
+    "pieces": [
+     "STAG",
+     "G",
+     "ERED"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "DEER",
+      "gives": "ERED"
+     }
+    ],
+    "surface": "Bambi's growing up into a full-grown animal is one of the great moments in the cartoon.",
+    "walkthrough": "'With animation' means liveliness and points at the film in the same breath, which is how the anagram signal disappears into the surface.",
+    "definitionFit": "To be staggered is to be stunned — the shock sense of the word, not the one about walking unsteadily."
+   }
   },
   {
    "id": "16-down",
@@ -352,7 +902,9 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANDCENTRE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "6-down"
+   }
   },
   {
    "id": "17-down",
@@ -369,7 +921,32 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RADIOGRAM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "RADIOGRAM",
+    "definition": "Player of music",
+    "indicators": [
+     "ultimately wanting",
+     "parties"
+    ],
+    "indicatorNotes": {
+     "ultimately wanting": "A word that is ultimately wanting is missing its final letter, and here every word in the list loses its last one.",
+     "parties": "To part is to split up, so 'parties' says the letters break apart and re-form rather than naming a night out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "in on Mardi Gras",
+      "gives": "IOMARDGRA",
+      "note": "IN, ON, MARDI and GRAS each lose their final letter, leaving nine letters to shuffle"
+     }
+    ],
+    "anagram": {
+     "fodder": "I O MARD GRA"
+    },
+    "surface": "Someone is angling for an invitation to the carnival balls in New Orleans.",
+    "walkthrough": "'Wanting in on' reads as one phrase — angling for an invitation — and it is really two instructions with a word boundary through the middle, which is where the four short words come from.",
+    "definitionFit": "The old cabinet that housed a wireless and a record player in one piece of furniture is what the definition points at."
+   }
   },
   {
    "id": "18-across",
@@ -390,7 +967,45 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEEXCUSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BE EXCUSED",
+    "definition": "go to the loo",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue one thing 'on' another leans against it from the right, so the buzzer's letters are written first."
+    },
+    "blocks": [
+     {
+      "clueFragment": "buzzer",
+      "gives": "BEE",
+      "note": "a bee is the thing that buzzes"
+     },
+     {
+      "clueFragment": "90",
+      "gives": "XC",
+      "note": "ninety in Roman numerals: ten short of a hundred"
+     },
+     {
+      "clueFragment": "got through",
+      "gives": "USED",
+      "note": "to get through a supply is to use it up"
+     }
+    ],
+    "pieces": [
+     "BEE",
+     "XC",
+     "USED"
+    ],
+    "surface": "A quiz contestant reaches 90 by buzzing in, then asks for a comfort break.",
+    "walkthrough": "The surface is a game show, so '90 got through on buzzer' reads as a score; the answer is the British schoolroom request for permission to leave the room.",
+    "definitionFit": "In a British school you ask to be excused when you need the lavatory, a polite formula that has come to mean that errand and no other."
+   }
   },
   {
    "id": "18-down",
@@ -411,7 +1026,38 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "BYHEART",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "BY HEART",
+    "definition": "From memory",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "The Reverend Spooner was famous for swapping the opening sounds of two words, so his name says trade the noises at the fronts."
+    },
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "BY",
+      "soundsLike": "HI",
+      "note": "the greeting is HI, and it gives up its aitch to the word after it"
+     },
+     {
+      "clueFragment": "a Simpson",
+      "gives": "HEART",
+      "soundsLike": "BART",
+      "note": "the Simpson is Bart, and taking that aitch in exchange makes him a hart, a male deer, which is written out differently again"
+     }
+    ],
+    "pieces": [
+     "BY",
+     "HEART"
+    ],
+    "surface": "Somebody says hello to one of the Simpsons.",
+    "walkthrough": "Say 'hi Bart' aloud, swap the noises at the front and you hear 'by hart' — the vowels drift a little on the way, and the deer is respelled as the body part.",
+    "definitionFit": "The idiom puts memory in the heart: knowing a poem this way is knowing it from memory, word for word without the page."
+   }
   },
   {
    "id": "19-across",
@@ -428,7 +1074,45 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUDOR",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "TUDOR",
+    "definition": "Edward VI possibly",
+    "indicators": [
+     "about",
+     "on reflection"
+    ],
+    "indicatorNotes": {
+     "about": "Thrashing about goes round and round, so 'about' asks the thrashing word to wrap itself around the letter beside it.",
+     "on reflection": "A reflection shows a thing the other way round, so the assembled letters are read backwards."
+    },
+    "blocks": [
+     {
+      "clueFragment": "thrashing",
+      "gives": "ROUT",
+      "note": "a rout is a thrashing, one side beaten out of sight"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d = died, as on a gravestone or in a family tree"
+     }
+    ],
+    "pieces": [
+     "TU",
+     "D",
+     "OR"
+    ],
+    "subReversals": [
+     {
+      "from": "RODUT",
+      "to": "TUDOR"
+     }
+    ],
+    "surface": "A guess at how the boy king met his end, thrashing about in his last hours.",
+    "walkthrough": "'On reflection' means thinking again in the surface and a mirror in the wordplay, which is the only reason the two readings sit together so quietly.",
+    "definitionFit": "Edward VI belonged to the royal house that ruled England from 1485 to 1603, so the king is one example of the dynasty and 'possibly' flags it."
+   }
   },
   {
    "id": "20-down",
@@ -445,7 +1129,50 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHYMERS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade + container + outer letters",
+    "answer": "RHYMERS",
+    "definition": "rappers",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "Short",
+     "covered by",
+     "extremely"
+    ],
+    "indicatorNotes": {
+     "Short": "A word made short loses its last letter, so the song arrives one letter down.",
+     "covered by": "Being covered by something means it goes over you on both sides, so those end letters close around everything assembled so far.",
+     "extremely": "The extremes of a word are its two ends, so 'extremely' takes the first and last letters and nothing between."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Short song",
+      "gives": "HYM",
+      "note": "a hymn is a song, cut short by one letter"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the crossword's standard queen"
+     },
+     {
+      "clueFragment": "extremely raucous",
+      "gives": "RS",
+      "note": "the outer letters of raucous, which close around the rest"
+     }
+    ],
+    "pieces": [
+     "R",
+     "HYM",
+     "ER",
+     "S"
+    ],
+    "surface": "A brief Queen number buried under some very loud rapping.",
+    "walkthrough": "Queen is a rock band in the surface and the monarch's cipher in the wordplay, which is the switch the whole clue turns on.",
+    "definitionFit": "Rappers rhyme for a living, so the answer defines them by the thing they do — a definition by example, which the question mark admits."
+   }
   },
   {
    "id": "21-across",
@@ -462,7 +1189,45 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HENNA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HENNA",
+    "definition": "add colour",
+    "linkWords": [
+     "to"
+    ],
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue one thing 'on' another sits to its right, so the ambassador's letters are written first."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "HE is His or Her Excellency, the style an ambassador is addressed by"
+     },
+     {
+      "clueFragment": "News",
+      "gives": "NN",
+      "note": "N is the abbreviation for new, and doubling a letter makes it plural, the way pp means pages"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is an article, taken as the word itself"
+     }
+    ],
+    "pieces": [
+     "HE",
+     "NN",
+     "A"
+    ],
+    "surface": "A newspaper piece about an ambassador, written to brighten up the day's coverage.",
+    "walkthrough": "'Add colour to a story' is the surface's idiom for livening it up, and the answer needs the words literally — dye on hair, not detail in a report.",
+    "definitionFit": "The reddish plant dye is used as a verb for what it does: put it on hair and you add colour to it, which the question mark flags as loose."
+   }
   },
   {
    "id": "22-down",
@@ -479,7 +1244,49 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSEY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "NOSEY",
+    "definition": "Snooping",
+    "definitionNote": "'Snooping' is a participle and the answer an adjective, but they swap in front of a noun: the neighbour always snooping is the one the answer describes.",
+    "indicators": [
+     "revolutionary",
+     "in retrospect"
+    ],
+    "indicatorNotes": {
+     "revolutionary": "A revolution turns a thing full circle, so the little word beside it is read the other way round.",
+     "in retrospect": "Looking in retrospect is looking back over what has been said, so those letters are taken in reverse."
+    },
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "NO",
+      "note": "the clue's own word ON, turned round"
+     },
+     {
+      "clueFragment": "agreed",
+      "gives": "SEY",
+      "note": "agreed is YES, and it too is read backwards"
+     }
+    ],
+    "pieces": [
+     "NO",
+     "SEY"
+    ],
+    "subReversals": [
+     {
+      "from": "ON",
+      "to": "NO"
+     },
+     {
+      "from": "YES",
+      "to": "SEY"
+     }
+    ],
+    "surface": "A revolutionary is being watched, and what he agreed to looks different in hindsight.",
+    "walkthrough": "'Snooping on' reads as one phrase and breaks after the first word: 'on' belongs to the wordplay, where it is two letters, not to the definition.",
+    "definitionFit": "The answer is the adjective for someone forever poking into other people's business, which is exactly what snooping is."
+   }
   },
   {
    "id": "23-across",
@@ -496,7 +1303,51 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREDATORY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "PREDATORY",
+    "definition": "prone to stalking",
+    "linkWords": [
+     "being"
+    ],
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Letters sent about are sent every which way, so the four beside it come back in a different order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p = penny, the coin's abbreviation on a price tag"
+     },
+     {
+      "clueFragment": "read",
+      "gives": "REDA",
+      "note": "the four letters of READ rearranged"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a British Conservative"
+     }
+    ],
+    "pieces": [
+     "P",
+     "REDA",
+     "TORY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "READ",
+      "gives": "REDA"
+     }
+    ],
+    "surface": "Penny reads an article about a politician with a habit of following people.",
+    "walkthrough": "'Penny read about' looks like a woman with a newspaper and is three separate instructions; 'about' is the shuffling signal, not the subject of her reading.",
+    "definitionFit": "A predatory animal stalks its prey, so 'prone to stalking' names the very habit the adjective describes."
+   }
   },
   {
    "id": "23-down",
@@ -513,7 +1364,31 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLAIN",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PLAIN",
+    "definition": "manifest",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "Discussed"
+    ],
+    "indicatorNotes": {
+     "Discussed": "Something discussed is spoken rather than written, so the answer is what the other word sounds like, not how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "aircraft",
+      "gives": "PLAIN",
+      "soundsLike": "PLANE",
+      "note": "an aircraft is a plane, and said aloud it can be written a second way"
+     }
+    ],
+    "surface": "The cargo list of an aircraft is being talked over.",
+    "walkthrough": "'Manifest' is the trap: on an aircraft it is the cargo list, a noun, while the definition wants the adjective meaning obvious.",
+    "definitionFit": "Something plain is manifest — out in the open, obvious at a glance — rather than the flat-ground or unadorned senses."
+   }
   },
   {
    "id": "24-down",
@@ -534,7 +1409,43 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "ADHOC",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "AD HOC",
+    "definition": "For this special purpose",
+    "indicators": [
+     "round"
+    ],
+    "indicatorNotes": {
+     "round": "Stirring goes round in circles, so 'round' asks the stir word to close around the letter that follows it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "stir",
+      "gives": "ADO",
+      "note": "an ado is a stir, a fuss — much ado about nothing"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the hot tap"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the cold tap, the two of them labelled that way on every sink"
+     }
+    ],
+    "pieces": [
+     "AD",
+     "H",
+     "O",
+     "C"
+    ],
+    "surface": "A recipe step: stir the mixture with hot and cold water to hand.",
+    "walkthrough": "The letters come straight off a pair of taps, which is how 'hot and cold' can sit in a cooking instruction without looking like wordplay at all.",
+    "definitionFit": "The Latin tag translates as 'for this': a committee formed this way exists for one particular purpose and nothing else."
+   }
   },
   {
    "id": "25-across",
@@ -551,7 +1462,49 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSAILANT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "ASSAILANT",
+    "definition": "he attacks",
+    "definitionNote": "The definition is a clause and the answer a noun; setters use 'he attacks' as shorthand for 'the one who attacks'.",
+    "indicators": [
+     "to comprehend"
+    ],
+    "indicatorNotes": {
+     "to comprehend": "To comprehend something is to take it in and hold it, so the name outside closes around what follows."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Alan",
+      "gives": "ALAN",
+      "note": "the mathematician's first name, taken as it stands"
+     },
+     {
+      "clueFragment": "Turing’s beginning",
+      "gives": "T",
+      "note": "the opening letter of the surname"
+     },
+     {
+      "clueFragment": "Nazis’",
+      "gives": "SS",
+      "note": "SS is the Nazi party's paramilitary corps"
+     },
+     {
+      "clueFragment": "smart tech",
+      "gives": "AI",
+      "note": "AI is artificial intelligence, the field Turing's famous test belongs to"
+     }
+    ],
+    "pieces": [
+     "A",
+     "SS",
+     "AI",
+     "LANT"
+    ],
+    "surface": "Alan Turing starts to make sense of German codes with some clever machinery.",
+    "walkthrough": "Turing broke the Nazis' ciphers and wrote the test for machine intelligence, so every word of the surface is true of him — and the definition is the one thing that is not.",
+    "definitionFit": "The word names the person doing the attacking, the one who sets upon somebody, which is what the clause describes."
+   }
   },
   {
    "id": "26-across",
@@ -568,7 +1521,36 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HORSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HORSE",
+    "definition": "Bay",
+    "indicators": [
+     "not the first in Whitley"
+    ],
+    "indicatorNotes": {
+     "not the first in Whitley": "The first letter in Whitley is its W, and 'not' throws that letter away, so the quality word starts one letter later."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hotel",
+      "gives": "H",
+      "note": "Hotel is H in the NATO alphabet"
+     },
+     {
+      "clueFragment": "of inferior quality",
+      "gives": "ORSE",
+      "note": "worse means of inferior quality, and it arrives here without its W"
+     }
+    ],
+    "pieces": [
+     "H",
+     "ORSE"
+    ],
+    "surface": "A poor hotel at the seaside — not the first place you would try in Whitley Bay.",
+    "walkthrough": "Whitley Bay is a seaside town on England's north-east coast, so the surface passes as a bad hotel review, and the definition is only the second word of its name.",
+    "definitionFit": "A bay is a reddish-brown one, so the definition names the animal by its coat — an example standing for the whole, which the question mark admits."
+   }
   },
   {
    "id": "27-across",
@@ -590,7 +1572,46 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRYITON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TRY IT ON",
+    "definition": "See how far you can push it?",
+    "linkWords": [
+     "How’s",
+     "’s"
+    ],
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "'Initially' says where a piece goes rather than which letters it is: the strain word is placed at the front of the assembly."
+    },
+    "blocks": [
+     {
+      "clueFragment": "strain",
+      "gives": "TRY",
+      "note": "to strain at something is to try it, and both words mean testing a thing to its limit"
+     },
+     {
+      "clueFragment": "your father",
+      "gives": "IT",
+      "note": "'how's your father' is old British slang for sex, and 'it' is the coy word for the same thing"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "ON",
+      "note": "in cricket the leg side of the field is the on side"
+     }
+    ],
+    "pieces": [
+     "TRY",
+     "IT",
+     "ON"
+    ],
+    "surface": "Someone asks after dad's pulled leg muscle and how much more it can take.",
+    "walkthrough": "'How's your father' is old British slang for hanky-panky, which is how the surface can enquire innocently after a torn muscle while the wordplay collects a euphemism.",
+    "definitionFit": "The idiom means chancing your arm — pushing to see what you can get away with before somebody stops you."
+   }
   },
   {
    "id": "28-across",
@@ -607,7 +1628,41 @@ window.CRYPTIC_PUZZLES["cryptic-30019"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENCAMPS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + outer letters",
+    "answer": "ENCAMPS",
+    "definition": "pitches tents",
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "indicators": [
+     "cleared out",
+     "resort"
+    ],
+    "indicatorNotes": {
+     "cleared out": "A room cleared out has nothing left in the middle, so the word keeps only its two end letters.",
+     "resort": "To re-sort is to sort again into a new order, which is what the letters beside it are asked to do."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Man cleared out",
+      "gives": "MN",
+      "note": "MAN emptied of its middle leaves the two ends"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "SPACE",
+      "note": "five more letters of fodder, taken as they come"
+     }
+    ],
+    "anagram": {
+     "fodder": "MN SPACE"
+    },
+    "surface": "A man clears out a space at a holiday resort and puts up tents.",
+    "walkthrough": "'Resort' looks like the seaside town the surface needs and means re-sort, a second shuffle of the letters — the hyphen it hides is the whole trick.",
+    "definitionFit": "An army doing this pitches its tents and settles for the night, one verb covering the whole business of making camp."
+   }
   }
  ]
 } /*JSON-END*/;
