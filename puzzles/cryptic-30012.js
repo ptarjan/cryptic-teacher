@@ -35,7 +35,35 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
     ]
    },
    "solution": "THESECONDCOMING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "THE SECOND COMING",
+    "definition": "poem by Yeats",
+    "linkWords": [
+     "prompts"
+    ],
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "THE SECOND",
+     "COMING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just as",
+      "gives": "THE SECOND",
+      "note": "'The second she walked in' and 'just as she walked in' are the same sentence — the phrase works as a conjunction meaning the very moment"
+     },
+     {
+      "clueFragment": "orgasm",
+      "gives": "COMING",
+      "note": "the vulgar verb for reaching a climax, in its -ing form"
+     }
+    ],
+    "surface": "An orgasm putting somebody in mind of a bit of Irish poetry.",
+    "walkthrough": "Yeats wrote it in 1919 — 'Things fall apart; the centre cannot hold' — and took the title from the promised return of Christ, which is the sense the setter is quietly swapping for a cruder one. The dots run the sentence on into 9 across.",
+    "definitionFit": "The Second Coming is Yeats's best-known poem, so the definition names the answer by its title rather than by any meaning of the words."
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +80,32 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPTABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TEMPTABLE",
+    "definition": "liable to corruption",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "TEMP",
+     "TABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Backup",
+      "gives": "TEMP",
+      "note": "an office short of hands brings in a temp for backup, someone standing in for a while"
+     },
+     {
+      "clueFragment": "part of database",
+      "gives": "TABLE",
+      "note": "a database is built out of tables, one for each kind of record"
+     }
+    ],
+    "surface": "A spare copy of some data sitting where it could easily be damaged.",
+    "walkthrough": "A temp table is a genuine database object, so the first two thirds of the clue read as one technical phrase and give no hint that they are two separate pieces.",
+    "definitionFit": "Somebody temptable can be led astray, so the corruption meant is the moral kind — being bought — and not data going bad."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +122,42 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EASTERN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "EASTERN",
+    "definition": "from China?",
+    "indicators": [
+     "sick"
+    ],
+    "indicatorNotes": {
+     "sick": "Something sick is out of sorts and not itself, so the three letters beside it will not stand in the order they were given."
+    },
+    "pieces": [
+     "EAS",
+     "TERN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SEA",
+      "gives": "EAS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sea-sick",
+      "gives": "EAS",
+      "note": "the three letters of SEA, no longer in that order"
+     },
+     {
+      "clueFragment": "seabird",
+      "gives": "TERN",
+      "note": "a tern is the slender gull-like seabird, and one of the crossword's regulars"
+     }
+    ],
+    "surface": "A queasy seabird that has flown in from China.",
+    "walkthrough": "'Sea-sick' looks like one word describing the bird, and the hyphen is where the fodder ends and its instruction begins. The question mark earns its place: China is one eastern country among many.",
+    "definitionFit": "China lies in the East, so 'from China?' defines by example — one eastern country asked to stand in for the adjective itself."
+   }
   },
   {
    "id": "3-down",
@@ -86,7 +174,32 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXACTING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EXACTING",
+    "definition": "Challenging",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "EX",
+     "ACTING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "your ex is the partner you used to have"
+     },
+     {
+      "clueFragment": "on stage",
+      "gives": "ACTING",
+      "note": "what a person up on the stage is doing"
+     }
+    ],
+    "surface": "An old flame being difficult up on the stage.",
+    "walkthrough": "'Challenging' looks like the verb, somebody squaring up to their ex, and it is the adjective — the sense in which a job or a boss makes demands you can barely meet.",
+    "definitionFit": "An exacting employer demands a great deal and accepts nothing less, which is 'challenging' in its adjectival, hard-to-satisfy sense."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +216,38 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OBESE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "OBESE",
+    "definition": "Huge",
+    "indicators": [
+     "to sit on",
+     "banks of"
+    ],
+    "indicatorNotes": {
+     "to sit on": "This entry runs down the grid, so whatever sits on another thing is written above it.",
+     "banks of": "A river's banks are its two edges, so the letters wanted are the ones at either end of the word with nothing from between."
+    },
+    "pieces": [
+     "OBE",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "honour",
+      "gives": "OBE",
+      "note": "the OBE, Officer of the Order of the British Empire, is a rank of honour handed out twice a year in Britain"
+     },
+     {
+      "clueFragment": "banks of Seine",
+      "gives": "SE",
+      "note": "the first and last letters of Seine, the two edges of the word"
+     }
+    ],
+    "surface": "A grand award being presented on a Paris riverbank.",
+    "walkthrough": "'Huge honour' hangs together as a phrase — the sort of thing a recipient says on the day — and only the first word is the definition, describing a body rather than an award.",
+    "definitionFit": "Obese is the medical adjective for grossly overweight, so 'Huge' is the everyday word for the same bulk."
+   }
   },
   {
    "id": "5-down",
@@ -120,7 +264,37 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIRECTION",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DIRECTION",
+    "definition": "course",
+    "indicators": [
+     "entering"
+    ],
+    "indicatorNotes": {
+     "entering": "What enters a thing ends up inside it, so these two letters are planted within the word named next."
+    },
+    "pieces": [
+     "DI",
+     "RE",
+     "CTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "gives": "DICTION",
+      "note": "diction is a speaker's language, the words chosen and the way they are delivered"
+     },
+     {
+      "clueFragment": "Re",
+      "gives": "RE",
+      "note": "the clue's own opening syllable, its two letters taken just as they are printed"
+     }
+    ],
+    "surface": "Going back into a language class.",
+    "walkthrough": "'Re-entering' reads as a single word meaning going back in, and the hyphen is the seam: the prefix is letters and everything after it is instruction.",
+    "definitionFit": "A ship or a career holds a course, which is the direction it is set on, so the two nouns swap straight over."
+   }
   },
   {
    "id": "6-down",
@@ -137,7 +311,48 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OXYGEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "OXYGEN",
+    "definition": "something needed for fire",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "wild",
+     "splitting"
+    ],
+    "indicatorNotes": {
+     "wild": "Something gone wild is beyond all control, and letters in that state keep none of the order they arrived in.",
+     "splitting": "To split a thing is to open a gap in the middle of it, and that gap is where the next piece goes."
+    },
+    "pieces": [
+     "O",
+     "XY",
+     "GEN"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GONE",
+      "gives": "OGEN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gone wild",
+      "gives": "OGEN",
+      "note": "the four letters of GONE in a new order, then prised apart after the first"
+     },
+     {
+      "clueFragment": "axes",
+      "gives": "XY",
+      "note": "the x and y axes of a graph"
+     }
+    ],
+    "surface": "Someone rampaging with axes through the wood for the fire.",
+    "walkthrough": "'Axes' is the plural of axis, not of axe, and that single swap is what keeps the woodpile in front of you when the wordplay is really drawing a graph.",
+    "definitionFit": "Fire cannot burn without oxygen, so the definition names it by the job it does in combustion rather than by any synonym."
+   }
   },
   {
    "id": "7-down",
@@ -154,7 +369,27 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ITEMISE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ITEMISE",
+    "definition": "Provide detailed account of",
+    "indicators": [
+     "passage"
+    ],
+    "indicatorNotes": {
+     "passage": "A passage is a way running straight through something, and the letters wanted run straight through the two words in front of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "quite miserable",
+      "gives": "ITEMISE",
+      "note": "seven letters in a row, starting two into the first word and stopping four into the second"
+     }
+    ],
+    "surface": "A rather gloomy stretch of writing being gone through line by line.",
+    "walkthrough": "Hidden runs are hardest to see across a word break, and 'passage' passes for part of the description — a miserable passage of prose — while doing the work of the instruction.",
+    "definitionFit": "To itemise is to set a thing out item by item, which is what providing a detailed account of something amounts to."
+   }
   },
   {
    "id": "8-down",
@@ -171,7 +406,42 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GASES",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "GASES",
+    "definition": "6 and 15",
+    "indicators": [
+     "replacing"
+    ],
+    "indicatorNotes": {
+     "replacing": "One thing replacing another takes its place exactly: the letters named move out and the letters beside the instruction move in."
+    },
+    "pieces": [
+     "G",
+     "AS",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Donates",
+      "gives": "GIVES",
+      "note": "to donate is to give, and the clue's tense makes it the third person"
+     },
+     {
+      "clueFragment": "4",
+      "gives": "IV",
+      "note": "the Roman numeral for four, and it is sitting in the middle of the previous word"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "the small word of the surface, handed over as two letters to fill the gap"
+     }
+    ],
+    "surface": "A donor's gifts standing in for three items further up the list.",
+    "walkthrough": "The numbers do two different jobs in one short clue: 4 is Roman numerals inside a word, while 6 and 15 are grid references pointing at other answers.",
+    "definitionFit": "6 down is OXYGEN and 15 across is NEON, so the definition names them by the class both of them belong to."
+   }
   },
   {
    "id": "9-across",
@@ -188,7 +458,45 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISTAKE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MISTAKE",
+    "definition": "wrongly read",
+    "linkWords": [
+     "by"
+    ],
+    "indicators": [
+     "misfortunate"
+    ],
+    "indicatorNotes": {
+     "misfortunate": "A name that has come off badly has been knocked out of shape, so its letters do not keep the order they were printed in."
+    },
+    "pieces": [
+     "MI",
+     "STAKE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "KEATS",
+      "gives": "STAKE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "MI",
+      "note": "mi is the third note of the sol-fa scale, after do and re"
+     },
+     {
+      "clueFragment": "misfortunate Keats",
+      "gives": "STAKE",
+      "note": "the five letters of the poet's name, dealt out in another order"
+     }
+    ],
+    "surface": "Somebody misreading a note left by a luckless Keats.",
+    "walkthrough": "'Note' wants to be the thing that was misread and it is the sol-fa syllable. The dots carry the sentence on from 1 across, where a poet's name was doing a completely different job.",
+    "definitionFit": "To mistake something is to take it wrongly — to read a remark or a signal the wrong way — which is what the definition describes."
+   }
   },
   {
    "id": "10-across",
@@ -205,7 +513,24 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHYMERS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "RHYMERS",
+    "definition": "For example, Keats and Yeats (or not)",
+    "blocks": [
+     {
+      "clueFragment": "For example, Keats and Yeats",
+      "note": "two poets offered as instances of something, and on the page the names look like a matched pair, one letter apart"
+     },
+     {
+      "clueFragment": "(or not)",
+      "note": "the bracket takes the pairing back: one name is said 'keets' and the other 'yates', so they look alike and do not sound alike"
+     }
+    ],
+    "surface": "Two famous poets put forward as an example of something, with a bracketed second thought.",
+    "walkthrough": "There is no wordplay to hunt for here. Both men wrote verse, so both qualify — but only as poets, never as a matching pair, which is what the aside owns up to.",
+    "definitionFit": "A rhymer is a writer of verse, and both men are instances of the class — though their names are the one pair that will not rhyme."
+   }
   },
   {
    "id": "11-across",
@@ -223,7 +548,9 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "25-across"
+   }
   },
   {
    "id": "12-across",
@@ -240,7 +567,38 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TREACHERIES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TREACHERIES",
+    "definition": "unfaithful acts",
+    "linkWords": [
+     "for"
+    ],
+    "indicators": [
+     "punished"
+    ],
+    "indicatorNotes": {
+     "punished": "A word under punishment is being knocked about, and letters knocked about do not stay in the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "HERETICS ARE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Heretics are",
+      "gives": "HERETICSARE",
+      "note": "anagram fodder, eleven letters"
+     },
+     {
+      "clueFragment": "punished",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Heretics being punished for breaking faith.",
+    "walkthrough": "Surface and answer are about the same thing, which is what makes the letters so hard to see: breaking faith is precisely what heretics were burned for.",
+    "definitionFit": "A treachery is an act of betrayal, a broken faith with somebody who trusted you, and the plural definition matches the plural answer."
+   }
   },
   {
    "id": "13-across",
@@ -261,7 +619,32 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
     ]
    },
    "solution": "BANANASKIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BANANA SKIN",
+    "definition": "You might slip on this",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "BANANAS",
+     "KIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bats",
+      "gives": "BANANAS",
+      "note": "both words are slang for crazy — he's gone completely bats, he's gone completely bananas"
+     },
+     {
+      "clueFragment": "blood",
+      "gives": "KIN",
+      "note": "your blood is your kin, the family you are related to"
+     }
+    ],
+    "surface": "A witch's recipe of bats' blood, and a warning not to tread in it.",
+    "walkthrough": "The definition is the whole first half and works by what the thing does to you. In British political talk the same phrase names any small object that trips a career up.",
+    "definitionFit": "A banana skin left on the pavement is the classic thing to slip on, so the definition describes the answer by what happens when you tread on it."
+   }
   },
   {
    "id": "14-down",
@@ -282,7 +665,45 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
     ]
    },
    "solution": "SEVENSEAS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "SEVEN SEAS",
+    "definition": "International waters",
+    "indicators": [
+     "dumb",
+     "surrounded by"
+    ],
+    "indicatorNotes": {
+     "dumb": "Dumb here is the American sense, stupid rather than silent, and a word made stupid loses whatever sense its order gave it.",
+     "surrounded by": "What surrounds a thing closes round it on both sides, so this piece ends up inside the letters named after it."
+    },
+    "pieces": [
+     "S",
+     "EVEN",
+     "SEAS"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ASSES",
+      "gives": "SSEAS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dumb-asses",
+      "gives": "SSEAS",
+      "note": "the five letters of ASSES re-sorted, then opened up after the first to take something in"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "EVEN",
+      "note": "still in the sense of 'still better' — swap in 'even better' and the phrase is unchanged"
+     }
+    ],
+    "surface": "A stretch of calm water with fools standing all round it.",
+    "walkthrough": "'Still' looks like a description of the water and means even. The seven seas is the old sailors' phrase for all the oceans there are, which is why one country cannot own them.",
+    "definitionFit": "The seven seas are the world's oceans taken together, the waters no nation owns, so the definition names them by their legal standing."
+   }
   },
   {
    "id": "15-across",
@@ -299,7 +720,40 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEON",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "NEON",
+    "definition": "Light",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "binding"
+    ],
+    "indicatorNotes": {
+     "binding": "Binding goes round and round a thing, so the word in front of it closes over the letter that comes next."
+    },
+    "pieces": [
+     "N",
+     "E",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "non",
+      "gives": "NON",
+      "note": "the three letters at the front of the hyphenated word, taken as they stand"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "e = energy, the E of Einstein's equation"
+     }
+    ],
+    "surface": "A lamp's energy, offered with no commitment attached.",
+    "walkthrough": "The chemistry is real: neon is a noble gas and bonds with nothing, so 'non-binding' describes the answer at the same time as it hides the instruction.",
+    "definitionFit": "A neon is the glowing tube itself in everyday speech, so 'Light' names the answer by the thing the gas is bought for."
+   }
   },
   {
    "id": "16-down",
@@ -320,7 +774,42 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
     ]
    },
    "solution": "NUMBERTWO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "NUMBER TWO",
+    "definition": "Dropping",
+    "indicators": [
+     "frantically"
+    ],
+    "indicatorNotes": {
+     "frantically": "Writing done frantically comes out in a scramble, so the letters beside it land in no particular order."
+    },
+    "pieces": [
+     "NUMB",
+     "ERTWO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WROTE",
+      "gives": "ERTWO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dead",
+      "gives": "NUMB",
+      "note": "a dead leg is a numb one, with no feeling left in it"
+     },
+     {
+      "clueFragment": "wrote frantically",
+      "gives": "ERTWO",
+      "note": "the five letters of WROTE, scribbled down in another order"
+     }
+    ],
+    "surface": "Somebody dropping dead after a frantic bout of writing.",
+    "walkthrough": "'Dropping' is a noun and not the verb the surface offers — the sort of thing a bird leaves on a car roof — and the answer is the nursery euphemism for the same article.",
+    "definitionFit": "A dropping is a piece of excrement and number two is the nursery word for it, so the two nouns name one thing at different levels of politeness."
+   }
   },
   {
    "id": "17-down",
@@ -337,7 +826,51 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEWCOMER",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade + anagram",
+    "answer": "NEWCOMER",
+    "definition": "Fresher",
+    "indicators": [
+     "report of",
+     "sullied"
+    ],
+    "indicatorNotes": {
+     "report of": "A report of something is that thing as it was heard, so what follows is judged by ear and written down however the sound allows.",
+     "sullied": "Something sullied has been messed about with, and letters messed about with do not keep the order they came in."
+    },
+    "pieces": [
+     "NE",
+     "WC",
+     "OMER"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "MORE",
+      "gives": "OMER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "report of any",
+      "soundsLike": "ANY",
+      "gives": "NE",
+      "note": "say the letters N and E one after the other and you have said the word aloud"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "WC",
+      "note": "WC = water closet, the label on a lavatory door"
+     },
+     {
+      "clueFragment": "more sullied",
+      "gives": "OMER",
+      "note": "the four letters of MORE, put back in a different order"
+     }
+    ],
+    "surface": "A student's account of a lavatory that has got dirtier.",
+    "walkthrough": "Spelling a word out of letter names — enn, ee — is the step to spot, and it hides because 'report of any' reads as ordinary reporting. In Britain a fresher is a first-year university student.",
+    "definitionFit": "A fresher has just arrived and knows nobody, so the definition works by example: one particular kind of newcomer standing for all of them."
+   }
   },
   {
    "id": "18-across",
@@ -354,7 +887,30 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ECHO",
-   "annotation": null
+   "annotation": {
+    "type": "&lit",
+    "answer": "ECHO",
+    "definition": "E … e",
+    "indicators": [],
+    "indicatorNotes": {},
+    "pieces": [
+     "ECHO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E",
+      "gives": "ECHO",
+      "note": "the NATO alphabet gives this letter a whole word to say over the radio, so the capital on its own is four letters"
+     },
+     {
+      "clueFragment": "e",
+      "gives": "",
+      "note": "no letters from this one: it is the same character again, smaller and a moment later, and the printed dots are the pause in between"
+     }
+    ],
+    "walkthrough": "Any repeated letter would draw a picture of the thing; only this one also names it, because the radio alphabet turns E into a word. That is why the four-letter enumeration is fair.",
+    "definitionFit": "The clue prints a letter, a pause, then the same letter fainter — which is what an echo is, a sound coming back quieter than it went out."
+   }
   },
   {
    "id": "19-down",
@@ -371,7 +927,50 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOSANNA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade + reversal",
+    "answer": "HOSANNA",
+    "definition": "exaltation",
+    "indicators": [
+     "Take end from",
+     "on reflection"
+    ],
+    "indicatorNotes": {
+     "Take end from": "The end of a word is its final letter, and taking that away leaves the word one letter short.",
+     "on reflection": "A reflection shows a thing the other way round, so the two letters just handed over are written back to front."
+    },
+    "pieces": [
+     "HOS",
+     "AN",
+     "NA"
+    ],
+    "subReversals": [
+     {
+      "from": "AN",
+      "to": "NA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "communion wafer",
+      "gives": "HOS",
+      "note": "the wafer taken at communion is the host, and the instruction has just lifted its final T away"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "the small word of the surface, handed straight over as it stands"
+     },
+     {
+      "clueFragment": "on reflection",
+      "gives": "NA",
+      "note": "those same two letters shown in a mirror, so they come back the other way round"
+     }
+    ],
+    "surface": "A worshipper taking the last of the communion wafer and bursting into praise.",
+    "walkthrough": "One tiny word does the job twice, forwards and then mirrored, which is the whole difficulty of the second half. Hosanna is the cry the crowd raised on Palm Sunday.",
+    "definitionFit": "A hosanna is a shout of praise to God, and an exaltation is exactly that: the lifting of something high in worship."
+   }
   },
   {
    "id": "20-across",
@@ -388,7 +987,35 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVANGELISM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EVANGELISM",
+    "definition": "Bible teaching",
+    "indicators": [
+     "wrongly"
+    ],
+    "indicatorNotes": {
+     "wrongly": "Done wrongly is done other than it should be, so the letters go down in an order that is not theirs."
+    },
+    "anagram": {
+     "fodder": "MALIGNS EVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "maligns Eve",
+      "gives": "MALIGNSEVE",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "wrongly",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A sermon that slanders Eve and gets its scripture wrong.",
+    "walkthrough": "'Wrongly maligns' hangs together as a phrase, one accusation unfairly made, and only the first of the two words is an instruction. Eve is the sermon's target on the surface and nine letters underneath.",
+    "definitionFit": "Evangelism is the preaching of the gospel, so 'Bible teaching' names the activity by the book it teaches from."
+   }
   },
   {
    "id": "21-down",
@@ -405,7 +1032,44 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSULIN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "INSULIN",
+    "definition": "hormone",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "dropping off"
+    ],
+    "indicatorNotes": {
+     "dropping off": "Whatever drops off has come away and is gone, so the letter named goes out of the word in front of it."
+    },
+    "pieces": [
+     "INSUL",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slight",
+      "gives": "INSULT",
+      "note": "a slight is an insult, a snub delivered to somebody's face"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "t = temperature, and it is this letter that comes off the previous word"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "IN",
+      "note": "what is in is what is fashionable, the cool thing this season"
+     }
+    ],
+    "surface": "A mild fever passing off and the patient cooling down.",
+    "walkthrough": "'Slight' looks like an adjective attached to the temperature and it is a noun meaning a snub — two words that read as one symptom are two separate pieces.",
+    "definitionFit": "Insulin is the pancreas's hormone for controlling blood sugar, so the definition names the class the answer belongs to."
+   }
   },
   {
    "id": "22-down",
@@ -422,7 +1086,50 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARABIC",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + first letter + container",
+    "answer": "ARABIC",
+    "definition": "A right-beginning, dotted-letter-including alphabet",
+    "indicators": [
+     "beginning",
+     "including"
+    ],
+    "indicatorNotes": {
+     "beginning": "The beginning of a word is the letter it starts with, and that single letter is all that is wanted.",
+     "including": "What a thing includes sits inside it, so the letter named goes within the piece beside it."
+    },
+    "pieces": [
+     "A",
+     "R",
+     "AB",
+     "I",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's first word, taken as the single letter it is"
+     },
+     {
+      "clueFragment": "right-beginning",
+      "gives": "R",
+      "note": "the first letter of RIGHT"
+     },
+     {
+      "clueFragment": "alphabet",
+      "gives": "ABC",
+      "note": "the ABC is the alphabet, and here it is opened up before its last letter"
+     },
+     {
+      "clueFragment": "dotted-letter",
+      "gives": "I",
+      "note": "in lower case this vowel is written with a dot on top of it"
+     }
+    ],
+    "walkthrough": "Every word is doing both jobs at once: Arabic really is written from the right, and its letters really are told apart by dots above and below them.",
+    "definitionFit": "Arabic script runs right to left and distinguishes many letters by dots, so the whole clue is a true description of the alphabet it also spells."
+   }
   },
   {
    "id": "23-across",
@@ -439,7 +1146,39 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GASTRONOMIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "GASTRONOMIC",
+    "definition": "foody?",
+    "definitionNote": "'Foody' is normally the noun for a person who loves food, while the answer is an adjective; the question mark is the setter admitting he has bent the word into an adjective to fit.",
+    "indicators": [
+     "starter",
+     "presented to"
+    ],
+    "indicatorNotes": {
+     "starter": "A starter is what comes first at table, so the letter wanted is the one at the front of the name.",
+     "presented to": "What is presented to somebody is held out in front of them, so this letter goes before the rest."
+    },
+    "pieces": [
+     "G",
+     "ASTRONOMIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gordon’s starter",
+      "gives": "G",
+      "note": "the first letter of Gordon"
+     },
+     {
+      "clueFragment": "massive",
+      "gives": "ASTRONOMIC",
+      "note": "astronomic costs are massive ones, on the scale of the stars"
+     }
+    ],
+    "surface": "Gordon Ramsay's first course put in front of an enormous food lover.",
+    "walkthrough": "The setter signs his own clue: Ramsay is his pseudonym and Gordon Ramsay is the television chef, which is why a starter and a food lover turn up in the same sentence.",
+    "definitionFit": "'Foody' means to do with good eating, which is the territory gastronomic covers — meals, cooking and the pleasure taken in them."
+   }
   },
   {
    "id": "23-down",
@@ -456,7 +1195,47 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRIEF",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + anagram",
+    "answer": "GRIEF",
+    "definition": "Sadness",
+    "linkWords": [
+     "as"
+    ],
+    "indicators": [
+     "terminally",
+     "damaged"
+    ],
+    "indicatorNotes": {
+     "terminally": "What happens terminally happens at the very end, so the letter wanted is the word's last.",
+     "damaged": "Damaged goods have lost their shape, and four letters damaged in a fire come out in a different order."
+    },
+    "pieces": [
+     "G",
+     "RIEF"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "FIRE",
+      "gives": "RIEF"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "building terminally",
+      "gives": "G",
+      "note": "the last letter of buildinG"
+     },
+     {
+      "clueFragment": "fire-damaged",
+      "gives": "RIEF",
+      "note": "the four letters of FIRE, left in a different order"
+     }
+    ],
+    "surface": "Sorrow at a building burnt out from end to end.",
+    "walkthrough": "'Terminally' reads as part of the damage report — a building terminally damaged is beyond saving — and it is the instruction picking out one letter.",
+    "definitionFit": "Grief is the sadness that follows a loss, so the two nouns are plain synonyms, with the answer carrying the sharper sense of bereavement."
+   }
   },
   {
    "id": "24-down",
@@ -479,7 +1258,39 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MACHO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MACHO",
+    "definition": "Like Top Gun pilot",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "approximately"
+    ],
+    "indicatorNotes": {
+     "approximately": "The bracket admits the figure is not exact: round the speed to the nearest whole number and it comes out at nothing at all."
+    },
+    "pieces": [
+     "MACH",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed",
+      "gives": "MACH",
+      "note": "aircraft speed is given in Mach numbers, multiples of the speed of sound"
+     },
+     {
+      "clueFragment": "taxiing",
+      "gives": "O",
+      "note": "a plane crawling round the airfield is doing nought, and the nought is written as a letter"
+     }
+    ],
+    "surface": "How fast a Top Gun pilot is going while still trundling round the airfield.",
+    "walkthrough": "Top Gun is italicised because it is the film, and its fighter pilots are exactly the swaggering sort the definition wants. Mach 1 is the speed of sound, so taxiing barely registers.",
+    "definitionFit": "Macho means aggressively masculine, all swagger and bravado, which is how the film draws its pilots — the definition describes them by type."
+   }
   },
   {
    "id": "25-across",
@@ -497,7 +1308,45 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEE",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "reversal + charade",
+    "answer": "SEETHE",
+    "definition": "froth",
+    "indicators": [
+     "backwash of",
+     "follows"
+    ],
+    "indicatorNotes": {
+     "backwash of": "Backwash is water running back the way it came, so the name beside it is written out from its end.",
+     "follows": "What follows something comes after it, so this piece is written second."
+    },
+    "pieces": [
+     "SEET",
+     "HE"
+    ],
+    "subReversals": [
+     {
+      "from": "TEES",
+      "to": "SEET"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backwash of river",
+      "gives": "SEET",
+      "note": "the Tees is a river in north-east England, running out past Middlesbrough, and here it runs the other way"
+     },
+     {
+      "clueFragment": "That man",
+      "gives": "HE",
+      "note": "that man is he"
+     }
+    ],
+    "surface": "A man standing where the river's backwash throws up froth.",
+    "walkthrough": "The answer is split across two entries, so the enumeration in the clue counts six letters that the grid gives three at a time. To seethe is to boil and to be furious in the same breath.",
+    "definitionFit": "Water that seethes boils and bubbles at the surface, which is what froth does — verb for verb, with the answer's angrier sense held back."
+   }
   },
   {
    "id": "26-across",
@@ -514,7 +1363,45 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IGNOBLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "IGNOBLE",
+    "definition": "mean",
+    "linkWords": [
+     "are"
+    ],
+    "indicators": [
+     "Playing"
+    ],
+    "indicatorNotes": {
+     "Playing": "A word played with is a word knocked out of shape, so the letters beside it will not stay where they were put."
+    },
+    "pieces": [
+     "IGNOB",
+     "LE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "BINGO",
+      "gives": "IGNOB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Playing bingo",
+      "gives": "IGNOB",
+      "note": "the five letters of BINGO in a new order"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "'the' in French is le, one of the crossword's standard borrowings"
+     }
+    ],
+    "surface": "The French turning nasty over a game of bingo.",
+    "walkthrough": "'The French' is not a nationality here but the French word for 'the', which is the commonest borrowing in British cryptics and worth learning in both genders.",
+    "definitionFit": "An ignoble act is a mean one — small-minded, and beneath the person who stooped to it — so the two adjectives swap directly."
+   }
   },
   {
    "id": "27-across",
@@ -531,7 +1418,42 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAMELOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "CAMELOT",
+    "definition": "castle",
+    "indicators": [
+     "returned"
+    ],
+    "indicatorNotes": {
+     "returned": "This entry runs across the grid, so something returned is written back the way it came, right to left."
+    },
+    "pieces": [
+     "CAMEL",
+     "OT"
+    ],
+    "subReversals": [
+     {
+      "from": "TO",
+      "to": "OT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beast of burden",
+      "gives": "CAMEL",
+      "note": "the camel is the desert's pack animal"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "OT",
+      "note": "the clue's own 'to', its two letters turned end for end"
+     }
+    ],
+    "surface": "A pack animal sent back to the castle.",
+    "walkthrough": "'Returned to castle' reads as one journey, and the smallest word in it is the second piece of the wordplay rather than the preposition it pretends to be.",
+    "definitionFit": "Camelot is King Arthur's castle in the legends, so 'castle' defines by example, one named stronghold standing in for the general word."
+   }
   },
   {
    "id": "28-across",
@@ -552,7 +1474,51 @@ window.CRYPTIC_PUZZLES["cryptic-30012"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRANCISCOFRANCO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "FRANCISCO FRANCO",
+    "definition": "general",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "leader"
+    ],
+    "indicatorNotes": {
+     "leader": "A leader is the one out in front, so the letter wanted is the one at the head of the word before it."
+    },
+    "pieces": [
+     "F",
+     "RAN",
+     "CISCO",
+     "FRANCO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fascist leader",
+      "gives": "F",
+      "note": "the first letter of Fascist"
+     },
+     {
+      "clueFragment": "controlled",
+      "gives": "RAN",
+      "note": "whoever controlled a business ran it"
+     },
+     {
+      "clueFragment": "Houston",
+      "gives": "CISCO",
+      "note": "Cisco Houston was an American folk singer who toured with Woody Guthrie"
+     },
+     {
+      "clueFragment": "rumba master",
+      "gives": "FRANCO",
+      "note": "Franco Luambo was the Congolese bandleader known as the grand master of African rumba"
+     }
+    ],
+    "surface": "A fascist boss running the city of Houston with a rumba bandleader at his side.",
+    "walkthrough": "'Houston' looks like the Texan city and is a surname, and the same trick is played again on the bandleader. Franco ruled Spain from 1939 until his death in 1975.",
+    "definitionFit": "Franco was the general who seized power in the Spanish civil war, so 'general' names him by his rank — one soldier standing for the word."
+   }
   }
  ]
 } /*JSON-END*/;
