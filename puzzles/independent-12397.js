@@ -30,7 +30,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LADDISH",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "LADDISH",
+    "definition": "Macho",
+    "indicators": [
+     "hosted by"
+    ],
+    "indicatorNotes": {
+     "hosted by": "A host takes a guest in and puts them up inside, so the letters either side close around whatever is being hosted."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Hollywood",
+      "gives": "LA",
+      "note": "Hollywood is a district of Los Angeles, which crosswords shorten to the city's two initials."
+     },
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "On a film credit the director is the standing single letter D."
+     },
+     {
+      "clueFragment": "Bowl",
+      "gives": "DISH",
+      "note": "A bowl on the table is a dish."
+     }
+    ],
+    "pieces": [
+     "LA",
+     "D",
+     "DISH"
+    ],
+    "surface": "A film director being wined and dined at a concert at the Hollywood Bowl.",
+    "walkthrough": "The Hollywood Bowl is one Los Angeles venue, which is what makes the two words look like a single name; the setter splits them and uses each half separately.",
+    "definitionFit": "LADDISH means macho in the beer-and-banter sense, so the adjective swaps straight in for the clue's word."
+   }
   },
   {
    "id": "1-down",
@@ -57,7 +92,36 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIVE",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "LIVE",
+    "definition": "performed on stage",
+    "indicators": [
+     "Defying Gravity"
+    ],
+    "indicatorNotes": {
+     "Defying Gravity": "Whatever defies gravity is heading upwards, and upwards in a down entry means reading the letters back up the column."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wicked's",
+      "gives": "LIVE",
+      "note": "Wicked gives EVIL, which this down entry meets climbing back up."
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "EVIL",
+      "to": "LIVE"
+     }
+    ],
+    "pieces": [
+     "LIVE"
+    ],
+    "surface": "A song from the musical Wicked being belted out in the theatre.",
+    "walkthrough": "Defying Gravity is a song from Wicked, so the two italicised titles read as one theatre sentence and only the first of them is doing any work.",
+    "definitionFit": "A LIVE show is one happening in front of you rather than recorded, which is what performing on stage means."
+   }
   },
   {
    "id": "2-down",
@@ -74,7 +138,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DIRECTORY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "DIRECTORY",
+    "definition": "a bunch of addresses",
+    "indicators": [
+     "takes"
+    ],
+    "indicatorNotes": {
+     "takes": "To take something is to let it inside you, so the surrounding letters open up and admit the piece named next."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Awful",
+      "gives": "DIRE",
+      "note": "Something awful is dire."
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is the standing crossword abbreviation for cocaine."
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "A Tory is a member of the British Conservative party, one of the two politicians crosswords reach for."
+     }
+    ],
+    "pieces": [
+     "DIRE",
+     "C",
+     "TORY"
+    ],
+    "surface": "A grim MP caught taking drugs while giving a run of speeches.",
+    "walkthrough": "The addresses of the definition are the postal kind, not the ones a politician delivers, and the surface leans on the wrong sense the whole way.",
+    "definitionFit": "A DIRECTORY is the book that lists names beside their addresses, so it is a bunch of addresses bound together."
+   }
   },
   {
    "id": "3-down",
@@ -91,7 +190,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDIOM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "IDIOM",
+    "definition": "Phrase",
+    "indicators": [
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "flipping": "To flip a thing is to turn it over, so the word it points at is entered the opposite way round."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Methuselah had",
+      "gives": "ID",
+      "note": "Methuselah is the setter of this puzzle, so he says I had the contracted way, I'D."
+     },
+     {
+      "clueFragment": "pompous way of referring to himself",
+      "gives": "IOM",
+      "note": "The self-important speaker calls himself MOI, French for me, and it goes in turned about."
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "MOI",
+      "to": "IOM"
+     }
+    ],
+    "pieces": [
+     "ID",
+     "IOM"
+    ],
+    "surface": "The setter owning up, in an aside, to a rather grand way of talking about himself.",
+    "walkthrough": "Methuselah is the pseudonym printed above the grid, and a setter naming himself in his own clue is a standing habit of the Independent's daily.",
+    "definitionFit": "An IDIOM is a set phrase whose meaning is not the sum of its words, so the two nouns swap freely."
+   }
   },
   {
    "id": "4-down",
@@ -114,7 +248,38 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAIRCUT",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "HAIRCUT",
+    "definition": "A B-52 possibly",
+    "indicators": [
+     "Spoonerised"
+    ],
+    "indicatorNotes": {
+     "Spoonerised": "Spooner swapped the opening sounds of two words, so say the pair aloud and trade the noises at their fronts."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "soundsLike": "CARE",
+      "gives": "HAIR",
+      "note": "Love in the sense of care, which hands its opening sound over to the word after it."
+     },
+     {
+      "clueFragment": "Shack",
+      "soundsLike": "HUT",
+      "gives": "CUT",
+      "note": "A shack is a hut, and it takes on the hard opening sound the first word gave up."
+     }
+    ],
+    "pieces": [
+     "HAIR",
+     "CUT"
+    ],
+    "surface": "The B-52's song Love Shack put through the Reverend Spooner.",
+    "walkthrough": "A B-52 is the towering beehive style named after the bomber's nose cone, and the band named themselves after the hairdo, which is why their song supplies the sounds.",
+    "definitionFit": "The B-52 is one particular style, so it names the general word only as an example, which is what 'possibly' flags."
+   }
   },
   {
    "id": "5-across",
@@ -131,7 +296,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEDUSAS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MEDUSAS",
+    "definition": "jellyfish",
+    "indicators": [
+     "getting into"
+    ],
+    "indicatorNotes": {
+     "getting into": "Getting into something puts you bodily inside it, so this piece is planted between the letters either side."
+    },
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "The Med is the everyday short name for the Mediterranean."
+     },
+     {
+      "clueFragment": "Our people",
+      "gives": "US",
+      "note": "Our people are us, and the word goes in exactly as written."
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "Like in the sense of in the manner of is as."
+     }
+    ],
+    "pieces": [
+     "MED",
+     "US",
+     "AS"
+    ],
+    "surface": "Holidaymakers wading into the sea and drifting about like jellyfish.",
+    "walkthrough": "'Sea like' looks as though it is finishing a simile; it is two unrelated scraps of wordplay with the swimmers dropped in between them.",
+    "definitionFit": "A medusa is the free-swimming bell stage of a jellyfish, so the plural covers several of the creatures."
+   }
   },
   {
    "id": "5-down",
@@ -148,7 +348,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOORAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MOORAGE",
+    "definition": "Where to stop vessel",
+    "indicators": [
+     "twisting"
+    ],
+    "indicatorNotes": {
+     "twisting": "A twist turns a thing round on itself, so the word it touches is entered the other way about."
+    },
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "MOOR",
+      "note": "Space in the sense of ROOM, then turned about."
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "An age is a long stretch of time."
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "ROOM",
+      "to": "MOOR"
+     }
+    ],
+    "pieces": [
+     "MOOR",
+     "AGE"
+    ],
+    "surface": "A ship spinning through space and time, science fiction style.",
+    "walkthrough": "'Vessel' belongs to the definition rather than the wordplay: it is a boat tying up, while the surface has you picturing a spacecraft.",
+    "definitionFit": "A MOORAGE is the place a boat is made fast, so the phrase names the spot rather than the act of stopping."
+   }
   },
   {
    "id": "6-down",
@@ -165,7 +400,30 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISPERSAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DISPERSAL",
+    "definition": "spread",
+    "indicators": [
+     "freshened up"
+    ],
+    "indicatorNotes": {
+     "freshened up": "Something freshened up has been made over, and a word made over does not keep its letters in the order it was given."
+    },
+    "anagram": {
+     "fodder": "ALDIS REPS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Aldi's reps",
+      "gives": "DISPERSAL",
+      "note": "Nine letters go into the shake-up and nine come out, which is what the enumeration asks for."
+     }
+    ],
+    "surface": "Sales reps from the discount supermarket given a makeover.",
+    "walkthrough": "Aldi is a German-owned chain of cut-price supermarkets, a fixture of the British high street, and that familiarity is what makes its reps read as staff rather than as letters.",
+    "definitionFit": "The DISPERSAL of seeds is their spread outwards, both nouns naming the same scattering."
+   }
   },
   {
    "id": "7-down",
@@ -182,7 +440,39 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STOLE",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "STOLE",
+    "definition": "Didn't take kindly",
+    "indicators": [
+     "being hugged by",
+     "oddly"
+    ],
+    "indicatorNotes": {
+     "being hugged by": "A hug closes arms right round its object, so the hugging word splits open and holds this piece inside.",
+     "oddly": "Oddly points at the odd positions, so only the first, third and fifth letters of the word are kept."
+    },
+    "blocks": [
+     {
+      "clueFragment": "solver, oddly",
+      "gives": "SLE",
+      "note": "Count into the word and keep the letters standing in odd positions, dropping the rest."
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "The little word is lifted straight out of the clue and dropped inside."
+     }
+    ],
+    "pieces": [
+     "S",
+     "TO",
+     "LE"
+    ],
+    "surface": "Someone reacting badly to being embraced by a crossword solver.",
+    "walkthrough": "'Didn't take kindly to' reads as one indignant phrase, but the 'to' on the end of it belongs to the wordplay, not the definition.",
+    "definitionFit": "Taking something unkindly, that is without asking, is theft, so the negative phrase hides a plain past-tense verb."
+   }
   },
   {
    "id": "8-down",
@@ -199,7 +489,30 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SECONDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SECONDED",
+    "definition": "Supported",
+    "blocks": [
+     {
+      "clueFragment": "rather than Miliband?",
+      "gives": "SECOND",
+      "note": "Two politicians share the name, and Miliband had it in the public eye first, so pointing away from him says which of the pair is meant."
+     },
+     {
+      "clueFragment": "Davey",
+      "gives": "ED",
+      "note": "Ed Davey, leader of the Liberal Democrats, supplies his first name."
+     }
+    ],
+    "pieces": [
+     "SECOND",
+     "ED"
+    ],
+    "surface": "Backing one party leader in preference to another.",
+    "walkthrough": "Both men are Eds: Ed Miliband led Labour from 2010, Ed Davey the Liberal Democrats from 2020, so naming one instead of the other is really giving him a number.",
+    "definitionFit": "To SECOND a motion is to back it formally, the committee-room sense of support."
+   }
   },
   {
    "id": "9-across",
@@ -216,7 +529,30 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERTIGINOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VERTIGINOUS",
+    "definition": "dizzy",
+    "indicators": [
+     "could make you"
+    ],
+    "indicatorNotes": {
+     "could make you": "'Could make' says the letters in front of it are raw material, capable of turning into something else."
+    },
+    "anagram": {
+     "fodder": "OVERUSING IT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Overusing it",
+      "gives": "VERTIGINOUS",
+      "note": "Eleven letters sit in those two words, and eleven is what the enumeration wants."
+     }
+    ],
+    "surface": "A warning that too much of something will leave you giddy.",
+    "walkthrough": "The clue is nearly all one sentence: the same two words that hand over the letters also describe what the answer does to a person.",
+    "definitionFit": "A VERTIGINOUS drop is a dizzy one, both adjectives describing the head swimming at a height."
+   }
   },
   {
    "id": "10-across",
@@ -239,7 +575,47 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "ORC",
+    "definition": "Tolkien creature",
+    "linkWords": [
+     "has"
+    ],
+    "indicators": [
+     "before",
+     "Return of"
+    ],
+    "indicatorNotes": {
+     "before": "Before is positional: the piece named ahead of it is entered first, at the front.",
+     "Return of": "A return is a coming back the way you came, so the letters named are written in the opposite order."
+    },
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "A ring drawn on the page is a circle, the letter O."
+     },
+     {
+      "clueFragment": "the King",
+      "gives": "RC",
+      "note": "Britain's king signs himself Charles Rex, CR, and that pair arrives here the other way about."
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "CR",
+      "to": "RC"
+     }
+    ],
+    "pieces": [
+     "O",
+     "RC"
+    ],
+    "surface": "A Tolkien monster laying hands on a ring before the last film of the trilogy.",
+    "walkthrough": "The Ring and The Return of the King are Tolkien's own titles, so the clue reads as a plot summary while both halves quietly do wordplay.",
+    "definitionFit": "ORCS are the goblin foot-soldiers Tolkien invented for Middle-earth, so the phrase names the species outright."
+   }
   },
   {
    "id": "11-across",
@@ -256,7 +632,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCUM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "SCUM",
+    "definition": "dirty film",
+    "indicators": [
+     "Character opening"
+    ],
+    "indicatorNotes": {
+     "Character opening": "The character that opens a word is its very first letter, and that letter alone is taken."
+    },
+    "blocks": [
+     {
+      "clueFragment": "seedy",
+      "gives": "S",
+      "note": "Only the letter at the front of this word is wanted."
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is clubs on a bridge scoresheet, one of the four card suits crosswords lean on."
+     },
+     {
+      "clueFragment": "let me see",
+      "gives": "UM",
+      "note": "The noise a person makes while thinking is written um."
+     }
+    ],
+    "pieces": [
+     "S",
+     "C",
+     "UM"
+    ],
+    "surface": "A shady character breaking into a nightclub to watch a blue movie.",
+    "walkthrough": "'Character' wants to be a person in the film the surface is about; it means a letter, and the 'dirty film' at the end is the greasy layer on standing water.",
+    "definitionFit": "SCUM is the filthy film that forms on the surface of a pond or a bath, a plain synonym once the film is not celluloid."
+   }
   },
   {
    "id": "12-across",
@@ -273,7 +684,30 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAMELEON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CHAMELEON",
+    "definition": "Blender",
+    "indicators": [
+     "juiced"
+    ],
+    "indicatorNotes": {
+     "juiced": "Fruit that has been juiced has been pulped, and pulped letters come out in a different order."
+    },
+    "anagram": {
+     "fodder": "EACH LEMON"
+    },
+    "blocks": [
+     {
+      "clueFragment": "each lemon",
+      "gives": "CHAMELEON",
+      "note": "Nine letters between the two words, which is exactly the length wanted."
+     }
+    ],
+    "surface": "A kitchen gadget pulping citrus.",
+    "walkthrough": "'Blender' reads as the appliance the lemons are heading into, which is the whole misdirection: it is the definition and no part of the machinery.",
+    "definitionFit": "A CHAMELEON shifts colour to melt into its background, so it is literally a thing that blends."
+   }
   },
   {
    "id": "13-across",
@@ -290,7 +724,24 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COWPAT",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "COWPAT",
+    "definition": "Flat deposit previously held in stock",
+    "blocks": [
+     {
+      "clueFragment": "Flat deposit",
+      "note": "The surface offers money put down on a rented flat; read plainly it is something flat that has been deposited on the ground."
+     },
+     {
+      "clueFragment": "previously held in stock",
+      "note": "A shop holds goods in stock, but stock is also livestock, and this was held inside the animal until the field received it."
+     }
+    ],
+    "surface": "An estate agent's ledger: a deposit on an apartment that used to sit in shares.",
+    "walkthrough": "Stock is the hinge: shares in the surface picture, cattle in the real one. There is no wordplay to unpick, only the one sense giving way to the other.",
+    "definitionFit": "The answer is the flat dropping a cow leaves in a field, matter that genuinely was held inside the stock beforehand."
+   }
   },
   {
    "id": "14-down",
@@ -307,7 +758,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PRANKSTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letters",
+    "answer": "PRANKSTER",
+    "definition": "Lover of capers",
+    "indicators": [
+     "starters for"
+    ],
+    "indicatorNotes": {
+     "starters for": "A starter is what comes first, so each of the words after it gives up only the letter it opens with."
+    },
+    "blocks": [
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "P is piano in music, the mark telling a player to be quiet."
+     },
+     {
+      "clueFragment": "orders",
+      "gives": "RANKS",
+      "note": "Orders in the sense of grades or classes are ranks."
+     },
+     {
+      "clueFragment": "the entire restaurant",
+      "gives": "TER",
+      "note": "Three words, each handing over the letter it begins with, in the order they are printed."
+     }
+    ],
+    "pieces": [
+     "P",
+     "RANKS",
+     "TER"
+    ],
+    "surface": "A diner who loves capers quietly ordering first courses for everyone in the place.",
+    "walkthrough": "'Capers' does double duty in the picture: pickled flower buds on a restaurant menu, and escapades in the definition. 'Starters' plays the same trick.",
+    "definitionFit": "A caper is a playful escapade, so the one who loves them is the person forever pulling them on other people."
+   }
   },
   {
    "id": "15-across",
@@ -328,7 +814,40 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
     ]
    },
    "solution": "ENSUITE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + homophone",
+    "answer": "EN SUITE",
+    "definition": "private facilities",
+    "definitionNote": "Facilities is a plural idiom for a single bathroom, so the definition is plural where the answer names one room.",
+    "indicators": [
+     "on vacation",
+     "mentioned"
+    ],
+    "indicatorNotes": {
+     "on vacation": "A word on vacation has been emptied out, leaving only the letters standing at each end.",
+     "mentioned": "Mentioned means said out loud, so what follows is a sound that gets respelled."
+    },
+    "blocks": [
+     {
+      "clueFragment": "European on vacation",
+      "gives": "EN",
+      "note": "Empty the middle out of the word and its first and last letters are left holding the ends."
+     },
+     {
+      "clueFragment": "charming",
+      "soundsLike": "SWEET",
+      "gives": "SUITE",
+      "note": "Charming means sweet, and that noise said aloud is written the hotel way."
+     }
+    ],
+    "pieces": [
+     "EN",
+     "SUITE"
+    ],
+    "surface": "A holidaying European praising a charming private bathroom.",
+    "walkthrough": "'European on vacation' is a whole picture in itself, which is what buries the instruction inside it: the vacation is an emptying, not a holiday.",
+    "definitionFit": "An EN SUITE is the bathroom opening straight off a bedroom, reserved for whoever is in that room."
+   }
   },
   {
    "id": "16-down",
@@ -345,7 +864,36 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INEFFABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "INEFFABLE",
+    "definition": "more than words can say",
+    "indicators": [
+     "moving leader"
+    ],
+    "indicatorNotes": {
+     "moving leader": "The leader is the letter at the front, and moving it sends it round to the back of its own word."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "INEF",
+      "note": "Good is FINE, whose front letter is shifted round to the end."
+     },
+     {
+      "clueFragment": "story",
+      "gives": "FABLE",
+      "note": "A fable is a short story with a moral."
+     }
+    ],
+    "pieces": [
+     "INEF",
+     "FABLE"
+    ],
+    "surface": "A good story that moves a party leader more than words can say.",
+    "walkthrough": "The definition and the wordplay share the word moving: the story moves a leader emotionally in the surface, while the setter is moving a letter.",
+    "definitionFit": "Something INEFFABLE is beyond expression, which is what being more than words can say amounts to."
+   }
   },
   {
    "id": "17-down",
@@ -362,7 +910,42 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JAMBOREE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "JAMBOREE",
+    "definition": "Big gathering",
+    "blocks": [
+     {
+      "clueFragment": "spread",
+      "gives": "JAM",
+      "note": "Jam is the spread you put on toast."
+     },
+     {
+      "clueFragment": "bad smell",
+      "gives": "BO",
+      "note": "BO is body odour, the two initials standing for the smell."
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "Re means concerning, the about at the top of a memo."
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms in mathematics."
+     }
+    ],
+    "pieces": [
+     "JAM",
+     "BO",
+     "RE",
+     "E"
+    ],
+    "surface": "A bad smell being spread around the bottom of something.",
+    "walkthrough": "'Spread bad smell about' reads as one action, which is what disguises four separate scraps, and the base at the end is mathematical rather than architectural.",
+    "definitionFit": "A JAMBOREE is a large celebratory rally, the word Scouting took for its international meetings."
+   }
   },
   {
    "id": "18-across",
@@ -379,7 +962,31 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANYWAYS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANYWAYS",
+    "definition": "where was I?",
+    "definitionNote": "The definition is a phrase somebody says rather than a synonym: the answer is the word that does that job in speech.",
+    "indicators": [
+     "Crudely"
+    ],
+    "indicatorNotes": {
+     "Crudely": "Done crudely, something is thrown together roughly, and letters thrown together lose the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "YAWN SAY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "yawn and say",
+      "gives": "ANYWAYS",
+      "note": "The words either side of 'and' supply all seven letters; the joiner itself contributes none."
+     }
+    ],
+    "surface": "Someone yawning through their own story and losing the thread of it.",
+    "walkthrough": "'Crudely' is doing two jobs at once: it shuffles the letters, and it warns that the answer is the rough, non-standard form of a very ordinary word.",
+    "definitionFit": "ANYWAYS is the colloquial marker you drop in to pick a story back up after wandering off it, which is what the question does."
+   }
   },
   {
    "id": "19-down",
@@ -396,7 +1003,39 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SILENCE",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SILENCE",
+    "definition": "Still",
+    "indicators": [
+     "heartless",
+     "being swallowed"
+    ],
+    "indicatorNotes": {
+     "heartless": "A heartless word has had the letter at its very centre taken out of it.",
+     "being swallowed": "Swallowing takes a thing right inside, so this piece disappears into the middle of the word before it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "seeing that",
+      "gives": "SINCE",
+      "note": "Seeing that you are late and since you are late are the same conjunction."
+     },
+     {
+      "clueFragment": "heartless lie",
+      "gives": "LE",
+      "note": "The word for an untruth loses the I at its heart, leaving the letters that stood either side."
+     }
+    ],
+    "pieces": [
+     "SI",
+     "LE",
+     "NCE"
+    ],
+    "surface": "Watching a small untruth get swallowed whole by the person told it.",
+    "walkthrough": "'Still' is the trap. It wants to be the adverb meaning even now, carrying the sentence on, and it is a noun.",
+    "definitionFit": "The still of the night is its SILENCE, the noun sense of still that survives mostly in that phrase."
+   }
   },
   {
    "id": "20-across",
@@ -413,7 +1052,30 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SILVER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "SILVER",
+    "definition": "top conductor",
+    "linkWords": [
+     "used as"
+    ],
+    "indicators": [
+     "A little"
+    ],
+    "indicatorNotes": {
+     "A little": "A little of something is a short run taken from inside it rather than the whole of it."
+    },
+    "blocks": [
+     {
+      "clueFragment": "utensil Verdi",
+      "gives": "SILVER",
+      "note": "The letters run on unbroken out of the end of one word and into the start of the next."
+     }
+    ],
+    "surface": "A small piece of cutlery that Verdi once waved as a baton.",
+    "walkthrough": "'Conductor' is the pivot: the surface wants Verdi on the podium, and the definition wants the metal that carries a current better than any other.",
+    "definitionFit": "SILVER conducts electricity better than any other metal, so 'top' is a literal ranking rather than praise for a maestro."
+   }
   },
   {
    "id": "20-down",
@@ -430,7 +1092,27 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIGNING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SIGNING",
+    "definition": "New team member",
+    "definition2": "communicating digitally",
+    "blocks": [
+     {
+      "clueFragment": "New team member",
+      "gives": "",
+      "note": "the recruit a club has just put under contract, in the sports-page sense"
+     },
+     {
+      "clueFragment": "communicating digitally",
+      "gives": "",
+      "note": "talking with the hands, digits having been fingers long before they were electronics"
+     }
+    ],
+    "surface": "A club's latest recruit tapping away at his phone.",
+    "walkthrough": "'Digitally' is the joke: not by phone or email but with the digits, the fingers, which is how sign language is done.",
+    "definitionFit": "A club's new recruit is its latest signing, from the contract he signs; and signing is also holding a conversation in sign language."
+   }
   },
   {
    "id": "21-across",
@@ -452,7 +1134,24 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
     ]
    },
    "solution": "BREAKALEG",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "BREAK A LEG",
+    "definition": "Cast member after being told this?",
+    "blocks": [
+     {
+      "clueFragment": "Cast member",
+      "note": "The surface wants an actor in the cast of a play; the other reading is a limb, a member, sitting in plaster."
+     },
+     {
+      "clueFragment": "after being told this?",
+      "note": "'This' points at the answer itself, the thing said to a performer before curtain-up, which taken at its word lands them in that plaster."
+     }
+    ],
+    "surface": "An actor in a company, and whatever it is somebody has just wished them.",
+    "walkthrough": "There is no wordplay to take apart here. The wish is theatre superstition, since saying good luck is held to invite the opposite, and the clue takes it literally.",
+    "definitionFit": "The answer is the traditional pre-show wish to an actor, and obeying it would put a member in a cast, which is how the clue reads both ways at once."
+   }
   },
   {
    "id": "22-down",
@@ -469,7 +1168,35 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMAIL",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "EMAIL",
+    "definition": "way to contact MP?",
+    "indicators": [
+     "embraces",
+     "revolutionary"
+    ],
+    "indicatorNotes": {
+     "embraces": "To embrace is to hold a thing within your arms, so the letters are sitting inside the word, unbroken.",
+     "revolutionary": "A revolution turns a thing full circle, so the run of letters is met the other way about."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Parliament",
+      "gives": "EMAIL",
+      "note": "Five consecutive letters inside the word, read in the opposite order to the way they are printed."
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "LIAME",
+      "to": "EMAIL"
+     }
+    ],
+    "surface": "The Commons taking up a modern way of letting voters reach their members.",
+    "walkthrough": "'Revolutionary' looks like a person, a firebrand loose in Parliament, and the clue comes close to describing itself, since the word Parliament really does contain what you write to one.",
+    "definitionFit": "An EMAIL is one of several ways of writing to a member, so the question mark marks a definition by example."
+   }
   },
   {
    "id": "23-across",
@@ -486,7 +1213,47 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOFU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter + reversal",
+    "answer": "TOFU",
+    "definition": "Vegan food",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "ending",
+     "being thrown back"
+    ],
+    "indicatorNotes": {
+     "ending": "The ending of a word is its final letter, and that is all that gets taken from it.",
+     "being thrown back": "Thrown back means sent the way it came, so across the grid this piece is written right to left."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fight's ending",
+      "gives": "T",
+      "note": "Take only the last letter of the word in front of it."
+     },
+     {
+      "clueFragment": "saucer",
+      "gives": "OFU",
+      "note": "A flying saucer is a UFO, and this one comes in back to front."
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "UFO",
+      "to": "OFU"
+     }
+    ],
+    "pieces": [
+     "T",
+     "OFU"
+    ],
+    "surface": "A canteen food fight finishing with crockery sailing back across the room.",
+    "walkthrough": "The food fight and the flying plate are one picture, so the saucer looks like china; the saucer that matters is the kind that flies of its own accord.",
+    "definitionFit": "TOFU is bean curd, the soya block that stands in for meat in vegan cooking."
+   }
   },
   {
    "id": "23-down",
@@ -503,7 +1270,41 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRESS",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "TRESS",
+    "definition": "a bit of a shock",
+    "linkWords": [
+     "with",
+     "That's"
+    ],
+    "indicators": [
+     "wrong"
+    ],
+    "indicatorNotes": {
+     "wrong": "Wrong marks a swap: the letter sitting in place is the mistaken one, and the other letter offered takes its seat."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Brief PM",
+      "gives": "TRUSS",
+      "note": "Liz Truss lasted 49 days in Downing Street, the shortest premiership Britain has had."
+     },
+     {
+      "clueFragment": "wrong letter from EU?",
+      "gives": "E",
+      "note": "Of the two letters in EU, the U is already standing there, so the other one replaces it."
+     }
+    ],
+    "pieces": [
+     "TR",
+     "E",
+     "SS"
+    ],
+    "surface": "A short-lived Prime Minister mistyping a message from Brussels.",
+    "walkthrough": "'Brief' is not an instruction to shorten anything: it describes how long the Prime Minister lasted, and every letter of her name stays put except the swapped one.",
+    "definitionFit": "A shock is a thick head of hair, and a TRESS is one long lock out of it, so the definition asks for part of the whole."
+   }
   },
   {
    "id": "24-down",
@@ -520,7 +1321,33 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OWLS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "OWLS",
+    "definition": "Those turning heads",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "now and then"
+    ],
+    "indicatorNotes": {
+     "now and then": "Now and then means at intervals rather than continuously, and the interval here is every other letter."
+    },
+    "blocks": [
+     {
+      "clueFragment": "hot walks",
+      "gives": "OWLS",
+      "note": "Start at the second letter and take every other one straight through both words."
+     }
+    ],
+    "pieces": [
+     "OWLS"
+    ],
+    "surface": "Heads turning at the sight of somebody out walking in the heat.",
+    "walkthrough": "'Turning' looks like an instruction to reverse something and is nothing of the sort; it belongs to the definition, where the turning is literal.",
+    "definitionFit": "OWLS can swivel their heads about 270 degrees, so the phrase names them while also meaning attracting attention."
+   }
   },
   {
    "id": "25-across",
@@ -537,7 +1364,41 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIA",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + container",
+    "answer": "RIA",
+    "definition": "One described by \"river area\"",
+    "indicators": [
+     "described by"
+    ],
+    "indicatorNotes": {
+     "described by": "In geometry a figure is described about another, drawn right round the outside of it, so the first piece ends up enclosed."
+    },
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river."
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "One as a Roman numeral is the single stroke I."
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standing abbreviation for area."
+     }
+    ],
+    "pieces": [
+     "R",
+     "I",
+     "A"
+    ],
+    "walkthrough": "A RIA is a drowned river valley open to the sea, so the quoted phrase is a straight definition as well as the source of the letters wrapped round the one.",
+    "definitionFit": "The whole clue reads straight: a ria is a river's flooded lower valley, an arm of the sea, which the quoted phrase describes exactly."
+   }
   },
   {
    "id": "26-across",
@@ -558,7 +1419,33 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
     ]
    },
    "solution": "TENNISELBOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TENNIS ELBOW",
+    "definition": "liability",
+    "linkWords": [
+     "established by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court appearances?",
+      "gives": "TENNIS",
+      "note": "Appearing on court, in the sporting rather than the legal sense, means playing the racket game."
+     },
+     {
+      "clueFragment": "Joint",
+      "gives": "ELBOW",
+      "note": "The joint wanted is the hinge halfway down your arm."
+     }
+    ],
+    "pieces": [
+     "TENNIS",
+     "ELBOW"
+    ],
+    "surface": "A shared legal responsibility settled by turning up in court.",
+    "walkthrough": "Every word points at the law — liability, established, court appearances — and none of it is legal; the court is the one with a net across the middle.",
+    "definitionFit": "A nagging injury that stops you playing properly is a liability in the everyday sense of a handicap, not the lawyer's sense the surface pushes."
+   }
   },
   {
    "id": "27-across",
@@ -575,7 +1462,30 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENLARGE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENLARGE",
+    "definition": "Increase in volume",
+    "indicators": [
+     "startled"
+    ],
+    "indicatorNotes": {
+     "startled": "Something startled jumps and scatters, and scattered letters come to rest in a new order."
+    },
+    "anagram": {
+     "fodder": "AL GREEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Al Green",
+      "gives": "ENLARGE",
+      "note": "The soul singer's two names hold exactly the seven letters needed."
+     }
+    ],
+    "surface": "Turning the music up until the soul singer jumps.",
+    "walkthrough": "'Increase in volume' sounds like reaching for the stereo, especially with a singer named next to it; volume here is bulk, the space a thing takes up.",
+    "definitionFit": "To ENLARGE something is to make it bigger in bulk, volume in the geometric rather than the audio sense."
+   }
   },
   {
    "id": "28-across",
@@ -592,7 +1502,36 @@ window.CRYPTIC_PUZZLES["independent-12397"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOSPELS",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "GOSPELS",
+    "definition": "John and the other three",
+    "indicators": [
+     "ultimately"
+    ],
+    "indicatorNotes": {
+     "ultimately": "Ultimately means at the very end, so each word gives up only the letter it finishes on."
+    },
+    "blocks": [
+     {
+      "clueFragment": "planning to dress up like colourful soldiers",
+      "gives": "GOSPELS",
+      "note": "Seven words in a row, each contributing the letter it ends with, taken in the order they are printed."
+     }
+    ],
+    "pieces": [
+     "G",
+     "O",
+     "S",
+     "P",
+     "E",
+     "L",
+     "S"
+    ],
+    "surface": "A group deciding to turn up dressed as brightly coloured soldiers.",
+    "walkthrough": "'John and the other three' pulls you towards the Beatles, and the costume in the surface is Sgt Pepper; the four actually meant are the evangelists.",
+    "definitionFit": "John is one of the four GOSPELS, so he plus the remaining three name the set exactly."
+   }
   }
  ]
 } /*JSON-END*/;
