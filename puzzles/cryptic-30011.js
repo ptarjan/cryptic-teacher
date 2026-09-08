@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PROSIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PROSIT",
+    "definition": "Cheers",
+    "pieces": [
+     "PRO",
+     "SIT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who’d expect to be paid",
+      "gives": "PRO",
+      "note": "a pro does the job for money, as against an amateur"
+     },
+     {
+      "clueFragment": "to be an MP",
+      "gives": "SIT",
+      "note": "members sit in the Commons, and an MP sits for a constituency"
+     }
+    ],
+    "surface": "The salary being the thing that appeals about a seat in Parliament.",
+    "walkthrough": "'Cheers' looks like thanks and is the drinker's toast: prosit is the Latin for 'may it do good', still heard shortened to 'prost' round a German table.",
+    "definitionFit": "Prosit is what you say raising a glass, which is exactly the job 'Cheers' does in English."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +70,33 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REAM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "REAM",
+    "definition": "paper",
+    "indicators": [
+     "knocking off leader"
+    ],
+    "indicatorNotes": {
+     "knocking off leader": "A word's leader is the letter out in front of it, and knocking that off is a straight removal."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "REAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fancy",
+      "gives": "DREAM",
+      "note": "to fancy something is to dream of it, and the leader here is the D"
+     }
+    ],
+    "surface": "A daydream cut short to leave time for the morning paper.",
+    "walkthrough": "A ream is five hundred sheets, so 'paper' names a quantity of the stuff rather than a thing made of it — the question mark is the setter admitting the stretch.",
+    "definitionFit": "A ream is the standard bundle of five hundred sheets, so 'paper' defines it by what it is made of rather than by shape."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +113,36 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEMICOLON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SEMICOLON",
+    "definition": "Mark",
+    "indicators": [
+     "not finished"
+    ],
+    "indicatorNotes": {
+     "not finished": "Something not finished stops short of its end, so the word beside it hands over everything but its last letter."
+    },
+    "pieces": [
+     "SEMI",
+     "COLON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "SEMI",
+      "note": "a semi is one of a joined pair of houses, the standard British suburban home"
+     },
+     {
+      "clueFragment": "settlement’s not finished",
+      "gives": "COLON",
+      "note": "a settlement is a colony, here giving up its final Y"
+     }
+    ],
+    "surface": "A man called Mark whose house sale has not yet gone through.",
+    "walkthrough": "'Mark' wears a capital letter and reads as a name, which is the disguise: it means a written sign, the sort a printer sets. The whole surface is conveyancing.",
+    "definitionFit": "A semicolon is a punctuation mark, so 'Mark' names it in the plain sense of a sign written on a page."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +159,38 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THEBES",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "THEBES",
+    "definition": "old city",
+    "indicators": [
+     "escaping"
+    ],
+    "indicatorNotes": {
+     "escaping": "Whatever is escaping gets out and away, so the letters named beside it leave the longer phrase behind."
+    },
+    "linkWords": [
+     "in the"
+    ],
+    "pieces": [
+     "THEBES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depression",
+      "gives": "THEBLUES",
+      "note": "the blues is low spirits, a fit of depression"
+     },
+     {
+      "clueFragment": "Lulu’s half",
+      "gives": "LU",
+      "note": "half of LULU, which is the same two letters either end you take"
+     }
+    ],
+    "surface": "Somebody called Lulu shaking off her gloom among ancient ruins.",
+    "walkthrough": "'The blues' carries its definite article into the wordplay, which is why 'the' ends up on the far side of the join instead of in front of the definition. Thebes was Egypt's great capital on the Nile, at modern Luxor.",
+    "definitionFit": "Definition by example: Thebes is one particular ancient city, standing in for the general description."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +207,37 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOSSAMER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "GOSSAMER",
+    "definition": "Light material",
+    "indicators": [
+     "suffering",
+     "if not new"
+    ],
+    "indicatorNotes": {
+     "suffering": "Something suffering is being put through the mill, and letters put through it do not come out in the order they went in.",
+     "if not new": "'If not' takes away what follows it, and what follows is the single letter that stands for new."
+    },
+    "anagram": {
+     "fodder": "MORESAGS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "more snags",
+      "gives": "MORESNAGS",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "if not new",
+      "gives": "N",
+      "note": "n = new, the letter taken out before the shuffle"
+     }
+    ],
+    "surface": "Cloth that keeps catching and pulling unless it is fresh off the roll.",
+    "walkthrough": "Gossamer is the drifting spider silk of an autumn field before it is any kind of fabric, so 'light' is literal weight and not brightness.",
+    "definitionFit": "Gossamer is the finest of gauzes, cobweb-thin, so 'Light material' describes exactly the sort of stuff it is."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +258,30 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
     ]
    },
    "solution": "GESTUREPOLITICS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GESTURE POLITICS",
+    "definition": "Cynically proposing futile measures",
+    "pieces": [
+     "GESTURE",
+     "POLITICS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a ‘two-fingered salute’",
+      "gives": "GESTURE",
+      "note": "the V-sign is Britain's rudest hand signal, and a hand signal is what this word names"
+     },
+     {
+      "clueFragment": "way of governing",
+      "gives": "POLITICS",
+      "note": "the business of running a country"
+     }
+    ],
+    "surface": "A government announcing pointless policies while effectively sticking two fingers up at the public.",
+    "walkthrough": "The quotation marks are the instruction: they ask you to read 'two-fingered salute' as a member of a category rather than as the insult itself. In Britain that salute is the V-sign, palm inward.",
+    "definitionFit": "Gesture politics is announcing measures for show rather than effect, which is cynically proposing things known to be futile."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +298,37 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STRICTLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + substitution",
+    "answer": "STRICTLY",
+    "definition": "very popular show",
+    "indicators": [
+     "dancing",
+     "time for one"
+    ],
+    "indicatorNotes": {
+     "dancing": "Dancers keep moving and swapping places, so the letters beside the word will not stand still in their given order.",
+     "time for one": "'For' here is an exchange rather than a link: the letter that stands for time takes over the place of the letter that stands for one."
+    },
+    "anagram": {
+     "fodder": "LYRCIST T"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Lyricist",
+      "gives": "LYRICIST",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "time for one",
+      "gives": "T",
+      "note": "t = time steps in where i = one was standing"
+     }
+    ],
+    "surface": "A songwriter taking to the floor on the nation's favourite Saturday-night show.",
+    "walkthrough": "Strictly Come Dancing is BBC One's ballroom contest, and everyone shortens the title to its first word — which is why 'dancing' can sit in the clue doing the shuffling instead.",
+    "definitionFit": "The BBC's ballroom contest is known by its opening word alone, so 'very popular show' points straight at the shortened title."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +345,35 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AWFUL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "AWFUL",
+    "definition": "Foul",
+    "indicators": [
+     "heading off"
+    ],
+    "indicatorNotes": {
+     "heading off": "A heading sits at the top of what it belongs to, and taking it off leaves the rest of the word standing."
+    },
+    "pieces": [
+     "AWFUL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal",
+      "gives": "LAWFUL",
+      "note": "lawful = legal, allowed by the law"
+     },
+     {
+      "clueFragment": "linesman’s heading",
+      "gives": "L",
+      "note": "the first letter of Linesman, and the one that goes"
+     }
+    ],
+    "surface": "A foul waved away as fair while the linesman stalks off in disgust.",
+    "walkthrough": "Everything reads as a touchline row, so neither 'legal' nor 'linesman' looks like raw material. 'Heading' is a letter instruction dressed in a footballer's word.",
+    "definitionFit": "A foul deed and an awful one are the same thing: 'Foul' in its sense of vile, not the referee's whistle."
+   }
   },
   {
    "id": "8-down",
@@ -170,7 +390,33 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTHUSIASM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ENTHUSIASM",
+    "definition": "relish",
+    "indicators": [
+     "to be prepared"
+    ],
+    "indicatorNotes": {
+     "to be prepared": "Preparing food means cutting it up and recombining it, and the letters get the same treatment."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "SUSHI MEANT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Sushi: meant",
+      "gives": "SUSHIMEANT",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A recipe note saying the sushi should be made up with a condiment.",
+    "walkthrough": "'With relish' pulls hard towards the condiment jar on a page about food, and the definition is the other sense of the same noun, keenness. The colon is punctuation and nothing more.",
+    "definitionFit": "Doing a thing with relish is doing it with appetite, and that appetite is the noun sense the answer carries."
+   }
   },
   {
    "id": "9-across",
@@ -187,7 +433,33 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HARMLESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HARMLESS",
+    "definition": "Safe",
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "H",
+     "ARMLESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "h = hot, as marked on a tap"
+     },
+     {
+      "clueFragment": "as Venus in the Louvre",
+      "gives": "ARMLESS",
+      "note": "the Venus de Milo, the marble in the Louvre, has lost both arms"
+     }
+    ],
+    "surface": "Feeling perfectly safe while getting as hot as the Venus on show in the Louvre.",
+    "walkthrough": "'As Venus in the Louvre' asks you to describe the statue rather than name her, which is a step further than most reference clues go. 'Safe' is an adjective here, not the strongbox the surface offers.",
+    "definitionFit": "Something harmless can do you no damage, which is 'Safe' in its adjectival sense — safe to touch, safe to be near."
+   }
   },
   {
    "id": "10-across",
@@ -204,7 +476,30 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFUTE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REFUTE",
+    "definition": "counter",
+    "pieces": [
+     "REF",
+     "UTE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Official",
+      "gives": "REF",
+      "note": "the ref is the official who runs a match"
+     },
+     {
+      "clueFragment": "Aussie pick-up",
+      "gives": "UTE",
+      "note": "a ute is the Australian pick-up truck, short for utility vehicle"
+     }
+    ],
+    "surface": "An official desk where Australians collect their orders.",
+    "walkthrough": "'Counter' is the trap: it reads as the last noun in a shop-fittings phrase and it is a verb, which is how the definition manages to hide in three words that all look like one idea.",
+    "definitionFit": "To refute a claim is to counter it — meet the argument and knock it down — verb standing in for verb."
+   }
   },
   {
    "id": "11-across",
@@ -221,7 +516,38 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREPUSCULOUS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CREPUSCULOUS",
+    "definition": "dim",
+    "indicators": [
+     "affected"
+    ],
+    "indicatorNotes": {
+     "affected": "Something affected has been acted on and altered, so these letters are not left in the state they were handed over in."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "UU CORPUSCLES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Putting two lots of uranium into",
+      "gives": "UU",
+      "note": "u = uranium on the periodic table, so two lots is a pair of them joining the letters that follow"
+     },
+     {
+      "clueFragment": "corpuscles",
+      "gives": "CORPUSCLES",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "A lab technician dosing blood cells with uranium and finding the result murky.",
+    "walkthrough": "Crepuscular is the familiar word for the half-light of dusk, and this is its longer relation from the same Latin crepusculum. The surface sells an experiment, so 'putting into' passes as method rather than instruction.",
+    "definitionFit": "Crepusculous means twilit, the failing half-light between day and night, which is 'dim' in its everyday adjectival sense."
+   }
   },
   {
    "id": "12-down",
@@ -238,7 +564,40 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASCARPONE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "MASCARPONE",
+    "definition": "cheese",
+    "indicators": [
+     "End cut off",
+     "stuffed"
+    ],
+    "indicatorNotes": {
+     "End cut off": "The end of a word is its last letter, and cutting it off happens before anything else is done with what remains.",
+     "stuffed": "Stuffing packs a filling in any old how, so the letters go in without keeping the order they had."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "CO PARMESAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "cob",
+      "gives": "CO",
+      "note": "COB with its last letter cut away"
+     },
+     {
+      "clueFragment": "Parmesan",
+      "gives": "PARMESAN",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "A corn cob topped and tailed, then filled with grated Parmesan.",
+    "walkthrough": "Both cheeses in play are Italian, which is what lets the named one sit in the sentence looking like an ingredient instead of raw material. 'Stuffed' is a cook's word doing a shuffler's job.",
+    "definitionFit": "Mascarpone is the soft Italian cream cheese that tiramisu is built on, so 'cheese' names its kind directly."
+   }
   },
   {
    "id": "13-across",
@@ -255,7 +614,35 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "MARL",
+    "definition": "clay",
+    "indicators": [
+     "abandoned"
+    ],
+    "indicatorNotes": {
+     "abandoned": "To abandon something is to walk away and leave it behind, so the letters named beside it are dropped."
+    },
+    "pieces": [
+     "MARL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marine fish",
+      "gives": "MARLIN",
+      "note": "the marlin is the big billfish of warm seas"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the little preposition is itself the pair of letters that walks away"
+     }
+    ],
+    "surface": "A sea fish stranded in a patch of deserted clay.",
+    "walkthrough": "'In' does two jobs at once: it reads as the preposition placing the fish, and it is the pair of letters that leaves. Marl is the lime-rich clay farmers spread to sweeten sour soil.",
+    "definitionFit": "Marl is a crumbly clay heavy with lime, used on fields, so 'clay' is the general word for one particular sort."
+   }
   },
   {
    "id": "14-across",
@@ -272,7 +659,37 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELLIPTIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "ELLIPTIC",
+    "definition": "Oval",
+    "indicators": [
+     "breaking up",
+     "melted"
+    ],
+    "indicatorNotes": {
+     "breaking up": "Whatever breaks something up gets in among its parts, so the letter named lands inside the others rather than in front of them.",
+     "melted": "Melted ice keeps none of its shape, which is licence for the letters to run together in a new order."
+    },
+    "anagram": {
+     "fodder": "P TILL ICE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "pitch initially",
+      "gives": "P",
+      "note": "the first letter of Pitch"
+     },
+     {
+      "clueFragment": "till ice",
+      "gives": "TILLICE",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "The Oval's playing surface cracking apart as a frost thaws.",
+    "walkthrough": "The Oval is a Test cricket ground in south London, so 'Oval's pitch' reads as one phrase — but the definition stops at the first word and the pitch belongs to the wordplay.",
+    "definitionFit": "Elliptic describes the shape of an ellipse, the squashed circle that 'Oval' names, so the adjectives swap over."
+   }
   },
   {
    "id": "15-down",
@@ -289,7 +706,42 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSTERIOR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "POSTERIOR",
+    "definition": "bottom",
+    "indicators": [
+     "pinching"
+    ],
+    "indicatorNotes": {
+     "pinching": "A pinch takes a fold between finger and thumb, so the two outer pieces close on either side of what they take."
+    },
+    "pieces": [
+     "POSTER",
+     "I",
+     "OR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "POSTER",
+      "note": "a poster is a notice put up on a wall"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "i = one, the Roman numeral"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR = other ranks, the soldiers who are not officers"
+     }
+    ],
+    "surface": "Catching sight of soldiers pinching somebody's bottom.",
+    "walkthrough": "'Notice' opens as the verb you would expect at the start of an order and turns out to be the noun on the wall. OR for other ranks is standard crossword shorthand for soldiers.",
+    "definitionFit": "The posterior is the polite anatomical name for the backside, which 'bottom' says in the everyday word."
+   }
   },
   {
    "id": "16-down",
@@ -306,7 +758,53 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRIBBAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + first letter",
+    "answer": "CRIBBAGE",
+    "definition": "a game",
+    "indicators": [
+     "head",
+     "into"
+    ],
+    "indicatorNotes": {
+     "head": "A head is the front end of a thing, so this asks only for the letter standing at the front of the word before it.",
+     "into": "'Into' sends the pieces just named inside the word that follows rather than leaving them alongside it."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "C",
+     "R",
+     "IBB",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church head",
+      "gives": "C",
+      "note": "the first letter of Church"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "i = one, the Roman numeral"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "BB",
+      "note": "b = book, and the plural asks for two of them"
+     },
+     {
+      "clueFragment": "rave",
+      "gives": "RAGE",
+      "note": "to rave is to rage, storming and ranting"
+     }
+    ],
+    "surface": "The head of the church booking somebody into a rave for a bit of fun.",
+    "walkthrough": "'Books' reads as a verb in the surface, the vicar booking someone in, and the wordplay wants the plural noun. Cribbage is the pub card game whose score is pegged into holes in a wooden board.",
+    "definitionFit": "Definition by example: cribbage is one particular card game, so 'a game' names its category rather than the game itself."
+   }
   },
   {
    "id": "17-across",
@@ -323,7 +821,33 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCENARIO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCENARIO",
+    "definition": "situation",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "SCENA",
+     "RIO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opera section",
+      "gives": "SCENA",
+      "note": "a scena is a self-contained dramatic scene in an opera"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, shortened as everyone shortens it"
+     }
+    ],
+    "surface": "The state of things in a city, staged as one section of an opera.",
+    "walkthrough": "Nothing marks the join, because 'Opera section with city' reads as a single picture of a production. Scena came into English straight from the Italian opera house and is worth banking.",
+    "definitionFit": "A scenario is the way a situation is set up or might play out, so the two nouns swap straight over."
+   }
   },
   {
    "id": "18-across",
@@ -340,7 +864,28 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SASH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SASH",
+    "definition": "Frame",
+    "definition2": "in which beauty pageant winner appears",
+    "definitionNote": "The second definition is written as a relative clause rather than as a noun, so you have to supply 'the thing' it describes; the question mark is the setter flagging that.",
+    "blocks": [
+     {
+      "clueFragment": "Frame",
+      "gives": "",
+      "note": "the sliding wooden frame of a window, the part that holds the panes"
+     },
+     {
+      "clueFragment": "in which beauty pageant winner appears",
+      "gives": "",
+      "note": "the band of silk worn shoulder to hip with the title printed across it"
+     }
+    ],
+    "surface": "A photograph frame with a pageant winner smiling out of it.",
+    "walkthrough": "Two unrelated words that arrived in English by different roads have ended up spelled the same: the window's frame comes from the French châssis, the ribbon from Arabic. The clue joins them as if they were one.",
+    "definitionFit": "A sash is both the glazed frame of a sliding window and the ribbon a pageant winner wears across the body."
+   }
   },
   {
    "id": "19-down",
@@ -357,7 +902,46 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MARVEL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MARVEL",
+    "definition": "Wonder",
+    "indicators": [
+     "possessed by"
+    ],
+    "indicatorNotes": {
+     "possessed by": "Whatever possesses a thing keeps it within its own bounds, so these letters close round the ones they own."
+    },
+    "linkWords": [
+     "if"
+    ],
+    "pieces": [
+     "M",
+     "A",
+     "RV",
+     "EL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Spice girl",
+      "gives": "MEL",
+      "note": "two of the Spice Girls go by Mel — Mel B and Mel C"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken at face value"
+     },
+     {
+      "clueFragment": "motorhome",
+      "gives": "RV",
+      "note": "RV = recreational vehicle, the American name for a motorhome"
+     }
+    ],
+    "surface": "Wondering whether a Spice Girl owns a camper van.",
+    "walkthrough": "'A Spice girl' points at a first name rather than a stage name, which only works because the group fielded two of them. 'Wonder' is the verb here, not the noun.",
+    "definitionFit": "To marvel at something is to wonder at it — the verb of standing amazed, matching 'Wonder' as a verb."
+   }
   },
   {
    "id": "20-across",
@@ -374,7 +958,33 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREFABRICATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "PREFABRICATE",
+    "definition": "make flatpack kit, say",
+    "indicators": [
+     "used"
+    ],
+    "indicatorNotes": {
+     "used": "'Used' is a loose instruction: the letters are put to work in something else, and what comes out is arranged differently."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "A FIBRE CARPET"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A fibre carpet",
+      "gives": "AFIBRECARPET",
+      "note": "anagram fodder, twelve letters"
+     }
+    ],
+    "surface": "Old carpet fibre being recycled into cheap self-assembly furniture.",
+    "walkthrough": "Twelve letters lying in the open as three ordinary words is the hardest kind of anagram to see, and the recycling picture gives the setter a reason to say 'used' out loud.",
+    "definitionFit": "To prefabricate is to manufacture the parts in advance for assembly later, which is how a flatpack kit is made — 'say' flags the example."
+   }
   },
   {
    "id": "21-down",
@@ -391,7 +1001,33 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLOUT",
+    "definition": "mock",
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "FL",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US state",
+      "gives": "FL",
+      "note": "FL is the postal abbreviation for Florida"
+     },
+     {
+      "clueFragment": "not allowed",
+      "gives": "OUT",
+      "note": "something out is ruled out, not permitted"
+     }
+    ],
+    "surface": "A US state that is not permitted to poke fun.",
+    "walkthrough": "The clue reads as one rule imposed on a state, so the join is invisible and 'to' is doing nothing but holding the sentence up. American postal abbreviations turn up regularly in British puzzles.",
+    "definitionFit": "To flout a rule is to break it openly and enjoy being seen doing it, which is 'mock' in its jeering sense."
+   }
   },
   {
    "id": "22-down",
@@ -408,7 +1044,37 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FLAN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FLAN",
+    "definition": "dish",
+    "indicators": [
+     "covered"
+    ],
+    "indicatorNotes": {
+     "covered": "A covering lies over its contents and round the sides, so the outer letters part to take the other piece in."
+    },
+    "pieces": [
+     "F",
+     "L",
+     "AN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nut",
+      "gives": "FAN",
+      "note": "a football nut is a fan of it — an enthusiast, not a fruit"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "l = Latin, as on a school timetable"
+     }
+    ],
+    "surface": "A Latin American dish under a layer of chopped nuts.",
+    "walkthrough": "The hyphen in 'Nut-covered' makes the phrase read as a description of the food, which is what hides the enthusiast sense of 'Nut' that the wordplay needs.",
+    "definitionFit": "A flan is an open tart, sweet or savoury, so 'dish' names what it is in the plainest possible way."
+   }
   },
   {
    "id": "23-across",
@@ -425,7 +1091,39 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORONA",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CORONA",
+    "definition": "cigar",
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "COR",
+     "ON",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wow",
+      "gives": "COR",
+      "note": "'cor!' is the British exclamation of astonishment"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer who is on is doing their turn"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken at face value"
+     }
+    ],
+    "surface": "An admiring gasp at an entertainer who does the whole act with a cigar.",
+    "walkthrough": "A corona is a size of cigar — long, straight, blunt at the end — rather than a brand, which is why 'cigar' can define it flatly. The exclamation mark is surface decoration and carries no instruction.",
+    "definitionFit": "A corona is one particular size and shape of cigar, so 'cigar' names the category the example belongs to."
+   }
   },
   {
    "id": "24-across",
@@ -442,7 +1140,47 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INVEIGLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "INVEIGLE",
+    "definition": "sweet-talk",
+    "indicators": [
+     "into",
+     "fancy",
+     "right off"
+    ],
+    "indicatorNotes": {
+     "into": "'Into' sends the letter just named in among the others rather than leaving it standing in front of them.",
+     "fancy": "Fancy work is elaborate and worked over, so what it describes does not stay in the plain order it came in.",
+     "right off": "'Off' removes what stands before it, and what stands before it is the letter that means right."
+    },
+    "linkWords": [
+     "but"
+    ],
+    "anagram": {
+     "fodder": "V LINGEIE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "v = very, as in 'v. good' scribbled in a margin"
+     },
+     {
+      "clueFragment": "lingerie",
+      "gives": "LINGERIE",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "right off",
+      "gives": "R",
+      "note": "r = right, the letter taken away"
+     }
+    ],
+    "surface": "Someone mad about expensive underwear and thoroughly sick of flattery.",
+    "walkthrough": "'Very into' reads as enthusiasm and 'right off' as distaste, so the sentence sounds like one person's opinions throughout while both phrases are letter instructions.",
+    "definitionFit": "To inveigle someone is to coax them along with flattery, which is what sweet-talking is — verb for verb."
+   }
   },
   {
    "id": "25-across",
@@ -459,7 +1197,30 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERTNESS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "PERTNESS",
+    "definition": "brass",
+    "indicators": [
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "mostly": "'Mostly' is loose for a concealed run: it asks for most of the letters written out beside it, the long stretch in the middle with the ends left behind."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert: ‘Nessie",
+      "gives": "PERTNESS",
+      "note": "eight letters in a row straddle the colon and the quotation mark, starting two letters into the first word"
+     }
+    ],
+    "surface": "An authority pronouncing that the Loch Ness monster is mostly made of brass.",
+    "walkthrough": "The colon and the quotation marks make the clue read as somebody being quoted, and both marks sit in the middle of the run of letters you need — punctuation never interrupts a hidden answer.",
+    "definitionFit": "Brass is British slang for cheek or nerve, and pertness is exactly that quality of being cheekily forward."
+   }
   },
   {
    "id": "26-across",
@@ -476,7 +1237,45 @@ window.CRYPTIC_PUZZLES["cryptic-30011"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LARYNX",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "LARYNX",
+    "definition": "vocalist’s equipment",
+    "indicators": [
+     "circling",
+     "lead"
+    ],
+    "indicatorNotes": {
+     "circling": "Something circling goes right round the outside of what it circles, so these letters close around the pieces named next.",
+     "lead": "The lead of a word is the letter out in front of it, and that single letter is all this asks for."
+    },
+    "pieces": [
+     "L",
+     "A",
+     "R",
+     "YNX"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "LYNX",
+      "note": "the lynx is the short-tailed wild cat with tufted ears"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken at face value"
+     },
+     {
+      "clueFragment": "rocking lead",
+      "gives": "R",
+      "note": "the first letter of Rocking"
+     }
+    ],
+    "surface": "A cat winding itself round the gear belonging to a rock band's frontman.",
+    "walkthrough": "'Lead vocalist' looks like one job title and splits in two, which is the whole difficulty of the last three words. The definition is anatomical rather than electrical: the larynx is the voice box.",
+    "definitionFit": "The larynx is the voice box in the throat, the one piece of kit a singer's sound is actually made with."
+   }
   }
  ]
 } /*JSON-END*/;
