@@ -13,3 +13,22 @@ compatibility_date = "2026-01-01"
 [[kv_namespaces]]
 binding = "SAVES"
 id = "85f9de552ea64b229c113df624fb6ca0"
+
+# New-puzzle push. The site is a static deploy, so the fan-out polls the
+# published index.json rather than being called by the nightly job — twenty
+# minutes is well inside the gap between the run finishing and anyone waking up.
+[triggers]
+crons = ["*/20 * * * *"]
+
+[vars]
+# The half of the VAPID pair the browser is given at subscribe time; it is in
+# app.js as well, and the two must match or every push is rejected as 403.
+VAPID_PUBLIC_KEY = "BBaYG5WN1oquOhkTinUjxhbyxNcNM-0VrN_XJ83tnxwH1LoboNch3QIvUFHL7ogMvHjiT1RSCac1hw-4uiASvlY"
+# RFC 8292 wants a way to reach whoever is sending. A site is one, and unlike an
+# address it does not sit in a public repo.
+VAPID_SUBJECT = "https://paultarjan.com/cryptic-teacher/"
+
+# The other half is a secret, set once and never in the file:
+#   wrangler secret put VAPID_PRIVATE_JWK      # the private JWK, one line
+# Losing it costs every subscriber their subscription: a new pair means the keys
+# the browsers already hold no longer verify, and each one has to subscribe again.
