@@ -35,7 +35,72 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRANCISOFASSISI",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "FRANCIS OF ASSISI",
+    "definition": "lover of nature",
+    "indicators": [
+     "endless"
+    ],
+    "indicatorNotes": {
+     "endless": "A word taken endlessly stops before its final letter, so the last one never arrives."
+    },
+    "pieces": [
+     "F",
+     "RAN",
+     "C",
+     "IS",
+     "O",
+     "F",
+     "ASSIS",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "f = female, the letter on any form with a tick-box"
+     },
+     {
+      "clueFragment": "rushed",
+      "gives": "RAN",
+      "note": "to run somewhere is to rush there, and both are in the past"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "C",
+      "note": "c is circa, the 'around' put before an approximate date"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the clue's own word, lifted straight into the assembly"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o = old, the standard single letter for it"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "the same abbreviation a second time, lower case in the clue"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "ASSIS",
+      "note": "to help is to ASSIST, and that word arrives one letter short"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "i is the Roman numeral for one"
+     }
+    ],
+    "surface": "Somebody asks whether a woman who dashed about, old now and endlessly helpful, is a lover of nature.",
+    "walkthrough": "'Around' looks like a container instruction telling you to wrap one piece round another, and it is only c, the circa of approximate dates. Five of the eight pieces are single letters, which is why the enumeration does so much work.",
+    "definitionFit": "lover of nature → FRANCIS OF ASSISI: the saint preached to the birds and is patron of animals and ecology, so the phrase names him by reputation."
+   }
   },
   {
    "id": "1-down",
@@ -52,7 +117,40 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FATHEADED",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram + container",
+    "answer": "FATHEADED",
+    "definition": "Stupid",
+    "indicators": [
+     "not completely",
+     "stupid",
+     "injected"
+    ],
+    "indicatorNotes": {
+     "not completely": "'not completely' stops the word short of its end, so its final letter is missing.",
+     "stupid": "The second 'stupid' describes nobody: an order of letters that has gone stupid is one that no longer spells the word it came from.",
+     "injected": "A drug goes into the body rather than beside it, so the letter lands within the group instead of next to it."
+    },
+    "pieces": [
+     "FATHE",
+     "ADED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dad, not completely",
+      "gives": "FATHE",
+      "note": "'dad' is the familiar word for a FATHER, and here it stops one letter short"
+     },
+     {
+      "clueFragment": "dad with drug injected",
+      "gives": "ADED",
+      "note": "the second 'dad' has its three letters put in another order, ADD, and e for ecstasy drops in before the last of them"
+     }
+    ],
+    "surface": "One dim father is measured against another who is no brighter and full of drugs.",
+    "walkthrough": "The clue says 'stupid dad' twice and means something different each time: the first is what the answer means, the second is an instruction to shuffle. 'Dad' does two jobs as well — a synonym first, three loose letters second.",
+    "definitionFit": "Stupid → FATHEADED: the adjective built on fathead, a head with fat where the brains should be, so it is an everyday synonym."
+   }
   },
   {
    "id": "2-down",
@@ -69,7 +167,42 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARMREST",
-   "annotation": null
+   "annotation": {
+    "type": "container + middle letter",
+    "answer": "ARMREST",
+    "definition": "support",
+    "indicators": [
+     "hugging",
+     "middle"
+    ],
+    "indicatorNotes": {
+     "hugging": "To hug somebody is to get right round them, so one word closes about another.",
+     "middle": "'middle' asks for the letter at the dead centre of the word before it, not for the whole word."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "AR",
+     "M",
+     "REST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "ARREST",
+      "note": "to arrest something is to stop it, and this word opens up to take a letter"
+     },
+     {
+      "clueFragment": "woman’s middle",
+      "gives": "M",
+      "note": "the central letter of the five in 'woman'"
+     }
+    ],
+    "surface": "Someone stops, puts an arm round a woman's waist and holds her up.",
+    "walkthrough": "'Woman's middle' points at the letter sitting at the centre of a five-letter word, while the surface has you picturing a waist. The support turns out to be furniture rather than a person holding somebody up.",
+    "definitionFit": "support → ARMREST: it is the padded bar an arm rests on, so 'support' is the plain noun for the thing that takes the weight."
+   }
   },
   {
    "id": "3-down",
@@ -86,7 +219,41 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CALABASH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CALABASH",
+    "definition": "Plant",
+    "indicators": [
+     "external"
+    ],
+    "indicatorNotes": {
+     "external": "'external' puts the funds on the outside, so those letters open up and hold the rest between them."
+    },
+    "linkWords": [
+     "produced by",
+     "needing"
+    ],
+    "pieces": [
+     "C",
+     "ALAB",
+     "ASH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funds",
+      "gives": "CASH",
+      "note": "cash is funds, and here it splits to sit at both ends"
+     },
+     {
+      "clueFragment": "a scientific institution",
+      "gives": "ALAB",
+      "note": "the institution is a laboratory, taken with its own 'a' in front"
+     }
+    ],
+    "surface": "A research institute grows something only when money arrives from outside.",
+    "walkthrough": "The surface sells a research institute chasing outside money, so 'Plant' reads as industrial premises rather than something growing. Lab for a scientific institution is shorthand worth keeping.",
+    "definitionFit": "Plant → CALABASH: the calabash is a climbing gourd vine, so the everyday word for something growing covers it as a plain synonym."
+   }
   },
   {
    "id": "4-down",
@@ -103,7 +270,35 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUTRA",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "SUTRA",
+    "definition": "Religious literature",
+    "indicators": [
+     "smuggled out of"
+    ],
+    "indicatorNotes": {
+     "smuggled out of": "Something smuggled out is taken away quietly and does not come back, which is what happens to those two letters."
+    },
+    "pieces": [
+     "SUTRA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountainous island",
+      "gives": "SUMATRA",
+      "note": "Sumatra is the big Indonesian island, ridged with volcanoes"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is the informal mother, and these are the letters that go"
+     }
+    ],
+    "surface": "A mother is smuggled off a mountainous island along with a stack of holy books.",
+    "walkthrough": "The surface tells a smuggling story with 'mother' as the person taken off the island, and the wordplay wants her as two letters. Nothing says which island, only that it is mountainous.",
+    "definitionFit": "Religious literature → SUTRA: a sutra is an aphorism or scripture of Hinduism and Buddhism, so the definition names the body of writing it belongs to."
+   }
   },
   {
    "id": "5-down",
@@ -120,7 +315,34 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FAREWELLS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FAREWELLS",
+    "definition": "words before departure",
+    "indicators": [],
+    "linkWords": [
+     "provided with"
+    ],
+    "pieces": [
+     "FARE",
+     "WELLS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "gives": "FARE",
+      "note": "fare is what is set before you to eat"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "WELLS",
+      "note": "Wells, in Somerset, is England's smallest cathedral city"
+     }
+    ],
+    "surface": "A city famous for its food is given a send-off as visitors leave.",
+    "walkthrough": "Cathedral cities in England are often tiny — this one has about twelve thousand people — and setters use the small ones precisely because you think of London first. 'Food city' reads as one phrase and is two pieces.",
+    "definitionFit": "words before departure → FAREWELLS: a farewell is the parting formula itself, so the plural is defined by naming when those words get said."
+   }
   },
   {
    "id": "6-down",
@@ -137,7 +359,37 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAFETY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "SAFETY",
+    "definition": "That should come first!",
+    "indicators": [
+     "Fantastic",
+     "ending"
+    ],
+    "indicatorNotes": {
+     "Fantastic": "Something fantastic is not as life made it, and these letters are not in the order life gave them either.",
+     "ending": "'ending' asks only for the tail of the word beside it, the single letter it finishes on."
+    },
+    "anagram": {
+     "fodder": "FEAST Y"
+    },
+    "blocks": [
+     {
+      "clueFragment": "feast",
+      "gives": "FEAST",
+      "note": "five letters of fodder, taken as printed"
+     },
+     {
+      "clueFragment": "sherry",
+      "gives": "Y",
+      "note": "the final letter of the drink's name"
+     }
+    ],
+    "surface": "A splendid dinner finished off with a glass of sherry, though something else ought to come before it.",
+    "walkthrough": "'Ending with' is the lesson here: it hands over one letter, not a word, which leaves 'Fantastic' to do the shuffling. The definition is a building-site slogan hiding inside a sentence about dinner.",
+    "definitionFit": "That should come first! → SAFETY: the definition quotes the old slogan safety first, pointing at the answer through a set phrase rather than a synonym."
+   }
   },
   {
    "id": "7-down",
@@ -154,7 +406,40 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSPECT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "INSPECT",
+    "definition": "Survey",
+    "indicators": [
+     "penned by"
+    ],
+    "indicatorNotes": {
+     "penned by": "To pen a thing is to shut it in a pen, so the letter is enclosed rather than added on."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "INS",
+     "P",
+     "ECT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker?",
+      "gives": "INSECT",
+      "note": "the question mark flags an example: the crossword's usual worker, the ant, is one of these"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "p = page, as in a book reference"
+     }
+    ],
+    "surface": "A survey is written up on a page by somebody hard at work.",
+    "walkthrough": "'Worker' is normally the ant in a crossword, and the question mark widens it one step to the family the ant belongs to. 'Penned' looks like writing and means caged.",
+    "definitionFit": "Survey → INSPECT: to inspect is to look over closely, which is what an officer surveying a parade does — verb for verb."
+   }
   },
   {
    "id": "8-down",
@@ -171,7 +456,38 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INDUS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "INDUS",
+    "definition": "Flower",
+    "indicators": [
+     "half of"
+    ],
+    "indicatorNotes": {
+     "half of": "'half of' keeps five of the ten letters and throws the others away."
+    },
+    "linkWords": [
+     "displayed by"
+    ],
+    "pieces": [
+     "INDUS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "businesses",
+      "gives": "INDUSTRIES",
+      "note": "businesses taken together are industries, ten letters long"
+     },
+     {
+      "clueFragment": "half of",
+      "gives": "",
+      "note": "TRIES, the back five of those ten, is the half thrown away"
+     }
+    ],
+    "surface": "A bloom is put on display by a couple of firms.",
+    "walkthrough": "'Flower' is the oldest trick in the book — not a bloom, but something that flows, which is how setters clue a river. The surface keeps you among the firms, where a flower would only be decoration.",
+    "definitionFit": "Flower → INDUS: the river runs from Tibet to the Arabian Sea, and in cryptics a 'flower' is a thing that flows rather than one that blooms."
+   }
   },
   {
    "id": "9-across",
@@ -188,7 +504,39 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPLET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TEMPLET",
+    "definition": "Guide",
+    "indicators": [
+     "at back of"
+    ],
+    "indicatorNotes": {
+     "at back of": "'at back of' puts the single letter behind the longer word instead of in front of it."
+    },
+    "linkWords": [
+     "taking"
+    ],
+    "pieces": [
+     "TEMPLE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place of worship",
+      "gives": "TEMPLE",
+      "note": "a temple is a building put up for worship"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "t = temperature, as on a weather chart"
+     }
+    ],
+    "surface": "A guide takes somebody's temperature round the back of a church.",
+    "walkthrough": "Templet is the older spelling of template, still in the dictionaries, and it is the one the wordplay builds. 'At back of' sits between two nouns and belongs to neither: it is pure placement.",
+    "definitionFit": "Guide → TEMPLET: a templet is the shaped pattern you cut or draw around, so it guides the tool — noun for noun."
+   }
   },
   {
    "id": "10-across",
@@ -205,7 +553,34 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REFUSED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REFUSED",
+    "definition": "rejected",
+    "indicators": [],
+    "linkWords": [
+     "to be"
+    ],
+    "pieces": [
+     "RE",
+     "FUSED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once more",
+      "gives": "RE",
+      "note": "re- is the prefix meaning again, as in redo or rebuild"
+     },
+     {
+      "clueFragment": "Bound",
+      "gives": "FUSED",
+      "note": "things fused are bound into one"
+     }
+    ],
+    "surface": "Something tied up all over again, only to be turned down.",
+    "walkthrough": "The hyphen is the joke: re-fused means bound together a second time, and the same seven letters without it mean the opposite of accepted. 'Bound' wants to be a leap and is a join.",
+    "definitionFit": "rejected → REFUSED: to refuse is to turn down, and both words are past forms, so one drops straight into the other's place."
+   }
   },
   {
    "id": "11-across",
@@ -222,7 +597,22 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EWE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "EWE",
+    "definition": "Animal maybe in field",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "fine weather",
+      "gives": "EWE",
+      "note": "the letters sit consecutively across these two words, running over the gap between them, and 'in' is the setter's signal that they are there"
+     }
+    ],
+    "surface": "An animal standing out in a field on a bright day.",
+    "walkthrough": "Hidden answers are hardest when they straddle a space, because the eye reads words rather than letters. 'Maybe' is the setter conceding that the definition names one kind of animal rather than every kind.",
+    "definitionFit": "Animal maybe in field → EWE: a ewe is a female sheep, one example of what grazes a field, which is exactly what 'maybe' concedes."
+   }
   },
   {
    "id": "12-across",
@@ -243,7 +633,38 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEARWITNESS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BEAR WITNESS",
+    "definition": "Give evidence",
+    "indicators": [
+     "fancy"
+    ],
+    "indicatorNotes": {
+     "fancy": "Something fancy has been dressed up out of its plain state, and letters dressed up are no longer in their plain order."
+    },
+    "linkWords": [
+     "offering"
+    ],
+    "anagram": {
+     "fodder": "BEST ANSWER I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "best answer",
+      "gives": "BESTANSWER",
+      "note": "ten of the eleven letters to be rearranged"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun joins the pile as its eleventh letter"
+     }
+    ],
+    "surface": "A witness in court offers what they believe is the best possible answer.",
+    "walkthrough": "'I' reads as the start of a speaker's aside and is really the eleventh letter of the fodder — the count is what gives it away. Long anagrams hide because you read the phrase instead of the letters.",
+    "definitionFit": "Give evidence → BEAR WITNESS: the idiom means to testify, to stand up in court and say what you saw, so verb phrase answers verb phrase."
+   }
   },
   {
    "id": "13-across",
@@ -260,7 +681,30 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DETESTABLE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DETESTABLE",
+    "definition": "loathsome",
+    "indicators": [
+     "What could make"
+    ],
+    "indicatorNotes": {
+     "What could make": "'What could make' asks what these letters are capable of becoming, which is an invitation to rearrange them."
+    },
+    "anagram": {
+     "fodder": "LADETTES BE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "ladettes be",
+      "gives": "LADETTESBE",
+      "note": "ten letters of fodder, the 'be' included; a ladette was the 1990s British press word for a young woman drinking with the lads"
+     }
+    ],
+    "surface": "Something turns young women out on the town into people nobody can stand.",
+    "walkthrough": "'Be' looks like ordinary grammar and is two of the ten letters, which is the commonest way a setter hides fodder in plain sight. The clue reads as a sentence about behaviour and is a bare instruction.",
+    "definitionFit": "loathsome → DETESTABLE: something detestable deserves detesting, and loathsome says the same with loathing in the place of the other verb."
+   }
   },
   {
    "id": "14-down",
@@ -277,7 +721,45 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AFTERGLOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AFTERGLOW",
+    "definition": "feeling of warmth",
+    "indicators": [
+     "facing"
+    ],
+    "indicatorNotes": {
+     "facing": "'facing' puts the first piece in front of what follows, the way a facing page sits before the text."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "AFT",
+     "ERG",
+     "LOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back",
+      "gives": "AFT",
+      "note": "aft is the back end of a ship"
+     },
+     {
+      "clueFragment": "a bit of work",
+      "gives": "ERG",
+      "note": "an erg is the physics unit of work, and a very small amount of it"
+     },
+     {
+      "clueFragment": "subdued",
+      "gives": "LOW",
+      "note": "a low voice or low spirits are subdued ones"
+     }
+    ],
+    "surface": "Somebody with their back to a small job feels a quiet contentment.",
+    "walkthrough": "'A bit of work' is not part of a word: it is a unit, the erg, and physics units earn their keep in cryptics. The surface asks you to picture a shirker, which is why 'Back' looks like a verb.",
+    "definitionFit": "feeling of warmth → AFTERGLOW: the afterglow is the warmth left behind when light or pleasure has gone, so the definition names the sensation itself."
+   }
   },
   {
    "id": "15-across",
@@ -294,7 +776,27 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STEM",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STEM",
+    "definition": "Check",
+    "definition2": "part of plant",
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "",
+      "note": "the verb for halting a flow, what a bandage does to bleeding"
+     },
+     {
+      "clueFragment": "part of plant",
+      "gives": "",
+      "note": "the stalk that holds a flower or a leaf up"
+     }
+    ],
+    "surface": "An instruction to look over one particular section of a plant.",
+    "walkthrough": "'Check' reads as inspect in the surface and means halt in the answer, which is the whole distance the clue travels. The two senses are a verb and a noun sharing one spelling.",
+    "definitionFit": "Check → STEM: to stem a flow is to check it, and a stem is the stalk holding a plant up — one spelling, a verb and a noun."
+   }
   },
   {
    "id": "16-down",
@@ -311,7 +813,30 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MAHARANIS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MAHARANIS",
+    "definition": "important Indian women",
+    "indicators": [
+     "transported"
+    ],
+    "indicatorNotes": {
+     "transported": "Whatever is transported ends up somewhere other than where it started, and so does every one of these letters."
+    },
+    "anagram": {
+     "fodder": "AIRMAN HAS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Airman has",
+      "gives": "AIRMANHAS",
+      "note": "nine letters of fodder, the whole of it"
+     }
+    ],
+    "surface": "An airman has flown a party of grand Indian ladies somewhere.",
+    "walkthrough": "'Has' does the work of a verb in the sentence and is three of the nine letters; without it the fodder is too short to reach. A maharani is a maharaja's wife, or a queen ruling in her own right.",
+    "definitionFit": "important Indian women → MAHARANIS: they are the wives of maharajas, or ruling princesses in their own right, so the plural names a rank."
+   }
   },
   {
    "id": "17-down",
@@ -328,7 +853,40 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRONYISM",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "CRONYISM",
+    "definition": "Form of discrimination",
+    "indicators": [
+     "beginning",
+     "to stir"
+    ],
+    "indicatorNotes": {
+     "beginning": "'beginning' takes only the opening letter of the word it follows and leaves the rest.",
+     "to stir": "Stirring a pot moves everything in it out of place, which is what happens to the letters here."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "anagram": {
+     "fodder": "SCORN MY I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "scorn – my",
+      "gives": "SCORNMY",
+      "note": "seven letters of fodder, read straight across the dash"
+     },
+     {
+      "clueFragment": "inside’s",
+      "gives": "I",
+      "note": "the opening letter of that word and nothing else"
+     }
+    ],
+    "surface": "Being sneered at leaves somebody with their stomach starting to churn.",
+    "walkthrough": "'My inside's beginning to stir' reads as a queasy stomach, and every word of it is an instruction instead. The dash is punctuation only, which is what hides where the letters start.",
+    "definitionFit": "Form of discrimination → CRONYISM: it hands jobs and contracts to friends rather than judging on merit, which is discrimination of one particular kind."
+   }
   },
   {
    "id": "18-across",
@@ -345,7 +903,27 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DISH",
+    "definition": "Honey",
+    "definition2": "kitchen container",
+    "blocks": [
+     {
+      "clueFragment": "Honey",
+      "gives": "",
+      "note": "an affectionate name for an attractive person, not the stuff in the jar"
+     },
+     {
+      "clueFragment": "kitchen container",
+      "gives": "",
+      "note": "the shallow bowl food is served or baked in"
+     }
+    ],
+    "surface": "Honey being kept in something on a kitchen shelf.",
+    "walkthrough": "The word 'in' between the two halves is doing nothing but holding the sentence together, which is what makes the clue read as one statement about a jar. Both senses are nouns, so nothing changes shape.",
+    "definitionFit": "Honey → DISH: a dish is a shallow vessel for food, and calling somebody a dish is the same affection as calling them honey."
+   }
   },
   {
    "id": "19-down",
@@ -362,7 +940,31 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STERNAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "STERNAL",
+    "definition": "‘bony’ in a particular way",
+    "indicators": [],
+    "pieces": [
+     "STERN",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tough",
+      "gives": "STERN",
+      "note": "a stern manner is a tough, unbending one"
+     },
+     {
+      "clueFragment": "gangster",
+      "gives": "AL",
+      "note": "Al Capone is the crossword's default gangster, and only his first name is wanted"
+     }
+    ],
+    "surface": "A hard-faced gangster is described as bony.",
+    "walkthrough": "The quotation marks round 'bony' are the setter warning you the word is not being used loosely: the answer is bony about one bone in particular. Al for a gangster is Capone, a name every setter reaches for.",
+    "definitionFit": "‘bony’ in a particular way → STERNAL: sternal means of the sternum, the breastbone, so the adjective belongs to one named bone rather than bones generally."
+   }
   },
   {
    "id": "20-across",
@@ -384,7 +986,42 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
     ]
    },
    "solution": "ATASTRETCH",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AT A STRETCH",
+    "definition": "with difficulty",
+    "indicators": [
+     "joining in"
+    ],
+    "indicatorNotes": {
+     "joining in": "'joining in' has the volunteers stepping into the middle of what is already there rather than lining up after it."
+    },
+    "pieces": [
+     "A",
+     "TA",
+     "STRETCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's own opening letter, taken as it stands"
+     },
+     {
+      "clueFragment": "volunteers once",
+      "gives": "TA",
+      "note": "the Territorial Army was Britain's volunteer reserve force, which is what 'once' dates"
+     },
+     {
+      "clueFragment": "period in prison",
+      "gives": "STRETCH",
+      "note": "a stretch is a spell served inside"
+     }
+    ],
+    "surface": "Former volunteers muck in during somebody's spell behind bars.",
+    "walkthrough": "'Once' is the load-bearing word: it dates the abbreviation, because the volunteer force behind it was renamed the Army Reserve in 2014. The enumeration breaks the phrase in different places from the wordplay.",
+    "definitionFit": "with difficulty → AT A STRETCH: the phrase means only by pushing things — you can seat six at a stretch — so both are adverbial."
+   }
   },
   {
    "id": "21-down",
@@ -401,7 +1038,37 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOPSOIL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "TOPSOIL",
+    "definition": "something needing attention in allotment?",
+    "indicators": [
+     "outside"
+    ],
+    "indicatorNotes": {
+     "outside": "'outside' sends the second job round the first, so those letters open up and sit at both ends."
+    },
+    "pieces": [
+     "T",
+     "OPS",
+     "OIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "TOIL",
+      "note": "toil is hard work, and it splits to take the other piece"
+     },
+     {
+      "clueFragment": "Work with son",
+      "gives": "OPS",
+      "note": "op is a work in the musical sense of opus, and s = son"
+     }
+    ],
+    "surface": "A man works outdoors with his son, and something on the allotment needs seeing to.",
+    "walkthrough": "An allotment is a rented patch of council land for growing vegetables, so the surface is a weekend gardener's. 'Work' appears twice and means something different each time — a musical opus, then plain labour.",
+    "definitionFit": "something needing attention in allotment? → TOPSOIL: it is the fertile upper layer a gardener digs and feeds, so it is what wants attention on a plot."
+   }
   },
   {
    "id": "22-down",
@@ -418,7 +1085,40 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STIGMA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STIGMA",
+    "definition": "mark of disgrace",
+    "indicators": [
+     "inside"
+    ],
+    "indicatorNotes": {
+     "inside": "'inside' drops the letter into the body of the other word rather than at either end."
+    },
+    "linkWords": [
+     "given"
+    ],
+    "pieces": [
+     "S",
+     "T",
+     "IGMA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "SIGMA",
+      "note": "sigma is the Greek letter s, and it opens up here"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t = time, the letter used in every physics formula"
+     }
+    ],
+    "surface": "A Greek does time in prison and carries the shame of it afterwards.",
+    "walkthrough": "'Time inside' is a prison sentence in the surface and two instructions in the wordplay — the letter for time, and where it goes. Greek letters are standing crossword currency: sigma, iota, eta, phi.",
+    "definitionFit": "mark of disgrace → STIGMA: it is the shame attached to a person or a condition, from the Greek word for a brand burned into skin."
+   }
   },
   {
    "id": "23-across",
@@ -439,7 +1139,39 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
     ]
    },
    "solution": "PUERTORICAN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "PUERTO RICAN",
+    "definition": "islander",
+    "indicators": [
+     "about",
+     "disturbed"
+    ],
+    "indicatorNotes": {
+     "about": "'about' means round: the joke goes around the other letters instead of standing beside them.",
+     "disturbed": "Something disturbed has been knocked out of its settled order, and so have these eight letters."
+    },
+    "pieces": [
+     "PU",
+     "ERTORICA",
+     "N"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke, and it opens after two letters to take the rest"
+     },
+     {
+      "clueFragment": "race riot",
+      "gives": "ERTORICA",
+      "note": "the eight letters of those two words, shaken into a new order"
+     }
+    ],
+    "surface": "A joke about a race riot upsets somebody from an island.",
+    "walkthrough": "The surface reads like a news headline, and the wordplay treats 'race riot' as eight loose letters. 'Disturbed' does the shaking while 'about' quietly gives the other instruction.",
+    "definitionFit": "islander → PUERTO RICAN: Puerto Rico is a Caribbean island, so its people are islanders and the definition names them by where they live."
+   }
   },
   {
    "id": "23-down",
@@ -456,7 +1188,42 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSIT",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "POSIT",
+    "definition": "Submit",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "'over' reads as finished in the surface and as turned round in the wordplay, so those two letters arrive back to front."
+    },
+    "pieces": [
+     "PO",
+     "SIT"
+    ],
+    "subReversals": [
+     {
+      "from": "OP",
+      "to": "PO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work’s",
+      "gives": "PO",
+      "note": "op is a work, as in opus, and it is reversed here"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "SIT",
+      "note": "to sit is to take a rest"
+     }
+    ],
+    "surface": "Once the working day is over, hand in your report and put your feet up.",
+    "walkthrough": "'Work's over' is one phrase doing two jobs at once — the word for a work, and the instruction to turn it round — while the surface reads as nothing more than clocking-off time.",
+    "definitionFit": "Submit → POSIT: to posit is to put an idea forward for consideration, the sense in a lawyer's 'I submit that', not the surrendering one."
+   }
   },
   {
    "id": "24-down",
@@ -473,7 +1240,41 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHURN",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "CHURN",
+    "definition": "vessel",
+    "indicators": [
+     "waving maiden goodbye"
+    ],
+    "indicatorNotes": {
+     "waving maiden goodbye": "Waving something goodbye is watching it leave for good, so the letter named goes out of the word it was in."
+    },
+    "pieces": [
+     "CHU",
+     "RN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mate",
+      "gives": "CHUM",
+      "note": "a chum is a mate, and it is about to lose a letter"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "m = maiden, the cricket over off which no runs are scored"
+     },
+     {
+      "clueFragment": "Navy",
+      "gives": "RN",
+      "note": "RN is the Royal Navy, the standard pair of letters for it"
+     }
+    ],
+    "surface": "A friend waves goodbye to a young woman and boards a naval ship.",
+    "walkthrough": "M for maiden comes from cricket, an over off which no runs are scored, and it is one of the letters British solvers absorb young. 'Vessel' is the trap: with a navy about, you go looking for a ship.",
+    "definitionFit": "vessel → CHURN: a churn is a vessel in the container sense, the tub cream is beaten into butter in, or the tall can milk once travelled in."
+   }
   },
   {
    "id": "25-across",
@@ -490,7 +1291,35 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAR",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "PAR",
+    "definition": "that’s normal",
+    "indicators": [
+     "coming from"
+    ],
+    "indicatorNotes": {
+     "coming from": "'coming from' takes the letter out of the word rather than adding it, the way anything comes out of a container."
+    },
+    "pieces": [
+     "PAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PEAR",
+      "note": "the fruit is a pear, four letters"
+     },
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "e = energy in physics, and this is the letter that leaves"
+     }
+    ],
+    "surface": "Fruit gives you a lift, and there is nothing remarkable about that.",
+    "walkthrough": "'Coming from' is a deletion rather than a charade joint: the energy is taken out of the fruit, not added to it. Par is the golfer's expected score for a hole, which is where the everyday sense comes from.",
+    "definitionFit": "that’s normal → PAR: par is the standard expected, the sense kept alive in 'below par' and 'par for the course', both borrowed from golf."
+   }
   },
   {
    "id": "26-across",
@@ -507,7 +1336,46 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENEGAL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SENEGAL",
+    "definition": "country",
+    "indicators": [
+     "invades"
+    ],
+    "indicatorNotes": {
+     "invades": "An invader gets inside the borders, so these letters land in the body of the other word."
+    },
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "SE",
+     "N",
+     "EG",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stamp of approval",
+      "gives": "SEAL",
+      "note": "a seal on a document is the stamp of approval, and it splits after two letters"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "n is the knight in chess notation, b being taken by the bishop"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "eg = for example, from the Latin exempli gratia"
+     }
+    ],
+    "surface": "A knight and his like storm a country, with official approval stamped on the venture.",
+    "walkthrough": "'Say' is not a homophone signal here — it is the two-letter abbreviation for 'for example', and it goes straight into the middle. Nothing in the clue hints at which continent the country is on.",
+    "definitionFit": "country → SENEGAL: Senegal is a nation on the West African coast, so the definition is the plain category the proper name belongs to."
+   }
   },
   {
    "id": "27-across",
@@ -524,7 +1392,39 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNICORN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNICORN",
+    "definition": "Fabulous beast",
+    "indicators": [
+     "say"
+    ],
+    "indicatorNotes": {
+     "say": "'say' marks Cambridge as one instance of the thing wanted, not as the thing itself."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "UNI",
+     "CORN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at Cambridge",
+      "gives": "UNI",
+      "note": "uni is the everyday British short form of university, and Cambridge is one"
+     },
+     {
+      "clueFragment": "old jokes",
+      "gives": "CORN",
+      "note": "corn is stale, sentimental humour, the noun behind 'corny'"
+     }
+    ],
+    "surface": "A mythical creature turning up in the tired old jokes told at Cambridge.",
+    "walkthrough": "The full stop before 'say' is a slip for a comma in the paper's text — read it as 'at Cambridge, say'. Corn for stale humour is American slang of the 1930s, and 'corny' is what survived of it.",
+    "definitionFit": "Fabulous beast → UNICORN: the unicorn is the horned horse of legend, and 'fabulous' is used in its older sense of belonging to fable."
+   }
   },
   {
    "id": "28-across",
@@ -546,7 +1446,40 @@ window.CRYPTIC_PUZZLES["cryptic-30030"] = /*JSON-START*/ {
     ]
    },
    "solution": "TILTATWINDMILLS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TILT AT WINDMILLS",
+    "definition": "fight meaningless battle",
+    "indicators": [
+     "Silly",
+     "inside"
+    ],
+    "indicatorNotes": {
+     "Silly": "A silly arrangement of letters is one that has stopped making the sense it started with.",
+     "inside": "'inside' drops the extra letter in among the others rather than tacking it on an end."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "anagram": {
+     "fodder": "NITWIT STILL MAD L"
+    },
+    "blocks": [
+     {
+      "clueFragment": "nitwit still mad",
+      "gives": "NITWITSTILLMAD",
+      "note": "fourteen letters of fodder — 'mad' is part of the pile, not the instruction"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l = left, as in a stage direction or a map reference"
+     }
+    ],
+    "surface": "A daft idiot, still furious, is shoved out of the way to carry on a hopeless fight.",
+    "walkthrough": "'Mad' is the trap: it sits exactly where an anagram indicator goes and is three of the fifteen letters, while 'Silly' at the front does the shuffling. The enumeration is the only handle on fodder this long.",
+    "definitionFit": "fight meaningless battle → TILT AT WINDMILLS: Don Quixote charged windmills he took for giants, so the idiom means attacking imaginary enemies."
+   }
   }
  ]
 } /*JSON-END*/;
