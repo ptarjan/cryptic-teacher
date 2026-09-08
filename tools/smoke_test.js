@@ -527,6 +527,15 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
   assert(hold.status === 0,
     "tools/test_push_hold.js: the cron holds an out-of-hours puzzle and delivers it "
     + "exactly once\n" + (hold.stdout || "") + (hold.stderr || ""));
+
+  /* Ticking a second paper while the first tick is still being saved. Shelled
+     out for the same reason and a different one: the suite here is synchronous,
+     and a race only exists between two promises. */
+  const race = require("child_process").spawnSync(
+    process.execPath, [path.join(ROOT, "tools/test_notify_race.js")], { encoding: "utf8" });
+  assert(race.status === 0,
+    "tools/test_notify_race.js: a paper ticked while another is saving is queued, "
+    + "not dropped and then unticked\n" + (race.stdout || "") + (race.stderr || ""));
 }
 
 // --- escape hatch: reveal a letter BEFORE using any ladder hints ---
