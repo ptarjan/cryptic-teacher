@@ -38,9 +38,24 @@ fi
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
+# --no-sandbox because the only machine that runs this on a schedule is a
+# container without the kernel namespaces Chrome's sandbox is built out of,
+# and the page being opened is a file this script generated one line earlier
+# — never a URL, never anything a stranger wrote. --disable-dev-shm-usage for
+# the same container: Docker's default /dev/shm is 64MB and Chrome renders a
+# 1200x630 page into it and dies.
+#
+# Chrome's own diagnosis is kept and printed only when the shot fails. Sent
+# to /dev/null unconditionally it took the reason with it, and a card that
+# did not get drawn is exactly when you want to know why.
 shot() {  # shot <html> <png>
-  "$CHROME" --headless --disable-gpu --hide-scrollbars \
-    --screenshot="$2" --window-size=1200,630 "file://$1" 2>/dev/null
+  local err
+  if ! err=$("$CHROME" --headless --no-sandbox --disable-gpu \
+      --disable-dev-shm-usage --hide-scrollbars \
+      --screenshot="$2" --window-size=1200,630 "file://$1" 2>&1); then
+    echo "make_og.sh: $CHROME could not draw $2: $err" >&2
+    return 1
+  fi
 }
 
 # The site card. Rebuilt from a published puzzle before screenshotting, which
