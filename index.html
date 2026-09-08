@@ -35,7 +35,7 @@
  "author":{"@type":"Person","name":"Paul Tarjan","url":"https://paultarjan.com/"}}
 </script>
 
-<link rel="stylesheet" href="style.css?v=2c24873c">
+<link rel="stylesheet" href="style.css?v=e00d4572">
 <!-- Not deferred: app.js reports its milestones through gtag, and a deferred
      script runs after the parser-blocking one at the end of the body, so the
      first events of a session would find no gtag to call. -->
@@ -157,6 +157,18 @@
         <div id="hint-pattern" class="pattern"></div>
         <div id="hint-meter" class="muted"></div>
         <div id="hint-body"></div>
+        <!-- The anagram ring's typing intake. Lives beside #hint-body rather than
+             inside it: #hint-body's innerHTML is thrown away and rebuilt on every
+             keystroke (a new tile has to be drawn), and an input inside that
+             subtree would be destroyed with it and lose focus after one letter.
+             Parked here it survives every ring redraw the same way #kbd survives
+             every grid one. Off-screen and hidden like #kbd, for the same reason:
+             a real input takes a hardware keyboard directly and is the only way
+             a phone's on-screen one can be raised for something that isn't a
+             text box to look at. See ringHTML()/addRingLetter() in app.js. -->
+        <input id="ana-kbd" autocomplete="off" autocapitalize="characters"
+               autocorrect="off" spellcheck="false"
+               aria-label="Type a letter to add it to the anagram ring, Backspace to remove the last">
         <div id="hint-next"></div>
         <div id="hint-escape"></div>
       </div>
@@ -196,7 +208,7 @@
 
 <script src="puzzles/index.js?v=587aadb4"></script>
 <script src="abbreviations.js?v=f882d502"></script>
-<script src="app.js?v=a395a72e"></script>
+<script src="app.js?v=429d8102"></script>
 <script>
 // Reload once when the page in the cache is older than the page on the server.
 //
