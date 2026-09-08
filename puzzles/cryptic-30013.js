@@ -35,7 +35,9 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "FISH",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "7-down"
+   }
   },
   {
    "id": "2-down",
@@ -52,7 +54,47 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESOLUTE",
-   "annotation": null
+   "annotation": {
+    "type": "cycling + anagram + container",
+    "answer": "RESOLUTE",
+    "definition": "Determined",
+    "indicators": [
+     "cycling",
+     "is overtaken by",
+     "rogue"
+    ],
+    "indicatorNotes": {
+     "cycling": "A wheel keeps every spoke in place but starts from a new one each turn, so the letters roll round without changing their order.",
+     "is overtaken by": "A car overtaking pulls out, draws level and finishes ahead, so the passing letters end up on both sides of the ones passed.",
+     "rogue": "A rogue element is one that has broken ranks, and letters that break ranks do not stay in the order they were given."
+    },
+    "pieces": [
+     "R",
+     "ESOL",
+     "UTE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "TRUE",
+      "gives": "RUTE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "true rogue",
+      "gives": "RUTE",
+      "note": "the four letters of TRUE disturbed, then split so they sit either side of what follows"
+     },
+     {
+      "clueFragment": "1 cycling",
+      "gives": "ESOL",
+      "note": "1 down asks for a fish and this one is the flatfish SOLE, rolled round so its last letter leads"
+     }
+    ],
+    "surface": "A determined cyclist being passed on the hill by a genuine road hog.",
+    "walkthrough": "'Cycling' is not the bike race the surface is selling — it is the instruction to roll a word's letters round to a new starting point. Wherever '1' appears in this puzzle you supply a fish of your own choosing.",
+    "definitionFit": "Someone resolute has fixed on a course and will not be shifted from it, which is what 'Determined' says — adjective for adjective."
+   }
   },
   {
    "id": "3-down",
@@ -69,7 +111,30 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLUE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BLUE",
+    "definition": "Down",
+    "definition2": "dirty",
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Down",
+      "gives": "",
+      "note": "low in spirits, the mood sense of the colour"
+     },
+     {
+      "clueFragment": "dirty",
+      "gives": "",
+      "note": "smutty — the sense a comedian's material has when it is too near the knuckle"
+     }
+    ],
+    "surface": "Getting down-and-dirty: the phrase for wading into something rough and grubby.",
+    "walkthrough": "Hyphens make 'Down-and-dirty' read as one idiom, and that is the whole disguise: the two halves are separate definitions with a link word between them. Four letters covering both senses is a very short clue's worth of work.",
+    "definitionFit": "Feeling blue is being downcast and a blue joke is a dirty one — two everyday senses of one colour word, neither of them about colour."
+   }
   },
   {
    "id": "4-down",
@@ -86,7 +151,37 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SMELTERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters",
+    "answer": "SMELTERS",
+    "definition": "Metal producers",
+    "indicators": [
+     "manufactured",
+     "occasionally"
+    ],
+    "indicatorNotes": {
+     "manufactured": "Something manufactured has been assembled out of parts into a new arrangement, which is what happens to the letters beside it.",
+     "occasionally": "Reading a word occasionally means dipping in every so often rather than straight through, so only every second letter is taken."
+    },
+    "anagram": {
+     "fodder": "STEEL RMS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "steel",
+      "gives": "STEEL",
+      "note": "anagram fodder"
+     },
+     {
+      "clueFragment": "frames occasionally",
+      "gives": "RMS",
+      "note": "every second letter of fRaMeS"
+     }
+    ],
+    "surface": "A fabrication yard that knocks up steel frames now and then.",
+    "walkthrough": "Every word belongs to one picture of a metalworking firm, so nothing announces itself as fodder or as instruction. 'Occasionally' is worth banking: it almost always means take every other letter.",
+    "definitionFit": "A smelter is the works that draws metal out of ore with heat, so the plural names producers of metal in the plainest sense."
+   }
   },
   {
    "id": "5-down",
@@ -109,7 +204,39 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRAWLS",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + container",
+    "answer": "TRAWLS",
+    "definition": "Thoroughly investigates",
+    "indicators": [
+     "tips from",
+     "to cover"
+    ],
+    "indicatorNotes": {
+     "tips from": "The tip of anything is its top end, so this takes the leading letter of each word it points at.",
+     "to cover": "One thing covering another lies over and around it, so these letters close on both sides of the piece named next."
+    },
+    "pieces": [
+     "TR",
+     "AWL",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tips from The Repair Shop",
+      "gives": "TRS",
+      "note": "the first letters of the three words of the title — The Repair Shop is a BBC programme in which heirlooms are mended"
+     },
+     {
+      "clueFragment": "boring item",
+      "gives": "AWL",
+      "note": "an awl is the spike a leatherworker bores holes with"
+     }
+    ],
+    "surface": "Sifting a restoration show's best advice for one thoroughly dull object.",
+    "walkthrough": "'Boring item' reads as something dull and means a tool that bores holes. The italics are the setter telling you the three words are a title, which is what makes their initials fair game.",
+    "definitionFit": "To trawl is to drag a net through the water's whole depth, so trawling a set of records means going through it thoroughly."
+   }
   },
   {
    "id": "6-down",
@@ -126,7 +253,45 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERSAILLES",
-   "annotation": null
+   "annotation": {
+    "type": "container + last letter",
+    "answer": "VERSAILLES",
+    "definition": "Palace",
+    "indicators": [
+     "embracing",
+     "ending for"
+    ],
+    "indicatorNotes": {
+     "embracing": "To embrace is to get both arms right round something, so the word doing it closes over the letters named next.",
+     "ending for": "'Ending for' asks only for the letter that finishes the word it points at."
+    },
+    "pieces": [
+     "VERS",
+     "AIL",
+     "L",
+     "ES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Words in song",
+      "gives": "VERSES",
+      "note": "the verses are a song's words, as against its tune"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail somebody is to trouble or afflict them"
+     },
+     {
+      "clueFragment": "ending for Crystal",
+      "gives": "L",
+      "note": "the last letter of CrystaL"
+     }
+    ],
+    "surface": "A songwriter's lyrics taking in the latest misery at Crystal Palace.",
+    "walkthrough": "Crystal Palace are a south London football club, so their name reads as one thing and splits into two: 'Crystal' lends its last letter and 'Palace' is the whole definition. A one-word definition beside ten letters usually means most of the clue is wordplay.",
+    "definitionFit": "Definition by example: Versailles is one particular royal palace outside Paris, standing in for the general word."
+   }
   },
   {
    "id": "7-down",
@@ -151,7 +316,34 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
     ]
    },
    "solution": "SOLONG",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "SO LONG AND THANKS FOR ALL THE FISH",
+    "definition": "a novel quote",
+    "indicators": [
+     "Liquid"
+    ],
+    "indicatorNotes": {
+     "Liquid": "A liquid holds no shape of its own, so the letters it describes are free to run into any order."
+    },
+    "linkWords": [
+     "to produce"
+    ],
+    "anagram": {
+     "fodder": "FLASH GORDON IN ON THE TALKS FLASH"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Flash Gordon in on the talks with Flash",
+      "gives": "FLASHGORDONINONTHETALKSFLASH",
+      "note": "anagram fodder, 28 letters — both Flashes are in it, and 'with' only joins the second one on"
+     }
+    ],
+    "surface": "Flash Gordon sits in on the negotiations alongside a bottle of Flash, the kitchen cleaner.",
+    "walkthrough": "'Flash' looks like an instruction both times it appears and is fodder both times; the shuffling is ordered by the innocent-looking 'Liquid'. Douglas Adams gave the line to the dolphins leaving Earth, then used it as the title of his fourth Hitchhiker novel.",
+    "definitionFit": "The line is the dolphins' farewell in Douglas Adams's Hitchhiker books and the title of the novel it names, so 'a novel quote' is literal."
+   }
   },
   {
    "id": "8-down",
@@ -168,7 +360,33 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PEEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PEEL",
+    "definition": "Strip",
+    "linkWords": [
+     "from"
+    ],
+    "pieces": [
+     "P",
+     "EEL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "p = page, the standard abbreviation"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "EEL",
+      "note": "1 down is FISH, and the clue leaves you to pick a species — the long thin one fits"
+     }
+    ],
+    "surface": "Tearing a strip off page one of the paper.",
+    "walkthrough": "'1' is a cross-reference rather than a numeral: it stands for 1 down's FISH and you choose a species with the right letters. 'Strip' is doing duty as a verb.",
+    "definitionFit": "To peel is to strip the skin or covering off something, so the two verbs swap straight into each other."
+   }
   },
   {
    "id": "9-across",
@@ -185,7 +403,30 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDEAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "IDEAL",
+    "definition": "Perfect",
+    "pieces": [
+     "I",
+     "DEAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "DEAL",
+      "note": "deal is sawn fir or pine, the plank sort of timber"
+     }
+    ],
+    "surface": "A golfer's flawless drive off the tee with the 1-wood.",
+    "walkthrough": "'1' has meant a fish everywhere else in this grid, and here it is simply the Roman numeral — the one place the cross-reference does not apply. Deal is softwood timber, the stuff of shelves and floorboards.",
+    "definitionFit": "'Perfect' and IDEAL are the same adjective — nothing left to improve on — and either can replace the other in a sentence."
+   }
   },
   {
    "id": "10-across",
@@ -206,7 +447,41 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
     ]
    },
    "solution": "MORSECODE",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "MORSE CODE",
+    "definition": "Communication system",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [
+     "for Spooner"
+    ],
+    "indicatorNotes": {
+     "for Spooner": "The Reverend Spooner was famous for swapping the opening sounds of two neighbouring words, so the two that follow trade their fronts."
+    },
+    "pieces": [
+     "MORSE",
+     "CODE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "common",
+      "soundsLike": "COARSE",
+      "gives": "MORSE",
+      "note": "common = coarse; it hands its hard opening sound over and takes an M in exchange"
+     },
+     {
+      "clueFragment": "kind",
+      "soundsLike": "MODE",
+      "gives": "CODE",
+      "note": "a kind of thing is a mode; it gives up its M and takes the hard sound back, written as a C"
+     }
+    ],
+    "surface": "Spooner dismissing something as an ordinary, common-or-garden sort.",
+    "walkthrough": "William Spooner was an Oxford don whose tongue-slips named the device. The vowels drift a little on the way — 'coarse' and 'Morse' are not quite the same noise — which is normal here and worth expecting.",
+    "definitionFit": "Morse code is a system for sending messages as dots and dashes, so 'Communication system' says exactly what it is."
+   }
   },
   {
    "id": "11-across",
@@ -227,7 +502,47 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
     ]
    },
    "solution": "HOOKESLAW",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "HOOKE'S LAW",
+    "definition": "physical principle",
+    "indicators": [
+     "played",
+     "by"
+    ],
+    "indicatorNotes": {
+     "played": "A tune played with is a tune messed about with, so the letters beside it are rearranged rather than sounded.",
+     "by": "Something done 'by' another thing stands right beside it, so these two pieces sit end to end rather than one inside the other."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "HOOK",
+     "ESLAW"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "WALES",
+      "gives": "ESLAW"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "captain",
+      "gives": "HOOK",
+      "note": "Captain Hook is the pirate of Peter Pan"
+     },
+     {
+      "clueFragment": "Wales",
+      "gives": "ESLAW",
+      "note": "the five letters of WALES rearranged"
+     }
+    ],
+    "surface": "Wales taking the field under a captain with firm rules about physical play.",
+    "walkthrough": "The surface points hard at Welsh rugby, and the country is only letters while the captain comes from Peter Pan. Robert Hooke's law says a spring stretches in proportion to the force pulling on it.",
+    "definitionFit": "Hooke's law states that extension is proportional to force, so 'physical principle' names the class of thing rather than translating it."
+   }
   },
   {
    "id": "12-across",
@@ -244,7 +559,45 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SHOAL",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "SHOAL",
+    "definition": "group",
+    "indicators": [
+     "entertained by",
+     "backing"
+    ],
+    "indicatorNotes": {
+     "entertained by": "To entertain a guest is to have them inside your house, so the letters doing the entertaining close round their visitor.",
+     "backing": "Backing a car sends it the way it came, and in an across answer that means the letters read right to left."
+    },
+    "pieces": [
+     "S",
+     "H",
+     "OAL"
+    ],
+    "subReversals": [
+     {
+      "from": "LAOS",
+      "to": "SOAL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country backing",
+      "gives": "SOAL",
+      "note": "LAOS, the south-east Asian country, written backwards"
+     },
+     {
+      "clueFragment": "Hotel",
+      "gives": "H",
+      "note": "H is Hotel in the radio alphabet"
+     }
+    ],
+    "surface": "A hotel being entertained by the backing group from some country act.",
+    "walkthrough": "'Country backing group' reads as one phrase — the band behind a country singer — and each of its three words is doing a different job. H for Hotel comes from the radio alphabet, a setter's favourite way of clueing a single letter.",
+    "definitionFit": "A shoal is the collective noun for fish swimming together, so 'group' is the deliberately vague word that gives nothing away."
+   }
   },
   {
    "id": "13-across",
@@ -261,7 +614,41 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRUMBLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "CRUMBLE",
+    "definition": "Sweet",
+    "indicators": [
+     "opening"
+    ],
+    "indicatorNotes": {
+     "opening": "The opening of a word is the letter you meet first, before anything else of it."
+    },
+    "pieces": [
+     "C",
+     "RUMBLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caroline’s opening",
+      "gives": "C",
+      "note": "the first letter of Caroline"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "RUMBLE",
+      "note": "a rumble is a gang fight, the West Side Story word"
+     },
+     {
+      "clueFragment": "in Madison Square Garden",
+      "gives": "",
+      "note": "the New York arena dresses the fight up as a title bout and supplies no letters"
+     }
+    ],
+    "surface": "Sweet Caroline blaring out before a big fight at Madison Square Garden.",
+    "walkthrough": "'Sweet Caroline' is Neil Diamond's song, and the setter is counting on you reading the two words as a pair when only 'Sweet' defines. In Britain a sweet is a pudding, not a boiled confection.",
+    "definitionFit": "A crumble is fruit baked under a rubbed-in topping, and 'Sweet' is the British word for the dessert course it belongs to."
+   }
   },
   {
    "id": "13-down",
@@ -278,7 +665,33 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHARM",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHARM",
+    "definition": "Allure",
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "CHAR",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1",
+      "gives": "CHAR",
+      "note": "1 down again asks for a fish; a char is the trout's cousin from cold northern lakes"
+     },
+     {
+      "clueFragment": "million",
+      "gives": "M",
+      "note": "m = million, the standard abbreviation"
+     }
+    ],
+    "surface": "The allure of a cool million in the bank.",
+    "walkthrough": "'1 million' reads as a single quantity, which is the trap — the 1 breaks off as the cross-reference and the million is one letter. Once you know the theme, every '1' is a fish waiting to be named.",
+    "definitionFit": "Charm is the pull a person exerts on other people, which is what 'Allure' means — the same noun in the same countable sense."
+   }
   },
   {
    "id": "14-down",
@@ -295,7 +708,36 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARCAROLLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "BARCAROLLE",
+    "definition": "song",
+    "indicators": [
+     "part of"
+    ],
+    "indicatorNotes": {
+     "part of": "'Part of' wants a piece rather than the whole, and here it points backwards at the word before it, docking its final letter — a loose instruction you have to take on trust."
+    },
+    "pieces": [
+     "BARCA",
+     "ROLLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish players",
+      "gives": "BARCA",
+      "note": "Barça is what everyone calls FC Barcelona"
+     },
+     {
+      "clueFragment": "delivered part of",
+      "gives": "ROLLE",
+      "note": "ROLLED, as a bowler delivers a ball, without its last letter"
+     }
+    ],
+    "surface": "Barcelona's players giving a snatch of a song before kick-off.",
+    "walkthrough": "Barça for Barcelona is a name setters reach for whenever a clue mentions Spanish players. A barcarolle is the swaying boat song of the Venetian gondoliers; Offenbach wrote the famous one.",
+    "definitionFit": "'Song' sits one level above the answer, which is a particular kind of song — a gondolier's, in the rocking rhythm of the oars."
+   }
   },
   {
    "id": "15-across",
@@ -312,7 +754,49 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLINGER",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters + middle letter",
+    "answer": "SLINGER",
+    "definition": "Thrower",
+    "indicators": [
+     "in",
+     "borders",
+     "close to",
+     "the heart of"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is the smallest container instruction there is: what comes before it goes inside what comes after.",
+     "borders": "A county's borders are its outer edges, so this takes the letter at each end of the word and drops the middle.",
+     "close to": "'Close to' means right up beside, so the letter it names is added on the end rather than tucked inside.",
+     "the heart of": "The heart of a word is the single letter sitting exactly in its middle."
+    },
+    "pieces": [
+     "S",
+     "LING",
+     "E",
+     "R"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shropshire borders",
+      "gives": "SE",
+      "note": "the outer letters of ShropshirE, an English county on the Welsh border"
+     },
+     {
+      "clueFragment": "Heather",
+      "gives": "LING",
+      "note": "ling is the heather that covers a moor — and a fish too, which suits this grid"
+     },
+     {
+      "clueFragment": "Percy",
+      "gives": "R",
+      "note": "the middle letter of PeRcy"
+     }
+    ],
+    "surface": "Heather growing on the Shropshire border, close to Percy Thrower's heart.",
+    "walkthrough": "Percy Thrower was the BBC's first television gardener, which is why heather and county borders sound like his subject and 'Thrower' looks like his surname. It is the definition: in cricket a slinger is a bowler whose arm whips round.",
+    "definitionFit": "A slinger is one who slings — a stone from a sling, or a cricket ball with a round-arm action — so 'Thrower' matches it noun for noun."
+   }
   },
   {
    "id": "16-down",
@@ -329,7 +813,36 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUDDY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "RUDDY",
+    "definition": "red",
+    "indicators": [
+     "originally"
+    ],
+    "indicatorNotes": {
+     "originally": "What a word is originally is what it starts as, so only its opening letter is wanted."
+    },
+    "pieces": [
+     "RUDD",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amber perhaps",
+      "gives": "RUDD",
+      "note": "Amber Rudd is a British politician, and 'perhaps' flags her as one example of the surname"
+     },
+     {
+      "clueFragment": "originally yellowish",
+      "gives": "Y",
+      "note": "the first letter of Yellowish"
+     }
+    ],
+    "surface": "A stone of amber described as having started out a yellowish-red.",
+    "walkthrough": "'Yellowish-red' looks like one colour and is two jobs: the Y is borrowed off the front and only the second half defines. A rudd is also a fish, which is no accident in this grid.",
+    "definitionFit": "Ruddy is the adjective for a healthy red colour, most often of a face, so 'red' is the plain sense with the definition hiding at the end of a compound."
+   }
   },
   {
    "id": "17-across",
@@ -352,7 +865,35 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMEER",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "AMEER",
+    "definition": "The Prince",
+    "indicators": [
+     "partly",
+     "reflected"
+    ],
+    "indicatorNotes": {
+     "partly": "Taking words partly means using a run of them as they stand and leaving the rest alone.",
+     "reflected": "A reflection shows you the same thing the other way round, so the run of letters is read backwards."
+    },
+    "subReversals": [
+     {
+      "from": "REEMA",
+      "to": "AMEER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree Machiavelli",
+      "gives": "REEMA",
+      "note": "a run of five letters straddles the gap between these two words, starting partway into the first"
+     }
+    ],
+    "surface": "Someone half agreeing with Machiavelli's handbook on how princes should behave.",
+    "walkthrough": "The italics make The Prince look like the book, which is where the definition hides in plain sight. An ameer — emir in the commoner spelling — is a Muslim prince or commander.",
+    "definitionFit": "An ameer is a prince or ruler in the Arab world, the same title as emir, so the definition is straight while pretending to be a book title."
+   }
   },
   {
    "id": "18-across",
@@ -370,7 +911,31 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEA",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "SEAWIFE",
+    "definition": "1",
+    "pieces": [
+     "SEA",
+     "WIFE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main",
+      "gives": "SEA",
+      "note": "the main is an old word for the open sea, kept alive by the Spanish Main"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "WIFE",
+      "note": "a wife is a partner in marriage"
+     }
+    ],
+    "surface": "The number-one partner in a person's life.",
+    "walkthrough": "'Main' looks like an adjective attached to 'partner' and is a noun in its own right, the open sea. The seawife is a wrasse, so 1 down's cross-reference does the defining on its own.",
+    "definitionFit": "'1' points at 1 down's FISH, and this one is a species of wrasse — the definition names the family and leaves you to find the member."
+   }
   },
   {
    "id": "19-down",
@@ -387,7 +952,37 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ABRIDGED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ABRIDGED",
+    "definition": "Potted",
+    "indicators": [
+     "eaten by"
+    ],
+    "indicatorNotes": {
+     "eaten by": "Whatever is eaten ends up inside the eater, so these letters go within the ones named next."
+    },
+    "pieces": [
+     "A",
+     "BRIDGE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AD",
+      "note": "a bill is a poster or advertisement — hence the two letters, as in billboard"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "BRIDGE",
+      "note": "bridge is the card game"
+     }
+    ],
+    "surface": "Bill tucking into potted game at the table.",
+    "walkthrough": "'Potted game' is lunch on the surface and neither word means what it looks like: 'potted' is the definition, in the sense of a potted history, and the game is played with cards.",
+    "definitionFit": "A potted account is a shortened one, and abridged is what a publisher calls a text cut down — the same adjective from a different trade."
+   }
   },
   {
    "id": "20-across",
@@ -404,7 +999,37 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIPID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "LIPID",
+    "definition": "Fat",
+    "indicators": [
+     "wearing"
+    ],
+    "indicatorNotes": {
+     "wearing": "You wear a hat by putting your head inside it, so the wearer's letters go within the hat's."
+    },
+    "pieces": [
+     "LI",
+     "PI",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hat",
+      "gives": "LID",
+      "note": "lid is slang for a hat"
+     },
+     {
+      "clueFragment": "detective",
+      "gives": "PI",
+      "note": "PI = private investigator"
+     }
+    ],
+    "surface": "A portly sleuth in a hat.",
+    "walkthrough": "'Fat' opens the clue looking like an adjective describing the detective, and it is the noun definition. Lid for hat and PI for private eye are two of the shortest cuts in the setter's kit.",
+    "definitionFit": "A lipid is the biochemist's name for the family of molecules that fats belong to, so 'Fat' is the kitchen word for the same substance."
+   }
   },
   {
    "id": "21-down",
@@ -421,7 +1046,39 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIRANHAS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + container",
+    "answer": "PIRANHAS",
+    "definition": "1",
+    "indicators": [
+     "brief",
+     "gripping"
+    ],
+    "indicatorNotes": {
+     "brief": "Something brief has been cut short, so the word it describes loses its final letter.",
+     "gripping": "To grip something is to close your hand right round it, so these letters wrap the piece named next."
+    },
+    "pieces": [
+     "P",
+     "IRAN",
+     "HAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief period",
+      "gives": "PHAS",
+      "note": "PHASE, a period of time, shorn of its last letter"
+     },
+     {
+      "clueFragment": "nation",
+      "gives": "IRAN",
+      "note": "the nation dropped into the gap"
+     }
+    ],
+    "surface": "A short spell of unrest taking hold of a whole country.",
+    "walkthrough": "'Brief' belongs to the surface's picture of a short political crisis and is really an instruction to dock a letter. The definition is the bare '1', pointing back at 1 down, and the plural comes from the enumeration.",
+    "definitionFit": "'1' means 1 down's FISH, and piranhas are South American river fish, so the definition names the family and the wordplay picks the member."
+   }
   },
   {
    "id": "22-across",
@@ -438,7 +1095,49 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MICHAEL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "MICHAEL",
+    "definition": "for 1?",
+    "definitionNote": "The clue does not define the answer directly: '1?' asks for a word that pairs with 1 down to name a real person, and the question mark admits the stretch.",
+    "indicators": [
+     "Harry",
+     "drinking"
+    ],
+    "indicatorNotes": {
+     "Harry": "To harry is to harass and hound, and letters that have been hounded do not stay in the order they were in.",
+     "drinking": "Drinking takes something in, so the letters swallowed sit inside the ones doing the swallowing."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "MI",
+     "CHA",
+     "EL"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "LIME",
+      "gives": "MIEL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lime",
+      "gives": "MIEL",
+      "note": "the four letters of LIME rearranged, then opened up to take a drink"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is tea, from the Chinese, and a crossword regular"
+     }
+    ],
+    "surface": "Harry Lime, the racketeer of The Third Man, pausing for a cup of tea.",
+    "walkthrough": "'Harry Lime' is a character on the surface and two instructions underneath, since to harry is to harass. The answer is a forename: put 1 down's word after it and you have Michael Fish, the BBC forecaster who missed the 1987 storm.",
+    "definitionFit": "The answer defines only by attachment: set 1 down's FISH after it and the pair names a British television weather forecaster."
+   }
   },
   {
    "id": "23-down",
@@ -455,7 +1154,46 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COHORT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "COHORT",
+    "definition": "Group",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' is the container instruction: everything before it is placed inside the word that follows."
+    },
+    "pieces": [
+     "CO",
+     "H",
+     "OR",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a bed"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the letter on the hot tap"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR = Other Ranks, the British Army's term for everyone below officer"
+     }
+    ],
+    "surface": "Feverish soldiers laid up in bed.",
+    "walkthrough": "OR for men is British Army shorthand — Other Ranks — and setters use it constantly. A cohort was originally a tenth of a Roman legion, so the soldiers on the surface are quietly on the answer's side.",
+    "definitionFit": "A cohort is a body of people banded together, originally a Roman infantry unit and now any set treated as one, so 'Group' is a plain synonym."
+   }
   },
   {
    "id": "24-down",
@@ -476,7 +1214,46 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
     ]
    },
    "solution": "LEANTO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "LEAN-TO",
+    "definition": "Shed",
+    "indicators": [
+     "essentially",
+     "leaving"
+    ],
+    "indicatorNotes": {
+     "essentially": "The essence of a word is the letter at its very centre, with equal numbers either side.",
+     "leaving": "What leaves is gone, so the letter named is taken out of the word it was sitting in."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "LEANT",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Eastern Mediterranean",
+      "gives": "LEVANT",
+      "note": "the Levant is the region along the eastern Mediterranean coast"
+     },
+     {
+      "clueFragment": "Seven essentially",
+      "gives": "V",
+      "note": "the middle letter of seVen, and it is this that goes"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is nothing, the shape of a zero"
+     }
+    ],
+    "surface": "Shed Seven quitting the eastern Mediterranean with nothing to show for the tour.",
+    "walkthrough": "Shed Seven are a York britpop band, so their name opens the clue as one unit — but 'Shed' alone is the definition and 'Seven' is wordplay. Splitting a proper name across the two halves is Brockwell's favourite move.",
+    "definitionFit": "A lean-to is a shed with a single sloping roof propped against a wall, so 'Shed' names it by its commonest kind."
+   }
   },
   {
    "id": "25-across",
@@ -499,7 +1276,37 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESPRAY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letters",
+    "answer": "RESPRAY",
+    "definition": "put new coat on",
+    "indicators": [
+     "Shivering",
+     "finally"
+    ],
+    "indicatorNotes": {
+     "Shivering": "Something shivering is shaking too hard to hold its shape, so its letters will not stay where they were put.",
+     "finally": "'Finally' asks for the letter each word ends on, the one it finishes with."
+    },
+    "anagram": {
+     "fodder": "APRES RY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "après",
+      "gives": "APRES",
+      "note": "anagram fodder — the French word the italics mark out"
+     },
+     {
+      "clueFragment": "skier may finally",
+      "gives": "RY",
+      "note": "the last letters of skieR and maY"
+     }
+    ],
+    "surface": "A shivering skier back from the slopes finally getting himself a new coat.",
+    "walkthrough": "'Put new coat on' is a paint job on a car, not the anorak the surface dangles. The italicised foreign word is the tell: in a Guardian clue it is nearly always fodder rather than vocabulary.",
+    "definitionFit": "To respray is to give a vehicle a fresh coat of paint, so 'put new coat on' describes the action verb for verb."
+   }
   },
   {
    "id": "26-across",
@@ -516,7 +1323,39 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WAHOO",
-   "annotation": null
+   "annotation": {
+    "type": "container + alternate letters",
+    "answer": "WAHOO",
+    "definition": "No.1",
+    "indicators": [
+     "regularly missed out",
+     "in"
+    ],
+    "indicatorNotes": {
+     "regularly missed out": "Missing letters out at a regular interval as you read leaves every other one — here the first and the third.",
+     "in": "'In' puts what precedes it inside what follows, so the two selected letters land in the middle."
+    },
+    "pieces": [
+     "W",
+     "AH",
+     "OO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Court",
+      "gives": "WOO",
+      "note": "to court somebody is to woo them"
+     },
+     {
+      "clueFragment": "Ashe regularly",
+      "gives": "AH",
+      "note": "the first and third letters of AsHe, the tennis champion Arthur Ashe on the surface"
+     }
+    ],
+    "surface": "Arthur Ashe regularly left off the schedule for Wimbledon's Court No.1.",
+    "walkthrough": "'Court No.1' reads as a Wimbledon show court and comes apart completely: 'Court' is the verb, to woo, and 'No.1' is the cross-reference. A wahoo is a big fast game fish of warm seas.",
+    "definitionFit": "'No.1' means the answer at 1 down, FISH, and a wahoo is one — the mackerel relative anglers chase in tropical water."
+   }
   },
   {
    "id": "26-down",
@@ -534,7 +1373,9 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WIFE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "18-across"
+   }
   },
   {
    "id": "27-across",
@@ -559,7 +1400,9 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANDTHANKS",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "7-down"
+   }
   },
   {
    "id": "28-down",
@@ -576,7 +1419,27 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUSS",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "HUSS",
+    "definition": "dog meat",
+    "indicators": [
+     "contains"
+    ],
+    "indicatorNotes": {
+     "contains": "What something contains is already sitting inside it, so the letters are there in order and untouched."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Pikachu’s sandwich",
+      "gives": "HUSS",
+      "note": "four consecutive letters straddle the join between these two words, apostrophe and all"
+     }
+    ],
+    "surface": "Pikachu's packed lunch turning out to have dog in it.",
+    "walkthrough": "Hidden runs are hardest to spot across a word break, and this one crosses an apostrophe as well. Huss is what a fishmonger calls dogfish — rock salmon on a chip-shop menu.",
+    "definitionFit": "Huss is the trade name for dogfish flesh, so 'dog meat' is literal rather than jokey: the dog in question is a small shark."
+   }
   },
   {
    "id": "29-down",
@@ -593,7 +1456,42 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SEER",
+    "definition": "Clairvoyant",
+    "indicators": [
+     "brought up"
+    ],
+    "indicatorNotes": {
+     "brought up": "In a down clue, bringing something up carries it back towards the top of the grid, so its letters are read upwards."
+    },
+    "pieces": [
+     "SE",
+     "ER"
+    ],
+    "subReversals": [
+     {
+      "from": "REES",
+      "to": "SEER"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re = on, as in a memo headed 'on the subject of'"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "ES",
+      "note": "E is ecstasy, and the clue's plural asks for more than one of them"
+     }
+    ],
+    "surface": "A fortune-teller who was raised on narcotics.",
+    "walkthrough": "'Brought up' is positional, not biographical: in a down clue it lifts the assembled letters back up the grid. 'On' for RE is the memo-heading sense, and Es have meant ecstasy tablets since the 1990s.",
+    "definitionFit": "A seer is one who sees — a person with sight of what others cannot see — which is what a clairvoyant is, noun for noun."
+   }
   },
   {
    "id": "30-across",
@@ -619,7 +1517,9 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
     ]
    },
    "solution": "FORALLTHE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "7-down"
+   }
   },
   {
    "id": "31-across",
@@ -636,7 +1536,39 @@ window.CRYPTIC_PUZZLES["cryptic-30013"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SKATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "SKATE",
+    "definition": "Flat 1",
+    "indicators": [
+     "entrance in"
+    ],
+    "indicatorNotes": {
+     "entrance in": "The entrance is the way in, so it wants the letter you go in by — the first one of the word it points at."
+    },
+    "linkWords": [
+     "has"
+    ],
+    "pieces": [
+     "S",
+     "KATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shepherd’s",
+      "gives": "S",
+      "note": "the first letter of Shepherd’s"
+     },
+     {
+      "clueFragment": "Bush",
+      "gives": "KATE",
+      "note": "Kate Bush, the English singer of Wuthering Heights"
+     }
+    ],
+    "surface": "A ground-floor flat whose front door opens onto Shepherd's Bush.",
+    "walkthrough": "Shepherd's Bush is a district of west London and reads as a single address, which is the trap: the two words separate, and the Bush is Kate. 'Flat' belongs to the definition, not to the estate agent.",
+    "definitionFit": "'Flat 1' asks for a flat member of 1 down's FISH, and a skate is the broad diamond-shaped ray sold on the fishmonger's slab."
+   }
   }
  ]
 } /*JSON-END*/;
