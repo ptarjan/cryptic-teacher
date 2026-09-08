@@ -30,7 +30,54 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "APPEASE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + middle letter",
+    "answer": "APPEASE",
+    "definition": "calm",
+    "indicators": [
+     "clothing",
+     "naked"
+    ],
+    "indicatorNotes": {
+     "clothing": "To clothe a thing is to put a covering right round it, so the word in front closes over the letter named next.",
+     "naked": "Something naked has had its outer covering stripped off, so the word loses the letters at both ends and only its middle survives."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "AP",
+     "P",
+     "E",
+     "AS",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take off",
+      "gives": "APE",
+      "note": "to take somebody off is to ape them, copying their voice and manner"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is the musician's mark for piano, meaning play it softly"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "'as' does the job of 'like' in a comparison: quick as a flash"
+     },
+     {
+      "clueFragment": "sex naked",
+      "gives": "E",
+      "note": "take the letters off either end of the word and its middle letter is what is left"
+     }
+    ],
+    "surface": "Clothes coming off quietly, and sex spoken of as bare and unhurried.",
+    "walkthrough": "'Take off clothing' reads as one act of undressing, and the split really falls after 'Take off', where the sense wanted is imitate.",
+    "definitionFit": "To appease is to calm somebody down by giving them what they want, so 'calm' is the verb it stands in for."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +94,46 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREVAIL",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "PREVAIL",
+    "definition": "win",
+    "indicators": [
+     "holding"
+    ],
+    "indicatorNotes": {
+     "holding": "Holding something means keeping it inside you, so the word in front shuts round the letters named after it."
+    },
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "P",
+     "RE",
+     "V",
+     "AIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can",
+      "gives": "PAIL",
+      "note": "a pail is a can in the bucket sense, the thing you carry water in"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on the subject of, the way a memo heading is written"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "V",
+      "note": "v is versus in a fixture list, the two sides playing each other"
+     }
+    ],
+    "surface": "Someone gripping on, then getting into the game — can they win?",
+    "walkthrough": "'Can' looks like the modal verb opening a question, matching the question mark at the end, and it is a plain noun for a bucket.",
+    "definitionFit": "To prevail is to win out — the sense in 'good sense prevailed', where one side comes through a contest on top."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +150,34 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EQUIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EQUIP",
+    "definition": "Prepare",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "E",
+     "QUIP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "e is the tablet, ecstasy, in the crossword's drug shorthand"
+     },
+     {
+      "clueFragment": "crack",
+      "gives": "QUIP",
+      "note": "a crack is a wisecrack, a quick joke at somebody's expense"
+     }
+    ],
+    "surface": "Somebody laying out drugs, ecstasy and crack, before a night out.",
+    "walkthrough": "'Crack' is dragged into the drugs picture by the ecstasy sitting beside it, and the sense wanted is the one you make at a party.",
+    "definitionFit": "To equip is to prepare somebody by supplying what they need: 'prepare for battle' and 'equip for battle' ask for the same thing."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +194,39 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCEPTIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "SCEPTIC",
+    "definition": "One questioning",
+    "indicators": [
+     "stopped by",
+     "opening of"
+    ],
+    "indicatorNotes": {
+     "stopped by": "To stop a gap is to plug it, so the letter named next is pushed into the middle of the word before.",
+     "opening of": "The opening of a word is the letter it starts with, and that single letter is all that is taken."
+    },
+    "pieces": [
+     "S",
+     "C",
+     "EPTIC"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pussy",
+      "gives": "SEPTIC",
+      "note": "a wound gone pussy is full of pus, which is what septic means"
+     },
+     {
+      "clueFragment": "opening of catflap",
+      "gives": "C",
+      "note": "the first letter of 'catflap'"
+     }
+    ],
+    "surface": "A cat jammed in the entrance of its own catflap.",
+    "walkthrough": "'Pussy' is planted to be read as the cat the catflap belongs to, and the word it wants is the medical adjective about pus.",
+    "definitionFit": "A sceptic is somebody who questions what they are told instead of accepting it, so 'One questioning' names them by that habit."
+   }
   },
   {
    "id": "5-across",
@@ -98,7 +243,37 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLIGHTY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BLIGHTY",
+    "definition": "England",
+    "indicators": [
+     "winning"
+    ],
+    "indicatorNotes": {
+     "winning": "'Winning' is doing loose duty as a taking-in instruction: what you win you take, and here one word takes the other inside it."
+    },
+    "pieces": [
+     "B",
+     "LIGHT",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "through",
+      "gives": "BY",
+      "note": "you go by the back road, meaning through it"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "LIGHT",
+      "note": "a match is a light — 'have you got a light?' asks for one"
+     }
+    ],
+    "surface": "England coming through a win in a match.",
+    "walkthrough": "'Match' looks like the fixture the win belongs to and is the thing you strike. Soldiers brought the word home from India, where bilayati meant foreign.",
+    "definitionFit": "Blighty is the soldier's fond name for home, so it means Britain in general and 'England' points at it loosely rather than exactly."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +290,45 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIAISE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LIAISE",
+    "definition": "Contact",
+    "indicators": [
+     "moved to top"
+    ],
+    "indicatorNotes": {
+     "moved to top": "In a down entry the top is the first square, so the letter named is lifted out of where it sits and rewritten at the front."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "pieces": [
+     "L",
+     "I",
+     "AISE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l is the standard short form of line, as in a printed line of text"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "I",
+      "note": "the i is a British daily paper whose whole name is one letter"
+     },
+     {
+      "clueFragment": "passage",
+      "gives": "AISE",
+      "note": "an aisle is the passage between rows of seats, and it hands its l away to the front"
+     }
+    ],
+    "surface": "An editor ringing a newspaper to have a line of copy moved to the top of a passage.",
+    "walkthrough": "The colon makes 'newspaper: passage' look like a paper and its column, when the two words are separate pieces of the build.",
+    "definitionFit": "To liaise is to be in contact: the officer who liaises keeps two groups talking, which is 'Contact' used as a verb."
+   }
   },
   {
    "id": "7-down",
@@ -132,7 +345,37 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRENADINE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "GRENADINE",
+    "definition": "syrup",
+    "indicators": [
+     "drunk",
+     "covering up"
+    ],
+    "indicatorNotes": {
+     "drunk": "A drunk cannot walk a straight line, and the letters he is carrying come out in no reliable order.",
+     "covering up": "Covering something up hides it, so the letters named next end up buried inside the shuffled ones."
+    },
+    "anagram": {
+     "fodder": "ENRAGED IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Enraged",
+      "gives": "ENRAGED",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "if you are wearing a coat you are in it"
+     }
+    ],
+    "surface": "A furious drunk hiding himself under a wig.",
+    "walkthrough": "'Syrup' is Cockney rhyming slang for a wig — syrup of figs — which is the picture the surface paints, while the definition wants the bottled sweetener.",
+    "definitionFit": "Grenadine is the deep red pomegranate syrup poured into cocktails, so 'syrup' names it by exactly what it is."
+   }
   },
   {
    "id": "8-down",
@@ -149,7 +392,30 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TUTELAR",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "TUTELAR",
+    "definition": "Protecting",
+    "indicators": [
+     "at sea"
+    ],
+    "indicatorNotes": {
+     "at sea": "A turtle at sea is adrift with nothing holding it in place, and the letters beside the phrase drift the same way."
+    },
+    "anagram": {
+     "fodder": "A TURTLE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "a turtle",
+      "gives": "ATURTLE",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "Conservationists guarding a turtle out in the ocean.",
+    "walkthrough": "Tutelar is the rare adjective behind 'tutelary deity', the guardian who watches over a place, and 'at sea' finishes the turtle picture while doing the shuffling.",
+    "definitionFit": "Tutelar means acting as a guardian, so 'Protecting' is the same idea: a tutelar saint is the one protecting a town."
+   }
   },
   {
    "id": "9-down",
@@ -171,7 +437,41 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
     ]
    },
    "solution": "KIDDERMINSTER",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram + deletion",
+    "answer": "KIDDERMINSTER CARPET",
+    "definition": "Flooring",
+    "indicators": [
+     "primarily lost",
+     "Reform"
+    ],
+    "indicatorNotes": {
+     "primarily lost": "What is lost is the primary letter, the one at the very front of the little word beside it, dropped before anything else happens.",
+     "Reform": "Reform is re-forming: the letters are made up again into a different shape, and the party's name is doing that job in disguise."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "anagram": {
+     "fodder": "KEIR STARMER DEPICT ND"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Keir Starmer – depict",
+      "gives": "KEIRSTARMERDEPICT",
+      "note": "anagram fodder, seventeen letters"
+     },
+     {
+      "clueFragment": "end, primarily lost",
+      "gives": "ND",
+      "note": "END gives up the letter at its front, and the two left join the fodder"
+     }
+    ],
+    "surface": "Keir Starmer floored, his image undone as support drains away to Reform.",
+    "walkthrough": "Kidderminster is a Worcestershire town that ran the British carpet trade, so its name became a kind of carpet; 'Reform' reads as the party and is the shuffle.",
+    "definitionFit": "A Kidderminster carpet is a flat reversible weave with no pile, and a carpet is flooring — the definition names the class it belongs to."
+   }
   },
   {
    "id": "10-across",
@@ -188,7 +488,39 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "PERU",
+    "definition": "Land",
+    "indicators": [
+     "left side"
+    ],
+    "indicatorNotes": {
+     "left side": "Reading across, a word's left side is the end it starts at, so only the letter sitting there is taken."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "PER",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every",
+      "gives": "PER",
+      "note": "per means for each: sixty miles per hour is sixty for every hour"
+     },
+     {
+      "clueFragment": "uppercut",
+      "gives": "U",
+      "note": "the left-hand end of the word is its first letter, and that is all that is wanted"
+     }
+    ],
+    "surface": "Landing an uppercut on somebody's left side.",
+    "walkthrough": "'Land' opens the clue as the verb a punch does, and it is the definition — the boxing match is surface only, right down to the uppercut being a word rather than a blow.",
+    "definitionFit": "Peru is a country, so 'Land' defines it by class: one word naming what sort of thing the answer is."
+   }
   },
   {
    "id": "11-across",
@@ -209,7 +541,37 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
     ]
    },
    "solution": "ECIGARETTE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "E-CIGARETTE",
+    "definition": "that might be hot in drag?",
+    "indicators": [
+     "when excited",
+     "hugging"
+    ],
+    "indicatorNotes": {
+     "when excited": "Somebody excited will not keep still, and neither do the letters standing in front of the phrase.",
+     "hugging": "A hug closes right round what it holds, so the shuffled letters go outside the one named next."
+    },
+    "anagram": {
+     "fodder": "I GET ERECT A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "I get erect",
+      "gives": "IGETERECT",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "a was the cinema certificate for an adult audience"
+     }
+    ],
+    "surface": "A frank boast about getting aroused while hugging an adult.",
+    "walkthrough": "'In drag' points at a drag queen in the surface, and the heat is real: a drag is the pull you take on the thing.",
+    "definitionFit": "You take a drag on an e-cigarette and its coil heats up, so 'hot in drag' describes what it does whenever it is used."
+   }
   },
   {
    "id": "12-across",
@@ -229,7 +591,9 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "CARPET",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "9-down"
+   }
   },
   {
    "id": "13-across",
@@ -246,7 +610,40 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISMALLY",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DISMALLY",
+    "definition": "sadly",
+    "indicators": [
+     "drilling"
+    ],
+    "indicatorNotes": {
+     "drilling": "A drill bores into a thing and leaves a hole, and that hole is where the word beside it is dropped in."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "DI",
+     "SMALL",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home-improvement work",
+      "gives": "DIY",
+      "note": "do-it-yourself, the three letters every British hardware shop trades on"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "SMALL",
+      "note": "little and small are the same word for size"
+     }
+    ],
+    "surface": "A home-improvement job done with barely any drilling, and it shows.",
+    "walkthrough": "'With little drilling' reads as a complaint about a botched job, and 'sadly' at the end looks like the setter's sigh rather than the definition.",
+    "definitionFit": "Dismally means in a dreary, low-spirited way, so it stands in for 'sadly' in the sense of failing badly: the job went dismally."
+   }
   },
   {
    "id": "14-across",
@@ -267,7 +664,31 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
     ]
    },
    "solution": "PLACECARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLACE CARD",
+    "definition": "one folded at table?",
+    "indicators": [],
+    "pieces": [
+     "PLACE",
+     "CARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lay down",
+      "gives": "PLACE",
+      "note": "to place something is to lay it down where you want it"
+     },
+     {
+      "clueFragment": "part of hand",
+      "gives": "CARD",
+      "note": "a hand at cards is made of them, one card at a time"
+     }
+    ],
+    "surface": "A poker player laying down part of a hand and folding at the table.",
+    "walkthrough": "Folding at the table is the poker move the surface sells, and the answer folds literally: a stiff little card standing at each setting.",
+    "definitionFit": "A place card is the folded card printed with a guest's name and stood at their seat, which is what 'one folded at table' describes."
+   }
   },
   {
    "id": "15-down",
@@ -284,7 +705,41 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLICKBAIT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CLICKBAIT",
+    "definition": "Attention-seeker online",
+    "indicators": [],
+    "linkWords": [
+     "to",
+     "needing"
+    ],
+    "pieces": [
+     "CLICK",
+     "BA",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get on with",
+      "gives": "CLICK",
+      "note": "two people who click get on with each other from the start"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "BA",
+      "note": "a bachelor's degree, the graduate's two letters"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "'it' has meant sex appeal since the 1920s, when Clara Bow was the It girl"
+     }
+    ],
+    "surface": "A lonely bachelor online, chasing attention and after sex.",
+    "walkthrough": "The whole clue reads as a personal ad, and 'online' is the word that pins the definition to a modern noun rather than to a person.",
+    "definitionFit": "Clickbait is a headline written to make you click rather than to inform you, so it seeks attention online exactly as the definition says."
+   }
   },
   {
    "id": "16-across",
@@ -301,7 +756,39 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIBRA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LIBRA",
+    "definition": "stars",
+    "definitionNote": "'Stars' is plural where the answer is one sign, which is fair twice over: a constellation is a group of stars, and a newspaper's stars are the zodiac taken as a set.",
+    "indicators": [
+     "following",
+     "most of"
+    ],
+    "indicatorNotes": {
+     "following": "What follows comes after, so the supporter's letters are written second, behind the ones already taken.",
+     "most of": "Most of a word is not all of it: keep everything except the letter it ends on."
+    },
+    "pieces": [
+     "LI",
+     "BRA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most of top",
+      "gives": "LI",
+      "note": "a lid is the top of a jar, with its last letter dropped"
+     },
+     {
+      "clueFragment": "Supporter",
+      "gives": "BRA",
+      "note": "the undergarment that supports, and a crossword regular"
+     }
+    ],
+    "surface": "A fan who follows most of the top stars.",
+    "walkthrough": "'Top stars' reads as celebrities, and the two words belong to opposite halves of the clue: one is a jar lid, the other the zodiac.",
+    "definitionFit": "Libra is one of the twelve zodiac signs, the constellation of the scales, so 'stars' points at it as one of the horoscope's set."
+   }
   },
   {
    "id": "17-across",
@@ -318,7 +805,31 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPAIN",
+    "definition": "country",
+    "indicators": [],
+    "pieces": [
+     "SPA",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holiday resort",
+      "gives": "SPA",
+      "note": "a spa is a resort built round mineral springs, Bath or Baden-Baden"
+     },
+     {
+      "clueFragment": "surrounded by",
+      "gives": "IN",
+      "note": "whatever you are surrounded by, you are in"
+     }
+    ],
+    "surface": "A holiday resort with open countryside all round it.",
+    "walkthrough": "'Surrounded by' looks like the instruction to put one piece inside another, and it is a two-letter word in its own right.",
+    "definitionFit": "Spain is a country, so the definition names the class the answer belongs to and asks for nothing cleverer."
+   }
   },
   {
    "id": "18-down",
@@ -335,7 +846,36 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLATEAU",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLATEAU",
+    "definition": "table",
+    "indicators": [
+     "placed on"
+    ],
+    "indicatorNotes": {
+     "placed on": "In a down entry, whatever is placed on a thing sits above it, so the first piece is written before the second."
+    },
+    "pieces": [
+     "PLATE",
+     "AU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Item of crockery",
+      "gives": "PLATE",
+      "note": "the flat round thing your dinner arrives on"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "au is gold's symbol on the periodic table, from the Latin aurum"
+     }
+    ],
+    "surface": "A plate set down on a gold table.",
+    "walkthrough": "'Gold table' reads as one piece of expensive furniture, and the two words split: the first is a chemical symbol, the second the definition.",
+    "definitionFit": "A plateau is a tableland, a raised flat stretch of country, and 'table' is the geographer's own word for that shape."
+   }
   },
   {
    "id": "19-across",
@@ -356,7 +896,54 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
     ]
    },
    "solution": "BIGCHEESE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "BIG CHEESE",
+    "definition": "name",
+    "indicators": [
+     "about"
+    ],
+    "indicatorNotes": {
+     "about": "Turning about is facing the other way, so the word in front of it is written back to front."
+    },
+    "pieces": [
+     "BIG",
+     "CH",
+     "EES",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "SEE",
+      "to": "EES"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Older",
+      "gives": "BIG",
+      "note": "your big brother is your older one"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "CH",
+      "note": "ch is the standard short form for children"
+     },
+     {
+      "clueFragment": "learn",
+      "gives": "EES",
+      "note": "to see a thing is to learn it — 'I see' — and here those letters are turned round"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e for English, as on a language label"
+     }
+    ],
+    "surface": "Older children learning about an English name.",
+    "walkthrough": "'Older children learn' reads as one classroom scene and every word of it is a separate piece; the definition is the single word left at the end.",
+    "definitionFit": "A big cheese is the important person in an organisation — a big name — so 'name' works in the sense of somebody who matters."
+   }
   },
   {
    "id": "20-down",
@@ -373,7 +960,52 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COURSER",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "COURSER",
+    "definition": "Horse",
+    "indicators": [
+     "through"
+    ],
+    "indicatorNotes": {
+     "through": "Something running through a thing passes into its middle, so the letter named goes inside the words beside it."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "C",
+     "O",
+     "U",
+     "R",
+     "SER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "c is cocaine in the crossword's drug shorthand"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o is the standard short form of old"
+     },
+     {
+      "clueFragment": "addict",
+      "gives": "USER",
+      "note": "a user is somebody dependent on a drug"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "r is runs on a cricket scoreboard"
+     }
+    ],
+    "surface": "Heroin and cocaine running through a long-time addict.",
+    "walkthrough": "'Horse' is heroin in the surface's drug picture and an actual animal in the definition: a courser is the poet's word for a swift mount.",
+    "definitionFit": "A courser is a swift horse, the charger a knight rode into battle, a word now kept alive mostly by poetry and crosswords."
+   }
   },
   {
    "id": "21-down",
@@ -390,7 +1022,41 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEDATED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SEDATED",
+    "definition": "Relaxed",
+    "indicators": [
+     "a lot of",
+     "after"
+    ],
+    "indicatorNotes": {
+     "a lot of": "A lot of a word is most but not all of it, so the letter it ends on is left behind.",
+     "after": "What comes after is written second, so the longer piece follows the two letters taken in front of it."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "SE",
+     "DATED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot of sex",
+      "gives": "SE",
+      "note": "the word for sex with its last letter dropped"
+     },
+     {
+      "clueFragment": "went out",
+      "gives": "DATED",
+      "note": "to date somebody is to go out with them"
+     }
+    ],
+    "surface": "Somebody perfectly calm after a night out and plenty of sex.",
+    "walkthrough": "'Relaxed and went out' reads as one description of an easy evening, and the definition stops dead after the first word.",
+    "definitionFit": "Sedated means calmed by a drug, so 'Relaxed' fits it as a state somebody has been put into rather than one they chose."
+   }
   },
   {
    "id": "22-down",
@@ -407,7 +1073,28 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POUNDS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "POUNDS",
+    "definition": "Folds",
+    "definition2": "money",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Folds",
+      "gives": "",
+      "note": "a fold is a pen for sheep, and the municipal version is where stray animals were shut in"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "",
+      "note": "British currency, the notes and coins you spend"
+     }
+    ],
+    "surface": "Somebody folding banknotes.",
+    "walkthrough": "Two nouns and nothing else, so the clue offers no seam to find. The animal-pen sense is the older one, still alive in 'the dog pound'.",
+    "definitionFit": "A pound is the enclosure stray animals were shut into, the job a fold does for sheep; and pounds are Britain's money."
+   }
   },
   {
    "id": "23-across",
@@ -424,7 +1111,40 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "JACKPOTS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "JACKPOTS",
+    "definition": "prizes",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Something laid over another thing covers it, so the word in front closes round the letters that follow."
+    },
+    "linkWords": [
+     "to get"
+    ],
+    "pieces": [
+     "JACK",
+     "POT",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bowls",
+      "gives": "JACKS",
+      "note": "in bowls, the lawn game, the jack is the little white ball everyone aims at"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "POT",
+      "note": "grass and pot are both names for cannabis"
+     }
+    ],
+    "surface": "Woods rolling over the grass of a bowling green, with prizes at stake.",
+    "walkthrough": "'Grass' is the green the bowls roll over in the surface, and the smokeable kind in the wordplay.",
+    "definitionFit": "A jackpot is the pooled stake a winner scoops, so 'prizes' names them as the biggest payouts a game can hand over."
+   }
   },
   {
    "id": "24-across",
@@ -441,7 +1161,34 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UPSIDE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UPSIDE",
+    "definition": "advantage",
+    "indicators": [],
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "UP",
+     "SIDE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winning",
+      "gives": "UP",
+      "note": "a team two goals up is winning by two"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team, the word every British match report uses"
+     }
+    ],
+    "surface": "A team ahead in a match and pressing its advantage.",
+    "walkthrough": "'Winning team' looks like one phrase describing a side on top, and the two words are separate pieces of the build.",
+    "definitionFit": "The upside of a situation is the good that can come out of it, so 'advantage' is the benefit you are left holding."
+   }
   },
   {
    "id": "25-down",
@@ -458,7 +1205,34 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCAMP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCAMP",
+    "definition": "Rogue",
+    "indicators": [],
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "SCAM",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "con",
+      "gives": "SCAM",
+      "note": "a con and a scam are the same swindle"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "P",
+      "note": "p stands for prince, as on a royal monogram"
+     }
+    ],
+    "surface": "A rogue setting out to con a prince.",
+    "walkthrough": "The clue is four words long, so the definition has nowhere to hide except right at the front, where it reads as the subject of a story.",
+    "definitionFit": "A scamp is a rogue of the mild sort, a mischief-maker and usually a child, rather than anybody genuinely criminal."
+   }
   },
   {
    "id": "26-across",
@@ -475,7 +1249,42 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REMAINDERS",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "REMAINDERS",
+    "definition": "Unsold books",
+    "indicators": [
+     "outside",
+     "front of"
+    ],
+    "indicatorNotes": {
+     "outside": "What stands outside goes round the outside of what follows, one word closing over the letter named next.",
+     "front of": "The front of a word is the letter it starts with, and only that letter is taken from it."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "REM",
+     "A",
+     "INDERS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "souvenirs",
+      "gives": "REMINDERS",
+      "note": "a souvenir is a keepsake, something that reminds you of a place"
+     },
+     {
+      "clueFragment": "front of airport",
+      "gives": "A",
+      "note": "the first letter of 'airport'"
+     }
+    ],
+    "surface": "Souvenirs on sale just outside the front of an airport terminal.",
+    "walkthrough": "'Books and souvenirs' reads as one gift-shop window, and the definition stops after the second word.",
+    "definitionFit": "Remainders are the unsold copies a publisher clears cheaply on the trade, so 'Unsold books' is the bookseller's own term for them."
+   }
   },
   {
    "id": "27-across",
@@ -492,7 +1301,28 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ACTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ACTS",
+    "definition": "Book",
+    "definition2": "performers",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "",
+      "note": "the New Testament book after the four gospels, telling what the apostles did next"
+     },
+     {
+      "clueFragment": "performers",
+      "gives": "",
+      "note": "the turns on a variety bill, each one a slot in the running order"
+     }
+    ],
+    "surface": "A promoter booking the entertainment for a show.",
+    "walkthrough": "'Book performers' reads as a promoter's instruction with 'Book' as the verb; in the clue proper it is a noun, and so is the word beside it.",
+    "definitionFit": "Acts of the Apostles is a book of the New Testament, and acts are the performers on a variety bill: two everyday senses of one short word."
+   }
   },
   {
    "id": "28-across",
@@ -509,7 +1339,36 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CURTEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CURTEST",
+    "definition": "Extremely short",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "In an across clue a thing placed on another comes after it, so the word before 'on' is written second."
+    },
+    "pieces": [
+     "CUR",
+     "TEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rat",
+      "gives": "CUR",
+      "note": "a rat and a cur are both names for a contemptible person"
+     },
+     {
+      "clueFragment": "experiment",
+      "gives": "TEST",
+      "note": "a test is an experiment, the laboratory kind"
+     }
+    ],
+    "surface": "A very brief experiment carried out on a rat.",
+    "walkthrough": "'Extremely' looks like the instruction to take letters off the ends of a word, and it is only doing duty as half of the definition.",
+    "definitionFit": "Curt means short to the point of rudeness, so the curtest reply is the extremely short one: brevity of speech, not of length."
+   }
   },
   {
    "id": "29-across",
@@ -526,7 +1385,55 @@ window.CRYPTIC_PUZZLES["cryptic-29994"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIPODS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal + last letter",
+    "answer": "TRIPODS",
+    "definition": "stands",
+    "indicators": [
+     "gripped by",
+     "retiring",
+     "after",
+     "last of"
+    ],
+    "indicatorNotes": {
+     "gripped by": "To be gripped by something is to be held tight inside it, so the piece named first goes within the word that follows.",
+     "retiring": "A teacher retiring is on the way out, and those letters go out the way they came in: written back to front.",
+     "after": "'After' puts what precedes it second, so the assembled piece follows the letter named at the end of the clue.",
+     "last of": "The last of a word is the letter it ends on, and that one letter is all that is taken."
+    },
+    "pieces": [
+     "T",
+     "RI",
+     "POD",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "SIR",
+      "to": "RIS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last of one-night",
+      "gives": "T",
+      "note": "the final letter of 'one-night'"
+     },
+     {
+      "clueFragment": "teacher retiring",
+      "gives": "RIS",
+      "note": "sir is what a class calls its teacher, here written backwards"
+     },
+     {
+      "clueFragment": "School",
+      "gives": "POD",
+      "note": "a school of whales goes by another name, and it is three letters long"
+     }
+    ],
+    "surface": "A teacher near retirement, caught up in gossip about a run of one-night stands.",
+    "walkthrough": "'School' and 'teacher' pull in the same direction, which is what hides the whales, and 'stands' at the end is the definition rather than part of the phrase before it.",
+    "definitionFit": "A tripod is the three-legged stand that holds a camera or a telescope steady, so 'stands' names them by the job they do."
+   }
   }
  ]
 } /*JSON-END*/;
