@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RUDIMENTARY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RUDIMENTARY",
+    "definition": "Makeshift",
+    "indicators": [
+     "beaten"
+    ],
+    "indicatorNotes": {
+     "beaten": "Metal that has been beaten has been knocked out of the shape it started in, and letters treated that way do not stay in the order they were handed over in."
+    },
+    "anagram": {
+     "fodder": "UNTRIED ARMY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "untried army",
+      "gives": "UNTRIEDARMY",
+      "note": "the eleven letters waiting to be knocked about, exactly the length the grid wants"
+     }
+    ],
+    "surface": "A scratch force of raw recruits that has been defeated in the field.",
+    "walkthrough": "'Untried army' and 'beaten' read as one military report, which is what keeps the last word from looking like an instruction. Count the two words against the enumeration before hunting for anything cleverer.",
+    "definitionFit": "'Makeshift' is the rough-and-ready sense: something rudimentary is basic and unfinished, put together well enough to serve and no further."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +74,24 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
     ]
    },
    "solution": "RIGHTHONOURABLE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "RIGHT HONOURABLE",
+    "definition": "How to handle a privy counsellor?",
+    "blocks": [
+     {
+      "clueFragment": "How to handle",
+      "note": "the surface asks how you deal with an awkward man; a handle is also the name or title somebody goes by"
+     },
+     {
+      "clueFragment": "a privy counsellor?",
+      "note": "not merely somebody privy to secrets — the Privy Council is the monarch's formal body of senior advisers, and being sworn of it brings a style that sits in front of the name for life"
+     }
+    ],
+    "surface": "Asking for advice on dealing with an adviser who is in on all the secrets.",
+    "walkthrough": "Everyone sworn of the Privy Council — cabinet ministers, senior judges, opposition leaders — is entitled to be called Right Honourable for the rest of their life, and that title is the handle wanted. The question mark flags the pun.",
+    "definitionFit": "The whole clue is the definition: 'Right Honourable' is precisely the style a privy counsellor is entitled to be addressed by."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +108,32 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOGGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DOGGO",
+    "definition": "Quietly hiding",
+    "definitionNote": "The answer is an adverb surviving only in the phrase 'lie doggo', so the setter has to describe the state with a participle phrase rather than match its part of speech.",
+    "indicators": [],
+    "pieces": [
+     "DOG",
+     "GO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pet",
+      "gives": "DOG",
+      "note": "the commonest household pet of all"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "GO",
+      "note": "to go is to leave"
+     }
+    ],
+    "surface": "A whispered instruction to somebody smuggling an animal: get it out of sight, then leave.",
+    "walkthrough": "'Lie doggo' is British slang for staying still and out of sight until trouble has passed, borrowed from the way a dog freezes, and the phrase is the only place the word still lives.",
+    "definitionFit": "'Quietly hiding' is the state 'lie doggo' names — keeping still and unnoticed until whatever you are avoiding has gone by."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +150,35 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEDIATE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "MEDIATE",
+    "definition": "intervene",
+    "indicators": [
+     "No"
+    ],
+    "indicatorNotes": {
+     "No": "Saying there is none of a thing takes it away, so the letter named beside it comes out of the longer word and nothing arrives to fill the gap."
+    },
+    "pieces": [
+     "MEDIATE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contemplate",
+      "gives": "MEDITATE",
+      "note": "to contemplate is to meditate, the word taken at full length before anything goes"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the standard abbreviation for time, and it is the letter being sent away"
+     }
+    ],
+    "surface": "There is no chance to think it over, so somebody has to step in.",
+    "walkthrough": "The dash is doing the work of an equals sign, and 'No time' passes as the surface's excuse for hurry while it is a plain instruction about one letter.",
+    "definitionFit": "To mediate is to step between two parties in a quarrel, which is the peacemaker's particular way of intervening."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +195,36 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEGATES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NEGATES",
+    "definition": "Renders ineffective",
+    "indicators": [
+     "nearly"
+    ],
+    "indicatorNotes": {
+     "nearly": "'Nearly' stops just short of the whole thing, so the word behind it turns up one letter shy at its end."
+    },
+    "pieces": [
+     "NE",
+     "GATES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nearly new",
+      "gives": "NE",
+      "note": "NEW stopping short of its final letter"
+     },
+     {
+      "clueFragment": "entrances",
+      "gives": "GATES",
+      "note": "entrances are ways in, and a gate is one"
+     }
+    ],
+    "surface": "Something spoiling a set of doorways that had barely been used.",
+    "walkthrough": "'Nearly new' is the language of a second-hand advertisement and is really a letter instruction. 'Entrances' can be doorways or a verb about enchanting, and the plain plural noun is what is wanted.",
+    "definitionFit": "To negate something is to cancel it out and leave it with no force, which is what rendering it ineffective means."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +241,30 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADMIRING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ADMIRING",
+    "definition": "Enjoying watching",
+    "indicators": [
+     "relaxing"
+    ],
+    "indicatorNotes": {
+     "relaxing": "Something relaxing loosens its grip and lets go of its shape, so the letters it was holding slacken out of the order they came in."
+    },
+    "anagram": {
+     "fodder": "RIGID MAN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "rigid man",
+      "gives": "RIGIDMAN",
+      "note": "the eight letters to be loosened off"
+     }
+    ],
+    "surface": "A stiff, formal man finally unwinding while somebody enjoys the show.",
+    "walkthrough": "'Rigid' and 'relaxing' are set up as opposites, so the pair reads as a man loosening up rather than as one word issuing an order about the other.",
+    "definitionFit": "'Enjoying watching' is the participle: to be admiring something is to be looking at it with pleasure and approval."
+   }
   },
   {
    "id": "6-down",
@@ -141,7 +286,26 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
     ]
    },
    "solution": "YELLOWBRICKROAD",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "YELLOW BRICK ROAD",
+    "definition": "Way to fictional city",
+    "definition2": "made of monochrome Lego?",
+    "definitionNote": "The second half describes the thing instead of standing in for it grammatically: it says what the answer is built of, which fixes both the material and the colour in its name.",
+    "blocks": [
+     {
+      "clueFragment": "Way to fictional city",
+      "note": "the route Dorothy is told to follow to the Emerald City in The Wizard of Oz"
+     },
+     {
+      "clueFragment": "made of monochrome Lego?",
+      "note": "read the name of the thing literally: Lego comes as bricks, and monochrome means every one of them is the same single colour"
+     }
+    ],
+    "surface": "A model city built out of Lego in one colour, with a route running up to it.",
+    "walkthrough": "Dorothy is told to follow the yellow brick road to the Emerald City, and a Lego set in a single colour would hand you nothing but yellow bricks to build it with.",
+    "definitionFit": "'Way to fictional city' is the road to Oz's Emerald City; 'made of monochrome Lego?' reads the same name literally — bricks, all of them one colour."
+   }
   },
   {
    "id": "7-down",
@@ -158,7 +322,37 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "METAPHYSICIAN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "METAPHYSICIAN",
+    "definition": "Philosopher",
+    "indicators": [],
+    "pieces": [
+     "MET",
+     "A",
+     "PHYSICIAN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went to see",
+      "gives": "MET",
+      "note": "to go and see somebody is to meet them, in the past tense the clue uses"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken straight into the middle"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "PHYSICIAN",
+      "note": "a physician is a doctor of medicine, written out in full rather than shortened"
+     }
+    ],
+    "surface": "A thinker who went along to an appointment with his doctor.",
+    "walkthrough": "'Went to see a doctor' is one continuous action on the surface, which is what buries the two joins. A doctor in a clue is usually two or three letters, so a nine-letter one is the surprise.",
+    "definitionFit": "Metaphysics is the branch of philosophy asking what exists and what it is to be, so someone who practises it is a philosopher of that kind."
+   }
   },
   {
    "id": "8-down",
@@ -175,7 +369,33 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORNAMENTATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ORNAMENTATION",
+    "definition": "embellishment",
+    "linkWords": [
+     "in"
+    ],
+    "indicators": [
+     "change"
+    ],
+    "indicatorNotes": {
+     "change": "A change swaps one arrangement for another, so the letters named in front of it come back in a different order."
+    },
+    "anagram": {
+     "fodder": "ANNOTATE MINOR"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Annotate minor",
+      "gives": "ANNOTATEMINOR",
+      "note": "the thirteen letters to be rearranged, which is the full length of the entry"
+     }
+    ],
+    "surface": "A small editorial tweak being made to a piece of decorative writing.",
+    "walkthrough": "'Annotate minor change' reads as one editorial instruction, and that is what hides the seam: two words of raw material and a third telling you what to do with them.",
+    "definitionFit": "Embellishment is decoration added for its own sake, and ornamentation is that same added decoration — the noun for the trimmings rather than for the act."
+   }
   },
   {
    "id": "9-across",
@@ -192,7 +412,25 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENGAGED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ENGAGED",
+    "definition": "Busy",
+    "definition2": "preparing for wedding",
+    "blocks": [
+     {
+      "clueFragment": "Busy",
+      "note": "the sense a telephone line has when somebody else is already on it"
+     },
+     {
+      "clueFragment": "preparing for wedding",
+      "note": "promised in marriage, with the ring bought and the date still being argued over"
+     }
+    ],
+    "surface": "Somebody rushed off their feet with the wedding arrangements.",
+    "walkthrough": "British telephones report a line as engaged where American ones say busy, and the two senses have nothing in common beyond both meaning already taken.",
+    "definitionFit": "'Busy' is the occupied sense, of a line or a person already taken up; 'preparing for wedding' is the betrothed sense, promised to marry."
+   }
   },
   {
    "id": "10-across",
@@ -209,7 +447,32 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAMBLER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GAMBLER",
+    "definition": "I bet",
+    "definitionNote": "The definition is a sentence in the first person rather than a noun: the setter has the answer introduce itself, so 'I bet' stands for 'I am one who bets'.",
+    "indicators": [],
+    "pieces": [
+     "G",
+     "AMBLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "g is the standard abbreviation for grand, a thousand pounds"
+     },
+     {
+      "clueFragment": "thriller writer?",
+      "gives": "AMBLER",
+      "note": "Eric Ambler, the English novelist who more or less invented the modern spy thriller"
+     }
+    ],
+    "surface": "A guess that some grand writer of thrillers is behind the business.",
+    "walkthrough": "Eric Ambler wrote the pre-war spy thrillers that Greene and le Carré later built on, and the question mark concedes that he is only one example of the trade. 'Grand' does double duty as praise and as a thousand pounds.",
+    "definitionFit": "'I bet' is the answer speaking for itself: one who bets is a gambler, and the phrase doubles as the everyday exclamation of agreement."
+   }
   },
   {
    "id": "11-across",
@@ -226,7 +489,30 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASTRONAUT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + &lit",
+    "answer": "ASTRONAUT",
+    "definition": "To Saturn, a trip for her",
+    "indicators": [
+     "trip"
+    ],
+    "indicatorNotes": {
+     "trip": "To trip is to stumble, and letters that stumble land out of their order — the travel sense is the one the surface is busy with."
+    },
+    "anagram": {
+     "fodder": "TO SATURN A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "To Saturn, a",
+      "gives": "TOSATURNA",
+      "note": "the nine letters in front of the instruction, ready to stumble into a new order"
+     }
+    ],
+    "surface": "A journey out to Saturn, laid on for one particular woman.",
+    "walkthrough": "Read straight, the sentence describes a woman whose trip is to Saturn, which is a description of what she does for a living; read again, the words before 'trip' are the raw letters. 'Her' does no letter work at all.",
+    "definitionFit": "The whole clue reads straight: somebody whose trip is out to Saturn is by definition one of the people who travel in space."
+   }
   },
   {
    "id": "12-across",
@@ -243,7 +529,46 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RHODA",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "RHODA",
+    "definition": "woman",
+    "linkWords": [
+     "with"
+    ],
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Placing one thing around another encloses it, so the first word opens up and the letter drops into the gap."
+    },
+    "pieces": [
+     "R",
+     "H",
+     "OD",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick",
+      "gives": "ROD",
+      "note": "a rod is a stick"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "h is the standard abbreviation for hospital, as on a British road sign"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken straight, tacked on at the end"
+     }
+    ],
+    "surface": "Hanging about outside a hospital in the company of a woman.",
+    "walkthrough": "'Stick around' is a set phrase meaning to wait, which is exactly what stops the instruction reading as one. Rhoda is the servant girl who leaves Peter at the gate in Acts, and a 1970s American sitcom.",
+    "definitionFit": "'Woman' defines by example: the answer is a woman's given name, so it is one instance of the class the clue names."
+   }
   },
   {
    "id": "13-across",
@@ -260,7 +585,24 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOOT",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "HOOT",
+    "definition": "What the uncaring owl doesn’t give?",
+    "blocks": [
+     {
+      "clueFragment": "What the uncaring",
+      "note": "an indifferent person is proverbially said not to give one of these — a jot, the smallest measure of concern anybody could offer"
+     },
+     {
+      "clueFragment": "owl doesn’t give?",
+      "note": "the bird makes its noise all night, so the joke is one that keeps the sound to itself"
+     }
+    ],
+    "surface": "A silent owl that cannot be bothered to make a sound.",
+    "walkthrough": "Not to give a hoot is to be completely indifferent, and the owl is in the clue because a hoot is also the noise it makes, so an uncaring one withholds both at once.",
+    "definitionFit": "A hoot is the owl's call and also the thing an indifferent person refuses to give, so both readings land on the same four letters."
+   }
   },
   {
    "id": "14-across",
@@ -277,7 +619,36 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REASONABLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REASONABLE",
+    "definition": "not too expensive",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "'After' says the fit word follows rather than leads, so the piece named second in the clue is the one that starts the answer."
+    },
+    "pieces": [
+     "REASON",
+     "ABLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work out",
+      "gives": "REASON",
+      "note": "to work a problem out is to reason it"
+     },
+     {
+      "clueFragment": "Fit",
+      "gives": "ABLE",
+      "note": "somebody fit for a job is able to do it"
+     }
+    ],
+    "surface": "Getting into shape at the gym without paying very much for it.",
+    "walkthrough": "'Fit after work out' is a gym sentence from end to end, and the definition is the only part of the clue that has left the gym for the price list.",
+    "definitionFit": "'Not too expensive' is the money sense: a reasonable price is a moderate one, the sort you could defend as fair."
+   }
   },
   {
    "id": "15-down",
@@ -298,7 +669,31 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPRUCEUP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SPRUCE UP",
+    "definition": "Neaten",
+    "indicators": [],
+    "pieces": [
+     "SPRUCE",
+     "UP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas tree",
+      "gives": "SPRUCE",
+      "note": "the evergreen fir that gets brought indoors in December"
+     },
+     {
+      "clueFragment": "after erection",
+      "gives": "UP",
+      "note": "once a thing has been erected it is up"
+     }
+    ],
+    "surface": "Tidying the room once the Christmas tree has been stood in its corner.",
+    "walkthrough": "Spruce is both the fir that comes indoors in December and an old adjective meaning smart and trim, which is where the tidying verb comes from.",
+    "definitionFit": "To neaten is to make tidy, and to spruce a place up is to smarten it — the same job, in the phrasal verb's idiom."
+   }
   },
   {
    "id": "16-across",
@@ -319,7 +714,31 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
     ]
    },
    "solution": "SHOTPUTTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SHOT PUTTER",
+    "definition": "Athlete",
+    "indicators": [],
+    "pieces": [
+     "SHOT",
+     "PUTTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "murdered",
+      "gives": "SHOT",
+      "note": "somebody murdered with a gun has been shot"
+     },
+     {
+      "clueFragment": "golfer",
+      "gives": "PUTTER",
+      "note": "on the green a golfer putts, which makes them one"
+     }
+    ],
+    "surface": "A tabloid headline: an athlete has murdered a golfer.",
+    "walkthrough": "As a headline the clue has a subject, a verb and an object; the parse has none of those, only two nouns laid end to end behind a one-word definition.",
+    "definitionFit": "'Athlete' defines by example: the answer is the field competitor who throws the heavy metal ball, one particular kind of athlete."
+   }
   },
   {
    "id": "17-down",
@@ -336,7 +755,38 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THISTLY",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "THISTLY",
+    "definition": "weedy",
+    "linkWords": [
+     "so"
+    ],
+    "indicators": [
+     "Lisper heard",
+     "struggle with start of"
+    ],
+    "indicatorNotes": {
+     "Lisper heard": "A lisp turns an S sound into a TH, so what is heard is the word mispronounced rather than the word as it is spelt.",
+     "struggle with start of": "The trouble is confined to the front of the word behind it: only the opening sound comes out lisped, and the rest is said as normal."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Med island",
+      "gives": "SICILY",
+      "note": "the largest island in the Mediterranean, sitting off the toe of Italy"
+     },
+     {
+      "clueFragment": "Lisper heard to struggle with start of",
+      "soundsLike": "THISSILY",
+      "gives": "THISTLY",
+      "note": "with a lisp on its opening S the island's name comes out with a TH at the front, and that noise is what gets written into the grid"
+     }
+    ],
+    "surface": "Somebody with a lisp getting stuck on the name of a Mediterranean island.",
+    "walkthrough": "The T of thistle is silent, so the answer is said 'thissly'; Sicily with a lisp on its first S is said 'thissily', and the setter asks you to hear those as one. Only the opening S changes.",
+    "definitionFit": "'Weedy' is the adjective for ground overrun by thistles, the prickly weed that takes over rough grazing land."
+   }
   },
   {
    "id": "18-down",
@@ -353,7 +803,41 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EYEHOLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "EYEHOLE",
+    "definition": "something to look through",
+    "linkWords": [
+     "getting"
+    ],
+    "indicators": [
+     "speaking"
+    ],
+    "indicatorNotes": {
+     "speaking": "'Speaking' asks for the sound of the words rather than their spelling, and both of the words in front of it are spelt one way and said another."
+    },
+    "pieces": [
+     "EYE",
+     "HOLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "soundsLike": "I",
+      "gives": "EYE",
+      "note": "the pronoun said aloud is also the name of the organ you see with"
+     },
+     {
+      "clueFragment": "complete",
+      "soundsLike": "WHOLE",
+      "gives": "HOLE",
+      "note": "complete means whole, and the W at its front is silent when you say it"
+     }
+    ],
+    "surface": "A speaker finishing their say and being handed something to peer through.",
+    "walkthrough": "Both halves are sounded and neither is signposted on its own: one instruction in the middle of the clue covers the pair. A peephole in a front door is the everyday example.",
+    "definitionFit": "An eyehole is the small opening in a door or a mask that you put your eye to in order to see what is beyond it."
+   }
   },
   {
    "id": "19-across",
@@ -370,7 +854,37 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FIAT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FIAT",
+    "definition": "car",
+    "indicators": [
+     "must sit in"
+    ],
+    "indicatorNotes": {
+     "must sit in": "Something that must sit in another thing goes inside it, so the letter lands in the middle of the word that takes it."
+    },
+    "pieces": [
+     "F",
+     "I",
+     "AT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oily",
+      "gives": "FAT",
+      "note": "fat is the greasy stuff, so it serves for oily"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the pronoun taken at face value as a single letter"
+     }
+    ],
+    "surface": "Being told there is room for one more passenger in a greasy old car.",
+    "walkthrough": "Fiat is short for Fabbrica Italiana Automobili Torino, and the word is also Latin for 'let it be done' — a long way from the oily car the surface parks in front of you.",
+    "definitionFit": "'Car' defines by example: the answer is the Turin maker whose badge sits on millions of small cars, so it is one instance of the class."
+   }
   },
   {
    "id": "20-across",
@@ -387,7 +901,44 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CORFU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "CORFU",
+    "definition": "Holiday island",
+    "linkWords": [
+     "’s"
+    ],
+    "indicators": [
+     "in resort"
+    ],
+    "indicatorNotes": {
+     "in resort": "To re-sort a thing is to put it into a different order, and the holiday sense of the word is what keeps that instruction out of sight."
+    },
+    "anagram": {
+     "fodder": "C FOUR"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "FOUR",
+      "gives": "ORFU"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "c is the card player's shorthand for clubs"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "ORFU",
+      "note": "the four letters of the number word, put back in another order"
+     }
+    ],
+    "surface": "A holiday island's nightclubs, four of them in a single resort.",
+    "walkthrough": "'Resort' is the word the surface most wants you to take as scenery, and it is the instruction. The island is one of the Ionian group, off the north-west coast of Greece.",
+    "definitionFit": "'Holiday island' is the plain description: Corfu is a package-holiday destination, so the definition names it by what British tourists go there for."
+   }
   },
   {
    "id": "21-across",
@@ -404,7 +955,38 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDENTIKIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "IDENTIKIT",
+    "definition": "Picture police build up",
+    "linkWords": [
+     "of"
+    ],
+    "indicators": [
+     "mistreated"
+    ],
+    "indicatorNotes": {
+     "mistreated": "Something mistreated has been knocked about and left in disarray, which is what has happened to these letters before you get them."
+    },
+    "anagram": {
+     "fodder": "I KITTEN ID"
+    },
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "kitten I’d",
+      "gives": "KITTENID",
+      "note": "eight letters, with the apostrophe dropped as it always is"
+     }
+    ],
+    "surface": "The police reconstructing the face of a kitten that somebody had been cruel to.",
+    "walkthrough": "'Build up' belongs to the definition and not to the wordplay: the picture is assembled feature by feature, which is the whole of what the noun means. Nine letters are wanted, and 'one' quietly supplies one of them.",
+    "definitionFit": "An Identikit is the composite face police assemble from a witness's description, so a picture the police build up is the thing itself."
+   }
   },
   {
    "id": "22-down",
@@ -421,7 +1003,45 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRIAD",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container",
+    "answer": "TRIAD",
+    "definition": "Chinese gang",
+    "indicators": [
+     "sending up",
+     "across"
+    ],
+    "indicatorNotes": {
+     "sending up": "This is a down entry, so anything sent up is read from the foot of it towards the top and its letters arrive the other way about.",
+     "across": "Going across a thing means spanning it from one side to the other, so the piece that goes across closes over the letter named after it."
+    },
+    "pieces": [
+     "TR",
+     "I",
+     "AD"
+    ],
+    "subReversals": [
+     {
+      "from": "DART",
+      "to": "TRAD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "missile",
+      "gives": "DART",
+      "note": "a dart is a small thrown missile, and it is read upwards before anything goes in"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the radio alphabet"
+     }
+    ],
+    "surface": "A Chinese gang firing a missile over India.",
+    "walkthrough": "The radio alphabet is what makes the geography work: India is a letter here rather than a country, and the missile is the pub-game kind. Triads are the criminal brotherhoods of Hong Kong and southern China.",
+    "definitionFit": "'Chinese gang' names the secret criminal societies of Hong Kong and southern China, which is the sense of the word the grid wants."
+   }
   },
   {
    "id": "23-across",
@@ -438,7 +1058,43 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMBIENT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "AMBIENT",
+    "definition": "Such relaxing music",
+    "indicators": [
+     "around"
+    ],
+    "indicatorNotes": {
+     "around": "Wrapping around a thing puts it in the middle, so the word doing the wrapping opens after its first letter."
+    },
+    "pieces": [
+     "AM",
+     "B",
+     "I",
+     "ENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "am is the standard marker for the hours before noon"
+     },
+     {
+      "clueFragment": "wreathed",
+      "gives": "BENT",
+      "note": "something wreathed is twisted, which is bent"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "surface": "Soft music in the morning curling round a single listener.",
+    "walkthrough": "'Wreathed' is the least likely word here to be hiding a plain synonym, and it is doing exactly that. Ambient is Brian Eno's coinage for music written to be half-heard rather than listened to.",
+    "definitionFit": "'Such relaxing music' asks for the adjective naming the genre: unobtrusive electronic music made to sit in the background."
+   }
   },
   {
    "id": "24-across",
@@ -455,7 +1111,25 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORINOCO",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ORINOCO",
+    "definition": "River",
+    "definition2": "one under Wimbledon Common",
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "note": "one of the great rivers of South America, running through Venezuela to the Atlantic"
+     },
+     {
+      "clueFragment": "one under Wimbledon Common",
+      "note": "the Wombles are burrowing creatures from a 1970s British children's series who live under that common and are named after places on a map"
+     }
+    ],
+    "surface": "A river running somewhere beneath a London common.",
+    "walkthrough": "The Wombles were a British television fixture in the 1970s: furry creatures living in burrows under Wimbledon Common, collecting the litter people left, each named after a place in an atlas.",
+    "definitionFit": "'River' is the Venezuelan waterway; 'one under Wimbledon Common' is a Womble, since those burrowing litter-collectors all took their names from an atlas."
+   }
   },
   {
    "id": "25-across",
@@ -476,7 +1150,34 @@ window.CRYPTIC_PUZZLES["cryptic-30015"] = /*JSON-START*/ {
     ]
    },
    "solution": "EMPTYHEADED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EMPTY-HEADED",
+    "definition": "stupid",
+    "linkWords": [
+     "is"
+    ],
+    "indicators": [],
+    "pieces": [
+     "EMPTY",
+     "HEADED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worthless",
+      "gives": "EMPTY",
+      "note": "an empty promise or an empty gesture is a worthless one"
+     },
+     {
+      "clueFragment": "sort of notepaper",
+      "gives": "HEADED",
+      "note": "headed notepaper is the kind printed with an address across the top"
+     }
+    ],
+    "surface": "A cheap sort of letter paper being dismissed as useless.",
+    "walkthrough": "Headed notepaper — the sheets with the address printed at the top — is the British office stationery the middle of the clue points at, and 'is' does nothing but join the two halves.",
+    "definitionFit": "'Stupid' is the sense: the compound calls a head empty rather than the person foolish, and there is nothing going on between the ears."
+   }
   }
  ]
 } /*JSON-END*/;
