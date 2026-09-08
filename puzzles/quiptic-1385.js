@@ -30,7 +30,48 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPROOF",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "REPROOF",
+    "definition": "Scolding",
+    "indicators": [
+     "over",
+     "distribution"
+    ],
+    "indicatorNotes": {
+     "over": "One thing lying over another covers it rather than standing beside it, so this word spreads round what follows.",
+     "distribution": "Distributing something sends its parts off to new places, and letters sent to new places do not stay in the order printed."
+    },
+    "anagram": {
+     "fodder": "REF POOR"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "POOR",
+      "gives": "PROO"
+     }
+    ],
+    "pieces": [
+     "RE",
+     "PROO",
+     "F"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "the ref is the official who runs a match, short for referee"
+     },
+     {
+      "clueFragment": "poor distribution",
+      "gives": "PROO",
+      "note": "the four letters of POOR shared out into a new order"
+     }
+    ],
+    "surface": "A match official being blamed for handing something out badly.",
+    "walkthrough": "'Scolding' looks like the start of a sentence about a referee telling players off, and it is the definition standing alone. The three-letter official is prised apart to make room.",
+    "definitionFit": "Scolding → REPROOF: the noun for a rebuke delivered out loud, the telling-off itself rather than the person giving it."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +88,40 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RESITS",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RESITS",
+    "definition": "takes test again",
+    "indicators": [
+     "absorbing"
+    ],
+    "indicatorNotes": {
+     "absorbing": "What a thing absorbs is taken up inside it, so the letter named next is swallowed by the word before."
+    },
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "RES",
+     "I",
+     "TS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relaxes",
+      "gives": "RESTS",
+      "note": "somebody who rests is relaxing, taking a break"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "I",
+      "note": "i is the standard short form of information, as on a tourist sign"
+     }
+    ],
+    "surface": "A student unwinding while taking in the facts before an exam comes round again.",
+    "walkthrough": "The comma after 'Relaxes' makes the clue read as a list of things a student does, which hides the fact that the first word is the outer half of an insertion.",
+    "definitionFit": "takes test again → RESITS: to resit an exam is to take it a second time after failing, the British term for a repeat attempt."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +138,28 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAYPAL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "PAYPAL",
+    "definition": "Money transaction platform",
+    "indicators": [
+     "reportedly"
+    ],
+    "indicatorNotes": {
+     "reportedly": "What is reported reaches you by word of mouth, so you write down the noise the phrase makes rather than its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "belonging to the Vatican?",
+      "soundsLike": "PAPAL",
+      "gives": "PAYPAL",
+      "note": "anything belonging to the Vatican is papal, of the Pope, and said aloud that word is barely distinguishable from what goes in the grid"
+     }
+    ],
+    "surface": "A payments company that apparently answers to the Pope.",
+    "walkthrough": "The question mark is doing real work: papal means precisely 'of the Pope', and the vowel in its second syllable drifts a little on the way to the brand name.",
+    "definitionFit": "Money transaction platform → PAYPAL: the online service for sending and receiving payments, a brand name that has become the general word."
+   }
   },
   {
    "id": "3-down",
@@ -85,7 +180,45 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "OZONELAYER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "OZONE LAYER",
+    "definition": "protection from radiation",
+    "indicators": [
+     "sheltering"
+    ],
+    "indicatorNotes": {
+     "sheltering": "To shelter somebody is to take them in under your roof, so the piece named next ends up inside what has been built."
+    },
+    "linkWords": [
+     "provides"
+    ],
+    "pieces": [
+     "OZ",
+     "ONE",
+     "LAYER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light weight",
+      "gives": "OZ",
+      "note": "oz is the short form of ounce, about the lightest weight in everyday use"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "an individual is a single one of whatever is being counted"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "LAYER",
+      "note": "a layer is a covering spread evenly over something"
+     }
+    ],
+    "surface": "A thin blanket thrown over one person turns out to keep the rays off.",
+    "walkthrough": "'Lightweight cover' wants to be one thing, a summer blanket, and the wordplay needs the two words read separately — a light unit of weight, then a covering.",
+    "definitionFit": "protection from radiation → OZONE LAYER: the band of ozone high in the atmosphere that absorbs the sun's ultraviolet before it reaches us."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +235,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FEWER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FEWER",
+    "definition": "not so many",
+    "indicators": [],
+    "linkWords": [
+     "but there’s"
+    ],
+    "pieces": [
+     "F",
+     "EWER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the letter stamped on a pencil to mark it fine"
+     },
+     {
+      "clueFragment": "pitcher",
+      "gives": "EWER",
+      "note": "an ewer is a wide-mouthed jug for water, a crossword regular"
+     }
+    ],
+    "surface": "A splendid jug, though the supply of them has run short.",
+    "walkthrough": "'Fine pitcher' reads as praise for a baseball player, and neither word is doing anything so sporting: one is a pencil grading, the other a jug.",
+    "definitionFit": "not so many → FEWER: the comparative used for things you can count, which says exactly 'not so many of them'."
+   }
   },
   {
    "id": "5-across",
@@ -119,7 +279,46 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SLIPPER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SLIPPER",
+    "definition": "comfortable to wear indoors",
+    "definitionNote": "The setter describes the thing by a property it has rather than naming it, so the definition arrives as an adjective phrase where the answer is a noun.",
+    "indicators": [
+     "put on"
+    ],
+    "indicatorNotes": {
+     "put on": "In an across clue one thing put on another is added at its end, so these letters follow what the rest of the wordplay builds."
+    },
+    "linkWords": [
+     "it’s"
+    ],
+    "pieces": [
+     "SLIP",
+     "P",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underwear",
+      "gives": "SLIP",
+      "note": "a slip is the light undergarment worn beneath a dress"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano in music, the mark telling a player to be quiet"
+     },
+     {
+      "clueFragment": "Old queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the initials on British postboxes, and she is the old queen now Charles reigns"
+     }
+    ],
+    "surface": "An elderly monarch dressing discreetly in something she finds comfy at home.",
+    "walkthrough": "The queen's two letters end up at the back because in an across clue 'put on' means added after, not stacked above. Every other word of the clue is doing wardrobe duty in the surface.",
+    "definitionFit": "comfortable to wear indoors → SLIPPER: the soft shoe kept for indoor use, defined here by what it is for rather than by a synonym."
+   }
   },
   {
    "id": "5-down",
@@ -136,7 +335,51 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STIFFENED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "STIFFENED",
+    "definition": "reinforced",
+    "indicators": [
+     "ground",
+     "outside"
+    ],
+    "indicatorNotes": {
+     "ground": "Something ground has been through a mill, and what comes out of a mill is not in the order it went in.",
+     "outside": "What is outside goes round the other piece, so these letters open up and take the shorter word into the gap."
+    },
+    "linkWords": [
+     "to be"
+    ],
+    "anagram": {
+     "fodder": "NEEDS TIFF"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "NEEDS",
+      "gives": "SENED"
+     }
+    ],
+    "pieces": [
+     "S",
+     "TIFF",
+     "ENED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needs ground",
+      "gives": "SENED",
+      "note": "the five letters of NEEDS milled into a new order, then opened up after the first"
+     },
+     {
+      "clueFragment": "Row",
+      "gives": "TIFF",
+      "note": "a tiff is a petty row between two people who will make it up"
+     }
+    ],
+    "surface": "A quarrel about what needs doing to the ground outside.",
+    "walkthrough": "'Row needs ground' looks like one anagram of ROW NEEDS, and the count kills that reading: eight letters against nine. Only the second word is milled, and the row goes inside it.",
+    "definitionFit": "reinforced → STIFFENED: made rigid and harder to bend, which is what reinforcing a structure does to it."
+   }
   },
   {
    "id": "6-down",
@@ -153,7 +396,35 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INTO",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "INTO",
+    "definition": "Fond of",
+    "indicators": [
+     "that’s leaving"
+    ],
+    "indicatorNotes": {
+     "that’s leaving": "Something leaving walks out of the phrase it was in, so the letter named just before it is the one dropped."
+    },
+    "pieces": [
+     "INTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accompanying",
+      "gives": "INTOW",
+      "note": "somebody accompanying you is in tow, trailing along behind"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "w is the standard short form of wife, and it is the letter that goes"
+     }
+    ],
+    "surface": "A wife who came along for the ride is now walking out.",
+    "walkthrough": "'Fond of' and 'accompanying' both read as descriptions of the same devoted husband, and only the first of them is the definition.",
+    "definitionFit": "Fond of → INTO: the informal sense of being into something — keen on it — which is how people say they like something a lot."
+   }
   },
   {
    "id": "7-down",
@@ -170,7 +441,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PLAYBOOK",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PLAYBOOK",
+    "definition": "Game strategy",
+    "indicators": [],
+    "linkWords": [
+     "when given"
+    ],
+    "pieces": [
+     "PLAY",
+     "BOOK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choices in Charades",
+      "gives": "PLAY",
+      "note": "a charades player mimes the category first, and this is one of the four you can be handed"
+     },
+     {
+      "clueFragment": "literary",
+      "gives": "BOOK",
+      "note": "the literary category in the same party game, signalled by opening your palms"
+     }
+    ],
+    "surface": "Somebody handed a set of titles to act out in a party game.",
+    "walkthrough": "The capital C makes Charades the party game, and its categories are the whole of the wordplay: two of the things you can be asked to mime, laid end to end.",
+    "definitionFit": "Game strategy → PLAYBOOK: an American football team's book of set moves, and now the general word for a planned set of tactics."
+   }
   },
   {
    "id": "8-down",
@@ -191,7 +489,33 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "REDFACED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "RED-FACED",
+    "definition": "Embarrassed",
+    "indicators": [
+     "in error"
+    ],
+    "indicatorNotes": {
+     "in error": "Letters set down in error are letters in the wrong places, which is the licence to put them somewhere else."
+    },
+    "linkWords": [
+     "having"
+    ],
+    "anagram": {
+     "fodder": "FREED CAD"
+    },
+    "blocks": [
+     {
+      "clueFragment": "freed cad",
+      "gives": "FREEDCAD",
+      "note": "anagram fodder, eight letters"
+     }
+    ],
+    "surface": "Somebody blushing after letting a scoundrel go by mistake.",
+    "walkthrough": "A cad is the dated word for a man who behaves badly towards women, and it sits so naturally beside 'freed' that the pair read as a news item rather than as loose letters.",
+    "definitionFit": "Embarrassed → RED-FACED: showing the flush of shame in the cheeks, the adjective for looking embarrassed rather than merely feeling it."
+   }
   },
   {
    "id": "9-across",
@@ -212,7 +536,35 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "SAYSO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "SAY SO",
+    "definition": "Authority",
+    "indicators": [
+     "rebuffing",
+     "some"
+    ],
+    "indicatorNotes": {
+     "rebuffing": "To rebuff is to push back whatever comes at you, so the run of letters is read back the way it came.",
+     "some": "'Some' asks for a part rather than the whole, and the part wanted is a run already sitting in the words that follow."
+    },
+    "subReversals": [
+     {
+      "from": "OSYAS",
+      "to": "SAYSO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cosy assumptions",
+      "gives": "OSYAS",
+      "note": "five consecutive letters running across the join between the two words"
+     }
+    ],
+    "surface": "Comfortable guesswork being brushed aside by somebody in charge.",
+    "walkthrough": "A reversed hidden word is hard because nothing in the clue looks like fodder: 'rebuffing' is the only instruction, and it sends you back along the row.",
+    "definitionFit": "Authority → SAY SO: your say-so is your personal authority to permit a thing, as in 'nobody moves without her say-so'."
+   }
   },
   {
    "id": "10-across",
@@ -233,7 +585,38 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "WAISTBAND",
-   "annotation": null
+   "annotation": {
+    "type": "homophone + charade",
+    "answer": "WAIST BAND",
+    "definition": "that gets tighter with age?",
+    "definitionNote": "The setter defines by describing what the thing does, so the definition arrives as a relative clause where the answer is a plain noun.",
+    "indicators": [
+     "sounding"
+    ],
+    "indicatorNotes": {
+     "sounding": "'Sounding' asks for the noise a word makes, so you write down what you hear instead of what the clue prints."
+    },
+    "pieces": [
+     "WAIST",
+     "BAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rubbish",
+      "soundsLike": "WASTE",
+      "gives": "WAIST",
+      "note": "rubbish is waste, and said aloud that word is indistinguishable from the middle of the body, which is how it is spelt here"
+     },
+     {
+      "clueFragment": "combo",
+      "gives": "BAND",
+      "note": "a combo is a small group of musicians, a band"
+     }
+    ],
+    "surface": "A terrible-sounding group that only grows more constricting as the years pass.",
+    "walkthrough": "The definition is the joke, and it is unfair to the garment: nothing shrinks, the wearer spreads. The question mark is the setter admitting as much.",
+    "definitionFit": "that gets tighter with age? → WAIST BAND: the band round the middle of trousers or a skirt, which is exactly where the years show."
+   }
   },
   {
    "id": "11-across",
@@ -250,7 +633,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TRADECRAFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TRADECRAFT",
+    "definition": "espionage",
+    "indicators": [],
+    "linkWords": [
+     "needed for"
+    ],
+    "pieces": [
+     "TRADE",
+     "CRAFT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exchange",
+      "gives": "TRADE",
+      "note": "to trade is to exchange goods for other goods or for money"
+     },
+     {
+      "clueFragment": "vessels",
+      "gives": "CRAFT",
+      "note": "craft means boats, and it is the same word for one of them or a whole fleet"
+     }
+    ],
+    "surface": "Ships being swapped over to pay for some intelligence work.",
+    "walkthrough": "'Craft' is a plural with no S on the end, which is why 'vessels' reads as an ordinary noun and never announces itself as a piece to be built with.",
+    "definitionFit": "espionage → TRADECRAFT: the working skills of the spying trade — dead drops, tails, cover stories — the profession's own name for its methods."
+   }
   },
   {
    "id": "12-across",
@@ -267,7 +677,31 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOA",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "BOA",
+    "definition": "Scarf",
+    "definition2": "constricting",
+    "definitionNote": "The second definition names the snake by what it does to its prey, so it arrives as a participle where the answer is a noun.",
+    "linkWords": [
+     "that may be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scarf",
+      "gives": "",
+      "note": "the long feathered stole worn round the neck for an evening out"
+     },
+     {
+      "clueFragment": "constricting",
+      "gives": "",
+      "note": "the squeezing snake, which kills by tightening its coils rather than by biting"
+     }
+    ],
+    "surface": "A neck-wrap that might be pulled a little too tight.",
+    "walkthrough": "Three letters and two senses of one word: the feathered stole was named after the snake it resembles, so the clue looks at the same thing twice.",
+    "definitionFit": "Scarf → BOA, the feather stole; and 'constricting' → BOA, the snake that squeezes its prey, which the fashion item borrowed its name from."
+   }
   },
   {
    "id": "13-down",
@@ -288,7 +722,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "BLOODSPORT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLOOD SPORT",
+    "definition": "hunt",
+    "indicators": [],
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "BLOODS",
+     "PORT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family’s",
+      "gives": "BLOODS",
+      "note": "your blood is your family, your relatives by descent, and the clue's apostrophe-s comes along with it"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left-hand side of a ship as you face the bow"
+     }
+    ],
+    "surface": "A family has gone out, apparently to join the chase.",
+    "walkthrough": "The apostrophe reads as a possessive in the surface and is simply a letter in the wordplay, which is the whole of the disguise. Port and starboard are a ship's left and right.",
+    "definitionFit": "hunt? → BLOOD SPORT: definition by example, since hunting is one blood sport among others like shooting and coursing, which the question mark flags."
+   }
   },
   {
    "id": "14-across",
@@ -310,7 +771,26 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "FASTANDLOOSE",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "FAST AND LOOSE",
+    "definition": "Contradictory description of irresponsible behaviour",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Contradictory",
+      "gives": "",
+      "note": "the phrase pairs two words that cancel one another out: the first means firmly fixed, as in stuck fast or a fast dye, the second means the opposite"
+     },
+     {
+      "clueFragment": "description of irresponsible behaviour",
+      "gives": "",
+      "note": "what somebody is said to play when they treat rules, money or other people's feelings carelessly"
+     }
+    ],
+    "walkthrough": "The trap is reading 'fast' as quick, in which case nothing contradicts anything. The sense wanted is the old one, held firm — a fast knot, a colour that stays fast — and its opposite is standing right beside it.",
+    "definitionFit": "The whole clue reads straight: the phrase yokes two opposites, fixed and slack, and playing fast and loose is the idiom for reckless, unprincipled behaviour."
+   }
   },
   {
    "id": "15-down",
@@ -327,7 +807,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOOTHSOME",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOOTHSOME",
+    "definition": "delightful",
+    "indicators": [],
+    "linkWords": [
+     "finds so"
+    ],
+    "pieces": [
+     "TOOTH",
+     "SOME"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canine perhaps",
+      "gives": "TOOTH",
+      "note": "the canine is the pointed one next to the incisors, so it is an example rather than a synonym"
+     },
+     {
+      "clueFragment": "not everyone",
+      "gives": "SOME",
+      "note": "some is a portion of a group, which is precisely not all of it"
+     }
+    ],
+    "surface": "A dog that a good many people find less than charming.",
+    "walkthrough": "'Canine' pulls hard towards dogs and the surface keeps it there, while the wordplay wants the tooth of that name — which is also why the definition has to sit at the far end of the clue.",
+    "definitionFit": "delightful → TOOTHSOME: literally good to eat, tasty, and by extension appealing, a sense that now survives mostly of an attractive person."
+   }
   },
   {
    "id": "16-down",
@@ -344,7 +851,43 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BANISHED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BANISHED",
+    "definition": "expelled",
+    "indicators": [
+     "part of"
+    ],
+    "indicatorNotes": {
+     "part of": "Being part of a thing means sitting inside it, so the two short pieces named before go within the word that follows."
+    },
+    "pieces": [
+     "BAN",
+     "IS",
+     "HE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a group of people acting together"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "the clue's own word, lifted straight off the page with nothing done to it"
+     },
+     {
+      "clueFragment": "ambassador",
+      "gives": "HE",
+      "note": "HE is His Excellency, the formal style an ambassador is addressed by"
+     }
+    ],
+    "surface": "A question about whether the ambassador belongs to the delegation that was thrown out.",
+    "walkthrough": "'Is' at the front looks like the opening of a question and is really two letters of the fill, which is the hardest kind of word to see: one you would never think to write down.",
+    "definitionFit": "expelled → BANISHED: sent away and forbidden to return, the formal word for being expelled from a country or a household."
+   }
   },
   {
    "id": "17-down",
@@ -365,7 +908,45 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "BYHALVES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "BY HALVES",
+    "definition": "Not how a good job’s done",
+    "indicators": [
+     "overturned"
+    ],
+    "indicatorNotes": {
+     "overturned": "Something overturned is tipped up and spills what it held, so those letters come to rest in a different order."
+    },
+    "anagram": {
+     "fodder": "B HAS LEVY"
+    },
+    "subAnagrams": [
+     {
+      "fodder": "HAS LEVY",
+      "gives": "YHALVES"
+     }
+    ],
+    "pieces": [
+     "B",
+     "YHALVES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the bishop in chess notation, the piece that moves diagonally"
+     },
+     {
+      "clueFragment": "has levy",
+      "gives": "YHALVES",
+      "note": "the seven letters of these two words tipped over into a new arrangement"
+     }
+    ],
+    "surface": "A bishop getting a tax thrown out, with a remark about doing a job properly.",
+    "walkthrough": "'Overturned' looks like an instruction to read backwards, and reading backwards gives nothing usable; overturned also means upset into disorder. To do a thing by halves is to leave it half finished.",
+    "definitionFit": "Not how a good job’s done → BY HALVES: doing something by halves is doing only part of it, which is exactly how a job is not done well."
+   }
   },
   {
    "id": "18-across",
@@ -387,7 +968,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANYSECONDNOW",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANY SECOND NOW",
+    "definition": "it’s about to happen",
+    "definitionNote": "The definition is a whole statement where the answer is an adverbial phrase: it says what somebody means by the phrase rather than offering a word that could replace it.",
+    "indicators": [
+     "deliriously"
+    ],
+    "indicatorNotes": {
+     "deliriously": "Somebody delirious cannot keep anything straight, so the letters handed over arrive in no fixed order."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "anagram": {
+     "fodder": "NANCY SWOONED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Nancy swooned",
+      "gives": "NANCYSWOONED",
+      "note": "anagram fodder, twelve letters"
+     }
+    ],
+    "surface": "Nancy fainting in a fever just as the thing everyone has been waiting for arrives.",
+    "walkthrough": "A name with a verb beside it is the classic fodder shape, and 'deliriously' passes as an adverb describing the swoon rather than as the instruction it is.",
+    "definitionFit": "it’s about to happen → ANY SECOND NOW: the everyday phrase for something imminent, the words you say while waiting for it to arrive."
+   }
   },
   {
    "id": "19-down",
@@ -404,7 +1012,38 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GARISH",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GARISH",
+    "definition": "somewhat vulgar",
+    "indicators": [
+     "without"
+    ],
+    "indicatorNotes": {
+     "without": "'Without' here means lacking rather than outside, so whatever it names is missing from what is left."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "GARISH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decoration",
+      "gives": "GARNISH",
+      "note": "a garnish is the decoration a cook adds to a plate"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "N",
+      "note": "the heart of a word is its middle letter, and in that seven-letter one it is the fourth"
+     }
+    ],
+    "surface": "An ornament with nothing at its centre, and a hint that it is a bit tasteless.",
+    "walkthrough": "'Without' reads in the surface as 'outside', a decoration standing out in the open, and the plain sense — lacking — is what does the work.",
+    "definitionFit": "somewhat vulgar → GARISH: too bright and showy to be in good taste, which is vulgarity in colour and decoration rather than in manners."
+   }
   },
   {
    "id": "20-down",
@@ -421,7 +1060,27 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERALD",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "HERALD",
+    "definition": "Messenger",
+    "indicators": [
+     "constrained by"
+    ],
+    "indicatorNotes": {
+     "constrained by": "What constrains a thing holds it fast where it is, so the letters wanted are pinned inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "tougher aldermen",
+      "gives": "HERALD",
+      "note": "six consecutive letters running across the join between the two words"
+     }
+    ],
+    "surface": "A courier held back by a council of hard-nosed old men.",
+    "walkthrough": "An alderman is a senior member of an English town council, a title old enough that the word passes as scene-setting rather than as a hiding place.",
+    "definitionFit": "Messenger → HERALD: the officer who carried royal proclamations and read them out, so the word means the bringer of news."
+   }
   },
   {
    "id": "21-across",
@@ -438,7 +1097,32 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDA",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "IDA",
+    "definition": "this woman",
+    "indicators": [
+     "regularly",
+     "detains"
+    ],
+    "indicatorNotes": {
+     "regularly": "What happens regularly happens at a fixed interval, so the letters are picked at even steps rather than all together.",
+     "detains": "To detain somebody is to keep them inside, which says the letters are being held within the word at the front of the clue."
+    },
+    "pieces": [
+     "IDA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Windbag",
+      "gives": "IDA",
+      "note": "every other letter of the word, starting with the second"
+     }
+    ],
+    "surface": "A blowhard keeping some poor woman cornered at a party.",
+    "walkthrough": "One seven-letter word carries the whole of the wordplay, and 'detains' is doing two jobs at once: holding the surface picture together and saying where the letters are.",
+    "definitionFit": "this woman → IDA: the definition points at nothing but a woman's given name, an old-fashioned forename offered as an example."
+   }
   },
   {
    "id": "22-across",
@@ -455,7 +1139,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEAPSKATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CHEAPSKATE",
+    "definition": "too mean for that",
+    "definitionNote": "The definition describes the man rather than naming him, so it reads as an adjective phrase where the answer is a noun for a person.",
+    "indicators": [
+     "laid out"
+    ],
+    "indicatorNotes": {
+     "laid out": "Things laid out are spread across a surface in whatever arrangement suits, so the letters need not stay as printed."
+    },
+    "linkWords": [
+     "He’s"
+    ],
+    "anagram": {
+     "fodder": "A PACKET HES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A packet he’s",
+      "gives": "APACKETHES",
+      "note": "anagram fodder, ten letters"
+     }
+    ],
+    "surface": "Somebody has spent a fortune, and the man being talked about would never do it.",
+    "walkthrough": "A packet is British for a large sum of money, so laying one out is spending heavily — which means the fodder describes the very behaviour the definition rules out.",
+    "definitionFit": "too mean for that → CHEAPSKATE: a person too tight-fisted to spend anything, named by the meanness itself rather than by what he does."
+   }
   },
   {
    "id": "23-down",
@@ -472,7 +1183,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AITCH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AITCH",
+    "definition": "leader of House",
+    "indicators": [],
+    "linkWords": [
+     "to be"
+    ],
+    "pieces": [
+     "A",
+     "ITCH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "the clue's opening word goes into the grid unchanged, as itself"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "ITCH",
+      "note": "an itch for something is a nagging desire for it"
+     }
+    ],
+    "surface": "Somebody with an ambition to run the House.",
+    "walkthrough": "'Leader of House' looks like an instruction to take a first letter and is the definition: it names the letter H by spelling out how the letter is said, which crosswords do often.",
+    "definitionFit": "leader of House → AITCH: the written-out name of the letter H, and H is the letter House leads with."
+   }
   },
   {
    "id": "24-down",
@@ -489,7 +1227,39 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PISA",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "PISA",
+    "definition": "Italian city",
+    "indicators": [
+     "Knocking back"
+    ],
+    "indicatorNotes": {
+     "Knocking back": "Knocking a drink back is downing it, and knocking anything back sends it the way it came — loosely here, since this entry runs down the grid rather than along a row."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "PISA"
+    ],
+    "subReversals": [
+     {
+      "from": "ASIP",
+      "to": "PISA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a small drink",
+      "gives": "ASIP",
+      "note": "a sip is the smallest drink there is, and the clue's own 'a' comes with it"
+     }
+    ],
+    "surface": "Downing a quick one somewhere in Italy.",
+    "walkthrough": "'Knocking back a small drink' reads as one action, and the parse cuts it in two: the drink hands over the letters, the knocking back is the instruction.",
+    "definitionFit": "Italian city → PISA: the Tuscan city of the leaning tower, one city standing in for the general description."
+   }
   },
   {
    "id": "25-across",
@@ -511,7 +1281,31 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
     ]
    },
    "solution": "HAVEITOUT",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HAVE IT OUT",
+    "definition": "Settle dispute",
+    "definition2": "last-resort dental treatment",
+    "definitionNote": "The dental sense arrives as a noun phrase where the answer is a verb phrase: the treatment named is having the tooth out.",
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Settle dispute",
+      "gives": "",
+      "note": "to thrash a quarrel out with somebody face to face until there is nothing left to say"
+     },
+     {
+      "clueFragment": "last-resort dental treatment",
+      "gives": "",
+      "note": "what the dentist falls back on when a tooth cannot be saved: it comes out"
+     }
+    ],
+    "surface": "An argument over whether a tooth should finally be pulled.",
+    "walkthrough": "Both senses use the same three words in the same construction — you have it out with a rival, and you have a tooth out — so nothing marks where one stops and the other starts.",
+    "definitionFit": "Settle dispute → HAVE IT OUT: to thrash a quarrel out to its end; and the dental sense is having the tooth out when nothing else will serve."
+   }
   },
   {
    "id": "26-across",
@@ -528,7 +1322,50 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OUIJA",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "OUIJA",
+    "definition": "Spirited board",
+    "indicators": [
+     "at first"
+    ],
+    "indicatorNotes": {
+     "at first": "'At first' asks for the beginning of each word in the run just given, the letter it opens with."
+    },
+    "pieces": [
+     "OUIJA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offers",
+      "gives": "O",
+      "note": "the opening letter of the first word in the run"
+     },
+     {
+      "clueFragment": "union",
+      "gives": "U",
+      "note": "the opening letter of the second"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "the opening letter of the third"
+     },
+     {
+      "clueFragment": "jobs",
+      "gives": "J",
+      "note": "the opening letter of the fourth"
+     },
+     {
+      "clueFragment": "assessment",
+      "gives": "A",
+      "note": "the opening letter of the fifth"
+     }
+    ],
+    "surface": "A trade union putting a review of self-employed work on the table.",
+    "walkthrough": "'Spirited board' reads as a lively committee and means the lettered board people gather round at a séance. A J so early in a five-letter answer is the giveaway.",
+    "definitionFit": "Spirited board → OUIJA: the alphabet board used at séances, where a moving glass is taken to spell out messages from the spirits."
+   }
   },
   {
    "id": "27-across",
@@ -545,7 +1382,34 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DISEASE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "DISEASE",
+    "definition": "complaint",
+    "indicators": [],
+    "linkWords": [
+     "creating"
+    ],
+    "pieces": [
+     "DIS",
+     "EASE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belittle",
+      "gives": "DIS",
+      "note": "to dis somebody is to put them down, the slang clipped from disrespect"
+     },
+     {
+      "clueFragment": "facility",
+      "gives": "EASE",
+      "note": "facility in the sense of ease, doing a thing without effort"
+     }
+    ],
+    "surface": "Running down a well-appointed building and lodging a formal grumble about it.",
+    "walkthrough": "'Facility' is a building in the surface and an abstract noun in the wordplay — ease, the quality of doing something effortlessly. A complaint was an illness long before it was a grumble.",
+    "definitionFit": "complaint → DISEASE: complaint is the older medical word for an ailment, the sense a doctor means rather than the letter-to-the-manager one."
+   }
   },
   {
    "id": "28-across",
@@ -562,7 +1426,40 @@ window.CRYPTIC_PUZZLES["quiptic-1385"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HATCHED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "HATCHED",
+    "definition": "born",
+    "indicators": [
+     "intervening"
+    ],
+    "indicatorNotes": {
+     "intervening": "To intervene is to come between two parties, so this piece steps into the middle of the word already built."
+    },
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "HAT",
+     "CH",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Really regretted",
+      "gives": "HATED",
+      "note": "somebody who really regretted a thing hated it, regret turned up to its strongest"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "ch is the standard short form of church, the one printed on maps"
+     }
+    ],
+    "surface": "Somebody deeply sorry that the church got involved just as a baby arrived.",
+    "walkthrough": "'Really regretted' sits at the front where a definition usually goes and is wordplay instead. Hatch, match and dispatch is the newspaper's old name for its births, marriages and deaths column.",
+    "definitionFit": "born → HATCHED: broken out of an egg, and by extension born, the sense carried by 'hatched, matched and dispatched'."
+   }
   }
  ]
 } /*JSON-END*/;
