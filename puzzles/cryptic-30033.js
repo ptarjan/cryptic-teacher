@@ -30,7 +30,30 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SIDEREAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SIDEREAL",
+    "definition": "Stellar",
+    "pieces": [
+     "SIDE",
+     "REAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team, the word every match report uses"
+     },
+     {
+      "clueFragment": "one from Spain",
+      "gives": "REAL",
+      "note": "a real was a Spanish silver coin, so one of them is one from Spain"
+     }
+    ],
+    "surface": "A brilliant team with a Spaniard among them.",
+    "walkthrough": "'Team' beside 'one from Spain' looks like a nod at Real Madrid, which is the picture the setter wants standing in front of the old coin the wordplay is really after.",
+    "definitionFit": "Stellar → SIDEREAL: sidereal means measured by the stars, as a sidereal day is one turn of the Earth against them, so both are adjectives of the stars."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +70,37 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ISLE",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "ISLE",
+    "definition": "Man",
+    "indicators": [
+     "possibly",
+     "barring"
+    ],
+    "indicatorNotes": {
+     "possibly": "'Possibly' admits the name given is only one instance of the kind wanted, not a synonym for it.",
+     "barring": "To bar a thing is to shut it out, so the letter named beside it is kept out of the word it came from."
+    },
+    "pieces": [
+     "ISLE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passage",
+      "gives": "AISLE",
+      "note": "the passage between rows of seats in a church or a plane is an aisle"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the single letter A, the one thing barred from that word"
+     }
+    ],
+    "surface": "A man planted in a corridor and refusing to let anybody past.",
+    "walkthrough": "'Man' is the island in the Irish Sea rather than a person, and the opening capital gives nothing away because every clue starts with one.",
+    "definitionFit": "Man → ISLE: the Isle of Man is one island among many, so this is definition by example — 'possibly' is the setter saying so."
+   }
   },
   {
    "id": "3-down",
@@ -70,7 +123,40 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "JEKYLL",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "anagram",
+    "answer": "JEKYLL AND HYDE",
+    "definition": "Different types",
+    "definitionNote": "'Different types' is plural where the answer names one man, but the phrase is a pair of names and the setter treats those two selves as the types themselves.",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Letters put out are out of the order they arrived in, which is the sense being borrowed from the phrase around it."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "anagram": {
+     "fodder": "KY JELLY HANDED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "KY jelly handed",
+      "gives": "KYJELLYHANDED",
+      "note": "anagram fodder, thirteen letters"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Assorted lubricants being given away at some promotional stand.",
+    "walkthrough": "'Handed out' looks like the whole instruction and only 'out' is: 'handed' is fodder, which is why the letters of 'KY jelly' on their own leave you six short.",
+    "definitionFit": "Different types → JEKYLL AND HYDE: Stevenson's kindly doctor and his monstrous other self give the phrase for two utterly opposed characters in one person."
+   }
   },
   {
    "id": "4-down",
@@ -87,7 +173,27 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAUNCH",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "STAUNCH",
+    "definition": "Firm",
+    "definition2": "stem",
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "",
+      "note": "the adjective for an ally who does not waver, loyal through everything"
+     },
+     {
+      "clueFragment": "stem",
+      "gives": "",
+      "note": "the verb for stopping a flow, what a bandage does to bleeding"
+     }
+    ],
+    "surface": "A plant with a good sturdy stalk.",
+    "walkthrough": "The two senses land in different parts of speech, an adjective for the loyal friend and a verb for stopping blood, which is how two words make a whole clue.",
+    "definitionFit": "Firm → STAUNCH: a staunch ally is unwavering, and to staunch a wound is to stem the flow — one spelling holding an adjective and a verb."
+   }
   },
   {
    "id": "5-down",
@@ -104,7 +210,34 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AYES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AYES",
+    "definition": "several",
+    "definitionNote": "'Several' is not a noun on its own: it leans back on the phrase in front of it, so the definition reads 'several expressions of approval', which is the plural the answer is.",
+    "linkWords": [
+     "or"
+    ],
+    "pieces": [
+     "A",
+     "YES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "A is the crossword's one, the article standing in for a single thing"
+     },
+     {
+      "clueFragment": "expression of approval",
+      "gives": "YES",
+      "note": "the plainest word of agreement there is"
+     }
+    ],
+    "surface": "Somebody counting approval, one voice or a roomful of them.",
+    "walkthrough": "The definition borrows the words in front of it: 'or several' means several of the approvals just described. In the Commons the ayes are the votes cast in favour of a motion.",
+    "definitionFit": "several → AYES: the ayes are the votes in favour called in a parliamentary division, so several approvals is precisely what the plural names."
+   }
   },
   {
    "id": "6-down",
@@ -121,7 +254,45 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HULLABALOO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HULLABALOO",
+    "definition": "Commotion",
+    "indicators": [
+     "seen near"
+    ],
+    "indicatorNotes": {
+     "seen near": "Things seen near one another are side by side, so these pieces are written one against the next with nothing between them."
+    },
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "HULL",
+     "A",
+     "BALOO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "HULL",
+      "note": "Hull is the port city on the Humber in the north-east of England"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the word is lifted from the surface exactly as it stands"
+     },
+     {
+      "clueFragment": "bear",
+      "gives": "BALOO",
+      "note": "Baloo is the bear who teaches Mowgli in The Jungle Book"
+     }
+    ],
+    "surface": "A city in uproar the moment a bear is spotted on the edge of town.",
+    "walkthrough": "'Bear' wants a name rather than a species — Baloo, of The Jungle Book — and the city is a real one, Hull, sitting in the clue as though it were scenery.",
+    "definitionFit": "Commotion → HULLABALOO: the word is the noisy fuss a crowd makes, an uproar of voices rather than any disturbance in general."
+   }
   },
   {
    "id": "7-down",
@@ -142,7 +313,41 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "OHDEAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "OH DEAR",
+    "definition": "We’re disappointed",
+    "definitionNote": "The definition is a statement where the answer is an exclamation: the clue gives what the phrase means rather than a phrase that could replace it in a sentence.",
+    "indicators": [
+     "skin"
+    ],
+    "indicatorNotes": {
+     "skin": "A skin is the covering on the outside, so what is kept here is only the letters at the two ends of the word."
+    },
+    "linkWords": [
+     "when",
+     "gets"
+    ],
+    "pieces": [
+     "OH",
+     "DEAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ostrich",
+      "gives": "OH",
+      "note": "the first and last letters of OSTRICH, the two the skin holds"
+     },
+     {
+      "clueFragment": "expensive",
+      "gives": "DEAR",
+      "note": "dear means costly, still the everyday British word for a high price"
+     }
+    ],
+    "surface": "The price of ostrich leather climbing, and somebody's face falling at the news.",
+    "walkthrough": "The surface sells a report on the leather trade, and 'gets expensive' is not describing any skin at all — it hands over an ordinary word for costly.",
+    "definitionFit": "We’re disappointed → OH DEAR: the exclamation is the mild noise of dismay English makes at bad news, so it says what the definition states flatly."
+   }
   },
   {
    "id": "8-across",
@@ -164,7 +369,40 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "MISSPENT",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "charade",
+    "answer": "MISSPENT YOUTH",
+    "definition": "frivolous past",
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "MISS",
+     "PENT",
+     "YOUTH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long for",
+      "gives": "MISS",
+      "note": "to miss somebody is to long for them"
+     },
+     {
+      "clueFragment": "captive",
+      "gives": "PENT",
+      "note": "pent means shut in, as a captive is"
+     },
+     {
+      "clueFragment": "juvenile",
+      "gives": "YOUTH",
+      "note": "a juvenile is a youth, a young person not yet grown"
+     }
+    ],
+    "surface": "Yearning for the wild early years of a young prisoner.",
+    "walkthrough": "'Long for' sits at the front where a definition usually goes and it is wordplay. 'Pent' survives now mostly inside 'pent-up', but on its own it means shut in.",
+    "definitionFit": "frivolous past → MISSPENT YOUTH: the set phrase is the standard one for early years thrown away on fun, and no single word of it carries the sense alone."
+   }
   },
   {
    "id": "9-across",
@@ -184,7 +422,9 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "YOUTH",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "8-across"
+   }
   },
   {
    "id": "10-across",
@@ -201,7 +441,27 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MERE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "MERE",
+    "definition": "Just",
+    "definition2": "water",
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "gives": "",
+      "note": "in the sense of no more than that, as in 'just a scratch'"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "",
+      "note": "a lake or pond, the old word for standing water that survives in English place names"
+     }
+    ],
+    "surface": "A drink turning out to be nothing but water.",
+    "walkthrough": "The belittling adjective and a northern word for a lake share a spelling and nothing else, which is how two words manage to be an entire clue.",
+    "definitionFit": "Just → MERE: mere means nothing more than, as in a mere child; and a mere is a lake, water lying still in the old sense."
+   }
   },
   {
    "id": "11-across",
@@ -218,7 +478,46 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "YOURSELVES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + alternate letters",
+    "answer": "YOURSELVES",
+    "definition": "Solvers",
+    "indicators": [
+     "product",
+     "every other"
+    ],
+    "indicatorNotes": {
+     "product": "A product is what comes out once things have been worked together, so the letters arrive combined into something new instead of in their own order.",
+     "every other": "'Every other' means every second one, so only alternate letters of the word beside it are picked up."
+    },
+    "linkWords": [
+     "being",
+     "with"
+    ],
+    "anagram": {
+     "fodder": "SOLVERS EUY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "solvers",
+      "gives": "SOLVERS",
+      "note": "anagram fodder, seven letters — the clue's second use of the word"
+     },
+     {
+      "clueFragment": "beauty",
+      "gives": "EUY",
+      "note": "the second, fourth and sixth letters of bEaUtY"
+     },
+     {
+      "clueFragment": "product",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Crossword solvers behaving exactly as solvers do, with cosmetics from the counter thrown in.",
+    "walkthrough": "One word does both jobs: 'Solvers' is the definition, and its second appearance is the fodder. 'Beauty product' splits too, so only the first of those two words hands over letters.",
+    "definitionFit": "Solvers → YOURSELVES: the puzzle is talking to the people solving it, so the plural pronoun stands in for the very readers the clue is naming."
+   }
   },
   {
    "id": "12-across",
@@ -235,7 +534,28 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KERNEL",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "KERNEL",
+    "definition": "a bit of a nut",
+    "indicators": [
+     "sounding"
+    ],
+    "indicatorNotes": {
+     "sounding": "'Sounding' asks for the noise a word makes rather than its spelling, which is the only place these two words meet."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Officer",
+      "soundsLike": "COLONEL",
+      "gives": "KERNEL",
+      "note": "an army officer is a colonel, and British speech puts an R in the middle of that word and no L at all"
+     }
+    ],
+    "surface": "An officer who strikes everyone as slightly mad.",
+    "walkthrough": "'A bit of a nut' looks like an instruction to take a few letters out of 'a nut', and it is the definition read literally.",
+    "definitionFit": "a bit of a nut → KERNEL: the kernel is the soft part inside the shell, which is exactly the bit of a nut anybody eats."
+   }
   },
   {
    "id": "13-down",
@@ -257,7 +577,33 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOTATISSUE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOT AT ISSUE",
+    "definition": "irrelevant",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "NOT A",
+     "TISSUE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps silk",
+      "gives": "NOT A",
+      "note": "a hanky that might be silk is not the paper kind, and the wordplay opens with that denial"
+     },
+     {
+      "clueFragment": "handkerchief",
+      "gives": "TISSUE",
+      "note": "the paper sort of handkerchief is a tissue"
+     }
+    ],
+    "surface": "Somebody ruling that whether the handkerchief happens to be silk makes no difference.",
+    "walkthrough": "Say what a silk hanky is not, then move the gaps between the words along one letter, and a phrase for something beside the point comes out.",
+    "definitionFit": "irrelevant → NOT AT ISSUE: a matter not at issue is one the argument does not turn on, so it has no bearing — both sit as adjectives after 'is'."
+   }
   },
   {
    "id": "14-across",
@@ -274,7 +620,37 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLOBBERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + last letter",
+    "answer": "CLOBBERS",
+    "definition": "hits",
+    "indicators": [
+     "promoting",
+     "the ultimate in"
+    ],
+    "indicatorNotes": {
+     "promoting": "To promote a thing is to move it up the order, so the letter picked out travels nearer the front of the word holding it.",
+     "the ultimate in": "The ultimate item in anything is its last, so this points at the final letter of the word that follows."
+    },
+    "anagram": {
+     "fodder": "COBBLERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Last users",
+      "gives": "COBBLERS",
+      "note": "a last is the foot-shaped block a shoemaker builds a shoe on, so the people who use lasts are cobblers"
+     },
+     {
+      "clueFragment": "rock’n’roll",
+      "gives": "",
+      "note": "its final letter, the L, is the one singled out to move; the word hands over nothing of its own"
+     }
+    ],
+    "surface": "The last few listeners still pushing the greatest rock and roll records up the charts.",
+    "walkthrough": "A last is the shoemaker's foot-shaped block, so its users are cobblers, and only one letter of that word travels: the L that the end of rock’n’roll points at.",
+    "definitionFit": "hits → CLOBBERS: to clobber somebody is to hit them a heavy blow, and both words are given here in the same third-person form."
+   }
   },
   {
    "id": "15-down",
@@ -291,7 +667,37 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OPT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "OPT",
+    "definition": "Choose",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Read as an instruction instead of as part of the wine's name, 'in' drops the letter before it inside the pair that follows."
+    },
+    "pieces": [
+     "O",
+     "P",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinot",
+      "gives": "OT",
+      "note": "the grape's name breaks into three scraps, P / in / ot, and this is the last of them"
+     },
+     {
+      "clueFragment": "P",
+      "gives": "P",
+      "note": "the first of those scraps, one letter standing alone"
+     }
+    ],
+    "surface": "A wine list, and somebody plumping for the Pinot.",
+    "walkthrough": "The wine is not a synonym for anything here: its name reads as an instruction, P in OT. Setters call this a reverse clue, and the question mark is the warning.",
+    "definitionFit": "Choose → OPT: to opt is to pick between the things on offer, the verb that takes 'for' and means settling on one of them."
+   }
   },
   {
    "id": "16-across",
@@ -312,7 +718,41 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLATCAP",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "FLAT CAP",
+    "definition": "headgear",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "Spooner was the Oxford don famous for swapping the opening sounds of two words, so those two openings change places."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "FLAT",
+     "CAP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom’s",
+      "soundsLike": "CAT",
+      "gives": "FLAT",
+      "note": "a tom is a male cat, said \"kat\"; it gives away its opening K and takes the FL coming back the other way"
+     },
+     {
+      "clueFragment": "entry",
+      "soundsLike": "FLAP",
+      "gives": "CAP",
+      "note": "the door a cat lets itself in by is a flap; it hands over its FL and collects the K that has just been let go"
+     }
+    ],
+    "surface": "A man called Tom submitting an entry to Spooner's hat competition.",
+    "walkthrough": "A tom is a male cat and its entry is the flap in the door — say those two words, trade the noises at their fronts, and a hat comes out.",
+    "definitionFit": "headgear → FLAT CAP: the cloth cap with a small stiff peak, the working man's hat of northern England, is one particular piece of headgear."
+   }
   },
   {
    "id": "17-down",
@@ -335,7 +775,9 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "AND",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "3-down"
+   }
   },
   {
    "id": "18-across",
@@ -352,7 +794,33 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STALKER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "STALKER",
+    "definition": "undesirable presence",
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "S",
+     "TALKER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skinhead",
+      "gives": "S",
+      "note": "the head of SKIN is its first letter, so only the S survives the operation"
+     },
+     {
+      "clueFragment": "speaker",
+      "gives": "TALKER",
+      "note": "the speaker at a meeting is the one doing the talking"
+     }
+    ],
+    "surface": "A shaven-headed orator with somebody unwelcome loitering at the back.",
+    "walkthrough": "'Skinhead' is one word doing two jobs, the word SKIN and the instruction to keep only its head, while the surface's shaven orator is there to be looked at instead.",
+    "definitionFit": "undesirable presence → STALKER: a stalker is the person nobody wants near them, defined here by the effect of being followed rather than by the following."
+   }
   },
   {
    "id": "19-down",
@@ -369,7 +837,27 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENTRANCE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ENTRANCE",
+    "definition": "Cast a spell on",
+    "definition2": "the way in",
+    "blocks": [
+     {
+      "clueFragment": "Cast a spell on",
+      "gives": "",
+      "note": "the verb for holding somebody spellbound, stressed on its second syllable"
+     },
+     {
+      "clueFragment": "the way in",
+      "gives": "",
+      "note": "the door or gateway you come in by, stressed on its first syllable"
+     }
+    ],
+    "surface": "A magician bewitching the guests as they come through the door.",
+    "walkthrough": "One set of letters said two ways — EN-trance the doorway, en-TRANCE the enchantment — which is why the clue can lay the two meanings side by side with no joint between them.",
+    "definitionFit": "Cast a spell on → ENTRANCE: the verb means to delight as though by magic, and the noun, said with the stress moved, is the door you come in by."
+   }
   },
   {
    "id": "20-down",
@@ -386,7 +874,38 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNCTION",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "UNCTION",
+    "definition": "ointment",
+    "indicators": [
+     "exits"
+    ],
+    "indicatorNotes": {
+     "exits": "Whatever exits leaves the place it was in, so the letter named goes out of the word around it."
+    },
+    "linkWords": [
+     "to get"
+    ],
+    "pieces": [
+     "UNCTION"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crossing",
+      "gives": "JUNCTION",
+      "note": "a crossing of roads is a junction"
+     },
+     {
+      "clueFragment": "Juliet",
+      "gives": "J",
+      "note": "Juliet is J in the radio alphabet, and it is the letter that walks out"
+     }
+    ],
+    "surface": "Juliet stepping off the crossroads to fetch some ointment.",
+    "walkthrough": "Juliet is the J of the radio alphabet, Alpha to Zulu, and 'crossing' is a meeting of roads rather than anything to do with a ship.",
+    "definitionFit": "ointment → UNCTION: unction is the oil used in anointing, as in the last rites' extreme unction, so it names the salve itself."
+   }
   },
   {
    "id": "21-across",
@@ -403,7 +922,38 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MASTODON",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MASTODON",
+    "definition": "Big beast",
+    "indicators": [
+     "unsettling"
+    ],
+    "indicatorNotes": {
+     "unsettling": "Something unsettling refuses to settle, and letters that will not settle do not stay in the order they were handed over in."
+    },
+    "linkWords": [
+     "that was"
+    ],
+    "anagram": {
+     "fodder": "TO NOMADS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "to nomads",
+      "gives": "TONOMADS",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "unsettling",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Wandering herders unnerved by something enormous out on the plain.",
+    "walkthrough": "Nomads and a big beast belong in the same sentence, which is what hides the letters: the fodder is the very people the beast is upsetting.",
+    "definitionFit": "Big beast → MASTODON: the mastodon was the elephant-sized browser of the Ice Age, so the plain phrase names the animal by its size and kind."
+   }
   },
   {
    "id": "22-down",
@@ -420,7 +970,33 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADRIFT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADRIFT",
+    "definition": "off course",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "AD",
+     "RIFT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commercial",
+      "gives": "AD",
+      "note": "the commercial between programmes is an ad, short for advertisement"
+     },
+     {
+      "clueFragment": "division",
+      "gives": "RIFT",
+      "note": "a rift is a split, whether in a rock face or in a party"
+     }
+    ],
+    "surface": "A company's sales department wandering away from the plan.",
+    "walkthrough": "'Commercial division' reads as one department of a firm, and the wordplay wants the two words apart, the first of them in its television sense.",
+    "definitionFit": "off course → ADRIFT: a boat adrift has no steerage and goes wherever the current takes it, which is precisely not where it was headed."
+   }
   },
   {
    "id": "23-across",
@@ -437,7 +1013,30 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLOTTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BLOTTO",
+    "definition": "drunk",
+    "pieces": [
+     "B",
+     "LOTTO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bravo",
+      "gives": "B",
+      "note": "Bravo is B in the radio alphabet, the one spelt out over the airwaves"
+     },
+     {
+      "clueFragment": "gambling",
+      "gives": "LOTTO",
+      "note": "lotto is the numbers game people gamble on"
+     }
+    ],
+    "surface": "A shout of approval for a gambler who is thoroughly drunk.",
+    "walkthrough": "Bravo is B in the radio alphabet, worth owning along with its twenty-five companions, and the comma after it turns the rest of the clue into a cheer.",
+    "definitionFit": "drunk → BLOTTO: blotto is the slang adjective for being completely drunk, well past merry, and it has no other sense to confuse it with."
+   }
   },
   {
    "id": "23-down",
@@ -458,7 +1057,40 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "BEATIT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BEAT IT",
+    "definition": "leave",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' puts the word before it inside the word after it rather than alongside, so one splits to let the other sit at its centre."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "B",
+     "EAT",
+     "IT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "BIT",
+      "note": "a bit is a part of something, a piece broken off"
+     },
+     {
+      "clueFragment": "Dine",
+      "gives": "EAT",
+      "note": "to dine is to eat, the plain word for it"
+     }
+    ],
+    "surface": "Told to eat a little of the meal and then go.",
+    "walkthrough": "'Dine in' reads as one phrase about eating at home, and the wordplay takes the words apart, with the middle one saying where the first of them goes.",
+    "definitionFit": "leave → BEAT IT: the slang imperative means clear off, and both are verbs for going away, though only one of them is something you shout."
+   }
   },
   {
    "id": "24-across",
@@ -475,7 +1107,44 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRUSCHETTA",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "BRUSCHETTA",
+    "definition": "Toast",
+    "indicators": [
+     "composition"
+    ],
+    "indicatorNotes": {
+     "composition": "A composition is something put together out of parts, so the letters beside it are being set in a new arrangement."
+    },
+    "linkWords": [
+     "giving",
+     "to"
+    ],
+    "anagram": {
+     "fodder": "TA SCHUBERT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is the everyday British way of saying thanks"
+     },
+     {
+      "clueFragment": "Schubert",
+      "gives": "SCHUBERT",
+      "note": "anagram fodder, eight letters"
+     },
+     {
+      "clueFragment": "composition",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A dinner toast raised in thanks to Schubert and one of his pieces.",
+    "walkthrough": "'Toast' is the food rather than the speech the surface promises, and TA supplies the two letters the composer's name is short of.",
+    "definitionFit": "Toast → BRUSCHETTA: the Italian starter is grilled bread rubbed with garlic and oil, so it is toast served as a dish in its own right."
+   }
   },
   {
    "id": "25-down",
@@ -496,7 +1165,9 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "HYDE",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "3-down"
+   }
   },
   {
    "id": "26-across",
@@ -518,7 +1189,53 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ]
    },
    "solution": "HEAR",
-   "annotation": null
+   "annotation": {
+    "coversGroup": true,
+    "type": "middle letters",
+    "answer": "HEAR HEAR",
+    "definition": "we fully support that",
+    "definitionNote": "The definition is a sentence where the answer is a shout: the clue gives what a meeting means when it calls this out, not a phrase that could replace it grammatically.",
+    "indicators": [
+     "clothing not provided"
+    ],
+    "indicatorNotes": {
+     "clothing not provided": "Clothing is what covers a thing on the outside, so a word given none of it loses the letters at each of its two ends."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "HE",
+     "AR",
+     "HE",
+     "AR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They",
+      "gives": "HE",
+      "note": "THEY undressed of its outer T and Y"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "AR",
+      "note": "CARE with the C and E at its ends taken off"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "HE",
+      "note": "WHEN stripped of its opening W and closing N"
+     },
+     {
+      "clueFragment": "warm",
+      "gives": "AR",
+      "note": "WARM without the W and M that cover it"
+     }
+    ],
+    "surface": "People who mind that others are left without warm clothes, and a voice backing them completely.",
+    "walkthrough": "Four four-letter words in a row, each with two letters buried at its centre; the sentence reads as a plea about the cold and hands over the same shout twice, once across and once down.",
+    "definitionFit": "we fully support that → HEAR HEAR: the cry is what a chamber calls when it agrees with a speaker, so the shout means exactly the sentence given."
+   }
   },
   {
    "id": "26-down",
@@ -538,7 +1255,9 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     ",": []
    },
    "solution": "HEAR",
-   "annotation": null
+   "annotation": {
+    "linkedTo": "26-across"
+   }
   },
   {
    "id": "27-across",
@@ -555,7 +1274,37 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOUND",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "FOUND",
+    "definition": "Discovered",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "'In' places the letter before it inside the word that follows, not beside it."
+    },
+    "pieces": [
+     "F",
+     "O",
+     "UND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "FUND",
+      "note": "a fund is a pot of money set aside"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is the tennis score of nothing, written as a nought"
+     }
+    ],
+    "surface": "Romance turning up where the money is.",
+    "walkthrough": "Love is the tennis nought, no score at all, and the little story about finding romance in wealth is what keeps a single letter out of sight.",
+    "definitionFit": "Discovered → FOUND: found is the past tense of find, so it matches the definition's tense as well as its sense of coming across something."
+   }
   },
   {
    "id": "28-across",
@@ -572,7 +1321,40 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OLIGARCH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "OLIGARCH",
+    "definition": "wealthy and powerful individual",
+    "indicators": [
+     "Crude",
+     "mostly"
+    ],
+    "indicatorNotes": {
+     "Crude": "Crude oil is oil not yet refined, and letters handed over crude have not been put in their finished order either.",
+     "mostly": "Most of a word is all of it bar the last letter, so the final one is left behind."
+    },
+    "linkWords": [
+     "makes"
+    ],
+    "anagram": {
+     "fodder": "OIL CHARG"
+    },
+    "blocks": [
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "anagram fodder, the three letters of the word itself"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "CHARG",
+      "note": "CHARGE with its final letter dropped"
+     }
+    ],
+    "surface": "The price of crude oil making somebody enormously rich.",
+    "walkthrough": "'Crude' does two jobs at once, describing the oil in the surface and ordering the shuffle in the wordplay, so nothing in the sentence looks like an anagram.",
+    "definitionFit": "wealthy and powerful individual → OLIGARCH: an oligarch is one of the few who hold power, and in current usage a very rich businessman with political weight."
+   }
   }
  ]
 } /*JSON-END*/;
