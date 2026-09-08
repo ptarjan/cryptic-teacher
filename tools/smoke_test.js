@@ -1869,6 +1869,81 @@ registry["reset-puzzle"].onclick();
   document.activeElement = null;
 }
 
+// --- a real scroll drops the keyboard; our own scroll must not (Paul, 2026-09-08) ---
+// On a phone the keys eat half the screen while an input is focused, and scrolling
+// is what a reader does to get out from under them — to read the clue, the ladder or
+// the grid. But placeHintPanel()'s own window.scrollTo() above must never cost the
+// keyboard a hint tap is about to need again: it fires the identical 'scroll' event a
+// flick does, so only knowing WE started it can tell the two apart.
+//
+// docListeners.scroll is the app's own handler, registered on `document` exactly as
+// it is in a browser (there is no window.addEventListener in this stub, on purpose —
+// a real page's whole-document scroll is observable there too). Moving pageYOffset
+// and then calling it is a genuine simulation of the browser dispatching the event,
+// not a stand-in for behaviour the app does not have.
+{
+  const win = global.window;
+  const kbd = registry["kbd"];
+  const panel = registry["hint-panel"];
+  const clues = Object.keys(registry).filter((k) => /^clue-/.test(k))
+    .map((k) => registry[k]).filter((r) => r.listeners && r.listeners.click);
+  assert(clues.length >= 1, "found a clue row to drive the scroll-blur test");
+  const userScroll = (y) => { win.pageYOffset = y; (docListeners.scroll || []).forEach((f) => f()); };
+
+  // The grid-tap block just above can leave its own guard-clearing timer still
+  // pending: flushTimers runs one generation, and a timer armed by a timer it just
+  // ran (markOwnScroll, fired from inside a settle callback) waits for the next
+  // call. A few more generations settle anything left over so this section starts
+  // from the guard being off, as a reader who has stopped tapping actually would.
+  for (let i = 0; i < 4; i++) global.flushTimers(10000);
+
+  // A real scroll past the threshold drops the keyboard.
+  document.activeElement = kbd;
+  userScroll(0);        // the first tick only learns where the scroll started
+  assert(document.activeElement === kbd, "no blur on the tick that just records the baseline");
+  userScroll(40);
+  assert(document.activeElement === null, "a real scroll past the threshold drops the keyboard");
+
+  // A 1px jitter — or Safari's URL bar collapsing as a scroll gets going — must not.
+  document.activeElement = kbd;
+  userScroll(200);
+  userScroll(201);
+  assert(document.activeElement === kbd, "a 1px jitter must not drop the keyboard");
+
+  // No touch capability, no soft keyboard to drop: a desktop wheel-scroll while
+  // typing is ordinary and must not cost focus.
+  const savedMTP = navigator.maxTouchPoints;
+  navigator.maxTouchPoints = 0;
+  document.activeElement = kbd;
+  userScroll(0);
+  userScroll(500);
+  assert(document.activeElement === kbd, "no touch capability means no blur, however far it moves");
+  navigator.maxTouchPoints = savedMTP;
+
+  // Our own scroll — placeHintPanel() moving the page to bring the hint panel into
+  // view — must never blur the input the tap is trying to keep typing into.
+  panel.layout(1200, 400);
+  document.activeElement = kbd;
+  win.pageYOffset = 3000; win.scrolls.length = 0;
+  clues[0].listeners.click[0]();
+  // A big enough number to cover whichever settle wait applies — a stray kbdOwed
+  // left over from a mousedown further up can make this the long
+  // keyboard-cold wait rather than the short one — but it still only runs ONE
+  // generation of timers (see fake_dom.js's own comment on flushTimers): the
+  // guard markOwnScroll() arms from inside this very settle callback is a fresh
+  // timer, scheduled during this call, so it is left pending for the next call
+  // rather than run now. That is what keeps it alive for the simulated 'scroll'
+  // event right below.
+  global.flushTimers(10000);
+  assert(win.scrolls.length === 1, "the tap did move the page: " + JSON.stringify(win.scrolls));
+  userScroll(win.pageYOffset);   // the 'scroll' event a real scrollTo would fire
+  assert(document.activeElement === kbd,
+    "the app's own scroll to the hint panel must not blur the input being typed into");
+  global.flushTimers(10000);   // let the confirm settle before the next test section
+  panel.layout(0, 0);
+  document.activeElement = null;
+}
+
 // --- solving a clue opens its whole ladder, for free (Paul, 2026-08-16) ---
 // The tiers exist to stop a walkthrough being taken cold. Once the answer is in
 // the grid there is nothing left to give away, so every rung opens — and opening
