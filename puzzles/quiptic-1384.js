@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MISCREANT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MISCREANT",
+    "definition": "a criminal",
+    "indicators": [
+     "Various"
+    ],
+    "indicatorNotes": {
+     "Various": "Calling the crimes various says they come in no settled form, and letters with no settled form are letters waiting to be reordered."
+    },
+    "linkWords": [
+     "associated with"
+    ],
+    "anagram": {
+     "fodder": "CRIMES ANT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "crimes",
+      "gives": "CRIMES",
+      "note": "six letters handed straight over from the clue for reordering"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "ANT",
+      "note": "ant colonies keep a soldier caste, so setters use soldier for the insect"
+     }
+    ],
+    "surface": "Assorted offences being pinned on a serviceman.",
+    "walkthrough": "A soldier here is an ant: colonies really do have a soldier caste, and setters lean on that sense whenever an army turns up in the wordplay.",
+    "definitionFit": "a criminal → MISCREANT: a plain synonym for a wrongdoer, carrying a faintly old-fashioned, disapproving edge that 'criminal' on its own lacks."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +78,44 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MIMIC",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "MIMIC",
+    "definition": "impersonator",
+    "indicators": [
+     "twice",
+     "upset"
+    ],
+    "indicatorNotes": {
+     "twice": "Doing something twice means writing it out a second time, so the two letters before this word are set down again.",
+     "upset": "In a down clue upset means tipped over end to end, so the letters just built are read from the bottom upwards."
+    },
+    "pieces": [
+     "MIMI",
+     "C"
+    ],
+    "subReversals": [
+     {
+      "from": "IMIM",
+      "to": "MIMI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m twice",
+      "gives": "IMIM",
+      "note": "I'M as its two letters, then the same two letters again"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, about, as used before an uncertain date"
+     }
+    ],
+    "surface": "The speaker is rattled at being quoted back at themselves twice over.",
+    "walkthrough": "'Upset about' reads as one phrase describing a mood, and the two words are separate jobs; c for circa is the small piece hiding at the end.",
+    "definitionFit": "impersonator → MIMIC: a mimic copies another person's voice and manner, which is what an impersonator does for a living."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +132,34 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SINCERE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SINCERE",
+    "definition": "Trustworthy",
+    "indicators": [],
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "SINCE",
+     "RE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from the period",
+      "gives": "SINCE",
+      "note": "since means from the time that, covering a stretch running up to now"
+     },
+     {
+      "clueFragment": "religious education",
+      "gives": "RE",
+      "note": "RE is what British school timetables call religious education"
+     }
+    ],
+    "surface": "Dependability dating back to somebody's schooldays in religion.",
+    "walkthrough": "'Period' is doing double duty: a lesson on the school timetable in the surface, and a stretch of time in the wordplay.",
+    "definitionFit": "Trustworthy → SINCERE: sincere means genuine in what you say and feel, and somebody who means what they say is somebody you can trust."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +176,28 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROAM",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "ROAM",
+    "definition": "Travel widely",
+    "indicators": [
+     "we hear"
+    ],
+    "indicatorNotes": {
+     "we hear": "What you hear is the noise a word makes, so the grid takes the sound of the place named rather than its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Italy’s capital",
+      "soundsLike": "ROME",
+      "gives": "ROAM",
+      "note": "the capital city of Italy is Rome, and said aloud it comes out on the page with different vowels"
+     }
+    ],
+    "surface": "Travel advice, with the Italian capital held up as the place to go.",
+    "walkthrough": "'Italy's capital' wants to be the letter I, the capital letter the country's name starts with, and it is the city instead — said out loud, not spelled.",
+    "definitionFit": "Travel widely → ROAM: to roam is to wander with no fixed route, covering ground for its own sake rather than heading anywhere."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +214,37 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ARID",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ARID",
+    "definition": "Desert-like?",
+    "indicators": [
+     "to bring in"
+    ],
+    "indicatorNotes": {
+     "to bring in": "Bringing something in carries it indoors, so the letter named next is placed inside the word before it."
+    },
+    "pieces": [
+     "A",
+     "R",
+     "ID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Help",
+      "gives": "AID",
+      "note": "aid is help, as noun and as verb"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "r is the map-maker's abbreviation for river"
+     }
+    ],
+    "surface": "Relief supplies being brought in along a waterway.",
+    "walkthrough": "The question mark flags a definition by comparison rather than a synonym: nothing here is a desert, only like one.",
+    "definitionFit": "Desert-like? → ARID: arid means so dry that nothing will grow, which is exactly the quality that makes a desert a desert."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +265,42 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
     ]
    },
    "solution": "TICKETYBOO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "TICKETY-BOO",
+    "definition": "Excellent",
+    "indicators": [
+     "excited"
+    ],
+    "indicatorNotes": {
+     "excited": "Something excited will not sit still, and letters that will not sit still come out in an order other than the printed one."
+    },
+    "pieces": [
+     "TICKET",
+     "YBOO"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "OBOY",
+      "gives": "YBOO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "access to concert?",
+      "gives": "TICKET",
+      "note": "a ticket is what gets you in at the door of a concert"
+     },
+     {
+      "clueFragment": "O, boy",
+      "gives": "YBOO",
+      "note": "the four letters of O and BOY stirred into a fresh order"
+     }
+    ],
+    "surface": "Sheer delight at landing a seat for the concert.",
+    "walkthrough": "TICKETY-BOO is dated British slang for everything running smoothly — the sort of thing a 1940s film pilot says over the radio.",
+    "definitionFit": "Excellent → TICKETY-BOO: British slang for a situation that is in perfect order, said of how things are going rather than of a thing."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +317,42 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEGAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DEGAS",
+    "definition": "French artist",
+    "indicators": [
+     "Recalled"
+    ],
+    "indicatorNotes": {
+     "Recalled": "To recall is to call something back, and in an across clue calling letters back reads them from right to left."
+    },
+    "pieces": [
+     "DEGA",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "AGED",
+      "to": "DEGA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very old",
+      "gives": "AGED",
+      "note": "somebody very old is aged"
+     },
+     {
+      "clueFragment": "Southern",
+      "gives": "S",
+      "note": "S is the compass abbreviation for southern"
+     }
+    ],
+    "surface": "A painter from the south being remembered in his old age.",
+    "walkthrough": "'Recalled' reads as remembered in a sentence about an elderly painter, and it is an instruction instead. Impressionists are the setter's favourite artists to clue.",
+    "definitionFit": "French artist → DEGAS: Edgar Degas, the Impressionist of the ballet dancers — a definition by example, one painter standing for the category."
+   }
   },
   {
    "id": "6-down",
@@ -157,7 +373,58 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
     ]
    },
    "solution": "DAISYCHAIN",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "DAISY CHAIN",
+    "definition": "Floral arrangement",
+    "indicators": [
+     "presented within"
+    ],
+    "indicatorNotes": {
+     "presented within": "To be presented within something is to be handed over inside it, so those two letters land in the middle of the word that follows."
+    },
+    "linkWords": [
+     "gets"
+    ],
+    "pieces": [
+     "DA",
+     "IS",
+     "Y",
+     "CH",
+     "A",
+     "IN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "24 hours",
+      "gives": "DAY",
+      "note": "a day is the 24 hours the clock takes to come round"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "the word itself, dropped in unchanged"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard short form of church, as printed on maps"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a stands in for one, as in a hundred pounds"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word again taken at face value, two letters as they stand"
+     }
+    ],
+    "surface": "Flowers delivered inside a day, with the church getting a bunch as well.",
+    "walkthrough": "Both halves hand you words to use exactly as printed — the tiny 'is' and 'in' contribute their own letters, which is easy to miss while hunting for a mechanism.",
+    "definitionFit": "Floral arrangement → DAISY CHAIN: the string of daisies children thread together, an arrangement of flowers in the most literal and least florist sense."
+   }
   },
   {
    "id": "7-down",
@@ -174,7 +441,51 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GREMLIN",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "GREMLIN",
+    "definition": "Source of mischief?",
+    "indicators": [
+     "back"
+    ],
+    "indicatorNotes": {
+     "back": "Sending a word back turns it round, so the three letters just named are written out in the opposite order."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "G",
+     "REM",
+     "LIN"
+    ],
+    "subReversals": [
+     {
+      "from": "NIL",
+      "to": "LIN"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "g is the standard short form of grand"
+     },
+     {
+      "clueFragment": "rock band",
+      "gives": "REM",
+      "note": "REM were the American rock band of Losing My Religion"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "NIL",
+      "note": "nil is nothing, the word used for a score of none"
+     }
+    ],
+    "surface": "A big-name band who get nothing in return for their trouble.",
+    "walkthrough": "GREMLINs were invented by RAF pilots in the 1920s: the imps that sabotage an aircraft, which is why a machine failing for no reason still has one.",
+    "definitionFit": "Source of mischief? → GREMLIN: the imaginary imp blamed when machinery misbehaves, so it names the cause of the trouble rather than the trouble."
+   }
   },
   {
    "id": "8-down",
@@ -195,7 +506,48 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPEEDDIAL",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "SPEED-DIAL",
+    "definition": "Quickly call",
+    "indicators": [
+     "receiving",
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "receiving": "A word that receives something takes it in, so the letter named next lands inside the piece before it.",
+     "bit of": "A bit of a word is not the whole of it, and the bit a setter means by default is the letter it opens with."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "S",
+     "P",
+     "EED",
+     "DIAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "major player",
+      "gives": "SEED",
+      "note": "a seed is a ranked player kept apart in the draw at a major tournament"
+     },
+     {
+      "clueFragment": "pushback",
+      "gives": "P",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "face",
+      "gives": "DIAL",
+      "note": "the dial is the face of a clock or a gauge"
+     }
+    ],
+    "surface": "Ringing a star player who is meeting a little resistance.",
+    "walkthrough": "'Face' is the trap: it looks like the verb, one player facing another, and it is the noun — the face a pair of hands go round.",
+    "definitionFit": "Quickly call → SPEED-DIAL: to speed-dial somebody is to ring them off a single stored key, calling faster than dialling the number out."
+   }
   },
   {
    "id": "9-across",
@@ -216,7 +568,51 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
     ]
    },
    "solution": "MANDARINCHINESE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "MANDARIN CHINESE",
+    "definition": "an Asian language",
+    "indicators": [
+     "represented"
+    ],
+    "indicatorNotes": {
+     "represented": "Read as re-presented, the word means shown again in a fresh arrangement, which is what happens to the three letters before it."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MANDARIN",
+     "CHIN",
+     "ESE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "SEE",
+      "gives": "ESE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small orange",
+      "gives": "MANDARIN",
+      "note": "a mandarin is the small loose-skinned orange"
+     },
+     {
+      "clueFragment": "feature",
+      "gives": "CHIN",
+      "note": "the chin is a feature of the face"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "ESE",
+      "note": "the three letters of SEE set down in a new order"
+     }
+    ],
+    "surface": "A small citrus fruit, apparently, drawn with its parts labelled in a foreign tongue.",
+    "walkthrough": "The trap is reading 'Small orange' as two adjectives describing the feature; it is a noun standing alone, the fruit itself.",
+    "definitionFit": "an Asian language → MANDARIN CHINESE: the standard form of Chinese spoken across most of China, so it names one particular Asian language."
+   }
   },
   {
    "id": "10-across",
@@ -233,7 +629,27 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CREW",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CREW",
+    "definition": "Team",
+    "definition2": "boasted",
+    "blocks": [
+     {
+      "clueFragment": "Team",
+      "gives": "",
+      "note": "the group who work a boat, a shift or a film set together"
+     },
+     {
+      "clueFragment": "boasted",
+      "gives": "",
+      "note": "the past tense of crow, which is what a cockerel and a winner both do"
+     }
+    ],
+    "surface": "A sports side bragging about the result.",
+    "walkthrough": "The past tense of crow survives now almost only in 'the cock crew', which is why the second half of this clue reads as a different word altogether.",
+    "definitionFit": "Team → CREW: the people who work a boat or a shift together; and boasted → CREW, the archaic past tense of crow, and to crow is to boast."
+   }
   },
   {
    "id": "11-across",
@@ -250,7 +666,37 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECYCLED",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "RECYCLED",
+    "definition": "given a second chance?",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The little word puts one thing inside another, so the transport named before it goes within the colour named after it."
+    },
+    "pieces": [
+     "RE",
+     "CYCLE",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post Office colour",
+      "gives": "RED",
+      "note": "British post boxes and Royal Mail vans are red, the Post Office's own livery"
+     },
+     {
+      "clueFragment": "Type of transport",
+      "gives": "CYCLE",
+      "note": "a cycle is a way of getting about"
+     }
+    ],
+    "surface": "Some form of transport turning up in postal red.",
+    "walkthrough": "Pillar-box red is the colour of British post boxes and Royal Mail vans — a shade a whole country knows by the Post Office's name.",
+    "definitionFit": "given a second chance? → RECYCLED: material that has been used, reclaimed and put back into service, which is a second chance in the physical sense."
+   }
   },
   {
    "id": "12-down",
@@ -271,7 +717,30 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
     ]
    },
    "solution": "PAGETURNER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "PAGE-TURNER",
+    "definition": "Thrilling tale",
+    "definition2": "assistant to pianist",
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thrilling tale",
+      "gives": "",
+      "note": "a story so gripping that you keep going to the next page"
+     },
+     {
+      "clueFragment": "assistant to pianist",
+      "gives": "",
+      "note": "the person who sits at the keyboard's left and turns the score at the right bar"
+     }
+    ],
+    "surface": "A gripping story coming from the person sitting beside the piano.",
+    "walkthrough": "The second sense is a real job: at a recital somebody sits beside the pianist and turns the sheet music at exactly the right bar.",
+    "definitionFit": "Thrilling tale → PAGE-TURNER: a book so gripping you keep turning pages; and assistant to pianist → the person who literally turns the pages of the score."
+   }
   },
   {
    "id": "13-down",
@@ -288,7 +757,37 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCIENTIFIC",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "SCIENTIFIC",
+    "definition": "like an entomologist?",
+    "indicators": [
+     "Breakdown of",
+     "start to"
+    ],
+    "indicatorNotes": {
+     "Breakdown of": "A breakdown takes a thing apart into its components, and components can be put back together in any order.",
+     "start to": "The start of a word is the letter it begins with, so only that opening letter joins the mixture."
+    },
+    "anagram": {
+     "fodder": "INSECT IF I C"
+    },
+    "blocks": [
+     {
+      "clueFragment": "insect, if I",
+      "gives": "INSECTIFI",
+      "note": "nine letters handed over to be rearranged"
+     },
+     {
+      "clueFragment": "consider",
+      "gives": "C",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "surface": "A bug specialist beginning to take a specimen apart.",
+    "walkthrough": "An entomologist is an insect scientist, so the letters being shuffled and the definition describe the same person's working day and the seam between them barely shows.",
+    "definitionFit": "like an entomologist? → SCIENTIFIC: an entomologist is a scientist, so proceeding like one is proceeding scientifically; the question mark flags the definition by example."
+   }
   },
   {
    "id": "14-across",
@@ -305,7 +804,43 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIERARCHY",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "HIERARCHY",
+    "definition": "People in power",
+    "definitionNote": "The definition is plural and names the individuals, while the answer is singular and names the ranked structure they make up — a collective noun standing for the group.",
+    "indicators": [
+     "revival of"
+    ],
+    "indicatorNotes": {
+     "revival of": "A revival brings something back in a new form, and letters brought back in a new form are letters reordered."
+    },
+    "pieces": [
+     "HI",
+     "ERARCHY"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "ARCHERY",
+      "gives": "ERARCHY"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is the everyday greeting"
+     },
+     {
+      "clueFragment": "archery",
+      "gives": "ERARCHY",
+      "note": "the seven letters of the sport rearranged"
+     }
+    ],
+    "surface": "A warm welcome given to the comeback of the bow and arrow.",
+    "walkthrough": "'Revival of archery' reads as a news story about a sport coming back into fashion, and the word 'revival' is the setter's instruction hiding inside it.",
+    "definitionFit": "People in power → HIERARCHY: the ranked order of authority in an organisation, used loosely for the set of people occupying its top ranks."
+   }
   },
   {
    "id": "14-down",
@@ -322,7 +857,42 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HOURGLASS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "HOURGLASS",
+    "definition": "A measure of time",
+    "indicators": [
+     "tucking into"
+    ],
+    "indicatorNotes": {
+     "tucking into": "To tuck into something is to get right inside it, so the letters named before end up in among what comes after."
+    },
+    "pieces": [
+     "H",
+     "OUR",
+     "GLASS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the letter on the hot tap"
+     },
+     {
+      "clueFragment": "for us",
+      "gives": "OUR",
+      "note": "what belongs to us is our, the possessive of the same pronoun"
+     },
+     {
+      "clueFragment": "drink container",
+      "gives": "GLASS",
+      "note": "a glass is what a drink is served in"
+     }
+    ],
+    "surface": "Something poured out for us into a hot-drink flask.",
+    "walkthrough": "'Hot drink container' wants to be one object, a mug or a thermos, and it splits: the hot is a single letter, and the container is what a cold drink comes in.",
+    "definitionFit": "A measure of time → HOURGLASS: the twin-bulbed glass whose sand runs through in a fixed span, so the object itself measures out a period."
+   }
   },
   {
    "id": "15-across",
@@ -339,7 +909,54 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HANOI",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "HANOI",
+    "definition": "Vietnamese city",
+    "indicators": [
+     "Starts to"
+    ],
+    "indicatorNotes": {
+     "Starts to": "The start of a word is the letter it begins with, and the plural says to take one from each of the words that follow."
+    },
+    "pieces": [
+     "H",
+     "A",
+     "N",
+     "O",
+     "I"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "herald",
+      "gives": "H",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "a one-letter word, so its opening letter is all of it"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "the initial of the word"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "O",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "I",
+      "note": "the initial of the last word in the run"
+     }
+    ],
+    "surface": "The announcement of a new military campaign.",
+    "walkthrough": "Five words in a row give up their opening letters, and 'in' is one of them — the small linking words are exactly where a solver stops looking.",
+    "definitionFit": "Vietnamese city → HANOI: the capital of Vietnam, up in the north of the country; a definition by example, since the country has other cities."
+   }
   },
   {
    "id": "16-across",
@@ -356,7 +973,36 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "USAGE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "USAGE",
+    "definition": "custom",
+    "indicators": [
+     "in pursuit of"
+    ],
+    "indicatorNotes": {
+     "in pursuit of": "Whatever is in pursuit of something follows along behind it, so the letters named first are written after the ones named next."
+    },
+    "pieces": [
+     "US",
+     "AGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the standard short form of the country, so it covers American"
+     },
+     {
+      "clueFragment": "A long time",
+      "gives": "AGE",
+      "note": "an age is a long stretch of time"
+     }
+    ],
+    "surface": "Somebody chasing an American habit for years on end.",
+    "walkthrough": "'A long time' opens the clue where a definition usually sits and is wordplay instead; the definition is the single word left at the end.",
+    "definitionFit": "custom → USAGE: usage is established practice, the way a thing has come to be done, which is what a custom is once it settles."
+   }
   },
   {
    "id": "17-down",
@@ -373,7 +1019,52 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANALYST",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "ANALYST",
+    "definition": "Researcher",
+    "indicators": [
+     "etching"
+    ],
+    "indicatorNotes": {
+     "etching": "To etch is to cut a mark into a surface, so the letters named next are set down inside the word that follows."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "AN",
+     "A",
+     "L",
+     "Y",
+     "ST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any",
+      "gives": "ANY",
+      "note": "the word as it stands, prised open to take the insertion"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the single letter, used literally"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "l is the abbreviation for line, as in a page-and-line reference"
+     },
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "st is the British abbreviation for the stone, the fourteen-pound unit of body weight"
+     }
+    ],
+    "surface": "Somebody scratching a line into a piece of rock.",
+    "walkthrough": "'Any' looks like a vague adjective attached to the stone, and it is a whole word to be prised apart — the plainest words in the clue are the fodder.",
+    "definitionFit": "Researcher → ANALYST: an analyst is paid to take data apart and report what it shows, which is research in the commercial and intelligence sense."
+   }
   },
   {
    "id": "18-across",
@@ -390,7 +1081,42 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMOTIONAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "EMOTIONAL",
+    "definition": "affected by feelings",
+    "indicators": [
+     "almost"
+    ],
+    "indicatorNotes": {
+     "almost": "Almost means falling just short, so the word it governs arrives with its final letter missing."
+    },
+    "pieces": [
+     "E",
+     "MOTION",
+     "AL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E is the physicist's symbol for energy"
+     },
+     {
+      "clueFragment": "proposal for conference",
+      "gives": "MOTION",
+      "note": "a motion is the proposal put before a conference for debate"
+     },
+     {
+      "clueFragment": "entirely",
+      "gives": "AL",
+      "note": "ALL means entirely, and it turns up here one letter short"
+     }
+    ],
+    "surface": "An energy proposal going to conference, very nearly complete.",
+    "walkthrough": "Deletion clues hang on a word you have to supply first: 'entirely' is not describing anything here, it is the word ALL waiting to be trimmed.",
+    "definitionFit": "affected by feelings → EMOTIONAL: the adjective for a person governed by their feelings rather than their judgement, or a scene charged with them."
+   }
   },
   {
    "id": "19-down",
@@ -407,7 +1133,40 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOMINEE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOMINEE",
+    "definition": "candidate",
+    "indicators": [],
+    "linkWords": [
+     "linked to"
+    ],
+    "pieces": [
+     "NO",
+     "MINE",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "the word taken as it stands"
+     },
+     {
+      "clueFragment": "source of coal",
+      "gives": "MINE",
+      "note": "coal is dug out of a mine"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "surface": "A European put forward despite having no coal behind them.",
+    "walkthrough": "'Source of' almost always asks for a first letter, and here it means what it says: the place the coal comes out of.",
+    "definitionFit": "candidate → NOMINEE: a nominee is the person formally put forward for a post or a prize, which is what standing as a candidate amounts to."
+   }
   },
   {
    "id": "20-across",
@@ -424,7 +1183,31 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRADUATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GRADUATE",
+    "definition": "BA or MA?",
+    "definitionNote": "BA and MA name the degrees, while the answer is the person holding one; the question mark is the setter admitting the definition works by example rather than by synonym.",
+    "indicators": [
+     "would be wrong"
+    ],
+    "indicatorNotes": {
+     "would be wrong": "Something written wrong has its letters out of place, so the pieces listed before this are not yet in the order the grid wants."
+    },
+    "anagram": {
+     "fodder": "DA GA TRUE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "DA, GA, true",
+      "gives": "DAGATRUE",
+      "note": "eight letters offered as two pairs and a word, to be reordered"
+     }
+    ],
+    "surface": "Somebody reeling off degree abbreviations and getting them muddled.",
+    "walkthrough": "The clue is a run of two-letter pairs, so the eye takes the whole line as one list and never notices that only the first two belong to the definition.",
+    "definitionFit": "BA or MA? → GRADUATE: both are university degrees, and whoever has been awarded one has by definition graduated."
+   }
   },
   {
    "id": "21-across",
@@ -441,7 +1224,42 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EMMA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "EMMA",
+    "definition": "a classic novel",
+    "indicators": [
+     "returned"
+    ],
+    "indicatorNotes": {
+     "returned": "To return something is to send it back the way it came, and in an across clue that means reading the letters right to left."
+    },
+    "pieces": [
+     "EM",
+     "MA"
+    ],
+    "subReversals": [
+     {
+      "from": "AMME",
+      "to": "EMMA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In the morning",
+      "gives": "AM",
+      "note": "am marks the hours before noon on a clock"
+     },
+     {
+      "clueFragment": "the writer",
+      "gives": "ME",
+      "note": "the writer of the clue is the setter, referring to himself"
+     }
+    ],
+    "surface": "An early call from the author, bringing a borrowed book back.",
+    "walkthrough": "'The writer' is the setter talking about himself, a convention worth owning: when a clue mentions the author, the writer or yours truly, it usually wants ME or I.",
+    "definitionFit": "a classic novel → EMMA: Jane Austen's 1815 novel of a matchmaker who gets everything wrong — one named classic standing in for the category."
+   }
   },
   {
    "id": "22-down",
@@ -458,7 +1276,31 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASSET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ASSET",
+    "definition": "Something useful",
+    "indicators": [],
+    "pieces": [
+     "AS",
+     "SET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can replace when: as I arrived, when I arrived"
+     },
+     {
+      "clueFragment": "fixed",
+      "gives": "SET",
+      "note": "something set is fixed, like a set time or a jelly that has set"
+     }
+    ],
+    "surface": "Something that comes in handy once it has been mended.",
+    "walkthrough": "'When fixed' reads as a condition — useful only after repair — and both of its words are separate synonyms to be laid end to end.",
+    "definitionFit": "Something useful → ASSET: anything of value working in your favour, from an item on a balance sheet to a helpful person on the team."
+   }
   },
   {
    "id": "23-down",
@@ -475,7 +1317,39 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRIM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + last letter",
+    "answer": "GRIM",
+    "definition": "dark and gloomy",
+    "indicators": [
+     "lowest"
+    ],
+    "indicatorNotes": {
+     "lowest": "In a down clue the lowest letter of a word is the one at its end, so the final letter of the word before is all that is taken."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "G",
+     "RIM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crag’s",
+      "gives": "G",
+      "note": "the last letter of the word, sitting at its foot in a down clue"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "RIM",
+      "note": "the rim is the edge of a cup or a wheel"
+     }
+    ],
+    "surface": "The bottom lip of a rock face looking bleak.",
+    "walkthrough": "Down clues can point at a letter by its height on the page, so 'lowest' is not describing the crag but picking the letter at the bottom of the word.",
+    "definitionFit": "dark and gloomy → GRIM: grim describes a scene that is bleak and forbidding, the mood of a dark, gloomy place rather than its light level."
+   }
   },
   {
    "id": "24-down",
@@ -492,7 +1366,40 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEAM",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "TEAM",
+    "definition": "co-workers?",
+    "definitionNote": "The definition is plural and the answer singular: a team is one body made of many people, and the question mark covers the switch from the members to the group they form.",
+    "indicators": [
+     "the first of"
+    ],
+    "indicatorNotes": {
+     "the first of": "The first of a word is the letter it opens with, so a single letter comes across from what follows."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "TEA",
+     "M"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A cuppa",
+      "gives": "TEA",
+      "note": "a cuppa is British for a cup of tea, and almost never means coffee"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "M",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "surface": "Sharing a brew with the people you work alongside.",
+    "walkthrough": "The question mark is carrying the weight: the clue names the individuals and the grid wants the single word for the body they add up to.",
+    "definitionFit": "co-workers? → TEAM: a team is the group of people who work together on something, so it names the colleagues collectively rather than one by one."
+   }
   },
   {
    "id": "25-across",
@@ -514,7 +1421,37 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
     ]
    },
    "solution": "ANYONEFORTENNIS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ANYONE FOR TENNIS",
+    "definition": "Theatrical encouragement to play",
+    "indicators": [
+     "possibly",
+     "involving"
+    ],
+    "indicatorNotes": {
+     "possibly": "Saying a thing is possibly so admits it is not so as printed, and letters not as printed are letters to be reordered.",
+     "involving": "What is involved is drawn into the business at hand, so the letter named after this word joins the pool being rearranged."
+    },
+    "anagram": {
+     "fodder": "IN AFTERNOON YES N"
+    },
+    "blocks": [
+     {
+      "clueFragment": "in afternoon? Yes",
+      "gives": "INAFTERNOONYES",
+      "note": "fourteen letters offered up to be rearranged"
+     },
+     {
+      "clueFragment": "any number",
+      "gives": "N",
+      "note": "n is the mathematician's letter for an unspecified number"
+     }
+    ],
+    "surface": "An afternoon game being agreed to, with the numbers still to be settled.",
+    "walkthrough": "'Anyone for tennis?' is the stock line of drawing-room comedy — the cheerful young man arriving through the French windows with a racquet — which is what makes it theatrical.",
+    "definitionFit": "Theatrical encouragement to play → ANYONE FOR TENNIS: the catchphrase entrance line of 1920s drawing-room drama, an invitation to come out and play a game."
+   }
   },
   {
    "id": "26-across",
@@ -531,7 +1468,37 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SITAR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SITAR",
+    "definition": "Indian instrument",
+    "indicators": [
+     "adopting"
+    ],
+    "indicatorNotes": {
+     "adopting": "A family adopting a child takes them in as their own, so the letter named next is taken inside the word before it."
+    },
+    "pieces": [
+     "S",
+     "I",
+     "TAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top performer",
+      "gives": "STAR",
+      "note": "the top performer on the bill is the star"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "surface": "A leading act taking up an unfamiliar instrument.",
+    "walkthrough": "The SITAR is the long-necked Indian lute Ravi Shankar played, and the 'one' inside it arrives as a Roman numeral rather than as a word.",
+    "definitionFit": "Indian instrument → SITAR: the long-necked, many-stringed lute of Indian classical music — a definition by example, one instrument standing for the class."
+   }
   },
   {
    "id": "27-across",
@@ -548,7 +1515,40 @@ window.CRYPTIC_PUZZLES["quiptic-1384"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CAMEMBERT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "CAMEMBERT",
+    "definition": "cheese",
+    "indicators": [
+     "going round"
+    ],
+    "indicatorNotes": {
+     "going round": "Something going round another thing wraps itself about it, so the word before is split to sit either side of what follows."
+    },
+    "linkWords": [
+     "to get"
+    ],
+    "pieces": [
+     "CA",
+     "MEMBER",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet",
+      "gives": "CAT",
+      "note": "the household pet a setter reaches for first"
+     },
+     {
+      "clueFragment": "leg, perhaps",
+      "gives": "MEMBER",
+      "note": "a member is a limb, and a leg is one instance of one — hence the 'perhaps'"
+     }
+    ],
+    "surface": "A cat winding itself round somebody's leg by the fridge.",
+    "walkthrough": "'Member' for a limb is an old sense kept alive largely by crosswords, and 'perhaps' is the flag that a leg is only one example of it.",
+    "definitionFit": "cheese → CAMEMBERT: the soft, bloomy-rinded cheese from Normandy — a definition by example, one named cheese standing for the whole class."
+   }
   }
  ]
 } /*JSON-END*/;
