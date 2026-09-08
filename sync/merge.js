@@ -181,6 +181,17 @@
     const br = liveB && isObj(b.revealsUsed) ? b.revealsUsed : {};
     const revealsUsed = eachKey(ar, br, (k) => Math.max(num(ar[k]), num(br[k])));
 
+    // How many pieces of the blocks rung are on screen: forward-only, like
+    // revealsUsed, so the merge keeps whichever device paid out further rather
+    // than forgetting the count. Every field the pacing depends on has to
+    // survive a merge, not just the ones a solver can see directly — app.js
+    // treats "rung shown, no count for it" as a save from before pacing
+    // existed and hands over every remaining piece, so a merge that drops this
+    // one silently un-paces the rung on the very next sync.
+    const aba = liveA && isObj(a.blocksAt) ? a.blocksAt : {};
+    const abb = liveB && isObj(b.blocksAt) ? b.blocksAt : {};
+    const blocksAt = eachKey(aba, abb, (k) => Math.max(num(aba[k]), num(abb[k])));
+
     // How many rungs were up when the clue first fell. "First" has no meaning
     // across two clocks, so take the better score. It is the answer you would
     // get if you had done all of this on one machine and solved it on the try
@@ -194,8 +205,8 @@
 
     const timing = mergeTiming(liveA ? a.timing : {}, liveB ? b.timing : {});
 
-    return { letters, letterAt, hintsShown, hintsEarned, revealsUsed, solvedWith, timing,
-             clearedAt, updated: Math.max(at, bt) };
+    return { letters, letterAt, hintsShown, hintsEarned, revealsUsed, blocksAt, solvedWith,
+             timing, clearedAt, updated: Math.max(at, bt) };
   }
 
   /* Envelope: { v: 1, puzzles: { "<id>": <save> }, last: { id, updated } }.
