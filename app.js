@@ -3291,9 +3291,11 @@
       ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
       : clueHTML(holder);
     const clueWrote = setHTML($("hint-clue"), clueLine);
-    // Bordered words need the leading the duplicate copy used to have, and the
-    // clue line is one element whichever form it is in — so the state goes on the
-    // element rather than into the markup setHTML compares.
+    // Only for the reveal flash (see .hint-clue.picking in style.css) — the
+    // clue's own size is fixed regardless of which form is in it, so this
+    // class carries no metric that setHTML's markup comparison would need to
+    // catch. Set on the element rather than baked into the markup, or the
+    // flash would replay every re-render mid-guess instead of firing once.
     $("hint-clue").classList.toggle("picking", clueLine.indexOf("guess-clue") >= 0);
 
     setHTML($("hint-meter"), meterHTML + (freeRest ? " · the rest are free now" : ""));
@@ -3660,6 +3662,19 @@
     return pickerPapers;
   }
 
+  // A paper chip's colour needs the series KEY ("indysunday"), but the chip
+  // itself is labelled and searched by the word SERIES_BADGE hands out ("indy
+  // sunday") — so look the key back up in the one table that already maps
+  // them, rather than keeping a second table of which paper is which.
+  let seriesKeyByLabel = null;
+  function seriesKeyForLabel(label) {
+    if (!seriesKeyByLabel) {
+      seriesKeyByLabel = {};
+      Object.keys(SERIES_BADGE).forEach((k) => { seriesKeyByLabel[SERIES_BADGE[k][0]] = k; });
+    }
+    return seriesKeyByLabel[label] || "";
+  }
+
   function pickerRows(q) {
     // Every term has to match somewhere, so "imogen 2026" narrows rather than
     // widens — the useful behaviour when the list is long enough to need a
@@ -3721,7 +3736,7 @@
           isOn(w)}">${esc(w)}</button>`;
       }).join("") + "</span>";
     setHTML($("picker-filters"),
-      group("Papers", pickerPaperList(), () => "series")
+      group("Papers", pickerPaperList(), (w) => "series series-" + esc(seriesKeyForLabel(w)))
         + group("Difficulty", pickerBandList(), (b) => "diff diff-" + esc(b)));
     chips.forEach((w, i) => {
       const el = $("pf-" + i);
