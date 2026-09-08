@@ -748,7 +748,7 @@ import json, sys
 from datetime import datetime, timezone
 idx = json.load(open("puzzles/index.json"))
 todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions")]
-# Newest first, by DATE and by date alone — one queue across every series.
+# Round-robin across the series, newest first inside each one.
 #
 # Not by number: each paper numbers from its own 1, so a number sort is a series
 # sort wearing a disguise. It ran every Guardian cryptic (30,0xx), then every
@@ -758,7 +758,37 @@ todo = [p for p in idx["puzzles"] if not p["annotated"] and p.get("hasSolutions"
 # Not by series tier either. Whichever series goes first, its whole archive goes
 # before the other series' puzzle from yesterday, and the archive is always
 # deeper than one window of quota — so the tail never runs and today is last.
-todo.sort(key=lambda p: -p["date"])
+#
+# Not by date alone across every series at once, which is what this was. Search
+# demand does not decay at the same rate in every paper. Over the 90 days to
+# 2026-09-06 the un-annotated Guardian cryptics from April to June 2026 earned
+# no impressions whatsoever, while un-annotated Everyman puzzles a year older
+# than them were still earning ninety apiece: a daily paper's middle is dead
+# and a weekly paper's is not. One date sort spends the whole window on the
+# dead one before it ever reaches the live one.
+#
+# Round-robin is the only order that is both. No series can starve another, and
+# every series' newest gap is reached inside the first wave.
+# Inside a lane, most-searched first, and only then newest first. A puzzle
+# absent from the snapshot is unmeasured, not unwanted, and keeps date order.
+try:
+    demand = json.load(open("tools/search_demand.json"))["impressions"]
+except (OSError, ValueError, KeyError):
+    demand = {}
+lanes = {}
+for p in todo:
+    lanes.setdefault(p["series"], []).append(p)
+for lane in lanes.values():
+    lane.sort(key=lambda p: (-demand.get(p["id"], 0), -p["date"]))
+# Cycle in descending order of measured search demand, so that a window cut
+# short by a lockout has spent itself on the puzzles people look for. A series
+# missing from this list still runs; it just goes at the back of each cycle.
+BY_DEMAND = ["everyman", "indysunday", "quiptic", "cryptic", "independent"]
+cycle = sorted(lanes, key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND
+                                     else len(BY_DEMAND), s))
+todo = [lanes[s][i]
+        for i in range(max((len(l) for l in lanes.values()), default=0))
+        for s in cycle if i < len(lanes[s])]
 # The order this job spends a whole window in is worth one readable line in the
 # log. It ran in the wrong order for weeks behind a single line listing 166 ids.
 # stderr, because stdout is the queue itself.
