@@ -264,6 +264,55 @@ def observe_yield(weekly_climb, session_climb):
     return _blend(session_yield(), sample, YIELD_FILE)
 
 
+def stub_worth(hours, y):
+    """What a part-window of `hours` returns: a WHOLE window if it can be drained.
+
+    A five-hour window is a quota, not a schedule. At full width the quota goes
+    in DRAIN_HOURS, so any stub longer than that is worth the whole window and a
+    shorter one is worth what full width can pull through it. Pro-rating a stub
+    by hours/5 is what makes the last piece of a week look worthless.
+    """
+    return min(100.0, max(0.0, hours) * CAP * SESSION_PTS_PER_RUN_HOUR) / 100.0 * y
+
+
+def reachable(hours_until_reset, s_pct=None, s_hours=None, y=None):
+    """Weekly points still reachable before the WEEKLY reset, at this phase.
+
+    The five-hour windows do not divide the hours until the weekly reset,
+    because they do not line up with it. They tile forward from whenever the
+    OPEN one turns over, and the weekly reset lands wherever it lands — on
+    2026-09-08 it landed 1.0h into a window, so the hours-until-reset divided by
+    five claimed 2.7 windows where the tiling offered two whole ones and a stub.
+    Which way that lands is worth up to a whole window either way, so it is
+    counted rather than assumed:
+
+      - what is left on the OPEN window, as much of it as full width can pull
+        through the hours before it turns over;
+      - one whole window for each that fits entirely before the reset;
+      - the trailing stub, at stub_worth().
+    """
+    y = planning_yield() if y is None else y
+    if s_pct is None:
+        s_pct = weekly_usage.usage_pct("session")
+    if s_hours is None:
+        # (hours, estimated?) — an estimated turnover still tiles correctly; it
+        # only shifts where the boundaries fall by minutes.
+        s_hours = weekly_usage.resets_in_hours("session")[0]
+    # No reading, no window open, or one that claims more than five hours left:
+    # assume a whole one, which is what a job that has been idle actually gets.
+    s_hours = SESSION_HOURS if not s_hours else min(float(s_hours), SESSION_HOURS)
+    s_pct = 0.0 if s_pct is None else float(s_pct)
+
+    left = max(0.0, hours_until_reset)
+    open_hours = min(s_hours, left)
+    room = max(0.0, 100.0 - s_pct)
+    got = min(room, open_hours * CAP * SESSION_PTS_PER_RUN_HOUR) / 100.0 * y
+    rest = left - open_hours
+    whole = int(rest // SESSION_HOURS)
+    got += whole * y + stub_worth(rest - whole * SESSION_HOURS, y)
+    return min(got, 100.0)
+
+
 def windows(pct_left, y=None):
     """Five-hour windows needed to spend what is left of the week.
 
@@ -328,8 +377,14 @@ def width(pct_left, hours_left, r=None, y=None):
 SESSION_PTS_PER_RUN_HOUR = 7.5
 
 
-def fill_width(s_pct=None, s_hours=None):
-    """Runs in flight needed to empty the CURRENT five-hour window before it resets.
+def fill_width(s_pct=None, s_hours=None, weekly_hours=None):
+    """Runs in flight needed to empty the CURRENT five-hour window in time.
+
+    In time for WHICHEVER COMES FIRST, its own turnover or the weekly reset. The
+    two are not the same deadline and the last window of a burn is always the
+    one where they differ: on 2026-09-08 the final window opened 1.0h before the
+    weekly reset, and pacing its quota over the five hours it nominally had
+    would have spent a fifth of it and let the rest expire with the week.
 
     width() paces the WEEK: it gives each window one window's worth of weekly
     yield and lets the clock take five hours over it. That is right while more
@@ -343,6 +398,8 @@ def fill_width(s_pct=None, s_hours=None):
         # (hours, estimated?) — the estimate is fine here: it only ever sizes a
         # wave, and a wave sized against a slightly wrong turnover is still spent.
         s_hours = weekly_usage.resets_in_hours("session")[0]
+    if weekly_hours is not None and s_hours is not None:
+        s_hours = min(s_hours, weekly_hours)
     room = 100.0 - s_pct
     if room <= 0 or s_hours is None or s_hours <= 0:
         return 1
@@ -378,14 +435,21 @@ def endgame_min(reserve_pct, width_=1, r=None, y=None):
     return int(max(ENDGAME_FLOOR, min(ENDGAME_CEIL, mins)))
 
 
-def behind(hours_until_reset, pct, y=None, reserve_pct=0.0):
-    """Is the remainder too big to still fit in the windows that are left?
+def behind(hours_until_reset, pct, y=None, reserve_pct=0.0, s_pct=None,
+           s_hours=None):
+    """Is this the last moment at which the remainder is still reachable?
 
-    The whole no-pre-spend rule is this one comparison, so it lives here with the
-    rest of the arithmetic and gets self-tested, rather than being an awk line in
-    the shell that nobody can exercise without spending a night of inference.
+    Two answers, and spending starts on either. start_hours() counts in whole
+    five-hour windows and never asks where their edges fall; reachable() counts
+    the tiling in front of us, which can be worth up to a window less than the
+    division claimed. Taking the earlier of the two is the only safe way to
+    combine them: a start that was not needed stands down again on the next
+    fire, and a start that came late cannot be recovered at any width.
     """
-    return hours_until_reset <= start_hours(pct, reserve_pct, y)
+    keep = max(0.05, 1.0 - reserve_pct / 100.0)
+    if hours_until_reset <= start_hours(pct, reserve_pct, y):
+        return True
+    return reachable(hours_until_reset, s_pct, s_hours, y) * keep <= pct
 
 
 def pct_left():
@@ -444,6 +508,29 @@ def self_test():
         (30, 69, 0, True),      # ...and here it is: from now the window goes whole
         (4, 1, 25, True),       # the last window; no reserve can change that
     ]
+    stubs = [
+        # hours of stub -> weekly points it can still return, at Y
+        (0.0, 0.0),         # no time at all
+        (1.0, 0.6 * Y),     # full width pulls 60 session points through an hour
+        (2.0, Y),           # past the drain time a stub is a whole window...
+        (5.0, Y),           # ...and never more than one, however long it runs
+    ]
+    tilings = [
+        # hours to the weekly reset, session % spent, hours to its turnover
+        #   -> weekly points still reachable, at Y
+        (13.6, 38, 2.57, 40.80),  # 2026-09-08: two whole windows and a 1.0h stub
+        (13.6, 0, 5.0, 3 * Y),    # the same hours, edges aligned: three windows
+        (30, 0, 5.0, 6 * Y),      # six windows, every edge landing square
+        (1.0, 100, 0.5, 3.78),    # this window spent, the next one half alive
+    ]
+    phases = [
+        # hours to reset, pct left, session % spent, hours to turnover -> spend?
+        # Same hour, same remainder, and the answer turns on where the edges
+        # fall: aligned it still fits in five windows, misaligned the last one
+        # is a 1.1h stub and this is the last hour the week is reachable at all.
+        (26, 63, 100, 4.9, True),
+        (26, 63, 0, 5.0, False),
+    ]
     plans = [
         # (days ago, measured yield)..., blend -> what to plan with
         # The 2026-09-08 shift: three windows agreeing at 15-16 do not outvote
@@ -478,10 +565,27 @@ def self_test():
                   f"{got} (want {want})", file=sys.stderr)
             bad += 1
     for hours, pct, res, want in reserves:
-        got = behind(hours, pct, Y, res)
+        got = behind(hours, pct, Y, res, s_pct=0.0, s_hours=SESSION_HOURS)
         if got != want:
             print(f"FAIL behind at {hours}h, {pct}% left, {res}% reserved: "
                   f"{got} (want {want})", file=sys.stderr)
+            bad += 1
+    for hours, want in stubs:
+        got = stub_worth(hours, Y)
+        if abs(got - want) > 1e-9:
+            print(f"FAIL stub of {hours}h: {got:.2f} (want {want:.2f})", file=sys.stderr)
+            bad += 1
+    for left, s_pct, s_hours, want in tilings:
+        got = reachable(left, s_pct, s_hours, Y)
+        if abs(got - want) > 0.01:
+            print(f"FAIL reachable in {left}h at session {s_pct}% "
+                  f"turning over in {s_hours}h: {got:.2f} (want {want})", file=sys.stderr)
+            bad += 1
+    for hours, pct, s_pct, s_hours, want in phases:
+        got = behind(hours, pct, Y, s_pct=s_pct, s_hours=s_hours)
+        if got != want:
+            print(f"FAIL behind at {hours}h, {pct}% left, session {s_pct}% "
+                  f"turning over in {s_hours}h: {got} (want {want})", file=sys.stderr)
             bad += 1
     now = time.time()
     for samples, blended, want in plans:
@@ -498,7 +602,7 @@ def self_test():
                   f"{'believed' if got else 'refused'}", file=sys.stderr)
             bad += 1
     for hours, left, want in schedule:
-        got = behind(hours, left, Y)
+        got = behind(hours, left, Y, s_pct=0.0, s_hours=SESSION_HOURS)
         if got != want:
             print(f"FAIL schedule {left}% with {hours}h to go: "
                   f"{'spend' if got else 'wait'} (want {'spend' if want else 'wait'})",
@@ -523,7 +627,7 @@ def self_test():
     # Counted, not typed: a hand-written total goes stale the first time a case
     # is added and then reports a shrinking suite as a passing one.
     n = (len(starts) + len(widths) + len(schedule) + len(endgames) + len(fills)
-         + len(reserves) + len(plans))
+         + len(reserves) + len(plans) + len(stubs) + len(tilings) + len(phases))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -566,7 +670,7 @@ def main():
         # window needs; it may not ask for a window to turn over with room on it
         # once the windows themselves are the scarce thing.
         if behind(hours, pct_left()):
-            paced = max(paced, fill_width())
+            paced = max(paced, fill_width(weekly_hours=hours))
         print(paced)
         return 0
     if "--behind" in sys.argv:
@@ -594,7 +698,9 @@ def main():
           f"{session_yield():.1f} points per five-hour window and planned at "
           f"{planning_yield():.1f} (worst of {seen} reading(s)), that needs "
           f"{windows(left)} of them, so start {window_hours(left):.0f}h out "
-          f"at width {width(left, window_hours(left))}")
+          f"at width {width(left, window_hours(left))}. "
+          f"From here the windows in front of the weekly reset are worth "
+          f"{reachable(weekly_usage.resets_in_hours('weekly')[0]):.0f} points")
     return 0
 
 
