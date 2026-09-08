@@ -3123,9 +3123,11 @@
       ? pickableClueHTML(e, ask, guessing.picked, guessing.rung)
       : clueHTML(holder);
     const clueWrote = setHTML($("hint-clue"), clueLine);
-    // Bordered words need the leading the duplicate copy used to have, and the
-    // clue line is one element whichever form it is in — so the state goes on the
-    // element rather than into the markup setHTML compares.
+    // Only for the reveal flash (see .hint-clue.picking in style.css) — the
+    // clue's own size is fixed regardless of which form is in it, so this
+    // class carries no metric that setHTML's markup comparison would need to
+    // catch. Set on the element rather than baked into the markup, or the
+    // flash would replay every re-render mid-guess instead of firing once.
     $("hint-clue").classList.toggle("picking", clueLine.indexOf("guess-clue") >= 0);
 
     setHTML($("hint-meter"), meterHTML + (freeRest ? " · the rest are free now" : ""));

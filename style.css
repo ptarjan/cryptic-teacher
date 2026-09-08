@@ -495,7 +495,13 @@ button:disabled:hover { border-color: var(--line); }
   border: 1px solid var(--line); border-left: 4px solid var(--accent);
   border-radius: 8px; background: var(--card); padding: 12px 15px; margin-top: 4px;
 }
-.hint-clue { font-size: 1.15rem; line-height: 1.45; margin-bottom: 4px; }
+/* Set at the width the bordered picking words need (see .guess-clue below),
+   not the width a plain sentence would want on its own — the clue is read in
+   both forms and starting picking must not change this element's own metrics,
+   or the panel reflows out from under the solver at the moment they begin
+   (Paul, 2026-09-07: "it is jarring when I go to select parts of the clue
+   that it moves"). */
+.hint-clue { font-size: 1.15rem; line-height: 2.1; margin-bottom: 4px; }
 .hint-clue .entry-tag { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; margin-right: 6px; }
 #hint-meter { font-size: .8rem; margin-bottom: 8px; }
 
@@ -619,11 +625,10 @@ button:disabled:hover { border-color: var(--line); }
    forms re-wraps the whole clue at the moment the solver is trying to read what
    changed. Nothing below may override it. */
 .guess-clue { line-height: 2.1; }
-/* The question is now asked of the clue at the top of the panel rather than of a
-   copy printed under it, so that line has to carry bordered words without them
-   colliding with the line above. Only while it is being pointed at: a clue that
-   is merely being read wants its own tighter leading back. */
-.hint-clue.picking { line-height: 2.1; }
+/* Nested inside .hint-clue, take ITS line-height rather than the default above
+   — the two are the same number today, but .hint-clue is the one the picking
+   transition is pinned to, so a future change to that number only has one
+   place to happen. */
 .hint-clue .guess-clue { line-height: inherit; }
 /* The question appears in the panel BELOW while the thing to tap is the clue
    ABOVE it, so nothing on screen moves at the place the solver has to act. One
@@ -934,7 +939,7 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
   .pat-word.brk-space { margin-right: 13px; }
   .pat-sep { font-size: 1.35rem; }
   #hint-panel { padding: 14px 18px; }
-  .hint-clue { font-size: 1.3rem; line-height: 1.45; margin-bottom: 6px; }
+  .hint-clue { font-size: 1.3rem; line-height: 2.1; margin-bottom: 6px; }
   #hint-meter { font-size: .85rem; }
   /* The clue itself wants every pixel — it is one line and it is the thing being
      read. The walkthrough prose does not: stacked on a landscape tablet the panel
