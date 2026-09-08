@@ -1794,9 +1794,11 @@
   function piecesShown(e) {
     const key = entryKey(e);
     if (blocksAt[key] === undefined) {
-      // Saved before the rung was paced, when taking it handed over everything.
-      // A reload must not take back what the panel has already said.
-      blocksAt[key] = isShown(e, "blocks") ? blockPieces(e).length : 0;
+      // No count on record, paced or not, means nothing extra beyond what the
+      // rung being open already implies — never "hand over every remaining
+      // piece". A count that should be here but isn't is a reason to hold
+      // back, not a reason to dump the lot.
+      blocksAt[key] = 0;
     }
     return blocksAt[key];
   }

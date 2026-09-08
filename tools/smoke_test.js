@@ -3035,6 +3035,56 @@ global.realSetTimeout(() => {
       + registry["hint-next"].innerHTML);
 }
 
+// --- a save with the blocks rung shown and no count reveals nothing extra ---
+// sync/merge.js used to drop blocksAt on its way through a sync push, so a save
+// that reaches this app can have "blocks" in hintsShown with no count to say how
+// far it got. piecesShown() used to read exactly that shape as "from before the
+// rung was paced" and hand over every remaining piece — which fires just as
+// readily on a save the bug only just broke as on a genuinely old one, so the
+// fallback cannot tell them apart and must not act as if it can: either way, the
+// right read is that nothing beyond what is already implied has been shown.
+{
+  const puzzles = global.window.CRYPTIC_PUZZLES;
+  let target = null;
+  for (const id of Object.keys(puzzles).sort()) {
+    for (const e of puzzles[id].entries || []) {
+      const a = e.annotation;
+      if (!a || a.linkedTo) continue;
+      if ((a.blocks || []).length >= 2 && (a.blocks || []).some((b) => b.gives)) {
+        target = { id, e };
+        break;
+      }
+    }
+    if (target) break;
+  }
+  assert(target, "the corpus has a multi-piece blocks rung to damage");
+  if (target) {
+    const { id, e } = target;
+    const key = "ct:" + id;
+    const kept = storage[key];
+    // hintsShown says the rung was opened; blocksAt says nothing at all — the
+    // shape a sync merge left behind before 9af9ed7, and the shape a save from
+    // before pacing existed has always had.
+    storage[key] = JSON.stringify({ hintsShown: { [e.id]: ["blocks"] }, updated: Date.now() });
+
+    registry["btn-picker"].onclick();
+    typeInPicker(String(puzzles[id].number));
+    const li = registry["picker-list"].children.find((x) => x.children[0]
+      && x.children[0].innerHTML.includes("№ " + puzzles[id].number));
+    assert(li, `the picker can reopen puzzle ${puzzles[id].number} to reload the damaged save`);
+    if (li) {
+      li.children[0].onclick();
+      registry["clue-" + e.id].listeners.click[0]();
+      const html = registry["hint-body"].innerHTML;
+      assert(!/class="gives"/.test(html),
+        "a rung shown with no blocksAt count reveals no pieces on reload, not every piece: "
+          + html.slice(0, 300));
+    }
+
+    if (kept === undefined) delete storage[key]; else storage[key] = kept;
+  }
+}
+
 // --- a run of words is one gesture, and a settled word is not a choice ---
 // Two things Paul asked for on the same screen. Dragging across the words picks
 // the run under the finger, because a definition IS a run and four taps is four
