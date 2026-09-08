@@ -2019,6 +2019,32 @@ registry["reset-puzzle"].onclick();
   assert(JSON.stringify(mergeSaves(null, undefined)) === JSON.stringify({ v: 1, puzzles: {} }),
     "merging nothing with nothing is empty, not a crash — the Worker calls this on a fresh code");
 
+  // The blocks rung is paced by a per-clue count of pieces handed over, kept
+  // apart from hintsShown because a rung can be up with only its first piece
+  // out. That count has to survive a merge like every other one here: app.js
+  // reads "rung shown, no count for it" as a save from before pacing existed,
+  // and hands over every piece the count would have held back — so a merge
+  // that drops the field un-paces the rung on the very next sync, which is
+  // what happened to Paul mid-clue: "I just did the first one and then the
+  // second solved without my input" (2026-09-07).
+  const pacedFar = { v: 1, puzzles: { 30079: {
+    hintsShown: { "1a": ["blocks"] }, blocksAt: { "1a": 2 }, updated: 100 } } };
+  const pacedNear = { v: 1, puzzles: { 30079: {
+    hintsShown: { "1a": ["blocks"] }, blocksAt: { "1a": 1 }, updated: 50 } } };
+  // Read defensively rather than off the bare merge result: the field this
+  // test exists to catch is one a broken merge drops entirely, and a crash
+  // reading past it would take out every assertion after it in the file.
+  const pacedEither = mergeSaves(pacedFar, pacedNear).puzzles["30079"].blocksAt || {};
+  assert(JSON.stringify(mergeSaves(pacedNear, pacedFar).puzzles["30079"].blocksAt || {})
+    === JSON.stringify(pacedEither), "blocksAt merges the same way round either way");
+  assert(pacedEither["1a"] === 2,
+    "merging keeps whichever device paid out further, not the more recent save: "
+      + JSON.stringify(pacedEither));
+  // The exact shape of a push: a device merges its own save with the reply to
+  // its own PUT. Nothing it already had may go missing from that round trip.
+  assert((mergeSaves(pacedNear, pacedNear).puzzles["30079"].blocksAt || {})["1a"] === 1,
+    "a save merged with itself keeps the pacing it already had");
+
   // Solve times: recorded now so that an index could be built later, which
   // means the merge has to be as unable to lose them as it is to lose letters.
   const morning = { v: 1, puzzles: { 1: { timing: {
