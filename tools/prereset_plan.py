@@ -53,16 +53,49 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import weekly_usage  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
-RATE_FILE = REPO / ".prereset_rate"
-YIELD_FILE = REPO / ".prereset_yield"
+
+
+def state_dir():
+    """Where the measured constants live: the CHECKOUT, not whichever worktree.
+
+    The burn annotates in a throwaway worktree and measures the yield there, but
+    the decision the yield exists for — when to start spending — is taken in the
+    checkout, hours earlier, by an hourly fire that never sees the worktree. Kept
+    beside the code that read them, the measurements are written where nothing
+    reads them and read where nothing wrote them: on 2026-09-08 the worktree had
+    measured 8.4 while the start gate ran all week on the seeded 12.6, started a
+    third of a week too late, and could not reach 100% however wide it ran.
+
+    A worktree's .git is a FILE naming its gitdir under the checkout's
+    .git/worktrees/; the checkout is the path in front of that. Read rather than
+    shelled out to: this is called several times a wave.
+    """
+    dotgit = REPO / ".git"
+    try:
+        if dotgit.is_file():
+            head = dotgit.read_text().strip()
+            marker = "/.git/worktrees/"
+            if head.startswith("gitdir:") and marker in head:
+                return Path(head.split(":", 1)[1].strip().split(marker)[0])
+    except OSError:
+        pass
+    return REPO
+
+
+STATE = state_dir()
+RATE_FILE = STATE / ".prereset_rate"
+YIELD_FILE = STATE / ".prereset_yield"
 
 SESSION_HOURS = 5.0
 
 # Weekly percentage-points that one fully-spent five-hour window is worth.
-# Measured from ~7000 paired samples over 2026-08-08..23 (see the docstring), and
-# it is a genuine measurement rather than a floor: it comes from stretches where
-# neither meter was pinned, so nothing is censored out of it.
-SEED_YIELD = 12.6
+# Only a seed: a real .prereset_yield in the checkout beats it within one wave.
+# It was 12.6, measured from ~7000 paired samples over 2026-08-08..23, and that
+# is no longer what a window is worth — four clean saturated windows measured
+# 16.0, 15.1 and 15.2 on 2026-09-01 against 9.0 on 2026-09-08, so the number has
+# moved and a seed that reads high is the expensive direction: it under-counts
+# the windows the remainder needs and starts the burn too late to spend it.
+SEED_YIELD = 8.4
 
 # Percent of the weekly window ONE annotation run burns per hour. A FLOOR, not a
 # measurement, and deliberately used as one. The two clean runs on record
@@ -289,7 +322,10 @@ def self_test():
     that matter are the big remainders: a job that spends everything when 3% is
     left and nothing when 70% is has still wasted the whole point.
     """
-    Y, R = SEED_YIELD, SEED_RATE
+    # Fixture values, not the seeds: every expectation below is hand-computed
+    # against these, so re-measuring a seed must not silently rewrite what the
+    # tables assert. Change one of these and you owe the whole column again.
+    Y, R = 12.6, 1.1
     starts = [
         # pct_left, yield -> hours before the reset to start
         (69, Y, 30.0),      # the live remainder: six windows
@@ -407,6 +443,9 @@ def main():
     if "--observe-yield" in sys.argv:
         at = sys.argv.index("--observe-yield")
         print(f"{observe_yield(*(float(a) for a in sys.argv[at + 1:at + 3])):.3f}")
+        return 0
+    if "--state-dir" in sys.argv:
+        print(STATE)
         return 0
     if "--rate" in sys.argv:
         print(f"{rate():.3f}")
