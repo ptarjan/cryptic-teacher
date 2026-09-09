@@ -691,15 +691,6 @@ def main():
         # one night the remainder exists to be spent.
         at = sys.argv.index("--behind")
         args = sys.argv[at + 1:at + 3]
-        # TEMPORARY 2026-09-08: time-boxed stand-down so the running job drops its
-        # stale queue. The RUNNING shell is db0bd8d, whose still_behind passes ONE
-        # arg like the startup gate does, so the two cannot be told apart by
-        # argument count — only by the clock. Expires on its own; nightly_worktree
-        # also resets this worktree at every run start.
-        import time
-        if time.time() < 1788918600:  # 2026-09-08 19:50 MDT
-            print("no")
-            return 0
         hours = float(args[0])
         res = float(args[1]) if len(args) > 1 and not args[1].startswith("-") else 0.0
         print("yes" if behind(hours, pct_left(), reserve_pct=res) else "no")
