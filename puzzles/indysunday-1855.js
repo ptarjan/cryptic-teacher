@@ -30,7 +30,37 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOVERNESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GOVERNESS",
+    "definition": "Old childminder",
+    "definitionFit": "A governess was the woman a household employed to live in and teach its children, a post that has all but died out, which is what 'Old' flags.",
+    "indicators": [],
+    "pieces": [
+     "GO",
+     "VERNES",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shot",
+      "gives": "GO",
+      "note": "a shot at something is a go at it"
+     },
+     {
+      "clueFragment": "French writer's",
+      "gives": "VERNES",
+      "note": "Jules Verne, the French novelist, with the possessive s the clue prints after him"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "s is the standard abbreviation for son"
+     }
+    ],
+    "surface": "An elderly nanny photographing the son of a French novelist.",
+    "walkthrough": "'Shot' looks like a photograph and means an attempt, and the apostrophe s that reads as ordinary possession in the sentence is letters the wordplay needs."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +77,38 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRIP",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GRIP",
+    "definition": "bag",
+    "definitionFit": "A grip is a soft travelling bag, the holdall sense of the word rather than the handshake one.",
+    "indicators": [
+     "Almost all"
+    ],
+    "indicatorNotes": {
+     "Almost all": "Taking almost all of a word means stopping one letter short of its end, so the final letter never gets written down."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "GRIP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grouse",
+      "gives": "GRIPE",
+      "note": "to grouse is to gripe — both mean to complain"
+     },
+     {
+      "clueFragment": "Almost all",
+      "gives": "",
+      "note": "the instruction that costs the complaint its last letter, the E"
+     }
+    ],
+    "surface": "Nearly all the shot grouse fitting into one bag.",
+    "walkthrough": "'Grouse' is the moorland bird in the surface and the verb 'complain' in the wordplay, and the shooting party's game bag is the picture hiding the luggage sense."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +125,38 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VACCINATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "VACCINATE",
+    "definition": "prepare to cope with awful conditions",
+    "definitionFit": "To vaccinate is to prime somebody's immune system in advance so that it can meet a disease already ready for it.",
+    "indicators": [
+     "Hearing of"
+    ],
+    "indicatorNotes": {
+     "Hearing of": "Hearing of something reaches you as sound, so the phrase that follows is wanted for the noise it makes rather than its spelling."
+    },
+    "blocks": [
+     {
+      "clueFragment": "hols",
+      "gives": "VAC",
+      "note": "the vac is what British students call the university holidays"
+     },
+     {
+      "clueFragment": "narrow boat",
+      "gives": "EIGHT",
+      "note": "an eight is the long thin racing boat pulled by eight oarsmen"
+     },
+     {
+      "clueFragment": "hols in narrow boat",
+      "soundsLike": "VAC IN EIGHT",
+      "gives": "VACCINATE",
+      "note": "say the three little words straight through and the joins between them vanish"
+     }
+    ],
+    "surface": "Told that the holiday will be spent on a canal boat, you brace yourself for grim weather.",
+    "walkthrough": "The narrow boat of the surface is a canal barge and the wordplay wants the racing sort, the rowing eight; 'hols' is schoolboy shorthand the setter expects you to carry."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +173,31 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIGHT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RIGHT",
+    "definition": "Stand back up",
+    "definitionFit": "To right a capsized dinghy is to set it upright again, which is standing it back up.",
+    "indicators": [
+     "when told"
+    ],
+    "indicatorNotes": {
+     "when told": "Something told is spoken rather than written, so the word before it is wanted for its sound and comes out spelt another way."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ceremony",
+      "soundsLike": "RITE",
+      "gives": "RIGHT",
+      "note": "a ceremony is a rite, and that syllable has several spellings in English"
+     }
+    ],
+    "surface": "Getting back on your feet in the middle of a ceremony.",
+    "walkthrough": "'Stand back up' reads as an instruction to a person and is what you do to a capsized boat, while the vertical entry makes 'back up' feel like a reversal it never is."
+   }
   },
   {
    "id": "4-down",
@@ -98,7 +214,46 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENGAGED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "ENGAGED",
+    "definition": "Promised",
+    "definitionFit": "Engaged means promised in marriage — a pledge given, not a diary that is full.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "One thing said to be in another sits inside it, so the letters gathered first are dropped between the two ends of the word that follows."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "EN",
+     "GAG",
+     "E",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terminus",
+      "gives": "END",
+      "note": "a terminus is the end of the line"
+     },
+     {
+      "clueFragment": "stop talking",
+      "gives": "GAG",
+      "note": "to gag somebody is to stop them talking"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "e is the standard abbreviation for English"
+     }
+    ],
+    "surface": "Somebody who has promised to stop speaking English by the time the train reaches the last station.",
+    "walkthrough": "'Terminus' drags the whole surface towards railways, where the answer would be a signal or a telephone line; the definition wants the betrothal sense and stands alone at the front."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +270,52 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUBPLOT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "SUBPLOT",
+    "definition": "novel feature",
+    "definitionFit": "A subplot is the secondary story running alongside the main one, so it is a feature of the form rather than of any single book.",
+    "indicators": [
+     "beneath",
+     "on the climb"
+    ],
+    "indicatorNotes": {
+     "beneath": "In a down entry the letters run from the top down, so the piece said to be beneath the rest is written last.",
+     "on the climb": "Something on the climb is heading upwards, and upwards in a down entry is back towards the start, so those letters are read from their far end."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "SUBP",
+     "LOT"
+    ],
+    "subReversals": [
+     {
+      "from": "PBUS",
+      "to": "SUBP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "PB",
+      "note": "Pb is the chemical symbol for lead, from the Latin plumbum"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "the clue's own word, taken at face value"
+     },
+     {
+      "clueFragment": "Group",
+      "gives": "LOT",
+      "note": "a lot is a group of people or things"
+     }
+    ],
+    "surface": "A party roped in below the leader as they take us up the mountain.",
+    "walkthrough": "'Lead' looks like the climber at the front of the rope and is the metal, which is where the mountaineering surface does its work; the novel of the definition is a book, not something new."
+   }
   },
   {
    "id": "6-across",
@@ -132,7 +332,37 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEMIT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container + first letter",
+    "answer": "DEMIT",
+    "definition": "Scottish give up",
+    "definitionFit": "Demit is the Scots and legal word for giving up an office — resigning a post, rather than abandoning a habit.",
+    "indicators": [
+     "bad",
+     "around"
+    ],
+    "indicatorNotes": {
+     "bad": "Food gone bad has gone off, and letters that have gone off will not stay in the order the clue prints them.",
+     "around": "Something placed around another thing encloses it, so the shuffled letters close over the single letter named next."
+    },
+    "anagram": {
+     "fodder": "DIET M"
+    },
+    "blocks": [
+     {
+      "clueFragment": "diet",
+      "gives": "DIET",
+      "note": "anagram fodder, four letters"
+     },
+     {
+      "clueFragment": "start of May",
+      "gives": "M",
+      "note": "the first letter of May"
+     }
+    ],
+    "surface": "A Scot swearing off a poor diet as May begins.",
+    "walkthrough": "'Give up' reads as abandoning a habit and means resigning an office, and 'Scottish' is the label a dictionary puts on this verb rather than a piece of the picture."
+   }
   },
   {
    "id": "6-down",
@@ -149,7 +379,42 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUNGAREES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "DUNGAREES",
+    "definition": "Overalls",
+    "definitionFit": "Dungarees are the bib-and-brace trousers pulled on over your clothes for dirty work, which is the class 'overalls' names.",
+    "indicators": [
+     "smeared"
+    ],
+    "indicatorNotes": {
+     "smeared": "Smearing something spreads it about so that nothing stays where it was put, and the letters beside it are spread about the same way."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "anagram": {
+     "fodder": "DUN GREASE"
+    },
+    "pieces": [
+     "DUN",
+     "GAREES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "DUN",
+      "note": "dun is a dull greyish brown, the colour of a dun horse"
+     },
+     {
+      "clueFragment": "grease",
+      "gives": "GREASE",
+      "note": "anagram fodder, six letters"
+     }
+    ],
+    "surface": "A mechanic's brown work clothes with oil smudged all over them.",
+    "walkthrough": "The greasy brown workwear the surface describes is the very thing being defined, so there is no misdirection to see through — only the shuffle, and a colour word that survives mostly in horses."
+   }
   },
   {
    "id": "7-down",
@@ -166,7 +431,36 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MANET",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "MANET",
+    "definition": "Painter",
+    "definitionFit": "Manet was a nineteenth-century French artist, so the definition simply names his trade.",
+    "indicators": [
+     "turned up"
+    ],
+    "indicatorNotes": {
+     "turned up": "Turning something up in a down entry sends it back towards the top, so the letters are read from the bottom end first."
+    },
+    "pieces": [
+     "MANET"
+    ],
+    "subReversals": [
+     {
+      "from": "TENAM",
+      "to": "MANET"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one hour before morning tea-break",
+      "gives": "TENAM",
+      "note": "the British mid-morning tea-break is elevenses, so an hour earlier is ten am"
+     }
+    ],
+    "surface": "The decorator showed up an hour before the mid-morning tea-break.",
+    "walkthrough": "'Painter' is a decorator in the surface and an artist in the definition, and 'turned up' does the same double duty — arriving, and being written out backwards."
+   }
   },
   {
    "id": "8-down",
@@ -183,7 +477,47 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TESSELLATE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "TESSELLATE",
+    "definition": "Tile",
+    "definitionFit": "To tessellate is to cover a surface with shapes that meet edge to edge with no gaps, which is what tiling a floor does.",
+    "indicators": [
+     "upside down"
+    ],
+    "indicatorNotes": {
+     "upside down": "Something upside down has its ends swapped, so the two short pieces in front of it are written out from the back."
+    },
+    "pieces": [
+     "TESSEL",
+     "LATE"
+    ],
+    "subReversals": [
+     {
+      "from": "LESSET",
+      "to": "TESSEL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lesley",
+      "gives": "LES",
+      "note": "the name docked to its everyday short form"
+     },
+     {
+      "clueFragment": "positioned",
+      "gives": "SET",
+      "note": "something positioned has been set in place"
+     },
+     {
+      "clueFragment": "at the last minute",
+      "gives": "LATE",
+      "note": "doing a thing at the last minute is leaving it late"
+     }
+    ],
+    "surface": "Lesley putting a tile up the wrong way round with no time to spare.",
+    "walkthrough": "'Tile' is a verb here rather than a noun, which is the whole disguise: the clue reads as somebody sticking one on a wall in a hurry."
+   }
   },
   {
    "id": "9-across",
@@ -200,7 +534,37 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INCOG",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + anagram",
+    "answer": "INCOG",
+    "definition": "Using secret identity",
+    "definitionFit": "Incog is the clipped form of incognito, the state of going about under an assumed name so that nobody knows you.",
+    "indicators": [
+     "avoids",
+     "out"
+    ],
+    "indicatorNotes": {
+     "avoids": "What a word avoids it keeps clear of, so the letter named just before it never joins the mix.",
+     "out": "A thing that is out is out of order, and letters out of order have to be put back in some other arrangement."
+    },
+    "anagram": {
+     "fodder": "COING"
+    },
+    "blocks": [
+     {
+      "clueFragment": "coming",
+      "gives": "COMING",
+      "note": "the fodder, shuffled once a letter has left it"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "m is the standard abbreviation for male, and it is the letter kept out"
+     }
+    ],
+    "surface": "A man with something to hide keeping quiet about who he really is.",
+    "walkthrough": "'Coming out' is one phrase in the surface and two separate instructions in the wordplay, which is exactly where the clue does its hiding."
+   }
   },
   {
    "id": "10-across",
@@ -221,7 +585,53 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOBANANAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container + reversal",
+    "answer": "GO BANANAS",
+    "definition": "get potty",
+    "definitionFit": "Going bananas is losing your head, and 'potty' is the British word for mildly mad, so the two idioms match sense for sense.",
+    "indicators": [
+     "catching",
+     "on",
+     "backed-up"
+    ],
+    "indicatorNotes": {
+     "catching": "Catching something is closing round it, so the word in front takes the word named next inside itself.",
+     "on": "In an across clue a thing on another has been laid on top of it, so the piece named first is written after the one it rests on.",
+     "backed-up": "Backed-up traffic has come back along its own route, and in an across entry that means the letters run right to left."
+    },
+    "pieces": [
+     "GOB",
+     "A",
+     "NANA",
+     "S"
+    ],
+    "subReversals": [
+     {
+      "from": "BOG",
+      "to": "GOB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toilet",
+      "gives": "BOG",
+      "note": "the bog is British slang for the lavatory"
+     },
+     {
+      "clueFragment": "When",
+      "gives": "AS",
+      "note": "as = when, in the sense of 'as I came in'"
+     },
+     {
+      "clueFragment": "granny",
+      "gives": "NANA",
+      "note": "nana is one of the family names for a grandmother"
+     }
+    ],
+    "surface": "Walking in on your grandmother at a blocked lavatory, and reaching for the potty.",
+    "walkthrough": "'Potty' is the chamber pot in the surface and the British word for barmy in the definition, and the plumbing keeps the whole picture pointed the wrong way."
+   }
   },
   {
    "id": "11-across",
@@ -242,7 +652,52 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
     ]
    },
    "solution": "TINTAGELCASTLE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "TINTAGEL CASTLE",
+    "definition": "busy SW seaside spot",
+    "definitionFit": "Tintagel Castle is the cliff-top ruin on the north Cornish coast, tied to the Arthur legend and packed with visitors all summer.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "A thing described as in another sits inside it, so the two pieces just named are dropped between the letters of the word that follows."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "TINT",
+     "A",
+     "GEL",
+     "CAST",
+     "LE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stain",
+      "gives": "TINT",
+      "note": "to tint something is to stain it with colour"
+     },
+     {
+      "clueFragment": "Beer",
+      "gives": "ALE",
+      "note": "the capital letter makes it a Devon village on the surface; the drink is what the letters want"
+     },
+     {
+      "clueFragment": "stick together",
+      "gives": "GEL",
+      "note": "when things gel they set and stick together"
+     },
+     {
+      "clueFragment": "shed",
+      "gives": "CAST",
+      "note": "an animal that sheds its skin casts it"
+     }
+    ],
+    "surface": "Painting and gluing a beach hut back together in the crowded seaside village of Beer.",
+    "walkthrough": "Beer really is a small seaside village in Devon, which is what makes the capital letter honest and the definition so hard to prise away from the wordplay next to it."
+   }
   },
   {
    "id": "12-down",
@@ -263,7 +718,46 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
     ]
    },
    "solution": "GRAHAMHILL",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "GRAHAM HILL",
+    "definition": "Racing driver",
+    "definitionFit": "Graham Hill won the Formula One world championship twice in the 1960s, so the definition names him by the class he belongs to.",
+    "indicators": [
+     "eating",
+     "in"
+    ],
+    "indicatorNotes": {
+     "eating": "Something eating another thing has it inside, so the piece just named swallows the one that follows.",
+     "in": "A piece said to be in something goes between its letters, and here the whole assembly drops inside the word at the end."
+    },
+    "pieces": [
+     "GR",
+     "A",
+     "HAM",
+     "H",
+     "ILL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steak restaurant",
+      "gives": "GRILL",
+      "note": "a grill is the kind of restaurant that cooks its steaks over heat"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "AH",
+      "note": "'ah' is the noise you make on seeing what somebody means"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "HAM",
+      "note": "ham is meat, cured from a pig's leg"
+     }
+    ],
+    "surface": "A diner nodding in recognition over a plate of meat at a steakhouse.",
+    "walkthrough": "'I see' is not somebody looking but the noise of understanding, which is the piece that stays hidden longest. The champion here fathered another one, Damon."
+   }
   },
   {
    "id": "13-across",
@@ -280,7 +774,30 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROADBED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROADBED",
+    "definition": "base for rail",
+    "definitionFit": "A roadbed is the prepared foundation of earth and ballast that railway track is laid on, so the rails literally sit on it.",
+    "indicators": [
+     "Splintering"
+    ],
+    "indicatorNotes": {
+     "Splintering": "Wood that is splintering is breaking into pieces, and the word beside it breaks into loose letters to be put back another way."
+    },
+    "anagram": {
+     "fodder": "BOARDED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "boarded",
+      "gives": "BOARDED",
+      "note": "anagram fodder, seven letters"
+     }
+    ],
+    "surface": "Boards splintering under the footing of a handrail.",
+    "walkthrough": "'Splintering boarded' reads straight past as carpentry, which is what hides the shuffle, and 'rail' is the railway rather than a banister."
+   }
   },
   {
    "id": "14-down",
@@ -297,7 +814,39 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BLIGHTERS",
-   "annotation": null
+   "annotation": {
+    "type": "container + outer letters",
+    "answer": "BLIGHTERS",
+    "definition": "people in shower",
+    "definitionFit": "Blighters are contemptible fellows, and a shower is British slang for a hopeless bunch of them, so the definition carries the disapproval too.",
+    "indicators": [
+     "Empty",
+     "filled by"
+    ],
+    "indicatorNotes": {
+     "Empty": "An empty container has had its middle taken out, so only the outside letters of the word that follows are left standing.",
+     "filled by": "Something filled by another thing takes it inside, so the next word goes into the gap the emptying has just made."
+    },
+    "pieces": [
+     "B",
+     "LIGHTER",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Empty bottles",
+      "gives": "BS",
+      "note": "bottles with everything between the outer letters poured away"
+     },
+     {
+      "clueFragment": "blonder",
+      "gives": "LIGHTER",
+      "note": "hair that is blonder is lighter"
+     }
+    ],
+    "surface": "A crowd of fair-haired drinkers refilling the bottles they have emptied.",
+    "walkthrough": "'Shower' is not rain but the British insult for a useless bunch, and the question mark is the setter owning up to how loose that is."
+   }
   },
   {
    "id": "15-across",
@@ -314,7 +863,39 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "THERMAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "THERMAL",
+    "definition": "warming",
+    "definitionFit": "Thermal underwear is the warming kind, and the adjective covers anything that holds or gives off heat.",
+    "indicators": [
+     "After cycling"
+    ],
+    "indicatorNotes": {
+     "After cycling": "Cycling carries the letters round like a bicycle chain: their order never changes, but the read starts at a different point."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "T",
+     "HERMAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that lady's",
+      "gives": "HER",
+      "note": "that lady's = her, the possessive"
+     },
+     {
+      "clueFragment": "whisky",
+      "gives": "MALT",
+      "note": "a malt is a Scotch whisky"
+     }
+    ],
+    "surface": "After a bike ride, the woman's whisky is doing its work against the cold.",
+    "walkthrough": "The cyclist in the surface is the joke: the letters go round in exactly the way she does. Malt is the crossword's standard whisky, worth keeping."
+   }
   },
   {
    "id": "16-down",
@@ -331,7 +912,41 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MOONRAKER",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "MOONRAKER",
+    "definition": "spy film",
+    "definitionFit": "Moonraker is the 1979 James Bond picture, so the definition works by example — one spy film standing in for the class.",
+    "indicators": [
+     "for Spooner"
+    ],
+    "indicatorNotes": {
+     "for Spooner": "The Reverend Spooner was famous for swapping the opening sounds of two words, so the pair described here trade their first noises."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "MOON",
+     "RAKER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret character",
+      "soundsLike": "RUNE",
+      "gives": "MOON",
+      "note": "a rune is a letter of the old Germanic alphabet, long used for writing in secret"
+     },
+     {
+      "clueFragment": "One creating",
+      "soundsLike": "MAKER",
+      "gives": "RAKER",
+      "note": "one who creates a thing is its maker"
+     }
+    ],
+    "surface": "Somebody writing a mystery part for the Reverend Spooner in a spy movie.",
+    "walkthrough": "Say 'rune maker' and trade the opening noises. The vowel slides a little on the way — 'roon' becomes 'moon' — which is the sort of drift a spoonerism is allowed."
+   }
   },
   {
    "id": "17-across",
@@ -348,7 +963,29 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HEELING",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "HEELING",
+    "definition": "on a list",
+    "definitionNote": "The answer is a participle and the definition a phrase: a boat that is heeling is said to be on a list, so the two describe one state rather than matching grammatically.",
+    "definitionFit": "A ship heeling is leaning over to one side, and that tilt is what sailors call a list.",
+    "indicators": [
+     "read out"
+    ],
+    "indicatorNotes": {
+     "read out": "Reading something out turns it into a sound, so the quoted phrase is wanted for how it is said and not for how it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "\"Getting health back\"",
+      "soundsLike": "HEALING",
+      "gives": "HEELING",
+      "note": "getting your health back is healing, and that sound has a twin with another spelling"
+     }
+    ],
+    "surface": "A get-well message being read aloud from a list of names.",
+    "walkthrough": "The quotation marks are the setter flagging that the phrase inside is to be heard rather than read, and the list at the end is a boat's lean, nothing to do with names."
+   }
   },
   {
    "id": "18-down",
@@ -371,7 +1008,45 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GANDALF",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "GANDALF",
+    "definition": "McKellen's magic role",
+    "definitionFit": "Ian McKellen played the wizard Gandalf in the Lord of the Rings films, so the definition points at the actor's part rather than naming the character.",
+    "indicators": [
+     "in",
+     "coming up"
+    ],
+    "indicatorNotes": {
+     "in": "One thing in another goes between its letters, so the short word named first is dropped inside the piece that follows.",
+     "coming up": "A down entry is read from the top downwards, so anything coming up is written out from its bottom end back to its top."
+    },
+    "pieces": [
+     "G",
+     "AND",
+     "ALF"
+    ],
+    "subReversals": [
+     {
+      "from": "FLAG",
+      "to": "GALF"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue Peter",
+      "gives": "FLAG",
+      "note": "the Blue Peter is the blue-and-white flag a ship flies when about to sail; the children's programme was named after it"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "AND",
+      "note": "and = also, tacking one thing onto another"
+     }
+    ],
+    "surface": "The actor's wizard turning up on the children's programme Blue Peter.",
+    "walkthrough": "The italics dress Blue Peter up as the television title, while the wordplay wants the sailing flag the programme borrowed its name from."
+   }
   },
   {
    "id": "19-across",
@@ -392,7 +1067,39 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
     ]
    },
    "solution": "PASSOUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "PASS OUT",
+    "definition": "complete army training",
+    "definitionFit": "To pass out is to graduate from a military academy — the parade at the end of training, not fainting on it.",
+    "indicators": [
+     "shortly"
+    ],
+    "indicatorNotes": {
+     "shortly": "Something put shortly is cut short, so the word in front of it gives up its final letter."
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "PAS",
+     "SOUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad's",
+      "gives": "PAS",
+      "note": "pa is dad, and the clue's apostrophe s comes along with him"
+     },
+     {
+      "clueFragment": "heading for Antarctica",
+      "gives": "SOUTH",
+      "note": "the direction you head in to reach Antarctica"
+     }
+    ],
+    "surface": "Dad about to set off for the Antarctic just as the army training ends.",
+    "walkthrough": "Everywhere but the parade ground the answer means fainting; here it is what cadets do on the day they finish, and the polar trip hides a plain compass point."
+   }
   },
   {
    "id": "19-down",
@@ -409,7 +1116,43 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PIONEER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "PIONEER",
+    "definition": "Innovator",
+    "definitionFit": "A pioneer is the first into new ground, so 'innovator' names the same person by what they are first to do.",
+    "indicators": [
+     "during"
+    ],
+    "indicatorNotes": {
+     "during": "Something happening during another thing falls inside it, so the letters named first go between the letters of the walk."
+    },
+    "pieces": [
+     "PI",
+     "ON",
+     "E",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long walk on stilts",
+      "gives": "PIER",
+      "note": "a seaside pier is a long walkway standing on legs above the water"
+     },
+     {
+      "clueFragment": "going",
+      "gives": "ON",
+      "note": "a machine that is going is on"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "e is the compass abbreviation for east"
+     }
+    ],
+    "surface": "An inventor heading east on a long walk on stilts.",
+    "walkthrough": "'On stilts' describes the structure, not the walker, which is the reading the surface works hardest to prevent; 'going' is the everyday sense of a machine left running."
+   }
   },
   {
    "id": "20-across",
@@ -430,7 +1173,35 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARCHINGORDERS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + first letter",
+    "answer": "MARCHING ORDERS",
+    "definition": "the sack",
+    "definitionFit": "Marching orders are the instruction to leave, which is what getting the sack amounts to — dismissal issued as a command.",
+    "indicators": [
+     "Doctor"
+    ],
+    "indicatorNotes": {
+     "Doctor": "To doctor something is to tamper with it, and letters tampered with come back in a different order."
+    },
+    "anagram": {
+     "fodder": "D ROGERS CHARM IN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "beginning to doubt",
+      "gives": "D",
+      "note": "the first letter of doubt"
+     },
+     {
+      "clueFragment": "Roger's charm in",
+      "gives": "ROGERSCHARMIN",
+      "note": "anagram fodder, thirteen letters, the apostrophe ignored"
+     }
+    ],
+    "surface": "A physician beginning to suspect that Roger is charming his way into bed.",
+    "walkthrough": "'In the sack' is bed in the surface and dismissal in the definition, and the little word 'in' belongs to the letters rather than to the phrase it appears to start."
+   }
   },
   {
    "id": "21-down",
@@ -447,7 +1218,31 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RIPEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "RIPEN",
+    "definition": "Fully develop",
+    "definitionFit": "To ripen is to come to full maturity, which is what fully developing means of fruit and of plans alike.",
+    "indicators": [],
+    "pieces": [
+     "RI",
+     "PEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small state",
+      "gives": "RI",
+      "note": "Rhode Island, the smallest state in the US, whose postal code is RI"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "PEN",
+      "note": "the pen is American slang for the penitentiary"
+     }
+    ],
+    "surface": "A plan to build out the little state's jail.",
+    "walkthrough": "'Develop' looks like the property developer's word that the rest of the surface sets up, and means maturing instead; American geography and American slang supply the two halves."
+   }
   },
   {
    "id": "22-down",
@@ -464,7 +1259,24 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DITCH",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "DITCH",
+    "definition": "Land where there isn't any?",
+    "definitionFit": "To ditch is to bring an aircraft down on water, so the answer is a landing made where no land exists — and the same word names the water-filled trench.",
+    "blocks": [
+     {
+      "clueFragment": "Land",
+      "note": "the surface offers this as a noun, a stretch of ground; the setter wants the verb a pilot uses"
+     },
+     {
+      "clueFragment": "where there isn't any",
+      "note": "nothing to come down on but water, which is the emergency the word describes"
+     }
+    ],
+    "surface": "A riddle about setting down somewhere that has no ground at all.",
+    "walkthrough": "Pilots use this word for putting a plane down on the sea, and the same word names a trench with water in it, so 'where there isn't any' is doing the whole job."
+   }
   },
   {
    "id": "23-down",
@@ -481,7 +1293,27 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ANTE",
+    "definition": "the beginnings of a pot",
+    "definitionFit": "The ante is the opening stake each player puts up before the cards are dealt, so it is literally what a pot starts as.",
+    "indicators": [
+     "holds"
+    ],
+    "indicatorNotes": {
+     "holds": "What a phrase holds is already sitting inside it, so the letters are there in the clue and only need picking out."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Grecian tenderly",
+      "gives": "ANTE",
+      "note": "run the two words together and four consecutive letters straddle the join"
+     }
+    ],
+    "surface": "Somebody Greek cradling the makings of a pot.",
+    "walkthrough": "'The beginnings of' looks like an instruction to take first letters and is part of the definition instead, where the pot is the poker one and not the Grecian urn."
+   }
   },
   {
    "id": "24-across",
@@ -498,7 +1330,49 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IMPRECATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "IMPRECATE",
+    "definition": "Curse",
+    "definitionFit": "To imprecate is to call down a curse on somebody, the formal verb for wishing them harm out loud.",
+    "indicators": [
+     "extended by"
+    ],
+    "indicatorNotes": {
+     "extended by": "Something extended is stretched out, so the two letters named first are pulled apart to make room for everything that follows."
+    },
+    "pieces": [
+     "I",
+     "MP",
+     "RE",
+     "CAT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin id est, printed where you would say 'that is'"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "dealing with",
+      "gives": "RE",
+      "note": "re means concerning, the word at the head of a memo"
+     },
+     {
+      "clueFragment": "whip",
+      "gives": "CAT",
+      "note": "the cat-o'-nine-tails, the lash once used in the navy"
+     }
+    ],
+    "surface": "A swear word drawn out by an MP handling the party whip.",
+    "walkthrough": "The whip is the party official in the surface and the sailor's lash in the wordplay — the same shortening the Royal Navy has given English for two hundred years."
+   }
   },
   {
    "id": "25-across",
@@ -515,7 +1389,31 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAKEN",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TAKEN",
+    "definition": "taught",
+    "definitionFit": "In British schools a teacher takes a class — 'who takes you for maths?' — so a lesson taken by somebody is one they taught.",
+    "indicators": [],
+    "pieces": [
+     "TA",
+     "KEN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You shouldn't have",
+      "gives": "TA",
+      "note": "'ta' is the casual thank-you, and 'you shouldn't have' is what goes with it"
+     },
+     {
+      "clueFragment": "everything you know",
+      "gives": "KEN",
+      "note": "your ken is the whole range of what you know"
+     }
+    ],
+    "surface": "A complaint that nobody should be spoon-fed everything they know.",
+    "walkthrough": "One word at the very end is doing the defining, which is easy to miss in a sentence that reads all the way through as a single grumble about education."
+   }
   },
   {
    "id": "26-across",
@@ -532,7 +1430,32 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LINKS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "LINKS",
+    "definition": "Chain",
+    "definitionNote": "The definition is singular and the answer plural: a chain is nothing but the rings it is made of, so the setter lets the parts stand for the whole.",
+    "definitionFit": "Links are the connected rings a chain consists of, so naming them names the chain.",
+    "indicators": [],
+    "pieces": [
+     "L",
+     "INKS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "l is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "marks on skin",
+      "gives": "INKS",
+      "note": "to ink somebody is to tattoo them, marking the skin"
+     }
+    ],
+    "surface": "A chain that has left its marks pressed into somebody's skin.",
+    "walkthrough": "The whole thing reads as one sentence about a chafed wrist, so nothing shows where the definition stops — and 'left' is the side, not the past tense of leave."
+   }
   },
   {
    "id": "27-across",
@@ -553,7 +1476,46 @@ window.CRYPTIC_PUZZLES["indysunday-1855"] = /*JSON-START*/ {
     ]
    },
    "solution": "FORMHORSE",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "FORM HORSE",
+    "definition": "Best runner probably",
+    "definitionFit": "The form horse is the one whose recent results make it the likeliest winner, which is what 'probably' is conceding.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "One thing in another is inside it, so the single letter named goes between the letters of the word for socks."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "FORM",
+     "HO",
+     "R",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class",
+      "gives": "FORM",
+      "note": "a form is a class at school"
+     },
+     {
+      "clueFragment": "socks",
+      "gives": "HOSE",
+      "note": "hose is the old word for stockings and socks"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "r is the cricket scoreboard's abbreviation for runs"
+     }
+    ],
+    "surface": "The likeliest winner of the school race, running in nothing but his socks.",
+    "walkthrough": "'Runs' is the cricket abbreviation rather than the verb the racing surface wants, and a horse's form is its record of recent results, which is where the phrase comes from."
+   }
   }
  ]
 } /*JSON-END*/;
