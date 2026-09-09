@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Probe Google autocomplete for puzzle-number demand, as a gap-filler for
-tools/search_demand.json (which only measures puzzles that already rank in
-Search Console -- most of our annotation backlog never ranks at all).
+"""Probe Google autocomplete for puzzle-number demand.
+
+Search Console can only measure puzzles whose pages already rank, and most of
+the annotation backlog never ranks at all, so this asks the query logs instead.
+Advisory only: nothing downstream sorts on it. The annotation queue runs newest
+first, because an impression count rises with a page's age and so ranks the
+archive above the puzzles people are actually searching for.
 
 Endpoint: https://suggestqueries.google.com/complete/search?client=firefox&q=...
 No key, but it 429s if hit too fast or without a browser User-Agent, so we
@@ -193,9 +197,8 @@ def main():
 
     out = {
         "_why": (
-            "Google autocomplete co-occurrence, used to fill the gap in "
-            "tools/search_demand.json: that file only measures puzzles "
-            "whose pages already rank in Search Console, so ~95 of ~132 "
+            "Google autocomplete co-occurrence. Search Console can only "
+            "measure puzzles whose pages already rank, so ~95 of ~132 "
             "queued-for-annotation puzzles are invisible to it. This is "
             "NOT impressions and NOT click volume -- it is how many "
             "distinct autocomplete prefixes volunteered a given puzzle "
