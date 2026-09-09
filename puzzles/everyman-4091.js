@@ -34,7 +34,34 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
     ]
    },
    "solution": "REARWINDOW",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "REAR WINDOW",
+    "definition": "Hitchcock movie",
+    "indicators": [],
+    "linkWords": [
+     "to see"
+    ],
+    "pieces": [
+     "REAR",
+     "WINDOW"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bring up",
+      "gives": "REAR",
+      "note": "to rear a child is to bring it up"
+     },
+     {
+      "clueFragment": "opportunity",
+      "gives": "WINDOW",
+      "note": "a window is a limited stretch of time in which something can be done"
+     }
+    ],
+    "surface": "Someone raises the chance of an evening in front of an old thriller.",
+    "walkthrough": "'Bring up' works twice over: it sounds like raising a subject and means raising a child. The film is Hitchcock's 1954 thriller, shot entirely from inside one apartment.",
+    "definitionFit": "REAR WINDOW is the title of a Hitchcock picture, so the definition names the answer by category — one instance of his films."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +78,39 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REED",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "REED",
+    "definition": "grass",
+    "indicators": [
+     "rampant"
+    ],
+    "indicatorNotes": {
+     "rampant": "in heraldry a beast rampant is rearing up on its hind legs, and anything rearing up in a down clue is read from the bottom of the light towards the top"
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "REED"
+    ],
+    "subReversals": [
+     {
+      "from": "DEER",
+      "to": "REED"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does and bucks",
+      "gives": "DEER",
+      "note": "does are the females and bucks the males of one and the same animal"
+     }
+    ],
+    "surface": "Deer of both sexes charging about in long grass.",
+    "walkthrough": "'Rampant' reads as wild behaviour and is really the heraldic pose, an animal up on its hind legs — which in a down light is an instruction to climb. A reed is a tall grass of wet ground.",
+    "definitionFit": "A REED is a tall grass growing in marshes and riverbanks, so 'grass' is the plain category word for it."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +127,24 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALFA",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "ALFA",
+    "definition": "One (or 17) before Romeo",
+    "blocks": [
+     {
+      "clueFragment": "One (or 17)",
+      "note": "reads as a number or as a cross-reference to another entry in the grid; it is really a position in a list — first place, and also seventeen places back from R"
+     },
+     {
+      "clueFragment": "before Romeo",
+      "note": "Romeo is the NATO radio codeword for R, which is what fixes the list being counted along; the same two words also sit side by side on an Italian car badge"
+     }
+    ],
+    "surface": "A note pointing at other numbers in the puzzle and at somebody called Romeo.",
+    "walkthrough": "Romeo is the giveaway: it is a NATO radio codeword, so the counting runs along that alphabet, where A stands first and R stands eighteenth — one place along, or seventeen places back. ALFA also fronts a famous car marque.",
+    "definitionFit": "In the NATO alphabet ALFA is the codeword for A: the first entry, and seventeen places before Romeo, the codeword for R."
+   }
   },
   {
    "id": "3-down",
@@ -89,7 +165,66 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
     ]
    },
    "solution": "WALDORFSALAD",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + charade + deletion + outer letters + first letters",
+    "answer": "WALDORF SALAD",
+    "definition": "Walnut? Not half! And a little Discovery or Fuji’s cored, as prepared in diners, primarily",
+    "indicators": [
+     "Not half",
+     "a little",
+     "cored",
+     "primarily"
+    ],
+    "indicatorNotes": {
+     "Not half": "'Not half' refuses to hand the whole word over, so only half of it turns up — and it is the front half",
+     "a little": "'a little' asks for the smallest possible piece of the word behind it, which is the single letter it opens with",
+     "cored": "coring an apple takes the middle out and leaves the outside, so the word keeps only its outer letters",
+     "primarily": "'primarily' means first of all, so the word it follows gives up nothing but its initial"
+    },
+    "pieces": [
+     "WAL",
+     "D",
+     "OR",
+     "FS",
+     "ALA",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walnut? Not half!",
+      "gives": "WAL",
+      "note": "half of those six letters, taken from the front"
+     },
+     {
+      "clueFragment": "a little Discovery",
+      "gives": "D",
+      "note": "Discovery is an English apple variety, and the first letter is all that is wanted"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "the joining word is taken at face value, both letters of it"
+     },
+     {
+      "clueFragment": "Fuji’s cored",
+      "gives": "FS",
+      "note": "Fuji is another apple; cored, the word keeps only its outer letters"
+     },
+     {
+      "clueFragment": "as prepared in",
+      "gives": "ALA",
+      "note": "à la is the menu phrase for 'in the style of' — how a kitchen says as prepared in"
+     },
+     {
+      "clueFragment": "diners, primarily",
+      "gives": "D",
+      "note": "the first letter of diners"
+     }
+    ],
+    "surface": "A cook running through the dish: walnuts in quantity, an apple cored, done the way diners do it.",
+    "walkthrough": "Every word pays twice — the sentence lists the dish's real ingredients while spelling it out a letter or two at a time. Discovery and Fuji are apple varieties, and 'not half' is British for 'very much so'.",
+    "definitionFit": "Read straight through, the clue describes the dish itself: walnuts, cored apple, a menu staple — so the whole sentence is the definition."
+   }
   },
   {
    "id": "4-down",
@@ -106,7 +241,36 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NUANCED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NUANCED",
+    "definition": "with subtlety",
+    "indicators": [
+     "topless"
+    ],
+    "indicatorNotes": {
+     "topless": "'topless' takes the top off, and the top of a word in a down clue is the letter it starts with, so that letter goes"
+    },
+    "pieces": [
+     "NU",
+     "ANCED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "NU",
+      "note": "nu is the thirteenth letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "danced topless",
+      "gives": "ANCED",
+      "note": "danced without the letter at its top"
+     }
+    ],
+    "surface": "A Greek dances bare-chested, and does it delicately.",
+    "walkthrough": "'Greek character' looks like a person from Athens and asks for a letter of that alphabet instead — nu, mu, eta, phi and the rest are worth memorising, because setters return to them constantly.",
+    "definitionFit": "NUANCED describes something full of fine shades and small distinctions, which is what doing a thing with subtlety produces."
+   }
   },
   {
    "id": "5-down",
@@ -127,7 +291,27 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
     ]
    },
    "solution": "ONEARTH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ON EARTH",
+    "definition": "where you live",
+    "indicators": [
+     "A little"
+    ],
+    "indicatorNotes": {
+     "A little": "'A little' asks for part of what follows rather than all of it, which is how a run of letters buried in the words gets flagged"
+    },
+    "blocks": [
+     {
+      "clueFragment": "yobbo near there",
+      "gives": "ONEARTH",
+      "note": "seven letters running straight on from the end of the first word, through the whole of the second, into the start of the third"
+     }
+    ],
+    "surface": "A minor thug hanging around near the place you call home.",
+    "walkthrough": "The letters are sitting in the open a few words before the definition, and long hidden phrases hide best exactly here — inside an ordinary noun phrase, where you read the words instead of the letters.",
+    "definitionFit": "'Where you live' is the planet, and ON EARTH is the phrase for being on it — the same words that sharpen a question like 'what on earth?'"
+   }
   },
   {
    "id": "6-across",
@@ -144,7 +328,31 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEF",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHEF",
+    "definition": "apron-wearer",
+    "indicators": [],
+    "pieces": [
+     "CHE",
+     "F"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara is the crossword's standing revolutionary"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f is forte, the musical direction for playing loud"
+     }
+    ],
+    "surface": "A loud-mouthed radical who happens to be wearing an apron.",
+    "walkthrough": "Both halves are conventions worth banking: CHE is who a crossword means by a revolutionary, and F is the musician's forte, which turns up in dozens of clues a year.",
+    "definitionFit": "A CHEF runs the professional kitchen, and the apron is that trade's uniform, so the definition names the answer by what it wears."
+   }
   },
   {
    "id": "7-down",
@@ -161,7 +369,46 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HIERARCHAL",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion + last letter + container",
+    "answer": "HIERARCHAL",
+    "definition": "in ranks",
+    "indicators": [
+     "Around",
+     "end of",
+     "mostly",
+     "arranged"
+    ],
+    "indicatorNotes": {
+     "Around": "'Around' puts one piece on both sides of another, so the assembled letters close over the single letter picked out first",
+     "end of": "'end of' points at the final letter of the word behind it and wants nothing else from that word",
+     "mostly": "'mostly' means nearly all of it, so the word arrives with its final letter left behind",
+     "arranged": "arranging things means setting them out in an order somebody chose, and the order chosen here is not the one the clue gave"
+    },
+    "anagram": {
+     "fodder": "HAILHERCA R"
+    },
+    "pieces": [
+     "HIE",
+     "R",
+     "ARCHAL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hail her cab, mostly",
+      "gives": "HIEARCHAL",
+      "note": "hail her ca — cab minus its final letter — is nine letters looking for a new order"
+     },
+     {
+      "clueFragment": "end of dinner",
+      "gives": "R",
+      "note": "the last letter of dinner"
+     }
+    ],
+    "surface": "As dinner winds up, a taxi is flagged down for a departing guest.",
+    "walkthrough": "'Arranged in ranks' reads as a single phrase and only its last two words define — 'arranged' is off doing the shuffling. The surface keeps that quiet by talking about seeing a guest into a cab.",
+    "definitionFit": "Something HIERARCHAL is ordered in tiers, each above the next, so 'in ranks' is the adjectival phrase it stands in for."
+   }
   },
   {
    "id": "8-down",
@@ -178,7 +425,27 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOUNDATION",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FOUNDATION",
+    "definition": "Undergarment",
+    "definition2": "that goes on before blusher",
+    "blocks": [
+     {
+      "clueFragment": "Undergarment",
+      "gives": "",
+      "note": "the drapers' sense: the shaping garment worn beneath everything else, a corset or a girdle"
+     },
+     {
+      "clueFragment": "that goes on before blusher",
+      "gives": "",
+      "note": "the cosmetics sense: the base coat spread on the skin before any colour goes over it"
+     }
+    ],
+    "surface": "Getting dressed and made up, in the right order.",
+    "walkthrough": "'Undergarment' is placed first to keep you in the wardrobe, so the make-up sense arrives late — and the two meanings of FOUNDATION never touch except in a phrase about getting ready.",
+    "definitionFit": "A foundation garment is shapewear worn underneath, and foundation is also the make-up base applied before blusher: one word, two dressing-table senses."
+   }
   },
   {
    "id": "9-across",
@@ -195,7 +462,33 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EXFOLIATES",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "EXFOLIATES",
+    "definition": "gets out of one’s skin",
+    "indicators": [
+     "order"
+    ],
+    "indicatorNotes": {
+     "order": "putting something in order means moving things into new positions, and the letters take up new positions here"
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "FIXESALETO"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Fixes ale to",
+      "gives": "FIXESALETO",
+      "note": "ten letters of fodder, exactly the length being asked for"
+     }
+    ],
+    "surface": "A barman sorts the beer out to order while somebody leaps out of their skin.",
+    "walkthrough": "'Gets out of one's skin' borrows the idiom about jumping out of it in fright, and means the beauty-counter thing instead: scrubbing the dead outer layer away.",
+    "definitionFit": "To EXFOLIATE is to take the dead surface layer off, so the answer really does get something out of one's skin."
+   }
   },
   {
    "id": "10-across",
@@ -212,7 +505,39 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEAU",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "BEAU",
+    "definition": "Fancy fellow",
+    "indicators": [
+     "drop of"
+    ],
+    "indicatorNotes": {
+     "drop of": "a drop is the least amount of liquid you can take, so the word behind it parts with a single letter, its first"
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "B",
+     "EAU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drop of bottled",
+      "gives": "B",
+      "note": "the first letter of bottled"
+     },
+     {
+      "clueFragment": "French water",
+      "gives": "EAU",
+      "note": "eau is French for water, as on a bottle of eau minérale"
+     }
+    ],
+    "surface": "A dandy with a little bottled French mineral water.",
+    "walkthrough": "The surface is all drinks trolley, and 'drop' is the word doing the damage — a measure of liquid on one reading, an instruction about letters on the other.",
+    "definitionFit": "A BEAU is a woman's admirer or a showy dresser, so 'fancy fellow' catches both the courting sense and the peacock one."
+   }
   },
   {
    "id": "11-down",
@@ -233,7 +558,24 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
     ]
    },
    "solution": "IGNITIONKEYS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "IGNITION KEYS",
+    "definition": "In turn, they’ll get you going",
+    "blocks": [
+     {
+      "clueFragment": "In turn",
+      "note": "reads as one after another, taking it in turns; what is meant is the turning itself, the twist of a wrist in a steering column"
+     },
+     {
+      "clueFragment": "they’ll get you going",
+      "note": "reads as encouragement from somebody keeping your spirits up; what is meant is starting a vehicle moving"
+     }
+    ],
+    "surface": "Colleagues taking it in turns to jolly you along and get you motivated.",
+    "walkthrough": "There is no separable wordplay to find: the whole clue is one definition with two readings. The plural is the hint, because a person who gets you going comes one at a time and IGNITION KEYS jangle in a pocket.",
+    "definitionFit": "IGNITION KEYS are what you turn to start an engine, so 'in turn' and 'get you going' both read literally once the human sense is dropped."
+   }
   },
   {
    "id": "12-across",
@@ -254,7 +596,42 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
     ]
    },
    "solution": "CONCERTGRAND",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CONCERT GRAND",
+    "definition": "a huge piano",
+    "indicators": [],
+    "pieces": [
+     "CON",
+     "CERT",
+     "GRAND"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket",
+      "gives": "CON",
+      "note": "a racket is a swindle run as though it were a business, and a swindle is a con"
+     },
+     {
+      "clueFragment": "foregone conclusion",
+      "gives": "CERT",
+      "note": "a cert is British shorthand for a certainty — a dead cert"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "GRAND",
+      "note": "grand means splendid as well as large"
+     },
+     {
+      "clueFragment": "Making",
+      "gives": "",
+      "note": "surface only — it holds up the reading about noise and hands over no letters"
+     }
+    ],
+    "surface": "A string of exclamations: the noise, the inevitable outcome, and a magnificent instrument.",
+    "walkthrough": "'Racket' is the pivot. The surface wants the din a big piano makes; the wordplay wants the criminal sense, a protection racket. 'Cert' is worth learning in its own right — British for a sure thing.",
+    "definitionFit": "A CONCERT GRAND is the largest grand piano made, the nine-foot instrument used on stage, so 'a huge piano' is plain description."
+   }
   },
   {
    "id": "13-down",
@@ -271,7 +648,34 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRUMMIEST",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "SCRUMMIEST",
+    "definition": "most delicious",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "S",
+     "CRUMMIEST"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for seconds on a stopwatch"
+     },
+     {
+      "clueFragment": "cheap in the extreme",
+      "gives": "CRUMMIEST",
+      "note": "crummy means cheap and shoddy, and in the extreme pushes it to its superlative"
+     }
+    ],
+    "surface": "Cut-price factory rejects turn out to taste wonderful.",
+    "walkthrough": "'Seconds' reads as the flawed goods on a market stall and gives up the stopwatch abbreviation instead. Scrummy is British nursery slang for delicious, a child's squashing of scrumptious.",
+    "definitionFit": "SCRUMMIEST is the superlative of scrummy, so it means most delicious — the informal register, not the dictionary one."
+   }
   },
   {
    "id": "14-down",
@@ -288,7 +692,42 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DUNDERHEAD",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "DUNDERHEAD",
+    "definition": "an idiot",
+    "indicators": [
+     "leader"
+    ],
+    "indicatorNotes": {
+     "leader": "a leader is the one out in front, so the word hands over the letter standing at its front"
+    },
+    "pieces": [
+     "D",
+     "UNDER",
+     "HEAD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Department’s leader",
+      "gives": "D",
+      "note": "the first letter of department"
+     },
+     {
+      "clueFragment": "reporting to",
+      "gives": "UNDER",
+      "note": "somebody who reports to you sits under you on the staff chart"
+     },
+     {
+      "clueFragment": "top teacher",
+      "gives": "HEAD",
+      "note": "the head is what a British school calls its principal"
+     }
+    ],
+    "surface": "A staffroom note: the department chief answers to the head, and someone is a fool.",
+    "walkthrough": "The whole clue is built out of a school flow chart, which is what stops 'an idiot' at the end from looking like a definition — it reads as one more remark about the man.",
+    "definitionFit": "A DUNDERHEAD is a blockhead, an old word for someone slow-witted, so 'an idiot' is a straight singular synonym."
+   }
   },
   {
    "id": "15-across",
@@ -305,7 +744,27 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHUFFED",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHUFFED",
+    "definition": "Acted like a steam train travelling",
+    "definition2": "over the moon",
+    "blocks": [
+     {
+      "clueFragment": "Acted like a steam train travelling",
+      "gives": "",
+      "note": "a locomotive puffing along makes the noise its own verb is named after, and the clue wants that verb in the past tense"
+     },
+     {
+      "clueFragment": "over the moon",
+      "gives": "",
+      "note": "the British idiom for delighted, the phrase footballers and lottery winners reach for"
+     }
+    ],
+    "surface": "A steam engine puffing along, thoroughly pleased with itself.",
+    "walkthrough": "Both halves define, so the sentence asserts nothing at all — and 'travelling over the moon' reads as one phrase, as though the engine were sailing past the sky.",
+    "definitionFit": "CHUFFED is the past tense of chuff, the sound a steam engine makes, and it is also British slang for delighted, which is what 'over the moon' means."
+   }
   },
   {
    "id": "16-across",
@@ -322,7 +781,37 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HAIRCUT",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HAIRCUT",
+    "definition": "Do",
+    "indicators": [],
+    "pieces": [
+     "H",
+     "AIR",
+     "CUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "H",
+      "note": "h is the letter on a hot tap"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "the word is taken at face value, all three letters of it"
+     },
+     {
+      "clueFragment": "ignored",
+      "gives": "CUT",
+      "note": "to cut somebody is to snub them, to look straight past them in the street"
+     }
+    ],
+    "surface": "Empty boasting is brushed aside, with an order to get on with it.",
+    "walkthrough": "The definition is two letters long, which is what makes this hard: a do is a hairdo, and everything before it reads as a complete sentence about being snubbed.",
+    "definitionFit": "A do is informal British for a hairdo — the styling itself — which is what a HAIRCUT gives you."
+   }
   },
   {
    "id": "17-across",
@@ -339,7 +828,36 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDEALT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "UNDEALT",
+    "definition": "cards in deck like so",
+    "definitionNote": "The definition describes a state instead of offering a synonym, so a noun phrase ends up standing for an adjective: the cards still in the pack are like so, and that condition is the answer.",
+    "indicators": [
+     "displaying"
+    ],
+    "indicatorNotes": {
+     "displaying": "'displaying' is a loose shuffle instruction — laying something out spreads it into a fresh arrangement — and the vagueness there is the setter's, not a gap in your solving"
+    },
+    "anagram": {
+     "fodder": "LAUNTED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Not fine",
+      "gives": "",
+      "note": "f is the pencil-grade abbreviation for fine, and 'Not' says leave that letter out"
+     },
+     {
+      "clueFragment": "flaunted",
+      "gives": "LAUNTED",
+      "note": "the seven letters of flaunted once that f has gone"
+     }
+    ],
+    "surface": "Something second-rate is being shown off, cards and all.",
+    "walkthrough": "The definition is the whole tail of the clue and it points at a condition rather than naming it: cards still in the pack are exactly like so. F for fine comes off the side of a pencil.",
+    "definitionFit": "UNDEALT means not yet handed out, which is the state of every card sitting in a deck nobody has touched."
+   }
   },
   {
    "id": "18-down",
@@ -356,7 +874,27 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEHERAN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TEHERAN",
+    "definition": "somewhere in Iran",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part of what follows and not the whole of it, which is the signal that a run of letters is sitting inside those words"
+    },
+    "blocks": [
+     {
+      "clueFragment": "wrote her a note",
+      "gives": "TEHERAN",
+      "note": "the letters run consecutively from the middle of the first word through to the start of the last"
+     }
+    ],
+    "surface": "Somebody left a short written message behind.",
+    "walkthrough": "The spelling with the extra E is the older transliteration, and it is what makes this work — the modern Tehran would not fit the letters these words offer. 'Some' is the only hint that anything is buried.",
+    "definitionFit": "TEHERAN is Iran's capital, so 'somewhere in Iran' defines it by category: a place in the country rather than the country itself."
+   }
   },
   {
    "id": "19-across",
@@ -373,7 +911,31 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHICAGO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHICAGO",
+    "definition": "Musical",
+    "indicators": [],
+    "pieces": [
+     "CHIC",
+     "AGO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "CHIC",
+      "note": "chic is stylish, borrowed straight from the French"
+     },
+     {
+      "clueFragment": "in the past",
+      "gives": "AGO",
+      "note": "something in the past happened a while ago"
+     }
+    ],
+    "surface": "A show that used to be in vogue and no longer is.",
+    "walkthrough": "One word carries the entire definition, and it defines by example — CHICAGO is a particular show rather than the category. The city it is named for never gets a mention.",
+    "definitionFit": "CHICAGO is the Kander and Ebb stage musical, so the definition points at the answer through its genre — one instance of the form."
+   }
   },
   {
    "id": "19-down",
@@ -390,7 +952,28 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CUBICLE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CUBICLE",
+    "definition": "workspace",
+    "indicators": [
+     "Announced"
+    ],
+    "indicatorNotes": {
+     "Announced": "'Announced' means said out loud, so the clue is describing how the word sounds rather than how it is spelt"
+    },
+    "blocks": [
+     {
+      "clueFragment": "boxy",
+      "soundsLike": "CUBICAL",
+      "gives": "CUBICLE",
+      "note": "a boxy thing is cubical, shaped like a cube — and said out loud that word is indistinguishable from the office one"
+     }
+    ],
+    "surface": "Somebody reads out a description of a square little office.",
+    "walkthrough": "Two words, one sound, different spellings: CUBICAL with an A is the cube-shaped adjective, CUBICLE with an E the partitioned desk. Only your ear connects them.",
+    "definitionFit": "A CUBICLE is a partitioned-off desk space in an open-plan office, so 'workspace' is the plain noun for it."
+   }
   },
   {
    "id": "20-across",
@@ -411,7 +994,34 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
     ]
    },
    "solution": "MARIACHIBAND",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "MARIACHI BAND",
+    "definition": "Musicians",
+    "definitionNote": "The definition is plural and the answer singular: a band is one thing made of many players, so the plural noun names what the answer is a collection of.",
+    "indicators": [
+     "enlivened"
+    ],
+    "indicatorNotes": {
+     "enlivened": "to enliven something is to stir it up, and letters stirred up do not stay in the order they were handed to you"
+    },
+    "linkWords": [
+     "from"
+    ],
+    "anagram": {
+     "fodder": "CHINABARMAID"
+    },
+    "blocks": [
+     {
+      "clueFragment": "China barmaid",
+      "gives": "CHINABARMAID",
+      "note": "twelve letters of fodder, matching the enumeration exactly"
+     }
+    ],
+    "surface": "A barmaid from China brightens the whole pub up.",
+    "walkthrough": "'From China' reads as a country of origin, and the players are Mexican — the words are in the clue only for their letters, which is what a long anagram counts on.",
+    "definitionFit": "A MARIACHI BAND is the Mexican street ensemble of trumpets, violins and guitars, so 'musicians' is the plain category word."
+   }
   },
   {
    "id": "21-down",
@@ -428,7 +1038,49 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PERU",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "PERU",
+    "definition": "here",
+    "definitionNote": "'Here' is a pointing word rather than a synonym, so an adverb ends up defining a country: it stands in for the place the clue has just named a river in.",
+    "indicators": [
+     "Foremost of"
+    ],
+    "indicatorNotes": {
+     "Foremost of": "'Foremost of' asks for whatever stands at the front of each word that follows, which is the letter it begins with"
+    },
+    "pieces": [
+     "P",
+     "E",
+     "R",
+     "U"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peaks",
+      "gives": "P",
+      "note": "the first letter of peaks"
+     },
+     {
+      "clueFragment": "enveloping",
+      "gives": "E",
+      "note": "the first letter of enveloping — the word looks like an instruction to tuck something inside, and is not one"
+     },
+     {
+      "clueFragment": "River",
+      "gives": "R",
+      "note": "the first letter of River, which is not the same as the usual r standing for river"
+     },
+     {
+      "clueFragment": "Ucayali",
+      "gives": "U",
+      "note": "the first letter of the river's name"
+     }
+    ],
+    "surface": "Mountains closing in around a South American river.",
+    "walkthrough": "Two of the four words are booby traps: 'enveloping' looks like a container instruction and 'River' like the standard R, and both are only donating initials. The Ucayali is a Peruvian headwater of the Amazon.",
+    "definitionFit": "The Ucayali rises and runs in PERU, so 'here' points at the country the clue has just been describing."
+   }
   },
   {
    "id": "22-down",
@@ -445,7 +1097,48 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STAY",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "STAY",
+    "definition": "Remain",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "'finally' asks for the letter each word finishes on, taken in the order the words arrive"
+    },
+    "pieces": [
+     "S",
+     "T",
+     "A",
+     "Y"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conscious",
+      "gives": "S",
+      "note": "the last letter of conscious"
+     },
+     {
+      "clueFragment": "throughout",
+      "gives": "T",
+      "note": "the last letter of throughout"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "A",
+      "note": "the last letter of Australia"
+     },
+     {
+      "clueFragment": "Day",
+      "gives": "Y",
+      "note": "the last letter of Day"
+     }
+    ],
+    "surface": "Keeping awake right through the national holiday.",
+    "walkthrough": "'Remain conscious' reads as one phrase and only the first word defines; everything after it is a queue of words giving up their final letters. Australia Day is the country's national holiday, 26 January.",
+    "definitionFit": "To STAY somewhere is to remain there — the same verb in the same form, the everyday synonym."
+   }
   },
   {
    "id": "23-across",
@@ -462,7 +1155,33 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVER",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "EVER",
+    "definition": "always",
+    "indicators": [
+     "only half there"
+    ],
+    "indicatorNotes": {
+     "only half there": "'only half there' says the name arrives at half length, so four of its eight letters are left behind"
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "EVER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Your crossword compiler",
+      "gives": "EVERYMAN",
+      "note": "the setter of this Observer puzzle signs himself with one eight-letter name"
+     }
+    ],
+    "surface": "The compiler confesses to being only half present, as he always is.",
+    "walkthrough": "Everyman writing his own name into a clue is a habit of this puzzle worth knowing, and 'only half there' is the joke twice: the letters are halved and the man is distracted.",
+    "definitionFit": "EVER means at all times, so 'always' is a straight synonym — the sense in 'ever faithful', not the questioning 'did you ever?'"
+   }
   },
   {
    "id": "24-across",
@@ -483,7 +1202,39 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
     ]
    },
    "solution": "TRACKEVENT",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "TRACK EVENT",
+    "definition": "Sporting fixture",
+    "indicators": [
+     "bust"
+    ],
+    "indicatorNotes": {
+     "bust": "something bust has been broken up, and letters broken up have to be put back together in some other order"
+    },
+    "anagram": {
+     "fodder": "RACKET VENT"
+    },
+    "pieces": [
+     "TRACKE",
+     "VENT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket bust",
+      "gives": "TRACKE",
+      "note": "the six letters of racket, reshuffled"
+     },
+     {
+      "clueFragment": "let rip",
+      "gives": "VENT",
+      "note": "to vent is to let rip, to let feeling out in a rush"
+     }
+    ],
+    "surface": "A tennis match where the racket breaks and tempers go with it.",
+    "walkthrough": "'Racket' does the misleading: the surface makes it a piece of tennis equipment while the wordplay only wants its six letters. The rest of the answer is a synonym joined straight on the end.",
+    "definitionFit": "A TRACK EVENT is a running race on the track, as opposed to a field event, which makes it one kind of sporting fixture."
+   }
   },
   {
    "id": "25-across",
@@ -500,7 +1251,28 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TIDE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "TIDE",
+    "definition": "Sea’s movement",
+    "indicators": [
+     "you say"
+    ],
+    "indicatorNotes": {
+     "you say": "'you say' hands the clue to your ear: what counts is the noise the word makes, not the letters it is written with"
+    },
+    "blocks": [
+     {
+      "clueFragment": "even",
+      "soundsLike": "TIED",
+      "gives": "TIDE",
+      "note": "a match that finishes even is tied, and that word said out loud is what you write in the grid"
+     }
+    ],
+    "surface": "A remark that the sea's movement is level, pending confirmation.",
+    "walkthrough": "'Even' is a word for level water as well as for a drawn match, so the surface talks about a calm sea while the mechanism wants the scoreboard sense. The two spellings share their letters and sound identical.",
+    "definitionFit": "The TIDE is the sea's twice-daily rise and fall, so 'sea's movement' names the answer by what it does."
+   }
   },
   {
    "id": "26-across",
@@ -517,7 +1289,39 @@ window.CRYPTIC_PUZZLES["everyman-4091"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNDERSTUDY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNDERSTUDY",
+    "definition": "Stand-in actor",
+    "indicators": [
+     "first"
+    ],
+    "indicatorNotes": {
+     "first": "'first' sends the piece it follows to the front of the answer instead of leaving it where the clue puts it"
+    },
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "UNDER",
+     "STUDY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European articles",
+      "gives": "UNDER",
+      "note": "the French indefinite article un and the German definite article der, laid end to end"
+     },
+     {
+      "clueFragment": "read",
+      "gives": "STUDY",
+      "note": "to read a subject at university is to study it"
+     }
+    ],
+    "surface": "An actor is told to get through the European papers before anything else.",
+    "walkthrough": "'Read' is the British university sense — you read history at Durham — and 'first' is what reorders the halves, since the articles are named after the verb and belong in front of it.",
+    "definitionFit": "An UNDERSTUDY learns a part in order to go on when the lead cannot, which is exactly a stand-in actor."
+   }
   }
  ]
 } /*JSON-END*/;
