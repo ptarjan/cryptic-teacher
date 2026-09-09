@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CRAM",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + reversal",
+    "answer": "CRAM",
+    "definition": "study intensely",
+    "indicators": [
+     "curtailed",
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "curtailed": "A curtailed animal has had its tail docked, so the word gives up the letter it ends on.",
+     "flipping": "Flipping a thing turns it over end for end, so the letters are read back the other way."
+    },
+    "pieces": [
+     "CRAM"
+    ],
+    "subReversals": [
+     {
+      "from": "MARC",
+      "to": "CRAM"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "March",
+      "gives": "MARC",
+      "note": "The month written out, then docked of its final letter."
+     }
+    ],
+    "surface": "A march cut short, and somebody hunched over their books in a temper.",
+    "walkthrough": "'Flipping' is a mild British oath in the surface, which is exactly what disguises it as an instruction, and 'March' is the calendar month rather than a protest.",
+    "definitionFit": "To cram is to study intensely in one short burst — the night-before revision every student has done at least once."
+   }
   },
   {
    "id": "1-down",
@@ -51,7 +82,38 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
     ]
    },
    "solution": "COUGHDROPS",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "COUGH DROPS",
+    "definition": "help when you’re down with something",
+    "indicators": [
+     "crushed"
+    ],
+    "indicatorNotes": {
+     "crushed": "Something crushed has lost its shape altogether, so the letters it was made of can be reset in any order at all."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "anagram": {
+     "fodder": "C ROUGH PODS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the standing short form for cold, as on a tap."
+     },
+     {
+      "clueFragment": "rough pods",
+      "gives": "ROUGHPODS",
+      "note": "Nine letters of fodder, joined to the C in front before the shuffle."
+     }
+    ],
+    "surface": "Frost-bitten seed pods being pounded up into some sort of folk remedy.",
+    "walkthrough": "'Cold' is weather in the surface and a single letter in the wordplay, and the ellipsis hands the sentence on to 2 down, which carries on the idea of things falling.",
+    "definitionFit": "A cough drop is the medicated sweet you suck when a cold has laid you up, so it really is help when you are down with something."
+   }
   },
   {
    "id": "2-down",
@@ -68,7 +130,34 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AIRDROP",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "AIRDROP",
+    "definition": "some things coming down",
+    "definitionNote": "The definition is plural where the answer is singular: an airdrop is one delivery, and what the clue points at is the load of parcels falling out of the plane.",
+    "indicators": [
+     "deployment"
+    ],
+    "indicatorNotes": {
+     "deployment": "A deployment moves troops or kit into new positions, and letters deployed end up somewhere other than where they were given."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "OR RAPID"
+    },
+    "blocks": [
+     {
+      "clueFragment": "or rapid",
+      "gives": "ORRAPID",
+      "note": "Seven letters of fodder, the two words taken exactly as printed."
+     }
+    ],
+    "surface": "Supplies shoved out of an aircraft in a hurry.",
+    "walkthrough": "'Rapid deployment' is army jargon and the surface wants you to read it whole; the setter has split it in two, keeping 'rapid' as letters and turning 'deployment' into the instruction.",
+    "definitionFit": "An airdrop is a load of supplies parachuted out of a plane, so what it names is precisely things on their way down."
+   }
   },
   {
    "id": "3-across",
@@ -90,7 +179,35 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
     ]
    },
    "solution": "GULFOFADEN",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GULF OF ADEN",
+    "definition": "bay",
+    "indicators": [
+     "smashing"
+    ],
+    "indicatorNotes": {
+     "smashing": "Smash something and every piece is still there but nothing is where it was, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "F GALE FOUND"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "F is forte, the musician's mark for loud."
+     },
+     {
+      "clueFragment": "gale found",
+      "gives": "GALEFOUND",
+      "note": "Nine letters of fodder, joined to the F."
+     }
+    ],
+    "surface": "A roaring gale found battering a bay.",
+    "walkthrough": "'Found' looks like a verb reporting the storm and is fodder instead, which leaves a one-word definition stranded at the end where nobody looks for it.",
+    "definitionFit": "The Gulf of Aden is the arm of sea between Yemen and Somalia, and a gulf is a bay — the definition gives the general shape, the answer one instance."
+   }
   },
   {
    "id": "4-down",
@@ -107,7 +224,26 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UTTER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "UTTER",
+    "definition": "Complete",
+    "definition2": "state",
+    "blocks": [
+     {
+      "clueFragment": "Complete",
+      "gives": "",
+      "note": "The adjective sense: total, absolute, with nothing held back."
+     },
+     {
+      "clueFragment": "state",
+      "gives": "",
+      "note": "The verb sense: to say a thing out loud, as a witness does in court."
+     }
+    ],
+    "walkthrough": "Two words, two senses, nothing to take apart — and the only cover a clue this short can carry is that 'state' looks like a noun.",
+    "definitionFit": "Utter means complete or absolute, as in utter nonsense, and to utter is to state something aloud — one word doing duty as adjective and verb."
+   }
   },
   {
    "id": "5-down",
@@ -124,7 +260,46 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FANTASIAS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + container",
+    "answer": "FANTASIAS",
+    "definition": "freeform works",
+    "indicators": [
+     "embracing"
+    ],
+    "indicatorNotes": {
+     "embracing": "To embrace something is to get your arms right round it, so the pair of initials opens up and takes the other word inside."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "pieces": [
+     "FAN",
+     "T",
+     "ASIA",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool",
+      "gives": "FAN",
+      "note": "The thing you switch on to cool a room, and the verb to cool air."
+     },
+     {
+      "clueFragment": "Eliot",
+      "gives": "TS",
+      "note": "The poet's two initials, T and S."
+     },
+     {
+      "clueFragment": "‘the East’",
+      "gives": "ASIA",
+      "note": "The East as a continent, which is why the setter puts it in quotes."
+     }
+    ],
+    "surface": "T. S. Eliot with his arms round the Orient, and sounding cool about it.",
+    "walkthrough": "The colon after 'Cool' makes the word look like a heading; it is a one-word clue to the first chunk. Eliot really did quote the Upanishads, which is what makes the surface hold together.",
+    "definitionFit": "A fantasia is a piece of music that follows no fixed form, so 'freeform works' is the plain description of the genre."
+   }
   },
   {
    "id": "6-down",
@@ -145,7 +320,33 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
     ]
    },
    "solution": "FRUITCOCKTAIL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FRUIT COCKTAIL",
+    "definition": "Dessert",
+    "linkWords": [
+     "on"
+    ],
+    "pieces": [
+     "FRUIT",
+     "COCKTAIL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tomato",
+      "gives": "FRUIT",
+      "note": "A tomato is botanically one of these, whatever the kitchen does with it."
+     },
+     {
+      "clueFragment": "a rusty nail",
+      "gives": "COCKTAIL",
+      "note": "A Rusty Nail is whisky with Drambuie — the drink, not the ironmongery."
+     }
+    ],
+    "surface": "A tomato served on an old nail, which is nobody's idea of pudding.",
+    "walkthrough": "Both halves turn on a word read in the wrong register: 'tomato' as botany rather than salad, 'a rusty nail' as a bar order rather than a hazard.",
+    "definitionFit": "Fruit cocktail is the tinned mixture of chopped fruit served at the end of a meal, so 'Dessert' names the course it belongs to."
+   }
   },
   {
    "id": "7-down",
@@ -162,7 +363,38 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEHORNS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + alternate letters + cycling",
+    "answer": "DEHORNS",
+    "definition": "Removes antlers from",
+    "indicators": [
+     "regularly",
+     "first to last"
+    ],
+    "indicatorNotes": {
+     "regularly": "Taken regularly means taken at a fixed step, so every second letter is picked up and the ones between are dropped.",
+     "first to last": "The phrase is positional rather than descriptive: whichever letter stands at the front goes round to the back and the rest close up."
+    },
+    "pieces": [
+     "DE",
+     "HORNS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deer",
+      "gives": "DE",
+      "note": "Every other letter of the animal, starting with the one it begins on."
+     },
+     {
+      "clueFragment": "cropped",
+      "gives": "SHORN",
+      "note": "Cropped hair is shorn hair; this is the word as it stands, before anything moves."
+     }
+    ],
+    "surface": "A deer given a routine trim, from one end of it to the other.",
+    "walkthrough": "'First to last' sounds like a description of the deer's length and is an instruction: SHORN hands over the S at its front and takes it back at its end.",
+    "definitionFit": "To dehorn an animal is to take its horns off, and a deer's horns are its antlers, so the definition is the operation itself."
+   }
   },
   {
    "id": "8-down",
@@ -179,7 +411,33 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSH",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "NOSH",
+    "definition": "Grub",
+    "linkWords": [
+     "meaning"
+    ],
+    "pieces": [
+     "NO",
+     "SH"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "won’t come",
+      "gives": "NO",
+      "note": "A flat refusal: ask whether it is coming and this is the answer."
+     },
+     {
+      "clueFragment": "peace",
+      "gives": "SH",
+      "note": "The noise you make when you want quiet, spelt the way comic books spell it."
+     }
+    ],
+    "surface": "Food arriving is the signal that the quiet is over.",
+    "walkthrough": "The two pieces spell the surface's own joke: put together they read as a refusal to hush. 'Grub' sits alone at the front doing the defining.",
+    "definitionFit": "Nosh is informal British English for food, the same casual register as grub — you would use either in a canteen and neither on a menu."
+   }
   },
   {
    "id": "9-across",
@@ -196,7 +454,36 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UTRECHT",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "UTRECHT",
+    "definition": "unsurprisingly – this Randstad eco city has trams",
+    "indicators": [
+     "Primarily"
+    ],
+    "indicatorNotes": {
+     "Primarily": "Primarily points at what comes first, so only the opening letter of each word that follows is wanted."
+    },
+    "pieces": [
+     "UT",
+     "RECHT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unsurprisingly – this",
+      "gives": "UT",
+      "note": "The opening letters of those two words, in the order printed."
+     },
+     {
+      "clueFragment": "Randstad eco city has trams",
+      "gives": "RECHT",
+      "note": "Five more opening letters, one from each remaining word."
+     }
+    ],
+    "surface": "A smug boast that a green Dutch city is of course full of trams.",
+    "walkthrough": "The Randstad is the Dutch conurbation taking in Amsterdam, Rotterdam, The Hague and this city, so read straight the sentence is true of the place it also spells out.",
+    "definitionFit": "Utrecht is one of the four Randstad cities, bike- and tram-ridden and proud of it, so the sentence that spells it describes it too."
+   }
   },
   {
    "id": "10-down",
@@ -217,7 +504,45 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
     ]
    },
    "solution": "CROCODILECLIP",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "CROCODILE CLIP",
+    "definition": "it grips tightly",
+    "indicators": [
+     "around",
+     "nasty"
+    ],
+    "indicatorNotes": {
+     "around": "Going around a thing means enclosing it, so the outer word splits open and what follows sits in the gap.",
+     "nasty": "A nasty state of affairs is one that has gone wrong, and letters gone wrong are letters no longer in their proper order."
+    },
+    "pieces": [
+     "CRO",
+     "CODILECLI",
+     "P"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "OLDICICLE",
+      "gives": "CODILECLI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "CROP",
+      "note": "To crop is to cut; this is the word that splits open to make room."
+     },
+     {
+      "clueFragment": "old icicle",
+      "gives": "CODILECLI",
+      "note": "The nine letters of those two words, reset in a new order."
+     }
+    ],
+    "surface": "Hacking away at a horrible old icicle that has frozen onto something.",
+    "walkthrough": "'Cut' is a word to be broken open rather than an instruction to shorten anything, and nine letters go into the gap it leaves — which is why nothing here is a straight anagram.",
+    "definitionFit": "A crocodile clip is the spring clip with toothed jaws used on test leads, and those jaws snap shut and hold, which is gripping tightly."
+   }
   },
   {
    "id": "11-across",
@@ -234,7 +559,24 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOUGHTS",
-   "annotation": null,
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "NOUGHTS",
+    "definition": "Pair of characters from 2001",
+    "blocks": [
+     {
+      "clueFragment": "characters from 2001",
+      "note": "The surface offers Kubrick's film and the people and machines in it — HAL, Bowman, Poole."
+     },
+     {
+      "clueFragment": "Pair of",
+      "note": "Type the year out and there are four characters on the page; two of them are identical, and those two are what the clue wants."
+     }
+    ],
+    "surface": "Two of the cast of Kubrick's space film.",
+    "walkthrough": "'Characters' means typed symbols rather than people, and the year 2001 is written with two zeros side by side in the middle — and a zero is a nought.",
+    "definitionFit": "Noughts are zeros, and the digits 2-0-0-1 hold exactly two of them, so the clue names the pair sitting in the middle of the year."
+   },
    "clueItalics": [
     [
      24,
@@ -261,7 +603,37 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
     ]
    },
    "solution": "HARBOURMASTER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "HARBOUR MASTER",
+    "definition": "port overseen by me",
+    "definitionNote": "The phrase names a place where the answer names a person; the setter licenses it by letting the answer speak, so 'me' is the official and the port is the one they run.",
+    "indicators": [
+     "perhaps"
+    ],
+    "indicatorNotes": {
+     "perhaps": "Perhaps flags an example offered for the general thing, and it is stretched here: the vessel named is one of the sort counted by its masts."
+    },
+    "pieces": [
+     "HARBOUR",
+     "MASTER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "HARBOUR",
+      "note": "You nurse a grudge or you harbour one; the two verbs are interchangeable."
+     },
+     {
+      "clueFragment": "schooner",
+      "gives": "MASTER",
+      "note": "A schooner is a sailing vessel counted by its masts — a two-master."
+     }
+    ],
+    "surface": "Somebody nursing a schooner of port and keeping an eye on the water.",
+    "walkthrough": "'Schooner' is a glass in the surface and a ship in the wordplay, and 'port' is the drink rather than the dock. The definition is spoken in the answer's own voice.",
+    "definitionFit": "A harbour master is the officer in charge of a port, so a port overseen by them is exactly the job description."
+   }
   },
   {
    "id": "13-down",
@@ -278,7 +650,38 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HYPOCRITES",
-   "annotation": null
+   "annotation": {
+    "type": "charade + homophone",
+    "answer": "HYPOCRITES",
+    "definition": "Charlatans",
+    "indicators": [
+     "heard"
+    ],
+    "indicatorNotes": {
+     "heard": "What is heard reaches the ear and not the eye, so the words are to be judged by their sound and written down again."
+    },
+    "pieces": [
+     "HYPO",
+     "CRITES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendier",
+      "soundsLike": "HIPPER",
+      "gives": "HYPO",
+      "note": "Trendier is hipper, and said aloud the front of that word comes out spelt quite differently."
+     },
+     {
+      "clueFragment": "analyses",
+      "soundsLike": "CRITS",
+      "gives": "CRITES",
+      "note": "Crits are critiques, art-school shorthand for a written analysis, and they land on the ear as the tail of a longer word."
+     }
+    ],
+    "surface": "Quacks offering their more fashionable readings of things, reported second-hand.",
+    "walkthrough": "'Charlatans' at the front is the definition; the rest is two words said aloud. In a non-rhotic British accent the R ending the first is not sounded, so the pair runs together as one long word.",
+    "definitionFit": "A hypocrite professes what they do not believe and a charlatan passes a pose off as the real thing — the same pretence, one moral, one professional."
+   }
   },
   {
    "id": "14-across",
@@ -295,7 +698,27 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "REPRO",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "REPRO",
+    "definition": "Carbon copy",
+    "indicators": [
+     "a bit"
+    ],
+    "indicatorNotes": {
+     "a bit": "Only a bit of the word is wanted, and a bit of a word is a run of its letters taken just as they stand."
+    },
+    "blocks": [
+     {
+      "clueFragment": "fireproof",
+      "gives": "REPRO",
+      "note": "Five consecutive letters lie inside this word, starting at its third."
+     }
+    ],
+    "surface": "An exact duplicate that will stand a certain amount of fire.",
+    "walkthrough": "The bracket does two jobs at once — it reads as the setter qualifying 'fireproof', and it is the instruction to take only part of the word.",
+    "definitionFit": "A repro is a reproduction, a facsimile of an original, and a carbon copy is the same idea from the typewriter age."
+   }
   },
   {
    "id": "15-across",
@@ -312,7 +735,30 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OMINOUSLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OMINOUSLY",
+    "definition": "in alarming fashion",
+    "indicators": [
+     "revived"
+    ],
+    "indicatorNotes": {
+     "revived": "Something revived is put back together and set going again, and a thing rebuilt need not go back the way it came apart."
+    },
+    "anagram": {
+     "fodder": "MOUSY LION"
+    },
+    "blocks": [
+     {
+      "clueFragment": "‘Mousy’ lion",
+      "gives": "MOUSYLION",
+      "note": "Nine letters of fodder, exactly the length wanted."
+     }
+    ],
+    "surface": "A timid lion brought back to life.",
+    "walkthrough": "The quotation marks round 'Mousy' invite you to hunt for a second meaning and carry none — they are there to make the lion sound like a character in a story.",
+    "definitionFit": "Ominously means in a way that hints something bad is coming, which is alarming, and the adverb slots straight into the definition's 'in ... fashion' shape."
+   }
   },
   {
    "id": "15-down",
@@ -329,7 +775,28 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERTURES",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "OVERTURES",
+    "definition": "Offers",
+    "definition2": "introductory music",
+    "definitionNote": "The second definition is a mass noun where the answer is a plural count noun: a programme of overtures is introductory music, and English lets the material stand for the pieces.",
+    "blocks": [
+     {
+      "clueFragment": "Offers",
+      "gives": "",
+      "note": "The plural noun: the first tentative approaches you make towards somebody."
+     },
+     {
+      "clueFragment": "introductory music",
+      "gives": "",
+      "note": "The orchestral piece played before the curtain goes up."
+     }
+    ],
+    "surface": "An advertisement promising some music to start you off.",
+    "walkthrough": "Both halves are ordinary senses of the same word, and the only cover the setter has is that 'Offers' reads as a verb introducing the rest of the sentence.",
+    "definitionFit": "Overtures are opening approaches — you make overtures to somebody — and an overture is also the orchestral piece that opens an opera."
+   }
   },
   {
    "id": "16-across",
@@ -346,7 +813,30 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENNILESS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PENNILESS",
+    "definition": "Poor",
+    "pieces": [
+     "PENNI",
+     "LESS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "description of gruesome Victoriana",
+      "gives": "PENNI",
+      "note": "Victorian shockers were sold as penny dreadfuls, cheap sensational fiction at a penny an issue, and the coin's name gives up its Y to a joining I."
+     },
+     {
+      "clueFragment": "like a ‘Dreadful’",
+      "gives": "LESS",
+      "note": "The clue quotes only the second half of that title, with no coin in front of it, and the ending supplies a word for being without something."
+     }
+    ],
+    "surface": "The shabby, blood-soaked magazines the Victorians bought by the armful.",
+    "walkthrough": "A penny dreadful is a cheap Victorian horror serial. Print 'Dreadful' on its own, as the clue does, and the penny has gone missing — which is the joke and the spelling in one move.",
+    "definitionFit": "Penniless means without a coin to your name, so 'Poor' is a plain synonym taken at its strongest: not short of money but out of it altogether."
+   }
   },
   {
    "id": "17-down",
@@ -363,7 +853,45 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEGRONI",
-   "annotation": null,
+   "annotation": {
+    "type": "&lit + anagram + first letter",
+    "answer": "NEGRONI",
+    "definition": "One’s mixed with gin and drop of rosso",
+    "indicators": [
+     "mixed"
+    ],
+    "indicatorNotes": {
+     "mixed": "Mixed is a drinks word in the surface and a shuffling word in the wordplay: mixed letters are letters no longer in the order given."
+    },
+    "linkWords": [
+     "’s",
+     "with",
+     "and"
+    ],
+    "anagram": {
+     "fodder": "ONE GIN R"
+    },
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "The word itself, three letters of fodder."
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "Three more letters of fodder, the spirit named outright."
+     },
+     {
+      "clueFragment": "drop of rosso",
+      "gives": "R",
+      "note": "Rosso is Italian for red, as in red vermouth, and a drop of a word is the letter it starts on."
+     }
+    ],
+    "surface": "Somebody at the drinks trolley building a cocktail out of gin and a splash of red vermouth.",
+    "walkthrough": "Read straight the sentence is a recipe — one measure of gin, a drop of red vermouth — and read as letters it is the same words shuffled, so the clue defines and spells with one set of words.",
+    "definitionFit": "The whole clue is the drink's own recipe: equal measures with gin among them and red vermouth alongside, which is what a Negroni is."
+   },
    "clueItalics": [
     [
      33,
@@ -386,7 +914,50 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "KYOTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters + reversal",
+    "answer": "KYOTO",
+    "definition": "city",
+    "indicators": [
+     "emptily",
+     "going round"
+    ],
+    "indicatorNotes": {
+     "emptily": "Emptied of its contents a word keeps only its outside, and the middle letters are the filling that goes.",
+     "going round": "Going round is turning about, so the assembled letters are read from the far end back towards the front."
+    },
+    "pieces": [
+     "KY",
+     "OT",
+     "O"
+    ],
+    "subReversals": [
+     {
+      "from": "OTOYK",
+      "to": "KYOTO"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "Love is a score of nothing in tennis, and nothing is written as this letter."
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "The clue's own word, taken exactly as it stands."
+     },
+     {
+      "clueFragment": "yak emptily",
+      "gives": "YK",
+      "note": "The animal's name with its middle taken out, leaving the two letters on the outside."
+     }
+    ],
+    "surface": "A fondness for empty chatter doing the rounds.",
+    "walkthrough": "'Yak' is the chattering, not the ox, and 'Love' is the tennis nothing rather than affection. The three pieces are built in clue order and only then turned round.",
+    "definitionFit": "Kyoto is the old imperial capital of Japan, so 'city' is the bare category and the answer one very famous instance of it."
+   }
   },
   {
    "id": "19-down",
@@ -403,7 +974,40 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTRICH",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "OSTRICH",
+    "definition": "he avoids problems",
+    "definitionNote": "The definition is a clause where a noun would normally stand: it names the answer by what the creature is proverbially said to do, so read it as 'one who avoids problems'.",
+    "indicators": [
+     "Bad",
+     "no starter",
+     "hiding"
+    ],
+    "indicatorNotes": {
+     "Bad": "Food gone bad has broken down into something else, and letters gone bad no longer sit in the order they were served in.",
+     "no starter": "No starter means the first course is missing, and a word's first course is the letter it begins on.",
+     "hiding": "Something hiding has gone in among other things, so the extra letter is tucked into the mixture rather than added at either end."
+    },
+    "anagram": {
+     "fodder": "ORSCHT I"
+    },
+    "blocks": [
+     {
+      "clueFragment": "borscht",
+      "gives": "ORSCHT",
+      "note": "The beetroot soup of Eastern Europe, with the letter it starts on left off."
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "Everyman is the name this setter signs, so the word stands for the setter, written as the one-letter pronoun."
+     }
+    ],
+    "surface": "A rotten bowl of beetroot soup, no first course, and the setter keeping out of sight.",
+    "walkthrough": "Everyman signing into a clue as I is a house habit worth learning. The definition is a whole clause because it rests on the bird's reputation for burying its head rather than on a synonym.",
+    "definitionFit": "An ostrich is proverbially the creature that hides its head in the sand, so figuratively it is the person who will not face trouble."
+   }
   },
   {
    "id": "20-across",
@@ -424,7 +1028,33 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
     ]
    },
    "solution": "GHETTOBLASTER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "GHETTO BLASTER",
+    "definition": "music-maker",
+    "indicators": [
+     "Dancing"
+    ],
+    "indicatorNotes": {
+     "Dancing": "Dancers do not hold their positions, so letters set dancing end up somewhere other than where they started."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "GATHER BOTTLES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gather bottles",
+      "gives": "GATHERBOTTLES",
+      "note": "Thirteen letters of fodder, which is exactly the length wanted."
+     }
+    ],
+    "surface": "Clearing up after a party: collect the empties, and the stereo.",
+    "walkthrough": "'Dancing' reads as part of the party and is the shuffling instruction instead. Counting the fodder against the enumeration is the check to make before trusting an anagram this long.",
+    "definitionFit": "A ghetto blaster is a big portable stereo, and 'music-maker' is loose but fair: what it makes is the noise, not the composition."
+   }
   },
   {
    "id": "21-down",
@@ -441,7 +1071,31 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BACON",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "BACON",
+    "definition": "Philosopher",
+    "indicators": [
+     "you say"
+    ],
+    "indicatorNotes": {
+     "you say": "'You say' hands the clue over to the ear: you are being told what the words sound like, not how they are spelt."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "preparin’ dish for Paul Hollywood",
+      "soundsLike": "BAKIN’",
+      "gives": "BACON",
+      "note": "Paul Hollywood judges The Great British Bake Off, so a dish prepared for him is bakin' — and the clue has dropped the G for you already."
+     }
+    ],
+    "surface": "A contestant getting a dish ready for the Bake Off judge.",
+    "walkthrough": "'Philosopher's' looks possessive and is the definition with an 'is' hooked on: Francis Bacon, the Elizabethan who argued that science should proceed by experiment.",
+    "definitionFit": "The answer is the surname of Francis Bacon, the Elizabethan philosopher of the scientific method, so the definition names him by his trade."
+   }
   },
   {
    "id": "22-down",
@@ -458,7 +1112,27 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESAU",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ESAU",
+    "definition": "Biblical brother",
+    "indicators": [
+     "covered in"
+    ],
+    "indicatorNotes": {
+     "covered in": "To be covered in something is to lie under it out of sight, so the name is buried inside the words that follow rather than spelt out by them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Worcestershire sauce",
+      "gives": "ESAU",
+      "note": "Four letters run consecutively across the join between these two words."
+     }
+    ],
+    "surface": "A brother out of Genesis smothered in brown sauce.",
+    "walkthrough": "Worcestershire sauce is the dark British condiment, and the letters run across the gap between the two words — the hardest place in a clue to notice a name.",
+    "definitionFit": "Esau is Jacob's elder twin in Genesis, the one who sold his birthright, so 'Biblical brother' names him by the relationship his whole story turns on."
+   }
   },
   {
    "id": "23-across",
@@ -475,7 +1149,28 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPOILER",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SPOILER",
+    "definition": "Aerodynamic device",
+    "definition2": "that might come with an alert",
+    "definitionNote": "The second definition is a description rather than a synonym: the thing an alert is attached to is the plot-revealing kind, and the setter points at it sideways.",
+    "blocks": [
+     {
+      "clueFragment": "Aerodynamic device",
+      "gives": "",
+      "note": "The car reading: the wing on a boot lid that presses the back of the car down."
+     },
+     {
+      "clueFragment": "that might come with an alert",
+      "gives": "",
+      "note": "The other reading: the fact about a plot that a warning gets put in front of."
+     }
+    ],
+    "surface": "A gadget on a car that comes with its own warning light.",
+    "walkthrough": "Nothing is taken apart here, and the second half is a definition by association rather than a synonym — the setter leaning on a phrase everybody who reads reviews online now knows.",
+    "definitionFit": "On a car it is the wing that spoils airflow and kills lift; in a review it is the plot given away, the thing a 'spoiler alert' warns of."
+   }
   },
   {
    "id": "24-across",
@@ -492,7 +1187,24 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CELLIST",
-   "annotation": null,
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CELLIST",
+    "definition": "One takes a bow before and after concert",
+    "blocks": [
+     {
+      "clueFragment": "takes a bow before",
+      "note": "Before the music the bow is an object: a stick strung with horsehair, picked up and drawn across the strings."
+     },
+     {
+      "clueFragment": "after concert",
+      "note": "After the music the bow is an action: a bend from the waist while the audience claps."
+     }
+    ],
+    "surface": "A performer bowing at the start of the concert as well as at the end.",
+    "walkthrough": "The two bows are not even pronounced the same — the stick rhymes with 'go', the bend with 'now' — and the italics on 'and' are there to insist that you take both.",
+    "definitionFit": "A cellist plays with a bow and, as a performer, bows to the audience, so the clue is true of them in two senses at once."
+   },
    "clueItalics": [
     [
      23,
@@ -515,7 +1227,42 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNIMPOSING",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "UNIMPOSING",
+    "definition": "not impressive",
+    "indicators": [
+     "After"
+    ],
+    "indicatorNotes": {
+     "After": "After says where the rest goes: everything named next follows the university instead of coming before it."
+    },
+    "pieces": [
+     "UNI",
+     "M",
+     "POSING"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "UNI",
+      "note": "The everyday clipping of the word, and a standing short form in crosswords."
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is Monsieur, the French form of address as abbreviated on an envelope."
+     },
+     {
+      "clueFragment": "acting affectedly",
+      "gives": "POSING",
+      "note": "To pose is to strike an attitude for effect."
+     }
+    ],
+    "surface": "A French graduate showing off, and impressing nobody at all.",
+    "walkthrough": "Everything before the colon is wordplay and everything after it defines. M for Monsieur is the piece worth owning: 'Frenchman' shrinks to that single letter in crosswords all the time.",
+    "definitionFit": "Unimposing means lacking presence or grandeur, so 'not impressive' is the phrase read straight, with the answer's own un- doing the negating."
+   }
   },
   {
    "id": "26-across",
@@ -532,7 +1279,34 @@ window.CRYPTIC_PUZZLES["everyman-4090"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHAS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "CHAS",
+    "definition": "Your Majesty",
+    "definition2": "two or three are needed for a dance",
+    "definitionNote": "Neither half agrees tidily: the nickname is a singular name whose S belongs to it, while the dance reading treats the same four letters as a plural, two or three chas making up the cha-cha.",
+    "indicators": [
+     "Disrespectfully"
+    ],
+    "indicatorNotes": {
+     "Disrespectfully": "Calling the King by a clipped nickname rather than his title is the disrespect being asked for, so the formal address is to be shortened and made familiar."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Your Majesty",
+      "gives": "",
+      "note": "The reigning British king is Charles III, and this is how a tabloid headline would address him."
+     },
+     {
+      "clueFragment": "two or three are needed for a dance",
+      "gives": "",
+      "note": "The Latin American dance is named by repeating one syllable — twice in one version, three times in the other."
+     }
+    ],
+    "surface": "Somebody being rude about the King in the middle of a conversation about ballroom.",
+    "walkthrough": "The same four letters are read twice over: a familiar form of the King's name, and the syllable a dance is built from. The comma after 'Majesty' is what makes it look like one sentence addressed to him.",
+    "definitionFit": "Chas is the tabloid shortening of Charles, so it addresses the King familiarly; and cha is the dance syllable, doubled or tripled into cha-cha and cha-cha-cha."
+   }
   }
  ]
 } /*JSON-END*/;
