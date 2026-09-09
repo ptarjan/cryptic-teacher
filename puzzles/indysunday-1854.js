@@ -34,7 +34,46 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
     ]
    },
    "solution": "GROWINGPAINS",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "GROWING PAINS",
+    "definition": "teenage trouble",
+    "indicators": [
+     "getting into"
+    ],
+    "indicatorNotes": {
+     "getting into": "Anything that gets into a drink ends up surrounded by it, so the letters named before this land inside the drink that follows."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "G",
+     "ROWING",
+     "PA",
+     "INS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirits",
+      "gives": "GINS",
+      "note": "gin is a spirit, and these four letters open up after the first"
+     },
+     {
+      "clueFragment": "Arguing",
+      "gives": "ROWING",
+      "note": "to row with someone is to argue with them"
+     },
+     {
+      "clueFragment": "dad",
+      "gives": "PA",
+      "note": "pa = dad, the crossword's standard short father"
+     }
+    ],
+    "surface": "A family row with dad while the drink flows, and the teenager at the centre of it.",
+    "walkthrough": "'Spirits' wants to be mood — the sulks an adolescent gets into — and it is the drinks cabinet instead.",
+    "definitionFit": "teenage trouble -> GROWING PAINS: the aches and awkwardness of adolescence, and by extension the early troubles of anything young."
+   }
   },
   {
    "id": "2-down",
@@ -55,7 +94,42 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
     ]
    },
    "solution": "REVISEDVERSION",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "REVISED VERSION",
+    "definition": "Text read by minister",
+    "indicators": [
+     "my suggestion for"
+    ],
+    "indicatorNotes": {
+     "my suggestion for": "The setter is proposing a treatment of the words that follow, and the treatment proposed is a rewrite, which the first half of the answer then names."
+    },
+    "pieces": [
+     "REVISED",
+     "VERSION"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "VIN ROSE",
+      "gives": "VERSION"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my suggestion",
+      "gives": "REVISED",
+      "note": "the treatment being proposed, written out in full: to revise is to work something over again"
+     },
+     {
+      "clueFragment": "vin rosé",
+      "gives": "VERSION",
+      "note": "the seven letters of VIN ROSE resettle into a new order"
+     }
+    ],
+    "surface": "The lesson a minister reads out, beside the speaker's own recommendation about pink wine.",
+    "walkthrough": "The answer describes what has been done to the wine: it is a revised version of those seven letters. The Revised Version is the 1885 English Bible, which is what gets read from a pulpit.",
+    "definitionFit": "Text read by minister -> REVISED VERSION: the Revised Version is a nineteenth-century English Bible, so it is literally a text read aloud in church."
+   }
   },
   {
    "id": "3-down",
@@ -72,7 +146,40 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WANNABE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "WANNABE",
+    "definition": "hopeful",
+    "indicators": [
+     "caught by"
+    ],
+    "indicatorNotes": {
+     "caught by": "To be caught by something is to be held inside it, so the first word ends up within the word that catches it."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "WAN",
+     "NAB",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reduction in force",
+      "gives": "WANE",
+      "note": "to wane is to dwindle in strength, and these four letters part after the third"
+     },
+     {
+      "clueFragment": "Cop",
+      "gives": "NAB",
+      "note": "to cop someone is to nab them, both meaning to catch"
+     }
+    ],
+    "surface": "A police officer let go in a round of layoffs, still optimistic about work.",
+    "walkthrough": "'Cop' reads as the noun, a policeman, and is the verb — to cop is to seize. 'Reduction in force' is a redundancy notice on the surface and plain dwindling in the wordplay.",
+    "definitionFit": "hopeful -> WANNABE: a hopeful is someone angling for a role they have not got yet, which is exactly what a wannabe is."
+   }
   },
   {
    "id": "4-down",
@@ -89,7 +196,35 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NOSEBLEED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "NOSEBLEED",
+    "definition": "red running down face",
+    "indicators": [
+     "misapplied"
+    ],
+    "indicatorNotes": {
+     "misapplied": "Make-up put on wrongly goes where it should not, so the letters it describes end up out of their proper places."
+    },
+    "anagram": {
+     "fodder": "SEE BLONDE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "See blonde",
+      "gives": "SEEBLONDE",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "misapplied",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Hair dye or lipstick put on badly, leaving colour streaked down someone's face.",
+    "walkthrough": "The picture is botched cosmetics, so the red reads as make-up rather than blood, and 'misapplied' looks like a comment on the girl instead of an instruction.",
+    "definitionFit": "red running down face -> NOSEBLEED: not a synonym but a description of what one looks like, the setter defining by the picture it makes."
+   }
   },
   {
    "id": "5-down",
@@ -106,7 +241,44 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PREPAID",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "PREPAID",
+    "definition": "with charges met earlier",
+    "indicators": [
+     "supports",
+     "upset"
+    ],
+    "indicatorNotes": {
+     "supports": "A support sits underneath whatever it holds up, so in a down entry the charity's letters take the bottom cells.",
+     "upset": "Upset means tipped over, and letters tipped over in a down entry come back up in the opposite order."
+    },
+    "pieces": [
+     "PREP",
+     "AID"
+    ],
+    "subReversals": [
+     {
+      "from": "PERP",
+      "to": "PREP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US criminal upset",
+      "gives": "PREP",
+      "note": "American police slang for the perpetrator of a crime is a perp, here written the other way round"
+     },
+     {
+      "clueFragment": "Charity",
+      "gives": "AID",
+      "note": "charity is aid, relief given to those who need it"
+     }
+    ],
+    "surface": "A charity standing behind an American crook who is aggrieved about the charges brought against him.",
+    "walkthrough": "'Upset' looks like the criminal's mood and is the instruction to turn his letters round, while 'charges' plays on criminal charges rather than fees.",
+    "definitionFit": "with charges met earlier -> PREPAID: a prepaid item is one whose cost has already been settled before it is used or sent."
+   }
   },
   {
    "id": "6-down",
@@ -123,7 +295,45 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IPPON",
-   "annotation": null
+   "annotation": {
+    "type": "charade + cycling",
+    "answer": "IPPON",
+    "definition": "Winning score",
+    "indicators": [
+     "one put up"
+    ],
+    "indicatorNotes": {
+     "one put up": "The letter that stands for one is I, and putting it up in a down entry lifts it to the front of the letters it was sitting among."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "IPP",
+     "ON"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "PIP",
+      "gives": "IPP"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seed",
+      "gives": "IPP",
+      "note": "a seed is a pip, and with its I lifted to the front the three letters read in this order"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "ON",
+      "note": "a match or a show that is on is playing"
+     }
+    ],
+    "surface": "A scoreline from a match: a point put up while the seeded player was on.",
+    "walkthrough": "In judo an ippon ends the contest outright, so 'winning score' is exact rather than loose. Nothing is shuffled here — only the I climbs, and the two Ps stay put.",
+    "definitionFit": "Winning score -> IPPON: judo's full point, awarded for a clean throw and enough on its own to win the bout."
+   }
   },
   {
    "id": "7-down",
@@ -140,7 +350,37 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SUSTAIN",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SUSTAIN",
+    "definition": "bear",
+    "indicators": [
+     "feeds"
+    ],
+    "indicatorNotes": {
+     "feeds": "Something fed into a machine passes inside it, so the American letters are swallowed by the words that follow."
+    },
+    "pieces": [
+     "S",
+     "US",
+     "TAIN"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "permanently dirty",
+      "gives": "STAIN",
+      "note": "to stain is to dirty something so the mark stays, and these five letters open after the first"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US = American, the standard two-letter shorthand"
+     }
+    ],
+    "surface": "Someone from the States putting food out for a bear that never washes.",
+    "walkthrough": "'Bear' looks like the animal in the picture and means to carry or endure, the sense in 'bear the cost'. 'Permanently dirty' is a verb, not an adjective.",
+    "definitionFit": "bear -> SUSTAIN: to bear a weight, a cost or a loss is to sustain it, the verb of holding up under strain."
+   }
   },
   {
    "id": "8-down",
@@ -161,7 +401,35 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
     ]
    },
    "solution": "CAPEFINISTERRE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "CAPE FINISTERRE",
+    "definition": "Spanish point",
+    "indicators": [
+     "out"
+    ],
+    "indicatorNotes": {
+     "out": "Out here means out of order rather than spoken aloud, and letters out of order have to be settled into a new arrangement."
+    },
+    "anagram": {
+     "fodder": "TENERIFE IS CRAP"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Tenerife is crap",
+      "gives": "TENERIFEISCRAP",
+      "note": "anagram fodder, fourteen letters"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Spaniards declaring that the holiday island of Tenerife is rubbish.",
+    "walkthrough": "'Point out' reads as one phrase, which is the trap: the definition stops after 'point' and 'out' does the shuffling. The name of the headland means land's end.",
+    "definitionFit": "Spanish point -> CAPE FINISTERRE: a cape is a point of land, and this one juts out from Galicia in north-west Spain."
+   }
   },
   {
    "id": "9-across",
@@ -178,7 +446,42 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVANESCE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EVANESCE",
+    "definition": "vanish",
+    "indicators": [
+     "on"
+    ],
+    "indicatorNotes": {
+     "on": "A weathercock stands on top of what holds it, and in an across clue the thing stood on is written first, so its letter leads."
+    },
+    "pieces": [
+     "E",
+     "VANES",
+     "CE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E = English, the usual single letter for the language"
+     },
+     {
+      "clueFragment": "Weathercocks",
+      "gives": "VANES",
+      "note": "a weathercock is a weather vane, so the plural supplies five letters"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE = Church of England, the established English church"
+     }
+    ],
+    "surface": "Weather vanes turning on the tower of an English parish church.",
+    "walkthrough": "Across clues use 'on' the way a builder does: the piece written second is underneath, so a fragment sitting on something follows it rather than leading.",
+    "definitionFit": "vanish -> EVANESCE: to evanesce is to fade from sight and dissipate, the literary verb for vanishing by degrees."
+   }
   },
   {
    "id": "10-across",
@@ -195,7 +498,43 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POSTAL",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "POSTAL",
+    "definition": "Sent",
+    "definitionNote": "'Sent' is a past participle where the answer is an adjective; the setter means it in the sense 'sent by post', which is what the adjective describes.",
+    "indicators": [
+     "in retreat"
+    ],
+    "indicatorNotes": {
+     "in retreat": "An army in retreat goes back the way it came, so the French word's letters are written in the opposite order along this across entry."
+    },
+    "pieces": [
+     "POST",
+     "AL"
+    ],
+    "subReversals": [
+     {
+      "from": "LA",
+      "to": "AL"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "after",
+      "gives": "POST",
+      "note": "post means after, as in post-war or post-match"
+     },
+     {
+      "clueFragment": "the French in retreat",
+      "gives": "AL",
+      "note": "the French for 'the' is la, here written backwards"
+     }
+    ],
+    "surface": "Somebody sent in pursuit of the French as they fall back.",
+    "walkthrough": "'The French' is crossword shorthand for the French word for 'the' — LE, LA or LES — and the surface is banking on you picturing actual Frenchmen.",
+    "definitionFit": "Sent -> POSTAL: a postal vote or postal order is one sent through the post, which is the sense 'sent' is pointing at."
+   }
   },
   {
    "id": "11-across",
@@ -212,7 +551,45 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ASIA",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "ASIA",
+    "definition": "Large area",
+    "indicators": [
+     "covers",
+     "subject to review"
+    ],
+    "indicatorNotes": {
+     "covers": "To cover a thing is to lie over it from both sides, so the service's two letters part and take the rest between them.",
+     "subject to review": "A review goes back over what has been done, and letters gone back over come out in the opposite order."
+    },
+    "pieces": [
+     "A",
+     "SI",
+     "A"
+    ],
+    "subReversals": [
+     {
+      "from": "IS",
+      "to": "SI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breakdown service",
+      "gives": "AA",
+      "note": "the AA is the Automobile Association, the British motoring club that rescues broken-down cars"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "SI",
+      "note": "what remains still is, and those two letters are turned round"
+     }
+    ],
+    "surface": "An insurance question: whether the roadside rescue policy covers wreckage still under investigation.",
+    "walkthrough": "'Covers' does two jobs at once — insurance cover in the picture, enclosure in the wordplay — and 'remains' is the verb, not the noun for what is left behind.",
+    "definitionFit": "Large area -> ASIA: the biggest of the continents, so the definition points at it by size and kind rather than by synonym."
+   }
   },
   {
    "id": "12-across",
@@ -229,7 +606,42 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRAINWAVES",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "BRAINWAVES",
+    "definition": "mental activity",
+    "definitionNote": "The answer is plural and 'mental activity' a mass noun; the electrical traffic in a head is always counted in the plural, so the mass noun covers it.",
+    "indicators": [
+     "Spooner's"
+    ],
+    "indicatorNotes": {
+     "Spooner's": "The Reverend Spooner's trademark slip traded the opening sounds of two words, so say the phrase aloud and swap the noises at the front."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "BRAIN",
+     "WAVES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone who played Cowboys",
+      "soundsLike": "WAYNE",
+      "gives": "BRAIN",
+      "note": "John Wayne spent a career in the saddle, and his name said aloud hands its opening sound to the other word"
+     },
+     {
+      "clueFragment": "Indians",
+      "soundsLike": "BRAVES",
+      "gives": "WAVES",
+      "note": "braves are Indian warriors, and this word passes its opening sound forward in the exchange"
+     }
+    ],
+    "surface": "Remembering somebody who used to play Cowboys and Indians in the back garden.",
+    "walkthrough": "John Wayne made his name in westerns and 'braves' is the old word for Indian warriors, so the children's game hides two very different things. Only the noises at the front move; the vowels stay where they are.",
+    "definitionFit": "mental activity -> BRAINWAVES: the rhythms an EEG traces are the brain's electrical activity, and the singular also means a bright idea."
+   }
   },
   {
    "id": "13-across",
@@ -246,7 +658,45 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADHERE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + charade",
+    "answer": "ADHERE",
+    "definition": "stick",
+    "indicators": [
+     "Butchered"
+    ],
+    "indicatorNotes": {
+     "Butchered": "A butcher cuts a carcass into pieces and puts none of it back as it was, so the letters that follow come apart and reassemble in another order."
+    },
+    "anagram": {
+     "fodder": "HEAD RE"
+    },
+    "pieces": [
+     "ADHE",
+     "RE"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "HEAD",
+      "gives": "ADHE"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "ADHE",
+      "note": "the four letters of HEAD, cut up and relaid"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on, as in 're your letter' — on the subject of"
+     }
+    ],
+    "surface": "A butchered head mounted on the end of a pole.",
+    "walkthrough": "'On' is the small trap: it reads as joinery saying where the head goes, and it is a piece of the answer in its own right, since re means on in the sense of concerning.",
+    "definitionFit": "stick -> ADHERE: to adhere is to stick fast to a surface, and figuratively to stick to a rule or a plan."
+   }
   },
   {
    "id": "14-across",
@@ -263,7 +713,48 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEBONAIR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "DEBONAIR",
+    "definition": "Blithe",
+    "indicators": [
+     "switched"
+    ],
+    "indicatorNotes": {
+     "switched": "Switched means turned about, so the two letters it applies to change places and are written the other way round."
+    },
+    "pieces": [
+     "D",
+     "EB",
+     "ONAIR"
+    ],
+    "subReversals": [
+     {
+      "from": "BE",
+      "to": "EB"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "D = director, as on a company letterhead"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "EB",
+      "note": "to live is to be, and those two letters are written the other way round"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "ONAIR",
+      "note": "a programme being broadcast is on air"
+     }
+    ],
+    "surface": "A carefree director changing the live broadcast at the last minute.",
+    "walkthrough": "'Live broadcast' looks like one phrase and is two separate pieces of wordplay, while 'Blithe' defines from the very front, where a solver expects the wordplay to begin.",
+    "definitionFit": "Blithe -> DEBONAIR: both name an easy, carefree cheerfulness, with debonair adding a suggestion of style along with it."
+   }
   },
   {
    "id": "15-down",
@@ -280,7 +771,47 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOOMERANG",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "BOOMERANG",
+    "definition": "Missile",
+    "indicators": [
+     "shot",
+     "overhead"
+    ],
+    "indicatorNotes": {
+     "shot": "Something shot to pieces has its parts scattered, so the six letters beside this word are re-laid in a new order.",
+     "overhead": "Overhead means above, and in a down entry what is above is written first, so the noise takes the top cells."
+    },
+    "anagram": {
+     "fodder": "GERMAN BOO"
+    },
+    "pieces": [
+     "BOO",
+     "MERANG"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "GERMAN",
+      "gives": "MERANG"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shocking noise",
+      "gives": "BOO",
+      "note": "the noise you make to startle somebody is boo"
+     },
+     {
+      "clueFragment": "German shot",
+      "gives": "MERANG",
+      "note": "the six letters of GERMAN scattered into a different order"
+     }
+    ],
+    "surface": "A German rocket coming over with a terrifying bang above the rooftops.",
+    "walkthrough": "'Missile' is fair for anything thrown at a target, not just a rocket, which is what the wartime surface wants you to picture instead.",
+    "definitionFit": "Missile -> BOOMERANG: a missile is any object hurled as a weapon, and this is the throwing stick that returns to the thrower."
+   }
   },
   {
    "id": "16-across",
@@ -297,7 +828,43 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HERALDIC",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "HERALDIC",
+    "definition": "dealing in arms",
+    "definitionNote": "'Dealing in arms' is a participial phrase where the answer is an adjective; heraldry is the trade that deals in coats of arms, so the phrase describes what the adjective covers.",
+    "indicators": [
+     "casing"
+    ],
+    "indicatorNotes": {
+     "casing": "A case goes right round its contents, so the letters before this word open up and the supermarket sits inside them."
+    },
+    "pieces": [
+     "HER",
+     "ALDI",
+     "C"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman",
+      "gives": "HER",
+      "note": "'that woman' as an object is her"
+     },
+     {
+      "clueFragment": "supermarket",
+      "gives": "ALDI",
+      "note": "Aldi is the German discount chain found on most British high streets"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c = caught, from cricket scorecards where a batsman is caught out"
+     }
+    ],
+    "surface": "A woman arrested while scoping out a supermarket that sells weapons.",
+    "walkthrough": "'Arms' is the pivot — guns in the picture, coats of arms in the definition — and 'casing' is thieves' slang for scouting a place, which is why the enclosure hides so well.",
+    "definitionFit": "dealing in arms -> HERALDIC: heraldry is the design and study of coats of arms, so anything heraldic deals in arms of that kind."
+   }
   },
   {
    "id": "17-down",
@@ -318,7 +885,24 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
     ]
    },
    "solution": "AIRSHOW",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "AIR SHOW",
+    "definition": "Where old fighter might roll up?",
+    "blocks": [
+     {
+      "clueFragment": "old fighter",
+      "note": "the surface offers a veteran boxer, while the setter means a vintage aircraft"
+     },
+     {
+      "clueFragment": "might roll up",
+      "note": "rolling up is what a latecomer does on the surface, and what a display pilot does in the air"
+     }
+    ],
+    "surface": "An old prizefighter ambling in late to some gathering.",
+    "walkthrough": "There is no wordplay to separate out here: 'fighter' is the aeroplane rather than the boxer, and the roll is an aerobatic manoeuvre rather than an arrival.",
+    "definitionFit": "The whole clue defines by picture: an air show is precisely where a vintage fighter turns up and performs rolls."
+   }
   },
   {
    "id": "18-down",
@@ -335,7 +919,54 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHIANTI",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal + charade",
+    "answer": "CHIANTI",
+    "definition": "red",
+    "indicators": [
+     "filling",
+     "turned"
+    ],
+    "indicatorNotes": {
+     "filling": "A filling goes into the middle of whatever it fills, so the American letter drops inside the punch.",
+     "turned": "Turned means turned over, so the vermouth's two letters come out the other way up in this down entry."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "CHI",
+     "A",
+     "N",
+     "TI"
+    ],
+    "subReversals": [
+     {
+      "from": "IT",
+      "to": "TI"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punch",
+      "gives": "CHIN",
+      "note": "to punch someone is to chin them, and these four letters part after the third"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A = American, the single-letter shorthand"
+     },
+     {
+      "clueFragment": "vermouth turned",
+      "gives": "TI",
+      "note": "Italian vermouth is IT, from the bar order 'gin and It', written here the other way up"
+     }
+    ],
+    "surface": "An American mixing fruit punch with vermouth until the drink goes red.",
+    "walkthrough": "'Punch' is a drink in the picture and a blow in the wordplay, and IT for Italian vermouth is worth keeping — it comes from the old bar call 'gin and It'.",
+    "definitionFit": "red -> CHIANTI: a red is a red wine, and Chianti is the Tuscan one, so the definition names it by example."
+   }
   },
   {
    "id": "19-across",
@@ -352,7 +983,31 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ORCHID",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ORCHID",
+    "definition": "natural beauty",
+    "indicators": [],
+    "pieces": [
+     "ORC",
+     "HID"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ugly beast",
+      "gives": "ORC",
+      "note": "an orc is the ugly brute of Tolkien's stories, a standard crossword monster"
+     },
+     {
+      "clueFragment": "concealed",
+      "gives": "HID",
+      "note": "concealed is the past tense of hide"
+     }
+    ],
+    "surface": "A monster lurking somewhere lovely and unspoilt.",
+    "walkthrough": "'Concealed' looks like the signal for a hidden word, so the temptation is to comb the clue's letters for something buried; here it is simply a chunk of the answer.",
+    "definitionFit": "natural beauty -> ORCHID: a flower prized for its looks, so the definition points at a thing of natural beauty rather than at scenery."
+   }
   },
   {
    "id": "20-down",
@@ -369,7 +1024,35 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHASSIS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "CHASSIS",
+    "definition": "carriage",
+    "indicators": [],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "pieces": [
+     "CHAS",
+     "SIS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charles",
+      "gives": "CHAS",
+      "note": "Chas is the everyday short form of Charles"
+     },
+     {
+      "clueFragment": "Anne as his relation",
+      "gives": "SIS",
+      "note": "Princess Anne is Charles's sister, and sis is the familiar short form"
+     }
+    ],
+    "surface": "Charles introducing Anne as his sister while the two of them ride in a carriage.",
+    "walkthrough": "The royal siblings are real, which is what makes the picture hold together, and the clue banks on 'carriage' being the thing they are sitting in rather than the definition.",
+    "definitionFit": "carriage -> CHASSIS: the chassis is the frame a vehicle's body rests on, and carriage is used of that load-bearing under-frame."
+   }
   },
   {
    "id": "21-across",
@@ -386,7 +1069,46 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESCRITOIRE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "ESCRITOIRE",
+    "definition": "Support for writer",
+    "indicators": [
+     "bored by",
+     "in"
+    ],
+    "indicatorNotes": {
+     "bored by": "To bore into a thing is to drill through its middle, so the word being bored opens and takes the borer inside it.",
+     "in": "In puts one set of letters within another, so everything assembled so far sits inside the country's name."
+    },
+    "pieces": [
+     "E",
+     "S",
+     "CRIT",
+     "O",
+     "IRE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ireland",
+      "gives": "EIRE",
+      "note": "Eire is the Irish name for the Republic of Ireland, and these letters split after the first"
+     },
+     {
+      "clueFragment": "really",
+      "gives": "SO",
+      "note": "really means so, as in 'so very tired', and the two letters part"
+     },
+     {
+      "clueFragment": "criticism",
+      "gives": "CRIT",
+      "note": "a crit is a piece of criticism, the art-school short form"
+     }
+    ],
+    "surface": "Backing for an author who is thoroughly bored by the reviews coming out of Ireland.",
+    "walkthrough": "'Support' sounds like moral backing and means furniture, and 'bored' is the drilling sense rather than the yawning one the surface offers.",
+    "definitionFit": "Support for writer -> ESCRITOIRE: an escritoire is a writing desk, the piece of furniture that holds a writer's work up."
+   }
   },
   {
    "id": "22-down",
@@ -403,7 +1125,39 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TURPS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TURPS",
+    "definition": "thinner",
+    "indicators": [
+     "out of"
+    ],
+    "indicatorNotes": {
+     "out of": "Out of takes the second thing away from the first, so those two letters walk out of the vegetables and leave the rest."
+    },
+    "linkWords": [
+     "could be"
+    ],
+    "pieces": [
+     "TUR",
+     "PS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Root vegetables",
+      "gives": "TURNIPS",
+      "note": "turnips are the root vegetables, seven letters to start from"
+     },
+     {
+      "clueFragment": "Northern Ireland",
+      "gives": "NI",
+      "note": "NI is the standard abbreviation for Northern Ireland, and those two letters sit together in the middle of the vegetables"
+     }
+    ],
+    "surface": "Root vegetables grown outside Northern Ireland turning out on the scrawny side.",
+    "walkthrough": "'Thinner' is a noun, not a comparative adjective: the stuff painters use to thin oil paint. Turps is short for turpentine and does exactly that job.",
+    "definitionFit": "thinner -> TURPS: turpentine is the solvent painters use to thin paint, so 'thinner' names the product by what it does."
+   }
   },
   {
    "id": "23-across",
@@ -420,7 +1174,34 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ALTO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ALTO",
+    "definition": "Voice",
+    "indicators": [],
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "ALT",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instruction",
+      "gives": "ALT",
+      "note": "the Alt key is the modifier that begins a keyboard command"
+     },
+     {
+      "clueFragment": "open Format menu?",
+      "gives": "O",
+      "note": "Alt plus a menu's underlined letter opens it, and the letter picked out of Format is its second"
+     }
+    ],
+    "surface": "A prompt telling you which keys will open the Format menu on screen.",
+    "walkthrough": "'Voice' defines from the front, where the wordplay usually starts. On a Windows menu bar Format's shortcut uses its second letter, because File has already claimed the F.",
+    "definitionFit": "Voice -> ALTO: alto is the singing voice between soprano and tenor, so the definition names the answer by its category."
+   }
   },
   {
    "id": "24-across",
@@ -437,7 +1218,34 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BOTHER",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BOTHER",
+    "definition": "Rats",
+    "indicators": [],
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "B",
+     "OTHER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "b = black, as on a pencil and in chess notation"
+     },
+     {
+      "clueFragment": "not black, presumably",
+      "gives": "OTHER",
+      "note": "anything that is not the colour named is of some other colour, and 'presumably' admits that is an assumption"
+     }
+    ],
+    "surface": "A note on a survey form: some of the rats were black and the rest, presumably, were not.",
+    "walkthrough": "Definition and answer are both mild oaths, which is the hard part — exclamations are easy to forget have synonyms — and 'Rats' looks like the animals the rest of the clue counts.",
+    "definitionFit": "Rats -> BOTHER: both are mild exclamations of annoyance, interchangeable in 'Oh, rats!' and 'Oh, bother!'"
+   }
   },
   {
    "id": "25-across",
@@ -458,7 +1266,54 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
     ]
    },
    "solution": "NOAHSARK",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + container + charade",
+    "answer": "NOAH'S ARK",
+    "definition": "DIY project after storm warning",
+    "indicators": [
+     "Flipping",
+     "cutting"
+    ],
+    "indicatorNotes": {
+     "Flipping": "Flipping a thing turns it over, so the reckless letters go in back to front; it doubles as the mild swear the surface wants.",
+     "cutting": "Cutting into something opens a gap and the cutter sits in it, so the turned letters land inside the tree."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "N",
+     "OA",
+     "HSAR",
+     "K"
+    ],
+    "subReversals": [
+     {
+      "from": "RASH",
+      "to": "HSAR"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "n = new, the standard single letter"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "OAK",
+      "note": "the oak is the tree, and its three letters part before the last"
+     },
+     {
+      "clueFragment": "Flipping reckless",
+      "gives": "HSAR",
+      "note": "reckless is rash, and those four letters are written back to front"
+     }
+    ],
+    "surface": "An exasperated home builder hacking into a new tree to get something finished before the storm arrives.",
+    "walkthrough": "The definition is a joke rather than a synonym: the ark was the original home build, started once its owner had the flood forecast. 'Flipping' reads as exasperation and works as the turn.",
+    "definitionFit": "DIY project after storm warning -> NOAH'S ARK: Noah built the boat himself once he had been warned the flood was coming."
+   }
   },
   {
    "id": "26-across",
@@ -479,7 +1334,51 @@ window.CRYPTIC_PUZZLES["indysunday-1854"] = /*JSON-START*/ {
     ]
    },
    "solution": "WASTINGASSET",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "WASTING ASSET",
+    "definition": "a non-renewable resource",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "In drops one piece inside another, so the fuel is written between the can and the word meaning confirmed."
+    },
+    "linkWords": [
+     "It's"
+    ],
+    "pieces": [
+     "WAS",
+     "TIN",
+     "GAS",
+     "SET"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is no more",
+      "gives": "WAS",
+      "note": "whatever is no more once was, so the past tense of 'is' supplies three letters"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a can is a tin"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "GAS",
+      "note": "gas is fuel, and in America the fuel that goes in a car"
+     },
+     {
+      "clueFragment": "confirmed",
+      "gives": "SET",
+      "note": "a date or a plan that is confirmed is set"
+     }
+    ],
+    "surface": "Checking whether the last of the fuel in the can has really run out.",
+    "walkthrough": "'Is no more' looks like the euphemism for dead and is doing plain grammar — the past tense of 'is' — and the definition is the whole closing phrase, not just its final word.",
+    "definitionFit": "a non-renewable resource -> WASTING ASSET: in accounting a wasting asset is one used up and never replaced, which is what such a resource is."
+   }
   }
  ]
 } /*JSON-END*/;
