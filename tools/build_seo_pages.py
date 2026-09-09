@@ -396,8 +396,14 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # needs to see "answers" there, not after the paper's name and "Crossword No".
     # The setter stays wherever there is one, because setter names get searched;
     # that costs the characters "clue by clue" spends where there is no setter.
-    title = (f"{what} {pretty} answers explained — {paper},{by}" if by
-             else f"{what} {pretty} answers explained, clue by clue — {paper}")
+    # "explained" is a claim about the page. An un-annotated page prints the
+    # answers and no wordplay, so its title stops at "answers": a title that
+    # promises a walkthrough the page has not got earns the click once and the
+    # bounce every time after.
+    lead = "answers explained" if annotated else "answers"
+    tail = "clue by clue" if annotated else "every clue solved"
+    title = (f"{what} {pretty} {lead} — {paper},{by}" if by
+             else f"{what} {pretty} {lead}, {tail} — {paper}")
     # The snippet leads with the same promise for the same reason, and still says
     # which of the two pages this is: explained clue by clue, or answers only.
     desc = (f"Answers to every clue in {what} {pretty}{by}, each with its definition "
