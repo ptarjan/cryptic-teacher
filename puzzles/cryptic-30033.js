@@ -672,10 +672,10 @@ window.CRYPTIC_PUZZLES["cryptic-30033"] = /*JSON-START*/ {
     "answer": "OPT",
     "definition": "Choose",
     "indicators": [
-     "in"
+     "Pinot"
     ],
     "indicatorNotes": {
-     "in": "Read as an instruction instead of as part of the wine's name, 'in' drops the letter before it inside the pair that follows."
+     "Pinot": "Read as an instruction instead of as a wine, this word is P in OT: the IN at its centre drops the letter before it inside the pair that follows."
     },
     "pieces": [
      "O",

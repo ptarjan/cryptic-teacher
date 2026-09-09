@@ -97,11 +97,11 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
     "definition": "Critical evaluation",
     "indicators": [
      "turning",
-     "in"
+     "indeed"
     ],
     "indicatorNotes": {
      "turning": "Tides turn, and a set of letters told to turn does not come back in the order it left.",
-     "in": "The IN hiding at the front of 'indeed' is a plain instruction to go inside, so one piece sits within the other."
+     "indeed": "The IN at the front of this word is the instruction — one piece goes inside the other — and the DEED behind it is material."
     },
     "pieces": [
      "AC",
@@ -445,11 +445,11 @@ window.CRYPTIC_PUZZLES["cryptic-29981"] = /*JSON-START*/ {
     "definition": "Preserving wood",
     "indicators": [
      "going in",
-     "freak"
+     "ecofreak"
     ],
     "indicatorNotes": {
      "going in": "'Going in' sends the single letter into the middle of the others rather than leaving it at either end.",
-     "freak": "A freak is something formed wrongly, so the letters beside it come out misshapen — and it is only half of the word it is written in."
+     "ecofreak": "The FREAK at the back of this word is the instruction — a freak is something formed wrongly, so the letters come out misshapen — while the ECO in front of it is material."
     },
     "anagram": {
      "fodder": "I STRONG ECO"
