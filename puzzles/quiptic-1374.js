@@ -30,7 +30,28 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLAUSE",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "CLAUSE",
+    "definition": "part of contract",
+    "definitionFit": "A clause is one numbered provision of a contract, the unit lawyers point at when they argue over what was actually agreed.",
+    "indicators": [
+     "Loudly"
+    ],
+    "indicatorNotes": {
+     "Loudly": "Something done loudly is done aloud rather than on paper, so the wordplay hands you a sound and leaves the spelling to you."
+    },
+    "blocks": [
+     {
+      "clueFragment": "rips",
+      "soundsLike": "CLAWS",
+      "gives": "CLAUSE",
+      "note": "what rips at the furniture claws at it, and CLAWS said out loud is written down quite differently"
+     }
+    ],
+    "surface": "Someone noisily tearing up a page of a contract.",
+    "walkthrough": "'Rips' looks like a verb belonging to the surface story of destroyed paperwork, and the sound you need out of it belongs to a cat."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +68,40 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CLANGER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + outer letters",
+    "answer": "CLANGER",
+    "definition": "stupid mistake",
+    "definitionFit": "A clanger is a blunder loud enough that everyone in the room notices — you drop one, the way a bell rings out in a silence.",
+    "indicators": [
+     "Vacant"
+    ],
+    "indicatorNotes": {
+     "Vacant": "A vacant building has had everything between its walls removed, so the word keeps only the letters at its two ends."
+    },
+    "linkWords": [
+     "with",
+     "makes"
+    ],
+    "pieces": [
+     "CL",
+     "ANGER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vacant colonel",
+      "gives": "CL",
+      "note": "COLONEL emptied of everything inside it leaves the C and the L standing at its ends"
+     },
+     {
+      "clueFragment": "temper",
+      "gives": "ANGER",
+      "note": "to be in a temper is to be in an anger — the two nouns swap freely"
+     }
+    ],
+    "surface": "An empty-headed colonel losing his temper and getting something badly wrong.",
+    "walkthrough": "'Vacant' reads as a description of the colonel — dim, absent-minded — while it is quietly an instruction to hollow the word out."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +118,36 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AVERT",
-   "annotation": null
+   "annotation": {
+    "type": "charade + first letter",
+    "answer": "AVERT",
+    "definition": "Deflect",
+    "definitionFit": "To avert something is to turn it aside before it arrives — you avert your eyes, or avert a disaster — which is deflecting it.",
+    "indicators": [
+     "initially"
+    ],
+    "indicatorNotes": {
+     "initially": "What happens initially happens at the very start, so only the opening letter of the word standing beside it is taken."
+    },
+    "pieces": [
+     "AVER",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver something is to state it flatly, the way a witness does"
+     },
+     {
+      "clueFragment": "tracing initially",
+      "gives": "T",
+      "note": "the opening letter of Tracing"
+     }
+    ],
+    "surface": "Dodging the government's surveillance right at the outset.",
+    "walkthrough": "'State' is the trap: it reads as the government doing the tracing, and it is the verb aver, to declare something as fact."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +164,55 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SQUASHY",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + first letter",
+    "answer": "SQUASHY",
+    "definition": "soft",
+    "definitionFit": "Something squashy gives way the moment you press it — an overripe peach, a beanbag — which is soft in the yielding sense.",
+    "indicators": [
+     "about",
+     "head"
+    ],
+    "indicatorNotes": {
+     "about": "To be about something is to be all round it, so this word wraps itself over the pieces named after it.",
+     "head": "The head of anything is its front end, so only the leading letter of the word it belongs to is used."
+    },
+    "linkWords": [
+     "by",
+     "being"
+    ],
+    "pieces": [
+     "S",
+     "QU",
+     "A",
+     "S",
+     "HY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coy",
+      "gives": "SHY",
+      "note": "coy and shy both describe someone hanging back from attention"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "qu. is the standard short form of question, on a form or in a textbook"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article is lifted straight out of the clue as a single letter"
+     },
+     {
+      "clueFragment": "school’s head",
+      "gives": "S",
+      "note": "the front letter of School"
+     }
+    ],
+    "surface": "A shy pupil ducking a question put to them by the head of a school.",
+    "walkthrough": "The 'school's head' sounds like a person and asks for one letter, and 'question' contracts to the two-letter qu. rather than the single Q you would expect."
+   }
   },
   {
    "id": "4-across",
@@ -98,7 +229,31 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PAUSES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PAUSES",
+    "definition": "interruptions",
+    "definitionFit": "A pause is a short break in something already running — speech, music, a meeting — so pauses are the interruptions of it.",
+    "indicators": [],
+    "pieces": [
+     "PA",
+     "USES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Personal assistant",
+      "gives": "PA",
+      "note": "PA is the everyday short form of personal assistant"
+     },
+     {
+      "clueFragment": "exploits",
+      "gives": "USES",
+      "note": "to exploit a resource is to use it"
+     }
+    ],
+    "surface": "A personal assistant turning every interruption to their own advantage.",
+    "walkthrough": "'Exploits' can be a noun meaning daring deeds, which is how the surface would like to be read; the wordplay wants the plain verb."
+   }
   },
   {
    "id": "5-down",
@@ -115,7 +270,42 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMULET",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AMULET",
+    "definition": "Charm",
+    "definitionFit": "An amulet is an object worn to keep harm off, so it is a charm in the lucky-token sense rather than the personal-appeal one.",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "This entry runs downwards, and one thing over another sits above it, so the pieces named first are stacked on top of the last."
+    },
+    "pieces": [
+     "A",
+     "MULE",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the article taken as it stands from the clue"
+     },
+     {
+      "clueFragment": "stubborn person",
+      "gives": "MULE",
+      "note": "a mule is proverbially obstinate, and the word is used of people who will not budge"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the standard abbreviation for time"
+     }
+    ],
+    "surface": "Slowly winning over an obstinate person as the years go by.",
+    "walkthrough": "'Charm' is the noun for a lucky object, not the verb for winning someone round, and the surface leans its whole weight on the verb."
+   }
   },
   {
    "id": "6-down",
@@ -136,7 +326,40 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
     ]
    },
    "solution": "SPLASHOUT",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SPLASH OUT",
+    "definition": "Spend a lot of money",
+    "definitionFit": "To splash out is the British idiom for spending freely on something you did not strictly need — opening the wallet wide.",
+    "indicators": [
+     "aboard"
+    ],
+    "indicatorNotes": {
+     "aboard": "Anything taken aboard is carried within the vessel, so one piece travels inside the other rather than beside it."
+    },
+    "linkWords": [
+     "getting"
+    ],
+    "pieces": [
+     "SP",
+     "LASH",
+     "OUT"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jet",
+      "gives": "SPOUT",
+      "note": "a jet of water is a spout of it"
+     },
+     {
+      "clueFragment": "belt",
+      "gives": "LASH",
+      "note": "to belt someone is to lash them — both are blows, not straps"
+     }
+    ],
+    "surface": "A big spender taking a belt on board a private jet.",
+    "walkthrough": "Both short words are doing violence to your expectations: a belt is a blow rather than something worn, and a jet is a spurt of water rather than an aircraft."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +376,37 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STERNUM",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "STERNUM",
+    "definition": "Bone",
+    "definitionFit": "The sternum is the breastbone, the flat plate running down the front of the ribcage where the ribs meet.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "The plainest container word there is — what is in something sits inside it, here between the letters of the piece named next."
+    },
+    "pieces": [
+     "S",
+     "TERN",
+     "UM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entirety",
+      "gives": "SUM",
+      "note": "the sum of a thing is the whole of it, as in 'the sum total'"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TERN",
+      "note": "a tern is a small sea bird, and one of the crossword's regulars"
+     }
+    ],
+    "surface": "A bird studied whole, bones and all.",
+    "walkthrough": "TERN is worth banking as vocabulary, and 'in entirety' reads as a single phrase while the clue needs it as two separate words."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +427,41 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
     ]
    },
    "solution": "TENDERHEARTED",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TENDER-HEARTED",
+    "definition": "kind",
+    "definitionFit": "Someone tender-hearted is easily moved by other people's troubles, which is kind in the soft, sympathetic sense.",
+    "indicators": [],
+    "linkWords": [
+     "to",
+     "being"
+    ],
+    "pieces": [
+     "TENDER",
+     "HEART",
+     "ED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offer",
+      "gives": "TENDER",
+      "note": "you tender a resignation, and a tender is a formal offer to do a job"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "HEART",
+      "note": "one of the four suits in a pack of playing cards"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ed is the usual short form of editor"
+     }
+    ],
+    "surface": "Handing a greetings card to your editor to show you care.",
+    "walkthrough": "'Card' does the real hiding: it reads as something you buy in a shop and post, and the wordplay wants a red suit."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +478,28 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LACE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "LACE",
+    "definition": "Spike",
+    "definition2": "netting",
+    "definitionFit": "To lace a drink is to spike it with alcohol, and lace is netting in the sense of a fine open fabric of knotted threads.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Spike",
+      "gives": "",
+      "note": "the verb: to add spirits to somebody's drink without telling them"
+     },
+     {
+      "clueFragment": "netting",
+      "gives": "",
+      "note": "the noun: fabric made of fine threads knotted into an open mesh"
+     }
+    ],
+    "surface": "An instruction to drive a spike through some netting.",
+    "walkthrough": "Two senses sit side by side with nothing joining them: the verb for doctoring a drink, and the noun for openwork fabric."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +516,35 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNEQUALLED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "UNEQUALLED",
+    "definition": "without peer",
+    "definitionFit": "Unequalled says nothing matches it, and 'without peer' makes the same claim using the older sense of peer, an equal.",
+    "indicators": [
+     "strangely"
+    ],
+    "indicatorNotes": {
+     "strangely": "Something done strangely is not done the usual way, so the letters beside it refuse to stay in the order they arrived in."
+    },
+    "anagram": {
+     "fodder": "A DULL QUEEN"
+    },
+    "blocks": [
+     {
+      "clueFragment": "A dull queen",
+      "gives": "ADULLQUEEN",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "strangely",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A tedious monarch behaving oddly and with no equal anywhere in the land.",
+    "walkthrough": "'Without peer' looks like part of the picture of a lonely queen with no equals at court, and peer there means an equal, which makes it the definition."
+   }
   },
   {
    "id": "11-across",
@@ -225,7 +561,40 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AGATES",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "AGATES",
+    "definition": "stones",
+    "definitionFit": "Agates are banded semi-precious stones, the striped ones cut for cheap jewellery and rolled as marbles.",
+    "indicators": [],
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "A",
+     "GATE",
+     "S"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "A",
+      "note": "the article gives up its shorter form, a single letter"
+     },
+     {
+      "clueFragment": "entrance",
+      "gives": "GATE",
+      "note": "a gate is the entrance through a wall or a fence"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the size abbreviation for small, as on any clothing label"
+     }
+    ],
+    "surface": "A doorway set about with little stones.",
+    "walkthrough": "The sentence reads as one continuous description of a gateway, so the join between wordplay and definition falls inside the picture rather than at a natural pause."
+   }
   },
   {
    "id": "12-across",
@@ -242,7 +611,40 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DRESSING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DRESSING",
+    "definition": "clothing",
+    "definitionFit": "Dressing and clothing are both the verbal noun for putting garments on somebody — what you are doing while you get dressed.",
+    "indicators": [
+     "redesigned"
+    ],
+    "indicatorNotes": {
+     "redesigned": "To redesign something is to build it again to a different plan out of the same materials, so these letters end up in a new arrangement."
+    },
+    "anagram": {
+     "fodder": "D SINGERS"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Director",
+      "gives": "D",
+      "note": "d is the standard abbreviation for director"
+     },
+     {
+      "clueFragment": "singer’s",
+      "gives": "SINGERS",
+      "note": "anagram fodder, seven letters once the apostrophe is dropped"
+     },
+     {
+      "clueFragment": "redesigned",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A film director giving the singer's stage outfit a makeover.",
+    "walkthrough": "The apostrophe in 'singer's' reads as an ordinary possessive, and its S is one of the eight letters being shuffled."
+   }
   },
   {
    "id": "13-across",
@@ -259,7 +661,34 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRAVEYARD",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GRAVEYARD",
+    "definition": "resting place",
+    "definitionFit": "A graveyard is the ground where the dead are laid to rest, and 'resting place' is the standard euphemism for exactly that.",
+    "indicators": [],
+    "linkWords": [
+     "to"
+    ],
+    "pieces": [
+     "GRAVE",
+     "YARD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serious",
+      "gives": "GRAVE",
+      "note": "a grave expression is a serious one; this adjective has nothing to do with burial"
+     },
+     {
+      "clueFragment": "distance",
+      "gives": "YARD",
+      "note": "a yard is three feet, a unit of distance"
+     }
+    ],
+    "surface": "A long hard trek still to go before anywhere you could stop and rest.",
+    "walkthrough": "'Serious' means grave in the sense of a solemn face, an adjective that arrived in English by a completely separate route from the burial noun it happens to spell."
+   }
   },
   {
    "id": "14-down",
@@ -276,7 +705,35 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VENTILATE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VENTILATE",
+    "definition": "Air",
+    "definitionFit": "To ventilate a room is to air it, letting fresh air move through, and both verbs also cover airing a grievance in public.",
+    "indicators": [
+     "developed"
+    ],
+    "indicatorNotes": {
+     "developed": "What has been developed has been worked up into a shape quite unlike the material it started from, so the letters do not stay put."
+    },
+    "anagram": {
+     "fodder": "TALENT IVE"
+    },
+    "blocks": [
+     {
+      "clueFragment": "talent I’ve",
+      "gives": "TALENTIVE",
+      "note": "anagram fodder, nine letters once the apostrophe is dropped"
+     },
+     {
+      "clueFragment": "developed",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A performer boasting about the air of talent they have developed over the years.",
+    "walkthrough": "'Air' is a verb here, not the noun the surface offers, and it is doing the defining from the very first word of the clue."
+   }
   },
   {
    "id": "15-across",
@@ -293,7 +750,28 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FORM",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "FORM",
+    "definition": "Class",
+    "definition2": "protocol",
+    "definitionFit": "A form is a class in a British school — the third form, the sixth form — and form is also the done thing, as in 'good form'.",
+    "indicators": [],
+    "blocks": [
+     {
+      "clueFragment": "Class",
+      "gives": "",
+      "note": "the school sense: a year group of pupils taught together in Britain"
+     },
+     {
+      "clueFragment": "protocol",
+      "gives": "",
+      "note": "the etiquette sense: the accepted way of behaving, praised or condemned as good or bad"
+     }
+    ],
+    "surface": "The etiquette that governs a school classroom.",
+    "walkthrough": "In Britain a school year group is a form, and behaving as expected is good form — two senses that share nothing but their spelling."
+   }
   },
   {
    "id": "16-across",
@@ -310,7 +788,48 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SAND",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "SAND",
+    "definition": "Smooth",
+    "definitionFit": "To sand a surface is to rub it down with abrasive paper until it is smooth, so the verb takes its name from the grit.",
+    "indicators": [
+     "leaders of"
+    ],
+    "indicatorNotes": {
+     "leaders of": "A leader walks at the front of the group, so the front letter of each word that follows is what you collect."
+    },
+    "pieces": [
+     "S",
+     "A",
+     "N",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "the opening letter of Society"
+     },
+     {
+      "clueFragment": "attracting",
+      "gives": "A",
+      "note": "the opening letter of Attracting"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "the opening letter of New"
+     },
+     {
+      "clueFragment": "devotees",
+      "gives": "D",
+      "note": "the opening letter of Devotees"
+     }
+    ],
+    "surface": "Prominent members of society picking up a fresh crop of followers.",
+    "walkthrough": "'Smooth' sits where an adjective describing those leaders would sit, and it is the verb — what you do to a rough plank."
+   }
   },
   {
    "id": "16-down",
@@ -327,7 +846,37 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCOURGE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "SCOURGE",
+    "definition": "Whip",
+    "definitionFit": "A scourge is a whip of knotted cords, the flogging kind, long before the word came to mean any affliction.",
+    "indicators": [
+     "into"
+    ],
+    "indicatorNotes": {
+     "into": "Putting one thing into another leaves it enclosed, so the piece named first is buried inside the piece named last."
+    },
+    "pieces": [
+     "S",
+     "CO",
+     "URGE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upswing",
+      "gives": "SURGE",
+      "note": "an upswing in prices is a surge in them"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the abbreviation printed on any firm's letterhead"
+     }
+    ],
+    "surface": "Driving a struggling firm hard until its fortunes turn upward.",
+    "walkthrough": "'Whip' reads as the verb for driving somebody on, and the definition wants the noun — the object doing the driving."
+   }
   },
   {
    "id": "17-across",
@@ -344,7 +893,35 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VERSATILE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "VERSATILE",
+    "definition": "Flexible",
+    "definitionFit": "Someone versatile turns their hand to anything, which is flexible in the adaptable sense rather than the physically bendy one.",
+    "indicators": [
+     "cavorting"
+    ],
+    "indicatorNotes": {
+     "cavorting": "To cavort is to caper about with no order to it at all, so the letters beside this word will not stand still."
+    },
+    "anagram": {
+     "fodder": "RELATIVES"
+    },
+    "blocks": [
+     {
+      "clueFragment": "relatives",
+      "gives": "RELATIVES",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "cavorting",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A family of limber relations larking about together.",
+    "walkthrough": "The enumeration is the whole hint on a three-word clue: only one of the three words is nine letters long, which settles which is fodder and which is definition."
+   }
   },
   {
    "id": "18-down",
@@ -361,7 +938,46 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SEGMENT",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade",
+    "answer": "SEGMENT",
+    "definition": "Division",
+    "definitionFit": "A segment is a piece cut off a whole — an orange segment, a segment of a circle — so it is a division of that thing.",
+    "indicators": [
+     "in"
+    ],
+    "indicatorNotes": {
+     "in": "Whatever is in something sits inside it, so the pieces named before this word drop between the letters of the one after it."
+    },
+    "linkWords": [
+     "of"
+    ],
+    "pieces": [
+     "S",
+     "EG",
+     "MEN",
+     "T"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation on any road sign"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "eg introduces an example, which is the job 'say' does in a sentence"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "the men of a regiment are its soldiers, as in 'officers and men'"
+     }
+    ],
+    "surface": "A division of soldiers drawn up in the street.",
+    "walkthrough": "'Division of, say, soldiers' invites you to read the whole opening as one definition; only the first word is, and 'say' is the abbreviation eg."
+   }
   },
   {
    "id": "19-down",
@@ -378,7 +994,35 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LARGELY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "LARGELY",
+    "definition": "Mostly",
+    "definitionFit": "Largely and mostly both mean for the greater part: a statement largely true is true across most of it.",
+    "indicators": [
+     "rearranged"
+    ],
+    "indicatorNotes": {
+     "rearranged": "Rearranging furniture keeps every piece and changes only where each one stands, which is what happens to these letters."
+    },
+    "anagram": {
+     "fodder": "GALLERY"
+    },
+    "blocks": [
+     {
+      "clueFragment": "gallery",
+      "gives": "GALLERY",
+      "note": "anagram fodder, seven letters"
+     },
+     {
+      "clueFragment": "rearranged",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A gallery that has had most of its pictures rehung.",
+    "walkthrough": "'Mostly' looks like an instruction to take most of a word and drop the rest, which is its usual job in a clue; here it is the definition."
+   }
   },
   {
    "id": "20-down",
@@ -395,7 +1039,41 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FENNEL",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FENNEL",
+    "definition": "Aromatic plant",
+    "definitionFit": "Fennel is a feathery herb with a strong aniseed smell, grown for its seeds and its bulb, so it is an aromatic plant.",
+    "indicators": [],
+    "linkWords": [
+     "found in",
+     "and"
+    ],
+    "pieces": [
+     "FEN",
+     "NE",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swamp",
+      "gives": "FEN",
+      "note": "a fen is low waterlogged ground; the Fens of eastern England are the best known stretch"
+     },
+     {
+      "clueFragment": "North Eastern",
+      "gives": "NE",
+      "note": "NE is the compass abbreviation for north eastern"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "surface": "A herb growing wild by a marsh beside a lake in the north east.",
+    "walkthrough": "Everything after the definition is landscape vocabulary, which is why the sentence reads as a line from a field guide rather than as three instructions."
+   }
   },
   {
    "id": "21-across",
@@ -412,7 +1090,37 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOMINEER",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "DOMINEER",
+    "definition": "Browbeat",
+    "definitionFit": "To domineer over people is to bully them into doing as you say, which is what browbeating them amounts to.",
+    "indicators": [
+     "carrying"
+    ],
+    "indicatorNotes": {
+     "carrying": "Someone carrying a package has it on their person, inside their coat, so this word takes the next piece within itself."
+    },
+    "pieces": [
+     "DO",
+     "MINE",
+     "ER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "active person",
+      "gives": "DOER",
+      "note": "a doer is someone who acts rather than talks — 'a doer, not a dreamer'"
+     },
+     {
+      "clueFragment": "explosive",
+      "gives": "MINE",
+      "note": "a mine is an explosive charge, buried or moored, waiting to be set off"
+     }
+    ],
+    "surface": "A go-getter walking around with a bomb on them.",
+    "walkthrough": "'Explosive' reads as an adjective describing that energetic person, and the wordplay needs the noun — a specific device."
+   }
   },
   {
    "id": "22-across",
@@ -429,7 +1137,27 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GOVERN",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "GOVERN",
+    "definition": "Control",
+    "definitionFit": "To govern is to control — a country, a company, or the speed of an engine, which is where a governor takes its name from.",
+    "indicators": [
+     "bit of"
+    ],
+    "indicatorNotes": {
+     "bit of": "A bit of something is a piece broken out of the middle of it, so a run of letters is lifted from inside the words that follow."
+    },
+    "blocks": [
+     {
+      "clueFragment": "manufacturing overnight",
+      "gives": "GOVERN",
+      "note": "six consecutive letters run from the tail of the first word straight into the second"
+     }
+    ],
+    "surface": "A factory keeping its production line running through the night.",
+    "walkthrough": "'Bit of' is about as quiet as a hidden-word signal gets, because it reads as a scrap of the manufacturing, which is exactly what the surface needs it to mean."
+   }
   },
   {
    "id": "23-down",
@@ -446,7 +1174,39 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "VICAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "VICAR",
+    "definition": "clergywoman",
+    "definitionFit": "A vicar is the priest in charge of a Church of England parish, a post women have held since 1994, so the word covers either.",
+    "indicators": [
+     "after"
+    ],
+    "indicatorNotes": {
+     "after": "What comes after something follows behind it, so the piece named first in the clue is written second in the answer."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "pieces": [
+     "VI",
+     "CAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals"
+     },
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "the everyday vehicle on the drive"
+     }
+    ],
+    "surface": "A car turning up after six o'clock to collect the parish priest.",
+    "walkthrough": "'Six' is a Roman numeral rather than the hour the surface offers, and the vehicle ends up second despite being named first."
+   }
   },
   {
    "id": "24-across",
@@ -467,7 +1227,45 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
     ]
    },
    "solution": "GREATNIECE",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + middle letter",
+    "answer": "GREAT-NIECE",
+    "definition": "Relative",
+    "definitionFit": "Your great-niece is the daughter of your niece or nephew, one further generation down the family tree, so she is a relative by blood.",
+    "indicators": [
+     "unusually",
+     "around"
+    ],
+    "indicatorNotes": {
+     "unusually": "What is done unusually is not done the usual way, so these letters abandon the order the clue lists them in.",
+     "around": "Going around something means closing over it, so the letter named next is gathered in with the rest rather than left outside."
+    },
+    "linkWords": [
+     "is"
+    ],
+    "anagram": {
+     "fodder": "ENERGETIC A"
+    },
+    "blocks": [
+     {
+      "clueFragment": "energetic",
+      "gives": "ENERGETIC",
+      "note": "anagram fodder, nine letters"
+     },
+     {
+      "clueFragment": "middle of day",
+      "gives": "A",
+      "note": "the central letter of dAy"
+     },
+     {
+      "clueFragment": "unusually",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A lively family member charging about the house at lunchtime.",
+    "walkthrough": "'Middle of day' reads as noon and asks instead for the letter standing between the D and the Y."
+   }
   },
   {
    "id": "25-across",
@@ -484,7 +1282,48 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHEF",
-   "annotation": null
+   "annotation": {
+    "type": "first letters",
+    "answer": "CHEF",
+    "definition": "Cook",
+    "definitionFit": "A chef is a professional cook, the one running a kitchen rather than anybody who happens to be at the stove.",
+    "indicators": [
+     "heads"
+    ],
+    "indicatorNotes": {
+     "heads": "The head of a word is its first letter, and the plural asks for one from each of the words listed before it."
+    },
+    "pieces": [
+     "C",
+     "H",
+     "E",
+     "F"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooked",
+      "gives": "C",
+      "note": "the opening letter of Cooked"
+     },
+     {
+      "clueFragment": "halved",
+      "gives": "H",
+      "note": "the opening letter of Halved"
+     },
+     {
+      "clueFragment": "elephant",
+      "gives": "E",
+      "note": "the opening letter of Elephant"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "F",
+      "note": "the opening letter of Fish"
+     }
+    ],
+    "surface": "A recipe calling for half an elephant and a few fish heads.",
+    "walkthrough": "'Cooked' and 'halved' both look like instructions to do something to their neighbours, and both are only there to donate a letter."
+   }
   },
   {
    "id": "26-across",
@@ -501,7 +1340,35 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EVENLY",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word + reversal",
+    "answer": "EVENLY",
+    "definition": "consistently",
+    "definitionFit": "To do something evenly is to do it at a steady unvarying rate from start to finish, which is doing it consistently.",
+    "indicators": [
+     "holds",
+     "back"
+    ],
+    "indicatorNotes": {
+     "holds": "To hold something is to have it contained within your grasp, so the letters sit unbroken inside the words before this.",
+     "back": "This entry runs across the grid, so back means reading from the right-hand end towards the left."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Beryl never",
+      "gives": "YLNEVE",
+      "note": "six consecutive letters run from inside the first word straight into the second"
+     }
+    ],
+    "subReversals": [
+     {
+      "from": "YLNEVE",
+      "to": "EVENLY"
+     }
+    ],
+    "surface": "Beryl, who never manages to hold anything back for long.",
+    "walkthrough": "'Holds back' reads as one phrase meaning restrains, and the clue needs it as two words doing two different jobs."
+   }
   },
   {
    "id": "27-across",
@@ -518,7 +1385,39 @@ window.CRYPTIC_PUZZLES["quiptic-1374"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STURDY",
-   "annotation": null
+   "annotation": {
+    "type": "container + first letter",
+    "answer": "STURDY",
+    "definition": "Solid",
+    "definitionFit": "Something sturdy takes weight and knocks without giving, which is solid in the well-built sense rather than the not-hollow one.",
+    "indicators": [
+     "involving",
+     "leader of"
+    ],
+    "indicatorNotes": {
+     "involving": "To involve someone is to draw them into the thing, so the letter named next ends up inside the word before it.",
+     "leader of": "A leader stands at the head of the line, so only the opening letter of the word that follows is taken."
+    },
+    "pieces": [
+     "STU",
+     "R",
+     "DY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "investigation",
+      "gives": "STUDY",
+      "note": "a study of a problem is an investigation into it"
+     },
+     {
+      "clueFragment": "leader of research",
+      "gives": "R",
+      "note": "the first letter of Research"
+     }
+    ],
+    "surface": "A solid inquiry that brings the head of the research team on board.",
+    "walkthrough": "'Leader of research' reads as a person running a project, and it asks for a single letter."
+   }
   }
  ]
 } /*JSON-END*/;
