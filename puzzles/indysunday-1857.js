@@ -30,7 +30,45 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STUCCO",
-   "annotation": null
+   "annotation": {
+    "type": "reversal + charade",
+    "answer": "STUCCO",
+    "definition": "Plaster-work",
+    "indicators": [
+     "over"
+    ],
+    "indicatorNotes": {
+     "over": "Turning a thing over sets it the other way round, so the word before it is written out from its last letter back to its first."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "STUC",
+     "CO"
+    ],
+    "subReversals": [
+     {
+      "from": "CUTS",
+      "to": "STUC"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crosses",
+      "gives": "CUTS",
+      "note": "one road crossing another cuts it, so the verb here is the geometric one"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "CO is the abbreviation a business writes after its name, short for company"
+     }
+    ],
+    "surface": "Decorative plasterwork spilling over into somebody's commercial affairs.",
+    "walkthrough": "'Crosses' wants to be an X, a saint or a religious symbol, and it is none of those: it is a plain verb, one line cutting another.",
+    "definitionFit": "STUCCO is the fine plaster spread over walls and moulded into cornices, which is the plaster-work of the definition."
+   }
   },
   {
    "id": "2-down",
@@ -47,7 +85,37 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "AMELIA",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "AMELIA",
+    "definition": "One female",
+    "indicators": [
+     "among"
+    ],
+    "indicatorNotes": {
+     "among": "Being among things puts you in the middle of them, so the shorter word goes inside the longer one rather than beside it."
+    },
+    "pieces": [
+     "A",
+     "ME",
+     "LIA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "others",
+      "gives": "ALIA",
+      "note": "the Latin for others, as in the phrase inter alia"
+     },
+     {
+      "clueFragment": "crossword compiler",
+      "gives": "ME",
+      "note": "the person writing the clue is talking about themselves"
+     }
+    ],
+    "surface": "A woman who sets crosswords, named as one of a number of them.",
+    "walkthrough": "Compiler, setter, author or writer in a clue almost always points at the person who wrote it, and the Latin of inter alia supplies the rest.",
+    "definitionFit": "AMELIA is a woman's given name, so 'One female' defines it by example — one of many names a woman might carry."
+   }
   },
   {
    "id": "3-down",
@@ -64,7 +132,31 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BEANO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "BEANO",
+    "definition": "party",
+    "pieces": [
+     "BE",
+     "A",
+     "NO"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possibly",
+      "gives": "BE",
+      "note": "possibly unpacks as 'may be', and the wordplay keeps the 'be'"
+     },
+     {
+      "clueFragment": "vote against",
+      "gives": "A NO",
+      "note": "a vote cast against something is a no, and a single one of them is 'a no'"
+     }
+    ],
+    "surface": "Someone at a meeting who looks likely to vote the motion down.",
+    "walkthrough": "'Possibly' is the word every solver reads as an anagram signal; here it is 'you might be', and the rest of the phrase spells itself out in plain words.",
+    "definitionFit": "A BEANO is British slang for a boisterous party or works outing, from the beanfeast an employer once laid on."
+   }
   },
   {
    "id": "4-down",
@@ -81,7 +173,37 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "INSPECTOR",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "INSPECTOR",
+    "definition": "Official",
+    "indicators": [
+     "breaks into"
+    ],
+    "indicatorNotes": {
+     "breaks into": "Breaking into a place means getting inside it, so the letter that breaks in lands in the middle of what follows."
+    },
+    "pieces": [
+     "INS",
+     "P",
+     "ECTOR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into military area",
+      "gives": "INSECTOR",
+      "note": "the IN of 'into' in front of SECTOR, a sector being ground assigned to a military unit"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano in music, the direction to play quietly"
+     }
+    ],
+    "surface": "An official slipping unseen through the wire of an army base.",
+    "walkthrough": "'Into' has to be pulled in half: the IN is wordplay and only the TO is joinery. That split is what makes the sentence read so smoothly.",
+    "definitionFit": "An INSPECTOR is an officer appointed to examine and report, both a police rank and a job title, so 'Official' names the post."
+   }
   },
   {
    "id": "5-down",
@@ -98,7 +220,42 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "MEATHEAD",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "MEATHEAD",
+    "definition": "Dumb-ass",
+    "indicators": [
+     "disturbs"
+    ],
+    "indicatorNotes": {
+     "disturbs": "To disturb someone is to break in on them, so the guy lands in the middle of the letters rather than alongside them."
+    },
+    "pieces": [
+     "MEAT",
+     "HE",
+     "AD"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer",
+      "gives": "ME",
+      "note": "the setter writing the clue, referring to himself"
+     },
+     {
+      "clueFragment": "somewhat",
+      "gives": "A TAD",
+      "note": "a tad is somewhat, a small amount of something"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "HE",
+      "note": "a guy is a he, and this is the pair that breaks in"
+     }
+    ],
+    "surface": "A stupid bloke being a mild nuisance to somebody trying to write.",
+    "walkthrough": "Two of these pieces are conventions worth owning: 'writer' is the setter, and 'a tad' is the small helping that turns up whenever a clue says somewhat.",
+    "definitionFit": "A MEATHEAD is a thick-headed, stupid person, which is what the American insult 'Dumb-ass' names."
+   }
   },
   {
    "id": "6-down",
@@ -115,7 +272,50 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "STOCKTON",
-   "annotation": null
+   "annotation": {
+    "type": "container + reversal",
+    "answer": "STOCKTON",
+    "definition": "Historic train terminus in Co. Durham",
+    "indicators": [
+     "carrying",
+     "north"
+    ],
+    "indicatorNotes": {
+     "carrying": "Carrying something means holding it inside you, so the King rides in among the other letters instead of following them.",
+     "north": "North is up the page, and a down entry read upwards is read backwards, so the whole assembly goes down in reverse."
+    },
+    "pieces": [
+     "STOC",
+     "K",
+     "TON"
+    ],
+    "subReversals": [
+     {
+      "from": "NOTKCOTS",
+      "to": "STOCKTON"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "the little word taken at face value, all three letters of it"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the king on a chessboard and in a pack of cards"
+     },
+     {
+      "clueFragment": "Beds",
+      "gives": "COTS",
+      "note": "cots are beds, the small ones, and nothing to do with a county"
+     }
+    ],
+    "surface": "A railway landmark in the north-east with a royal passenger aboard.",
+    "walkthrough": "The capital B and the dashes are there to sell you Bedfordshire, an aside about which county this is. Read as an ordinary plural noun instead.",
+    "definitionFit": "Stockton-on-Tees was the terminus of the 1825 Stockton and Darlington Railway, the world's first steam-hauled public line."
+   }
   },
   {
    "id": "7-across",
@@ -132,7 +332,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEMPE",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TEMPE",
+    "definition": "Beautiful valley",
+    "indicators": [
+     "not enough"
+    ],
+    "indicatorNotes": {
+     "not enough": "Not enough of a phrase is only part of it, so what is wanted is a run of letters out of the middle rather than the words themselves."
+    },
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tyrant emperor",
+      "gives": "TEMPE",
+      "note": "five letters in a row, starting inside the first word and finishing inside the second"
+     }
+    ],
+    "surface": "A cruel emperor for whom a lovely valley was never going to be enough.",
+    "walkthrough": "The Vale of Tempe lies below Mount Olympus and the Greek poets treated it as the loveliest place on earth, which is why 'Beautiful valley' can define it on its own.",
+    "definitionFit": "Tempe is the Thessalian gorge the ancients held up as the model of scenic beauty, so the definition names it by reputation."
+   }
   },
   {
    "id": "8-across",
@@ -149,7 +372,48 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PANCETTA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + reversal",
+    "answer": "PANCETTA",
+    "definition": "What deli may offer",
+    "indicators": [
+     "west"
+    ],
+    "indicatorNotes": {
+     "west": "West is the left-hand end of an across row, so the letters are written out leftwards, arriving back to front."
+    },
+    "pieces": [
+     "PAN",
+     "CET",
+     "TA"
+    ],
+    "subReversals": [
+     {
+      "from": "ATTECNAP",
+      "to": "PANCETTA"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visiting",
+      "gives": "AT",
+      "note": "someone visiting the dentist is at the dentist"
+     },
+     {
+      "clueFragment": "prodnose",
+      "gives": "TEC",
+      "note": "a prodnose is British slang for a nosy investigator, and a tec is old slang for a detective"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "NAP",
+      "note": "the nap is the soft down raised on the surface of a cloth"
+     }
+    ],
+    "surface": "A busybody dropping in at the delicatessen counter.",
+    "walkthrough": "'Down' is the pile on a fabric, not a direction, and every one of these little words is a noun pretending to be part of a sentence about a nosy visitor.",
+    "definitionFit": "PANCETTA is Italian cured pork belly, sold sliced at a delicatessen, so the definition names it by where you buy it."
+   }
   },
   {
    "id": "8-down",
@@ -166,7 +430,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "POLL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "POLL",
+    "definition": "Take head off",
+    "indicators": [
+     "tail off"
+    ],
+    "indicatorNotes": {
+     "tail off": "A word's tail is its final letter, and taking it off leaves the word one letter shorter."
+    },
+    "pieces": [
+     "POLL"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parrot",
+      "gives": "POLLY",
+      "note": "Polly is the standard name for a pet parrot, as in 'Polly wants a cracker'"
+     }
+    ],
+    "surface": "An instruction to trim a parrot at one end or the other.",
+    "walkthrough": "The slash is the join between definition and wordplay, which is why both halves read as the same kind of instruction.",
+    "definitionFit": "To POLL is to cut the top off — a pollarded tree, a polled beast — so 'Take head off' is that verb in ordinary words."
+   }
   },
   {
    "id": "9-across",
@@ -183,7 +470,36 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ADO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "ADO",
+    "definition": "song and dance",
+    "indicators": [
+     "introducing"
+    ],
+    "indicatorNotes": {
+     "introducing": "Introducing something means bringing it in behind you, so the promotion leads and what it brings in follows."
+    },
+    "pieces": [
+     "AD",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Promotion",
+      "gives": "AD",
+      "note": "an ad is a promotion, short for advertisement"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a score of nothing at tennis, written as a nought"
+     }
+    ],
+    "surface": "An advertisement opening with a love song and a dance number.",
+    "walkthrough": "'Song and dance' is not music at all: making a song and dance about something is making a fuss about it, which is what the answer means.",
+    "definitionFit": "To make a song and dance is to make a fuss, and ADO is that fuss, as in much ado about nothing."
+   }
   },
   {
    "id": "10-across",
@@ -200,7 +516,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "COLON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "COLON",
+    "definition": "Panamanian port",
+    "pieces": [
+     "COL",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "COL",
+      "note": "a col is the dip between two peaks, the pass a walker crosses by"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "ON",
+      "note": "a coat over a chair is on it, so the two prepositions swap"
+     }
+    ],
+    "surface": "Somebody being told to skip past a port in Panama.",
+    "walkthrough": "'Pass over' reads as one verb meaning to ignore, and it is two separate words doing two separate jobs — the trap is treating them as a phrase.",
+    "definitionFit": "Colón stands at the Caribbean mouth of the Panama Canal and is the country's chief Atlantic port, named after Columbus."
+   }
   },
   {
    "id": "11-across",
@@ -217,7 +556,38 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIPSTICK",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "LIPSTICK",
+    "definition": "cosmetic",
+    "indicators": [
+     "Spooner’s"
+    ],
+    "indicatorNotes": {
+     "Spooner’s": "The Reverend Spooner's slips traded the opening sounds of neighbouring words, so you say the phrase aloud and swap the noises at the front."
+    },
+    "pieces": [
+     "LIPS",
+     "TICK"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suggestions",
+      "soundsLike": "TIPS",
+      "gives": "LIPS",
+      "note": "suggestions are tips; hand its opening T to the word behind and take that word's L in exchange"
+     },
+     {
+      "clueFragment": "are much better than",
+      "soundsLike": "LICK",
+      "gives": "TICK",
+      "note": "to lick a rival is to beat them soundly; its L goes forward and the T arrives from the front word"
+     }
+    ],
+    "surface": "Spooner insisting his advice beats any amount of make-up.",
+    "walkthrough": "The hard half is 'are much better than', which is the verb lick — Victorian slang for a thrashing, still alive in 'a licking'.",
+    "definitionFit": "LIPSTICK is make-up, so 'cosmetic' is the noun for it, sitting where the surface reads it as an adjective."
+   }
   },
   {
    "id": "12-across",
@@ -234,7 +604,41 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OWL",
-   "annotation": null
+   "annotation": {
+    "type": "deletion + charade",
+    "answer": "OWL",
+    "definition": "hooter",
+    "indicators": [
+     "hiding"
+    ],
+    "indicatorNotes": {
+     "hiding": "What goes into hiding is out of sight, so the letter named just before it never appears in the answer."
+    },
+    "pieces": [
+     "OW",
+     "L"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How",
+      "gives": "OW",
+      "note": "the question word with its opening letter gone"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "",
+      "note": "hard is H, the grade stamped on a pencil, and that is the letter that hides"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the size on a clothing label"
+     }
+    ],
+    "surface": "Someone wondering how difficult it is to conceal a big nose.",
+    "walkthrough": "'Hooter' is British slang for a nose, which is the picture the comma sets up; the bird is the thing that actually hoots.",
+    "definitionFit": "An OWL is the bird that hoots, so 'hooter' names it by the noise it makes rather than by anything you can see."
+   }
   },
   {
    "id": "13-down",
@@ -251,7 +655,27 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "WEAR",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "WEAR",
+    "definition": "River",
+    "definition2": "Don",
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "",
+      "note": "the north-eastern river that runs through Durham and out at Sunderland"
+     },
+     {
+      "clueFragment": "Don",
+      "gives": "",
+      "note": "to don a coat is to put it on"
+     }
+    ],
+    "surface": "Two words that look like the name of a Russian or Yorkshire river.",
+    "walkthrough": "There genuinely is a River Don, in Yorkshire and again in Aberdeen, and reading the two words as one name is the trap the clue is built on.",
+    "definitionFit": "The Wear is a County Durham river, and to don something is to wear it, so the noun and the verb are both covered."
+   }
   },
   {
    "id": "14-across",
@@ -268,7 +692,44 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOLAR",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "SOLAR",
+    "definition": "The Sun’s",
+    "indicators": [
+     "eclipsed"
+    ],
+    "indicatorNotes": {
+     "eclipsed": "An eclipse blots a thing out, so the letters it names disappear from the word they were sitting in."
+    },
+    "linkWords": [
+     "when"
+    ],
+    "pieces": [
+     "SO",
+     "LAR"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as",
+      "gives": "SO",
+      "note": "as big as, so big — the two words swap freely"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "LAR",
+      "note": "LARGE with its final two letters dropped"
+     },
+     {
+      "clueFragment": "Earth’s",
+      "gives": "",
+      "note": "Ge is the Greek earth goddess, the ge- of geology and geography, and hers are the letters that go"
+     }
+    ],
+    "surface": "An eclipse in which the Sun looks as big as ever while the Earth is blacked out.",
+    "walkthrough": "Earth is GE here, which is worth keeping: setters reach for the Greek goddess whenever those two letters suit them, and nothing in the clue announces her.",
+    "definitionFit": "SOLAR means of the sun, and the possessive 'The Sun's' does the same job — a solar year is the sun's year."
+   }
   },
   {
    "id": "14-down",
@@ -291,7 +752,44 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SOH",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "SOH",
+    "definition": "Note",
+    "indicators": [
+     "omitted",
+     "parts"
+    ],
+    "indicatorNotes": {
+     "omitted": "What is omitted is left out, so the editor's two letters never reach the answer.",
+     "parts": "To part two things is to push them away from each other, so the arriving letter comes between them."
+    },
+    "pieces": [
+     "S",
+     "O",
+     "H"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not a word",
+      "gives": "SH",
+      "note": "'not a word!' is the hiss you use telling somebody to keep quiet"
+     },
+     {
+      "clueFragment": "OED",
+      "gives": "O",
+      "note": "the dictionary's three letters minus the editor's pair"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "",
+      "note": "editor is ED, the two letters that are dropped"
+     }
+    ],
+    "surface": "A lexicographer ruling that something is not a word and leaving parts of the entry out.",
+    "walkthrough": "The colon after the first word reads as a heading and is really the seam between definition and wordplay, which is why the clue looks like a memo.",
+    "definitionFit": "SOH is the fifth note of the tonic sol-fa scale — doh, ray, me, fah, soh — so 'Note' names it as a musical one."
+   }
   },
   {
    "id": "15-across",
@@ -308,7 +806,42 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CHESTS",
-   "annotation": null
+   "annotation": {
+    "type": "substitution",
+    "answer": "CHESTS",
+    "definition": "Trunks",
+    "indicators": [
+     "thrown in for"
+    ],
+    "indicatorNotes": {
+     "thrown in for": "Throwing one thing in for another is an exchange, so what follows is taken out and what precedes it takes the vacant place."
+    },
+    "pieces": [
+     "C",
+     "HE",
+     "STS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the price of suit",
+      "gives": "COSTS",
+      "note": "the price of a thing is its cost, and the suit is spades, written S on a bridge scorecard"
+     },
+     {
+      "clueFragment": "he’s",
+      "gives": "HE",
+      "note": "the word taken at face value, its 's dropped as the ordinary verb 'is'"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "",
+      "note": "nothing is the letter O, and it is the one that makes way"
+     }
+    ],
+    "surface": "Swimming trunks thrown in free when you buy the suit.",
+    "walkthrough": "'Trunks' wants to be swimwear or elephants and is the plural of a packing box, while 'suit' is not tailoring but cards — one of the four.",
+    "definitionFit": "A CHEST is a stout box for storage, which is exactly what a trunk is, so the two plurals match sense for sense."
+   }
   },
   {
    "id": "16-across",
@@ -325,7 +858,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAU",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "TAU",
+    "definition": "letter",
+    "indicators": [
+     "Don’t read all of"
+    ],
+    "indicatorNotes": {
+     "Don’t read all of": "Not reading all of a word means stopping before the end, so its final letter never arrives."
+    },
+    "pieces": [
+     "TAU"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense",
+      "gives": "TAUT",
+      "note": "a rope pulled tense is taut"
+     }
+    ],
+    "surface": "Being told not to bother finishing a tense letter.",
+    "walkthrough": "'Letter' is the alphabet rather than the post, and 'tense' is the adjective — not the grammatical kind that would give you a T.",
+    "definitionFit": "TAU is the nineteenth letter of the Greek alphabet, so 'letter' defines it as one instance of that set."
+   }
   },
   {
    "id": "16-down",
@@ -346,7 +902,27 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
     ]
    },
    "solution": "TEDHUGHES",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "TED HUGHES",
+    "definition": "Poet",
+    "indicators": [
+     "embraces"
+    ],
+    "indicatorNotes": {
+     "embraces": "To embrace something is to have your arms right round it, so the surrounding words are holding what you want between them."
+    },
+    "blocks": [
+     {
+      "clueFragment": "wanted hug? He shunned",
+      "gives": "TED HUGHES",
+      "note": "nine letters in a row, beginning inside the first word and ending inside the last"
+     }
+    ],
+    "surface": "Someone who wanted a hug and was turned down for it.",
+    "walkthrough": "The question mark and the capital on 'He' exist to make this look like a sentence about rejection, and 'shunned embraces' is the setter telling you the opposite of what he is doing.",
+    "definitionFit": "Ted Hughes was Poet Laureate from 1984 until his death in 1998, so 'Poet' names him by his trade."
+   }
   },
   {
    "id": "17-across",
@@ -363,7 +939,39 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HUMBLER",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "HUMBLER",
+    "definition": "Comparatively modest",
+    "indicators": [
+     "has no head"
+    ],
+    "indicatorNotes": {
+     "has no head": "Having no head means losing the letter at the top, which is the first one the word is written with."
+    },
+    "linkWords": [
+     "at which"
+    ],
+    "pieces": [
+     "H",
+     "UMBLER"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "H is the abbreviation for height in any table of measurements"
+     },
+     {
+      "clueFragment": "acrobat",
+      "gives": "UMBLER",
+      "note": "an acrobat is a tumbler, here beheaded"
+     }
+    ],
+    "surface": "A height at which an acrobat loses his nerve, or his head.",
+    "walkthrough": "'Comparatively' is doing grammar rather than describing anything: it tells you the definition is a comparative, which is where the -ER on the end comes from.",
+    "definitionFit": "HUMBLER is the comparative of humble, so 'Comparatively modest' asks for 'more modest' and gets it in a single word."
+   }
   },
   {
    "id": "18-down",
@@ -380,7 +988,24 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UNOPENED",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "UNOPENED",
+    "definition": "Like the champagne that’s on ice",
+    "blocks": [
+     {
+      "clueFragment": "Like the champagne that’s on ice",
+      "note": "the surface picture: a bottle chilling in the bucket while nobody reaches for it"
+     },
+     {
+      "clueFragment": "this is his",
+      "note": "stop reading it as a sentence and look at the two words as words: one is the other with a top still on it"
+     }
+    ],
+    "surface": "Champagne sitting in the ice bucket with nobody yet moved to pour.",
+    "walkthrough": "There is no wordplay to take apart. The joke is that THIS is HIS still wearing its cap, and taking the top off is exactly what opening a bottle means.",
+    "definitionFit": "UNOPENED describes a bottle still corked, which is what champagne on ice is until somebody decides the moment has come."
+   }
   },
   {
    "id": "19-down",
@@ -397,7 +1022,45 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BARITONE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BARITONE",
+    "definition": "He’ll sing",
+    "indicators": [
+     "through"
+    ],
+    "indicatorNotes": {
+     "through": "Something driven through a thing finishes up inside it, so these two letters end up in the middle of the phrase."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "BAR",
+     "IT",
+     "ONE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exception",
+      "gives": "BAR",
+      "note": "bar means except, as in 'all bar one'"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the word itself, dropped in whole"
+     },
+     {
+      "clueFragment": "a single",
+      "gives": "ONE",
+      "note": "a single of anything is one of them"
+     }
+    ],
+    "surface": "A singer who will get through the whole piece apart from one passage.",
+    "walkthrough": "The three pieces are the everyday phrase 'bar one', which is why the sentence sounds so innocent — and 'it' is a word being quoted, not a pronoun standing for anything.",
+    "definitionFit": "A BARITONE is the male voice between tenor and bass, and the man who owns it, so 'He'll sing' points at the singer."
+   }
   },
   {
    "id": "20-across",
@@ -414,7 +1077,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ROADING",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "ROADING",
+    "definition": "Roman speciality",
+    "indicators": [
+     "laid out"
+    ],
+    "indicatorNotes": {
+     "laid out": "Laying something out is putting its parts down in a fresh arrangement, and letters laid out will not stay in the order the clue prints them."
+    },
+    "anagram": {
+     "fodder": "ONAGRID"
+    },
+    "blocks": [
+     {
+      "clueFragment": "on a grid",
+      "gives": "ONAGRID",
+      "note": "seven letters of fodder, the little words counting as letters like any others"
+     }
+    ],
+    "surface": "Roman engineering set out in the neat squares of a town plan.",
+    "walkthrough": "Roman towns really were laid out on a grid, which is why the fodder reads as history rather than instruction — the surface is telling the truth about the wrong thing.",
+    "definitionFit": "ROADING is road-building and the road system it produces, and building roads is what the Romans were famous for."
+   }
   },
   {
    "id": "20-down",
@@ -431,7 +1117,28 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RAPT",
-   "annotation": null
+   "annotation": {
+    "type": "homophone",
+    "answer": "RAPT",
+    "definition": "Transported",
+    "indicators": [
+     "thus delivered"
+    ],
+    "indicatorNotes": {
+     "thus delivered": "A line is delivered when it is spoken, so what matters is the sound of the word and not the way it is spelt."
+    },
+    "blocks": [
+     {
+      "clueFragment": "under cover",
+      "soundsLike": "WRAPPED",
+      "gives": "RAPT",
+      "note": "anything under cover is wrapped, and that word said aloud is what gets written down"
+     }
+    ],
+    "surface": "Goods carried under a tarpaulin and dropped off at the door.",
+    "walkthrough": "'Transported' is the old figurative sense, carried away by feeling, rather than the lorry the surface loads up; 'delivered' is working in both readings at once.",
+    "definitionFit": "Someone RAPT is carried away — absorbed, enraptured — which is 'transported' in its emotional sense rather than its haulage one."
+   }
   },
   {
    "id": "21-down",
@@ -448,7 +1155,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GAS",
-   "annotation": null
+   "annotation": {
+    "type": "deletion",
+    "answer": "GAS",
+    "definition": "energy supply",
+    "indicators": [
+     "short"
+    ],
+    "indicatorNotes": {
+     "short": "Something cut short stops before it should, so the last letter of the word never gets written."
+    },
+    "pieces": [
+     "GAS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut",
+      "gives": "GASH",
+      "note": "a cut in the skin is a gash"
+     }
+    ],
+    "surface": "Somebody cutting off the energy supply.",
+    "walkthrough": "'Cut short' reads as a single phrase and works as two separate words, which is the whole of the misdirection in three syllables.",
+    "definitionFit": "GAS is piped into houses for heating and cooking, so 'energy supply' names it by the job it does rather than by what it is."
+   }
   },
   {
    "id": "22-across",
@@ -465,7 +1195,27 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TAR",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "TAR",
+    "definition": "Dark substance prepared by distilling",
+    "definition2": "salt",
+    "blocks": [
+     {
+      "clueFragment": "Dark substance prepared by distilling",
+      "gives": "",
+      "note": "the black residue got by distilling coal or wood"
+     },
+     {
+      "clueFragment": "salt",
+      "gives": "",
+      "note": "an old sailor, in the slang of the sailing navy"
+     }
+    ],
+    "surface": "A dark substance apparently obtained by distilling salt.",
+    "walkthrough": "The join is invisible because 'salt' reads as the raw material of the first definition. Jack Tar got his nickname from tarred canvas clothing and tarred pigtails.",
+    "definitionFit": "TAR is the black stuff distilled out of coal or wood, and 'salt' is the old word for a seasoned sailor."
+   }
   },
   {
    "id": "23-across",
@@ -482,7 +1232,27 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "FOURTH",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "FOURTH",
+    "definition": "out of the frame",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "Some of a phrase is a part of it, so a run of letters is wanted rather than the words themselves."
+    },
+    "blocks": [
+     {
+      "clueFragment": "of our thoroughbreds",
+      "gives": "FOURTH",
+      "note": "six letters in a row, beginning at the start of the first word and stopping inside the last"
+     }
+    ],
+    "surface": "A few of our racehorses finishing nowhere at all.",
+    "walkthrough": "Every word here is racing talk, which is what keeps the letters invisible: the sentence sounds like a trainer's excuse rather than an instruction.",
+    "definitionFit": "In British racing the frame is the first three placings, from the board their numbers went up on, so FOURTH is just outside it."
+   }
   },
   {
    "id": "24-across",
@@ -499,7 +1269,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TEENS",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TEENS",
+    "definition": "Young people",
+    "pieces": [
+     "TEE",
+     "NS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee is the little peg that supports a golf ball"
+     },
+     {
+      "clueFragment": "couple holding hands",
+      "gives": "NS",
+      "note": "the four players at bridge are North, South, East and West, and North and South are the pair who play together"
+     }
+    ],
+    "surface": "Youngsters cheering on a couple walking along hand in hand.",
+    "walkthrough": "The card table supplies two of the five letters: the hands in the surface are the ones dealt, and the couple are partners across the table.",
+    "definitionFit": "TEENS names the thirteen-to-nineteens themselves and not just the years, so it answers 'Young people' as a plural noun."
+   }
   },
   {
    "id": "25-down",
@@ -516,7 +1309,45 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ELUARD",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + container",
+    "answer": "ELUARD",
+    "definition": "French poet",
+    "indicators": [
+     "in translation",
+     "about it"
+    ],
+    "indicatorNotes": {
+     "in translation": "A translation says the same thing in a different set of letters, which is the licence to reorder these ones.",
+     "about it": "About means round the outside, and 'it' points back to the word just made, so the reordered letters close over it."
+    },
+    "pieces": [
+     "E",
+     "LU",
+     "ARD"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "READ",
+      "gives": "EARD"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "read in translation",
+      "gives": "EARD",
+      "note": "the four letters of READ set down in another order"
+     },
+     {
+      "clueFragment": "read",
+      "gives": "LU",
+      "note": "lu is how a Frenchman writes it, the past participle of lire"
+     }
+    ],
+    "surface": "A French poet enjoyed both in the original and in somebody's translation.",
+    "walkthrough": "The clue says 'read' twice and means something different each time: once the French word, once the four letters shuffled. The semicolon is the only warning you get.",
+    "definitionFit": "Paul Éluard was a leading French surrealist poet, so the definition places him by nationality and trade."
+   }
   },
   {
    "id": "26-down",
@@ -533,7 +1364,44 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEEDED",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "NEEDED",
+    "definition": "essential",
+    "indicators": [
+     "no longer"
+    ],
+    "indicatorNotes": {
+     "no longer": "What is no longer there has gone, so the letter named just before it is taken out of the word."
+    },
+    "linkWords": [
+     "then"
+    ],
+    "pieces": [
+     "NEE",
+     "DED"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Born",
+      "gives": "NEE",
+      "note": "née is what stands in front of a married woman's birth name"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "DED",
+      "note": "the past tense with one letter taken out of the middle"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "",
+      "note": "one is the Roman numeral I, and that is the letter that goes"
+     }
+    ],
+    "surface": "A whole life in two dates, and somebody who is no longer wanted.",
+    "walkthrough": "'One' is the numeral I, which turns up whenever a clue mentions a single anything — a convention that costs a solver a lot of time the first few times it appears.",
+    "definitionFit": "Something NEEDED is required, which is 'essential' in the sense of being the thing you cannot do without."
+   }
   },
   {
    "id": "27-across",
@@ -550,7 +1418,27 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ATE",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "ATE",
+    "definition": "Mischiefmaker",
+    "definition2": "was irritating",
+    "blocks": [
+     {
+      "clueFragment": "Mischiefmaker",
+      "gives": "",
+      "note": "the Greek goddess who drove men to reckless folly"
+     },
+     {
+      "clueFragment": "was irritating",
+      "gives": "",
+      "note": "the sense in 'what's eating you?', a thing gnawing away at somebody"
+     }
+    ],
+    "surface": "A troublemaker who used to get on everybody's nerves.",
+    "walkthrough": "Nothing is capitalised to warn you a goddess is coming, and 'was irritating' looks like a description when it is the past tense of a verb.",
+    "definitionFit": "Até is the Greek goddess of ruin and rash folly, and the verb sense is the gnawing in 'what's eating you?'"
+   }
   },
   {
    "id": "27-down",
@@ -567,7 +1455,30 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ANTS",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "ANTS",
+    "definition": "Hill residents",
+    "indicators": [
+     "periodically"
+    ],
+    "indicatorNotes": {
+     "periodically": "Something done periodically happens at regular intervals, so letters are taken at a steady step instead of all of them."
+    },
+    "pieces": [
+     "ANTS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cannot use",
+      "gives": "ANTS",
+      "note": "run the two words together and keep only what stands in the even places"
+     }
+    ],
+    "surface": "People on a hill who cannot use something only at certain times.",
+    "walkthrough": "'Periodically' is doing arithmetic, not describing how often anything happens, and 'Hill residents' is the setter's straight face about an anthill.",
+    "definitionFit": "ANTS build and live in the mound called an anthill, so 'Hill residents' names them by the address rather than the insect."
+   }
   },
   {
    "id": "28-down",
@@ -584,7 +1495,39 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "EBONY",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "EBONY",
+    "definition": "tree",
+    "indicators": [
+     "climbing"
+    ],
+    "indicatorNotes": {
+     "climbing": "In a down entry climbing means going up the grid, so the letter that climbs ends up above the rest of them."
+    },
+    "linkWords": [
+     "with"
+    ],
+    "pieces": [
+     "E",
+     "BONY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physicist's symbol for energy, and it is the letter that does the climbing"
+     },
+     {
+      "clueFragment": "Napoleon",
+      "gives": "BONY",
+      "note": "Boney was the British nickname for Napoleon Bonaparte, and this is what stays behind once the climbing letter has gone up"
+     }
+    ],
+    "surface": "Napoleon going up a tree with a good deal of energy.",
+    "walkthrough": "The trap is 'Napoleon': solvers reach for the brandy, the pastry or the pig from Animal Farm, and the clue wants the nickname Britain gave him through twenty years of war.",
+    "definitionFit": "EBONY is a tropical tree of the genus Diospyros, so 'tree' defines the plant and not the black timber it is better known for."
+   }
   },
   {
    "id": "29-across",
@@ -601,7 +1544,34 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PENTAGON",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "PENTAGON",
+    "definition": "figure",
+    "linkWords": [
+     "is"
+    ],
+    "pieces": [
+     "PEN",
+     "TAG",
+     "ON"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Author",
+      "gives": "PEN",
+      "note": "to pen a letter is to author it, so the verb hands over three letters"
+     },
+     {
+      "clueFragment": "apparently identifiable",
+      "gives": "TAG ON",
+      "note": "with a tag on it, a thing can be told apart at a glance"
+     }
+    ],
+    "surface": "A question about whether an author can be recognised on sight.",
+    "walkthrough": "'Author' is a verb here, which is what hides the pen, and the two words after it have to be read as one phrase about labelling rather than as a description.",
+    "definitionFit": "A PENTAGON is a five-sided figure, so 'figure' is the plain geometric noun — with the building in Washington as the misdirection."
+   }
   },
   {
    "id": "30-across",
@@ -618,7 +1588,37 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "BRUTE",
-   "annotation": null
+   "annotation": {
+    "type": "container",
+    "answer": "BRUTE",
+    "definition": "Monster",
+    "indicators": [
+     "dominated by"
+    ],
+    "indicatorNotes": {
+     "dominated by": "To be dominated by something is to have it standing over you, so the course ends up shut inside the other word."
+    },
+    "pieces": [
+     "B",
+     "RUT",
+     "E"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stand",
+      "gives": "BE",
+      "note": "'as things stand' is 'as things are', so the verb is simply to be"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "RUT",
+      "note": "a rut is the worn track a wheel runs in, the course it has to follow"
+     }
+    ],
+    "surface": "A brutally hard racecourse with the grandstand looming over it.",
+    "walkthrough": "'Monster' is a noun, not the adjective the surface wants, and 'stand' is the quiet verb of 'as things stand' rather than anything you sit in.",
+    "definitionFit": "A BRUTE is a savage beast, or a savage person, which is what 'Monster' names — the creature rather than the size."
+   }
   },
   {
    "id": "31-across",
@@ -635,7 +1635,29 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "TOO",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "TOO",
+    "definition": "as well",
+    "pieces": [
+     "TO",
+     "O"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The first",
+      "gives": "TO",
+      "note": "start at A and you are travelling: the opening stretch of the alphabet takes you towards something"
+     },
+     {
+      "clueFragment": "fifteen letters",
+      "gives": "O",
+      "note": "count fifteen letters in from A and you arrive at the one the run stops on"
+     }
+    ],
+    "walkthrough": "Read the answer as two words and it is a map of the alphabet: begin at A, count fifteen, and that is where you have got to. The question mark carries the whole conceit.",
+    "definitionFit": "'As well' means in addition, which is the sense of TOO in 'me too' rather than the one in 'too much'."
+   }
   },
   {
    "id": "32-across",
@@ -652,7 +1674,40 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LEANNESS",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "LEANNESS",
+    "definition": "Slimmed",
+    "definitionNote": "'Slimmed' is a participle and the answer a noun, so the setter names the state by the process that leaves you in it — the question mark at the end covers the stretch.",
+    "indicators": [
+     "Slimmed",
+     "round"
+    ],
+    "indicatorNotes": {
+     "Slimmed": "A word that has been slimmed has lost weight at both ends, so its first and last letters come off.",
+     "round": "Going round something is closing over it, so the outer word wraps itself about the trimmed one."
+    },
+    "pieces": [
+     "LE",
+     "ANNE",
+     "SS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not so",
+      "gives": "LESS",
+      "note": "not so much of a thing is less of it"
+     },
+     {
+      "clueFragment": "manner",
+      "gives": "ANNE",
+      "note": "the word for a way of behaving, with its outermost letters trimmed away"
+     }
+    ],
+    "surface": "A way of behaving pared down until nothing about it is rounded any more.",
+    "walkthrough": "'Slimmed' is doing two jobs at once: it defines the answer and it is also the instruction, telling you to take weight off both ends of the word beside it.",
+    "definitionFit": "LEANNESS is the state of carrying no spare flesh, which is what somebody who has slimmed is left with."
+   }
   },
   {
    "id": "33-across",
@@ -669,7 +1724,34 @@ window.CRYPTIC_PUZZLES["indysunday-1857"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NORSE",
-   "annotation": null
+   "annotation": {
+    "type": "cycling",
+    "answer": "NORSE",
+    "definition": "from Scandinavia",
+    "indicators": [
+     "has cycled"
+    ],
+    "indicatorNotes": {
+     "has cycled": "Cycling sends the letters round a loop: the ones at the front go to the back and every letter keeps its order."
+    },
+    "linkWords": [
+     "here"
+    ],
+    "pieces": [
+     "NOR",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish gentleman",
+      "gives": "SENOR",
+      "note": "señor is the Spanish for gentleman or sir, and crosswords drop the accent"
+     }
+    ],
+    "surface": "A Spanish gentleman who has ridden his bicycle down from Scandinavia.",
+    "walkthrough": "Cycling looks like an anagram and is far stricter: no letter passes another, the run simply starts two letters further along.",
+    "definitionFit": "NORSE means of ancient Scandinavia — its people and their language — so the definition places the adjective on the map."
+   }
   }
  ]
 } /*JSON-END*/;
