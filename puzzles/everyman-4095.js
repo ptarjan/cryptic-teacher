@@ -30,7 +30,38 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HANDCUFFED",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "HANDCUFFED",
+    "definition": "Unable to escape",
+    "definitionFit": "Handcuffed describes a person whose wrists are locked together, which is precisely being unable to escape: adjective for adjective phrase.",
+    "indicators": [
+     "atrociously"
+    ],
+    "indicatorNotes": {
+     "atrociously": "Doing a thing atrociously is doing it badly, and letters handled badly will not stay in the order they were handed over in."
+    },
+    "linkWords": [
+     "in"
+    ],
+    "anagram": {
+     "fodder": "HUFF DANCED"
+    },
+    "blocks": [
+     {
+      "clueFragment": "huff, danced",
+      "gives": "HUFFDANCED",
+      "note": "anagram fodder, ten letters — exactly the length the grid wants"
+     },
+     {
+      "clueFragment": "atrociously",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Somebody flouncing off in a temper and then dancing very badly indeed.",
+    "walkthrough": "Counting settles it: 'huff danced' is exactly ten letters, so 'in' can only be joinery and the definition has to stop at 'escape'."
+   }
   },
   {
    "id": "1-down",
@@ -47,7 +78,27 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "HACK",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "HACK",
+    "definition": "Journalist",
+    "definition2": "cut",
+    "definitionFit": "A hack is a jobbing reporter, said with a sneer; and to hack is to cut at something with rough chopping blows.",
+    "blocks": [
+     {
+      "clueFragment": "Journalist",
+      "gives": "",
+      "note": "the newspaper sense: a writer turning out routine copy to order"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "",
+      "note": "the axe sense: to chop at a thing with rough, uneven strokes"
+     }
+    ],
+    "surface": "A reporter caught by the newsroom's staff cuts.",
+    "walkthrough": "A two-word clue is nearly always two definitions, since there is no room for anything else; the work is noticing that the two words come from different worlds, Fleet Street and the woodpile."
+   }
   },
   {
    "id": "2-down",
@@ -64,7 +115,27 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEST",
-   "annotation": null
+   "annotation": {
+    "type": "hidden word",
+    "answer": "NEST",
+    "definition": "cosy spot",
+    "definitionFit": "A nest is the snug hollow a bird builds and settles down into, so 'cosy spot' is the word's plainest sense.",
+    "indicators": [
+     "covering"
+    ],
+    "indicatorNotes": {
+     "covering": "Stains that cover something spread across it and hide what lies beneath, which is what these two words are doing to four consecutive letters."
+    },
+    "blocks": [
+     {
+      "clueFragment": "Wine stains",
+      "gives": "NEST",
+      "note": "four letters running on from the end of the first word into the start of the second"
+     }
+    ],
+    "surface": "Red wine spreading across the upholstery of a comfortable corner.",
+    "walkthrough": "The hiding place is the first two words, which read as one ordinary noun phrase and so get skimmed. 'Covering' is the only word asking you to look at letters rather than at furniture."
+   }
   },
   {
    "id": "3-down",
@@ -81,7 +152,24 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CYBERATTACKS",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "CYBERATTACKS",
+    "definition": "Harms, actual but not bodily?",
+    "definitionFit": "Cyberattacks do real damage — to money, data, reputations — without anybody being touched, so they are harms that are actual but not bodily.",
+    "blocks": [
+     {
+      "clueFragment": "Harms, actual",
+      "note": "reads as legal boilerplate: actual bodily harm, ABH, is a charge in English criminal law, and the clue has taken the phrase apart"
+     },
+     {
+      "clueFragment": "but not bodily?",
+      "note": "the setter's reading: this harm is done at a distance, to systems and records rather than to a person"
+     }
+    ],
+    "surface": "A lawyer working out exactly what kind of harm has been done, and to whom.",
+    "walkthrough": "'Actual bodily harm' is a specific offence in English law, and the clue dismantles it: keep the harm and the actual, drop the bodily, and what is left is damage done down a wire."
+   }
   },
   {
    "id": "4-down",
@@ -102,7 +190,30 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
     ]
    },
    "solution": "FLATCAP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "FLAT CAP",
+    "definition": "capital investment",
+    "definitionFit": "Capital is Latin for 'of the head' and to invest is to clothe, so the phrase means head-covering — which a flat cap is.",
+    "pieces": [
+     "FLAT",
+     "CAP"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apartment",
+      "gives": "FLAT",
+      "note": "a flat is the British word for an apartment"
+     },
+     {
+      "clueFragment": "better",
+      "gives": "CAP",
+      "note": "to cap a performance is to better it, to go one higher"
+     }
+    ],
+    "surface": "An estate agent pitching a smart apartment as a shrewd place to put your money.",
+    "walkthrough": "'Capital investment' is doing no financial work at all — both words are being used in senses the money page never uses, and the colon after 'Apartment' is the only punctuation the wordplay needs."
+   }
   },
   {
    "id": "5-down",
@@ -119,7 +230,38 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ESCAPEE",
-   "annotation": null
+   "annotation": {
+    "type": "first letters + homophone",
+    "answer": "ESCAPEE",
+    "definition": "One absconding",
+    "definitionFit": "An escapee is one who has absconded — the prisoner over the wall — so the noun stands in for 'one' exactly.",
+    "indicators": [
+     "starters of",
+     "you say"
+    ],
+    "indicatorNotes": {
+     "starters of": "The starter of a word is the letter it begins on, so each word named here hands over only its front.",
+     "you say": "'You say' points at speech, so what those letters give has to be pronounced rather than read."
+    },
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steak and kidney pies",
+      "gives": "SKP",
+      "note": "the letters those three words begin on, in order; 'and' is only holding the famous pie together"
+     },
+     {
+      "clueFragment": "you say",
+      "soundsLike": "ESS KAY PEE",
+      "gives": "ESCAPEE",
+      "note": "read the three initials aloud, one after another, and the noise they make is an ordinary word"
+     }
+    ],
+    "surface": "Somebody bolting from a supper of steak and kidney pies before the starters are cleared.",
+    "walkthrough": "'Starters' is the joke twice over — a course at dinner and the front letter of a word — and the three initials mean nothing until you stop reading them and say them out loud."
+   }
   },
   {
    "id": "6-across",
@@ -136,7 +278,42 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SPAM",
-   "annotation": null
+   "annotation": {
+    "type": "reversal",
+    "answer": "SPAM",
+    "definition": "Junk messages",
+    "definitionNote": "Spam is a mass noun: the single word covers any number of the messages at once, so a plural definition lands on an answer that looks singular.",
+    "definitionFit": "Spam is the collective name for unsolicited bulk email, which is what junk messages are in their everyday computing sense.",
+    "indicators": [
+     "to return"
+    ],
+    "indicatorNotes": {
+     "to return": "To return is to come back the way you went, so the four letters just named are read back from their far end."
+    },
+    "subReversals": [
+     {
+      "from": "MAPS",
+      "to": "SPAM"
+     }
+    ],
+    "pieces": [
+     "SPAM"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plans",
+      "gives": "MAPS",
+      "note": "plans of a route or a town are maps"
+     },
+     {
+      "clueFragment": "to return",
+      "gives": "",
+      "note": "reversal instruction"
+     }
+    ],
+    "surface": "An email asking whether the plans everyone was promised are coming back.",
+    "walkthrough": "The colon is doing the joining, so 'junk messages: plans' never was one phrase about an inbox however hard the surface pushes it that way."
+   }
   },
   {
    "id": "7-down",
@@ -153,7 +330,24 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "PHILATELIC",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "PHILATELIC",
+    "definition": "Concerning hobby having enormous familiarity with The Queen’s Head",
+    "definitionFit": "Philatelic means to do with stamp collecting, and British stamps carry the monarch's head, so the hobby is one long acquaintance with that profile.",
+    "blocks": [
+     {
+      "clueFragment": "Concerning hobby having enormous familiarity",
+      "note": "reads as a pastime that has taken somebody over completely — the wrong sort of familiarity altogether"
+     },
+     {
+      "clueFragment": "with The Queen’s Head",
+      "note": "the setter's reading: on the surface that is a pub name, but on a British stamp it is the sovereign's profile, printed on every single one"
+     }
+    ],
+    "surface": "A man so devoted to his hobby, and to the pub called The Queen's Head, that everybody there knows him.",
+    "walkthrough": "British definitive stamps carry nothing but the monarch's head in profile, so a collector meets that one image thousands of times over. The pub sign is the decoy, and the capital letters are what sell it."
+   }
   },
   {
    "id": "8-down",
@@ -174,7 +368,36 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
     ]
    },
    "solution": "MYPLEASURE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "MY PLEASURE",
+    "definition": "don’t mention it",
+    "definitionFit": "'My pleasure' is the set reply to thanks, swappable word for word with 'don't mention it' — a whole-phrase idiom rather than a synonym.",
+    "indicators": [
+     "On the contrary"
+    ],
+    "indicatorNotes": {
+     "On the contrary": "'On the contrary' asks for the opposite of the word just given, and there is one standing opposite in the phrase that always pairs them."
+    },
+    "pieces": [
+     "MY",
+     "PLEASURE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This person’s",
+      "gives": "MY",
+      "note": "the setter pointing at himself, so 'this person's' is a first-person possessive"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "PLEASURE",
+      "note": "'business or pleasure' is the standing pair, so the contrary of the first word is the second"
+     }
+    ],
+    "surface": "Somebody brushing off a nosy question about their line of work.",
+    "walkthrough": "'This person's' is the crossword's way of writing 'my' without writing I, and the two halves only join because 'business or pleasure' is a phrase everybody finishes automatically."
+   }
   },
   {
    "id": "9-across",
@@ -191,7 +414,44 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "CASABLANCA",
-   "annotation": null
+   "annotation": {
+    "type": "container + deletion",
+    "answer": "CASABLANCA",
+    "definition": "somewhere on Atlantic coast",
+    "definitionFit": "Casablanca is Morocco's largest city and its main port, and it stands on the Atlantic rather than the Mediterranean shore.",
+    "indicators": [
+     "cut",
+     "into"
+    ],
+    "indicatorNotes": {
+     "cut": "A cut word has had its end taken off, so the piece just clued arrives one letter shorter than it should be.",
+     "into": "Going into a thing puts you inside it, so the shortened word is planted within the letters of the fruit."
+    },
+    "pieces": [
+     "CASAB",
+     "LANC",
+     "A"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "melon",
+      "gives": "CASABA",
+      "note": "a casaba is a pale winter melon; it is the outer word that gets opened up"
+     },
+     {
+      "clueFragment": "Pierce",
+      "gives": "LANCE",
+      "note": "to lance a boil is to pierce it"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "LANC",
+      "note": "the final E is taken off, leaving four letters to go inside"
+     }
+    ],
+    "surface": "Recipe instructions: pierce the melon and cut into it, at some spot by the sea.",
+    "walkthrough": "The capital P on 'Pierce' is only sentence position, not a surname, and the definition is the whole tail of the clue — a single city, not a stretch of shoreline."
+   }
   },
   {
    "id": "10-across",
@@ -208,7 +468,24 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LISP",
-   "annotation": null
+   "annotation": {
+    "type": "cryptic definition",
+    "answer": "LISP",
+    "definition": "In this manner of speaking, power comes forth",
+    "definitionFit": "A lisp is the speech habit that softens an s towards a th, so it is exactly the manner of speaking the clue is demonstrating on itself.",
+    "blocks": [
+     {
+      "clueFragment": "In this manner of speaking",
+      "note": "reads as 'so to speak', the phrase people put in front of a figure of speech; here it means literally a way of talking"
+     },
+     {
+      "clueFragment": "power comes forth",
+      "note": "the setter's reading: say FORCE, meaning power, with the s gone soft, and out comes 'forth'"
+     }
+    ],
+    "surface": "A grand pronouncement that strength is on its way at last.",
+    "walkthrough": "The clue does not describe the answer so much as perform it: 'power' is FORCE, and FORCE said with a soft s is the very word the clue prints."
+   }
   },
   {
    "id": "11-down",
@@ -229,7 +506,48 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
     ]
    },
    "solution": "GOLDMANSACHS",
-   "annotation": null
+   "annotation": {
+    "type": "charade + anagram",
+    "answer": "GOLDMAN SACHS",
+    "definition": "here",
+    "definitionNote": "'Here' is a pointing word rather than a synonym, so an adverb defines a proper name: it stands in for the place the rest of the clue has been describing.",
+    "definitionFit": "Goldman Sachs is the New York investment bank, so 'here' points at the institution where bullion and cash end up gathered in.",
+    "indicators": [
+     "collected"
+    ],
+    "indicatorNotes": {
+     "collected": "Things collected are gathered up loose and set down in a new arrangement, so the letters named will not keep their order."
+    },
+    "linkWords": [
+     "and"
+    ],
+    "anagram": {
+     "fodder": "GOLD CASH MANS"
+    },
+    "pieces": [
+     "GOLD",
+     "MANSACHS"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bullion",
+      "gives": "GOLD",
+      "note": "bullion is gold in bar form"
+     },
+     {
+      "clueFragment": "cash man’s",
+      "gives": "MANSACHS",
+      "note": "anagram fodder, eight letters; the apostrophe counts for nothing"
+     },
+     {
+      "clueFragment": "collected",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "Somebody has quietly gathered up the gold bars and the cash, and the question is where.",
+    "walkthrough": "'Man's' looks like a possessive belonging to the story, which is what keeps it out of the fodder until you count: four letters of gold leaves eight to find, and the dash makes 'here?' look like an afterthought rather than the definition."
+   }
   },
   {
    "id": "12-across",
@@ -246,7 +564,51 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "RECIPROCATE",
-   "annotation": null
+   "annotation": {
+    "type": "container + charade + reversal",
+    "answer": "RECIPROCATE",
+    "definition": "to do the same",
+    "definitionFit": "To reciprocate is to return a favour in kind — to do the same back — and both are infinitive verb phrases you could swap over.",
+    "indicators": [
+     "describing",
+     "flipping"
+    ],
+    "indicatorNotes": {
+     "describing": "A circle described around a thing encloses it, so the outer word is drawn right around what comes next.",
+     "flipping": "Flipping turns a thing over so it faces the other way, and letters flipped are read from their far end back."
+    },
+    "pieces": [
+     "RECIP",
+     "R",
+     "OCAT",
+     "E"
+    ],
+    "subReversals": [
+     {
+      "from": "TACOR",
+      "to": "ROCAT"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook’s directions",
+      "gives": "RECIPE",
+      "note": "a recipe is a cook's set of directions, and it is the word that gets opened up"
+     },
+     {
+      "clueFragment": "Mexican food",
+      "gives": "TACO",
+      "note": "the Mexican food in question, before it is turned over"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "r is the standard abbreviation for right, and it joins the food before the pair are flipped together"
+     }
+    ],
+    "surface": "Kitchen instructions about turning a taco the right way and then doing it again.",
+    "walkthrough": "'Right to do the same' reads as one phrase of approval, and that is where the definition hides: only the last four words define, while 'right' belongs to the wordplay as a single letter."
+   }
   },
   {
    "id": "13-down",
@@ -263,7 +625,38 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DOMINATION",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "DOMINATION",
+    "definition": "Authority",
+    "definitionFit": "Domination is control exercised over other people, which is authority in its heavier sense — power held rather than power granted.",
+    "indicators": [
+     "laughable"
+    ],
+    "indicatorNotes": {
+     "laughable": "Something laughable has been made ridiculous, and a word made ridiculous has had its letters knocked out of their proper places."
+    },
+    "linkWords": [
+     "’s"
+    ],
+    "anagram": {
+     "fodder": "ADMONITION"
+    },
+    "blocks": [
+     {
+      "clueFragment": "admonition",
+      "gives": "ADMONITION",
+      "note": "anagram fodder, ten letters — the very ten the grid asks for"
+     },
+     {
+      "clueFragment": "laughable",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A ticking-off so feeble that everyone finds it funny.",
+    "walkthrough": "A single long word supplying every letter is the hardest anagram to spot: there is nothing to add and nothing to drop, so the eye reads the word instead of counting it."
+   }
   },
   {
    "id": "14-down",
@@ -280,7 +673,48 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SENEGALESE",
-   "annotation": null
+   "annotation": {
+    "type": "container + anagram",
+    "answer": "SENEGALESE",
+    "definition": "N African",
+    "definitionFit": "Senegal sits on Africa's north-west shoulder, so a Senegalese is one instance of a north African — a definition by example.",
+    "indicators": [
+     "engaging",
+     "flapping"
+    ],
+    "indicatorNotes": {
+     "engaging": "To engage something is to take hold of it and draw it in, so the outer word closes around whatever follows.",
+     "flapping": "A flapping thing beats about without holding its shape, and the bird's letters will not hold theirs either."
+    },
+    "linkWords": [
+     "that’s"
+    ],
+    "subAnagrams": [
+     {
+      "fodder": "EAGLE",
+      "gives": "EGALE"
+     }
+    ],
+    "pieces": [
+     "SEN",
+     "EGALE",
+     "SE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to pick up",
+      "gives": "SENSE",
+      "note": "to sense a thing is to pick it up — a signal, a mood, a change in the room"
+     },
+     {
+      "clueFragment": "eagle",
+      "gives": "EGALE",
+      "note": "the bird's five letters, rearranged"
+     }
+    ],
+    "surface": "A north African setting out to collect a captivating eagle that will not keep still.",
+    "walkthrough": "'Engaging' is doing an instruction's work while pretending to be a compliment about the bird, and that double duty is what keeps the container out of sight."
+   }
   },
   {
    "id": "15-across",
@@ -297,7 +731,34 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OVERTIP",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "OVERTIP",
+    "definition": "leave too much",
+    "definitionFit": "To overtip is to leave a larger gratuity than the bill deserves, so 'leave too much' is the same verb with the tip understood.",
+    "linkWords": [
+     "and"
+    ],
+    "pieces": [
+     "OVERT",
+     "I",
+     "P"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear",
+      "gives": "OVERT",
+      "note": "overt means out in the open, clear for anybody to see"
+     },
+     {
+      "clueFragment": "absolutely minimal amount of money",
+      "gives": "IP",
+      "note": "the smallest British coin is one penny, written 1p on a price tag, and the numeral is typed here as a letter I"
+     }
+    ],
+    "surface": "Somebody perfectly open about having barely a coin, who then leaves far too much behind.",
+    "walkthrough": "'Absolutely minimal amount of money' is a description of a coin rather than an instruction, and the coin arrives spelled the way a price tag spells it, with a numeral standing in for a letter."
+   }
   },
   {
    "id": "16-across",
@@ -314,7 +775,30 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "ENDLESS",
-   "annotation": null,
+   "annotation": {
+    "type": "hidden word",
+    "answer": "ENDLESS",
+    "definition": "eternal",
+    "definitionFit": "Endless means having no end, which is what eternal means of time — the same adjective, one plain and one Latinate.",
+    "indicators": [
+     "Some"
+    ],
+    "indicatorNotes": {
+     "Some": "'Some' asks for a part of what follows rather than the whole of it, which is how a run of letters inside the words gets flagged."
+    },
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recommend Les Six",
+      "gives": "ENDLESS",
+      "note": "seven letters running on from inside the first word, through the whole of the second, into the start of the third"
+     }
+    ],
+    "surface": "A few critics putting the French composers Les Six forward as music for all time.",
+    "walkthrough": "Les Six were a group of six French composers gathered round Poulenc and Milhaud, and the capitals and italics are there to send you thinking about music instead of counting letters."
+   },
    "clueItalics": [
     [
      15,
@@ -337,7 +821,66 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IRELAND",
-   "annotation": null
+   "annotation": {
+    "type": "&lit + first letters",
+    "answer": "IRELAND",
+    "definition": "Independent republic, ‘Éire’ label acknowledging nature’s divinity, originally?",
+    "definitionFit": "The whole clue reads straight: Ireland is an independent republic, labelled Éire in its own language, with an old reverence for the divinity of the natural world.",
+    "indicators": [
+     "originally"
+    ],
+    "indicatorNotes": {
+     "originally": "What a word is originally is the letter it starts from, so every word in the list gives up its opening and nothing else."
+    },
+    "pieces": [
+     "I",
+     "R",
+     "E",
+     "L",
+     "A",
+     "N",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Independent",
+      "gives": "I",
+      "note": "the first letter of Independent"
+     },
+     {
+      "clueFragment": "republic",
+      "gives": "R",
+      "note": "the first letter of republic"
+     },
+     {
+      "clueFragment": "‘Éire’",
+      "gives": "E",
+      "note": "the first letter of Éire, the state's name in Irish"
+     },
+     {
+      "clueFragment": "label",
+      "gives": "L",
+      "note": "the first letter of label"
+     },
+     {
+      "clueFragment": "acknowledging",
+      "gives": "A",
+      "note": "the first letter of acknowledging"
+     },
+     {
+      "clueFragment": "nature’s",
+      "gives": "N",
+      "note": "the first letter of nature's"
+     },
+     {
+      "clueFragment": "divinity",
+      "gives": "D",
+      "note": "the first letter of divinity"
+     }
+    ],
+    "surface": "A republic's paperwork: the name it uses in its own language, and a nod to the sacredness of the natural world.",
+    "walkthrough": "Every word does two jobs at once — the sentence describes the country and its initials spell it — and Éire is simply what the state calls itself in Irish, so the accent is not decoration."
+   }
   },
   {
    "id": "18-down",
@@ -354,7 +897,27 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "DEFECTS",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "DEFECTS",
+    "definition": "Deserts",
+    "definition2": "shortcomings",
+    "definitionFit": "One defects when one deserts one's own side for the other; and defects are shortcomings, the faults in a thing — a verb and a plural noun sharing a spelling.",
+    "blocks": [
+     {
+      "clueFragment": "Deserts",
+      "gives": "",
+      "note": "the verb, third person: a soldier or a spy abandons his own side and goes over to the enemy"
+     },
+     {
+      "clueFragment": "shortcomings",
+      "gives": "",
+      "note": "the noun, plural: the faults and failings that stop a thing being up to standard"
+     }
+    ],
+    "surface": "The drawbacks of life in the Sahara.",
+    "walkthrough": "The apostrophe is the whole misdirection: it turns 'deserts' into a possessive full of sand when the word is really a verb, and the two definitions simply stand side by side."
+   }
   },
   {
    "id": "19-across",
@@ -371,7 +934,42 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GLAZIER",
-   "annotation": null
+   "annotation": {
+    "type": "anagram + deletion",
+    "answer": "GLAZIER",
+    "definition": "tradesperson",
+    "definitionFit": "A glazier fits glass into windows and doors for a living, so 'tradesperson' is the general class the answer is one member of.",
+    "indicators": [
+     "Furious",
+     "sacking"
+    ],
+    "indicatorNotes": {
+     "Furious": "A furious person lashes out at whatever is in reach, and letters treated that way end up well out of their proper order.",
+     "sacking": "Sacking somebody gets rid of them, so the letter named next is dismissed from the fodder before the rest are shuffled."
+    },
+    "anagram": {
+     "fodder": "GRIZELA"
+    },
+    "blocks": [
+     {
+      "clueFragment": "Grizelda",
+      "gives": "GRIZELDA",
+      "note": "anagram fodder, eight letters — one more than the grid wants"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "d is the standard abbreviation for Dutch, and this is the letter being dismissed"
+     },
+     {
+      "clueFragment": "Furious",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "An enraged Grizelda dismissing a Dutch workman on the spot.",
+    "walkthrough": "'Dutch tradesperson' reads as one job description, and that is where the definition hides: only the last word defines, while 'Dutch' is a single letter on its way out."
+   }
   },
   {
    "id": "19-down",
@@ -388,7 +986,33 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "GRIMACE",
-   "annotation": null
+   "annotation": {
+    "type": "charade",
+    "answer": "GRIMACE",
+    "definition": "frown",
+    "definitionFit": "A grimace is a face twisted in distaste or pain, which is what a frown is — the same noun for the same expression.",
+    "linkWords": [
+     "’s"
+    ],
+    "pieces": [
+     "GRIM",
+     "ACE"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dour",
+      "gives": "GRIM",
+      "note": "grim means dour, forbidding, without a scrap of cheer"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace at something is an expert at it"
+     }
+    ],
+    "surface": "A humourless specialist pulling a face at what he has been shown.",
+    "walkthrough": "'Dour expert' reads as one person, and the apostrophe-s that follows is not a possessive at all but the verb 'is' — the small join that turns two words into a sum."
+   }
   },
   {
    "id": "20-across",
@@ -411,7 +1035,38 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
     ]
    },
    "solution": "APACKOFLIES",
-   "annotation": null
+   "annotation": {
+    "type": "spoonerism",
+    "answer": "A PACK OF LIES",
+    "definition": "porkies",
+    "definitionFit": "Porkies is Cockney rhyming slang — pork pies for lies — so the slang plural and the phrase name the same untruths.",
+    "indicators": [
+     "according to Spooner"
+    ],
+    "indicatorNotes": {
+     "according to Spooner": "Spooner was the Oxford don remembered for swapping the opening sounds of two words, so his name asks you to make that exchange."
+    },
+    "pieces": [
+     "APACKOF",
+     "LIES"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all gone",
+      "soundsLike": "A LACK OF",
+      "gives": "APACKOF",
+      "note": "when there is none of a thing left there is a lack of it, and that opening L trades places with the P of the other word"
+     },
+     {
+      "clueFragment": "Baked goods",
+      "soundsLike": "PIES",
+      "gives": "LIES",
+      "note": "the baked goods are pies, and their opening P goes off to the front of the other word in exchange"
+     }
+    ],
+    "surface": "The pies have all been eaten and somebody is telling fibs about where they went.",
+    "walkthrough": "Say 'a lack of pies' aloud and swap the noises at the front of the last two words. Porkies is Cockney rhyming slang, pork pies for lies, which is why the pastry is here at all."
+   }
   },
   {
    "id": "21-down",
@@ -428,7 +1083,36 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "LIMB",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "LIMB",
+    "definition": "leg!",
+    "definitionFit": "A leg is one of the body's limbs, so the definition names one instance and the answer the class it belongs to.",
+    "indicators": [
+     "For the most part"
+    ],
+    "indicatorNotes": {
+     "For the most part": "'For the most part' means nearly all of it, so the word it governs turns up with its last letter missing."
+    },
+    "pieces": [
+     "LIM",
+     "B"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "walk dragging",
+      "gives": "LIM",
+      "note": "to walk dragging one foot behind you is to limp, and the p drops off the end"
+     },
+     {
+      "clueFragment": "b___",
+      "gives": "B",
+      "note": "the letter is printed in the clue, with the rest of its word blanked out"
+     }
+    ],
+    "surface": "Somebody hobbling along, and the reason for it: a bad leg.",
+    "walkthrough": "The blank in 'b___' is the setter enjoying a word he would rather not print, and the letter he does print is the one wanted. The final 'leg' is the definition, not part of the picture."
+   }
   },
   {
    "id": "22-down",
@@ -445,7 +1129,30 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "UGLY",
-   "annotation": null
+   "annotation": {
+    "type": "alternate letters",
+    "answer": "UGLY",
+    "definition": "Revolting",
+    "definitionFit": "Ugly means repellent to look at, and revolting is that same reaction a degree stronger — both adjectives for a thing you turn away from.",
+    "indicators": [
+     "regularly rejected"
+    ],
+    "indicatorNotes": {
+     "regularly rejected": "Letters rejected at regular intervals means every other one is thrown away, and whatever survives is read in the order it stands."
+    },
+    "pieces": [
+     "UGLY"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sung play’s",
+      "gives": "UGLY",
+      "note": "the second, fourth, sixth and eighth letters of those two words run together; the odd-numbered ones are the ones discarded"
+     }
+    ],
+    "surface": "An opera nobody will stage, turned down again and again.",
+    "walkthrough": "'Rejected' looks like an instruction to reverse and is nothing of the kind: it says which letters to throw away, and the survivors read left to right just as they stand."
+   }
   },
   {
    "id": "23-across",
@@ -462,7 +1169,36 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "IDEA",
-   "annotation": null
+   "annotation": {
+    "type": "charade + deletion",
+    "answer": "IDEA",
+    "definition": "fancy",
+    "definitionFit": "A fancy is a notion that takes you — 'I have a fancy to go' — which is the answer's sense of a thought arriving unbidden.",
+    "indicators": [
+     "endlessly"
+    ],
+    "indicatorNotes": {
+     "endlessly": "Endlessly means without its end, so the word after it hands over everything but its final letter."
+    },
+    "pieces": [
+     "I",
+     "DEA"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyman",
+      "gives": "I",
+      "note": "the setter signs this puzzle Everyman, so his name stands here for the first person"
+     },
+     {
+      "clueFragment": "late",
+      "gives": "DEA",
+      "note": "the late Mr So-and-so is dead, and the final letter falls away"
+     }
+    ],
+    "surface": "Everyman turning up late once again — well, fancy that.",
+    "walkthrough": "'Everyman' is the setter's own name doing duty for I, a habit of this puzzle worth learning, and 'late' is the obituary sense rather than anything to do with the clock."
+   }
   },
   {
    "id": "24-across",
@@ -479,7 +1215,30 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "SCRATCHING",
-   "annotation": null
+   "annotation": {
+    "type": "double definition",
+    "answer": "SCRATCHING",
+    "definition": "Scoring",
+    "definition2": "practising turntablism",
+    "definitionFit": "Scoring means marking a surface with a sharp point; scratching is also the DJ's trick of rocking a record under the needle, which is turntablism.",
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoring",
+      "gives": "",
+      "note": "the plain sense: dragging something sharp across a surface and leaving marks behind"
+     },
+     {
+      "clueFragment": "practising turntablism",
+      "gives": "",
+      "note": "the hip-hop sense: a DJ working a vinyl record back and forth beneath the stylus to make a rhythm out of it"
+     }
+    ],
+    "surface": "A note on what the man behind the record decks is actually doing.",
+    "walkthrough": "Both senses are gerunds, which is what lets them sit either side of the dash as though they were alternatives — and a needle dragged through a groove really is scoring the vinyl."
+   }
   },
   {
    "id": "25-across",
@@ -496,7 +1255,48 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "NEED",
-   "annotation": null
+   "annotation": {
+    "type": "last letters",
+    "answer": "NEED",
+    "definition": "Miss",
+    "definitionFit": "To need someone is to feel their absence, which is what missing them amounts to — the same verb in the same plain form.",
+    "indicators": [
+     "finally"
+    ],
+    "indicatorNotes": {
+     "finally": "'Finally' asks for the letter each word finishes on, taken in the order the words arrive."
+    },
+    "pieces": [
+     "N",
+     "E",
+     "E",
+     "D"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "N",
+      "note": "the last letter of On"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "note": "the last letter of the"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "E",
+      "note": "the last letter of one"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "D",
+      "note": "the last letter of hand"
+     }
+    ],
+    "surface": "One side of an argument being weighed up, and a young lady addressed at the end of it.",
+    "walkthrough": "'On the one hand' is such a fixed phrase that it gets read as a unit instead of as four separate words, and the capital M on 'Miss' is the sentence's doing, not a title's."
+   }
   },
   {
    "id": "26-across",
@@ -513,7 +1313,35 @@ window.CRYPTIC_PUZZLES["everyman-4095"] = /*JSON-START*/ {
    ],
    "separatorLocations": {},
    "solution": "OSTENSIBLY",
-   "annotation": null
+   "annotation": {
+    "type": "anagram",
+    "answer": "OSTENSIBLY",
+    "definition": "so it would appear",
+    "definitionFit": "Ostensibly means as far as appearances go, with the hint that the truth is otherwise — which is exactly what 'so it would appear' concedes.",
+    "indicators": [
+     "Rowdy"
+    ],
+    "indicatorNotes": {
+     "Rowdy": "A rowdy crowd will not stand in line, and neither will the letters this word has been put in front of."
+    },
+    "anagram": {
+     "fodder": "BOYS SILENT"
+    },
+    "blocks": [
+     {
+      "clueFragment": "boys ‘silent’",
+      "gives": "BOYSSILENT",
+      "note": "anagram fodder, ten letters"
+     },
+     {
+      "clueFragment": "Rowdy",
+      "gives": "",
+      "note": "anagram indicator"
+     }
+    ],
+    "surface": "A gang of loud boys putting on a display of being perfectly quiet.",
+    "walkthrough": "The quotation marks round 'silent' are the setter's nudge that the word is material rather than description, while 'rowdy boys' is the picture doing all the misdirection."
+   }
   }
  ]
 } /*JSON-END*/;
